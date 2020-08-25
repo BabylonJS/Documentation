@@ -64,7 +64,7 @@ export function extractMetadataFromMarkdown(fileContents: string, fullPath?: str
 
 export async function getPageData(id: string[]) {
     try {
-        const fullPath = path.join(markdownDirectory, `${id.join(sep)}.md`);
+        const fullPath = path.join(markdownDirectory, `${id.join('/')}.md`);
         const fileContents = readFileSync(fullPath, "utf8");
 
         const parsed = extractMetadataFromMarkdown(fileContents, fullPath);
