@@ -12,12 +12,14 @@ import { MarkdownMetadata } from "./interfaces";
 export const getAllDocumentationIds = () => {
     const filenames = getAllFiles(markdownDirectory);
     const fileMap = filenames.map((fileName) => {
+        const id = fileName
+                    .replace(/content/g, "")
+                    .replace(/\.md$/, "")
+                    .split(sep);
+                    id.shift();
         return {
             params: {
-                id: fileName
-                    .replace(/content\\/g, "")
-                    .replace(/\.md$/, "")
-                    .split(sep),
+                id
             },
         };
     });
@@ -63,7 +65,6 @@ export function extractMetadataFromMarkdown(fileContents: string, fullPath?: str
 }
 
 export async function getPageData(id: string[]) {
-    console.log(id);
     try {
         const fullPath = path.join(markdownDirectory, `${id.join(sep)}.md`);
         const fileContents = readFileSync(fullPath, "utf8");
@@ -139,7 +140,6 @@ export const getAllFiles = (dirPath: string, arrayOfFiles?: string[]): string[] 
             arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
         } else {
             if (file.endsWith(".md")) {
-                console.log(fullPath);
                 arrayOfFiles.push(fullPath);
             }
         }
