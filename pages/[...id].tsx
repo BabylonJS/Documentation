@@ -37,7 +37,8 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                 {childPages &&
                     Object.keys(childPages).map((child) => {
                         const childData = childPages[child].metadata;
-                        const link = childPages[child].link.replace('.md', '');
+                        const title = (childData.title || child).replace(/_/g, " ");
+                        const link = "/" + childPages[child].link.replace(".md", "");
                         return (
                             <Columns.Column
                                 tablet={{
@@ -55,23 +56,24 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                                 key={child}
                             >
                                 <Link href={link}>
-                                    <Card className="document-card">
-                                        {/* <Card.Image size="4by3" src="http://bulma.io/images/placeholders/1280x960.png" /> */}
-                                        <Card.Content>
-                                            <Media>
-                                                <Media.Item renderAs="figure" position="left">
-                                                    <Image size={64} alt={childData.title} src={childData.imageUrl || "http://bulma.io/images/placeholders/128x128.png"} />
-                                                </Media.Item>
-                                                <Media.Item>
-                                                    <Heading size={4}>{childData.title}</Heading>
-                                                    <Heading subtitle size={6}>
-                                                        {childData.description}
-                                                    </Heading>
-                                                </Media.Item>
-                                            </Media>
-                                            {/* <Content>This is the description of this file, will be taken from the metadata</Content> */}
-                                        </Card.Content>
-                                    </Card>
+                                    <div>
+                                        <Card className="document-card">
+                                            <Card.Content>
+                                                <Media>
+                                                    <Media.Item className="background-image-container" size={64} style={{ backgroundImage: `url(${childData.imageUrl || "http://bulma.io/images/placeholders/128x128.png"})` }} renderAs="figure" position="left">
+                                                        {/* <Image size={64} style={{opacity: 1}} alt={title} src={childData.imageUrl || "http://bulma.io/images/placeholders/128x128.png"} /> */}
+                                                    </Media.Item>
+                                                    <Media.Item>
+                                                        <Heading size={4}>{title}</Heading>
+                                                        <Heading subtitle size={6}>
+                                                            {childData.description}
+                                                        </Heading>
+                                                    </Media.Item>
+                                                </Media>
+                                                {/* <Content>This is the description of this file, will be taken from the metadata</Content> */}
+                                            </Card.Content>
+                                        </Card>
+                                    </div>
                                 </Link>
                             </Columns.Column>
                         );

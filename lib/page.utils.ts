@@ -24,28 +24,37 @@ export const getAllDocumentationIds = () => {
     return fileMap;
 };
 
-export function extractMetadataFromMarkdown(fileContents: string) {
+export function extractMetadataFromMarkdown(fileContents: string, fullPath?: string) {
     const matterResult = matter(fileContents);
 
     // const parsed = await parseMDFile(matterResult.content);
 
     // Combine the data with the id and contentHtml
     const metadata: MarkdownMetadata = {
-        title: "Babylon.js documentation page",
-        description: "Babylon.js documentation page description",
+        title: "",
+        description: fullPath || "Babylon.js documentation page description",
         keywords: "babylonjs, babylon.js, webgl, engine",
     };
     Object.keys(matterResult.data).forEach((key) => {
-        const splits = key.split('-');
-        const correctKey = splits.map((s, idx) => {
-            if(idx !== 0) {
-                return `${s[0].toUpperCase()}${s.substr(1).toLowerCase()}`
-            } else {
-                return s.toLowerCase();
-            }
-        }).join('');
+        const splits = key.split("-");
+        const correctKey = splits
+            .map((s, idx) => {
+                if (idx !== 0) {
+                    return `${s[0].toUpperCase()}${s.substr(1).toLowerCase()}`;
+                } else {
+                    return s.toLowerCase();
+                }
+            })
+            .join("");
         metadata[correctKey] = matterResult.data[key];
     });
+
+    // find the first image in the document
+
+    const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
+    if (imageUrl) {
+        metadata.imageUrl = metadata.imageUrl || imageUrl;
+    }
 
     return {
         content: matterResult.content,
@@ -58,7 +67,7 @@ export async function getPageData(id: string[]) {
         const fullPath = path.join(markdownDirectory, `${id.join(sep)}.md`);
         const fileContents = readFileSync(fullPath, "utf8");
 
-        const parsed = extractMetadataFromMarkdown(fileContents);
+        const parsed = extractMetadataFromMarkdown(fileContents, fullPath);
 
         return {
             id,
@@ -94,15 +103,15 @@ export async function getPageData(id: string[]) {
                 childPages[key] = {
                     isBucket: false,
                     link: parent[key],
-                    metadata: parsed.metadata
+                    metadata: parsed.metadata,
                 };
             } else {
                 childPages[key] = {
                     link: `${id.join("/")}/${key}`,
                     metadata: {
                         title: key,
-                        description: `Section - ${key}`
-                    }
+                        description: `Section - ${key}`,
+                    },
                 };
             }
         });

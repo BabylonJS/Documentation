@@ -12,6 +12,14 @@
     cursor: pointer;
 }
 
+.background-image-container {
+    width: 64px;
+    height: 64px;
+    max-height: 64px;
+    background-size: cover;
+    background-position: center;
+}
+
 .markdown-container {
     @media print {
         *,
