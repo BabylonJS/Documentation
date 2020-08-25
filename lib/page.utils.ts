@@ -17,7 +17,7 @@ export const getAllDocumentationIds = () => {
                 id: fileName
                     .replace(/content\\/g, "")
                     .replace(/\.md$/, "")
-                    .split("\\"),
+                    .split(sep),
             },
         };
     });
@@ -63,8 +63,9 @@ export function extractMetadataFromMarkdown(fileContents: string, fullPath?: str
 }
 
 export async function getPageData(id: string[]) {
+    console.log(id);
     try {
-        const fullPath = path.join(markdownDirectory, `${id.join('/')}.md`);
+        const fullPath = path.join(markdownDirectory, `${id.join(sep)}.md`);
         const fileContents = readFileSync(fullPath, "utf8");
 
         const parsed = extractMetadataFromMarkdown(fileContents, fullPath);
@@ -138,6 +139,7 @@ export const getAllFiles = (dirPath: string, arrayOfFiles?: string[]): string[] 
             arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
         } else {
             if (file.endsWith(".md")) {
+                console.log(fullPath);
                 arrayOfFiles.push(fullPath);
             }
         }
