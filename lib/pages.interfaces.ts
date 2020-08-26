@@ -1,4 +1,4 @@
-import { MarkdownMetadata } from "../lib/interfaces";
+import { MarkdownMetadata } from "./interfaces";
 
 export interface IMenuItem {
     name: string;

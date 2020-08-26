@@ -2,7 +2,7 @@ import { IDocMenuItem } from "./interfaces";
 
 // very temporary structure configuration
 import structure from "../configuration/structure.json";
-import { IMenuItem } from "../pages/pages.interfaces";
+import { IMenuItem } from "./pages.interfaces";
 
 // cast for general usage
 export const config: IDocMenuItem = structure;

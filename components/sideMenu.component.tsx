@@ -1,4 +1,4 @@
-import { IMenuItem } from "../pages/pages.interfaces";
+import { IMenuItem } from "../lib/pages.interfaces";
 import { FunctionComponent, useState, ReactFragment } from "react";
 
 import Button from "react-bulma-components/src/components/button";

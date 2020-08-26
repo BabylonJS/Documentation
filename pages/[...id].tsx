@@ -10,7 +10,7 @@ import { parseMDFile } from "../lib/unified.utils";
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
-import { IDocumentationPageProps } from "./pages.interfaces";
+import { IDocumentationPageProps } from "../lib/pages.interfaces";
 import { getPageData } from "../lib/build.utils";
 
 export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {

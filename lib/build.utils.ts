@@ -2,7 +2,7 @@ import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
 import { IDocMenuItem, MarkdownMetadata } from "./interfaces";
 import { generateBreadcrumbs, getElementByToIdArray } from "./page.utils";
-import { IDocumentationPageProps } from "../pages/pages.interfaces";
+import { IDocumentationPageProps } from "./pages.interfaces";
 import matter from "gray-matter";
 
 export const markdownDirectory = "content/";

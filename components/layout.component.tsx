@@ -20,7 +20,7 @@ export const defaultDescription = "Babylon.js documentation page";
 export const defaultKeywords = ["babylonjs", "documentation", "webgl"].join(", ");
 
 // very temporary structure configuration
-import { IPageProps } from "../pages/pages.interfaces";
+import { IPageProps } from "../lib/pages.interfaces";
 import Link from "next/link";
 import { generateMenuStructure } from "../lib/page.utils";
 import { SideMenu } from "./sideMenu.component";
