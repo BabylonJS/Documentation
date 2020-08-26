@@ -8,7 +8,7 @@ import Content from "react-bulma-components/src/components/content";
 import Hero from "react-bulma-components/src/components/hero";
 import Breadcrumb from "react-bulma-components/src/components/breadcrumb";
 import Level from "react-bulma-components/src/components/level";
-import Heading from "react-bulma-components/src/components/heading";
+import Columns from "react-bulma-components/src/components/columns";
 import Button from "react-bulma-components/src/components/button";
 import Box from "react-bulma-components/src/components/box";
 
@@ -20,14 +20,14 @@ export const defaultDescription = "Babylon.js documentation page";
 export const defaultKeywords = ["babylonjs", "documentation", "webgl"].join(", ");
 
 // very temporary structure configuration
-import structure from "../configuration/structure.json";
 import { IPageProps } from "../pages/pages.interfaces";
 import Link from "next/link";
 import { generateMenuStructure } from "../lib/page.utils";
+import { SideMenu } from "./sideMenu.component";
 
 const menuStructure = generateMenuStructure();
 
-export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
@@ -60,7 +60,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ previ
                 </Navbar.Brand>
                 <Navbar.Menu>
                     <Navbar.Container>
-                        {menuStructure.map((menuItem) => {
+                        {/* {menuStructure.map((menuItem) => {
                             return (
                                 <Navbar.Item key={menuItem.url} dropdown hoverable href={menuItem.url}>
                                     <Navbar.Link>{menuItem.name}</Navbar.Link>
@@ -75,7 +75,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ previ
                                     </Navbar.Dropdown>
                                 </Navbar.Item>
                             );
-                        })}
+                        })} */}
                         <Navbar.Item href="#">API</Navbar.Item>
                     </Navbar.Container>
                     <Navbar.Container position="end">
@@ -84,45 +84,64 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ previ
                 </Navbar.Menu>
             </Navbar>
             <Section>
-                <Container>
-                    <Box>
-                        <Level renderAs="nav">
-                            <Level.Side align="left">
-                                <Level.Item>
-                                    {previous && (
-                                        <Link href={previous.id.join("/")}>
-                                            <a className="button is-success" title={previous.metadata.title}>
-                                                Previous
-                                            </a>
-                                        </Link>
-                                    )}
-                                </Level.Item>
-                                <Level.Item>
-                                    <Breadcrumb items={breadcrumbs} />
-                                </Level.Item>
-                                <Level.Item>
-                                    {/* <Heading size={5} subtitle>
+                <Columns>
+                    <Columns.Column
+                        tablet={{
+                            size: "half",
+                        }}
+                        desktop={{
+                            size: "half",
+                        }}
+                        widescreen={{
+                            size: "one-third",
+                        }}
+                        fullhd={{
+                            size: "one-quarter",
+                        }}
+                    >
+                        <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                    </Columns.Column>
+                    <Columns.Column>
+                        <Container>
+                            <Box>
+                                <Level renderAs="nav">
+                                    <Level.Side align="left">
+                                        <Level.Item>
+                                            {previous && (
+                                                <Link href={previous.id.join("/")}>
+                                                    <a className="button is-primary" title={previous.metadata.title}>
+                                                        Previous
+                                                    </a>
+                                                </Link>
+                                            )}
+                                        </Level.Item>
+                                        <Level.Item>
+                                            <Breadcrumb items={breadcrumbs} />
+                                        </Level.Item>
+                                        <Level.Item>{/* <Heading size={5} subtitle>
                                         {metadata.title}
-                                    </Heading> */}
-                                </Level.Item>
-                            </Level.Side>
+                                    </Heading> */}</Level.Item>
+                                    </Level.Side>
 
-                            <Level.Side align="right">
-                                <Level.Item>
-                                    {next && (
-                                        <Link href={next.id.join("/")}>
-                                            <a className="button is-success" title={next.metadata.title}>
-                                                Next
-                                            </a>
-                                        </Link>
-                                    )}
-                                </Level.Item>
-                            </Level.Side>
-                        </Level>
-                    </Box>
-                    {children}
-                </Container>
-                <Button style={{display: 'none'}} />
+                                    <Level.Side align="right">
+                                        <Level.Item>
+                                            {next && (
+                                                <Link href={next.id.join("/")}>
+                                                    <a className="button is-primary" title={next.metadata.title}>
+                                                        Next
+                                                    </a>
+                                                </Link>
+                                            )}
+                                        </Level.Item>
+                                    </Level.Side>
+                                </Level>
+                            </Box>
+                            {children}
+                        </Container>
+                    </Columns.Column>
+                </Columns>
+
+                <Button style={{ display: "none" }} />
             </Section>
             <Hero>
                 <Hero.Footer>
