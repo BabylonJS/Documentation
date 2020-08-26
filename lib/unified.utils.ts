@@ -11,8 +11,8 @@ import remark2rehype from "remark-rehype";
 import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
 // import stringify from 'rehype-stringify';
-import { AnchorWrapper } from "../components/AnchorWrapper";
-import { EMWrapper } from "../components/EmWrapper";
+import { AnchorWrapper } from "../components/wrappers/anchorWrapper.component";
+import { EMWrapper } from "../components/wrappers/emWrapper.component";
 
 /**
  * This is an example of a simple unified plugin that can be used to make changes to the code.
@@ -36,19 +36,6 @@ export interface IParsedMDObject {
 }
 
 export const parseMDFile = (fileContent: string): IParsedMDObject => {
-    // // Use remark to convert markdown into HTML string
-    // const processedContent = await remark()
-    //     // is remark-slug needed?
-    //     // we could use https://github.com/remarkjs/remark-react as well, if needed
-    //     .use(lint)
-    //     .use(toc)
-    //     .use(html)
-    //     .process("# toc\n" + fileContent);
-    // const content = processedContent.toString();
-    // return {
-    //     content,
-    // };
-
     var processor = unified()
         .use(markdown)
         .use(slug)

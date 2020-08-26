@@ -1,8 +1,14 @@
-export interface DocMenuItem {
-    id: number;
-    name: string;
+export interface IDocMenuItem {
+    // id: number;
+    // uniqueName: string;
     friendlyName: string;
-    children?: DocMenuItem[];
+    content?: string;
+    metadataOverrides?: Partial<MarkdownMetadata>;
+    children?: {[uniqueName: string] : IDocMenuItem };
+    navOverrides?: {
+        next?: string;
+        previous?: string;
+    }
 }
 
 export interface MarkdownMetadata {

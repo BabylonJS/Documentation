@@ -7,29 +7,27 @@ import Section from "react-bulma-components/src/components/section";
 import Content from "react-bulma-components/src/components/content";
 import Hero from "react-bulma-components/src/components/hero";
 import Breadcrumb from "react-bulma-components/src/components/breadcrumb";
+import Level from "react-bulma-components/src/components/level";
+import Columns from "react-bulma-components/src/components/columns";
+import Button from "react-bulma-components/src/components/button";
+import Box from "react-bulma-components/src/components/box";
 
 // import Link from "next/link";
 import { FunctionComponent, PropsWithChildren } from "react";
-
-export interface ILayoutProps {
-    isMarkdown: boolean;
-    // title?: string;
-    // description?: string;
-    // keywords?: string;
-    metadata: MarkdownMetadata;
-    id: string[];
-    disableMetadataAugmentation?: boolean;
-}
 
 export const defaultSiteTitle = "Documentation page";
 export const defaultDescription = "Babylon.js documentation page";
 export const defaultKeywords = ["babylonjs", "documentation", "webgl"].join(", ");
 
 // very temporary structure configuration
-import structure from "../configuration/structure.json";
-import { MarkdownMetadata } from "../lib/interfaces";
+import { IPageProps } from "../lib/pages.interfaces";
+import Link from "next/link";
+import { generateMenuStructure } from "../lib/page.utils";
+import { SideMenu } from "./sideMenu.component";
 
-export const Layout: FunctionComponent<PropsWithChildren<ILayoutProps>> = ({ children, isMarkdown, metadata, id, disableMetadataAugmentation = false }) => {
+const menuStructure = generateMenuStructure();
+
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
@@ -48,7 +46,10 @@ export const Layout: FunctionComponent<PropsWithChildren<ILayoutProps>> = ({ chi
                 <title>{title}</title>
                 <meta property="og:image" content={imageUrl} />
                 <meta name="og:title" content={title} />
+                <meta name="og:description" content={description} />
                 <meta name="twitter:card" content="summary_large_image" />
+                {previous && <link rel="prev" href={previous.id.join("/")} />}
+                {next && <link rel="next" href={next.id.join("/")} />}
             </Head>
             <Navbar color={"light"} fixed={"top"} active={false} transparent={false}>
                 <Navbar.Brand>
@@ -59,22 +60,22 @@ export const Layout: FunctionComponent<PropsWithChildren<ILayoutProps>> = ({ chi
                 </Navbar.Brand>
                 <Navbar.Menu>
                     <Navbar.Container>
-                        {Object.keys(structure).map((key) => {
+                        {/* {menuStructure.map((menuItem) => {
                             return (
-                                <Navbar.Item key={key} dropdown hoverable href={`/${key}`}>
-                                    <Navbar.Link>{key.replace(/_/g, " ")}</Navbar.Link>
+                                <Navbar.Item key={menuItem.url} dropdown hoverable href={menuItem.url}>
+                                    <Navbar.Link>{menuItem.name}</Navbar.Link>
                                     <Navbar.Dropdown>
-                                        {Object.keys(structure[key]).map((secondary) => {
+                                        {menuItem.children.map((secondary) => {
                                             return (
-                                                <Navbar.Item key={secondary} href={`/${key}/${secondary}`}>
-                                                    {secondary}
+                                                <Navbar.Item key={secondary.url} href={secondary.url}>
+                                                    {secondary.name}
                                                 </Navbar.Item>
                                             );
                                         })}
                                     </Navbar.Dropdown>
                                 </Navbar.Item>
                             );
-                        })}
+                        })} */}
                         <Navbar.Item href="#">API</Navbar.Item>
                     </Navbar.Container>
                     <Navbar.Container position="end">
@@ -83,17 +84,64 @@ export const Layout: FunctionComponent<PropsWithChildren<ILayoutProps>> = ({ chi
                 </Navbar.Menu>
             </Navbar>
             <Section>
-                <Container>
-                    <Breadcrumb
-                        items={id.map((section, idx) => {
-                            return {
-                                name: section,
-                                url: `/${id.slice(0, idx + 1).join("/")}`,
-                            };
-                        })}
-                    />
-                    {children}
-                </Container>
+                <Columns>
+                    <Columns.Column
+                        tablet={{
+                            size: "half",
+                        }}
+                        desktop={{
+                            size: "half",
+                        }}
+                        widescreen={{
+                            size: "one-third",
+                        }}
+                        fullhd={{
+                            size: "one-quarter",
+                        }}
+                    >
+                        <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                    </Columns.Column>
+                    <Columns.Column>
+                        <Container>
+                            <Box>
+                                <Level renderAs="nav">
+                                    <Level.Side align="left">
+                                        <Level.Item>
+                                            {previous && (
+                                                <Link href={previous.id.join("/")}>
+                                                    <a className="button is-primary" title={previous.metadata.title}>
+                                                        Previous
+                                                    </a>
+                                                </Link>
+                                            )}
+                                        </Level.Item>
+                                        <Level.Item>
+                                            <Breadcrumb items={breadcrumbs} />
+                                        </Level.Item>
+                                        <Level.Item>{/* <Heading size={5} subtitle>
+                                        {metadata.title}
+                                    </Heading> */}</Level.Item>
+                                    </Level.Side>
+
+                                    <Level.Side align="right">
+                                        <Level.Item>
+                                            {next && (
+                                                <Link href={next.id.join("/")}>
+                                                    <a className="button is-primary" title={next.metadata.title}>
+                                                        Next
+                                                    </a>
+                                                </Link>
+                                            )}
+                                        </Level.Item>
+                                    </Level.Side>
+                                </Level>
+                            </Box>
+                            {children}
+                        </Container>
+                    </Columns.Column>
+                </Columns>
+
+                <Button style={{ display: "none" }} />
             </Section>
             <Hero>
                 <Hero.Footer>
