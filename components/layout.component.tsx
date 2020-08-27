@@ -90,19 +90,31 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             size: "half",
                         }}
                         desktop={{
-                            size: "half",
-                        }}
-                        widescreen={{
                             size: "one-third",
                         }}
-                        fullhd={{
+                        widescreen={{
                             size: "one-quarter",
+                        }}
+                        fullhd={{
+                            size: "one-fifth",
                         }}
                     >
                         <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
                     </Columns.Column>
-                    <Columns.Column>
-                        <Container>
+                    <Columns.Column
+                    tablet={{
+                        size: "half",
+                    }}
+                    desktop={{
+                        size: "two-thirds",
+                    }}
+                    widescreen={{
+                        size: "three-quarters",
+                    }}
+                    fullhd={{
+                        size: "four-fifths",
+                    }}>
+                        {/* <Container> */}
                             <Box>
                                 <Level renderAs="nav">
                                     <Level.Side align="left">
@@ -137,7 +149,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 </Level>
                             </Box>
                             {children}
-                        </Container>
+                        {/* </Container> */}
                     </Columns.Column>
                 </Columns>
 
