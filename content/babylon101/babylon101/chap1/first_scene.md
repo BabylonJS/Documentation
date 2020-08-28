@@ -1,5 +1,5 @@
 # Getting Started
-## First Scene and Model
+## A First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene]() to contain the world or model, a [camera]() to view it, a [light]() to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
 
 ![wireframe](/img/campus/wireframe.png)  
@@ -54,5 +54,3 @@ followed by *Tools* and choose which type to export, the *.babylon* format or th
 
 Now we have a file we can use it to demonstrate how to view it in a web page.
 
-[Prev](/babylon101/welcome) Introduction  
-[Next](/babylon101/first_viewer) Viewing a Model on a Web Page

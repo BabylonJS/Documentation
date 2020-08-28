@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## Standard Material
+## add Texture
 In order to add color and texture to our meshes we apply a material to them. The basic material is the standard material created like this
 
 ```javascript
@@ -48,9 +48,6 @@ https://www.babylonjs-playground.com/#KBS9I5#15
 ![house 2](/img/campus/house2.png)
 
 Having stone walls with no doors or windows is not an interesting look for a house. Also when you look closely you can see that each side uses the same image and on some sides it is rotated. 
-
-[Prev](/babylon101/variation) Mesh Types  
-[Next](/babylon101/face_material) Apply Material to Different Faces
 
 [Material Chapter](/features/materials) Material
 

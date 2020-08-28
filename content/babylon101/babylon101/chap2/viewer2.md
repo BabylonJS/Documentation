@@ -1,5 +1,5 @@
 # Getting Started - Enhancing Your Website
-## Customizing a Viewer Camera.
+## Customizing the Viewer's Camera
 What happens when we put the **Village** as a model in the viewer?
 
 [Example Viewer - Village](/webpages/page2.html) using the default Viewer.
@@ -50,6 +50,3 @@ The following code sets the camera radius (and in this case its angle of depress
 [Example Viewer - Village](/webpages/page4.html) adjusting the camera
 
 When you are when developing a web game or app you probably want more flexibility than the Viewer can give. Let's take another look at using the HTML template.
-
-[Prev](/babylon101/copies) Copying Meshes  
-[Next](/babylon101/app2) App Layout on Web Page

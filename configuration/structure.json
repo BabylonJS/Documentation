@@ -5,34 +5,62 @@
         "babylon101": {
             "friendlyName": "babylon101",
             "children": {
-                "babylon101": {
-                    "friendlyName": "babylon101",
+                "oldbabylon101": {
+                    "friendlyName": "old babylon101",
                     "children": {
-                        "About101": { "friendlyName": "About101", "children": {}, "content": "babylon101/babylon101/About101" },
-                        "Animations": { "friendlyName": "Animations", "children": {}, "content": "babylon101/babylon101/Animations" },
-                        "Cameras,_Mesh_Collisions_and_Gravity": { "friendlyName": "Cameras, Mesh Collisions and Gravity", "children": {}, "content": "babylon101/babylon101/Cameras,_Mesh_Collisions_and_Gravity" },
-                        "Cameras": { "friendlyName": "Cameras", "children": {}, "content": "babylon101/babylon101/Cameras" },
-                        "Discover_Basic_Elements": { "friendlyName": "Discover Basic Elements", "children": {}, "content": "babylon101/babylon101/Discover_Basic_Elements" },
-                        "Environment": { "friendlyName": "Environment", "children": {}, "content": "babylon101/babylon101/Environment" },
-                        "First": { "friendlyName": "First", "children": {}, "content": "babylon101/babylon101/First" },
-                        "Height_Map": { "friendlyName": "Height Map", "children": {}, "content": "babylon101/babylon101/Height_Map" },
-                        "How_To_Get": { "friendlyName": "How To Get", "children": {}, "content": "babylon101/babylon101/How_To_Get" },
-                        "Intersect_Collisions_-_mesh": { "friendlyName": "Intersect Collisions - mesh", "children": {}, "content": "babylon101/babylon101/Intersect_Collisions_-_mesh" },
-                        "Lights": { "friendlyName": "Lights", "children": {}, "content": "babylon101/babylon101/Lights" },
-                        "Materials": { "friendlyName": "Materials", "children": {}, "content": "babylon101/babylon101/Materials" },
-                        "Parametric_Shapes": { "friendlyName": "Parametric Shapes", "children": {}, "content": "babylon101/babylon101/Parametric_Shapes" },
-                        "Particles": { "friendlyName": "Particles", "children": {}, "content": "babylon101/babylon101/Particles" },
-                        "Picking_Collisions": { "friendlyName": "Picking Collisions", "children": {}, "content": "babylon101/babylon101/Picking_Collisions" },
-                        "Position": { "friendlyName": "Position", "children": {}, "content": "babylon101/babylon101/Position" },
-                        "Raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "babylon101/babylon101/Raycasts" },
-                        "Shadows": { "friendlyName": "Shadows", "children": {}, "content": "babylon101/babylon101/Shadows" },
-                        "Shadows_csm": { "friendlyName": "Shadows csm", "children": {}, "content": "babylon101/babylon101/Shadows_csm" },
-                        "Sprites": { "friendlyName": "Sprites", "children": {}, "content": "babylon101/babylon101/Sprites" }
+                        "About101": { "friendlyName": "About101", "children": {}, "content": "babylon101/oldbabylon101/About101" },
+                        "Animations": { "friendlyName": "Animations", "children": {}, "content": "babylon101/oldbabylon101/Animations" },
+                        "Cameras,_Mesh_Collisions_and_Gravity": { "friendlyName": "Cameras, Mesh Collisions and Gravity", "children": {}, "content": "babylon101/oldbabylon101/Cameras,_Mesh_Collisions_and_Gravity" },
+                        "Cameras": { "friendlyName": "Cameras", "children": {}, "content": "babylon101/oldbabylon101/Cameras" },
+                        "Discover_Basic_Elements": { "friendlyName": "Discover Basic Elements", "children": {}, "content": "babylon101/oldbabylon101/Discover_Basic_Elements" },
+                        "Environment": { "friendlyName": "Environment", "children": {}, "content": "babylon101/oldbabylon101/Environment" },
+                        "First": { "friendlyName": "First", "children": {}, "content": "babylon101/oldbabylon101/First" },
+                        "Height_Map": { "friendlyName": "Height Map", "children": {}, "content": "babylon101/oldbabylon101/Height_Map" },
+                        "How_To_Get": { "friendlyName": "How To Get", "children": {}, "content": "babylon101/oldbabylon101/How_To_Get" },
+                        "Intersect_Collisions_-_mesh": { "friendlyName": "Intersect Collisions - mesh", "children": {}, "content": "babylon101/oldbabylon101/Intersect_Collisions_-_mesh" },
+                        "Lights": { "friendlyName": "Lights", "children": {}, "content": "babylon101/oldbabylon101/Lights" },
+                        "Materials": { "friendlyName": "Materials", "children": {}, "content": "babylon101/oldbabylon101/Materials" },
+                        "Parametric_Shapes": { "friendlyName": "Parametric Shapes", "children": {}, "content": "babylon101/oldbabylon101/Parametric_Shapes" },
+                        "Particles": { "friendlyName": "Particles", "children": {}, "content": "babylon101/oldbabylon101/Particles" },
+                        "Picking_Collisions": { "friendlyName": "Picking Collisions", "children": {}, "content": "babylon101/oldbabylon101/Picking_Collisions" },
+                        "Position": { "friendlyName": "Position", "children": {}, "content": "babylon101/oldbabylon101/Position" },
+                        "Raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "babylon101/oldbabylon101/Raycasts" },
+                        "Shadows": { "friendlyName": "Shadows", "children": {}, "content": "babylon101/oldbabylon101/Shadows" },
+                        "Shadows_csm": { "friendlyName": "Shadows csm", "children": {}, "content": "babylon101/oldbabylon101/Shadows_csm" },
+                        "Sprites": { "friendlyName": "Sprites", "children": {}, "content": "babylon101/oldbabylon101/Sprites" }
+                    }
+                },
+                "babylon101" :{
+                    "friendlyName": "Babylon 101",
+                    "children": {
+                        "chap1": {
+                            "friendlyName": "Chapter 1 - Firsts",
+                            "children": {
+                                "welcome": {"friendlyName": "Welcome", "children": {}, "content": "babylon101/babylon101/chap1/welcome" },
+                                "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "babylon101/babylon101/chap1/first_scene" },
+                                "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "babylon101/babylon101/chap1/first_viewer" },
+                                "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "babylon101/babylon101/chap1/first_import" },
+                                "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "babylon101/babylon101/chap1/first_app" }
+                            }
+                        },
+                        "chap2": {
+                            "friendlyName": "Chapter 2 - Build A Village",
+                            "children": {
+                                "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "babylon101/babylon101/chap2/ground" },
+                                "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "babylon101/babylon101/chap2/placement" },
+                                "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "babylon101/babylon101/chap2/variation" },
+                                "material": {"friendlyName": "Add Texture", "children": {}, "content": "babylon101/babylon101/chap2/material" },
+                                "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "babylon101/babylon101/chap2/face_material" },
+                                "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "babylon101/babylon101/chap2/combine" },
+                                "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "babylon101/babylon101/chap2/copies" },
+                                "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "babylon101/babylon101/chap2/viewer2" },
+                                "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/babylon101/chap2/viewer2" }
+                            }
+                        }
                     }
                 }
             }
         },
-        "beginners": { "friendlyName": "beginners", "children": { "beginners": { "friendlyName": "beginners", "children": { "hello_world": { "friendlyName": "hello world", "children": {}, "content": "beginners/beginners/hello_world" } } } } },
         "extensions": {
             "friendlyName": "extensions",
             "children": {

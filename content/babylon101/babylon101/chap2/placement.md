@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## Scale and Place
+## Place and Scale a Mesh
 
 ### Size
 Some meshes, such as box, have properties that you can set to change during their creation.
@@ -58,7 +58,4 @@ https://www.babylonjs-playground.com/#KBS9I5#3
 
 We can now change the size, position and orientate a mesh adding a little more variation to the box as a building. Before we place more boxes in the scene let us see if we can make them a little more building like.
 
-[Prev](/babylon101/ground) Adding a Ground  
-[Next](/babylon101/variation) More mesh types
-
-[Transformation Chapter](/babylon101/position) More on Mesh Transformations
+[Transformation Chapter](/how_to/transforms/position) More on Mesh Transformations

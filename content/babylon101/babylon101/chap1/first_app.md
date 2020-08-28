@@ -96,6 +96,3 @@ Given just a box is rather uninteresting and creating the app just using all Bab
 [First Coded App](/webpages/app2.html)
 
 let's move on to learning more about using Babylon.js code and build more interesting models. We start with giving our world a ground to build on.
-
-[Prev](/babylon101/import) Importing Models  
-[Next](/babylon101/ground) Grounding the World

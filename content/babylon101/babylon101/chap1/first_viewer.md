@@ -20,6 +20,3 @@ Once this is added you place the *&lt;babylon&gt;* element in an appropriate con
 ![Page 1](/img/campus/view1.png)
 
 When you want to use your models for a game or application on a web page you need first to know how to import them. 
-
-[Prev](/babylon101/first_scene) First Scene and Model  
-[Next](/babylon101/import) Importing Models

@@ -25,8 +25,5 @@ https://www.babylonjs-playground.com/#KBS9I5#20
 
 Before considering how to make multiple copies of our house we will first: find out the basics of [exporting]() our models; how to [import]() models made with Babylon.js or other software; and how to display your scene or models on your own website.
 
-[Prev](/babylon101/face_material) Apply Material to Different Faces.  
-[Next](/babylon101/copies) Copying Meshes
-
 [Mesh Chapter](/how_to/how_to_merge_meshes) Merge Meshes.
 

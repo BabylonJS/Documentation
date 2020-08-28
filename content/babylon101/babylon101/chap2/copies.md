@@ -49,8 +49,6 @@ Now the world we are building is a little more complex let's take a file of the 
 
 https://www.babylonjs-playground.com/#KBS9I5#26
 
-[Prev](/babylon101/combine) Combining Meshes Using Merge Meshes  
-[Next](/babylon101/viewer2) Customizing a Viewer Camera
 
 
 

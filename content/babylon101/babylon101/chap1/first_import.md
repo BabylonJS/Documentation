@@ -40,9 +40,6 @@ https://www.babylonjs-playground.com/#YNEAUL#3
 ## Moving On
 Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
 
-[Prev](/babylon101/first_viewer)  Viewing a Model on a Web Page  
-[Next](/babylon101/first_app) A Template for a Web Game or Application
-
 ## Warning
 An obvious statement - different file types export models differently. 
 

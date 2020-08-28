@@ -11,4 +11,3 @@ We use the [Babylon.js Playground](), or just playground, to present examples wi
 
 Now it is time to start learning. Instead of the usual 'Hello World' introduction we will build a simple world, a small village, step by step, demonstrating the features of Babylon.js. The first steps will show you the basics of how to use Babylon.js to code a simple model in a scene and save it, how to load it back into a scene and how to display it on the web or create a web app from it. After that we will develop the model into different houses, and using copies of the model produce the basis of the village for us to add more and more items to introduce new features.
 
-[Next](/babylon101/first_scene) First Scene and Model
