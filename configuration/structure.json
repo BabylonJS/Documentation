@@ -5,31 +5,6 @@
         "babylon101": {
             "friendlyName": "babylon101",
             "children": {
-                "oldbabylon101": {
-                    "friendlyName": "old babylon101",
-                    "children": {
-                        "About101": { "friendlyName": "About101", "children": {}, "content": "babylon101/oldbabylon101/About101" },
-                        "Animations": { "friendlyName": "Animations", "children": {}, "content": "babylon101/oldbabylon101/Animations" },
-                        "Cameras,_Mesh_Collisions_and_Gravity": { "friendlyName": "Cameras, Mesh Collisions and Gravity", "children": {}, "content": "babylon101/oldbabylon101/Cameras,_Mesh_Collisions_and_Gravity" },
-                        "Cameras": { "friendlyName": "Cameras", "children": {}, "content": "babylon101/oldbabylon101/Cameras" },
-                        "Discover_Basic_Elements": { "friendlyName": "Discover Basic Elements", "children": {}, "content": "babylon101/oldbabylon101/Discover_Basic_Elements" },
-                        "Environment": { "friendlyName": "Environment", "children": {}, "content": "babylon101/oldbabylon101/Environment" },
-                        "First": { "friendlyName": "First", "children": {}, "content": "babylon101/oldbabylon101/First" },
-                        "Height_Map": { "friendlyName": "Height Map", "children": {}, "content": "babylon101/oldbabylon101/Height_Map" },
-                        "How_To_Get": { "friendlyName": "How To Get", "children": {}, "content": "babylon101/oldbabylon101/How_To_Get" },
-                        "Intersect_Collisions_-_mesh": { "friendlyName": "Intersect Collisions - mesh", "children": {}, "content": "babylon101/oldbabylon101/Intersect_Collisions_-_mesh" },
-                        "Lights": { "friendlyName": "Lights", "children": {}, "content": "babylon101/oldbabylon101/Lights" },
-                        "Materials": { "friendlyName": "Materials", "children": {}, "content": "babylon101/oldbabylon101/Materials" },
-                        "Parametric_Shapes": { "friendlyName": "Parametric Shapes", "children": {}, "content": "babylon101/oldbabylon101/Parametric_Shapes" },
-                        "Particles": { "friendlyName": "Particles", "children": {}, "content": "babylon101/oldbabylon101/Particles" },
-                        "Picking_Collisions": { "friendlyName": "Picking Collisions", "children": {}, "content": "babylon101/oldbabylon101/Picking_Collisions" },
-                        "Position": { "friendlyName": "Position", "children": {}, "content": "babylon101/oldbabylon101/Position" },
-                        "Raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "babylon101/oldbabylon101/Raycasts" },
-                        "Shadows": { "friendlyName": "Shadows", "children": {}, "content": "babylon101/oldbabylon101/Shadows" },
-                        "Shadows_csm": { "friendlyName": "Shadows csm", "children": {}, "content": "babylon101/oldbabylon101/Shadows_csm" },
-                        "Sprites": { "friendlyName": "Sprites", "children": {}, "content": "babylon101/oldbabylon101/Sprites" }
-                    }
-                },
                 "babylon101" :{
                     "friendlyName": "Babylon 101",
                     "children": {
@@ -214,6 +189,7 @@
                 "Support": {
                     "friendlyName": "Support",
                     "children": {
+                        "How_To_Get": { "friendlyName": "Getting Babylon.js (from Babylon101)", "children": {}, "content": "features/Support/How_To_Get" },
                         "ES6_Support": { "friendlyName": "ES6 Support", "children": {}, "content": "features/Support/ES6_Support" },
                         "NPM_Support": { "friendlyName": "NPM Support", "children": {}, "content": "features/Support/NPM_Support" },
                         "nullEngine": { "friendlyName": "nullEngine", "children": {}, "content": "features/Support/nullEngine" },
@@ -310,10 +286,17 @@
                         "Using_the_Incremental_Loading_System": { "friendlyName": "Using the Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" }
                     }
                 },
-                "light": { "friendlyName": "light", "children": { "Using_the_Volumetric_LightScattering_post-process": { "friendlyName": "Using the Volumetric LightScattering post-process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" } } },
+                "light": { 
+                    "friendlyName": "light", 
+                    "children": { 
+                        "Using_the_Volumetric_LightScattering_post-process": { "friendlyName": "Using the Volumetric LightScattering post-process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" },
+                        "Shadows_csm": { "friendlyName": "Shadows with Cascaded Shadow Maps (from Babylon101)", "children": {}, "content": "How_To/light/Shadows_csm" } 
+                    } 
+                },
                 "material": {
                     "friendlyName": "material",
                     "children": {
+                        "Materials": { "friendlyName": "First Page of Materials Chapter ?(from Babylon101)", "children": {}, "content": "How_To/material/Materials" },
                         "CreateBox_Per_Face_Textures_And_Colors": { "friendlyName": "CreateBox Per Face Textures And Colors", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
                         "Creating_a_Texture_Package": { "friendlyName": "Creating a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" },
                         "DynamicTexture": { "friendlyName": "DynamicTexture", "children": {}, "content": "How_To/material/DynamicTexture" },
@@ -338,6 +321,8 @@
                 "mesh": {
                     "friendlyName": "mesh",
                     "children": {
+                        "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
+                        "Parametric_Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric_Shapes101" },
                         "Custom": { "friendlyName": "Custom", "children": {}, "content": "How_To/mesh/Custom" },
                         "Decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
                         "Gizmo": { "friendlyName": "Gizmo", "children": {}, "content": "How_To/mesh/Gizmo" },
@@ -367,6 +352,7 @@
                         "Pivots": { "friendlyName": "Pivots", "children": {}, "content": "How_To/mesh/Pivots" },
                         "PolygonMeshBuilder": { "friendlyName": "PolygonMeshBuilder", "children": {}, "content": "How_To/mesh/PolygonMeshBuilder" },
                         "Polyhedra_Shapes": { "friendlyName": "Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" },
+                        "Position": { "friendlyName": "Placement (from Babylon101)", "children": {}, "content": "How_To/mesh/Position" },
                         "Ribbon_Tutorial": { "friendlyName": "Ribbon Tutorial", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
                         "Rotate": { "friendlyName": "Rotate", "children": {}, "content": "How_To/mesh/Rotate" },
                         "Set_Shapes": { "friendlyName": "Set Shapes", "children": {}, "content": "How_To/mesh/Set_Shapes" },
