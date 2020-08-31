@@ -2,36 +2,31 @@
     "friendlyName": "Home Page",
     "content": "",
     "children": {
-        "babylon101": {
-            "friendlyName": "babylon101",
+        "babylon101" :{
+            "friendlyName": "Babylon 101",
             "children": {
-                "babylon101" :{
-                    "friendlyName": "Babylon 101",
+                "chap1": {
+                    "friendlyName": "Chapter 1 - Firsts",
                     "children": {
-                        "chap1": {
-                            "friendlyName": "Chapter 1 - Firsts",
-                            "children": {
-                                "welcome": {"friendlyName": "Welcome", "children": {}, "content": "babylon101/babylon101/chap1/welcome" },
-                                "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "babylon101/babylon101/chap1/first_scene" },
-                                "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "babylon101/babylon101/chap1/first_viewer" },
-                                "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "babylon101/babylon101/chap1/first_import" },
-                                "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "babylon101/babylon101/chap1/first_app" }
-                            }
-                        },
-                        "chap2": {
-                            "friendlyName": "Chapter 2 - Build A Village",
-                            "children": {
-                                "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "babylon101/babylon101/chap2/ground" },
-                                "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "babylon101/babylon101/chap2/placement" },
-                                "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "babylon101/babylon101/chap2/variation" },
-                                "material": {"friendlyName": "Add Texture", "children": {}, "content": "babylon101/babylon101/chap2/material" },
-                                "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "babylon101/babylon101/chap2/face_material" },
-                                "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "babylon101/babylon101/chap2/combine" },
-                                "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "babylon101/babylon101/chap2/copies" },
-                                "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "babylon101/babylon101/chap2/viewer2" },
-                                "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/babylon101/chap2/viewer2" }
-                            }
-                        }
+                        "welcome": {"friendlyName": "Welcome", "children": {}, "content": "babylon101/chap1/welcome" },
+                        "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "babylon101/chap1/first_scene" },
+                        "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "babylon101/chap1/first_viewer" },
+                        "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "babylon101/chap1/first_import" },
+                        "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "babylon101/chap1/first_app" }
+                    }
+                },
+                "chap2": {
+                    "friendlyName": "Chapter 2 - Build A Village",
+                    "children": {
+                        "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "babylon101/chap2/ground" },
+                        "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "babylon101/chap2/placement" },
+                        "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "babylon101/chap2/variation" },
+                        "material": {"friendlyName": "Add Texture", "children": {}, "content": "babylon101/chap2/material" },
+                        "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "babylon101/chap2/face_material" },
+                        "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "babylon101/chap2/combine" },
+                        "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "babylon101/chap2/copies" },
+                        "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "babylon101/chap2/viewer2" },
+                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/chap2/viewer2" }
                     }
                 }
             }
