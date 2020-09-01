@@ -13,7 +13,7 @@ Since the cylinder is created vertically we needed to rotate it to a horizontal 
 
 https://www.babylonjs-playground.com/#KBS9I5#4
 
-![house 1](/img/campus/house1.png)
+![house 1](/img/getstarted/house1.png)
 
 The world will be improved with a little color and texture.
 

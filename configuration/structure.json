@@ -28,6 +28,13 @@
                         "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "babylon101/chap2/viewer2" },
                         "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/chap2/viewer2" }
                     }
+                },
+                "chap3": {
+                    "friendlyName": "Chapter 3 - Animate A Car",
+                    "children": {
+                        "parent": {"friendlyName": "Mesh Parents", "children": {}, "content": "babylon101/chap3/parent" },
+                        "animation": {"friendlyName": "Animating Properties", "children": {}, "content": "babylon101/chap3/animation" }
+                    }
                 }
             }
         },

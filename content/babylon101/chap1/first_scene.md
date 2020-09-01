@@ -2,7 +2,7 @@
 ## A First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene]() to contain the world or model, a [camera]() to view it, a [light]() to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
 
-![wireframe](/img/campus/wireframe.png)  
+![wireframe](/img/getstarted/wireframe.png)  
 Wireframe View Showing Mesh Triangles
 
 A large number of meshes can be created directly within Babylon.js using code, or, as you will shortly see, imported as models from meshes created with other software. Let us start simply with a box.
@@ -44,13 +44,13 @@ Since at this point there is only one scene you may notice that this parameter c
 
 https://www.babylonjs-playground.com/#KBS9I5
 
-![box](/img/campus/house0.png)
+![box](/img/getstarted/house0.png)
 
 Having created our box we can save, or export, the scene from within the playground by selecting the *Inspector*  
-![inspector](/img/campus/pgpartmenu.png)    
+![inspector](/img/getstarted/pgpartmenu.png)    
 
 followed by *Tools* and choose which type to export, the *.babylon* format or the *GLB* format.  
-![Tools](/img/campus/export.png)
+![Tools](/img/getstarted/export.png)
 
 Now we have a file we can use it to demonstrate how to view it in a web page.
 

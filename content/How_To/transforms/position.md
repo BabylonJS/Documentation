@@ -38,7 +38,7 @@ The vectors for *position* and *setPositionWithLocalVector* are position vectors
 
 These images show how, using the last three methods in local space, the orientation of the mesh affects its final position in world space.
 
-![no rotation](/img/campus/translate1.png)&nbsp;&nbsp;&nbsp;![with rotation](/img/campus/translate2.png)
+![no rotation](/img/getstarted/translate1.png)&nbsp;&nbsp;&nbsp;![with rotation](/img/getstarted/translate2.png)
 
 The given vectors are applied in the local space of the mesh, the axes of which rotate with the mesh.
 

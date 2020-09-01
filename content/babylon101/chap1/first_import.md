@@ -57,8 +57,6 @@ myMesh.rotationQuaternion = null; //Any version of Babylon.js
 myMesh.rotation = BABYLON.Vector3(); //babylon.js versions > 4.00
 ```
 
-https://www.babylonjs-playground.com/#YNEAUL#3
-
 2. The following two types were exported from exactly the same scene and imported into Babylon.js.
 
 **.babylon**

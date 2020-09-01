@@ -27,7 +27,7 @@ As you can see, from the above codes, scaling is a vector object with properties
 All three of the above sets of codes will produce boxes of the same size
 
 ### Position
-For the majority of meshes the [position](/babylon101/position) property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
+For the majority of meshes the [position]() property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
 
 ```javascript
 box.position.x = -2;

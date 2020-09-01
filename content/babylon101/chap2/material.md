@@ -45,7 +45,7 @@ box.material = boxMat;
 
 https://www.babylonjs-playground.com/#KBS9I5#15
 
-![house 2](/img/campus/house2.png)
+![house 2](/img/getstarted/house2.png)
 
 Having stone walls with no doors or windows is not an interesting look for a house. Also when you look closely you can see that each side uses the same image and on some sides it is rotated. 
 

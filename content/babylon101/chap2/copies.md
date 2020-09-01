@@ -39,7 +39,7 @@ for (let i = 0; i < places.length; i++) {
 
 https://www.babylonjs-playground.com/#KBS9I5#24
 
-![Village 1](/img/campus/village1.png)
+![Village 1](/img/getstarted/village1.png)
 
 As before, in order to keep the upper parts of the playground editor for newer code we will put the building of these houses into a function.
 

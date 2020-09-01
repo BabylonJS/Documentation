@@ -53,7 +53,7 @@ The order is - a rotation of beta about the local y axis, then alpha about the l
 The following sequence of images shows this order of rotation.  
 Red x axis, green y axis, blue z axis.
 
-![Local Rotation](/img/campus/rotateorder.png)
+![Local Rotation](/img/getstarted/rotateorder.png)
 
 From 0 rotation rotate &pi;/2 about y, then &pi;/2 about x, then &pi;/2 about z.
 
