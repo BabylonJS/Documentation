@@ -33,6 +33,8 @@
                     "friendlyName": "Chapter 3 - Animate A Car",
                     "children": {
                         "parent": {"friendlyName": "Mesh Parents", "children": {}, "content": "babylon101/chap3/parent" },
+                        "polycar": {"friendlyName": "Building the Car", "children": {}, "content": "babylon101/chap3/polycar" },
+                        "carmat": {"friendlyName": "Car Materials", "children": {}, "content": "babylon101/chap3/carmat" },
                         "animation": {"friendlyName": "Animating Properties", "children": {}, "content": "babylon101/chap3/animation" }
                     }
                 }
