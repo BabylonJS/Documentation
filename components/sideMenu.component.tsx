@@ -1,5 +1,5 @@
 import { IMenuItem } from "../lib/pages.interfaces";
-import { FunctionComponent, useState, ReactFragment } from "react";
+import { FunctionComponent, useState, ReactFragment, useEffect } from "react";
 
 import Button from "react-bulma-components/src/components/button";
 import Link from "next/link";
@@ -23,10 +23,11 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         }
     };
 
-    const forceOpen = (item: IMenuItem) => {
-        const idx = opened.indexOf(item.url);
+    const forceOpen = (key: string) => {
+        const idx = opened.indexOf(key);
         if (idx === -1) {
-            setOpened([...opened, item.url]);
+            setOpened([...opened, key]);
+            console.log('setOpened', [...opened, key])
         }
     };
 
@@ -35,11 +36,10 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const key = item.url;
         const isOpened = opened.indexOf(key) !== -1;
         const isSelected = selected.startsWith(key);
-        if (isSelected) forceOpen(item);
         return (
             <div style={{ marginLeft: `40px`, marginBottom: "10px" }} key={key}>
                 <div>
-                    <Button size="small" disabled={!hasChildren || isSelected} color="primary" onClick={() => openCloseItem(item)}>
+                    <Button size="small" disabled={!hasChildren} color="primary" onClick={() => openCloseItem(item)}>
                         {" "}
                         {hasChildren ? (isOpened ? "-" : "+") : "*"}{" "}
                     </Button>{" "}
@@ -51,6 +51,17 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
             </div>
         );
     };
+
+    useEffect(() => {
+        // force-open the selected item on load
+        const splits = selected.split("/").filter(s => s);
+        const openedArray = []
+        splits.reduce((prev, current) => {
+            openedArray.push(`${prev}/${current}`);
+            return `${prev}/${current}`;
+        }, "");
+        setOpened(openedArray);
+    }, []);
 
     return (
         <aside>
