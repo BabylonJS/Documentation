@@ -33,7 +33,7 @@ faceUV[1] = new BABYLON.Vector4(0, 0, 1, 0.5);
 
 PG MARKER bab.chap3.anim.3
 
-A wheel is more straight forward because of its symmetry a nd uses the whole image for the top and bottom and just picks up a black pixel for the edges.
+A wheel is more straight forward because of its symmetry and it uses the whole image for the top and bottom and just picks up a black pixel for the edges.
 
 ```javascript
 wheelUV[0] = new BABYLON.Vector4(0, 0, 1, 1);
@@ -45,3 +45,5 @@ Putting these together and rotating the finished car upright gives
 ![car model](/img/getstarted/carmodel.png)
 
 PG MARKER bab.chap3.anim.4
+
+At last we are ready to think about animating the wheels.

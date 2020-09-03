@@ -19,7 +19,7 @@ BABYLON.SceneLoader.ImportMeshAsync(["model1", "model2"], "/relative path/", "my
 
 All of the above will only load the models and you will not be able to manipulate them in any way. You have set up a Promise object but not given any way to act after the Promise is fulfilled and it provides a result. Examples of this are in the following two playground which **only** import the named models. 
 
-https://www.babylonjs-playground.com/#YNEAUL#1
+https://www.babylonjs-playground.com/#YNEAUL#1   UPDATE all 3 PGS to BJS ASSETS
 
 https://www.babylonjs-playground.com/#YNEAUL#2
 

@@ -26,9 +26,9 @@ These and the depth to extrude along Y, give the shape for the car
 const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {shape: outline, depth: 0.2});
 ```
 
-PG MARKER bab.chap3.anim.1
+https://www.babylonjs-playground.com/#KDPAQ9  PG OK
 
-We form the wheel for the right back position from a cylinder and add it as a child to the car. When we copy this wheel its parent is made the parent of the copy. Then make copies for the right front, left back and left front wheels. This time using *clone* rather than *createInstance* since we can clone a clone.
+We form the wheel for the right back position from a cylinder and add it as a child to the car. Then make copies for the right front, left back and left front wheels. This time using *clone* rather than *createInstance* since we can clone a clone. When we clone a wheel its parent is made the parent of the clone.
 
 ```javascript
 const wheelRB = BABYLON.MeshBuilder.CreateCylinder("wheelRB", {diameter: 0.125, height: 0.05})
@@ -47,7 +47,7 @@ wheelLF = wheelRF.clone("wheelLF");
 wheelLF.position.y = -0.2 - 0.035;
 ```
 
-PG MARKER bab.chap3.anim.2
+https://www.babylonjs-playground.com/#KDPAQ9#1 PG OK
 
 Now we will make the car look a bit more like a car using some textures.
 
