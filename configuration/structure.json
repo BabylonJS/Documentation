@@ -210,6 +210,7 @@
                 "animation": {
                     "friendlyName": "animation",
                     "children": {
+                        "Animations": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/animation/Animations" },
                         "AnimatedCharacter": { "friendlyName": "AnimatedCharacter", "children": {}, "content": "How_To/animation/AnimatedCharacter" },
                         "Combine": { "friendlyName": "Combine", "children": {}, "content": "How_To/animation/Combine" },
                         "Group": { "friendlyName": "Group", "children": {}, "content": "How_To/animation/Group" },
