@@ -16,4 +16,4 @@ add camera limit
 ```javascript
 camera.upperBetaLimit = Math.PI / 2.2;
 ```
-PG MARKER bab.chap4.env.6
+https://www.babylonjs-playground.com/#KBS9I5#45

@@ -48,12 +48,12 @@ scene.beginAnimation(wheelLB, 0, 30, true);
 scene.beginAnimation(wheelLF, 0, 30, true);
 ```
 
-PG MARKER - bab.chap3.anim.5.html
+https://www.babylonjs-playground.com/#KDPAQ9#6
 
 To ensure that in later playgrounds the focus is on new code we will save the car as a model and import and animate it as an item.
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/BabylonJSGuide/docampus/master/public/html/assets/", "car.babylon").then(() =>  {
+BABYLON.SceneLoader.ImportMeshAsync("", "url to model car", "car.babylon").then(() =>  {
     const wheelRB = scene.getMeshByName("wheelRB");
     const wheelRF = scene.getMeshByName("wheelRF");
     const wheelLB = scene.getMeshByName("wheelLB");
@@ -66,6 +66,6 @@ BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/Babyl
 });
 ```
 
-PG MARKER - bab.chap3.anim.6.html
+https://www.babylonjs-playground.com/#KDPAQ9#7
 
 We can now animate the car itself and add it into the village

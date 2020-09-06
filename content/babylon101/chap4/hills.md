@@ -16,20 +16,20 @@ const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround",
 
 The subdivisions property of *options* splits the ground into 20 x 20 = 400 sections. The more subdivisions the finer gradation for height calculation. The two properties minHeight and maxHeight determine the vertical heights for the black and white areas respectively, gray areas scaled accordingly.
 
-PG MARKER bab.chap4.env.1
+https://www.babylonjs-playground.com/#KBS9I5#39
 
 We can add textures in the usual way.
 
 ![textured valley](/img/getstarted/valley2.png)  
 
-PG MARKER bab.chap4.env.2
+https://www.babylonjs-playground.com/#KBS9I5#40
 
 Finally we give the village ground a similar, but clearer texture, to that of the large ground.
 
 ```javascript
 //Create Village ground
 const groundMat = new BABYLON.StandardMaterial("groundMat");
-groundMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/mhiwdfq.png");
+groundMat.diffuseTexture = new BABYLON.Texture("url to ground texture");
 groundMat.diffuseTexture.hasAlpha = true;
 
 const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:24, height:24});
@@ -37,9 +37,9 @@ ground.material = groundMat;
 
 //large ground
 const largeGroundMat = new BABYLON.StandardMaterial("largeGroundMat");
-largeGroundMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/h7AS3KT.png");
+largeGroundMat.diffuseTexture = new BABYLON.Texture("url to large ground texture");
 
-const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "https://i.imgur.com/gBxAgMQ.png", 
+const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "url to heightmap", 
     {width:150, height:150, subdivisions: 20, minHeight:0, maxHeight: 4});
 largeGround.material = largeGroundMat;
 largeGround.position.y = -0.01;
@@ -51,15 +51,15 @@ largeGround.position.y = -0.01;
 ```
 ensures the two grounds do not fight and cause flickering.
 
-PG MARKER bab.chap4.env.3
+https://www.babylonjs-playground.com/#KBS9I5#41
 
 We add back the dwellings and create a file to import
 
-PG MARKER bab.chap4.env.4
+https://www.babylonjs-playground.com/#KBS9I5#43
 
 Then we can add back the car but this time passing through the village.
 
-PG MARKER bab.chap4.env.5
+https://www.babylonjs-playground.com/#KBS9I5#44
 
 Let's now further improve the environment by adding a sky.
 
