@@ -31,9 +31,9 @@ new BABYLON.Color3.Teal();
 Now some texture for the box and roof
 ```javascript
 const roofMat = new BABYLON.StandardMaterial("roofMat");
-roofMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/9SH16GZ.jpg", scene);
+roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg", scene);
 const boxMat = new BABYLON.StandardMaterial("roofMat");
-boxMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/Wk1cGEq.png");
+boxMat.diffuseTexture = new BABYLON.Texture("https://www.babylonjs-playground.com/textures/floor.png");
 ```
 The first parameter for a texture is a relative or absolute url to the image to be used. As usual the scene parameter is optional and will default to the current scene.
 
@@ -43,7 +43,7 @@ roof.material = roofMat;
 box.material = boxMat;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#15
+https://www.babylonjs-playground.com/#KBS9I5#29
 
 ![house 2](/img/getstarted/house2.png)
 

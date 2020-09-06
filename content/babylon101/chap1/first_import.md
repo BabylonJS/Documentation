@@ -19,9 +19,9 @@ BABYLON.SceneLoader.ImportMeshAsync(["model1", "model2"], "/relative path/", "my
 
 All of the above will only load the models and you will not be able to manipulate them in any way. You have set up a Promise object but not given any way to act after the Promise is fulfilled and it provides a result. Examples of this are in the following two playground which **only** import the named models. 
 
-https://www.babylonjs-playground.com/#YNEAUL#1   UPDATE all 3 PGS to BJS ASSETS
+https://www.babylonjs-playground.com/#YNEAUL#8
 
-https://www.babylonjs-playground.com/#YNEAUL#2
+https://www.babylonjs-playground.com/#YNEAUL#9
 
 To then act on the result we follow the Promise with the *then* method to call a function with the *result* of the *Promise*. The *result* is an object containing, among others, the property *meshes* which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
 
@@ -35,7 +35,7 @@ BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((resul
 
 This playground imports all the models and their positions are changed.
 
-https://www.babylonjs-playground.com/#YNEAUL#3
+https://www.babylonjs-playground.com/#YNEAUL#10
 
 ## Moving On
 Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
