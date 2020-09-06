@@ -144,10 +144,10 @@
             //texture
             const boxMat = new BABYLON.StandardMaterial("boxMat");
             if (width == 2) {
-               boxMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/1LCGlTa.png") 
+               boxMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/semihouse.png") 
             }
             else {
-                boxMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/nJCPAWd.png");   
+                boxMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/cubehouse.png");   
             }
         
             //options parameter to set different images on each side
@@ -177,7 +177,7 @@
         const buildRoof = (width) => {
             //texture
             const roofMat = new BABYLON.StandardMaterial("roofMat");
-            roofMat.diffuseTexture = new BABYLON.Texture("https://i.imgur.com/9SH16GZ.jpg");
+            roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
         
             const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
             roof.material = roofMat;
