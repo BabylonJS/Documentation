@@ -43,7 +43,9 @@
                     "friendlyName": "Chapter 4 - A Better Environment",
                     "children": {
                         "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "babylon101/chap4/hills"},
-                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "babylon101/chap4/sky"}
+                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "babylon101/chap4/sky"},
+                        "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "babylon101/chap4/trees"}
+
                     }
                 }
             }
