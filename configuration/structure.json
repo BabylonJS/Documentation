@@ -47,6 +47,14 @@
                         "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "babylon101/chap4/trees"}
 
                     }
+                },
+                "chap5": {
+                    "friendlyName": "Chapter 5 - Build a Particle Fountain",
+                    "children": {
+                        "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "babylon101/chap5/fountain"},
+                        "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "babylon101/chap5/particlespray"},
+                        "onoff": {"friendlyName": "The Switch On Event", "children": {}, "content": "babylon101/chap5/onoff"}
+                    }
                 }
             }
         },
@@ -256,6 +264,7 @@
                 "environment": {
                     "friendlyName": "environment",
                     "children": {
+                        "Environment": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/environment/Environment" },
                         "360PhotoDome": { "friendlyName": "360PhotoDome", "children": {}, "content": "How_To/environment/360PhotoDome" },
                         "360VideoDome": { "friendlyName": "360VideoDome", "children": {}, "content": "How_To/environment/360VideoDome" },
                         "BackgroundMaterial": { "friendlyName": "BackgroundMaterial", "children": {}, "content": "How_To/environment/BackgroundMaterial" },
@@ -269,6 +278,7 @@
                 "events": {
                     "friendlyName": "events",
                     "children": {
+                        "Picking_Collisions": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/events/Picking_Collisions" },
                         "How_to_use_Actions": { "friendlyName": "How to use Actions", "children": {}, "content": "How_To/events/How_to_use_Actions" },
                         "How_to_use_DeviceSourceManager": { "friendlyName": "How to use DeviceSourceManager", "children": {}, "content": "How_To/events/How_to_use_DeviceSourceManager" },
                         "How_to_use_Gamepads": { "friendlyName": "How to use Gamepads", "children": {}, "content": "How_To/events/How_to_use_Gamepads" },
@@ -338,6 +348,7 @@
                     "children": {
                         "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
                         "Parametric_Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric_Shapes101" },
+                        "Height_Map": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map" },
                         "Custom": { "friendlyName": "Custom", "children": {}, "content": "How_To/mesh/Custom" },
                         "Decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
                         "Gizmo": { "friendlyName": "Gizmo", "children": {}, "content": "How_To/mesh/Gizmo" },
@@ -382,6 +393,7 @@
                 "Particles": {
                     "friendlyName": "Particles",
                     "children": {
+                        "Particles": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/Particles/Particles" },
                         "Animate": { "friendlyName": "Animate", "children": {}, "content": "How_To/Particles/Animate" },
                         "Customise": { "friendlyName": "Customise", "children": {}, "content": "How_To/Particles/Customise" },
                         "ParticleHelper": { "friendlyName": "ParticleHelper", "children": {}, "content": "How_To/Particles/ParticleHelper" },
@@ -457,6 +469,10 @@
                         "WebGL_Basics": { "friendlyName": "WebGL Basics", "children": {}, "content": "How_To/Videos/WebGL_Basics" },
                         "Zenva_course": { "friendlyName": "Zenva course", "children": {}, "content": "How_To/Videos/Zenva_course" }
                     }
+                },
+                "Sprites": {
+                    "friendlyName": "Sprites",
+                    "children": { "Sprites": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/Sprites/Sprites" }}
                 },
                 "WebXR": {
                     "friendlyName": "WebXR",

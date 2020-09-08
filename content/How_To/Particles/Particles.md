@@ -613,7 +613,7 @@ A demo can explain this billboard mode better than words: https://www.babylonjs-
 You can also find a demo of stretched billboard particles: https://www.babylonjs-playground.com/#5A4TP5
 
 ## Adjustable Playground Examples
-
+[THESE TWO PGS NEED CHANGING TO USE GUI]
 * [Playground Example - Adjust Min & Max of EmitBox](https://www.babylonjs-playground.com/#LMG759)
 * [Playground Example - Adjust Emit Life Time, Rate, Power and Update Speed](https://www.babylonjs-playground.com/#63PJFT)
 
