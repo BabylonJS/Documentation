@@ -26,21 +26,29 @@
                         "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "babylon101/chap2/combine" },
                         "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "babylon101/chap2/copies" },
                         "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "babylon101/chap2/viewer2" },
-                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/chap2/viewer2" }
+                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "babylon101/chap2/app2" }
                     }
                 },
                 "chap3": {
-                    "friendlyName": "Chapter 3 - Animate A Car",
+                    "friendlyName": "Chapter 3 - Village Animation",
                     "children": {
                         "parent": {"friendlyName": "Mesh Parents", "children": {}, "content": "babylon101/chap3/parent" },
                         "polycar": {"friendlyName": "Building the Car", "children": {}, "content": "babylon101/chap3/polycar" },
                         "carmat": {"friendlyName": "Car Materials", "children": {}, "content": "babylon101/chap3/carmat" },
                         "animation": {"friendlyName": "Wheel Animation", "children": {}, "content": "babylon101/chap3/animation" },
-                        "caranimation": {"friendlyName": "Car Animation", "children": {}, "content": "babylon101/chap3/caranimation" }
+                        "caranimation": {"friendlyName": "Car Animation", "children": {}, "content": "babylon101/chap3/caranimation" },
+                        "import_character": {"friendlyName": "Character Animation", "children": {}, "content": "babylon101/chap3/import_character" },
+                        "walkpath": {"friendlyName": "A Walk Around The Village", "children": {}, "content": "babylon101/chap3/walkpath" }
                     }
                 },
                 "chap4": {
-                    "friendlyName": "Chapter 4 - A Better Environment",
+                    "friendlyName": "Chapter 4 - Avoiding Collisions",
+                    "children": {
+                        "mesh_intersect": {"friendlyName": "Avoiding a Car Crash", "children": {}, "content": "babylon101/chap4/mesh_intersect"}
+                    }
+                },
+                "chap5": {
+                    "friendlyName": "Chapter 5 - A Better Environment",
                     "children": {
                         "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "babylon101/chap4/hills"},
                         "sky": {"friendlyName": "Skys Above", "children": {}, "content": "babylon101/chap4/sky"},
@@ -48,8 +56,8 @@
 
                     }
                 },
-                "chap5": {
-                    "friendlyName": "Chapter 5 - Build a Particle Fountain",
+                "chap6": {
+                    "friendlyName": "Chapter 6 - Build a Particle Fountain",
                     "children": {
                         "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "babylon101/chap5/fountain"},
                         "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "babylon101/chap5/particlespray"},
