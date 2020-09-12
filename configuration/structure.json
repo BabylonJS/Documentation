@@ -356,6 +356,8 @@
                     "children": {
                         "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
                         "Parametric_Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric_Shapes101" },
+                        "Intersect_Collisions": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Intersect_Collisions" },
+                        "Raycasts": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts" },
                         "Height_Map": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map" },
                         "Custom": { "friendlyName": "Custom", "children": {}, "content": "How_To/mesh/Custom" },
                         "Decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
