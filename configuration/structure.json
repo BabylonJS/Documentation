@@ -50,18 +50,24 @@
                 "chap5": {
                     "friendlyName": "Chapter 5 - A Better Environment",
                     "children": {
-                        "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "babylon101/chap4/hills"},
-                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "babylon101/chap4/sky"},
-                        "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "babylon101/chap4/trees"}
+                        "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "babylon101/chap5/hills"},
+                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "babylon101/chap5/sky"},
+                        "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "babylon101/chap5/trees"}
 
                     }
                 },
                 "chap6": {
                     "friendlyName": "Chapter 6 - Build a Particle Fountain",
                     "children": {
-                        "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "babylon101/chap5/fountain"},
-                        "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "babylon101/chap5/particlespray"},
-                        "onoff": {"friendlyName": "The Switch On Event", "children": {}, "content": "babylon101/chap5/onoff"}
+                        "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "babylon101/chap6/fountain"},
+                        "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "babylon101/chap6/particlespray"},
+                        "onoff": {"friendlyName": "The Switch On Event", "children": {}, "content": "babylon101/chap6/onoff"}
+                    }
+                },
+                "chap7": {
+                    "friendlyName": "Chapter 7 - Light the Night",
+                    "children": {
+                        "lights": {"friendlyName": "Street Lights", "children": {}, "content": "babylon101/chap7/lights"}
                     }
                 }
             }
@@ -355,10 +361,10 @@
                     "friendlyName": "mesh",
                     "children": {
                         "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
-                        "Parametric_Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric_Shapes101" },
-                        "Intersect_Collisions": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Intersect_Collisions" },
-                        "Raycasts": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts" },
-                        "Height_Map": { "friendlyName": "from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map" },
+                        "Parametric__Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric__Shapes101" },
+                        "Intersect__Collisions": { "friendlyName": "Intersect from Babylon101", "children": {}, "content": "How_To/mesh/Intersect__Collisions" },
+                        "Raycasts1": { "friendlyName": "Raycast from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts1" },
+                        "Height_Map1": { "friendlyName": "Height Map from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map1" },
                         "Custom": { "friendlyName": "Custom", "children": {}, "content": "How_To/mesh/Custom" },
                         "Decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
                         "Gizmo": { "friendlyName": "Gizmo", "children": {}, "content": "How_To/mesh/Gizmo" },

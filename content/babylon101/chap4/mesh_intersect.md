@@ -12,11 +12,15 @@ which will be true if a box bounding mesh1 would overlap with a box bounding mes
 
 Since the character's walk and the car's journey are not phased together there will be a time when they are in the same place. However it is not possible to predict when the character, taking its long walk around the village, and the car, on its short journey, might intersect. In order to demonstrate the *intersectsMesh* method we will make the character walk backwards and forwards across the stopping place of the car.
 
-In our case we want the character to stop moving if the car is in a "close to character" zone and the character is not. It would, after all, be dangerous for the character to stop if they are both in the danger zone. In our case because of the way the *Dude* is constructed we need to use one of its children to check intersection. Basically *Dude* is just a holder node for the head, torso, legs and arms.
+In our case we want the character to stop moving if the car is in a "hit" zone and the character is not. It would, after all, be dangerous for the character to stop if they are both in the danger zone. In our case because of the way the *Dude* is constructed we need to use one of its children to check intersection. Basically *Dude* is just a holder node for the head, torso, legs and arms and the box bounding it is too small to be effective in this case..
 
 https://www.babylonjs-playground.com/#KBS9I5#58
 
+Now make the hit box invisible.
 https://www.babylonjs-playground.com/#KBS9I5#57
+
+
+This repeated animation looks a bit out off place. Even if we revert back to the character walking around the village the repetition of the car not only looks a bit silly it is also annoying. Let's improve the environment a little so that the car can appear to be driving through the village. We will place the village in a valley with distant hills created from a height map and put a road in for the car to travel along. While we are doing that let's add a sky. Then in the future chapters we will dot a few trees about and add a fountain we can switch on and off.
 
 
 
