@@ -67,7 +67,9 @@
                 "chap7": {
                     "friendlyName": "Chapter 7 - Light the Night",
                     "children": {
-                        "lights": {"friendlyName": "Street Lights", "children": {}, "content": "babylon101/chap7/lights"}
+                        "lights": {"friendlyName": "Street Lights", "children": {}, "content": "babylon101/chap7/lights"},
+                        "light_gui": {"friendlyName": "Day to Night", "children": {}, "content": "babylon101/chap7/light_gui"},
+                        "shadows": {"friendlyName": "Add Shadows", "children": {}, "content": "babylon101/chap7/shadows"}
                     }
                 }
             }
