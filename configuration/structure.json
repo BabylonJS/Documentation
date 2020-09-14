@@ -330,7 +330,9 @@
                 "light": { 
                     "friendlyName": "light", 
                     "children": { 
+                        "Lights": { "friendlyName": "Lights from Babylon 101", "children": {}, "content": "How_To/light/Lights" },
                         "Using_the_Volumetric_LightScattering_post-process": { "friendlyName": "Using the Volumetric LightScattering post-process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" },
+                        "Shadows": { "friendlyName": "Shadows from Babylon101", "children": {}, "content": "How_To/light/Shadows" },
                         "Shadows_csm": { "friendlyName": "Shadows with Cascaded Shadow Maps (from Babylon101)", "children": {}, "content": "How_To/light/Shadows_csm" } 
                     } 
                 },

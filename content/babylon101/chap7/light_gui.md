@@ -34,7 +34,7 @@ header.color = "white";
 panel.addControl(header); 
 ```
 
-Finally create and add the slider to the panel.
+We create and add the slider to the panel.
 ```javascript
 const slider = new BABYLON.GUI.Slider();
 slider.minimum = 0;
@@ -45,16 +45,19 @@ slider.background = "#white";
 slider.value = 1;
 slider.height = "20px";
 slider.width = "200px";
+panel.addControl(slider);
+```
+
+We need to add an observable event to the slider in order to change the light intensity.
+```javascript
 slider.onValueChangedObservable.add((value) => {
     if (light) {
         light.intensity = value;
     }
 });
-panel.addControl(slider);
 ```
 
-
+Now we can control the light in our village world.
+PG MARKER  bab.cha7.gui
 
 Where there is light there are shadows. In Babylon.js this is only true when you make it true.
-
-PG MARKER  bab.cha7.gui
