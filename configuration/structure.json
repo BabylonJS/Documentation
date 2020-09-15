@@ -71,6 +71,14 @@
                         "light_gui": {"friendlyName": "Day to Night", "children": {}, "content": "babylon101/chap7/light_gui"},
                         "shadows": {"friendlyName": "Add Shadows", "children": {}, "content": "babylon101/chap7/shadows"}
                     }
+                },
+                "chap8": {
+                    "friendlyName": "Chapter 8 - Ways to See The World",
+                    "children": {
+                        "camera": {"friendlyName": "Have a Look Around", "children": {}, "content": "babylon101/chap8/camera"},
+                        "follow": {"friendlyName": "Follow That Character", "children": {}, "content": "babylon101/chap8/follow"},
+                        "vr": {"friendlyName": "See Our World in 3D", "children": {}, "content": "babylon101/chap8/vr"}
+                    }
                 }
             }
         },
@@ -254,6 +262,8 @@
                 "camera": {
                     "friendlyName": "camera",
                     "children": {
+                        "Cameras": { "friendlyName": "Cameras from Babylon101", "children": {}, "content": "How_To/camera/Cameras" },
+                        "Cameras,_Mesh_Collisions_and_Gravity": { "friendlyName": "Collisions and Gravity from Babylon101", "children": {}, "content": "How_To/camera/Cameras,_Mesh_Collisions_and_Gravity" },
                         "Camera_Behaviors": { "friendlyName": "Camera Behaviors", "children": {}, "content": "How_To/camera/Camera_Behaviors" },
                         "Customizing_Camera_Inputs": { "friendlyName": "Customizing Camera Inputs", "children": {}, "content": "How_To/camera/Customizing_Camera_Inputs" },
                         "How_to_use_Multi-Views": { "friendlyName": "How to use Multi-Views", "children": {}, "content": "How_To/camera/How_to_use_Multi-Views" },
@@ -366,9 +376,9 @@
                     "children": {
                         "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
                         "Parametric__Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric__Shapes101" },
-                        "Intersect__Collisions": { "friendlyName": "Intersect from Babylon101", "children": {}, "content": "How_To/mesh/Intersect__Collisions" },
-                        "Raycasts1": { "friendlyName": "Raycast from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts1" },
-                        "Height_Map1": { "friendlyName": "Height Map from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map1" },
+                        "Intersect__Collisions_-_mesh": { "friendlyName": "Intersect from Babylon101", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
+                        "Raycasts": { "friendlyName": "Raycast from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts" },
+                        "Height_Map": { "friendlyName": "Height Map from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map" },
                         "Custom": { "friendlyName": "Custom", "children": {}, "content": "How_To/mesh/Custom" },
                         "Decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
                         "Gizmo": { "friendlyName": "Gizmo", "children": {}, "content": "How_To/mesh/Gizmo" },
