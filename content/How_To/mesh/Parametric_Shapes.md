@@ -5,7 +5,7 @@ Unlike set shapes the form of a parametric shape cannot generally be determined 
 The _MeshBuilder_ method uses a number of options that you can set or just settle for the default values. Whilst some options such as size or diameter have an obvious meaning, some such as instance require an explanation before proceeding. Others such as frontUV require [Further Reading](#further-reading).
 
 ## Paths
-
+ 
 Many parametric shapes require an array of vectors to form a path as one of its parameters. As well as obtaining this array of points by hand there are some [curves](/How_To/How_to_use_Curve3), such as a Bezier curve, that can be generated within Babylon.js and the path vectors extracted. 
 
 ## Instance

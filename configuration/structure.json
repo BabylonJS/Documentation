@@ -375,6 +375,24 @@
                 "mesh": {
                     "friendlyName": "mesh",
                     "children": {
+                        "types" : {
+                            "friendlyName": "Types of Meshes",
+                            "children": {
+                                "intro": { "friendlyName": "Introduction", "children": {}, "content": "How_To/mesh/types/intro" },
+                                "set": {
+                                    "friendlyName": "Create Set Shapes",
+                                    "children": {
+                                        "box": { "friendlyName": "Box", "children": {}, "content": "How_To/mesh/types/set/box" }
+                                    }
+                                },
+                                "param": {
+                                    "friendlyName": "Create Parametric Shapes",
+                                    "children": {
+                                        "about": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/types/param/about" }
+                                    }
+                                }
+                            }
+                        },
                         "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
                         "Parametric__Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric__Shapes101" },
                         "Intersect__Collisions_-_mesh": { "friendlyName": "Intersect from Babylon101", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },

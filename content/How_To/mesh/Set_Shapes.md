@@ -35,7 +35,7 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 * [Playground Example of a Box](https://www.babylonjs-playground.com/#3QW4J1#1)
-
+ 
 ## Tiled Box
 A [tiled box](/how_to/tiled#tiled-box) is only available with MeshBuilder. The tile size, pattern and alignment of tiles will be the same for each face.  
 Example :
