@@ -19,6 +19,7 @@
                     "friendlyName": "Chapter 2 - Build A Village",
                     "children": {
                         "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "babylon101/chap2/ground" },
+                        "sound": {"friendlyName": "Making Music?", "children": {}, "content": "babylon101/chap2/sound" },
                         "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "babylon101/chap2/placement" },
                         "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "babylon101/chap2/variation" },
                         "material": {"friendlyName": "Add Texture", "children": {}, "content": "babylon101/chap2/material" },

@@ -41,12 +41,12 @@ light.intensity = 0.5;
 
 https://www.babylonjs-playground.com/#4G38H4#2
 
-We export the lamp, of appropriate size, to use it in the village. As we need more than one street light, once the lamp is loaded we will clone it several times. For each street light we will add the lamp light. Lights are normally restricted to four in any scene. Any more and only the last 4 created are active. To extend the number of lights used we set the number needed on any material to be affected.
+We export the lamp, of appropriate size, to use it in the village. As we need more than one street light, once the lamp is loaded we will clone it several times. For each street light we will add the lamp light. Lights are normally restricted to four in any scene. Any more and only the last 4 created are active. To extend the number of lights used we set the number needed on any material to be lit.
 
 ```javascript
 material.maxSimultaneousLights = 5;
 ```
 
-PG MARKER bab.chap7.b
+https://www.babylonjs-playground.com/#KBS9I5#63
 
 It would be good if we could slide daylight into nightlight and vice-versa. We can if we add the Babylon.js GUI.

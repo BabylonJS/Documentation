@@ -25,4 +25,4 @@ https://www.babylonjs-playground.com/#KBS9I5#1
 
 ![house 0](/img/getstarted/house0.png)
 
-Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.
+Currently our world is silent. Let's add some sound.

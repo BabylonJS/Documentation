@@ -46,8 +46,9 @@ ground.receiveShadows = true;
 ```
 https://www.babylonjs-playground.com/#4G38H4#3
 
-
 Putting this, with suitable value adjustments, in our world gives
 
-PG MARKER bab.chap7.shadow2.js
+https://www.babylonjs-playground.com/#KBS9I5#65
+
+So far we have had only one way to view our village world. There are other possibilities with different cameras.
 

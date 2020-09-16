@@ -20,6 +20,7 @@ We create the container panel to hold the other elements in the bottom right cor
 ```javascript
 const panel = new BABYLON.GUI.StackPanel();
 panel.width = "220px";
+panel.top = "-50px";
 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 adt.addControl(panel);
@@ -58,6 +59,6 @@ slider.onValueChangedObservable.add((value) => {
 ```
 
 Now we can control the light in our village world.
-PG MARKER  bab.cha7.gui
+https://www.babylonjs-playground.com/#KBS9I5#64
 
 Where there is light there are shadows. In Babylon.js this is only true when you make it true.

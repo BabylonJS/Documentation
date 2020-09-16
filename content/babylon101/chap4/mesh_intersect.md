@@ -20,7 +20,7 @@ Now make the hit box invisible.
 https://www.babylonjs-playground.com/#KBS9I5#57
 
 
-This repeated animation looks a bit out off place. Even if we revert back to the character walking around the village the repetition of the car not only looks a bit silly it is also annoying. Let's improve the environment a little so that the car can appear to be driving through the village. We will place the village in a valley with distant hills created from a height map and put a road in for the car to travel along. While we are doing that let's add a sky. Then in the future chapters we will dot a few trees about and add a fountain we can switch on and off.
+This repeated animation looks a bit out off place. Even if we revert back to the character walking around the village the repetition of the car not only looks a bit silly it is also annoying. Let's improve the environment a little so that the car can appear to be driving through the village. We will place the village in a valley with distant hills created from a height map and put a road in for the car to travel along. While we are doing that let's add a sky and some distant trees.
 
 
 
