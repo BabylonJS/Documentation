@@ -382,7 +382,18 @@
                                 "set": {
                                     "friendlyName": "Create Set Shapes",
                                     "children": {
-                                        "box": { "friendlyName": "Box", "children": {}, "content": "How_To/mesh/types/set/box" }
+                                        "box": { "friendlyName": "Box", "children": {}, "content": "How_To/mesh/types/set/box" },
+                                        "tiled_box": { "friendlyName": "Tiled Box", "children": {}, "content": "How_To/mesh/types/set/tiled_box" },
+                                        "sphere": { "friendlyName": "Sphere", "children": {}, "content": "How_To/mesh/types/set/sphere" },
+                                        "cylinder": { "friendlyName": "Cylinder", "children": {}, "content": "How_To/mesh/types/set/cylinder" },
+                                        "plane": { "friendlyName": "Plane", "children": {}, "content": "How_To/mesh/types/set/Plane" },
+                                        "tiled_plane": { "friendlyName": "Tiled", "children": {}, "content": "How_To/mesh/types/set/tiled_plane" },
+                                        "disc": { "friendlyName": "Disc", "children": {}, "content": "How_To/mesh/types/set/disc" },
+                                        "torus": { "friendlyName": "Torus", "children": {}, "content": "How_To/mesh/types/set/torus" },
+                                        "torus_knot": { "friendlyName": "Torus Knot", "children": {}, "content": "How_To/mesh/types/set/torus_knot" },
+                                        "ground": { "friendlyName": "Ground", "children": {}, "content": "How_To/mesh/types/set/ground" },
+                                        "ground_hmap": { "friendlyName": "Ground from Height Map", "children": {}, "content": "How_To/mesh/types/set/ground_hmap" },
+                                        "tiled_ground": { "friendlyName": "Tiled Ground", "children": {}, "content": "How_To/mesh/types/set/tiled_ground" }
                                     }
                                 },
                                 "param": {
