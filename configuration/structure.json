@@ -399,13 +399,23 @@
                                 "param": {
                                     "friendlyName": "Create Parametric Shapes",
                                     "children": {
-                                        "about": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/types/param/about" }
+                                        "about": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/types/param/about" },
+                                        "lines": { "friendlyName": "Lines", "children": {}, "content": "How_To/mesh/types/param/lines" },
+                                        "dashed": { "friendlyName": "Dashed Lines", "children": {}, "content": "How_To/mesh/types/param/dashed" },
+                                        "line_system": { "friendlyName": "Line System", "children": {}, "content": "How_To/mesh/types/param/line_system" },
+                                        "ribbon": { "friendlyName": "Ribbon", "children": {}, "content": "How_To/mesh/types/param/ribbon" },
+                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "How_To/mesh/types/param/ribbon_extra" },
+                                        "tube": { "friendlyName": "Tube", "children": {}, "content": "How_To/mesh/types/param/tube" },
+                                        "extrude_shape": { "friendlyName": "Extrusion", "children": {}, "content": "How_To/mesh/types/param/extrude_shape" },
+                                        "custom_extrude": { "friendlyName": "Custom Extrusion", "children": {}, "content": "How_To/mesh/types/param/custom_extrude" },
+                                        "lathe": { "friendlyName": "Lathe", "children": {}, "content": "How_To/mesh/types/param/lathe" },
+                                        "polygon": { "friendlyName": "Irregular Polygon", "children": {}, "content": "How_To/mesh/types/param/polygon" },
+                                        "extrude_polygon": { "friendlyName": "Polygon Extrusion", "children": {}, "content": "How_To/mesh/types/param/extrude_polygon" },
+                                        "polygon_mbuild": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/types/param/polygon_mbuild" }
                                     }
                                 }
                             }
                         },
-                        "Discover_Basic_Elements": { "friendlyName": "First Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Discover_Basic_Elements" },
-                        "Parametric__Shapes101": { "friendlyName": "Second Page Meshes Chapter? (from Babylon101)", "children": {}, "content": "How_To/mesh/Parametric__Shapes101" },
                         "Intersect__Collisions_-_mesh": { "friendlyName": "Intersect from Babylon101", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
                         "Raycasts": { "friendlyName": "Raycast from Babylon101", "children": {}, "content": "How_To/mesh/Raycasts" },
                         "Height_Map": { "friendlyName": "Height Map from Babylon101", "children": {}, "content": "How_To/mesh/Height_Map" },
@@ -429,19 +439,13 @@
                         "How_to_use_ThinInstances": { "friendlyName": "How to use ThinInstances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" },
                         "How_to_use_TrailMesh": { "friendlyName": "How to use TrailMesh", "children": {}, "content": "How_To/mesh/How_to_use_TrailMesh" },
                         "In-Browser_Mesh_Simplification": { "friendlyName": "In-Browser Mesh Simplification", "children": {}, "content": "How_To/mesh/In-Browser_Mesh_Simplification" },
-                        "Legacy_Param": { "friendlyName": "Legacy Param", "children": {}, "content": "How_To/mesh/Legacy_Param" },
-                        "Legacy_Set": { "friendlyName": "Legacy Set", "children": {}, "content": "How_To/mesh/Legacy_Set" },
                         "MeshBehavior": { "friendlyName": "MeshBehavior", "children": {}, "content": "How_To/mesh/MeshBehavior" },
-                        "Parametric_Shapes": { "friendlyName": "Parametric Shapes", "children": {}, "content": "How_To/mesh/Parametric_Shapes" },
                         "Parenting": { "friendlyName": "Parenting", "children": {}, "content": "How_To/mesh/Parenting" },
                         "Pivot": { "friendlyName": "Pivot", "children": {}, "content": "How_To/mesh/Pivot" },
                         "Pivots": { "friendlyName": "Pivots", "children": {}, "content": "How_To/mesh/Pivots" },
-                        "PolygonMeshBuilder": { "friendlyName": "PolygonMeshBuilder", "children": {}, "content": "How_To/mesh/PolygonMeshBuilder" },
                         "Polyhedra_Shapes": { "friendlyName": "Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" },
                         "Position": { "friendlyName": "Placement (from Babylon101)", "children": {}, "content": "How_To/mesh/Position" },
-                        "Ribbon_Tutorial": { "friendlyName": "Ribbon Tutorial", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
                         "Rotate": { "friendlyName": "Rotate", "children": {}, "content": "How_To/mesh/Rotate" },
-                        "Set_Shapes": { "friendlyName": "Set Shapes", "children": {}, "content": "How_To/mesh/Set_Shapes" },
                         "Solid_Particle_System": { "friendlyName": "Solid Particle System", "children": {}, "content": "How_To/mesh/Solid_Particle_System" },
                         "Tiled": { "friendlyName": "Tiled", "children": {}, "content": "How_To/mesh/Tiled" },
                         "TransformNode": { "friendlyName": "TransformNode", "children": {}, "content": "How_To/mesh/TransformNode" },
