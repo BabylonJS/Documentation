@@ -21,7 +21,7 @@ The current way to create a mesh is using *MeshBuilder*
 ```javascript
 const mesh = BABYLON.MeshBuilder.Create<MeshType>(name, options, scene);
 ```
-The options object will have different properties according to the type of mesh and scene is optional and defaults to the current scene.
+The options object will have different properties according to the type of mesh and can be empty {}. The scene parameter is optional and defaults to the current scene.
 
 There is an older method, retained for backwards compatibility, which uses *Mesh* and a string of parameters
 

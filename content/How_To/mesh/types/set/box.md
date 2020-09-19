@@ -1,11 +1,12 @@
 # Box Mesh
+The created box has its origin at the center of the box, its width (x), height (y) and depth (z) are as given.
 ## MeshBuilder.
 Example :
 ```javascript
-var box = BABYLON.MeshBuilder.CreateBox("box", option, scene);
+var box = BABYLON.MeshBuilder.CreateBox("box", options, scene);
 ```
 
-option property|value|default value
+options property|value|default value
 --------|-----|------------
 size|_(number)_ size of each box side|1
 height|_(number)_ height size, overwrites _size_ option|size
@@ -22,12 +23,13 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 * [Cuboid](https://www.babylonjs-playground.com/#6XIT28) 
-* [Face Numbers](https://www.babylonjs-playground.com/#6XIT28#1)
+* [Face Numbers](https://www.babylonjs-playground.com/#6XIT28#2)
 
 ## Mesh.
-Example
+Examples
 ```javascript
-var box = BABYLON.Mesh.CreateBox("box", size, scene, updatable, sideOrientation);
+const box = BABYLON.Mesh.CreateBox("box", size, scene);
+const box = BABYLON.Mesh.CreateBox("box", size, scene, updatable, sideOrientation); //optional parameters after scene
 ```
 It is only possible to create a cube with this method, for a cuboid you need to use scaling.
 

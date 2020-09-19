@@ -1,12 +1,12 @@
 # Sphere
+The created sphere has its origin at the center of the sphere. By using different values for _diameterX_, _diameterY_ and diameterZ_ lead you create an ellipsoid.
 ## MeshBuilder
-Different values for _diameterX_, _diameterY_ and diameterZ_ lead to an ellipsoid.
 Example :
 ```javascript
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, diameterX: 3}, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene);
 ```
 
-option|value|default value
+options|value|default value
 --------|-----|-------------
 segments|_(number)_ number of horizontal segments|32
 diameter|_(number)_ diameter of the sphere|1
@@ -20,14 +20,19 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1)
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1) 
 
-* [Playground Example of a Sphere](https://www.babylonjs-playground.com/#K6M44R#2)
+* [Playground Example of a Sphere](https://www.babylonjs-playground.com/#WIR77Z)
+
+https://www.babylonjs-playground.com/#WIR77Z#1 ellipsoid
+
+https://www.babylonjs-playground.com/#WIR77#2 arc
+
+https://www.babylonjs-playground.com/#WIR77Z#3 arc and slice
 
 ## Mesh
 ```javascript
-var sphere = BABYLON.Mesh.CreateSphere("sphere", 10.0, 10.0, scene, false,  BABYLON.Mesh.DEFAULTSIDE);
+const sphere = BABYLON.Mesh.CreateSphere("sphere", segments, diameter, scene);
+const sphere = BABYLON.Mesh.CreateSphere("sphere", segments, diameter, scene, updatable, sideOrientation); //optional parameters after scene
 ```
-Parameters are: name, number of segments (highly detailed or not), size, scene to attach the mesh, updatable? (if the mesh must be modified later) and the optional side orientation (see below). The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var sphere = BABYLON.Mesh.CreateSphere("sphere", 10.0, 10.0, scene);
-```
-Beware to adapt the number of segments to the size of your mesh ;)
+
+It is only possible to create a sphere with this method, for an ellipsoid you need to use scaling.
+
