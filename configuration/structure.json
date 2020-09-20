@@ -2,91 +2,6 @@
     "friendlyName": "Home Page",
     "content": "",
     "children": {
-<<<<<<< HEAD
-        "start" :{
-            "friendlyName": "Getting Started",
-            "children": {
-                "chap1": {
-                    "friendlyName": "Chapter 1 - Firsts",
-                    "children": {
-                        "welcome": {"friendlyName": "Welcome", "children": {}, "content": "start/chap1/welcome" },
-                        "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
-                        "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
-                        "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "start/chap1/first_import" },
-                        "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "start/chap1/first_app" }
-                    }
-                },
-                "chap2": {
-                    "friendlyName": "Chapter 2 - Build A Village",
-                    "children": {
-                        "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "start/chap2/ground" },
-                        "sound": {"friendlyName": "Making Music?", "children": {}, "content": "start/chap2/sound" },
-                        "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "start/chap2/placement" },
-                        "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "start/chap2/variation" },
-                        "material": {"friendlyName": "Add Texture", "children": {}, "content": "start/chap2/material" },
-                        "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "start/chap2/face_material" },
-                        "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "start/chap2/combine" },
-                        "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "start/chap2/copies" },
-                        "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "start/chap2/viewer2" },
-                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "start/chap2/app2" }
-                    }
-                },
-                "chap3": {
-                    "friendlyName": "Chapter 3 - Village Animation",
-                    "children": {
-                        "parent": {"friendlyName": "Mesh Parents", "children": {}, "content": "start/chap3/parent" },
-                        "polycar": {"friendlyName": "Building the Car", "children": {}, "content": "start/chap3/polycar" },
-                        "carmat": {"friendlyName": "Car Materials", "children": {}, "content": "start/chap3/carmat" },
-                        "animation": {"friendlyName": "Wheel Animation", "children": {}, "content": "start/chap3/animation" },
-                        "caranimation": {"friendlyName": "Car Animation", "children": {}, "content": "start/chap3/caranimation" },
-                        "import_character": {"friendlyName": "Character Animation", "children": {}, "content": "start/chap3/import_character" },
-                        "walkpath": {"friendlyName": "A Walk Around The Village", "children": {}, "content": "start/chap3/walkpath" }
-                    }
-                },
-                "chap4": {
-                    "friendlyName": "Chapter 4 - Avoiding Collisions",
-                    "children": {
-                        "mesh_intersect": {"friendlyName": "Avoiding a Car Crash", "children": {}, "content": "start/chap4/mesh_intersect"}
-                    }
-                },
-                "chap5": {
-                    "friendlyName": "Chapter 5 - A Better Environment",
-                    "children": {
-                        "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "start/chap5/hills"},
-                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "start/chap5/sky"},
-                        "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "start/chap5/trees"}
-
-                    }
-                },
-                "chap6": {
-                    "friendlyName": "Chapter 6 - Build a Particle Fountain",
-                    "children": {
-                        "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "start/chap6/fountain"},
-                        "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "start/chap6/particlespray"},
-                        "onoff": {"friendlyName": "The Switch On Event", "children": {}, "content": "start/chap6/onoff"}
-                    }
-                },
-                "chap7": {
-                    "friendlyName": "Chapter 7 - Light the Night",
-                    "children": {
-                        "lights": {"friendlyName": "Street Lights", "children": {}, "content": "start/chap7/lights"},
-                        "light_gui": {"friendlyName": "Day to Night", "children": {}, "content": "start/chap7/light_gui"},
-                        "shadows": {"friendlyName": "Add Shadows", "children": {}, "content": "start/chap7/shadows"}
-                    }
-                },
-                "chap8": {
-                    "friendlyName": "Chapter 8 - Ways to See The World",
-                    "children": {
-                        "camera": {"friendlyName": "Have a Look Around", "children": {}, "content": "start/chap8/camera"},
-                        "follow": {"friendlyName": "Follow That Character", "children": {}, "content": "start/chap8/follow"},
-                        "vr": {"friendlyName": "See Our World in 3D", "children": {}, "content": "start/chap8/vr"}
-                    }
-                }
-            }
-        },
-        "extensions": {
-            "friendlyName": "extensions",
-=======
         "gettingStarted": { 
             "friendlyName": "Getting Started", 
             "children": { 
@@ -115,7 +30,6 @@
         },
         "divingDeeper": {  
             "friendlyName": "Diving Deeper", 
->>>>>>> Pirates
             "children": {
                 "animation": {
                     "friendlyName": "Animation", 
@@ -158,86 +72,6 @@
                     "content": "features/component/Cameras"
                 },
                 "controls": {
-<<<<<<< HEAD
-                    "friendlyName": "controls",
-                    "children": {
-                        "controls": { "friendlyName": "controls", "children": {}, "content": "features/controls/controls" },
-                        "imageFilter": { "friendlyName": "imageFilter", "children": {}, "content": "features/controls/imageFilter" },
-                        "resizer": { "friendlyName": "resizer", "children": {}, "content": "features/controls/resizer" },
-                        "timeline": { "friendlyName": "timeline", "children": {}, "content": "features/controls/timeline" }
-                    }
-                },
-                "GUI": { "friendlyName": "GUI", "children": { "gui": { "friendlyName": "gui", "children": {}, "content": "features/GUI/gui" } } },
-                "PGsupport": {
-                    "friendlyName": "PGsupport",
-                    "children": {
-                        "intro_inspector": { "friendlyName": "intro inspector", "children": {}, "content": "features/PGsupport/intro_inspector" },
-                        "Playground": { "friendlyName": "Playground", "children": {}, "content": "features/PGsupport/Playground" },
-                        "Playground_debuglayer": { "friendlyName": "Playground debuglayer", "children": {}, "content": "features/PGsupport/Playground_debuglayer" }
-                    }
-                },
-                "Support": {
-                    "friendlyName": "Support",
-                    "children": {
-                        "How_To_Get": { "friendlyName": "Getting Babylon.js (from Babylon101)", "children": {}, "content": "features/Support/How_To_Get" },
-                        "ES6_Support": { "friendlyName": "ES6 Support", "children": {}, "content": "features/Support/ES6_Support" },
-                        "NPM_Support": { "friendlyName": "NPM Support", "children": {}, "content": "features/Support/NPM_Support" },
-                        "nullEngine": { "friendlyName": "nullEngine", "children": {}, "content": "features/Support/nullEngine" },
-                        "Physics_Engine": { "friendlyName": "Physics Engine", "children": {}, "content": "features/Support/Physics_Engine" },
-                        "WebGL2": { "friendlyName": "WebGL2", "children": {}, "content": "features/Support/WebGL2" }
-                    }
-                }
-            }
-        },
-        "deeper": {
-            "friendlyName": "Diving Deeper",
-            "children": {
-                "mesh": {
-                    "friendlyName": "About Meshes",
-                    "children": {
-                        "types" : {
-                            "friendlyName": "Types of Meshes",
-                            "children": {
-                                "intro": { "friendlyName": "Introduction", "children": {}, "content": "deeper/mesh/types/intro" },
-                                "set": {
-                                    "friendlyName": "Create Set Shapes",
-                                    "children": {
-                                        "box": { "friendlyName": "Box", "children": {}, "content": "deeper/mesh/types/set/box" },
-                                        "tiled_box": { "friendlyName": "Tiled Box", "children": {}, "content": "deeper/mesh/types/set/tiled_box" },
-                                        "sphere": { "friendlyName": "Sphere", "children": {}, "content": "deeper/mesh/types/set/sphere" },
-                                        "cylinder": { "friendlyName": "Cylinder", "children": {}, "content": "deeper/mesh/types/set/cylinder" },
-                                        "plane": { "friendlyName": "Plane", "children": {}, "content": "deeper/mesh/types/set/Plane" },
-                                        "tiled_plane": { "friendlyName": "Tiled", "children": {}, "content": "deeper/mesh/types/set/tiled_plane" },
-                                        "disc": { "friendlyName": "Disc", "children": {}, "content": "deeper/mesh/types/set/disc" },
-                                        "torus": { "friendlyName": "Torus", "children": {}, "content": "deeper/mesh/types/set/torus" },
-                                        "torus_knot": { "friendlyName": "Torus Knot", "children": {}, "content": "deeper/mesh/types/set/torus_knot" },
-                                        "ground": { "friendlyName": "Ground", "children": {}, "content": "deeper/mesh/types/set/ground" },
-                                        "ground_hmap": { "friendlyName": "Ground from Height Map", "children": {}, "content": "deeper/mesh/types/set/ground_hmap" },
-                                        "tiled_ground": { "friendlyName": "Tiled Ground", "children": {}, "content": "deeper/mesh/types/set/tiled_ground" }
-                                    }
-                                },
-                                "param": {
-                                    "friendlyName": "Create Parametric Shapes",
-                                    "children": {
-                                        "about": { "friendlyName": "About", "children": {}, "content": "deeper/mesh/types/param/about" },
-                                        "lines": { "friendlyName": "Lines", "children": {}, "content": "deeper/mesh/types/param/lines" },
-                                        "dashed": { "friendlyName": "Dashed Lines", "children": {}, "content": "deeper/mesh/types/param/dashed" },
-                                        "line_system": { "friendlyName": "Line System", "children": {}, "content": "deeper/mesh/types/param/line_system" },
-                                        "ribbon": { "friendlyName": "Ribbon", "children": {}, "content": "deeper/mesh/types/param/ribbon" },
-                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "deeper/mesh/types/param/ribbon_extra" },
-                                        "tube": { "friendlyName": "Tube", "children": {}, "content": "deeper/mesh/types/param/tube" },
-                                        "extrude_shape": { "friendlyName": "Extrusion", "children": {}, "content": "deeper/mesh/types/param/extrude_shape" },
-                                        "custom_extrude": { "friendlyName": "Custom Extrusion", "children": {}, "content": "deeper/mesh/types/param/custom_extrude" },
-                                        "lathe": { "friendlyName": "Lathe", "children": {}, "content": "deeper/mesh/types/param/lathe" },
-                                        "polygon": { "friendlyName": "Irregular Polygon", "children": {}, "content": "deeper/mesh/types/param/polygon" },
-                                        "extrude_polygon": { "friendlyName": "Polygon Extrusion", "children": {}, "content": "deeper/mesh/types/param/extrude_polygon" },
-                                        "polygon_mbuild": { "friendlyName": "About", "children": {}, "content": "deeper/mesh/types/param/polygon_mbuild" }
-                                    }
-                                }
-                            }
-                        }
-                    }
-=======
                     "friendlyName": "2D Controls", 
                     "children": {
                         "timeline": { "friendlyName": "Timeline Control", "children": {}, "content": "features/controls/timeline" },
@@ -541,7 +375,6 @@
                     "friendlyName": "Running Babylon.js on a Server", 
                     "children": {}, 
                     "content": "features/Support/nullEngine"
->>>>>>> Pirates
                 }
             },
             "content": "newPages/blackHoleLandingPage" 
