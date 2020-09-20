@@ -2,9 +2,9 @@
 A tiled box is only available with *MeshBuilder*. A tiled box is constructed from six tiled planes  s o that he tile size, pattern and alignment of tiles will be the same for each face. Using the faceUV array each side can have a different texture for its tiles as [explained](/how_to/createbox_per_face_textures_and_colors) for a standard box.
 
 ## MeshBuilder
-Example :
+Usage :
 ```javascript
-var tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene);
+var tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value
@@ -58,13 +58,13 @@ BABYLON.Mesh.RIGHT
 There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 
 ## Examples
+We use the following image as the texture in the following examples
 
 ![Arrow Pattern](/img/how_to/mesh/tiles6.jpg)  
-tile width : 1, tile height : 1 
-* [Playground Example - Different Texture Each Side](https://www.babylonjs-playground.com/#Z5JFSM#13) To be updated
 
-Note that the the tile pattern is arranged so that all vertical sides have the same pattern and at the edge where the front and top side meets the alignment matches.   
-* [Playground Example - Brick Box](https://www.babylonjs-playground.com/#Z5JFSM#12) to be updated
+Different texture each side, tile width 1, tile height 1 
+Playground Example -  https://www.babylonjs-playground.com/#FAP6ZC#1
 
-To see the headings for the 63 arrangements view the full playground.
-* [Playground Example - All 63 Arrangements for a Tiled Box](https://www.babylonjs-playground.com/#Z5JFSM#3) to be updated
+
+All the 63 arrangements. To see the headings view the full playground.
+https://www.babylonjs-playground.com/#FAP6ZC#2

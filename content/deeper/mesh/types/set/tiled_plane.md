@@ -1,10 +1,10 @@
 # Tiled Plane
-## MeshBuilder
-A [tiled plane](/how_to/tiled) is only available with MeshBuilder. The tile size, pattern and alignment of tiles can be set. 
+A tiled plane is only available with MeshBuilder. The tile size, pattern and alignment of tiles can be set. 
 
-Example :
+## MeshBuilder
+Usage :
 ```javascript
-var tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", {width: 5}, scene);
+var tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value
@@ -56,7 +56,6 @@ There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 
 Using the *frontUVs* and *backUVs* properties in the options the front and back of the plane can use different parts of an image for the front and back of the plane.
 
-![Front and Back](/img/how_to/mesh/tiles2.jpg)
 
 ```javascript
 var f = new BABYLON.Vector4(0.5,0, 1, 1); // front image = half the whole image along the width 
@@ -69,21 +68,30 @@ var options = {
 }
 ``` 
 
-https://www.babylonjs-playground.com/#XR696D#2 front and back
+
 
 ## Examples
 
-![Single Tile Pattern](/img/how_to/mesh/lavatile.jpg)  
-tile width : 1, tile height : 1  
-* [Playground Example - Basic](https://www.babylonjs-playground.com/#XR696D)
-* [Playground Example - Flip Tiles](https://www.babylonjs-playground.com/#XR696D#1)
+The following image is used to show the results before and after flipping alternate tiles
+
+![Single Tile Pattern](/img/how_to/mesh/lavatile.jpg) 
+
+Before tiles flipped  https://www.babylonjs-playground.com/#XR696D  
+After tiles flipped https://www.babylonjs-playground.com/#XR696D#1
 
 **Alternating Patterns**
 
-![Two Tile Pattern](/img/how_to/mesh/tiles4.jpg)  
-tile width : 2, tile height : 1  
-* [Playground Example - Alternating Pattern 1](https://www.babylonjs-playground.com/#XR696D#3 ) flip row
-* [Playground Example - Alternating Pattern 2](https://www.babylonjs-playground.com/#XR696D#4) flip tile
+This image  
+![Two Tile Pattern](/img/how_to/mesh/tiles2.jpg)  
+is used to show different alternating patterns using tiles of width 2 and height 1 by flipping either every other row or tile
+
+row flipped https://www.babylonjs-playground.com/#XR696D#3  
+tile filed https://www.babylonjs-playground.com/#XR696D#4) 
+
+and also how tiling can be different front and back.
+
+https://www.babylonjs-playground.com/#XR696D#2
 
 
-https://www.babylonjs-playground.com/#XR696D#5 all perms
+The final example use the same image to show all 63 permutations. To see heading view the full playground.
+https://www.babylonjs-playground.com/#XR696D#5

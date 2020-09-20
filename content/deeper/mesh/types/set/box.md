@@ -1,9 +1,9 @@
 # Box Mesh
 The created box has its origin at the center of the box, its width (x), height (y) and depth (z) are as given.
 ## MeshBuilder.
-Example :
+Usage :
 ```javascript
-var box = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+var box = BABYLON.MeshBuilder.CreateBox("box", options, scene); //scene is optional and defaults to the current scene
 ```
 
 options property|value|default value
@@ -22,11 +22,11 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-* [Cuboid](https://www.babylonjs-playground.com/#6XIT28) 
-* [Face Numbers](https://www.babylonjs-playground.com/#6XIT28#2)
+Cuboid https://www.babylonjs-playground.com/#6XIT28   
+Face numbers, face 0 is on the positive z axis https://www.babylonjs-playground.com/#6XIT28#2
 
 ## Mesh.
-Examples
+Usage
 ```javascript
 const box = BABYLON.Mesh.CreateBox("box", size, scene);
 const box = BABYLON.Mesh.CreateBox("box", size, scene, updatable, sideOrientation); //optional parameters after scene
