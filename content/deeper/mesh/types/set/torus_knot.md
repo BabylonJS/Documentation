@@ -1,8 +1,10 @@
 # Torus Knot
+A torus knot is a continuous shape that twists and turns around the surface of a torus. The number of twists and turns are determined by two windings integers p and q. The simplest knotted knot is with 2 and 3 for p and q. The origin of the created torus knot is at the center of the underlying torus.
+
 ## MeshBuilder
 Example :
 ```javascript
-var torus = BABYLON.MeshBuilder.CreateTorusKnot("tk", {}, scene);
+const torus = BABYLON.MeshBuilder.CreateTorusKnot("torusKnot", options, scene);
 ```
 
 option|value|default value
@@ -18,14 +20,15 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-[A Playground Example of a Torus Knot](https://www.babylonjs-playground.com/#K9UC68)
+### Examples
+Simplest https://www.babylonjs-playground.com/#SVU8U9#1
+Low p and q https://www.babylonjs-playground.com/#SVU8U9#2
+High p and q https://www.babylonjs-playground.com/#SVU8U9#3
+Breaking the rules - using high non integer P and q https://www.babylonjs-playground.com/#SVU8U9#4
 
 # Mesh
 ```javascript
-var knot = BABYLON.Mesh.CreateTorusKnot("knot", 2, 0.5, 128, 64, 2, 3, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+const knot = BABYLON.Mesh.CreateTorusKnot("knot", radius, tube, radialSegments, tubularSegments, p, q, scene);
+const knot = BABYLON.Mesh.CreateTorusKnot("knot", radius, tube, radialSegments, tubularSegments, p, q, scene, updatable, sideOrientation); //optional parameters after scene
 ```
-Parameters are: name, radius, tube, radialSegments, tubularSegments, p, q, scene, updatable and the optional side orientation (see below). The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var knot = BABYLON.Mesh.CreateTorusKnot("knot", 2, 0.5, 128, 64, 2, 3, scene);
-```
-You can learn more about torus knots... [RIGHT HERE](http://en.wikipedia.org/wiki/Torus_knot).
+

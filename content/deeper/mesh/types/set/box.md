@@ -3,7 +3,7 @@ The created box has its origin at the center of the box, its width (x), height (
 ## MeshBuilder.
 Usage :
 ```javascript
-var box = BABYLON.MeshBuilder.CreateBox("box", options, scene); //scene is optional and defaults to the current scene
+const box = BABYLON.MeshBuilder.CreateBox("box", options, scene); //scene is optional and defaults to the current scene
 ```
 
 options property|value|default value

@@ -4,7 +4,7 @@ A tiled plane is only available with MeshBuilder. The tile size, pattern and ali
 ## MeshBuilder
 Usage :
 ```javascript
-var tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", options, scene); //scene is optional and defaults to the current scene
+const tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value
@@ -58,10 +58,10 @@ Using the *frontUVs* and *backUVs* properties in the options the front and back 
 
 
 ```javascript
-var f = new BABYLON.Vector4(0.5,0, 1, 1); // front image = half the whole image along the width 
-var b = new BABYLON.Vector4(0,0, 0.5, 1); // back image = second half along the width
+const f = new BABYLON.Vector4(0.5,0, 1, 1); // front image = half the whole image along the width 
+const b = new BABYLON.Vector4(0,0, 0.5, 1); // back image = second half along the width
 
-var options = {
+const options = {
     frontUVs: f,
 	backUVs: b,
 	sideOrientation: BABYLON.Mesh.DOUBLESIDE

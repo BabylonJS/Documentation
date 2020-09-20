@@ -4,7 +4,7 @@ A tiled box is only available with *MeshBuilder*. A tiled box is constructed fro
 ## MeshBuilder
 Usage :
 ```javascript
-var tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene); //scene is optional and defaults to the current scene
+const tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value

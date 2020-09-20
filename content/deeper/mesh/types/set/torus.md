@@ -1,8 +1,10 @@
 # Torus
+The created torus (doughnut shape) has its origin at the center of the torus. You can control its diameter and the thickness of its circular body.
+
 ## MeshBuilder
 Example :
 ```javascript
-var torus = BABYLON.MeshBuilder.CreateTorus("torus", {thickness: 0.2}, scene);
+const torus = BABYLON.MeshBuilder.CreateTorus("torus", options, scene);
 ```
 
 option|value|default value
@@ -15,12 +17,13 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-* [Playground Example Using Thickness to Create a Hoop and a Donut](https://www.babylonjs-playground.com/#A7SVB6)
+### Examples
+Thick https://www.babylonjs-playground.com/#IJGMXZ#1  
+Thin https://www.babylonjs-playground.com/#IJGMXZ#2
 
 ## Mesh
+# Usage
 ```javascript
-var torus = BABYLON.Mesh.CreateTorus("torus", 5, 1, 10, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene);
+const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene, updatable, sideOrientation);  //optional parameters after scene
 ```
-Parameters are: name, diameter, thickness, tessellation (highly detailed or not), scene, updatable and the optional side orientation (see below). The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var torus = BABYLON.Mesh.CreateTorus("torus", 5, 1, 10, scene);

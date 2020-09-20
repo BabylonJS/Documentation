@@ -3,10 +3,10 @@ The created sphere has its origin at the center of the sphere. By using differen
 ## MeshBuilder
 Example :
 ```javascript
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //scene is optional and defaults to the current scene
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //scene is optional and defaults to the current scene
 ```
 
-options|value|default value
+option|value|default value
 --------|-----|-------------
 segments|_(number)_ number of horizontal segments|32
 diameter|_(number)_ diameter of the sphere|1

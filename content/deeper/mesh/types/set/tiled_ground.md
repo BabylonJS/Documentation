@@ -1,8 +1,10 @@
 # Tiled Ground
+A tiled ground is created differently to a ground mesh. It still lies in the xz plane. The bottom left corner of of the tiled ground is given by the values for xmin and zmin and the top right corner by xmax and zmax. The tiled ground is be subdivided into tile regions: across into w tiles and up into h tiles. In the same way every tile can be further subdivided into w by h sections. The creation of a tiled ground relies on the use of *MultiMaterials*.
+
 ## MeshBuilder
-Example :
+Usage:
 ```javascript
-var tiledGround = BABYLON.MeshBuilder.CreateTiledGround("tgd", {subdivisions: {w:4, h:6} }, scene);
+var tiledGround = BABYLON.MeshBuilder.CreateTiledGround("tiled ground", options, scene);
 ```
 
 option|value|default value
@@ -11,30 +13,53 @@ xmin|_(number)_ map min x coordinate value|-1
 zmin|_(number)_ map min z coordinate value|-1
 xmax|_(number)_ map max x coordinate value|1
 zmin|_(number)_ map max z coordinate value|1
-subdivisions|_( {w: number, h: number} )_ number of subdivisions (tiles) on the height and the width of the map|{w: 6, h: 6}
+subdivisions|_object_ _( {w: number, h: number} )_ number of subdivisions (tiles) on the height and the width of the map|{w: 6, h: 6}
 precision|_( {w: number, h: number} )_ number of subdivisions on the height and the width of each tile|{w: 2, h: 2}
 updatable|_(boolean)_ true if the mesh is updatable|false
 
-* [Playground Example of Tiled Ground](https://www.babylonjs-playground.com/#1XBLWB#147).
+### Steps to Create Tiling
 
-Full explanation of creating a tiled ground by its original code writer [here](http://makina-corpus.com/blog/metier/2014/how-to-use-multimaterials-with-a-tiled-ground-in-babylonjs).
-
-## Mesh
-Thanks to forum user Kostar111 for this handy Tiled Ground constructor. Here is the basic code needed to create a tiled ground.
-
+* Create Tiled Ground
+* Create materials needed for each tile
+* Create multi material and push each material onto its subMaterials array
+* Set the multi material as the material for the Tiled Ground
+* Set the subMeshes property of the Tiled Ground to an empty array
+* Create and set values for these variables
 ```javascript
-
-var precision = {
-    "w" : 2,
-    "h" : 2
-};
-var subdivisions = {
-    'h' : 8,
-    'w' : 8
-};
-var tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", -3, -3, 3, 3, subdivisions, precision, scene, false);
+    const verticesCount = tiledGround.getTotalVertices();
+    const tileIndicesLength = tiledGround.getIndices().length / (subdivisions.w * subdivisions.h);
+```
+* Fill the subMeshes array of the Tiled Ground using
+```javascript
+    let base = 0;
+    for (let row = 0; row < grid.h; row++) {
+        for (let col = 0; col < grid.w; col++) {
+            tiledGround.subMeshes.push(new BABYLON.SubMesh(
+                row % 2 ^ col % 2, 
+                0, verticesCount, 
+                base , 
+                tileIndicesLength, 
+                tiledGround));
+            base += tileIndicesLength;
+        }
+    }
 ```
 
-Parameters are: name, xmin, zmin, xmax, zmax, subdivisions = the number of tiles. (subdivisions.w : in width; subdivisions.h: in height), precision = the number of subdivisions inside a tile. (precision.w : in width; precision.h: in height), scene, updatable.
+### Examples
 
-Kostar111 was also kind enough to give us a fine tutorial about how to use tiled grounds. [Click right here](http://makina-corpus.com/blog/metier/how-to-use-multimaterials-with-a-tiled-ground-in-babylonjs) to view it. At that link, Kostar111 thoroughly explains how the tiled ground works, and also provides some Babylon.js Playground scenes that nicely demonstrate some of its many uses.
+Chess Board https://www.babylonjs-playground.com/#8VDULN
+
+Using these two materials
+
+![grass](/img/how_to/Materials/grass.png) ![rock](/img/how_to/Materials/rock.png)  
+
+https://www.babylonjs-playground.com/#8VDULN#1
+
+Forming a large scale map using open source map tiles https://www.babylonjs-playground.com/#1XBLWB#6
+
+## Mesh
+Usage :
+```javascript
+const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene);
+const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene, updatable); //one optional parameter after scene
+```

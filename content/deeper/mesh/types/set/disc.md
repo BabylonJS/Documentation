@@ -1,10 +1,10 @@
 # Disc or Regular Polygon
-## MeshBuilder
-You can create any kind of regular polygon with _CreateDisc()_, the number of sides is dependent on the value given to _tessellation_. The larger this value the closer to an actual disc. Using the arc option you can create a sector.
+The created disc is a flat surface parallel to the xy plane with its origin at the center of the disc. Disc is a little bit of a misnomer since you can use it to create any kind of regular polygon. The number of sides is dependent on the value given to _tessellation_. The larger this value the closer to an actual disc. Using the arc option you can create a sector.
 
-Example :
+## MeshBuilder
+Usage :
 ```javascript
-var disc = BABYLON.MeshBuilder.CreateDisc("disc", {tessellation: 3}, scene); // makes a triangle
+const disc = BABYLON.MeshBuilder.CreateDisc("disc", options, scene); //scene is optional and defaults to the current scene 
 ```
 
 option|value|default value
@@ -15,18 +15,16 @@ arc|_(number)_ ratio of the circumference between 0 and 1|1
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
-* [Playground Example of a Sector of Dodecagon](https://www.babylonjs-playground.com/#DJF437)
+
+### Examples
+Disc https://www.babylonjs-playground.com/#MVSQWZ#1  
+Triangle https://www.babylonjs-playground.com/#MVSQWZ#2  
+sector https://www.babylonjs-playground.com/#MVSQWZ#3
 
 ## Mesh
+Usage :
 ```javascript
-var disc = BABYLON.Mesh.CreateDisc("disc", 5, 30, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+const disc = BABYLON.Mesh.CreateDisc("disc", radius, tessellation, scene);
+const disc = BABYLON.Mesh.CreateDisc("disc", radius, tessellation, scene, updatable, sideOrientation); //optional parameters after scene
 ```
-Parameters are: name, radius, tessellation, scene, updatable and the optional side orientation (see below). The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var disc = BABYLON.Mesh.CreateDisc("disc", 5, 30, scene);
-```
-With the  _tessellation_ value, you can get a regular polygon :  
-3 gives a triangle,  
-4 a square,  
-5 a pentagon,  
-6 a hexagon, 7 a heptagon, 8 an octogon, and so on.
+.

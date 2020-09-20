@@ -3,7 +3,7 @@ The created cylinder has its flat sides parallel to the xz plane with its origin
 ## MeshBuilder
 Usage :
 ```javascript
-var cone = BABYLON.MeshBuilder.CreateCylinder("cone", options, scene); //scene is optional and defaults to the current scene
+const cone = BABYLON.MeshBuilder.CreateCylinder("cone", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value
@@ -35,10 +35,6 @@ faceUVs https://www.babylonjs-playground.com/#QANVC6#4
 ## Mesh
 Usage :
 ```javascript
-var cylinder = BABYLON.Mesh.CreateCylinder("cylinder", 3, 3, 3, 6, 1, scene, false, BABYLON.Mesh.DEFAULTSIDE);
-```
-
-Parameters are: name, height, diamTop, diamBottom, tessellation, heightSubdivs, scene, updatable and the optional side orientation (see below). The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var cylinder = BABYLON.Mesh.CreateCylinder("cylinder", 3, 3, 3, 6, 1, scene);
+const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene);
+const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene, updatable, sideOrientation); //optional parameters after scene
 ```
