@@ -1,0 +1,459 @@
+{
+    "friendlyName": "Home Page",
+    "content": "",
+    "children": {
+        "start" :{
+            "friendlyName": "Getting Started",
+            "children": {
+                "chap1": {
+                    "friendlyName": "Chapter 1 - Firsts",
+                    "children": {
+                        "welcome": {"friendlyName": "Welcome", "children": {}, "content": "start/chap1/welcome" },
+                        "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
+                        "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
+                        "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "start/chap1/first_import" },
+                        "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "start/chap1/first_app" }
+                    }
+                },
+                "chap2": {
+                    "friendlyName": "Chapter 2 - Build A Village",
+                    "children": {
+                        "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "start/chap2/ground" },
+                        "sound": {"friendlyName": "Making Music?", "children": {}, "content": "start/chap2/sound" },
+                        "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "start/chap2/placement" },
+                        "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "start/chap2/variation" },
+                        "material": {"friendlyName": "Add Texture", "children": {}, "content": "start/chap2/material" },
+                        "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "start/chap2/face_material" },
+                        "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "start/chap2/combine" },
+                        "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "start/chap2/copies" },
+                        "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "start/chap2/viewer2" },
+                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "start/chap2/app2" }
+                    }
+                },
+                "chap3": {
+                    "friendlyName": "Chapter 3 - Village Animation",
+                    "children": {
+                        "parent": {"friendlyName": "Mesh Parents", "children": {}, "content": "start/chap3/parent" },
+                        "polycar": {"friendlyName": "Building the Car", "children": {}, "content": "start/chap3/polycar" },
+                        "carmat": {"friendlyName": "Car Materials", "children": {}, "content": "start/chap3/carmat" },
+                        "animation": {"friendlyName": "Wheel Animation", "children": {}, "content": "start/chap3/animation" },
+                        "caranimation": {"friendlyName": "Car Animation", "children": {}, "content": "start/chap3/caranimation" },
+                        "import_character": {"friendlyName": "Character Animation", "children": {}, "content": "start/chap3/import_character" },
+                        "walkpath": {"friendlyName": "A Walk Around The Village", "children": {}, "content": "start/chap3/walkpath" }
+                    }
+                },
+                "chap4": {
+                    "friendlyName": "Chapter 4 - Avoiding Collisions",
+                    "children": {
+                        "mesh_intersect": {"friendlyName": "Avoiding a Car Crash", "children": {}, "content": "start/chap4/mesh_intersect"}
+                    }
+                },
+                "chap5": {
+                    "friendlyName": "Chapter 5 - A Better Environment",
+                    "children": {
+                        "hills": {"friendlyName": "Distant Hills", "children": {}, "content": "start/chap5/hills"},
+                        "sky": {"friendlyName": "Skys Above", "children": {}, "content": "start/chap5/sky"},
+                        "trees": {"friendlyName": "Sprite Trees", "children": {}, "content": "start/chap5/trees"}
+
+                    }
+                },
+                "chap6": {
+                    "friendlyName": "Chapter 6 - Build a Particle Fountain",
+                    "children": {
+                        "fountain": {"friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "start/chap6/fountain"},
+                        "particlespray": {"friendlyName": "Particle Spray", "children": {}, "content": "start/chap6/particlespray"},
+                        "onoff": {"friendlyName": "The Switch On Event", "children": {}, "content": "start/chap6/onoff"}
+                    }
+                },
+                "chap7": {
+                    "friendlyName": "Chapter 7 - Light the Night",
+                    "children": {
+                        "lights": {"friendlyName": "Street Lights", "children": {}, "content": "start/chap7/lights"},
+                        "light_gui": {"friendlyName": "Day to Night", "children": {}, "content": "start/chap7/light_gui"},
+                        "shadows": {"friendlyName": "Add Shadows", "children": {}, "content": "start/chap7/shadows"}
+                    }
+                },
+                "chap8": {
+                    "friendlyName": "Chapter 8 - Ways to See The World",
+                    "children": {
+                        "camera": {"friendlyName": "Have a Look Around", "children": {}, "content": "start/chap8/camera"},
+                        "follow": {"friendlyName": "Follow That Character", "children": {}, "content": "start/chap8/follow"},
+                        "vr": {"friendlyName": "See Our World in 3D", "children": {}, "content": "start/chap8/vr"}
+                    }
+                }
+            }
+        },
+        "extensions": {
+            "friendlyName": "extensions",
+            "children": {
+                "Amp360Video": { "friendlyName": "Amp360Video", "children": { "Amp360Video": { "friendlyName": "Amp360Video", "children": {}, "content": "extensions/Amp360Video/Amp360Video" } } },
+                "CastorGUI": {
+                    "friendlyName": "CastorGUI",
+                    "children": {
+                        "CastorGUI": { "friendlyName": "CastorGUI", "children": {}, "content": "extensions/CastorGUI/CastorGUI" },
+                        "GUIButton": { "friendlyName": "GUIButton", "children": {}, "content": "extensions/CastorGUI/GUIButton" },
+                        "GUICheckbox": { "friendlyName": "GUICheckbox", "children": {}, "content": "extensions/CastorGUI/GUICheckbox" },
+                        "GUIColor": { "friendlyName": "GUIColor", "children": {}, "content": "extensions/CastorGUI/GUIColor" },
+                        "GUIDialog": { "friendlyName": "GUIDialog", "children": {}, "content": "extensions/CastorGUI/GUIDialog" },
+                        "GUIFieldset": { "friendlyName": "GUIFieldset", "children": {}, "content": "extensions/CastorGUI/GUIFieldset" },
+                        "GUIGroup": { "friendlyName": "GUIGroup", "children": {}, "content": "extensions/CastorGUI/GUIGroup" },
+                        "GUILabel": { "friendlyName": "GUILabel", "children": {}, "content": "extensions/CastorGUI/GUILabel" },
+                        "GUIManager": { "friendlyName": "GUIManager", "children": {}, "content": "extensions/CastorGUI/GUIManager" },
+                        "GUIMeter": { "friendlyName": "GUIMeter", "children": {}, "content": "extensions/CastorGUI/GUIMeter" },
+                        "GUIPanel": { "friendlyName": "GUIPanel", "children": {}, "content": "extensions/CastorGUI/GUIPanel" },
+                        "GUIProgress": { "friendlyName": "GUIProgress", "children": {}, "content": "extensions/CastorGUI/GUIProgress" },
+                        "GUIRadio": { "friendlyName": "GUIRadio", "children": {}, "content": "extensions/CastorGUI/GUIRadio" },
+                        "GUISelect": { "friendlyName": "GUISelect", "children": {}, "content": "extensions/CastorGUI/GUISelect" },
+                        "GUISlider": { "friendlyName": "GUISlider", "children": {}, "content": "extensions/CastorGUI/GUISlider" },
+                        "GUISpinner": { "friendlyName": "GUISpinner", "children": {}, "content": "extensions/CastorGUI/GUISpinner" },
+                        "GUIText": { "friendlyName": "GUIText", "children": {}, "content": "extensions/CastorGUI/GUIText" },
+                        "GUITextarea": { "friendlyName": "GUITextarea", "children": {}, "content": "extensions/CastorGUI/GUITextarea" },
+                        "GUITextfield": { "friendlyName": "GUITextfield", "children": {}, "content": "extensions/CastorGUI/GUITextfield" },
+                        "GUITextures": { "friendlyName": "GUITextures", "children": {}, "content": "extensions/CastorGUI/GUITextures" },
+                        "GUIWindow": { "friendlyName": "GUIWindow", "children": {}, "content": "extensions/CastorGUI/GUIWindow" }
+                    }
+                },
+                "ClonerSystem": {
+                    "friendlyName": "ClonerSystem",
+                    "children": {
+                        "LinearCloner": { "friendlyName": "LinearCloner", "children": {}, "content": "extensions/ClonerSystem/LinearCloner" },
+                        "MatrixCloner": { "friendlyName": "MatrixCloner", "children": {}, "content": "extensions/ClonerSystem/MatrixCloner" },
+                        "ObjectCloner": { "friendlyName": "ObjectCloner", "children": {}, "content": "extensions/ClonerSystem/ObjectCloner" },
+                        "RadialCloner": { "friendlyName": "RadialCloner", "children": {}, "content": "extensions/ClonerSystem/RadialCloner" },
+                        "RandomEffector": { "friendlyName": "RandomEffector", "children": {}, "content": "extensions/ClonerSystem/RandomEffector" }
+                    }
+                },
+                "glTFExporter": { "friendlyName": "glTFExporter", "children": { "glTFExporter": { "friendlyName": "glTFExporter", "children": {}, "content": "extensions/glTFExporter/glTFExporter" } } },
+                "MaterialsLibrary": {
+                    "friendlyName": "MaterialsLibrary",
+                    "children": {
+                        "Cell": { "friendlyName": "Cell", "children": {}, "content": "extensions/MaterialsLibrary/Cell" },
+                        "Fire": { "friendlyName": "Fire", "children": {}, "content": "extensions/MaterialsLibrary/Fire" },
+                        "Fur": { "friendlyName": "Fur", "children": {}, "content": "extensions/MaterialsLibrary/Fur" },
+                        "Gradient": { "friendlyName": "Gradient", "children": {}, "content": "extensions/MaterialsLibrary/Gradient" },
+                        "Grid": { "friendlyName": "Grid", "children": {}, "content": "extensions/MaterialsLibrary/Grid" },
+                        "Lava": { "friendlyName": "Lava", "children": {}, "content": "extensions/MaterialsLibrary/Lava" },
+                        "Mix": { "friendlyName": "Mix", "children": {}, "content": "extensions/MaterialsLibrary/Mix" },
+                        "Normal": { "friendlyName": "Normal", "children": {}, "content": "extensions/MaterialsLibrary/Normal" },
+                        "ShadowOnly": { "friendlyName": "ShadowOnly", "children": {}, "content": "extensions/MaterialsLibrary/ShadowOnly" },
+                        "Sky": { "friendlyName": "Sky", "children": {}, "content": "extensions/MaterialsLibrary/Sky" },
+                        "Terrain": { "friendlyName": "Terrain", "children": {}, "content": "extensions/MaterialsLibrary/Terrain" },
+                        "Tri_Planar_Mapping": { "friendlyName": "Tri Planar Mapping", "children": {}, "content": "extensions/MaterialsLibrary/Tri_Planar_Mapping" },
+                        "Water": { "friendlyName": "Water", "children": {}, "content": "extensions/MaterialsLibrary/Water" }
+                    }
+                },
+                "Mesh_Writer": { "friendlyName": "Mesh Writer", "children": { "Mesh_Writer_Introduction": { "friendlyName": "Mesh Writer Introduction", "children": {}, "content": "extensions/Mesh_Writer/Mesh_Writer_Introduction" } } },
+                "Navigation": { "friendlyName": "Navigation", "children": { "Crowd": { "friendlyName": "Crowd", "children": {}, "content": "extensions/Navigation/Crowd" }, "NavigationMesh": { "friendlyName": "NavigationMesh", "children": {}, "content": "extensions/Navigation/NavigationMesh" } } },
+                "PostProcessLibrary": {
+                    "friendlyName": "PostProcessLibrary",
+                    "children": {
+                        "AsciiArtPostProcess": { "friendlyName": "AsciiArtPostProcess", "children": {}, "content": "extensions/PostProcessLibrary/AsciiArtPostProcess" },
+                        "DigitalRainPostProcess": { "friendlyName": "DigitalRainPostProcess", "children": {}, "content": "extensions/PostProcessLibrary/DigitalRainPostProcess" }
+                    }
+                },
+                "ProceduralTexturesLibrary": {
+                    "friendlyName": "ProceduralTexturesLibrary",
+                    "children": {
+                        "BrickProceduralTexture": { "friendlyName": "BrickProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/BrickProceduralTexture" },
+                        "CloudProceduralTexture": { "friendlyName": "CloudProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/CloudProceduralTexture" },
+                        "FireProceduralTexture": { "friendlyName": "FireProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/FireProceduralTexture" },
+                        "GrassProceduralTexture": { "friendlyName": "GrassProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/GrassProceduralTexture" },
+                        "MarbleProceduralTexture": { "friendlyName": "MarbleProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/MarbleProceduralTexture" },
+                        "RoadProceduralTexture": { "friendlyName": "RoadProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/RoadProceduralTexture" },
+                        "WoodProceduralTexture": { "friendlyName": "WoodProceduralTexture", "children": {}, "content": "extensions/ProceduralTexturesLibrary/WoodProceduralTexture" }
+                    }
+                },
+                "Terrains": {
+                    "friendlyName": "Terrains",
+                    "children": {
+                        "DT_Examples": { "friendlyName": "DT Examples", "children": {}, "content": "extensions/Terrains/DT_Examples" },
+                        "DT_Objects": { "friendlyName": "DT Objects", "children": {}, "content": "extensions/Terrains/DT_Objects" },
+                        "Dynamic_Terrain": { "friendlyName": "Dynamic Terrain", "children": {}, "content": "extensions/Terrains/Dynamic_Terrain" }
+                    }
+                },
+                "TextureCanvas": { "friendlyName": "TextureCanvas", "children": { "TextureCanvas": { "friendlyName": "TextureCanvas", "children": {}, "content": "extensions/TextureCanvas/TextureCanvas" } } },
+                "Tree_Generators": {
+                    "friendlyName": "Tree Generators",
+                    "children": {
+                        "Quick_Tree_Generator": { "friendlyName": "Quick Tree Generator", "children": {}, "content": "extensions/Tree_Generators/Quick_Tree_Generator" },
+                        "Simple_Pine_Generator": { "friendlyName": "Simple Pine Generator", "children": {}, "content": "extensions/Tree_Generators/Simple_Pine_Generator" },
+                        "SPS_Tree_Generator": { "friendlyName": "SPS Tree Generator", "children": {}, "content": "extensions/Tree_Generators/SPS_Tree_Generator" }
+                    }
+                },
+                "Viewer": {
+                    "friendlyName": "Viewer",
+                    "children": {
+                        "Advanced_usage": { "friendlyName": "Advanced usage", "children": {}, "content": "extensions/Viewer/Advanced_usage" },
+                        "Configuring_the_viewer": { "friendlyName": "Configuring the viewer", "children": {}, "content": "extensions/Viewer/Configuring_the_viewer" },
+                        "Recreating_the_default_configuration": { "friendlyName": "Recreating the default configuration", "children": {}, "content": "extensions/Viewer/Recreating_the_default_configuration" },
+                        "The_Babylon_Viewer": { "friendlyName": "The Babylon Viewer", "children": {}, "content": "extensions/Viewer/The_Babylon_Viewer" },
+                        "The_templating_system": { "friendlyName": "The templating system", "children": {}, "content": "extensions/Viewer/The_templating_system" },
+                        "Viewer_examples": { "friendlyName": "Viewer examples", "children": {}, "content": "extensions/Viewer/Viewer_examples" }
+                    }
+                },
+                "WebGPU": { "friendlyName": "WebGPU", "children": { "webGPU": { "friendlyName": "webGPU", "children": {}, "content": "extensions/WebGPU/webGPU" } } }
+            }
+        },
+        "features": {
+            "friendlyName": "features",
+            "children": {
+                "component": {
+                    "friendlyName": "component",
+                    "children": {
+                        "Animations": { "friendlyName": "Animations", "children": {}, "content": "features/component/Animations" },
+                        "Audio": { "friendlyName": "Audio", "children": {}, "content": "features/component/Audio" },
+                        "behaviour1": { "friendlyName": "behaviour1", "children": {}, "content": "features/component/behaviour1" },
+                        "Cameras": { "friendlyName": "Cameras", "children": {}, "content": "features/component/Cameras" },
+                        "Environment": { "friendlyName": "Environment", "children": {}, "content": "features/component/Environment" },
+                        "Events": { "friendlyName": "Events", "children": {}, "content": "features/component/Events" },
+                        "Lights": { "friendlyName": "Lights", "children": {}, "content": "features/component/Lights" },
+                        "Materials": { "friendlyName": "Materials", "children": {}, "content": "features/component/Materials" },
+                        "OcclusionQuery": { "friendlyName": "OcclusionQuery", "children": {}, "content": "features/component/OcclusionQuery" },
+                        "Particles": { "friendlyName": "Particles", "children": {}, "content": "features/component/Particles" },
+                        "Position,_Rotation,_Scaling": { "friendlyName": "Position, Rotation, Scaling", "children": {}, "content": "features/component/Position,_Rotation,_Scaling" },
+                        "Scene": { "friendlyName": "Scene", "children": {}, "content": "features/component/Scene" },
+                        "Shapes": { "friendlyName": "Shapes", "children": {}, "content": "features/component/Shapes" }
+                    }
+                },
+                "controls": {
+                    "friendlyName": "controls",
+                    "children": {
+                        "controls": { "friendlyName": "controls", "children": {}, "content": "features/controls/controls" },
+                        "imageFilter": { "friendlyName": "imageFilter", "children": {}, "content": "features/controls/imageFilter" },
+                        "resizer": { "friendlyName": "resizer", "children": {}, "content": "features/controls/resizer" },
+                        "timeline": { "friendlyName": "timeline", "children": {}, "content": "features/controls/timeline" }
+                    }
+                },
+                "GUI": { "friendlyName": "GUI", "children": { "gui": { "friendlyName": "gui", "children": {}, "content": "features/GUI/gui" } } },
+                "PGsupport": {
+                    "friendlyName": "PGsupport",
+                    "children": {
+                        "intro_inspector": { "friendlyName": "intro inspector", "children": {}, "content": "features/PGsupport/intro_inspector" },
+                        "Playground": { "friendlyName": "Playground", "children": {}, "content": "features/PGsupport/Playground" },
+                        "Playground_debuglayer": { "friendlyName": "Playground debuglayer", "children": {}, "content": "features/PGsupport/Playground_debuglayer" }
+                    }
+                },
+                "Support": {
+                    "friendlyName": "Support",
+                    "children": {
+                        "How_To_Get": { "friendlyName": "Getting Babylon.js (from Babylon101)", "children": {}, "content": "features/Support/How_To_Get" },
+                        "ES6_Support": { "friendlyName": "ES6 Support", "children": {}, "content": "features/Support/ES6_Support" },
+                        "NPM_Support": { "friendlyName": "NPM Support", "children": {}, "content": "features/Support/NPM_Support" },
+                        "nullEngine": { "friendlyName": "nullEngine", "children": {}, "content": "features/Support/nullEngine" },
+                        "Physics_Engine": { "friendlyName": "Physics Engine", "children": {}, "content": "features/Support/Physics_Engine" },
+                        "WebGL2": { "friendlyName": "WebGL2", "children": {}, "content": "features/Support/WebGL2" }
+                    }
+                }
+            }
+        },
+        "deeper": {
+            "friendlyName": "Diving Deeper",
+            "children": {
+                "mesh": {
+                    "friendlyName": "About Meshes",
+                    "children": {
+                        "types" : {
+                            "friendlyName": "Types of Meshes",
+                            "children": {
+                                "intro": { "friendlyName": "Introduction", "children": {}, "content": "deeper/mesh/types/intro" },
+                                "set": {
+                                    "friendlyName": "Create Set Shapes",
+                                    "children": {
+                                        "box": { "friendlyName": "Box", "children": {}, "content": "deeper/mesh/types/set/box" },
+                                        "tiled_box": { "friendlyName": "Tiled Box", "children": {}, "content": "deeper/mesh/types/set/tiled_box" },
+                                        "sphere": { "friendlyName": "Sphere", "children": {}, "content": "deeper/mesh/types/set/sphere" },
+                                        "cylinder": { "friendlyName": "Cylinder", "children": {}, "content": "deeper/mesh/types/set/cylinder" },
+                                        "plane": { "friendlyName": "Plane", "children": {}, "content": "deeper/mesh/types/set/Plane" },
+                                        "tiled_plane": { "friendlyName": "Tiled", "children": {}, "content": "deeper/mesh/types/set/tiled_plane" },
+                                        "disc": { "friendlyName": "Disc", "children": {}, "content": "deeper/mesh/types/set/disc" },
+                                        "torus": { "friendlyName": "Torus", "children": {}, "content": "deeper/mesh/types/set/torus" },
+                                        "torus_knot": { "friendlyName": "Torus Knot", "children": {}, "content": "deeper/mesh/types/set/torus_knot" },
+                                        "ground": { "friendlyName": "Ground", "children": {}, "content": "deeper/mesh/types/set/ground" },
+                                        "ground_hmap": { "friendlyName": "Ground from Height Map", "children": {}, "content": "deeper/mesh/types/set/ground_hmap" },
+                                        "tiled_ground": { "friendlyName": "Tiled Ground", "children": {}, "content": "deeper/mesh/types/set/tiled_ground" }
+                                    }
+                                },
+                                "param": {
+                                    "friendlyName": "Create Parametric Shapes",
+                                    "children": {
+                                        "about": { "friendlyName": "About", "children": {}, "content": "deeper/mesh/types/param/about" },
+                                        "lines": { "friendlyName": "Lines", "children": {}, "content": "deeper/mesh/types/param/lines" },
+                                        "dashed": { "friendlyName": "Dashed Lines", "children": {}, "content": "deeper/mesh/types/param/dashed" },
+                                        "line_system": { "friendlyName": "Line System", "children": {}, "content": "deeper/mesh/types/param/line_system" },
+                                        "ribbon": { "friendlyName": "Ribbon", "children": {}, "content": "deeper/mesh/types/param/ribbon" },
+                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "deeper/mesh/types/param/ribbon_extra" },
+                                        "tube": { "friendlyName": "Tube", "children": {}, "content": "deeper/mesh/types/param/tube" },
+                                        "extrude_shape": { "friendlyName": "Extrusion", "children": {}, "content": "deeper/mesh/types/param/extrude_shape" },
+                                        "custom_extrude": { "friendlyName": "Custom Extrusion", "children": {}, "content": "deeper/mesh/types/param/custom_extrude" },
+                                        "lathe": { "friendlyName": "Lathe", "children": {}, "content": "deeper/mesh/types/param/lathe" },
+                                        "polygon": { "friendlyName": "Irregular Polygon", "children": {}, "content": "deeper/mesh/types/param/polygon" },
+                                        "extrude_polygon": { "friendlyName": "Polygon Extrusion", "children": {}, "content": "deeper/mesh/types/param/extrude_polygon" },
+                                        "polygon_mbuild": { "friendlyName": "About", "children": {}, "content": "deeper/mesh/types/param/polygon_mbuild" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "resources": {
+            "friendlyName": "resources",
+            "children": {
+                "Editor": {
+                    "friendlyName": "Editor",
+                    "children": {
+                        "Adding_Animations": { "friendlyName": "Adding Animations", "children": {}, "content": "resources/Editor/Adding_Animations" },
+                        "Adding_Materials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Adding_Materials" },
+                        "Adding_Textures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Adding_Textures" },
+                        "Creating_Prefabs": { "friendlyName": "Creating Prefabs", "children": {}, "content": "resources/Editor/Creating_Prefabs" },
+                        "Custom_Scripts": { "friendlyName": "Custom Scripts", "children": {}, "content": "resources/Editor/Custom_Scripts" },
+                        "Editing_Prefabs": { "friendlyName": "Editing Prefabs", "children": {}, "content": "resources/Editor/Editing_Prefabs" },
+                        "Explaining_Workflow": { "friendlyName": "Explaining Workflow", "children": {}, "content": "resources/Editor/Explaining_Workflow" },
+                        "Getting_Started": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Editor/Getting_Started" },
+                        "Using_Assets_Panel": { "friendlyName": "Using Assets Panel", "children": {}, "content": "resources/Editor/Using_Assets_Panel" },
+                        "Using_GraphEditor": { "friendlyName": "Using GraphEditor", "children": {}, "content": "resources/Editor/Using_GraphEditor" },
+                        "Using_ParticleSystemEditor": { "friendlyName": "Using ParticleSystemEditor", "children": {}, "content": "resources/Editor/Using_ParticleSystemEditor" },
+                        "Using_PathFinder": { "friendlyName": "Using PathFinder", "children": {}, "content": "resources/Editor/Using_PathFinder" },
+                        "Using_Photoshop_Extension": { "friendlyName": "Using Photoshop Extension", "children": {}, "content": "resources/Editor/Using_Photoshop_Extension" }
+                    }
+                },
+                "Exporter": {
+                    "friendlyName": "Exporter",
+                    "children": {
+                        "3DSMax": { "friendlyName": "3DSMax", "children": {}, "content": "resources/Exporter/3DSMax" },
+                        "3DSMax_to_glTF": { "friendlyName": "3DSMax to glTF", "children": {}, "content": "resources/Exporter/3DSMax_to_glTF" },
+                        "3Dtext": { "friendlyName": "3Dtext", "children": {}, "content": "resources/Exporter/3Dtext" },
+                        "Blender": { "friendlyName": "Blender", "children": {}, "content": "resources/Exporter/Blender" },
+                        "Blender_Tips": { "friendlyName": "Blender Tips", "children": {}, "content": "resources/Exporter/Blender_Tips" },
+                        "Blender_to_glTF": { "friendlyName": "Blender to glTF", "children": {}, "content": "resources/Exporter/Blender_to_glTF" },
+                        "Bones_influences_per_vertex": { "friendlyName": "Bones influences per vertex", "children": {}, "content": "resources/Exporter/Bones_influences_per_vertex" },
+                        "Cheetah3D": { "friendlyName": "Cheetah3D", "children": {}, "content": "resources/Exporter/Cheetah3D" },
+                        "Maya": { "friendlyName": "Maya", "children": {}, "content": "resources/Exporter/Maya" },
+                        "Maya_to_glTF": { "friendlyName": "Maya to glTF", "children": {}, "content": "resources/Exporter/Maya_to_glTF" },
+                        "Mixamo_to_Babylon": { "friendlyName": "Mixamo to Babylon", "children": {}, "content": "resources/Exporter/Mixamo_to_Babylon" },
+                        "Save_Babylon": { "friendlyName": "Save Babylon", "children": {}, "content": "resources/Exporter/Save_Babylon" }
+                    }
+                },
+                "Library": {
+                    "friendlyName": "Library",
+                    "children": {
+                        "BabylonJS_and_Instant_Games": { "friendlyName": "BabylonJS and Instant Games", "children": {}, "content": "resources/Library/BabylonJS_and_Instant_Games" },
+                        "BabylonJS_and_Ionic_Angular": { "friendlyName": "BabylonJS and Ionic Angular", "children": {}, "content": "resources/Library/BabylonJS_and_Ionic_Angular" },
+                        "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
+                        "BabylonJS_and_ReactJS": { "friendlyName": "BabylonJS and ReactJS", "children": {}, "content": "resources/Library/BabylonJS_and_ReactJS" },
+                        "BabylonJS_and_React_Native": { "friendlyName": "BabylonJS and React Native", "children": {}, "content": "resources/Library/BabylonJS_and_React_Native" },
+                        "BabylonJS_and_VRM": { "friendlyName": "BabylonJS and VRM", "children": {}, "content": "resources/Library/BabylonJS_and_VRM" },
+                        "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" }
+                    }
+                },
+                "Manual": {
+                    "friendlyName": "Manual",
+                    "children": {
+                        "Baking_Transformations": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" },
+                        "Facets": { "friendlyName": "Facets", "children": {}, "content": "resources/Manual/Facets" },
+                        "Frame_Of_Reference": { "friendlyName": "Frame Of Reference", "children": {}, "content": "resources/Manual/Frame_Of_Reference" },
+                        "How_materials_work": { "friendlyName": "How materials work", "children": {}, "content": "resources/Manual/How_materials_work" },
+                        "Maths_Make_Ribbons": { "friendlyName": "Maths Make Ribbons", "children": {}, "content": "resources/Manual/Maths_Make_Ribbons" },
+                        "Multi-Platform_Compressed_Textures": { "friendlyName": "Multi-Platform Compressed Textures", "children": {}, "content": "resources/Manual/Multi-Platform_Compressed_Textures" },
+                        "Normals": { "friendlyName": "Normals", "children": {}, "content": "resources/Manual/Normals" },
+                        "Rotation_Conventions": { "friendlyName": "Rotation Conventions", "children": {}, "content": "resources/Manual/Rotation_Conventions" },
+                        "ShaderIntro": { "friendlyName": "ShaderIntro", "children": {}, "content": "resources/Manual/ShaderIntro" },
+                        "Transparency_and_How_Meshes_Are_Rendered": { "friendlyName": "Transparency and How Meshes Are Rendered", "children": {}, "content": "resources/Manual/Transparency_and_How_Meshes_Are_Rendered" }
+                    }
+                },
+                "Playground_aspects": {
+                    "friendlyName": "Playground aspects",
+                    "children": {
+                        "External_PG_assets": { "friendlyName": "External PG assets", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" },
+                        "meshes_to_load": { "friendlyName": "meshes to load", "children": {}, "content": "resources/Playground_aspects/meshes_to_load" },
+                        "Playground_Textures": { "friendlyName": "Playground Textures", "children": {}, "content": "resources/Playground_aspects/Playground_Textures" }
+                    }
+                },
+                "Reference": {
+                    "friendlyName": "Reference",
+                    "children": {
+                        "Constants": { "friendlyName": "Constants", "children": {}, "content": "resources/Reference/Constants" },
+                        "Creating_the_Mini-fied_Version": { "friendlyName": "Creating the Mini-fied Version", "children": {}, "content": "resources/Reference/Creating_the_Mini-fied_Version" },
+                        "Documentation_Category_Map": { "friendlyName": "Documentation Category Map", "children": {}, "content": "resources/Reference/Documentation_Category_Map" },
+                        "File_Format_Map_(.babylon)": { "friendlyName": "File Format Map (.babylon)", "children": {}, "content": "resources/Reference/File_Format_Map_(.babylon)" },
+                        "Framework_versions": { "friendlyName": "Framework versions", "children": {}, "content": "resources/Reference/Framework_versions" },
+                        "offsite_tutorials_list": { "friendlyName": "offsite tutorials list", "children": {}, "content": "resources/Reference/offsite_tutorials_list" },
+                        "Tags": { "friendlyName": "Tags", "children": {}, "content": "resources/Reference/Tags" },
+                        "vscode": { "friendlyName": "vscode", "children": {}, "content": "resources/Reference/vscode" }
+                    }
+                },
+                "Unity": {
+                    "friendlyName": "Unity",
+                    "children": {
+                        "01_ScriptComponents": { "friendlyName": "01 ScriptComponents", "children": {}, "content": "resources/Unity/01_ScriptComponents" },
+                        "02_SceneManager": { "friendlyName": "02 SceneManager", "children": {}, "content": "resources/Unity/02_SceneManager" },
+                        "03_ShaderMaterials": { "friendlyName": "03 ShaderMaterials", "children": {}, "content": "resources/Unity/03_ShaderMaterials" },
+                        "04_CollisionMeshes": { "friendlyName": "04 CollisionMeshes", "children": {}, "content": "resources/Unity/04_CollisionMeshes" },
+                        "05_TerrainBuilder": { "friendlyName": "05 TerrainBuilder", "children": {}, "content": "resources/Unity/05_TerrainBuilder" },
+                        "06_AnimationState": { "friendlyName": "06 AnimationState", "children": {}, "content": "resources/Unity/06_AnimationState" },
+                        "07_RuntimePrefabs": { "friendlyName": "07 RuntimePrefabs", "children": {}, "content": "resources/Unity/07_RuntimePrefabs" },
+                        "08_StaticBatching": { "friendlyName": "08 StaticBatching", "children": {}, "content": "resources/Unity/08_StaticBatching" },
+                        "09_NavigationMesh": { "friendlyName": "09 NavigationMesh", "children": {}, "content": "resources/Unity/09_NavigationMesh" },
+                        "10_WindowsPlatform": { "friendlyName": "10 WindowsPlatform", "children": {}, "content": "resources/Unity/10_WindowsPlatform" },
+                        "11_BabylonArtTools": { "friendlyName": "11 BabylonArtTools", "children": {}, "content": "resources/Unity/11_BabylonArtTools" },
+                        "Exporter": { "friendlyName": "Exporter", "children": {}, "content": "resources/Unity/Exporter" },
+                        "Intro": { "friendlyName": "Intro", "children": {}, "content": "resources/Unity/Intro" },
+                        "Projects": { "friendlyName": "Projects", "children": {}, "content": "resources/Unity/Projects" }
+                    }
+                }
+            }
+        },
+        "snippets": {
+            "friendlyName": "snippets",
+            "children": {
+                "gamelets": {
+                    "friendlyName": "gamelets",
+                    "children": {
+                        "Car_Driven": { "friendlyName": "Car Driven", "children": {}, "content": "snippets/gamelets/Car_Driven" },
+                        "Car_Path": { "friendlyName": "Car Path", "children": {}, "content": "snippets/gamelets/Car_Path" },
+                        "Collide_Intro": { "friendlyName": "Collide Intro", "children": {}, "content": "snippets/gamelets/Collide_Intro" },
+                        "Free_Collide": { "friendlyName": "Free Collide", "children": {}, "content": "snippets/gamelets/Free_Collide" },
+                        "Grid_Moves": { "friendlyName": "Grid Moves", "children": {}, "content": "snippets/gamelets/Grid_Moves" },
+                        "Grouping": { "friendlyName": "Grouping", "children": {}, "content": "snippets/gamelets/Grouping" },
+                        "House": { "friendlyName": "House", "children": {}, "content": "snippets/gamelets/House" },
+                        "House_Use": { "friendlyName": "House Use", "children": {}, "content": "snippets/gamelets/House_Use" },
+                        "Issues": { "friendlyName": "Issues", "children": {}, "content": "snippets/gamelets/Issues" },
+                        "roof": { "friendlyName": "roof", "children": {}, "content": "snippets/gamelets/roof" },
+                        "Slow_Collide": { "friendlyName": "Slow Collide", "children": {}, "content": "snippets/gamelets/Slow_Collide" },
+                        "Track": { "friendlyName": "Track", "children": {}, "content": "snippets/gamelets/Track" },
+                        "Track_Code": { "friendlyName": "Track Code", "children": {}, "content": "snippets/gamelets/Track_Code" },
+                        "VR": { "friendlyName": "VR", "children": {}, "content": "snippets/gamelets/VR" },
+                        "Writing1": { "friendlyName": "Writing1", "children": {}, "content": "snippets/gamelets/Writing1" },
+                        "Writing2": { "friendlyName": "Writing2", "children": {}, "content": "snippets/gamelets/Writing2" }
+                    }
+                },
+                "introduction": { "friendlyName": "introduction", "children": { "Introduction": { "friendlyName": "Introduction", "children": {}, "content": "snippets/introduction/Introduction" } } },
+                "utilities": {
+                    "friendlyName": "utilities",
+                    "children": {
+                        "area": { "friendlyName": "area", "children": {}, "content": "snippets/utilities/area" },
+                        "Deconstruct_Mesh": { "friendlyName": "Deconstruct Mesh", "children": {}, "content": "snippets/utilities/Deconstruct_Mesh" },
+                        "Frame": { "friendlyName": "Frame", "children": {}, "content": "snippets/utilities/Frame" },
+                        "Increasing_Facets": { "friendlyName": "Increasing Facets", "children": {}, "content": "snippets/utilities/Increasing_Facets" },
+                        "InnerMeshPoints": { "friendlyName": "InnerMeshPoints", "children": {}, "content": "snippets/utilities/InnerMeshPoints" },
+                        "IsInside": { "friendlyName": "IsInside", "children": {}, "content": "snippets/utilities/IsInside" },
+                        "Line2D": { "friendlyName": "Line2D", "children": {}, "content": "snippets/utilities/Line2D" },
+                        "Minimise_Vertices": { "friendlyName": "Minimise Vertices", "children": {}, "content": "snippets/utilities/Minimise_Vertices" },
+                        "Mitred": { "friendlyName": "Mitred", "children": {}, "content": "snippets/utilities/Mitred" },
+                        "Normals": { "friendlyName": "Normals", "children": {}, "content": "snippets/utilities/Normals" },
+                        "OpenUrl": { "friendlyName": "OpenUrl", "children": {}, "content": "snippets/utilities/OpenUrl" },
+                        "Path3D": { "friendlyName": "Path3D", "children": {}, "content": "snippets/utilities/Path3D" },
+                        "Pivot": { "friendlyName": "Pivot", "children": {}, "content": "snippets/utilities/Pivot" },
+                        "Sector": { "friendlyName": "Sector", "children": {}, "content": "snippets/utilities/Sector" },
+                        "SphericalPanning": { "friendlyName": "SphericalPanning", "children": {}, "content": "snippets/utilities/SphericalPanning" },
+                        "SurfaceMeshPoints": { "friendlyName": "SurfaceMeshPoints", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
+                        "World_Axes": { "friendlyName": "World Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
+                    }
+                }
+            }
+        },
+        "whats-new": { "friendlyName": "whats-new", "children": { "whats-new": { "friendlyName": "whats-new", "children": {} } } }
+    },
+    "navOverrides": { "previous": "" }
+}
