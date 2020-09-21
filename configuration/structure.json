@@ -253,7 +253,7 @@
                     "children": {
                         "usingPhysicsEngine": { "friendlyName": "Using A Physics Engine", "children": {}, "content": "How_To/Physics/Using_The_Physics_Engine" },
                         "forces": { "friendlyName": "Forces", "children": {}, "content": "How_To/Physics/Forces" },
-                        "joints": { "friendlyName": "Joints", "children": {}, "content": "How_To/Physics/joints" },
+                        "joints": { "friendlyName": "Joints", "children": {}, "content": "How_To/Physics/Joints" },
                         "pivotsAxes": { "friendlyName": "Pivots and Axes", "children": {}, "content": "How_To/Physics/Joint_Pivots" },
                         "compoundBodies": { "friendlyName": "Compound Bodies", "children": {}, "content": "How_To/Physics/Compounds" },
                         "softBodies": { "friendlyName": "Soft Bodies", "children": {}, "content": "How_To/Physics/Soft_Bodies" },
@@ -265,14 +265,15 @@
                 "postProcesses": {
                     "friendlyName": "Post Processes", 
                     "children": {
-                        "usingPhysicsEngine": { "friendlyName": "Using A Physics Engine", "children": {}, "content": "How_To/Physics/Using_The_Physics_Engine" },
-                        "forces": { "friendlyName": "Forces", "children": {}, "content": "How_To/Physics/Forces" },
-                        "joints": { "friendlyName": "Joints", "children": {}, "content": "How_To/Physics/joints" },
-                        "pivotsAxes": { "friendlyName": "Pivots and Axes", "children": {}, "content": "How_To/Physics/Joint_Pivots" },
-                        "compoundBodies": { "friendlyName": "Compound Bodies", "children": {}, "content": "How_To/Physics/Compounds" },
-                        "softBodies": { "friendlyName": "Soft Bodies", "children": {}, "content": "How_To/Physics/Soft_Bodies" },
-                        "advancedPhysicsFeatures": { "friendlyName": "Advanced Physics Features", "children": {}, "content": "How_To/Physics/Using_Advanced_Physics_Features" },
-                        "addPhysicsEngine": { "friendlyName": "Add Your Own Physics Engine", "children": {}, "content": "How_To/Physics/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js" }
+                        "usePostProcesses": { "friendlyName": "Using Post Processes", "children": {}, "content": "How_To/Post_Process/How_to_use_PostProcesses" },
+                        "postProcessRenderPipeline": { "friendlyName": "Using the PostProcessRenderPipeline", "children": {}, "content": "How_To/Post_Process/How_to_use_PostProcessRenderPipeline" },
+                        "SSAORenderPipeline": { "friendlyName": "Using the SSAO Rendering Pipeline", "children": {}, "content": "How_To/Post_Process/Using_the_SSAO_rendering_pipeline" },
+                        "standardRenderingPipeline": { "friendlyName": "Using the Standard Rendering Pipeline (deprecated)", "children": {}, "content": "How_To/Post_Process/Using_Standard_Rendering_Pipeline" },
+                        "defaultRenderingPipeline": { "friendlyName": "Using the Default Rendering Pipeline", "children": {}, "content": "How_To/Post_Process/Using_Default_Rendering_Pipeline" },
+                        "dofLenseEffects": { "friendlyName": "Depth of Field and Other Lens Effects", "children": {}, "content": "How_To/Post_Process/Using_depth-of-field_and_other_lens_effects" },
+                        "motionBlurPostProcess": { "friendlyName": "Motion Blur Post Process", "children": {}, "content": "How_To/Post_Process/Using_MotionBlurPostProcess" },
+                        "screenSpaceReflectionsPostProcess": { "friendlyName": "Screen Space Reflections (SSR) Post Process", "children": {}, "content": "How_To/Post_Process/Using_ScreenSpaceReflectionsPostProcess" },
+                        "renderTargetTextureMultiPass": { "friendlyName": "Using RenderTargetTexture and Multiple Passes", "children": {}, "content": "How_To/Post_Process/How_to_use_RenderTargetTexture_and_multiple_passes" }
                     }, 
                     "content": "newPages/divingDeeperPhysicsLandingPage"
                 },
@@ -284,30 +285,30 @@
                 "scene": {
                     "friendlyName": "Scene", 
                     "children": {
-                        "fastBuildWorld": { "friendlyName": "Fast Build A World", "children": {}, "content": "How_To/Scene/Fast_Build" },
-                        "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/Scene/Interactions" },
-                        "multiScenes": { "friendlyName": "Using Multiple Scenes", "children": {}, "content": "How_To/Scene/Multi_Scenes" },
-                        "multiCanvas": { "friendlyName": "Using Multiple Canvases", "children": {}, "content": "How_To/Scene/Multi_Canvases" },
-                        "deltaFiles": { "friendlyName": "Applying Delta Changes To A Scene", "children": {}, "content": "How_To/Scene/delta_file" },
-                        "customLoadingScreen": { "friendlyName": "Creating Custom Loading Screens", "children": {}, "content": "How_To/Scene/Creating_a_custom_loading_screen" },
-                        "sceneOptimizer": { "friendlyName": "The Scene Optimizer", "children": {}, "content": "How_To/Scene/How_to_use_SceneOptimizer" },
-                        "optimizeScenes": { "friendlyName": "More Scene Optimizations", "children": {}, "content": "How_To/Scene/Fast_Build" },
-                        "optimizeOctrees": { "friendlyName": "Optimizing with Octrees", "children": {}, "content": "How_To/Scene/Optimizing_Your_Scene_with_Octrees" },
-                        "optimizeCached": { "friendlyName": "Optimizing Using Cached Resources", "children": {}, "content": "How_To/Scene/Caching_Resources_in_IndexedDB" },
-                        "reducingMemoryUsage": { "friendlyName": "Reducing Memory Footprint", "children": {}, "content": "How_To/Scene/Reduce_memory_footprint" },
-                        "offscreenCanvas": { "friendlyName": "Using Offscreen Canvas", "children": {}, "content": "How_To/Scene/Using_Offscreen_Canvas" },
-                        "renderToPNG": { "friendlyName": "Render Scenes To .png Files", "children": {}, "content": "How_To/Scene/Render_Scene_on_a_PNG" },
-                        "renderToVideo": { "friendlyName": "Render Scenes To Video", "children": {}, "content": "How_To/Scene/Render_Scene_on_a_Video" },
-                        "clipPlanes": { "friendlyName": "Using Clip Planes", "children": {}, "content": "How_To/Scene/Clip_Planes" },
-                        "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/Scene/Render_Scene_on_a_Server" }
+                        "fastBuildWorld": { "friendlyName": "Fast Build A World", "children": {}, "content": "How_To/scene/Fast_Build" },
+                        "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
+                        "multiScenes": { "friendlyName": "Using Multiple Scenes", "children": {}, "content": "How_To/scene/Multi_Scenes" },
+                        "multiCanvas": { "friendlyName": "Using Multiple Canvases", "children": {}, "content": "How_To/scene/Multi_Canvases" },
+                        "deltaFiles": { "friendlyName": "Applying Delta Changes To A Scene", "children": {}, "content": "How_To/scene/delta_file" },
+                        "customLoadingScreen": { "friendlyName": "Creating Custom Loading Screens", "children": {}, "content": "How_To/scene/Creating_a_custom_loading_screen" },
+                        "sceneOptimizer": { "friendlyName": "The Scene Optimizer", "children": {}, "content": "How_To/scene/How_to_use_SceneOptimizer" },
+                        "optimizeScenes": { "friendlyName": "More Scene Optimizations", "children": {}, "content": "How_To/scene/Fast_Build" },
+                        "optimizeOctrees": { "friendlyName": "Optimizing with Octrees", "children": {}, "content": "How_To/scene/Optimizing_Your_Scene_with_Octrees" },
+                        "optimizeCached": { "friendlyName": "Optimizing Using Cached Resources", "children": {}, "content": "How_To/scene/Caching_Resources_in_IndexedDB" },
+                        "reducingMemoryUsage": { "friendlyName": "Reducing Memory Footprint", "children": {}, "content": "How_To/scene/Reduce_memory_footprint" },
+                        "offscreenCanvas": { "friendlyName": "Using Offscreen Canvas", "children": {}, "content": "How_To/scene/Using_Offscreen_Canvas" },
+                        "renderToPNG": { "friendlyName": "Render Scenes To .png Files", "children": {}, "content": "How_To/scene/Render_Scene_on_a_PNG" },
+                        "renderToVideo": { "friendlyName": "Render Scenes To Video", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Video" },
+                        "clipPlanes": { "friendlyName": "Using Clip Planes", "children": {}, "content": "How_To/scene/Clip_Planes" },
+                        "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Server" }
                     }, 
                     "content": "features/component/Scene"
                 },
                 "shaders": {
                     "friendlyName": "Shaders", 
                     "children": {
-                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/Shaders/Putting" },
-                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/Shaders/Shader_Material" }
+                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
+                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" }
                     }, 
                     "content": "newPages/divingDeeperShadersLandingPage"
                 },
@@ -370,7 +371,7 @@
                 "webGPU": {
                     "friendlyName": "WebGPU", 
                     "children": {}, 
-                    "content": "extensions/WebGPU/WebGPU"
+                    "content": "extensions/WebGPU/webGPU"
                 },
                 "serverSide": {
                     "friendlyName": "Running Babylon.js on a Server", 
@@ -518,7 +519,7 @@
                         "closing": { "friendlyName": "In Closing", "children": {}, "content": "How_To/Create_A_Game/closing" },
                         "designArt": { "friendlyName": "Design Process", "children": {}, "content": "How_To/Create_A_Game/designProcess" }
                     }, 
-                    "content": "How_To/Create_A_GAme/introToCreatingGames"
+                    "content": "How_To/Create_A_Game/introToCreatingGames"
                 },
                 "3DWebBasics": {
                     "friendlyName": "Understanding the Basics of 3D on the Web", 
@@ -528,7 +529,7 @@
                 "WebGLBasics": {
                     "friendlyName": "Understanding the Basics of WebGL", 
                     "children": {}, 
-                    "content": "How_To/Videos/WEbGL_Basics"
+                    "content": "How_To/Videos/WebGL_Basics"
                 },
                 "bjsBeginners": {
                     "friendlyName": "Using Babylon.js for Beginners", 
@@ -902,7 +903,7 @@
                 "glTFExporter": {
                     "friendlyName": "glTF Exporter",
                     "children": {},
-                    "content": "extensions/glTFExporter/glTFEXporter"
+                    "content": "extensions/glTFExporter/glTFExporter"
                 }
             },
             "content": "newPages/extensionsLandingPage" 
