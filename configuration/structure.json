@@ -83,6 +83,7 @@
                 "developWithBjs": {
                     "friendlyName": "Develop With Babylon.js", 
                     "children": {
+                        "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
                         "howToStart": { "friendlyName": "Start Contributing to Babylon.js", "children": {}, "content": "How_To/contribute/how_to_start" },
                         "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
                         "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
@@ -135,7 +136,7 @@
                 "input": {
                     "friendlyName": "Input", 
                     "children": {
-                        "gamepads": { "friendlyName": "Gamepads", "children": {}, "content": "How_To/events/how_to_use_Gamepads" },
+                        "gamepads": { "friendlyName": "Gamepads", "children": {}, "content": "How_To/events/How_to_use_Gamepads" },
                         "virtualJoysticks": { "friendlyName": "Virtual Joysticks", "children": {}, "content": "How_To/events/How_to_use_Virtual_Joysticks" },
                         "deviceSourceManager": { "friendlyName": "Device Source Manager", "children": {}, "content": "How_To/events/How_to_use_DeviceSourceManager" }
                     }, 
@@ -178,7 +179,7 @@
                         "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
                         "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
                         "reflectionTexture": { "friendlyName": "Reflection Textures", "children": {}, "content": "How_To/material/Reflect" },
-                        "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FesnelParameters" },
+                        "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
                         "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
                         "depthValuesDepthRenderer": { "friendlyName": "Get Depth Values with the Depth Renderer", "children": {}, "content": "How_To/material/How_to_use_DepthRenderer_to_get_depth_values" },
                         "logarithmicDepthBuffer": { "friendlyName": "The Logarithmic Depth Buffer", "children": {}, "content": "How_To/material/Using_logarithmic_depth_buffer" },
@@ -395,7 +396,7 @@
                         "inspector": {
                             "friendlyName": "Inspector", 
                             "children": {
-                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "How_To/PGsupport/intro_inspector" },
+                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "features/PGsupport/intro_inspector" },
                                 "customizingInspector": { "friendlyName": "Customizing the Inspector", "children": {}, "content": "How_To/PGsupport/Customize_debug_layer" }
                             }, 
                             "content": "features/PGsupport/Playground_debuglayer"
@@ -578,6 +579,161 @@
                     "friendlyName": "Off-Site Tutorials List", 
                     "children": {}, 
                     "content": "resources/Reference/offsite_tutorials_list"
+                },
+                "carPath": {
+                    "friendlyName": "Simple Car Following Path", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Car_Path"
+                },
+                "usingHouseFromFloorplan": {
+                    "friendlyName": "Using Build a House From a Floorplan", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/House_Use"
+                },
+                "developHouseFromFloorplan": {
+                    "friendlyName": "Developing Build a House From a Floorplan", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/House"
+                },
+                "addingRoofToHouse": {
+                    "friendlyName": "Adding a Roof to a House", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/roof"
+                },
+                "carriageTrack": {
+                    "friendlyName": "Carriage Following a Track", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Track"
+                },
+                "track": {
+                    "friendlyName": "Creating a Track to Follow", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Track_Code"
+                },
+                "simpleCar": {
+                    "friendlyName": "Making a Simple Driven Car", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Car_Driven"
+                },
+                "collisionsIntro": {
+                    "friendlyName": "Introduction to Collisions", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Collide_Intro"
+                },
+                "collisionIssues": {
+                    "friendlyName": "Collision Issues", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Issues"
+                },
+                "simpleParticleCollisions": {
+                    "friendlyName": "Simple Particle Collisions on a Grid", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Grid_Moves"
+                },
+                "slowParticleCollisions": {
+                    "friendlyName": "Slow Particle Collisions", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Slow_Collide"
+                },
+                "freeMovingParticles": {
+                    "friendlyName": "Freely Moving Particle Collisions", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Free_Collide"
+                },
+                "fireworksShader": {
+                    "friendlyName": "Fireworks Shader Code", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Writing2"
+                },
+                "verticalWaveShader": {
+                    "friendlyName": "A Vertical Wave with Shader Code", 
+                    "children": {}, 
+                    "content": "snippets/gamelets/Writing1"
+                },
+                "minimizeVerts": {
+                    "friendlyName": "Minimize Vertices", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Minimise_Vertices"
+                },
+                "increasingFacets": {
+                    "friendlyName": "Increasing Facets", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Increasing_Facets"
+                },
+                "showVertNormals": {
+                    "friendlyName": "Showing Vertext Normals", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Normals"
+                },
+                "arcVectors": {
+                    "friendlyName": "Arc Between Vectors", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Sector"
+                },
+                "meshSurfaceArea": {
+                    "friendlyName": "Mesh Surface Area", 
+                    "children": {}, 
+                    "content": "snippets/utilities/area"
+                },
+                "displayPath3DCurve": {
+                    "friendlyName": "Display Path3D Curve", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Path3D"
+                },
+                "placingPivot": {
+                    "friendlyName": "Placing A Pivot", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Pivot"
+                },
+                "displayWorldAxes": {
+                    "friendlyName": "Displaying World Axes", 
+                    "children": {}, 
+                    "content": "snippets/utilities/World_Axes"
+                },
+                "line2DWidth": {
+                    "friendlyName": "Line2D of a Given Width", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Line2D"
+                },
+                "extrudeShape": {
+                    "friendlyName": "Extrude Shape with Mitered Corners", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Mitred"
+                },
+                "makingFrame": {
+                    "friendlyName": "Making A Frame", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Frame"
+                },
+                "openURLOnMeshClick": {
+                    "friendlyName": "Open a URL When Clicking On a Mesh", 
+                    "children": {}, 
+                    "content": "snippets/utilities/OpenUrl"
+                },
+                "sphericalPanning": {
+                    "friendlyName": "Spherical Panning", 
+                    "children": {}, 
+                    "content": "snippets/utilities/SphericalPanning"
+                },
+                "pointInsideMesh": {
+                    "friendlyName": "Check When a Point Is Inside a Mesh", 
+                    "children": {}, 
+                    "content": "snippets/utilities/IsInside"
+                },
+                "createPointsInsideMesh": {
+                    "friendlyName": "Create Points Inisde a Mesh", 
+                    "children": {}, 
+                    "content": "snippets/utilities/InnerMeshPoints"
+                },
+                "createPoitnsOnMeshSurface": {
+                    "friendlyName": "Create Points On The Surface of a Mesh", 
+                    "children": {}, 
+                    "content": "snippets/utilities/SurfaceMeshPoints"
+                },
+                "deconstructMesh": {
+                    "friendlyName": "Deconstruct a Mesh", 
+                    "children": {}, 
+                    "content": "snippets/utilities/Deconstruct_Mesh"
                 }
             }, 
             "content": "newPages/toolsAndResourcesGuidedLearningLandingPage"
