@@ -25,7 +25,7 @@ useVertexAlpha|_(boolean)_ false if the alpha blending is not required (faster)|
 [A Playground Example of a Linesystem](https://www.babylonjs-playground.com/#165IV6#66)
 [A Playground Update of the Linesystem](https://www.babylonjs-playground.com/#165IV6#10)
 
-A line system is colored with a color property
+A line system can also be colored with a color property
 
 ```javascript
 linesystem.color = new BABYLON.Color3(1, 0, 0);
