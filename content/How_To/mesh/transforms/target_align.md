@@ -50,6 +50,3 @@ mesh.rotation = BABYLON.Vector3.RotationFromAxis(axis1, axis2, axis3);
 
 ## Using Quaternions 
 If you prefer using quaternions instead of Euler angles, then *RotationQuaternionFromAxis()* computes the required rotation quaternion to assign to the mesh property *rotationQuaternion*
-
-[Prev](/babylon101/rotation_quaternions) Rotation Quaternions  
-[Next](/resources/Rotation_Conventions) Euler Angles and Rotation Quaternions

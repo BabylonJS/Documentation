@@ -62,6 +62,4 @@ The use of *rotate* sets the orientation of the mesh using a rotation quaternion
 
 About time to look further at rotation quaternions.
 
-[Prev](/babylon101/rotation) Rotation  
-[Next](/babylon101/rotation_quaternions) Rotation Quaternions 
 

@@ -2,7 +2,7 @@
 ## Rotation Quaternions
 A quaternion is a four dimensional vector (x, y, z, w) and to be a rotation quaternion it has to be a unit vector, i.e. x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + w<sup>2</sup> = 1
 
-We have already used [rotate](/babylon101/sequence_rotations#rotate) which sets the rotation quaternion of a mesh.
+We have already used rotate which sets the rotation quaternion of a mesh.
 
 You can check this in the console
 
@@ -32,5 +32,3 @@ mesh.rotation = new BABYLON.Vector3(0, 0, 0)
 
 Whenever you find rotation errors it is worth setting *rotationQuaternion* to null before updating *rotation*.
 
-[Prev](/babylon101/sequence_rotations)  Sequencing Rotations  
-[Next](/babylon101/target_align) Target Axes Alignment.

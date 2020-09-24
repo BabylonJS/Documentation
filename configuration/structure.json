@@ -103,11 +103,6 @@
                     }, 
                     "content": "features/component/Audio"
                 },
-                "bakingTransforms": {
-                    "friendlyName": "Baking Transformations", 
-                    "children": {}, 
-                    "content": "resources/Manual/Baking_Transformations"
-                },
                 "behaviors": {
                     "friendlyName": "Behaviors", 
                     "children": {}, 
@@ -269,31 +264,55 @@
                                     }
                                 },
                                 "param": {
-                                    "friendlyName": "Create Parametric Shapes",
+                                    "friendlyName": "Create Parametric Meshes",
                                     "children": {
                                         "about": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/creation/param/about" },
                                         "lines": { "friendlyName": "Lines", "children": {}, "content": "How_To/mesh/creation/param/lines" },
                                         "dashed": { "friendlyName": "Dashed Lines", "children": {}, "content": "How_To/mesh/creation/param/dashed" },
                                         "line_system": { "friendlyName": "Line System", "children": {}, "content": "How_To/mesh/creation/param/line_system" },
                                         "ribbon": { "friendlyName": "Ribbon", "children": {}, "content": "How_To/mesh/creation/param/ribbon" },
-                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "How_To/mesh/creation/param/ribbon_extra" },
+                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
+                                        "ribbon_maths": { "friendlyName": "Ribbons with Maths", "children": {}, "content": "resources/Manual/Maths_Make_Ribbons" },
                                         "tube": { "friendlyName": "Tube", "children": {}, "content": "How_To/mesh/creation/param/tube" },
                                         "extrude_shape": { "friendlyName": "Extrusion", "children": {}, "content": "How_To/mesh/creation/param/extrude_shape" },
                                         "custom_extrude": { "friendlyName": "Custom Extrusion", "children": {}, "content": "How_To/mesh/creation/param/custom_extrude" },
                                         "lathe": { "friendlyName": "Lathe", "children": {}, "content": "How_To/mesh/creation/param/lathe" },
                                         "polygon": { "friendlyName": "Irregular Polygon", "children": {}, "content": "How_To/mesh/creation/param/polygon" },
                                         "extrude_polygon": { "friendlyName": "Polygon Extrusion", "children": {}, "content": "How_To/mesh/creation/param/extrude_polygon" },
-                                        "polygon_mbuild": { "friendlyName": "About", "children": {}, "content": "How_To/mesh/creation/param/polygon_mbuild" }
+                                        "polyMeshBuilder": { "friendlyName": "Polygon Mesh Builder", "children": {}, "content": "How_To/mesh/PolygonMeshBuilder" }
+                                    }
+                                },
+                                "polyhedra": {
+                                    "friendlyName": "Creating Plyhera Shapes",
+                                    "children": {
+                                        "polyhedraShapes": { "friendlyName": "Creating Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" }
+                                    }
+                                },
+                                "custom": {
+                                    "friendlyName": "Create Custom Meshes",
+                                    "children": {
+                                        "custom": { "friendlyName": "Create a Custom Mesh From Scratch", "children": {}, "content": "How_To/mesh/Custom" },
+                                        "updatingVertices": { "friendlyName": "Updating Vertices", "children": {}, "content": "How_To/mesh/Updating_Vertices" },
+                                        "vertexNormals": {"friendlyName": "Vertex Normals", "children": {}, "content": "resources/Manual/Normals" }
                                     }
                                 }
                             }
                         },
-                        "polyhedraShapes": { "friendlyName": "Creating Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" },
-                        "tiledPlanesBoxes": { "friendlyName": "Creating Tiled Planes and Boxes", "children": {}, "content": "How_To/mesh/Tiled" },
+                        "transforms": {
+                            "friendlyName": "Mesh Transformations",
+                            "children": {
+                                "position": { "friendlyName": "Position a Mesh", "children": {}, "content": "How_To/mesh/transforms/position" },
+                                "rotation": { "friendlyName": "Mesh Rotation", "children": {}, "content": "How_To/mesh/transforms/rotation" },
+                                "add_rotations": { "friendlyName": "Sequencing Rotations", "children": {}, "content": "How_To/mesh/transforms/sequence_rotations" },
+                                "rotation_quaternions": { "friendlyName": "Rotation Quaternions", "children": {}, "content": "How_To/mesh/transforms/rotation_quaternions" },
+                                "target_align": { "friendlyName": "Target Axes Alignment", "children": {}, "content": "How_To/mesh/transforms/target_align" },
+                                "rotation_conventions": { "friendlyName": "Rotation Conventions", "children": {}, "content": "resources/Manual/Rotation_Conventions" },
+                                "bakingTransforms": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" },
+                                "ref_frame": { "friendlyName": "Frames of Reference", "children": {}, "content": "resources/Manual/Frame_Of_Reference" }
+                            }
+                        },
                         "displayBoundingBoxes": { "friendlyName": "Drawing Bounding Boxes", "children": {}, "content": "How_To/mesh/How_to_display_bounding_boxes" },
                         "decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
-                        "polyMeshBuilder": { "friendlyName": "Polygon Mesh Builder", "children": {}, "content": "How_To/mesh/PolygonMeshBuilder" },
-                        "ribbonTutorial": { "friendlyName": "Creating Ribbons", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
                         "transformNode": { "friendlyName": "Transform Nodes", "children": {}, "content": "How_To/mesh/TransformNode" },
                         "highlightLayer": { "friendlyName": "Highlight Meshes", "children": {}, "content": "How_To/mesh/Highlight_Layer" },
                         "glowLayer": { "friendlyName": "Making Meshes Glow", "children": {}, "content": "How_To/mesh/Glow_Layer" },
@@ -317,8 +336,6 @@
                         "coordinateTransormation": { "friendlyName": "Coordinate Transformations", "children": {}, "content": "How_To/mesh/Transform_Coordinates" },
                         "simplifyingMeshes": { "friendlyName": "Simplifying Meshes with Auto-LOD", "children": {}, "content": "How_To/mesh/In-Browser_Mesh_Simplification" },
                         "edgeRenderer": { "friendlyName": "Rendering Edges", "children": {}, "content": "How_To/mesh/How_to_use_EdgesRenderer" },
-                        "custom": { "friendlyName": "Create a Custom Mesh From Scratch", "children": {}, "content": "How_To/mesh/Custom" },
-                        "updatingVertices": { "friendlyName": "Updating Vertices", "children": {}, "content": "How_To/mesh/Updating_Vertices" },
                         "trailMesh": { "friendlyName": "Trail Mesh", "children": {}, "content": "How_To/mesh/How_to_use_TrailMesh" },
                         "meshExploder": { "friendlyName": "Exploding Meshes", "children": {}, "content": "How_To/mesh/How_to_use_MeshExploder" }
                     },
@@ -369,11 +386,6 @@
                     }, 
                     "content": "newPages/divingDeeperPhysicsLandingPage"
                 },
-                "ribbons": {
-                    "friendlyName": "Ribbons", 
-                    "children": {}, 
-                    "content": "resources/Manual/Maths_Make_Ribbons"
-                },
                 "scene": {
                     "friendlyName": "Scene", 
                     "children": {
@@ -408,11 +420,6 @@
                     "friendlyName": "Tags", 
                     "children": {}, 
                     "content": "resources/Reference/Tags"
-                },
-                "vertexNormals": {
-                    "friendlyName": "Vertex Normals", 
-                    "children": {}, 
-                    "content": "resources/Manual/Normals"
                 },
                 "webXR": {
                     "friendlyName": "WebXR", 

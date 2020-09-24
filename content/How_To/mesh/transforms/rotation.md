@@ -59,8 +59,6 @@ From 0 rotation rotate &pi;/2 about y, then &pi;/2 about x, then &pi;/2 about z.
 
 However sometimes you want to rotate around axes other than the x, y and z axes in local space and set a sequence of rotations of your own order.
 
-[Prev](/babylon101/position) Position  
-[Next](/babylon101/sequence_rotations) Sequencing Rotations About Given Axes.
 
 
 
