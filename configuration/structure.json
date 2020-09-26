@@ -8,12 +8,12 @@
                 "chap1": {
                     "friendlyName": "Chapter 1 - Firsts",
                     "children": {
-                        "welcome": {"friendlyName": "Welcome", "children": {}, "content": "start/chap1/welcome" },
                         "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
                         "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
                         "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "start/chap1/first_import" },
                         "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "start/chap1/first_app" }
-                    }
+                    },
+                    "content": "start/chap1/chap1intro"
                 },
                 "chap2": {
                     "friendlyName": "Chapter 2 - Build A Village",
@@ -81,7 +81,8 @@
                         "vr": {"friendlyName": "See Our World in 3D", "children": {}, "content": "start/chap8/vr"}
                     }
                 }
-            }
+            },
+            "content": "start/preface"
         },
         "divingDeeper": {  
             "friendlyName": "Diving Deeper", 
@@ -253,7 +254,7 @@
                                         "tiled_box": { "friendlyName": "Tiled Box", "children": {}, "content": "How_To/mesh/creation/set/tiled_box" },
                                         "sphere": { "friendlyName": "Sphere", "children": {}, "content": "How_To/mesh/creation/set/sphere" },
                                         "cylinder": { "friendlyName": "Cylinder", "children": {}, "content": "How_To/mesh/creation/set/cylinder" },
-                                        "plane": { "friendlyName": "Plane", "children": {}, "content": "How_To/mesh/creation/set/Plane" },
+                                        "plane": { "friendlyName": "Plane", "children": {}, "content": "How_To/mesh/creation/set/plane" },
                                         "tiled_plane": { "friendlyName": "Tiled Plane", "children": {}, "content": "How_To/mesh/creation/set/tiled_plane" },
                                         "disc": { "friendlyName": "Disc", "children": {}, "content": "How_To/mesh/creation/set/disc" },
                                         "torus": { "friendlyName": "Torus", "children": {}, "content": "How_To/mesh/creation/set/torus" },
