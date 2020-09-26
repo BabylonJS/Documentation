@@ -28,7 +28,8 @@
                         "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "start/chap2/copies" },
                         "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "start/chap2/viewer2" },
                         "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "start/chap2/app2" }
-                    }
+                    },
+                    "content": "start/chap2/chap2intro"
                 },
                 "chap3": {
                     "friendlyName": "Chapter 3 - Village Animation",
@@ -40,13 +41,15 @@
                         "caranimation": {"friendlyName": "Car Animation", "children": {}, "content": "start/chap3/caranimation" },
                         "import_character": {"friendlyName": "Character Animation", "children": {}, "content": "start/chap3/import_character" },
                         "walkpath": {"friendlyName": "A Walk Around The Village", "children": {}, "content": "start/chap3/walkpath" }
-                    }
+                    },
+                    "content": "start/chap3/chap3intro"
                 },
                 "chap4": {
                     "friendlyName": "Chapter 4 - Avoiding Collisions",
                     "children": {
                         "mesh_intersect": {"friendlyName": "Avoiding a Car Crash", "children": {}, "content": "start/chap4/mesh_intersect"}
-                    }
+                    },
+                    "content": "start/chap4/chap4intro"
                 },
                 "chap5": {
                     "friendlyName": "Chapter 5 - A Better Environment",
