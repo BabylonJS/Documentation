@@ -1,0 +1,2 @@
+# Lighting the Village
+Perpetual light in the village can make sleeping very difficult. As we want to turn the light down at night and bring it up during the day let's add a GUI control to do this. Of course people do not want to walk in total darkness at night so we will add some street lights. Where there is light there are shadows and Babylon.js can add them as well. 
