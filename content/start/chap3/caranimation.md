@@ -30,11 +30,11 @@ car.animations.push(animCar);
 scene.beginAnimation(car, 0, 210, true);
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#8
+https://www.babylonjs-playground.com/#KDPAQ9#16
 
 After adjusting the position of the car and its route so that it travels past the village houses we have 
 
-https://www.babylonjs-playground.com/#KDPAQ9#9
+https://www.babylonjs-playground.com/#KDPAQ9#17
 
 In this case we have built the car. Let's now look at a model character that we can import along with its built-in animation.
 

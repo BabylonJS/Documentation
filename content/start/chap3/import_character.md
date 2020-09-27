@@ -17,6 +17,6 @@ BABYLON.SceneLoader.ImportMeshAsync("mesh name", "path to model", "model file", 
 });
 ```
 
-https://www.babylonjs-playground.com/#SFW46K
+https://www.babylonjs-playground.com/#SFW46K#1
 
-Currently the character is set in one position and we would like him to walk around the village. This time instead of creating another animation object for the character we will change it position and orientation before each frame is rendered. 
+Currently the character is set in one position and we would like him to walk around the village. This time instead of creating another animation object for the character we will change its position and orientation before each frame is rendered. 

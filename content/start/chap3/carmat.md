@@ -31,7 +31,7 @@ The edge runs from (0, 0) to (1, 0.5)
 faceUV[1] = new BABYLON.Vector4(0, 0, 1, 0.5);
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#5
+https://www.babylonjs-playground.com/#KDPAQ9#12
 
 A wheel is more straight forward because of its symmetry and it uses the whole image for the top and bottom and just picks up a black pixel for the edges.
 
@@ -44,6 +44,6 @@ Putting these together and rotating the finished car upright gives
 
 ![car model](/img/getstarted/carmodel.png)
 
-https://www.babylonjs-playground.com/#KDPAQ9#6
+https://www.babylonjs-playground.com/#KDPAQ9#13
 
 At last we are ready to think about animating the wheels.

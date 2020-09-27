@@ -20,7 +20,7 @@ wheelKeys.push({
     value: 0
 });
 
-//At the animation key 30, (after 1 sec since afps = 30) the value of rotation.y is 2PI for a complete rotation
+//At the animation key 30, (after 1 sec since animation fps = 30) the value of rotation.y is 2PI for a complete rotation
 wheelKeys.push({
     frame: 30,
     value: 2 * Math.PI
@@ -32,13 +32,15 @@ Finally we link the key frame array to the animation, the animation to the mesh 
 //set the keys
 animWheel.setKeys(wheelKeys);
 
-//Link this animation to a wheel
+//Link this animation to the right back wheel
 wheelRB.animations = [];
 wheelRB.animations.push(animWheel);
 
 //Begin animation - object to animate, first frame, last frame and loop if true
 scene.beginAnimation(wheelRB, 0, 30, true);
 ```
+
+https://www.babylonjs-playground.com/#KDPAQ9#14
 
 Since all the wheels rotate the same we can use the same animation for all.
 
@@ -48,9 +50,7 @@ scene.beginAnimation(wheelLB, 0, 30, true);
 scene.beginAnimation(wheelLF, 0, 30, true);
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#6
-
-To ensure that in later playgrounds the focus is on new code we will save the car as a model and import and animate it as an item.
+To ensure that in later playgrounds new code is not overwhelmed by a large amount of previous coding we will save the car as a model and import and animate it as an item.
 
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync("", "url to model car", "car.babylon").then(() =>  {
@@ -66,6 +66,6 @@ BABYLON.SceneLoader.ImportMeshAsync("", "url to model car", "car.babylon").then(
 });
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#7
+https://www.babylonjs-playground.com/#KDPAQ9#15
 
 We can now animate the car itself and add it into the village

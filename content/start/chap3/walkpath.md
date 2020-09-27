@@ -76,11 +76,11 @@ if (p === 0) {
 }
 ```
 
-https://www.babylonjs-playground.com/#N9IZ8M
+https://www.babylonjs-playground.com/#N9IZ8M#1
 
 A little trickier and using a bit of trial and error for the turns and distance we can achieve a more complicated walk for the character around the village. One reason for using degrees and converting them to radians for the *rotate* method is that it is easier to adjust by adding one or two degrees.
 
-Since the character, dude, imported from the *.babylon* file has had its rotation set using a *rotationQuaternion* rather than rotation we use this method to reset the characters orientation.
+Since the character, dude, imported from the *.babylon* file has had its rotation set using a *rotationQuaternion* rather than rotation we use the rotate method to reset the characters orientation.
 
 ```javascript
 dude.position = new BABYLON.Vector3(-6, 0, 0);
@@ -96,6 +96,6 @@ if (p === 0) {
 }
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#55
+https://www.babylonjs-playground.com/#KBS9I5#81
 
 We now have two things moving around the village a car and a character. How can we avoid them colliding?
