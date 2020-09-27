@@ -42,7 +42,7 @@ box.position = new BABYLON.Vector3(-2, 4.2, 0.1);
 We can now use positions to place the boxes sized in three different ways in one playground. In each case the height of a box is 1.5 and therefore for each box position.y = 0.75 to place it on the ground.
 
 
-https://www.babylonjs-playground.com/#KBS9I5#2
+https://www.babylonjs-playground.com/#KBS9I5#68
 
 ### Orientation
 As for scaling and position the [rotation](/babylon101/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
@@ -54,7 +54,7 @@ box.rotation.y = Math.PI / 4;
 box.rotation.y = BABYLON.Tools.toDegrees(45);
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#3
+https://www.babylonjs-playground.com/#KBS9I5#69
 
 We can now change the size, position and orientate a mesh adding a little more variation to the box as a building. Before we place more boxes in the scene let us see if we can make them a little more building like.
 

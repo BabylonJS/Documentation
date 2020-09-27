@@ -11,7 +11,7 @@ roof.position.y = 1.22;
 
 Since the cylinder is created vertically we needed to rotate it to a horizontal position and scale it down in one direction so that the height of the roof is less than its width.
 
-https://www.babylonjs-playground.com/#KBS9I5#4
+https://www.babylonjs-playground.com/#KBS9I5#70
 
 ![house 1](/img/getstarted/house1.png)
 

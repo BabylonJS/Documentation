@@ -9,7 +9,7 @@ For continuous sounds we use
 const sound = new BABYLON.Sound("name", "url to sound file", scene, null, { loop: true, autoplay: true });
 ```
 
-https://www.babylonjs-playground.com/#SFCC74#1
+https://www.babylonjs-playground.com/#SFCC74#3
 
 
 To play a sound once we use
@@ -20,8 +20,9 @@ const sound = new BABYLON.Sound("sound", "url to sound file", scene);
 sound.play();
 ```
 
-To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds 
-https://www.babylonjs-playground.com/#SFCC74#2
+To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds
+
+https://www.babylonjs-playground.com/#SFCC74#4
 
 
 Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Getting Started that load sounds. 
