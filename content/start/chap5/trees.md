@@ -28,7 +28,7 @@ for (let i = 0; i < 500; i++) {
 }
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#50
+https://www.babylonjs-playground.com/#KBS9I5#89
 
 You can also use a collection of images in a sprite map to produce an animation.
 
@@ -46,7 +46,7 @@ const ufo = new BABYLON.Sprite("ufo", spriteManagerUFO);
 ufo.playAnimation(0, 16, true, 125);
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#51
+https://www.babylonjs-playground.com/#KBS9I5#90
 
 Now we are going to use some more features to produce a working fountain.
 

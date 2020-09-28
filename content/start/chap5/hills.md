@@ -51,15 +51,15 @@ largeGround.position.y = -0.01;
 ```
 ensures the two grounds do not fight and cause flickering.
 
-https://www.babylonjs-playground.com/#KBS9I5#41
+https://www.babylonjs-playground.com/#KBS9I5#85
 
 We add back the dwellings and create a file to import
 
-https://www.babylonjs-playground.com/#KBS9I5#43
+https://www.babylonjs-playground.com/#KBS9I5#86
 
 Then we can add back the car but this time passing through the village.
 
-https://www.babylonjs-playground.com/#KBS9I5#44
+https://www.babylonjs-playground.com/#KBS9I5#87
 
 Let's now further improve the environment by adding a sky.
 

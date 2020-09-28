@@ -21,6 +21,6 @@ In our developing world we will also add a restriction to the camera so that it 
 ```javascript
 camera.upperBetaLimit = Math.PI / 2.2;
 ```
-https://www.babylonjs-playground.com/#KBS9I5#46
+https://www.babylonjs-playground.com/#KBS9I5#88
 
 Next environmental improvement is to grow some trees.
