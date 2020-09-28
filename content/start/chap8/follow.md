@@ -46,6 +46,6 @@ Finally we set the target
 camera.lockedTarget = targetMesh;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#60
+https://www.babylonjs-playground.com/#KBS9I5#98
 
 Having created a 3D world, albeit just a small village, it would be good to see it in all its 3D glory. All you need is a 3D viewer whether a simple one such as the Google Carboard or a high tech one and the appropriate camera from Babylon.js.

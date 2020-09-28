@@ -44,11 +44,11 @@ shadowGenerator.addShadowCaster(dude, true);
 
 ground.receiveShadows = true;
 ```
-https://www.babylonjs-playground.com/#4G38H4#3
+https://www.babylonjs-playground.com/#4G38H4#7
 
 Putting this, with suitable value adjustments, in our world gives
 
-https://www.babylonjs-playground.com/#KBS9I5#65
+https://www.babylonjs-playground.com/#KBS9I5#96
 
 So far we have had only one way to view our village world. There are other possibilities with different cameras.
 

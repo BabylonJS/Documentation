@@ -30,16 +30,16 @@ lampPath.push(new BABYLON.Vector3(3, 11, 0));
 
 We then form the extrusion.
 ```javascript
-const lamp = BABYLON.MeshBuilder.ExtrudeShape("lamp", {cap: BABYLON.Mesh.CAP_END, shape: lampShape, path: lampPath, scale: 0.5});  
+const lamp = BABYLON.MeshBuilder.ExtrudeShape("lamp", {cap: BABYLON.Mesh.CAP_END, shape: lampShape, path: lampPath, scale: 0.5}); 
 ```
 
-To make the lap light more visible we turn down the intensity of the hemispheric light,
+To make the lamp light more visible we turn down the intensity of the hemispheric light,
 
 ```javascript
 light.intensity = 0.5;
 ```
 
-https://www.babylonjs-playground.com/#4G38H4#2
+https://www.babylonjs-playground.com/#4G38H4#6
 
 We export the lamp, of appropriate size, to use it in the village. As we need more than one street light, once the lamp is loaded we will clone it several times. For each street light we will add the lamp light. Lights are normally restricted to four in any scene. Any more and only the last 4 created are active. To extend the number of lights used we set the number needed on any material to be lit.
 
@@ -47,6 +47,6 @@ We export the lamp, of appropriate size, to use it in the village. As we need mo
 material.maxSimultaneousLights = 5;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#63
+https://www.babylonjs-playground.com/#KBS9I5#94
 
-It would be good if we could slide daylight into nightlight and vice-versa. We can if we add the Babylon.js GUI.
+It would be good if we could slide daylight into nightlight and vice-versa. We can when we add the Babylon.js GUI.

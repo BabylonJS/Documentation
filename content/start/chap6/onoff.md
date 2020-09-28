@@ -31,10 +31,10 @@ const pointerDown = (mesh) => {
 ```
 
 
-https://www.babylonjs-playground.com/#TC31NV#2
+https://www.babylonjs-playground.com/#TC31NV#5
 
 Now we add this into the village world.
 
-https://www.babylonjs-playground.com/#KBS9I5#54
+https://www.babylonjs-playground.com/#KBS9I5#93
 
 So far all the actions have been in daylight and now time moves to the night where we will need street lights.

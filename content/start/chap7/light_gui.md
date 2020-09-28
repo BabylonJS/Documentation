@@ -59,6 +59,6 @@ slider.onValueChangedObservable.add((value) => {
 ```
 
 Now we can control the light in our village world.
-https://www.babylonjs-playground.com/#KBS9I5#64
+https://www.babylonjs-playground.com/#KBS9I5#95
 
 Where there is light there are shadows. In Babylon.js this is only true when you make it true.

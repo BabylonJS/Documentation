@@ -28,11 +28,11 @@ const fountain = BABYLON.MeshBuilder.CreateLathe("fountain", {shape: fountainPro
 
 As before the scene parameter is optional. In this case the mesh is set to double sided because the inside is visible because of the slope at the top and the hollow middle.
 
-https://www.babylonjs-playground.com/#TC31NV
+https://www.babylonjs-playground.com/#TC31NV#3
 
 With appropriate change of scale and positioning this is added to the village.
 
-https://www.babylonjs-playground.com/#KBS9I5#52
+https://www.babylonjs-playground.com/#KBS9I5#91
 
 
-A fountain without a spray of water is a little boring so we simulate the spray with partices.
+A fountain without a spray of water is a little boring so we simulate the spray with particles.

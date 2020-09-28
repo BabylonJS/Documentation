@@ -64,10 +64,10 @@ Finally we can start the fountain
 particleSystem.start();
 ```
 
-https://www.babylonjs-playground.com/#TC31NV#1 example fountain
+https://www.babylonjs-playground.com/#TC31NV#4 example fountain
 
 The fountain in place
 
-https://www.babylonjs-playground.com/#KBS9I5#53
+https://www.babylonjs-playground.com/#KBS9I5#92
 
 Let's now provide an on-off click event.
