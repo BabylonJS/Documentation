@@ -6,7 +6,9 @@ To create these meshes you use one of
 const mesh = BABYLON.MeshBuilder.Create<MeshType>(name, options, scene);
 const mesh = BABYLON.MeshBuilder.Extrude<MeshType>(name, options, scene);
 ```
-where the *options* object properties vary according to the type of mesh. Using an empty object, {}, the meshes will default to given shapes. The scene parameter is optional and defaults to the current scene. One or more of the *options* properties will be used to set the vector3 data to define paths and outlines.
+where the *options* object properties vary according to the type of mesh. Using an empty object. The scene parameter is optional and defaults to the current scene. One or more of the *options* properties will be used to set the vector3 data to define paths and outlines and you must set these.
+
+Where possible playgrounds will give two examples; the first creating a mesh and the second updating it with the instance option. Comment out the latter to see the original mesh.
 
 It is still possible to use the forms
 

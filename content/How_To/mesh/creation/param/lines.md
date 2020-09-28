@@ -1,8 +1,8 @@
 # Lines
-Lines are created as a contiguous series of attached line segments from a list of points.
+Lines are created as a contiguous series of attached line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options. You can also update the _colors_ option if previously set at construction time.
 
 ## MeshBuilder
-Examples:
+Usage:
 ```javascript
 let options = {
     points: myPoints, //vec3 array,
@@ -30,14 +30,15 @@ Unlike a mesh Lines are colored after creation with a color property rather than
 lines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
-non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#1
-non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#2
-updatable example https://www.babylonjs-playground.com/#MZ7QRG#3
-updatable spriral https://www.babylonjs-playground.com/#MZ7QRG#4
+non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#6
+non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#8
+updatable example https://www.babylonjs-playground.com/#MZ7QRG#9
+updatable spriral https://www.babylonjs-playground.com/#MZ7QRG#10
 
-colored lines https://www.babylonjs-playground.com/#MZ7QRG#5
+multi colored lines have to be set on creation https://www.babylonjs-playground.com/#MZ7QRG#11
 
 ## Mesh
+usage:
 ```javascript
 let lines = BABYLON.Mesh.CreateLines("lines", points, scene);
 let lines = BABYLON.Mesh.CreateLines("lines", points, scene, updatable, instance); //optional parameters after scene
