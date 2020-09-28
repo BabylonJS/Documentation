@@ -24,7 +24,7 @@ alignHorizontal| _(number)_ positions whole tiles at left, right or center of a 
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE 
 
-* [Playground Example of a Tiled Box](https://www.babylonjs-playground.com/#FAP6ZC)
+* [Playground Example of a Tiled Box](https://www.babylonjs-playground.com/#FAP6ZC#3)
 
 The values for the options *pattern* property are the following constants
 
@@ -63,7 +63,7 @@ We use the following image as the texture in the following examples
 ![Arrow Pattern](/img/how_to/mesh/tiles6.jpg)  
 
 Different texture each side, tile width 1, tile height 1 
-Playground Example -  https://www.babylonjs-playground.com/#FAP6ZC#1
+Playground Example -  https://www.babylonjs-playground.com/#FAP6ZC#4
 
 
 All the 63 arrangements. To see the headings view the full playground.

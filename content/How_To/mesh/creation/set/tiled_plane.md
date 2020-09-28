@@ -68,8 +68,6 @@ const options = {
 }
 ``` 
 
-
-
 ## Examples
 
 The following image is used to show the results before and after flipping alternate tiles

@@ -19,7 +19,7 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 ### Examples
-single sided https://www.babylonjs-playground.com/#LXZPJK#1  
+single sided https://www.babylonjs-playground.com/#Q9VZS9#4  
 double sided https://www.babylonjs-playground.com/#Q9VZS9#2  
 
 Using this image  
