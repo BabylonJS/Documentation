@@ -1,15 +1,20 @@
 # Ribbon
+The ribbon is a very versatile shape. Picture a ribbon in the real world with parallel wires running down its length. You can turn such a ribbon into a wide variety of shapes. Joining one long edge to its opposite you could form a tube and bend that into different shapes. This and more is possible with a Babylon.js ribbon. Instead of parallel wires a Babylon.js ribbon is formed from paths defined by an array of vector3s and how you define the paths determines the final shape. 
 ## MeshBuilder
-You must set at least the _pathArray_ option.
-On update, you must set the _pathArray_ and _instance_ options.
-
-Example :
+Usage :
 ```javascript
-// creates an instance
-var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: myPaths}, scene);
+const options = {
+    pathArray: myPaths, //[vector3 array, vector3 array, vector3 array......]
+    updatable: true
+}
+
+let ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", options, scene); //scene is optional and defaults to the current scene
+
+options.pathArray: myNewPaths; //The length must equal the length of myPaths and myNewPaths[i].length === myPaths[i] for all i
+options.instance = true;
 
 // updates the existing instance of ribbon : no need for the parameter scene
-ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: myPaths, instance: ribbon});
+ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: myNewPaths, instance: ribbon});
 ```
 
 option|value|default value
@@ -25,30 +30,20 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of a ribbon to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-[A Playground Example of a Ribbon](https://www.babylonjs-playground.com/#165IV6#65)
-[A Playground Update of the Ribbon](https://www.babylonjs-playground.com/#165IV6#13)
+Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5
+
+double sided ribbon not updatable https://www.babylonjs-playground.com/#F6JW5W#6
+double sided ribbon not updatable path lines in red https://www.babylonjs-playground.com/#F6JW5W#7
+open ribbon https://www.babylonjs-playground.com/#F6JW5W#8
+with closePath true https://www.babylonjs-playground.com/#F6JW5W#9
+with closeArray true https://www.babylonjs-playground.com/#F6JW5W#10
+
 
 ## Mesh
- 
-For details on what it is and how it is constructed you might want to read the [Ribbon Tutorial](/How_To/Ribbon_Tutorial)
-
+Usage: 
 ```javascript
-var ribbon = BABYLON.Mesh.CreateRibbon("ribbon", [path1, path2, ..., pathn], false, false, 0, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closePath, offset, scene);
+const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closePath, offset, scene, updatable, sideOrientation, instance); //optional parameters after scene
 ```
 
-Parameters are: name, pathArray, closeArray, closePath, offset, scene, updatable? (if the mesh must be modified later)  and the optional side orientation (see below).
-
-
-  * name : a string, the name you want to give to your shape,
-  * pathArray : an array populated with paths. Paths are also arrays, populated with series of successive _Vector3_. You need at least one path to construct a ribbon and each path must contain at least four _Vector3_,
-  * closeArray : boolean, if true an extra set of triangles is constructed between the last path and the first path of _pathArray_,
-  * closePath : boolean, if true the last point of each path of _pathArray_ is joined to the first point of this path,
-  * offset : integer (default half the _path_ size) mandatory only if the _pathArray_ contents only one path. The ribbon will be constructed joining each i-th point of the single path to the i+offset-th point. It is ignored if _pathArray_ has more than one path,
-  * scene : the current scene object,
-  * updatable : boolean, if the ribbon should allow updating later,
-  * sideOrientation : the wanted side-orientation (BABYLON.Mesh.FRONTSIDE / BACKSIDE / DOUBLESIDE / DEFAULT).
-
-The last two parameters can be omitted if you just need the default behavior :
-```javascript
-var ribbon = BABYLON.Mesh.CreateRibbon("ribbon", [path1, path2, ..., pathn], false, false, 0, scene);
-```
+More about ribbons on the next page

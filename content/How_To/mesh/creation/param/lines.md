@@ -4,7 +4,7 @@ Lines are created as a contiguous series of attached line segments from a list o
 ## MeshBuilder
 Usage:
 ```javascript
-let options = {
+const options = {
     points: myPoints, //vec3 array,
     updatable: true
 }

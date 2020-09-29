@@ -277,7 +277,7 @@
                                         "dashed": { "friendlyName": "Dashed Lines", "children": {}, "content": "How_To/mesh/creation/param/dashed" },
                                         "line_system": { "friendlyName": "Line System", "children": {}, "content": "How_To/mesh/creation/param/line_system" },
                                         "ribbon": { "friendlyName": "Ribbon", "children": {}, "content": "How_To/mesh/creation/param/ribbon" },
-                                        "ribbon_extra": { "friendlyName": "Ribbon Details", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
+                                        "ribbon_extra": { "friendlyName": "Ribbon in Detail", "children": {}, "content": "How_To/mesh/Ribbon_Tutorial" },
                                         "ribbon_maths": { "friendlyName": "Ribbons with Maths", "children": {}, "content": "resources/Manual/Maths_Make_Ribbons" },
                                         "tube": { "friendlyName": "Tube", "children": {}, "content": "How_To/mesh/creation/param/tube" },
                                         "extrude_shape": { "friendlyName": "Extrusion", "children": {}, "content": "How_To/mesh/creation/param/extrude_shape" },

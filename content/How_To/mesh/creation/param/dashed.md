@@ -3,7 +3,7 @@ Creates a contiguous series of dashed line segments from a list of points. You m
 ## MeshBuilder
 Usage:
 ```javascript
-let options = {
+const options = {
     points: myPoints, //vec3 array,
     updatable: true
 }
@@ -25,7 +25,7 @@ dashNb|_(number)_  intended number of dashes|200
 updatable|_(boolean)_ true if the mesh is updatable|false
 instance|_(LineMesh)_ an instance of a line mesh to be updated|null
 
-The actual length of the dashes is determined by the ratio of **dashSize : (dashSize + gapSize)**  
+The actual length of the dashes and gaps is determined by how many are set by the *dashNb* and then the ratio, of *dashSize* and * gapSize* rather than the actual size 
 All of the following will produce equal sized dashes and gaps.
 ```javascript
 dashSize = 1;
@@ -43,7 +43,7 @@ non updatable dashed lines set options  https://www.babylonjs-playground.com/#TY
 non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3
 updatable example https://www.babylonjs-playground.com/#TYF5GH#4
 
-Dashed lines are colored with a color property
+Dashed lines are colored with a color property rather than a material.
 
 ```javascript
 dashedlines.color = new BABYLON.Color3(1, 0, 0);

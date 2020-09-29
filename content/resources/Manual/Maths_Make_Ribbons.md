@@ -99,7 +99,7 @@ for (var t = 1; t < 10; t++) {
   paths.push(path);
 }
 ```
-You immediatly get a set of different paths along the z-axis :  https://www.babylonjs-playground.com/#1HSC2O#8   
+You immediately get a set of different paths along the z-axis :  https://www.babylonjs-playground.com/#1HSC2O#8   
 So a more complex ribbon :  https://www.babylonjs-playground.com/#1HSC2O#9     
 
 At last, if we change a bit _x_ and _z_ variation to scale the curve, we can get a nice parabolic shape :   
