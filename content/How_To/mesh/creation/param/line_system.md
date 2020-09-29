@@ -5,11 +5,10 @@ MeshBuilder only. A system of non-contiguous lines that are independent of each 
 Usage :
 ```javascript
 // creates an instance of a line system
-var lineSystem = BABYLON.MeshBuilder.CreateLineSystem("lineSystem", {lines: myArray}, scene);
+let lineSystem = BABYLON.MeshBuilder.CreateLineSystem("lineSystem", {lines: myArray}, scene);
 
 // updates the existing instance of lineSystem : no need for the parameter scene here
 lineSystem = BABYLON.MeshBuilder.CreateLineSystem("lineSystem", {lines: myArray, instance: lineSystem});
-
 ```
 
 option|value|default value

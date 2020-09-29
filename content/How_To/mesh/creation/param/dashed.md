@@ -1,16 +1,19 @@
 # Dashed Lines
+Creates a contiguous series of dashed line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options properties and you should not change . Any other option will not be changed.
 ## MeshBuilder
-Creates a contiguous series of dashed line segments from a list of points.
-You must set at least the _points_ option.
-On update, you must set the _points_ and _instance_ options. Any other option will not be changed.
-
-Example :
+Usage:
 ```javascript
-// creates an instance of dashedlines
-var dashedLines = BABYLON.MeshBuilder.CreateDashedLines("dl", {points: myArray}, scene);
+let options = {
+    points: myPoints, //vec3 array,
+    updatable: true
+}
 
-// updates the existing instance of dashedLines : no need for the parameter scene here
-dashedLines = BABYLON.MeshBuilder.CreateDashedLines("dl", {points: myArray, instance: dashedLines});
+let dashedlines = BABYLON.MeshBuilder.CreateDashedLines("dashedlines", options, scene);  //scene is optional and defaults to the current scene
+
+// Update
+options.points[0].x +=6; 
+options.instance = lines;
+lines = BABYLON.MeshBuilder.CreateDashedLines("dashedlines", options); //No scene parameter when using instance
 ```
 
 option|value|default value
@@ -22,20 +25,35 @@ dashNb|_(number)_  intended number of dashes|200
 updatable|_(boolean)_ true if the mesh is updatable|false
 instance|_(LineMesh)_ an instance of a line mesh to be updated|null
 
-[A Playground Example of Dashed Lines](https://www.babylonjs-playground.com/#165IV6#76)
-[A Playground Update of Dashed Lines](https://www.babylonjs-playground.com/#165IV6#77)
+The actual length of the dashes is determined by the ratio of **dashSize : (dashSize + gapSize)**  
+All of the following will produce equal sized dashes and gaps.
+```javascript
+dashSize = 1;
+gapSize = 1;
+
+dashSize = 1000;
+gapSize = 1000;
+
+dashSize = 876;
+gapSize = dashSize;
+```
+
+non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1
+non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2
+non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3
+updatable example https://www.babylonjs-playground.com/#TYF5GH#4
 
 Dashed lines are colored with a color property
 
 ```javascript
-lines.color = new BABYLON.Color3(1, 0, 0);
+dashedlines.color = new BABYLON.Color3(1, 0, 0);
 ```
-* [Playground Example of Colored Dashed Lines](https://www.babylonjs-playground.com/#165IV6#79)
+
+Playground Example of Colored Dashed Lines https://www.babylonjs-playground.com/#TYF5GH#5
 
 ## Mesh
+Usage:
 ```javascript
-var dashedlines = BABYLON.Mesh.CreateDashedLines("dashedLines", [v1, v2, ... vn], dashSize, gapSize, dashNb, scene);
+const dashedlines = BABYLON.Mesh.CreateDashedLines("dashedLines", vector3 array, dashSize, gapSize, dashNb, scene);
+const dashedlines = BABYLON.Mesh.CreateDashedLines("dashedLines", vector3 array, dashSize, gapSize, dashNb, scene, updatable, instance); //optional parameters after scene
 ```
-Parameters are : name, [array of Vectors3], dashSize, gapSize, dashNumber, scene.    
-As for Lines, a line along the vectors3 will be displayed in space. It will try to set _dashNumber_ strokes on this line depending on the length of each segment between two successive vectors3.    
-_dashSize_ and _gapSize_ are relative to each other dash and gap sizes within these strokes. 

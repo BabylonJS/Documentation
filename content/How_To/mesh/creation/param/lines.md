@@ -41,5 +41,5 @@ multi colored lines have to be set on creation https://www.babylonjs-playground.
 usage:
 ```javascript
 let lines = BABYLON.Mesh.CreateLines("lines", points, scene);
-let lines = BABYLON.Mesh.CreateLines("lines", points, scene, updatable, instance); //optional parameters after scene
+let lines = BABYLON.Mesh.CreateLines("lines", points, scene, updatable, instance);
 ```  

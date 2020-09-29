@@ -290,7 +290,7 @@
                                     "content": "How_To/mesh/creation/param_landing"
                                 },
                                 "polyhedra": {
-                                    "friendlyName": "Creating Plyhera Shapes",
+                                    "friendlyName": "Creating Polyhedra Shapes",
                                     "children": {
                                         "polyhedraShapes": { "friendlyName": "Creating Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" }
                                     },
