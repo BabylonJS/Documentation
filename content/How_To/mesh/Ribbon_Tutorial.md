@@ -50,7 +50,6 @@ Therefore you **can't add a texture**  to a ribbon constructed with different le
 This is due to the fact that the nested ribbon texturing algorithm only knows how to deal with a unique length for all paths. 
 When applying a texture the algorithm assumes that the ribbon can be unfolded into a rectangle that can stretched to fit on top of the image used for the texture. 
 This is only possible when paths are of equal length.
-  
 
 ## Closed shapes : normals or textures ?
 

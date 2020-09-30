@@ -1,17 +1,7 @@
-# Mathematics and Ribbons
+# Surfaces, Mathematics and Ribbons
+Mathematics is very useful for drawing surfaces in 3D space. Surfaces are often described by the following equation type *y = f(x, z)*, that is height is determined by the ground coordinate position. 
 
-Mathematics is very useful for drawing paths in space and so can be applied to ribbons. 
-
-*NOTE - * The examples on this page use the legacy method of creating ribbons
-```javascript
-var ribbon = BABYLON.Mesh.CreateRibbon(name, pathArray, closeArray, closePath, offset, scene, updatable, sideOrientation);
-```
-
-rather then the newer options method.
-```javascript
-var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: paths },  scene );
-```  
-
+x(s, t), z(t, t)
 
 ## Maths computed paths
 
@@ -53,7 +43,7 @@ You now know the way to fill a path with successive _Vector3_ along a math curve
 Well, we just learnt how to fill a path but a Ribbon needs many paths (okay, we can still construct a ribbon with a single path too, but it's more complex), so how do we add different paths as there is no real interest to add many times the same path ?   
 It's quite easy once you've got your parametric equation.  
 
-Let's get into javascript now.   
+Let's get into JavaScript now.   
 Your former parametric equation could be this way :   
 ```javascript
 var path = [];

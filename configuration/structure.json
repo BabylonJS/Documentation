@@ -101,19 +101,19 @@
                         "animatedCharacter": { "friendlyName": "Animating Characters", "children": {}, "content": "How_To/animation/AnimatedCharacter" },
                         "sequenceAnimations": { "friendlyName": "Sequencing Animations", "children": {}, "content": "How_To/animation/Sequence" }
                     }, 
-                    "content": "features/component/Animations"
+                    "content": "landing_pages/component/Animations"
                 },
                 "audio": {
                     "friendlyName": "Audio", 
                     "children": {
                         "playingSoundsMusic": { "friendlyName": "Playing Sounds and Music", "children": {}, "content": "How_To/audio/Playing_sounds_and_music" }
                     }, 
-                    "content": "features/component/Audio"
+                    "content": "landing_pages/component/Audio"
                 },
                 "behaviors": {
                     "friendlyName": "Behaviors", 
                     "children": {}, 
-                    "content": "features/component/behaviour1"
+                    "content": "landing_pages/component/behaviour1"
                 },
                 "cameras": {
                     "friendlyName": "Cameras", 
@@ -126,16 +126,16 @@
                         "webVRCamera": { "friendlyName": "WebVR Camera", "children": {}, "content": "How_To/camera/WebVR_Camera" },
                         "webVRHelper": { "friendlyName": "WevVR Experience Helper", "children": {}, "content": "How_To/camera/WebVR_Helper" }
                     }, 
-                    "content": "features/component/Cameras"
+                    "content": "landing_pages/component/Cameras"
                 },
                 "controls": {
                     "friendlyName": "2D Controls", 
                     "children": {
-                        "timeline": { "friendlyName": "Timeline Control", "children": {}, "content": "features/controls/timeline" },
-                        "resizer": { "friendlyName": "Resizer Control", "children": {}, "content": "features/controls/resizer" },
-                        "imageFilter": { "friendlyName": "Image Filter Control", "children": {}, "content": "features/controls/imageFilter" }
+                        "timeline": { "friendlyName": "Timeline Control", "children": {}, "content": "landing_pages/controls/timeline" },
+                        "resizer": { "friendlyName": "Resizer Control", "children": {}, "content": "landing_pages/controls/resizer" },
+                        "imageFilter": { "friendlyName": "Image Filter Control", "children": {}, "content": "landing_pages/controls/imageFilter" }
                     }, 
-                    "content": "features/controls/controls"
+                    "content": "landing_pages/controls/controls"
                 },
                 "developWithBjs": {
                     "friendlyName": "Develop With Babylon.js", 
@@ -147,10 +147,10 @@
                         "contributeToAPI": { "friendlyName": "Contribute To The API", "children": {}, "content": "How_To/contribute/contribute_to_api" },
                         "contributeToDocs": { "friendlyName": "Contribute To The Documentation", "children": {}, "content": "How_To/contribute/contribute_to_documentation" },
                         "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
-                        "npmSupport": { "friendlyName": "NPM_Support", "children": {}, "content": "features/Support/NPM_Support"},
+                        "npmSupport": { "friendlyName": "NPM_Support", "children": {}, "content": "landing_pages/Support/NPM_Support"},
                         "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" },
                         "playgroundTutorials": { "friendlyName": "Making Playground Tutorials", "children": {}, "content": "How_To/contribute/playground_tutorials" },
-                        "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "features/Support/ES6_Support"},
+                        "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support"},
                         "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" }
                         
                     }, 
@@ -168,7 +168,7 @@
                         "360PhotoDome": { "friendlyName": "360 Photo Domes", "children": {}, "content": "How_To/environment/360PhotoDome" },
                         "360VideoDome": { "friendlyName": "360 Video Domes", "children": {}, "content": "How_To/environment/360VideoDome" }
                     }, 
-                    "content": "features/component/Environment"
+                    "content": "landing_pages/component/Environment"
                 },
                 "events": {
                     "friendlyName": "Events", 
@@ -177,7 +177,7 @@
                         "observables": { "friendlyName": "Observables", "children": {}, "content": "How_To/events/Observables" },
                         "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" }
                     }, 
-                    "content": "features/component/Events"
+                    "content": "landing_pages/component/Events"
                 },
                 "gui": {
                     "friendlyName": "GUI", 
@@ -188,7 +188,7 @@
                         "selector": { "friendlyName": "Selector", "children": {}, "content": "How_To/GUI/Selector" },
                         "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" }
                     }, 
-                    "content": "features/GUI/gui"
+                    "content": "landing_pages/GUI/gui"
                 }, 
                 "input": {
                     "friendlyName": "Input", 
@@ -219,7 +219,7 @@
                     "children": {
                         "volumetricLightScattering": { "friendlyName": "Volumetric Light Scattering Post Process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" }
                     }, 
-                    "content": "features/component/Lights"
+                    "content": "landing_pages/component/Lights"
                 },
                 "materials": {
                     "friendlyName": "Materials", 
@@ -244,7 +244,7 @@
                         "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
                         "texturePackage": { "friendlyName": "Create a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" }
                     }, 
-                    "content": "features/component/Materials"
+                    "content": "landing_pages/component/Materials"
                 },
                 "mesh": {
                     "friendlyName": "Mesh", 
@@ -354,7 +354,7 @@
                 "occlusionQueries": {
                     "friendlyName": "Occlusion Queries", 
                     "children": {}, 
-                    "content": "features/component/OcclusionQuery"
+                    "content": "landing_pages/component/OcclusionQuery"
                 },
                 "particles": {
                     "friendlyName": "Particles", 
@@ -365,7 +365,7 @@
                         "pointCloudParticles": { "friendlyName": "Point Cloud Particles", "children": {}, "content": "How_To/Particles/Point_Cloud_Particles" },
                         "subEmitters": { "friendlyName": "Sub Emitters", "children": {}, "content": "How_To/Particles/Sub_Emitters" },
                         "solidParticles": { "friendlyName": "The Solid Particle System", "children": {}, "content": "How_To/Particles/Solid_Particles" }                    }, 
-                    "content": "features/component/Particles"
+                    "content": "landing_pages/component/Particles"
                 },
                 "physics": {
                     "friendlyName": "Physics", 
@@ -379,7 +379,7 @@
                         "advancedPhysicsFeatures": { "friendlyName": "Advanced Physics Features", "children": {}, "content": "How_To/Physics/Using_Advanced_Physics_Features" },
                         "addPhysicsEngine": { "friendlyName": "Add Your Own Physics Engine", "children": {}, "content": "How_To/Physics/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js" }
                     }, 
-                    "content": "features/Support/Physics_Engine"
+                    "content": "landing_pages/Support/Physics_Engine"
                 },
                 "postProcesses": {
                     "friendlyName": "Post Processes", 
@@ -416,7 +416,7 @@
                         "clipPlanes": { "friendlyName": "Using Clip Planes", "children": {}, "content": "How_To/scene/Clip_Planes" },
                         "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Server" }
                     }, 
-                    "content": "features/component/Scene"
+                    "content": "landing_pages/component/Scene"
                 },
                 "shaders": {
                     "friendlyName": "Shaders", 
@@ -475,7 +475,7 @@
                 "webGL2": {
                     "friendlyName": "WebGL2", 
                     "children": {}, 
-                    "content": "features/Support/WebGL2"
+                    "content": "landing_pages/Support/WebGL2"
                 },
                 "webGPU": {
                     "friendlyName": "WebGPU", 
@@ -485,7 +485,7 @@
                 "serverSide": {
                     "friendlyName": "Running Babylon.js on a Server", 
                     "children": {}, 
-                    "content": "features/Support/nullEngine"
+                    "content": "landing_pages/Support/nullEngine"
                 }
             },
             "content": "landing_pages/blackHoleLandingPage" 
@@ -501,15 +501,15 @@
                             "children": {
                                 "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" }
                             }, 
-                            "content": "features/PGsupport/Playground"
+                            "content": "landing_pages/PGsupport/Playground"
                         },
                         "inspector": {
                             "friendlyName": "Inspector", 
                             "children": {
-                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "features/PGsupport/intro_inspector" },
+                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
                                 "customizingInspector": { "friendlyName": "Customizing the Inspector", "children": {}, "content": "How_To/PGsupport/Customize_debug_layer" }
                             }, 
-                            "content": "features/PGsupport/Playground_debuglayer"
+                            "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
                         "nme": {
                             "friendlyName": "Node Material Editor", 
@@ -534,7 +534,7 @@
                         "textureInspector": {
                             "friendlyName": "Texture Inspector", 
                             "children": {}, 
-                            "content": "features/PGsupport/texture_inspector"
+                            "content": "landing_pages/PGsupport/texture_inspector"
                         },
                         "skeletonViewer": {
                             "friendlyName": "Skeleton Viewer", 
