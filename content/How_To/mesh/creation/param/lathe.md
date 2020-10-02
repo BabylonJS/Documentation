@@ -1,10 +1,14 @@
 # Lathe
-## MeshBuilder
-Mesh Builder Only. You must set at least the _shape_ option.
+A lathed shape is created by defining a shape profile using vector3 coordinates in the xy plane. The shape profile will be rotated around the y axis to form the lather shape. It is recommended that all the x values are positive. You must set at least the _shape_ option.
 
-Example :
+On creation the local origin of a lathed shape is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+
+There in no _instance_ option for lathed shapes
+
+## MeshBuilder
+Usage :
 ```javascript
-var lathe = BABYLON.MeshBuilder.CreateLathe("lathe", {shape: myShape}, scene);
+const lathe = BABYLON.MeshBuilder.CreateLathe("lathe", options, scene); //scene is optional and defaults to the current scene
 ```
 
 option|value|default value
@@ -21,5 +25,18 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option** | Vector4(0,0, 1,1) 
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-* [Playground Example of a Lathe](https://www.babylonjs-playground.com/#165IV6#72)
-* [Playground Update of the Lathe](https://www.babylonjs-playground.com/#165IV6#73)
+The radius value is a multiplier for the x values in the profile shape vector3s.
+
+### Examples
+Lathed shape https://www.babylonjs-playground.com/#PQ0GIE
+Hexagonal nut https://www.babylonjs-playground.com/#PQ0GIE#1
+Arc https://www.babylonjs-playground.com/#PQ0GIE#2
+
+
+## Mesh
+Usage:
+```javascript
+let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene);
+let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene, updatable, sideOrientation); //optional parameters after scene
+```
+Note the limited parameters for this method

@@ -1,15 +1,29 @@
 # Custom Extruded Shapes
+A custom extruded shape replaces the _rotation_ and _scale_ options with _rotationFunction_ or _scaleFunction_. These allow you to vary the rotation and scale of the mesh as it extrudes by defining them in terms of a path index or a distance along the path. Since the custom extrusion is based on the Babylon.js ribbon there are two options, *ribbonClosePath* which closes the profile shape and *ribbonCloseArray*, which closes the extrusion path array.
+
+On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+
+
 ## MeshBuilder
-You must set at least the _shape_ and _path_ options.
-On update, you must set the _shape_, _path_ and _instance_ options and you can set the _rotationFunction_ or _scaleFunction_ options.
-
-Example :
+Usage :
 ```javascript
-//creates an instance of a Custom Extruded Shape
-var extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", {shape: myShape, path: myPath}, scene);
+const options = {
+    shape: myPoints, //vec3 array with z = 0,
+    path: myPath, //vec3 array
+    rotationFunction: rotFn,
+    scaleFunction: scaleFn,
+    updatable: true
+}
 
-// updates the existing instance of extruded : no need for the parameter scene
-extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", {shape: myShape, path: myPath, scaleFunction: myScaleF, rotationFunction: myRotF instance: extruded});
+let extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", options, scene);  //scene is optional and defaults to the current scene
+
+// Update
+options.shape = newShape;
+options.path = newPath;
+options.instance = extruded;
+options.rotationFunction = newRotFn;
+options.scaleFunction = newScaleFn;
+extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", options); //No scene parameter when using instance
 ```
 
 option|value|default value
@@ -28,104 +42,38 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-* [Playground Example of a Custom Extruded Shape](https://www.babylonjs-playground.com/#165IV6#71)
-* [Playground Update of the Custom Extruded Shape Changing Scale and Rotation Functions](https://www.babylonjs-playground.com/#165IV6#17)
+  
+You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_ and _instance_ options and you can set the _rotationFunction_ or _scaleFunction_ options.
+
+ The _scaleFunction_  and _rotationFunction_ are called on each path point and require two parameters, _index_ and _distance_.  
+
+* index refers to the path point position in the path array 
+* distance is the current point distance from the beginning of the path. 
+
+
+### Examples
+non updatable extrusion https://www.babylonjs-playground.com/#ZMKN5T#1  
+update of extrusion scaleFunction and rotation Function https://www.babylonjs-playground.com/#ZMKN5T#2  
+offset open profile shape path defined by trigonometry  https://www.babylonjs-playground.com/#ZMKN5T#3  
+sine wave by alternately scaling positive/negative https://www.babylonjs-playground.com/#ZMKN5T#4  
+example of constant scale and rotation evolving with the distance https://www.babylonjs-playground.com/#ZMKN5T#5  
+non-linear rotation function https://www.babylonjs-playground.com/#ZMKN5T#6   
+
+offset open profile shape : https://www.babylonjs-playground.com/#RF9W9#20    
+open extrusion path : https://www.babylonjs-playground.com/#RF9W9#21   
+Extrusion with constant scale 1 and no rotation : https://www.babylonjs-playground.com/#RF9W9#43  
+ _ribbonCloseArray_ to true :https://www.babylonjs-playground.com/#RF9W9#44  
+ _ribbonClosePath_ to true instead : https://www.babylonjs-playground.com/#RF9W9#45  
+Both true : https://www.babylonjs-playground.com/#RF9W9#46  
+  
+generate strange shapes : https://www.babylonjs-playground.com/#RF9W9#47 
 
 ## Mesh
+Usage: 
 ```javascript
-BABYLON.Mesh.ExtrudeShapeCustom(name, shape, path, scaleFunction, rotateFunction, ribbonCloseArray, ribbonClosePath, cap, scene)
+let extrusion = BABYLON.Mesh.ExtrudeShapeCustom("extrusion", shape, path, scaleFunction, rotateFunction, ribbonCloseArray, ribbonClosePath, cap, scene);
+let extrusion = BABYLON.Mesh.ExtrudeShapeCustom("extrusion", shape, path, scaleFunction, rotateFunction, ribbonCloseArray, ribbonClosePath, cap, scene, updatable, sideOrientation, instance); //optional parameters after scene
+
+// fixed unit scale and zero rotation
+let extrusion = BABYLON.Mesh.ExtrudeShapeCustom("extrusion", shape, path, () => {return 1}, () => {return 0}, ribbonCloseArray, ribbonClosePath, cap, scene);
 ```
-* name : the extruded mesh name,
-* shape : the shape to be extruded, an array of successive Vector3.
-* path : the path to extrude the shape along, an array of successive Vector3.
-* scaleFunction : a custom javascript function. This function is called on each path point and is given the _i_ position of the point in the path and its _distance_ from the begining of the path. It must return a _scale_ numeric value. This value will be the scaling applied to the shape drawn at the _i-th_  point.
-* rotationFunction : a custom javascript function. This function is called on each path point and is given the _i_ position of the point in the path and its _distance_ from the begining of the path. It must return a _rotation_ numeric value. This value will be the rotation applied to the shape drawn at the _i-th_  point.
-* ribbonCloseArray : _default false_, boolean. The underlying ribbon _closeArray_  parameter. This can be used to automatically close a path with right normals computation.
-* ribbonClosePath : _default false_, boolean. The underlying ribbon _closePath_  parameter. This can be used to automatically close a shape with right normals computation.  
-*  cap : BABYLON.Mesh.NO_CAP, BABYLON.Mesh.CAP_START, BABYLON.Mesh.CAP_END, BABYLON.Mesh.CAP_ALL.  
-* scene : the current scene.
-* updatable? : if the mesh is updatable.
-* sideOrientation : the side orientation - _front, back_ or _double_.
-
-In this advanced method, the _scale_ and _rotation_ parameters are replaced by custom functions.  
-
-  _scaleFunction_   
-This javascript function will be called on each path point iteration when extruding. It will be passed two parameters : _i_ and _distance_.  
-
-* i is the point position in the path, starting from zero for the first point.
-* distance is the current point distance from the begining of the path.  
-
-This custom function must return a _scale_ numeric value which will be applied to the shape on the _i-th_ point.  
-Example :
-```javascript
-var myScale = function(i, distance) {
-  var scale = 2 * Math.sin(i / 5);
-  return scale;
-};
-```
-
-Here is an example with an unclosed un-centered simple shape whose scale evolves linearly along the path : https://www.babylonjs-playground.com/#RF9W9#38    
-Now if we use a sinus scaling function instead and as the shape isn't centered, we get interesting results : https://www.babylonjs-playground.com/#RF9W9#39    
-We can even emulate rotation by alternately scaling positive/negative : https://www.babylonjs-playground.com/#RF9W9#40    
-
-
-  _rotateFunction_  
-This javascript function will be called on each path point iteration when extruding. It will be passed two parameters : _i_ and _distance_.  
-
-* i is the point position in the path, starting from zero for the first point.
-* distance is the current point distance from the begining of the path. 
-
-This custom function must return a _rotation_ numeric value which will be applied to the shape on the _i-th_ point.  
-Example :
-```javascript
-var myRotation = function(i, distance) {
-  var rotation = distance / 20;
-  return rotation;
-};
-```
-Here is an example of constant scale and rotation evolving with the distance : https://www.babylonjs-playground.com/#RF9W9#41    
-You can set a non-linear rotation function of course, sinus here : https://www.babylonjs-playground.com/#RF9W9#42    
-
-
-
-  Fixed values
-
-This advanced method needs two custom functions. But you may want to use a custom scale function with a fixed (or no) rotation function, for example. In this case, just pass a custom rotation function returning a fixed value :  
-Example :  
-```javascript
-var noRotation = function(i, distance) {
-  return 0;
-};
-```
-If you carefully read the code of this previous example, you can see in line 41 that the _scaleFunction_ returns the constant 1 value : https://www.babylonjs-playground.com/#RF9W9#41      
-
-  _ribbonCloseXXX_ parameters
-
-The extruded mesh is based on an underlying ribbon. When you extrude a shape, you actually make a particular ribbon.  
-This means you can also set this ribbon _closeArray_ and _closePath_ parameter if you need to automatically close the extruded shape.  
-NOTE : the _closeXXX_ names are the ribbon ones. Not the extruded shape ones.  
-So it may be confusing because :  
-
-* _ribbonCloseArray_ set to true will close your shape extrusion path,
-* _ribbonClosePath_ set to true will close your shape itself (if unclosed).  
-
-Let's now do this unclosed, un-centered extruded shape : https://www.babylonjs-playground.com/#RF9W9#20  
-And this almost circular path : https://www.babylonjs-playground.com/#RF9W9#21  
-Extrusion with constant scale and no rotation : https://www.babylonjs-playground.com/#RF9W9#43    
-Now let's set the _ribbonCloseArray_ to true :https://www.babylonjs-playground.com/#RF9W9#44    
-As you can see, it closes the extrusion path. Let's set it back to false and let's set the _ribbonClosePath_ to true instead : https://www.babylonjs-playground.com/#RF9W9#45    
-Now the shape is closed.  
-Both together : https://www.babylonjs-playground.com/#RF9W9#46    
-
-
- Summary  
-At last, the extrude custom function call would be, for example:  
-```javascript
-BABYLON.Mesh.ExtrudeShapeCustom("extruded", shape, path, myScale, myRotation, false, true, scene)
-```
-A shape is an array of successive Vector3. This means 2D or 3D shapes can be extruded as well.  
-The shape is to be designed in the local coordinate system knowing that the z-axis will be the extrusion path axis.  
-Finally, shapes don't have to be centered in the local coordinate system.  
-A centered shape will be extruded symmetrically centered along the path axis. An un-centered shape will be extruded offset from the path axis.  
-
-Easy way to generate strange shapes : https://www.babylonjs-playground.com/#RF9W9#47  

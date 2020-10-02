@@ -1,5 +1,8 @@
 # Ribbon
 The ribbon is a very versatile shape. Picture a ribbon in the real world with parallel wires running down its length. You can turn such a ribbon into a wide variety of shapes. Joining one long edge to its opposite you could form a tube and bend that into different shapes. This and more is possible with a Babylon.js ribbon. Instead of parallel wires a Babylon.js ribbon is formed from paths defined by an array of vector3s and how you define the paths determines the final shape. 
+
+On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
+
 ## MeshBuilder
 Usage :
 ```javascript
@@ -14,7 +17,7 @@ options.pathArray: myNewPaths; //The length must equal the length of myPaths and
 options.instance = true;
 
 // updates the existing instance of ribbon : no need for the parameter scene
-ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: myNewPaths, instance: ribbon});
+ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: myNewPath, instance: ribbon});
 ```
 
 option|value|default value
@@ -29,6 +32,8 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option** | Vector4(0,0, 1,1) 
 instance|_(LineMesh)_ an instance of a ribbon to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
+
+### Examples
 
 Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5
 

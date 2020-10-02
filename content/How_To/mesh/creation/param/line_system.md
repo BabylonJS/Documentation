@@ -19,6 +19,7 @@ instance|_(LineMesh)_ an instance of a line system mesh to be updated|null
 colors|_(Color4[])_ array of Color4, each point color|null
 useVertexAlpha|_(boolean)_ false if the alpha blending is not required (faster)|true
 
+### Examples
 Example of a Linesystem  https://www.babylonjs-playground.com/#Y7CS4N
 Update of the Linesystem https://www.babylonjs-playground.com/#Y7CS4N#1
 

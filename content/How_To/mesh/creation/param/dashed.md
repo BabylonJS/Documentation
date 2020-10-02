@@ -37,7 +37,7 @@ gapSize = 1000;
 dashSize = 876;
 gapSize = dashSize;
 ```
-
+### Examples
 non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1
 non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2
 non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3

@@ -30,6 +30,7 @@ Unlike a mesh Lines are colored after creation with a color property rather than
 lines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
+### Examples
 non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#6
 non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#8
 updatable example https://www.babylonjs-playground.com/#MZ7QRG#9
