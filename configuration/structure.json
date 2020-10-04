@@ -292,7 +292,9 @@
                                 "polyhedra": {
                                     "friendlyName": "Creating Polyhedra Shapes",
                                     "children": {
-                                        "polyhedraShapes": { "friendlyName": "Creating Polyhedra Shapes", "children": {}, "content": "How_To/mesh/Polyhedra_Shapes" }
+                                        "polyhedra_by_numbers": { "friendlyName": "Provided Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/provided_poly" },
+                                        "custom_poly": { "friendlyName": "Custom Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/custom_poly" },
+                                        "icosphere": { "friendlyName": "Icosphere", "children": {}, "content": "How_To/mesh/creation/polyhedra/icosphere" }
                                     },
                                     "content": "How_To/mesh/creation/polyhedra_landing"
                                 },

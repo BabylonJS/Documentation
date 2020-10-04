@@ -39,16 +39,16 @@ flat|_(boolean)_ if false, a polyhedron has a single global face, _faceUV_ and _
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
+
 To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/How_To/CreateBox_Per_Face_Textures_And_Colors) taking into account the right number of faces of your polyhedron, instead of only 6 for a box. 
 
 ## Examples
 The full set of 15 https://www.babylonjs-playground.com/#PBLS4Y
-
-
+Dodecahedron with FaceUVs https://www.babylonjs-playground.com/#PBLS4Y#1
 
 ## Mesh
 usage :
 ```javascript
 const polyhedron = BABYLON.Mesh.CreatePolyhedron("oct", options, scene); //scene is optional and defaults to the current scene
 ```
-
+This is the same format as that for *MeshBuilder*
