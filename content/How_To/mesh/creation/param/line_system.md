@@ -13,7 +13,7 @@ lineSystem = BABYLON.MeshBuilder.CreateLineSystem("lineSystem", {lines: myArray,
 
 option|value|default value
 --------|-----|-------------
-lines|_(Vector3[])_  array of lines, each line being an array of successive Vector3 **REQUIRED**
+lines|_(Vector3[][])_  array of lines, each line being an array of successive Vector3 **REQUIRED**
 updatable|_(boolean)_ true if the mesh is updatable|false
 instance|_(LineMesh)_ an instance of a line system mesh to be updated|null
 colors|_(Color4[])_ array of Color4, each point color|null
