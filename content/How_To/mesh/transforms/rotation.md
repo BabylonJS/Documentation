@@ -1,4 +1,4 @@
-# Transformation Chapter Page 2
+# Transformations
 ## Rotation
 Rotation in 3D space is always tricky. The order in which rotations are applied and the frame of reference used changes the final orientation of a mesh. There is a range of conventions for applying rotations in 3D modelling. For more details on these conventions in Babylon.js see [Applying Rotations Convention BJS](/resources/rotation_conventions).
 

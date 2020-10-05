@@ -1,4 +1,4 @@
-# Transformation Chapter Page 3
+# Transformations
 ## Sequencing Rotations
 When you use the **rotation** method on a mesh then the rotation is applied in local space first around the y axis, then the x axis and finally about the z axis. How then do you rotate a mesh around a custom sequence of axes? This involves rotation quaternions either implicitly or explicitly.
 

@@ -1,0 +1,2 @@
+# Transformations Where the Center of Transformation is the Created Origin
+In this section we will only be looking at examples of the effects of changing the position, rotation and scale of a mesh based on its created local space origin. All the methods described can be applied to a mesh as a parent or a child or one with a pivot. In these cases the effects will be different because the center of transformation will have been changed. 

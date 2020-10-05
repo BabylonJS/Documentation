@@ -1,4 +1,4 @@
-# Transformation Chapter Page 4
+# Transformations
 ## Rotation Quaternions
 A quaternion is a four dimensional vector (x, y, z, w) and to be a rotation quaternion it has to be a unit vector, i.e. x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + w<sup>2</sup> = 1
 

@@ -313,15 +313,32 @@
                         "transforms": {
                             "friendlyName": "Mesh Transformations",
                             "children": {
-                                "position": { "friendlyName": "Position a Mesh", "children": {}, "content": "How_To/mesh/transforms/position" },
-                                "rotation": { "friendlyName": "Mesh Rotation", "children": {}, "content": "How_To/mesh/transforms/rotation" },
-                                "add_rotations": { "friendlyName": "Sequencing Rotations", "children": {}, "content": "How_To/mesh/transforms/sequence_rotations" },
-                                "rotation_quaternions": { "friendlyName": "Rotation Quaternions", "children": {}, "content": "How_To/mesh/transforms/rotation_quaternions" },
-                                "target_align": { "friendlyName": "Target Axes Alignment", "children": {}, "content": "How_To/mesh/transforms/target_align" },
-                                "rotation_conventions": { "friendlyName": "Rotation Conventions", "children": {}, "content": "resources/Manual/Rotation_Conventions" },
-                                "bakingTransforms": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" },
-                                "ref_frame": { "friendlyName": "Frames of Reference", "children": {}, "content": "resources/Manual/Frame_Of_Reference" }
-                            }
+                                "center_origin": {
+                                    "friendlyName": "Centered on Created Origin",
+                                    "children": {
+                                        "position": { "friendlyName": "Position a Mesh", "children": {}, "content": "How_To/mesh/transforms/position" },
+                                        "rotation": { "friendlyName": "Mesh Rotation", "children": {}, "content": "How_To/mesh/transforms/rotation" },
+                                        "add_rotations": { "friendlyName": "Sequencing Rotations", "children": {}, "content": "How_To/mesh/transforms/sequence_rotations" },
+                                        "rotation_quaternions": { "friendlyName": "Rotation Quaternions", "children": {}, "content": "How_To/mesh/transforms/rotation_quaternions" },
+                                        "target_align": { "friendlyName": "Target Axes Alignment", "children": {}, "content": "How_To/mesh/transforms/target_align" },
+                                        "rotation_conventions": { "friendlyName": "Rotation Conventions", "children": {}, "content": "resources/Manual/Rotation_Conventions" },
+                                        "bakingTransforms": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" },
+                                        "ref_frame": { "friendlyName": "Frames of Reference", "children": {}, "content": "resources/Manual/Frame_Of_Reference" }
+                                    },
+                                    "content": "landing_pages/diving_deeper_origin_transforms_landing_page"
+                                },
+                                "parent_pivot": {
+                                    "friendlyName": "Parents and Pivots",
+                                    "children": {
+                                        "parent": { "friendlyName": "Parents and Children", "children": {}, "content": "How_To/mesh/Parenting" },
+                                        "pivots": { "friendlyName": "Pivots", "children": {}, "content": "How_To/mesh/Pivots" },
+                                        "pivot": { "friendlyName": "Rotate Around Axis", "children": {}, "content": "How_To/mesh/Pivot" },
+                                        "transform_coords": { "friendlyName": "Coordinate Transformation", "children": {}, "content": "How_To/mesh/Transform_Coordinates" }
+                                    },
+                                    "content": "landing_pages/diving_deeper_transform_pivot_landing_page"
+                                } 
+                            },
+                            "content": "landing_pages/component/transformations"  
                         },
                         "displayBoundingBoxes": { "friendlyName": "Drawing Bounding Boxes", "children": {}, "content": "How_To/mesh/How_to_display_bounding_boxes" },
                         "decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
@@ -338,14 +355,9 @@
                         "dynamicMeshMorph": { "friendlyName": "Dynamically Morph a Mesh", "children": {}, "content": "How_To/mesh/How_to_dynamically_morph_a_mesh" },
                         "morphTargets": { "friendlyName": "Morph Targets", "children": {}, "content": "How_To/mesh/How_to_use_MorphTargets" },
                         "bonesSkeletons": { "friendlyName": "Bones and Skeletons", "children": {}, "content": "How_To/mesh/How_to_use_Bones_and_Skeletons" },
-                        "translationRotation": { "friendlyName": "Translation and Rotation", "children": {}, "content": "How_To/mesh/Rotate" },
                         "meshBehaviors": { "friendlyName": "Mesh Behaviors", "children": {}, "content": "How_To/mesh/MeshBehavior" },
                         "utilityLayerRenderer": { "friendlyName": "Rendering Utility Layers", "children": {}, "content": "How_To/mesh/UtilityLayerRenderer" },  
                         "gizmo": { "friendlyName": "Gizmos", "children": {}, "content": "How_To/mesh/Gizmo" },
-                        "pivots": { "friendlyName": "Setting/Using Pivots", "children": {}, "content": "How_To/mesh/Pivots" },
-                        "rotateAroundAxis": { "friendlyName": "Rotating Around an Axis About a Point", "children": {}, "content": "How_To/mesh/Pivot" },
-                        "parenting": { "friendlyName": "Parenting", "children": {}, "content": "How_To/mesh/Parenting" },
-                        "coordinateTransormation": { "friendlyName": "Coordinate Transformations", "children": {}, "content": "How_To/mesh/Transform_Coordinates" },
                         "simplifyingMeshes": { "friendlyName": "Simplifying Meshes with Auto-LOD", "children": {}, "content": "How_To/mesh/In-Browser_Mesh_Simplification" },
                         "edgeRenderer": { "friendlyName": "Rendering Edges", "children": {}, "content": "How_To/mesh/How_to_use_EdgesRenderer" },
                         "trailMesh": { "friendlyName": "Trail Mesh", "children": {}, "content": "How_To/mesh/How_to_use_TrailMesh" },
