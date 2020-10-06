@@ -25,7 +25,7 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order;
 
 ## Examples
-Extruded Polygon https://www.babylonjs-playground.com/#KIEYA6
+Extruded Polygon https://www.babylonjs-playground.com/#KIEYA6  
 Extruded Polygons using faceUV, one with wrap, one without https://www.babylonjs-playground.com/#KIEYA6#1
 
 

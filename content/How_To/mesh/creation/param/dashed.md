@@ -38,9 +38,9 @@ dashSize = 876;
 gapSize = dashSize;
 ```
 ### Examples
-non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1
-non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2
-non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3
+non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1  
+non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2  
+non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3  
 updatable example https://www.babylonjs-playground.com/#TYF5GH#4
 
 Dashed lines are colored with a color property rather than a material.
@@ -49,7 +49,7 @@ Dashed lines are colored with a color property rather than a material.
 dashedlines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
-Playground Example of Colored Dashed Lines https://www.babylonjs-playground.com/#TYF5GH#5
+Colored Dashed Lines https://www.babylonjs-playground.com/#TYF5GH#5
 
 ## Mesh
 Usage:

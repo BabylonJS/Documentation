@@ -35,13 +35,13 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 
 ### Examples
 
-Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5
+Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5  
 
-double sided ribbon not updatable https://www.babylonjs-playground.com/#F6JW5W#6
-double sided ribbon not updatable path lines in red https://www.babylonjs-playground.com/#F6JW5W#7
-open ribbon https://www.babylonjs-playground.com/#F6JW5W#8
-with closePath true https://www.babylonjs-playground.com/#F6JW5W#9
-with closeArray true https://www.babylonjs-playground.com/#F6JW5W#10
+double sided ribbon not updatable https://www.babylonjs-playground.com/#F6JW5W#6  
+double sided ribbon not updatable path lines in red https://www.babylonjs-playground.com/#F6JW5W#7  
+open ribbon https://www.babylonjs-playground.com/#F6JW5W#8  
+with closePath true https://www.babylonjs-playground.com/#F6JW5W#9  
+with closeArray true https://www.babylonjs-playground.com/#F6JW5W#10  
 
 
 ## Mesh

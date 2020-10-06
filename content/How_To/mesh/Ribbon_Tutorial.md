@@ -27,11 +27,11 @@ The ribbon is formed by joining each point on the path to a later point where on
 
 For point *p* and offset *f* the triangle is *p*, *p + 1*, *p + f*, provided of course that *p + f &lt; number of points in the path array*
 
-Create the ribbon with a variety of offsets and show in wireframe
-default offset, half the path length (60 / 2 = 30) https://www.babylonjs-playground.com/#F6JW5W#13
-offset 10 https://www.babylonjs-playground.com/#F6JW5W#14
-offset 5 https://www.babylonjs-playground.com/#F6JW5W#15
-offset 20 https://www.babylonjs-playground.com/#F6JW5W#16
+Create the ribbon with a variety of offsets and show in wireframe  
+default offset, half the path length (60 / 2 = 30) https://www.babylonjs-playground.com/#F6JW5W#13  
+offset 10 https://www.babylonjs-playground.com/#F6JW5W#14  
+offset 5 https://www.babylonjs-playground.com/#F6JW5W#15  
+offset 20 https://www.babylonjs-playground.com/#F6JW5W#16  
 
 
 So playing with _offset_, _closeArray_, or other parameters, you can easily get volumes, even with a single path https://www.babylonjs-playground.com/#F6JW5W#17

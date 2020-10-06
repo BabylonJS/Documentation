@@ -43,12 +43,12 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 
 ### Examples
 non updatable extrusion https://www.babylonjs-playground.com/#MR8LEL#2  
-update of extrusion including, shape, path, scale and rotation https://www.babylonjs-playground.com/#MR8LEL#3
-extrusion with open shape https://www.babylonjs-playground.com/#MR8LEL#4
+update of extrusion including, shape, path, scale and rotation https://www.babylonjs-playground.com/#MR8LEL#3  
+extrusion with open shape https://www.babylonjs-playground.com/#MR8LEL#4  
 
-spiral extrusion with straight path and rotation set https://www.babylonjs-playground.com/#MR8LEL#5
+spiral extrusion with straight path and rotation set https://www.babylonjs-playground.com/#MR8LEL#5  
 
-capped extrusion https://www.babylonjs-playground.com/#MR8LEL#6
+capped extrusion https://www.babylonjs-playground.com/#MR8LEL#6  
 profile that does not cap correctly https://www.babylonjs-playground.com/#MR8LEL#7
 
 

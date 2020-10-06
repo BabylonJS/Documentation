@@ -31,10 +31,10 @@ lines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
 ### Examples
-non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#6
-non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#8
-updatable example https://www.babylonjs-playground.com/#MZ7QRG#9
-updatable spriral https://www.babylonjs-playground.com/#MZ7QRG#10
+non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#6  
+non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#8  
+updatable example https://www.babylonjs-playground.com/#MZ7QRG#9  
+updatable spriral https://www.babylonjs-playground.com/#MZ7QRG#10  
 
 multi colored lines have to be set on creation https://www.babylonjs-playground.com/#MZ7QRG#11
 

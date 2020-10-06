@@ -21,9 +21,9 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 ### Examples
-Simplest https://www.babylonjs-playground.com/#SVU8U9#1
-Low p and q https://www.babylonjs-playground.com/#SVU8U9#2
-High p and q https://www.babylonjs-playground.com/#SVU8U9#3
+Simplest https://www.babylonjs-playground.com/#SVU8U9#1  
+Low p and q https://www.babylonjs-playground.com/#SVU8U9#2  
+High p and q https://www.babylonjs-playground.com/#SVU8U9#3  
 Breaking the rules - using high non integer P and q https://www.babylonjs-playground.com/#SVU8U9#4
 
 # Mesh

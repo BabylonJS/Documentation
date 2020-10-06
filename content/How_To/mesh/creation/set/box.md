@@ -22,6 +22,8 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
+
+### Examples
 Cuboid https://www.babylonjs-playground.com/#6XIT28#4  
 Face numbers, face 0 is on the positive z axis https://www.babylonjs-playground.com/#6XIT28#5
 

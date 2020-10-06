@@ -19,10 +19,10 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 ##Examples 
-Icosphere https://www.babylonjs-playground.com/#HC5FA8
-Smoothed Icossphere https://www.babylonjs-playground.com/#HC5FA8#2
-Less subdivisions and changed radii https://www.babylonjs-playground.com/#HC5FA8#3
-Icosphere with animation over subdivisions https://www.babylonjs-playground.com/#E3TVT#1
+Icosphere https://www.babylonjs-playground.com/#HC5FA8  
+Smoothed Icossphere https://www.babylonjs-playground.com/#HC5FA8#2  
+Less subdivisions and changed radii https://www.babylonjs-playground.com/#HC5FA8#3  
+Icosphere with animation over subdivisions https://www.babylonjs-playground.com/#E3TVT#1  
 
 ## Mesh
 Usage:

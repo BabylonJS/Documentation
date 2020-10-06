@@ -20,8 +20,8 @@ colors|_(Color4[])_ array of Color4, each point color|null
 useVertexAlpha|_(boolean)_ false if the alpha blending is not required (faster)|true
 
 ### Examples
-Example of a Linesystem  https://www.babylonjs-playground.com/#Y7CS4N
-Update of the Linesystem https://www.babylonjs-playground.com/#Y7CS4N#1
+Example of a Linesystem  https://www.babylonjs-playground.com/#Y7CS4N  
+Update of the Linesystem https://www.babylonjs-playground.com/#Y7CS4N#1  
 
 Unlike a mesh Lines are colored after creation with a color property rather than a material.
 ```javascript

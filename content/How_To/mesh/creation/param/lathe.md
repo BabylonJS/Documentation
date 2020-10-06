@@ -28,9 +28,9 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 The radius value is a multiplier for the x values in the profile shape vector3s.
 
 ### Examples
-Lathed shape https://www.babylonjs-playground.com/#PQ0GIE
-Hexagonal nut https://www.babylonjs-playground.com/#PQ0GIE#1
-Arc https://www.babylonjs-playground.com/#PQ0GIE#2
+Lathed shape https://www.babylonjs-playground.com/#PQ0GIE  
+Hexagonal nut https://www.babylonjs-playground.com/#PQ0GIE#1  
+Arc https://www.babylonjs-playground.com/#PQ0GIE#2  
 
 
 ## Mesh

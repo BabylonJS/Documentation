@@ -1,4 +1,4 @@
-# Polyhedra Privided by Number
+# Polyhedra Provided by Number
 There are fifteen polyhedra that can be created by setting its type number from 0 to 14. These are
 
 type|name|number of faces
@@ -43,7 +43,7 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/How_To/CreateBox_Per_Face_Textures_And_Colors) taking into account the right number of faces of your polyhedron, instead of only 6 for a box. 
 
 ## Examples
-The full set of 15 https://www.babylonjs-playground.com/#PBLS4Y
+The full set of 15 https://www.babylonjs-playground.com/#PBLS4Y  
 Dodecahedron with FaceUVs https://www.babylonjs-playground.com/#PBLS4Y#1
 
 ## Mesh
