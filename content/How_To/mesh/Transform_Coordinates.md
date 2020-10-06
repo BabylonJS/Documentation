@@ -1,6 +1,4 @@
-# How To Use Coordinate Transformation
-
-This method for these examples can be directly compared to [the use of a parent](/How_To/Parenting) 
+# Examples of Coordinate Transformation
 
 ## Satellite
 
@@ -30,7 +28,7 @@ The following code gives the animation.
     })
 ```
 
-* [Playground Animation - TransformCoordinates](https://www.babylonjs-playground.com/#TRAIXW#2)
+Small box travels from Large Box https://www.babylonjs-playground.com/#TRAIXW#2
 
 ## Disc World
 
@@ -51,9 +49,7 @@ The building will be an array of boxes. Leaving the boxes as separate meshes wou
 
     });
 ```
-* [Playground Animation - Disc World](https://www.babylonjs-playground.com/#TRAIXW#5)
+Disc World https://www.babylonjs-playground.com/#TRAIXW#5
 
-# Further Reading
+One final step before considering using patents and pivots as a way of changing the center of transformation of a mesh is the more drastic step of changing the vertex data describing the mesh itself by baking a transformation into a mesh.
 
-[How To Use a Parent](/How_To/Parenting)  
-[Frame of Reference](/resources/Frame_Of_Reference)

@@ -2,7 +2,7 @@
 ## Position
 In order to fully understand all the ways to locate a mesh in the scene we need to know about frames of reference. When creating a world in a scene we are using a frame of reference in the **World Space**. In Babylon.js world space there are two horizontal axes, x and z, and a vertical y axis in a left handed system.
 
-Each mesh in the scene also has its own **Local Space**.  Meshes are created with their local space origin at the world space origin and with their local space x, y and z axes aligned with the x, y and z axes of the world space.
+Each mesh in the scene also has its own **Local Space**.  Meshes are created with their local space origin at the world space origin and with their local space x, y and z axes aligned with the x, y and z axes of the world space. Most, in not all, of the well known shapes have their local origin at the center of the mesh. The relative position of the local origin to the mesh shape depends on the data sets used in their construction.
 
 Consider a mesh with its local origin in world space at (-1, 2, 1), that is mesh.position is at (-1, 2, 1);
 Babylon.js has a number of ways to reset the location a mesh. These are listed in the code below. The comments show the location of the local origin of the mesh in world space after each way has been applied.

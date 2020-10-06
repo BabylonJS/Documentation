@@ -21,6 +21,8 @@ Using non zero x, y and z values with addRotation will add rotations in the orde
 
 The internal calculations for addRotations convert the Euler angles to rotation quaternions and back again.
 
+Sequence using addRotation https://www.babylonjs-playground.com/#HPKH80
+
 ## Rotate
 Imagine a disc with an axis through its center. The disc is able to rotate about the axis. The image below shows the disc at several different rotation points around the axis.
 
@@ -50,7 +52,7 @@ BABYLON.Axis.Z;
 The *rotate* method is also additive, for example both this set of codes 
 
 ```javascript
-mesh.rotate(new BABYLON.Vector3(2, -3, 7), Math.PI / 3, BABYLON.Space.LOCAL);
+mesh.rotate(new BABYLON.Vector3(2, -3, 7), Math.PI / 3, BABYLON.Space.LOCAL);  
 mesh.rotate(BABYLON.Axis.Y, -Math.PI / 2, BABYLON.Space.WORLD);
 mesh.rotate(new BABYLON.Vector3(5.6, 7.8, - 3.4), 1.5 * Math.PI, BABYLON.Space.WORLD);
 mesh.rotate(BABYLON.Axis.Z, -Math.PI, BABYLON.Space.LOCAL);
@@ -58,7 +60,13 @@ mesh.rotate(BABYLON.Axis.Z, -Math.PI, BABYLON.Space.LOCAL);
 
 will start with the current orientation of the mesh, the add to this a rotation of &pi;/3 about the given local space axis, then add a rotation of -&pi;/2 about the world y axis, the add a rotation of 1.5&pi; about the given world axis and finally add a rotation of -&pi; about the local z axis.
 
-The use of *rotate* sets the orientation of the mesh using a rotation quaternion and subsequently there can then be issues trying to set the orientation of the mesh using *rotation* see [warning]().
+### Examples
+Earth rotates on tilted axis https://playground.babylonjs.com/#TLIAXS#  
+Using mixed rotate World and Local https://playground.babylonjs.com/#Z3W74Y#1  
+Two cubes one rotates in World Space other in Local Space https://playground.babylonjs.com/#66EBY3#3  
+ Purple rotates in World Space, brown Local SPace https://playground.babylonjs.com/#LLNE9E#72
+
+The use of *rotate* sets the orientation of the mesh using a rotation quaternion and subsequently there can then be issues trying to set the orientation of the mesh using *rotation*.
 
 About time to look further at rotation quaternions.
 

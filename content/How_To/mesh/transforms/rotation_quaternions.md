@@ -22,6 +22,16 @@ mesh.rotationQuaternion = new BABYLON.Quaternion.RotationAxis(new BABYLON.Vector
 ```
 The parameters for the *RotationAxis* method are axis direction and angle. The axis direction vector should be expressed in the world space.
 
+Any rotation quaternion can be converted to Euler angles to use with *mesh.rotation*
+
+```javascript
+const euler = rotation_quaternion.toEulerAngles();
+```
+
+Showing that converted Euler angles to and from rotation quaternion align.  https://www.babylonjs-playground.com/#DN4IPH
+
+You can also change the orientation of a mesh using a number of different conventions.
+
 ## Warning
 You cannot use a *rotationQuaternion* followed by a *rotation* on the same mesh. Once a *rotationQuaternion* is applied any subsequent use of *rotation* will produce the wrong orientation, unless the *rotationQuaternion* is first set to null. Please be aware this often applies when importing models as many of these models already have a *rotationQuaternion* set. 
 

@@ -1,6 +1,6 @@
 # Transformations
 ## Rotation
-Rotation in 3D space is always tricky. The order in which rotations are applied and the frame of reference used changes the final orientation of a mesh. There is a range of conventions for applying rotations in 3D modelling. For more details on these conventions in Babylon.js see [Applying Rotations Convention BJS](/resources/rotation_conventions).
+Rotation in 3D space is always tricky. The order in which rotations are applied and the frame of reference used changes the final orientation of a mesh. There is a range of conventions for applying rotations in 3D modelling. More on those later in this section.
 
 To help in visualizing orientation this asymmetric mesh is used in examples
 
@@ -18,7 +18,7 @@ mesh.rotation.x  =  alpha; //rotation around x axis
 mesh.rotation.y  =  beta;  //rotation around y axis
 mesh.rotation.z  =  gamma; //rotation around z axis
 ```
-where alpha, beta, and gamma are angles measured in radians are known as the Euler angles.
+where alpha, beta, and gamma are angles measured in radians are known as the **Euler angles**.
 
 Four questions need an immediate answer
 
@@ -28,7 +28,7 @@ Four questions need an immediate answer
 4. In which order are they applied?
 
 
-The first two are easy to answer since the center of rotation is the local origin of the mesh and rotations are always counter clockwise when looking in the positive direction of the stated axis.
+The first two are easy to answer since, on creation, the center of rotation is the local origin of the mesh and rotations are always counter clockwise when looking in the positive direction of the stated axis.
 
 The answer to 4 depends on 3 and in Babylon.js the rotation frame of reference is in the local space of the mesh being rotated.
 It makes no difference which one of the following four sets of code you use the resulting orientation will always be the same.  

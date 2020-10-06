@@ -322,8 +322,9 @@
                                         "rotation_quaternions": { "friendlyName": "Rotation Quaternions", "children": {}, "content": "How_To/mesh/transforms/rotation_quaternions" },
                                         "target_align": { "friendlyName": "Target Axes Alignment", "children": {}, "content": "How_To/mesh/transforms/target_align" },
                                         "rotation_conventions": { "friendlyName": "Rotation Conventions", "children": {}, "content": "resources/Manual/Rotation_Conventions" },
-                                        "bakingTransforms": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" },
-                                        "ref_frame": { "friendlyName": "Frames of Reference", "children": {}, "content": "resources/Manual/Frame_Of_Reference" }
+                                        "ref_frame": { "friendlyName": "Introduction to Coordinate Transformation", "children": {}, "content": "resources/Manual/Frame_Of_Reference" },
+                                        "transform_coords": { "friendlyName": "Coordinate Transformation Examples", "children": {}, "content": "How_To/mesh/Transform_Coordinates" },
+                                        "bakingTransforms": { "friendlyName": "Baking Transformations", "children": {}, "content": "resources/Manual/Baking_Transformations" }
                                     },
                                     "content": "landing_pages/diving_deeper_origin_transforms_landing_page"
                                 },
