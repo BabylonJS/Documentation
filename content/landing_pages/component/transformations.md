@@ -5,7 +5,7 @@ Applying transformations can seem straightforward and in many cases they are, su
 
 Frames of reference, in 3D, are formed by an origin and three mutually perpendicular axes through the origin. When created in Babylon.js objects are placed using a frame of reference in **World Space** where there are two horizontal axes, x and z, and a vertical y axis in a left handed system.
 
-Each mesh also has its own **Local Space**.  Meshes built within Babylon.js are created with their local space origin at the world space origin and with their local space axes x, y and z aligned with the x, y and z axes of the world space. The local origin acts as the center of transformation unless pivots or parents are added to the mesh.
+Each mesh also has its own **Local Space**.  Meshes built within Babylon.js are created with their local space origin at the world space origin and with their local space axes x, y and z aligned with the x, y and z axes of the world space. The local origin acts as the center of transformation unless pivots or parents are added to the mesh. Both of these cases will be described.
 
 Meshes created in other packages and imported may use different frames of reference.
 

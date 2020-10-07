@@ -332,10 +332,10 @@
                                 "parent_pivot": {
                                     "friendlyName": "Parents and Pivots",
                                     "children": {
+                                        "transform_node": { "friendlyName": "Transform Node", "children": {}, "content": "How_To/mesh/TransformNode" },
                                         "parent": { "friendlyName": "Parents and Children", "children": {}, "content": "How_To/mesh/Parenting" },
                                         "pivots": { "friendlyName": "Pivots", "children": {}, "content": "How_To/mesh/Pivots" },
-                                        "pivot": { "friendlyName": "Rotate Around Axis", "children": {}, "content": "How_To/mesh/Pivot" },
-                                        "transform_coords": { "friendlyName": "Coordinate Transformation", "children": {}, "content": "How_To/mesh/Transform_Coordinates" }
+                                        "pivot": { "friendlyName": "Rotate Around Axis", "children": {}, "content": "How_To/mesh/Pivot" }
                                     },
                                     "content": "landing_pages/diving_deeper_transform_pivot_landing_page"
                                 } 
@@ -345,6 +345,7 @@
                         "copies": {
                             "friendlyName": "Copies, Clones and Instances",
                             "children": {
+                                "clones": { "friendlyName": "Clones", "children": {}, "content": "How_To/mesh/copies/clone" },
                                 "instances": { "friendlyName": "Instances", "children": {}, "content": "How_To/mesh/How_to_use_Instances" },
                                 "thinInstances": { "friendlyName": "Thin Instances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" }
                             },
