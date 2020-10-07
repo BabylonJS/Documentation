@@ -259,6 +259,7 @@
                                         "tiled_box": { "friendlyName": "Tiled Box", "children": {}, "content": "How_To/mesh/creation/set/tiled_box" },
                                         "sphere": { "friendlyName": "Sphere", "children": {}, "content": "How_To/mesh/creation/set/sphere" },
                                         "cylinder": { "friendlyName": "Cylinder", "children": {}, "content": "How_To/mesh/creation/set/cylinder" },
+                                        "capsule": { "friendlyName": "Capsule", "children": {}, "content": "How_To/mesh/creation/set/capsule" },
                                         "plane": { "friendlyName": "Plane", "children": {}, "content": "How_To/mesh/creation/set/plane" },
                                         "tiled_plane": { "friendlyName": "Tiled Plane", "children": {}, "content": "How_To/mesh/creation/set/tiled_plane" },
                                         "disc": { "friendlyName": "Disc", "children": {}, "content": "How_To/mesh/creation/set/disc" },
@@ -341,13 +342,19 @@
                             },
                             "content": "landing_pages/component/transformations"  
                         },
+                        "copies": {
+                            "friendlyName": "Copies, Clones and Instances",
+                            "children": {
+                                "instances": { "friendlyName": "Instances", "children": {}, "content": "How_To/mesh/How_to_use_Instances" },
+                                "thinInstances": { "friendlyName": "Thin Instances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" }
+                            },
+                            "content": "landing_pages/diving_deeper_copies_landing_page"
+                        },
                         "displayBoundingBoxes": { "friendlyName": "Drawing Bounding Boxes", "children": {}, "content": "How_To/mesh/How_to_display_bounding_boxes" },
                         "decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
                         "transformNode": { "friendlyName": "Transform Nodes", "children": {}, "content": "How_To/mesh/TransformNode" },
                         "highlightLayer": { "friendlyName": "Highlight Meshes", "children": {}, "content": "How_To/mesh/Highlight_Layer" },
                         "glowLayer": { "friendlyName": "Making Meshes Glow", "children": {}, "content": "How_To/mesh/Glow_Layer" },
-                        "instances": { "friendlyName": "Instances", "children": {}, "content": "How_To/mesh/How_to_use_Instances" },
-                        "thinInstances": { "friendlyName": "Thin Instances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" },
                         "mergeMeshes": { "friendlyName": "Merging Meshes", "children": {}, "content": "How_To/mesh/How_to_Merge_Meshes" },
                         "drawCurves": { "friendlyName": "Drawing Curves", "children": {}, "content": "How_To/mesh/How_to_use_Curve3" },
                         "path3D": { "friendlyName": "Path 3D", "children": {}, "content": "How_To/mesh/How_to_use_Path3D" },
