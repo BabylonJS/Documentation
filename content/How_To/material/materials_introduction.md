@@ -154,28 +154,5 @@ There are some limitations though that you must consider.  These include texture
 
 ## Local File Access
 
-An important thing to remember, is that for security reasons, web browsers like google chrome don't allow local files to be accessed by default for web pages. This includes any texture files you are using. There are a few ways to work around this in google chrome. The quick and dirty way is to close all instances of chrome, and open it in the terminal.
+An important thing to remember, is that for security reasons, web browsers like google chrome don't allow local files to be accessed by default for web pages. This includes any texture files you are using. You need to set up a local server to import any required files. 
 
-for windows, you go to the terminal and type,
-
-```
-start chrome --allow-file-access-from-files
-```
-for macOS, the command looks like this,
-
-```
-open -a "Google Chrome" --args --allow-file-access-from-files
-```
-and for linux, the command looks like this.
-
-```
-google-chrome --allow-file-access-from-files
-```
-Be warned that the above method may introduce a security risk if used for long term projects. For long term projects, you will want to set up an HTTP server to run any required files. Using a server has the benefit of working on any web browser.
-
-## Next step
-Great, your scene is looking better than ever with those materials! Later we will see how to use advanced techniques with materials. But for now, we have to learn [**how to use cameras**](/babylon101/Cameras).
-
-# Further Reading
-
-[Materials Overview](/features/Materials)

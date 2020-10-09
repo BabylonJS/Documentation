@@ -1,4 +1,2 @@
-# Diving Deeper Input Landing Page
-This is a placeholder for the landing page for the Input sub section of Diving Deeper
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Inputs
+As well as the usual keyboard, mouse and touch input methods you can also use a gamepad, device orientation and a virtual joystick.

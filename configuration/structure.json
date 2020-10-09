@@ -227,19 +227,25 @@
                 "lights": {
                     "friendlyName": "Lights", 
                     "children": {
+                        "lights_introduction": { "friendlyName": "Introduction to Lights", "children": {}, "content": "How_To/light/lights_introduction" },
+                        "shadows": { "friendlyName": "Shadows", "children": {}, "content": "How_To/light/Shadows" },
+                        "shadows_csm": { "friendlyName": "Cascaded Shadow Maps", "children": {}, "content": "How_To/light/Shadows_csm" },
                         "volumetricLightScattering": { "friendlyName": "Volumetric Light Scattering Post Process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" }
                     }, 
-                    "content": "landing_pages/component/Lights"
+                    "content": "landing_pages/divingDeeperLightsLandingPage"
                 },
                 "materials": {
                     "friendlyName": "Materials", 
                     "children": {
+                        "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
                         "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
                         "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
                         "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
                         "nodeMaterial": { "friendlyName": "Node Materials", "children": {}, "content": "How_To/material/Node_Material" },
                         "rawTexture": { "friendlyName": "Raw Textures", "children": {}, "content": "How_To/material/rawTexture" },
                         "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
+                        "work": { "friendlyName": "How Materials Work", "children": {}, "content": "resources/Manual/How_materials_work" },
+                        "facet_uvs": { "friendlyName": "Materials and Vertices", "children": {}, "content": "resources/Manual/Facets" },
                         "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
                         "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
                         "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
@@ -252,9 +258,10 @@
                         "logarithmicDepthBuffer": { "friendlyName": "The Logarithmic Depth Buffer", "children": {}, "content": "How_To/material/Using_logarithmic_depth_buffer" },
                         "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
                         "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
+                        "transparent_rendering": { "friendlyName": "Transparent Rendering", "children": {}, "content": "resources/Manual/Transparency_and_How_Meshes_Are_Rendered" },
                         "texturePackage": { "friendlyName": "Create a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" }
                     }, 
-                    "content": "landing_pages/component/Materials"
+                    "content": "landing_pages/divingDeeperMaterialsLandingPage"
                 },
                 "mesh": {
                     "friendlyName": "Mesh", 
@@ -350,7 +357,7 @@
                                     "content": "landing_pages/diving_deeper_transform_pivot_landing_page"
                                 } 
                             },
-                            "content": "landing_pages/component/transformations"  
+                            "content": "landing_pages/diving_deeper_transformations_landing_page"  
                         },
                         "copies": {
                             "friendlyName": "Copies, Clones and Instances",
@@ -386,18 +393,19 @@
                 "occlusionQueries": {
                     "friendlyName": "Occlusion Queries", 
                     "children": {}, 
-                    "content": "landing_pages/component/OcclusionQuery"
+                    "content": "landing_pages/diving_deeper_landing_page_occlusion_queries"
                 },
                 "particles": {
                     "friendlyName": "Particles", 
                     "children": {
+                        "particle_system_intro": { "friendlyName": "Introduction to the Particle System", "children": {}, "content": "How_To/Particles/particles_system_intro" },
                         "animation": { "friendlyName": "Animating Particles", "children": {}, "content": "How_To/Particles/Animate" },
                         "customizingParticles": { "friendlyName": "Customizing Particles", "children": {}, "content": "How_To/Particles/Customise" },
                         "particleHelper": { "friendlyName": "The Particle Helper", "children": {}, "content": "How_To/Particles/ParticleHelper" },
                         "pointCloudParticles": { "friendlyName": "Point Cloud Particles", "children": {}, "content": "How_To/Particles/Point_Cloud_Particles" },
                         "subEmitters": { "friendlyName": "Sub Emitters", "children": {}, "content": "How_To/Particles/Sub_Emitters" },
                         "solidParticles": { "friendlyName": "The Solid Particle System", "children": {}, "content": "How_To/Particles/Solid_Particles" }                    }, 
-                    "content": "landing_pages/component/Particles"
+                    "content": "landing_pages/divingDeeperParticlesLandingPage"
                 },
                 "physics": {
                     "friendlyName": "Physics", 
@@ -411,7 +419,7 @@
                         "advancedPhysicsFeatures": { "friendlyName": "Advanced Physics Features", "children": {}, "content": "How_To/Physics/Using_Advanced_Physics_Features" },
                         "addPhysicsEngine": { "friendlyName": "Add Your Own Physics Engine", "children": {}, "content": "How_To/Physics/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js" }
                     }, 
-                    "content": "landing_pages/Support/Physics_Engine"
+                    "content": "landing_pages/divingDeeperPhysicsLandingPage"
                 },
                 "postProcesses": {
                     "friendlyName": "Post Processes", 
@@ -426,7 +434,7 @@
                         "screenSpaceReflectionsPostProcess": { "friendlyName": "Screen Space Reflections (SSR) Post Process", "children": {}, "content": "How_To/Post_Process/Using_ScreenSpaceReflectionsPostProcess" },
                         "renderTargetTextureMultiPass": { "friendlyName": "Using RenderTargetTexture and Multiple Passes", "children": {}, "content": "How_To/Post_Process/How_to_use_RenderTargetTexture_and_multiple_passes" }
                     }, 
-                    "content": "landing_pages/divingDeeperPhysicsLandingPage"
+                    "content": "landing_pages/divingDeeperPostProcessesLandingPage"
                 },
                 "scene": {
                     "friendlyName": "Scene", 
@@ -448,7 +456,7 @@
                         "clipPlanes": { "friendlyName": "Using Clip Planes", "children": {}, "content": "How_To/scene/Clip_Planes" },
                         "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Server" }
                     }, 
-                    "content": "landing_pages/component/Scene"
+                    "content": "landing_pages/divingDeeperSceneLandingPage"
                 },
                 "shaders": {
                     "friendlyName": "Shaders", 
