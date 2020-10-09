@@ -1,10 +1,4 @@
----
-Title: Behavior
-Description: Just a description
-Keywords: "Keywords FTW!"
----
-
-# Behavior
+# Behaviors
 
 Babylon.js v3.1 introduced a new component based tools: the behaviors.
 A behavior is a simple class that can be attached to a target where it will provide a specific set of features. Features will be triggered by defined events.
@@ -32,12 +26,4 @@ You can add behaviors to any object implementing the IBehaviorAware interface (l
 
 Most of the time, behaviors are designed to deal with a specific kind of targets.
 
-Currently the list of behaviors available in babylon.js core are camera behaviours.
-
-# Further Reading
-
-## Basic - L1
-
-[Camera Behaviours](/How_To/Camera_Behaviors)
-
-[Mesh Behaviours](/How_To/MeshBehavior)
+There are both camera and mesh behaviors.

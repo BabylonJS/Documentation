@@ -1,11 +1,3 @@
-# Preface
-
-Potential contributors to Babylon.js can come from many different backgrounds. For some of you version controllers, repositories, package managers and task runners are second nature and all you need to know are the requirements set by the Babylon.js core team for a pull-request to be accepted. For other of us, perhaps just wanting to explore the world of 3D, they can start out as a series of confusing hurdles. So this page will contain details that many of you can ignore as obvious. For others those details may be the difference between making a contribution or not.
-
-Hopefully all the steps are included that will enable all those with the appropriate coding skills to contribute.
-
-_NOTE:_ If you're looking to contribute to the Documentation, please use [this guide](contribute_to_documentation).
-
 # Introduction
 
 Babylon.js is maintained on Github, a web-based hosting service for version control using Git. This page will introduce these and everything that is needed to make changes or additions to Babylon.js, from tools installation to testing, plus a brief description of why they are necessary. The steps are intended to be OS agnostic, allowing users to develop the same way on Windows, Mac and Linux.
@@ -13,8 +5,8 @@ Babylon.js is maintained on Github, a web-based hosting service for version cont
 # Pre-Requisites
 
 - Reading the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md).
-- An ability to code in Typescript. Babylon.js is written in Typescript then compiled and distributed in Javascript.
-- Know how to use a Command Line Interpreter (CLI). Used to issue Git commands.
+- An ability to code in Typescript. Babylon.js is written in Typescript then compiled and distributed in JavaScript.
+- Know how to use a Command Line Interpreter (CLI), used to issue Git commands.
 
 # Install Git
 

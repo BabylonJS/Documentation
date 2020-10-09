@@ -1,6 +1,5 @@
 # Environment
-
-You have come a long way, have learned about shapes, lights, sprites, particles, materials. But there is something missing in your scenes: a proper environment. This is the first of three consecutive How_To that talk about scene environment factors and effects. We will start off with simple scene `clearColor` (background color), then talk briefly about scene `ambientColor`, then on to 6-texture skyboxes, and then fog to give an illusion of depth to your scenes.
+How do you achieve a good and appropriately realistic environment for your game or app? We will start off with simple scene `clearColor` (background color), then talk briefly about scene `ambientColor`, then on to 6-texture skyboxes, and then fog to give an illusion of depth to your scenes.
 
 ![Environment](/img/how_to/13.jpg)
 
@@ -139,15 +138,4 @@ See, we told you it was easy.
 
 If you want to see and play with the playground scene for this tutorial, you can [**click right here**](https://www.babylonjs-playground.com/#7G0IQW)
 
-## Next step
-You should have a beautiful scene now, but except from your 3D models, your world is pretty flat, and that’s a shame for your scene. So, in our next environment tutorial, we are going to transform your flat ground into beautiful mountains. To learn this, go [here!](/babylon101/Height_Map)
 
-# Further Reading
-
-## Features
-
-- [Realistic Environments](/features/Environment)
-
-## How To
-
-- [Fast Build a World](/how_to/fast_build)

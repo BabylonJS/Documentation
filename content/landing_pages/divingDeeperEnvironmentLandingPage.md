@@ -1,4 +1,4 @@
-# Diving Deeper Environment Landing Page
-This is a placeholder for the landing page for the Enivornment sub section of Diving Deeper
+# Realistic Environments
+Of course working on games or apps the level of realism achieved will depend on your design decisions. Babylon.js can help you achieve whatever level you wish and in this section we will cover some of the ways to do this. For example lighting the background, lens flare, adding sky and fog or working with HDR.
 
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+Other ways need a section to themselves, such as infinite terrains, post processes and shaders.

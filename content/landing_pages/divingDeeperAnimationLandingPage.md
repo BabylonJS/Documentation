@@ -1,4 +1,2 @@
 # Diving Deeper Animation Landing Page
-This is a placeholder for the landing page for the Animation sub section of Diving Deeper
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+Animation is what makes your game or app come alive. There are two main ways or producing an animation in BABYLON.js. You can change the properties of an object within a scene during the rendering cycle and we will take a look at that after describing the *Animation* method.

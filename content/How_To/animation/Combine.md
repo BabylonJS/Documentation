@@ -174,13 +174,4 @@ var nextAnimation = function() {
 
 - [Playground Example Consecutive Animations Rotate then Rotate and Slide](https://www.babylonjs-playground.com/#9WUJN#16)
 
-# Further Reading
 
-## Basic
-
-[Introduction to Animating](/babylon101/animations)  
-[Grouping Animations](/How_To/Group)
-
-## Advanced
-
-[A Sequence of Animations](/How_To/sequence)
