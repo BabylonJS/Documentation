@@ -172,7 +172,6 @@
                         "skybox": { "friendlyName": "Skyboxes", "children": {}, "content": "How_To/environment/Skybox" },
                         "backgroundMaterial": { "friendlyName": "Background Materials", "children": {}, "content": "How_To/environment/BackgroundMaterial" },
                         "HDREnvironment": { "friendlyName": "HDR Enivornments", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
-                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
                         "lenseFlare": { "friendlyName": "Lens Flares", "children": {}, "content": "How_To/environment/How_to_use_Lens_Flares" },
                         "reflectionProbes": { "friendlyName": "Reflection Probes", "children": {}, "content": "How_To/environment/How_to_use_Reflection_probes" },
                         "360PhotoDome": { "friendlyName": "360 Photo Domes", "children": {}, "content": "How_To/environment/360PhotoDome" },
@@ -284,6 +283,7 @@
                                         "torus_knot": { "friendlyName": "Torus Knot", "children": {}, "content": "How_To/mesh/creation/set/torus_knot" },
                                         "ground": { "friendlyName": "Ground", "children": {}, "content": "How_To/mesh/creation/set/ground" },
                                         "ground_hmap": { "friendlyName": "Ground from Height Map", "children": {}, "content": "How_To/mesh/creation/set/ground_hmap" },
+                                        "height_map": { "friendlyName": "More on Height Maps", "children": {}, "content": "How_To/mesh/creation/set/height_map" },
                                         "tiled_ground": { "friendlyName": "Tiled Ground", "children": {}, "content": "How_To/mesh/creation/set/tiled_ground" }
                                     },
                                     "content": "How_To/mesh/creation/set_landing"
@@ -367,6 +367,14 @@
                                 "thinInstances": { "friendlyName": "Thin Instances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" }
                             },
                             "content": "landing_pages/diving_deeper_copies_landing_page"
+                        },
+                        "interactions": {
+                            "friendlyName": "Interactions",
+                            "children": {
+                                "mesh_intersect": { "friendlyName": "Mesh Intersections", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
+                                "raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "How_To/mesh/Raycasts" }
+                            },
+                            "content": "landing_pages/diving_deeper_interactions_landing_page"
                         },
                         "displayBoundingBoxes": { "friendlyName": "Drawing Bounding Boxes", "children": {}, "content": "How_To/mesh/How_to_display_bounding_boxes" },
                         "decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
@@ -458,13 +466,12 @@
                     }, 
                     "content": "landing_pages/divingDeeperSceneLandingPage"
                 },
-                "shaders": {
-                    "friendlyName": "Shaders", 
+                "sprites": {
+                    "friendlyName": "Sprites", 
                     "children": {
-                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
-                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" }
+                        "sprites_introduction": { "friendlyName": "An Introduction to Sprites", "children": {}, "content": "How_To/Sprites/Sprites" }
                     }, 
-                    "content": "landing_pages/divingDeeperShadersLandingPage"
+                    "content": "landing_pages/diving_deeper_sprites_landing_page"
                 },
                 "tags": {
                     "friendlyName": "Tags", 
@@ -499,7 +506,11 @@
                 },
                 "introToShaders": {
                     "friendlyName": "Introduction to Shaders", 
-                    "children": {}, 
+                    "children": {
+                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
+                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
+                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" }
+                    }, 
                     "content": "resources/Manual/ShaderIntro"
                 },
                 "minifiedVer": {

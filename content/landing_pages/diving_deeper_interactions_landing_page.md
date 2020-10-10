@@ -1,0 +1,2 @@
+# Interactions
+You often need to find whether to meshes are intersecting or the relative position of a mesh with reference to another mesh, camera or point in space. These can be achieved in Babylon.js using *intersectsMesh*, for two meshes and for ray casting *Ray* and *intersect*.

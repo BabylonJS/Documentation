@@ -109,6 +109,3 @@ You may be interested in visiting the playground demo that goes with this tutori
 
 https://www.babylonjs-playground.com/#95PXRY
 
-## Next step
-
-Well done! Your scene looks good now, and you can imagine a lot of new landscapes! One more important thing you need to know is [how to create shadows](/babylon101/Shadows). Shadows will give your scene a beautiful rendering effect, so don't forget about them!

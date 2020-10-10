@@ -1,4 +1,2 @@
-# Diving Deeper WebXR Landing Page
-This is a placeholder for the landing page for the WebXR sub section of Diving Deeper
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# WebXR
+The WebXR API enables developers to create VR and AR experiences for the web. XR (Extended reality) has unified both Augmented Reality features and Virtual Reality features into a single API that works across all supported devices.
