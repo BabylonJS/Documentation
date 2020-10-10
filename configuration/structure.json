@@ -184,6 +184,7 @@
                     "children": {
                         "actions": { "friendlyName": "Actions", "children": {}, "content": "How_To/events/How_to_use_Actions" },
                         "observables": { "friendlyName": "Observables", "children": {}, "content": "How_To/events/Observables" },
+                        "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                         "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" }
                     }, 
                     "content": "landing_pages/divingDeeperEventsLandingPage"
@@ -371,7 +372,9 @@
                         "interactions": {
                             "friendlyName": "Interactions",
                             "children": {
+                                "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                                 "mesh_intersect": { "friendlyName": "Mesh Intersections", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
+                                "picking_collisions": { "friendlyName": "Mesh Picking", "children": {}, "content": "How_To/mesh/Raycasts" },
                                 "raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "How_To/mesh/Raycasts" }
                             },
                             "content": "landing_pages/diving_deeper_interactions_landing_page"
@@ -448,7 +451,6 @@
                     "friendlyName": "Scene", 
                     "children": {
                         "fastBuildWorld": { "friendlyName": "Fast Build A World", "children": {}, "content": "How_To/scene/Fast_Build" },
-                        "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                         "multiScenes": { "friendlyName": "Using Multiple Scenes", "children": {}, "content": "How_To/scene/Multi_Scenes" },
                         "multiCanvas": { "friendlyName": "Using Multiple Canvases", "children": {}, "content": "How_To/scene/Multi_Canvases" },
                         "deltaFiles": { "friendlyName": "Applying Delta Changes To A Scene", "children": {}, "content": "How_To/scene/delta_file" },
