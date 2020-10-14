@@ -471,7 +471,13 @@
                 "sprites": {
                     "friendlyName": "Sprites", 
                     "children": {
-                        "sprites_introduction": { "friendlyName": "An Introduction to Sprites", "children": {}, "content": "How_To/Sprites/Sprites" }
+                        "sprites_introduction": { "friendlyName": "An Introduction to Sprites", "children": {}, "content": "How_To/Sprites/sprites_introduction" },
+                        "sprite_manager": { "friendlyName": "Sprite Manager", "children": {}, "content": "How_To/Sprites/sprite_manager" },
+                        "packed_manager": { "friendlyName": "Sprite Packed Manager", "children": {}, "content": "How_To/Sprites/packed_manager" },
+                        "picking_sprites": { "friendlyName": "Picking a Sprite", "children": {}, "content": "How_To/Sprites/picking_sprites" },
+                        "sprite_map": { "friendlyName": "Sprite Map", "children": {}, "content": "How_To/Sprites/sprite_map" },
+                        "sprite_map_tiles": { "friendlyName": "Sprite Map Tile Layout", "children": {}, "content": "How_To/Sprites/sprite_map_tiles" },
+                        "sprite_map_options": { "friendlyName": "Sprite Map Options", "children": {}, "content": "How_To/Sprites/sprite_map_options" }
                     }, 
                     "content": "landing_pages/diving_deeper_sprites_landing_page"
                 },
