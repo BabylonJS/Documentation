@@ -477,7 +477,8 @@
                         "picking_sprites": { "friendlyName": "Picking a Sprite", "children": {}, "content": "How_To/Sprites/picking_sprites" },
                         "sprite_map": { "friendlyName": "Sprite Map", "children": {}, "content": "How_To/Sprites/sprite_map" },
                         "sprite_map_tiles": { "friendlyName": "Sprite Map Tile Layout", "children": {}, "content": "How_To/Sprites/sprite_map_tiles" },
-                        "sprite_map_options": { "friendlyName": "Sprite Map Options", "children": {}, "content": "How_To/Sprites/sprite_map_options" }
+                        "sprite_map_options": { "friendlyName": "Sprite Map Options", "children": {}, "content": "How_To/Sprites/sprite_map_options" },
+                        "sprite_map_animations": { "friendlyName": "Sprite Map Animations", "children": {}, "content": "How_To/Sprites/sprite_map_animations" }
                     }, 
                     "content": "landing_pages/diving_deeper_sprites_landing_page"
                 },
