@@ -723,7 +723,7 @@
                         "WebGLBasics": {
                             "friendlyName": "Understanding the Basics of WebGL", 
                             "children": {}, 
-                            "content": "How_To/Videos/WEbGL_Basics"
+                            "content": "How_To/Videos/WebGL_Basics"
                         },
                         "bjsBeginners": {
                             "friendlyName": "Using Babylon.js for Beginners", 
