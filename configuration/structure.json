@@ -128,7 +128,7 @@
                     "friendlyName": "Cameras", 
                     "children": {
                         "camera_introduction": { "friendlyName": "Camera Introduction", "children": {}, "content": "How_To/camera/camera_introduction" },
-                        "camera_collisions": { "friendlyName": "Camera Collisions", "children": {}, "content": "How_To/camera/cameras,_mesh_collisions_and_gravity" },
+                        "camera_collisions": { "friendlyName": "Camera Collisions", "children": {}, "content": "How_To/camera/cameras_mesh_collisions_and_gravity" },
                         "customizingCameraInputs": { "friendlyName": "Customizing Camera Inputs", "children": {}, "content": "How_To/camera/Customizing_Camera_Inputs" },
                         "multiViewsPart1": { "friendlyName": "Multiviews Part1", "children": {}, "content": "How_To/camera/Multiview" },
                         "multiViewsPart2": { "friendlyName": "Multiviews Part2", "children": {}, "content": "How_To/camera/How_to_use_Multi-Views" },
