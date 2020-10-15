@@ -478,7 +478,8 @@
                         "sprite_map": { "friendlyName": "Sprite Map", "children": {}, "content": "How_To/Sprites/sprite_map" },
                         "sprite_map_tiles": { "friendlyName": "Sprite Map Tile Layout", "children": {}, "content": "How_To/Sprites/sprite_map_tiles" },
                         "sprite_map_options": { "friendlyName": "Sprite Map Options", "children": {}, "content": "How_To/Sprites/sprite_map_options" },
-                        "sprite_map_animations": { "friendlyName": "Sprite Map Animations", "children": {}, "content": "How_To/Sprites/sprite_map_animations" }
+                        "sprite_map_animations": { "friendlyName": "Sprite Map Animations", "children": {}, "content": "How_To/Sprites/sprite_map_animations" },
+                        "sprite_map_example": { "friendlyName": "Sprite Map Example", "children": {}, "content": "How_To/Sprites/sprite_map_example" }   
                     }, 
                     "content": "landing_pages/diving_deeper_sprites_landing_page"
                 },

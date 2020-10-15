@@ -93,4 +93,21 @@ The parameters are
 
 A 2 x 2 single layer sprite map, JSON loaded from file https://www.babylonjs-playground.com/#YCY2IL#14
 
+Once created you can export the sprite map to save it and then load it into another sprite sheet of the same structure.
+
+## Saving a Sprite Map
+After you have created a sprite map you can export this composition for later use, with
+
+```javascript
+mySpriteMap.saveTileMaps()
+```
+creating a *.tilemaps* file.
+
+When importing it you must make sure that the sprite map you are importing it into has the same tile layout and number of layers as the one it was exported from.  You import it with
+
+```javascript
+spriteMap.loadTileMaps(url); //url is the location of the .tilemaps file
+```
+
+
 

@@ -30,16 +30,3 @@ In the spritesheet file used in these docs there is a transparent pixel at x = 2
 },
 ```
 Blank tile added to JSON https://www.babylonjs-playground.com/#YCY2IL#21
-
-## Saving Tile Maps
-After you have created a SpriteMap that has the correct tile positions, you can export and save this composition for later use.  When loading the ".tilemaps" file back into the system you must be sure that the SpriteMap you are loading it to has the correct number of layers otherwise you will cause webGL errors.
-
-To save:
-```javascript
-spriteMap.saveTileMaps()
-```
-To Load:
-```javascript
-spriteMap.saveTileMaps(url)
-```
-* url: String of the location of the .tilemaps file.

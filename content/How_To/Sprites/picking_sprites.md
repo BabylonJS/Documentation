@@ -20,7 +20,7 @@ if (pickResult.hit) {
 }
 ```
 
-Pick and rotate selected sprite with sprite manager https://www.babylonjs-playground.com/#YCY2IL#9
+Pick and rotate selected sprite with sprite manager https://www.babylonjs-playground.com/#YCY2IL#9  
 Pick and rotate selected sprite with sprite packed manager https://www.babylonjs-playground.com/#YCY2IL#10
 
 For performance reasons the default is to indicate a hit if the sprite is picked within its bounding rectangle. When you do not want a hit inside a transparent region of the sprite you need to add the following

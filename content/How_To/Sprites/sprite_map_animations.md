@@ -25,10 +25,10 @@ let background = new BABYLON.SpriteMap('background', atlasJSON, spriteSheet, {
 background.changeTiles(0, new BABYLON.Vector2(0, 0), 24); // set the single tile to frameID 24
 ```
 
-We want the animation to change frames every eighth of a second, 1 / 8.
-After 1 eighth of a second we want frameID 24 to become frameID 25,
-after 2 eights of a second we want frameID 24 to become frameID 26,
-after 3 eights of a second we want frameID 24 to become frameID 27,
+We want the animation to change frames every eighth of a second, 1 / 8.  
+After 1 eighth of a second we want frameID 24 to become frameID 25,  
+after 2 eights of a second we want frameID 24 to become frameID 26,  
+after 3 eights of a second we want frameID 24 to become frameID 27,  
 and so on
 
 We can slow or speed up the timing change by adding a speed factor, giving
