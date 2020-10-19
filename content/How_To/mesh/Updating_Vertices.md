@@ -81,14 +81,10 @@ if(!colors) {
 mesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
  ```
 
-## Playgrounds
+## Examples
 
-* [Playground Example Scaling Positions](https://www.babylonjs-playground.com/#VE6GP#4)
-* [Playground Example Playing Around with Positions](https://www.babylonjs-playground.com/#VE6GP#2)
-* [Playground Example Playing Adding Color to Vertices](https://www.babylonjs-playground.com/#ZRZIIZ#2)
+Scaling Positions https://www.babylonjs-playground.com/#VE6GP#4  
+Playing Around with Positions https://www.babylonjs-playground.com/#VE6GP#2  
+Adding Color to Vertices https://www.babylonjs-playground.com/#ZRZIIZ#2
 
-# Further Reading
-
-[Custom Meshes](/How_To/Custom.html)  
-[Normals in BJS](/resources/Normals)
 

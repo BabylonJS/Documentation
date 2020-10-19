@@ -1,15 +1,42 @@
-# How To Create a Ribbon
-By looking in detail a clearer understanding can be gained.
-
-The ribbon is a very simple and versatile shape. As it is very elementary, you can model almost any shape using a ribbon or many merged ribbons. 
-It is formed using one or more paths. A path is simply an array of at least two Vector3 points (four points if you provide a single path).  
+# Ribbon in Detail
+Lets take a closer look at a ribbon
+ 
+It is formed using paths. A path is simply an array of a minimum of two vector3 points.  
 
 Below shows the construction of a ribbon using two paths A and B each having five points. 
 
 ![Ribbon](/img/how_to/ribbon/ribbon.png)
 
-## Length of Paths
+You can have as many paths as you wish, including just one, you can close all the paths and/or close the paths array itself. Imagine a long ribbon of narrow width in the real world with wire running down its length. Closing the paths forms a loop of ribbon while closing the array would form a tube.
 
+## Single Path Ribbon
+
+First construct the single path, for example
+```javascript
+pathHelix = [];
+let v;
+for (let i = 0; i <= 60; i++) {
+	v = 2.0 * Math.PI * i / 20;
+	pathHelix.push( new BABYLON.Vector3(3 * Math.cos(v), i/4, 3 * Math.sin(v)) );
+}
+```
+
+Showing the path https://www.babylonjs-playground.com/#F6JW5W#12
+
+The ribbon is formed by joining each point on the path to a later point where one exists. The *offset* property governs how many points ahead the current point with be joined to. The triangular facets for the mesh are formed from the current point, the next point and the offset point.
+
+For point *p* and offset *f* the triangle is *p*, *p + 1*, *p + f*, provided of course that *p + f &lt; number of points in the path array*
+
+Create the ribbon with a variety of offsets and show in wireframe  
+default offset, half the path length (60 / 2 = 30) https://www.babylonjs-playground.com/#F6JW5W#13  
+offset 10 https://www.babylonjs-playground.com/#F6JW5W#14  
+offset 5 https://www.babylonjs-playground.com/#F6JW5W#15  
+offset 20 https://www.babylonjs-playground.com/#F6JW5W#16  
+
+
+So playing with _offset_, _closeArray_, or other parameters, you can easily get volumes, even with a single path https://www.babylonjs-playground.com/#F6JW5W#17
+
+## Length of Paths
 It's not mandatory that all the ribbon paths have the same length, but it is not recommended.  
 The best way to emulate different lengths for some parts of your mesh is then to simply use many ribbons.
   
@@ -23,17 +50,6 @@ Therefore you **can't add a texture**  to a ribbon constructed with different le
 This is due to the fact that the nested ribbon texturing algorithm only knows how to deal with a unique length for all paths. 
 When applying a texture the algorithm assumes that the ribbon can be unfolded into a rectangle that can stretched to fit on top of the image used for the texture. 
 This is only possible when paths are of equal length.
-  
-## Single Path Ribbon
-
-First construct the single path. [Single Path to be Used for Ribbon ](https://www.babylonjs-playground.com/#1W5VJN#44)
-
-Now create the ribbon around this path. [Ribbon from Single Path](https://www.babylonjs-playground.com/#1W5VJN#45)
-
-Since the _offset_ is set to 20 the ribbon is created by joining each point p in the path array to the point p + 20, where 
-point p + 20 exists. Changing the _offset_ results in different ribbons. [The above Ribbon with _offset_ set to 5](https://www.babylonjs-playground.com/#1W5VJN#46)
-
-So playing with _offset_, _closeArray_, or other parameters, you can easily get volumic shapes, even with a single path : [Volumic Shape](https://www.babylonjs-playground.com/#1W5VJN#17) 
 
 ## Closed shapes : normals or textures ?
 
@@ -67,19 +83,3 @@ var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: paths },  s
 The same rules and workarounds apply to the _closePath_ parameter.  
 [Example with _closePath_ set to true](https://www.babylonjs-playground.com/#3XMWZ#52)
 [As above with Texture](https://www.babylonjs-playground.com/#3XMWZ#51)
-
-
-# Further Reading
-
-## Babylon 101
-
-- [Parametric Shapes](/babylon101/Parametric_Shapes)  
-
-## How To
-
-- [Decals](/how_to/Decals) 
-- [Polyhedra Shapes](/how_to/Polyhedra_Shapes)
-
-## Resources
-
-- [Maths Makes Ribbons](/resources/Maths_Make_Ribbons)   

@@ -1,0 +1,2 @@
+# A Particle Fountain
+Every village needs water so let's put in a fountain. We will go for one with rotational symmetry using a lathed mesh to create it. Fine particles will be recycled to produce a water effect. So that we do not waste water let's add a switch event to turn it on or off.

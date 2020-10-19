@@ -1,115 +1,27 @@
-# Baking Transformations
-
-Usually, within Babylon.js, the translations, rotations and scaling of a mesh change its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices, instead of saving it as a the world matrix property of the mesh. This is called baking, and can be useful in the following situations:
+# Transformations
+## Baking 
+Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices and leave world matrix unchanged. This is called baking and, of course, changes the center of transformation of the mesh, and can be useful in the following situations:
 
 - building a set of static geometry
 - randomizing a series of mesh copies
 - mirroring a mesh along an axis
 - etc.
 
-Any matrix can be used for this process including the current world matrix.
+The most straight forward way is to apply a transformation to the mesh. For example take a box of side 1 and position it at (0, 3, 0). Its vertices are stored as (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (0.5, 0.5, -0.5), (-0.5, 0.5, -0.5), (-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, 0.5, 0.5) with its local origin of (0, 3, 0) stored in the world matrix. When this current transformation is baked into its vertices, the vertices are now stored as (-0.5, 2.5, -0.5), (0.5, 2.5, -0.5), (0.5, 3.5, -0.5), (-0.5, 3.5, -0.5), (-0.5, 2.5, 0.5), (0.5, 2.5, 0.5), (0.5, 3.5, 0.5), (-0.5, 3.5, 0.5) with a local origin of (0, 0, 0) stored in the world matrix. Any rotation now takes place with the center of rotation 3 below the middle of the box.
 
-## Any Matrix
+Baking a current transformation https://www.babylonjs-playground.com/#6AH5EL
 
-Using _bakeTransformIntoVertices_  will bake the provided matrix directly into the mesh vertices changing their values but leaving the world matrix unchanged.
+When the current transformation is baked into the mesh the local origin of the mesh is also altered so that the location and orientation of the mesh within the seen is not changed.
 
-A box is created, rotated and positioned giving the following world matrix and vertex data.
+
+There is also a method, _bakeTransformIntoVertices_, to bake a matrix as a transformation into the vertices. This will bake the transformation provided by the matrix directly into the mesh vertices changing their values but leaving the world matrix unchanged.
+
+usage:
 ```javascript
-World Matrix
--0.01	-0.01	1.00    0.00
--0.01	 1.00	0.00    0.00
--1.00	-0.01  -0.01    0.00
- 1.00	 2.00	3.00    1.00
-
-Vertex Positions    		
- 1.00	-1.00	 1.00	
--1.00	-1.00	 1.00	
--1.00	 1.00	 1.00	
- 1.00	 1.00	 1.00	
- 1.00	 1.00	-1.00	
--1.00	 1.00	-1.00	
--1.00	-1.00	-1.00	
- 1.00	-1.00	-1.00	
-```
-
-then _bakeTransformIntoVertices_ is used with the world matrix
-
-```javascript
-box.bakeTransformIntoVertices(box.getWorldMatrix());
-```
-resulting in this world matrix and vertex data.
-```javascript
-World Matrix		
--0.01	-0.01	1.00    0.00
--0.01	 1.00	0.00    0.00
--1.00	-0.01  -0.01    0.00
- 1.00	 2.00	3.00    1.00
-
-Vertex Positions 			
-0.00	0.99	3.99	
-0.00	1.00	1.99	
-0.00	3.00	2.00	
-0.01	3.00	4.00	
-1.99	3.00	4.00	
-2.00	3.00	2.00	
-2.00	1.00	2.00	
-2.00	1.00	4.00	
-```
-
-Of course you do not have to use the world matrix, this code.
-
-```javascript
-var matrix = BABYLON.Matrix.Scaling(1, -1, 1);
 mesh.bakeTransformIntoVertices(matrix);
 ```
-will permanently mirror the mesh along the Y axis, while leaving the world matrix untouched.
 
-## Current World Matrix
-
-You can set the vertex positions based on any transformations that have been applied to a mesh and reset the world matrix to the identity matrix with _bakeCurrentTransformIntoVertices_. 
-
-A box is created, rotated and positioned giving the following world matrix and vertex data.
-
-```javascript
-World Matrix
--0.01	-0.01	1.00      0.00
--0.01	 1.00	0.00      0.00
--1.00	-0.01  -0.01      0.00
- 1.00	 2.00	3.00      1.00
-
-Vertex Positions 			
- 1.00	-1.00	 1.00	
--1.00	-1.00	 1.00	
--1.00	 1.00	 1.00	
- 1.00	 1.00	 1.00	
- 1.00	 1.00	-1.00	
--1.00	 1.00	-1.00	
--1.00	-1.00	-1.00	
- 1.00	-1.00	-1.00	
-```
-then _bakeCurrentTransformIntoVertices_ is applied to the box
-
-```javascript
-box.bakeCurrentTransformIntoVertices();
-```
-resulting in this world matrix and vertex data.
-```javascript
-World Matrix		
-1.00	0.00	0.00	0.00
-0.00	1.00	0.00	0.00
-0.00	0.00	1.00	0.00
-0.00	0.00	0.00	1.00
-
-Vertex Positions 			
-0.00	0.99	3.99	
-0.00	1.00	1.99	
-0.00	3.00	2.00	
-0.01	3.00	4.00	
-1.99	3.00	4.00	
-2.00	3.00	2.00	
-2.00	1.00	2.00	
-2.00	1.00	4.00	
-```
+Baking using matrices https://www.babylonjs-playground.com/#6AH5EL#1
 
 ## Use With Scaling
 
@@ -131,12 +43,4 @@ mesh.updateVerticesData(VertexBuffer.NormalKind, normals, false, false);
 
 **Note:**  recomputing the normals of your mesh may not be an ideal solution, as the results may be wrong in some parts of the mesh (e.g. seams on a sphere).
 
-# Further Reading
-
-## How To
-
-- [How To Update Vertex Data](/how_to/updating_vertices)
-
-## Resources
-
-- [Vertex Normals](/resources/normals)  
+Unless you have good reasons to use baking transformations then your are better with parents and pivots.
