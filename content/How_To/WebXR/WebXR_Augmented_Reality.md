@@ -161,7 +161,7 @@ hitTest.onHitTestResultObservable.add((results) => {
 
 This will show the dot only if hit-test worked, and will hide it if it didn't. The dot will be projected to the real world using the information provided by the system.
 
-A simple example for [WebXR hit-test using Babylon.js](https://playground.babylonjs.com/pg/XWBES1). Open this with your AR device (probably your android smartphone) and point the device at a textured plane (like your floor or door). The marker will be shown at the right location if/when the system scanned the plane correctly. 
+A simple example for [WebXR hit-test using Babylon.js.](https://playground.babylonjs.com/pg/XWBES1) Open this with your AR device (probably your android smartphone) and point the device at a textured plane (like your floor or door). The marker will be shown at the right location if/when the system scanned the plane correctly. 
 
 ### Anchors
 
@@ -220,7 +220,7 @@ const { position, rotationQuaternion } = anyRandomMesh;
 const anchorPromise = anchorSystem.addAnchorAtPositionAndRotationAsync(position, rotationQuaternion);
 ```
 
-Note that `anchorPromie` will return a *native XRAnchor* when fulfilled. This will provide you with what the browser returns. To work with anchors **in the babylon way**, we use the observables defined in the anchor module:
+Note that `anchorPromise` will return a *native XRAnchor* when fulfilled. This will provide you with what the browser returns. To work with anchors **in the babylon way**, we use the observables defined in the anchor module:
 
 ```javascript
 anchorSystem.onAnchorAddedObservable.add((anchor) => {
@@ -272,7 +272,7 @@ anchorSystem.onAnchorAddedObservable.add((anchor) => {
 
 The mesh will now be tracked by the system and will be located at the requested point. 
 
-You might ask yourself why use the anchor system with hit-test results, as hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test's location will work jsut fine. The difference is that the system might update the information it has about this position - maybe it found out the plane is at a different transformation, maybe it updated its position in space. Using the anchor system will keep the transformation updated even when the system updated its knowledge of the space.
+You might ask yourself why use the anchor system with hit-test results, as hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test's location will work just fine. The difference is that the system might update the information it has about this position - maybe it found out the plane is at a different transformation, maybe it updated its position in space. Using the anchor system will keep the transformation updated even when the system updated its knowledge of the space.
 
 ### Plane detection
 

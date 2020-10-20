@@ -87,6 +87,7 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 1. Export to a Babylon supported file format: GLTF, GLB, Babylon, etc.
 
 #### Loading
+
 1. Import mesh file within Babylon
 1. Create a new Babylon mesh which will be used as the root of physics mesh, the position of this mesh act as the center of mass for the physics object
 1. Iterate over the loaded mesh's children and add the collider meshes (marked by the label during creation) as a child of the root physics mesh, make them non-visible and create physics impostors from each
@@ -96,10 +97,12 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 1. Position/rotate the root physics mesh to the desired place within the world
 
 #### Examples
-1. Loading mesh and colliders from file: https://playground.babylonjs.com/#66PS52
-1. Loading and adding colliders manually in Babylon: https://playground.babylonjs.com/#FD65RR
-1. Loading and adding collider with joints and pointer interactions: https://playground.babylonjs.com/#DGEP8N
-1. WebVR grabbing and throwing: https://playground.babylonjs.com/#ZNX043
+
+- Loading mesh and colliders from file: https://playground.babylonjs.com/#66PS52
+- Loading and adding colliders manually in Babylon: https://playground.babylonjs.com/#FD65RR
+- Loading and adding collider with joints and pointer interactions: https://playground.babylonjs.com/#DGEP8N
+- WebVR grabbing and throwing: https://playground.babylonjs.com/#ZNX043#28
+- Custom engine with [`deterministicLockstep`](https://doc.babylonjs.com/babylon101/animations#deterministic-lockstep): https://www.babylonjs-playground.com/#3ZW889#11
 
 ### Babylon's physics impostor
 
@@ -241,7 +244,7 @@ Same as the linear velocity - setting this value will only cause the physics eng
 
 Applying a force/impulse on a body will change its velocities (linear and angular) according to the body's properties (mass is taken into account, for example).
 
-Cannon supports both force and impulse (different aspects of the same concept. Read about the difference here - http://www.differencebetween.com/difference-between-impulse-and-vs-force/)
+Cannon supports both force and impulse (different aspects of the same concept, [read about the difference here](http://www.differencebetween.com/difference-between-impulse-and-vs-force/)).
 Oimo only supports impulses. Applying a force will fallback to impulse.
 
 To apply an impulse, use the applyImpulse function of the impostor:
@@ -319,7 +322,7 @@ In case you want to do some debug, like visually show the sphere and/or rays, yo
 
 *For a more detailed explanation, please take a look at the playground example below.*
 
-Playground example - https://playground.babylonjs.com/index.html#UZHINX
+Playground example - https://playground.babylonjs.com/#UZHINX
 
 #### Collision callbacks
 
@@ -401,14 +404,14 @@ interface PhysicsJointData {
 }
 ```
 
-* mainPivot: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: https://www.babylonjs-playground.com/#BGUY#3
-* connectedPivot: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
-* mainAxis: the axis on the main object on which the constraint will work. https://www.babylonjs-playground.com/#BGUY#5
-* connectedAxis: the axis on the connected object on which the constraint will work.
-* collision: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
-* nativParams: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
+* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: https://www.babylonjs-playground.com/#BGUY#3
+* **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
+* **mainAxis**: the axis on the main object on which the constraint will work. https://www.babylonjs-playground.com/#BGUY#5
+* **connectedAxis**: the axis on the connected object on which the constraint will work.
+* **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
+* **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
 
-You can read further about joint data in this blog article : https://blog.raananweber.com/2016/09/06/webgl-car-physics-using-babylon-js-and-oimo-js/
+You can read further about joint data in this blog article : [WebGL physics-based car using Babylon.js and Oimo.js](https://blog.raananweber.com/2016/09/06/webgl-car-physics-using-babylon-js-and-oimo-js/).
 
 ### Interaction with the physics engine
 
@@ -420,9 +423,9 @@ The physics engine assumes a certain frame-rate to be taken into account when ca
 The time between each step can be changed to "accelerate" or "slow down" the physics interaction.
 Here is the same scene with different time steps - accelerating and slowing down:
 
-Default time step -  https://www.babylonjs-playground.com/#2B84TV
-Slowing down -  https://www.babylonjs-playground.com/#2B84TV#1
-Speeding up -  https://www.babylonjs-playground.com/#2B84TV#2
+- Default time step: https://www.babylonjs-playground.com/#2B84TV
+- Slowing down: https://www.babylonjs-playground.com/#2B84TV#1
+- Speeding up: https://www.babylonjs-playground.com/#2B84TV#2
 
 #### Setting the scene's gravity
 

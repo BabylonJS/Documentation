@@ -9,7 +9,7 @@ And the source code is available on the main Babylon.js repo: https://github.com
 
 You can find a complete demo here: https://www.babylonjs.com/demos/gui/
 
-Please note that since Babylon.js v3.3, a [3D version is also available](//doc.babylonjs.com//How_To/Gui3D)
+Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](//doc.babylonjs.com//How_To/Gui3D) available to leverage as well. Both systems can be used for different needs for your project.
 
 ## Introduction
 
