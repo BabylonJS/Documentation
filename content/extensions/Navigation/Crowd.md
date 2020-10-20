@@ -64,3 +64,20 @@ crowd.agentTeleport(agentIndex, navigationPlugin.getClosestPoint(destinationPoin
 ```
 
 Please note the navigation state is reseted when teleporting. You'll have to call ```agentGoto``` to choose a new destination.
+
+# Agent orientation and next path target
+
+Recastjs crowd system does not handle agent orientation. But the velocity is available and it's possible to orient the geometry toward it.
+To do so, you will need to use Math.atan2 like in the following example. Please take care of the length of the velocity vector. If it's not big enough, you may encounter jittering.
+
+```
+let velocity = crowd.getAgentVelocity(agentIndex);
+if (velocity.length() > 0.2)
+{
+    var desiredRotation = Math.atan2(velocity.x, velocity.z);
+    // interpolate the rotation on Y to get a smoother orientation change
+    ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
+}
+```
+In this PG  https://playground.babylonjs.com/#6AE0RP
+The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.

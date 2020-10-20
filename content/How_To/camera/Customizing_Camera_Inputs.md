@@ -131,7 +131,7 @@ Your input method is created as a function object. You must them write code for 
 
 ```javascript
 //This function must return the type name of the camera, it could be used for serializing your scene
-getTypeName();
+getClassName();
 
 //This function must return the simple name that will be injected in the input manager as short hand
 //for example "mouse" will turn into camera.inputs.attached.mouse
@@ -177,7 +177,7 @@ var FreeCameraKeyboardRotateInput = function() {
 Add get name methods
 
 ```javascript
-FreeCameraKeyboardRotateInput.prototype.getTypeName = function() {
+FreeCameraKeyboardRotateInput.prototype.getClassName = function() {
   return "FreeCameraKeyboardRotateInput";
 };
 FreeCameraKeyboardRotateInput.prototype.getSimpleName = function() {
@@ -185,7 +185,7 @@ FreeCameraKeyboardRotateInput.prototype.getSimpleName = function() {
 };
 ```
 
-and attatch and detach methods
+and attach and detach methods
 
 ```javascript
 FreeCameraKeyboardRotateInput.prototype.attachControl = function(
@@ -193,6 +193,8 @@ FreeCameraKeyboardRotateInput.prototype.attachControl = function(
   noPreventDefault
 ) {
   var _this = this;
+  var engine = this.camera.getEngine();
+  var element = engine.getInputElement();
   if (!this._onKeyDown) {
     element.tabIndex = 1;
     this._onKeyDown = function(evt) {
@@ -232,7 +234,9 @@ FreeCameraKeyboardRotateInput.prototype.attachControl = function(
   }
 };
 
-FreeCameraKeyboardRotateInput.prototype.detachControl = function(element) {
+FreeCameraKeyboardRotateInput.prototype.detachControl = function() {
+  var engine = this.camera.getEngine();
+  var element = engine.getInputElement();
   if (this._onKeyDown) {
     element.removeEventListener("keydown", this._onKeyDown);
     element.removeEventListener("keyup", this._onKeyUp);
@@ -283,7 +287,7 @@ interface ICameraInput<TCamera extends BABYLON.Camera> {
     camera: TCamera;
 
     //this function must return the type name of the camera, it could be used for serializing your scene
-    getTypeName(): string;
+    getClassName(): string;
 
     //this function must return the simple name that will be injected in the input manager as short hand
     //for example "mouse" will turn into camera.inputs.attached.mouse
@@ -307,4 +311,4 @@ In the example there are two viewports, the upper one gives a first person view 
 
 Remember to click on the scene before using the arrow keys.
 
-* [Playground Example - Walk and Look Camera](https://www.babylonjs-playground.com/#6PA720)
+* [Playground Example - Walk and Look Camera](https://www.babylonjs-playground.com/#CTCSWQ#1)

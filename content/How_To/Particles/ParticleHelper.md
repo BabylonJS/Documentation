@@ -33,7 +33,7 @@ You can also get the list of particle systems used by the set with `set.systems`
 
 ## Available effects
 
-Each effect can be described using a json file like this one: https://github.com/BabylonJS/Babylon.js/blob/master/assets/particles/systems/sun.json
+Each effect can be described using a json file like this one: https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json
 
 List of available effects:
 
@@ -47,7 +47,7 @@ Effect name | Image | Playground
 
 ## Custom ParticleSets
 
-It is reasonably simple to create your own custom particleSet.  Each of the particleSets listed above... is stored in a BabylonJS folder currently located [**here**](https://github.com/BabylonJS/Babylon.js/tree/master/assets/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Babylon.js/blob/master/assets/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
+It is reasonably simple to create your own custom particleSet.  Each of the particleSets listed above... is stored in a BabylonJS folder currently located [**here**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
 
 You may store these custom JSON particleSets anywhere you wish. You can set the base URL for the particleHelper with:  ```BABYLON.ParticleHelper.BaseAssetsUrl = “https://yourBaseUrl”;```
 

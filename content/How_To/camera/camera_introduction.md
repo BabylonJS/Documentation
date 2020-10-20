@@ -31,6 +31,10 @@ The default actions are:
 
 4. [gamepad](/How_To/how_to_use_gamepads) - corresponds to device.
 
+Optional actions are:
+
+1. MouseWheel - The scroll wheel on a mouse or scroll actions on a touchpad. [Playground example.](https://playground.babylonjs.com/#DWPQ9R#1)
+
 **Note**
 
 - Using keys in the Playground requires you to click inside the rendering area to give it the focus.
