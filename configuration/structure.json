@@ -415,10 +415,14 @@
                                 "particle_system_intro": { "friendlyName": "Introduction to the Particle System", "children": {}, "content": "How_To/Particles/particles_system_intro" },
                                 "particles_tuning": { "friendlyName": "Basic Particle Properties", "children": {}, "content": "How_To/Particles/particles_tuning" },
                                 "tuning_gradients": { "friendlyName": "Change Particle properties Over Time", "children": {}, "content": "How_To/Particles/tuning_gradients" },
+                                "shape_emitters": { "friendlyName": "Shape Emitters", "children": {}, "content": "How_To/Particles/shape_emitters" },
                                 "animation": { "friendlyName": "Animating Particles", "children": {}, "content": "How_To/Particles/Animate" },
                                 "customizingParticles": { "friendlyName": "Customizing Particles", "children": {}, "content": "How_To/Particles/Customise" },
                                 "particleHelper": { "friendlyName": "The Particle Helper", "children": {}, "content": "How_To/Particles/ParticleHelper" },
-                                "subEmitters": { "friendlyName": "Sub Emitters", "children": {}, "content": "How_To/Particles/Sub_Emitters" }
+                                "ramps_and_blends": { "friendlyName": "Color Ramps and Blends, and Billboard Mode", "children": {}, "content": "How_To/Particles/ramps_and_blends" },                                
+                                "subEmitters": { "friendlyName": "Sub Emitters", "children": {}, "content": "How_To/Particles/Sub_Emitters" },
+                                "gpu_particles": { "friendlyName": "GPU Particles", "children": {}, "content": "How_To/Particles/gpu_particles" },
+                                "particle_snippets": { "friendlyName": "Particle Snippet Server", "children": {}, "content": "How_To/Particles/particle_snippets" }
                             },
                             "content": "landing_pages/diving_deeper_particle_system_landing_page"
                         },
@@ -500,7 +504,8 @@
                         "sprite_map_tiles": { "friendlyName": "Sprite Map Tile Layout", "children": {}, "content": "How_To/Sprites/sprite_map_tiles" },
                         "sprite_map_options": { "friendlyName": "Sprite Map Options", "children": {}, "content": "How_To/Sprites/sprite_map_options" },
                         "sprite_map_animations": { "friendlyName": "Sprite Map Animations", "children": {}, "content": "How_To/Sprites/sprite_map_animations" },
-                        "sprite_map_example": { "friendlyName": "Sprite Map Example", "children": {}, "content": "How_To/Sprites/sprite_map_example" }   
+                        "sprite_map_example": { "friendlyName": "Sprite Map Example", "children": {}, "content": "How_To/Sprites/sprite_map_example" },
+                        "sprite_snippets": { "friendlyName": "Sprite Snippet Server", "children": {}, "content": "How_To/Sprites/sprite_snippets" }   
                     }, 
                     "content": "landing_pages/diving_deeper_sprites_landing_page"
                 },
