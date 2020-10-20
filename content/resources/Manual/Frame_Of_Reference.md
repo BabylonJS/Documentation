@@ -1,50 +1,32 @@
-# Frame of Reference
+# Transformations
+## Introduction to Coordinate Transformation
 
-Every mathematical vector and transformation is expressed in a _frame of reference_ which is stored as a matrix.  In Babylon.js the data describing a mesh is stored as local space vectors. The _frame of reference_ for the mesh is determined by the world matrix for the mesh which is formed from any rotation, translation and scaling operations. For each rendered frame the current world matrix is used on the local space data to obtain the world data for the mesh.
-
-The vertex data for a mesh on creation is stored and remains the same throught Babylon.js processing unless [baked](/resources/Baking_Transformations). As you position, translate, rotate and scale a mesh the world matrix for the mesh is updated to reflect these transformations. Before rendering each frame the world matrix is applied to the mesh vertex data to determine its world 3D data. However the frame of reference for the mesh to be viewed is a 2D screen and this frame of reference is a projection matrix which is applied to the mesh's world 3D data.
-
-The world and projection matrix operations are carried out within the GPU (graphic processor unit) in a piece of code called the [vertex shader](/How_To/ShaderIntro).
+The first step in understanding coordinate transformation Babylon.js is to understand how the data describing a mesh is stored. The positions of each vertex is kept in an array of coordinates in the local space of the mesh. Each transformation applied to the mesh is stored in a matrix called the *World Matrix*. For each rendered frame the current *World Matrix* is used on the local space vertex data to obtain the world data for the mesh. Except for exceptional circumstance such as *baking a transformation* or a user updating it, the mesh vertex data remains unchanged. 
 
 
-![World Matrix](/img/resources/world_matrix.jpg)
+When you want one mesh, mesh_C, to locate in the frame of reference of another mesh, mesh_P, using coordinate transformation you use the the _transformCoordinates_ function to apply the *World Matrix* of mesh_P to the required position.
 
-Though rarely needed you can set the vertex data of the mesh to its world 3D data and either reset the world matrix to the identity matrix or leave it be. This is done by [baking the transformation](/resources/Baking_Transformations) into the mesh.
-
-# Coordinate Transformation Explained
-
-The _TransformCoordinates_ function takes a position vector in one frame of reference and places it in another frame of reference using the matrix that transforms one frame of reference into the other.
-
-You are able to use the world matrix of a mesh to transform position vectors, and only position vectors, from a mesh's **local axes** coordinates to the **world axes** coordinates. For example
+For example take mesh_P to be a box, a cube of size 1. In the local space of the box the center of the top face is at (0, 0.5, 0). Move and rotate this box to a new position. We want mesh_C, a sphere, to be located at the center of the top face of the box at this position. To do this use
 
 ```javascript
-var matrix = mesh.computeWorldMatrix(true); //true forces a recalculation rather than using cache version
-var local_position = new BABYLON.Vector3(0,1,0);
-var global_position = BABYLON.Vector3.TransformCoordinates(local_position, matrix);
+const matrix = mesh_P.computeWorldMatrix(true); //true forces a recalculation rather than using cache version
+const local_position = new BABYLON.Vector3(0, 0.5, ,0); //Required position of C in the local space of P
+const global_position = BABYLON.Vector3.TransformCoordinates(local_position, matrix); //Obtain the required position of C in World Space
+mesh_C.position = global_position;
 ```
 
-* [Playground Example - TransformCoordinates](https://www.babylonjs-playground.com/#TRAIXW)
+Position sphere using TransformCoordinates https://www.babylonjs-playground.com/#TRAIXW
 
-Should you want to translate the local_position, in the above example, its current local position of (0, 1, 0) by (1, 1, 1) then this must be done to the local position before applying `TransformCoodinates` since this only transforms position vectors not direction vectors.
+To translate the sphere by the direction vector (1, 1, 1) for example you can add this to the current local position vector
 
 ```javascript
-var matrix = mesh.computeWorldMatrix(true);
-var local_position = new BABYLON.Vector3(0,1,0);
+const matrix = mesh_P.computeWorldMatrix(true);
+const local_position = new BABYLON.Vector3(0, 0.5, 0);
 local_position.addInPlace(new BABYLON.Vector3(1, 1, 1));
-var global_position = BABYLON.Vector3.TransformCoordinates(local_position, matrix);
+const global_position = BABYLON.Vector3.TransformCoordinates(local_position, matrix);
+mesh_C.position = global_position;
 ```
 
-* [Playground Example - TransformCoordinates with a Translation](https://www.babylonjs-playground.com/#TRAIXW#1)
+Translate sphere using TransformCoordinates https://www.babylonjs-playground.com/#TRAIXW#1
 
-Potential uses of `BABYLON.Vector3.TransformCoordinates()` may be:
-
-- setting the position and speed of a mesh relative to another, without the use of parenting
- (e.g. a spaceship shooting missiles)
-- applying a projection matrix to a world position vector to end up with a screen-space position vector
-
-# Further Reading
-
-[Rotate and Translate Overview](/features/Position,_Rotation,_Scaling)  
-[How To Use a Parent](/How_To/Parenting)  
-[How To Transform Coordinates](/How_To/Transform_Coordinates)  
-[Baking the Transformation](/resources/Baking_Transformations)  
+More extensive examples follow  

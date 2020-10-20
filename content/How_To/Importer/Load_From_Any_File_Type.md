@@ -1,9 +1,5 @@
 # How to Use Scene Loader
 
-The built in file type is `.babylon` and Babylon.js can load these without a plugin.
-
-**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/resources/rotation_conventions#warning).
-
 ## Basic Usage
 
 To load a file of a given type, Babylon must first have a reference to the plugin for that file type.
