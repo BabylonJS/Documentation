@@ -414,7 +414,7 @@
                             "children": {
                                 "particle_system_intro": { "friendlyName": "Introduction to the Particle System", "children": {}, "content": "How_To/Particles/particles_system_intro" },
                                 "particles_tuning": { "friendlyName": "Basic Particle Properties", "children": {}, "content": "How_To/Particles/particles_tuning" },
-                                "tuning_gradients": { "friendlyName": "Change Particle properties Over Time", "children": {}, "content": "How_To/Particles/tuning_gradients" },
+                                "tuning_gradients": { "friendlyName": "Change Particle Properties Over Time", "children": {}, "content": "How_To/Particles/tuning_gradients" },
                                 "shape_emitters": { "friendlyName": "Shape Emitters", "children": {}, "content": "How_To/Particles/shape_emitters" },
                                 "animation": { "friendlyName": "Animating Particles", "children": {}, "content": "How_To/Particles/Animate" },
                                 "customizingParticles": { "friendlyName": "Customizing Particles", "children": {}, "content": "How_To/Particles/Customise" },
