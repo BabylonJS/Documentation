@@ -236,16 +236,16 @@ There is little to no action required on your end - this is automated when not c
 
 #### Babylon local controller definitions
 
-Before the input-profile repository was published, Babylon had support for different types of controllers - oculus touch (1 and 2), vive, windows motion controllers and more. Since we still wanted to offer local support for those devices, we have decided to not only relay on the online profile repository, but to also deliver babylon-based controller classes for those that are already developed.
+Before the input-profile repository was published, Babylon had support for different types of controllers - Occulus Touch (1 and 2), Vive, Windows Motion Controllers and more. Since we still wanted to offer local support for those devices, we have decided to not only relay on the online profile repository, but to also deliver babylon-based controller classes for those that are already developed.
 
 Babylon offers local definitions for the following:
 
-* WIndows Motion Controllers
+* Windows Motion Controllers
 * Oculus touch 1 and 2
 * Vive
 * Generic-Button controller
 
-TO use them, import them to your project, while not forgetting to prioritize them or disable the online repository:
+To use them, import them to your project, while not forgetting to prioritize them or disable the online repository:
 
 ``` javascript
 // import the ones you want to use
