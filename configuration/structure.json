@@ -429,7 +429,7 @@
                         "solid_particle_system": {
                             "friendlyName": "Solid Particle System",
                             "children": {
-                                "solidParticles": { "friendlyName": "The Solid Particle System", "children": {}, "content": "How_To/Particles/Solid_Particles" }
+                                "sps_intro": { "friendlyName": "Introduction To SPS", "children": {}, "content": "How_To/Particles/sps_intro" }
                             },
                             "content": "landing_pages/diving_deeper_solid_particle_system_landing_page"
                         },
