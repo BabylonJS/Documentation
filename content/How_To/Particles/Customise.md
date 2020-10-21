@@ -1,6 +1,6 @@
 # How To Customize Particles
 
-As you can find in [Babylon101](/babylon101/particles) there are many properties of the particle system that can be tweaked to control the look of a particle system. Babylon.js allows you even more customization to obtain the system you want. These can be split into into two types custom functions and custom effects. 
+As you will have seen there are many properties of the particle system that can be tweaked to control its look.. Babylon.js allows you even more customization to obtain the system you want. These can be split into into two types; custom functions and custom effects. 
 
 ## Custom Functions
 
@@ -261,22 +261,6 @@ you can see an example of the above in this playground
 
 The particle effect object is a slightly-modified [Babylon Effect Object](/api/classes/babylon.effect). Also notice that the ShadersStore is a namespace upon this special effect-object. 
 
-# Further Reading
-
-## Features
-
-- [Particles Overview](/features/Particles)
-
-## Babylon 101
-
-- [Particles 101](/babylon101/particles)  
-- [Shape Emitters](/babylon101/particles#shape-emitters)
-
-## How To
-
-- [How to Create Animated Particles](/how_to/Animate)  
-- [How to Use Sub Emitters](/how_to/Sub_Emitters)
-- [Solid Particle System](/how_to/Solid_Particles)
 
 
 

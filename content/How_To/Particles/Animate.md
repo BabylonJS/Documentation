@@ -1,54 +1,54 @@
 # Creating Animated Particles
+Here we are talking about the animation of the texture of a particle rather than any movement or the particle itself. This feature uses a similar system to that of sprite animation and was added to Babylon.js v3.1. As for sprite animation it require an uniform spritesheet.
 
-Starting from Babylon.js v3.1 the particle system will allow animated particles using a sprite animation map as its texture.
 
-* [Playground Example - Animated Particle](https://www.babylonjs-playground.com/#CLN02N#3)
-
-To enable animated particles you pass a fifth Boolean parameter in the `ParticleSystem` constructor with the value `true` (The fourth for the `GPUParticleSystem`). The default value for this parameter is false. 
-
-You can also call `particleSystem.isAnimationSheetEnabled = true` at any time.
-
-You then need to assign a sprite animation map as the `particleTexture` with the parameters as shown below and set some further properties of the `particleSystem` (please note that the texture as to be loaded with invertY set to false if you want to read texture data from top to bottom).
+You must set the property *isAnimationSheetEnabled* as true for animated particles either on or after construction (fourth parameter)
 
 ```javascript
-var particleSystem = new BABYLON.ParticleSystem("particles", 2000, scene, null, true);
-particleSystem.particleTexture = new BABYLON.Texture("textures/player.png", scene, true, false, BABYLON.Texture.TRILINEAR_SAMPLINGMODE);
+particleSystem = new BABYLON.ParticleSystem("particles", capacity, scene, null, true); // on construction
 
-particleSystem.spriteCellHeight = 64;
-particleSystem.spriteCellWidth = 64;
-particleSystem.startSpriteCellID = 0;
-particleSystem.endSpriteCellID = 44;
-particleSystem.spriteCellChangeSpeed = 4; // default is one
+
+particleSystem = new BABYLON.ParticleSystem("particles", capacity)
+particleSystem.isAnimationSheetEnabled = true; //after construction
 ```
 
-The `spriteCellHeight` and `spriteCellWidth` are are the cell width and height for each sprite in the animation sheet. 
-
-![Cell Dimensions](/img/how_to/sprites/08-1.png)
-
-The `startSpriteCellID` and `endSpriteCellID` are set based on the cell positions of the sprites on the animation sheet, the top most, left most sprite is in cell 0 and you count from left to right from the top row downwards.
+As an example we are using the same spritesheet as for the sprite manager section of the documentstion.
 
 ![sheet](/img/how_to/sprites/08-2.png)
 
-Starting with Babylon.js v3.3, you can also set `particleSystem.spriteRandomStartCell = true` to randomly pick the start cell id of each particles between `startSpriteCellID` and `endSpriteCellID`.
+This spritesheet is used as the *particleTexture* 
 
-Setting the value of `spriteCellChangeSpeed` to 1 allows the `particleSystem` to match the animation to life time of a particle. The particle will be emitted with the sprite at `startSpriteCellID` and will die displaying the sprite at `endSpriteCellID`.
+```javascript
+particleSystem.particleTexture = new BABYLON.Texture("textures/player.png", scene, true, false);
+```
 
-Giving `spriteCellChangeSpeed` a value above 1 will control the speed of the animation for a particle. The **larger** the number the **faster** the animation. Although the particle will be emitted with the sprite at `startSpriteCellID` the sprite on display when the particle dies will depend on the value of the speed and the life time of the particle and may vary.
+In this case the third parameter *noMinMaps* is set to true and the fourth, *invertY* to false to read the texture data from top to bottom.
 
-# Further Reading
+```javascript
+particleSystem.spriteCellHeight = 64;
+particleSystem.spriteCellWidth = 64;
+particleSystem.startSpriteCellID = 0;
+particleSystem.endSpriteCellID = 9;
+particleSystem.spriteCellChangeSpeed = 4; // default is one
+```
 
-## Basic - L1
+The *spriteCellHeight* and *spriteCellWidth* are are the cell width and height for each sprite in the animation sheet. 
 
-[Particles Overview](/features/Particles)  
+![Cell Dimensions](/img/how_to/sprites/08-1.png)
 
-[Particles 101](/babylon101/particles)
- 
-[How to Use Sub Emitters](/how_to/Sub_Emitters)
+We are only going to use the first 10 cells of the spritesheets and so *startSpriteCellID* is 0 and *endSpriteCellID* is 9. The top, left most sprite is in cell 0 and you count from left to right from the top row downwards.
 
-[Solid Particle System](/How_To/Solid_Particles)
+Starting with Babylon.js v3.3, you can also use
 
-## Intermediate - L2
-[How to Customize the Particle System](/how_to/Customise) 
-[Create animated particles](/how_to/Animate) 
+```javascript
+particleSystem.spriteRandomStartCell = true;
+```
+to randomly pick the start cell id of each particles between *startSpriteCellID* and *endSpriteCellID*.
 
+To control the speed of animation you can play around with adjusting direction, emitPower and updateSpeed though doing this adjusts thee whole particle animation and not just the sprite animation frame rate. 
 
+To adjust the sprite animation frame rate you set the property *spriteCellChangeSpeed*. A value of 1 matches the animation rate to lifetime of a particle. The particle will be emitted with the sprite at *startSpriteCellID* and will die displaying the sprite at *endSpriteCellID*. As values increase above 1 the animation frame rate speeds up. Although the particle will be emitted with the sprite at *startSpriteCellID* the sprite on display when the particle dies will depend on the value of the speed and the lifetime of the particle.
+
+## Examples
+Adjust emit power and update speed https://www.babylonjs-playground.com/#0K3AQ2#47
+Cell Change Speed https://www.babylonjs-playground.com/#0K3AQ2#48

@@ -189,7 +189,6 @@ and attach and detach methods
 
 ```javascript
 FreeCameraKeyboardRotateInput.prototype.attachControl = function(
-  element,
   noPreventDefault
 ) {
   var _this = this;
