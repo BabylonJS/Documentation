@@ -63,30 +63,13 @@ A basic SPS https://www.babylonjs-playground.com/#GLZ1PX#1
 Colored Green https://www.babylonjs-playground.com/#GLZ1PX#2  
 With Texture https://www.babylonjs-playground.com/#GLZ1PX#3
 
-As well as position there is a number of properties you can set on a particle
-
- Property | Type | Default 
------|-----|----- 
-position | Vector3  | (0, 0, 0)  
-rotation | Vector3  | (0, 0, 0)  
-rotationQuaternion | Vector3  | undefined  
-velocity | Vector3  | (0, 0, 0)  
-color | Vector4  | (1, 1, 1, 1)  
-scaling | Vector3  | (1, 1, 1)  
-pivot | Vector3  | (0, 0, 0)  
-uvs | Vector4  | (0,0, 1,1)  
-isVisible | boolean  | true  
-alive | boolean  | true  
-translateFromPivot | boolean  | false  
-parentId | integer,  | null    
-props | any  | null |
-
-We will look at the less obvious ones a little later in the section
+As well as position you can also set properties such as color or uv values. More on managing particles later in this section
 
 Color individual particles https://www.babylonjs-playground.com/#GLZ1PX#4  
 Texture individual particles https://www.babylonjs-playground.com/#GLZ1PX#5
 
-While it can be useful to have an SPS that will not change, for example to represent city buildings or an asteroid field,
+While it can be useful to have an SPS that will not change, for example to represent an asteroid field or city buildings
 
-![Immutable](\img\how_to\Particles\sps1.png)  
+![Immutable](/img/how_to/Particles/sps1.png)  
+
 there is much more you can do with an SPS.

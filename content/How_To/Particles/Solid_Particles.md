@@ -38,54 +38,9 @@ SPS.billboard = true; // or false by default
 SPS.setParticles();
 ```
 
-`SPS.billboard` is a boolean (default _false_). If set to _true_, all the particles will face the cam and their _x_ and _y_ rotation values will be ignored.  
-This is rather useful if you display only plane particles. However, if you deal only with 2D particles you should consider to use the [BJS Particle System](/babylon101/particles) or the [Sprite Manager](/babylon101/sprites) which are more performant in 2D computation.  
-In order to display the SPS in billboard mode, you need to call `SPS.setParticles()` within the `scene.registerBeforeRender()` function.
 
-Here is an example with plane particles in billboard mode : https://www.babylonjs-playground.com/#WCDZS#7  
-The same but with plane particle rotations and no billboard mode : https://www.babylonjs-playground.com/#WCDZS#1  
-The same with solid particles, boxes and tetrahedrons : https://www.babylonjs-playground.com/#WCDZS#2  
-Another one with colors and rotations : https://www.babylonjs-playground.com/#2FPT1A#9
 
-### Particle Management
 
-The `setParticles()` function can be used in the BJS render loop.  
-It is mandatory to use this function to update and display the mesh.
-
-You can give your SPS a behavior by setting some custom functions :
-
-- **`initParticles()`** : lets you set all the initial particle properties. You must iterate over all the particles by using the `SPS.nbParticles` property. The usage of this function is not mandatory.
-- **`recycleParticle(particle)`** : lets you set a particle to be recycled. It is called per particle. The usage of this function is not mandatory.
-- **`updateParticle(particle)`** : lets you set the particle properties. This function is called per particle by `SPS.setParticles()`. The usage of this function is not mandatory.
-- **`beforeUpdateParticles()`** : lets you make things within the call to `SPS.setParticles()` just before iterating over all the particles. The usage of this function is not mandatory.
-- **`afterUpdateParticles()`** : lets you make things within the call to `SPS.setParticles()` just after the iteration over all the particles is done. The usage of this function is not mandatory.
--
-
-So to better understand how it works, here is a pseudo-code schema :
-
-```javascript
-var particles: SolidParticles[] = [array of SolidParticle objects];
-function setParticles() {
-    beforeUpdateParticles();                 // custom function
-    for (var p = 0; p < nbParticles; p++) {
-        updateParticles(particles[p]);         // custom function
-    }
-    updateTheWholeMesh();                   // does the WebGL work
-    afterUpdateParticles();                 // custom function
-}
-```
-
-So you could call `recycleParticle(particle)` in your own `updateParticle(particle)è function for instance :
-
-```javascript
-SPS.updateParticle = function(particle) {
-  particle.velocity--;
-  if (particle.velocity < 0) {
-    particle.alive = false;
-    SPS.recycleParticle(particle); // call to your own recycle function
-  }
-};
-```
 
 The particle properties that can be set are :
 
@@ -103,28 +58,7 @@ The particle properties that can be set are :
 - **`parentId`** : integer, default = null  
 - **`props`**: any, default = null
 
-If you set a particle rotation quaternion, its rotation property will then be ignored.  
-If you set your SPS in billboard mode, you should only set a `rotation.z` value.
 
-Please note that all positions are expressed in the mesh **local space** and not in the World space.  
-The particle `pivot` vector is the translation applied to the particle in its local space just before it is rotated. The rotation is always computed around the local space origin. This property is used like a translation matrix that you would apply to some mesh pivot matrix. By default, the particle is translated, then rotated, then translated back to its original location unless you set the particle property `.translateFromPivot` to `true` (default `false`). In this case, it's simply translated, then rotated and left at the translated location.  
-Example : https://playground.babylonjs.com/#LXXL6Y#1  
-1000 tetrahedron satellites orbiting around 1000 rotating boxes.  
-Please note also that, even a particle is invisible (_isVisible_ set to _false_), its other property values can be updated and `updateParticle()` is called for every particle whatever it is visible or not.
-
-In JavaScript, you can obviously also create your own properties like _acceleration: Vector3_ or _age_, in `initParticles()` for instance.  
-
-```javascript
-SPS.initParticles = function() {
-  for (var p = 0; p < SPS.nbParticles; p++) {
-    particles[p].age = Math.random() * 20;
-  }
-};
-```
-If you use TypeScript (or JavaScript), you can associate your own properties to each particle with the property `props` typed `any` and `null` by default :
-```javascript
-particle.props = {myProp1: val1, myProp2: val2};
-```
 
 You may also access to some read-only properties :
 
@@ -138,46 +72,11 @@ var plane = BABYLON.MeshBuilder.CreatePlane("", {}, scene);
 var quadsID = SPS.addShape(plane, 20);
 ```
 
-This is usefull if you want to apply a given behavior to some particle types only.  
+This is useful if you want to apply a given behavior to some particle types only.  
 <br/>
 
 ### SPS Management
 
-You have access to some SPS properties :
-
-- **`SPS.particles`** : this is the array containing all the particles. You should iterate over this array in `initParticles()` function for instance.
-- **`SPS.nbParticles`** : this is number of particles in the SPS.
-- **`SPS.counter`** : this is a counter for your own usage. It's not set by any SPS default functions.
-
-Here again, you can add your own properties like _capacity_ or _rate_ if needed.
-
-If you don't need some given features (ex : particle colors), you can disable/enable them at any time (disabling a feature will improve the performance) :
-
-```javascript
-SPS.computeParticleRotation = false; // prevents from computing particle.rotation
-SPS.computeParticleTexture = false; // prevents from computing particle.uvs
-SPS.computeParticleColor = false; // prevents from computing particle.color
-SPS.computeParticleVertex = false; // prevents from calling the custom updateParticleVertex() function
-```
-
-All these properties, except `SPS.computeParticleVertex`, are enabled set to _true_ by default. These affect the `SPS.setParticles()` process only.  
-If these properties are set to _false_, they don't prevent from using the related feature (ie : the particles can still have a color even if `SPS.computeParticleColor` is set to _false_), they just prevent from updating the value of the particle property on the next `setParticle()` call.  
-Example : if your particles have colors, you can set their colors wihtin the `initParticles()` call and you can call then once the `setParticles()` method to set these colors. If you need to animate them later on and these colors don't change, just set then `SPS.computeParticleColor` to _false_ once before runing the render loop which will call `setParticles()` each frame.  
-If you are familiar with how BJS works, you could compare the SPS and its mesh creation to some classical BJS mesh creation (vertex and indice settings) and the particle management to the World Matrix computation (rotation, scaling, positioning).
-
-Note you can also use the standard BJS mesh _freezeXXX()_ methods if the SPS mesh is immobile or if the normals aren't needed :
-
-```javascript
-SPS.mesh.freezeWorldMatrix(); // prevents from re-computing the World Matrix each frame
-SPS.mesh.freezeNormals(); // prevents from re-computing the normals each frame
-```
-
-If you don't need your SPS any longer, you can dispose it to free the memory
-
-```javascript
-SPS.dispose();
-SPS = null; // tells the GC the reference can be cleaned up also
-```
 
 ## Summary
 
@@ -1122,19 +1021,13 @@ SPS.rebuildMesh();
 
 Except in some very specific cases, you might not need to use this function.
 
-# Further Reading
+OPTIMISE
 
-## Basic - L1
+If you are familiar with how BJS works, you could compare the SPS and its mesh creation to some classical BJS mesh creation (vertex and indice settings) and the particle management to the World Matrix computation (rotation, scaling, positioning).
 
-[Particles Overview](/features/Particles)
+Note you can also use the standard BJS mesh _freezeXXX()_ methods if the SPS mesh is immobile or if the normals aren't needed :
 
-[Particles 101](/babylon101/particles)
-
-[How to Create Animated Particles](/how_to/Animate)  
-[How to Use Sub Emitters](/how_to/Sub_Emitters)
-
-[Points Cloud Particle System](/How_To/point_Cloud_Particles)
-
-## Intermediate - L2
-
-[How to Customize the Particle System](/how_to/Customise)
+```javascript
+SPS.mesh.freezeWorldMatrix(); // prevents from re-computing the World Matrix each frame
+SPS.mesh.freezeNormals(); // prevents from re-computing the normals each frame
+```

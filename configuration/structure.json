@@ -429,7 +429,9 @@
                         "solid_particle_system": {
                             "friendlyName": "Solid Particle System",
                             "children": {
-                                "sps_intro": { "friendlyName": "Introduction To SPS", "children": {}, "content": "How_To/Particles/sps_intro" }
+                                "sps_intro": { "friendlyName": "Introduction To SPS", "children": {}, "content": "How_To/Particles/sps_intro" },
+                                "sps_animate": { "friendlyName": "SPS Animations", "children": {}, "content": "How_To/Particles/sps_animate" },
+                                "sps_managers": { "friendlyName": "Managing SPS and Particles", "children": {}, "content": "How_To/Particles/sps_managers" }
                             },
                             "content": "landing_pages/diving_deeper_solid_particle_system_landing_page"
                         },
