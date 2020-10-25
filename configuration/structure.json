@@ -844,7 +844,7 @@
                     "content": "landing_pages/workshop_landing_page"
                 }
             }, 
-            "content": "landing_pages/toolsAndResourcesGuidedLearningLandingPage"
+            "content": "landing_pages/GuidedLearningLandingPage"
         },
         "extensions": { 
             "friendlyName": "Extensions", 
