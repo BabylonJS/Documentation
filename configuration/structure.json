@@ -441,7 +441,7 @@
                                 "picking_sps": { "friendlyName": "SPS Particle Picking", "children": {}, "content": "How_To/Particles/picking_sps" },
                                 "sps_physics": { "friendlyName": "SPS Physics", "children": {}, "content": "How_To/Particles/sps_physics" },
                                 "optimize_sps": { "friendlyName": "Optimize a SPS", "children": {}, "content": "How_To/Particles/optimize_sps" },
-                                "expandable_sps": { "friendlyName": "Expandale SPS", "children": {}, "content": "How_To/Particles/expandable_sps" },
+                                "expandable_sps": { "friendlyName": "Expandable SPS", "children": {}, "content": "How_To/Particles/expandable_sps" },
                                 "sps_visibility": { "friendlyName": "SPS Visibility Issues", "children": {}, "content": "How_To/Particles/sps_visibility" },
                                 "sps_transparency": { "friendlyName": "SPS Transparency Issues", "children": {}, "content": "How_To/Particles/sps_transparency" }
                             },
@@ -450,7 +450,10 @@
                         "point_cloud_system": {
                             "friendlyName": "Points Cloud System",
                             "children": {
-                                "pointCloudParticles": { "friendlyName": "Point Cloud Particles", "children": {}, "content": "How_To/Particles/Point_Cloud_Particles" }
+                                "pcs_intro": { "friendlyName": "An Introduction to PCS", "children": {}, "content": "How_To/Particles/pcs_intro" },
+                                "pcs_creation": { "friendlyName": "Creating a PCS", "children": {}, "content": "How_To/Particles/pcs_creation" },
+                                "pcs_manage": { "friendlyName": "Managing a PCS", "children": {}, "content": "How_To/Particles/pcs_manage" },
+                                "pcs_manage_particles": { "friendlyName": "Manage PCS Particles", "children": {}, "content": "How_To/Particles/pcs_manage_particles" }
                             },
                             "content": "landing_pages/diving_deeper_points_cloud_landing_page"
                         }
