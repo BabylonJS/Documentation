@@ -431,7 +431,18 @@
                             "children": {
                                 "sps_intro": { "friendlyName": "Introduction To SPS", "children": {}, "content": "How_To/Particles/sps_intro" },
                                 "sps_animate": { "friendlyName": "SPS Animations", "children": {}, "content": "How_To/Particles/sps_animate" },
-                                "sps_managers": { "friendlyName": "Managing SPS and Particles", "children": {}, "content": "How_To/Particles/sps_managers" }
+                                "manage_sps": { "friendlyName": "Managing the SPS", "children": {}, "content": "How_To/Particles/manage_sps" },
+                                "manage_sps_particles": { "friendlyName": "Managing SPS Particles", "children": {}, "content": "How_To/Particles/manage_sps_particles" },
+                                "sps_material": { "friendlyName": "SPS Material", "children": {}, "content": "How_To/Particles/sps_material" },
+                                "immutable_sps": { "friendlyName": "Immutable SPS", "children": {}, "content": "How_To/Particles/immutable_sps" },
+                                "sps_digest": { "friendlyName": "SPS from Mesh Facets", "children": {}, "content": "How_To/Particles/sps_digest" },
+                                "sps_vertices": { "friendlyName": "Update a Particle's Shape", "children": {}, "content": "How_To/Particles/sps_vertices" },
+                                "picking_sps": { "friendlyName": "SPS Particle Picking", "children": {}, "content": "How_To/Particles/picking_sps" },
+                                "sps_physics": { "friendlyName": "SPS Physics", "children": {}, "content": "How_To/Particles/sps_physics" },
+                                "optimize_sps": { "friendlyName": "Optimize a SPS", "children": {}, "content": "How_To/Particles/optimize_sps" },
+                                "expandable_sps": { "friendlyName": "Expandale SPS", "children": {}, "content": "How_To/Particles/expandable_sps" },
+                                "sps_visibility": { "friendlyName": "SPS Visibility Issues", "children": {}, "content": "How_To/Particles/sps_visibility" },
+                                "sps_transparency": { "friendlyName": "SPS Transparency Issues", "children": {}, "content": "How_To/Particles/sps_transparency" }
                             },
                             "content": "landing_pages/diving_deeper_solid_particle_system_landing_page"
                         },
