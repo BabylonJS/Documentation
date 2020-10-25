@@ -242,6 +242,7 @@
                         "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
                         "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
                         "nodeMaterial": { "friendlyName": "Node Materials", "children": {}, "content": "How_To/material/Node_Material" },
+                        "particles_and_nme": { "friendlyName": "Using Node Material with Particles", "children": {}, "content": "How_To/Particles/Particles_and_nme" },
                         "rawTexture": { "friendlyName": "Raw Textures", "children": {}, "content": "How_To/material/rawTexture" },
                         "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
                         "work": { "friendlyName": "How Materials Work", "children": {}, "content": "resources/Manual/How_materials_work" },
