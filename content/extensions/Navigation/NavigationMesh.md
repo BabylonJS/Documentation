@@ -1,14 +1,4 @@
-# Navigation Mesh Generator
-
-![Generated Navmesh ](/img/extensions/navigation/NavMeshGeneration.png)
-
-A Navigation Mesh (or navmesh for short) is a surface topology describing the space where an agent can go based on constraints.
-Based on parameters like agent radius, agent climbing capability, agent height,... the navmesh generation computes a topology from source meshes (the world geometry).
-Then, this topology can have a debug display (blue mesh on screenshot above) to validate the parameters. 
-
-A demo can be found at:  https://www.babylonjs-playground.com/#HFY257#4
-
-## How to use the navigation mesh?
+# How to use the navigation mesh?
 
 There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases the BabylonJS users will find.
 

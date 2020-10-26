@@ -1,4 +1,2 @@
-# Tool and Resources Asset Libraries Landing Page
-This is a placeholder for the landing page for the Asset Libraries sub section of Tools and Resources
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Asset Libraries
+A range of libraries for textures and models to load into the playground. These can help you to illustrate issues you may have without having to find a CORs acceptable server to load your own assets into the playground. Also a range of programmable textures and material built using a variety of shaders.

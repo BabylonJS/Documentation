@@ -1,4 +1,2 @@
-# Diving Deeper Landing Page
-This is a placeholder for the landing page for the diving deeper section
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Diving Deeper
+We hope you have enjoyed splashing around in the Getting Started section and are now ready to plunge into understanding more of what is possible with Babylon.js. Looking for something specific and cannot find it within the navigation menu or landing page selections then head for the search bar and the results will cover the all the documentation including the API. Below shows you the surface of the vast ocean that is this intermediate section of Babylon.js, dive in to get a deeper understanding.

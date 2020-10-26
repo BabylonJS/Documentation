@@ -1,4 +1,2 @@
-# Extensions Cloner System Landing Page
-This is a placeholder for the landing page for the Cloner System sub section of Extensions
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Cloner System
+This system allows you take an array of meshes, clone them and display the results in a variety of patterns.
