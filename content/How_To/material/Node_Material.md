@@ -815,19 +815,10 @@ By default, the node material provides the following blocks:
       * output: Vector2
     
 * PBR: (since 4.2)
-  * `AmbientOcclusion`: The ambient occlusion module of the PBR material
-    * Inputs:
-      * texture: Color3
-      * intensity: Float
-      * directLightIntensity: Float
-    * Outputs:
-      * ambientOcclusion: can only be used as input of the `PBRMetallicRoughness` block
-
-  * `Anisotropy`: The anisotropy module of the PBR material
+   * `Anisotropy`: The anisotropy module of the PBR material
     * Inputs:
       * intensity: Float
-      * direction: Vector2
-      * texture: Color3
+      * direction: Vector2 - note that if you read the direction from a texture, you will probably want to apply the transformation `texture.xy * 2 - 1` to get coordinates between -1 and 1!
       * uv: Vector2
       * worldTangent: Vector4
     * Outputs:
@@ -837,14 +828,12 @@ By default, the node material provides the following blocks:
     * Inputs:
       * intensity: Float
       * roughness: Float
-      * ior: Float
-      * texture: Color3
-      * bumpTexture: Color4
+      * indexOfRefraction: Float
+      * normalMapColor: Color3
       * uv: Vector2
       * tintColor: Color3
       * tintAtDistance: Float
       * tintThickness: Float
-      * tintTexture: Color4
       * worldTangent: Vector4
     * Outputs:
       * clearcoat: can only be used as input of the `PBRMetallicRoughness` block
@@ -853,57 +842,56 @@ By default, the node material provides the following blocks:
     * Inputs:
       * worldPosition: Vector4
       * worldNormal: Vector4
-      * perturbedNormal: Vector4
+      * view: Matrix
       * cameraPosition: Vector3
-      * baseColor: Color4
-      * baseTexture: Color4
-      * opacityTexture: Color4
+      * perturbedNormal: Vector4
+      * baseColor: Color3
+      * metallic: Float
+      * roughness: Float
+      * ambientOcc: Float
+      * opacity: Float
+      * indexOfRefraction: Float
       * ambientColor: Color3
-      * reflectivity: output of the `Reflectivity` block
-      * ambientOcclusion: output of the `AmbientOcclusion` block
       * reflection: output of the `Reflection` block
-      * sheen: output of the `Sheen` block
       * clearcoat: output of the `ClearCoat` block
+      * sheen: output of the `Sheen` block
       * subsurface: output of the `SubSurface` block
       * anisotropy: output of the `Anisotropy` block
     * Outputs:
-      * ambient: Color3
-      * diffuse: Color3
-      * specular: Color3
-      * sheenDir: Color3
+      * ambientClr: Color3
+      * diffuseDir: Color3
+      * specularDir: Color3
       * clearcoatDir: Color3
+      * sheenDir: Color3
       * diffuseInd: Color3
       * specularInd: Color3
-      * sheenInd: Color3
       * clearcoatInd: Color3
+      * sheenInd: Color3
       * refraction: Color3
       * lighting: Color3
       * shadow: Float
       * alpha: Float
 
+      
+    Notes:
+      * The `Dir` suffix in the name of the outputs means `Direct` and are components from direct lighting (spot, point light, directional, ...).
+      * The `Ind` suffix in the name of the outputs means `Direct` and are components from indirect lighting (IBL, ...).
+      * The `lighting` output is the combination (sum) of all the other outputs (except for `shadow` and `alpha`) and is the one to use if you want to deal with the final output color. This color **is in gamma space**.
+      * All the `XXXClr`, `XXXDir` and `XXXInd` outputs are individual lighting components and can be used if you need to perform further processing with them. These components are **in linear space**.
+      * The `shadow` output is the shadow component when this material is used for shadow rendering (0 means completely in shadow from all lights and 1 means fully visible by all lights). You can use it for additional special effects (see https://playground.babylonjs.com/#Y642I8 for tinted shadows for eg - it's for the standard material but it would work the same for PBR too) but note that you don't need to do anything with it by default to have shadows rendered correctly for your material
+
   * `Reflection`: The reflection module of the PBR material
     * Inputs:
       * position: Vector3
       * world: Matrix
-      * view: Matrix
       * color: Color3
     * Outputs:
       * reflection: can only be used as input of the `PBRMetallicRoughness` block
 
-  * `Reflectivity`: The reflectivity module of the PBR material
-    * Inputs:
-      * metallic: Float
-      * roughness: Float
-      * texture: Color4
-    * Outputs:
-      * reflectivity: can only be used as input of the `PBRMetallicRoughness` block
-
-  * `Refraction`: The refraction module of the PBR material (used by the `SubSurface` block)
+ * `Refraction`: The refraction module of the PBR material (used by the `SubSurface` block)
     * Inputs:
       * intensity: Float
-      * indexOfRefraction: Float
       * tintAtDistance: Float
-      * view: Matrix
     * Outputs:
       * refraction: can only be used as input of the `SubSurface` block
 
@@ -912,18 +900,15 @@ By default, the node material provides the following blocks:
       * intensity: Float
       * color: Color3
       * roughness: Float
-      * texture: Color4
     * Outputs:
       * sheen: can only be used as input of the `PBRMetallicRoughness` block
 
   * `SubSurface`: The sub surface module of the PBR material
     * Inputs:
-      * minThickness: Float
-      * maxThickness: Float
-      * thicknessTexture: Color4
+      * thickness: Float
       * tintColor: Color3
       * translucencyIntensity: Float
-      * translucencyDiffusionDistance: Color3
+      * translucencyDiffusionDist: Color3
       * refraction: output of the `Refraction` block
     * Outputs:
       * subsurface: can only be used as input of the `PBRMetallicRoughness` block
@@ -1204,17 +1189,17 @@ You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Dis
 
 You can use those playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 *  Full use of all PBR blocks:
-  * PG: https://playground.babylonjs.com/#D8AK3Z#8
-  * Material: https://nme.babylonjs.com/#IFJ86Q#9
+  * PG: https://playground.babylonjs.com/#D8AK3Z#16
+  * Material: https://nme.babylonjs.com/#EPY8BV#6
 * PBR material with sheen only:
-  * PG: https://playground.babylonjs.com/#MUX769#3
-  * Material: https://nme.babylonjs.com/#IFJ86Q#10
+  * PG: https://playground.babylonjs.com/#MUX769#4
+  * Material: https://nme.babylonjs.com/#V3R0KJ
 * PBR material with clear coat only:
-  * PG: https://playground.babylonjs.com/#0XSPF6#2
-  * Material: https://nme.babylonjs.com/#IFJ86Q#11
+  * PG: https://playground.babylonjs.com#0XSPF6#6
+  * Material: https://nme.babylonjs.com/#C3NEY1#4
 * PBR material with sub surface only:
-  * PG: https://playground.babylonjs.com/#7QAN2T
-  * Material: https://nme.babylonjs.com/#IFJ86Q#3
+  * PG: https://playground.babylonjs.com#7QAN2T#8
+  * Material: https://nme.babylonjs.com/#100NDL#1
 
 The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](https://doc.babylonjs.com/api/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
 
@@ -1362,6 +1347,11 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("_BLANK", scene).then(nodeMaterial =>
     sphere.material = nodeMaterial;
 });
 ```
+Note:
+* There is a use case where you may want to load a node material, but ignore any embedded or linked textures stored in the json. This could be where you are going to supply new textures in code and you don't want to incur the cost of loading the old textures or if you are reusing a node material from an old project where only the textures need to be updated. To do this, place this static property in your code before creating or loading your node materials: 
+``` 
+BABYLON.NodeMaterial.IgnoreTexturesAtLoadTime = true;
+```
 
 And then from there you could have used the Inspector to edit it (The inspector can replace the __BLANK with the right id later on).
 
@@ -1370,10 +1360,10 @@ And then from there you could have used the Inspector to edit it (The inspector 
 Here are some node material examples that you can use "as is" or extend with the NME:
 * Standard material with alpha support: http://nme.babylonjs.com/?#AT7YY5#6
 * Standard material without alpha support: http://nme.babylonjs.com/?#AT7YY5#7
-* Full use of all PBR blocks: https://nme.babylonjs.com/#IFJ86Q
-* PBR material with sheen only: https://nme.babylonjs.com/#IFJ86Q#1
-* PBR material with clear coat only: https://nme.babylonjs.com/#IFJ86Q#2
-* PBR material with sub surface only: https://nme.babylonjs.com/#IFJ86Q#3
+* Full use of all PBR blocks: https://nme.babylonjs.com/#EPY8BV#6
+* PBR material with sheen only: https://nme.babylonjs.com/#V3R0KJ
+* PBR material with clear coat only: https://nme.babylonjs.com/#C3NEY1#4
+* PBR material with sub surface only: https://nme.babylonjs.com/#100NDL#1
 * `GridMaterial` recreated as a node material: https://nme.babylonjs.com/#I4DJ9Z
 * "mist" post process: https://nme.babylonjs.com/#YDGZCJ
 * "dissolve" post process: https://nme.babylonjs.com/#D0USYC
