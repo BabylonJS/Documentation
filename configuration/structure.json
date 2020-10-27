@@ -150,6 +150,7 @@
                 "developWithBjs": {
                     "friendlyName": "Develop With Babylon.js", 
                     "children": {
+                        "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
                         "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
                         "npmSupport": { "friendlyName": "NPM_Support", "children": {}, "content": "landing_pages/Support/NPM_Support"},
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support"},
@@ -514,7 +515,8 @@
                     "friendlyName": "Shaders", 
                     "children": {
                         "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
-                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" }
+                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
+                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" }
                     }
                 },
                 "sprites": {

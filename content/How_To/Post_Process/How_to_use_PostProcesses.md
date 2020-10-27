@@ -223,10 +223,8 @@ You can also develop your own postprocess using ```BABYLON.PostProcess``` object
 To do so, you need to create a .fragment.fx file, a shader-storing DOM node, or a ShaderStore entry where you will store the GLSL shader code used for every pixel of the screen:
 
 ```javascript
-GLSL
-#ifdef GL_ES
+
 precision highp float;
-#endif
 
 // Samplers
 varying vec2 vUV;

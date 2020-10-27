@@ -290,7 +290,7 @@ Then you need to specify the other parameters and export with the command 'Scrip
 
 ![export MEL](/img/exporters/Maya/12_script_to_babylon.jpg)
 
-You can find an exemple script in the [Maya\MELScripts](https://github.com/BabylonJS/Exporters/tree/master/Maya/MELScripts) folder of the exporter.
+You can find an example script in the [Maya\MELScripts](https://github.com/BabylonJS/Exporters/tree/master/Maya/MELScripts) folder of the exporter.
 
 # Using the exporter
 

@@ -52,7 +52,7 @@ Floor meshes are most important for teleportation, as the module needs to know w
 
 When using the [WebXR Default Experience Helper](./WebXR_Experience_Helpers#the-webxr-default-experience-helper) you can set the floorMeshes during initialization:
 
-``` javascript
+```javascript
 var xrHelper = await scene.createDefaultXRExperienceAsync({
     xrInput: xr.input,
     floorMeshes: [ground] /* Array of meshes to be used as landing points */
@@ -62,7 +62,7 @@ const teleportation = xrHelper.teleportation;
 
 When enabling the feature yourself you can provide it in the options object:
 
-``` javascript
+```javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, 'stable', {
     xrInput: xr.input,
     floorMeshes: [ground],
@@ -261,7 +261,7 @@ When moving the thumbstick left and right (X-Axis movement on the thumbstick/tou
 
 ``` javascript
 // rotate 45 degrees
-teleportation.backwardsMovementEnabled = Math.PI / 4;
+teleportation.rotationAngle = Math.PI / 4;
 ```
 
 ### Rendering to a different layer or rendering group

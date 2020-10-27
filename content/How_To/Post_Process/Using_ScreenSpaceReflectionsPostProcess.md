@@ -7,7 +7,7 @@ Rendering reflections in real-time can be done using several methods. Each metho
     * pros: renders all possible reflections in all directions and complexity only depends on the screen's resolution (as all post-processes).
     * cons: limited to what the camera sees.
 
-As an exemple, with SSR enabled (look at the water-tank):
+As an example, with SSR enabled (look at the water-tank):
 ![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/with_ssr.png)
 
 With SSR disabled:

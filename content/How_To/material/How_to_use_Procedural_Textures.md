@@ -226,6 +226,21 @@ var linesShader = { fragmentElement: 'LinesPixelShader' };
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
 ```
 
+## Using Node Material to generate procedural texture
+
+You can use NodeMaterial to generate the shaders for your procedural texture.
+The code to generate it is very simple:
+```
+BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMaterial) => {
+    const proceduralTexture = nodeMaterial.createProceduralTexture(256);
+});
+```
+Example: https://www.babylonjs-playground.com/#8S19ZC#1
+
+More here: https://doc.babylonjs.com/how_to/node_material#creating-procedural-textures
+
+
+
 **Note :** when using ShaderStore or DOM Element shader for custom procedural textures : the config.json file is not needed anymore and you can just use setFloat or setVector3 (and so on), and setTexture on the CustomProceduralTexture will give values and Sampler2D to the shader code.
 
 Feel free to play with this scene... [at our online playground]( https://www.babylonjs-playground.com/#24C4KC#17).
