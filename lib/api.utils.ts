@@ -7,11 +7,10 @@ import { getAllFiles } from "./build.utils";
 import { htmlToJson, parseHTMLFile } from "./unified.utils";
 import { MarkdownMetadata } from "./interfaces";
 
-const basePath = `.${sep}.temp${sep}docdirectory`;
+const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
-    
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
@@ -42,7 +41,7 @@ export const generateTypeDoc = async () => {
             // experimentalDecorators: true,
         });
         const outputDir = `${basePathResolved}${sep}files`;
-    
+
         // Rendered docs
         app.generateDocs([`${basePathResolved}${sep}doc.d.ts`], outputDir);
     }
@@ -68,7 +67,6 @@ export const getAPIPageData = (id: string[]) => {
     };
     head.children.forEach((element) => {
         if (element.tagName === "title") {
-            console.log(element);
             metadata.title = element.children[0].value;
         }
         if (element.tagName === "meta") {
@@ -100,8 +98,7 @@ export const getTypeDocFiles = () => {
             .replace(`${basePath}${sep}files`, "")
             .replace(/\.html$/, "")
             .split(sep);
-        id.shift();
-        id.shift();
+            console.log(id);
         id.shift();
         return {
             params: {

@@ -7,6 +7,7 @@ import Layout from "../../components/layout.component";
 import Head from "next/head";
 
 import "./apiPage.style.scss";
+import { ParsedUrlQuery } from "querystring";
 
 export const ApiPage: FunctionComponent<{
     id: string[];
@@ -14,6 +15,9 @@ export const ApiPage: FunctionComponent<{
     cssArray: any[];
     contentNode: any;
 }> = ({ contentNode, cssArray, metadata, id }) => {
+    if (!contentNode) {
+        return <></>;
+    }
     const html = parseNode(contentNode).result;
     // remove unneeded tags
     const children = html.props.children[0].props.children[1].props.children;
@@ -32,10 +36,28 @@ export const ApiPage: FunctionComponent<{
         </Layout>
     );
 };
+export const generateBreadcrumbs = (ids: string[]) => {
+    const breadcrumbs = ids.map((id, idx) => {
+        return {
+            name: id,
+            url: idx ? `/typedoc/${ids.slice(0, idx + 1).join("/")}` : "",
+        };
+    });
+    breadcrumbs.unshift({
+        name: "API",
+        url: "/typedoc/",
+    });
+
+    return breadcrumbs;
+};
 
 export default ApiPage;
 
-export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async ({ params }) => {
+export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
+    id: string[];
+}
+
+export const getStaticProps: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery> = async ({ params }) => {
     // HTML content
     const content = getAPIPageData(params.id);
     return {
@@ -46,26 +68,10 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    console.log("get static paths");
+    console.log("API - get static paths");
     const paths = await generateTypeDoc();
     return {
         paths,
         fallback: false,
     };
-};
-
-export const generateBreadcrumbs = (ids: string[]) => {
-    
-    const breadcrumbs = ids.map((id, idx) => {
-        return {
-            name: id,
-            url: idx ? `/apis/${ids.slice(0, idx + 1).join("/")}` : '',
-        };
-    });
-    breadcrumbs.unshift({
-        name: 'API',
-        url: '/apis/'
-    })
-
-    return breadcrumbs;
 };

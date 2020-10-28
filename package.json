@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.1",
-    "next": "9.5.2",
+    "next": "9.5.3",
     "react": "16.13.1",
     "react-bulma-components": "^3.4.0",
     "react-dom": "16.13.1",

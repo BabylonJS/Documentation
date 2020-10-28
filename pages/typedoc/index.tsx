@@ -45,18 +45,9 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async
     };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    console.log("get static paths (index)");
-    const paths = await generateTypeDoc();
-    return {
-        paths,
-        fallback: false,
-    };
-};
-
 export const generateBreadcrumbs = (ids: string[]) => {
     return [{
         name: 'API',
-        url: '/apis'
+        url: '/typedoc'
     }];
 };

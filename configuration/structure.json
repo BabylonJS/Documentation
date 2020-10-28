@@ -1019,11 +1019,6 @@
             },
             "content": "landing_pages/extensionsLandingPage" 
         },
-        "API": { 
-            "friendlyName": "API", 
-            "children": {},
-            "content": ""
-        },
         "whats-new": { 
             "friendlyName": "What's New", 
             "children": {},

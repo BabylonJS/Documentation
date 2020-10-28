@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Layout from '../components/layout.component';
 
 export default function Home() {
