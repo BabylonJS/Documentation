@@ -10,9 +10,17 @@ import slug from "remark-slug";
 import remark2rehype from "remark-rehype";
 import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
+import toc from "remark-toc";
+import parse from "rehype-parse";
+import html from 'rehype-stringify';
+
+// linting
+import lint from "remark-lint";
+import lintFirstLine from "remark-lint";
 // import stringify from 'rehype-stringify';
 import { AnchorWrapper } from "../components/wrappers/anchorWrapper.component";
 import { EMWrapper } from "../components/wrappers/emWrapper.component";
+import { getHeapStatistics } from "v8";
 
 /**
  * This is an example of a simple unified plugin that can be used to make changes to the code.
@@ -38,8 +46,10 @@ export interface IParsedMDObject {
 export const parseMDFile = (fileContent: string): IParsedMDObject => {
     var processor = unified()
         .use(markdown)
+        .use(lint)
+        .use(lintFirstLine, 2)
         .use(slug)
-        //   .use(toc)
+        .use(toc)
         .use(remark2rehype)
         .use(highlight)
         .use(testPlugin)
@@ -52,5 +62,55 @@ export const parseMDFile = (fileContent: string): IParsedMDObject => {
         }); // TODO - check how can we get react elements easily
 
     // prerendered so we can use sync
-    return processor.processSync(fileContent) as any;
+    processor.process(fileContent).then(
+        (result) => {},
+        (error) => {
+            console.log(error);
+        },
+    );
+    return processor.processSync(`## toc\n${fileContent}`) as any;
+};
+
+export const htmlToJson = (fileContent: string) => {
+    
+    var processor = unified().use(parse, { emitParseErrors: true });
+    return processor.parse(fileContent);
+};
+
+export const parseNode = (node: Node) => {
+    const parsed = unified().use(html).stringify(node)
+    var processor = unified()
+        .use(parse, { emitParseErrors: true })
+        .use(highlight)
+        .use(rehype2react, {
+            createElement: createElement,
+            components: {
+                a: AnchorWrapper,
+                em: EMWrapper,
+            },
+        });
+
+    return processor.processSync(parsed) as any;
+};
+
+export const parseHTMLFile = (fileContent: string): IParsedMDObject => {
+    var processor = unified()
+        .use(parse, { emitParseErrors: true })
+        .use(highlight)
+        .use(rehype2react, {
+            createElement: createElement,
+            components: {
+                a: AnchorWrapper,
+                em: EMWrapper,
+            },
+        }); // TODO - check how can we get react elements easily
+
+    // prerendered so we can use sync
+    processor.process(fileContent).then(
+        (result) => {},
+        (error) => {
+            console.log(error);
+        },
+    );
+    return processor.processSync(`## toc\n${fileContent}`) as any;
 };

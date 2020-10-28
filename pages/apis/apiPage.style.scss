@@ -1,0 +1,19 @@
+.api-container {
+    display: flex;
+
+    header {
+        display: none;
+    }
+
+    .tsd-navigation {
+        max-height: unset;
+        margin: unset;
+        position: unset;
+        top: unset;
+        transition: unset;
+    }
+
+    .tsd-panel-group {
+        margin: unset;
+    }
+}

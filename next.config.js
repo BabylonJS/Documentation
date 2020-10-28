@@ -11,5 +11,6 @@ module.exports = withTM(
         //     importLoaders: 2,
         //     localIdentName: "[local]___[hash:base64:5]",
         // },
+        trailingSlash: true,
     }),
 );
