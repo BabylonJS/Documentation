@@ -61,3 +61,5 @@ mainMaterial.realTimeFilteringQuality = BABYLON.Constants.TEXTURE_FILTERING_QUAL
 Default is `TEXTURE_FILTERING_QUALITY_LOW`. Try with different qualities and see what's the best performance / quality tradeoff for your scene.
 
 [Here](https://playground.babylonjs.com/#FEEK7G#116) is a playground example with a reflection probe and PBR material.
+
+You can also have a look at this [blog post](https://medium.com/@babylonjs/real-time-pbr-filtering-is-coming-to-babylon-cb0e81159d79) for more info about HDR filtering.

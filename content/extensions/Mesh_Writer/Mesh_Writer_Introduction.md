@@ -23,6 +23,37 @@ Generate letters in BABYLON meshes.
 
 Copy https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
 
+### If you prefer npm 
+
+> #### npm i meshwriter
+
+ Import in your React/Angular component:
+
+> import { MeshWriter } from "meshwriter";
+
+With __meshwriter__ you can use MeshWriter directly like this:
+
+	  let Writer = MeshWriter(this.scene, { scale: .25, defaultFont: "Arial" });
+	    let textMesh = new Writer("Hello World", {
+	      "font-family": "Arial",
+	      "letter-height": 30,
+	      "letter-thickness": 12,
+	      color: "#1C3870",
+	      anchor: "center",
+	      colors: {
+		diffuse: "#F0F0F0",
+		specular: "#000000",
+		ambient: "#F0F0F0",
+		emissive: "#ff00f0"
+	      },
+	      position: {
+		x: 0,
+		y: 10,
+		z: 0
+	      }
+	    });
+
+
 ### Superconstructor - BABYLON.MeshWriter()
 
 After MeshWriter is loaded, BABYLON.MeshWriter is defined.  It is called with one or two parameters.
@@ -75,13 +106,58 @@ Each **writer** instance has methods to allow one to retrieve the BabylonJS obje
 	   setAlpha                # change value and material
 	   overrideOpac            # change material but not value
 	   resetOpac               # sets material to current value
-	   dispose                 
+	   dispose      
 
 ### Usage Hints
 
 If you wish to do extensive things with position, rotation or animation, retrieve the meshes and materials from the instance using the methods shown above.&nbsp; The output from **new Writer()** is an SPS with one particle for each character.
 
+Example:
+
+https://www.babylonjs-playground.com/#PL752W#176
+
+	    const SCALE =.25 
+	    const TEXT_SIZE = 35
+	    const TEXT_THICKNESS =10
+
+	    Writer = BABYLON.MeshWriter(scene, {scale:SCALE,defaultFont:"Arial"});
+	    textMesh  = new Writer( 
+			    "BABYLON JS",{
+				"font-family":"Arial",
+				anchor: "center",
+				"letter-height": TEXT_SIZE,
+				    "letter-thickness": TEXT_THICKNESS,
+				    color: "#1C3870",
+				    colors:{
+				    diffuse  :"#F0F0F0",
+				    specular :"#000000",
+				    ambient  :"#F0F0F0",
+				    emissive :"#ff00f0"   
+				    },
+				    position: {
+					x:0,
+					y:5,
+					z: 70
+				}
+			    }
+			);
+
+	    //Text Writer create SPS with Particle for each letter
+	    SPS =  textMesh.getSPS()    
+
+	    //Update animation
+	    SPS.updateParticle =  (particle)=> {
+		    particle.rotation.x -= 0.06;
+	    };
+
+	    scene.registerBeforeRender( ()=> {
+		SPS.setParticles();
+		//sps.mesh.rotation.y = k;
+	    });  
+
+
 Colors:&nbsp; With most lighting, it is enough just to use the "color" field to specify the letter coloring.&nbsp; However, programmers may specify all four color types by putting a "colors" object in the options object.
 
 Unless you have a specific need, do not specify a font.&nbsp; The default font, Helvetica, has the most extensive characters and the fewest faces; it will be the most efficient if you have a lot of text.&nbsp; Jura was added because the author likes it for numbers.
+
 

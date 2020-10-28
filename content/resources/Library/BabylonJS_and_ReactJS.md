@@ -20,36 +20,16 @@ yarn add @babylonjs/core
 Create a file called `SceneComponent.jsx` and add this:
 ```jsx
 import { Engine, Scene } from '@babylonjs/core'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default (props) => {
     const reactCanvas = useRef(null);
     const { antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } = props;
 
-    const [loaded, setLoaded] = useState(false);
-    const [scene, setScene] = useState(null);
-
     useEffect(() => {
-        if (window) {
-            const resize = () => {
-                if (scene) {
-                    scene.getEngine().resize();
-                }
-            }
-            window.addEventListener('resize', resize);
-
-            return () => {
-                window.removeEventListener('resize', resize);
-            }
-        }
-    }, [scene]);
-
-    useEffect(() => {
-        if (!loaded) {
-            setLoaded(true);
+        if (reactCanvas.current) {
             const engine = new Engine(reactCanvas.current, antialias, engineOptions, adaptToDeviceRatio);
             const scene = new Scene(engine, sceneOptions);
-            setScene(scene);
             if (scene.isReady()) {
                 props.onSceneReady(scene)
             } else {
@@ -62,11 +42,21 @@ export default (props) => {
                 }
                 scene.render();
             })
-        }
 
-        return () => {
-            if (scene !== null) {
-                scene.dispose();
+            const resize = () => {
+                scene.getEngine().resize();
+            }
+
+            if (window) {
+                window.addEventListener('resize', resize);
+            }
+
+            return () => {
+                scene.getEngine().dispose();
+
+                if (window) {
+                    window.removeEventListener('resize', resize);
+                }
             }
         }
     }, [reactCanvas])
@@ -76,10 +66,11 @@ export default (props) => {
     );
 }
 ```
->In 55 lines we have: 
+>In 45 lines we have: 
 > * Reusable React Component for BabylonJS.
 > * Will resize the engine when window is resized.
-> * Any extra props you add to this component will flow to the canvas (ie: style/className)
+> * Cleans up resources automatically when unmounted.
+> * Any extra props you add to this component will flow to the canvas (ie: style/className).
 > * We only need to add this component to a page and specify a method to run when the scene is ready.  A `<canvas />` element is created and a BabylonJS engine and scene are created and started.
 > * If you want more control of the runRenderLoop, just remove it from here and add it in your `onSceneReady` prop.
 > * TypeScript source can be copied from [here](https://raw.githubusercontent.com/brianzinn/babylonjs-hook/master/src/babylonjs-hook.tsx).
@@ -95,7 +86,8 @@ Here is a page using our component:
 ```jsx
 import React from 'react';
 import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from '@babylonjs/core';
-import SceneComponent from './SceneComponent'; // ^^ point to file we created above or 'babylonjs-hook' NPM.
+import SceneComponent from './SceneComponent'; // uses above component in same directory
+// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import './App.css';
 
 let box;
@@ -175,10 +167,10 @@ What you are able to easily do is powerful, because inside the Scene component y
 
 > BabylonJS ES6 + CRA (Create React App) project examples:
 > * JavaScript (examples for 3D models, GUI, VR, behaviors, props/state management)
->   * [source](https://github.com/brianzinn/create-react-app-typescript-babylonjs)
+>   * [source](https://github.com/brianzinn/create-react-app-babylonjs)
 >   * [demo](https://brianzinn.github.io/create-react-app-babylonjs/)
 >* TypeScript (GUI + physics + shadows)
->   * [source](https://github.com/brianzinn/create-react-app-babylonjs)
+>   * [source](https://github.com/brianzinn/create-react-app-typescript-babylonjs)
 >   * [demo](https://brianzinn.github.io/create-react-app-typescript-babylonjs/)
 >* [Electron](https://github.com/brianzinn/react-babylonjs-electron) (Electron added to above TypeScript project)
 >* [PWA](https://github.com/brianzinn/create-react-app-babylonjs-pwa) (Progressive Web App)

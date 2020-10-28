@@ -257,12 +257,12 @@ You can use this in addition of translucency to accurately represent the spread 
 
 ![SubSurfaceScattering](/img/extensions/PBRSubSurfaceScattering.jpg)
 
-[Demo](https://www.babylonjs-playground.com/#GTQKYK#1)
+[Demo](https://www.babylonjs-playground.com/#GTQKYK#4)
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
 sphere.material = pbr;
 
-scene.enablePrePassRenderer().subSurfaceConfiguration.metersPerUnit = 0.01;
+scene.enablePrePassRenderer().enableSubSurfaceForPrePass().metersPerUnit = 0.01;
 
 pbr.metallic = 0;
 pbr.roughness = 0.2;

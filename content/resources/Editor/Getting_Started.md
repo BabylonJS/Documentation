@@ -1,9 +1,11 @@
 
-# Getting Started
+# Getting Started with the Editor
 The V3 of the Babylon.js Editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
 
 The editor V3 is available at http://editor.babylonjs.com/.
 The video tutorials are all available on [a Youtube playlist](https://www.youtube.com/watch?v=obEuCI_pPL4&list=PLuZE-0i73Wo-xqfBsgZA531BXeesXQ3Op&index=1)
+
+Please note that the editor is a community project maintained mostly by Julien Moreau.
 
 # Desktop App
 The Babylon.js Editor is firstly available as a desktop application.
@@ -19,7 +21,7 @@ Downloading:
 * Linux: [http://editor.babylonjs.com/BabylonJS Editor.zip](http://editor.babylonjs.com/BabylonJS%20Editor.zip)
 
 # Project example
-As an exemple, the following demo has been done 100% in the editor. It includes writing custom scripts, custom post-processes etc.
+As an example, the following demo has been done 100% in the editor. It includes writing custom scripts, custom post-processes etc.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/obEuCI_pPL4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -48,4 +50,4 @@ Once you run the editor, you'll see several panels:
 * Stats: shows the rendering and scene statistics for information according to the current scene preview
 * Files: shows all the files that have been loaded in your current project. Just as information.
 
-To use the tools and start a new project, it is highly recommanded to read the documentation of each tool available at https://doc.babylonjs.com/resources/ :)
+To use the tools and start a new project, it is highly recommended to read the documentation of each tool in this section.

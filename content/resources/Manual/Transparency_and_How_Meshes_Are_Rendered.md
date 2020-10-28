@@ -116,6 +116,15 @@ The following list will help you understand which categories your meshes will be
   * AND an albedo texture is defined with the property `.hasAlpha` set to `true`
 * In case of another type of material, if the material's `.needAlphaTesting()` function returns `true`
 
+Notes:
+  * alpha testing is linked to the diffuse/albedo texture: to enable it, you must set the `.hasAlpha` property of the diffuse/albedo texture to `true` even if all you are interested in is to apply alpha testing to the opacity texture for eg. Alternatively, you can override the `Material.needAlphaTesting()` method and return `true` if you want alpha testing to be enabled:
+    * `myMat.needAlphaTesting = () => myMat.opacityTexture !== null;`
+  * for the standard material:
+    * if `transparencyMode` (see next section for details about this property) is `null`, the alpha test is applied only on the alpha value read from the diffuse texture
+    * if `transparencyMode` is not `null`, the alpha test is applied near the end of the pipeline, when all alpha contributions have been taken into account (vertex alpha, opacity texture alpha, fresnel alpha). Note however that the computation is applied **BEFORE** the visibility property of the mesh is factored in!
+  * for the PBR material:
+    * the alpha test is applied after the contributions from the albedo / vertex alpha / opacity texture have been factored in
+
 **Opaque meshes:**
 
 * Any mesh that does not fit into one of the above categories
@@ -169,6 +178,7 @@ This may help you with visible seams between meshes and other similar issues.
 - A mesh's `alphaIndex` property can be very useful as well, since they allow you to override the depth sorting of alpha-blended meshes. Also this property does not suffer from the same limitation as Rendering Groups (4 layers at most), and only has an effect on alpha-blended meshes.
 - You can rely on `needDepthPrePass` to help fixing issues with self transparency.
 - You can also use `separateCullingPass` on materials to force the engine to render the transparent objects in 2 passes: first the back faces and then the front faces. This can help a lot with self transparency.
+- `twoSidedLighting` will not take effect if `separateCullingPass` is enabled. For double sided, transparent PBR materials you can instead use `forceNormalForward = true`, which will in practice result in the same effect. If used, you can set `twoSidedLighting = false` and `backfaceCulling = true` to slightly improve shader performance.
 - To prevent both the cost of either `needDepthPrePass` or `separateCullingPass` if the sum of your alpha stays below 1.0, you can change the alphaMode of the material to either `Engine.ALPHA_PREMULTIPLIED` or `Engine.ALPHA_PREMULTIPLIED_PORTERDUFF` which prevent the need of ordering the triangles.
 
 # Concave meshes and transparency

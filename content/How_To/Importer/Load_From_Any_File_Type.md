@@ -115,7 +115,7 @@ You can customize the import process using options and callbacks
 ```javascript
 BABYLON.SceneLoader.ImportAnimations("./", "Elf_run.gltf", scene);
 ```
-[Demo](https://www.babylonjs-playground.com/#UGD0Q0#2)
+[Demo](https://www.babylonjs-playground.com/#UGD0Q0#62)
 
 ## SceneLoader.AppendAsync
 

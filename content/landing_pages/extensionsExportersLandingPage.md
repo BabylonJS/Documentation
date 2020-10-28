@@ -1,4 +1,2 @@
-# Exporters Landing Page
-This is a placeholder for the landing page for the Exporters sub section of Extensions and Resources
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Exporters
+A range of 3D graphic software that can export files in a form that Babylon.js can import together with hints and tips on getting the best from the export.

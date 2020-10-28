@@ -36,9 +36,11 @@ Having all interactions with your pack happening in the success callback on the 
 
 * [Texture Packer Example](https://www.babylonjs-playground.com/#TQ408M#6)
 
+
 Downloading the pack is simple! When initializing the package through both a JSON load or naturally like in the above mentioned constructor, a Promise Object is created.
 In order to assure that the textures are all packed and ready to go we call any interactions with the texture pack inside the success callback of the `then` method.
 ```javascript
+
 pack.processAsync().then(
     //Success
     ()=>{

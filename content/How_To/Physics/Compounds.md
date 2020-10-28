@@ -7,6 +7,8 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 ![Compound Skull](/img/how_to/physics/greenSkull.jpg)
 
+**Note** Center of mass is at the origin of the compound object.
+
 ## Compound to Empty Mesh
 
 1. Create an empty mesh to be used as a parent for the compound body;

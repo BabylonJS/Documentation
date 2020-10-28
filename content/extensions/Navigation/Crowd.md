@@ -6,7 +6,7 @@ Now we have a navmesh, we can create autonomous agents and make them navigate wi
 The agents will find the best path to that destination while avoinding other crowd agents.
 An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
-A demo can be found at:  https://www.babylonjs-playground.com/#X5XCVT#29
+A demo can be found at:  https://www.babylonjs-playground.com/#X5XCVT#240
 
 Click anywhere on the navmesh to make the agents go to that location.
 

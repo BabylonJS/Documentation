@@ -15,6 +15,14 @@ Inside a skeleton, bones can be found inside the ```skeleton.bones``` array.
 
 A bone can contain animations to animate its ```matrix``` property.
 
+A bone must have its inverted absolute transform matrix set. If you are importing a skeleton this might already be computed. But if you are creating your own skeleton programatically you need to do this in your code.
+
+The easiest way to do it is: 
+
+```javascript
+skeleton.returnToRest();
+```
+
 ## Preparing mesh
 
 A skeleton can be applied to a mesh through the ```mesh.skeleton``` property.
@@ -49,12 +57,12 @@ Here is a sample of how to load a boned mesh and how to launch skeleton animatio
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-    var dude = newMeshes[0];
+    var dude = newMeshes[0];
 
-    dude.rotation.y = Math.PI;
-    dude.position = new BABYLON.Vector3(0, 0, -80);
+    dude.rotation.y = Math.PI;
+    dude.position = new BABYLON.Vector3(0, 0, -80);
 
-    scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
+    scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
 });
 ```
 
@@ -93,25 +101,25 @@ More complex models, such as the Dude, contain submeshes. When cloning you must 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
 
-    newMeshes[0].position = new BABYLON.Vector3(0, 0, 5);  // The original dude
-    scene.beginAnimation(skeletons[0], 0, 120, 1.0, true);
+    newMeshes[0].position = new BABYLON.Vector3(0, 0, 5);  // The original dude
+    scene.beginAnimation(skeletons[0], 0, 120, 1.0, true);
 
-    dudes = [];
+    dudes = [];
 
-    for (i = 0; i < 10; i++) { // 10 clones
-        var xrand = Math.floor(Math.random() * 501) - 250;
-        var zrand = Math.floor(Math.random() * 501) - 250;
+    for (i = 0; i < 10; i++) { // 10 clones
+        var xrand = Math.floor(Math.random() * 501) - 250;
+        var zrand = Math.floor(Math.random() * 501) - 250;
 
-        var c = [];
+        var c = [];
 
-        for (j = 1; j < newMeshes.length; j++) {
-            c[j] = newMeshes[j].clone("c" + j);
-            c[j].position = new BABYLON.Vector3(xrand, 0, zrand);
-            c[j].skeleton = newMeshes[j].skeleton.clone();
-            scene.beginAnimation(c[j].skeleton, 0, 120, 1.0, true);
-        }
-        dudes[i] = c;
-    }
+        for (j = 1; j < newMeshes.length; j++) {
+            c[j] = newMeshes[j].clone("c" + j);
+            c[j].position = new BABYLON.Vector3(xrand, 0, zrand);
+            c[j].skeleton = newMeshes[j].skeleton.clone();
+            scene.beginAnimation(c[j].skeleton, 0, 120, 1.0, true);
+        }
+        dudes[i] = c;
+    }
 }
 ```
 
@@ -360,3 +368,111 @@ Bones are computed using shaders by default. This allows better performance. But
 ## Debugging
 
 Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](https://doc.babylonjs.com/features/playground_debuglayer#bones-viewer) on and off.
+
+### Debugging Extras
+
+Starting with Babylon.js v4.2, you have a few more options to debug a skeleton with.  We now have incorporated additional bone views, to help visualize the position of the bones which are accessible through the same means as explained in the above sections' Inspector link. Additionally two new methods have been added to construct ShaderMaterials for both a skeleton map and assigned bone weights.
+
+#### New Viewer Info
+
+There are some requirements to take into consideration when trying to use the view modes for the skeleton viewer. First the SkeletonViewer class accepts a new constructor argument of options that will dictate the visual look of the debug mesh. Through this new argument there a bunch of new options to configure the outcome. Note that this is not a required parameter and if omitted then the debug mesh will use classic lines system.
+
+There are some differences in with the new views from how the old lines view functioned. With the old method, for each bone per frame the points are updated and the line system is redrawn with its buffer being updated (all of which happens on the CPU). The new views are a unified mesh that match the matrices of the skeleton system. There is some impact at creation time to properly create the buffers, but once that is done it offers more performance and less impact as it is handled after inception by the GPU. Keep in mind to make sure your skeleton has proper restPose Matrices bound and updated, otherwise the debug mesh will fail to position itself correctly.
+
+```javascript
+let skeletonView = new BABYLON.Debug.SkeletonViewer(
+            skeleton,   //Target Skeleton
+            mesh,       //That skeletons Attached Mesh or a Node with the same globalMatrix
+            scene,      //The Scene scope
+            false,      //autoUpdateBoneMatrices?
+            (mesh.renderingGroupId > 0 )?mesh.renderingGroupId+1:1,  // renderingGroupId
+            options     //Configuration Options
+        );
+```
+
+To configure some of how the parsing happens you can change these values. Also take note that the options for the display modes lives here as well.
+```javascript
+let options {
+   pauseAnimations?: boolean, //True or False flag to pause the animations while trying to construct the debugMesh. Default: True
+   returnToRest?: boolean, //Flag to force the skeleton back into its restPose before constructing the debugMesh. Default: False
+   computeBonesUsingShaders?: boolean, //Tell the debugMesh to use or not use the GPU for its calculations, if you ever want to do picking on the mesh this will need to be False. Default: True
+   useAllBones?: boolean, //Visualize all bones or skip the ones with no influence. 
+   displayMode?: number //A value that controls which display mode to use. (SkeletonViewer.DISPLAY_LINES = 0, SkeletonViewer.DISPLAY_SPHERES = 1, SkeletonViewer.DISPLAY_SPHERE_AND_SPURS = 2). Default = 0.
+   displayOptions?: any //The visual parameters for the debugMeshes.
+};
+```
+
+In order to configure the new views display options, we have these new parameters.
+```javascript
+let displayModeOptions {
+   sphereBaseSize? : number, //The size of the sphere when scaled by the sphereScaleUnit after determining the longest bone in the system. Default = 0.15
+   sphereScaleUnit? : number, //The number that is used to determine the ratio of the spheres scale in relation to the longest bone in the system.  Defaults to 2, with general assumptions that 1 scene unit is treated as 1 meter (you can assume what ever scene unit though).
+   sphereFactor? : number, //A scalar that makes the spheres get smaller the farther away from the root bone they are. Default = 0.865
+   midStep? : number, //The number that represents where the bones 'spur' will be at its maximum thickness. Default = 0.235
+   midStepFactor? : number, //The ratio of how thick the bone should be in relation to its length. Default = 0.155
+   showLocalAxes? : boolean, //Flag to display te bones local axes as line systems. Default = False
+   localAxesSize? : number, //Size of the local Axes. Default = 0.075
+};
+```
+
+[Demo](https://playground.babylonjs.com/#BCU1XR#1616)
+
+#### Debug Shader Usage
+
+Sometimes you will need to actually see whart parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials! 
+
+##### SkeletonMap Shader
+
+The first one, which is a color map of the entire skeleton, is called a SkeletonMap. This will show you a unique color for each bone and visual feedback of how all of their influences interact. It's static method and when creating one, it expects two parameters, options and scene.
+
+```javascript
+let mapShader = BABYLON.Debug.SkeletonViewer.CreateSkeletonMapShader( options, scene);
+```
+
+Inside the options you must pass a skeleton key and value. A secondary optional argument for generating the color gradient for the bones is called as colorMap.
+
+```javascript
+let options = {
+   skeleton : BABYLON.Skeleton,
+   colorMap? : any[]
+};
+```
+
+In order to leverage the color map you will need to pass in an array of objects with this format:
+```javascript
+let colorMapItem = {
+   color : BABYLON.Color3, //The Color to use
+   location : number // Where on the gradient it is. Between 0-1
+};
+```
+This array is expected to have the items arranged with their location value in ascending order.
+[Demo](https://playground.babylonjs.com/#BCU1XR#1618)
+
+##### BoneWeight Shader
+
+The second of the two will show more specific data on a per bone basis.
+
+```javascript
+let boneWeightShader = BABYLON.Debug.SkeletonViewer.CreateBoneWeightShader( options, scene);
+```
+
+Inside the options you must pass a skeleton key and value. Optional arguments are for color control and the starting selected bone.
+
+```javascript
+let options = {
+   skeleton : BABYLON.Skeleton,
+   colorBase? : BABYLON.Color3, //The color when a bone has 0 influence. Default = Black
+   colorZero? : BABYLON.Color3, //The color when a bone has > 0 influence < 0.25. Default = Blue
+   colorQuarter? : BABYLON.Color3, //The color when a bone has >= 0.25 influence < 0.5. Default = Green
+   colorHalf? : BABYLON.Color3, //The color when a bone has >= 0.5 influence < 0.75. Default = Yellow
+   colorFull? : BABYLON.Color3, //The color when a bone has >= 0.75 influence <= 1. Default = Red
+   targetBoneIndex?: number //The bone._index value that you wish to display. Default = 0
+};
+```
+
+The bone that is to be displayed is controlled by setting a uniform on the shader.
+```javascript
+boneWeightShader.setFloat(targetBoneIndex, index)
+```
+
+[Demo](https://www.babylonjs-playground.com/#1BZJVJ#395)

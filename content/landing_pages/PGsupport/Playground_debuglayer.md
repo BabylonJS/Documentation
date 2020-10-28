@@ -122,7 +122,19 @@ This tool (available in the Debug pane) will render a grid on the (0,0,0) plane:
 
 This tool (available in the skeleton property grid) will render your skeletons:
 
-![bones](/img/features/debuglayer/bones.jpg)
+![bones](/img/features/debuglayer/BonesView.png)
+
+## Skeleton Map Shader
+
+This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a unique color on the mesh, for each bone, showing their total contribution:
+
+![bones](/img/features/debuglayer/BonesMap.png)
+
+## Bone Weight Shader
+
+This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a heat map showing the selected bones contribution:
+
+![bones](/img/features/debuglayer/BonesWeight.png)
 
 ## Physics viewer
 
@@ -154,6 +166,6 @@ This tool (available in the property pane when you select a material with textur
 [How To Use The Inspector in Projects](/How_To/debug_layer)  
 [How To Customize the Inspector](/How_To/customize_debug_layer)  
 [Dev log about the inspector](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205)
-
+[Using the Texture Inspector](/features/texture_inspector)
 
 

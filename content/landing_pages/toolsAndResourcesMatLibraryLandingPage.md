@@ -1,4 +1,2 @@
-# Tool and Resources Materials Library Landing Page
-This is a placeholder for the landing page for the Materials Library sub section of Tools and Resources
-
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Materials Library
+The Babylon.js materials library is a collection of advanced materials to be used in a Babylon.js scene.

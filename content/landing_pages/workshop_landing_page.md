@@ -1,2 +1,2 @@
-# Partial Designs
-These are not full games but small projects that put together several aspects of BabylonJS in one place with a description of their design and construction. Some could be developed into full games but really they are just give ideas which expand on the examples in the documentation.
+# Workshop
+The workshop holds a selection of experiments and partially finished projects. They put together several aspects of Babylon.js in one place with a description of their design and construction. Some could be developed into full applications but really they are just workshop ideas which expand on the examples in the documentation.

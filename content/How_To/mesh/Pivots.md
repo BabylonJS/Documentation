@@ -2,7 +2,7 @@
 
 The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: https://www.babylonjs-playground.com/#GH4N1R#1
 
-A pivot an be set with a [translation matrix](/how_to/pivots#how-to-set-the-pivot-matrix) or directly with the [_setPivotPoint_](/how_to/pivots#how-to-set-and-get-a-pivot-point) method.
+A pivot can be set with a [translation matrix](/how_to/pivots#how-to-set-the-pivot-matrix) or directly with the [_setPivotPoint_](/how_to/pivots#how-to-set-and-get-a-pivot-point) method.
 
 A pivot in Babylon.js is the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. When a mesh is created the pivot (red sphere) is always at the local origin (yellow sphere) and the local origin always at the world origin, as in Fig 1. When the pivot and local origin are coincident they are shown as a red and yellow striped sphere.
 

@@ -44,6 +44,7 @@ var reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr",
 This method will involve a small delay in the loading of the texture, due to the prefiltering being achieved on-the-fly. Therefore it is preferable to use .env or .dds files for optimal performance.
 Please note that WebGL2 is required for prefiltering on-the-fly.
 
+As sometimes you might even want to fully filter in realtime (for animated reflections for instance) you might want to have a look at [the reflection probes tutorial](https://doc.babylonjs.com/how_to/how_to_use_reflection_probes).
 
 ## External tools
 
