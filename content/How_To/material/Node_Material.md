@@ -875,7 +875,7 @@ By default, the node material provides the following blocks:
       
     Notes:
       * The `Dir` suffix in the name of the outputs means `Direct` and are components from direct lighting (spot, point light, directional, ...).
-      * The `Ind` suffix in the name of the outputs means `Direct` and are components from indirect lighting (IBL, ...).
+      * The `Ind` suffix in the name of the outputs means `Indirect` and are components from indirect lighting (IBL, ...).
       * The `lighting` output is the combination (sum) of all the other outputs (except for `shadow` and `alpha`) and is the one to use if you want to deal with the final output color. This color **is in gamma space**.
       * All the `XXXClr`, `XXXDir` and `XXXInd` outputs are individual lighting components and can be used if you need to perform further processing with them. These components are **in linear space**.
       * The `shadow` output is the shadow component when this material is used for shadow rendering (0 means completely in shadow from all lights and 1 means fully visible by all lights). You can use it for additional special effects (see https://playground.babylonjs.com/#Y642I8 for tinted shadows for eg - it's for the standard material but it would work the same for PBR too) but note that you don't need to do anything with it by default to have shadows rendered correctly for your material
