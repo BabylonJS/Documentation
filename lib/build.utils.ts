@@ -15,8 +15,8 @@ export const getAllFiles = (dirPath: string, arrayOfFiles?: string[], extension 
     files.forEach(function (file) {
         const fullPath = join(dirPath, "/", file);
         if (statSync(fullPath).isDirectory()) {
-            arrayOfFiles.push(fullPath);
-            arrayOfFiles = getAllFiles(fullPath, arrayOfFiles);
+            // arrayOfFiles.push(fullPath);
+            arrayOfFiles = getAllFiles(fullPath, arrayOfFiles, extension);
         } else {
             if (!extension) {
                 arrayOfFiles.push(fullPath);
