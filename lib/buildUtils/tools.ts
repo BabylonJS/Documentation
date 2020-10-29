@@ -1,9 +1,10 @@
 import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
-import { IDocMenuItem, MarkdownMetadata } from "./interfaces";
-import { generateBreadcrumbs, getElementByToIdArray } from "./page.utils";
-import { IDocumentationPageProps } from "./pages.interfaces";
+import { IDocumentationPageProps } from "../../components/DocumentPage";
+import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
+
 import matter from "gray-matter";
+import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
 
 export const markdownDirectory = "content/";
 
@@ -78,7 +79,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem) {
 
 export function getPageData(id: string[], fullPage?: boolean): IDocumentationPageProps {
     // get fullPath from the configuration
-    const docs = getElementByToIdArray(id, !fullPage);
+    const docs = getElementByIdArray(id, !fullPage);
     if (!docs) {
         throw new Error("wrong ids! " + id.join("/"));
     }
@@ -108,6 +109,6 @@ export function getPageData(id: string[], fullPage?: boolean): IDocumentationPag
         metadata,
         content,
         previous,
-        next
+        next,
     };
 }

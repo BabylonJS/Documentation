@@ -6,7 +6,7 @@ import Media from "react-bulma-components/src/components/media";
 import Columns from "react-bulma-components/src/components/columns";
 import Heading from "react-bulma-components/src/components/heading";
 import Link from "next/link";
-import { IDocumentationPageProps } from "../lib/pages.interfaces";
+import { IDocumentationPageProps } from "../lib/content.interfaces";
 
 export interface IBucketContentProps {
     childPages?: {

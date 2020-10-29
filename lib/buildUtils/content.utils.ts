@@ -1,8 +1,8 @@
-import { IDocMenuItem } from "./interfaces";
+import { IDocMenuItem } from "../interfaces";
 
 // very temporary structure configuration
-import structure from "../configuration/structure.json";
-import { IMenuItem } from "./pages.interfaces";
+import structure from "../../configuration/structure.json";
+import { IMenuItem } from "../content.interfaces";
 
 // cast for general usage
 export const config: IDocMenuItem = structure;
@@ -25,7 +25,7 @@ export const populateDocItemsArray = () => {
     traverseChildren([], config.children);
 };
 
-export const getAvailableUrls = () => {
+export const getAvailableUrls = (): { params: { id: string[]; content?: string } }[] => {
     const array = [];
 
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
@@ -33,6 +33,7 @@ export const getAvailableUrls = () => {
             array.push({
                 params: {
                     id: [...prevKeys, key],
+                    content: childrenObject[key].content
                 },
             });
             if (childrenObject[key].children) {
@@ -44,6 +45,23 @@ export const getAvailableUrls = () => {
     traverseChildren([], config.children);
 
     return array;
+};
+
+export const checkUnusedFiles = (contentArray: { params: { id: string[]; content?: string } }[], allMarkdownFiles: string[]) => {
+    contentArray.forEach(contentFile => {
+        if(contentFile.params.content) {
+            const idx = allMarkdownFiles.indexOf(contentFile.params.content + '.md');
+            if(idx !== -1) {
+                allMarkdownFiles.splice(idx, 1);
+            } else {
+
+            }
+        }
+    });
+
+    allMarkdownFiles.forEach(file => {
+        console.log('Missing in structure.json: ', file);
+    });
 };
 
 export const generateBreadcrumbs = (ids: string[]) => {
@@ -58,7 +76,7 @@ export const generateBreadcrumbs = (ids: string[]) => {
     });
 };
 
-export const getElementByToIdArray = (ids: string[], skipPrevNext: boolean): { doc: IDocMenuItem; prev?: IDocMenuItem & { idArray: string[] }; next?: IDocMenuItem & { idArray: string[] } } | undefined => {
+export const getElementByIdArray = (ids: string[], skipPrevNext: boolean): { doc: IDocMenuItem; prev?: IDocMenuItem & { idArray: string[] }; next?: IDocMenuItem & { idArray: string[] } } | undefined => {
     populateDocItemsArray();
     const found = docItems.findIndex(({ idArray }) => ids.length === idArray.length && ids.every((value, index) => value === idArray[index]));
     if (found !== -1) {

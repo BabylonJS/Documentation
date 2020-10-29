@@ -3,9 +3,9 @@ import { ScriptTarget } from "typescript";
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import { sep } from "path";
 import * as path from "path";
-import { getAllFiles } from "./build.utils";
-import { htmlToJson } from "./unified.utils";
-import { MarkdownMetadata } from "./interfaces";
+import { getAllFiles } from "./tools";
+import { htmlToJson } from "./parser.utils";
+import { MarkdownMetadata } from "../interfaces";
 
 const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
 const basePathResolved = path.resolve(basePath);
