@@ -18,7 +18,7 @@ Each playground template entry into this .json file should include 3 components:
 
 Let's take a look at a simple example, Seting up a shadow generator.
 
-```.json
+```json
 {
     "label" : "Setup a shadow generator",
     "documentation" : "https://doc.babylonjs.com/babylon101/shadows",
