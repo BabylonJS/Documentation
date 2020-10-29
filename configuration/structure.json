@@ -558,8 +558,8 @@
             },
             "content": "landing_pages/divingDeeperLandingPage" 
         },
-        "blackHole": {  
-            "friendlyName": "The Black Hole (Advanced Stuff)", 
+        "advancedTopics": {  
+            "friendlyName": "Advanced Topics", 
             "children": {
                 ".babylonFileFormat": {
                     "friendlyName": "The .babylon File Format", 
@@ -601,7 +601,7 @@
                     "content": "landing_pages/Support/nullEngine"
                 }
             },
-            "content": "landing_pages/blackHoleLandingPage" 
+            "content": "landing_pages/advancedTopicsLandingPage" 
         },
         "toolsAndResources": { 
             "friendlyName": "Tools and Resources", 
