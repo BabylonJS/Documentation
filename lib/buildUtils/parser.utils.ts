@@ -18,8 +18,8 @@ import html from "rehype-stringify";
 import lint from "remark-lint";
 import lintFirstLine from "remark-lint";
 // import stringify from 'rehype-stringify';
-import { AnchorWrapper } from "../components/wrappers/anchorWrapper.component";
-import { EMWrapper } from "../components/wrappers/emWrapper.component";
+import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component";
+import { EMWrapper } from "../../components/wrappers/emWrapper.component";
 
 /**
  * This is an example of a simple unified plugin that can be used to make changes to the code.
