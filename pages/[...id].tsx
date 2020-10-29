@@ -36,6 +36,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    console.log("main getStaticPages");
     const paths = getAvailableUrls();
     return {
         paths,
