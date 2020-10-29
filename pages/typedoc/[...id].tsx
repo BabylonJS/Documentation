@@ -44,7 +44,7 @@ export const generateBreadcrumbs = (ids: string[]) => {
         };
     });
     breadcrumbs.unshift({
-        name: "API",
+        name: "BABYLON",
         url: "/typedoc/",
     });
 

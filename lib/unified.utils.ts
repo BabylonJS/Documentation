@@ -12,7 +12,7 @@ import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
 import toc from "remark-toc";
 import parse from "rehype-parse";
-import html from 'rehype-stringify';
+import html from "rehype-stringify";
 
 // linting
 import lint from "remark-lint";
@@ -20,7 +20,6 @@ import lintFirstLine from "remark-lint";
 // import stringify from 'rehype-stringify';
 import { AnchorWrapper } from "../components/wrappers/anchorWrapper.component";
 import { EMWrapper } from "../components/wrappers/emWrapper.component";
-import { getHeapStatistics } from "v8";
 
 /**
  * This is an example of a simple unified plugin that can be used to make changes to the code.
@@ -31,6 +30,22 @@ export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
         var props = node.properties as { [key: string]: string };
         if (node.tagName === "a" && props.href.indexOf("p") !== -1) {
             props.className = `${props.className || ""} test`;
+        }
+        return;
+    };
+    return (tree: Node /*, file , next*/) => {
+        visit(tree, "element", visitor);
+    };
+};
+
+export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
+    const visitor: visit.Visitor<Node> = (node /*, index, parent*/) => {
+        var props = node.properties as { [key: string]: any };
+        if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== '.') {
+            props.href = `/typedoc/${props.href}`;
+        }
+        if(node.tagName === "input") {
+            props.readonly = true;
         }
         return;
     };
@@ -72,16 +87,16 @@ export const parseMDFile = (fileContent: string): IParsedMDObject => {
 };
 
 export const htmlToJson = (fileContent: string) => {
-    
     var processor = unified().use(parse, { emitParseErrors: true });
     return processor.parse(fileContent);
 };
 
 export const parseNode = (node: Node) => {
-    const parsed = unified().use(html).stringify(node)
+    const parsed = unified().use(html).stringify(node);
     var processor = unified()
         .use(parse, { emitParseErrors: true })
         .use(highlight)
+        .use(apiLinkParserPlugin)
         .use(rehype2react, {
             createElement: createElement,
             components: {
@@ -91,26 +106,4 @@ export const parseNode = (node: Node) => {
         });
 
     return processor.processSync(parsed) as any;
-};
-
-export const parseHTMLFile = (fileContent: string): IParsedMDObject => {
-    var processor = unified()
-        .use(parse, { emitParseErrors: true })
-        .use(highlight)
-        .use(rehype2react, {
-            createElement: createElement,
-            components: {
-                a: AnchorWrapper,
-                em: EMWrapper,
-            },
-        }); // TODO - check how can we get react elements easily
-
-    // prerendered so we can use sync
-    processor.process(fileContent).then(
-        (result) => {},
-        (error) => {
-            console.log(error);
-        },
-    );
-    return processor.processSync(`## toc\n${fileContent}`) as any;
 };

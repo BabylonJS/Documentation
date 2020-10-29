@@ -4,7 +4,7 @@ import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import { sep } from "path";
 import * as path from "path";
 import { getAllFiles } from "./build.utils";
-import { htmlToJson, parseHTMLFile } from "./unified.utils";
+import { htmlToJson } from "./unified.utils";
 import { MarkdownMetadata } from "./interfaces";
 
 const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
@@ -30,14 +30,15 @@ export const generateTypeDoc = async () => {
             excludeExternals: true,
             excludePrivate: true,
             excludeProtected: true,
-            // excludeNotExported: true,
+            excludeNotExported: true,
             includeDeclarations: true,
             entryPoint: `BABYLON`,
             mode: "file",
-            theme: "minimal",
+            theme: "default",
             includes: basePathResolved,
             exclude: ["node_modules/**"],
             baseUrl: basePathResolved,
+            hideGenerator: true,
             // experimentalDecorators: true,
         });
         const outputDir = `${basePathResolved}${sep}files`;
@@ -86,11 +87,6 @@ export const getAPIPageData = (id: string[]) => {
     };
 };
 
-export const getFileContent = (id: string[]) => {
-    const html = readFileSync(`${basePath}${sep}${id.join(sep)}.html`, "utf-8").toString();
-    return parseHTMLFile(html);
-};
-
 export const getTypeDocFiles = () => {
     const filenames = getAllFiles(`${basePath}${sep}files`, [], ".html");
     const fileMap = filenames.map((fileName) => {
@@ -98,7 +94,6 @@ export const getTypeDocFiles = () => {
             .replace(`${basePath}${sep}files`, "")
             .replace(/\.html$/, "")
             .split(sep);
-            console.log(id);
         id.shift();
         return {
             params: {

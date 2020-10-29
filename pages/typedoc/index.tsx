@@ -18,7 +18,7 @@ export const ApiPage: FunctionComponent<{
     // remove unneeded tags
     const children = html.props.children[0].props.children[1].props.children;
     return (
-        <Layout breadcrumbs={generateBreadcrumbs(id)} metadata={metadata} id={id}>
+        <Layout breadcrumbs={generateBreadcrumbs()} metadata={metadata} id={id}>
             <Head>
                 {cssArray.map((css, idx) => {
                     return (
@@ -45,9 +45,9 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async
     };
 };
 
-export const generateBreadcrumbs = (ids: string[]) => {
+export const generateBreadcrumbs = () => {
     return [{
-        name: 'API',
+        name: 'BABYLON',
         url: '/typedoc'
     }];
 };
