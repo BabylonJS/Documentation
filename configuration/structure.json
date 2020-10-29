@@ -235,32 +235,51 @@
                     "content": "landing_pages/divingDeeperLightsLandingPage"
                 },
                 "materials": {
-                    "friendlyName": "Materials", 
+                    "friendlyName": "Materials",
                     "children": {
-                        "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
-                        "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
-                        "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
-                        "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
-                        "nodeMaterial": { "friendlyName": "Node Materials", "children": {}, "content": "How_To/material/Node_Material" },
-                        "particles_and_nme": { "friendlyName": "Using Node Material with Particles", "children": {}, "content": "How_To/Particles/Particles_and_nme" },
-                        "rawTexture": { "friendlyName": "Raw Textures", "children": {}, "content": "How_To/material/rawTexture" },
-                        "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
-                        "work": { "friendlyName": "How Materials Work", "children": {}, "content": "resources/Manual/How_materials_work" },
-                        "facet_uvs": { "friendlyName": "Materials and Vertices", "children": {}, "content": "resources/Manual/Facets" },
-                        "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
-                        "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
-                        "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
-                        "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
-                        "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
-                        "reflectionTexture": { "friendlyName": "Reflection Textures", "children": {}, "content": "How_To/material/Reflect" },
-                        "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
-                        "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
-                        "depthValuesDepthRenderer": { "friendlyName": "Get Depth Values with the Depth Renderer", "children": {}, "content": "How_To/material/How_to_use_DepthRenderer_to_get_depth_values" },
-                        "logarithmicDepthBuffer": { "friendlyName": "The Logarithmic Depth Buffer", "children": {}, "content": "How_To/material/Using_logarithmic_depth_buffer" },
-                        "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
-                        "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
-                        "transparent_rendering": { "friendlyName": "Transparent Rendering", "children": {}, "content": "resources/Manual/Transparency_and_How_Meshes_Are_Rendered" },
-                        "texturePackage": { "friendlyName": "Create a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" }
+                        "using": {
+                            "friendlyName": "Using Materials",
+                            "children": {
+                                "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
+                                "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
+                                "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
+                                "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
+                                "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
+                                "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
+                                "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
+                                "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
+                                "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
+                                "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
+                                "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
+                                "reflectionTexture": { "friendlyName": "Reflection Textures", "children": {}, "content": "How_To/material/Reflect" },
+                                "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
+                                "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" }
+                            }, 
+                            "content": "landing_pages/diving_deeper_use_material_landing_page"
+                        },
+                        "node_material": {
+                            "friendlyName": "Node Materials",
+                            "children": {
+                                "nodeMaterial": { "friendlyName": "Node Materials", "children": {}, "content": "How_To/material/Node_Material" },
+                                "particles_and_nme": { "friendlyName": "Using Node Material with Particles", "children": {}, "content": "How_To/Particles/Particles_and_nme" }
+                            }, 
+                            "content": "landing_pages/diving_deeper_node_material_landing_page"
+                        },
+                        "advanced": {
+                            "friendlyName": "Advanced Materials",
+                            "children": {
+                                "work": { "friendlyName": "How Materials Work", "children": {}, "content": "resources/Manual/How_materials_work" },
+                                "facet_uvs": { "friendlyName": "Materials and Vertices", "children": {}, "content": "resources/Manual/Facets" },
+                                "custom_procedural_textures": { "friendlyName": "Create Custom Procedural Textures", "children": {}, "content": "How_To/material/create_procedural_textures" },
+                                "texturePackage": { "friendlyName": "Create a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" },
+                                "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
+                                "transparent_rendering": { "friendlyName": "Transparent Rendering", "children": {}, "content": "resources/Manual/Transparency_and_How_Meshes_Are_Rendered" },
+                                "rawTexture": { "friendlyName": "Raw Textures", "children": {}, "content": "How_To/material/rawTexture" },
+                                "depthValuesDepthRenderer": { "friendlyName": "Get Depth Values with the Depth Renderer", "children": {}, "content": "How_To/material/How_to_use_DepthRenderer_to_get_depth_values" },
+                                "logarithmicDepthBuffer": { "friendlyName": "The Logarithmic Depth Buffer", "children": {}, "content": "How_To/material/Using_logarithmic_depth_buffer" } 
+                            }, 
+                            "content": "landing_pages/diving_deeper_advanced_material_landing_page"
+                        } 
                     }, 
                     "content": "landing_pages/divingDeeperMaterialsLandingPage"
                 },
@@ -511,14 +530,6 @@
                     }, 
                     "content": "landing_pages/divingDeeperSceneLandingPage"
                 },
-                "shaders": {
-                    "friendlyName": "Shaders", 
-                    "children": {
-                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
-                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
-                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" }
-                    }
-                },
                 "sprites": {
                     "friendlyName": "Sprites", 
                     "children": {
@@ -558,8 +569,8 @@
             },
             "content": "landing_pages/divingDeeperLandingPage" 
         },
-        "blackHole": {  
-            "friendlyName": "The Black Hole (Advanced Stuff)", 
+        "deepdive": {  
+            "friendlyName": "Deep Dive", 
             "children": {
                 ".babylonFileFormat": {
                     "friendlyName": "The .babylon File Format", 
@@ -571,7 +582,8 @@
                     "children": {
                         "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
                         "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
-                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" }
+                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
+                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" }
                     }, 
                     "content": "resources/Manual/ShaderIntro"
                 },
@@ -601,7 +613,7 @@
                     "content": "landing_pages/Support/nullEngine"
                 }
             },
-            "content": "landing_pages/blackHoleLandingPage" 
+            "content": "landing_pages/deep_dive_landing_page" 
         },
         "toolsAndResources": { 
             "friendlyName": "Tools and Resources", 

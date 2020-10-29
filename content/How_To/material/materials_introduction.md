@@ -1,23 +1,19 @@
 # Materials
-Materials allow you to cover your meshes in color and texture and they need light to be seen. One material can be used to cover as many meshes as you wish.
-
+Materials allow you to cover your meshes in color and texture. How a material appears depends on the light or lights used in the scene and how it is set to react  .
 
 ## Reactions to light
-Whether the material is a color or a texture there are different ways it can react to light.
+There are four possible ways that a material can react to light.
 
 1. Diffuse - the basic color or texture of the material as viewed under a light;
 2. Specular - the highlight given to the material by a light;
 3. Emissive - the color or texture of the material as if self lit;
 4. Ambient - the color or texture of the material lit by the environmental background lighting.
 
-Diffuse and Specular material require a [light source](/features/Lights) to be created.  
+Diffuse and Specular material require a [light source](/divingDeeper/lights/lights_introduction) to be created.  
 Ambient color requires the ambient color of the scene to be set, giving the environmental background lighting.
 ```javascript
 scene.ambientColor = new BABYLON.Color3(1, 1, 1);
 ```
-
-5. Transparency - the level that you can see through the material can be set and for images with transparent sections it can be used so that appropriate parts of the material are invisible. This requires an _alpha_ property to be set.
-
 
 ## Color
 Create a material using
@@ -154,28 +150,6 @@ materialSphere1.wireframe = true;
 
 ## Local File Access
 
-An important thing to remember, is that for security reasons, web browsers like google chrome don't allow local files to be accessed by default for web pages. This includes any texture files you are using. There are a few ways to work around this in google chrome. The quick and dirty way is to close all instances of chrome, and open it in the terminal.
+An important thing to remember, is that for security reasons, web browsers don't allow local files to be accessed for web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled. 
 
-for windows, you go to the terminal and type,
 
-```
-start chrome --allow-file-access-from-files
-```
-for macOS, the command looks like this,
-
-```
-open -a "Google Chrome" --args --allow-file-access-from-files
-```
-and for linux, the command looks like this.
-
-```
-google-chrome --allow-file-access-from-files
-```
-Be warned that the above method may introduce a security risk if used for long term projects. For long term projects, you will want to set up an HTTP server to run any required files. Using a server has the benefit of working on any web browser.
-
-## Next step
-Great, your scene is looking better than ever with those materials! Later we will see how to use advanced techniques with materials. But for now, we have to learn [**how to use cameras**](/babylon101/Cameras).
-
-# Further Reading
-
-[Materials Overview](/features/Materials)
