@@ -1,13 +1,8 @@
-import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
+import { IDocMenuItem } from "../interfaces";
 
 // very temporary structure configuration
 import structure from "../../configuration/structure.json";
 import { IMenuItem } from "../content.interfaces";
-import { IDocumentationPageProps } from "../../components/DocumentPage";
-import { getAllFiles, markdownDirectory } from "./tools";
-import { join } from "path";
-import { readFileSync } from "fs";
-import matter from "gray-matter";
 
 // cast for general usage
 export const config: IDocMenuItem = structure;
@@ -38,7 +33,7 @@ export const getAvailableUrls = (): { params: { id: string[]; content?: string }
             array.push({
                 params: {
                     id: [...prevKeys, key],
-                    content: childrenObject.content
+                    content: childrenObject[key].content
                 },
             });
             if (childrenObject[key].children) {
@@ -52,9 +47,21 @@ export const getAvailableUrls = (): { params: { id: string[]; content?: string }
     return array;
 };
 
-export const checkUnusedFiles = (contentArray: { params: { id: string[]; content?: string } }[]) => {
-    const allMarkdownFiles = getAllFiles(markdownDirectory);
-    console.log(allMarkdownFiles[0], allMarkdownFiles[1]);
+export const checkUnusedFiles = (contentArray: { params: { id: string[]; content?: string } }[], allMarkdownFiles: string[]) => {
+    contentArray.forEach(contentFile => {
+        if(contentFile.params.content) {
+            const idx = allMarkdownFiles.indexOf(contentFile.params.content + '.md');
+            if(idx !== -1) {
+                allMarkdownFiles.splice(idx, 1);
+            } else {
+
+            }
+        }
+    });
+
+    allMarkdownFiles.forEach(file => {
+        console.log('Missing in structure.json: ', file);
+    });
 };
 
 export const generateBreadcrumbs = (ids: string[]) => {
@@ -104,85 +111,3 @@ export const generateMenuStructure = (docMenuItem: IDocMenuItem = config): IMenu
 
     return array;
 };
-
-export function extractMetadataFromDocItem(docItem: IDocMenuItem) {
-    // Combine the data with the id and contentHtml
-    const metadata: MarkdownMetadata = {
-        title: docItem.friendlyName,
-        description: `Babylon.js documentation page - ${docItem.friendlyName}`,
-        keywords: "babylonjs, babylon.js, webgl, engine," + docItem.friendlyName,
-        ...(docItem && docItem.metadataOverrides),
-    };
-
-    if (docItem.content) {
-        const fullPath = join(markdownDirectory, `${docItem.content}.md`);
-        const fileContents = readFileSync(fullPath, "utf8");
-        if (fileContents) {
-            const matterResult = matter(fileContents);
-            Object.keys(matterResult.data).forEach((key) => {
-                const splits = key.split("-");
-                const correctKey = splits
-                    .map((s, idx) => {
-                        if (idx !== 0) {
-                            return `${s[0].toUpperCase()}${s.substr(1).toLowerCase()}`;
-                        } else {
-                            return s.toLowerCase();
-                        }
-                    })
-                    .join("");
-                metadata[correctKey] = matterResult.data[key];
-            });
-
-            // find the first image in the document (if not already set)
-            const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
-            if (imageUrl) {
-                metadata.imageUrl = metadata.imageUrl || imageUrl;
-            }
-            return {
-                content: matterResult.content,
-                metadata,
-            };
-        }
-    }
-
-    return {
-        metadata,
-        content: "",
-    };
-}
-
-export function getPageData(id: string[], fullPage?: boolean): IDocumentationPageProps {
-    // get fullPath from the configuration
-    const docs = getElementByIdArray(id, !fullPage);
-    if (!docs) {
-        throw new Error("wrong ids! " + id.join("/"));
-    }
-
-    const docItem = docs.doc;
-
-    const childPages = {};
-
-    if (fullPage && docItem.children) {
-        Object.keys(docItem.children).forEach((key) => {
-            childPages[key] = getPageData([...id, key]);
-        });
-    }
-
-    const { metadata, content } = extractMetadataFromDocItem(docItem);
-    const previous = (fullPage && docs.prev && getPageData(docs.prev.idArray)) || null;
-    const next = (fullPage && docs.next && getPageData(docs.next.idArray)) || null;
-
-    const breadcrumbs = generateBreadcrumbs(id);
-
-    // prev and next!
-
-    return {
-        id,
-        breadcrumbs,
-        childPages,
-        metadata,
-        content,
-        previous,
-        next,
-    };
-}

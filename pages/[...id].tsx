@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { FunctionComponent } from "react";
 
 import Layout from "../components/layout.component";
-import { getAvailableUrls, getPageData } from "../lib/buildUtils/content.utils";
+import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
 
 import "./documentationPage.style.scss";
 import { parseMDFile } from "../lib/buildUtils/parser.utils";
@@ -11,6 +11,7 @@ import { parseMDFile } from "../lib/buildUtils/parser.utils";
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
 import { IDocumentationPageProps } from "../lib/content.interfaces";
+import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
 
 export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {
     return (
@@ -37,6 +38,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("main getStaticPages");
     const paths = getAvailableUrls();
+    checkUnusedFiles(paths, getAllFiles(markdownDirectory).map(path => path.replace(/\\/g, '/').replace('content/', '')));
     return {
         paths,
         fallback: false,
