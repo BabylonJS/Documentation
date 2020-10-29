@@ -22,7 +22,7 @@ var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 myMaterial.bumpTexture = new BABYLON.Texture("PATH TO NORMAL MAP", scene);
 ```
 
-* [Playground Example of Bump Maps](https://www.babylonjs-playground.com/#20OAV9#23)
+* [Playground Example - Using Bump Maps](https://www.babylonjs-playground.com/#20OAV9#23)
 
 ### Inverting Bumps and Dents
 Use _invertNormalMapX_ and/or _invertNormalMapY_ on the material.
@@ -44,7 +44,7 @@ with the same gradient applied to the material as in the image below.
 
 ![Opacity Material](/img/how_to/Materials/degraded_plane.png)
 
-* [Playground Example of Opacity](https://www.babylonjs-playground.com/#20OAV9#24)
+* [Playground Example - Using Opacity](https://www.babylonjs-playground.com/#20OAV9#24)
 
 ### Applying Opacity
 Add an _opacityTexture_ to any existing texture.
@@ -72,7 +72,7 @@ To offset your texture on your mesh, you  use the _uOffset_ and _vOffset_ proper
 myMaterial.diffuseTexture.uOffset = 1.5;
 myMaterial.diffuseTexture.vOffset = 0.5;
 ```
-* [Playground Example of Tiling and Offset](https://www.babylonjs-playground.com/#20OAV9#25)
+* [Playground Example - UV Tiling and Offset](https://www.babylonjs-playground.com/#20OAV9#25)
 
 ## Details maps
 
@@ -123,6 +123,6 @@ myMaterial.detailMap.roughnessBlendLevel = 0.25; // between 0 and 1
 ```
 
 You can use this PG to experiment with detail maps: 
-* [Detail map playground Example](https://playground.babylonjs.com/#5NS7A2#4)
+* [Playground Example - Use of detail map](https://playground.babylonjs.com/#5NS7A2#4)
 
 ![Detail map PG](/img/how_to/Materials/detailmap_pg.jpg)

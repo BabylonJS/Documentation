@@ -21,41 +21,30 @@ The playground below shows that face numbering using `MeshBuilder.CreateBox` is 
 * side 4 faces the positive y direction
 * side 5 faces the negative y direction
 
-* [Playground Example Face Numbers](https://www.babylonjs-playground.com/#ICLXQ8#1)
+* [Playground Example - Numbered Faces](https://www.babylonjs-playground.com/#ICLXQ8#1)
 
 ## Texture Atlas
 
-A texture atlas also known as a _sprite sheet_ or _sprite atlas_ contains a range of images as in the example below.
+A texture atlas also known as a __sprite sheet_ or _sprite atlas_ contains a range of images as in the example below.
+_ or _sprite atlas_ contains a range of images as in the example below.
 
 ![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas.png)
 
-In this atlas there are 24 different images in a 4 rows of 6 a way of mapping each sprite onto an individual face is needed. 
+In this atlas there are 24 different images in 4 rows of 6. Each sprite image is mapped onto a face using uv coordinates. The u coordinate goes horizontally left to right from 0 to 1 and the v coordinate goes vertically bottom to top from 0 to 1.
 
-This map will just follow the way [texture images are mapped onto a mesh usually](/resources/Facets).
-
-The U coordinate goes horizontally left to right from 0 to 1.
-
-The V coordinate goes vertically bottom to top from 0 to 1.
-
-To map part of the image the bottom left coordinates and top right coordinates are used.
-
-As there are six sprites in a row and four in a column divide the image into a grid and mark the axes as below 
+To map part of the image the bottom left coordinates and top right coordinates are used. Using (0, 0) and (1, 1) will use the whole of the texture atlas. In this case there are six sprites in a row and four in a column divide the image into a grid and mark the axes as below 
 
 ![Sprite Atlas with Grid](/img/how_to/Materials/spritesheet1.jpg)
 
-Consider the sprite in the grid space marked with `a *`, this has bottom left coordinates of `(2/6, 1/4)` and top right coordinates of `(3/6, 2/4)`. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3` it is in column 2 and row 1.
+Consider the sprite in the grid space marked with a *. Counting the columns as `0, 1, 2, 3, 4, 5` and the rows as `0, 1, 2, 3` it is in column 2 and row 1 and so bottom left is `(2 * 1/6, 1 * 1/4) = (2/6, 1/4)` and top right is `((2 + 1) * 1/6, (1 + 1) * 1/4) = (3/6, 2/4)`.
 
-Bottom left is `(2 * 1/6, 1 * 1/4)` and top right is `((2 + 1) * 1/6, (1 + 1) * 1/4)`.
-
-In general for this texture atlas a sprite in column `c` and row `r` will have coordinates bottom left `(c * 1/6, r * 1/4)` and top right `((c + 1) * 1/6, (r + 1) * 1/4)`.
-
-With faces of the mesh numbered from 0 when you want to map face f to the sprite at grid (c, r) take an array faceUV and put
+In general for this texture atlas a sprite in column `c` and row `r` will have coordinates bottom left `(c * 1/6, r * 1/4)` and top right `((c + 1) * 1/6, (r + 1) * 1/4)`. With faces of the mesh numbered from 0 when you want to map face f to the sprite at grid (c, r) take an array faceUV and put
 
 ```javascript
 faceUV[f] = (c * 1/6, r * 1/4, (c + 1) * 1/6, (r + 1) * 1/4);
 ```
 
-To pass which texture atlas is to be assigned to the mesh a texture material is formed as usual.
+Assigning the texture atlas as a texture material to the mesh is done as usual
 
 ```javascript
 var mat = new BABYLON.StandardMaterial("mat", scene);
@@ -86,9 +75,9 @@ faceUV[f] = (c * 1/6, r * 1/4, (c + 1) * 1/6, (r + 1) * 1/4);
 faceColors[f] = new BABYLON.Color4(r,g,b,a); 
 ```
 
-# How To Apply faceUV and faceColors - Examples 
+# Examples of Per Face Material 
 
-A box is used as an example of how to use the full scope of this feature and at least one example is provided for each of the other meshes that can use _faceUV_ and _facecolors_
+The box example demonstrates the full scope of this feature. At least one example is provided for each of the other types of mesh that can use _faceUV_ and _facecolors_
 
 ## Box - faceUV
 
@@ -125,7 +114,7 @@ mat.diffuseTexture = texture;
 box.material = mat;
 ```
 
-* [Playground Example Different Sprite on Each Face of Box](https://www.babylonjs-playground.com/#ICZEXW)
+* [Playground Example - Different sprite on each face of box](https://www.babylonjs-playground.com/#ICZEXW)
 
 You do not have to map all the faces. When you just want one face with an image then just map that one face.
 
@@ -139,9 +128,9 @@ Take the alien sprite on row 0 and column 3 and just map this sprite to face 1.
 
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
-* [Playground Example One Sprite One Face](https://www.babylonjs-playground.com/#ICZEXW#1)
+* [Playground Example - One sprite on one face only](https://www.babylonjs-playground.com/#ICZEXW#1)
 
-As you view this box from different angles you will notice that the whole texture atlas is applied to all the other faces, that is the default value `(0, 0, 1, 1)` is applied to the other faces. When you want to display just the one sprite on the one face and leave the others blank then you need to set all the other faceUV values to `(0, 0, 0, 0)`.
+As you view the box in the above playground from different angles you will notice that the whole texture atlas is applied to all the other faces, that is the default value `(0, 0, 1, 1)`. When you want to display just the one sprite on the one face and leave the others blank then you need to set all the other faceUV values to `(0, 0, 0, 0)`.
 
 ```javascript
   var columns =  6;  // 6 columns
@@ -158,24 +147,24 @@ As you view this box from different angles you will notice that the whole textur
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
   
-* [Playground Example One Sprite One Face other Faces Blank](https://www.babylonjs-playground.com/#ICZEXW#2)
+* [Playground Example - One sprite on one face and other faces blank](https://www.babylonjs-playground.com/#ICZEXW#2)
 
 Of course you can do this with one, two, three, four, or five the box faces.
 
 
 Want add some all over color to the box then just add in a_diffuseColor_ to your material.
 
-* [Playground Example Individual Face with Colored Box](https://www.babylonjs-playground.com/#ICZEXW#3)
+* [Playground Example - All over color](https://www.babylonjs-playground.com/#ICZEXW#3)
 
-You can also use one texture atlas to apply two different images from the same altlas onto two different meshes.  
+You can also use one texture atlas to apply two different images from the same sheet onto two different meshes.  
 
-* [Playground Example Two Meshes Two Images](https://www.babylonjs-playground.com/#ICZEXW#7)
+* [Playground Example - Two meshes, same atlas, two Images](https://www.babylonjs-playground.com/#ICZEXW#7)
 
 Looking closer at the face images around the sides you will see some images are at 90 degrees to others. Unfortunately should you want to have all images around the side to have the same orientation this is not possible by only adjusting UV coordinates. What can be done by swapping coordinates is considered next, followed by a method using an adjustment to the texture atlas to orientate images on the sides.
 
 ### How To Orientate a Sprite on a Face with faceUV
 
-Because of how UV coorinates are interpreted it is possible to reflect a sprite horizontally, vertically or both (which is the ame as an 180 degree rotation). Any other rotation has to be dealt with by rotating the sprite within the texture atlas.
+Because of how UV coordinates are interpreted it is possible to reflect a sprite horizontally, vertically or both (which is the same as an 180 degree rotation). Any other rotation has to be dealt with by rotating the sprite within the texture atlas.
 
 Consider the alien with bottom left and top right coordinates for UV as shown.
 
@@ -240,12 +229,12 @@ Three new optional parameters were added to `CreateBox` in the V4.0 update, thes
 
 In the following playground the two boxes at the top do not use the wrap parameter and the result is backwards compatible with earlier versions of Babylon.js. The lower boxes are with wrap set to true.
 
-* [Playground Example - Not Wrap and Wrap](https://www.babylonjs-playground.com/#ICLXQ8#3)
+* [Playground Example - Use of wrap to rotate an image on a box face](https://www.babylonjs-playground.com/#ICLXQ8#3)
 
 The next playground shows the use of non-default values for topBaseAt and bottomBaseAt
 
-* [Playground Example - Wrap with Top and Bottom Rotated](https://www.babylonjs-playground.com/#ICLXQ8#4)
-* [Playground Example - Cube Face](https://www.babylonjs-playground.com/#ICLXQ8)
+* [Playground Example - Use of wrap with top and bottom sprites rotated](https://www.babylonjs-playground.com/#ICLXQ8#4)
+* [Playground Example - Use of wrap to produce a box with a cartoon head ](https://www.babylonjs-playground.com/#ICLXQ8)
 
 ### How To Orientate a Sprite on a Face with the Texture Atlas Before Version 4.0
 
@@ -255,7 +244,9 @@ Take the following texture atlas
 
 ![letters](/img/how_to/Materials/letters.jpg)
 
-and apply it to a cube to give this [playground](https://www.babylonjs-playground.com/#ICZEXW#8).
+and apply it to a cube to give the playground below
+
+* [Playground Example - Default image rotation on faces](https://www.babylonjs-playground.com/#ICZEXW#8).
 
 Looking at the playground tells you two things
 
@@ -268,8 +259,9 @@ A is rotated 180 degrees and C and D are rotated 90 degrees counter clockwise. T
 
 ![rotated letters](/img/how_to/Materials/rotated_letters.jpg)
 
-resulting in this [playground](https://www.babylonjs-playground.com/#ICZEXW#9).
+resulting in the following playground
 
+* [Playground Example - Align images by altering the texture atlas](https://www.babylonjs-playground.com/#ICZEXW#9).
 
 ## Box - faceColors
 
@@ -297,18 +289,18 @@ Then pass this array to the _MeshBuilder.CreateBox()_ method with the new _faceC
   var box = BABYLON.MeshBuilder.CreateBox('box', options, scene);
 ```
 
-* [Playground Example Two Colored Faces](https://www.babylonjs-playground.com/#ICZEXW#5)
+* [Playground Example - Different colors on two faces](https://www.babylonjs-playground.com/#ICZEXW#5)
 
 These colors are BJS Color4-class values. The Color4 alpha values become active if you set `hasVertexAlpha = true` for the box. 
 
-* [Playground Example Transparent Colors](https://www.babylonjs-playground.com/#ICZEXW#6)
+* [Playground Example - Different transparent colors on two faces](https://www.babylonjs-playground.com/#ICZEXW#6)
 
 
 ## Box - Mix Face Textures and Colors
 
 Finally you can also mix per-face colors with per-face textures, and/or mix either with the material's standard colors.  
 
-* [Playground Example Mixed Textures and Colors](https://www.babylonjs-playground.com/#ICZEXW#10)
+* [Playground Example - Mixed textures and colors per face](https://www.babylonjs-playground.com/#ICZEXW#10)
 
 ## Cylinder
 
@@ -330,25 +322,25 @@ So make h = &pi; * 319/866 = 1.16 to 2 decimal places.
 
 Also note that because of how a cylinder's mesh is constructed the horizontal coordinates (U) are swapped in faceUV[1] for the wrapped around image to correct the reflection of the image.
 
-* [Playground Example Cylinder Surfaces](https://www.babylonjs-playground.com/#VA2AC#3)
+* [Playground Example - Different texture on cylinder and its top](https://www.babylonjs-playground.com/#VA2AC#3)
 
 ## Extruded Polygon
 
 An extruded polygon has three surfaces top, bottom and extruded sides, face 0 is the top, face 1 the extruded sides and face 2 the bottom.
 
-* [Playground Example of Extruded Polygons for a House](https://www.babylonjs-playground.com/#RNCYVM#2)
+* [Playground Example - Extruded polygon with different textures on sides and top](https://www.babylonjs-playground.com/#RNCYVM#2)
 
-## Polyhedra.
+## Polyhedra
 
 You can use a texture atlas with all the polyhedra however without very careful consideration of the nature of the texture atlas the results can be a little random looking.
 
-* [Playground Example Polyhedra with Face Pictures](https://www.babylonjs-playground.com/#21QRSK#16)
+* [Playground Example - Polyhedra with different characters per face](https://www.babylonjs-playground.com/#21QRSK#16)
 
 Having each sprite as a texture rather than a picture makes more sense.
 
-* [Playground Example Polyhedra with Face Textures](https://www.babylonjs-playground.com/#21QRSK#18)
+* [Playground Example - Polyhedra with different textures per face](https://www.babylonjs-playground.com/#21QRSK#18)
 
 Just colors works well.
 
-* [Playground Example Polyhedra with Face Colors](https://www.babylonjs-playground.com/#21QRSK#17)
+* [Playground Example - Polyhedra with different colors per face](https://www.babylonjs-playground.com/#21QRSK#17)
 

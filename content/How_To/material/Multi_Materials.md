@@ -66,11 +66,11 @@ A submesh is defined with:
 
 So with the code above, you can use the first material on the top part of the sphere, the second material on the middle part and the last material on the bottom part of the sphere.
 
-* [Playground Example - MultiMaterial](https://www.babylonjs-playground.com/#2Q4S2S#268)
+* [Playground Example - Sphere with multi-material](https://www.babylonjs-playground.com/#2Q4S2S#268)
 
 ## With Merged Meshes
 
-When you [merge meshes](/how_to/How_to_Merge_Meshes) together with the final parameter (`multiMultiMaterial`) set to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
+When you [merge meshes](divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 
 * [Playground Example - MultiMaterial with Merged Meshes using multiMultiMaterials](https://playground.babylonjs.com/#INZ0Z0#59)
 

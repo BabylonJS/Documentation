@@ -154,6 +154,7 @@
                         "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
                         "npmSupport": { "friendlyName": "NPM_Support", "children": {}, "content": "landing_pages/Support/NPM_Support"},
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support"},
+                        "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads"},
                         "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" },
                         "howToStart": { "friendlyName": "Start Contributing to Babylon.js", "children": {}, "content": "How_To/contribute/how_to_start" },
                         "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
@@ -384,6 +385,7 @@
                             "friendlyName": "Copies, Clones and Instances",
                             "children": {
                                 "clones": { "friendlyName": "Clones", "children": {}, "content": "How_To/mesh/copies/clone" },
+                                "sps_as_clone": { "friendlyName": "Using the SPS to Clone", "children": {}, "content": "How_To/mesh/copies/sps_as_clone" },
                                 "instances": { "friendlyName": "Instances", "children": {}, "content": "How_To/mesh/How_to_use_Instances" },
                                 "thinInstances": { "friendlyName": "Thin Instances", "children": {}, "content": "How_To/mesh/How_to_use_ThinInstances" }
                             },
@@ -569,8 +571,8 @@
             },
             "content": "landing_pages/divingDeeperLandingPage" 
         },
-        "deepdive": {  
-            "friendlyName": "Deep Dive", 
+        "advanced_topics": {  
+            "friendlyName": "Advanced Topics", 
             "children": {
                 ".babylonFileFormat": {
                     "friendlyName": "The .babylon File Format", 
@@ -613,7 +615,7 @@
                     "content": "landing_pages/Support/nullEngine"
                 }
             },
-            "content": "landing_pages/deep_dive_landing_page" 
+            "content": "landing_pages/advanced_topics_landing_page" 
         },
         "toolsAndResources": { 
             "friendlyName": "Tools and Resources", 

@@ -51,12 +51,13 @@ to white, red, green and blue diffuse spot lights can also be seen in the follow
 ![ Spot Light](/img/how_to/Materials/spots1.png)
 
 ### Ambient Color Example
-In this [playground example](https://www.babylonjs-playground.com/#20OAV9#14) all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. 
-The first sphere has no ambient color, the middle has red ambient color defined on its material and the one on the right 
-has material with green ambient color. The scene ambient color, which must be present, is white. When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material 
-ambient color it will have no effect. 
+In the image below  all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has no ambient color, the middle has red ambient color defined on its material and the one on the right has material with green ambient color. The scene ambient color, which must be present, is white. 
+
+When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material ambient color it will have no effect. 
 
 ![Ambient](/img/how_to/Materials/ambient1.png)
+
+* [Playground Example - Use of Ambient Color](https://www.babylonjs-playground.com/#20OAV9#14)
 
 ### Transparent Color Example
 Transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
@@ -88,23 +89,11 @@ mesh.material = myMaterial;
 ```
 Note: When no normals are specified, Babylon's standard material will compute the normals.
 ### Texture Example
-In this [playground example](https://www.babylonjs-playground.com/#20OAV9#15) all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. 
-The first sphere has a diffuse texture, the middle an emissive texture and the one on the right 
-has material with red diffuse color and an ambient texture.
+In this image all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has a diffuse texture, the middle an emissive texture and the one on the right has material with red diffuse color and an ambient texture.
 
 ![Texture](/img/how_to/Materials/texture1.png)
 
-### Texture Packer
-Some complex scenes will require a large amount of textures. A single Material will often use three or more! To simplify the loading process it can be convenient to package the textures from multiple materials into a series of images. The trade-off will be that each texture will be scaled to a set size and might cause some desegregation, there are also WebGL limits to take into consideration as well. The packer will create a set of "frames" for each unique material and its required texture channels. The result produces one image for each channel that is used by the materials that are being packed. The process then modifies a target UV# from the meshes passed into the constructor, making them match the frame of the texture sets. The system assumes textures are 1:1 ratio (square).
-
-Create a TexturePacker series by calling:
-```javascript
-let pack = new BABYLON.TexturePacker(name, targetMeshes, options, scene);
-```
-There are some limitations that you should consider. These include texture size limits, transparencies, and refection/refraction materials. You can find more information on [Creating a Texture Package](http://www.babylonjs-playground.com/#20OAV9#17)
-
-* [Playground Example Texture Packer](https://www.babylonjs-playground.com/#TQ408M)
-
+* [Playground Example - materials with diffuse, emissive and ambient textures](https://www.babylonjs-playground.com/#20OAV9#15)
 
 ### Transparent Texture Examples
 For colors, the transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
@@ -126,6 +115,11 @@ myMaterial.diffuseTexture.hasAlpha = true;
 * [Playground Example Transparent Background](https://www.babylonjs-playground.com/#YDO1F#18)
 
 For the back faces of the cube to be visible through the transparent areas of the front faces we have to deal with back-face culling.
+
+## Texture Packer
+Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
+
+[More on creating a texture package](divingDeeper/materials/advanced/texturePackage)
 
 ## Back-Face Culling
 This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object, 
@@ -150,6 +144,8 @@ materialSphere1.wireframe = true;
 
 ## Local File Access
 
-An important thing to remember, is that for security reasons, web browsers don't allow local files to be accessed for web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled. 
+An important thing to remember, is that for security reasons, web browsers don't allow local files to be accessed for web pages. This includes any texture files you are using. You can use a local server or an image hosting service that is CORS enabled.
+
+
 
 

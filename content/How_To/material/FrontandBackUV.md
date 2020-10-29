@@ -1,8 +1,8 @@
-# How to Have Different Textures on the Front and Back of a Mesh
+# Different Textures on the Front and Back of a Mesh
 
 Having a front and a back makes most sense when talking about flat meshes such as a plane, a disc or a polygon. All of which have exactly two sides both of which can be seen only when the option _sideOrientation_ is set to **BABYLON.Mesh.DOUBLESIDE**.
 
-However, many meashes have the option _sideOrientation_ and this method applies to them as well. In which case think of front as outside and back as inside.
+However, many meshes have the option _sideOrientation_ and this method applies to them as well. In which case think of the front as outside and the back as inside.
 
 To have different textures front and back the front and back image must be in the same file, like the one below
 
@@ -13,7 +13,7 @@ This is then split using the _frontUVs_ and _backUVs_ options.
 
 ## FrontUVs and BackUVs
 
-Both frontUVs and backUVs have the form Vector4(u0,v0,u1,v1) with 0&lt;=  u0,v0,u1,v1 &lt;= 1 and 
+Both frontUVs and backUVs have the form Vector4(u0, v0, u1, v1) with 0&lt;=  u0, v0, u1, v1 &lt;= 1 and 
 (u0, v0) are the bottom left coordinates and (u1, v1) the top right coordinates of the clipping rectangle 
 of the image.
 
@@ -42,14 +42,14 @@ plane.material = mat;
 
 ## Two Sided Examples
 
-* [Playground Example on a Plane](https://www.babylonjs-playground.com/#LXZPJK#3)
-* [Playground Example on a Polygon](https://playground.babylonjs.com/#4G18GY#2)
+* [Playground Example - Different images on a plane](https://www.babylonjs-playground.com/#LXZPJK#3)
+* [Playground Example - Different images on a polygon](https://playground.babylonjs.com/#4G18GY#2)
 
 ## Inside and Outside Examples
 
-* [Playground Example on a Tube](https://www.babylonjs-playground.com/#165IV6#74)
-* [Playground Example Outside a Sphere](https://www.babylonjs-playground.com/#K6M44R#3)
-* [Playground Example Inside a Sphere](https://www.babylonjs-playground.com/#K6M44R#4)
+* [Playground Example - Different images on a tube](https://www.babylonjs-playground.com/#165IV6#74)
+* [Playground Example - View image on outside a sphere](https://www.babylonjs-playground.com/#K6M44R#3)
+* [Playground Example - View image inside a sphere](https://www.babylonjs-playground.com/#K6M44R#4)
 
 
 
