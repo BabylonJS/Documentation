@@ -23,14 +23,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         }
     };
 
-    const forceOpen = (key: string) => {
-        const idx = opened.indexOf(key);
-        if (idx === -1) {
-            setOpened([...opened, key]);
-            console.log('setOpened', [...opened, key])
-        }
-    };
-
     const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;

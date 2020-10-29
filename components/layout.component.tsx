@@ -76,7 +76,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 </Navbar.Item>
                             );
                         })} */}
-                        <Navbar.Item href="#">API</Navbar.Item>
+                        <Navbar.Item href="/typedoc">API</Navbar.Item>
                     </Navbar.Container>
                     <Navbar.Container position="end">
                         <Navbar.Item>SEARCH?</Navbar.Item>
