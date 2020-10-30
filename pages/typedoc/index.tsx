@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { generateTypeDoc, getAPIPageData } from "../../lib/api.utils";
-import { parseNode } from "../../lib/unified.utils";
+import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
+import { parseNode } from "../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
 import Head from "next/head";
