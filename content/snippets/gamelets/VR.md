@@ -133,6 +133,6 @@ Afterwards, we make sure to attach the sound to our moving box, and register the
 ## The Finished Game
 The full code, featuring the sections mentioned above and including the rest of the game scene, can be found below. 
 
-[Full Playground Example](https://www.babylonjs-playground.com/#KJ8ZRZ#2)
+* [Playground Example - Full VR simple game](https://www.babylonjs-playground.com/#KJ8ZRZ#2)
 
 

@@ -519,6 +519,7 @@
                         "multiCanvas": { "friendlyName": "Using Multiple Canvases", "children": {}, "content": "How_To/scene/Multi_Canvases" },
                         "deltaFiles": { "friendlyName": "Applying Delta Changes To A Scene", "children": {}, "content": "How_To/scene/delta_file" },
                         "customLoadingScreen": { "friendlyName": "Creating Custom Loading Screens", "children": {}, "content": "How_To/scene/Creating_a_custom_loading_screen" },
+                        "optimize_your_scene": { "friendlyName": "Optimize Your Scene", "children": {}, "content": "How_To/scene/Optimizing_your_scene" },
                         "sceneOptimizer": { "friendlyName": "The Scene Optimizer", "children": {}, "content": "How_To/scene/How_to_use_SceneOptimizer" },
                         "optimizeScenes": { "friendlyName": "More Scene Optimizations", "children": {}, "content": "How_To/scene/Fast_Build" },
                         "optimizeOctrees": { "friendlyName": "Optimizing with Octrees", "children": {}, "content": "How_To/scene/Optimizing_Your_Scene_with_Octrees" },
@@ -557,6 +558,7 @@
                     "friendlyName": "WebXR", 
                     "children": {
                         "introToWebXR": { "friendlyName": "Introduction To WebXR", "children": {}, "content": "How_To/WebXR/Introduction_To_WebXR" },
+                        "WebXRSelectedFeatures": { "friendlyName": "WebXR Selected Features", "children": {}, "content": "How_To/WebXR/WebXR_Selected_Features" },
                         "webXRExperienceHelpers": { "friendlyName": "The WebXR Experience Helpers", "children": {}, "content": "How_To/WebXR/WebXR_Experience_Helpers" },
                         "webXRSessionManagers": { "friendlyName": "The WebXR Session Managers", "children": {}, "content": "How_To/WebXR/WebXR_Session_Manager" },
                         "webXRCamera": { "friendlyName": "The WebXR Camera", "children": {}, "content": "How_To/WebXR/WebXR_Camera" },
@@ -750,6 +752,11 @@
                         "World_Axes": {"friendlyName": "Display World Axes","children": {},"content": "snippets/utilities/World_Axes"}  
                     },
                     "content": "landing_pages/utilities_landing_page"
+                },
+                "offsite": {
+                    "friendlyName": "Offsite Tutorials", 
+                    "children": {}, 
+                    "content": "resources/Reference/offsite_tutorials_list"
                 }    
             },
             "content": "landing_pages/toolsAndResourcesLandingPage" 
@@ -857,6 +864,7 @@
                         "Grid_Moves": {"friendlyName": "Collisions Within a Grid","children": {},"content": "snippets/gamelets/Grid_Moves"},
                         "Slow_Collide": {"friendlyName": "Slow Particle Collisions","children": {},"content": "snippets/gamelets/Slow_Collide"},
                         "Free_Collide": {"friendlyName": "Freely Moving Particle Collisions","children": {},"content": "snippets/gamelets/Free_Collide"},
+                        "vr_game": {"friendlyName": "Simple VR Game","children": {},"content": "snippets/gamelets/VR"},
                         "Writing1": {"friendlyName": "Shader Wave Pattern","children": {},"content": "snippets/gamelets/Writing1"},
                         "Writing2": {"friendlyName": "Shader Fireworks","children": {},"content": "snippets/gamelets/Writing2"}                                              
                     },
