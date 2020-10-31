@@ -1,4 +1,7 @@
-# How To Use Logarithmic Depth Buffer
+---
+title: How To Use Logarithmic Depth Buffer
+---
+
 Pretty much every 3D programmer runs into depth buffer issues sooner or later. 
 This is especially true when creating outer-space scenes where object distances can be in light years.
 

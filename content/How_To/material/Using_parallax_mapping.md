@@ -1,4 +1,7 @@
-# How To Use Parallax Mapping
+---
+title: How To Use Parallax Mapping
+---
+ 
 
 Starting with Babylon.js v2.4, we introduced Parallax Mapping.
 
@@ -6,7 +9,7 @@ Starting with Babylon.js v2.4, we introduced Parallax Mapping.
 
 ![parallax mapping example](/img/how_to/Materials/parallax-mapping.jpg)
 
-## What is Parallax Mapping?
+# What is Parallax Mapping?
 
 Parallax Mapping is an algorithm which, based from a height map, apply an offset on the material's textures in order to accentuate the effect of relief in the geometry's surface.
 
@@ -14,17 +17,17 @@ While this technique is independent from Normal Mapping (a.k.a Bump) it's often 
 
 There are many techniques that are based on the Parallax Mapping principle, Babylon.js supports two of them.
 
-### Parallax Mapping
+## Parallax Mapping
 
 The core algorithm which perform an offset computation for the texture UV coordinates, based on a height map. This algorithm is really quick to perform, you can almost think of it as being free if you already are using Bump.
 
-### Parallax Occlusion Mapping (POM)
+## Parallax Occlusion Mapping (POM)
 
 While traditional Parallax mapping compute the offset based on one sample of the height map, the Occlusion version will make a loop to sample the height map many times in order to reach a more precise location of what the pixel to compute should reflect.
 
 The outcome is way more realistic than traditional Parallax but there can be a performance hit that needs consideration.
 
-## Parallax Mapping with Babylon.js
+# Parallax Mapping with Babylon.js
 
 You can use Parallax Mapping through the following materials:
 

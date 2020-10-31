@@ -1,4 +1,7 @@
-# Creating Custom Procedural Textures
+---
+title: Creating Custom Procedural Textures
+---
+
 
 ## Using a Files-Based Custom Procedural Texture
 To use a files-based custom procedural texture, you need to create a folder containing at least 2 files:

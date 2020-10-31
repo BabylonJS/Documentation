@@ -1,9 +1,13 @@
+---
+title: Node Materials
+---
+
 The Node Material is a new material introduced with Babylon.js v4.1. It lets you create a material based on custom shaders but without having to deal with shader code.
 All the shader creation will be done using either an UI (the Node Material Editor) or by creating and connecting nodes (the Node Material blocks).
 
-## Creating a Node Material using code
+# Creating a Node Material using code
 
-### Initial steps
+## Initial steps
 To start using the Node Material, you just need to instantiating one:
 
 ```
@@ -14,7 +18,7 @@ Please note that the third parameter will contain optional values that will let 
 
 - `emitComments`: Set this value to true if you want the blocks to emit comments in the shader code
 
-### Adding blocks
+## Adding blocks
 
 Blocks can be added by just instantiating them:
 
@@ -78,7 +82,7 @@ When an InputNode is an uniform (eg. a manual value that will be sent to the sha
 
 You can even csutomize the look and feel of the Inspector UI by defining `inputNode.min` and `inputNode.max` to get a slider instead of an input text box.
 
-### Connecting blocks
+## Connecting blocks
 
 By default calling `block.connectTo(otherBlock)` will try to establish a connection by picking an output from the first block and connect it to an available input in the second one:
 
@@ -116,7 +120,7 @@ When connected, two connection points can be disconnected with:
 worldInput.output.disconnectFrom(boneBlock.world);
 ```
 
-### Gettings blocks
+## Gettings blocks
 Once a graph is built inside a NodeMaterial, you can use the following API to get a specific node by name:
 
 ```
@@ -150,7 +154,7 @@ nodeMaterial.attachedBlocks
 
 Be sure to also check out the full [API documentation.](https://doc.babylonjs.com/api/classes/babylon.nodematerial)
 
-### List of available blocks
+## List of available blocks
 
 By default, the node material provides the following blocks:
 
@@ -1025,7 +1029,7 @@ By default, the node material provides the following blocks:
 
 
 
-### Building the Node Material
+## Building the Node Material
 
 Once setup, you can ask the Node Material to build its internal shaders (vertex and fragment) by calling `nodeMaterial.build(true)`. You can set the boolean parameter to true to get a log of the final shaders on the console.
 
@@ -1046,7 +1050,7 @@ Once successfully built, you can use the Node Material like any other materials:
 myMesh.material = nodeMaterial;
 ```
 
-### Example
+## Example
 
 Here is one of the simplest code using the Node Material:
 ```
@@ -1089,7 +1093,7 @@ var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitCommen
 nodeMaterial.setToDefault();
 ```
 
-## Using the Node Material Editor
+# Using the Node Material Editor
 
 The Node Material Editor can be used to visually edit / build your Node Material.
 
@@ -1106,7 +1110,7 @@ When selected in the Inspector, you can find an edit button in the Node Material
 
 You can also use a standalone version of the editor on https://nme.babylonjs.com
 
-## Recreating the StandardMaterial
+# Recreating the StandardMaterial
 
 As a training exercise and to show what is possible to do with the Node Material Editor, the `StandardMaterial` has been recreated in the NME:
 * Material: http://nme.babylonjs.com/?#AT7YY5#6
@@ -1119,7 +1123,7 @@ Note that the only difference between the full material and the material without
 
 Let's see how the material has been created and how to use it.
 
-### Main building frames
+## Main building frames
 
 The material is divided into several frames, mirroring the main features of the standard material:
 * Instances
@@ -1139,7 +1143,7 @@ In each of these frames, you generally find a boolean float node that enable/dis
 
 Note that you won't find this enable/disable property in the **Instances**, **Morphs and bones** and **Fog** frames: they are always enabled. That's because they depend on the mesh geometry / settings (or on a scene setting for **Fog**): those frames will be a simple "pass-through" if the corresponding feature doesn't exist on the mesh / scene, so no need to explicitly disable it in that case.
 
-### Additional building frames
+## Additional building frames
 
 There are a number of additional frames that help organizing the graph more cleanly:
 * Final normal. This frame takes the output from the **Bump** frame and builds the final world normal used in subsequent computations (**Reflection** and **Lights**). You can change the `TWOSIDEDLIGHTING` boolean if you want the lighting to be applied whatever the triangle side facing are.
@@ -1148,13 +1152,13 @@ There are a number of additional frames that help organizing the graph more clea
 * Final alpha computation. After the opacity (alpha) is generated from the **Opacity** frame, a number of additional computation is performed to produce the final alpha value. You can step in this computation by mean of two booleans, `REFLECTIONOVERALPHA` and `SPECULAROVERALPHA`.
 * Premultiply alpha to color. This one does what its title says and is enabled by the `PREMULTIPLYALPHA` boolean.
 
-### Construction notes
+## Construction notes
 
 The material itself is not so complicated as each feature is generally restricted to its own frame and has few connections with other frames. That helps to keep each building block manageable and easily understandable.
 
 Below are a few things of note.
 
-#### Working without a `if` statement
+### Working without a `if` statement
 
 As you may know, there's no `if` statement / block in the node material editor, so one must be creative to overcome this. Luckily, the standard material does not use this statement heavily (as it's better to avoid it for performance sake), so it is easy enough to deal with it. Most of the time, it is something like `if boolean is true, use this value in subsequent computation, else use that other value instead`. A **Lerp** block is the tool to use:
 ```c
@@ -1169,7 +1173,7 @@ Example:
 
 If `EMISSIVE` is set to 0, the output is `vEmissiveColor`, else it is the color from the emissive map. In effect, the `EMISSIVE` boolean lets you choose to use either the constant `vEmissiveColor` color or the color from the texture map as the emissive color.
 
-#### Discarding the fragment based on alpha cutoff value
+### Discarding the fragment based on alpha cutoff value
 
 This construct is meant to discard the fragment if alpha testing is enabled and if the alpha value is below some threshold value (cutoff value). It looks like this:
 
@@ -1185,7 +1189,7 @@ If `ALPHATEST = 0`, the computed value is `-1 + alphaCutOff`. As `alphaCutOff` i
 
 You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Discard.cutoff`, but it's likely that the addition + subtraction used above is faster than a `Lerp` on GPUs (would need some benchmarking to be sure), even if it's by a small (negligible) margin.
 
-## Creating PBR materials
+# Creating PBR materials
 
 You can use those playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 *  Full use of all PBR blocks:
@@ -1219,7 +1223,7 @@ By default, if something is connected to the `a` input of the `FragmentOutput` b
 
 Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
 
-## Creating Post Processes
+# Creating Post Processes
 
 Starting with Babylon.js v4.2, you can now create post processes with the node material editor.
 
@@ -1252,7 +1256,7 @@ Base material: https://playground.babylonjs.com/#WB27SW#4
 
 Programmatically updated material: https://playground.babylonjs.com/#WB27SW#3
 
-## Creating Procedural textures
+# Creating Procedural textures
 
 Starting with Babylon.js v4.2, you can now create procedural textures with the node material editor.
 
@@ -1282,7 +1286,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 
 Playground: https://playground.babylonjs.com/#8S19ZC#1
 
-## Creating Particle shaders
+# Creating Particle shaders
 
 Starting with Babylon.js v4.2, you can now create particle shaders (to be used with a particle system) with the node material editor.
 
@@ -1311,7 +1315,7 @@ The full fragment shader used by default by the particle system can be recreated
 
 As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: https://nme.babylonjs.com/#X3PJMQ#2
 
-## Loading from a file saved from the Node Material Editor
+# Loading from a file saved from the Node Material Editor
 
 You can directly setup a Node Material from a file saved from the Node Material Editor.
 
@@ -1323,13 +1327,13 @@ nodeMaterial.loadAsync("file-url.json").then(() => {
 });
 ```
 
-## Sharing unique URLs
+# Sharing unique URLs
 
 When using https://nme.babylonjs.com, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
 
 Example: https://nme.babylonjs.com/#2F999G
 
-## Loading from a snippet (unique URL)
+# Loading from a snippet (unique URL)
 
 You can use the following code to load a saved node material from a unique URL:
 
@@ -1355,7 +1359,7 @@ BABYLON.NodeMaterial.IgnoreTexturesAtLoadTime = true;
 
 And then from there you could have used the Inspector to edit it (The inspector can replace the __BLANK with the right id later on).
 
-## Node material examples
+# Node material examples
 
 Here are some node material examples that you can use "as is" or extend with the NME:
 * Standard material with alpha support: http://nme.babylonjs.com/?#AT7YY5#6
@@ -1370,7 +1374,7 @@ Here are some node material examples that you can use "as is" or extend with the
 * Default particle shader: https://nme.babylonjs.com/#X3PJMQ#1
 * Default particle shader (GPU particle systems): https://nme.babylonjs.com/#X3PJMQ#2
 
-## Going further
+# Going further
 
 Here is a list of tutorials and informational videos about Node Material:
 

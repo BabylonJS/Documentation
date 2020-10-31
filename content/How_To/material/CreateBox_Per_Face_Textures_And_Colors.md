@@ -1,4 +1,6 @@
-# How To Map Material to Individual Mesh Faces
+---
+title: How To Map Material to Individual Mesh Faces
+---
 
 This method is only available when creating a mesh using the _MeshBuilder_ method.
 

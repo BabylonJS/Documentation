@@ -1,6 +1,8 @@
+---
+title: Procedural Textures
+---
 
-# Procedural Textures
-## What Are They?
+# What Are They?
 In classic texturing, we use 2D images, often pictures that have been shaped specifically to match an object. Let’s imagine you are creating a medieval fantasy game, working on a dwarf pub, where there are multiple, big, "old school" wooden tables. With classic 2D texturing, you have 3 choices:
 
 - Create a single texture and use it on all of the tables (but every table is going to look the same)
@@ -25,10 +27,10 @@ Procedural textures can be generated:
 
 See more about 'refreshrate' in the Custom Procedural Textures section... far below.
 
-## Procedural Textures in Babylon.js
+# Procedural Textures in Babylon.js
 **Babylon.js** offers you an easy out-of-the-box way to use this kind of texture. The engine itself provides you with standard default textures that you can use right now. It also gives you the ability to create custom procedural textures and package them in a simple way.
 
-## Using a Procedural Texture
+# Using a Procedural Texture
 Applying a procedural texture is just the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
 
 ```javascript
@@ -61,7 +63,7 @@ You can optionally change the values of special default properties.  Here is an 
     texture.ampScale = new BABYLON.Vector2(1.0, 1.0);
 ```
 
-## Noise Procedural Texture
+# Noise Procedural Texture
 
 The NoiseProceduralTexture is available out of the box with the core Babylon.js engine.
 
@@ -79,7 +81,7 @@ The NoiseProceduralTexture exposes the following properties:
 
 You can experiment each property in this demo: https://www.babylonjs-playground.com/#K9GLE6#1
 
-## Using Standard Procedural Textures
+# Using Standard Procedural Textures
 Babylon.js also has a number of pre-built procedural textures that are gathered in the Procedural Texture library: https://github.com/BabylonJS/Babylon.js/tree/master/proceduralTexturesLibrary
 
 You can use them in your project:

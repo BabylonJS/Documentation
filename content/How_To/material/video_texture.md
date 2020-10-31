@@ -1,4 +1,6 @@
-# How To Add Video as a Texture
+---
+title: How To Add Video as a Texture
+---
 
 If you want to display a video in your scene, the Babylon engine has a special texture for that. This special texture works similar to other textures, with the exception of a few parameters. These parameters include video urls (an url array), the size of the video texture (here is 256), the scene, and a final optional boolean that indicates if you want to use [mipmap](http://en.wikipedia.org/wiki/Mipmap) or not.
 

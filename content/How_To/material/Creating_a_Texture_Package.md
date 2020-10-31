@@ -1,4 +1,7 @@
-# Texture Packer
+---
+title: Texture Packer
+---
+
 Some complex scenes will require a large amount of textures. A single material will often use three or more! To simplify the loading process it can be convenient to package the textures from multiple materials into a series of images. The trade-off will be that each texture will be scaled to a set size and might cause some desegregation, there are also WebGL limits to take into consideration as well. The packer will create a set of "frames" for each unique material and its required texture channels. The result produces one image for each channel that is used by the materials that are being packed. The process then modifies a target UV# from the meshes passed into the constructor, making them match the frame of the texture sets. The system assumes textures are 1:1 ratio (square).
 
 Create a TexturePacker series by calling:

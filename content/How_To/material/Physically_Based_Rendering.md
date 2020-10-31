@@ -1,6 +1,8 @@
-# How To Start with Physically Based Rendering
-
-## Introduction
+---
+title: How To Start with Physically Based Rendering
+---
+ 
+# Introduction
 
 After following the [standard material tutorial](/babylon101/materials) and also excelling in [unleashing its power](https://www.eternalcoding.com/?p=303), it is a good time to go further and look at another emerging kind of materials called **PBR Materials** standing for **Physically Based Rendering Materials**.
 
@@ -23,7 +25,7 @@ The two additional materials are `PBRMetallicRoughnessMaterial` and `PBRSpecular
 - [Metallic roughness convention](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#metallic-roughness-material) (This is the recommended convention)
 - [Specular glossiness convention](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md)
 
-## PBRMetallicRoughnessMaterial
+# PBRMetallicRoughnessMaterial
 
 This material is based on five main values:
 
@@ -107,7 +109,7 @@ pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 
 You can see a [live version here](https://www.babylonjs-playground.com/#2FDQT5#13)
 
-## PBRSpecularGlossinessMaterial
+# PBRSpecularGlossinessMaterial
 
 This material is based on five main values:
 
@@ -147,7 +149,7 @@ pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 
 You can see a [live version here](https://www.babylonjs-playground.com/#Z1VL3V#4).
 
-## Light setup
+# Light setup
 
 Dynamic lights are an important part of your PBR setup. You can decide to have no light and only use the environment texture to light your scene or you can decide to add additional light sources to enhance your rendering.
 
@@ -160,12 +162,12 @@ To even go further, the intensity you define on the lights follows physics notio
 
 You'll find more info about how dynamic lighting works in the [Master the PBR](/How_To/Physically_Based_Rendering_Master#light-setup), but you may want read how to setup a [HDR environment](/How_To/Use_HDR_Environment) first.
 
-# Further Reading
+ Further Reading
 
-## Basic
+# Basic
 
 [Use a HDR environment](/How_To/Use_HDR_Environment)
 
-## Advanced
+# Advanced
 
 [Master Physically Based Rendering](/How_To/Physically_Based_Rendering_Master)

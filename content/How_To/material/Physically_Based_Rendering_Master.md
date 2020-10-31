@@ -1,6 +1,8 @@
-# How To Master the PBR Materials
-
-## Introduction
+---
+title: How To Master the PBR Materials
+---
+ 
+# Introduction
 After following the [PBR Introduction](/How_To/Physically_Based_Rendering), it is a good time to learn more about the **PBRMaterial**.
 
 ![Title](/img/extensions/materials/PBRMaster.png)
@@ -11,10 +13,10 @@ This will be the only picture of the documentation. As a **real sample** would b
 
 The entire documentation should help you deal with most of the PBR Material setup.
 
-## How to install
+# How to install
 As the PBR material is embedded in the BabylonJS library, please, follow the [basic tutorial](/babylon101/first) in order to create your first page using the framework.
 
-## Why
+# Why
 After looking at the [PBR Introduction](/How_to/Physically_Based_Rendering) you may want to gain more control or use more features in your material setup like:
 * Refraction
 * Standard Light Falloff
@@ -25,7 +27,7 @@ As the two main PBR Materials e.g. *SpecularGlossiness* and *MetallicRoughness*,
 
 The **PBRMaterial** is here to address this concern and can work in either a Specular/Glossiness or Metallic/Roughness workflow. This document will only address *the differences* between the PBRMaterial and its the simpler versions.
 
-## From MetallicRoughness To PBRMaterial
+# From MetallicRoughness To PBRMaterial
 
 To start with the MetallicRoughness, you can take a look at the [documentation](/How_To/physically_based_rendering#pbrmetallicroughnessmaterial).
 
@@ -64,7 +66,7 @@ Once the conversion done, let's see the custom options available on this version
 * **useAmbientOcclusionFromMetallicTextureRed**: the metallic texture contains the ambient occlusion information in its red channel.
 * **useAmbientInGrayScale**: the ambient occlusion is forced to read only from the red channel of the ambient texture or from the red channel of the metallic texture.
 
-## From SpecularGlossiness To PBRMaterial
+# From SpecularGlossiness To PBRMaterial
 To begin with the SpecularGlossiness you can start with this [documentation](/How_To/physically_based_rendering#pbrspecularglossinessmaterial).
 
 The exact opposite of the previous chapter has to be followed in order to setup the PBRMaterial in Specular/Glossiness mode. The following properties need to be null or undefined:
@@ -100,7 +102,7 @@ Once the conversion done, let's see the custom options available on this version
 * **useMicroSurfaceFromReflectivityMapAlpha**: the reflectivity texture contains the microSurface or glossiness information in its alpha channel.
 * **useAmbientInGrayScale**: the ambient occlusion is forced to read only from the red channel of the ambient texture or from the red channel of the metallic texture.
 
-## Opacity
+# Opacity
 Another interesting addition to the reflection is the ability to keep the most luminous part of the reflection over transparent surface... Yeah, it does not make much sense... Actually, if you look through a window at night from a lit room, you can see the reflection of lights or TV on the glass. This is the same for reflection in the PBR Material. A special property `pbr.useRadianceOverAlpha = true;` has been added to allow you to control this effect. Not only reflection (AKA radiance) but specular highlights can be seen on top of transparency.
 
 [Demo]( https://www.babylonjs-playground.com/#19JGPR#13)
@@ -115,7 +117,7 @@ This behaviour can be turned off through the properties:
     useSpecularOverAlpha = false;
 ```
 
-## Refraction (Back Compat)
+# Refraction (Back Compat)
 Refraction is a little bit like reflection (Please purists, do not kill me now, I only said a little) because it is heavily relying on the environment to change the way the material looks. Basically, if reflection could be compared to seeing the sun and cloud on the surface of a lake, refraction would be seeing weird shaped fish under the surface (through the water).  
 
 A great tutorial on the refraction is available [Here](/How_To/reflect#refraction)
@@ -134,11 +136,11 @@ glass.alpha = 0; // Fully refractive material
 
 You can still notice some reflection on your material due to the energy conservation. Please note that you should since 4.0 rely on the next section settings to define every thing impacting what happens under the material surface. But no worries we will keep the current setup in place for backward compatibility.
 
-## Sub Surface
+# Sub Surface
 
 The sub surface section of the material defines everything happening below the surface. It currently supports Refraction and Translucency.
 
-### Refraction
+## Refraction
 
 I will not redefine the refraction component here as it has been addressed in the previous section but only highlights the main differences [Here](/How_To/reflect#refraction)
 
@@ -209,7 +211,7 @@ pbr.subSurface.maximumThickness = 10;
 
 The actual thickness per pixel would be then = minimumThickness + thicknessTexture.r * maximumThickness. This helps clamping the actual value between a min and max defined by a texture.
 
-### Translucency
+## Translucency
 The refraction is good to represent the light passing through on low density medium such as beer or wine. But what if your material was more dense like milk where the light would be diffused throughout the material ?
 
 ![SubSurface](/img/extensions/PBRSubSurface.png)
@@ -248,7 +250,7 @@ The setup will be identical relying on the both previously defined values:
 
 It also fully respect the previously defined thickness configuration: The actual thickness per pixel would be then = minimumThickness + thicknessTexture.r * maximumThickness.
 
-### Scattering
+## Scattering
 To further add a layer of detail over what really happens beneath the surface of the material, you can add scattering. It simulates all small bounces of the light that takes place inside the material, causing light to go out at a different location than where it entered.
 
 It can be really useful on materials like skin, foliage, wax, dense colored liquids, icecubes, gemstones, etc...
@@ -272,7 +274,7 @@ pbr.subSurface.isScatteringEnabled = true;
 
 For this effect to be physically accurate, you have to indicate the ratio between scene units and the real world distance in meters, by filling the property `metersPerUnit` of the scene pre-pass renderer. It is  by default set to 1 meter = 1 unit.
 
-#### Diffusion profiles
+### Diffusion profiles
 
 Pushing realism even further, material volume albedo affects how far light travels inside the material. Thus you can register your material profile as the average volumic albedo that it is made of.
 
@@ -292,7 +294,7 @@ Furthermore, please note that the use of subsurface scattering triggers a post-p
 In other terms, use it wisely, and mind smaller GPUs that won't necessarily have the ressources to run this effect.
 
 
-### Mask
+## Mask
 Would you wish to define the intensity of the different effects (Refraction or Translucency), you can use the left over channels of the thickness map. Actually, as we are trying to limit the overall number of textures used in the materials we decided to pack the mask information in the g channel for the transluency intensity factor and the alpha channel for the refraction intensity (b has been reserved for the next release).
 
 As this might be counter intuitive considering the black and white texture generated by external tools, we put this feature under an opt-in flag to prevent any surprises:
@@ -319,7 +321,7 @@ pbr.subSurface.maximumThickness = 10;
 pbr.subSurface.useMaskFromThicknessTexture = true;
 ```
 
-## Clear Coat
+# Clear Coat
 Clear coat is a way to simulate the coating you can find in automotive car paint for instance. It usually is a transparent layer of paint that can be used to cover the colored coat.
 
 ![SubSurface](/img/extensions/PBRClearCoat.png)
@@ -406,7 +408,7 @@ All of the configuration here can also for convenience be stored in textures:
 * `tintColorAtDistance`: defines at what distance under the surface the color should be the defined one.
 * `tintTexture`:  defines the clear tint values in a texture. rgb is tint and a is a thickness factor.
 
-## Anisotropy
+# Anisotropy
 By default the PBR material is isotropic. This means the shape of the reflection is identical in every direction. Nevertheless, in real life some materials shows really elongated highlights. For instance, looking an old vinyl disc (yes, I am that old), you can see the specular lighting being spread from the center to the border:
 
 ![Anisotropy](/img/extensions/PBRAnisotropy.png)
@@ -449,7 +451,7 @@ pbr.anisotropy.isEnabled = true;
 pbr.anisotropy.texture = texture;
 ```
 
-## Sheen
+# Sheen
 Some materials have a totally different shapes for the specular lobe. By default in the PBR, material the specular lobe would for instance not be adapted to define the wide specular lobe we can see on fabric materials like satin. This is the main reason we introduced sheen in the material so that you can since 4.0 represents fabric materials relying on the PBR.
 
 In the PBR material, you can enable sheen with the following code:
@@ -489,23 +491,23 @@ pbr.sheen.isEnabled = true;
 pbr.sheen.texture = texture;
 ```
 
-## Normal Map / Parallax
+# Normal Map / Parallax
 Normal mapping and Parallax are supported in the exact same way than the standard material. Please, refer to the following links for more information:
 * [Normal Map](/How_To/more_materials)
 * [Parallax](/How_To/Using_parallax_mapping)
 
-## LightMaps
+# LightMaps
 LightMaps are available in the same way they are in the standardMaterial by affecting a texture to the ```lightmapTexture``` property. This can also be used as a shadowMap instead by switching the dedicated control flag ```useLightmapAsShadowmap``` to true.
 
-## Image Processing
+# Image Processing
 The Processing Configuration can be applied directly on the material as explained in the [image processing documentation](/How_To/how_to_use_postprocesses#imageprocessing).
 
-## Light Setup
+# Light Setup
 Always considering what "Nature does", we reconsidered the BJS light falloff effect in the PBR Material.
 
 Three main properties have been added to offer a better simulation of the lights.
 
-### Inverse Square Falloff
+## Inverse Square Falloff
 This is a type of falloff that is pretty close from what light does in real life (It is implemented in the best engines like BJS and [Unreal](https://docs.unrealengine.com/latest/INT/Resources/ContentExamples/Lighting/4_2/index.html), I may oversell it here :-) )
 
 Compared to the BJS lighting model, instead of playing with an arbitrary range for the lights, the light impact will decrease proportionally to the inverse of the light distance squared.
@@ -528,7 +530,7 @@ To make it compatible with the standard material, you can easily disable this be
 pbr.usePhysicalLightFalloff = false;
 ```
 
-### IntensityMode
+## IntensityMode
 The lights now have an intensity which enable you to convert the intensity metric from one type to another one. This can help setting up your analytical lights close from real life measure:
 
 ```javascript
@@ -544,7 +546,7 @@ light.intensityMode = BABYLON.Light.INTENSITYMODE_ILLUMINANCE;
 light.intensityMode = BABYLON.Light.INTENSITYMODE_LUMINANCE;
 ```
 
-### Light Radius
+## Light Radius
 Light Radius has been added as a property of each light and controls the fact that in real life most of the lights are not a single point.
 
 Why? Simply because if your material is really glossy, each specular highlights (from the direct lights) will only be seen as a simple dot.
@@ -555,13 +557,13 @@ Now, increasing the light radius makes this dot wider as you can see on this [De
 
 This uses internally a lot of approximation like Tan(theta) is almost theta for small angles so if you try to put bigger radius than a tenth of the light distance you will not see the desired effect.
 
-## Shadows (as the standard material)
+# Shadows (as the standard material)
 Shadows are fully equivalent to the Standard material. All the documentation can be found here: [Shadows](/babylon101/shadows);
 
-## Notes
+# Notes
 You can find below a few notes which could be helpful during the creation of your scenes.
 
-### Specular Aliasing
+## Specular Aliasing
 Glossy materials are subject to Specular Aliasing artifacts. These artifacts are usually visible as bright dots flickering on meshes when animating the model or moving the camera.
 
 They could be the result of several factors:
@@ -576,7 +578,7 @@ pbr.enableSpecularAntiAliasing = true;
 
 [Demo](https://www.babylonjs-playground.com/#1XJD4C)
 
-### Environment Irradiance
+## Environment Irradiance
 A big part of the lighting in PBR is assured by the environment texture. This provides two kinds of light contributions, **radiance which could be considered alike reflection** and **irradiance which could be thought as the diffuse component of the Image Based Lighting**.
 
 In case you are creating a model **rough** and **not metallic** (in metallic workflow) or **not specular** (in specular glossiness mode), most of the illumination will be provided by both the analytical lights and the environment texture.
@@ -601,7 +603,7 @@ scene.onReadyObservable.addOnce(() => {
 });
 ```
 
-### Spherical Harmonics
+## Spherical Harmonics
 As we noticed in 4.0, our fast approach to compute the environment irradiance, may have not been accurate enough in certain use cases. We now, by default, have a more accurate representation of the diffuse IBL. In case you would prefer to focus on speed, you can easily revert to our previous method by switching the sphericalHarmonics property to false:
 
 ```javascript
@@ -614,7 +616,7 @@ Here is how the difference looks like in live (toggle the Spherical Harmonics sw
 
 If you want to hear the full story behind it, you can have a read at our blog post : [A tale of a bug](https://medium.com/@babylonjs/a-tale-of-a-bug-ce7e84467800).
 
-### Irradiance Map
+## Irradiance Map
 In some special cases where the environment texture is highly dynamic (like a bright sun having a really high exposure value), the spherical representation of the diffuse IBL might not be enough. Actually, we are for performance reasons limiting the representation to the first 3 bands. A highly dynamic texture can not be represented through 3 bands only. In this case you can rely on a texture instead of a spherical representation.
 
 In order to rely on a texture, you can set the `irradianceTexture` field of your `environmentTexture` as follow:
@@ -626,7 +628,7 @@ scene.environmentTexture.irradianceTexture = new BABYLON.CubeTexture("irradiance
 
 Please, note that both textures should have the same properties: Cube vs 2D, Gamma vs Linear, RGBD or the chosen coordinates mode. Those properties do not need to be set on the main `environmentTexture` to prevent redundancy.
 
-### Energy Conservation
+## Energy Conservation
 As we knew from the beginning, our PBR lighting model was not energy conservative, thanks to a lot of new white papers on this area, we have been able to introduce a way to embrace energy conservation in real time. This basically means that your rough metallic models will look brighter and closer from what nature does.
 
 In case you would like to turn this feature off, to for instance get a closer cross engine rendering look, you can turn off the energy conservation flag on the PBR material.
@@ -639,14 +641,14 @@ Here is how the difference looks like in live (Left sphere is using energy conse
 
 [Demo](https://www.babylonjs-playground.com/#FEEK7G#39)
 
-### Image Based Lighting: Babylon VS RayTracers
+## Image Based Lighting: Babylon VS RayTracers
 We spent a lot of time working on the implementation of our IBL environments. We reworked how we generate the DDS prefiltered environments so that we aligned with what perceptual ray tracers and popular game engines like Unity and Unreal are doing with their IBL rendering. We are approximating a perceptual roughness model which drops what is perceived to be 50% rough falls in the middle of middle of the linear ramp for roughness. The GGX algorithm that we use for our lighting calculations has more of a linear roughness scale which loses clarity in reflections quickly (by around 0.3 roughness). We adjusted the falloff to mirror what happens in Arnold ray tracing, which is the renderer we chose as our ground truth for this work:
 
 ![RayTracer](/img/how_to/Environment/RayTracer.png)
 
 We were able to largely match the perceptual falloff from the Arnold ray tracer, while using a prefiltered MIP chain in the DDS ignoring the last two MIP levels. We have some deviation from the high roughness in the ray traced ground truth, but since fully rough materials don't really exist in the real world, there is no way to know if Arnold is right in these areas.
 
-### How to Debug
+## How to Debug
 In order to simplify troubleshooting within the PBR material, a special spection has been added to the inspector:
 
 ![Inspector](/img/how_to/materials/PBRDebug.png)

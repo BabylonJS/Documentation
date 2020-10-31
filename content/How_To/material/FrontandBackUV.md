@@ -1,4 +1,6 @@
-# Different Textures on the Front and Back of a Mesh
+---
+title: Different Textures on the Front and Back of a Mesh
+--- 
 
 Having a front and a back makes most sense when talking about flat meshes such as a plane, a disc or a polygon. All of which have exactly two sides both of which can be seen only when the option _sideOrientation_ is set to **BABYLON.Mesh.DOUBLESIDE**.
 

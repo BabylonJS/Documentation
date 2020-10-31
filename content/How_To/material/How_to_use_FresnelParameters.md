@@ -1,3 +1,7 @@
+---
+title: Fresnel Parameters
+---
+
 Babylon.js 1.14 introduced new parameters for the StandardMaterial: _FresnelParameters_.
 
 ![](/img/how_to/Fresnel/fresnel.jpg)
@@ -10,7 +14,7 @@ There are 5 of them:
 * ```StandardMaterial.emissiveFresnelParameters```
 * ```StandardMaterial.refractionFresnelParameters```
 
-## How fresnel is working
+# How Fresnel is working
 
 A fresnel term is computed by the StandardMaterial in order to change the way a color is applied by using viewing angle.
 
@@ -59,7 +63,7 @@ material.reflectionFresnelParameters.power = 4;
 
 ![](/img/how_to/Fresnel/fresnel03.jpg)
 
-## How to use it
+# How to use it
 
 A _FresnelParameter_ is defined by the following properties:
 * ```isEnabled``` to activate or deactivate fresnel effect

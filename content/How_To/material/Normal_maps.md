@@ -1,3 +1,7 @@
+---
+title: Normal Maps
+---
+
 The goal of this article is to clearly explain what is happening with normal textures with some samples to hopefully clear up any confusion about what is happening.
 
 To do so we are going to use this playground as an example: https://playground.babylonjs.com/#YCCU8U

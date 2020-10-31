@@ -1,4 +1,6 @@
-# How To use Multi Materials
+---
+title: How To use Multi Materials
+---
 
 A multi-material is used to apply different materials to different parts of the same object as you can see below
 
@@ -68,7 +70,7 @@ So with the code above, you can use the first material on the top part of the sp
 
 * [Playground Example - Sphere with multi-material](https://www.babylonjs-playground.com/#2Q4S2S#268)
 
-## With Merged Meshes
+# With Merged Meshes
 
 When you [merge meshes](divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 

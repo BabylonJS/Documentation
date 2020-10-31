@@ -1,3 +1,7 @@
+---
+title: Depth Renderer
+---
+
 BABYLON.DepthRenderer is a tool used to generate depth texture (a texture that contains depth buffer and which can be used to read scene depth values).
 
 Using it is pretty straightforward:
