@@ -3,7 +3,7 @@
 Babylon.js v3.1 introduced a new component based tools: the behaviors.
 A behavior is a simple class that can be attached to a target where it will provide a specific set of features. Features will be triggered by defined events.
 
-## General
+# General
 
 A behavior is defined by the following interface:
 

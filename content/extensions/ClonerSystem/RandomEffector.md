@@ -6,7 +6,7 @@ So what does an Effector generally? It influences properties of the clones clone
 
 *Note:* the scaling transformation will be done in two different ways depending on the property **uniformScale**: if this property is set to true, only one random value will be used for all three scaling components (x,y,z) and the y/z componets of the **scale property** will be ignored. If set to false, each direction is scaled independently with an extra random value. 
 
-## Example
+# Example
 
 In the following example a RandomEffector is created with a default seed value. After then the rotation values will be so adjusted, that the rotation random y-values are in the range 0-180, x and z are remaining unaffected. In the next step the RandomEffecor is added to the RadialCloner with a sensitivity of 1 and finally the effectors strength is set to 1.
 
@@ -24,7 +24,7 @@ In the following example a RandomEffector is created with a default seed value. 
 
 In this state, everything is prepared to influence the clone's y-rotation with random values in the range 0-180 degrees. With the function `reff.updateClients()` the clones will be updated. 
 
-### Parameters
+## Parameters
 `BABYLONX.RandomEffector(seed=42)` 
 
 Optional Parameter | Description | Default Value

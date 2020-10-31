@@ -8,7 +8,7 @@ The ObjectCloner clones and distributes given meshes to the facet position of an
 The ObjectCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones. Transforming this **root** affects all underlying clones (childs) at once but independently of the interpolation mode. The given input meshes and the template mesh will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 *Note:* Input meshes can be BABYLON meshes but other Cloners as well!
 
-### Example
+## Example
 Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of {x:2,y:0,z:-1} :
 
 `var oc = new BABYLONX.ObjectCloner([cube1, cube2], icoSphere, demo.scene);`
@@ -19,7 +19,7 @@ Transforming of all clones can be done as you would do with a single mesh:
 `mc.root.rotation.x = Math.PI / 4;`
 
 
-### Parameters
+## Parameters
 `BABYLONX.ObjectCloner( meshes, templatemesh, scene[, {optional parameters}])` 
 
 Mandatory Parameter | Description 

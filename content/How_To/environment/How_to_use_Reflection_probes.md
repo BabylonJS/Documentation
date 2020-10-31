@@ -42,7 +42,7 @@ probe.position = new BABYLON.Vector3(0, 1, 0);
 
 If you want to try it, just click [here]( https://www.babylonjs-playground.com/#KA93U#243)
 
-## Probes and PBR
+# Probes and PBR
 
 If you want to achieve the highest quality for your PBR materials using probes for realtime reflections, the engine needs additionnal processing to achieve the right glossiness / roughness effect.
 Getting it right is really simple, first setup a probe on your mesh with a PBR material, as described in the previous paragraph. Then you need to enable this flag on your material :

@@ -1,6 +1,6 @@
 # Sphere
 The created sphere has its origin at the center of the sphere. By using different values for _diameterX_, _diameterY_ and diameterZ_ lead you create an ellipsoid.
-## MeshBuilder
+# MeshBuilder
 Example :
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //scene is optional and defaults to the current scene
@@ -20,7 +20,7 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1)
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1) 
 
-### Examples 
+## Examples 
 https://www.babylonjs-playground.com/#WIR77Z sphere
 
 https://www.babylonjs-playground.com/#WIR77Z#1 ellipsoid
@@ -29,7 +29,7 @@ https://www.babylonjs-playground.com/#WIR77#2 arc
 
 https://www.babylonjs-playground.com/#WIR77Z#3 arc and slice
 
-## Mesh
+# Mesh
 Usage :
 ```javascript
 const sphere = BABYLON.Mesh.CreateSphere("sphere", segments, diameter, scene);

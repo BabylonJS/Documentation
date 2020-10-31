@@ -96,7 +96,7 @@ The default configuration is already implemented and can be used very easily, by
 }
 ```
 
-## HTML element and viewer script
+# HTML element and viewer script
 
 As a first step we will need to create our basic HTML page and include the viewer script. Since I am creating my own configuration, I will use `extends="none"` so that no configuration will be included at construction time. 
 
@@ -124,7 +124,7 @@ As a first step we will need to create our basic HTML page and include the viewe
 
 This is the basic foundation of the entire tutorial. From this point I will show only content in the `<body>` tag.
 
-## Engine and camera configuration
+# Engine and camera configuration
 
 To add the engine configuration (adding antialiasing for better image quality) I will add the engine HTML tag to the babylon tag:
 
@@ -158,7 +158,7 @@ The camera configuration is added afterwards, using the camera HTML tag:
 
 The camera configuration includes camera behaviors' configuration, which are a native Babylon.js feature. You can read about it in [Camera behaviors](/extensions/Configuring_the_viewer)
 
-## Adding environment
+# Adding environment
 
 To add the environment we will need to enable the ground and the skybox. There are two options to do that. THe first is to enable them in the `<babylon>` tag. I use it when I don't want to further configure the element I am extending. For example:
 
@@ -200,13 +200,13 @@ The reasons I choose the 2nd way are:
 * It is readable and easy to understand
 * it is extendible. If I want to change the skybox's configuration, I need to change the tag and not add a new one.
 
-## Templates - Main template
+# Templates - Main template
 
 An important part of the viewer is the templating system - it takes predefined HTML elements, adds them where needed and attaches Babylon to the created canvas element and the buttons in the navigation bar. To read about it, visit [The templating system](/extensions/The_templating_system).
 
 The default viewer, which is the viewer we are using when using the `<babylon>` tag, expects certain templates to have specific elements (like a full screen button in the navigation bar, or a loading screen). If specific templates aren't included, the viewer will fail silently and will continue rendering the 3D element. The only obligatory template is the main template. Without a main template (which can be a single canvas and that's it) the viewer will fail.
 
-### Adding a new template
+## Adding a new template
 
 To add a new template using HTML, I will add each template I want to add inside a `<script id="name-of-template" type="text/x-babylon-viewer-template">`. This template can later be referenced in the viewer configuration using the defined ID.
 
@@ -251,7 +251,7 @@ Everything inside the script tag will be sent to [handlebars](http://handlebarsj
 
 You can also notice that the main template holds a tag called `fill-container`. The fill container tag will be populated using a template with the same name that I will define later. Using custom HTML tags are the way you can define your own templating tree and configure a specific part of the viewer without editing the rest of the elements.
 
-### Adding the template to the viewer
+## Adding the template to the viewer
 
 The add the main template to the viewer, we will add the main tag to the babylon tag:
 
@@ -288,7 +288,7 @@ The add the main template to the viewer, we will add the main tag to the babylon
 
 I'll dissect the templates tag to explain how it is configured.
 
-#### Location parameter
+### Location parameter
 
 ```html
 <main location="#main-template">
@@ -300,7 +300,7 @@ This line adds a new template called "main" to the template manager. It will fin
 <main location="https://example.com/templates/main.html">
 ```
 
-#### params element
+### params element
 
 To pass variables to the template when compiled (using handlebars), I pass variables in the params HTML tag. The following tag:
 
@@ -314,11 +314,11 @@ will configure handlebars to not escape input (noEscape, https://handlebarsjs.co
 <params no-escape="true" babylon-font="https://viewer.babylonjs.com/babylon.woff" fill-screen="true"></params>
 ```
 
-## Further templates
+# Further templates
 
 I continue adding the templates as I added the main template. I will show here two more templates that are important. The one holding the canvas, and the navigation bar - to show how to enable events.
 
-### The template holding the canvas
+## The template holding the canvas
 
 A canvas is needed for babylon to work correctly. We will need to add one (and only one!) canvas element in one of the included templates.
 
@@ -354,7 +354,7 @@ A canvas is needed for babylon to work correctly. We will need to add one (and o
 
 In order to get the pointer input work in all browsers - including iOS devices - I add the touch-action parameter to both the canvas element and the CSS definition of the canvas. This is very important. Otherwise certain browsers will not except user input.
 
-### The navigation bar
+## The navigation bar
 
 In the case of navigation bar I want to show how to add the navbar's template and enable js-events on specific elements of it. The navbar's html code can be found here - https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/assets/templates/default/navbar.html .
 
@@ -414,7 +414,7 @@ This is the full `templates` object, with comments on the navbar definition
 </babylon>
 ```
 
-## Viewing a model
+# Viewing a model
 
 Once the Babylon.js viewer if fully configured, you can specify which 3D model you want to view.
 
@@ -433,7 +433,7 @@ There are two ways to specify a 3D model
     ```
 The examples point to a sample [shark glTF model](https://github.com/BabylonJS/MeshesLibrary/blob/master/shark.glb). You can also load other formats including `.glTF`, `.babylon`, `.obj`, and `.stl`. Note that the model won't be displayed till the entire configuration is added to the viewer.
 
-## The full example
+# The full example
 
 <p data-height="550" data-theme-id="light" data-slug-hash="KBXVdw" data-default-tab="html,result" data-user="BabylonJS" data-pen-title="[Babylon.js Viewer] Recreating default configuration" class="codepen">See the Pen <a href="https://codepen.io/BabylonJS/pen/KBXVdw/">[Babylon.js Viewer] Recreating default configuration</a> by Babylon.js (<a href="https://codepen.io/BabylonJS">@BabylonJS</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>

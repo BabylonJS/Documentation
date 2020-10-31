@@ -3,7 +3,7 @@
 In the [issues](/samples/Issues.html) we found that it is necessary to keep the speed, the distance moved per frame, of particles to below, twice the radius of a particle, to ensure they intersect with walls or each other. Slow particles are those where the initial speed meets this restriction. 
 When the resultant velocities after the collision are based on Newtonian physics for perfectly elastic particles then there are situations when the speeds of particles can increase to indefinitely.
 
-## The Collisions
+# The Collisions
 
 For Newtonian physics - 
 
@@ -26,7 +26,7 @@ The following Playgrounds use four such sets of particles, to produce four parti
 * [Playground Example - Increasing Speed With Trail Markers per Frame ](https://www.babylonjs-playground.com/#1DJ7RH#1)
 * [Playground Example - Increasing Speed, More Spacing](https://www.babylonjs-playground.com/#1DJ7RH#2)
 
-## Escaping Particles
+# Escaping Particles
 
 In the above examples the four fold increase in speed depended on setting the particles in particular positions. In the case of randomly positioning particles, with random velocities, in a box then it is less likely that this will happen but it is possible.
 
@@ -38,7 +38,7 @@ The maximum speed of the particles can be changed on lines 21 to 23. Lowering th
 
 A single red particle is included so that its reaction can be followed.
 
-## Stopping the Escapes
+# Stopping the Escapes
 
 The easiest way to stop the particles escaping is to rebound from a wall if the displacement of a particle is less than the radius. Any particle that is close enough to the wall will rebound, as will any particle that passes through the wall since its displacement from the wall will be negative and so must be less than the radius.
 
@@ -52,10 +52,10 @@ The maximum speed of the particles can be changed on lines 21 to 23.
 
 A single red particle is included so that its reaction can be followed.
 
-## Conclusion
+# Conclusion
 
 To produce a system of collisions using Newtonian physics the path of a particle between frames must be determined.
 
-## Further Reading
+# Further Reading
 
 [Freely Moving Particles](/samples/Free_Collide.html)  

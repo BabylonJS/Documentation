@@ -78,7 +78,7 @@ Notice how in our constructor, we are passing in assets. These assets should be 
 //..loaded environment
 await this._loadCharacterAssets(scene); //character
 ```
-## Loading Assets
+# Loading Assets
 In app.ts, we create [_loadCharacterAssets](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L868). Inside of this function, we have the **loadCharacter** function, this is where we're setting up the character mesh system.
 ```javascript
 //collision mesh
@@ -173,7 +173,7 @@ Now you when you go to the game state, you'll have a player mesh and a ground!
 **Previous:** [State Machine](/how_to/page9)  
 **Next:** [Player Camera](/how_to/page5)
 
-## Resources
+# Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

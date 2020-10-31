@@ -1,5 +1,5 @@
 # Transformations
-## Rotation
+# Rotation
 Rotation in 3D space is always tricky. The order in which rotations are applied and the frame of reference used changes the final orientation of a mesh. There is a range of conventions for applying rotations in 3D modelling. More on those later in this section.
 
 To help in visualizing orientation this asymmetric mesh is used in examples

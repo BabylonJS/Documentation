@@ -1,6 +1,6 @@
 # Collision Issues
 
-## Checking for an Intersect
+# Checking for an Intersect
 
 One way to check in BabylonJS whether two meshes are colliding is to use the _intersectsMesh_ method. So for Fig 1 
 
@@ -37,7 +37,7 @@ The sphere will have gone past the wall and is not intersecting it and so no col
 ![Fig 4](/img/samples/collide3.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
-## Size and Speed Matter.
+# Size and Speed Matter.
 
 Consider a sphere of radius r travelling towards a wall with speed v, at a position just out of contact with the wall. To be able definitely to use of the _intersectsMesh_ method the sphere must be in contact with the wall during the next frame. The maximum distance the sphere can travel between frames must be less than twice the radius, as in Fig 5. 
 
@@ -70,7 +70,7 @@ Expressing this in quotient and remainder form p = qv, q &gt;= 0
 
 Since p is the distance from the front of the wall the centre of the sphere will be at qv + r.
 
-## Playground Example
+# Playground Example
 
 In the following playground the three spheres are positioned so that for sphere1, d &lt; v - r and so will pass through the wall; for sphere2 
 d = 0 and for sphere3  v - 2r &lt; d &lt; v. The radius and speed for each sphere have been set at the same values but can be changed easily should you wish to.
@@ -78,7 +78,7 @@ Sphere1 is at the top, sphere2 the middle and sphere3 at the bottom.
 
 * [Playground Example](https://www.babylonjs-playground.com/#1LOEWK#1)
 
-## Hypotheses
+# Hypotheses
 
 Given a multitude of equally sized spheres, all initially inside a box and given random velocities and using Newtonian physics to inform the results of collisions 
 
@@ -93,7 +93,7 @@ Both hypotheses turn out to be false. This can be seen by reading the following
 
 This being the case we turn to issues arising when the speed of a sphere is greater than twice the radius.
 
-## Stroboscopic Issues
+# Stroboscopic Issues
 
 What happens when the speed of a sphere is greater than twice the radius and you need to calculate its position following what should be a collision with the wall?
 
@@ -110,6 +110,6 @@ The following Playground shows spheres all starting from a distance of 8r units 
 
 * [Playground Example - Strobing](https://www.babylonjs-playground.com/#1LOEWK#2)
 
-## Conclusion
+# Conclusion
 
 Depending on the effect required it is probably better to start with speeds 2r or below per frame but even so it is not sufficient to use intersection of meshes to check for collisions and mathematical techniques will be needed. These techniques will both determine if collisions take place and the repositioning of the spheres.

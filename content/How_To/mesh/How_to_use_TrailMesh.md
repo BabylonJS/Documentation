@@ -1,4 +1,4 @@
-## How To Use TrailMesh
+# How To Use TrailMesh
 
 `TrailMesh` creates a new `Mesh` that trails another.
 
@@ -20,7 +20,7 @@ newTrail.stop();        //Stops the trailing mesh.
 
 TrailMesh will be affected by all modifications to the generator mesh. Using `bakeCurrentTransformIntoVertices` on the generator after scaling (and before a position shift) will prevent the TrailMesh from scaling.
 
-## Example Usage
+# Example Usage
 ```javascript
 var alpha = Math.PI;
 // Create a mesh for the trail to follow.
@@ -50,6 +50,6 @@ function animate() {
 }
 ```
 
-## Examples
+# Examples
 
 - [Glowing orbs with trail](https://playground.babylonjs.com/#1F4UET#4)

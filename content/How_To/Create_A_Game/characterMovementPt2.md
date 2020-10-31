@@ -126,7 +126,7 @@ if (this._dashPressed) {
 }
 ```
 If we've begun our dash sequence, we want to increment our timer every frame. If we are in the dashing sequence, we set our dashFactor. If we've completed our dash, we reset our timer and set *_dashPressed* to false to exit the sequence.
-### Reset
+## Reset
 Returning to [the grounded check](#grounded-check), this is where we want to reset our dashing ability.
 ```javascript
 //dashing reset
@@ -149,7 +149,7 @@ Now, if we run the game, we should be able to move, jump, and dash! You will not
 **Previous:** [Character Movement Part 1](/how_to/page3)   
 **Next:** [Import Meshes](/how_to/page6)
 
-## Resources
+# Resources
 **Files Used:**  
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
@@ -158,5 +158,5 @@ Now, if we run the game, we should be able to move, jump, and dash! You will not
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/characterController.ts)
 
-## External
+# External
 [AstroKat: Moving Kat 2 (Jumps and Slopes)](https://www.patreon.com/posts/35207209)

@@ -7,7 +7,7 @@ var pcs= new BABYLON.PointsCloudSystem("pcs", 5, scene);
 
 After creating the PCS there are a number of options for adding particles
 
-### Add Points
+## Add Points
 
 By default point particles are randomly added within a unit cube.
 
@@ -68,7 +68,7 @@ will displace the second group of points along the x axis.
  
 * [Playground Example - Pass a Function](https://www.babylonjs-playground.com/#UI95UC#1)
 
-### Add Surface / Volume Points
+## Add Surface / Volume Points
 
 You are able to take a mesh such as this one as a model
 
@@ -153,7 +153,7 @@ BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) 
 * [Playground Example - Volume UV from Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#11)
 * [Playground Example - Volume Color from Imported Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#29)
 
-### Building the Mesh
+## Building the Mesh
 
 The PCS mesh cannot be built until all relevant data is collected. Since this can involve ensuring that the material, applied to a model used in adding surface or volume points, is fully loaded, building the mesh is an asynchronous process.
 

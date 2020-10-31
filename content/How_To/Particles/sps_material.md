@@ -1,13 +1,13 @@
 
 
 
-### Different Materials
+## Different Materials
 
 The SPS renders all the particles in a single draw call because you've used only one material, or none what means a default material under the hood, so far.  
 Sometimes yet, you may want to use several materials in order to render some glowing particles with the glow layer, some others with a bump texture and some others with a colored standard material for instance. In this case, you may accept that the draw call number is higher but you wish it keeps at its possible minimum.  
 The SPS supports the MultiMaterials and provides a mechanism to keep the draw call number to a minimum value. You can use them by different ways.
 
-#### Simple way
+### Simple way
 
 The simplest way to set different materials to the particles is to set a different material to each model used to create the particles and to ask the SPS to use these materials at construction time with the optional paramater `useModelMaterial` set to `true` (default `false`).
 
@@ -58,7 +58,7 @@ Example : https://playground.babylonjs.com/#RCUHJA#2
 
 This method can be used to build non-updatable meshes with MultiMaterials by assembling shapes of different materials even when knowing nothing about indices nor vertices as it's required to define a MultiMaterial object by hands : https://doc.babylonjs.com/how_to/multi_materials
 
-#### Intermediate way
+### Intermediate way
 
 When you set the SPS `useModelMaterial` property to `true`, this enables the support for MultiMaterial.  
 You can also enable this support by just setting the property `enableMultiMaterial` to `true`.  
@@ -88,7 +88,7 @@ This method can be called as many times as needed once the SPS mesh is built.
 It recomputes the underlying MultiMaterial object and the SPS geometry in order to group the particles by materials, so it's probably not a good idea to call it each frame in the render loop.  
 Example : https://playground.babylonjs.com/#RCUHJA#3
 
-#### Advanced way
+### Advanced way
 
 Until now, you've essentially set the particle `materialIndex` values at construction time and they haven't changed then, only the materials themselves have changed.  
 You can still change the particle `materialIndex` values at any time, for instance in a call to `sps.updateParticle()` from `sps.setParticles()` like you would do to change the particle positions or rotations, or in a call to any other function of your own at some moment.  

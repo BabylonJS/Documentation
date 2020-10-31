@@ -2,14 +2,14 @@
  
 This page explains the design behind the 'createTrack' function which you use to [build tracks](/snippets/Track) that provide data for a carriage to follow. A track is built for an array of points (Vector3s) which is split into sections. Each section uses the designated lean, *the rotation of the carriage about the track direction* and turn, *the rotation of the carriage about its local Y axis*, of the carriage following the track to produce arrays of matrices for each point on the track path. The direction of a rail is given by the tilt (-&pi;/2 to &pi;/2) of the rail about the z axis and its swivel ( to to 2&pi;) about the y axis. 
 
-## Rotation Matrices
+# Rotation Matrices
 Matrices are used since they are the fundamental operations needed to combine rotations in a given order. To produce the final rotation of a carriage at any point all the following rotations: tilt; swivel; lean; turn; need to be combined.
 
 ![tilt and swivel track](/img/snippets/rail1.jpg)<------track tilt (yellow angle) and swivel (purple angle)
 
 ![lean and turn carriage](/img/snippets/rail2.jpg)<------carriage lean and turn
 
-## Obtaining the Track Data
+# Obtaining the Track Data
 The track data produce by `createTrack` are the arrays
 
 * directions: directions of travel;
@@ -55,7 +55,7 @@ var createTrack = function(points, sections) {
 
 Internally 'createTrack' uses a 'createSection' function to construct the data to return.
 
-## Section Build
+# Section Build
 
 The 'createSection' takes three parameters, points, the full points array for the track, the startSection which contains the information to be used in creating the section and endSection which just provides the lean and turn values at the end of the current section.
 
@@ -190,7 +190,7 @@ function createSection(points, startSection, endSection) {
 }
 ```
 
-## Create Track from Sections
+# Create Track from Sections
 
 The createTrack function requires the points for the path of the track and an array of sections. Checking is carried out on the order of sections.
 
@@ -244,5 +244,5 @@ var createTrack = function(points, sections) {
 
 # Further Reading
 
-## More Advanced - Level 3
+# More Advanced - Level 3
 [Building a Track](/snippets/Track)  

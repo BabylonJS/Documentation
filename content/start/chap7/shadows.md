@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Add Shadows
+# Add Shadows
 The light we have been using so far, the *HemisphericLight* gives an ambient background light and is not suitable for producing shadows. We could use the lamp spot lights however the shadows they produce can be faint and so we will introduce a directional light.
 
 ```javascript

@@ -1,4 +1,4 @@
-## Animations and promises
+# Animations and promises
 Starting with Babylon.js v3.3, you can use promises to wait for an animatable to end:
 
 ```
@@ -11,7 +11,7 @@ console.log("after");
 
 You can find an example here: https://www.babylonjs-playground.com/#HZBCXR
 
-## Controlling animations
+# Controlling animations
 
 Each Animation has a property called ```currentFrame``` that indicates the current animation key.
 
@@ -44,7 +44,7 @@ Here is the list of functions that you can change:
 * color3InterpolateFunction
 * matrixInterpolateFunction
 
-## Helper function
+# Helper function
 
 You can use an extended function to create a quick animation:
 
@@ -64,7 +64,7 @@ BABYLON.Animation.CreateAndStartAnimation('boxscale', box1, 'scaling.x', 30, 120
 ```
 Fast and easy. :)
 
-## Animation blending
+# Animation blending
 
 You can start an animation with *enableBlending* = true to enable blending mode. This blended animation will interpolate FROM the current object's state. This would be handy for user-controlled walking characters, or reacting to value changes from an input device. 
 
@@ -72,7 +72,7 @@ In the playground demo below, every time you click on the FPS marker, the new an
 
 Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: https://www.babylonjs-playground.com/frame.html#IQN716#9
 
-## Animation weights
+# Animation weights
 
 Starting with Babylon.js 3.2, you can start animations with a specific weight. This means that you can use this API to run multiple animations simultaneously on the same target. The final value will be a mix of all animations weighted based on their weight value.
 
@@ -125,7 +125,7 @@ To disable animation synchronization, just call `animation.syncWith(null)`.
 
 A complete demo can be find here: https://www.babylonjs-playground.com/#IQN716#9
 
-## Additive animation blending
+# Additive animation blending
 So far the type of animation blending we've gone over has been override blending. This means that adding influence to an animation takes influence away from other animations that are playing. The result is always normalized, so the more animations playing at the same time, the smaller amount of influence each individual animation has over the final result. All of the keyframes in override animations are stored relative to the object's parent. Say for example you have an object with 2 override animations. The first animation has a translation value of [0, 0, 0] at frame 0, then it interpolates to [0, 2, 0] on frame 30, then back to [0, 0, 0] on frame 60. The second animation has a translation value of [0, 0, 0] at frame 0, interpolates to [0, 0, 2] on frame 30, and then back to [0, 0, 0] on frame 60. If you played these animations simultaneously at full weight, frame 30 would result in a translation value of [0, 1, 1]. Neither the Y or Z axes would ever be able to fully reach a value of 2 with both animations playing. This behavior works great for transitioning between animations, like blending from a walk to a run, but what if you want the motions to build on top of each other? This is where additive animation becomes useful.
 
 Additive animation is unique because it does not use that type of normalization logic. You can have N-number of additive animations playing simultaneously and each one will have the exact amount of influence specified. To accomplish this, additive animation values are relative to the current result of the override animations, not the parent. So if the second animation in the example above were to be played additively, frame 30 would result in a value of [0, 2, 2] because the second animation’s value adds on top of the first.
@@ -136,7 +136,7 @@ One issue with additive animations is the problem of authoring for hierarchies. 
 
 [Click here](https://playground.babylonjs.com/#6I67BL#2) for a sample demonstrating how to convert animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
 
-## Overriding properties
+# Overriding properties
 When you have a mesh with multiple animations or a skeleton (where all bones can be animated) you can use an animationPropertiesOverride to specify some general properties for all child animations. These properties will override local animation properties:
 
 ```
@@ -155,7 +155,7 @@ Here is the list of properties that can be overridden:
 
 Please note that the scene.animationPropertiesOverride will be used if animation target does not contain one.
 
-## Easing functions
+# Easing functions
 
 You can add some behaviors to your animations, using easing functions. 
 If you want more information about easing functions, here are some useful links : 
@@ -248,7 +248,7 @@ You will find a complete demonstration of the easing functions behaviors, in the
 
 
 
-## Attach events to animations
+# Attach events to animations
 
 From Babylon.js version 2.3, you can attach [animation events](/api/classes/babylon.animationevent) to specific frames on an animation.
 
@@ -265,7 +265,7 @@ var event1 = new BABYLON.AnimationEvent(50, function() { console.log("Yeah!"); }
 animation.addEvent(event1);
 ```
 
-## Deterministic lockstep
+# Deterministic lockstep
 Sometimes it is important to make sure animations, physics and game logic code are in sync and decoupled by frame-rate variance. This might be useful to be able to replay how a scene evolved, given the same initial condition and inputs, or to minimize differences on multiple clients in a multi-user environment.
 
 The principle is to quantize the state execution time, by updating the state at a fixed frequency with discrete time steps, keeping an accumulator so to carry over exceeding time to the next frame update.

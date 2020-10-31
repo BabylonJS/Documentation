@@ -23,7 +23,7 @@ The disc at the top left has the number of facets made when it was created. The 
 
 Use the function below. Any examples found in the playground then used the term 'increaseFacets' rather than 'increaseVertices'.
 
-## The Function
+# The Function
 
 ```javascript
 BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side        

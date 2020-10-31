@@ -1,5 +1,5 @@
 # Getting Started - Enhancing Your Website
-## Customizing the Viewer's Camera
+# Customizing the Viewer's Camera
 What happens when we put the **Village** as a model in the viewer?
 
 [Example Viewer - Village](/webpages/page2.html) using the default Viewer.

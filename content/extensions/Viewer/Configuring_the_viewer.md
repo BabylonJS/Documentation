@@ -2,7 +2,7 @@
 
 (Almost) every aspect of the viewer can be configured. The configuration is expressed using a TypeScript interface that is a JSON-like object describing the data that can be provided.
 
-## The default configuration
+# The default configuration
 
 The viewer currently defines two types of configurations:
 
@@ -17,7 +17,7 @@ The default configuration will be loaded per default, unless other configuration
 
 To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration) 
 
-## Extending and changing the default configurations
+# Extending and changing the default configurations
 
 The default configuration types can be overwritten using many methods described below. As the configuration object never contains Array, any attribute in it can be references using a string, and can therefore be overwritten. 
 
@@ -106,7 +106,7 @@ Next, the configuration object will be inspected. If it contains a configuration
 
 The `scene.debug` in the configuration object that will be provided to the viewer will have debug set to false.
 
-### Configuring using the DOM element
+## Configuring using the DOM element
 
 The viewer will read each attribute on the `<babylon>` DOM element(s) provided and will create a JSON element out of them.
 So, if the DOM element looks like this:
@@ -135,23 +135,23 @@ The configuration will look like this:
 
 A few things to notice:
 
-#### camel-case vs. kebab case
+### camel-case vs. kebab case
 
 DOM attributes are usually written in kebab-case ('looks-like-this`), mainly since some browsers convert attributes to lower-case. Those attributes will be automatically converted to camelCase ('looksLikeThis').
 
-#### Value conversions
+### Value conversions
 
 Attribute-values are converted to their corresponding types in JSON. If the value can be converted to a number ("1" for example), it will be converted to a number. If the value is "true" or "false", it will be converted to a boolean.
 
-#### Nested attributes
+### Nested attributes
 
 Nested attributes can be separated using ".". So `scene.debug="true"` will nest `debug` into `scene` and set its value to true.
 
-#### Unidirectional definition
+### Unidirectional definition
 
 The DOM is read once, and is not being continuously processed, Changing a value of an attribute after the viewer was initialized will not influence the viewer.
 
-### Configuring using nested DOM elements
+## Configuring using nested DOM elements
 
 Another way of using the DOM to configure the viewer is to use nested DOM elements inside the main element. A basic example:
 
@@ -179,7 +179,7 @@ This is more human-readable and is easier for web-developers to understand. This
 
 A few things to consider:
 
-#### Extending and using the DOM element configuration
+### Extending and using the DOM element configuration
 
 Everything written regarding the DOM element configuration is extended here. The values are converted, kebab-case should be used, and nested attributes will still be correctly read. For example, this is also a valid configuration (notice the `<camera>` HTML tag):
 
@@ -198,7 +198,7 @@ Everything written regarding the DOM element configuration is extended here. The
 
 And it is the same as the example above.
 
-### Configuring using external JSON
+## Configuring using external JSON
 
 As previously explained, the viewer configuration has a `configurarion` member, that can contain an external JSON file that will be loaded and merged with the selected configuration.
 
@@ -210,7 +210,7 @@ If the following is defined:
 
 the file <http://example.com/viewerConfig.json> will be loaded into the configuration object. This is a great way of creating a general / global configuration  for a website, while providing the details model data using HTML.
 
-### Configuring using JavaScript
+## Configuring using JavaScript
 
 Further discussed in [Advanced usage](//doc.babylonjs.com/extensions/Advanced_usage), JavaScript can be used to initialize a viewer. When initializing a viewer using JavaScript, you can provide the initial configuration that will be used with this viewer:
 
@@ -236,7 +236,7 @@ let viewer = new BabylonViewer.DefaultViewer(domElement, {
 
 In this case, the HTML attributes will be ignored(!) and the DOM element will simply serve as the container of the Babylon scene.
 
-### Registering your own configuration parser using the mapper manager
+## Registering your own configuration parser using the mapper manager
 
 As shown, the Babylon viewer has 3 types of configuration parsers for you to choose from - "html", "dom", and "json". Those mappers are registered in the mapper manager, exposed in the BabylonViewer namespace.
 
@@ -279,7 +279,7 @@ And finally, we need to tell the manager which mapper to use:
 <babylon extends="minimal" scene.debug="true" engine.antialiasing="false" model="https://playground.babylonjs.com/scenes/Rabbit.babylon" configuration.url="http://example.com/viewerConfig.yaml" configuration.mapper="yaml"></babylon>
 ```
 
-### Using your own payload without downloading a file
+## Using your own payload without downloading a file
 
 The configuration attribute of your html element can contain a url as previously shown, or a payload of type any - in case you already have the configuration in your own format loaded in the page.
 
@@ -307,7 +307,7 @@ This will work as the default mapper converts a JSON string to a configuration o
 
 This will use the preregistered "form" mapper (which doesn't exist in reality - you should implement it) to read the payload and adjust the configuration.
 
-## The full configuration interface
+# The full configuration interface
 
 Please check the configuration on github, as it is constantly updated:
 [https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/configuration.ts](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/configuration.ts)

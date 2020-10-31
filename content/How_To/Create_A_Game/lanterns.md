@@ -23,7 +23,7 @@ return {
     lantern: lantern as Mesh,
 }
 ```
-## Creating Lanterns
+# Creating Lanterns
 Once we've gotten the result of our import (*assets*), the [load](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L30) function is in charge of setting up all of the lanterns in the scene.
 ```javascript
 assets.lantern.isVisible = false; //original mesh is not visible
@@ -125,7 +125,7 @@ if (!this._lanternObjs[0].isLit) {
     }
     ```
 
-## Setting Emissive Texture
+# Setting Emissive Texture
 The [_setEmissiveTexture](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L48) function handles everything that's involved in "lighting" the lantern.
 1. We need to know that the lantern is now lit.
 ```javascript
@@ -135,7 +135,7 @@ this.isLit = true;
 ```javascript
 this.mesh.material = this._lightmtl;
 ```
-### Texture Swapping
+## Texture Swapping
 This is a super simple process that involves making a material that has a texture of what the lantern looks like when "lit".  
 ![unlit lantern](/img/how_to/create-a-game/unlit.png) ![lit lantern](/img/how_to/create-a-game/lit.png)
 
@@ -159,7 +159,7 @@ light.radius = 2;
 light.diffuse = new Color3(0.45, 0.56, 0.80);
 this._findNearestMeshes(light);
 ```
-### Multiple Lights
+## Multiple Lights
 The most important part of this is the fact that there is a default cap on the number of lights a material can have. This is for performance reasons. If you have a ton of lights, it'll slow everything down. However, it's possible to get good performance if we use small lights and limit the amount of meshes the light affects. This is what [_findNearestMeshes](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L67) does.
 ```javascript
 this._scene.getMeshByName("__root__").getChildMeshes().forEach(m => {
@@ -178,7 +178,7 @@ Now, when you run the game and collide with the lanterns, you should see their m
 **Previous:** [Import Meshes](/how_to/page6)   
 **Next:** [Collisions & Triggers](/how_to/page8)
 
-## Resources
+# Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

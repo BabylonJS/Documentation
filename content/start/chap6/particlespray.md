@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Particle Spray
+# Particle Spray
 In this case particles are small sprites emitted in a cluster, or cloud,  to simulate used to simulate fire, smoke, water, or even faery dust.
 
 The basis for a cloud of particles is the *ParticleSystem*. With this we specify the number of particles to use 

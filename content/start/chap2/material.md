@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## add Texture
+# add Texture
 In order to add color and texture to our meshes we apply a material to them. The basic material is the standard material created like this
 
 ```javascript

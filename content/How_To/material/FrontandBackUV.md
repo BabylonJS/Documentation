@@ -13,7 +13,7 @@ To have different textures front and back the front and back image must be in th
 This is then split using the _frontUVs_ and _backUVs_ options.
 
 
-## FrontUVs and BackUVs
+# FrontUVs and BackUVs
 
 Both frontUVs and backUVs have the form Vector4(u0, v0, u1, v1) with 0&lt;=  u0, v0, u1, v1 &lt;= 1 and 
 (u0, v0) are the bottom left coordinates and (u1, v1) the top right coordinates of the clipping rectangle 
@@ -42,12 +42,12 @@ mat.diffuseTexture = new BABYLON.Texture("URL to Image File", scene);
 plane.material = mat;
 ```
 
-## Two Sided Examples
+# Two Sided Examples
 
 * [Playground Example - Different images on a plane](https://www.babylonjs-playground.com/#LXZPJK#3)
 * [Playground Example - Different images on a polygon](https://playground.babylonjs.com/#4G18GY#2)
 
-## Inside and Outside Examples
+# Inside and Outside Examples
 
 * [Playground Example - Different images on a tube](https://www.babylonjs-playground.com/#165IV6#74)
 * [Playground Example - View image on outside a sphere](https://www.babylonjs-playground.com/#K6M44R#3)

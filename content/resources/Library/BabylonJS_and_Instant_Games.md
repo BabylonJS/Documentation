@@ -4,13 +4,13 @@ An Instant Game is a game that can be played directly in the Facebook Messenger 
 
 This documentation will explain how to transform an existing Babylon.js game to an Instant Game. 
 
-## Useful links
+# Useful links
 
 * [Instant Games documentation](https://developers.facebook.com/docs/games/instant-games)
 
 * [Instant Games SDK documentation](https://developers.facebook.com/docs/games/instant-games/sdk/fbinstant6.2)
 
-## The process
+# The process
 1) Create an Instant Game app : [Facebook Dashboard](https://developers.facebook.com/apps/async/create/platform-setup/dialog/)
 
 2) Include the Facebook SDK URL in your game HTML page: 
@@ -66,7 +66,7 @@ this.scene.executeWhenReady(() => {
 
 6) Once your game is ready, you can upload it via Facebook Instant Games Dashboard, and run it. The configuration is done!
 
-## Example
+# Example
 An example game can be found here: [SIMON3D](https://github.com/Temechon/simon3d) 
 
 This game is not finished at all, but show how to configure a very simple Babylon.js demo-game and make it run as an Instant Game.

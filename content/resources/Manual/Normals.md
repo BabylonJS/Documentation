@@ -34,7 +34,7 @@ the mathematical normal of the facet they belong to. They could however be the m
 
 Besides minimising the number of vertices needed there are other advantages as will be seen when creating a sphere.
 
-## Table of Indices, Positions and Normals for Box with Minimum Vertices
+# Table of Indices, Positions and Normals for Box with Minimum Vertices
 
 index | position | normal
 --- | --- | ---
@@ -59,7 +59,7 @@ In BabylonJS this can be achieved using the `convertToFlatShadedMesh` function. 
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
-## Table of Indices, Positions and Normals for Flat Shaded Box
+# Table of Indices, Positions and Normals for Flat Shaded Box
 
 index | position | normal
 --- | --- | ---

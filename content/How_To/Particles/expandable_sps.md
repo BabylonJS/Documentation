@@ -1,6 +1,6 @@
 # Expandable Solid Particle System
 
-### Create an expandable SPS
+## Create an expandable SPS
 
 Until now, the SPS that you've created has a fixed number of particles once for all because it's the most performant way to use it.  
 In some cases, it may be useful to add or to remove some particles from the SPS after its creation, because they are newly needed or not needed any longer for the rest of the time.  
@@ -10,7 +10,7 @@ In this case, you can create an expandable SPS with the optional parameter `expa
 var sps = new BABYLON.SolidParticleSystem("sps", scene, { expandable: true });
 ```
 
-#### Adding particles
+### Adding particles
 
 If you want to add some more particles to the existing ones, then just use again the method `addShape()` as many times as necessary. Then call `buildMesh()` to rebuild the SPS geometry with these newly added particles.
 
@@ -29,7 +29,7 @@ sps.setParticles();
 Example : https://playground.babylonjs.com/#X1T859  
 Each mouse click adds 20 new depth sorted particles.
 
-#### Removing particles
+### Removing particles
 
 If you want to remove some particles from the SPS, then use the method `removeParticles(start, end)` where `start` and `end` are the starting and ending indexes of the particles.  
 This method returns an array populated with the removed particles.
@@ -50,7 +50,7 @@ Example : https://playground.babylonjs.com/#0MXVDK
 Each click removes the 2 first and last 100 particles.  
 **Important note :** the SPS must contain at least one particle to work, so never empty it completely !
 
-#### Storable particles
+### Storable particles
 
 You may want to create new particles and not to insert them in the SPS on its creation but later. You may also want to keep aside removed particles to put them back in the system later.  
 So when creating new particles, you can specify to store them aside from the SPS with the optional parameter `storage: []` of the method `addShape()`.
@@ -91,7 +91,7 @@ Example : https://playground.babylonjs.com/#HL9PPA
 Each click removes 100 particles of a given shape and restore 100 particles of another shape in turn.  
 100 particles are stored aside at the SPS creation.
 
-#### Notes :
+### Notes :
 
 - When you remove particles, the remaining ones are reindexed, meaning that their `particle.idx` value can change. The particle identifier `particle.id` keeps unchanged. If a particle is given a parent and if this parent is removed, then the particle `parent` property value is set to `null`.
 - Adding or removing particles will create a new VertexData object, so a new VBO buffer, each time `buildMesh()` is called.  

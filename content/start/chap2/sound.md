@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## Making Music?
+# Making Music?
 
 Adding sounds to your world is very easy.
 

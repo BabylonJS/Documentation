@@ -37,5 +37,5 @@ SPS.initParticles(); //call the initialising function
 SPS.setParticles(); //apply the properties and display the mesh
 ```
 
-## Example
+# Example
 Copying a tetrahedron https://www.babylonjs-playground.com/#GKUCQP

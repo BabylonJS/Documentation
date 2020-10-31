@@ -16,11 +16,11 @@ import 'babylonjs-loaders'
 
 You can read more about [NPM support](/features/npm_support)
 
-### Load
+## Load
 See [how to load from any file type](/how_to/Load_From_Any_File_Type)
 Babylon.js will know how to load the obj file and its mtl file automatically: 
 
-## Good things to know
+# Good things to know
 * Your model doesn't have to be triangulated, as this loader will do it automatically.
 * A Babylon.Mesh will be created for each object/group
 * The obj model should be exported with -Z axis forward, and Y axis upward to be compatible with Babylon.js
@@ -74,7 +74,7 @@ If a MTL is defined in your OBJ and you wish to have it ignored, set the variabl
 BABYLON.OBJFileLoader.SKIP_MATERIALS = true;
 ```
 
-## Supported
+# Supported
 * Object/group
 * Geometric vertex
     * colors
@@ -99,7 +99,7 @@ BABYLON.OBJFileLoader.SKIP_MATERIALS = true;
 	* The name of the created BABYLON.Mesh follows this syntax: meshName_mmX 
 	* X is the nth BABYLON.Mesh created with this method
 
-## Not supported currently
+# Not supported currently
 * Smoothing groups (s parameter in OBJ file)
 * Illumination (illum parameter in MTL file)
 * The differents options for loading textures in MTL file.

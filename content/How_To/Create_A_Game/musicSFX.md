@@ -66,7 +66,7 @@ In [_animatePlayer](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efb
 **Previous:** [Particle Systems](/how_to/page13)  
 **Next:** [Extra Features](/how_to/page15) 
 
-## Resources
+# Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)

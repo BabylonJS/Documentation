@@ -109,13 +109,13 @@ Instances are supported for collisions, picking, rendering and shadows. Even if 
 
 # Using 3D modeler to create instances
 
-## Blender
+# Blender
 
 Using Blender, you can create instances of a mesh by just creating a linked object:
 
 ![](/img/how_to/use-instance/blender-linked-object.jpg)
 
-## 3DS Max
+# 3DS Max
 
 Using 3DS Max, you can create instances of a mesh by just creating a clone instance object with clic right on the object:
 
@@ -135,7 +135,7 @@ https://www.babylonjs-playground.com/#0720FC#10
 - Trees: https://www.babylonjs-playground.com/#YB006J#75
 - 10,000 Icospheres: https://playground.babylonjs.com/#c2ynt9#12
 
-## Going further
+# Going further
 
 Check out this video to learn more:
 - Fun with Instance Buffers: https://youtu.be/rlODXrsdseA

@@ -1,7 +1,7 @@
 # How To Use a Skybox
 A simulated sky can be added to a scene using a skybox. This is created using a large standard box, special reflective textures and a group of six images, one for each face of the cube.
 
-## Sky Images
+# Sky Images
 Six jpeg images are necessary to create a skybox, all of them should be square and of the same size which is best as a power of 2, eg 1024px x 1024px.
 The name for each image should have a common part followed by a position given by _px, _nx, _py, _ny, _pz or _nz corresponding whether 
 it is on the positive (p) or negative (n) x, y or z axis.
@@ -19,7 +19,7 @@ need to separate them into individual images and save each.
 
 You can also use [textures available in the playground](/resources/playground_textures#cubetextures).
 
-## Skybox Code 
+# Skybox Code 
 Within the playground you can copy and paste the following into your scene.
 
 ```javascript

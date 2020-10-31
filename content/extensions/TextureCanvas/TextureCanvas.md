@@ -6,7 +6,7 @@
 TextureCanvas is a texture on which other textures can be drawn.
 
 # Usage
-## Creating a canvas
+# Creating a canvas
 To construct a TextureCanvas, you need to provide the size and the scene the texture will be used in:
 ```javascript
 // A square texture
@@ -22,7 +22,7 @@ Aditionally, you may pass three more parameters, which are:
 * *options*, an object with the properties *generateMipMaps* (boolean) and *samplingMode* (number)
 
 https://www.babylonjs-playground.com/#9S5YZY#6
-## Draw using contexts
+# Draw using contexts
 Contexts can be used to specify how a texture should be drawn. Multiple contexts can be created and used interchangably.<br>
 To draw a texture using the default context, you can call ```canvas.drawTexture(myTexture)```.
 
@@ -68,7 +68,7 @@ https://www.babylonjs-playground.com/#436DIW#2
 
 Please note that uv-coordinates are used rather than pixel values.
 
-## Rotation
+# Rotation
 
 Rotating a texture happens in three dimensions in the default coordinate system of Babylon.js, with *z* being the forward axis.<br>
 You can set a pivot point to be in local space (that of the diffuse texture), or world space (that of the canvas), with ```pivotPoint.isLocalSpace```.

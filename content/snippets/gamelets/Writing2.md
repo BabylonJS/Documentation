@@ -2,11 +2,11 @@
 As with any code it is important to have a firm idea of what you want to achieve, what is possible to code and 
 a design. 
 
-## Requirements
+# Requirements
 The requirements are for a collection of coloured facets to burts out from a central position so that each fragment lies on the surface of an expanding sphere. 
 All fragments should be equally spaced on the sphere and should change colour during the expansion, fading over time.
 
-## First Stage Design
+# First Stage Design
 A sphere created in BabylonJS is made up of facets where vertices of adjoining facets share normals to ensure a smooth surface. 
 Converting the sphere to a flat shaded mesh will give each facet its own set of normals which will be the mathematical normals for the plane of the facet. 
 To make a facet travel outwards from the centre over time its position at any time will be _start position + normal \* function of time_
@@ -16,16 +16,16 @@ are accessible to the shader as attributes passing time as a uniform will be eno
 
 To obtain an initially fast expansion the slowing down a logarithmic function of time will be used.
 
-## Second Stage Design
+# Second Stage Design
 The colour and transparency of all the facets will be the same at the same time and so a change to each component of the colour of a vertex 
 can be applied as a function of time.
 
-## Third Stage Design
+# Third Stage Design
 After the first coding of the shaders adjustments were made to the functions of time, manually, to obtaim a satisfactory appearance to the burst of facets.
 
-## Shader Material Code
+# Shader Material Code
 
-### Vertex Shader Main Function
+## Vertex Shader Main Function
 
 ```
 void main(void) {
@@ -36,7 +36,7 @@ void main(void) {
 }
 ```
 
-### Fragment Shader Main Function
+## Fragment Shader Main Function
 
 ```
 void main(void) {
@@ -44,7 +44,7 @@ void main(void) {
 }
 ```
 
-### Sphere 
+## Sphere 
 
 ```javascript
 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:10}, scene);
@@ -53,7 +53,7 @@ sphere.convertToFlatShadedMesh();
 sphere.material = shaderMaterial;
 ```
 
-### Animation Loop
+## Animation Loop
 
 ```javascript
 var t = 0.;
@@ -69,7 +69,7 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-## Fireworks
+# Fireworks
 
 [Guide Example - Shader Material](http://babylonjsguide.github.io/examples/fireworkcode.html)  
 * [Playground Example - Shader Material](https://www.babylonjs-playground.com/#1OH09K#4)

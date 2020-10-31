@@ -2,7 +2,7 @@
 
 As you will have seen there are many properties of the particle system that can be tweaked to control its look.. Babylon.js allows you even more customization to obtain the system you want. These can be split into into two types; custom functions and custom effects. 
 
-## Custom Functions
+# Custom Functions
 
 There are three methods you can customize:  
 
@@ -14,7 +14,7 @@ You can directly attach all these functions to the particleSystem.
 
 Since Babylon.js V3.2 you can use the first two, `startDirectionFunction` and `startPositionFunction`, in creating a new particle emitter type as was done with the [createBoxEmitter, createSphereEmitter and createConeEmitter](/babylon101/particles/#shape-emitters). 
 
-### Direct
+## Direct
 
 The start direction function has the default form
 
@@ -107,7 +107,7 @@ if (particle.age < particle.lifeTime * .35) {
 * [Playground Example - Grow Particles](https://www.babylonjs-playground.com/#WJBZQH#2)
 
 
-### Particle Emitter Type
+## Particle Emitter Type
 
 Starting from Babylon.js V3.2 you can create a new object of type `IParticleEmitterType` into the particle system. [Examples](/babylon101/particles#box-emitter) of this type of object are `sphereParticleEmitter` and `coneParticleEmitter` which are produced by using createSphereEmitter and createConeEmitter. 
 
@@ -119,7 +119,7 @@ You can create your own ParticleEmitterType by extending IParticleEmitterType an
 
 Below is an example to create a new spray emitter which will send streams of particles out of the top, bottom and sides of a cylindrical region.
 
-#### Create Spray Emitter
+### Create Spray Emitter
 
 In order to determine where a particle is emitted from the cylinder is divided into two regions as in the diagram below.
 
@@ -193,7 +193,7 @@ BABYLON.SprayParticleEmitter = SprayParticleEmitter;
 * [Playground Example - Custom Spray Emitter Showing Container](https://www.babylonjs-playground.com/#V07WF8#10)
 * [Playground Example - Custom Spray Emitter Without Container](https://www.babylonjs-playground.com/#V07WF8#11)
 
-## Custom Effects
+# Custom Effects
 
 A custom effect is achieved via a fourth parameter when creating a new particle system
 
@@ -213,7 +213,7 @@ var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers)
 * uniforms: [strings], array of uniforms used in the shader;
 * samplers: [strings], array of names of samplers for additional textures!
 
-### Fragment Shader Assignment
+## Fragment Shader Assignment
 
 When assigning a fragment shader to the shader store the name should have `FragmentShader` appended. So for example the creation of a custom effect using fragment name `myParticle` would require a `myParticleFragmentShader` added to the shader store
 
@@ -226,7 +226,7 @@ BABYLON.Effect.ShadersStore["myParticleFragmentShader"] = [...]
 var customEffect = engine.createEffectForParticles("myParticle", [...]);
 ```
 
-### Uniforms Assignment
+## Uniforms Assignment
 
 By default Babylon.js will give you a vUV and a vColor varying parameter. It will also transmit you the particle texture. 
 
@@ -257,7 +257,7 @@ you can see an example of the above in this playground
 * [Playground Example - Custom Effect using Shader Store](https://www.babylonjs-playground.com/#1ASENS#43)
 
 
-### Particle Effect Object
+## Particle Effect Object
 
 The particle effect object is a slightly-modified [Babylon Effect Object](/api/classes/babylon.effect). Also notice that the ShadersStore is a namespace upon this special effect-object. 
 

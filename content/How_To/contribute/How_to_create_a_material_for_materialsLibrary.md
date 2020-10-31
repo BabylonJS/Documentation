@@ -1,6 +1,6 @@
 This tutorial will guide you through the process of creating a material for the [materials library](https://github.com/BabylonJS/Babylon.js/tree/master/materialsLibrary)
 
-## Setting up environment
+# Setting up environment
 
 First of all, you need to create a folder for your shader in the /materialsLibrary/src folder. Let's call it diffuseEmissive.
 Then you need to create your files:
@@ -29,7 +29,7 @@ To build all materials and generate the _dist_ folder, just run from the tools/g
 gulp materialsLibrary
 ```
 
-## Update the shaders
+# Update the shaders
 
 Because we used the simple material as source, we already have everything required for a complete babylon.js material.
 The simple material already supports diffuse texture.
@@ -79,7 +79,7 @@ Then add this code at the end of the main function (just before the last line (g
 #endif
 ```
 
-## Update the material
+# Update the material
 
 First of all, rename all occurences of _SimpleMaterialDefines_ to _DiffuseEmissiveMaterialDefines_ and _SimpleMaterial_ to _DiffuseEmissiveMaterial_.
 
@@ -143,7 +143,7 @@ serializationObject.customType = "BABYLON.SimplelMaterial";
 
 And you're done for the material! Now it is time to test it.
 
-## Update the test page
+# Update the test page
 
 To test your material, open the /materialsLibrary/index.html page. References are added automatically.
 
@@ -191,7 +191,7 @@ gui
   });
 ```
 
-## Launch the test server
+# Launch the test server
 
 To Launch the server, you can start from the tools/gulp folder:
 
@@ -199,7 +199,7 @@ To Launch the server, you can start from the tools/gulp folder:
 gulp webserver
 ```
 
-## Using the material with Babylon.js file loader
+# Using the material with Babylon.js file loader
 
 Babylon.js file format supports the use of custom material. You must provide a `serialize()` and a `Parse()` functions alongside with a `getClassName()` function.
 To let the loader knows about your material, you will also need to add the following line to the code using your material:

@@ -1,6 +1,6 @@
 # Making a Frame
 
-## Using Frame Maker
+# Using Frame Maker
 
 var frame = frameMaker("frame", options, scene);
 
@@ -39,13 +39,13 @@ The direction of the path (clockwise or counter-clockwise) determines the orient
 path.reverse();
 ```
 
-### Playground Examples
+## Playground Examples
 
 * [Playground Example - Window with Rebate](https://www.babylonjs-playground.com/#ZGVYNB)
 * [Playground Example - Triangular Frame with L shape Profile](https://www.babylonjs-playground.com/#ZGVYNB#1)
 * [Playground Example - Oval Frame](https://www.babylonjs-playground.com/#ZGVYNB#2)
 
-## Code
+# Code
 
 ```javascript
 var frameMaker = function(name, options, scene) {	

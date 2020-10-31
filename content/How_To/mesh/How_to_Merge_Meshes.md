@@ -1,4 +1,4 @@
-## Native Babylon.js function
+# Native Babylon.js function
 
 To easily merge a number of meshes to a single mesh use the static `MergeMeshes` of the `Mesh` class:
 
@@ -25,7 +25,7 @@ Compare with the following example which sets `multiMultiMaterials` to true:
 
 See [this page](/how_to/multi_materials#with-merged-meshes) for more details on usage of merged meshes.
 
-## Use your own merge function
+# Use your own merge function
 
 If you want to merge meshes into a new one using a self implemented function, you can use the following code as basis and improve it to your needs:
 

@@ -95,7 +95,7 @@ A 2 x 2 single layer sprite map, JSON loaded from file https://www.babylonjs-pla
 
 Once created you can export the sprite map to save it and then load it into another sprite sheet of the same structure.
 
-## Saving a Sprite Map
+# Saving a Sprite Map
 After you have created a sprite map you can export this composition for later use, with
 
 ```javascript

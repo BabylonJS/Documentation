@@ -2,13 +2,13 @@
 
 ![Water material](/img/extensions/materials/water.jpg)
 
-## Using the water material
+# Using the water material
 
 Water material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.waterMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.waterMaterial.js)
 
 A demo can be found here:  https://www.babylonjs-playground.com/#1SLLOJ#20
 
-## Water material by demo
+# Water material by demo
 
 - [Calm lake]( https://www.babylonjs-playground.com/#1SLLOJ#15)
 - [Ocean, play with waves]( https://www.babylonjs-playground.com/#1SLLOJ#17)
@@ -38,7 +38,7 @@ waterMaterial.addToRenderList(mesh2);
 
 That's all.
 
-## Customize the water material
+# Customize the water material
 
 You can customize special properties of the material:
 

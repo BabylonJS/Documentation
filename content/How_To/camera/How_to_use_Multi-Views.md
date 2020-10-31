@@ -2,7 +2,7 @@
 
 Babylon.js is able to render multi views of the same scene.
 
-## Active cameras
+# Active cameras
 
 Basically, a scene has a `scene.activeCamera` property to define the point of view. But you can also define many active cameras with the following code:
 
@@ -11,7 +11,7 @@ scene.activeCameras.push(camera);
 scene.activeCameras.push(camera2);
 ```
 
-## Viewports
+# Viewports
 
 If you want to use many cameras, you will need to specify a viewport for each camera:
 

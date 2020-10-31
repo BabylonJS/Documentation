@@ -5,7 +5,7 @@ On creation the local origin of a lathed shape is coincident with the world orig
 
 There in no _instance_ option for lathed shapes
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const lathe = BABYLON.MeshBuilder.CreateLathe("lathe", options, scene); //scene is optional and defaults to the current scene
@@ -27,13 +27,13 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 
 The radius value is a multiplier for the x values in the profile shape vector3s.
 
-### Examples
+## Examples
 Lathed shape https://www.babylonjs-playground.com/#PQ0GIE  
 Hexagonal nut https://www.babylonjs-playground.com/#PQ0GIE#1  
 Arc https://www.babylonjs-playground.com/#PQ0GIE#2  
 
 
-## Mesh
+# Mesh
 Usage:
 ```javascript
 let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene);

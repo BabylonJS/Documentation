@@ -1,6 +1,6 @@
 ![VRM top header](/img/resources/babylonjs_and_vrm/vrm_topheader.png)
 
-## What is VRM?
+# What is VRM?
 
 > “VRM” is **a file format for handling 3D humanoid avatar (3D model) data for VR applications**. It is based on glTF2.0. Anyone is free to use it.
 > 
@@ -8,17 +8,17 @@
 
 Additional informations can view at [vrm.dev](https://vrm.dev/en/).
 
-## How to load VRM file in BabylonJS?
+# How to load VRM file in BabylonJS?
 
 You can load VRM file in BabylonJS that uses [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is community-made BabylonJS glTF Loader Extension for `VRM`.
 
 It supports `.vrm` and `.vci` file loading.
 
-## A brief example
+# A brief example
 
 https://playground.babylonjs.com/#K5W35Y
 
-## What can do?
+# What can do?
 
 For example, once write some animation code, all VRM models can animate it!
 
@@ -64,7 +64,7 @@ For instance, you can make pose to any VRM.
 
 https://playground.babylonjs.com/#K5W35Y#8
 
-## How to use?
+# How to use?
 
 On browser example is [here](https://codepen.io/anon/pen/zQXyxL?editors=1010).
 
@@ -104,7 +104,7 @@ vrmManager.humanoidBone.leftUpperArm.addRotation(0, 1, 0);
 vrmManager.morphing('Joy', 1.0);
 ```
 
-## External
+# External
 
 * [vrm.dev](https://vrm.dev/en/)
 * [virtual-cast/babylon-vrm-loader: GitHub](https://github.com/virtual-cast/babylon-vrm-loader)

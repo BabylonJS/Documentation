@@ -1,6 +1,6 @@
 # Color Ramps and Blends, and Billboard Mode
 
-### Ramp Gradients
+## Ramp Gradients
 Ramp gradients produce a gradient color texture by assigning a color to an index between 0 and 1
 
 ![ramp gradient](/img/how_to/Particles/rampgrad.png)
@@ -57,7 +57,7 @@ particleSystem.addAlphaRemapGradient(1.0, 0.1, 0.8);
 The alpha remap will compute the final index value using this formula: `finalIndex = clamp((textureAlpha * particleColorAlpha * rampColor.a - min) / (max - min), 0.0, 1.0)`.
 
 
-## Particle blending
+# Particle blending
 There are different ways that particles are blended with the scene and these are set with `blendMode`.
 
 ```javascript
@@ -74,7 +74,7 @@ particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
 * `BLENDMODE_MULTIPLY` - colors are multiplied and added to (1 - alpha) (ie. color * particleColor +  1 - alpha). 
 * `BLENDMODE_MULTIPLYADD` - two passes rendering with `BLENDMODE_MULTIPLY` and then `BLENDMODE_ADD`. 
 
-## Billboard Modes
+# Billboard Modes
 By default all particles are rendered as billboards, that is to face the camera. But you can decide to instead align them with particle direction with 
 ```javascript
 particleSystem.isBillboardBased = false;
@@ -92,7 +92,7 @@ You can also use stretched billboard which will be like a full billboard mode bu
 particleSystem.billboardMode = BABYLON.ParticleSystem.BILLBOARDMODE_STRETCHED;
 ```
 
-## Examples
+# Examples
 Billboard mode Y - steam https://www.babylonjs-playground.com/#B9HKG0#0
 Billboard false - spherical https://www.babylonjs-playground.com/#EV0SEQ
 Multiply blend mode - smoke pillar https://playground.babylonjs.com/#KUDH9F#1  

@@ -4,7 +4,7 @@
 Pixi.js is a fast, lightweight, open source 2D library with full support for webGL with a very fast rendering speed. It is great to use as a UI in combination with Babylon.js, making a perfect duo for your web game world.
 
 
-## Setup Pixi.js rendering
+# Setup Pixi.js rendering
 ```javascript
 var pixiRenderer = new PIXI.WebGLRenderer({
     context: engine._gl,
@@ -14,7 +14,7 @@ var pixiRenderer = new PIXI.WebGLRenderer({
 });
 ```
 
-## Add Pixi.js Sprites to Stage
+# Add Pixi.js Sprites to Stage
 
 ```javascript
 var stage = new PIXI.Container();
@@ -26,7 +26,7 @@ stage.addChild(sprite);
 ```
 The *clearBeforeRender* and *autoStart* are two very important properties that must be used and set to *false*.
 
-## Rendering Sequence
+# Rendering Sequence
 The render sequence of Babylon.js and Pixi.js is also very important, Babylon.js must be rendered first.
 
 ```
@@ -80,7 +80,7 @@ engine.runRenderLoop(function() {
 
 [JSFiddle Example Multiple Pixi.js Stages](https://jsfiddle.net/y5q7Lb1v/42/)
 
-## WebGL1 Problems
+# WebGL1 Problems
 
 
 When your browser is running webGL1 then you need to reset the Pixi.js context first for each rendering as below.
@@ -99,6 +99,6 @@ engine.runRenderLoop(function() {
 ```
 
 
-## Pixi.js Versions
+# Pixi.js Versions
 
 Always use the [latest released version of Pixi.js](https://github.com/pixijs/pixi.js/releases)

@@ -1,13 +1,13 @@
 # Simplify a Mesh with Auto-LOD
 
-## About
+# About
 [Level of Details](https://en.wikipedia.org/wiki/Level_of_detail) is a powerful tool that was added to BabylonJS in version 2.0 . The concept is rather simple - When the camera is at a certain distance from the mesh, lowering the amount of faces displayed will increase performance without the user noticing the reduction.
 
 LOD requires the developer to add a few meshes to the original mesh. One of the ways to create those meshes is simplification. Many 3D tools offer various simplification algorithms. It is sometimes called Decimation.
 
 Starting Version 2.0, Babylon.js offers an in-browser simplification functionality that works asynchronous while trying not to disturb the rendering process. These LOD levels will be automatically added to the scene after finishing the calculation.
 
-## Usage - Simplifying a mesh
+# Usage - Simplifying a mesh
 
 Any object of the class BABYLON.Mesh has a "simplify" function with the following signature:
 
@@ -64,7 +64,7 @@ BABYLON.SceneLoader.ImportMesh("", "./", "DanceMoves.babylon", scene, (newMeshes
 });
 ```
 
-## Demos 
+# Demos 
 
 Zoom in and out to see the effect, watch the number of active vertices closely.
 
@@ -80,13 +80,13 @@ With global mesh optimization - 
 With optimization during simplification - 
  https://www.babylonjs-playground.com/#2JBSNA#4
 
-## Rules, Quirks and things to pay attention to
+# Rules, Quirks and things to pay attention to
 
 Not all meshes can be simplified. Better said - all meshes can be simplified, some however, should not be.
 
 An object like a Box (if built in an optimal way, like the BABYLON.Mesh.CreateBox function) has no "extra faces" that can be removed. removing one single face will cause it to... not be a box.
 
-### A few "rules" to follow
+## A few "rules" to follow
 
 (and never forget, rules are meant to be broken!) :
 
@@ -97,7 +97,7 @@ An object like a Box (if built in an optimal way, like the BABYLON.Mesh.CreateBo
 5. Try simplifying "whole" meshes. A mesh containing many distant objects in one will simplify rather poorly. LOD will work poorly on such meshes as well, since the position of the mesh is not actually the position of all mesh-parts. A good example are the whole bar stools in the WCafe example. All are loaded as one single mesh, making them almost impossible to simplify (using this algorithm).
 6. Set the mesh's material before starting the decimation. The LOD Mesh uses them when initialized. If they will not be set, expect the material to disappear when the given distance is reached.
 
-### Quirks
+## Quirks
 
 * Quadratic simplification can be calculated using many factors. Position, normals, colors, UV coordinates etc'. The more factors, the slower it will run (more calculations). The decision was made to stay with position only - this means that after simplification, the UV coordinates will sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
 * Meshes might change their shape. Very noticeable with a small plane.
@@ -112,7 +112,7 @@ var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "worldHeightMap.jp
 });
 ```
 
-##  Mesh optimization (Starting BabylonJS 2.1)
+#  Mesh optimization (Starting BabylonJS 2.1)
 Due to the nature of Babylon's file format, it is possible that many vertices will have the same positions, normals, but different color/uv information. This presents a problem to the decimation process, which relies on having all triangles with the same position altered. 
 
 If you try simplifying a mesh, and it suddenly lacks a few triangles, this will be the reason - your mesh is not "optimized" for simplification.

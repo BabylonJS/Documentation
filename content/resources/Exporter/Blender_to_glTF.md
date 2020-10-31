@@ -2,7 +2,7 @@
 
 glTF exporter will allow you to export your scene using PBR workflow.
 
-## Features
+# Features
 
 Since Blender 2.8, glTF addon comes with Blender enabled by default. You can update it from the official [Github repo](https://github.com/KhronosGroup/glTF-Blender-IO). Official documentation is on [Blender Manual](https://docs.blender.org/manual/en/latest/addons/io_scene_gltf2.html).
 
@@ -24,7 +24,7 @@ To help transforming, note that the BabylonJS loader will automatically set glTF
 
 
 
-##  Try it out!
+#  Try it out!
 
 Once your scene is exported, you have multiple solutions to test it:
 
@@ -32,7 +32,7 @@ Once your scene is exported, you have multiple solutions to test it:
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
 - script your own app using the [loader](/How_To/Load_From_Any_File_Type)
 
-### Example
+## Example
 
 Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/WaterBottle/glTF-Binary):
 

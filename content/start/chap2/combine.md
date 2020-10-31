@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## Combining Meshes Using Merge Meshes
+# Combining Meshes Using Merge Meshes
 This is a straight forwarded way of combining two or more meshes.
 
 ```javascript

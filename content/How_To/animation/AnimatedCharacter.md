@@ -1,6 +1,6 @@
 This "How To" goes over an end to end workflow from creating a character in Blender, adding animations to it with [**Mixamo**](http://www.mixamo.com) and combining them into a single model, to controlling the movement of the animated character with the keyboard.
 
-## Detailed workflow
+# Detailed workflow
 
 There are of course different tools and possible workflows to create an animated model that can be used in a Babylon.js project. Below is the detailed workflow of this How To:
 - Use Blender to create the model
@@ -12,7 +12,7 @@ There are of course different tools and possible workflows to create an animated
 - Load the .GLB in a Babylon.js Playground and control the model movement via keyboard
 
 
-## Create a character with animation
+# Create a character with animation
 
 The first step is to create a character (a low poly character in this example). It usually involves starting from the 2D drawing of a character and then model it in 3D from head to toes. This is a quite long but fun experience. [**Blender**](https://www.blender.org) can be used to model a low poly character such as in Grant Abbitt's Tutorial [**Low poly anime Girl**](https://www.youtube.com/playlist?list=PLn3ukorJv4vuOi2Ar-Xt46VFbDFP3c_RE).
 
@@ -30,7 +30,7 @@ Once done with the creation of the model, the next step is to bring it to life b
 ![Anim Character in Mixamo](/img/how_to/animatedCharact/animCharact.jpg)
 
 
-## Add and combine several animations into a character
+# Add and combine several animations into a character
 
 As several animations are needed for a character (e.g. Idle, Walk, Walk backwards, etc…), the previous step of exporting an animation into a FBX file must be done for each animation (animation packs, such as "Basic Locomotion Pack", are available but they are just a zip with many .FBX files). 
 
@@ -40,9 +40,9 @@ The result is exported as a .GLB file and the animation information can be seen 
 
 ![View Character in Sandbox](/img/how_to/animatedCharact/viewCharact.jpg)
 
-## Control the movement of the animated character with the keyboard
+# Control the movement of the animated character with the keyboard
 
-### Import the model and play animation
+## Import the model and play animation
 
 The model can be loaded using the [**ImportMesh**](https://doc.babylonjs.com/api/classes/babylon.sceneloader#importmesh) method of the SceneLoader class and making sure to add the animationGroups parameter as it is used to get and play the animations.
 
@@ -77,7 +77,7 @@ By default the animationGroups[0] is played when loading a model with an animati
 animationGroups[0].stop();
 ```
 
-### Control animations via keyboard
+## Control animations via keyboard
 
 The [**Action Manager**](https://doc.babylonjs.com/how_to/how_to_use_actions) can be used to capture the keys pressed on the keyboard:
 
@@ -147,16 +147,16 @@ This simple example can be enhanced:
 - With [**animation blending**](https://doc.babylonjs.com/babylon101/animations#animation-blending) to ensure much more natural transitions between animations
 
 
-## Further Reading
+# Further Reading
 
-### Basic
+## Basic
 
 - [Introduction to Animating](/babylon101/animations)  
 - [Grouping Animations](/How_To/Group)
 - Video: [Using External Assets](https://youtu.be/3D6BtdMnnQI)
 - Video: [Demystifying Animation Groups](https://youtu.be/BSqxoQ-at24)
 
-### Advanced
+## Advanced
 
 - [Combining Animations](/How_to/combine)
 - [A Sequence of Animations](/How_To/sequence)

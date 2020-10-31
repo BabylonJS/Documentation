@@ -2,7 +2,7 @@
 
 There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/how_to/Gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
 
-## Keyboard Interactions
+# Keyboard Interactions
 
 By customizing the following code template you can control reactions within your scene to different keys. Both the `ascii` code for the key and the key itself are available to you.
 
@@ -19,7 +19,7 @@ scene.onKeyboardObservable.add((kbInfo) => {
 });
 ```
 
-## Pointer Interactions.
+# Pointer Interactions.
 
 First of all a reminder that for **touch** events in Babylon.js [PEP](https://github.com/jquery/PEP) is required. To use PEP all that is necessary is to
 
@@ -66,7 +66,7 @@ scene.onPointerObservable.add((pointerInfo) => {
 });
 ```
 
-## Playground Examples
+# Playground Examples
 
 * [Playground Example Scene Observables Template](https://www.babylonjs-playground.com/#0XYMA9#1)
 * [Playground Example Drag](https://www.babylonjs-playground.com/#7CBW04)
@@ -76,6 +76,6 @@ Remember to click in scene (to set focus) before using keyboard
 
 # Further Reading
 
-## Mid Level - L2
+# Mid Level - L2
 
 [Observables](/how_to/observables)

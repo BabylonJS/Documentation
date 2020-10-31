@@ -35,7 +35,7 @@ var camera = new BABYLON.FreeCamera(
 var inputManager = camera.inputs;
 ```
 
-## Configure your inputs
+# Configure your inputs
 
 Most inputs provide settings to customize the sensibility and adapt it to your own scene.
 
@@ -51,7 +51,7 @@ camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 camera.inputs.attached.gamepad.gamepadAngularSensibility = 250;
 ```
 
-## Adding an existing input
+# Adding an existing input
 
 Input manager of both ArcRotateCamera and FreeCamera expose short-hand functions for adding built-in inputs.
 
@@ -75,7 +75,7 @@ var camera = new BABYLON.FreeCamera(
 camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 ```
 
-## Enable or disable inputs
+# Enable or disable inputs
 
 When you call "attachControl" on the camera, you are activating all inputs attached to the input manager. In the same way, you could turn off all inputs by calling "detachControl" on the camera.
 
@@ -97,7 +97,7 @@ You can then call "attachInput" when you want to turn it on again.
 camera.inputs.attachInput(camera.inputs.attached.mouse);
 ```
 
-## Removing inputs
+# Removing inputs
 
 Sometimes you want a very specific input mechanism. The best approach in such case is probably to clear all inputs and add only those you may want in your scene.
 
@@ -125,7 +125,7 @@ camera.inputs.remove(camera.inputs.attached.mouse);
 camera.inputs.removeByType("FreeCameraKeyboardMoveInput");
 ```
 
-## Implementing Your Own Input
+# Implementing Your Own Input
 
 Your input method is created as a function object. You must them write code for several methods, with required names, that are called by the input function object. The method names and purpose are
 
@@ -153,7 +153,7 @@ detachControl(element);
 checkInputs();
 ```
 
-### With Javascript
+## With Javascript
 
 This changes the normal use of the keys from moving the camera left and right, forward and back to rotating at its current position.
 
@@ -276,7 +276,7 @@ camera.inputs.add(new FreeCameraKeyboardRotateInput());
 
 - [Playground Example Rotate Free Camera](https://www.babylonjs-playground.com/#1WFOOA#67)
 
-### With Typescript
+## With Typescript
 
 Using TypeScript, you could implement the interface ICameraInput.
 

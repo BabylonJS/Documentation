@@ -7,25 +7,25 @@ It turns out that such a system is not possible when the particles are to obey t
 Other systems are produced, fitting the above conditions except for the rules for colliding.
 
 
-## The Grid
+# The Grid
 
 Take a grid of cubes with the **origin cube** having its centre at the world origin. Each cube will have a side width of 2r, where r is the radius of each 
 particle. The position of any particle will be the centre of the cube it is occupying. The conditions for the speed of the particles means they each will lie wholly within a cube.
 
-## The Collisions
+# The Collisions
 
 When a particle hits the wall then its velocity perpendicular to the wall will be reversed.
 
 When two particles collide in a perfectly elastic collision the Newtonian laws of physics give that their velocities along the line joining their centres are exchanged and they retain their velocities tangential to this line.
 
-## The Walls
+# The Walls
 
 For a particle to just touch a wall the wall position must be of the form (2p + 1)r, p an integer.
 
 ![Fig 9](/img/samples/collide8.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 9
 
-## The Particles
+# The Particles
 
 Now having constrained the positions of the walls to ensure that the particles rebound on just touching them can the same be done for the particles themselves?
 
@@ -56,7 +56,7 @@ Note that after the collision the speeds no longer obey the initial rules of one
 
 Systems where the Newtonian laws of physics are obeyed is considered [TBA]. This page now considers other physics.
 
-## Other Physics
+# Other Physics
 
 Two simple physics could be:
 
@@ -77,14 +77,14 @@ However setting random velocities to such particles could lead to a situation su
 
 Keeping the speed restrictions in the x, y and z directions to 2r and dropping the condition that particles can only make contact by touch and letting them fully overlap allows us to place the particles in any random cube. Movement is still within the grid cubes and particles will touch but not overlap the walls of the box. 
 
-## Collision Conditions
+# Collision Conditions
 
 One condition already stated above is that the distance between the positions of two particles is less than or equal to the length of a diagonal of the cube which is 2&radic;3 r.
 
 A second condition is that the particles must be travelling towards each other. By considering relative velocities one particle can be considered as still. 
 The component of velocity for the moving particle along the line joining their centres will be positive or negative depending weather it is moving away from or towards the other. The magnitude of the component velocity is found by using the dot product of their relative positions and relative velocities. 
 
-## Creating The Examples
+# Creating The Examples
 
 The walls of the box are positioned using (2p + 1)r, for an integer p. Two parallel walls will be positioned at (-2p + 1)r and (2p + 1), p &gt; 0.
 

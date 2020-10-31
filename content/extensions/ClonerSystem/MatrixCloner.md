@@ -8,7 +8,7 @@ The MatrixCloner clones and distributes given meshes in 3D space. If more than o
 The MatrixCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones, its position is the middle position of all generated clones. Transforming this **root** affects all underlying clones (childs) at once. The given input meshes will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 *Note:* Input meshes can be BABYLON meshes but other Cloners as well!
 
-### Example
+## Example
 Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of {x:2,y:0,z:-1} :
 
 `var mc = new BABYLONX.MatrixCloner([cube1, cube2], demo.scene, { mcount: { x: 5, y: 5, z: 5 } });`
@@ -19,7 +19,7 @@ Transforming of all clones can be done as you would do with a single mesh:
 `mc.root.rotation.x = Math.PI / 4;`
 
 
-### Parameters
+## Parameters
 `BABYLONX.MatrixCloner( meshes, scene[, {optional parameters}])` 
 
 Mandatory Parameter | Description 

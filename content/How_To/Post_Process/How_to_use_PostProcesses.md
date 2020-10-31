@@ -1,6 +1,6 @@
 # How To Use PostProcess
 
-## Base postprocess
+# Base postprocess
 Every postprocess is based upon ```BABYLON.PostProcess``` which uses this constructor:
 
 ```javascript
@@ -24,7 +24,7 @@ The _engine_ parameter is the engine where you want to attach your postprocess.
 
 The _reusable_ paameter indicates if your postprocess can be reused multiple times on the same camera (default is false).
 
-## Additional parameters
+# Additional parameters
 By default (and if you are not using trilinear sampling) the postprocesses used the size of the screen scaled by the ratio you provide. But you can decide to force them to be rescaled to a power of two size in order to be more efficient. To enable this, just call `mypostprocess.alwaysForcePOT = true`.
 
 You can also control how the size is chosen by setting `mypostprocess.scaleMode` to one of these values:
@@ -38,18 +38,18 @@ If you turn off autoClear, you will be able to blend the render of the postproce
 
 This could be really useful when you have multiple postprocesses enabled together. You can even choose to share the output of several postprocesses with `mypostprocess.shareOutputWith(anotherPostprocess)`.
 
-## Attach postprocess
+# Attach postprocess
 Depending on how you have defined a postprocess, it can be attached one or more times to the same camera.
 The same instance can also be attached to multiple cameras.
 
 A camera has two methods:
-#### **attachPostProcess**
+### **attachPostProcess**
 
 ```javascript
 NUMBER function(PostProcess postProcess [,NUMBER atIndice])
 ```
 
-#### **detachPostProcess**
+### **detachPostProcess**
 
 ```javascript
 NUMBER function(PostProcess postProcess [,NUMBER[] atIndices])
@@ -58,21 +58,21 @@ NUMBER function(PostProcess postProcess [,NUMBER[] atIndices])
 # Builtin postprocesses
 Babylon.js comes with a set of ready to use postprocesses.
 
-## Pass
+# Pass
 Do nothing. Used to copy the framebuffer into a postprocess for further use
 
 ```javascript
 var postProcess = new BABYLON.PassPostProcess("Scene copy", 1.0, camera);
 ```
 
-### Black and white
+## Black and white
 Apply a black and white effect:
 
 ```javascript
 var postProcess = new BABYLON.BlackAndWhitePostProcess("bandw", 1.0, camera);
 ```
 
-### Blur
+## Blur
 Apply a directional blur using a kernel based blur:
 
 ```javascript
@@ -86,28 +86,28 @@ Or 256: https://www.babylonjs-playground.com/#FBH4J7#4
 
 Obviously, as usual, try to stay reasonable with kernel size as it will impact the overall rendering speed.
 
-### Convolution
+## Convolution
 Apply a kernel matrix to every pixel:
 
 ```javascript
 var postProcess = new BABYLON.ConvolutionPostProcess("Sepia", BABYLON.ConvolutionPostProcess.EmbossKernel, 1.0, camera);
 ```
 
-### FXAA
+## FXAA
 Apply a full screen antialiasing filter:
 
 ```javascript
 var postProcess = new BABYLON.FxaaPostProcess("fxaa", 1.0, camera);
 ```
 
-### Highlights
+## Highlights
 Apply a full screen highlight filter which will increment the luminosity of highlihts in your scene:
 
 ```javascript
 var postProcess = new BABYLON.HighlightsPostProcess("highlights", 1.0, camera);
 ```
 
-### Tonemap
+## Tonemap
 Apply a full screen tone mapping filter:
 
 ```javascript
@@ -123,7 +123,7 @@ The third parameter define the exposure adjustement.
 
 You can find a demo here: https://www.babylonjs-playground.com/debug.html#J9H084#8
 
-### ImageProcessing
+## ImageProcessing
 Apply a complete range of special image treaments (image processing):
 
 ```javascript
@@ -154,7 +154,7 @@ All features can be turned on and off with the following booleans:
 * cameraToneMappingEnabled
 * colorGradingEnabled
 
-#### Configuration
+### Configuration
 
 Image postprocessing can be done with the ImageProcessingPostProcess but you can also use StandardMaterial and PBRMaterial built-in image processing features. To simplify the overall configuration of your image processing setup, you can define the properties you want on `scene.imageProcessingConfiguration`.
 This object hosts the same properties as the ImageProcessingPostProcess.
@@ -167,7 +167,7 @@ Furthermore, as they share the same configuration, you can just dispose a postpr
 
 You can also decide to instantiate your own configuration and affect it to your material or to your postprocess with `postProcess.imageProcessingConfiguration = new BABYLON.ImageProcessingConfiguration()`. In this case, you will be able to configure this object independantly.
 
-#### Default rendering pipeline
+### Default rendering pipeline
 
 The image processing post process is also included in a rendering pipeline: the DefaultRenderingPipeline. This pipeline adds support for FXAA and bloom on top of the image processing. You can find a complete interactive demo here: https://www.babylonjs-playground.com/#5XB8YT#1
 
@@ -176,7 +176,7 @@ You can turn pipeline features on and off with the following booleans:
 * bloomEnabled
 * imageProcessingEnabled
 
-## Refraction
+# Refraction
 Apply a refraction texture:
 
 ```javascript
@@ -192,7 +192,7 @@ _color_ is the base color of the refraction (used to taint the rendering)
 _depth_ is the simulated refraction depth
 _colorLevel_ is the coefficient of the base color (0 to remove base color tainting)
 
-## Color Correction
+# Color Correction
 Apply a color filter:
 
 ```javascript
@@ -217,7 +217,7 @@ Examples of filtered LUT to use for various filters:
 
 You can easily create new filters by using a image editing software to alter the look-up table to fit your needs. Copy/paste the default look-up table on a screenshot or picture before altering it to see in real time what the filtered image will look like.
 
-## Custom postprocesses
+# Custom postprocesses
 You can also develop your own postprocess using ```BABYLON.PostProcess``` object.
 
 To do so, you need to create a .fragment.fx file, a shader-storing DOM node, or a ShaderStore entry where you will store the GLSL shader code used for every pixel of the screen:
@@ -294,7 +294,7 @@ Note: This will set sceneSampler to the output of the post process before postPr
 effect.setTextureFromPostProcess("sceneSampler", postProcess0);
 ```
 
-## Chaining postprocesses
+# Chaining postprocesses
 You can chain postprocesses on a specific camera. They are processed using the creation order. For instance here is the code used to simulate a bloom effect:
 
 ```javascript

@@ -1,9 +1,9 @@
 # GUIDialog
 
-## new GUIDialog(id, options, guimanager, callback, append)
+# new GUIDialog(id, options, guimanager, callback, append)
 Creates a new GUIDialog
 
-#### Parameters
+### Parameters
 Name | Type | Description
 ---|---|---
 **id** | string | The id and name element
@@ -13,7 +13,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-## Options
+# Options
 
 * **w**: width of dialog (in pixel)
 * **h**: height of dialog (in pixel)
@@ -29,15 +29,15 @@ Name | Type | Description
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 * **overflow**: overflow auto or hidden (auto by default)
 
-## Methods
+# Methods
 
-### add(element) → void
+## add(element) → void
 add element in the GUIDialog
 
-### setVisible(bool, fade) → void
+## setVisible(bool, fade) → void
 Set this GUI element to visible or invisible (false by default)
 
-### isVisible() → void
+## isVisible() → void
 Returns element if is visible or no
 
 ###dispose() → void

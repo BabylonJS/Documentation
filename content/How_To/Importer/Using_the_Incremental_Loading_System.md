@@ -8,5 +8,5 @@ You have to put the _.babylonmeshdata_ and _.babylongeometrydata_ files in the s
 
 You can find a demo of an incremental scene here: https://www.babylonjs-playground.com/#JA1ND3#84
 
-## Node.js based incremental file converter
+# Node.js based incremental file converter
 This script can be used to generate incremental files from babylon scenes. It can be ran directly from node or it can be integrated into build scripts. More information about how to install and configure the script can be found [here](https://www.npmjs.com/package/babylonjs-make-incremental).

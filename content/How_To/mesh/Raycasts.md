@@ -19,7 +19,7 @@ Use the [picking info](/api/classes/babylon.pickinginfo.html) that is returned b
 
 ______
 
-## Detect the first mesh touched by the ray ##
+# Detect the first mesh touched by the ray ##
 
  Check out an example [here](https://www.babylonjs-playground.com/#KNE0O#84).
 
@@ -75,7 +75,7 @@ You can set the origin point of the vector in front of the box, the direction a 
 
 -----
 
-## Predicate function ##
+# Predicate function ##
 
 It is a filter to choose which meshes will be selectable:
 
@@ -113,7 +113,7 @@ There is one other optional argument to the method `pickWithRay`. It's the boole
 
 ---
 
-## Triangle predicate ## 
+# Triangle predicate # 
 
 Starting with Babylon.js v4.0 you can define a custom predicate to filter the triangles selected to be tested against the incoming ray. The predicate will be called with the 3 vertices of each face and the upcoming ray:
 
@@ -132,7 +132,7 @@ Live example: https://www.babylonjs-playground.com/#EES9W5
 
 ---
 
-## Multi pick ## 
+# Multi pick # 
 
 We can use `scene.multiPickWithRay` if we don't want that the ray to stop at the first obstacle: 
 
@@ -163,7 +163,7 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 ---
 
-## Picking Ray ## 
+# Picking Ray # 
 
 Another handy feature is the createPickingRay. This special ray is cast from a camera, out to infinity, in the direction of the cursor (relative to the virtual lens). Confusing? Basically think of it as a ray that's cast out of the camera and 'aimed' by the cursor. This is another method for picking objects in your scene. Here's a playground and video to check out on the subject. 
 
@@ -189,7 +189,7 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 ---
 
-## Debugging 
+# Debugging 
 
 It could be tough to understand where a ray starts and is its direction. To help you debug you can then use the RayHelper.
 
@@ -217,17 +217,17 @@ rayHelper.attachToMesh(box, localMeshDirection, localMeshOrigin, length);
 
 https://www.babylonjs-playground.com/#ZHDBJ#48
 
-## Next step
+# Next step
 
 Often it is sufficient to have some 2D shapes in your scene and [**sprites**](/babylon101/Sprites) are next.
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [Mesh Overview](/features/Shapes)
 
-## External
+# External
 
 [Forum Pick with Ray](http://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/)  
 [Forum World Local Ray](http://www.html5gamedevs.com/topic/26602-worldlocalray/)  

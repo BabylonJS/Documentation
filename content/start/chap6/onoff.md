@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## The Switch On Event
+# The Switch On Event
 When we click the screen pointer on the fountain we want it to start. We do this by adding a function to an *onPointerObservable* to deal with a pointer down event that switches the particle system between stop and start.
 
 ```javascript

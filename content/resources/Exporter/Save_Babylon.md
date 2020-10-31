@@ -2,7 +2,7 @@
 
 This is achieved with the [scene serializer](//doc.babylonjs.com/api/classes/babylon.sceneserializer)
 
-## Scene
+# Scene
 
 Include the following code in your project to download your scene
 
@@ -37,7 +37,7 @@ function doDownload(filename, scene) {
 
 * [Playground Example Save Scene](https://www.babylonjs-playground.com/#1AGCWP#1)
 
-## Meshes
+# Meshes
 
 ```javascript
 var objectUrl;

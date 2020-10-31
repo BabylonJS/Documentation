@@ -1,5 +1,5 @@
 # Transformations
-## Baking 
+# Baking 
 Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices and leave world matrix unchanged. This is called baking and, of course, changes the center of transformation of the mesh, and can be useful in the following situations:
 
 - building a set of static geometry
@@ -23,7 +23,7 @@ mesh.bakeTransformIntoVertices(matrix);
 
 Baking using matrices https://www.babylonjs-playground.com/#6AH5EL#1
 
-## Use With Scaling
+# Use With Scaling
 
 When baking scaling the normals are simply scaled in their current direction and so baking a scale can often give unrealistic results for lighting. To correct this normals need to be recomputed. This is illustrated in the following picture: 
 

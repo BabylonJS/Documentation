@@ -1,6 +1,6 @@
 # Dashed Lines
 Creates a contiguous series of dashed line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options properties and you should not change . Any other option will not be changed.
-## MeshBuilder
+# MeshBuilder
 Usage:
 ```javascript
 const options = {
@@ -37,7 +37,7 @@ gapSize = 1000;
 dashSize = 876;
 gapSize = dashSize;
 ```
-### Examples
+## Examples
 non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1  
 non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2  
 non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3  
@@ -51,7 +51,7 @@ dashedlines.color = new BABYLON.Color3(1, 0, 0);
 
 Colored Dashed Lines https://www.babylonjs-playground.com/#TYF5GH#5
 
-## Mesh
+# Mesh
 Usage:
 ```javascript
 const dashedlines = BABYLON.Mesh.CreateDashedLines("dashedLines", vector3 array, dashSize, gapSize, dashNb, scene);

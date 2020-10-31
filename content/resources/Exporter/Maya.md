@@ -1,8 +1,8 @@
 # How To Install the Maya plug-in 
 
-## Installer
+# Installer
 
-### Installing the installer (so meta...)
+## Installing the installer (so meta...)
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
 First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each releases:
@@ -19,7 +19,7 @@ You can nervertheless continue to download by pressing the little arrow and chos
 
 Once downloaded, you can extract the content of the zip in your favorite location.
 
-### Using the installer
+## Using the installer
 Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.png)
@@ -42,7 +42,7 @@ Would you want to upgrade to the latest available pre-release of the exporter pl
 
 Please not that both the software you are trying to install the plugin for should be closed during the installation.
 
-## Manual Install
+# Manual Install
 
 The plug-in is designed for Maya 2017 or later. This guide is about the Windows version (a MacOS version is coming soon). To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
 
@@ -73,10 +73,10 @@ Check _Loaded_ and _Auto load_, and a new tab should appear:
 Congratulations! You did it!
 
 # Dependencies #
-## Visual Studio
+# Visual Studio
 Visual Studio is required to build the Maya2Babylon project from source.
 
-## .NET Framework
+# .NET Framework
 The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers) needs to be installed in order to run the Maya2Babylon plugin properly.
 * Maya2Babylon 2017-2018
    * Requires atleast .NET Framework 4.6.1
@@ -87,13 +87,13 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 * Maya2Babylon 2020
    * Requires atleast .NET Framework 4.6.1
    
-## Other Dependencies
+# Other Dependencies
 * For Maya 2020
    * Maya2Babylon 2020 requires Maya 2020.1 or newer.
 
 # Features  #
 
-## Exported features
+# Exported features
 
 * _Meshes_
     * Visibility
@@ -152,7 +152,7 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
     * Animations: Position, direction
     * Custom attributes
 
-## The exporter window 
+# The exporter window 
 
 When your scene is ready to be exported, click on the __Babylon__ tab on the top menu, and click on __Babylon File Exporter__ to display the exporter window. 
 
@@ -181,25 +181,25 @@ In the _MorphTarget options_ section, the _Export normal_ and _Export tangent_ c
 
 # What you should know
 
-## Camera
+# Camera
 
 If you want to test your scene right away by using the button Export & Run, your scene should have a camera created. Otherwise, the log panel will display the warning “No camera defined” and a default one would be created at runtime but won't be exported in .babylon file.
 
 If you have more than one camera, the first one will be set as activeCamera in Babylon.
 
-## Light
+# Light
 
 If you don’t have any lights in your scene, the exporter will add an ambient light by default. The log panel will display the warning “No light defined – A default ambient light was added for your convenience”. 
 
-## Locator
+# Locator
 
 If you want to have a point in space used only for its transform attributes you can use a Locator. For example, a target camera naturally comes with a locator to indicate the position to look at. They can also be used as parent node when updating the scene at runtime with the Babylon engine.
 
-## Group node
+# Group node
 
 A group node is exported as a dummy, a mesh without vertices, just like a locator. However, only group nodes used as parent for other nodes are exported. If you have an empty group node, you should probably switch to a locator instead or it will be ignored.
 
-## Textures and intermediate nodes
+# Textures and intermediate nodes
 
 Maya provides a large range of tools to manipulate connexions between textures and materials (like the Reverse node). For the most part, only a fileTexture is expected as input to a material.
 
@@ -207,13 +207,13 @@ Currently the following intermediate nodes are supported by the exporter:
 - Projection node which is only considered for the reflected color texture of a standard material. You can choose the projection type between _Spherical_ or _Planar_. If no projection node is provided, the default projection type is _Spherical_ for the reflected color texture.
 - Bump2d node which is automatically created when assigning a file to a bump attribute.
 
-## Textures image format
+# Textures image format
 
 Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are adviced to use those formats for your textures when exporting to Babylon.
 
 Note that the exporter also supports textures with tif and dds formats. But, those textures will be automatically converted to png by the exporter to ensure compatibility with the Babylon engine.
 
-## Physical materials
+# Physical materials
 
 The handling of physical materials is mimic from glTF format. [Detailed explanations here](/resources/Maya_to_glTF#pbr-materials)
 
@@ -225,7 +225,7 @@ Please note that if a map is used for the weight or the roughness parameter, the
 
 In Babylon format, weight is stored in red channel, roughness in green.
 
-## UV sets
+# UV sets
 
 Babylon engine supports only 2 UV sets. In Maya the first UV set, created by default (map1), is used as UV1 in Babylon. The second UV set (map2) is used as UV2. Other UV sets are ignored and UV2 is used instead.
 
@@ -235,7 +235,7 @@ Moreover, Babylon engine supports only 1 UV set per texture. If a single texture
 
 Now that you know all about the exporter features, it’s time to use it! 
 
-## Double sided material
+# Double sided material
 
 To create a double sided material there are different methods, but the only one exported is using two materials and a condition.
 
@@ -247,7 +247,7 @@ When exporting, the geometry of all meshes using a double sided material is dupl
 
 This mean that the exporter is automatically creating a back side. If you already have a back side, you should directly apply a material to it.
 
-## Babylon material attributes
+# Babylon material attributes
 
 Native materials are enhanced to have extra attributes in a dedicated node. A Babylon attribute node is created after the first export using the material.
 
@@ -266,7 +266,7 @@ Most Babylon attributes are common to all materials:
     * _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
     * _Blend_: This how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
-## Custom attributes
+# Custom attributes
 
 You can add custom attributes to Meshes, Materials, Lights and Cameras with the attributes window (_Modify > Add Attribute..._) and it adds them in the extra attributes of those objects.
 
@@ -280,7 +280,7 @@ Following types have particularities you should know:
 - _bool_ : is equal to 0 or 1.
 - _enum_ : corresponds to the index of your Maya enum. 
 
-## Exporter through MEL script
+# Exporter through MEL script
 
 You can use the exporter through MEL script. To do so you need to generate the exporter parameters with the command 'GenerateExportersParameter' and specify a path and the export type.
 

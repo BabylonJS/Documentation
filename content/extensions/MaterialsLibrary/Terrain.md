@@ -2,11 +2,11 @@
 
 ![Terrain Material](/img/extensions/materials/terrain.jpg)
 
-## Playground example
+# Playground example
 
 A Playground example can be found here: [Terrain Playground]( https://www.babylonjs-playground.com/#E6OZX#7)
 
-## Using the terrain material
+# Using the terrain material
 
 The terrain material works with at least 4 textures:
 - 3 Diffuse textures. (required)

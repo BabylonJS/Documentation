@@ -87,7 +87,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
         }
     }
 
-## Mesh Script Components
+# Mesh Script Components
 
 The mesh component script is to be used by **All Non Light And Camera** game objects. The component provides access to the owner mesh via its **BABYLON.AbtractMesh** property:
 
@@ -100,7 +100,7 @@ The mesh component script is to be used by **All Non Light And Camera** game obj
         }
     }
 
-## Light Script Components
+# Light Script Components
 
 The light component script is to be used on **Light** game objects **Only**. The component provides runtime access to the owner light via its **BABYLON.Light** property.
 
@@ -113,7 +113,7 @@ The light component script is to be used on **Light** game objects **Only**. The
         }
     }
 
-## Camera Script Components
+# Camera Script Components
 
 The camera component script is to be used on **Camera** game objects **Only**. The component provides runtime access to the owner camera via its **BABYLON.Camera** property.
 

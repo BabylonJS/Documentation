@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## A Lathe Turned Fountain
+# A Lathe Turned Fountain
 
 Time to introduce another of the many ways to create a mesh, the *CreateLathe* method. We start with a profile for the fountain.
 

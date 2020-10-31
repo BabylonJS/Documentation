@@ -6,7 +6,7 @@ If you ever needed it, this tutorial is made for you.
 
 ![illustration](/img/how_to/highlight-mesh/introduction.png)
 
-## How to use?
+# How to use?
 
 Before anything else, you must ensure that your engine was created with stencil on: 
 
@@ -16,7 +16,7 @@ var engine = new BABYLON.Engine(canvas, true, { stencil: true });
 
 The HighlightLayer relies on stencil to determine which part of the image it needs to paint.
 
-### Default Use Case
+## Default Use Case
 
 In the most basic shape, you only need to instantiate one highlight layer in your scene and add the meshes you want to highlight in it.
 
@@ -30,7 +30,7 @@ The highlight color is driven by the second parameter of the `addMesh` method:
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#1KUJ0A#305)
 
-### Stop highlighting a Mesh
+## Stop highlighting a Mesh
 
 In case one highlighted mesh do not require highlights anymore, you can simply remove it from the layer:
 
@@ -43,7 +43,7 @@ hl.removeMesh(sphere);
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#1KUJ0A#102)
 
-### Emissive Input
+## Emissive Input
 
 If you wish, you could also use the emissive texture as a source for the highlight color. Simply pass true as the third parameter of the add mesh method.
 
@@ -55,9 +55,9 @@ hl1.addMesh(sphere, BABYLON.Color3.Black(), true);
 
 You can notice here that one side of the sphere is glowing in yellow whereas the other one is grey. The color is not uniform.
 
-## Going further
+# Going further
 
-### Overlapping Highlights
+## Overlapping Highlights
 
 The first thing you will probably notice is the fact that overlapping highlighted meshes are not showing highlights in common areas.
 
@@ -82,7 +82,7 @@ hl2.addMesh(ground, BABYLON.Color3.Red());
 
 [**Overlapping Demo Scene**]( https://www.babylonjs-playground.com/#1KUJ0A#2)
 
-### Blur Size
+## Blur Size
 
 The second ask you will probably have is the ability to animate the blur size of the highlight. You can dynamically change it at run time through the blur size property of the layer:
 
@@ -102,7 +102,7 @@ scene.registerBeforeRender(() => {
 
 [**Blur Size Demo Scene**]( https://www.babylonjs-playground.com/#1KUJ0A#4)
 
-### Inner vs Outer Glow 
+## Inner vs Outer Glow 
 
 Finally, you can easily enable/disable inner and outer glow on the highlight layer.
 
@@ -121,7 +121,7 @@ hl2.innerGlow = false;
 
 You can notice on the previous scene the white glowing only inside of the sphere and the red only outside of the plane.
 
-### Exclude mesh
+## Exclude mesh
 
 Depending on your scene, transparent meshes may not render correctly with other highlighted meshes:
 
@@ -135,7 +135,7 @@ hl.addExcludedMesh(skybox1);
 
 [**Fixed transparency Scene**]( https://www.babylonjs-playground.com/#2FFOYQ#7)
 
-### Multi Camera
+## Multi Camera
 
 By default, the highlight layer will apply on all active cameras but it creates extra processing on the camera it is not needed.
 
@@ -148,13 +148,13 @@ hl1.addMesh(sphere, BABYLON.Color3.Green());
 
 [**Multi Camera Scene**]( https://www.babylonjs-playground.com/#CDHKK#7)
 
-### Rendering Groups
+## Rendering Groups
 
 If you rely on rendering groups in your application, be mindful that the highlights requires stencil and depth info of your scene to work accurately.
 
 So you could disable the clear between rendering groups with the command: ```scene.setRenderingAutoClearDepthStencil(1, false, false)``` where the first parameter is the rendering group id, the second to prevent automatically clearing depth between groups and the last to preven automatically clearing stencil information between groups.
 
-## Options
+# Options
 
 The available members of the option object are:
 
@@ -174,10 +174,10 @@ var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: myCamera });
 
 # Further Reading
 
-## How To
+# How To
 
 - [How To Make a Mesh Glow](/how_to/glow_layer)
 
-## API
+# API
 
 - [HighlightLayer](/api/classes/babylon.highlightlayer)

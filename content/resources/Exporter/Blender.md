@@ -6,7 +6,7 @@ Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or bel
 
 An extension named [Tower of Babel](https://github.com/BabylonJS/Extensions/tree/master/QueuedInterpolation/Blender) can also be used as exporter. It exports JavaScript modules with in-line geometry and simplifies the loading process. See its readme or that of the [QueuedInterpolation](https://github.com/BabylonJS/Extensions/tree/master/QueuedInterpolation) extension, which it is part of, to know more about its functionalities, and access its proper documentation.
 
-## Installation
+# Installation
 
 This add-on use the standard Blender installation procedure:
 
@@ -21,9 +21,9 @@ This add-on use the standard Blender installation procedure:
 
 ![blender user preferences](img/exporters/blender/Blender2BabylonJS-installation.png)
 
-## Features:
+# Features:
 
-### Scene
+## Scene
 
 ![Blender scene properties panel](img/exporters/blender/scene/scene-properties-panel.png)
 
@@ -34,11 +34,11 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### World
+## World
 
 ![Blender world properties panel](img/exporters/blender/world/world-properties-panel.png)
 
-#### Blender Render
+### Blender Render
 
 | Blender | [BJS equivalent](/api/classes/babylon.scene) |
 |---|---|
@@ -47,7 +47,7 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Object
+## Object
 
 ![Blender object properties panel](img/exporters/blender/object/object-properties-panel.png)
 
@@ -59,7 +59,7 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Constraints
+## Constraints
 
 ![Blender constraints properties panel](img/exporters/blender/constraints/constraints-properties-panel.png)
 
@@ -69,7 +69,7 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Cameras
+## Cameras
 
 ![Blender cameras properties panel](img/exporters/blender/cameras/cameras-properties-panel.png)
 
@@ -80,7 +80,7 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Lights
+## Lights
 
 ![Blender lights properties panel](img/exporters/blender/lights/lights-properties-panel.png)
 
@@ -90,7 +90,7 @@ This add-on use the standard Blender installation procedure:
 | Spot Shape</br>(only available when light type is Spot)</br>![spot-shape](img/exporters/blender/lights/spot-shape.png) | <ul><li>Size: Angle</li><li>Blend: value &#42; 2 = exponent</li></ul> |
 | Exporter panel</br>![exporter-lights-options](img/exporters/blender/lights/exporter-lights-options.png) | <ul><li>Shadow Map (only for directional lights):<ul><li>None</li><li>Standard</li><li>Poisson</li><li>ESM</li><li>Blur ESM</li></ul></li></ul> |
 
-### Meshes
+## Meshes
 
 ![Blender meshes properties panel](img/exporters/blender/meshes/meshes-properties-panel.png)
 
@@ -103,11 +103,11 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Materials
+## Materials
 
 ![Blender materials properties panel](img/exporters/blender/materials/materials-properties-panel.png)
 
-#### General
+### General
 
 * as you can notice in BJS mesh panel, materials will be suffixed by *.babylon* filename,
 * other options can be found on this mesh panel, like max simultaneous lights, texture size for baking, etc,
@@ -115,7 +115,7 @@ This add-on use the standard Blender installation procedure:
     * cycles render is the current render engine,
     * procedural textures are used.
 
-#### Blender Render
+### Blender Render
 
 | Blender | [BJS equivalent](/api/classes/babylon.standardmaterial) |
 |---|---|
@@ -125,7 +125,7 @@ This add-on use the standard Blender installation procedure:
 | Shading</br>![shading](img/exporters/blender/materials/shading.png) | <ul><li>Emit: diffuse color \* value</li><li>Ambient: diffuse color \* value</li></ul> |
 | Transparency</br>![transparency](img/exporters/blender/materials/transparency.png) | <ul><li>when enabled, set alpha value under *Z Transparency*</li></ul> |
 
-##### Specials
+#### Specials
 
 * you can temporary switch to Blender Game to gain access to some materials settings:
 
@@ -135,7 +135,7 @@ This add-on use the standard Blender installation procedure:
 |---|---|
 | Game Settings</br>![game-settings](img/exporters/blender/materials/game-settings.png) | <ul><li>Backface culling: true by default</li><li>Face Orientation:<ul><li>Normal</li><li>Billboard</li></ul></li></ul> |
 
-#### Cycles Render
+### Cycles Render
 
 | Blender | BJS equivalent |
 |---|---|
@@ -143,16 +143,16 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-### Textures
+## Textures
 
 ![Blender textures properties panel](img/exporters/blender/textures/textures-properties-panel.png)
 
-#### General
+### General
 
 * Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
 * about automatic baking, see [Materials](//doc.babylonjs.com/exporters/blender#materials).
 
-#### Blender Render
+### Blender Render
 
 | Blender | BJS equivalent |
 |---|---|
@@ -166,16 +166,16 @@ This add-on use the standard Blender installation procedure:
 
 ---
 
-## Animation
+# Animation
 
 (*Note: this part is under construction. You can also check [this forum thread](http://www.html5gamedevs.com/topic/36596-blender-exporter-doc-needs-feedback/) where some informations are centralised before it is written here.*)
 
-### Commons & Good practices
+## Commons & Good practices
 
 - you should export one *.babylon* file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](//doc.babylonjs.com/exporters/blender_tips#Animation) for a basic workflow.
 - be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
 
-### Classic Animations
+## Classic Animations
 
 You will find an example on this [.zip archive](//doc.babylonjs.com/examples/blender/animations/babylon-format.zip). 3D sources files are on `sources` folder, BJS app is on `BJS` folder.
 
@@ -201,13 +201,13 @@ BABYLON.SceneLoader.ImportMesh("", "", "02.classic-animation.babylon", scene, fu
 
 Now, you already have a basic scene with animations autoplaying in it.
 
-### Armatures
+## Armatures
 
 - you can use any Blender rotation mode you want, the animation will be kind of baked during the export
 
 ---
 
-## Try it out!
+# Try it out!
 
 Once your scene is exported, you have multiple solutions to test it:
 
@@ -216,9 +216,9 @@ Once your scene is exported, you have multiple solutions to test it:
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
 - script your own app using the [loader](/how_to/load_from_any_file_type)
 
-### Example
+## Example
 
-#### Simple scene
+### Simple scene
 
 Let's say you have exported your first scene. In this example we will use [blend files of the BJS logo](https://github.com/BabylonJS/MeshesLibrary/tree/master/BabylonJS-logo/v3):
 
@@ -291,4 +291,4 @@ Let's say you have exported your first scene. In this example we will use [blend
 
 ![blender babylon scene loaded in BJS](img/exporters/blender/babylon/babylon-loaded.png)
 
-#### Animated object
+### Animated object

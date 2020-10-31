@@ -28,7 +28,7 @@ New properties can be initialised.
 
 
 
-### Initialising Particles
+## Initialising Particles
 
 Using `addPoints` particle properties can be set in the passed function. The `addSurfacePoints` and `addVolumePoints` methods obviously set the position and color properties  of the particles but you may still want to set the initial values of other particle properties.
 
@@ -50,7 +50,7 @@ pcs.buildMeshAsync().then(() => {
 });
 ```
 
-### Updating Particles
+## Updating Particles
 
 When any appropriate particle properties are initiated the the `updateParticles` method can be used. Unlike `initParticles` the function is called by `setParticles` and already passes a particle as an argument.  The method `setParticles` will only execute after the PCS mesh has been built and so may safely be placed inside a render loop to produce an animation. For example
 
@@ -83,7 +83,7 @@ This playground animates the mesh not the particles.
 This playground loads meshes from a file, converts to particles and animates
 * [Playground Example - Loaded Mesh Animation](https://www.babylonjs-playground.com/#UI95UC#17)
 
-### UVs
+## UVs
 
 While setting and changing particle colors is straightforward doing this for UVs is a little more complex. Using `BABYLON.PointColor.UV` as a parameter within `addSurfacepoints` or `addVolumePoints` will set the UVs automatically for you based on the passed mesh.
 
@@ -116,7 +116,7 @@ It is possible to use a texture atlas but you need to customize and calculate th
 * [Playground Example - UV with Add Points](https://www.babylonjs-playground.com/#UI95UC#23)
 * [Playground Example - UV with Texture Atlas](https://www.babylonjs-playground.com/#UI95UC#24)
 
-### Recycling Particles
+## Recycling Particles
 
 You can write your own code to recycle particles using `recycleParticle` which can be called from within `updateParticle`. For example,
 
@@ -138,7 +138,7 @@ pcs.updateParticle = function(particle) {
 
 * [Playground Example - Recycle Animation](https://www.babylonjs-playground.com/#UI95UC#19)
 
-### Particle Parenting  
+## Particle Parenting  
 
 Each particle can be given another particle as a parent.  
 The parent must be created before the child particle. This means the parent has to have a lower index Id (`particle.idx`) than the current particle. So the first particle in the pool (`idx = 0`) can't have a parent. To give a parent to a particle, just set its property `parentId` to the parent index Id value. 
@@ -162,7 +162,7 @@ if (particle.idx > 0) {
 ```
  * [Playground Example - Parent Animation](https://www.babylonjs-playground.com/#UI95UC#18)
 
-### Particle Intersections
+## Particle Intersections
      
 The PCS provides a simple way to deal with intersections between a particle and other meshes. As this feature consumes more memory and CPU do not include it unless necessary.
 

@@ -24,7 +24,7 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
 });
 ```
 
-## Caveats
+# Caveats
 - The HTTP server hosting the asset must support range requests.
 - The LODs in the GLB should be authored with a contiguous range per LOD for maximum efficiency.
 
@@ -53,7 +53,7 @@ BABYLON.SceneLoader.AppendAsync(url, undefined, scene, function (event) {
 }, ".glb")
 ```
 
-## Key Notes
+# Key Notes
 - Gzipped content hosted on server often results in `lengthComputable` equaling `false` which in turn causes the `total` to be zero. When this happens, the only choices are to not show the progress or show the number of bytes downloaded instead.
 - When using HTTP range requests with a GLB, the first thing that is downloaded is the GLB header which downloads very quickly and is almost always 20 bytes loaded and 20 bytes total when the progress event fires. Ignore it by checking when `total` is exactly 20.
 

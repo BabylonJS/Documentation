@@ -1,6 +1,6 @@
 # ShadowOnly material
 
-## General
+# General
 
 ![Screenshot](/img/extensions/materials/shadowOnly.jpg)
 
@@ -10,7 +10,7 @@ ShadowOnly material can be found here: [https://github.com/BabylonJS/Babylon.js/
 
 A demo can be found here: https://www.babylonjs-playground.com/#1KF7V1
 
-## Using the ShadowOnly material
+# Using the ShadowOnly material
 
 ShadowOnly material is dead simple to use. Just apply it as material to any mesh where you want to display only shadow:
 

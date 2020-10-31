@@ -16,7 +16,7 @@ This is what a depth buffer looks like for a scene which contains only opaque me
 
 # Rendering Order
 
-## General Order
+# General Order
 
 Before actually drawing meshes on the screen, BabylonJS puts them in the following categories, which are presented in the order in which they are drawn:
 1. **Depth pre-pass meshes**
@@ -33,7 +33,7 @@ Before actually drawing meshes on the screen, BabylonJS puts them in the followi
 
 Categories 4 and 5 should be self-explanatory, we won't discuss them further.
 
-## Rendering Groups
+# Rendering Groups
 
 Renderable objects can be organized into rendering groups, which act as layers. Layers are rendered in ascending order by ID, starting with the default one (which has the ID of 0). Within each rendering group, the "General Order" above will also be used.
 
@@ -43,7 +43,7 @@ This property exists on meshes, particle systems and sprite managers.
 
 By default, there are 4 rendering groups in total, meaning that the only valid IDs are 0, 1, 2 and 3. This can be increased by setting the static property `BABYLON.RenderingManager.MAX_RENDERINGGROUPS` to the max ID you'd like (ex. set to 8 to support 7 rendering groups).
 
-## Alpha Index
+# Alpha Index
 
 Meshes have another property that has an influence on the rendering order: `.alphaIndex`
 
@@ -61,22 +61,22 @@ Keep in mind that this property works only for alpha-blended mesh, and has absol
 
 How your meshes are categorized may be very important for the final aspect of your scene. Let's take a closer look at the way categories 1 to 4 are defined.
 
-## Depth pre-pass meshes
+# Depth pre-pass meshes
 
 The depth pre-pass meshes define an additional rendering pass for meshes. During this pass, meshes are only rendered to depth buffer. The depth pre-pass meshes are not exclusive. A mesh can have a depth pre-pass and an opaque or alpha blend pass. To enable the depth pre-pass for a mesh, just set `mesh.material.needDepthPrePass = true`.
 The goal is either to optimize the scene by rendering meshes to the depth buffer to reduce overdraw or to help reducing alpha blending sorting issues.
 
-## Opaque Meshes
+# Opaque Meshes
 
 These will be the easiest to render: their polygons are fully drawn on screen with their colors and textures. A depth buffer will be used to make sure nothing is drawn over something that is closer to the camera.
 
-## Alpha Tested Meshes
+# Alpha Tested Meshes
 
 Same as opaque meshes, except that some parts of these meshes can be defined as completely transparent. Alpha test means that each pixel of the mesh can be either opaque (and then drawn on screen and in the depth buffer) or transparent, which means the pixel is completely discarded. Although very efficient, this type of render usually produces aliased borders and does not allow for smooth transparency effects.
 
 By default, a pixel is considered transparent if its alpha value is < 0.4, and opaque if not. For the `StandardMaterial` and `PBR` materials, you can change the `0.4` value by updating the `mesh.material.alphaCutOff` property.
 
-## Alpha Blended Meshes
+# Alpha Blended Meshes
 
 These meshes have translucent parts that may have an alpha value of 0.0 (completely transparent) to 1.0 (completely opaque). Their color is blended with what's behind them to reflect that. These meshes are sorted by depth, based on the center of their bounding sphere. This does not prevent some problems when several alpha-blended meshes overlap.
 
@@ -135,7 +135,7 @@ You're welcome to use this [playground example](https://www.babylonjs-playground
 
 It's important to note that these categories are evaluated from top to bottom, so if a mesh is considered as an alpha blended mesh, it can't be alpha tested at the same time, which is something you may need/want to do nonetheless! Enter the `transparencyMode` property.
 
-## The transparencyMode property
+# The transparencyMode property
 
 This is a property on `StandardMaterial` and `PBR` materials. It exists for PBR materials since they were introduced, and since v4.1 for `StandardMaterial`.
 
@@ -207,6 +207,6 @@ https://playground.babylonjs.com/#FWKUY0#1
 
 # Further Reading
 
-## How To
+# How To
 
 - [Use Facet Data](/how_to/how_to_use_facetdata)

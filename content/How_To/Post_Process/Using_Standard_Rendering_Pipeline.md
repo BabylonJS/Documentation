@@ -28,7 +28,7 @@ var pipeline = new BABYLON.StandardRenderingPipeline(
 
 # Customizing
 
-## Bright threshold
+# Bright threshold
 Highlighted surfaces are following a configured threshold which is a number.
 Each pixel intensity above the given threshold is creating lens imperfections.
 Just set the ".brightThreshold" property:
@@ -36,13 +36,13 @@ Just set the ".brightThreshold" property:
 pipeline.brightThreshold = 0.8;
 ```
 
-## Change exposure
+# Change exposure
 To globally intensify the highlighted surfaces result (before it is merged with the final scene color), you can change the ".exposure" property:
 ```
 pipeline.exposure = 1.0; // which multiplies the final scene color with the highlighted surfaces result
 ```
 
-## Blur width
+# Blur width
 The blur width (or kernel size) can be customized and is by default equal to 512
 ```
 pipeline.exposure = 128; // Blur is less expansive and is less spreaded
@@ -61,7 +61,7 @@ A dirty lens mask should look like:
 ![DirtyLensTexture](/img/how_to/advanced/standardRenderingPipeline/lensdirt.jpg)
 
 # Setting up the pseudo lens flare
-## Setting up textures
+# Setting up textures
 First, to activate the pseudo lens flare effect, just set the ".LensFlareEnabled" to true:
 ```
 // Activating pseudo lens flare effect
@@ -100,7 +100,7 @@ Color texture like:
 
 ![LensColorTexture](/img/how_to/advanced/standardRenderingPipeline/lenscolor.png)
 
-## Setting up parameters
+# Setting up parameters
 Once you added the textures, you can customize some parameters that will allow you to customize the final result:
 
 The strength:
@@ -129,7 +129,7 @@ The standard rendering pipeline now allows you to compute luminance adaptation. 
 it means that if you focus on a higly brighted zone, the camera will adapt itself. In another words, this technique allows you to create
 glare effects and it is also linked to what we call "*HDR*"
 
-## Customizing luminance adaptation
+# Customizing luminance adaptation
 First, let's activate the luminance adatation:
 
 ```
@@ -154,14 +154,14 @@ pipeline.hdrIncreaseRate = 0.5;
 
 # Setting up the depth of field
 
-## Activating the depth of field
+# Activating the depth of field
 To active the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
 ```
 // Active depth of field
 pipeline.DepthOfFieldEnabled = true;
 ```
 
-## Customizing depth of field distance
+# Customizing depth of field distance
 To manipulate depth of field, you can set the distance to blur by setting the ".depthOfFieldDistance" property. This property represents the distance to focus on:
 ```
 // Focus on 20 units
@@ -177,7 +177,7 @@ As a demo, you have a look at https://www.youtube.com/watch?v=14Ejsj1_ywM
 
 Motion Blur simply tries to blur the overall image when the camera moves fast.
 
-## Customizing Motion Blur
+# Customizing Motion Blur
 ```
 // Enable motion blur in the pipeline
 pipeline.MotionBlurEnabled = true;
@@ -199,7 +199,7 @@ Volumetric Lights, as seen in the playground available in introduction can be co
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UKdWPj7VRu0" frameborder="0" allowfullscreen></iframe>
 
-## Customizing volumetric lights
+# Customizing volumetric lights
 ```
 // Enable Volumetric Lights computation in the pipeline
 pipeline.VLSEnabled = true;

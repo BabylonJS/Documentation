@@ -1,15 +1,15 @@
 # BabylonJS in an Ionic Angular app.
-## A brief example showing how to use BabylonJS in an Ionic 2 application ##
+# A brief example showing how to use BabylonJS in an Ionic 2 application ##
 
 For anyone interested, it is posible to integrate BabylonJS in an Ionic/Cordova app in just a few easy steps. The following is just a narrative of how I did it, since it's been a trial and error thing probably there'll be a better way of doing it, when in doubt I've gone for simplicity rather than optimisation. 
 
-## What you need
+# What you need
 
 First, you need node/npm installed. For more on that look [here](https://nodejs.org/en/).
 
 Second, and quite obviously, a working Ionic environment. How to do this is very well documented by the Ionic people so, if you haven't done it before have a look [there](https://ionicframework.com/docs/intro/tutorial/).
 
-## The process
+# The process
 
 1) Start a new Ionic project, I used the blank template, which provides a basic scaffolding, and removed all unnecessary stuff.
 
@@ -52,7 +52,7 @@ All the values are stored in the Config service, that makes them available to an
 The whole scene is created here, note that we are using the two providers that were previously generated.  
 The ViewChild decorator is needed in order to have access to the canvas element, think of it as an Angular equivalent of good old 'document.getElementById' method.  
 
-## A few notes on the code
+# A few notes on the code
 
 The app itself is a very basic no frills dice roller, but there are a few things worth mentioning:
 * We are using Ionic components to provide a basic user interface, with a header and a couple FAB buttons to access the configuration screen and roll the dice. See the methods handling the button events.
@@ -60,7 +60,7 @@ The app itself is a very basic no frills dice roller, but there are a few things
 The second fires every time the view is going to become active, it checks for possible changes in the configuration and modifies the vertex data to point to the correct coordinates if necessary.  
 * Ionic, by default, caches the views. so anything included in the `ionViewDidLoad` hook will run only once, so the methods createScene() and animate() are called only once. Caching can be disabled, in that case this method will fire every time the view is loaded, and the scene will be generated as new.
 
-## Conclusion
+# Conclusion
 
 Integrating BabylonJS in an Ionic application was easier than it seemed at first, once you get to know a couple of thing of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
 However, despite the improvements introduced to Angular, the overhead of having both Ionic and BabylonJS together might make performance a bit sluggish. Maybe it's not the best way of implementing a pure 3d action packed game.  

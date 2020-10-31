@@ -1,10 +1,10 @@
-## Introduction
+# Introduction
 
 Babylon.js v3.1 introduced a new feature: Occlusion Queries.
 Occlusion Queries detect whether a Mesh is visible in the current scene or not, and based on that the Mesh get drawn or not. Occlusion Queries is useful when you have an expensive object on the scene and you want to make sure that it will get drawn if it is visible to the camera and it is not behind any opaque object.
 BabylonJs provides an implementation for Occlusion Queries using property occlusionType in AbstractMesh Class
 
-## How Occlusion Queries works behind scenes
+# How Occlusion Queries works behind scenes
 
 Babylon.js engine draw a light transparent bounding box on the targeted Mesh before drawing the object and create a query to check with WebGl engine if the bounding box is visible or not. if the box is visible, the object gets drawn if not the object is not drawn, Occlusion Queries is asynchronous and usually the query result of the object is not available in the current frame and because of this the object is drawn based on a query result of previous frame, the user wouldn't notice the difference unless your FPS is too low.
 

@@ -1,6 +1,6 @@
 # Apply Camera Behaviors
 
-## Bouncing behavior
+# Bouncing behavior
 
 The bouncing behavior (`BABYLON.BouncingBehavior`) is designed to produce a small bouncing effect when an **ArcRotateCamera** reaches the lowerRadiusLimit or the upperRadiusLimit.
 
@@ -19,7 +19,7 @@ camera.useBouncingBehavior = true;
 
 You can find a live demo here: https://www.babylonjs-playground.com/#6FBD14
 
-## AutoRotation Behavior
+# AutoRotation Behavior
 
 The autoRotation behavior (`BABYLON.AutoRotationBehavior`) is designed to create a smooth rotation of an **ArcRotateCamera** when there is no user interaction.
 
@@ -38,7 +38,7 @@ camera.useAutoRotationBehavior = true;
 
 You can find a live demo here: https://www.babylonjs-playground.com/#6FBD14#1
 
-## Framing Behavior
+# Framing Behavior
 
 The framing behavior (`BABYLON.FramingBehavior`) is designed to automatically position an **ArcRotateCamera** when its target is set to a mesh.
 It is also useful if you want to prevent the camera to go under a virtual horizontal plane.

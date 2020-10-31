@@ -11,7 +11,7 @@ The dedicated SPS works the same way : it renders the only visible objects from 
 
 Both the SPMap and the SPS are then passed to the terrain constructor as parameters.  
 
-## The SPMap
+# The SPMap
 
 The SPMap is simply an array of arrays.  
 Each object type in the map (example: house, tree) is given an array.  
@@ -44,7 +44,7 @@ Assuming that _(Xmin, Zmin)_ and _(Xmax, Zmax)_ are respectively the minimum and
 
 Note : the object coordinates can be different from the map vertex coordinates : the objects don't need to be on map vertex locations. They even don't need to be on the ground, they can be in the air (clouds) or inside or through the ground surface (tunnels).  
 
-## The SPS
+# The SPS
 
 The SPS passed to the Dynamic Terrain will animate and recycle its solid particles on the terrain according to the SPMap data.  
 The SPS doesn't need to hold as many particles as the object number in the map. There can be dozens thousands objects in the SPMap and only hundreds or few thousands particles in the SPS because it re-uses the invisible objects in order to render only the visible ones.  
@@ -77,7 +77,7 @@ And that's all.
 If we created more object types than the particle types, they will simply be ignored.  
 If we create less particle types than the declared object types in the map, they will also be ignored.  
 
-## The Dynamic Terrain with the SPMap
+# The Dynamic Terrain with the SPMap
 Now we have built a SPS and a SPMap, we can just pass them to the DynamicTerrain constructor besides the usual data map.  
 We use the parameter `SPmapData` and `sps` :
 ```javascript
@@ -95,12 +95,12 @@ We use the parameter `SPmapData` and `sps` :
 
 Now, each time that the terrain is updated and that it covers a part of map containing objects, the SPS is updated and the objects are rendered by solid particles.     
 
-## Playground Example
+# Playground Example
 
 Using only the solid particle system 3000 particles are used to render dozens of thousands objects from the map. A free camera is used.   
 * [Playground Example](https://www.babylonjs-playground.com/#FJNR5#264) 
 
-## Cautionary Note
+# Cautionary Note
 The SPMap feature seems to not work correctly with the LOD in some cases.
 
 # Object Colors and Textures

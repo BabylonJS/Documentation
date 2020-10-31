@@ -1,6 +1,6 @@
 # Babylon.js inside React Native.
 
-## The Possibilities
+# The Possibilities
 
 Using 'webview' it is possible to run the Babylon.js Engine inside React Native on Windows and iOS with Android still under test.
 

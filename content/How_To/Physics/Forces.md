@@ -12,13 +12,13 @@ See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an o
 
 
 
-## Body
+# Body
 
 Solids in physics are often referred to as `bodies`. In the simulation bodies are made up of two parts, the rendered object and the physics object. The rendered object is a mesh and the physics object, which holds the data about the body, is called a physics imposter. 
 
 **Note:** a box imposter is often preferable when the body is a plane.
 
-## Mass
+# Mass
 
 This is the amount of matter in the body and is set when the imposter is formed. Static bodies should have a mass of zero.
 
@@ -26,11 +26,11 @@ This is the amount of matter in the body and is set when the imposter is formed.
 new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 2 }, scene);
 ```
 
-## Forces
+# Forces
 
 These are gravity, impulses, friction and applied forces.
 
-### Gravity 
+## Gravity 
 
 In the simulations gravity is a universal force applied throughout the time of the simulation producing a gravitational acceleration. Setting a Vector3 for gravity is in fact setting the gravitational acceleration. The default value being `(0, -9.807, 0)`. Since it is a universal force it is set in the physics' engine either when it is enabled or later. 
 
@@ -59,7 +59,7 @@ physicsEngine.setGravity(new BABYLON.Vector3(0, -5, 0))
 
 *[Playground Example - Gravity](https://www.babylonjs-playground.com/#YUNAST#3)
 
-### Impulses
+## Impulses
 
 An impulse is a force applied to a body in an instance which will change the current linear velocity and/or the angular velocity of the body. Impulses acting at the center of mass of the body will not change the angular velocity.  Unless other forces act on it the body will continue with the new velocities.
 
@@ -81,7 +81,7 @@ The following playground is initially set up to apply an impulse at the center o
 
 * [Playground Example - Impulses](https://www.babylonjs-playground.com/#RHBQY9#12)
 
-### Friction
+## Friction
 
 Friction is a property of a body and is set in the imposter and provides a continuous force between two bodies while they are in contact. You can set friction when creating an imposter and also get and set it later.
 
@@ -98,7 +98,7 @@ Re-visiting the following playground and setting friction on **both** bodies and
 
 * [Playground Example - Impulses](https://www.babylonjs-playground.com/#RHBQY9#12)
 
-### Applied Forces
+## Applied Forces
 
 An applied force will only affect the body over the time period that it is applied which is the duration of the frame interval. For zero friction a sufficiently large force (to overcome inertia) applied in the first frame interval will set the body in motion. While `Cannon.js` and `Ammo.js` have a native apply force method `Oimo.js` does not and so an applying force is replaced (internally in Babylon.js) with the apply impulse method so a smaller value has a greater effect. 
 
@@ -118,7 +118,7 @@ The following playground initially set up with zero friction and to apply an imp
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Joints](/how_to/joints)   
@@ -126,10 +126,10 @@ The following playground initially set up with zero friction and to apply an imp
 [How To Create Compound Bodies](/how_to/compounds)  
 [How To Create Soft Bodies](/how_to/soft_bodies)
 
-## Mid Level - L2
+# Mid Level - L2
 
 [How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
  
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)

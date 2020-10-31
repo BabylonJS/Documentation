@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Have a Look Around
+# Have a Look Around
 Currently we are using the *ArcRotateCamera* which has us orbiting the village world from a distance. How about a view from inside the village? Let's parent the camera to the character walking around the village and with a few adjustments to values look around from over his shoulder. The creation of the *ArcRotateCamera* has this form,
 
 ```javascript

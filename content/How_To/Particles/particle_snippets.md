@@ -1,4 +1,4 @@
-## Snippet server
+# Snippet server
 Starting with Babylon.js v4.2, you can save, load and edit sprite managers using the Inspector. These code snippets are saved on the Babylon.js snippet server. Make a note of the snippet Id shown in when you save it.
 
 ![Snippet](/img/how_to/Particles/snippet_screen.png)

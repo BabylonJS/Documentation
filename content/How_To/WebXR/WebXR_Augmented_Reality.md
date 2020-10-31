@@ -1,14 +1,14 @@
-## A bit about augmented reality
+# A bit about augmented reality
 
 The idea behind augmented reality is simple - show the real world, but add information on top of it. As opposed to virtual reality where you are fully immersed in a different scene and have no actual contact to the real world, augmented reality lets you interact with it.
 
-## Getting started with Augmented reality
+# Getting started with Augmented reality
 
-### WebXR and AR
+## WebXR and AR
 
 Augmented reality using Babylon.js will be heavily using WebXR, so I will recommend you to first start with the [getting started with WebXR](./Introduction_To_WebXR) guide. Most of the information that is valid for immersive VR sessions is also valid for immersive AR sessions. The few main differences between the two will be explained here.
 
-### Supported devices
+## Supported devices
 
 Immersive AR sessions are (currently) supported on two types of devices - mobile phones and firefox reality on the Hololens.
 
@@ -18,7 +18,7 @@ Hololens 2 supports WebXR and immersive AR sessions when using [Firefox Reality 
 
 To check your scene on a desktop you can use the WebXR emulator, which supports a set of features of AR and lets you enter an immersive AR session when choosing the mobile mode.
 
-### Simple scene in immersive AR
+## Simple scene in immersive AR
 
 The simplest immersive AR sample is a port of an immersive VR scene:
 
@@ -57,7 +57,7 @@ Playground for a [simple immersive AR scene](https://www.babylonjs-playground.co
 
 Notice that no environment was created. As opposed to immersive VR sessions, AR doesn't require a skybox or ground. If you want to define ground and remove it when entering AR (for example if you develop an experience for both desktop and AR) you can use the background remover feature, defined later in this page.
 
-## Features
+# Features
 
 Some features require the Incubation flag in the latest chrome canary. Visit chrome://flags/ and enable WebXR incubation.
 
@@ -83,7 +83,7 @@ const xr = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-### Hit test
+## Hit test
 
 Hit-test is used for sending a ray into the real world and receiving information about intersection in space. You can read about it in the [hit test w3c draft](https://immersive-web.github.io/hit-test/). Think about a ray that is broadcasted from your phone's screen towards to object you are looking for. If the device's AR capabilities allows it, it will let you know the position and orientation of the point relative to you.
 
@@ -163,7 +163,7 @@ This will show the dot only if hit-test worked, and will hide it if it didn't. T
 
 A simple example for [WebXR hit-test using Babylon.js.](https://playground.babylonjs.com/pg/XWBES1) Open this with your AR device (probably your android smartphone) and point the device at a textured plane (like your floor or door). The marker will be shown at the right location if/when the system scanned the plane correctly. 
 
-### Anchors
+## Anchors
 
 Anchors are tracked points in space that the system will constantly update as you continue scanning your environment. The points' transformation will be constantly updated by the underlying system. You can read more about anchors at the [WebXR anchors module](https://immersive-web.github.io/anchors/) w3c proposal.
 
@@ -274,7 +274,7 @@ The mesh will now be tracked by the system and will be located at the requested 
 
 You might ask yourself why use the anchor system with hit-test results, as hit-test results are returned by the system with a position defined by the device. Setting the mesh at the hit-test's location will work just fine. The difference is that the system might update the information it has about this position - maybe it found out the plane is at a different transformation, maybe it updated its position in space. Using the anchor system will keep the transformation updated even when the system updated its knowledge of the space.
 
-### Plane detection
+## Plane detection
 
 Your device is (usually) capable of detecting plane geometries in the real world. To read more about plane detection go to the [Plane detection explainer](https://github.com/immersive-web/real-world-geometry/blob/master/plane-detection-explainer.md). 
 
@@ -360,7 +360,7 @@ var polygon = polygon_triangulation.build(false, 0.01);
 A simple usecase for planes is showing them in your scene using polygons. An example for that can be found at the [WebXR Plane Detection demo](https://playground.babylonjs.com/pg/98TM63)
 
 
-### Background remover
+## Background remover
 
 When in AR you want to avoid environment meshes like a skybox and a ground (unless it was your goal to keep them). If you are creating a scene that should work on both regular devices and in AR, you will want the ability to disable certain meshes when entering AR, and re-enabling them when leaving AR. This module does exactly that. It receives a list of meshes, and disables/enables them when needed.
 
@@ -412,7 +412,7 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 });
 ```
 
-## Demos
+# Demos
 
 * [XR measurement tape](https://playground.babylonjs.com/#GG06BQ#3) using hit-test and anchors
 * [Place a mesh in space](https://playground.babylonjs.com/#KDWCZY) using hit-test and anchors (including shadows on planes detected)

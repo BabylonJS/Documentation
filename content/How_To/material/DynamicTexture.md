@@ -6,7 +6,7 @@ A dynamic texture works by creating a canvas onto which you can draw using all t
 
 ![dynamic texture](/img/how_to/dyntext.png)
 
-## Creating and Applying a Dynamic Texture
+# Creating and Applying a Dynamic Texture
 
 This is simply achieved using the `dynamicTexture` function with just three parameters,
 
@@ -29,7 +29,7 @@ myMaterial.diffuseTexture = myDynamicTexture;
 mesh.material = myMaterial;
 ```
 
-## Writing Text
+# Writing Text
 
 A `drawText` method is available so that text can be written directly onto the dynamic texture.
 
@@ -47,7 +47,7 @@ Here are the parameters:
 
 * [Playground Example DrawText](https://www.babylonjs-playground.com/#5ZCGRM#2)
 
-## Canvas Methods
+# Canvas Methods
 
 You can obtain the canvas context using
 
@@ -56,7 +56,7 @@ var ctx = myDynamicTexture.getContext();
 ```
 exposing all the possibilities of the HTML5 canvas element. 
 
-### Drawing
+## Drawing
 As an example, drawing using a quadratic curve
 
 ```javascript
@@ -81,7 +81,7 @@ myDynamicTexture.update();
 
 * [Playground Example Drawing](https://www.babylonjs-playground.com/#5ZCGRM#3)
 
-### Images
+## Images
 
 Images can be added to fill part or the whole of the canvas using the `drawImage` method. Remember that you will have to wait for the image to load before assigning it to the canvas and update the dynamic texture afterwards.
 
@@ -107,17 +107,17 @@ myDynamicTexture.update();
 
 * [Playground Example Image](https://www.babylonjs-playground.com/#5ZCGRM#4)
 
-## Playground Combination
+# Playground Combination
 
 This playground combines all the above techniques.
 
 * [Playground Example Dynamic Texture](https://www.babylonjs-playground.com/#5ZCGRM#1)
 
-## Text and Area Matching 
+# Text and Area Matching 
 
 For a single line of text it is possible to fit the text into a specified area or to fit an area to a specified text.
 
-### Fit Text Into an Area.
+## Fit Text Into an Area.
 
 You have a plane with width and height, `planeWidth` and `planeHeight`, to form the width and height of the dynamic texture multiply both the plane width and height by the same number to maintain aspect ratio. The number to multiply by defines the sharpness of the text, low numbers produce blurred text. Now you can create the dynamic texture.
 
@@ -166,7 +166,7 @@ plane.material = mat;
 
 * [Playground Example - Fit Text to Plane](https://www.babylonjs-playground.com/#TMHF80#1)
 
-### Fit an Area to Text
+## Fit an Area to Text
 
 Take a plane mesh of fixed height, **planeHeight** and text with a set font size you can then calculate how wide the plane must be for the text to fit in. In order to do this you need to know the width the text will take up on a dynamic texture. This is calculated using a temporary dynamic texture and measuring the text.
 
@@ -201,7 +201,7 @@ plane.material = mat;
 ```
 * [Playground Example - Fit Plane to Text](https://www.babylonjs-playground.com/#TMHF80)
 
-## Serialization
+# Serialization
 The dynamic texture can be serialized with the scene using `SceneSerializer.Serialize()` or a mesh using `SceneSerializer.SerializeMesh()`.  
 
 **Note:** Be sure that the scene is ready before serialization.
@@ -212,6 +212,6 @@ This playground demonstrates serializing a dynamic texture associated with a mat
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 [Materials 101](/babylon101/Materials)  
 [Materials Overview](/features/Materials)  

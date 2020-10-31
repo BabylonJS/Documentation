@@ -8,7 +8,7 @@ The sound format supported is the one from the browser. It’s usually at least 
 
 **Note:** all music samples demonstrated in the playground has been composed by [**David Rousset**](https://soundcloud.com/david-rousset/)
 
-## Creating an ambient sound or music
+# Creating an ambient sound or music
 
 Here is the code to create a sound or music playing as ambient (not spatialized):
 
@@ -28,7 +28,7 @@ var music = new BABYLON.Sound("Music", "music.wav", scene, null, {
 
 You can test this first sample in our [music playground example](https://www.babylonjs-playground.com/#PCY1J)
 
-## Handling the 'ready to play' callback function
+# Handling the 'ready to play' callback function
 
 Calling the `BABYLON.Sound()` constructor with an URL generates 2 phases:
 
@@ -48,7 +48,7 @@ This code loads the `music.wav` file from the web server, decode it and play it 
 
 Test it in [this playground](https://www.babylonjs-playground.com/#PCY1J#1)
 
-## Playing a sound on mouse click or keydown
+# Playing a sound on mouse click or keydown
 
 This sample code plays a gunshot sound if you’re left-clicking or pressing the spacebar:
 
@@ -72,7 +72,7 @@ window.addEventListener("keydown", function(evt) {
 
 Test it on our [gunshot sound playground](https://www.babylonjs-playground.com/#PCY1J#4)
 
-## Some basic properties
+# Some basic properties
 
 You can set the volume of a sound via the options object or via the `setVolume()` function. You can set the play rate in the same manner.
 
@@ -106,7 +106,7 @@ Rather than setting the volume on a specific sound, you can also set the global 
 BABYLON.Engine.audioEngine.setGlobalVolume(0.5);
 ```
 
-## Playing a sound sprite
+# Playing a sound sprite
 
 A sound sprite is a portion of a sound file. You can define a sound sprite when creating a sound by defining an offset and a length (in seconds):
 
@@ -122,7 +122,7 @@ var soundSprite = new BABYLON.Sound(
 
 You can find an example here: https://www.babylonjs-playground.com/#6LXPBX
 
-## Playing several sounds simultaneously and synchronized
+# Playing several sounds simultaneously and synchronized
 
 For that, you need to call the play method on all sounds only once you’re sure they are all ready to be played. You then need to work with the ready to play callback.
 
@@ -165,7 +165,7 @@ Test it on our playground:
 
 https://www.babylonjs-playground.com/#PCY1J#6
 
-## Loading a sound from an ArrayBuffer
+# Loading a sound from an ArrayBuffer
 
 You can bypass the first phase (the embedded XHR request) if you’re calling the constructor with your own provided `ArrayBuffer`.
 
@@ -205,7 +205,7 @@ https://www.babylonjs-playground.com/#PCY1J#2
 
 Here is another example where we load the sound from the audio file [capture from the microphone](https://playground.babylonjs.com/pg/MB5S2C/revision/2)
 
-## Loading a sound using the Assets Manager
+# Loading a sound using the Assets Manager
 
 The assets manager is pretty useful as it handles for you some great features such as a loading screen.
 
@@ -263,7 +263,7 @@ Test it on our playground:
 
 https://www.babylonjs-playground.com/#PCY1J#8
 
-## Creating a spatial 3D sound
+# Creating a spatial 3D sound
 
 To transform a sound into a spatial sound, you need to specify that via the options:
 
@@ -307,7 +307,7 @@ https://www.babylonjs-playground.com/#2AH4YH
 
 Move into the scene using keyboard & mouse. Each sound is represented by a purple sphere. When you’re entering a sphere, you’ll start hearing one the music. The sound is louder at the center of the sphere and fall down to 0 when leaving the sphere.
 
-## Attaching a sound to a mesh
+# Attaching a sound to a mesh
 
 This is probably the simplest way to handle 3D sounds in your scene. Simply create a `BABYLON.Sound`, attach it to an existing mesh and you’re done! If the mesh is moving, the sound will move with it. You have nothing to do.
 
@@ -329,7 +329,7 @@ Put your headphone and launch this sample into our playground:
 
 https://www.babylonjs-playground.com/#EDVU95
 
-## Setting a position as the audio listener
+# Setting a position as the audio listener
 
 By default, the "ears" of your scene - or the listener - is always the currently active camera. Sometimes, for example when making a 3rd person game, you may need to set another mesh as the listener - a characters head for example. This can be achieved by setting the `audioListenerPositionProvider` property on your scene.
 
@@ -352,7 +352,7 @@ scene.audioListenerPositionProvider = () => {
 
 To switch back to using your camera as the listener, simply set the property to `null`.
 
-## Creating a spatial directional 3D sound
+# Creating a spatial directional 3D sound
 
 By default, spatial sounds are omnidirectional. But you can have directional sounds if you’d like to.
 
@@ -386,7 +386,7 @@ https://www.babylonjs-playground.com/#1BO0YS
 
 Move into the 3D scene. If you’re inside the space defined by the grey cone, you should hear the music, if not you’ll not hear it as the `coneOuterGain` is set to 0.
 
-## Creating your own custom attenuation function
+# Creating your own custom attenuation function
 
 If you want to manage the attenuation (or distance model in Web Audio) using a specific algorithm, you can by-pass the native Web Audio attenuation using Babylon.js custom attenuation function.
 
@@ -435,7 +435,7 @@ Here’s a previous sample code that now works properly in Firefox:
 
 https://www.babylonjs-playground.com/#2AH4YH#2
 
-## Manipulating sound loaded from a .babylon file
+# Manipulating sound loaded from a .babylon file
 
 Currently only our 3DS Max exporter can export sounds directly to _.babylon_.
 
@@ -474,7 +474,7 @@ BABYLON.SceneLoader.Load(
 
 Pressing the spacebar will play the gunshot sound.
 
-## Using Sound Tracks
+# Using Sound Tracks
 
 It could be useful to isolate your music & sounds on several tracks to better manage volume on a grouped instance of sounds. It will be also used in a future release to apply effects on a specific track.
 
@@ -501,7 +501,7 @@ soundTrack2.AddSound(violons11);
 
 The _violons11_ sound will finally live only in _soundTrack2_.
 
-## Using the Analyser
+# Using the Analyser
 
 You can easily analyze in real-time the audio frequencies.
 
@@ -533,11 +533,11 @@ Here is an [audio playground full sample](https://www.babylonjs-playground.com/#
 
 # Further Reading
 
-## Babylon 101
+# Babylon 101
 
 - [Raycasts](/babylon101/Raycasts)
 
-## API
+# API
 
 - [Sound](/api/classes/babylon.sound)
 - [SoundTrack](/api/classes/babylon.soundtrack)

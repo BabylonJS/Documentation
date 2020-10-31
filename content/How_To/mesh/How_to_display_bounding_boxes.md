@@ -2,7 +2,7 @@
 
 It's pretty easy to draw bounding boxes around a mesh in Babylon. You can think of a bounding box as visual box that your object(s) fit inside of perfectly. It encompasses the outer "bounds" of your object.
 
-## Drawing a bounding box around a single object
+# Drawing a bounding box around a single object
 
 Let's start by drawing a bounding box around a single object. You can follow along with the default [playground](https://playground.babylonjs.com/).
 
@@ -18,7 +18,7 @@ Pretty simple right?
 
 Here is a playground where you can see it working. [playground example](https://playground.babylonjs.com/#4F33I3) where you can see it working. 
 
-## Drawing a bounding box around multiple objects
+# Drawing a bounding box around multiple objects
 
 Ok so let's make it a little more complicated. Let's say that your scene also has a ground plane in it that you've lovingly named "ground" and you'd like to draw a bounding box around the area that encomposes both the sphere and ground. 
 
@@ -55,7 +55,7 @@ sphere.showBoundingBox = true;
 
 TA DA!!! Here it is working in a [playground](https://playground.babylonjs.com/#4F33I3#1)
 
-## A better approach
+# A better approach
 
 Ok so there's a problem with the technique we used above. We actually changed the bounding info of the sphere to the new bounding information that encompasses both the sphere and the ground. There's actually a better way to do this, and that's to leave the sphere's bounding information alone and instead, introduce parenting into the equation!!!!
 
@@ -104,7 +104,7 @@ Nice! That looks more like what you were probably expecting doesn't it?
 
 Here's the updated playground to check out. [playground](https://playground.babylonjs.com/#4F33I3#4)
 
-## One last trick
+# One last trick
 
 So what happens if you have a whole bunch of objects and you want to get the bounding box of all of them? You wouldn't want to do that manually for each one right? So we'll introduce a loop into the mix!
 
@@ -141,7 +141,7 @@ SWEET! We did it! Nice job! Here's the playground result of those changes. [play
 
 To dive even further into bounding boxes, make sure to check out the API as well
 
-## API
+# API
 
 - [boundingBox](/api/classes/babylon.boundingbox)
 

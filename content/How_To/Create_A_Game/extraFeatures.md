@@ -91,10 +91,10 @@ Adding custom fonts is really simple. I brought in some google fonts that I thou
 **Previous:** [Music/SFX](/how_to/page14)  
 **Next:** [Cross Platform - Mobile](/how_to/page16) 
 
-## Resources
+# Resources
 **Files Used:**  
 - [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 
-## External
+# External
 [HDRI image used](https://hdrihaven.com/hdri/?h=kiara_1_dawn)

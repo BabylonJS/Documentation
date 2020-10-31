@@ -38,6 +38,6 @@ While the label and documentation components are fairly straight forward, the co
 
 - 2) If you'd like your playground template to span multiple lines, use the `\n` syntax to signal the start of a new line. Again, take a look at the shadow generator example to see this in action.
 
-## Going further
+# Going further
 
 - Video Overview of Playground Templates: https://youtu.be/SRvCe6N7mdE

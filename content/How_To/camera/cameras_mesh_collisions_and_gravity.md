@@ -2,7 +2,7 @@
 
 Did you ever play a FPS (First Person Shooter) game? In this tutorial, we are going to simulate the same camera movements: the camera is on the floor, in collision with the ground, and potentially in collision with any objects in the scene.
 
-## How can I do this ?
+# How can I do this ?
 
 To replicate this movement, we have to do 3 simple steps:
 
@@ -82,7 +82,7 @@ var backwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) /
 character.moveWithCollisions(backwards);
 ```
 
-## ArcRotateCamera
+# ArcRotateCamera
 The ArcRotateCamera can also check collisions but instead of sliding along obstacles, this camera won't move when a collision appends.
 
 To activate collisions, just call ```camera.checkCollisions = true```. You can define the collision radius with this code:
@@ -91,7 +91,7 @@ To activate collisions, just call ```camera.checkCollisions = true```. You can d
 camera.collisionRadius = new BABYLON.Vector3(0.5, 0.5, 0.5)
 ```
 
-## Next step
+# Next step
 Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? Good, because that is exactly the purpose of our [next tutorial](/babylon101/Intersect_Collisions_-_mesh).
 
 # Further Reading

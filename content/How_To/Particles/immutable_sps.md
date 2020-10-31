@@ -82,7 +82,7 @@ SPS.mesh.freezeNormals(); // prevents from re-computing the normals each frame
 
 You are not restricted to using the *positionFunction* to just a SPS created with *updatable = true* although using *initParticles()* and *setParticles()* is probably easier and you have a few more particle properties.
 
-## Solid Particle Vertex Position
+# Solid Particle Vertex Position
 In addition to the *positionFunction* to set a particle's property there is also a *vertexFunction* option to modify the shape of each particle by changing the positions of the vertices of the model forming the particle. The custom function you assign to the *vertexFunction* is called once by *SPS.buildMesh()* for each vertex of a particle.
 
 ```javascript
@@ -109,7 +109,7 @@ Example with asteroids : https://www.babylonjs-playground.com/#2FPT1A#2
 
 Making your SPS immutable is one way to optimize your scene. Next we will consider ways to optimize when using an updatable SPS.
 
-## Rebuild the mesh
+# Rebuild the mesh
 
 if a mesh, changed at creation time with `positionFunction` or `vertexFunction` has been then modified with `setParticles()`, it can be rebuild by reapplying the internally stored `positionFunction` or `vertexFunction` functions.  
 Note that only the function are stored, not their results. This means that if one of your function produces different results each call (using `Math.random()` for instance), you won't get back the same SPS mesh shape but another computed shape.

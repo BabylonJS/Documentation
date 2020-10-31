@@ -12,7 +12,7 @@ The cube is constructed from 12 facets or triangles, each face having 2 facets.
 
 The colour or texture for each facet is determined from those assigned to its vertices.
 
-## Colours at Vertices
+# Colours at Vertices
 
 Assigning red to each of the vertices of the facet 3, 2, 6 results in a red facet:
 
@@ -22,7 +22,7 @@ Assigning red to vertex 3, green to vertex 2 and blue to vertex 6 results in a g
 
 ![Graduated Facet](/img/how_to/Materials/gradVert.jpg)
 
-## Textures at Vertices
+# Textures at Vertices
 
 Applying an image as a texture to the face 3, 2, 6, 7 means assigning image 
 coordinates to each of the vertices; (0, 1) to vertex 3, (1, 1) to vertex 2, (1, 0) to vertex 6 and (0, 0) to vertex 7.
@@ -31,7 +31,7 @@ These are then used to map the image across the facets.
 
 Of course with a mesh consisting of many vertices wrapping an image as texture around the mesh will mean each vertex being assigned a point on the image using fractional values as described in [custom meshes](/How_To/Custom#calculating-uvs).
 
-## Issues with Adjoining Faces
+# Issues with Adjoining Faces
 
 The construction method given above will lead to problems should different colours or textures need to be applied to different faces 
 since adjoining faces use the same vertex index. 
@@ -42,7 +42,7 @@ Sharing vertex indices will also cause problems when wrapping an image around a 
 
 For example if the image above was to be wrapped around faces `3, 2, 6, 7` and `1, 2, 6, 5` and `0, 1, 5, 4` and `0, 3, 7, 4` it is not possible for vertex 3 to be assigned (1, 0) and (1, 1) nor for vertex 7 to be assigned (0, 0) and (1,0).
 
-## Solutions for Adjoining Faces
+# Solutions for Adjoining Faces
 
 There are two solutions both of which require additional facets:
 

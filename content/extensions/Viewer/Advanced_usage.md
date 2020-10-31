@@ -1,6 +1,6 @@
 # Advanced usage, tips and tricks
 
-## Forcing the type of loader on a model
+# Forcing the type of loader on a model
 
 Babylon's mesh importer is using the file extension of the model you provided in order to find out what loader to use. Sometimes, it is not possible to provide a file extension - especially if your server doesn't allow it. If that is the case, you can force a specific loader on a model.
 
@@ -12,7 +12,7 @@ To do that, use the `model.loader` configuration variable:
 
 This will load <https://example.com/Rabbit> using the glTF loader.
 
-## Retrieving the viewer instance
+# Retrieving the viewer instance
 
 The viewer has a viewer manager that registers each viewer currently on this page. The viewer manager is event based, and will trigger a callback every time a new viewer was added. To register the callback, you can use the following:
 
@@ -50,7 +50,7 @@ let element = document.querySelector('babylon');
 let viewer2 = BabylonViewer.viewerManager.getViewerByHTMLElement(element);
 ```
 
-## Initializing a different HTML tag other than `<babylon>`
+# Initializing a different HTML tag other than `<babylon>`
 
 Babylon Viewer automatically initializes `babylon` HTML tags and renders a viewer on top of them. If you want to use a different HTML Tag, it is more than possible. To do that, you will need to disable the default init, and then init your own tags. Add the following script at the bottom of your page, after including the viewer js file:
 
@@ -61,7 +61,7 @@ BabylonViewer.disableInit = true;
 BabylonViewer.InitTags('the-other-tag-name');
 ```
 
-## Finding the Babylon Engine, Scene, and Camera
+# Finding the Babylon Engine, Scene, and Camera
 
 The viewer instance exposes the used Engine, Scene, and Camera objects.
 To get them, simply get the viewer (any way you see fit, as previously discussed), and get the public member you need:
@@ -73,7 +73,7 @@ viewer.engine instanceOf BABYLON.Engine; // true
 viewer.sceneManager.camera instanceOf BABYLON.ArcRotateCamera; // true
 ```
 
-## Event-based development
+# Event-based development
 
 Other than the scene, engine and camera, the viewer exposes observables that are executed when a certain event happens. At the moment, there are 3 observables currently available:
 
@@ -121,7 +121,7 @@ viewer.onSceneInitObservable.add(function(scene) {
 });
 ```
 
-## Enabling the Inspector
+# Enabling the Inspector
 
 To enable the Inspector, add scene.debug="true" to your html tag:
 
@@ -129,7 +129,7 @@ To enable the Inspector, add scene.debug="true" to your html tag:
 <babylon extends="minimal" scene.debug="true" model="https://playground.babylonjs.com/scenes/Rabbit.babylon"></babylon>
 ```
 
-## Loading a model async
+# Loading a model async
 
 In certain cases you would want to load your model using javascript after the viewer was initialized. It is the case if, for example, a user clicks on a button to load a model, or drag & drops a model to be viewed. In this case, your HTML should just contain the configuration for the scene (engine, scene, camera and lights), without defining anything related to the model itself:
 

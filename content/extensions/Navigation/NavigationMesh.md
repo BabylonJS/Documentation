@@ -44,7 +44,7 @@ matdebug.alpha = 0.2;
 navmeshdebug.material = matdebug;
 ```    
 
-## Parameters
+# Parameters
 
 cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world unit define the widthand depth of 1 voxel.
 
@@ -72,7 +72,7 @@ detailSampleDist - Sets the sampling distance to use when generating the detail 
 
 detailSampleMaxError - The maximum distance the detail mesh surface should deviate from heightfield data. World Units.
 
-## Queries
+# Queries
 
 Basically, query functions help at getting constraint point and vector by the navigation mesh.
 
@@ -104,7 +104,7 @@ var pathPoints = navigationPlugin.computePath(crowd.getAgentPosition(agent), nav
 pathLine = BABYLON.MeshBuilder.CreateDashedLines("ribbon", {points: pathPoints, updatable: true, instance: pathLine}, scene);
 ```
 
-## Baking result
+# Baking result
 
 Building a navigation mesh can take a lot of cpu and network resources. In order to lower the download size and cpu needed, it's possible to bake the result of the navigation mesh computation to a byte stream. That byte stream can later be restored to get the navigation mesh back.
 

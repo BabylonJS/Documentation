@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 In this tutorial, our goal is to understand height maps, and to learn how to generate realistic grounds.
 
@@ -6,9 +6,9 @@ In this tutorial, our goal is to understand height maps, and to learn how to gen
 
 _Final result_
 
-## How can I do this ?
+# How can I do this ?
 
-### Introduction
+## Introduction
 
 Those mountains are very easy to generate with Babylon.js, and with only a single function. But before we do that, we have to create a new material, like we have done many times before:
 
@@ -29,7 +29,7 @@ groundPlane.material = groundMaterial;
 
 _Our material, a texture, applied to the plane_
 
-### Explanations of a height map
+## Explanations of a height map
 
 Understanding height maps is the main objective of this tutorial. A height map is simply a grayscale image like the one we are going to use:
 
@@ -39,7 +39,7 @@ This image will now be used to generate our ground, using the different variants
 
 To help you generate those grayscale height maps, you can use software such as “Terragen”, or ”Picogen”.
 
-### Javascript code
+## Javascript code
 
   Now let’s see this powerful function named `CreateGroundFromHeightMap`:
 
@@ -82,7 +82,7 @@ Here is another example showing what you can achieve with BabylonJS height maps:
 
 ![HeightMap5](/img/how_to/HeightMap/14-4.png)
 
-### Tips
+## Tips
 
 When the user is manipulating the camera, it can be awkward if they can see under the ground, or if they zoom-out outside the skybox. So, to avoid that kind of situation, we can constrain the camera movement:
 

@@ -6,13 +6,13 @@ In dynamic scenes, objects are moving and interacting with each other. To get th
 
 _Final result_
 
-## How can I do this ?
+# How can I do this ?
 
 This tutorial is going to show you two ways of collision detection: the first one is to raise a collision event when two meshes are in contact, the other one is detecting contact between a mesh and a single point.
 
 We are going to talk about the scene above. The first and second sphere (balloon) will collide on the rotated ground, the last one will be in collision only on a single point. Once you have created this basic scene, continue reading to learn how to check collisions.
 
-### Intersect mesh
+## Intersect mesh
 
 The point here is to check contact between our balloons and the ground. We will use the `intersectsMesh()` function, with two parameters: the mesh to be checked, and the precision of the intersection (boolean).
 
@@ -36,7 +36,7 @@ So think about the collisions details you need before to choose.
 
 If you want more information about this second parameter, you can have a look at this Wikipedia page, especially about AABB and OBB mode: [http://en.wikipedia.org/wiki/Bounding_volume](http://en.wikipedia.org/wiki/Bounding_volume)
 
-### Intersect point
+## Intersect point
 
 The other function you can use is `intersectsPoint()` with a specific point, like this:
 
@@ -51,7 +51,7 @@ We defined a precise point in our scene, and if our balloon intersects this poin
 
 You can play with the code used in this tutorial... by visiting [**a demo at our playground**](https://www.babylonjs-playground.com/#KQV9SA)
 
-## Next step
+# Next step
 
 With those two functions, your scenes are becoming a lot more dynamic: you can define a specific reaction to object intersecting and colliding, and begin to introduce physics notions into your scene.
 
@@ -59,6 +59,6 @@ In our next tutorial, you will discover how to [check collisions between your sc
 
 # Further Reading
 
-## Features
+# Features
 
 - [Cameras Overview](/features/Cameras)

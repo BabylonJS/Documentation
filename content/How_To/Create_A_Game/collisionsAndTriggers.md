@@ -119,7 +119,7 @@ The two areas where we're rotating the camera up/down is when the character ente
 **Previous:** [Lanterns](/how_to/page7)   
 **Next:** [Game GUI](/how_to/page11)
 
-## Resources
+# Resources
 **Files Used:**  
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)

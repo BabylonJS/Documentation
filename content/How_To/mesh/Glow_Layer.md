@@ -6,7 +6,7 @@ But how could we easily make the glow around those self lit areas ?
 
 ![illustration](/img/how_to/glow-layer/introduction.jpg)
 
-## How to use ?
+# How to use ?
 
 Only one line is needed to make all the emissive parts of a scene glow:
 
@@ -16,11 +16,11 @@ var gl = new BABYLON.GlowLayer("glow", scene);
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#LRFB2D#1)
 
-## Intensity Controls
+# Intensity Controls
 
 By default, the glow layer is filled using the material emissive parameters (emissive result = emssive color * emissive texture color * emissive texture level). It will also use a blur kernel of 32 which might not be adapted to your visual requirements.
 
-### Color Intensity
+## Color Intensity
 
 To control the intensity of the color in the glow layer, you can use the dedicated property:
 
@@ -31,7 +31,7 @@ gl.intensity = 0.5;
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#LRFB2D#2)
 
-### Blur Intensity
+## Blur Intensity
 
 In order to control change the shape of the blur, you can rely on the creation option:
 
@@ -48,7 +48,7 @@ var gl = new BABYLON.GlowLayer("glow", scene, {
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#LRFB2D#3)
 
-### Controlling glow color per mesh
+## Controlling glow color per mesh
 By default the glow layer will use emissive texture and emissive color to generate the glow color of every active mesh.
 But you can override this behavior with the following callbacks:
 
@@ -66,7 +66,7 @@ gl.customEmissiveColorSelector = function(mesh, subMesh, material, result) {
 }
 ```
 
-## Anti Aliasing
+# Anti Aliasing
 
 Depending on your setup, some aliasing artifacts might appear in the glow. To prevent this behavior, you can specify the number of samples to use for MSAA on the main render target. Please note that it will only work on WebGL2 capable browsers.
 
@@ -78,11 +78,11 @@ var gl = new BABYLON.GlowLayer("glow", scene, {
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#LRFB2D#4)
 
-## Mesh Management
+# Mesh Management
 
 Some helper functions have been introduced to exclude or only include some meshes from the scene. 
 
-### Excluded Mesh
+## Excluded Mesh
 
 In order to exclude meshes from the glow layer you can use the dedicated function:
 
@@ -93,7 +93,7 @@ gl.addExcludedMesh(mesh)
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#LRFB2D#29)
 
-### Include Only some Meshes
+## Include Only some Meshes
 
 In order to include only a subset of meshes in the glow layer you can use the dedicated function:
 
@@ -109,10 +109,10 @@ Using the function will automatically switch mode and only render the included m
 
 # Further Reading
 
-## How To
+# How To
 
 - [How To Highlight a Mesh](/how_to/highlight_layer)
 
-## API
+# API
 
 - [GlowLayer](/api/classes/babylon.glowlayer)

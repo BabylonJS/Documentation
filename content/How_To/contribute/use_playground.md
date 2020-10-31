@@ -2,7 +2,7 @@
 
 During the early stages of developing code to contribute to Babylon.js it can be useful to try out that code in the Playground. Just ensure that the Playground is in Typescript mode by using the link https://www.babylonjs-playground.com/ts.html# . The `New` button will then give you the starting code. 
 
-## An Example
+# An Example
 
 Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS/Babylon.js/blob/master/src/Math/babylon.math.ts , (just search for Curve3 on this page) so it would make sense to put any code to form a bezier surface on the same page.
 
@@ -27,7 +27,7 @@ export class BezierSurface {
 ```
 
 
-## From Playground to Pull Request
+# From Playground to Pull Request
 
 Once you are happy the code works and you have copied it to your local repository then before submitting your PR please make sure you have read the following to ensure a smooth positive result.
 

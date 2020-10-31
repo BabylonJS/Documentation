@@ -3,7 +3,7 @@
 Three versions of **Line2D** are given below followed by a suggestion for drawing a line in 3D.
 In addition the code is adapted as **parallelLines** to produce lines parallel to a central line 
 
-## Line in XoY Plane Formed from Central Path
+# Line in XoY Plane Formed from Central Path
 
 ```javascript
 var line = line2D("line", options, scene);
@@ -18,7 +18,7 @@ standardUV|_(Color4[])_ false squeezes a texture image onto each line segment|tr
 
 Just copy the code below if you want to use it.
 
-### Playground Examples
+## Playground Examples
 
 These examples use an orthographic camera giving a 2D view
 
@@ -27,7 +27,7 @@ These examples use an orthographic camera giving a 2D view
 * [Playground Example - Standard UV is True](https://www.babylonjs-playground.com/#FA2H7X#5)
 * [Playground Example - Standard UV is False](https://www.babylonjs-playground.com/#FA2H7X#6)
 
-### Line2D Code
+## Line2D Code
 
 ```javascript
 var line2D = function(name, options, scene) {
@@ -217,7 +217,7 @@ var line2D = function(name, options, scene) {
 }
 ```
 
-## Line in XoZ Plane Formed from Central Path
+# Line in XoZ Plane Formed from Central Path
 
 ```javascript
 var line = line2D("line", options, scene);
@@ -232,14 +232,14 @@ standardUV|_(Color4[])_ false squeezes a texture image onto each line segment|tr
 
 Just copy the code below if you want to use it.
 
-### Playground Examples
+## Playground Examples
 
 * [Playground Example - Open Line](https://www.babylonjs-playground.com/#0RIS0M)
 * [Playground Example - Closed Line](https://www.babylonjs-playground.com/#0RIS0M#1)
 * [Playground Example - Standard UV is True](https://www.babylonjs-playground.com/#0RIS0M#2)
 * [Playground Example - Standard UV is False](https://www.babylonjs-playground.com/#0RIS0M#3)
 
-### Line2D Code
+## Line2D Code
 
 ```javascript
 var line2D = function(name, options, scene) {
@@ -429,7 +429,7 @@ var line2D = function(name, options, scene) {
 }
 ```
 
-## Line in XoZ Plane Formed from Inner Path
+# Line in XoZ Plane Formed from Inner Path
 
 With this version you can use it as an edge of a given width to a polygon
 
@@ -446,14 +446,14 @@ standardUV|_(Color4[])_ false squeezes a texture image onto each line segment|tr
 
 Just copy the code below if you want to use it.
 
-### Playground Examples (Including Use as Edge to Polygon)
+## Playground Examples (Including Use as Edge to Polygon)
 
 * [Playground Example - Open Line](https://www.babylonjs-playground.com/#S7HM64)
 * [Playground Example - Closed Line as Edge Around Polygon](https://www.babylonjs-playground.com/#S7HM64#1)
 * [Playground Example - Edge Around Polygon, Standard UV is True](https://www.babylonjs-playground.com/#S7HM64#2)
 * [Playground Example - Edge Around Polygon, Standard UV is False](https://www.babylonjs-playground.com/#S7HM64#3)
 
-### Line2D Code
+## Line2D Code
 
 ```javascript
 var line2D = function(name, options, scene) {
@@ -643,13 +643,13 @@ var line2D = function(name, options, scene) {
 }
 ```
 
-## Lines in 3D
+# Lines in 3D
 
 The [lines](/how_to/parametric_shapes#lines) and [line system](/how_to/parametric_shapes#line-system) methods just produce a thin line and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/how_to/parametric_shapes#tube).
 
 * [Playground Example - Tube as Line](https://www.babylonjs-playground.com/#MRE78Z)
 
-## Parallel Lines in XoY Plane
+# Parallel Lines in XoY Plane
 
 Given the path of a central line the function **parallelLines** with return the path points of two lines either side of this line.
 
@@ -666,11 +666,11 @@ outerWidth|_(number)_ distance from central line | 0.5
 
 Just copy the code below if you want to use it.
 
-### Playground Example
+## Playground Example
 
 * [Playground Example - Dotted Lines Parallel to Central Line](https://www.babylonjs-playground.com/#FA2H7X#18)
 
-### Parallel Line Code
+## Parallel Line Code
 
 ```javascript
 var parallelLines = function(options, scene) {

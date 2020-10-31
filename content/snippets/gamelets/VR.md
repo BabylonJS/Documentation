@@ -1,11 +1,11 @@
 # Basic WebVR
 A simple WebVR gamelet to show how to implement key VR features. 
 
-## The Design
+# The Design
 
 ![Basic WebVR](https://i.gyazo.com/dc1ad24a692ada3e5d00c206a366519c.gif)
 
-### Overview
+## Overview
 The scene is very simple. The pickable object is steadily rotating around you. When clicked, it'll make a spatial sound effect and your score will increase. There is a reticle in the middle of the screen that changes color when something can be picked.  
 
 This scene shows: 
@@ -14,7 +14,7 @@ This scene shows:
 - [VR Camera](#vr-cameras)
 - [Spatial Sound](#spatial-sound)
 
-### Reticle
+## Reticle
 There are a number of different ways to create VR reticles. An ideal reticle would have animations that would give the user feedback on their environment and the different actions they can perform. For this gamelet, we kept it simple and used a sphere mesh that changed color to indicate something pickable. 
 
 The sphere reticle starts red, and changes to green when pickable. We don't want our reticle to be pickable since we're not interacting with it directly. 
@@ -68,11 +68,11 @@ In order for the reticle to move with the VR Camera as well as the Web camera, w
     }
 ```
 
-#### Ways To Improve
+### Ways To Improve
 You could improve this reticle a number of ways. As mentioned previously, providing better feedback to the user with interactable options is one of the key factors in making an effective reticle. Additionally, a 2D reticle that rotates with the surface of what the user is looking at gives a more concrete picture of where the user is looking in 3D space. 
 
 
-### Dynamic GUI
+## Dynamic GUI
 In the context of our game, our GUI consists of a Score variable that increases every time the user clicks the rotating box. To do this, we have a scoreVar object with a 'score' attribute that gets incremented with the action below. Follow these guides for more about [GUI](https://doc.babylonjs.com/how_to/gui) and [Actions](https://doc.babylonjs.com/how_to/how_to_use_actions). 
 
 
@@ -100,7 +100,7 @@ In the context of our game, our GUI consists of a Score variable that increases 
     blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.ActionManager.OnPickTrigger, scoreVar, "score", 1));
 ```
 
-### VR Cameras
+## VR Cameras
 Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](https://doc.babylonjs.com/how_to/webvr_camera). 
 
 ```javascript
@@ -111,7 +111,7 @@ Babylon.js makes it very easy to use VR camera. Our scene has two options. The d
 Alternatively, you can include `scene.createDefaultVRExperience();` to toggle between VR capable scenes. In the playground code, comment out the lines that use the `camera` var and uncomment the lines that have `//to use with createDefaultVRExperience()`. 
 
 
-### Spatial Sound
+## Spatial Sound
 Spatializing a sound in Babylon.js can be as simple as marking the BABYLON.Sound `spatialSound` attribute as 'true'. However, there are a number of other options you can specify, including linear, inverse, or exponential distance, max distance, and the panning model.  
 A more in depth guide can be found [here](https://doc.babylonjs.com/how_to/playing_sounds_and_music#creating-a-spatial-3d-sound). 
 
@@ -130,7 +130,7 @@ Afterwards, we make sure to attach the sound to our moving box, and register the
 ```
 
 
-## The Finished Game
+# The Finished Game
 The full code, featuring the sections mentioned above and including the rest of the game scene, can be found below. 
 
 * [Playground Example - Full VR simple game](https://www.babylonjs-playground.com/#KJ8ZRZ#2)

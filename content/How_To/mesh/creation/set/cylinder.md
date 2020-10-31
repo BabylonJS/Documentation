@@ -1,6 +1,6 @@
 # Cylinder or Cone
 The created cylinder has its flat sides parallel to the xz plane with its origin at the center of the vertical line of symmetry. If you set _diameterTop_ to zero, you get a cone instead of a cylinder, with different values for _diameterTop_ and _diameterBottom_ you get a truncated cone.
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const cone = BABYLON.MeshBuilder.CreateCylinder("cone", options, scene); //scene is optional and defaults to the current scene
@@ -22,7 +22,7 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-### Examples
+## Examples
 Cylinder  https://www.babylonjs-playground.com/#QANVC6  
 Cone https://www.babylonjs-playground.com/#QANVC6#1  
 Triangular Prism https://www.babylonjs-playground.com/#QANVC6#2  
@@ -32,7 +32,7 @@ arc https://www.babylonjs-playground.com/#QANVC6#3
 
 faceUVs https://www.babylonjs-playground.com/#QANVC6#4
 
-## Mesh
+# Mesh
 Usage :
 ```javascript
 const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene);

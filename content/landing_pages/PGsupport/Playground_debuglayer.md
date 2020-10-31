@@ -31,7 +31,7 @@ By clicking on a line you will select it and the inspector will automatically up
 
 Some entities offer shortcuts to contextual actions.
 
-## Scene actions
+# Scene actions
 
 ![scene actions](/img/features/debuglayer/sceneactions.jpg)
 
@@ -43,7 +43,7 @@ The scene shortcuts are the following:
 - The fourth action is a picker. Just pick a mesh in your scene and it will be selected in your scene explorer
 - The last one will force the scene explorer to update. For performance reasons, the scene explorer is not listening to all changes that can happen on the scene so you may end up needing to refresh it manually.
 
-## Mesh actions
+# Mesh actions
 ![mesh actions](/img/features/debuglayer/meshactions.jpg)
 
 The mesh shortcuts are the following:
@@ -53,19 +53,19 @@ The mesh shortcuts are the following:
 
 - The second action will show/hide the mesh.
 
-## Light actions
+# Light actions
 
 ![light actions](/img/features/debuglayer/lightactions.jpg)
 
 You can use the light action to turn a light on and off.
 
-## Camera actions
+# Camera actions
 
 ![camera actions](/img/features/debuglayer/cameraactions.jpg)
 
 You can use the camera action to switch the active camera (when they are multiple cameras in a scene).
 
-## GUI control actions
+# GUI control actions
 
 ![gui control actions](/img/features/debuglayer/controlactions.jpg)
 
@@ -73,7 +73,7 @@ You can use the GUI control actions to:
 - Display outline of a control
 - Show / hide a specific control
 
-## Rendering pipeline actions
+# Rendering pipeline actions
 
 ![Rendering pipeline actions](/img/features/debuglayer/renderpipelineactions.jpg)
 
@@ -112,49 +112,49 @@ You can move any pane into a popup mode by clicking the icon right left to the c
 
 Specific debug tools can be found across the inspector:
 
-## Render grid
+# Render grid
 
 This tool (available in the Debug pane) will render a grid on the (0,0,0) plane:
 
 ![grid](/img/features/debuglayer/grid.jpg)
 
-## Bones viewer
+# Bones viewer
 
 This tool (available in the skeleton property grid) will render your skeletons:
 
 ![bones](/img/features/debuglayer/BonesView.png)
 
-## Skeleton Map Shader
+# Skeleton Map Shader
 
 This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a unique color on the mesh, for each bone, showing their total contribution:
 
 ![bones](/img/features/debuglayer/BonesMap.png)
 
-## Bone Weight Shader
+# Bone Weight Shader
 
 This tool (available in the mesh property grid when the mesh has an attached skeleton) will render a heat map showing the selected bones contribution:
 
 ![bones](/img/features/debuglayer/BonesWeight.png)
 
-## Physics viewer
+# Physics viewer
 
 This tool (available in the Debug pane) will render your physics impostors:
 
 ![physics](/img/features/debuglayer/physics.jpg)
 
-## Normal painter
+# Normal painter
 
 This tool (available in the property pane when you select a mesh) will paint the normals on your active mesh:
 
 ![paint normal](/img/features/debuglayer/paintnormal.jpg)
 
-## Vertex normal viewer
+# Vertex normal viewer
 
 This tool (available in the property pane when you select a mesh) will render the vertex normals of a mesh:
 
 ![vertex normal](/img/features/debuglayer/vertexnormal.jpg)
 
-## Texture painter
+# Texture painter
 
 This tool (available in the property pane when you select a material with textures in it) will render the texture directly as an emissive one:
 

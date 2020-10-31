@@ -1,6 +1,6 @@
 # Dynamic Terrain Examples
 
-## FreeCamera on the Ground
+# FreeCamera on the Ground
 
 In this example, our player moves on the ground : a character walking, a car driving or anything like we can find in a FPS game.  
 The used camera is a FreeCamera. It will keeps on the ground while moving onward, backward, to the right or to the left.  

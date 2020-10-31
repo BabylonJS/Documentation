@@ -46,7 +46,7 @@ PCS.dispose();
 PCS = null    // tells the garbage collector the reference can be also cleaned up
 ```
 
-### Start and End Indexes for setParticles()
+## Start and End Indexes for setParticles()
 For performance reasons you may not want to compute the properties of all  the particles each frame. There are three optional parameters for `setParticles()` that you can use to choose a range of particles to compute or not : `start`, `end`, `update`  
 
 Parameter|Definition|Default
@@ -69,7 +69,7 @@ Example 2 : you could keep, say, the first 5000 particles as unused ones and com
 
 * [Playground Example - Start and End For Part Animation](https://www.babylonjs-playground.com/#UI95UC#26)
 
-## Hints and Tips 
+# Hints and Tips 
 A PCS can iterate over a very large number of particles during a call to `updateParticle` and it would be nice to avoid any apparent pauses in scene generation. The JavaScript Garbage Collector can start its cleaning in the middle of what you want to be a very smooth animation and produce lags. One possibility of lessening these is avoid creating new objects in the loops that execute often, where particles are created or updated.  
 
 For example, consider a PCS with, say, 30000 particles where you change their velocities

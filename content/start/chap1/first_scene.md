@@ -1,12 +1,12 @@
 # Getting Started
-## A First Scene and Model
+# A First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene]() to contain the world or model, a [camera]() to view it, a [light]() to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
 
 ![wireframe](/img/getstarted/wireframe.png)  
 Wireframe View Showing Mesh Triangles
 
 A large number of meshes can be created directly within Babylon.js using code, or, as you will shortly see, imported as models from meshes created with other software. Let us start simply with a box.
-## Say Hello to Your First World
+# Say Hello to Your First World
 
 All projects using the Babylon.js Engine need a scene with a camera and a light added. Then we can create our box.
 

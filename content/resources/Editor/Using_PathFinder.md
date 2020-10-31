@@ -21,7 +21,7 @@ To edit the path finder configuration, just click on the toolbar **Edit**. Now, 
 * Remove...: Remove the current path finder configuration
 * Create new...: Create a new path finder configuration
 
-## Selecting a path finder configuration
+# Selecting a path finder configuration
 To select a path finder configuration, just click on the toolbar **Paths -> the configuration to edit**.
 
 # Programming using path finder configurations

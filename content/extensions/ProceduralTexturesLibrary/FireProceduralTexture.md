@@ -2,7 +2,7 @@
 
 ![Fire Procedural texture](/img/extensions/proceduraltextures/firept.png)
 
-## Using the Fire procedural texture
+# Using the Fire procedural texture
 
 Fire procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.fireProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.fireProceduralTexture.js)

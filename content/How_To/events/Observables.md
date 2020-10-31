@@ -2,7 +2,7 @@
 
 For many of you creating Babylon.js projects only [GUI](/how_to/Gui), and [scene](#scene-observables) Observables will be needed, particularly [scene.onPointerObservable](/how_to/interactions).
 
-## Introduction
+# Introduction
 
 Babylon.js provides a lot of events (like scene.beforeRender) and before v2.4 there was not a unified way to handle them.
 Starting with v2.4, we introduced (without breaking backward compatibility of course) a new pattern: the Observables.
@@ -17,7 +17,7 @@ While it is possible to create your own Observable (a simple example of which is
 - [Playground Example - Simple Custom Observable Example](https://www.babylonjs-playground.com/#6IGFM2)
   An Observable - onXChange- is added to the master sphere. The two minion spheres and the actions they have to undertake form the two Observers which react when a change in the x position of the master is observed.
 
-## Observable Methods and Properties
+# Observable Methods and Properties
 
 The following are available:
 
@@ -34,7 +34,7 @@ The following are available:
 
 Many Babylon.js objects have a range of available Observables. Here is an [unordered list](//doc.babylonjs.com/search/?bjsq=observable) from the search facility of the Documentation with links to the API.
 
-## Add An Observer
+# Add An Observer
 
 An Observer is formed from an object set to watch the Observable and the objects reaction to the observation.
 
@@ -83,7 +83,7 @@ var observer = scene.onBeforeRenderObservable.add(function () {
 });
 ```
 
-## Scene Observables
+# Scene Observables
 
 The BabylonJS Scene Object has over 20 observables that 'fire' under various conditions. Most of them are checked EACH frame/render, and in a deterministic/predictable order or sequence. Below is a list of Scene observables checked during each renderLoop... in the order they are checked:
 
@@ -112,7 +112,7 @@ Also, [onBeforeStepObservable](//doc.babylonjs.com/api/classes/babylon.scene#onb
 
 However possibly the most useful Observable is the one that checks what is happening to the screen pointer whether with mouse or with finger or controller. [scene.onPointerObservable](//doc.babylonjs.com/api/classes/babylon.scene#onpointerobservable) . For more details on that have a look into the [Interactions HowTo](/how_to/interactions)
 
-## Observable-based countdown function
+# Observable-based countdown function
 
 Starting Babylon 4.2 a new way of setting a delay call for a function was added. This method is calculating the time delay using observables. Think about a setTimeout function, but inside the babylon context. The best way to explain is to show an example:
 
@@ -133,7 +133,7 @@ BABYLON.setTimerAndStart({
 });
 ```
 
-### setTimerAndStart
+## setTimerAndStart
 
 As you can see in the example, the babylon countdown timer is taking an observable as context. This observable is the most important part of this code - the observable is the context in which the rest of the time functions will be called and is in charge of calculating the delta time until finished. To explain it simply, these are the steps for the function we implemented before:
 
@@ -222,7 +222,7 @@ scene.onPointerUp = () => {
 }
 ```
 
-### Advanced Timer
+## Advanced Timer
 
 Apart from this quick function, you can use the AdvancedTimer class, which brings a bit more flexibility but is a lot more verbose. The object itself is reusable, so it can eventually saved a few unneeded calls and object creations. The last example using the AdvancedTimer will look like this:
 

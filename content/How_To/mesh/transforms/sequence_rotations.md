@@ -1,8 +1,8 @@
 # Transformations
-## Sequencing Rotations
+# Sequencing Rotations
 When you use the **rotation** method on a mesh then the rotation is applied in local space first around the y axis, then the x axis and finally about the z axis. How then do you rotate a mesh around a custom sequence of axes? This involves rotation quaternions either implicitly or explicitly.
 
-## Add Rotation
+# Add Rotation
 The simplest way is to use the addRotation method, *addRotation(x, y, z)* with two zero parameters, for example both of these sets of code
 
 ```javascript
@@ -23,7 +23,7 @@ The internal calculations for addRotations convert the Euler angles to rotation 
 
 Sequence using addRotation https://www.babylonjs-playground.com/#HPKH80
 
-## Rotate
+# Rotate
 Imagine a disc with an axis through its center. The disc is able to rotate about the axis. The image below shows the disc at several different rotation points around the axis.
 
 ![disc rotate](/img/how_to/Mesh/quat1.jpg)
@@ -60,7 +60,7 @@ mesh.rotate(BABYLON.Axis.Z, -Math.PI, BABYLON.Space.LOCAL);
 
 will start with the current orientation of the mesh, the add to this a rotation of &pi;/3 about the given local space axis, then add a rotation of -&pi;/2 about the world y axis, the add a rotation of 1.5&pi; about the given world axis and finally add a rotation of -&pi; about the local z axis.
 
-### Examples
+## Examples
 Earth rotates on tilted axis https://playground.babylonjs.com/#TLIAXS#  
 Using mixed rotate World and Local https://playground.babylonjs.com/#Z3W74Y#1  
 Two cubes one rotates in World Space other in Local Space https://playground.babylonjs.com/#66EBY3#3  

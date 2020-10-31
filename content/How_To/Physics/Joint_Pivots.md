@@ -36,7 +36,7 @@ When the position and orientation of the bodies' imposters set by their pivots d
 
 The first and second set of playgrounds show examples when the mass of the connected axle is zero. In the first set the connected axle is positioned at the origin with no rotation. In the second the connected axle one or both of position or rotation can be non-zero. In the third set of examples both the body and the axle have a non-zero mass.
 
-## Playground Examples  - Connected Axle Has Zero Mass and is at the Origin with No Rotation
+# Playground Examples  - Connected Axle Has Zero Mass and is at the Origin with No Rotation
 
 (A) Parameter Settings
 ```javascript
@@ -93,7 +93,7 @@ connectedAxis: new BABYLON.Vector3(1, 0, 0)
 * [Playground Example - E](https://www.babylonjs-playground.com/#8RQJ1R#6)
 
 
-## Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
+# Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
 
 Any translation or rotation of the connected axle results in the same transformation being applied to the whole hinge joint system.
 
@@ -150,7 +150,7 @@ connectedAxis: new BABYLON.Vector3(1, 0, 0)
 ```
 * [Playground Example - K](https://www.babylonjs-playground.com/#8RQJ1R#11)
 
-## Playground Examples  - Connected Axle Has Non-Zero Mass and is at the Origin with No Rotation
+# Playground Examples  - Connected Axle Has Non-Zero Mass and is at the Origin with No Rotation
 
 When the position of the main body mesh is not the same as the position imposed on the impostors by the pivots or axes the body the physics will move the body from its mesh position to the position determined by the pivots and axes. This movement acts in the physics' world and so will set the hinge joint system in motion. 
 
@@ -177,7 +177,7 @@ connectedAxis: new BABYLON.Vector3(0, 1, 0)
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Forces](/how_to/forces)  
@@ -185,11 +185,11 @@ connectedAxis: new BABYLON.Vector3(0, 1, 0)
 [How To Create Compound Bodies](/how_to/compounds)  
 [How To Create Soft Bodies](/how_to/soft_bodies) 
 
-## Mid Level - L2
+# Mid Level - L2
 
 [How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
  
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
 

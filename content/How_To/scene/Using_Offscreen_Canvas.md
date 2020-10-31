@@ -6,7 +6,7 @@ You can see a page demonstrating this use case here: https://www.babylonjs.com/D
 
 Also - here is a video overview: https://youtu.be/zYrZNROQzKQ
 
-## Setting up the engine
+# Setting up the engine
 Starting with Babylon.js v4.1, you can create an engine inside a worker by initializing it with an offscreen canvas.
 
 First you need to create an offscreen canvas out of your regular canvas:
@@ -37,7 +37,7 @@ onmessage = function(evt) {
 
 Then you can use your engine as usual.
 
-## Caveats
+# Caveats
 The main caveat of using Babylon.js with an offscreen canvas in a worker thread is that you will need to do special work to communicate with the engine from the main thread. You will have to use the same messaging API we used before to communicate between threads.
 
 Furthermore, Babylon.js will not be able to handle inputs for you and so APIs like `camera.attachControls()` will not work and you will have to message inputs to workers.
@@ -63,7 +63,7 @@ onmessage = function(evt) {
 }
 ```
 
-## Compatibility
+# Compatibility
 
 Note that this feature is new and not yet compatible with every device or browser.
 You can check current support of offscreen canvas here: https://caniuse.com/#feat=offscreencanvas
@@ -75,6 +75,6 @@ if ("OffscreenCanvas" in window && "transferControlToOffscreen" in canvas) {
 }
 ```
 
-## Resources
+# Resources
 - https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
 - https://developers.google.com/web/updates/2018/08/offscreen-canvas

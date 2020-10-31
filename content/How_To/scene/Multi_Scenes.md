@@ -75,7 +75,7 @@ var createScene = function () {
 ```
 
 
-## Switch Scenes
+# Switch Scenes
 You might want a user to be able to switch between scenes, remember that the Babylon GUI is a good way to set triggers for this to be possible. 
 
 An example of one way to do this is
@@ -132,7 +132,7 @@ engine.runRenderLoop(function () {
 
 [Playground Example - Switch Scenes](https://www.babylonjs-playground.com/#MXCRPS#1)
 
-## Overlay Multiple Scenes
+# Overlay Multiple Scenes
 
 Suppose you want a first person shooter type project with a 3D foreground representing the user and then a background scene representing what the user is tracking. In this case you want the meshes in both the foreground and background visible. To do this you want the foreground meshes drawn over the background, that is you do not want the render canvas cleared when rendering the foreground. In this case set 'autoClear' to false 
 

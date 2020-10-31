@@ -3,7 +3,7 @@ Post Process Renders pipelines allow you to create a chain of post processes and
 A render pipeline can be managed by enabling and disabling some effects and displaying a specific pass for debugging.
 
 
-## Base Render Pipeline
+# Base Render Pipeline
 
 ![](/img/PPArchitecture.png)
 
@@ -16,9 +16,9 @@ Renders Pipelines are composed of several classes.
 |**`BABYLON.PostProcessRenderEffect`**|A render effect contains one or more post processes.|
 |**`BABYLON.PostProcess`**|A render pass which will apply a shader.|
 
-## Let's play with Render Pipeline
+# Let's play with Render Pipeline
 
-### Simple Pipeline
+## Simple Pipeline
 Create pipeline
 ```javascript
 var standardPipeline = new BABYLON.PostProcessRenderPipeline(engine, "standardPipeline");

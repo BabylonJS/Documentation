@@ -3,7 +3,7 @@ In terms of physics' engines a soft body is a body that can have its shape defor
 
 See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
 
-## Limitations
+# Limitations
 A deformation of a body can only be shown if there are sufficient vertices to produce the deformation. The number of vertices used and the need to check their positions and velocities each time step means that the number of soft bodies can be restricted to one, two or possibly three. 
 
 Any triangular facet belonging to a mesh used as the basis for a soft body must share its vertices with any adjacent facet. If not the soft body will rip apart along unshared vertices. As an example look at the triangular facets in the diagram below
@@ -35,7 +35,7 @@ mesh.increaseVertices(4);
 1. The position and rotation of the mesh must be set before its soft impostor is created;
 2. A mesh used for a soft body cannot be a parent or child of another mesh.
 
-## Options for Soft Bodies
+# Options for Soft Bodies
 
 As well as the usual optional parameters of mass, friction and restitution that can be set when creating a physics impostor there are a number peculiar to soft bodies. These come in two sets. 
 
@@ -54,7 +54,7 @@ and those that can only be set during creation
 
 You may have to do a trial and error on the above parameters to get the effect you want.
 
-## The Softbody Soft Body
+# The Softbody Soft Body
 
 A softbody is a 3D soft body. To ensure that the body is not pulled apart the mesh used has to have [shared vertices](/snippets/minimise_vertices). This is achieved using
 
@@ -95,11 +95,11 @@ mesh.physicsImpostor.velocityIterations = 10;
 mesh.physicsImpostor.positionIterations = 10;
 mesh.physicsImpostor.stiffness = 0.9;
 ```
-### Examples
+## Examples
 * [Playground Example - Softbody](https://www.babylonjs-playground.com/#480ZBN#1)
 * [Playground Example - Softbody and Rigid Sphere](https://www.babylonjs-playground.com/#480ZBN#2)
 
-## The Cloth Soft Body
+# The Cloth Soft Body
 
 A 2D soft body. All cloth soft bodies are created from a [ground mesh](/how_to/set_shapes#ground) as this is already two dimensional, has shared vertices and the number of vertices can be increased by setting the subdivisions used. The usual [options](#options-for-soft-bodies) are available.
 
@@ -116,13 +116,13 @@ cloth.physicsImpostor.stiffness = 1;
 
 To see both sides of a cloth set `backFaceCulling = false` on the material to be applied to the ground mesh.
 
-### Examples
+## Examples
 
 * [Playground Example - Cloth Over Softbody](https://www.babylonjs-playground.com/#480ZBN#3)
 * [Playground Example - Cloth Over Rigid Box](https://www.babylonjs-playground.com/#480ZBN#4)
 * [Playground Example - Cloth Over Rigid Box with Fixed Corners](https://www.babylonjs-playground.com/#480ZBN#5)
 
-### Fixed Points
+## Fixed Points
 
 ![Cloth Points](/img/how_to/physics/cloth.jpg)
 
@@ -139,7 +139,7 @@ cloth.physicsImpostor.stiffness = 1;
 
 * [Playground Example - Cloth Over Rigid Box Fixed at 1 + 2 = 3](https://www.babylonjs-playground.com/#480ZBN#6)
 
-### Anchors
+## Anchors
 
 As well as being able to fix the corners of a cloth in space it is also possible to anchor points on a cloth to a rigid body.
 
@@ -186,11 +186,11 @@ cloth.physicsImpostor.addAnchor(box.physicsImpostor, 1, 1, 0.8);
 
 * [Playground Example - Anchoring a Cloth](https://www.babylonjs-playground.com/#480ZBN#8)
 
-## The Rope Soft Body
+# The Rope Soft Body
 
 A rope is a 1D soft body. This can be constructed using a [lines mesh](/how_to/parametric_shapes#lines) or an [extruded shape](parametric_shapes#extruded-shapes) mesh. The usual [options](#options-for-soft-bodies) available for both, however the use of an extruded shape requires extra parameters in the options.
 
-### Using Lines
+## Using Lines
 
 A lines mesh should be constructed in a straight line and an imposter constructed in the same way as for a softbody or a cloth.
 
@@ -209,7 +209,7 @@ rope.physicsImpostor.stiffness = 0.8;
 In the following playground note the use of the margin for the rope impostor to prevent the rope cutting into the soft box.
 * [Playground Example - Rope with fixed ends over Soft Box](https://www.babylonjs-playground.com/#8WC6ZN#1)
 
-### Using an Extruded Shape
+## Using an Extruded Shape
 
 The path for the extruded shape should be in a straight line and the shape and path parameters used in constructing the shape should be copied and pasted into the options for the impostor. Currently shape and path are the only two parameters that can be used when an extruded shape is used to construct a rope.
 
@@ -227,10 +227,10 @@ rope.physicsImpostor.stiffness = 1;
 In the following playground remember that the extruded shape does not have an impostor, that it lies on the surface of the box is because the margin for the rope is set to the radius of the extruded shape.
 * [Playground Example - Rope one fixed end over a Soft Box](https://www.babylonjs-playground.com/#8WC6ZN#3)
 
-### Fixed Points
+## Fixed Points
 Fixing the end points for a rope is the same whichever of the two meshes are used and must be set during construction. A 1 fixes the starting point of the rope, a 2 fixes the end point of the rope and 3 fixes both.
 
-### Hooks
+## Hooks
 
 A hook can be added anywhere along the length of the rope using a number from 0 (start) to 1 (end) and is attached to a rigid body using
 
@@ -257,7 +257,7 @@ rope.physicsImpostor.addHook(ball.physicsImpostor, 1, 1);
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Forces](/how_to/forces)  
@@ -265,10 +265,10 @@ rope.physicsImpostor.addHook(ball.physicsImpostor, 1, 1);
 [How To Use Pivots and Axes](/how_to/joint_pivots)  
 [How To Create Compound Bodies](/how_to/compounds) 
 
-## Mid Level - L2
+# Mid Level - L2
 
 [How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
  
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)

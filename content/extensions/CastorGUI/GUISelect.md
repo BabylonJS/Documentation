@@ -1,9 +1,9 @@
 # GUISelect
 
-## new GUISelect(id, options, guimanager, callback, append)
+# new GUISelect(id, options, guimanager, callback, append)
 Creates a new GUISelect
 
-#### Parameters
+### Parameters
 Name | Type | Description
 ---|---|---
 **id** | string | The id and name element
@@ -13,7 +13,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-## Options
+# Options
 
 * **w**: width of select (in pixel)
 * **h**: height of select (in pixel)
@@ -22,28 +22,28 @@ Name | Type | Description
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 * **tabindex**: Tab order of the field.
 
-## Methods
+# Methods
 
-### addOptions(value, text) → void
+## addOptions(value, text) → void
 Add option in the GUISelect
 
-### findOptionSelected(bool: withIndex) → void
+## findOptionSelected(bool: withIndex) → void
 Find option selected in the GUISelect
 
-### removeOption(value) → void
+## removeOption(value) → void
 Delete option value in the GUISelect
 
-### changeItem(oldValue, newValue) → void
+## changeItem(oldValue, newValue) → void
 Change old value by new value
 
-### selectedItem(item) → void
+## selectedItem(item) → void
 Add atribute selected item
 
-### setVisible(bool, fade) → void
+## setVisible(bool, fade) → void
 Set this GUI element to visible or invisible
 
-### isVisible() → void
+## isVisible() → void
 Returns element if is visible or no
 
-### dispose() → void
+## dispose() → void
 Dispose the GUISelect, and delete element.

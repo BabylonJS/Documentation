@@ -1,4 +1,4 @@
-## UtilityLayerRenderer
+# UtilityLayerRenderer
 
 The UtilityLayerRenderer class overlays objects in a scene without modifying the existing scene. It can be used to enable custom overlays or [Gizmos](/How_To/Gizmo).
 
@@ -31,7 +31,7 @@ var overlayLight = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0,
 overlayLight.intensity = 0.7;
 ```
 
-## Controls
+# Controls
 By default, the overlaid scene will be drawn on top of the existing scene ignoring the depth buffer. Of objects in the utility scene are desired to be occluded by the main scene, autoClearDepthAndStencil should be set to false
 ```
 utilLayer.utilityLayerScene.autoClearDepthAndStencil=false;
@@ -43,7 +43,7 @@ utilLayer.shouldRender=false;
 utilLayer.render();
 ```
 
-## Pointer events
+# Pointer events
 Since the utility layer is rendered on top of the existing scene there are a couple options to control how pointer interactions with the scenes work.
 By default, the utility layer fires the pointerUp, pointerDown and pointerMove events as usual but pointer down events are only passed to the utility layer's scene if the pointer event contacts it first.
 
@@ -63,7 +63,7 @@ utilLayer.onPointerOutObservable.add(function(pointerId){
 
 });
 ```
-## Examples
+# Examples
 
  - [Overlay scene example](https://www.babylonjs-playground.com/#DEYAQ5#41)
  - [Gizmo example](https://www.babylonjs-playground.com/#31M2AP#9)

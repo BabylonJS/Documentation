@@ -49,6 +49,6 @@ To control the speed of animation you can play around with adjusting direction, 
 
 To adjust the sprite animation frame rate you set the property *spriteCellChangeSpeed*. A value of 1 matches the animation rate to lifetime of a particle. The particle will be emitted with the sprite at *startSpriteCellID* and will die displaying the sprite at *endSpriteCellID*. As values increase above 1 the animation frame rate speeds up. Although the particle will be emitted with the sprite at *startSpriteCellID* the sprite on display when the particle dies will depend on the value of the speed and the lifetime of the particle.
 
-## Examples
+# Examples
 Adjust emit power and update speed https://www.babylonjs-playground.com/#0K3AQ2#47
 Cell Change Speed https://www.babylonjs-playground.com/#0K3AQ2#48

@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Follow That Character
+# Follow That Character
 
 Without using parenting we can also track the characters movements with a *FollowCamera*.
 

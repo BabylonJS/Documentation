@@ -11,8 +11,8 @@ But when handling parametric shapes like ribbons, tubes, etc, it becomes very di
 
 So you will learn here how to update the shape of an existing mesh and how to morph it in the render loop.   
 
-## Ribbon
-### _ribbon updatable parameter : pathArray_ 
+# Ribbon
+## _ribbon updatable parameter : pathArray_ 
 _(reminder : only points positions can change in the path array, not the number of points. Please see the summary at the bottom of this page for more details)_ 
 
 Let's create a ribbon.   
@@ -113,9 +113,9 @@ scene.registerBeforeRender(function() {
 example :  https://www.babylonjs-playground.com/#1MSEBT#3
 
 
-## Lines and DashedLines
-### _lines and dashed lines updatable parameter : points_
-### _lines optional updatable parameter : colors_
+# Lines and DashedLines
+## _lines and dashed lines updatable parameter : points_
+## _lines optional updatable parameter : colors_
 _(reminder : only points positions can change, not the number of points. Please see the summary at the bottom of this page for more details)_
 
 Once we got the understanding for ribbons, we can apply it to Lines or DashedLines.
@@ -138,8 +138,8 @@ We can, of course, set the update method within the render loop.
 example lines :  https://www.babylonjs-playground.com/#24PQRQ
 dashed lines :  https://www.babylonjs-playground.com/#XKYAE#3
 
-## Tube
-### _tube updatable parameters : path, radius, radiusFunction_
+# Tube
+## _tube updatable parameters : path, radius, radiusFunction_
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_
 
 Nothing differs for tubes. Let's create a tube and then update it according to new _path_, _radius_ or _radiusFunction_ values :
@@ -168,9 +168,9 @@ Example :  https://www.babylonjs-playground.com/#ACKC2#1
 As you can read at line 53, the _radiusFunction_ is redefined here at each iteration in the _registerBeforeRender_ loop because it uses the value of the incrementing parameter _k_ : the radius changes according to each path point position and according to k varying in the time.
 
 
-## Extruded shape
-### _extrusion updatable parameters for ExtrudeShape(): shape, path, scale, rotation_
-### _extrusion updatable parameters for ExtrudeShapeCustom(): shape, path, scaleFunction, rotateFunction_
+# Extruded shape
+## _extrusion updatable parameters for ExtrudeShape(): shape, path, scale, rotation_
+## _extrusion updatable parameters for ExtrudeShapeCustom(): shape, path, scaleFunction, rotateFunction_
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_   
 
 We can see extrusion as some tube generalization : a tube would be a circle _shape_ extruded along a path.   
@@ -219,7 +219,7 @@ ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2
 Example :  https://www.babylonjs-playground.com/#20IBWW#14
 
 
-## Other shapes : updateMeshPositions
+# Other shapes : updateMeshPositions
 For now, we just talked about parametric shapes which can be updated with their own _CreateXXX()_ initial method. 
 But what about the other mesh types : boxes, spheres, cylinders, etc ? 
 
@@ -243,7 +243,7 @@ box.updateMeshPositions(positionFunction, true);
 Example :  https://www.babylonjs-playground.com/#1UZIZC#6
 
 
-## More speed : freezeNormals !
+# More speed : freezeNormals !
 
 The former _CreateXXX()_ update functions try to be as much optimized as possible to run fast in the render loop.   
 However, you may need some more speed for any reason (huge mesh with dozens of thousands of vertices for instance).   

@@ -23,7 +23,7 @@ particleSystem.remove<PROPERTY>Gradient(fraction_of_time_period_elapsed);
 ```
 There are two time periods used one for a particle lifetime and one for the system duration both running from 0, start to 1, stop.
 
-## Change Size Over Lifetime
+# Change Size Over Lifetime
 To change size over the lifetime of the particle use
 
 ```javascript
@@ -45,7 +45,7 @@ particleSystem.removeSizeGradient(0.4);
 Size increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#18  
 Size increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#19
 
-## Change Color Over Lifetime
+# Change Color Over Lifetime
 
 To change size over the lifetime of the particle use
 ```javascript
@@ -69,7 +69,7 @@ To remove a color gradient you use
 color change over lifetime https://www.babylonjs-playground.com/#0K3AQ2#20  
 color change with ranges over lifetime https://www.babylonjs-playground.com/#0K3AQ2#22
 
-## Change Speed Over Lifetime
+# Change Speed Over Lifetime
 To change the speed (magnitude of velocity) over the lifetime of the particle use
 
 ```javascript
@@ -92,7 +92,7 @@ particleSystem.removeVelocityGradient(0.4);
 Speed increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#29  
 Speed increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#30
 
-## Limit Speed Over Lifetime
+# Limit Speed Over Lifetime
 You can define by how much to limit the speed of a particle with
 ```javascript
 particleSystem.limitVelocityDamping = 0.1; //damping factor
@@ -119,7 +119,7 @@ particleSystem.removeLimitVelocityGradient(0.4);
 
 Speed limit increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#33
 
-## Change Rotation Speed Over Lifetime
+# Change Rotation Speed Over Lifetime
 To change the rotation or angular speed over the lifetime of the particle use
 
 ```javascript
@@ -142,7 +142,7 @@ particleSystem.removeAngularSpeedGradient(0.4);
 AngularSpeed increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#26  
 AngularSpeed increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#27
 
-## Change Drag Over Lifetime
+# Change Drag Over Lifetime
 You can simulate air friction by applying a drag to the particle and you can change the amount of drag a particle experiences over its lifetime. Drag is applied in the direction of the particles velocity. A drag of 0.8 will reduce the velocity to 20% of its value. When the drag is &gt; 1 the particles direction will reverse.
 
 To change drag over the lifetime of the particle use
@@ -166,7 +166,7 @@ particleSystem.removeDragGradient(0.4);
 Drag &le; 1 https://www.babylonjs-playground.com/#0K3AQ2#39  
 Drag &gt; 1  https://www.babylonjs-playground.com/#0K3AQ2#40
 
-## Change Emit Rate Over Duration
+# Change Emit Rate Over Duration
 For example as energy builds over the duration of the particle system and increases the emit rate you might use,
 
 ```javascript
@@ -194,7 +194,7 @@ Faster emit rate over duration https://www.babylonjs-playground.com/#0K3AQ2#13
 
 Increasing and then decreasing emit rates over duration https://www.babylonjs-playground.com/#0K3AQ2#14
 
-## Change Lifetime Over Duration
+# Change Lifetime Over Duration
 
 For example to shorten lifetime as energy is used up over the duration of the particle system you might use,
 
@@ -223,7 +223,7 @@ Shorter lifetimes over duration https://www.babylonjs-playground.com/#0K3AQ2#9
 Increasing and then decreasing lifetimes over duration https://www.babylonjs-playground.com/#0K3AQ2#15
 
 
-### Change Start Size Over Duration
+## Change Start Size Over Duration
 To change the size of a particle on emission over the duration of the particle system use
 
 ```javascript

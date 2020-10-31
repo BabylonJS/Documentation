@@ -2,7 +2,7 @@
 
 This utility enables you to create and store Vector3 points each of which is randomly positioned inside a given mesh.
 
-## Design Outline.
+# Design Outline.
 
 1. Take a random triangular facet belonging to the mesh;
 2. Choose a random point inside this triangle;
@@ -10,7 +10,7 @@ This utility enables you to create and store Vector3 points each of which is ran
 4. Using that point as ray origin and the vector as ray direction find the hit point of the ray on the mesh;
 5. Determine a random point on the line segment joining the origin point to the hit point.
 
-## Design Method.
+# Design Method.
 
 1. For the mesh get the vertex positions and indices using
 
@@ -69,7 +69,7 @@ var pickInfo = ray.intersectsMesh(this);
 	}
 ```
 
-## The Whole function
+# The Whole function
 
 Set how many inside points to generate and store and return them in an array.
 
@@ -184,7 +184,7 @@ BABYLON.Mesh.prototype.createInnerPoints = function(pointsNb) {
 
 * [Playground Example - Points Inside a Twelve Pointed Stare](https://www.babylonjs-playground.com/#2K3T61#8)
 
-## Examples of Use 
+# Examples of Use 
 
 * [Playground Example - Using SPS](https://www.babylonjs-playground.com/#2K3T61#2)
 * [Playground Example - Using Particles](https://www.babylonjs-playground.com/#2K3T61#7)

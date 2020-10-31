@@ -13,7 +13,7 @@ Once you add an asset (for example a new custom script from the Code Editor), th
 * Double click on the asset: open/show the tool to modify the asset
 * Drag'n'drop the asset on a mesh: this will add the asset to the mesh under the pointer
 
-## Future
+# Future
 In future, the assets panel will contain more categories such as materials, textures, animations, etc.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TaMeFlUfqdE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

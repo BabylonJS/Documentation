@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Sprite Trees
+# Sprite Trees
 We are going to plant a couple of woods in our world each containing 500 trees. To maintain rendering speed we are going to use sprites. These are two dimensional images that will always face the camera.
 
 We are using this image 

@@ -125,7 +125,7 @@ export class HemisphericLight extends Light {
 
 **This creates an instance of the class**
 
-## No Parameters
+# No Parameters
 
 A creates comment to describe the CONSTRUCTOR
 
@@ -146,11 +146,11 @@ export class MapperManager {
 }
 ```
 
-## With Parameters
+# With Parameters
 
 A creates comment to describe the CONSTRUCTOR and use @param for each parameter. The first item after @param must be the parameter name then a further comment. In addition should any members of the constructor be declared as public the comment should be repeated before the member in the parameters list.
 
-### No Public Parameters
+## No Public Parameters
 
 Create and @param comments for constructor.
 
@@ -192,7 +192,7 @@ constructor(particleIndex: number, positionIndex: number, indiceIndex: number, m
 }
 ```
 
-### With Public Parameters
+## With Public Parameters
 
 Create and @param comments for constructor and copied comments before any public parameter in list
 
@@ -248,7 +248,7 @@ constructor(
 
 # Property of Class, Constructor, Function
 
-## Public with public variable
+# Public with public variable
 
 Plain comments to describe the PROPERTY
 
@@ -266,7 +266,7 @@ public direction: Vector3
 
 ```
 
-## Public with private variable
+# Public with private variable
 
 There are occasions when a variable should be public for the use of the code but private from a user. Such variables start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
 
@@ -278,7 +278,7 @@ There are occasions when a variable should be public for the use of the code but
 public _actionManager: ActionManager;
 ```
 
-## Private or Protected
+# Private or Protected
 
 These will be ignored automatically when building the API documentation and comments are optional.
 
@@ -290,11 +290,11 @@ protected _background: string;
 
 # Method of Class, Constructor or Function
 
-## Public with public name
+# Public with public name
 
-### No Parameters
+## No Parameters
 
-#### No Return Value
+### No Return Value
 
 Plain comments to describe the FUNCTION
 
@@ -333,7 +333,7 @@ this._nextActiveAction = this;
 public onTaskSuccessObservable = new Observable<AbstractAssetTask>();
 ```
 
-#### With Return Value
+### With Return Value
 
 Comments to describe the FUNCTION and use @returns
 
@@ -370,9 +370,9 @@ public get errorObject(): { message?: string; exception?: any; } {
 }
 ```
 
-### With Parameters
+## With Parameters
 
-#### No Return Value
+### No Return Value
 
 Comments to describe the FUNCTION and use @param for each parameter. The first item after @param must be the parameter name then a further comment
 
@@ -432,7 +432,7 @@ this.update(invertY);
 
 ```
 
-#### With Return Value
+### With Return Value
 
 Comments to describe the FUNCTION and use @param for each parameter and @returns to describe what the function returns. The first item after @param must be the parameter name then a further comment.
 
@@ -471,7 +471,7 @@ lightIndex);
 }
 ```
 
-## Public with private name
+# Public with private name
 
 There are occasions when a function should be public for the use of the code but private from a user. Such names start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
 
@@ -504,7 +504,7 @@ this.pointerEnterAnimation();
 }
 ```
 
-## Private or Protected
+# Private or Protected
 
 These will be ignored automatically when building the API documentation and comments are optional.
 

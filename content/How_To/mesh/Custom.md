@@ -8,7 +8,7 @@ Every facet is made up of three vertices each of which is assigned data that not
 its colour, texture and how it is lit. The complex process of applying a shader to turn this data into a viewable mesh 
 is all carried out by BabylonJS.
 
-## Positions and Indices
+# Positions and Indices
 
 Creating a mesh with two facets, one with vertices at `(-5, 2, -3), (-7, -2, -3), (-3, -2, -3)` and the other with vertices at `(5, 2, 3), (7, -2, 3), (3, -2, 3)`, requires each vertex to have a unique index. Indices should start at `0` and increase consecutively.
 
@@ -48,13 +48,13 @@ vertexData.applyToMesh(customMesh);
 
 * [Playground Example Showing Custom Mesh with Positions and Indices](https://www.babylonjs-playground.com/#VKBJN#2)
 
-## Normals 
+# Normals 
 
 Usually a normal to a plane is a vector that is at right angles to a plane and for this example this is true. 
 BabylonJS will calculate normals for a facet and for free standing facets not sharing any vertices with another facet 
 the normals will be mathematical normals. For more on how normals affect lighting see [Normals](/resources/Normals.html).
 
-### Calculating
+## Calculating
 
 Normals are calculated on the vertexData object using the `ComputeNormal` method which takes arrays for positions, indices and normals as parameters.
 
@@ -102,7 +102,7 @@ index | normal
 5 | (0, 0, 1)
 
 
-### Direction
+## Direction
 
 Clearly the normals for each facet are pointing in opposite directions. They all point away from the origin. 
 
@@ -116,7 +116,7 @@ Looking from the origin towards facet 0, 1, 2 then the order in the indices arra
 
 Reversing the order of one or both sets of facet indices in the playground will show how the normals change direction.
 
-### Lighting
+## Lighting
 
 The closest facet to the camera in now coloured white and the farthest from the camera is black. 
 This is because the addition of the normals affects the use of light on the facet.
@@ -129,7 +129,7 @@ var light = new BABYLON.DirectionalLight("direct", new BABYLON.Vector3(0, 0, 1),
 
 White light travelling in the opposite direction to that of the normal is reflected back and the facet is seen as white, while white light travelling in the same direction as the normal is absorbed and the facet is seen as black.
 
-### Visibility
+## Visibility
 
 Removing the wireframe effect then:
 
@@ -162,7 +162,7 @@ Comment line 41 out in the following to see back face culling happening.
 
 * [Playground Example Both Facets](https://www.babylonjs-playground.com/#VKBJN#7)
 
-## Color
+# Color
 
 The simplest way to assign a color to the custom mesh is by applying a standard material to the mesh and let BabylonJS do all the work. However 
 color can be set for a facet within the vertex data. For information on how the arrangement of facets used in constructing a mesh can affect how colors are displayed see [Applying Materials to Facets](/resources/Facets.html).
@@ -206,7 +206,7 @@ In the playground below see what happens when you make the vertices on the red f
 
 * [Playground Example Setting Vertex Colors](https://www.babylonjs-playground.com/#VKBJN#8) 
 
-### Notes on the Playground
+## Notes on the Playground
 
 Since a material is no longer being used, `backFaceCulling` cannot be set and so the camera will have to be rotated for the far facet to be seen. The far facet will remain black despite whatever color is applied as all light is still being absorbed by this facet.
 
@@ -222,7 +222,7 @@ Adding a light with direction the reverse of the current one will light both sid
 
 * [Playground Example Both Sides Colour Variation](https://www.babylonjs-playground.com/#VKBJN#105) 
 
-## Texture
+# Texture
 
 The simplest method is to just use [materials](/babylon101/Materials.html) and let BabylonJS apply the given image as a texture. 
 However should you wish to have more control on how a texture is applied to a facet then you need to create and set the uv array.
@@ -293,7 +293,7 @@ In the playground below clicking on next will cycle you through a variety of val
 *Notes about Playground above*: The camera has been disabled for the above playground. The uv values are shown and the relative index are shown on the texture image. 
 One day this playground might improve. You will get some idea of how to achieve reflections and rotations of textures on a facet. However for a mesh the [arrangement of facets](/resources/Facets.html) must be considered when trying to achieve a particular texture mapping on the mesh.
 
-### Calculating UVs
+## Calculating UVs
 
 Calculating the uvs for a custom mesh obviously depends on the shape of the mesh and which parts of the texture you want projected onto the mesh at which position. Here is an example with a relatively simple mesh which is basically a flat surface with a couple of protudences.
 

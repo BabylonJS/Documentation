@@ -1,8 +1,8 @@
 # How To Install the 3DS Max plugin 
 
-## Installer
+# Installer
 
-### Installing the installer (so meta...)
+## Installing the installer (so meta...)
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
 First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each releases:
@@ -19,7 +19,7 @@ You can nervertheless continue to download by pressing the little arrow and chos
 
 Once downloaded, you can extract the content of the zip in your favorite loaction.
 
-### Using the installer
+## Using the installer
 Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.png)
@@ -42,7 +42,7 @@ Would you want to upgrade to the latest available pre-release of the exporter pl
 
 Please not that both the software you are trying to install the plugin for should be closed during the installation.
 
-## Manual Install
+# Manual Install
 
 The plugin is designed for 3DS Max 2015 or later. To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
 
@@ -63,10 +63,10 @@ Then, extract the content of the zip file on your computer, and open the directo
 Congratulations! You did it!
 
 # Dependencies #
-## Visual Studio
+# Visual Studio
 Visual Studio is required to build the Max2Babylon project from source.
 
-## .NET Framework
+# .NET Framework
 The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers) needs to be installed in order to run the Max2Babylon plugin properly.
 * Max2Babylon 2015-2016
    * Requires atleast .NET Framework 4.5
@@ -86,13 +86,13 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 * Max2Babylon 2021
    * Requires atleast .NET Framework 4.7
 
-## Other Dependencies
+# Other Dependencies
 * For 3ds Max 2020
    * Max2Babylon 2020 requires 3dsMax 2020.2 or newer.
 
 # Features  #
 
-## Exported features
+# Exported features
 
 * _Scene_
     * Clear color
@@ -176,7 +176,7 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 (*): Through custom UI
 
-## Scene properties 
+# Scene properties 
 
 If you right-click on your scene, you will have a menu _Babylon -> Babylon Properties:_
 All the available blend modes are listed below:
@@ -194,7 +194,7 @@ The scene properties allow you to do these things:
 * __Add a default light, if no light is exported__. If this option is checked and there is no light selected for the export, an hemispheric light is added in the exported scene. By default this option is checked.
 * __Export normals__ and __Export tangents__ checkboxes allow you to control the morph target export. Note that if you want to export the target morph tangent, you have to check both the __Export tangents__ checkbox and the other __Export tangents__ checkbox of [the exporter window](#the-exporter-window).
 
-## Object properties 
+# Object properties 
 
 With a right click on a mesh, select the menu _Babylon -> Babylon Properties_ to open the window Object Properties:
 
@@ -214,7 +214,7 @@ With this window, you can set the following properties:
 * __Impostor__: Add an impostor to this object. Default is none.
 * __Mass/Friction/Restitution__: set the physics value of the impostor. Default values are 0.20, 0.20, and 0.20. 
 
-## Light properties
+# Light properties
 
 If you create a standard light and right click on it, select the menu Babylon -> Babylon Properties to display this window: 
 
@@ -222,7 +222,7 @@ If you create a standard light and right click on it, select the menu Babylon ->
 
 The options __Do not export__, __Tag__ and __animations__ are exactly the same as the Object properties window.
 
-## Camera properties 
+# Camera properties 
 
 ![Camera properties](/img/exporters/3DSMax/9_camera_properties_window.jpg)
 
@@ -234,7 +234,7 @@ In this window, you can choose the kind of camera you want to create in Babylon.
 * __Animations__: Same as in Object properties window. 
 * __Tag__: Same as in Object properties window. 
 
-## The exporter window 
+# The exporter window 
 
 When your scene is ready to be exported, click on the __Babylon__ tab on the top menu, and click on __Babylon File Exporter__ to display the exporter window. 
 
@@ -267,7 +267,7 @@ As babylon.js script is retrieved directly from the official website directly, y
 
 The log panel indicates in real time which mesh has been exported, which material, and if there are any problems with these objects. 
 
-## Export with MaxScript
+# Export with MaxScript
 
 You can also export the scene using MaxScript. A sample script file is available [here](https://github.com/BabylonJS/Exporters/blob/master/3ds%20Max/MaxScripts/Max2Babylon.ms).
 
@@ -280,27 +280,27 @@ Logs are limited to errors, warnings and core messages to avoid excessive amount
 
 # What you should know
 
-## Camera
+# Camera
 
 If you want to test your scene right away by using the button Export & Run, your scene should have a camera created. Otherwise, the log panel will display the warning “No camera defined” and a default one would be created at runtime but won't be exported in .babylon file. 
 
 If you have more than one camera, the first one will be set as activeCamera in Babylon. 
 
-## Light
+# Light
 
 If you don’t have any lights in your scene, the exporter will add a hemispheric light by default. The log panel will display the warning “No light defined – A default hemispheric light was added for your convenience”. 
 
-## Pivot and position 
+# Pivot and position 
 
 The object position will be defined with your object pivot position. In the image below, the pivot position is not at the center of the box: updating the object position in Babylon.js will update this pivot position, and not the box position.
 
 ![pivot](/img/exporters/3DSMax/10_pivot.jpg)
 
-## Negative scale
+# Negative scale
 
 Using a negative scale will reverse the normal of your objects. These objects will appear correctly in 3DSMax, but incorrectly in a Babylon.js application.
 
-## Mirror by Transform
+# Mirror by Transform
 
 Using mirror tool affecting __Transform__ will make mirrored object appear correctly in 3DSMax, but incorrectly in a Babylon.js application. Consider using mirror tool affecting __Geometry__ instead.
 
@@ -311,7 +311,7 @@ If mirror by __Transform__ is what you need (or what you got), you can fix this 
 
 Be aware animations for this object will likely be incorrect after that.
 
-## Animations
+# Animations
 
 Cameras, lights and meshes have custom properties (Right-click and select "Babylon properties" menu) to automatically launch animations at startup.
 
@@ -319,11 +319,11 @@ Animations are exported by sampling keyframes which can generate a lot of data. 
 
 Also, if animations are not exported correctly, you may want to disable animation optimization by using the Babylon properties menu on the scene (Right-click on the scene and select "Babylon properties" menu).
 
-## Consideration about bones
+# Consideration about bones
 
 To ensure that bones are correctly exported, you have to use the Skin modifier. Skin should be positioned at origin. [More info here](/resources/Bones_influences_per_vertex)
 
-## Textures image format
+# Textures image format
 
 Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are adviced to use those formats for your textures when exporting to Babylon.
 
@@ -331,7 +331,7 @@ Note that the exporter also supports textures with tif and dds formats. But, tho
 
 About dds format, Babylon engine partially supports this format depending on compression. To avoid any issue with this format, the exporter automatically converts it to png as stated previously. As an exception, the dds format is allowed for the environmnent texture and will not be automatically converted.
 
-## Specular color and specular level
+# Specular color and specular level
 
 Specular color and specular level are split into two attributes in 3ds Max while merged in Babylon.
 
@@ -344,14 +344,14 @@ For the texture, the Babylon specular color map is either:
 
 Even though a specular level map should be a grayscale, its 3 components (RGB) are multiplied individually to the specular color.
 
-## Multi-Materials
+# Multi-Materials
 Multi-Materials are supported, but __inputting a Multi-Material into another Multi-Material is not supported__.
 
-## Physical materials
+# Physical materials
 
 The handling of physical materials is mimic from glTF format. [Detailed explanations here](/resources/3DSMax_to_glTF#pbr-materials)
 
-## Arnold materials
+# Arnold materials
 
 The handling of arnold materials is mimic from glTF format. [Detailed explanations here](/resources/3DSMax_to_glTF#standard-surface-arnold-material)
 
@@ -365,7 +365,7 @@ In Babylon format, weight is stored in red channel, roughness in green.
 
 The roughness of the coating can be inverted to mean Glossiness - this is controlled by the same parameter than the roughness map.
 
-## Double sided material
+# Double sided material
 
 Simply use the _Double Sided_ material natively present in 3ds Max (Materials > General > Double Sided).
 
@@ -383,7 +383,7 @@ This mean that the exporter is automatically creating a back side. If you alread
 
 Moreover, the _Double sided_ material should not be confused with the _2-sided_ property of a _Standard_ material. This last property is used to put the same material to the front and back faces.
 
-## RGB Multiply map
+# RGB Multiply map
 
 The RGB Multiply map can be used as an intermediate node between a bitmap texture and a material.
 
@@ -395,15 +395,15 @@ Limitations:
 - only the diffuse texture (Standard material) and base color texture (Physical and Arnold materials) fields will accept a RGB Multiply map as input.
 - the RGB Multiply map must specify exactly a single texture. Two textures or two colors are not supported.
 
-## Shell material
+# Shell material
 
 The handling of the shell material is mimic from glTF format. [Detailed explanations here](/resources/3DSMax_to_glTF#shell-material)
 
-## DirectX Shader
+# DirectX Shader
 
 The handling of the directX shader material is mimic from glTF format. [Detailed explanations here](/resources/3DSMax_to_glTF#directx-shader-material)
 
-## Texture transparency 
+# Texture transparency 
 
 Babylon supports PNG, DDS and TGA formats for texture transparency. You can choose to include the transparency directly in your diffuse texture, or create an opacity map. Here are the options to check if you want to have transparency on your diffuse texture: 
 
@@ -411,7 +411,7 @@ Babylon supports PNG, DDS and TGA formats for texture transparency. You can choo
 
 **Important:** if you are relying on a physically based material, you can chose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](https://doc.babylonjs.com/resources/3dsmax_to_gltf#alpha-mode) to learn more about this feature.
 
-## Babylon material attributes
+# Babylon material attributes
 
 Native materials are enhanced to have extra attributes under Babylon attributes section.
 
@@ -426,7 +426,7 @@ Most Babylon attributes are common to all materials:
     * _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
     * _Blend_: This how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
-## Custom attributes
+# Custom attributes
 
 Attributes defined by you, the user, are exported as well!
 

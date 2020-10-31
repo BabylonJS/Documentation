@@ -64,7 +64,7 @@ Once stopped you can dispose of the particle system. Very useful if you want to 
 myParticleSystem.disposeOnStop = true;
 ```
 
-## Pre-warming
+# Pre-warming
 Starting with Babylon.js v3.3, you can now specify a pre-warming period to make sure your system is in a correct state before rendering.
 
 To do so, you need to setup two properties:
@@ -83,7 +83,7 @@ It will execute the particle animation loop 100 times with a time step set to 5 
 
 Here is an example of pre-warming: https://www.babylonjs-playground.com/#MX2Z99#8
 
-## Particle Texture 
+# Particle Texture 
 To apply a texture to the particles, such as  
 ![Flare](/img/how_to/Particles/Flare.png)
 
@@ -104,7 +104,7 @@ This example produces the following
 
 To use multiple textures in the scene use multiple particle systems all of which can use the same emitter object.
 
-## Noise texture
+# Noise texture
 Starting with Babylon.js v3.3, you can now use noise texture to "perturbate" the position of particles. The noise texture is technically used to apply change to the direction of the particles:
 
 ```
@@ -122,13 +122,13 @@ Alongside setting the noiseTexture you can also control the strength applied on 
 
 Adjustable noise https://www.babylonjs-playground.com/#R1JWLA#3
 
-## Local space
+# Local space
 
 If the emitter is a mesh and you set `particleSystem.isLocal = true` then all particles will be generated into the mesh local space (so rotation or transforming the mesh will transform the entire particle system).
 
 Demo: https://www.babylonjs-playground.com/#LNRAI3
 
-## World offset
+# World offset
 Starting with Babylon.js v4.0, you can set up a world offset to your particles with:
 ```
 particleSystem.worldOffset = new BABYLON.Vector3(100, 20, -453);

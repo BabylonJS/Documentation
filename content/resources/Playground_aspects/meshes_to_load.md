@@ -6,7 +6,7 @@ Meshes with a large file size can take some time to load, please be patient.
 
 Some meshes appear in both file locations.
 
-## From the Playground Scenes Folder
+# From the Playground Scenes Folder
 
 This list of files is in the github repo [scenes folder](https://github.com/BabylonJS/Babylon.js/tree/master/Playground/scenes) of the Playground and are available for use.
 
@@ -32,7 +32,7 @@ StanfordBunny.obj | 4.69 MB | ![bunny](/img/resources/meshes/bunny.png) | [Playg
 ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | [Playground](https://www.babylonjs-playground.com/#058SEW#3)
 Elf.gltf | 401 KB | ![elf](/img/resources/meshes/elf.png) | [Playground](https://www.babylonjs-playground.com/#XY6QF0)
 
-## From the Model Library
+# From the Model Library
 
 This list of files is in the model library [from the github repo](https://github.com/BabylonJS/MeshesLibrary) and using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `https://models.babylonjs.com/` and the `filename` parameter is as given below. The playground will show the actual terms required.
 
@@ -73,7 +73,7 @@ TrailMeshSpell/spellDisk.glb<br>TrailMeshSpell/pinkEnergyBall.glb<br>TrailMeshSp
 vintageFan_animated.gltf | 3.43 MB | ![vintageFan_animated](/img/resources/meshes/vintageFan_animated.jpg) | [Playground](https://www.babylonjs-playground.com/#YBEKDT)
 ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | [Playground](https://www.babylonjs-playground.com/#058SEW#4)
 
-## Finding Camera Values
+# Finding Camera Values
 
 To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/features/playground_debuglayer) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
 
@@ -81,11 +81,11 @@ To check the distance of the camera from the displayed mesh find the radius valu
 
 # Further Reading
 
-## How To
+# How To
 
 - [Load from any file type - glTF, OBJ, STL, etc.](/how_to/load_from_any_file_type)
 
-## Resources
+# Resources
 
 - [Textures Available in the Playground](/resources/playground_textures)
 - [Using External Assets in the Playground](/resources/External_PG_assets)

@@ -5,7 +5,7 @@ On creation the local origin of the polygon is coincident with the world origin.
 
 *CreatePolygon* calls [PolygonMeshBuilder](/How_To/polygonmeshbuilder). There is no *instance* option. You must set at least the _shape_ option. 
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const polygon = BABYLON.MeshBuilder.CreatePolygon("polygon", options, scene); //scene is optional and defaults to the current scene
@@ -22,11 +22,11 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order. You just list all the vertices of the polygon and *CreatePolygon* closes the shape.
 
-### Example
+## Example
 polygon with holes https://www.babylonjs-playground.com/#ZD60FU
 
 
-## Mesh
+# Mesh
 ```javascript
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, scene);
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, scene, holes, updatable, sideOrientation); //optional parameters after scene

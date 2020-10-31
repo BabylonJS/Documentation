@@ -12,7 +12,7 @@ Starting from Babylonjs 3.2 you can shape the region the particles are emitted f
 
 by the addition of specific emitter function.
 
-## Point Emitter
+# Point Emitter
 
 To create a point emitter, you can run this code:
 
@@ -33,7 +33,7 @@ pointEmitter.direction2 = new BABYLON.Vector3(5, 2, 1);
 
 * [Playground Example - Point Emitter](https://www.babylonjs-playground.com/#08YT34)
 
-## Box Emitter
+# Box Emitter
 
 To create a box emitter you use, for example
 
@@ -58,7 +58,7 @@ boxEmitter.maxEmitBox = new BABYLON.Vector3(2, 3, 4);
 
 * [Playground Example - Box Emitter](https://www.babylonjs-playground.com/#MRRGXL#1)
 
-## Sphere Emitter
+# Sphere Emitter
 
 You can create a sphere emitter with a given radius, 1.2 for example,  using
 
@@ -98,7 +98,7 @@ The first parameter is the radius the second is direction1 and third is directio
 
 * [Playground Example - Sphere Emitter with Directions](https://www.babylonjs-playground.com/#MRRGXL#3)
 
-## Hemispheric Emitter
+# Hemispheric Emitter
 
 You can create a hemispheric emitter with a given radius, 1.2 for example,  using
 
@@ -113,7 +113,7 @@ The particles are emitted in the direction of the surface normals, ie the lines 
 
 With `hemisphericEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface while a value of 1 means all along the radius.
 
-## Cylinder Emitter
+# Cylinder Emitter
 
 You can create a cylinder emitter with a given radius, height, radiusRange, directionRandomizer with the following:
 
@@ -150,7 +150,7 @@ The first parameter is the radius the second is direction1 and third is directio
 
 * [Playground Example - Cylinder Emitter with Directions](https://www.babylonjs-playground.com/#UL4WC0#5)
 
-## Cone Emitter
+# Cone Emitter
 
 To create a cone emitter you use, for example
 
@@ -184,7 +184,7 @@ With `coneEmitter.emitFromSpawnPointOnly = true` you can force the emitter to on
 * [Playground Example - Cone Emitter Rotating](https://www.babylonjs-playground.com/#MRRGXL#5)
 
 
-## Mesh Emitter
+# Mesh Emitter
 
 You can use the MeshParticleEmitter to emit your particles from the surface of a mesh:
 
@@ -204,7 +204,7 @@ meshEmitter.direction2 = new BABYLON.Vector3(0, -1, 0);
 
 Here is an example of a mesh particle emitter: https://www.babylonjs-playground.com/#N775HF
 
-## Custom Emitter
+# Custom Emitter
 
 To create a custom emitter you need to provide 2 functions:
 

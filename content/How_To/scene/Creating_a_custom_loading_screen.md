@@ -65,7 +65,7 @@ engine.displayLoadingUI();
 engine.hideLoadingUI();
 ```
 
-## Example
+# Example
 
 Here a playground using a custom loading screen:
 
@@ -207,7 +207,7 @@ BABYLON.SceneLoader.ImportMesh(
 ```
 
 
-## Going further
+# Going further
 
 Check out this handy video explaining how to create your own loading screen:
 - Custom Loading Screens: https://youtu.be/cLqK9vgTKBw

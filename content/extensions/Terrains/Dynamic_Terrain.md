@@ -6,7 +6,7 @@ The Dynamic Terrain is an extension that provides a way to display a large terra
 
 The dynamic terrain is basically a standard BJS mesh, actually a ribbon. It's linked to a camera and moves with it along the World X and Z axes. It's passed a set of geographic data what are each simply 3D coordinates _(x, y, z)_ in the World. This set of data is called the map. According to the current camera position in the World, the dynamic terrain morphs to depict the map at this location. 
 
-## Installation
+# Installation
 
 Just download the javascript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from the BabylonJS [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist` :   https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist    
 
@@ -15,7 +15,7 @@ Then in your code, declare this script in a html tag **after** the script tag de
 <script src="babylon.js"></script>
 <script src="dynamicTerrain.min.js"></script>
 ```
-## How To Use It
+# How To Use It
 
 The dynamic terrain is a mesh that morphs on a logical data map.  
 This map is a simple flat array of successive 3D coordinates (x, y, z) as floats.  
@@ -42,9 +42,9 @@ terrainMesh.diffuseTexture = myNiceTexture;
 Some documented examples are here :   
 https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/documentation/dynamicTerrainExamples.md  
 
-## Getting Started
+# Getting Started
 
-### The Data Map
+## The Data Map
 The first thing we need to create a dynamic terrain is a data map.  
 The data map is a simple flat array of successive 3D coordinates _(x, y, z)_ in the World.  
 It's defined by the number of points on the map width, called`mapSubX` by the dynamic terrain, and the number of points on the map height, called `mapSubZ`.   
@@ -93,7 +93,7 @@ The distance between the points is constant on the width and is different from t
 In this example, the data map is generated in a Float32Array. The very useful library [perlin.js](https://github.com/josephg/noisejs) is used to compute the altitude of each point with a _simplex2_ noise function.  
 In order to better understand how this map is generated, we use it as a ribbon mesh geometry here. In this example, the ribbon is thus a really big mesh (1000 x 800 = 800K vertices !). So you shouldn't try to render so big meshes in your scene if you want to keep a decent framerate. Moreover, remember that the logical map could also be bigger than 800K points.  
 
-### The Dynamic Terrain
+## The Dynamic Terrain
 
 Once we've got the data map, we can create the dynamic terrain.  
 ```javascript
@@ -142,9 +142,9 @@ In short, by default, the terrain sees the map as infinite.
 
 # The Dynamic Terrain in Detail
 
-## LODs
+# LODs
 
-### Initial LOD
+## Initial LOD
 LOD is an acronym for Level Of Detail.  
 It's a feature allowing to reduce the rendering precision of some mesh when it's far away from the camera in order to lower the necessary computation : the less vertices, the less CPU/GPU needed.  
 
@@ -165,7 +165,7 @@ In consequence, the terrain mesh is far bigger, far less detailed regarding to t
 Setting an initial LOD to 10 is probably not a pertinent value, it's done only in the purpose of the explanation.  
 In brief, the initial LOD value is the number of map quads on each axis, X and Z, per terrain quad.  
 
-### Camera LOD  
+## Camera LOD  
 Back to the terrain with the default initial LOD value.  
 We can notice that when the camera is at some high altitude the green terrain seems far away, quite little in the screen area, as this is the common behavior : distant things appear tinier.  
 * [Playground Example Distant](https://www.babylonjs-playground.com/#FJNR5#167)   
@@ -203,7 +203,7 @@ This feature is useful only when the expected camera movements can get the terra
 It's not really necessary to use it if the terrain keeps quite the same size in the fied of view.  
 Example : a character walking on the terrain ground.  
 
-### Global LOD
+## Global LOD
 The global LOD factor is the current sum of the initial value and the current camera LOD correction value.  
 As said before, it's the current factor of the number of map quad per axis in each terrain quad.  
 It's readable with the property `.LODValue`.   
@@ -214,7 +214,7 @@ It's a positive integer (>= 1).
 Let's simply remember that the bigger the LOD value, the lower the terrain details.  
 
 
-### Perimetric LOD
+## Perimetric LOD
 The perimetric LOD is the LOD in the distance around the terrain perimeter.  
 When our camera is close enough to the ground and looking at distant things in the landscape, we expect that these things don't require too many vertices to be rendered, because they are far from us and don't need to be as detailed as near objects.  
 
@@ -282,7 +282,7 @@ Of course, the perimetric LOD and the camera LOD correction can work together
 
 * [Playground Example Perimetric and Camera LODs](https://www.babylonjs-playground.com/#FJNR5#176) 
 
-### LOD Summary
+## LOD Summary
 
 * the initial LOD is the factor of the central terrain quad to apply to the map quad (default 1),
 * the cameraLODcorrection is the quantity to add to this initial LOD to adjust to the camera position or distance (default 0),
@@ -291,8 +291,8 @@ Of course, the perimetric LOD and the camera LOD correction can work together
 * the global LOD value is the current LOD factor value of the central quads.  
 
 
-## Terrain Update
-### According to the camera movement
+# Terrain Update
+## According to the camera movement
 The terrain is updated each time the camera crosses a terrain quad either on the X axis, either on the Z axis.  
 However, we can set a higher tolerance on each axis to update the camera only after more terrain quads crossed over with the properties `.subToleranceX` and `.subToleranceZ`.   
 ```javascript
@@ -313,7 +313,7 @@ The default values of both these properties are 1 (minimal authorized value).
 They can be changed at any time according to our needs.   
 
 
-### User Custom Function
+## User Custom Function
 
 The Dynamic Terrain provides the ability to update each of its vertex while the whole terrain update.  
 Let's enable it (disabled by default). It can be enabled/disabled at any time.   
@@ -365,7 +365,7 @@ So let's remember to make it as fast as possible and to not allocate any object 
 Let's also remember that this custom user function is called only on terrain updates, not necesseraly each frame. There's a way to force the terrain update on every frame that we'll see further.  
 
 
-### After or Before Terrain Update
+## After or Before Terrain Update
 The Dynamic Terrain is updated automatically according to the camera position and all the LOD or tolerance parameters we've set so far.  
 Sometimes it's necessery to do something just before or just after the terrain update although we can't predict in the main logic when this update is triggered.  
 Therefore, the Dynamic Terrain provides two functions that we can over-write and what are called just before and just after the terrain update : `beforeUpdate()` and `afterUpdate()`
@@ -384,7 +384,7 @@ Therefore, the Dynamic Terrain provides two functions that we can over-write and
 This may be useful to compute some variable values once for all before they are used then by the user custom function `updateVertex()` instead of computing them inside it.  
 
 
-### Force Update On Every Frame
+## Force Update On Every Frame
 Unless specific need, we shouldn't do this.  
 ```javascript
 terrain.refreshEveryFrame = true; // false, by default
@@ -392,7 +392,7 @@ terrain.refreshEveryFrame = true; // false, by default
 This can be changed at any time at will.  
 
 
-## Useful Functions
+# Useful Functions
 If we need to know if a set of 2D map coordinates _(x, z)_ is currently inside the terrain, we can use the method `contains(x, z)` what returns a boolean. 
 ```javascript
 if (terrain.contains(x, z)) {
@@ -411,7 +411,7 @@ var normal = BABYLON.Vector.Zero();
 y = terrain.getHeightFromMap(x, z, normal); // update also normal with the terrain normal at (x, z)
 ```
 
-## Other Properties
+# Other Properties
 
 ```javascript
 var mesh = terrain.mesh;                // the terrain underlying BJS mesh
@@ -436,8 +436,8 @@ var mapPointsZ = terrain.mapSubZ;   // the passed map number of points on height
 var camera = terrain.camera;        // the camera the terrain is linked to. By default, the scene active camera
 ```
 
-## Advanced Terrain
-### Color map
+# Advanced Terrain
+## Color map
 A color map can be passed to the terrain at construction time.  
 This color map is a flat array of successive floats between 0 and 1 of each map point _(r, g, b)_ values.  
 This array must have the same size than the data array.   
@@ -486,7 +486,7 @@ Obviously this still works with the user custom function called with `updateVert
 
 * [Playground Example Color Map and Vertex Update](https://www.babylonjs-playground.com/#FJNR5#183)  
 
-### UV map
+## UV map
 If we assign a material and a texture to the terrain mesh, it's by default set to the current terrain size and shifted according to the camera movements.  
 * [Playground Example Default UV Map](https://www.babylonjs-playground.com/#FJNR5#184)
 
@@ -562,7 +562,7 @@ Example with no more manual UV computation
 
 * [Playground Example UVmap Auto Adjust](https://www.babylonjs-playground.com/#FJNR5#187)  
 
-### Normal map
+## Normal map
 By default, when we assign a data map to the terrain at construction time, it pre-computes all the normals of the map once.  
 Computing all the map normals is a heavy process, but it's done only once.  
 This permits to skip the terrain mesh normal recomputation each time this one is morphed, it is to say on each update. Thus, the terrain normal recomputation is disabled by default.   
@@ -626,7 +626,7 @@ BABYLON.DynamicTerrain.ComputeNormalsFromMapToRef(map2, subX2, subY2, normal2);
 BABYLON.DynamicTerrain.ComputeNormalsFromMapToRef(map3, subX3, subY3, normal3);
 ```
 
-### Map Creation From a Height Map  
+## Map Creation From a Height Map  
 A height map is an image file, usually with grey colors only (from black to white), where each pixel color holds the point altitude : the brighter, the higher.  
 Example file : https://www.babylonjs.com/assets/heightMap.png  
 
@@ -689,7 +689,7 @@ BABYLON.DynamicTerrain.CreateMapFromHeightMapToRef(url3, options, set3, scene);
 In this example we use both the world image to texture the whole map with `createUVMap()` and the world height map to define the altitudes.  
 
 
-### Map Change on the Fly
+## Map Change on the Fly
 The terrain can be assigned another map at any time.  
 Example : 
 ```javascript
@@ -727,7 +727,7 @@ terrain.mapData = map2;
 terrain.mapNormals = normals2;
 ```
 
-### Without Data Map  
+## Without Data Map  
 The Dynamic Terrain is a right tool to render a part of a map of 3D data.  
 We usually don't need to modify the map data because they are just what we want to render on the screen.  
 However the Dynamic Terrain is ... _dynamic_.  

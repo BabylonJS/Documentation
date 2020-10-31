@@ -2,11 +2,11 @@
 
 ![Mix Material](/img/extensions/materials/mixResult.png)
 
-## Playground example
+# Playground example
 
 A Playground example can be found here: [Mix Playground]( https://www.babylonjs-playground.com/#1DFTDT)
 
-## Using the mix material
+# Using the mix material
 
 The mix material is based on the terrain material but works with up to 8 diffuse textures. It is composed of:
 - 8 Diffuse textures. (at least 4 required)
@@ -47,13 +47,13 @@ terrain.material = mix;
 
 That's all!
 
-## Result with only the mix texture 1
+# Result with only the mix texture 1
 With ```mix.mixTexture2``` undefined or null, the material will only apply the mix texture 1:
 
 ![Mix Texture 1](/img/extensions/materials/mixMap.png)
 ![Mix Material 1](/img/extensions/materials/terrainMixtexture1.png)
 
-## Result with both mix textures 1 & 2
+# Result with both mix textures 1 & 2
 With ```mix.mixTexture2 = new BABYLON.Texture("/playground/textures/mixMap_2.png", scene)``` the material will continue mixing the mix texture 1 with the mix texture2. Then, you are able to mix up to 8 diffuse textures:
 
 ![Mix Texture 2](/img/extensions/materials/mixMap_2.png)

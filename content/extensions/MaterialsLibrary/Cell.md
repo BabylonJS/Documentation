@@ -2,13 +2,13 @@
 
 ![Toon material](/img/extensions/materials/toon.png)
 
-## Using the cell material
+# Using the cell material
 
 Cell material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.cellMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.cellMaterial.js)
 
 A demo can be found here:  https://www.babylonjs-playground.com/#36VUUE
 
-## Creating and customizing the cell material
+# Creating and customizing the cell material
 
 You can customize special properties of the material:
 

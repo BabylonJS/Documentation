@@ -1,7 +1,7 @@
 # Tiled Box
 A tiled box is only available with *MeshBuilder*. A tiled box is constructed from six tiled planes  s o that he tile size, pattern and alignment of tiles will be the same for each face. Using the faceUV array each side can have a different texture for its tiles as [explained](/how_to/createbox_per_face_textures_and_colors) for a standard box.
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene); //scene is optional and defaults to the current scene
@@ -57,7 +57,7 @@ BABYLON.Mesh.RIGHT
 
 There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 
-## Examples
+# Examples
 We use the following image as the texture in the following examples
 
 ![Arrow Pattern](/img/how_to/mesh/tiles6.jpg)  

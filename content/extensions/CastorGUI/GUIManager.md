@@ -1,9 +1,9 @@
 # GUIManager
 
-## new GUIManager(canvas, css)
+# new GUIManager(canvas, css)
 Creates a new GUIManager
 
-#### Parameters
+### Parameters
 Name | Type | Description
 ---|---|---
 **canvas** | object | The element canvas
@@ -11,39 +11,39 @@ Name | Type | Description
 **options** | object | The option of theme GUI for all element
 ---
 
-## Options
+# Options
 
-### themeRoot
+## themeRoot
 Root of file css of theme
 
-### themeGUI
+## themeGUI
 file css of theme
 
-## Methods
+# Methods
 
-### addStyle(string:css) → void
+## addStyle(string:css) → void
 Add style on GUI
 
-### getElementById(string) → [GUIElement]()
+## getElementById(string) → [GUIElement]()
 Returns the element corresponding.
 
-### getCanvasOrigine() → void
+## getCanvasOrigine() → void
 Returns the origine canvas (x,y)
 
-### getCanvasWidth(string) → void
+## getCanvasWidth(string) → void
 Returns the size canvas (width, height)
 
-### fadeIn(element) → void
+## fadeIn(element) → void
 Set fade in element
 
-### fadeOut(element) → void
+## fadeOut(element) → void
 Set fade out element
 
-### setVisible(bool, fade) → void
+## setVisible(bool, fade) → void
 Set this GUI all element to visible or invisible
 
-### isVisible() → void
+## isVisible() → void
 Returns all element if is visible or no
 
-### dispose() → void
+## dispose() → void
 Dispose the GUIManager, and delete all elements.

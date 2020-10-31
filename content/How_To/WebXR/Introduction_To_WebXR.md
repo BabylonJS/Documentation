@@ -1,6 +1,6 @@
 # WebXR
 
-## Current state
+# Current state
 
 The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in its draft phase. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) to know about others browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. 
 
@@ -8,13 +8,13 @@ As the API continuously changes, it is difficult to keep up with feature changes
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
-## Device and browser support
+# Device and browser support
 
-### PC
+## PC
 
 Chrome 79 on windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) Devices. Unofficially, WebXR is working well with the oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
 
-### Mobile and Quest
+## Mobile and Quest
 
 WebXR is supported on Google Daydream using Chrome.
 
@@ -24,7 +24,7 @@ Oculus Quest supports WebXR (in VR mode) in the latest oculus browser. Babylon's
 
 No official iOS/iPhone support is planed at the moment. Mozilla has built the [WebXR iOS Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056) which is a (very) limited AR-oriented browser.
 
-### Polyfill
+## Polyfill
 
 For older browsers that support WebVR but not WebXR you can use the [WebXR Polyfill](https://github.com/immersive-web/webxr-polyfill) which is the WebXR API implementation using WebVR features. Some functions will not work (or will simply return without changes) but the basic functionality works well.
 
@@ -72,11 +72,11 @@ var createScene = async function () {
 
 If you experience low-resolution when using the polyfill, make sure to resize the canvas to a higher resolution. This is a limitation of WebVR (that required resizing the canvas) which we didn't integrate for WebXR.
 
-### The WebXR Emulator
+## The WebXR Emulator
 
 If you are developing and don't want to constantly test on a real device, use mozilla's [WebXR Emulator](https://blog.mozvr.com/webxr-emulator-extension/) which is available for [chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje) and [firefox](https://addons.mozilla.org/firefox/addon/webxr-api-emulator). We support it and actually use it during development. Highly recommended.
 
-## Getting started
+# Getting started
 
 The simplest way to get started is using a WebXR-enabled browser and add a single line of code to your scene:
 
@@ -117,11 +117,11 @@ And that's it!
 
 Make sure to read more on the [WebXR Experience Helper](./WebXR_Experience_Helpers) for further tips and tricks, and take a look at our [Demos and examples](./WebXR_Demos_and_Examples) page.
 
-## Migrating from WebVR
+# Migrating from WebVR
 
 WebVR is deprecated and will soon end its life in most if not all browsers. It is highly recommended to port all WebVR implementations to WebXR.
 
-### Migrating from the VR Experience helper
+## Migrating from the VR Experience helper
 
 If you used our [VR experience helper](./WebVR_Helper) remove the VR initializer and add the XR experience helper. So this:
 
@@ -139,7 +139,7 @@ var xrHelper = scene.createDefaultXRExperienceAsync();
 
 The XR helper has full controller support per default, including interactions with the scene meshes, pointer events and more. Read more about the [XR Experience helper](./WebXR_Experience_Helpers).
 
-### Migrating controller support
+## Migrating controller support
 
 Since WebXR controllers are no longer considered to be Gamepads the architecture is a bit different.
 
@@ -239,7 +239,7 @@ if (touchpad) {
 
 Read more about the [XR Controllers system](./WebXR_Controllers_Support).
 
-### Legacy support
+## Legacy support
 
 Thou we always encourage backwards compatibility **We recommend using WebXR directly** and stop using the WebVR experience helper. However:
 
@@ -330,7 +330,7 @@ Note that some features will not work correctly or will not work at all. For exa
 
 We recommend using the WebXR polyfill instead.
 
-## Further reading
+# Further reading
 
 1. [Demos and Examples](./WebXR_Demos_and_Examples)
 1. [The WebXR Experience Helper](./WebXR_Experience_Helpers)

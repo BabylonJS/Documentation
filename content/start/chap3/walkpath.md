@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## A Walk Around The Village
+# A Walk Around The Village
 
 There is a useful property of a mesh, *movePOV* which allows us to move a mesh relative to its point of view. Generally a newly created mesh will be considered as facing the negative z direction and this is the direction of its point of view. To move a mesh forward 6 units in the direction of its point of view you use
 

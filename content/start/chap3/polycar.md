@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Building the Car
+# Building the Car
 The car is going to be a very simple one. The body will be built using the *extrudePolygon* method. This is another shape that can be built using *MeshBuilder*. The outline of the shape is drawn in the XZ plane, with points in counter-clockwise order and the extrusion is in the Y direction. The origin for the polygon is the zero point on the bottom plane.
 
 The outline for the car consists of an array of vector3 points forming a horizontal base line, a quarter circle for the front, followed by a horizontal base line. The vertical back with be formed by the *extrudePolygon* method as it automatically joins the first and last point.

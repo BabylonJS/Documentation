@@ -1,8 +1,8 @@
-## Capsule
+# Capsule
 *Requires BJS version 4.2+*
 The created capsule has its origin at the center of the capsule. The height minus the sum of the top and bottom radius must be > 0.
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const capsule = BABYLON.MeshBuilder.CreateCapsule("ribbon", options, scene);  //scene is optional and defaults to the current scene
@@ -21,13 +21,13 @@ radiusBottom?|_(number)_  Overwrite for the bottom radius.
 topCapSubdivisions?|_(number)_ Overwrite for the top capSubdivisions.
 bottomCapSubdivisions?|_(number)_ Overwrite for the bottom capSubdivisions.
 
-### Examples
+## Examples
 Default capsule https://www.babylonjs-playground.com/#CL6HZ0  
 Different cap subdivisions https://www.babylonjs-playground.com/#CL6HZ0#1  
 Forward orientation https://www.babylonjs-playground.com/#CL6HZ0#2  
 Different radii https://www.babylonjs-playground.com/#CL6HZ0#3  
 
-## Mesh
+# Mesh
 ```javascript
 const capsule = BABYLON.Mesh.CreateCapsule("ribbon", options, scene);  //scene is optional and defaults to the current scene
 ```

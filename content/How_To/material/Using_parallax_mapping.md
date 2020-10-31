@@ -17,11 +17,11 @@ While this technique is independent from Normal Mapping (a.k.a Bump) it's often 
 
 There are many techniques that are based on the Parallax Mapping principle, Babylon.js supports two of them.
 
-## Parallax Mapping
+# Parallax Mapping
 
 The core algorithm which perform an offset computation for the texture UV coordinates, based on a height map. This algorithm is really quick to perform, you can almost think of it as being free if you already are using Bump.
 
-## Parallax Occlusion Mapping (POM)
+# Parallax Occlusion Mapping (POM)
 
 While traditional Parallax mapping compute the offset based on one sample of the height map, the Occlusion version will make a loop to sample the height map many times in order to reach a more precise location of what the pixel to compute should reflect.
 

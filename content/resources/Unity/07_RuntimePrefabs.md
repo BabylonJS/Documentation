@@ -9,7 +9,7 @@ Check out the [Unity Prefab Concept Video](https://unity3d.com/learn/tutorials/t
 
 # Unity Prefab System
 
-## Using Runtime Prefabs
+# Using Runtime Prefabs
 
 You can create a prefab by selecting **Asset > Create Prefab** and then dragging an object from the scene onto the “empty” prefab asset that appears. If you then drag a different game object onto the prefab you will be asked if you want to replace your current game object with the new one. Simply dragging the prefab asset from the project view to the scene view will then create instances of the prefab. Objects created as prefab instances will be shown in the hierarchy view in blue text. (Normal objects are shown in black text.)
 
@@ -19,7 +19,7 @@ As mentioned above changes to the prefab asset itself will be reflected in all i
 
 You can also create instances of prefabs at runtime from your scripts. See the **Managed Runtime Support** section for further details.
 
-## Editing Runtime Prefabs
+# Editing Runtime Prefabs
 
 The inspector for a prefab instance has three buttons not present for a normal object: **Select**, **Revert** and **Apply**.
 
@@ -36,7 +36,7 @@ The prefab layer can prepare your objects to take advantage of the toolkit's dee
 
 By setting game objects to the **Babylon Prefab** layer you will create disabled source meshes used for deep cloning when you call the scene manager instantiate prefab function.
 
-## Managed Runtime Support
+# Managed Runtime Support
 
 The toolkit scene manager provides easy to use helper functions for client side prefab instantiation:
 

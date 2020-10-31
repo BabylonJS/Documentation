@@ -115,14 +115,14 @@ for (let t = 0; t < Math.PI; t += Math.PI / 32) {
 
 a sphere https://www.babylonjs-playground.com/#F6JW5W#25
 
-## More examples
+# More examples
 It is hard to stop playing  
 A ribbon of parabolas https://www.babylonjs-playground.com/#F6JW5W#22  
 parabolas scaled https://www.babylonjs-playground.com/#F6JW5W#21  
 parabolas with some trigonometry https://www.babylonjs-playground.com/#F6JW5W#23  
 parabolas and more trigonometry https://www.babylonjs-playground.com/#F6JW5W#24  
 
-## Paths to Try
+# Paths to Try
 You could choose a known math curve from these sites
 http://en.wikipedia.org/wiki/List_of_curves  
 http://www.mathcurve.com/courbes2d/courbes2d.shtml  

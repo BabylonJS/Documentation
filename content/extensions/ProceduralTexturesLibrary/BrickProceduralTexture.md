@@ -2,7 +2,7 @@
 
 ![Brick Procedural texture](/img/extensions/proceduraltextures/brickpt.png)
 
-## Using the Brick procedural texture
+# Using the Brick procedural texture
 
 Brick procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)

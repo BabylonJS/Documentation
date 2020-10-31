@@ -8,7 +8,7 @@ The separate images in a spritesheet off either type are in what are called cell
 
 The brief overviews on this page are further detailed within this section.
 
-## Sprite Manager
+# Sprite Manager
 For a single sprite image or uniform spritesheet you create a sprite manager.
 
 ```javascript
@@ -20,7 +20,7 @@ const mySpriteManagerTrees = new BABYLON.SpriteManager(name, url, capacity, size
 - _size_ (_{width: number, height: number} | number_), width and height or size of a sprite or a cell within a spritesheet;
 - _scene_ (_scene_) optional
 
-## Sprite Packed Manager
+# Sprite Packed Manager
 *Available from BJS version 4.1*
 
 When your sprites images are of varying sizes you need a packed spritesheet file and a JSON file containing the positional data of the individual sprites within the packed spritesheet. The packed spritesheet file and the JSON file should have the same name and be in the same folder, eg pack1.png and pack1.json. You can then create a sprite packed manager by either
@@ -44,7 +44,7 @@ const spm = new BABYLON.SpritePackedManager(name, spritesheet url, capacity, sce
 
 Currently the sprite packed manager only uses the cell positional and cell size data from the packed spritesheet.
 
-## Sprite Map 
+# Sprite Map 
 *Available from BJS version 4.1*
 
 When creating a 2D or 2.5D game you often need to render thousands of animated sprites on screen fast. This is beyond the capabilities of either of the sprite managers. The Babylon.js *SpriteMap* was made for use in this situation. The only current limitation of this sprite mapping system is that the positions of the sprites are static to a specific grid dictated by the Sprite Maps initializing parameters. 

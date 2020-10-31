@@ -12,7 +12,7 @@ I made some really rough sketches of how I wanted the character and environment 
 This is also where I started thinking about what color palette I wanted to use. Similar to the pixel-art games I usually make, I wanted to use a limited color palette to keep it consistent and bring everything together. Colors aren't usually my strength, so I just try to keep a set of colors I think work well together and go from there. This is where looking for color palettes on pinterest is really helpful.
 
 # 3D Modeling with Blender
-## Character
+# Character
 This area was the most new to me, so I spent a lot of time learning through studying youtube tutorial and speed modeling videos. The most challening part of this would have been the character modeling + rigging process. I modeled and rigged it several times until I was satisfied with the final outcome.
 
 The first time was to get a player model done for animation and movement testing. The main problem I had was with clipping.
@@ -32,7 +32,7 @@ These are some of the tutorials I watched for the animation process:
 - [3D Animation Hub's Jump Animation](https://www.youtube.com/watch?v=VvTEovuTCgA)
 - [Jayanam's Basic Running Cycle Tutorial](https://www.youtube.com/watch?v=0PkBq9NW7K8)
 
-## Environment
+# Environment
 
 Here are some of the youtubers I watched for inspiration on 3D Modeling environments!
 - [Grant Abbitt](https://www.youtube.com/user/mediagabbitt)
@@ -55,7 +55,7 @@ Both of these are paid programs, however there are free alteratives for each tha
     - [Autodesk Sketchbook](https://www.sketchbook.com/)
     - [Krita](https://krita.org/en/)
 
-## Resources
+# Resources
 This is the pixel font I used for the dialogue. I always use this one for 2D games!  
 Pixel font: [m5x7](https://managore.itch.io/m5x7) by Daniel Linssen
 

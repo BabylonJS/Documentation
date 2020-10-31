@@ -2,16 +2,16 @@
 
 The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages.
 
-## Introduction
+# Introduction
 Filtering images to apply effect might be tedious and slow on the CPU. The best place to do so (for a wide variety of effects) is on the GPU. But setting up an entire WebGL pipeline simply to process images might be tricky even more if you wish to benefit from WebGL 2 to 1 fallback and workaround famous platform issues.
 
 To greatly simplify this task we introduced the `ImageFilter` Control.
 
 ![ImageFilter](/img/features/controls/imageFilter.png)
 
-## How to use
+# How to use
 
-### Installation
+## Installation
 To begin with the image filter control, you first need to install the controls npm package.
 
 ```
@@ -24,7 +24,7 @@ To reduce the size of your web page, the controls library is based on the es6 ve
 npm install @babylonjs/core
 ```
 
-### Instantiation
+## Instantiation
 Once done, you can now import the control in your code:
 
 ```
@@ -48,7 +48,7 @@ const imageFilter = new ImageFilter(engine);
 
 By default the controls relies on ThinEngine in order to optimize your bundle but it might have some limitations you do not want to have as part of your experiences.
 
-### Using Post Process
+## Using Post Process
 In order to apply a custom shader as the image filter, you can use the following code:
 
 ```
@@ -63,7 +63,7 @@ Where imageToProcess could be either:
 
 This will apply the post process to the provided input and display it in the canvas.
 
-### Using Custom shader
+## Using Custom shader
 In order to apply an existing post process as the image filter, you can use the following code:
 
 ```
@@ -170,7 +170,7 @@ engine.runRenderLoop(() => {
 
 Finally, if you are relying on new textures, you need to wait for them to be ready before rendering.
 
-### Process to the canvas
+## Process to the canvas
 This is by far the simplest, if you have a canvas in your page. You simply need to use the following code to fit the provided element to the canvas size:
 
 ```
@@ -184,7 +184,7 @@ On the previous line, imageToResize could be either:
 
 This is the default behavior.
 
-### Process to a Babylon Texture
+## Process to a Babylon Texture
 Instead of filtering directly to a canvas, you could prefer to only create a Babylon.js texture on the GPU. For this, you can use the following function:
 
 ```
@@ -200,7 +200,7 @@ You also need to provide the size you want your texture to have on the GPU.
 
 Now you are free to use this texture with any other controls.
 
-### Real Time filtering
+## Real Time filtering
 Instead of filtering only one time, you might want to create dynamic real time effects. For this, you can simply render the effect during the render loop:
 
 ```
@@ -226,14 +226,14 @@ engine.runRenderLoop(() => {
 
 This requires to use the render function instead of the filter one to enhance your experience performances.
 
-## Full Code Sample
+# Full Code Sample
 
 You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/imageFilter/index.ts) if you want to see it in action and better see how some of the functionnalities could be used.
 
-## Live Demo
+# Live Demo
 
 Please, have a look at the [Live Image Filter Demo](https://controls.babylonjs.com/imageFilter) to better appreciate how it works.
 
-## Further reading
+# Further reading
 
 [Babylon.js Controls](/features/controls)

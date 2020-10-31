@@ -1,7 +1,7 @@
 # Icosphere
 This a sphere based upon an icosahedron with 20 triangular faces which can be subdivided into smaller triangles.
 
-## MeshBuilder
+# MeshBuilder
 Usage:
 ```javascript
 const icosphere = BABYLON.MeshBuilder.CreateIcoSphere("icosphere", options, scene);
@@ -24,7 +24,7 @@ Smoothed Icossphere https://www.babylonjs-playground.com/#HC5FA8#2
 Less subdivisions and changed radii https://www.babylonjs-playground.com/#HC5FA8#3  
 Icosphere with animation over subdivisions https://www.babylonjs-playground.com/#E3TVT#1  
 
-## Mesh
+# Mesh
 Usage:
 ```javascript
 const icosphere = BABYLON.Mesh.CreateIcoSphere("icosphere", options, scene);

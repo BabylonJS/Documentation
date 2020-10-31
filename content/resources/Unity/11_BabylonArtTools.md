@@ -20,7 +20,7 @@ The art tools provided by the toolkit allow you to optimize your game assets for
 
 Check out the [Maya Arts Tools Tutorial](http://www.babylontoolkit.com/videos/MayaArtTools.mp4) to get started optimizing your geometry for web based game development.
 
-## Babylon Reskin Tool
+# Babylon Reskin Tool
 
 Reskin and combine selected meshes with new max influencers. Download and install the [Babylon Reskin Tool](https://github.com/BabylonJS/Exporters/blob/master/Maya/Tools/babylonReskinTool.mel) file in your **Maya Scripts** folder.
    
@@ -30,7 +30,7 @@ Open the Script Editor and go to the Mel tab, copy and paste command below:
 
 Highlight it and click on "Save Script to Shelf...", specify a name ('Reskin') and click "OK".
 
-## Babylon Namespace Tool
+# Babylon Namespace Tool
 
 Removes unwanted namespace text from selected object. Download and install the [Babylon Namespace Tool](https://github.com/BabylonJS/Exporters/blob/master/Maya/Tools/babylonReskinTool.mel) file in your **Maya Scripts** folder.
 
@@ -43,25 +43,25 @@ Highlight it and click on "Save Script to Shelf...", specify a name ('Names') an
 
 # Unity Art Tools
 
-## Geometry Tools
+# Geometry Tools
 
 The geometry tools help improve overall scene performance by optimizing game art for **WebGL** rendering. The toolkit supports combining meshes, seperating meshes, generating blocking volumes for collision and baking a texture atlas for **Static Mesh Filter** game objects.
 
 ![Geometry Tools](/img/exporters/unity/combinemeshes.jpg)
 
-## Height Mapping
+# Height Mapping
 
 The height mapping tool enables **16-Bit RAW Greyscale** image manipulations. This is very useful to convert to and from **RAW** and **PNG** image formats and to scale height maps to the desired mesh detail resolution.
 
 ![Height Mapping](/img/exporters/unity/heightmapping.jpg)
 
-## Cubemap Baking
+# Cubemap Baking
 
 The cubemap baking tool can pre bake environment **Skybox** and **Radiance** texture images. The toolkit supports **Low Dynamic Range**, **High Dynamic Range**, and **Direct Draw Surface** image file formats. An internal [Cubemap Filtering Tool](https://github.com/dariomanesku/cmft) plugin is used to process cubemap textures. It reaches very fast processing speeds by utilizing both multi-core CPU and OpenCL GPU at the same time.
 
 ![Cubemap Baking](/img/exporters/unity/cubemapbaking.jpg)
 
-## Texture Atlas Skin
+# Texture Atlas Skin
 
 The texture atlas skin tool allows you to bake a texture atlas for **Skinned Mesh Renderer** game objects. It will parse all the sub meshes (materials) and combine all the textures into a group of texture atlas images. The toolkit will encode new uv sets and bake new geometry assets using the combined texture atlas material assets.
 

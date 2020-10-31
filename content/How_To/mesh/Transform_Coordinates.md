@@ -1,6 +1,6 @@
 # Examples of Coordinate Transformation
 
-## Satellite
+# Satellite
 
 Take a box that is rotating and translating from the top of which emerges a smaller box and travels in a direction always perpendicular to the top face of the box. 
 
@@ -30,7 +30,7 @@ The following code gives the animation.
 
 Small box travels from Large Box https://www.babylonjs-playground.com/#TRAIXW#2
 
-## Disc World
+# Disc World
 
 Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it does make any real difference but it more natural to start with a horizontal ground).
 

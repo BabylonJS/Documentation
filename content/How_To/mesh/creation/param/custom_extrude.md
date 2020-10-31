@@ -4,7 +4,7 @@ A custom extruded shape replaces the _rotation_ and _scale_ options with _rotati
 On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -51,7 +51,7 @@ You must set at least the _shape_ and _path_ options. On update, you must set th
 * distance is the current point distance from the beginning of the path. 
 
 
-### Examples
+## Examples
 non updatable extrusion https://www.babylonjs-playground.com/#ZMKN5T#1  
 update of extrusion scaleFunction and rotation Function https://www.babylonjs-playground.com/#ZMKN5T#2  
 offset open profile shape path defined by trigonometry  https://www.babylonjs-playground.com/#ZMKN5T#3  
@@ -68,7 +68,7 @@ Both true : https://www.babylonjs-playground.com/#RF9W9#46
   
 generate strange shapes : https://www.babylonjs-playground.com/#RF9W9#47 
 
-## Mesh
+# Mesh
 Usage: 
 ```javascript
 let extrusion = BABYLON.Mesh.ExtrudeShapeCustom("extrusion", shape, path, scaleFunction, rotateFunction, ribbonCloseArray, ribbonClosePath, cap, scene);

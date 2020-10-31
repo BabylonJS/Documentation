@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Parents and Children
+# Parents and Children
 
 We are going to add a very simple car that moves through the village. 
 

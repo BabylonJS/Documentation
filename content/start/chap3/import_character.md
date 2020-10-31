@@ -1,5 +1,5 @@
 # Getting Started - Working With Models
-## A Walking Figure
+# A Walking Figure
 Sometimes the easiest way to add a model to a scene is to obtain one from elsewhere. This could be one you have created in your favorite model building software or one your have purchased.
 
 The *Dude* model is one that has been built with its own skeleton animation.

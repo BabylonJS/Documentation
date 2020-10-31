@@ -1,7 +1,7 @@
 # Line System
 MeshBuilder only. A system of non-contiguous lines that are independent of each other and may exist in their own space. You must set at least the _lines_ option. On update, you must set the _lines_ and _instance_ options. You can also update the _colors_ option if previously set at construction time.
 
-## MeshBuilder 
+# MeshBuilder 
 Usage :
 ```javascript
 // creates an instance of a line system
@@ -19,7 +19,7 @@ instance|_(LineMesh)_ an instance of a line system mesh to be updated|null
 colors|_(Color4[])_ array of Color4, each point color|null
 useVertexAlpha|_(boolean)_ false if the alpha blending is not required (faster)|true
 
-### Examples
+## Examples
 Example of a Linesystem  https://www.babylonjs-playground.com/#Y7CS4N  
 Update of the Linesystem https://www.babylonjs-playground.com/#Y7CS4N#1  
 

@@ -8,7 +8,7 @@ It is based on playgrounds from  this forum topic http://www.html5gamedevs.com/t
 
 A demo can be found at:  https://www.babylonjs-playground.com/#LG3GS#106
 
-## How to use it.
+# How to use it.
 
 Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeGenerators/SimplePineGenerator
 
@@ -19,7 +19,7 @@ call the function
 var tree = simplePineGenerator(canopies, height, trunkMaterial, leafMaterial, scene);
 ```
 
-## Parameters
+# Parameters
 
 canopies - number of leaf sections.
 

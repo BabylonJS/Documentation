@@ -14,7 +14,7 @@ The second parameter is optional and defaults to **false**. When **false** then 
 1. A [Gamepad](/How_To/how_to_use_gamepads) may be used a controller.
 2. For touch control either [PEP](https://github.com/jquery/PEP) or [hand.js](https://github.com/Deltakosh/handjs) is needed.
 
-## Universal Camera
+# Universal Camera
 
 This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/How_To/how_to_use_gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/api/classes/babylon.freecamera), the [Touch Camera](/api/classes/babylon.touchcamera) and the [Gamepad Camera](/api/classes/babylon.gamepadcamera) which are all still available.
 
@@ -39,7 +39,7 @@ Optional actions are:
 
 - Using keys in the Playground requires you to click inside the rendering area to give it the focus.
 
-### Constructing a Universal Camera
+## Constructing a Universal Camera
 
 ```javascript
 
@@ -55,7 +55,7 @@ Optional actions are:
 [A Playground Example of a Universal Camera](https://www.babylonjs-playground.com/#SRZRWV)
 
 
-## Arc Rotate Camera
+# Arc Rotate Camera
 
 This camera always points towards a given target position and can be rotated around that target with the target as the center of rotation.
 It can be controlled with cursors and mouse, or with touch events.
@@ -74,7 +74,7 @@ This can be much easier than calculating the required angles.
 
 Whether using the keyboard, mouse or touch swipes left right directions change _alpha_ and up down directions change _beta_.
 
-### Constructing an Arc Rotate Camera
+## Constructing an Arc Rotate Camera
 
 ```javascript
 
@@ -101,7 +101,7 @@ If required you can also totally deactivate panning by setting :
    scene.activeCamera.panningSensibility = 0;
 ```
 
-## FollowCamera
+# FollowCamera
 
 The Follow Camera does what it says on the tin. Give it a mesh as a target and from whatever position it is currently at it will move to a goal position from which to view
 the target. When the target moves so will the Follow Camera.
@@ -116,7 +116,7 @@ The initial position of the Follow Camera is set when it is created then the goa
 
 The speed with which the camera moves to a goal position is set through its acceleration (camera.cameraAcceleration) up to a maximum speed (camera.maxCameraSpeed).
 
-### Constructing a Follow Camera
+## Constructing a Follow Camera
 
 ```javascript
 
@@ -149,11 +149,11 @@ camera.lockedTarget = targetMesh; //version 2.5 onwards
 [A Playground Example of a Follow Camera following a moving target](https://www.babylonjs-playground.com/#SRZRWV#6)
 
 
-## AnaglyphCameras
+# AnaglyphCameras
 
 These extend the use of the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. They use post-processing filtering techniques.
 
-### Constructing Anaglyph Universal Camera
+## Constructing Anaglyph Universal Camera
 
 ```javascript
 
@@ -161,7 +161,7 @@ These extend the use of the Universal and Arc Rotate Cameras for use with red an
 var camera = new BABYLON.AnaglyphUniversalCamera("af_cam", new BABYLON.Vector3(0, 1, -15), 0.033, scene);
 ```
 
-### Constructing Anaglyph ArcRotateCamera
+## Constructing Anaglyph ArcRotateCamera
 
 ```javascript
 
@@ -173,11 +173,11 @@ The _eyeSpace_ parameter sets the amount of shift between the left eye view and 
 
 You can learn all about anaglyphs by visiting a [Wikipedia page that explains it thoroughly](http://en.wikipedia.org/wiki/Anaglyph_3D).
 
-## Device Orientation Camera
+# Device Orientation Camera
 
 This is a camera specifically designed to react to device orientation events such as a modern mobile device being tilted forward or back and left or right.
 
-### Constructing a Device Orientation Camera
+## Constructing a Device Orientation Camera
 
 ```javascript
 
@@ -197,26 +197,26 @@ This is a camera specifically designed to react to device orientation events suc
 ```
 [A Playground Example of a Device Orientation Camera](https://www.babylonjs-playground.com/#SRZRWV#3) for those with a correct device.
 
-## Virtual Joysticks Camera
+# Virtual Joysticks Camera
 
 This is specifically designed to react to Virtual Joystick events.
 Virtual Joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
 
-### Requires
+## Requires
 
 The third-party file [hand.js](http://handjs.codeplex.com/releases/view/119684).
 
-### Read
+## Read
 
 [Virtual Joysticks David Rousset Blog](http://blogs.msdn.com/b/davrous/archive/2013/02/22/creating-an-universal-virtual-touch-joystick-working-for-all-touch-models-thanks-to-hand-js.aspx) on David's blog.
 
-### Video
+## Video
 
 [Virtual Joysticks Camera demo in video](https://www.youtube.com/watch?v=53Piiy71lB0)
 
 ![Screenshot of the Virtual Joysticks Camera in action on Espilit](http://david.blob.core.windows.net/babylonjs/VJCBabylon.jpg)
 
-### Complete sample
+## Complete sample
 
 Here is a complete sample that loads the Espilit demo and switches the default camera to a virtual joysticks camera:
 
@@ -254,33 +254,33 @@ function startGame() {
 If you switch back to another camera, don’t forget to call the dispose() function first. Indeed, the VirtualJoysticks are creating a 2D canvas on top of the 3D WebGL canvas to draw the joysticks with cyan and yellow circles. If you forget to call the dispose() function, the 2D canvas will remain, and will continue to use touch events input.
 
 
-## VR Device Orientation Cameras
+# VR Device Orientation Cameras
 
 A new range of cameras.
 [A Playground Example of a VR Device Orientation Camera](https://www.babylonjs-playground.com/#SRZRWV#4) for those with a correct device.
 
-### Constructing the VR Device Orientation Free Camera
+## Constructing the VR Device Orientation Free Camera
 
 ```javascript
 //Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
 var camera = new BABYLON.VRDeviceOrientationFreeCamera ("Camera", new BABYLON.Vector3 (-6.7, 1.2, -1.3), scene);
 ```
 
-### Constructing the VR Device Orientation Arc Rotate Camera
+## Constructing the VR Device Orientation Arc Rotate Camera
 
 ```javascript
 //Parameters: name, alpha, beta, radius, target, scene, compensateDistortion, vrCameraMetrics
 var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/4, 25, new BABYLON.Vector3 (0, 0, 0), scene);
 ```
 
-### Constructing the VR Device Orientation Gamepad Camera
+## Constructing the VR Device Orientation Gamepad Camera
 
 ```javascript
 //Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
 var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.Vector3 (-10, 5, 14));
 ```
 
-## WebVR Free Camera
+# WebVR Free Camera
 
 The new virtual reality camera
 
@@ -292,7 +292,7 @@ The new virtual reality camera
 
 This camera deserves a page to itself so here it is [Using the WebVR Camera](/How_To/WebVR_Camera);
 
-## FlyCamera
+# FlyCamera
 
 This camera imitates free movement in 3D space, think "a ghost in space." It comes with an option to gradually correct Roll, and also an option to mimic banked-turns.
 
@@ -302,7 +302,7 @@ Its defaults are:
 
 2. Mouse - Rotates the camera about the Pitch and Yaw (X, Y) axes with the camera as origin. Holding the __right mouse-button__ rotates the camera about the Roll (Z) axis with the camera as origin.
 
-### Constructing a Fly Camera
+## Constructing a Fly Camera
 
 ```javascript
 
@@ -324,13 +324,13 @@ camera.bankedTurnMultiplier = 1;
 camera.attachControl(canvas, true);
 ```
 
-## Customizing inputs
+# Customizing inputs
 
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
 If you want to change user inputs based upon user preferences, customize one of the existing presets, or use your own input mechanisms.  Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/How_To/Customizing_Camera_Inputs) to learn more about tweaking inputs on your cameras.
 
-## Next step
+# Next step
 You have now learned how to use many cameras, and learned some advanced input options available on our two most-used cameras. You can control how you see your scene, you can choose your input and viewing devices, and you now know how to move cameras around. To give your scene a more realistic effect, we are now going to learn [**how to manage lights**](/babylon101/Lights). See you soon.
 
 # Further Reading

@@ -1,6 +1,6 @@
 # How To Use Layermasks and Multi-Camera Textures
 
-## Different meshes for multiple cameras using Layermasks
+# Different meshes for multiple cameras using Layermasks
 
 A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera.
 
@@ -31,7 +31,7 @@ var Button = new BABYLON.Mesh(...);
 Button.layerMask = 0x10000000;
 ```
 
-## Lights
+# Lights
 
 Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
 
@@ -62,7 +62,7 @@ onNewLight = function(newLight, positionInArray, scene) {
 };
 ```
 
-## Gun Sight Example
+# Gun Sight Example
 
 Here is a simple example of using a 2nd orthographic camera which shows a gun sight. To keep it simple, emissive material was used to avoid lighting it. Just copy and paste it into any scene, then call it. The `layerMask` chosen also allows Babylon's Dialog extension to inter-operate. Perhaps these could be combined to do a heads-up tank sight with range finder.
 

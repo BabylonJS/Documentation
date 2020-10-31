@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Car Material
+# Car Material
 
 Just as we used different images on different faces of a box something similar is available for extruded polygons and cylinders.
 

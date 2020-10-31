@@ -1,6 +1,6 @@
 # How To Add Your Own Physics Engine
 
-## Define your plugin
+# Define your plugin
 You can create your own plugin by creating a class that provides the following interface:
 
 * ```function initialize()```: Must initialize your engine
@@ -31,7 +31,7 @@ You can create your own plugin by creating a class that provides the following i
 
 For implementation details, you can refer to cannon.js plugin: https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Physics/Plugins/babylon.cannonJSPlugin.js
 
-## Using your plugin
+# Using your plugin
 When you launch the physics simulation, you can add a new parameter to ```enablePhysics``` function to indicate which plugin to use:
 
 ```javascript
@@ -42,7 +42,7 @@ The first parameter can be used to define gravity (which is (0, -9.82, 0) by def
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Forces](/how_to/forces)  
@@ -51,6 +51,6 @@ The first parameter can be used to define gravity (which is (0, -9.82, 0) by def
 [How To Create Compound Bodies](/how_to/compounds)  
 [How To Create Soft Bodies](/how_to/soft_bodies)
 
-## Mid Level - L2
+# Mid Level - L2
 
 [How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)

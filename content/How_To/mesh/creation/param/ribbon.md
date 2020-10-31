@@ -3,7 +3,7 @@ The ribbon is a very versatile shape. Picture a ribbon in the real world with pa
 
 On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -33,7 +33,7 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of a ribbon to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-### Examples
+## Examples
 
 Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5  
 
@@ -44,7 +44,7 @@ with closePath true https://www.babylonjs-playground.com/#F6JW5W#9
 with closeArray true https://www.babylonjs-playground.com/#F6JW5W#10  
 
 
-## Mesh
+# Mesh
 Usage: 
 ```javascript
 const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closePath, offset, scene);

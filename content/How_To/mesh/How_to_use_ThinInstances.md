@@ -15,7 +15,7 @@ Thin instances should be used when you need a lot of static instances that you k
 
 So, regular instances may still be the way to go, depending on your scene: if you have a lot of objects scattered and only a few are visible in a frame, or if you must add/remove instances continuously, it may be better to use instances than thin instances.
 
-## Creating thin instances
+# Creating thin instances
 A thin instance is represented by a position/rotation/scaling data packed into a matrix.
 
 The easiest way to create a thin instance is by doing:
@@ -45,7 +45,7 @@ Those 3 methods take an additional `refresh` parameter (`true` by default) that 
 
 The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitely the bounding info by calling `thinInstanceRefreshBoundingInfo`.
 
-## Custom attributes
+# Custom attributes
 As for regular instances, you can add custom attributes to thin instances.
 
 To do so, register the attribute and set the value(s) for the thin instance(s):
@@ -71,7 +71,7 @@ Note that you can't set a number that is higher than what the underlying buffer 
 
 Set the number to 0 to bypass the thin instance rendering and render the mesh as usual.
 
-## Faster thin instances
+# Faster thin instances
 To get the most of the thin instance support, you can directly pass the pre-built buffer of matrices / custom attributes:
 ```typescript
 var matrix1 = BABYLON.Matrix.Translation(-2, 2, 0);
@@ -108,11 +108,11 @@ sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16, true);
 sphere.thinInstanceSetBuffer("color", bufferColors, 4, true);
 ```
 
-## Support
+# Support
 
 Thin instances are supported for collisions, picking, rendering and shadows. However, for collisions and picking, a single bounding info encompassing all the thin instances is used to check intersection: the check is not done for each thin instance separately.
 
-## Limitations
+# Limitations
 
 Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
@@ -126,6 +126,6 @@ To correct the problem, create another mesh, add the green/blue instances to tha
 PG: https://playground.babylonjs.com/#217750#4
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
 
-## Going further
+# Going further
 
 [How To Use Instances](/How_To/How_to_use_Instances)

@@ -1,5 +1,5 @@
 # Getting Started - Working with Models
-## A Web Application Template
+# A Web Application Template
 
 You will have seen that the template needed for any code on the playground is
 ```javascript
@@ -86,7 +86,7 @@ This line
 ```
 allows you to use a touch screen.
 
-## Examples
+# Examples
 The following loads models into an app.
 
 [First App](/webpages/app1.html)

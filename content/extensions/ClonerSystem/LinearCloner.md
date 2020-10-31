@@ -7,7 +7,7 @@ The LinearCloner clones and distributes given meshes in a linear manner. If more
 The LinearCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones, its position is the position of the first clone. Transforming this **root** affects all underlying clones (childs) at once but independently of the interpolation mode. Most of the input parameters are also available as properties and they are very suitable for animation (tweening). The given input meshes will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 *Note:* Input meshes can be BABYLON meshes but other Cloners as well!
 
-### Example
+## Example
 Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of {x:2,y:0,z:-1} :
 
 `var lc = new BABYLONX.LinearCloner([cube1, cube2], demo.scene, { iModeRelative:true,count:10,P:{x:2,y:0,z:-1} });`
@@ -21,7 +21,7 @@ Animation can be done via properties:
 
 `BABYLON.Animation.CreateAndStartAnimation('ani', lc, 'offset', 30, 120, 0, 10);`
 
-### Parameters
+## Parameters
 `BABYLONX.LinearCloner( meshes, scene[, {optional parameters}])` 
 
 Mandatory Parameter | Description 

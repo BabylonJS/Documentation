@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR automatically for you and provide an environment with which you can develop your AR and VR experiences. Fully configurable, the WebXR experience helper is very flexible and easy to use.
 
@@ -8,9 +8,9 @@ We recommend using the [Default Experience](#the-webxr-default-experience) for e
 
 *Note that you don't have to use the experience helper. Everything can be done outside of those helper on your own.*
 
-## The basic Experience Helper
+# The basic Experience Helper
 
-### Basic usage
+## Basic usage
 
 The basic experience helper will:
 
@@ -45,7 +45,7 @@ WebXRExperienceHelper.CreateAsync(scene).then((xrHelper) => {
 })
 ```
 
-### Entering XR
+## Entering XR
 
 After initializing the XR helper, it is possible to enter an XR session, for example in immersive VR mode:
 
@@ -57,7 +57,7 @@ To read more about session modes ( `immersive-vr` in this example), and referenc
 
 If there is an error while creating the experience helper, the console will show it.
 
-### Exiting XR
+## Exiting XR
 
 To exit, simply call the exitXRAsync function:
 
@@ -65,9 +65,9 @@ To exit, simply call the exitXRAsync function:
 await xrHelper.exitXRAsync();
 ```
 
-### Observables
+## Observables
 
-#### The state observable
+### The state observable
 
 In this example, the session manager will be initialized if the XR session is ready to use. Alternatively, you can ignore the `await` and use the **state observable** of the xr helper:
 
@@ -86,7 +86,7 @@ xrHelper.onStateChangedObservable.add((state) => {
 })
 ```
 
-#### Pose initialized observable
+### Pose initialized observable
 
 The `onInitialXRPoseSetObservable` will trigger all observers when the pose of the camera was set and before the first frame was rendered.
 
@@ -99,7 +99,7 @@ xrBasicHelper.onInitialXRPoseSetObservable.add((xrCamera) => {
 });
 ```
 
-### Other features
+## Other features
 
 The basic XR experience helper offers direct access to the following:
 
@@ -107,9 +107,9 @@ The basic XR experience helper offers direct access to the following:
 * A configured [XR Camera](./WebXR_Camera) that will have the non-VR camera's position when entering XR
 * Initialized [Features Manager](./WebXR_Features_Manager)
 
-## The WebXR Default Experience
+# The WebXR Default Experience
 
-### Basic usage of default experience
+## Basic usage of default experience
 
 The default xr experience will:
 
@@ -141,7 +141,7 @@ if (!defaultXRExperience.baseExperience) {
 }
 ```
 
-### Configuration options
+## Configuration options
 
 The default xr experience helper takes an options map for configuration. Everything, including the options itself is optional:
 
@@ -181,7 +181,7 @@ class WebXRDefaultExperienceOptions {
 
 Check the code documentation for further details.
 
-### Pointer selection and teleportation
+## Pointer selection and teleportation
 
 The default experience initializes both pointer selection (laser pointer and interaction with the meshes in the scene) and teleportation features automatically. If floor meshes are provided in the options, the teleportation will include it when created. If not you can add meshes later or disable it.
 
@@ -201,7 +201,7 @@ defaultXRExperience.teleportation.attach();
 defaultXRExperience.pointerSelection.attach();
 ```
 
-### Configuring the GUI
+## Configuring the GUI
 
 The GUI is the right way to enter and exit the XR experience. Otherwise you can directly use the `baseExperience` Basic experience helper to enter and exit XR as mentioned [above](#the-basic-experience-helper). It defaults to a VR immersive session in local-floor reference mode.
 
@@ -217,11 +217,11 @@ var defaultXRExperience = await scene.createDefaultXRExperienceAsync({
 
 Read more about the GUI in the [advanced WebXR tutorial]()
 
-### Available Observables
+## Available Observables
 
 Apart from those you can find in the `baseExperience` (The Basic XR experience helper) the default experience does not offer any observables.
 
-### Further features
+## Further features
 
 The default experience offers direct access to the following:
 

@@ -15,7 +15,7 @@ To export to a single .glb file, choose __glb__ as __Output format__.
 
 #  Features  #
 
-## Exported features
+# Exported features
 
 Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/resources/Maya#features).
 
@@ -87,11 +87,11 @@ Involved parameters are highlighted bellow and described in the following sectio
 
 ![Maya Stingray PBS material parameters](/img/exporters/Maya_to_glTF/2_gltf_stingray_pbs.jpg)
 
-## Preset Material
+# Preset Material
 
 You can choose between _presets/Standard_ and _presets/Standard Transparent_. The only difference it makes is the presence of an opacity attribute and an opacity map checkbox.
 
-## Attributes
+# Attributes
 
 The first attributes are checkboxes. When one is checked, the exporter will ignore the linked attribute and will only use the map.
 
@@ -101,13 +101,13 @@ Other attributes (Base Color, Metallic...) are default values used when the corr
 
 Note that UV attributes are not used by the exporter and should instead be setup in each fileTexture connected to the material.
 
-## Textures
+# Textures
 
 When a _Use XXXX Map_ checkbox is checked, the corresponding texture is used instead of the attribute value.
 
 The following maps have dedicated treatment.
 
-## Base color and Opacity as map
+# Base color and Opacity as map
 
 When preset material is set to transparent, the texture in _Color Map_ is used both for base color and opacity.
 
@@ -117,7 +117,7 @@ However, __the exporter does not follow this behaviour. As long as _Use Color Ma
 
 When both checkboxes are unchecked, the attributes are used as normal.
 
-## Metallic and Roughness
+# Metallic and Roughness
 
 In glTF format, the metallic and roughness maps are combined together:
 
@@ -141,7 +141,7 @@ In that way the exporter wont merge the metallic and roughness map and the expor
 
 You can see how to get [a merged MR texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
-## Metallic, Roughness & Occlusion
+# Metallic, Roughness & Occlusion
 
 As seen before, in glTF format, the metallic and roughness maps are combined together using the blue and green channel.
 
@@ -157,7 +157,7 @@ In that way the result is going to be lighter than with an Ambiant Occlusion map
 
 You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
-## Emission
+# Emission
 
 If _Use Emissive Map_ attribute is checked, the emissive color and the emissive intensity are ignored by the exporter.
 
@@ -171,7 +171,7 @@ Involved parameters are highlighted bellow and described in the following sectio
 
 Remember to use Arnold lights when rendering with Arnold or your scene will look black! _Physical Sky_ is a good all corner one if you don't know which one to use.
 
-## Base color & Opacity
+# Base color & Opacity
 
 The base color and opacity can be set either by value or using a texture.
 
@@ -189,7 +189,7 @@ This Arnold attribute must be unchecked for each mesh you wish material opacity 
 
 Babylon and glTF formats don't have such Mesh attribute. When facing a case where a transparent material is assigned to both opaque and non opaque meshes, the exporter get round this missing by duplicating the material. One is assigned to opaque meshes, and all its opacity attributes are erased. The other is assigned to non opaque meshes, and all its opacity attributes remain untouched.
 
-### Textures split
+## Textures split
 
 You can use 2 different textures, one for _Base Color_ and one for _Opacity_.
 
@@ -207,7 +207,7 @@ Note that the 2 maps must have same sizes to be merged successfully. Otherwise, 
 
 Also the duration of this process scales with images size and may have a severe impact on export duration.
 
-### Textures already merged
+## Textures already merged
 
 Alternatively, you can provide a single texture used in both _Base color_ and _Opacity_. In this case, the map is assumed to be already merged.
 
@@ -215,13 +215,13 @@ Alternatively, you can provide a single texture used in both _Base color_ and _O
 
 The material _Opacity_ is binded to the file texture _Out Transparency_.
 
-## Metalness & Roughness
+# Metalness & Roughness
 
 The metalness (or metallic) and specular roughness can be set either by value or using textures.
 
 You can use 2 black and white textures or a single colored texture with merged data. Each method is detailed below.
 
-### Metalness & Roughness split
+## Metalness & Roughness split
 
 You can use 2 different textures, one for _Metalness_ and one for _Specular Roughness_. Those maps are black and white images (R=G=B).
 
@@ -239,7 +239,7 @@ Note that the 2 maps must have same sizes to be merged successfully. Otherwise, 
 
 Also the duration of this process scales with images size and may have a severe impact on export duration.
 
-### Metalness, Roughness & Occlusion all together
+## Metalness, Roughness & Occlusion all together
 
 Alternatively, you can provide a single texture used in both _Metalness_ and _Specular Roughness_. This texture actually holds a sneaky extra attribute...Ambient Occlusion!
 
@@ -258,7 +258,7 @@ The exporter does not merge textures for you, but instead assumes the texture pr
 
 You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
-## Emission
+# Emission
 
 The emission color can be set either by value or using a texture.
 
@@ -266,27 +266,27 @@ __IMPORTANT__
 
 In order to make material emission relevant, you must specify a value for material _Emission Weight_. This attribute is taken into account when exporting, but __you should probably set _Emission Weight_ value to 1__ if you are new to Arnold rendering.
 
-## Bump Mapping
+# Bump Mapping
 
 The bump mapping (or normal camera) can only be set using a texture.
 
 # What you should know
 
-## Lights
+# Lights
 
 Lights are not supported in glTF 2.0. An empty node is exported in place of light only when it is relevant to do so (when a light has a mesh or a camera as descendant).
 
-## Textures image format
+# Textures image format
 
 glTF 2.0 only supports the following image formats: jpg and png. You are adviced to use those formats for your textures when exporting to glTF.
 
 Note that the exporter also supports textures with bmp, gif, tga, tif and dds formats. But, those textures will be automatically converted to png/jpg by the exporter to follow glTF specifications.
 
-## Environment texture
+# Environment texture
 
 To enjoy PBR material rendering, you should have an environmnent texture in your scene. Currently the plugin does not export any environment map and one must be added manually in client implementations. The Babylon Sandbox provides such feature.
 
-## Get a merged occlusion/roughness/metallic texture
+# Get a merged occlusion/roughness/metallic texture
 
 To obtain such texture, either:
 * create the image manually, using 1 channel from each of the 3 images, with a software like Photoshop.
@@ -299,7 +299,7 @@ To obtain such texture, either:
 
 Using _Unreal Engine 4 (Packed)_ configuration, the occlusion, roughness and metallic are combined together into a single ORM texture.
 
-## Draco compression
+# Draco compression
 
 On the export form, the _Use Draco compression_ option enables the Draco compression. It needs [Node.js](https://nodejs.org) and [gltf-pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) in order to work.
 
@@ -307,11 +307,11 @@ To install the Node.js, go to the web site download and install it.
 Then to install gltf-pipeline, open et normal shell (cmd.exe or powershell.exe) and run the following command `npm install -g gltf-pipeline`.
 Once they are installed, check the _Use Draco compression_ option and the compression will be automatically done at the export end.
 
-## Double sided material
+# Double sided material
 
 The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/resources/Maya#double-sided-material).
 
-## Babylon material attributes
+# Babylon material attributes
 
 Native materials are enhanced to have extra attributes in a dedicated node. A Babylon attribute node is created after the first export using the material.
 
@@ -329,7 +329,7 @@ Most Babylon attributes are common to all materials:
     * _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
     * _Blend_: This how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
-## Custom attributes
+# Custom attributes
 
 You can add custom attributes to Meshes, Materials, Lights and Cameras with the attributes window (_Modify > Add Attribute..._) and it adds them in the extra attributes of those objects.
 

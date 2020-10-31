@@ -1,7 +1,7 @@
 # How To Use the Volumetric LightScattering post-process
 BABYLON.VolumetricLightScatteringPostProcess is a post-process that will compute the light scattering according to a light source mesh.
 
-## How to use it? Easy! ##
+# How to use it? Easy! ##
 
 ```
 var vls = new BABYLON.VolumetricLightScatteringPostProcess('vls', 1.0, camera, lightSourceMesh, samplesNum, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
@@ -92,7 +92,7 @@ vls.useDiffuseColor = false; // False as default
 vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 ```
 
-## And now, it's time to play ! ##
+# And now, it's time to play ! ##
 
 Feel free to tour some examples of Volumetric LightScattering in the playground :
 

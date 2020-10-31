@@ -1,5 +1,5 @@
 # Getting Started - Working with Models
-## Vary Web App Layout
+# Vary Web App Layout
 Whilst you probably want your game or app to take up most of the page you might want some space for instructions as an example. Just place your *&lt;canvas&gt;* element in a *&lt;div&gt;* and arrange the elements as you need.
 
 ```html

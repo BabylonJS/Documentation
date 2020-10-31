@@ -1,13 +1,13 @@
 # How To 360 Photo
 360 Photo is a simplex mix of specific geometry, textures, and material properties; however, rather than put the burden on you to figure out how to connect them, we've created the PhotoDome.
 
-## PhotoDome
+# PhotoDome
 PhotoDome needs a source image that must be "Equirectangular", without an equirectangular source the class won't function correctly.
 
 Example of equirectangular image:
 ![equirectangular](//playground.babylonjs.com/textures/360photo.jpg)
 
-## PhotoDome Code
+# PhotoDome Code
 Within the playground you can copy and paste the following into your scene and then adjust the options.
 
 ```javascript
@@ -23,7 +23,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 
 * [Playground Example of a PhotoDome](https://www.babylonjs-playground.com/#14KRGG#3)
 
-## FOV adjustment
+# FOV adjustment
 Sometimes 360 photo can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
 Adjust it between 0.0 and 2.0 with the following code.
 
@@ -37,7 +37,7 @@ As a warning, the further the value gets from 1 the more distortion will be visi
 
 * [Playground Example of a PhotoDome using fovMultiplier](https://www.babylonjs-playground.com/#14KRGG#4)
 
-## Image Types
+# Image Types
 Several types of 360 image exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
 The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eyes whereas the last one contains both panoramic views respectively on the top and bottom of the image.

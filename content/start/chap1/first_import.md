@@ -2,7 +2,7 @@
 
 The playgrounds on this page contain, for example, houses which are be positioned and rotated. Once we have introduced you to the basics of importing and putting your project on a web page we will give you details on how to do this with Babylon.js code.
 
-## Importing a Scene or Model
+# Importing a Scene or Model
 When you put a model into a scene you are, in fact, loading it into a browser. As you will already know when you load anything into a website it is asynchronous. Before you can do anything with your models you need to know they have loaded. You can do this using the *ImportMeshAsync* method of the *SceneLoader*, which has the form
 
 ```javascript
@@ -37,10 +37,10 @@ This playground imports all the models and their positions are changed.
 
 https://www.babylonjs-playground.com/#YNEAUL#13
 
-## Moving On
+# Moving On
 Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
 
-## Warning
+# Warning
 An obvious statement - different file types export models differently. 
 
 A less obvious statement - different file types may be changed when importing into Babylon.js. 

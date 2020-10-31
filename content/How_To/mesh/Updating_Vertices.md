@@ -1,6 +1,6 @@
 # How To Update Vertices
 
-## Vertex Data
+# Vertex Data
 
 The data contained in each of a mesh's vertices can be obtained from the vertex buffer. This data includes the position of and normal at the vertex 
 as well as color and/or uv values. You can also obtain the indices for each vertex. 
@@ -27,7 +27,7 @@ index|position
 4| (7, -2, 3)
 5| (3, -2, 3)
 
-## Updating the Data
+# Updating the Data
 
 Make sure that the mesh has been set as updatable on creation. Then this is just a matter of altering any of the data in the positions, normals, colors and uvs arrays to suit the project followed updating the vertex data 
 
@@ -49,7 +49,7 @@ See [Example](https://www.babylonjs-playground.com/#H05E9H)
 ```javascript
 vertexData.applyToMesh(customMesh, true);
 ```
-## Adding to the Data
+# Adding to the Data
 
 What happens if you want to add to vertexData after creating a mesh? For example many of the set and parametric meshes are created without the ColorKind array so it is not possible to use
 
@@ -81,7 +81,7 @@ if(!colors) {
 mesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
  ```
 
-## Examples
+# Examples
 
 Scaling Positions https://www.babylonjs-playground.com/#VE6GP#4  
 Playing Around with Positions https://www.babylonjs-playground.com/#VE6GP#2  

@@ -2,7 +2,7 @@
 
 Generate letters in BABYLON meshes.
 
-### Basic-Usage
+## Basic-Usage
 
 	Writer = BABYLON.MeshWriter(scene, {scale:scale});
 	text1  = new Writer( 
@@ -19,13 +19,13 @@ Generate letters in BABYLON meshes.
 
 &#9679; See playground example:  https://www.babylonjs-playground.com/#PL752W#1
 
-### Getting the code
+## Getting the code
 
 Copy https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
 
-### If you prefer npm 
+## If you prefer npm 
 
-> #### npm i meshwriter
+> ### npm i meshwriter
 
  Import in your React/Angular component:
 
@@ -54,7 +54,7 @@ With __meshwriter__ you can use MeshWriter directly like this:
 	    });
 
 
-### Superconstructor - BABYLON.MeshWriter()
+## Superconstructor - BABYLON.MeshWriter()
 
 After MeshWriter is loaded, BABYLON.MeshWriter is defined.  It is called with one or two parameters.
 - **scene** &nbsp; required
@@ -67,7 +67,7 @@ After MeshWriter is loaded, BABYLON.MeshWriter is defined.  It is called with on
 
 The call to BABYLON.MeshWriter returns a constructor.  Call it "**Writer**".
 
-### Constructor - new Writer()
+## Constructor - new Writer()
 
 new Writer() is called with a string and an (optional) options parameter.&nbsp; The options object conforms to normal BabylonJS structures and terminology.
 
@@ -93,7 +93,7 @@ new Writer() is called with a string and an (optional) options parameter.&nbsp; 
 
 **new Writer()** also returns a **writer** instance with useful methods.&nbsp; See below.
 
-### Instance
+## Instance
 
 Each **writer** instance has methods to allow one to retrieve the BabylonJS objects or to get/set attributes of the SPS.
 
@@ -108,7 +108,7 @@ Each **writer** instance has methods to allow one to retrieve the BabylonJS obje
 	   resetOpac               # sets material to current value
 	   dispose      
 
-### Usage Hints
+## Usage Hints
 
 If you wish to do extensive things with position, rotation or animation, retrieve the meshes and materials from the instance using the methods shown above.&nbsp; The output from **new Writer()** is an SPS with one particle for each character.
 

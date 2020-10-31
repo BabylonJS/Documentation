@@ -9,7 +9,7 @@ Below shows the construction of a ribbon using two paths A and B each having fiv
 
 You can have as many paths as you wish, including just one, you can close all the paths and/or close the paths array itself. Imagine a long ribbon of narrow width in the real world with wire running down its length. Closing the paths forms a loop of ribbon while closing the array would form a tube.
 
-## Single Path Ribbon
+# Single Path Ribbon
 
 First construct the single path, for example
 ```javascript
@@ -36,7 +36,7 @@ offset 20 https://www.babylonjs-playground.com/#F6JW5W#16
 
 So playing with _offset_, _closeArray_, or other parameters, you can easily get volumes, even with a single path https://www.babylonjs-playground.com/#F6JW5W#17
 
-## Length of Paths
+# Length of Paths
 It's not mandatory that all the ribbon paths have the same length, but it is not recommended.  
 The best way to emulate different lengths for some parts of your mesh is then to simply use many ribbons.
   
@@ -51,7 +51,7 @@ This is due to the fact that the nested ribbon texturing algorithm only knows ho
 When applying a texture the algorithm assumes that the ribbon can be unfolded into a rectangle that can stretched to fit on top of the image used for the texture. 
 This is only possible when paths are of equal length.
 
-## Closed shapes : normals or textures ?
+# Closed shapes : normals or textures ?
 
 The ribbon mesh provides two ways to automatically close an unclosed shape.
   

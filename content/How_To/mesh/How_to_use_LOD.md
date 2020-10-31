@@ -31,7 +31,7 @@ knot00.removeLODLevel(null);
 
 Try: [LOD playground]( https://www.babylonjs-playground.com/#QE7KM)
 
-## Using LOD and instances
+# Using LOD and instances
 By default, instances will use LOD defined on root mesh. You do not have to specify anything on instances:
 
 ```javascript

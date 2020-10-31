@@ -4,7 +4,7 @@ For any house there is a range of different types of roof that can be added and 
 
 **Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
 
-## Design Whole Roof
+# Design Whole Roof
 
 In this case the **rise**, or roof height, is the same for all sections of the roof.
 
@@ -27,7 +27,7 @@ Using the roofprint the floor of the roof (or top ceiling) can be added as a mes
 
 * [Playground Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
 
-## Plan of Roof
+# Plan of Roof
 
 Though it is possibly more accurate to use the roofprint as a guide to a plan for the roof it is probably easier (in terms of coordinates) to use the original footprint. All you need to do is draw, in a plan diagram, the planes of the roof. An **apex** is a highest point on the roof where planes meet. The plan diagram in _Fig 2_ shows the floorprint corners numbered C0, C1, C2 etc and the apexes numbered in sequence using A0, A1 etc. _Fig 2_ is drawn to scale based on the original base data. 
 
@@ -93,7 +93,7 @@ var roofSection = roof(wholeRoofprint, apexes, planes, 2, height, 5.6);
 
 * [Playground Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
 
-## Design Roof In Sections
+# Design Roof In Sections
 
 When you want different parts of the roof to have different heights then although it is possible to choose suitable apexes and planes it is much more difficult to determine the apex where a low roof meets the plane of a higher roof. For example in _Fig 3_ it is possible to calculate the x coordinate of apex A using 3D vector geometry.
 
@@ -175,8 +175,8 @@ var smallRoofSection = roof(smallRoofprint, smallApexes, smallPlanes, 2, height 
 [Developing the Code for Build From Plans](/samples/House)  
 [The Code for Build From Plans](/samples/House_Use)
 
-## Level 1
+# Level 1
 [Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
 
-## Level 2
+# Level 2
 [Polygon Mesh Builder](/How_To/PolygonMeshBuilder)

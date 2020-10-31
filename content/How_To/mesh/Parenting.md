@@ -35,7 +35,7 @@ The following playground shows that setting a child's parent mesh P, directly to
 
 The parent method for these examples can be directly compared to [transforming coordinates](/How_To/Transform_Coordinates) 
 
-## Satellite
+# Satellite
 
 Take a box that is rotating and translating from the top of which emerges a smaller box and travels in a direction always perpendicular to the top face of the box. 
 
@@ -55,7 +55,7 @@ The following code gives the animation.
 
 * [Playground Animation - Parent](https://www.babylonjs-playground.com/#XQI4UY#1)
 
-## Disc World
+# Disc World
 
 Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it does make any real difference but it more natural to start with a horizontal ground).
 

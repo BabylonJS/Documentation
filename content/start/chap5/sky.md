@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Sky
+# Sky
 We can simulate the appearance of a sky by applying six suitable images to the insides of a large box. Each image should have a common name  followed by one of _px, _nx, _py, _ny, _pz or _nz, these indicate which face the image is for; the positive (p) or negative (n) x, y or z axis. For example skybox_px.jpg, skybox_nx.jpg, skybox_py.jpg, skybox_ny.jpg, skybox_pz.jpg, skybox_nz.jpg. These are applied to the box as a *cubeTexture*. The first parameter of a *cubeTexture* is the url to the skybox and only the common name is added.  
 
 

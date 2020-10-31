@@ -1,9 +1,9 @@
 # GUIFieldset
 
-## new GUIFieldset(id, options, guimanager, append)
+# new GUIFieldset(id, options, guimanager, append)
 Creates a new GUIFieldset
 
-#### Parameters
+### Parameters
 Name | Type | Description
 ---|---|---
 **id** | string | The id and name element
@@ -12,7 +12,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-## Options
+# Options
 
 * **w**: width of fieldset (in pixel)
 * **h**: height of fieldset (in pixel)
@@ -21,16 +21,16 @@ Name | Type | Description
 * **legend**: value legend od the fieldset (string)
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 
-## Methods
+# Methods
 
-### add(element) → void
+## add(element) → void
 add element in the GUIFieldset
 
-### setVisible(bool, fade) → void
+## setVisible(bool, fade) → void
 Set this GUI element to visible or invisible
 
-### isVisible() → void
+## isVisible() → void
 Returns element if is visible or no
 
-### dispose() → void
+## dispose() → void
 Dispose the GUIFieldset, and delete element.

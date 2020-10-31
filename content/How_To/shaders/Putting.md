@@ -8,7 +8,7 @@ Here are four ways of putting shader code into your scene:
 
 Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced/Shader_Material.html) to pass data to the shaders.
 
-## BabylonJS CYOS Download
+# BabylonJS CYOS Download
 
 This site allows you to write code for a Vertex Shader and a Fragment Shader and see the results on a variety of meshes. 
 Downloading a zip file produces a folder containing and index.html file and some image files for texture.
@@ -85,7 +85,7 @@ This method can easily be used in the Playground.
 
 [Playground Example From CYOS](https://www.babylonjs-playground.com/#1OH09K#131)
 
-## Shader Code in &lt;script&gt; Tags
+# Shader Code in &lt;script&gt; Tags
 
 In the *index.html* file the Javascript code for the shaders is
 
@@ -142,7 +142,7 @@ var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, {
 
 [Guide Example From Script](http://babylonjsguide.github.io/examples/scriptcode.html)
 
-## Shader Code in fx Files
+# Shader Code in fx Files
 
 Save your code in two files, one for the Vertex Shader and one for the Fragment Shader. 
 
@@ -169,7 +169,7 @@ provide CORS is enabled for them.
 
 [Guide Example From Import](http://babylonjsguide.github.io/examples/importcode.html)
 
-## Shader Includes
+# Shader Includes
 When building shaders sometimes you have parts of your code that will be reused between multiple shaders.  This is usually things like reused uniforms, functions, structs etc.  A powerful method that users have at their disposal is to accomplish this task is the 
 ```javascript
 BABYLON.Effect.IncludesShadersStore["includeName"] = "..."
@@ -182,7 +182,7 @@ Additionally you can add anything you want to the IncludesShadersStore pre or po
 ```
 In the appropriate section of your shader code to have them injected into your shader when it is compiled [see example](https://www.babylonjs-playground.com/#0MAYNY).
 
-## Shader Builder
+# Shader Builder
 
 This is an extension to BabylonJS. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
 

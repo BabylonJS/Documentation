@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## See Our Virtual Village World in 3D
+# See Our Virtual Village World in 3D
 
 It could not be simpler - we remove the current camera and replace it with
 

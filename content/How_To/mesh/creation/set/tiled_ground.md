@@ -1,7 +1,7 @@
 # Tiled Ground
 A tiled ground is created differently to a ground mesh. It still lies in the xz plane. The bottom left corner of of the tiled ground is given by the values for xmin and zmin and the top right corner by xmax and zmax. The tiled ground is be subdivided into tile regions: across into w tiles and up into h tiles. In the same way every tile can be further subdivided into w by h sections. The creation of a tiled ground relies on the use of *MultiMaterials*.
 
-## MeshBuilder
+# MeshBuilder
 Usage:
 ```javascript
 var tiledGround = BABYLON.MeshBuilder.CreateTiledGround("tiled ground", options, scene);
@@ -17,7 +17,7 @@ subdivisions|_object_ _( {w: number, h: number} )_ number of subdivisions (tiles
 precision|_( {w: number, h: number} )_ number of subdivisions on the height and the width of each tile|{w: 2, h: 2}
 updatable|_(boolean)_ true if the mesh is updatable|false
 
-### Steps to Create Tiling
+## Steps to Create Tiling
 
 * Create Tiled Ground
 * Create materials needed for each tile
@@ -45,7 +45,7 @@ updatable|_(boolean)_ true if the mesh is updatable|false
     }
 ```
 
-### Examples
+## Examples
 
 Chess Board https://www.babylonjs-playground.com/#8VDULN
 
@@ -57,7 +57,7 @@ https://www.babylonjs-playground.com/#8VDULN#1
 
 Forming a large scale map using open source map tiles https://www.babylonjs-playground.com/#1XBLWB#6
 
-## Mesh
+# Mesh
 Usage :
 ```javascript
 const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene);

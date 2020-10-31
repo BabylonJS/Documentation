@@ -5,13 +5,13 @@ A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Tho
 ![selection panel](/img/gui/selectPanel1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
-## Referencing a Selection Panel
+# Referencing a Selection Panel
 
 As you can see in **Fig 1** a selection panel rectangle contains a vertical organisation of groups numbered from the top starting at 0. Each groups contains a header and a variable number of selectors. Each selector consists of a (or button) and a label. Within any one group all the selectors must be of the same type. You can refer to a selector by its group number and then the position of the selector within the group. So the checkbox labelled _High_ has reference 0, 1, ie. group 0, selector 1.
 
 **NOTE** Adding or removing groups or selectors with change the reference number. The reference number always refers to the current positioning of the group and of the selector.
 
-## Creating a Selection Panel
+# Creating a Selection Panel
 
 As usual with GUI containers you will need to create an advanced dynamic texture to add the selection panel to. You can set the dimensions and position of the selection panel. The format to construct a blank selection panel is
 
@@ -70,7 +70,7 @@ advancedTexture.addControl(selectBox);
 - [Playground Example Selection Panel and Groups on Creation](https://www.babylonjs-playground.com/#BXMTCD)
 - [Playground Example Combining Both Approaches](https://www.babylonjs-playground.com/#BXMTCD#1)
 
-## Creating Groups
+# Creating Groups
 
 There are three types of groups, a checkbox group, a radio group and a slider group, which are created using the structure
 
@@ -86,7 +86,7 @@ var colorGroup = new BABYLON.GUI.RadioGroup("Color");
 var rotateGroup = new BABYLON.GUI.SliderGroup("Rotation");
 ```
 
-## Creating Selectors
+# Creating Selectors
 
 Naturally there are three types of selectors and each can only be added to the appropriate group. External functions for each selector refer any changes in the value to properties of scene objects.
 
@@ -133,9 +133,9 @@ rotateGroup.addSlider(
 );
 ```
 
-### Selector Called Functions
+## Selector Called Functions
 
-#### Checkbox Selector
+### Checkbox Selector
 
 One function for each selector. Each requires a Boolean parameter with actions depending whether the control is checked or not
 
@@ -159,7 +159,7 @@ var toPlace = function(isChecked) {
 };
 ```
 
-#### Radio Selector
+### Radio Selector
 
 Within a radio group the same function is used for all selectors. The function requires a number parameter which will match the selector position with actions for each selector
 
@@ -178,7 +178,7 @@ var setColor = function(but) {
 };
 ```
 
-#### Slider Selector
+### Slider Selector
 
 Each slider selector requires two functions, one to change scene object properties and one to set the display format within the slider label.
 
@@ -200,9 +200,9 @@ var displayValue = function(value) {
 };
 ```
 
-## Customise the Selection Panel
+# Customise the Selection Panel
 
-### Colors and Font
+## Colors and Font
 
 For consistency of appearance you can only change the overall font and color of all headers, all labels and all selector buttons.
 
@@ -235,7 +235,7 @@ selectBox.relabel("Theta", 2, 0);
 - [Playground Example Selection Panel Change Group Header](https://www.babylonjs-playground.com/#BXMTCD#5)
 - [Playground Example Selection Panel Change Selector Label](https://www.babylonjs-playground.com/#BXMTCD#6)
 
-### Groups and Selectors
+## Groups and Selectors
 
 As stated earlier you can add groups at the bottom of the selection panel at any time. You can also remove a group by reference to its position in the list, eg
 
@@ -288,7 +288,7 @@ selectBox.removeFromGroupSelector(0, 0);
 
 - [Playground Example Selection Group Remove Selector](https://www.babylonjs-playground.com/#BXMTCD#10)
 
-## Further reading
+# Further reading
 
 [How To Use Babylon GUI](/how_to/gui)  
 [How To Use Babylon GUI Scroll Viewer](/how_to/ScrollViewer)  

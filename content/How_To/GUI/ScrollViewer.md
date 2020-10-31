@@ -10,7 +10,7 @@ From Babylon.js version 4.1 onwards it is possible to use an image for the thumb
 
 ![ScrollViewer with Image Bars](/img/gui/scroll4.jpg).
 
-## Creating the Scroll Viewer
+# Creating the Scroll Viewer
 
 The scroll viewer base is a rectangle container holding the scroll bars and the viewing area. You create it with or without a name.
 
@@ -52,7 +52,7 @@ The following table shows the additional properties of a scroll viewer.
 - [Playground Example - Scroll Viewer of Fixed Size with Grid of Images](https://www.babylonjs-playground.com/#C3RDBS#3)
 - [Playground Example - Scroll Viewer of Relative Size with Grid of Images](https://www.babylonjs-playground.com/#C3RDBS#2)
 
-## Scrollbars
+# Scrollbars
 
 Both scrollbars can be reached with:
 
@@ -61,7 +61,7 @@ Both scrollbars can be reached with:
 
 You can then set the scrollbar position with `scrollViewer.horizontalBar.value`. This value must be between 0 and 1.
 
-## Image Scrollbars
+# Image Scrollbars
 
 In order to have images in the scroll bar you need to pass a name (can be empty string) and a parameter of true when creating the scroll viewer.
 
@@ -88,7 +88,7 @@ You can also choose to have different images for the vertical and horizontal bar
 - [Playground Example - Image Scroll Bars](https://www.babylonjs-playground.com/#4ZC0G4#2)
 - [Playground Example - Image Scroll Bars in a Grid](https://www.babylonjs-playground.com/#4ZC0G4#1)
 
-## Adding an Adjustable TextBlock Window
+# Adding an Adjustable TextBlock Window
 
 When you add a TextBlock of a given size to a scroll viewer both horizontal and vertical scroll bars are shown as needed.
 
@@ -107,13 +107,13 @@ myTextBlock.resizeToFit = true;
 
 - [Playground Example - Scroll Viewer with Adjusting TextBlock](https://www.babylonjs-playground.com/#3EF49E#5)
 
-## Live-Updating and Child Containers
+# Live-Updating and Child Containers
 
 The ScrollViewer accepts only ONE child control. If that single child is a textBlock, then you can modify its _.text_ property (including \\n linebreaks), to add/remove text content to/from that single textBlock.
 
 The ScrollViewer also accepts a single CONTAINER (such as a stackpanel) for its single child. In that container, you may add/remove any type of control(s). For certain types of containers, you might choose to add `container.ignoreLayoutWarnings = true;`, and you might need to set a non-percentage _height_ value to certain children within the container(s).
 
-## Rendering optimization
+# Rendering optimization
 
 If you have a lot of controls in your scroll viewer window, you may notice a slow down in the rendering time.
 
@@ -135,7 +135,7 @@ When set to true, they force the display of the corresponding bars. When you kno
 
 [Playground Example - Rendering Optimization](https://playground.babylonjs.com/#KPLW9F)
 
-## Further reading
+# Further reading
 
 [How To Use the Selection Panel Helper](/how_to/selector)  
 [How To Use Babylon GUI](/how_to/gui)  

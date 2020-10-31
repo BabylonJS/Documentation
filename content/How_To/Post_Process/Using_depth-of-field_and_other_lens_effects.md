@@ -21,7 +21,7 @@ Three post-processes are used in the pipeline:
   - grain effect (noise or custom texture) 
   - darken out-of-focus objects 
 
-## Usage ##
+# Usage ##
 
 To use it, you must first define a set of parameters that will impact the actual post-processing performed. This is done by defining an object and setting the desired properties:
 ```javascript
@@ -86,7 +86,7 @@ The BABYLON.LensRenderingPipeline object created should be saved if you want to 
 |`disableNoiseBlur()`|
 
 
-## A Word Of Advice ##
+# A Word Of Advice ##
 
 These effects are based on general approximations of real world optics phenomenons. As such, some situations may end up looking a bit off or even completely wrong. Tweaking the parameters (including on-the-fly adjustments) will allow you to mitigate these problems, for example by lowering aperture in situations where you know that blurred objects will not render correctly.
 
@@ -96,6 +96,6 @@ Finally, these effects can be pretty intensive on the GPU. A lower blur effect (
 
 # Further Reading
 
-## How To
+# How To
 
 - [Use the default rendering pipeline](/how_to/using_default_rendering_pipeline)

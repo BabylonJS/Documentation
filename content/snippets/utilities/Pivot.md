@@ -2,7 +2,7 @@
 The following two code snippets give the opportunity to place a centre of rotation or enlargement, or pivot, at any time and have a mesh rotate or enlarge relative to that centre.
 
 
-## Rotate
+# Rotate
  
 ```javascript
 BABYLON.Mesh.prototype.rotateAroundPivot = function(pivotPoint, axis, angle) {
@@ -26,7 +26,7 @@ The parameters are the position of the pivot (centre of rotation) as a Vector3, 
 
 Succesive rotations are accumulative.
 
-## Enlargement
+# Enlargement
 
 ```javascript
 BABYLON.Mesh.prototype.scaleFromPivot = function(pivotPoint, sx, sy, sz) {
@@ -42,6 +42,6 @@ mesh.scaleFromPivotnew BABYLON.Vector3(1, 2, -1), 2, 6, 0.5);
 
 The parameters are the position of the pivot (centre of enlargemen) as a Vector3, scaling in the x, y and z directions as numbers.
 
-## Playground
+# Playground
 
 * [Playground Example](https://www.babylonjs-playground.com/#1MKHR9#2)

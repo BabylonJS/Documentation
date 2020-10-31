@@ -2,7 +2,7 @@
 
 ![Cloud Procedural texture](/img/extensions/proceduraltextures/cloudpt.png)
 
-## Using the cloud procedural texture
+# Using the cloud procedural texture
 
 Cloud procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.cloudProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.cloudProceduralTexture.js)

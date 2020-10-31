@@ -4,7 +4,7 @@ How cool (... or nerd - ish) could it be to render all your BJS scene in Ascii A
 
 If you would like it, this tutorial is made for you.
 
-## How to use ?
+# How to use ?
 
 Ascii Art Post Process Scripts can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js)
@@ -25,7 +25,7 @@ var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera);
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#0)
 
-## Going further
+# Going further
 
 The first you can do is changing the font used in the post process.
 

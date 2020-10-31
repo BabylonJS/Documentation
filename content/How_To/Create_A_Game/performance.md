@@ -5,11 +5,11 @@ Initially, there were actually some other changes that were made that DRASTICALL
 
 You can check draw calls by using: [spector.js](https://spector.babylonjs.com/).
 # Merging Meshes
-## Character
+# Character
 Again, the more meshes you have, the more draw calls you'll have. My character mesh, although a "single mesh" in blender, was split into separate meshes when imported into babylon because I used separate materials for different colors. What I did to reduce this was to use a color palette texture material + UV mapping. This is actually the process I had used for the environment.
 
 ![character palette](/img/how_to/create-a-game/characteruv.png)
-## Environment
+# Environment
 The environment consisted of a lot of separate & duplicated meshes since it was the entire game world. I just went back into the blender file and tried to join as many of the meshes as possible into groups that made sense.
 
 # Glow Layer
@@ -83,7 +83,7 @@ This became a little tricky in the festival area because there were 2 lanterns o
 **Next:** [Outro](/how_to/page18)   
 **(BONUS):** [Design Process & 3D Modeling](/how_to/page19)
 
-## Resources
+# Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/lantern.ts)

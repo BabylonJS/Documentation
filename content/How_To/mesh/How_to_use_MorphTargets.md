@@ -4,7 +4,7 @@ Morph targets are a new feature introduced with Babylon.js v3.0.
 
 ![Morph Target Before and After](/img/how_to/morphtargets.jpg)
 
-## Basics
+# Basics
 Meshes can be deformed by using morph targets. A morph target must be built from a mesh with the **EXACT** same number of vertices as the original mesh.
 Morph targets are used by the GPU to create the final geometry by applying the following formula:
 
@@ -19,7 +19,7 @@ The following two examples are best seen in the full Playground where sliders ca
 * [Playground Example With Standard Material](https://www.babylonjs-playground.com/#HPV2TZ#2)   
 * [Playground Example With PBR Material](https://www.babylonjs-playground.com/#HPV2TZ#4) 
 
-## How to Use Morph Targets
+# How to Use Morph Targets
 To use morph targets, you first have to create a `MorphTargetManager` and affect it to a mesh:
 
 ```
@@ -98,7 +98,7 @@ manager.addTarget(target3);
 
 At any time, you can remove a target with `manager.removeTarget(target)`
 
-## How to access morph targets in a glTF file
+# How to access morph targets in a glTF file
 You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](https://doc.babylonjs.com/api/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
 
 ```
@@ -113,7 +113,7 @@ myInfluence = mesh.morphTargetManager.getTarget(key);
 See the following example for a full playground using morph targets from a glTF file.
 - [Playground using morph targets from a glTF file](https://playground.babylonjs.com/#9CLJEF).
 
-## List of morphable properties
+# List of morphable properties
 
 You can morph the following mesh attributes:
 - position
@@ -121,7 +121,7 @@ You can morph the following mesh attributes:
 - tangents (can be turned of by calling `manager.enableTangentMorphing = false`)
 - uvs (can be turned of by calling `manager.enableUVMorphing = false`)
 
-## Limitations
+# Limitations
 
 * Please be aware that most of the browsers are limited to 16 attributes per mesh. Adding a single morph target to a mesh add up to 4 new attributes (position + normal + tangents + uvs). This could quickly go beyond the max attributes limitation.
 * All targets within a same manager must have the same vertices count

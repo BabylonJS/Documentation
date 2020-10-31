@@ -1,6 +1,6 @@
 # Babylon.js Off-Site Tutorials and Documents
 
-## Introduction
+# Introduction
 
 Throughout the history of Babylon.js, coders and authors have written tutorials and documentation which is stored in places other than at our primary documentation site.
 
@@ -8,7 +8,7 @@ In this document, we will attempt to provide links-to and information-about thos
 
 Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in Github](https://github.com/BabylonJS/Documentation/blob/master/content/resources/Reference/offsite_tutorials_list.md) or notify relevant links through [forum](https://forum.babylonjs.com/) or [Twitter](https://twitter.com/babylonjs) for example.
 
-## David Catuhe
+# David Catuhe
 
 - website: http://eternalcoding.com
 - forum username: [Deltakosh](https://forum.babylonjs.com/u/deltakosh/)
@@ -30,7 +30,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **Unleash the StandardMaterial** ](https://www.eternalcoding.com/babylon-js-unleash-the-standardmaterial-for-your-babylon-js-game/) | StandardMaterial, Material, Texture | Basic StandardMaterial usage/features are the theme in this introductory tutorial.  An easy-read doc, covering the basics. |
 | [ **Babylon.js - The Early Days** ](https://www.eternalcoding.com/babylon-js-a-complete-javascript-framework-for-building-3d-games-with-html-5-and-webgl/) | Babylon | Take a walk through the early days of the Babylon.js webGL framework.  Possibly, one of the first documents where Deltakosh introduces his wonderful 3D system. Since then, Babylon.js has tripled its levels of wonderful.|
 
-## David Rousset
+# David Rousset
 
 - website: https://www.davrous.com
 - (old) forum username: [Davrous](http://www.html5gamedevs.com/profile/5482-davrous/)
@@ -49,7 +49,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **Touchy Software Drum Machine** ](https://www.davrous.com/2016/05/27/tutorial-creating-a-small-8-bit-responsive-drum-machine-using-web-audio-svg-multi-touches/) | WebAudio, SVG, Multi-Touches, Synthesis | Not directly related to Babylon.js, but a **very** interesting document just the same. Davrous *drums*-up a *touchy* project, brings us along for the *ride*, and doesn't miss a single *beat*. |
 | [ **The Ultimate 3D Tutorial** ](https://www.davrous.com/2013/06/13/tutorial-series-learning-how-to-write-a-3d-soft-engine-from-scratch-in-c-typescript-or-javascript/) | 3D, Software 3D, SoftEngine,  | This tutorial is about writing a software-based 3D engine.  Although only slightly related to Babylon.js... this is a WONDERFUL 7-part tutorial that is overflowing with great information and illustrations.  Most of it can be applied to Babylon.js. An excellent series of docs! |
 
-## Julian Chenard
+# Julian Chenard
 
 - website: http://www.pixelcodr.com
 - (old) forum username: [Temechon](http://www.html5gamedevs.com/profile/5218-temechon/)
@@ -68,7 +68,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **First Person Shooter Prototype** ](http://www.pixelcodr.com/tutos/shooter/shooter.html) | OOP, Project, Asset, LayerMask, Viewport, PointerLock | The first-person shooter (FPS) game is one of the most enjoyable and popular game-types in 3D land.  In this gorgeous tutorial, Julian takes us end-to-end through the development process.  As with all of Julian's games and How_To, he uses Object Oriented Programming (OOP) techniques, which result in re-usable pieces. These OOP pieces streamline work-flow for future games/projects.  |
 | [ **Temechon's Projects Page** ](http://www.pixelcodr.com/projects.html) | Projects | This is not a link to a tutorial, but instead, a link to Temechon's "Projects" web page.  As you can see, Temechon is a prolific game-author, both 2D and 3D.  And we know why he is able to produce game after game, quickly and easily, right?  Yep, OOP... reusable code... he does it well. Borrow his techniques, and you borrow great wisdom. |
 
-## Raanan Weber
+# Raanan Weber
 
 - website: https://blog.raananweber.com/
 - forum username: [RaananW](https://forum.babylonjs.com/u/raananw)
@@ -89,7 +89,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **Integrating Travis-CI and BabylonJS** ](https://blog.raananweber.com/2015/05/26/travis-ci-and-babylonjs/) | Travis, GitHub, Integration, NodeJS, NPM, Gulp, Grunt, TypeScript | This short tutorial is mostly for those who *build* Babylon.js from TypeScript source.  Travis has many features that assist during the build process, and Raanan shows us how to set it up properly. |
 
 
-## Julien Moreau-Mathis
+# Julien Moreau-Mathis
 
 - website: https://medium.com/@Luaacro
 - (old) forum username: [Luaacro](http://www.html5gamedevs.com/profile/11802-luaacro/)
@@ -102,7 +102,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [**Babylon.js Projects Page**](https://medium.com/babylon-js) | Actions Builder, Editor, Electron | Julien Moreau-Mathis is a French programmer and innovator, and he has become a serious BabylonJS superhero. (He's also a darned nice guy) Luaacro is currently deeply involved in the brand new [BJS online editor](https://medium.com/babylon-js/welcome-to-the-babylon-js-editor-c08dccdcec07#.coyzy5rvi).  Visit this page that summarizes ALL of his projects, and includes many "about/how-to" documents. |
 
 
-## Andy Beaulieu
+# Andy Beaulieu
 
 - website: http://www.spritehand.com/
 - (old) forum username: [AndyBeaulieu](http://www.html5gamedevs.com/profile/5636-andybeaulieu/)
@@ -117,7 +117,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [**Bing 3D Maps using WebGL and BabylonJS**](http://www.spritehand.com/2013/12/bing-3d-maps-using-webgl-and-babylonjs.html) | Map, HeightMap, Bing | In this mini-tutorial, Andy looks at how we can use BabylonJS and WebGL to create a 3D height map and route path, using data from Bing Maps REST Services.|
 | [**Fluid Simulation using BabylonJS and LiquidFun**](http://www.spritehand.com/2016/01/fluid-simulation-using-babylonjs-and.html) | Fluid, SoftBody, LiquiFun  | BabylonJS and LiquidFun allow for the creation of fluid simulations including soft body physics, using JavaScript and WebGL.  Andy is here to tell us all about it. |
 
-## Célian Garcia
+# Célian Garcia
 
 - (old) forum username: [celian-garcia](http://www.html5gamedevs.com/profile/8511-celian-garcia/)
 - social networks: [Github](https://github.com/kostar111/)
@@ -130,7 +130,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **Working with Babylon.js Terrains** ](https://translate.google.com/translate?hl=en&sl=fr&tl=en&u=http%3A%2F%2Fmakina-corpus.com%2Fblog%2Fmetier%2F2014%2Fvisualiser-des-chemins-de-randonnee-en-3d-grace-a-babylonjs) | Terrain, HeightMap | Kostar111 continues his research into terrain generation, in this 3-part translated tutorial. |
 | [ **Creating Tiled Ground in Babylon.js** ](https://translate.google.com/translate?hl=en&sl=fr&tl=en&u=http%3A%2F%2Fmakina-corpus.com%2Fblog%2Fmetier%2F2014%2Fvisualiser-des-chemins-de-randonnee-en-3d-grace-a-babylonjs) | Terrain, HeightMap, Tile | Kostar111 is back, with this Babylon.js-specific tutorial about creating tiled grounds. No translations, great illustrations, and some very nice playground demos.  Thanks Célian! |
 
-## Rahman Nasimi Asl
+# Rahman Nasimi Asl
 
 - website: http://www.500blog.com/
 - forum username: [nasimiasl](https://forum.babylonjs.com/u/nasimiasl/)
@@ -142,7 +142,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **ShaderBuilder** ](http://cdn.rawgit.com/RNasimiAsl/Extensions/master/ShaderBuilder/Documentation/ShaderBuilderReferences.html) | Shader, Fluent | Rahman is a master of shaders, and a master of assembling shader code... because of his marvelous ShaderBuilder (EASH) extension for Babylon.js.  In this document, Rahman introduces us to the ShaderBuilder magic, and provides some demo scenes.  Be patient with the demo scene loading. |
 | [ **YouTube Tutorials** ](https://www.youtube.com/channel/UC1v47iVFGqTeUJle9viDqKA) | GeometryBuilder, Bandicam | Here is Rahman's YouTube page, where there are 6 videos, all related to Babylon.js. Rahman also introduces us to a very unique mesh generator that he calls Geometry Builder.  We have seen demos, and they are FANTASTIC! |
 
-## Pryme8
+# Pryme8
 
 - website: http://pryme8.com/
 - forum username: [Pryme8](https://forum.babylonjs.com/u/pryme8/)
@@ -152,13 +152,13 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | :--- | :---: | --- |
 | [**neatFLAX - Tutorial Center**](https://pryme8.github.io/NeatFlax/) | snippets | Many excellent How_To are located here. |
 
-## Mad Dog Tutorials
+# Mad Dog Tutorials
 
 | Title | Keywords | Description |
 | :--- | :---: | --- |
 | [**Youtube tutorials playlist**](https://www.youtube.com/playlist?list=PLOGomoq5sDLtJeX81GFAXppi-VbrVwxav) | game, basic | Five substantial BabylonJS video tutorials |
 
-## Serapth
+# Serapth
 
 - website: https://gamefromscratch.com
 - (old) forum username: [Serapth](http://www.html5gamedevs.com/profile/9139-serapth/)
@@ -167,7 +167,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | :--- | :---: | --- |
 | [**BabylonJS tutorial series**](http://www.gamefromscratch.com/page/BabylonJS-Tutorial-Series.aspx) | beginner, basic | Assorted beginner-level text and video tutorials |
 
-## Vincent Lamy
+# Vincent Lamy
 
 - website: https://www.nothing-is-3d.com/
 - forum username: [Vinc3r](https://forum.babylonjs.com/u/Vinc3r)
@@ -180,7 +180,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [**From Blender to BabylonJS**](https://nothing-is-3d.com/article27/from-blender-to-babylonjs) | Lightmap, Blender, Export | Help users to use their precomputed lighting from Blender to BabylonJS ([FR version](https://www.nothing-is-3d.com/article25/de-blender-vers-babylonjs) available). |
 | [**Use a local webserver**](https://www.nothing-is-3d.com/article28/use-a-local-webserver) | development, testing, server | Help users uncomfortable with web dev environment to quickly be able to launch a local webserver instead of using an online FTP ([FR version](https://www.nothing-is-3d.com/article26/utiliser-un-serveur-web-local) available). |
 
-## Andrija Perusic
+# Andrija Perusic
 
 - forum username: [Andrija_Perusic](https://forum.babylonjs.com/u/Andrija_Perusic/)
 - social networks: [Github](https://github.com/creationspirit), [Linkedin](https://www.linkedin.com/in/andrija-peru%C5%A1i%C4%87-394733147/)
@@ -191,7 +191,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | :--- | :---: | --- |
 | [ **Realtime multiplayer game with NullEngine starter project** ](https://github.com/creationspirit/multiplayer-browser-game-boilerplate) | React, Colyseus, Typescript, NullEngine, boilerplate, tutorial | Simple starter project for a multiplayer game using authoritative server arhitecture made with Colyseus and BabylonJS NullEngine. Starter includes a simple scene where players can move freely and a lobby. |
 
-## gryff
+# gryff
 
 - forum username: [gryff](https://forum.babylonjs.com/u/gryff)
 

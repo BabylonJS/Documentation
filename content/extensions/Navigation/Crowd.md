@@ -10,7 +10,7 @@ A demo can be found at:  https://www.babylonjs-playground.com/#X5XCVT#240
 
 Click anywhere on the navmesh to make the agents go to that location.
 
-## How to use it?
+# How to use it?
 
 First thing is to create a crowd that all agents will belong to. Parameters are the maximum number of agents in the crowd, the maximum agent radius and the scene.
 
@@ -32,7 +32,7 @@ crowd.agentGoto(agentIndex, navigationPlugin.getClosestPoint(endPoint));
 This code will get the closest position on the navmesh to endPoint. Then it asks the agent to go to that position.
 Depending on your agent parameters, it will get there faster of slower.
 
-## Agent Parameters
+# Agent Parameters
 
 radius - Radius of the agent. World Unit.
 

@@ -17,7 +17,7 @@ In each of the following examples there is
 * an axis to rotate around
 * the pilot mesh at a starting position relative to the center of rotation, pilotStart.
 
-## How to Use TransformNode as a Center of Rotation
+# How to Use TransformNode as a Center of Rotation
 
 A TransformNode is an object that is not rendered but can be used as a center of rotation (in fact the centre of any transformation). This can decrease memory usage and increase rendering speed.
 
@@ -38,7 +38,7 @@ In these playgrounds a sphere is created only to show the position of the Transf
 * [Playground Example - Rotating Mesh Moving TransformNode along Axis](https://www.babylonjs-playground.com/#C12LH3#3)
 * [Playground Example - Rotating Mesh Moving TransformNode](https://www.babylonjs-playground.com/#C12LH3#4)
 
-## How To Use a Parent as Center of Rotation
+# How To Use a Parent as Center of Rotation
 
 The sphere is parented to the pilot, the pilot positioned and the sphere rotated.
 
@@ -55,7 +55,7 @@ sphere.rotate(axis, angle, BABYLON.Space.WORLD);
 
 * [Playground Example - Rotating Parent](https://www.babylonjs-playground.com/#1JLGFP#31)
 
-## How To Use a Pivot as a Center of Rotation
+# How To Use a Pivot as a Center of Rotation
 
 ```javascript
 var CoR_At = new BABYLON.Vector3(1, 3, 2);
@@ -80,7 +80,7 @@ scene.registerAfterRender(function() {
 Notice that as the pivot is moved the axis line moves with the pivot, though the axis direction remains the same.  
 * [Playground Example - Rotating Mesh Moving Pivot](https://www.babylonjs-playground.com/#C12LH3#9)
 
-## How to Use a Pivot as a Parent
+# How to Use a Pivot as a Parent
 
 Perhaps you would like to think about achieving the positioning of the pivot by changing the pivots position rather than the pilots position. This can be done with parenting as shown in the following example.
 
@@ -103,7 +103,7 @@ Done this way any movement of the pivot is done by moving the parent mesh repres
 
 # Further Reading
 
-## More Advanced - L3
+# More Advanced - L3
 
 [Using a Pivot](/How_To/Pivots)   
 

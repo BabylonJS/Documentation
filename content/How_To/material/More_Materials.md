@@ -17,7 +17,7 @@ A bump map can be used with a color; with its original image or another image as
 
 ![Bump Example](/img/how_to/Materials/bump_spheres.png)
 
-## Creating a Bump Map Example
+# Creating a Bump Map Example
 Just add a _bumpTexture_ to any existing textures.
 
 ```javascript
@@ -27,7 +27,7 @@ myMaterial.bumpTexture = new BABYLON.Texture("PATH TO NORMAL MAP", scene);
 
 * [Playground Example - Using Bump Maps](https://www.babylonjs-playground.com/#20OAV9#23)
 
-## Inverting Bumps and Dents
+# Inverting Bumps and Dents
 Use _invertNormalMapX_ and/or _invertNormalMapY_ on the material.
 
 ```javascript
@@ -49,7 +49,7 @@ with the same gradient applied to the material as in the image below.
 
 * [Playground Example - Using Opacity](https://www.babylonjs-playground.com/#20OAV9#24)
 
-## Applying Opacity
+# Applying Opacity
 Add an _opacityTexture_ to any existing texture.
 ```javascript
 var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);

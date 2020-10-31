@@ -1,12 +1,12 @@
 # How To Combine Animations
 
-## Concurrent
+# Concurrent
 
 Simply set up more animations and add to the BabylonJS object's animations array.
 
 For example adding a rotation animation to the [very simple slide animation](https://www.babylonjs-playground.com/#9WUJN#11) to get:
 
-### Slide and Rotate
+## Slide and Rotate
 
 ```javascript
 var yRot = new BABYLON.Animation(
@@ -39,7 +39,7 @@ yRot.setKeys(keyFramesR);
 
 - [Playground Example Slide and Rotate](https://www.babylonjs-playground.com/#9WUJN#12)
 
-### Slide and Faster Rotation Rate
+## Slide and Faster Rotation Rate
 
 Changing the rotation values to larger numbers increases the rotation rate
 
@@ -74,7 +74,7 @@ yRot.setKeys(keyFramesR);
 
 - [Playground Example Slide and Faster Rotate](https://www.babylonjs-playground.com/#9WUJN#13)
 
-### Slide and Varying Rotation Rate
+## Slide and Varying Rotation Rate
 
 Changing the second key frame position to nearer the end of the frames gives a varying rotation rate.
 
@@ -109,14 +109,14 @@ yRot.setKeys(keyFramesR);
 
 - [Playground Example Slide and Varying Rotation Rate](https://www.babylonjs-playground.com/#9WUJN#14)
 
-## Consecutive Animations
+# Consecutive Animations
 
 In order to have one animation follow another then a further parameter needs to be added to the beginDirectAnimation function. This parameter is
 itself a function to be called when the animation began by beginDirectAnimation is ended.
 
 In fact two new parameters are needed since the function to be called is the sixth parameter and so the fifth parameter position needs to be filled.
 
-### beginDirectAnimation and Parameters
+## beginDirectAnimation and Parameters
 
 scene.beginAnimation(target, start frame, end frame, loop, speed, on animation end);
 
@@ -134,7 +134,7 @@ scene.beginAnimation(target, start frame, end frame, loop, speed, on animation e
 
 - _on animation end_ - _function : optional_, function called when animation ends, requires loop to be false
 
-### Examples
+## Examples
 
 The following are alterations to [Slide and Rotate](https://www.babylonjs-playground.com/#9WUJN#12)
 

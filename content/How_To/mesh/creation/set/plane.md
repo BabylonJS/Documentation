@@ -1,7 +1,7 @@
 # Plane
 The created plane is a flat surface parallel to the xy plane with its origin at the center of the plane.
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const plane = BABYLON.MeshBuilder.CreatePlane("plane", options, scene); //scene is optional and defaults to the current scene
@@ -18,7 +18,7 @@ sourcePlane|_(Plane)_ source plane (math) the mesh will be transformed to|null
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-### Examples
+## Examples
 single sided https://www.babylonjs-playground.com/#Q9VZS9#4  
 double sided https://www.babylonjs-playground.com/#Q9VZS9#2  
 
@@ -30,7 +30,7 @@ front and back https://www.babylonjs-playground.com/#Q9VZS9#3
 We can also create a plane from an abstract math plane  
 https://www.babylonjs-playground.com/#Q9VZS9#1
 
-## Mesh
+# Mesh
 Usage :
 ```javascript
 const plane = BABYLON.Mesh.CreatePlane("plane", size, scene);

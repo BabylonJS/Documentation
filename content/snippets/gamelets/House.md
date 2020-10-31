@@ -4,9 +4,9 @@ Starting with a polygon as the footprint, a house is built by giving the footpri
 
 **Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
 
-## Data Structure
+# Data Structure
 
-### Walls
+## Walls
 
 **A footprint** is a sequence of consecutive corners in counter clockwise order. Each **corner** is a Vector3 in the form (x, 0, z). This footprint forms the inner walls of the house, see Fig 1. The inner walls do not have to be set at right angles to each other.
 
@@ -27,7 +27,7 @@ The top of wall is formed by adding the **height** of the walls to the base corn
 ![Top of Walls](/img/samples/house3.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
 
-## Walls Mesh
+# Walls Mesh
 
 The table of positions for the vetexData buffer looks like this
 
@@ -78,7 +78,7 @@ outer facets : w + 1 + 3nbWalls, w + 3nbWalls, w + nbWalls, w + 1 + nbWalls, w +
 
 So far fairly straight forward, now to add door and window spaces.
 
-## Door and Window Spaces.
+# Door and Window Spaces.
 
 For this project doors and windows must be rectangular and are just defined by their width and height. However a door space is assumed to be a space cut from the base and upwards, whereas a window space can be cut anywhere in the wall. Both types of spaces are cut at right angles to the wall they belong in.
 
@@ -91,7 +91,7 @@ A window has two properties, width and height. A windowspace has three propertie
 ![Doors and Windows](/img/samples/house5.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
 
-## Walls with Doors and Windows
+# Walls with Doors and Windows
 
 To include the doors and walls the positions of their corners have to be added to the positions array.
 
@@ -117,7 +117,7 @@ To stop this effect a flat shaded mesh is necessary and rather than just convert
 
 It was decided that edges to doors and windows would be exterior.
 
-## Inner and Outer Walls with Doors and Windows Mesh
+# Inner and Outer Walls with Doors and Windows Mesh
 
 A flat shaded mesh will be created so the the normals for all surfaces will be at right angles to the surface.
 
@@ -136,7 +136,7 @@ with indices 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
 
 Where nbIndices is the current number of indices. These wall positions can be added to the house positions array and their indices incremented by nbIndices. 
 
-### General Case
+## General Case
 
 More generally w+1 must be calculated using modulo nbWalls to complete the final wall of the house.
 
@@ -176,7 +176,7 @@ Using this data the vertices for the exterior wall corresponding to wall w can b
 The these can be pushed to the house positions array. Since the wall indices array for these still apply but the order must be reversed, so that any normals formed will be in the correct direction, and appropriate increments added.  Add appropriate values to the uv array.
 
 
-## Top, Base and Edge Side for Walls, Doors and Windows.
+# Top, Base and Edge Side for Walls, Doors and Windows.
 
 All that is left now is to consider each base sections between doors, the side and top edges for the doors and base, top and side edges for the windows for wall w. 
 
@@ -184,7 +184,7 @@ Since the data for all corners for each of these has now been saved it is fairly
 
 Once all positions are in the house positions array and knowing that the first block only relates to the interior wall it is easy to link the remaining vertices to the exterior colour.
 
-## The Function and How to Use It.
+# The Function and How to Use It.
 
 The function **buildFromPlan** has five parameters and returns a mesh
 
@@ -261,9 +261,9 @@ Applying the plan leads to
 [The Code for Build From Plans](/samples/House_Use)  
 [Adding a Roof](/samples/roof)
 
-## Level 1
+# Level 1
 [Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
 
-## Level 2
+# Level 2
 [Polygon Mesh Builder](/How_To/PolygonMeshBuilder)
 

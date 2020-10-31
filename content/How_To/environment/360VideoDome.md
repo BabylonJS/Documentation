@@ -4,12 +4,12 @@
 
 Note that the video dome also supports 180 degrees video. Read below for further information.
 
-## VideoDome
+# VideoDome
 
 VideoDomes rely heavily on the [VideoTexture](/classes/VideoTexture) class, check out it's documentation so that some parameters make more sense.
 The source video itself should be "Equirectangular", without an equirectangular source the class won't function correctly.
 
-## VideoDome Code
+# VideoDome Code
 
 Within the playground you can copy and paste the following into your scene and then adjust the options.
 
@@ -35,7 +35,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 
 As iOS disable autoplay, you should call video play on user interaction, using `videoDome.videoTexture.video.play();` .
 
-## FOV adjustment
+# FOV adjustment
 
 Sometimes 360 Video can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
 Adjust it between 0.0 and 2.0 with the following code.
@@ -50,7 +50,7 @@ As a warning, the further the value gets from 1 the more distortion will be visi
 
 * [Playground Example of a VideoDome using fovMultiplier](https://www.babylonjs-playground.com/#SQ5UC1#0)
 
-## Video Types
+# Video Types
 
 Several types of 360 video exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
@@ -66,7 +66,7 @@ videoDome.videoMode = BABYLON.VideoDome.MODE_SIDEBYSIDE;
 videoDome.videoMode = BABYLON.VideoDome.MODE_TOPBOTTOM;
 ```
 
-## 180 Video
+# 180 Video
 
 Another format of VR-enabled videos are the 180 degrees videos. The front of the user is recorded, but the back is black.
 
@@ -95,7 +95,7 @@ videoDome.halfDome = true;
 
 # Further Reading
 
-## Advanced
+# Advanced
 
 [VideoTexture](/classes/VideoTexture)
 

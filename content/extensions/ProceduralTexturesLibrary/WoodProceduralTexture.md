@@ -2,7 +2,7 @@
 
 ![Wood Procedural texture](/img/extensions/proceduraltextures/woodpt.png)
 
-## Using the Wood procedural texture
+# Using the Wood procedural texture
 
 Wood procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)

@@ -1,5 +1,5 @@
 # Transformations
-## Introduction to Coordinate Transformation
+# Introduction to Coordinate Transformation
 
 The first step in understanding coordinate transformation Babylon.js is to understand how the data describing a mesh is stored. The positions of each vertex is kept in an array of coordinates in the local space of the mesh. Each transformation applied to the mesh is stored in a matrix called the *World Matrix*. For each rendered frame the current *World Matrix* is used on the local space vertex data to obtain the world data for the mesh. Except for exceptional circumstance such as *baking a transformation* or a user updating it, the mesh vertex data remains unchanged. 
 

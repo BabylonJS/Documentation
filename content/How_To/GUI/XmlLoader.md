@@ -1,6 +1,6 @@
 When you want to create GUI layouts in an easy and structured way you may want to take a look at the Xml Loader.
 
-## Creating the Xml Loader
+# Creating the Xml Loader
 
 The xml Loader is able to load Babylon GUI layouts directly from xml. You create it with
 
@@ -55,7 +55,7 @@ Then attach it again
 var node = xmlLoader.getNodeById("firstContainer"); 
 advancedTexture.addControl(node);
 ```
-## XML Layouts
+# XML Layouts
 
 The structure for an XML layout is very straightforward. This is what a simple XML layout would look like
 
@@ -93,7 +93,7 @@ The Controls names in the layouts follow rigorously the names in the BABYLON.GUI
 
 In the Grid's case, the rows and the columns are not controls in the babylon GUI. It is important to add the maximum number of columns in the first row as all the subsequent rows will have the same number of columns. This is because the xml loader creates the column definitions of the Grid from the first row. However, after the first row, it is possible to add less columns to the subsequent rows. The width and height attributes for Rows and the Columns of the first row are mandatory, for the columns of the subsequent rows the value will not be taken into consideration by the loader. The isPixel attribute is mandatory if the width and height is in Pixels.
 
-## Dynamic Attributes
+# Dynamic Attributes
 
 It is possible to add dynamic attributes to your XML layouts. These attributes can either be class attributes or global variables. The following is how to set a value in your xml layout referencing a class attributes or a global variable.
 
@@ -111,11 +111,11 @@ It is possible to add dynamic attributes to your XML layouts. These attributes c
 
 By wrapping the attributes value with double curly brackets `{{}}`, it is given the value of the class attribute or global variable with that name.
 
-## Linking Control to Mesh
+# Linking Control to Mesh
 
 It is possible to link a control to a mesh directly from Xml. This can be very easily done by setting the attribute `linkWithMesh="meshName"` to the Control you want to add. Even though the curly brackets are not needed, this is also a dynamic attribute. If the xml loader has been initiated with a class / function context it will use that context to retrieve the mesh, otherwise it will look for it globally.
 
-## Dynamic Array and Object source
+# Dynamic Array and Object source
 
 It is also possible to connect a structure like an Array or Object directly to XML. This would be handy in a case when we may need to fill a StackPanel from an array of values or object of key value pairs. However, this can be used whenever we need to repeat a specific xml block by filling in values from An Array or an Object. The only not implemented usecase would be the Grid.
 
@@ -163,7 +163,7 @@ The source is associated to the StackPanel by using the dataSource attribute. Th
 
 The variable part of the dataSource attribute is how you access the source values. Notice in the above example the section `text="{{text.surname}}"` is how you set a value from the source to your XML.
 
-## Further reading
+# Further reading
 
 [How To Use the Selection Panel Helper](/how_to/selector)  
 [How To Use Babylon GUI](/how_to/gui)  

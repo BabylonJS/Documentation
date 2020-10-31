@@ -37,7 +37,7 @@ myMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
 
 mesh.material = myMaterial;
 ```
-## Diffuse Color Example
+# Diffuse Color Example
 To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
 
 * [Playground Example - Material Color Reaction to Light Color _direct click or edit to view_](https://www.babylonjs-playground.com/#20OAV9#325)  
@@ -53,7 +53,7 @@ to white, red, green and blue diffuse spot lights can also be seen in the follow
 
 ![ Spot Light](/img/how_to/Materials/spots1.png)
 
-## Ambient Color Example
+# Ambient Color Example
 In the image below  all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has no ambient color, the middle has red ambient color defined on its material and the one on the right has material with green ambient color. The scene ambient color, which must be present, is white. 
 
 When a scene ambient color component is set to 0, for example red, then whatever the value for red in the material ambient color it will have no effect. 
@@ -62,7 +62,7 @@ When a scene ambient color component is set to 0, for example red, then whatever
 
 * [Playground Example - Use of Ambient Color](https://www.babylonjs-playground.com/#20OAV9#14)
 
-## Transparent Color Example
+# Transparent Color Example
 Transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
 ```javascript
 myMaterial.alpha = 0.5;
@@ -91,14 +91,14 @@ myMaterial.ambientTexture = new BABYLON.Texture("PATH TO IMAGE", scene);
 mesh.material = myMaterial;
 ```
 Note: When no normals are specified, Babylon's standard material will compute the normals.
-## Texture Example
+# Texture Example
 In this image all spheres are lit by the same hemispheric light, with _diffuse_ red and _groundColor_ green. The first sphere has a diffuse texture, the middle an emissive texture and the one on the right has material with red diffuse color and an ambient texture.
 
 ![Texture](/img/how_to/Materials/texture1.png)
 
 * [Playground Example - materials with diffuse, emissive and ambient textures](https://www.babylonjs-playground.com/#20OAV9#15)
 
-## Transparent Texture Examples
+# Transparent Texture Examples
 For colors, the transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
 ```javascript
 myMaterial.alpha = 0.5;

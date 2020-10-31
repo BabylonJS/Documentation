@@ -1,5 +1,5 @@
 # Getting Started - Working with Code
-## Grounding the World
+# Grounding the World
 At the moment we have a box floating in space. To make the scene more world like let's add ground and think of our box as a building set on the ground.
 
 Adding a ground is simple using

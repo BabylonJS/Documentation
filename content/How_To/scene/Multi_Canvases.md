@@ -4,7 +4,7 @@ To do so, you need to create "views". A view is defined by a canvas (the target)
 
 **Please note that when a view is registered, the canvas used to initialized the Engine becomes a "working" canvas and is no more supposed to be displayed directly.**
 
-## Creating a view
+# Creating a view
 
 To create a view, you need to register the combination of a canvas and a camera to the engine:
 
@@ -19,20 +19,20 @@ let view = engine.registerView(document.getElementById("renderCanvas1"));
 
 If the camera is undefined the render loop will be executed to the view without changing anything on the active scenes.
 
-## Removing a view
+# Removing a view
 
 To remove a previously registered view, you can run the following code:
 ```
 engine.unRegisterView(document.getElementById("renderCanvas1"));
 ```
 
-## Cameras
+# Cameras
 
 If a view is defined with a camera, the system will use it as the active camera to render the scene.
 
 A view cannot be rendered if it has a defined camera and the underlying scene is using multiple active cameras(eg. scene.activeCameras.length > 0).
 
-## Multi scenes
+# Multi scenes
 
 You can use views to render multiple cameras from the same scene or from different scenes. As you control the render loop, it is up to you to test the `engine.activeView` to determine which view is currently rendered.
 
@@ -47,7 +47,7 @@ let myRenderLoop = () => {
 }
 ```
 
-## Events
+# Events
 
 By default, scenes will capture events from the main rendering canvas (the one used to create the Engine). You can change that behavior by setting the `engine.inputElement` to the DOM element you want to use for events.
 
@@ -58,7 +58,7 @@ engine.inputElement = myNewElement;
 scene.attachControl();
 ```
 
-## Demo
+# Demo
 You can see a live demo here: https://www.babylonjs.com/Demos/Views
 
 The initialization code for this page can be found here: https://github.com/BabylonJS/Website/blob/master/build/Demos/Views/index.html

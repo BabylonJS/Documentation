@@ -12,7 +12,7 @@ An example of colliding complex shapes is given below. It has been constructed u
 
 To begin with the frame rate will be taken as constant throughout the animation and speed for any shape will be in units per frame.
 
-## Index 
+# Index 
 
 [Speed and Size Collision Issues](/samples/Issues.html)  
 [Simple Particle Collisions on a Grid](/samples/Grid_Moves.html)  

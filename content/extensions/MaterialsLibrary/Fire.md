@@ -2,7 +2,7 @@
 
 ![Fire material](/img/extensions/materials/fire.png)
 
-## Using the fire material
+# Using the fire material
 
 Fire material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.fireMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.fireMaterial.js)
 

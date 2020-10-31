@@ -26,7 +26,7 @@ Example 1 : you may want to update your 10K particle mesh only every three frame
 
 Example 2 : you could keep, say, the first 5000 particles as unused ones and compute the particle behavior only for the last 5000 lasts in your global pool.
 
-### Limit Garbage Collection
+## Limit Garbage Collection
 
 In Javascript, the Garbage Collector is usually your friend : it takes care about cleaning up all the not any longer needed variables you could have declared and thus it sets the memory free.  
 However, it can sometimes become an awkward friend because it can start its cleaning just while you are displaying a very smooth animation, so it takes the CPU for itself and leaves to you only those nice lags on the screen.  

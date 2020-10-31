@@ -1,4 +1,4 @@
-## How To Use MeshExploder
+# How To Use MeshExploder
 
 `MeshExploder` takes an array of meshes and increases/decreases distance to a center `Mesh`.
 
@@ -20,7 +20,7 @@ newExplosion.explode(-2);      //Implodes
 newExplosion.explode(0);       //Resets
 ```
 
-## Example Usage
+# Example Usage
 ```javascript
 var toExplodeArray = [];
 var sphere1 = BABYLON.MeshBuilder.CreateSphere('sphere1', { segments:12, diameter:2 }, scene);
@@ -40,7 +40,7 @@ var newExplosion = new BABYLON.MeshExploder(toExplodeArray);
 newExplosion.explode(2);
 ```
 
-## Example With Imported Objects
+# Example With Imported Objects
 ```javascript
 var assetsManager = new BABYLON.AssetsManager(scene);
 var meshTask = assetsManager.addMeshTask("model", "", "./", "model.gltf");
@@ -58,7 +58,7 @@ scene.executeWhenReady(function() {
 });
 ```
 
-## Example Using the Babylon.js Viewer
+# Example Using the Babylon.js Viewer
 ```javascript
 BabylonViewer.viewerManager.getViewerPromiseById('babylon-viewer').then(function (viewer) {
     viewerObservables(viewer);

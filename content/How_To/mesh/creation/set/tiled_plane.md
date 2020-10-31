@@ -1,7 +1,7 @@
 # Tiled Plane
 A tiled plane is only available with MeshBuilder. The tile size, pattern and alignment of tiles can be set. 
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", options, scene); //scene is optional and defaults to the current scene
@@ -68,7 +68,7 @@ const options = {
 }
 ``` 
 
-## Examples
+# Examples
 
 The following image is used to show the results before and after flipping alternate tiles
 

@@ -18,7 +18,7 @@ Each of the options properties helps the sprite map reserve the proper data buff
 
 After initialization you can change the rotation and position of the output plane by referencing the spriteMaps.position | rotation like a standard mesh.  For any other option change (like stageSize, or layerCount etc...) its recommended that you dispose the map and re-initialize with the correct options.
 
-## Examples of Option Properties
+# Examples of Option Properties
 base tile used to fill whole grid https://www.babylonjs-playground.com/#YCY2IL#16  
 outputSize changes size and ratio of plane https://www.babylonjs-playground.com/#YCY2IL#17  
 two layers individual sprites in layer 1 on top of base tile in layer 0 https://www.babylonjs-playground.com/#YCY2IL#18  

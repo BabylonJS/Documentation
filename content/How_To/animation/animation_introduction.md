@@ -13,7 +13,7 @@ During the design stage the creator will need to consider how long a sequence sh
 
 In BabylonJS, as in stop motion animation, individual objects have to be moved one by. Whereas we might talk about the overall finished piece as an animation in Babylon.js an _Animation_ is also a specific object that details a transformation, timing and looping that can then be applied to any mesh, camera or light. To this data is added values at key frames from which Babylon.js calculates the transformations to take place for the in between frames.
 
-## Terminology Used in the Animation Documentation
+# Terminology Used in the Animation Documentation
 
 The following terms will have the given meaning within the How_To about animating.
 

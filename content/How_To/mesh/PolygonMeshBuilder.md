@@ -7,7 +7,7 @@ The way *PolygonMeshBuilder* works is to construct and return the triangulation 
 The build function takes two optional parameters: the first is a Boolean and is true if the mesh is to be updatable and the seconds is the depth of the extrusion when required.
 
 
-## Constraints
+# Constraints
 The polygon and any holes inside it must be [simple](https://en.wikipedia.org/wiki/Simple_polygon), that is no overlapping sides. Holes should be wholly inside the polygon and should not be too close to the sides of the polygon or to each other otherwise the mesh will be malformed. This [algorithm](http://geomalgorithms.com/a09-_intersect-3.html#Simple-Polygons) is one you can use to check if a polygon is simple.
 
 ![Safe Construction](/img/how_to/PolyMeshBuild/pmberr1.jpg)
@@ -16,7 +16,7 @@ The polygon and any holes inside it must be [simple](https://en.wikipedia.org/wi
 
 ![Unsafe Construction](/img/how_to/PolyMeshBuild/pmberr3.jpg)
 
-## Usage
+# Usage
 ```javascript
 const polygon_triangulation = new BABYLON.PolygonMeshBuilder("name", vector2 array, scene);
 const polygon = polygon_triangulation.build();
@@ -28,7 +28,7 @@ var polygon_triangulation = new BABYLON.PolygonMeshBuilder("name", Path2, scene)
 var polygon = polygon_triangulation.build(false, 3);
 ```
 
-### Holes
+## Holes
 A hole can only be given as an array of vector2, representing the corners of the hole in consecutive counter clockwise order around the hole.
 
 Holes are added to the polygon triangulation using the addHole function.
@@ -39,7 +39,7 @@ polygon_triangulation.addHole(hole2);
 polygon_triangulation.addHole(hole3);
 var polygon = polygon_triangulation.build(true, 1.4);
 ```
-## Examples
+# Examples
 Each example contains polygons described with vector2s and with Path2
 Simple Polygons Using  https://www.babylonjs-playground.com/#2NJYI5  
 Simple Extruded Polygons https://www.babylonjs-playground.com/#2NJYI5#1  

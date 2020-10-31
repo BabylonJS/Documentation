@@ -7,7 +7,7 @@ You can get the gradient material:
 * Using npm with npm install --save babylonjs babylonjs-materials
 * With a direct reference to: https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js
 
-## Using the gradient material
+# Using the gradient material
 
 The material creates a smooth gradient with two colors:
 
@@ -28,6 +28,6 @@ The gradient material can be configured with:
 * `scale` is a number used to scale the color on the Y axis
 * `smoothness` is a number (between 0 and 10) which can be used to define the speed of the color change along Y axis (1 by default)
 
-## Playground example
+# Playground example
 
 You can find a live example here: https://www.babylonjs-playground.com/#2IFRKC#63

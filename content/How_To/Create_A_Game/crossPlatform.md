@@ -11,7 +11,7 @@ The first thing that we need to do is start detecting our touch inputs.
 Now, whenever we're using pointerEvents, it will account for touch inputs as well!
 
 # Controls
-## GUI
+# GUI
 Now that we're no longer using key presses for our character, we need another way to get them moving around. This is where it gets a little tricky. The joystick class works really well if the main mechanic of the game is to only use the joystick. The joystick class creates an overlay canvas that ends up blocking any other inputs that may be on the screen. Since we need buttons to also jump and dash, I had to find a different way to get player movement. The end layout looked like this:
 
 ![mobile controls](/img/how_to/create-a-game/mobilecontrols.png)
@@ -43,7 +43,7 @@ If you look at this code above, you can actually see the grid placement of the b
 
 ![grid](/img/how_to/create-a-game/gridbuttons.png)
 
-## Movement
+# Movement
 Now that we've made the new gui elements for our character movement, we just need to hook this up to our current input system.
 
 In **inputController.ts**, there's a function [_setUpMobile](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/inputController.ts#L116) that creates pointer observables for each of the new character movement buttons. These will set flags for whether the button was pressed (similar to how we're storing keyboard inputs in our inputMap).
@@ -75,7 +75,7 @@ This followed a similar structure to how we set up the mobile controls for the g
 **Previous:** [Extra Features](/how_to/page15)  
 **Next:** [Performance](/how_to/page17) 
 
-## Resources
+# Resources
 **Files Used:**  
 - [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
 - [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)

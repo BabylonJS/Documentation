@@ -9,7 +9,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Center of mass is at the origin of the compound object.
 
-## Compound to Empty Mesh
+# Compound to Empty Mesh
 
 1. Create an empty mesh to be used as a parent for the compound body;
 2. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
@@ -22,7 +22,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 * [Playground Example 1 - Skull as a Compound Body](https://www.babylonjs-playground.com/#492ZK0#7)
 
-## Compound Covering Meshes to The Complex Mesh 
+# Compound Covering Meshes to The Complex Mesh 
 
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Parent the standard meshes to the irregular mesh;
@@ -34,7 +34,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 * [Playground Example 2 - Skull as a Compound Body](https://www.babylonjs-playground.com/#492ZK0#12)
 
-## Compound to One of the Covering Meshes
+# Compound to One of the Covering Meshes
 
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Choose one standard mesh and parent the other standard meshes and the irregular mesh to this mesh;
@@ -47,7 +47,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Forces](/how_to/forces)   
@@ -55,11 +55,11 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 [How To Use Pivots and Axes](/how_to/joint_pivots)  
 [How To Create Soft Bodies](/how_to/soft_bodies)
 
-## Mid Level - L2
+# Mid Level - L2
 
 [How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
  
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
 

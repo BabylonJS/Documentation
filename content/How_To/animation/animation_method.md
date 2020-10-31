@@ -1,6 +1,6 @@
 # The Animation Method
 
-## Creating the animation
+# Creating the animation
 ```javascript
 const myAnim = new BABYLON.Animation(name, property, frames per second, property type, loop mode)
 ```
@@ -25,7 +25,7 @@ const myAnim = new BABYLON.Animation(name, property, frames per second, property
     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
     BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
 
-## Set Key Frames
+# Set Key Frames
 This is an array, *myKeys* of objects. Each object having the two properties 
 
 - _frame_ - the frame number
@@ -37,7 +37,7 @@ Once constructed this is added to the animation
 myAnim.setKeys(myKeys);
 ```
 
-## Beginning The Animation
+# Beginning The Animation
 
 To run the animation it is pushed onto the *animations* array property of the mesh
 
@@ -84,7 +84,7 @@ Further optional parameters are available and can be found at the *scene* API
 Sliding box direct animation https://www.babylonjs-playground.com/#7V0Y1I#1
 
 
-## Animatable
+# Animatable
 
 Both methods of starting an animation return an *Animatable* object 
 

@@ -5,7 +5,7 @@
 The RadialCloner distributes given meshes in a radial manner. If more than one meshes are provided, then the clones will be placed alternatively. Several parameters controls the position, angle, type and orientation of the clones. The RadialCloner returns an object with one important property: **root**. It is an invisible mesh, it's the anchor, center and parent of all generated clones. Transforming this **root** (position/scale/rotation) affects all underlying clones (childs) at once. Most of the input parameters are also available as properties and they are very suitable for animation (tweening). The given input meshes will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 *Note:* Input meshes can be BABYLON meshes but other Cloners as well!
 
-### Example
+## Example
 Example of a RadialCloner with a count of 24 clones (12 cubes cube1/cube2) distributed aligned with a radius of 6 units in the plane XZ:
 
 `var rc = new BABYLONX.RadialCloner([cube1, cube2], demo.scene, {count:24,radius:6});`
@@ -19,7 +19,7 @@ Animation can be done via properties:
 
 `BABYLON.Animation.CreateAndStartAnimation('radanimation', rc, 'startangle', 30, 120, 0, 90);`
 
-### Parameters
+## Parameters
 `BABYLONX.RadialCloner( meshes, scene[, {optional parameters}])` 
 
 Mandatory Parameter | Description 

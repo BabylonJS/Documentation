@@ -2,14 +2,14 @@
 
 ![Tri-Planar Mapping Material](/img/extensions/materials/triPlanar.jpg)
 
-## Playground Example
+# Playground Example
 
 A Playground example can be found here: [Tri-Planar Playground]( https://www.babylonjs-playground.com/#E6OZX#9)
 
 Press "1" to activate the Tri-Planar material (by default)
 Press "2" to active the default material
 
-## What are you talking about??
+# What are you talking about??
 In the case of very large scenes, you are likely to use terrains generated using procedural methods.
 In this case, you'll have to compute the vertices positions, normals and UVs (and so on).
 One of the most tricky tasks should be to generate the UV coordinates properly without taking care of the possible abrupt changes of the terrains.
@@ -24,7 +24,7 @@ That should look like:
 
 The tri-planar mapping material tends to resolve this kind of problem, but above all, allows to completely eliminate the UV calculations: no UV needed.
 
-## Using the tri-planar mapping material
+# Using the tri-planar mapping material
 
 The tri-planar material works with at least 3 textures: each texture represents how it is applied on each axis (X, Y and Z).
 

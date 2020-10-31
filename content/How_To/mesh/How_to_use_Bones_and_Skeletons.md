@@ -23,7 +23,7 @@ The easiest way to do it is:
 skeleton.returnToRest();
 ```
 
-## Preparing mesh
+# Preparing mesh
 
 A skeleton can be applied to a mesh through the ```mesh.skeleton``` property.
 
@@ -49,7 +49,7 @@ By default the system will try to store the bone matrices into a texture to save
 skeleton.useTextureToStoreBoneMatrices = false;
 ```
 
-## Loading bones
+# Loading bones
 
 Skeletons and bones can be loaded from .babylon files.
 
@@ -68,7 +68,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 
 A complete running example can be found [on this playground](https://www.babylonjs-playground.com/#92Y727)
 
-## Cloning bones
+# Cloning bones
 
 Bones and skeletons can be cloned (This is the case with the rabbits in the previous link).
 
@@ -95,7 +95,7 @@ BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", sce
     scene.beginAnimation(rabbit3.skeleton, 0, 72, true, 0.8);
 });
 ```
-## Cloning Complex Models
+# Cloning Complex Models
 More complex models, such as the Dude, contain submeshes. When cloning you must iterate and clone the submeshes as well. Here is an example of how to clone a more complex model:
 
 ```javascript
@@ -123,7 +123,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (
 }
 ```
 
-## Picking a mesh attached to a skeleton
+# Picking a mesh attached to a skeleton
 
 Because bones are computed by the GPU, the CPU has no clue where the mesh's vertices are. So picking a mesh with a skeleton will only work on the bind pose which could be sub-optimal.
 
@@ -136,7 +136,7 @@ var pickResult = scene.pick(scene.pointerX, scene.pointerY);
 
 Please keep in mind that this operation is using the CPU so it has to be used wisely as it could impact performance.
 
-## Attaching a mesh to a specific bone
+# Attaching a mesh to a specific bone
 
 Starting with babylon.js v2.2, you can now attach a mesh to a bone (like a sword in the hand of your character for instance). To do so, just specify on which bone with the following code:
 
@@ -147,14 +147,14 @@ sword.attachToBone(skeleton.bones[34], character);
 Please note that you also need to specify on which mesh the bone is currently applied.
 You can find a sample [on this playground](https://www.babylonjs-playground.com/#11BH6Z#18)
 
-## Rotating, Positioning, and Scaling bones
+# Rotating, Positioning, and Scaling bones
 
 Starting with babylon.js v2.5, you can easily position, rotate, and scale bones.
 
 Bones can be rotated and positioned in local space and world space.  To move a bone in world space, you must pass BABYLON.Space.WORLD and the mesh to the method.  If a space isn't passed to the method, then the bone is moved in local space (relative to the parent bone).
 
 
-### Rotating
+## Rotating
 
 To rotate a bone around an axis, use the rotate function:
 
@@ -223,7 +223,7 @@ bone.getRotationQuaternionToRef(BABYLON.Space.WORLD, mesh, rotationQuaternion);
 
 You can also use `bone.rotation` to set and get local space rotation quaternion.
 
-### Positioning
+## Positioning
 
 To change the position of a bone, you can rotate the parent bone, or you can leave the parent where it is and directly modify the position of the bone.
 
@@ -255,7 +255,7 @@ bone.getPositionToRef(BABYLON.Space.WORLD, mesh, pos);
 
 You can also use `bone.position` to set and get local space position.
 
-### Scaling
+## Scaling
 
 You can scale a bone on the local x, y, z axes of the bone (it is a cumulative effect).
 ```javascript
@@ -287,11 +287,11 @@ bone.getScaleToRef(scale);
 
 You can also use `bone.scaling` to set and get local space scaling.
 
-## Bone Controllers
+# Bone Controllers
 
 Babylon.js v2.5 also introduced Bone controllers.
 
-### BoneLookController
+## BoneLookController
 
 The BoneLookController class is used to make a bone look toward a point in space.
 
@@ -310,7 +310,7 @@ scene.registerBeforeRender(function(){
 [demo](https://www.babylonjs-playground.com/#1B1PUZ#15)
 
 
-### BoneIKController
+## BoneIKController
 
 Inverse Kinematics (IK) is used to rotate a chain of bones so that the end of the first bone is at or closest to a target point.  It's often used to rotate the limbs of a character.
 
@@ -361,19 +361,19 @@ target.setEnabled(false);
 poleTarget.setEnabled(false);
 ```
 
-## Performance considerations
+# Performance considerations
 
 Bones are computed using shaders by default. This allows better performance. But on low end devices, shaders could be limited and not able to process bones. You can in this case ask Babylon.js to compute bones using CPU by setting `mesh.computeBonesUsingShaders = false`.
 
-## Debugging
+# Debugging
 
 Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](https://doc.babylonjs.com/features/playground_debuglayer#bones-viewer) on and off.
 
-### Debugging Extras
+## Debugging Extras
 
 Starting with Babylon.js v4.2, you have a few more options to debug a skeleton with.  We now have incorporated additional bone views, to help visualize the position of the bones which are accessible through the same means as explained in the above sections' Inspector link. Additionally two new methods have been added to construct ShaderMaterials for both a skeleton map and assigned bone weights.
 
-#### New Viewer Info
+### New Viewer Info
 
 There are some requirements to take into consideration when trying to use the view modes for the skeleton viewer. First the SkeletonViewer class accepts a new constructor argument of options that will dictate the visual look of the debug mesh. Through this new argument there a bunch of new options to configure the outcome. Note that this is not a required parameter and if omitted then the debug mesh will use classic lines system.
 
@@ -417,11 +417,11 @@ let displayModeOptions {
 
 [Demo](https://playground.babylonjs.com/#BCU1XR#1616)
 
-#### Debug Shader Usage
+### Debug Shader Usage
 
 Sometimes you will need to actually see whart parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials! 
 
-##### SkeletonMap Shader
+#### SkeletonMap Shader
 
 The first one, which is a color map of the entire skeleton, is called a SkeletonMap. This will show you a unique color for each bone and visual feedback of how all of their influences interact. It's static method and when creating one, it expects two parameters, options and scene.
 
@@ -448,7 +448,7 @@ let colorMapItem = {
 This array is expected to have the items arranged with their location value in ascending order.
 [Demo](https://playground.babylonjs.com/#BCU1XR#1618)
 
-##### BoneWeight Shader
+#### BoneWeight Shader
 
 The second of the two will show more specific data on a per bone basis.
 

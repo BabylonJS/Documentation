@@ -5,7 +5,7 @@ On creation the local origin of the extruded polygon is coincident with the worl
 
 *ExtrudePolygon* calls [PolygonMeshBuilder](/How_To/polygonmeshbuilder). There is no *instance* option. You must set at least the _shape_ and _depth_ options. 
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const extrudedPolygon = BABYLON.MeshBuilder.ExtrudePolygon("polygon", options, scene); //scene is optional and defaults to the current scene
@@ -24,12 +24,12 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order;
 
-## Examples
+# Examples
 Extruded Polygon https://www.babylonjs-playground.com/#KIEYA6  
 Extruded Polygons using faceUV, one with wrap, one without https://www.babylonjs-playground.com/#KIEYA6#1
 
 
-## Mesh
+# Mesh
 ```javascript
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, depth, scene);
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, depth, scene, holes, updatable, sideOrientation); //optional parameters after scene

@@ -5,7 +5,7 @@ After considering the [issues](/samples/Issues.html) involved and slow [slow par
 The velocity of a particle is its displacement per frame.
 
 
-## Colliding with a Wall
+# Colliding with a Wall
 
 Given a particle of radius r, at position p and velocity v in *frame n*, the particle will collide with a wall when it is travelling towards the wall in *frame n* and in *frame n+1* the centre of the particle, at p + v,  is within a distance r from the wall or is moving away from the wall.
 
@@ -53,7 +53,7 @@ Which is the reflection of the particle at *frame n* in the plane parallel to th
 
 This means after *frame n* is displayed the particle's position has to be reset as indicated.
 
-## Colliding Particles
+# Colliding Particles
 
 Given a two particles P and Q of radius r, at positions p and q with velocities v and u repectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particle are at p + v and q + u. Between *frame n* and frame n+1* the two particles would collide when there is a time t &lt;= 1 when the distance between the positions of the particles is 2r. See Fig 22.
 
@@ -84,7 +84,7 @@ Based on the above the following Playground shows two spheres and their paths. S
 
 * [Playground Example - First Contact](https://www.babylonjs-playground.com/#A4HZTV).
 
-### Reaction
+## Reaction
 
 Since only the velocities along the line joining the centres of the particles are affected during the collision we need to consider axes along this radial line and a tangential line. The particles are at first contact at time t, with P at p + vt and Q at q + ut
 
@@ -152,7 +152,7 @@ This Playground fires particles randomly towards each other to see the effect wh
 
 * [Playground Example - Colliding Particles](https://www.babylonjs-playground.com/#A4HZTV#2).
 
-## A Multitude of Particles
+# A Multitude of Particles
 
 Combining all of the above the following Playgrounds put many particles inside a box and have them collide with the box and each other.
 

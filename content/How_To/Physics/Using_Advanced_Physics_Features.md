@@ -1,6 +1,6 @@
 # How To Use Advanced Physics Features
 
-## The Heightmap
+# The Heightmap
 
 One of the best way of interacting with a ground object is the Heightmap impostor (supported currently only with the CannonJS plugin).
 
@@ -47,7 +47,7 @@ A demo for both of these examples can be found here -
 * https://www.babylonjs-playground.com/#D3LQD#7
 * https://www.babylonjs-playground.com/#EXL6K#9
 
-## Mesh Impostor
+# Mesh Impostor
 
 A mesh impostor wraps a complex mesh with a physics body, allowing exact collision detection with the object. As opposed to the heightmap impostor, a mesh impostor has the entire mesh covered.
 
@@ -67,7 +67,7 @@ The rest will be done by Babylon and the physics engine.
 
 A wonderful example of the abilities of the mesh impostor can be found here - https://ajna4taiga.tk/PerplexusShadowOpen/Home.html
 
-## Motors
+# Motors
 
 Certain joint types like the wheel (hinge) joint have the ability to run a motor that will move the impostor connecting to the joint in the direction set by the user.
 
@@ -99,7 +99,7 @@ holder.physicsImpostor.addJoint(wheel.physicsImpostor, joint1); // attach holder
 joint1.setMotor(3, 20); // start turning!
 ```
 
-## Compounds and Babylon's parenting system
+# Compounds and Babylon's parenting system
 
 Babylon.js supports creating physics compounds. A compound is a collection of physics bodies that are connected together to create a single physics body with the joint geometry of all of the meshes connected.
 
@@ -129,7 +129,7 @@ https://playground.babylonjs.com/#PRHF00#6
 
 An advanced example of compounds can be seen here - https://playground.babylonjs.com/#5W5B6W#3 . The boxes connected to the disc are connected using Babylon's parenting system.
 
-### ignoreParent
+## ignoreParent
 
 You can disable the compound behavior of babylon by setting the ignoreParent flag when creating the impostor.
 It is important to note that this will only work if your parent has no impostor attached to it. Otherwise the results can vary from weird physics calculations to missing collisions.
@@ -142,7 +142,7 @@ sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsIm
 
 A simple example can be found here - https://playground.babylonjs.com/#PRHF00#4
 
-## Substeps
+# Substeps
 
 It's possible to run the physics ticks at a different frequency than the framerate while keeping consistent display.
 This means it's possible to display at 60 frames per seconds while updating the physics 1000 times a second.
@@ -158,11 +158,11 @@ physicsEngine.setSubTimeStep(100);
 
 https://www.babylonjs-playground.com/#YUNAST#21
 
-## Cloth simulation
+# Cloth simulation
 
 Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.raananweber.com/2016/04/03/cloth-physics-simulation-for-babylon-js/>
 
-## Some random demos
+# Some random demos
 
 * Cannon car demo - https://www.babylonjs-playground.com/#UGMIH#8
 * Oimo car demo - https://www.babylonjs-playground.com/#SFELK#3
@@ -172,7 +172,7 @@ Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
 [How To Use Forces](/how_to/forces)  
@@ -181,6 +181,6 @@ Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.
 [How To Create Compound Bodies](/how_to/compounds)  
 [How To Create Soft Bodies](/how_to/soft_bodies)
  
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)

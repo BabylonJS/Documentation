@@ -8,7 +8,7 @@ It is based on Julian Temechon's tutorial on the VertexData object http://www.pi
 
 A demo can be found at:  https://www.babylonjs-playground.com/#LG3GS#107
 
-## How to use it.
+# How to use it.
 
 Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeGenerators/QuickTreeGenerator
 
@@ -21,7 +21,7 @@ call the function
 var tree = QuickTreeGenerator(sizeBranch, sizeTrunk, radius, trunkMaterial, leafMaterial, scene);
 ```
 
-## Parameters
+# Parameters
 
 sizeBranch - sphere radius used for branches and leaves 15 to 20.
 

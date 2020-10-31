@@ -10,7 +10,7 @@ Here's the modified [Playground](https://playground.babylonjs.com/#IR1S8R#10)
 
 ![fireworks](/img/how_to/create-a-game/fireworks.gif)
 
-## Setting Up the Particle Systems
+# Setting Up the Particle Systems
 Similar to this playground, I made a [Firework class](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L170). There are two parts to a firework:
 1. **The Rocket**  
 The rocket is a particle system created in the constructor of the Firework. We start off by creating an emitter for the rocket. This is the mesh that's going to have the particle system attached to it so that the particle system moves along with its position.
@@ -122,9 +122,9 @@ particleSys.start(); //automatically start once created
 ```
 The last step is to make the actual particle system.
 
-## Firing the Particle Systems
+# Firing the Particle Systems
 Now we have a particle system set up for a firework, but we want to have multiple. In addition, we need to figure out when to trigger the fireworks to start. The explosions start automatically once they're created, but what about the rocket?
-### Create Instances
+## Create Instances
 Before we can use the particle systems, we need to create instances of the Firework class. In the [Environment constructor](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L83), I just looped through how many fireworks I wanted and then added them to an array of fireworks.
 ```javascript
 //--FIREWORKS--
@@ -142,7 +142,7 @@ this._scene.onBeforeRenderObservable.add(() => {
     })
 })
 ```
-### Starting Fireworks
+## Starting Fireworks
 Once we are in the "win state", we trigger the fireworks to start by setting *_startFireworks* to true. Now, [_startFirework](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L282) should be called for each firework in the environment:
 ```javascript
 if(this._started) { //if it's started, rocket flies up to height & then explodes
@@ -194,7 +194,7 @@ It took a bit of messing around with to get the exact effect, so this is where t
 **Previous:** [Animations](/how_to/page12)  
 **Next:** [Music/SFX](/how_to/page14)  
 
-## Resources
+# Resources
 [Particle Textures](https://mebiusbox.github.io/contents/EffectTextureMaker/)  
 **Files Used:**  
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

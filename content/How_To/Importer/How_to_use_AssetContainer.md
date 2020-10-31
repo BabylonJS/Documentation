@@ -1,6 +1,6 @@
 An AssetContainer can be used to manage a list of assets (like nodes, cameras, lights, meshes, etc..). This assets are still linked to a scene but are not taken in account. Consider asset containers like pool of entities.
 
-## Creating an AssetContainer
+# Creating an AssetContainer
 
 It can be created manually
 ```javascript
@@ -8,7 +8,7 @@ var container = new BABYLON.AssetContainer(scene);
 ```
 Or by loading from a file. See [loading from files](/How_To/Load_From_Any_File_Type)
 
-## Adding or removing assets to the scene
+# Adding or removing assets to the scene
 
 The container can then be used to add or remove contents of the container from the scene.
 ```javascript
@@ -30,7 +30,7 @@ container.moveAllFromScene(keepAssets);
 ```
 [Demo](https://www.babylonjs-playground.com/#5NFRVE#3)
 
-## Duplicating the models
+# Duplicating the models
 Asset containers can also be used as "templates" to duplicate models without reloading them.
 
 To do so, you only need to call:

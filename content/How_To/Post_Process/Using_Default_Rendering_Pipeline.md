@@ -45,7 +45,7 @@ Notes:
 
 # Customizing
 
-## Antialiasing
+# Antialiasing
 
 The MSAA antialiasing (only supported in webGL 2.0 browsers) effect is off by default (set to 1) but can be increased using:
 
@@ -63,7 +63,7 @@ pipeline.fxaaEnabled = true;
 
 Note: without using the pipeline, your scene already use a MSAA antialiasing, which is webGL native. As said above, pipeline is running on a post-process texture: unfortunatly, webGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available but not as powerfull as MSAA.
 
-## Sharpening
+# Sharpening
 
 Sharpening can be enabled with:
 
@@ -82,7 +82,7 @@ The amount of the original image in the output can be set with (setting this to 
 pipeline.sharpen.colorAmount = 0.0;
 ```
 
-## Depth of field
+# Depth of field
 
 You can turn the depth of field effect on and off with:
 
@@ -106,7 +106,7 @@ pipeline.depthOfField.fStop  = 1.4; // aka F number of the camera defined in sto
 
 [Demo](https://www.babylonjs-playground.com/#8F5HYV#9)
 
-## Bloom
+# Bloom
 
 You can turn the bloom effect on and off with:
 
@@ -123,7 +123,7 @@ pipeline.bloomKernel = 64;
 pipeline.bloomScale = 0.5;
 ```
 
-## Image processing effect
+# Image processing effect
 
 You can turn the image processing effect on and off with:
 
@@ -133,7 +133,7 @@ pipeline.imageProcessingEnabled = true;
 
 You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/How_To/how_to_use_postprocesses#imageprocessing).
 
-## Chromatic Aberration
+# Chromatic Aberration
 
 You can turn the effect on and off with:
 
@@ -163,7 +163,7 @@ pipeline.chromaticAberration.direction.y = Math.cos(rotation)
 
 Note: If both these values are set to 0 the direction will be towards the center of the screen.
 
-## Grain
+# Grain
 
 You can turn the effect on and off with:
 
@@ -301,11 +301,11 @@ As usual, a [playground is available](https://www.babylonjs-playground.com/#ECI2
 
 # Further Reading
 
-## How To
+# How To
 
 - [How To Use PostProcess](/how_to/How_to_use_PostProcesses)
 
-## API
+# API
 
 - [Babylon.DefaultRenderingPipeline](/api/classes/babylon.defaultrenderingpipeline.html)
 - [Babylon.ImageProcessingPostProcess](/api/classes/babylon.imageprocessingpostprocess.html)

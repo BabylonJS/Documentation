@@ -25,7 +25,7 @@ If you comment out line 12 and so no longer apply the force shared vertices func
 
 Use the function below. Any examples found in the playground then used the term 'minimizeVertices' rather than 'forceSharedVertices'.
 
-## The Function
+# The Function
 
 ```javascript
 BABYLON.Mesh.prototype.minimizeVertices = function() {
@@ -92,6 +92,6 @@ BABYLON.Mesh.prototype.minimizeVertices = function() {
     }	
 ```
 
-## Playground
+# Playground
 
 * [Playground Example Minimising Vertices](https://www.babylonjs-playground.com/#1JBMJ3#18)

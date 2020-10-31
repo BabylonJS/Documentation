@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Avoiding a Car Crash
+# Avoiding a Car Crash
 The simplest way of seeing if two meshes are in contact is to use the *intersectsMesh* method, as in
 
 ```javascript

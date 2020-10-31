@@ -6,7 +6,7 @@
 
 ![Scene Exporter](/img/exporters/unity/exporter.jpg)
 
-## Global Export Options
+# Global Export Options
 
 * Project Bin Path        - Specifies the exported project binary path.
 
@@ -18,7 +18,7 @@
 
 * Project Index Page      - Specifies the exported project index page.
 
-## Default Engine Options
+# Default Engine Options
 
 ![Engine Options](/img/exporters/unity/engine.jpg)
 
@@ -38,7 +38,7 @@
 
 * Set Mesh Vertex Limit   - Enables or disables the static mesh vertex limit (65000).
 
-## Terrain Builder Options
+# Terrain Builder Options
 
 ![Terrain Options](/img/exporters/unity/terrain.jpg)
 
@@ -50,7 +50,7 @@
 
 * Shadow Lightmap Index   - Sets the lightmap index channel. Must be 0 or 1.
 
-## Collision System Options
+# Collision System Options
 
 ![Collision Options](/img/exporters/unity/collision.jpg)
 
@@ -68,7 +68,7 @@
 
 * Default Collider Detail - Set the collision mesh goemetry detail level for all generated mesh colliders.
 
-## Lightmap Baking Options
+# Lightmap Baking Options
 
 ![Lightmap Options](/img/exporters/unity/lightmap.jpg)
 
@@ -82,7 +82,7 @@
 
 * Area Baking Lights      - Include or exclude lightmap area baking lights into exported scene.
 
-## Project Compiler Options
+# Project Compiler Options
 
 ![Compiler Options](/img/exporters/unity/compilers.jpg)
 
@@ -92,7 +92,7 @@
 
 * Node Runtime System     - Specifies the default Node runtime system location.
 
-## Windows Platform Options
+# Windows Platform Options
 
 ![Windows Options](/img/exporters/unity/windows.jpg)
 
@@ -106,7 +106,7 @@
 
 * Switch Windows Sandbox  - Launches the toolkit local Windows Sandbox Switcher amdinistrative tool.
 
-## Toolkit Exporter Options
+# Toolkit Exporter Options
 
 ![Export Options](/img/exporters/unity/export.jpg)
 
@@ -140,7 +140,7 @@
 
 * Debug Exporter Output   - Enables or disables pretty print json and compiler source maps.
 
-## Scene Builder Options
+# Scene Builder Options
 
 ![Builder Options](/img/exporters/unity/builder.jpg)
 

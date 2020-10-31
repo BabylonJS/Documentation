@@ -104,7 +104,7 @@ furMaterial.furColor = new BABYLON.Color3(0.44, 0.21, 0.02); // is the default c
 
 # Using textures
 
-## heightTexture
+# heightTexture
 
 A greyscale image can be used to set the fur length. 
 A speckled greyscale image can produce fur like results.
@@ -113,7 +113,7 @@ Any greyscale image with affect the fur length producing a heightMap type effect
 ```
 furMaterial.heightTexture = new BABYLON.Texture("speckles.jpg", scene); // Set the fur length with a texture.
 ```
-## diffuseTexture
+# diffuseTexture
 A texture can also be used to paint the mesh. 
 The leopard fur texture used in the test is by Martin Wegmann from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leopard_fur.JPG)
 under the [license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)

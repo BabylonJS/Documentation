@@ -9,7 +9,7 @@ When you need the appearance of a solid shape then there is an option to cap the
 
 When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](toolsAndResources/utilities/Mitred)
 
-## MeshBuilder
+# MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -41,7 +41,7 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-### Examples
+## Examples
 non updatable extrusion https://www.babylonjs-playground.com/#MR8LEL#2  
 update of extrusion including, shape, path, scale and rotation https://www.babylonjs-playground.com/#MR8LEL#3  
 extrusion with open shape https://www.babylonjs-playground.com/#MR8LEL#4  
@@ -52,7 +52,7 @@ capped extrusion https://www.babylonjs-playground.com/#MR8LEL#6
 profile that does not cap correctly https://www.babylonjs-playground.com/#MR8LEL#7
 
 
-## Mesh
+# Mesh
 Usage:
 ```javascript
 let extrusion = BABYLON.Mesh.ExtrudeShape(name, shape, path, scale, rotation, cap, scene);

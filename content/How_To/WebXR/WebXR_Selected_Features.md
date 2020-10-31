@@ -1,4 +1,4 @@
-## Teleportation Module
+# Teleportation Module
 
 A lot of (native) VR games have a teleportation feature to allow movement in the scene. It is the most convenient way of moving in a scene without the user feeling dizzy or disoriented.
 
@@ -12,7 +12,7 @@ The teleportation feature enabled the following ways to interact with the camera
 
 Quick note about the **WebXR emulator** - Even thou it doesn't have support for it just yet, the WebXR emulator adds a Thumbstick to the emulated controller, making it impossible to simulate teleportation. To get teleportation working you will need to enable `useMainComponentOnly` (described below) to disable the thumbstick's teleportation. It is recommended to only enable this during development, unless this is the required behavior.
 
-### Enabling teleportation
+## Enabling teleportation
 
 The teleportation module is turned on per default when using the [WebXR Default Experience Helper](./WebXR_Experience_Helpers#the-webxr-default-experience-helper). To turn it on or re-enable it use the following code:
 
@@ -46,7 +46,7 @@ xrHelper.teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORT
 
 Notice that the only obligatory option for the teleportation feature is the xrInput, which are the controllers it is going to use in order to teleport the user.
 
-### Setting floor meshes
+## Setting floor meshes
 
 Floor meshes are most important for teleportation, as the module needs to know where the users are allowed to land and where not.
 
@@ -83,7 +83,7 @@ teleportation.removeFloorMesh(ground2);
 
 A simple example for [enabling floor meshes](https://playground.babylonjs.com/pg/B8D5Z6).
 
-### Direct and indirect landing zones
+## Direct and indirect landing zones
 
 The teleportation landing zone is defined by the person holding the controllers. There are two ways of teleportation: direct teleportation and indirect (parabolic) teleportation.
 
@@ -116,7 +116,7 @@ const compensation = (1 + ((Math.PI / 2) - Math.abs(rotationOnTheXAxis)));
 
 The compensation is multiplied by the defined radius and changes the current ray intersection radius.
 
-### Different input sources
+## Different input sources
 
 The default input source is an XR headset with two handheld controllers. This input source in WebXR is called `TrackedPointer` .
 
@@ -147,7 +147,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 });
 ```
 
-### The teleportation landing zone
+## The teleportation landing zone
 
 The teleportation landing zone is a group of meshes means to show the user where they are going to land and in which direction. Its default version looks like this:
 
@@ -155,7 +155,7 @@ The teleportation landing zone is a group of meshes means to show the user where
 
 Each part of the teleportation landing zone is configurable:
 
-#### The landing zone's material
+### The landing zone's material
 
 The material of the landing zone (the dark circle on the floor) can be configured when constructing the feature using css colors:
 
@@ -176,7 +176,7 @@ Which looks like this:
 
 The example can be found here: [https://playground.babylonjs.com/pg/B8D5Z6/revision/20](https://playground.babylonjs.com/pg/B8D5Z6/revision/20)
 
-#### The ring's material
+### The ring's material
 
 The rotation ring's material can be provided by the user:
 
@@ -199,7 +199,7 @@ Will look like this:
 
 ![Custom material for ring](/img/how_to/xr/xr-custom-material-turos-ring.png)
 
-#### Disable the ring up-and-down animation
+### Disable the ring up-and-down animation
 
 ``` javascript
 const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, 'stable', {
@@ -213,7 +213,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 And now the ring won't animate up and down when the target zone is casted
 
-#### Disable lighting on the ring
+### Disable lighting on the ring
 
 To make sure the ring is always visible no matter the lighting in the scene is, set the `disableLighting` flag when constructing the feature:
 
@@ -231,7 +231,7 @@ This will look like this with light intensity 0.5:
 
 ![Disable lighting on ring](/img/how_to/xr/xr-ring-disable-lighting.png)
 
-### Rotating while teleporting
+## Rotating while teleporting
 
 It is possible to not allow the user to rotate after casting the initial ray. It is a flag straight on the teleportation object and it is called `rotationEnabled` :
 
@@ -239,7 +239,7 @@ It is possible to not allow the user to rotate after casting the initial ray. It
 teleportation.rotationEnabled = false;
 ```
 
-### Backwards movement
+## Backwards movement
 
 Backwards movement is on per default. When the user "pulls" the thumbstick or the touchpad backwards they will move a predefined distance, if this distance is available on any floor mesh behind them.
 
@@ -255,7 +255,7 @@ To disable backwards moving use this flag:
 teleportation.backwardsMovementEnabled = false; // Default is 0.7
 ```
 
-### Rotation in place
+## Rotation in place
 
 When moving the thumbstick left and right (X-Axis movement on the thumbstick/touchpad) the user will rotate a predefined amount. To default rotation is 22.5 degrees (in radians: `Math.PI / 8` ). To change this use the `rotationAngle` flag:
 
@@ -264,7 +264,7 @@ When moving the thumbstick left and right (X-Axis movement on the thumbstick/tou
 teleportation.rotationAngle = Math.PI / 4;
 ```
 
-### Rendering to a different layer or rendering group
+## Rendering to a different layer or rendering group
 
 If you want the render the teleportation target zone on top of the rest of the meshes you can use one of two ways:
 
@@ -297,7 +297,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 });
 ```
 
-### Snap-to (Hotspots)
+## Snap-to (Hotspots)
 
 Some XR experiences require the user to land at an exact location (and sometimes ONLY at exact locations). The teleportation snap-to feature allows you to define spots where the user can land and where the teleportation ray will snap (with a specific threshold).
 

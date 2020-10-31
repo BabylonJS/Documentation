@@ -45,7 +45,7 @@ Requirements:
 - [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
 - [node.js](https://nodejs.org/en/)
 
-## Forking
+# Forking
 
 Start by going to the main BabylonJS [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
 
@@ -73,7 +73,7 @@ You may also need to install grunt globally. If so, use `npm install -g grunt-cl
 
 This fork operation has to be done only once. You're now able to run locally the documentation by following the next section.
 
-## Running and editing the doc locally
+# Running and editing the doc locally
 
 ** We currently support Node 10 and down. Local build will fail with node 12 and up **
 
@@ -99,7 +99,7 @@ You can finally starting to update the markdown files!
 
 ![visual studio](/img/contribute/documentation/further-editing.png)
 
-## Adding new images
+# Adding new images
 
 In case you have to create new illustrations, you need to send them on the Github repo into a specific folder: [`Documentation/public/html/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/html/img).
 
@@ -117,7 +117,7 @@ Then, on your markdown page, use this link pattern:
 
 Of course, try to keep image size as low as you can (while keeping a good visual quality).
 
-## Adding new pages
+# Adding new pages
 
 Now that everything is working well, you may want to add new content. To do so, please open `/data/statics.json`.
 
@@ -171,7 +171,7 @@ Notice the filename field. This will be your new page filename (without markdown
 
 ![new content](/img/contribute/documentation/further-new-content.png)
 
-## Sending pull request
+# Sending pull request
 
 A Pull Request (PR) has to be made to integrate your modifications into the documentation.
 
@@ -203,7 +203,7 @@ Congratulation again, you're now a documentation master!
 
 # Good Practices
 
-## General
+# General
 
 - if you're not familiar with markdown, you can read this short [Github guide](https://guides.github.com/features/mastering-markdown/)
 - even if you're seeing just a tiny typo, feel free to do a pull request dedicated to it
@@ -214,12 +214,12 @@ Congratulation again, you're now a documentation master!
 - pay attention to spelling, grammar and punctuation
 - when you're not sure about a point, ask for proof-reading
 
-## Images
+# Images
 
 - use and store images from the documentation FTP as much as possible, read [Adding new images](https://doc.babylonjs.com/how_to/contribute_to_documentation#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
-## Code
+# Code
 
 - when showing a JavaScript block of code, inform Markdown that it's JavaScript to ensure syntax highlighting:
 
@@ -228,14 +228,14 @@ Congratulation again, you're now a documentation master!
 - when quoting a property in a sentence, you can use single _\`_ char (Alt + numpad 96)
   - example: You can set the `roughness` of a PBR material to 1.
 
-## Links
+# Links
 
 - use lowercases on your url
   - example: `/how_to/` in place of `/How_To/`
 - use relative links
   - example: `[Load Files with Assets Manager](/how_to/how_to_use_assetsmanager)` instead of `[Load Files with Assets Manager](https://doc.babylonjs.com/how_to/how_to_use_assetsmanager)`
 
-## Further Reading
+# Further Reading
 
 - try to always add a _Further Reading_ section
 - sort _Further Reading_ using main documentation sections (Babylon 101, How to, etc)
@@ -247,33 +247,33 @@ Example:
 ```markdown
 # Further Reading
 
-## Babylon 101
+# Babylon 101
 
 - [How to get Babylon.js](/babylon101/how_to_get)
 
-## How To
+# How To
 
 - [Use the glTF File Loader Plugin](/how_to/gltf)
 - [Use the OBJ File Loader Plugin](/how_to/obj)
 - [Use the STL File Loader Plugin](/how_to/stl)
 - [Load Files with Assets Manager](/how_to/how_to_use_assetsmanager)
 
-## Resources
+# Resources
 
 - [Available Meshes for Importing into Playground](/resources/meshes_to_load)
 - [Using External Assets in the Playground](/resources/external_pg_assets)
 
-## API
+# API
 
 - [SceneLoader](/api/classes/babylon.sceneloader.html)
 ```
 
 # Further Reading
 
-## How To
+# How To
 
 - [Improve API Documentation](/how_to/contribute_to_api)
 
-## External
+# External
 
 - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) on Github

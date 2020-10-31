@@ -2,7 +2,7 @@
 
 ![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.png)
 
-## Using the Marble procedural texture
+# Using the Marble procedural texture
 
 Marble procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)

@@ -6,7 +6,7 @@ Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 * [Demo online of this extension](https://www.babylon.actifgames.com/demoCastorGUI/)
 * [Documentation](https://doc.babylonjs.com/extensions/)
 
-## Features:
+# Features:
 
 Select or create themes.
 
@@ -32,7 +32,7 @@ Create GUI (element html5 and css3):
 * select with options
 * system of database (localStorage and sessionStorage)
 
-## Quick overview of use GUI
+# Quick overview of use GUI
 
 We must create a GUIManager that allows to recover the origin of the canvas and provides other basic thing.
 A GUIManager can have a CSS that Formatted anything you want to customize your GUI.
@@ -61,7 +61,7 @@ That's it. Everything works the same way with the same simplicity.
 
 Demo in the playground : https://www.babylonjs-playground.com/#S34THY#14
 
-## For use Database
+# For use Database
 
 ```javascript
 let db = new DataBase(false); // true if use sessionStorage else use localStorage (stockage temporary)

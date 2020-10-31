@@ -49,7 +49,7 @@ var ssr = new BABYLON.ScreenSpaceReflectionPostProcess(
 
 # Customizing
 
-## Strength
+# Strength
 The strength is applied on the overall specular/reflectivy informations in the scene and can be customized. The default value for the strength is 1.0 and should be used only if you are looking for a particular result (means that the result will not be realistic).
 
 ```javascript
@@ -59,7 +59,7 @@ ssr.strength = 2;
 
 Example playground: [https://playground.babylonjs.com/#PIZ1GK#3](https://playground.babylonjs.com/#PIZ1GK#3)
 
-## Falloff Exponent
+# Falloff Exponent
 The falloff exponent is used to linearly reduce the reflection's intensities. The default value is "3.0" and works for most cases.
 
 ```javascript
@@ -69,7 +69,7 @@ ssr.reflectionSpecularFalloffExponent = 4;
 
 Example playground with an almost equal to 0 exponent: [https://playground.babylonjs.com/#PIZ1GK#2](https://playground.babylonjs.com/#PIZ1GK#2)
 
-## Quality
+# Quality
 The reflections quality can be customized to save performances and should be adjusted to each scene type. 
 
 The post-process is based on ray-tracing algorithms. That means more the post-process picks samples, more the result looks good.

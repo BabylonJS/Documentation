@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 Gizmo's are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with mesh. Whereas Position, scale and rotation gizmos are also usable with TransformNodes and Bones.
 
@@ -6,7 +6,7 @@ Gizmo's are objects that can be attached to a node (mesh, bone, transform) to pr
 
 Note: Gizmos will set/modify the [rotationQuaternion](/features/Position,_Rotation,_Scaling) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
 
-## GizmoManager
+# GizmoManager
 To get a default gizmo setup, the GizmoManager class can be used.
 ```
 var gizmoManager = new BABYLON.GizmoManager(scene);
@@ -49,7 +49,7 @@ gizmoManager.gizmos.positionGizmo.updateGizmoRotationToMatchAttachedMesh = false
 Note: This is not supported on the scale gizmo
 
 [**Example**](https://www.babylonjs-playground.com/#4TBMBR#33)
-## Setup
+# Setup
 
 Gizmos are displayed by a [UtilityLayerRenderer](/How_To/UtilityLayerRenderer) to not disrupt the existing scene state. If not specified, the default utility layer will be used.
 
@@ -70,7 +70,7 @@ gizmo.updateGizmoRotationToMatchAttachedMesh = false;
 gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 ```
 [GLTF example](https://playground.babylonjs.com/#8GY6J8#20)
-## Position, scale and rotation gizmos
+# Position, scale and rotation gizmos
 
 Default gizmos for position, rotation and scale on a single axis are supported
 
@@ -107,7 +107,7 @@ Classes for 3 axis gizmos are also provided which contain 3 of the single axis g
 
 The single axis gizmos within these are exposed via the xGizmo, yGizmo and zGizmo properties. The scale gizmo also has a uniformScaleGizmo property which references center gizmo used to uniformly scale.
 
-## Bounding box Gizmo
+# Bounding box Gizmo
 
 The BoundingBoxGizmo displays a bounding box around an object as well as controls to rotate and scale the object.
 
@@ -167,7 +167,7 @@ UI can be attached to the bounding box using the [AttachToBoxBehavior](/How_To/M
 [Animated GLTF example](https://playground.babylonjs.com/#6E4LSB#15)
 [Example](https://www.babylonjs-playground.com/#DEYAQ5#47)
 
-## Gizmo customization
+# Gizmo customization
 
 To customize the visual appearance of an existing gizmo, create a mesh on the same utility layer and then setCustomMesh on the gizmo. Utility layers do not contain lights by default so it is recommended use a material with an emissive texture.
 ```

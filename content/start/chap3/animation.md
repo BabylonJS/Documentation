@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Foundation of Animation
+# Foundation of Animation
 
 We will start with a wheel and rotate it about its axle. Remember that in order to have the car the upright we rotated it about the x axis and so the axle is along the y axis of the cylinder.
 

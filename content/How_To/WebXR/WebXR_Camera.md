@@ -8,7 +8,7 @@ const xrCamera = new WebXRCamera("nameOfCamera", scene, xrSessionManager);
 
 Notice that as opposed to the free and target cameras, the constructor does not accept an initial position. This has a few reasons, the main one being - the first frame will populate the camera's position with the real-world information which cannot be queried when creating the camera. In the next section(s) you will see how to get an initial position from a non-XR camera and how to control the user's position correctly.
 
-## How positioning works
+# How positioning works
 
 Just like any Babylon camera, the WebXR camera is an object with its own position and rotation that can be updated between frames. The WebXR camera's transformation is the current position of the device rendering the XR session (such as the HUD or the phone rendering the session) relative to the reference space currently used in the [Session Manager](./WebXR_Session_Manager).
 
@@ -31,7 +31,7 @@ If the camera's position changes between frames (manually by you, or by the [Web
 
 The camera's Rig-system is the one responsible for rendering. The Rig-Camera's pose is always calculated based on the pose coming from the XR-Frame and **NOT** the WebXR Camera's pose. The main camera's pose is only a reference of the base transformation and is not directly influencing the rendered cameras.
 
-## Current user's height
+# Current user's height
 
 The WebXR camera can provide you with the height of the current user, unrelated to the ground. This is an important piece of information when ground level is not at 0. When ground level is 0, the user height and the camera's `position.y` will be the same.
 
@@ -45,7 +45,7 @@ This function will return the height of the user or 0 if not available.
 
 Note that the user height depends on the type of reference space you chose to your experience. Reference space type `local-floor` will deliver the user's height, but `viewer` (for example) will deliver what you defined as a height compensation in the [XR Session Manager](./WebXR_Session_Manager).
 
-## Updating from a Non-VR Camera
+# Updating from a Non-VR Camera
 
 When entering XR you might want to duplicate the Non-XR camera's position and use it as the base position of the XR Camera. To do that you will need to find the absolute transformation of the old camera and apply it to the new one. Babylon allows you to do that with a single function of the XR Camera:
 

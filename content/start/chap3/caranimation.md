@@ -1,5 +1,5 @@
 # Getting Started - Working With Code
-## Animate the Car in the Village
+# Animate the Car in the Village
 
 In a similar way to how we animated the wheels we now animate the car to travel a straight line over 5 secs., stop for 2 secs. and then repeat.
 ```javascript

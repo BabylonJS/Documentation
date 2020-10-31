@@ -2,18 +2,18 @@
 
 The glTF Exporter allows BabylonJS models to be exported to the [glTF 2.0 format](https://www.khronos.org/gltf/).
 
-## Installation
+# Installation
 The glTF Exporter can be installed by using the `babylonjs-serializers` module
-### npm
+## npm
 ```bash
 npm install --save babylonjs babylonjs-serializers
 ```
-### yarn
+## yarn
 ```bash
 yarn add babylonjs babylonjs-serializers
 ```
 
-### javascript
+## javascript
 To include the BabylonJS serializers in javascript,
 include a script tag in the html `<head>` tag, referencing the non-minified or minified compiled javascript:
 ```html
@@ -33,7 +33,7 @@ If only the glTF serializer is desired, it can be specifically targeted with thi
 <script src="https://preview.babylonjs.com/serializers/babylonjs.glTF2Serializer.min.js"></script>
 ```
 
-## Exporting a Scene to glTF
+# Exporting a Scene to glTF
 ```javascript
 BABYLON.GLTF2Export.GLTFAsync(scene, "fileName").then((gltf) => {
     gltf.downloadFiles();
@@ -48,10 +48,10 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName").then((glb) => {
 };
 ```
 
-## Export options
+# Export options
 glTF Exporter accepts an optional `options` parameter with certain functions and properties defined.
 
-### Excluding geometry 
+## Excluding geometry 
 Sometimes you may need to exclude geometry from export, such as the skybox. You can define a boolean callback called `shouldExportNode` which accepts a BabylonJS node as an argument and returns a boolean, specifying if the node should be exported or not:
 
 ```javascript
@@ -71,7 +71,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
 
 ```
 
-## Supported features
+# Supported features
 - Currently the following material types are supported:
   - `PBRMaterial`
     - Not all Babylon `PBRMaterial` features are supported in glTF.
@@ -82,6 +82,6 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
     -  glTF Exporter converts `SpecularGlossiness` materials to `MetallicRoughness` to match core glTF 2.0 specification.
 - Node-based TRS animation
 
-## Coming soon
+# Coming soon
 - Skinning animation
 - Morph Targets

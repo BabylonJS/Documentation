@@ -13,7 +13,7 @@ This sets the _relectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 ```
-## CubeTexture
+# CubeTexture
 By default six jpeg images are passed to a _CubeTexture_. The images are named in this form, commonPart\_px.jpg, commonPart\_nx.jpg,
 commonPart\_py.jpg, commonPart\_ny.jpg, commonPart\_pz.jpg, commonPart\_nz.jpg corresponding to the positions shown below.
 
@@ -39,14 +39,14 @@ box.material = boxMaterial;
 
 From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
 
-### Reflecting on Skybox and a shape
+## Reflecting on Skybox and a shape
 Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
 
 * [Playground Example of Box and CUBIC_MODE](https://www.babylonjs-playground.com/#UU7RQ#3)
 * [Playground Example of Ground and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#5)
 * [Playground Example of Sphere and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#4)
 
-### Using local cubemap mode
+## Using local cubemap mode
 
 Starting with Babylon.js v3.2, you can now use local cubemap mode when using cubemaps (with CUBIC_MODE).
 Please read [this article](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity), to get a precise understanding of what local cubemaps are.
@@ -62,7 +62,7 @@ You can also specify a property named `boundingBoxPosition` if you want to defin
 
 You can find an demo of local cubemaps here: https://www.babylonjs-playground.com/#RNASML#37
 
-## HDRCubeTexture
+# HDRCubeTexture
 High Dynamic Range (HDR) images are panoramic images that cover an entire field of vision.
 
 Below is an HDR image of a room
@@ -80,7 +80,7 @@ skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE
 
 * [Playground Example of HDR Skybox](https://www.babylonjs-playground.com/#114YPX#5)
 
-## EquiRectangularCubeTexture
+# EquiRectangularCubeTexture
 Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).
 
 Below is an equirectangular image of a shop
@@ -102,7 +102,7 @@ skyboxMaterial.reflectionTexture = new BABYLON.EquiRectangularCubeTexture("PATH 
 * [Playground Example of an Equirectangular image on a sphere](https://www.babylonjs-playground.com/ts.html#32H1D4)
 * [Playground Example of both combined](https://www.babylonjs-playground.com/ts.html#RY8LDL)
 
-## Spherical Reflection Texture
+# Spherical Reflection Texture
 Not only can a cube texture can be applied to a sphere so can a plane single image.
 
 ![Squares](/img/how_to/Materials/reflectest.png)
@@ -118,7 +118,7 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 
 * [Playground Example of Coordinates Modes](https://www.babylonjs-playground.com/#20OAV9#26)
 
-## Mirrors
+# Mirrors
 So far reflections have been of images, using _MirrorTexture_ obects within the scene can be reflected as in a mirror. This is simulated by
 by setting the _reflectionTexture_ to a _MirrorTexture_ and applying it to a flat surface.
 
@@ -133,7 +133,7 @@ lies on top of the flat mesh and reflects where the two overlap.
 With a real mirror it is easy to tell if you are standing in front of it or behind it. For a BJS mirror an object is
 in front of the mirror if the normals of the flat surface point towards the object.
 
-### Constructing the Mirror Reflector
+## Constructing the Mirror Reflector
 The flat surface should be constructed first from a ground or plane mesh. BJS can then construct the reflector using the position and normal of the flat surface. Since the
 reflection is on the opposite side of the mirror to the object being reflected the normal for reflection is in the opposite direction to that
 of the flat surface. For example a mesh of a plane created in BJS has a normal vector (0, 0, -1) at the time of creation and so the reflected normal will be (0, 0, 1).
@@ -164,7 +164,7 @@ glassNormal = new BABYLON.Vector3.TransformNormal(glassNormal, glass_worldMatrix
 var reflector = new BABYLON.Plane.FromPositionAndNormal(glass.position, glassNormal.scale(-1));
 ```
 
-### Constructing the Mirror
+## Constructing the Mirror
 Once the reflector is obtained a _MirrorTexture_ is made that can be applied to the flat surface.
 
 ```javascript
@@ -187,7 +187,7 @@ Finally the mirrorMaterial can be applied to the glass.
 glass.material = mirrorMaterial;
 ```
 
-### Blurring the Reflection
+## Blurring the Reflection
 _MirrorTexture_ can support blurred rendering with either:
 
 * adaptiveBlurKernel: setting this value to something other than 0 will blur the texture with a specified kernel (the bigger the blurrier). The value will be adapted to the viewport size.

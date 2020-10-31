@@ -1,6 +1,6 @@
 # 4.1.0 (February 27th 2020)
 
-## Major updates
+# Major updates
 
 - Node Material and Node material editor [Doc](https://doc.babylonjs.com/how_to/node_material) ([Deltakosh](https://github.com/deltakosh/) / [TrevorDev](https://github.com/TrevorDev))
 - WebGPU preliminary support [Doc](https://doc.babylonjs.com/extensions/webgpu) ([Sebavan](https://github.com/sebavan/))
@@ -16,9 +16,9 @@
 - Added useReverseDepthBuffer to Engine which can provide greater z depth for distant objects without the cost of a logarithmic depth buffer ([BenAdams](https://github.com/benaadams/))
 - Screen space reflections post-process [Doc](https://doc.babylonjs.com/how_to/using_screenspacereflectionspostprocess) ([julien-moreau](https://github.com/julien-moreau))
 
-## Updates
+# Updates
 
-### General
+## General
 
 - Add two new clip planes (5 and 6) to get a clip cube ([MickPastor](https://github.com/mickPASTOR))
 - Added support for dual shock gamepads ([Deltakosh](https://github.com/deltakosh/))
@@ -62,7 +62,7 @@
 - Added Workbench color scheme for VSCode ([drigax](https://github.com/drigax) & [Patrick Ryan](https://github.com/PatrickRyanMS))
 - Playground switch buttons are more intuitive ([#7601](https://github.com/BabylonJS/Babylon.js/issues/7601)) ([RaananW](https://github.com/RaananW/))
 
-### Engine
+## Engine
 
 - Improved instanceMesh with user defined custom buffers [Doc](https://doc.babylonjs.com/how_to/how_to_use_instances#custom-buffers) ([Deltakosh](https://github.com/deltakosh/))
 - Morph targets now can morph UV channel as well ([Deltakosh](https://github.com/deltakosh/))
@@ -71,7 +71,7 @@
 - Added enterPointerlock and exitPointerlock (Separated from enterFullscreen) ([aWeirdo](https://github.com/aWeirdo/))
 - Added support for `vertexSource` and `fragmentSource` parameters to `ShaderMaterial` ([Deltakosh](https://github.com/deltakosh/))
 
-### Inspector
+## Inspector
 
 - Added support for Euler edition only for angles (can be turned off in the new inspector settings) ([Deltakosh](https://github.com/deltakosh/))
 - Added an option to ignore backfaces for picking (can be turned on and off in the new inspector settings) ([Deltakosh](https://github.com/deltakosh/))
@@ -92,7 +92,7 @@
 - Added context menu to add `NodeMaterial` ([Deltakosh](https://github.com/deltakosh/))
 - Added option to switch material per mesh ([Deltakosh](https://github.com/deltakosh/))
 
-### Tools
+## Tools
 
 - Added `Tools.CreateScreenshotAsync` and `Tools.CreateScreenshotUsingRenderTargetAsync` ([mehmetoguzderin](https://github.com/mehmetoguzderin/))
 - Added `Color3.toHSV()`, `Color3.toHSVToRef()` and `Color3.HSVtoRGBToRef()` ([Deltakosh](https://github.com/deltakosh/))
@@ -112,7 +112,7 @@
 - Make frames resizable in NME ([Kyle Belfort](https://github.com/belfortk))
 - Implement NME Preview Area Redesign ([Kyle Belfort](https://github.com/belfortk))
 
-### Meshes
+## Meshes
 
 - Added `TransformNode.instantiateHierarchy()` which try to instantiate (or clone) a node and its entire hiearchy ([Deltakosh](https://github.com/deltakosh/))
 - Added new CreateTiledPlane and CreateTiledBox ([JohnK](https://github.com/BabylonJSGuide/))
@@ -122,7 +122,7 @@
 - Generator type used in `TrailMesh` constructor is now `TransformNode` instead of `AbstrachMesh` ([Popov72](https://github.com/Popov72))
 - Added the `useVertexAlpha` options to `MeshBuilder.CreateDashedLines` ([Popov72](https://github.com/Popov72))
 
-### Physics
+## Physics
 
 - Update Ammo.js library to support global collision contact callbacks ([MackeyK24](https://github.com/MackeyK24/))
 - Update Ammo.js library to allow native capsule shape impostors ([MackeyK24](https://github.com/MackeyK24/))
@@ -131,7 +131,7 @@
 - Update Ammo.js library and AmmoJS plugin to support ellipsoid ([CedricGuillemet](https://github.com/CedricGuillemet/))
 - Physics update substeps ([CedricGuillemet](https://github.com/CedricGuillemet))
 
-### Loaders
+## Loaders
 
 - Added support for non-float accessors in animation data for glTF loader. ([bghgary](https://github.com/bghgary))
 - Support loading cube data in the .basis loader ([TrevorDev](https://github.com/TrevorDev))
@@ -151,7 +151,7 @@
 - Fix an issue with disposing materials and textures too aggressively in MSFT_lod loader extension. ([bghgary](https://github.com/bghgary))
 - Added experimental support for loading KTX2 files and `KHR_texture_basisu` glTF extension. ([bghgary](https://github.com/bghgary))
 
-### Materials
+## Materials
 
 - Added `ShaderMaterial.setColor4Array` ([JonathanTron](https://github.com/JonathanTron/))
 - Added `ShaderMaterial.setArray4` ([JonathanTron](https://github.com/JonathanTron/))
@@ -163,18 +163,18 @@
 - Added `depthFunction` new property to `Material` base class ([Popov72](https://github.com/Popov72))
 - Added `setCompressedTextureExclusions` method to `Engine` to allow for skipping compressed textures on certain files ([abogartz](https://github.com/abogartz))
 
-### ScreenshotTools
+## ScreenshotTools
 
 - Added interface for argument `size` of screenshot methods ([Dok11](https://github.com/Dok11/))
 - Implementation usage of precision in combination height and width params ([Dok11](https://github.com/Dok11/))
 - Added a parameter to `CreateScreenshotUsingRenderTarget` to render sprites ([Popov72](https://github.com/Popov72))
 
-### Sounds
+## Sounds
 
 - Added `ISoundOptions.skipCodecCheck` to make `Sound` more flexible with URLs ([nbduke](https://github.com/nbduke))
 - Added `Scene.audioListenerPositionProvider` property, to enable setting custom position of audio listener ([Foxhoundn](https://github.com/foxhoundn))
 
-### Sprites
+## Sprites
 
 - SpritePackedManager extends SpriteManager so that a sprite sheet with different size sprites can be used ([JohnK](https://github.com/BabylonJSGuide))
 - MultiPickSprite and multiPickSpriteWithRay added to sprites ([JohnK](https://github.com/BabylonJSGuide))
@@ -182,7 +182,7 @@
 - Added `SpriteMap` for creation of grid-based dynamically animated sprite atlas rendering (Beta) ([Pryme8](https://github.com/Pryme8))
 - Add `SpriteManager.disableDepthWrite` property ([Popov72](https://github.com/Popov72))
 
-### WebXR / WebVR
+## WebXR / WebVR
 
 - WebXR webVR parity helpers (Vive, WMR, Oculus Rift) ([TrevorDev](https://github.com/TrevorDev))
 - Compliance with the mozilla WebXR emulator for chrome and firefox ([RaananW](https://github.com/RaananW/))
@@ -219,11 +219,11 @@
 - Utility Meshes for XR (teleportation ring, selection rays) can now be rendered using a utility layer ([#7563](https://github.com/BabylonJS/Babylon.js/issues/7563)) ([RaananW](https://github.com/RaananW/))
 - Teleportation supports snap-to (anchor) points ([#7441](https://github.com/BabylonJS/Babylon.js/issues/7441)) ([RaananW](https://github.com/RaananW/))
 
-### Ray
+## Ray
 
 - Added `Ray.intersectsAxis` to translate screen to axis coordinates without checking collisions ([horusscope](https://github.com/horusscope))
 
-### GUI
+## GUI
 
 - Added `xmlLoader` to load GUI layouts from XML ([null0924](https://github.com/null0924))
 - Added `disableMobilePrompt` option to InputText for OculusQuest(and other android base VR devices) ([shinyoshiaki](https://github.com/shinyoshiaki))
@@ -237,7 +237,7 @@
 - Modified isPointerBlocker to block mouse wheel scroll events. ScrollViewer mouse scroll no longer dependent on scene. ([lockphase](https://github.com/lockphase/))
 
 
-### Particles
+## Particles
 
 - Added `particleSystem.isLocal` for CPU particles to let the particles live in emitter local space. [Doc](https://doc.babylonjs.com/babylon101/particles#local-space) ([Deltakosh](https://github.com/deltakosh/))
 - Added the feature `expandable` to the Solid Particle System ([jerome](https://github.com/jbousquie/))
@@ -247,30 +247,30 @@
 - Added support for `CustomParticleEmitter`. [Doc](https://doc.babylonjs.com/babylon101/particles#custom-emitter) ([Deltakosh](https://github.com/deltakosh/))
 - Added support for `MeshParticleEmitter`. [Doc](https://doc.babylonjs.com/babylon101/particles#mesh-emitter) ([Deltakosh](https://github.com/deltakosh/))
 
-### Navigation Mesh
+## Navigation Mesh
 
 - Added moveAlong function to cast a segment on mavmesh ([CedricGuillemet](https://github.com/CedricGuillemet/))
 
-### Node Material
+## Node Material
 
 - Added Light intensity output to LightInformationBlock ([Drigax](https://github.com/drigax))
 
-### Serializers
+## Serializers
 
 - Added support for `AnimationGroup` serialization ([Drigax](https://github.com/drigax/))
 - Expanded animation group serialization to include all targeted TransformNodes ([Drigax](https://github.com/drigax/))
 
-### Texture Packer
+## Texture Packer
 
 - Added TexturePacker Class ([Pryme8](https://github.com/Pryme8))
 - Added TexturePackerLoader Class ([Pryme8](https://github.com/Pryme8))
 
-### Documentation
+## Documentation
 
 - Added a note on shallow bounding of getBoundingInfo ([tibotiber](https://github.com/tibotiber))
 - Added a typo fix to the ArcRotateCamera setPosition method description ([schm-dt](https://github.com/schm-dt))
 
-## Bug fixes
+# Bug fixes
 
 - Fixed Textblock line spacing evaluation when linespacing > 0 ([Deltakosh](https://github.com/deltakosh/))
 - Fixed Xbox One gamepad controller button schemes ([MackeyK24](https://github.com/MackeyK24/))
@@ -353,7 +353,7 @@
 - Fix for bug where comments would break out of frames and break resizing of frames ([Kyle Belfort](https://github.com/belfortk))
 - Fix for bug where frames without comments would display undefined at the bottom right corner ([Kyle Belfort](https://github.com/belfortk))
 
-## Breaking changes
+# Breaking changes
 
 - Setting mesh.scaling to a new vector will no longer automatically call forceUpdate (this should be done manually when needed) ([TrevorDev](https://github.com/TrevorDev))
 - `Tools.ExtractMinAndMaxIndexed` and `Tools.ExtractMinAndMax` are now ambiant functions (available on `BABYLON.extractMinAndMaxIndexed` and `BABYLON.extractMinAndMax`) ([Deltakosh](https://github.com/deltakosh/))
@@ -371,7 +371,7 @@
 
 Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
-## Major updates
+# Major updates
 
 - New [fancy forum](https://forum.babylonjs.com)! ([Deltakosh](https://github.com/deltakosh))
 - [Inspector v2.0](https://doc.babylonjs.com/features/playground_debuglayer). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
@@ -412,7 +412,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
   - Added [SH Harmonics](https://doc.babylonjs.com/how_to/physically_based_rendering_master#spherical-harmonics)
 - Added STL exporter ([pryme8](https://github.com/pryme8))
 
-## Optimizations
+# Optimizations
 
 - Added an engine creation option to compile all shaders with medium precision ([Deltakosh](https://github.com/deltakosh))
 - Optimized effect reused for shadow maps ([Deltakosh](https://github.com/deltakosh))
@@ -436,9 +436,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
   - Added an `Vector3.UnprojectRayToRef` static function to avoid computing and inverting the projection matrix twice when updating a Ray.
 - Added per mesh culling strategy ([jerome](https://github.com/jbousquie))
 
-## Updates
+# Updates
 
-### GUI
+## GUI
 
 - Added `inputText.onKeyboardEventProcessedObservable` ([Deltakosh](https://github.com/deltakosh))
 - Added `button.image` and `button.textBlock` to simplify access to button internal parts ([Deltakosh](https://github.com/deltakosh))
@@ -451,7 +451,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added `inputText.onFocusSelectAll` to allow complete selection of text on focus event.([Saket Saurabh](https://github.com/ssaket))
 - Added mouse drag to highlight text in `inputText` ([Saket Saurabh](https://github.com/ssaket))
 
-### Core Engine
+## Core Engine
 
 - Added `reflectionMatrix` support for more `coordinatesMode`'s ([Dennis Dervisis](https://github.com/ddervisis))
 - Added new `WebRequest` class to centralize all network requests. Can be used to configure headers of all network requests ([Deltakosh](https://github.com/deltakosh))
@@ -519,13 +519,13 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Updated `DracoCompression` to use web workers ([bghgary](https://github.com/bghgary))
 - Added `LOD Babylon Mesh Entities` to support to babylonFileLoader.ts ([MackeyK24](https://github.com/mackeyk24))
 
-### OBJ Loader
+## OBJ Loader
 
 - Added color vertex support (not part of standard) ([brianzinn](https://github.com/brianzinn))
 - Added option for silently failing when materials fail to load ([brianzinn](https://github.com/brianzinn))
 - Added option to skip loading materials ([brianzinn](https://github.com/brianzinn))
 
-### glTF Loader
+## glTF Loader
 
 - Added support for mesh instancing for improved performance when multiple nodes point to the same mesh ([bghgary](https://github.com/bghgary))
 - Switched to create `TransformNode` objects instead of `Mesh` objects for glTF nodes without geometry ([bghgary](https://github.com/bghgary))
@@ -538,16 +538,16 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added animation group target override to support custom animation targets ([MackeyK24](https://github.com/mackeyk24))
 - Added `loadMeshPrimitiveAsync` extension support ([MackeyK24](https://github.com/mackeyk24))
 
-### glTF Serializer
+## glTF Serializer
 
 - Added support for exporting `KHR_lights_punctual`
 - Prevented mesh normals from being flipped when exporting a glTF from a Babylon scene with right-handed coordinate system ([Nicholas Barlow](https://github.com/drigax))
 
-### Post-Processes Library
+## Post-Processes Library
 
 - Added the [Ocean](https://doc.babylonjs.com/extensions/oceanpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
 
-### Materials Library
+## Materials Library
 
 - Added the `cameraOffset` vector property in the `SkyMaterial` to get an offset according to the horizon ([julien-moreau](https://github.com/julien-moreau))
 - Fixed `GradientMaterial` to consider disableLighting working as emissive ([julien-moreau](https://github.com/julien-moreau))
@@ -555,12 +555,12 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed `TerrainMaterial.isReadyForSubMesh` to remove WebGL warnings ([julien-moreau](https://github.com/julien-moreau))
 - Fixed `MixMaterial.isReadyForSubMesh` to remove WebGL warnings ([dad72](https://github.com/dad72))
 
-### Infrastructure
+## Infrastructure
 
 - Migrated CI to Azure DevOps pipelines ([Sebavan](https://github.com/Sebavan))
 - Created test suites for both WebGL1 and WebGL2 ([Sebavan](https://github.com/Sebavan))
 
-## Bug fixes
+# Bug fixes
 
 - Fixed `ArcRotateCamera.setTarget` (position was sometimes wrong) ([Deltakosh](https://github.com/deltakosh))
 - Fixed `TransformNode.setDirection` (orientation was wrong) ([Deltakosh](https://github.com/deltakosh))
@@ -614,7 +614,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - 2D GUI elements will use the last clicked controller instead of only the right controller when dual VR controllers are interacting with an element ([TrevorDev](https://github.com/TrevorDev))
 - Virtual keyboard not showing up when made visible ([TrevorDev](https://github.com/TrevorDev))
 
-### Core Engine
+## Core Engine
 
 - Fixed a bug with `mesh.alwaysSelectAsActiveMesh` preventing layerMask to be taken in account ([Deltakosh](https://github.com/deltakosh))
 - Fixed a bug with pointer up being fire twice ([Deltakosh](https://github.com/deltakosh))
@@ -645,12 +645,12 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added option for `isInFrustum` to check `rigCameras` so that `viewMatrix` updates for `rigCameras` can notify their parent ([TrevorDev](https://github.com/TrevorDev))
 - Properly handled unindexed `LinesMesh` (rendering and picking) ([barroij](https://github.com/barroij))
 
-### Loaders
+## Loaders
 
 - Added missing `loadedAnimationGroups` to `MeshAssetTask` ([bghgary](https://github.com/bghgary))
 - Added missing `linkTransformNode` to `BabylonFileLoader` ([MackeyK24](https://github.com/mackeyk24))
 
-## Breaking changes
+# Breaking changes
 
 - Replaced all references to XmlHttpRequest with `WebRequest` (which provides the same signatures) ([Deltakosh](https://github.com/deltakosh))
 - Set `Database.IDBStorageEnabled` to false by default ([Deltakosh](https://github.com/deltakosh))
@@ -696,7 +696,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 3.3.0
 
-## Major updates
+# Major updates
 
 
 - Documentation
@@ -754,21 +754,21 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added new `PhotoDome` object to display 360 photos. [Demo](https://www.babylonjs-playground.com/#14KRGG#0) ([SzeyinLee](https://github.com/SzeyinLee))
 - Added Video Recorder. [Doc](https://doc.babylonjs.com/How_To/Render_Scene_on_a_Video) ([sebavan](https://github.com/sebavan))
 
-## Updates
+# Updates
 
 - Updated TypeScript version to new major 3.0.1 ([christopherstock](https://github.com/christopherstock))
 - All NPM packages have `latest` and `preview` streams ([RaananW](https://github.com/RaananW))
 - Added New Tools Tab in the inspector (env texture and screenshot tools so far) ([sebavan](https://github.com/sebavan))
 - Moved to gulp 4, updated dependencies to latest ([RaananW](https://github.com/RaananW))
 
-### GUI
+## GUI
 - Added dead key support and before key add observable to InputText. [Doc](https://doc.babylonjs.com/how_to/gui#using-onbeforekeyaddobservable-for-extended-keyboard-layouts-and-input-masks) ([theom](https://github.com/theom))
 - Added `TextBlock.computeExpectedHeight`, added `TextWrapping.Ellipsis` as `TextBlock.wordWrapping` possible value ([adrientetar](https://github.com/adrientetar))
 - New vertical mode for sliders in 2D GUI. [Demo](https://www.babylonjs-playground.com/#U9AC0N#53) ([Saket Saurabh](https://github.com/ssaket))
 - Added `isEnabled` and `disabledColor` property to Gui Control ([barteq100](https://github.com/barteq100))
 - Added support for connecting multiple InputText controls to VirtualKeyboard and can disconnect individual InputTexts. ([brian Zinn](https://github.com/brianzinn))
 
-### Core Engine
+## Core Engine
 
 - Improved the way world matrices were computed ([Deltakosh](https://github.com/deltakosh))
 - Added `scene.rootNodes` to track root nodes (ie. nodes with no parent) ([Deltakosh](https://github.com/deltakosh))
@@ -831,7 +831,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added a validationSkin function to report out any errors on skinned meshes. ([Bolloxim](https://github.com/Bolloxim))
 
 
-### glTF Loader
+## glTF Loader
 
 - Added support for KHR_texture_transform ([bghgary](https://github.com/bghgary))
 - Added `onNodeLODsLoadedObservable` and `onMaterialLODsLoadedObservable` to MSFT_lod loader extension ([bghgary](https://github.com/bghgary))
@@ -843,10 +843,10 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added support for validating assets using [glTF-Validator](https://github.com/KhronosGroup/glTF-Validator) ([bghgary](https://github.com/bghgary))
 - Added automatically renormalizes skinweights when loading geometry. Calls core mesh functions to do this ([Bolloxim](https://github.com/Bolloxim))
 
-### glTF Serializer
+## glTF Serializer
 - Added support for exporting the scale, rotation and offset texture properties ([kcoley](https://github.com/kcoley))
 
-### Viewer
+## Viewer
 
 - No fullscreen button on small devices ([RaananW](https://github.com/RaananW))
 - Nav-Bar is now displayed on fullscreen per default ([RaananW](https://github.com/RaananW))
@@ -864,11 +864,11 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Viewer supports 3D printing on windows 10 ([RaananW](https://github.com/RaananW))
 - The viewer's environment map is using the new .env feature ([RaananW](https://github.com/RaananW))
 
-### Materials Library
+## Materials Library
 
 - Added ```unlit``` mode to lava material ([sebavan](https://github.com/sebavan))
 
-## Bug fixes
+# Bug fixes
 
 - VR experience helper will now fire pointer events even when no mesh is currently hit ([TrevorDev](https://github.com/TrevorDev))
 - RawTexture.CreateAlphaTexture no longer fails to create a usable texture ([TrevorDev](https://github.com/TrevorDev))
@@ -901,7 +901,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Sometimes duplicate controller models are loaded in VR ([TrevorDev](https://github.com/TrevorDev))
 - Particle emit rate and start size over time do not reset on every particle system start ([TrevorDev](https://github.com/TrevorDev))
 
-### Core Engine
+## Core Engine
 
 - Fixed ```shadowEnabled``` property on lights. Shadows are not visible anymore when disabled ([sebavan](https://github.com/sebavan))
 - Physics `unregisterOnPhysicsCollide` didn't remove callback correctly ([RaananW](https://github.com/RaananW))
@@ -918,7 +918,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed a bug where changing the sample count on `PostProcess` would not update the WebGL Texture ([CraigFeldspar](https://github.com/CraigFeldspar))
 - Fixed multi camera support in defaultRenderingPipeline depth of field ([sebavan](https://github.com/sebavan))
 
-### Viewer
+## Viewer
 
 - Fix Navbar Interaction on Mozilla/Firefox ([SzeyinLee](https://github.com/SzeyinLee))
 - Fix Animation Slider Interaction on Mozilla/Firefox ([sebavan](https://github.com/sebavan))
@@ -938,13 +938,13 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Button texts were truncated incorrectly ([RaananW](https://github.com/RaananW))
 - Animation names with more than one word didn't work correctly ([RaananW](https://github.com/RaananW))
 
-### Loaders
+## Loaders
 
 - STL Loader only supported binary downloads and no data: urls ([RaananW](https://github.com/RaananW))
 - OBJ Loader is now an async loader ([RaananW](https://github.com/RaananW))
 - GLTF Loader does not have texture conflicts on subsequent loads anymore ([sebavan](https://github.com/sebavan))
 
-## Breaking changes
+# Breaking changes
 
 - Fixing support for R and RG texture formats made us remove TextureFormat_R32F and TextureFormat_RG32F as they were mixing formats and types. Please, use the respective TextureFormat_R and TextureFormat_RG with the Float types ([sebavan](https://github.com/sebavan))
 - Replacing `scene.onRenderingGroupObservable` by `onBeforeRenderingGroupObservable` and `onAfterRenderingGroupObservable` to prevent the stage check ([sebavan](https://github.com/sebavan))
@@ -952,7 +952,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 3.2.0
 
-## Major updates
+# Major updates
 
 - Support for [GPU particles](https://doc.babylonjs.com/babylon101/particles#gpu-particles). Demo [here](https://www.babylonjs-playground.com/frame.html#PU4WYI#14) ([deltakosh](https://github.com/deltakosh))
 - Improved building process: We now run a full visual validation test for each pull request. Furthermore, code comments and what's new updates are now mandatory ([sebavan](https://github.com/sebavan))
@@ -975,12 +975,12 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Introduces [PCF](https://doc.babylonjs.com/babylon101/shadows#percentage-closer-filtering-webgl2-only) and [PCSS](https://doc.babylonjs.com/babylon101/shadows#contact-hardening-shadow-webgl2-only) shadow support in WebGL 2 ([sebavan](https://github.com/sebavan)))
 - Introduces [PBR Specular Anti Aliasing support](https://doc.babylonjs.com/how_to/physically_based_rendering_master#specular-aliasing). Demo [here](https://www.babylonjs-playground.com/#1XJD4C) ([sebavan](https://github.com/sebavan)))
 
-## Documentation
+# Documentation
 
 - Tons of functions and classes received the code comments they deserved (All the community with a special thanks to [John King](https://github.com/BabylonJSGuide))
 - Moved the class API documentation to Typedoc ([deltakosh](https://github.com/deltakosh))
 
-## Updates
+# Updates
 
 - Improved [animation blending](https://www.babylonjs-playground.com/#DMLMIP#1) ([deltakosh](https://github.com/deltakosh))
 - New [particle system emitter shapes](//doc.babylonjs.com/babylon101/particles#shape-emitters): cone and sphere ([IbraheemOsama](https://github.com/IbraheemOsama))
@@ -1074,7 +1074,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - New `serialize` and `Parse` functions for SSAO2 Rendering Pipeline ([julien-moreau](https://github.com/julien-moreau))
 - Added `furOcclusion` property to FurMaterial to control the occlusion strength ([julien-moreau](https://github.com/julien-moreau))
 
-## Bug fixes
+# Bug fixes
 
 - `setPivotMatrix` was not setting pivot correctly. This is now fixed. We also introduced a new `setPreTransformMatrix` to reproduce the sometimes-needed behavior of the previous `setPivotMatrix` function ([deltakosh](https://github.com/deltakosh))
 - SPS solid particle `.pivot` property now also behaves like the standard mesh pivot. Former behavior (particle translation) can be kept with the particle property `.translateFromPivot` set to true ([jbousquie](https://github.com/jbousquie))
@@ -1096,7 +1096,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fix ember.js compatibility in ```BloomEffect``` and ```Camera``` ([kaysabelle](https://github.com/kaysabelle))
 - Fix bug with glTF animation when animating bone scale. ([bghgary](https://github.com/bghgary)]
 
-## Breaking changes
+# Breaking changes
 
 - Removed the unused `PostProcessRenderPass` class and extended `postProcessingRenderingEffect` to support multiple PostProcesses ([trevordev](https://github.com/trevordev))
 - `VertexData.merge` no longer supports merging of data that do not have the same set of attributes. ([bghgary](https://github.com/bghgary)]
@@ -1110,7 +1110,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 3.1.0
 
-## Major updates
+# Major updates
 
 - Added VRExperienceHelper to create WebVR experience with 2 lines of code. [Documentation](//doc.babylonjs.com/how_to/webvr_helper) ([davrous](https://github.com/davrous), [TrevorDev](https://github.com/TrevorDev))
 - Added BackgroundMaterial. [Documentation](https://doc.babylonjs.com/how_to/backgroundmaterial) ([sebavan](https://github.com/sebavan))
@@ -1137,7 +1137,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Introducing the BabylonJS viewer, an HTML-based 3D/model viewer, with Babylon at its core. [Documentation](//doc.babylonjs.com/extensions/the_babylon_viewer) ([RaananW](https://github.com/RaananW))
 - Full NPM support for BabylonJS and its modules, based on UMD and including Typings. [BabylonJS on npm](https://www.npmjs.com/~babylonjs) ([RaananW](https://github.com/RaananW))
 
-## Updates
+# Updates
 
 - Introduced `TransformNode` class as a parent of `AbstractMesh`. This class was extensively asked by the community to hold only transformation for a node ([deltakosh](https://github.com/deltakosh))
 - Collider object is now exposed on meshes. It can be used to get precise information about mesh to mesh collisions (used with mesh.moveWithCollisions function) ([deltakosh](https://github.com/deltakosh))
@@ -1177,7 +1177,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added shadowBlur, shadowOffsetX, shadowOffsetY, shadowColor to GUI Controls ([adam](https://github.com/abow))
 - Added alignWithNormal to AbstractMesh ([adam](https://github.com/abow))
 
-## Bug fixes
+# Bug fixes
 
 - Fixed a bug with ellipsoid offset not being taking in account on cameras ([deltakosh](https://github.com/deltakosh))
 - Fixed a bug with ellipsoid offset badly taking in account on meshes ([deltakosh](https://github.com/deltakosh))
@@ -1192,7 +1192,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed a bug with GUI Slider not working correctly when rotated ([adam](https://github.com/abow))
 - Fixed IE11 "spacebar" bug with GUI InputText ([adam](https://github.com/abow))
 
-## Breaking changes
+# Breaking changes
 
 - `Gamepads` was removed in favor of `scene.gamepadManager`
 - `DynamicFloatArray`, `MapTexture` and `RectPakingMap` were removed because there were not used anymore
@@ -1201,7 +1201,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 3.0.0
 
-## Major updates
+# Major updates
  - WebGL2 context support. WebGL2 is now used instead of WebGL 1 when available. [More info here](//doc.babylonjs.com/features/webgl2) ([deltakosh](https://github.com/deltakosh))
  - Complete WebVR 1.1 support including controllers for HTC Vive and Oculus. [More info here](//doc.babylonjs.com/features/webvr_camera) ([raanan](https://github.com/raananw) & [davrous](https://github.com/davrous))
  - Complete rewrite of PBRMaterial. Introduced two new helper materials: `pbrMetallicRoughnessMaterial` and `pbrSpecularGlossinessMaterial`. [Demo](http://www.babylonjs.com/demos/pbrglossy/) - [More info here](//doc.babylonjs.com/features/physically_based_rendering) ([Sebastien Vandenberghe](https://github.com/sebavan))
@@ -1227,7 +1227,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Spector.js New WebGL debugger: [more info here](http://spector.babylonjs.com) ([Sebastien Vandenberghe](https://github.com/sebavan))
  - New blur mode for mirrors. [Demo](https://www.babylonjs-playground.com/#9I6NX1) ([deltakosh](https://github.com/deltakosh)) 
 
-## Updates
+# Updates
 - Added `syncBoneWithImpostor()` and `syncImpostorWithBone()` to PhysicsImpostor to help with creating ragdoll effects. [Demo](https://playground.babylonjs.com/#PM5MFS#5) ([abow](https://github.com/abow))
 - New automatic creation mode for skybox. [Doc here](//doc.babylonjs.com/How_To/environment#automatic-creation) ([deltakosh](https://github.com/deltakosh))
 - New way to force compilation of materials. [Doc here](//doc.babylonjs.com/resources/How_materials_work) ([deltakosh](https://github.com/deltakosh))
@@ -1275,7 +1275,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Allow the BlackAndWhite post process to adjust the degree in subsequent frames, for `Welcome to Wonderland`	types of animation ([jcpalmer](https://github.com/Palmer-JC))
 - New `BABYLON.TextureTools.CreateResizedCopy` function to create a copy of a texture and chage its size ([deltakosh](https://github.com/deltakosh)) 
  
-## Bug fixes
+# Bug fixes
 - Fixed issue with FPS not decreasing when reflections are disabled ([abow](https://github.com/abow)) 
 - Fixed disappearing BoneAxesViewer ([abow](https://github.com/abow)) 
 - Fixed disappearing SkeletonViewer ([abow](https://github.com/abow)) 
@@ -1288,7 +1288,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed SPS particle access `start` index when used with `setParticles(start, end)` ([jerome](https://github.com/jbousquie))  
 - Fixed SPS billboard mode when used with a parented camera ([jerome](https://github.com/jbousquie)) 
 
-## API Documentation 
+# API Documentation 
 - File `abstractMesh.ts` documented ([jerome](https://github.com/jbousquie))  
 - File `mesh.ts` documented ([jerome](https://github.com/jbousquie))  
 - File `groundMesh.ts` documented ([jerome](https://github.com/jbousquie))  
@@ -1305,7 +1305,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - File `spotLight.ts` documented ([jerome](https://github.com/jbousquie))  
 - File `shadowGenerator.ts` documented ([jerome](https://github.com/jbousquie))  
 
-## Breaking changes
+# Breaking changes
 - WebVRCamera:
   - `requestVRFullscreen` has been removed. Call `attachControl()` inside a user-interaction callback to start sending frames to the VR display
   - `setPositionOffset` has been used to change the position offset. it is now done using `camera.position`
@@ -1339,9 +1339,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 2.5.0
   
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
 - New `StandardRenderingPipeline` effect to support screen space lens flare and depth of field. [Demo](http://www.babylonjs.com/Demos/StandardRenderingPipeline/) - ([Julien Moreau-Mathis](https://github.com/julien-moreau))
 - New `HighlightLayer` object to enable highlights rendering. [Demo](http://www.babylonjs.com/Demos/Highlights/) - ([sebavan](https://github.com/sebavan))
@@ -1351,7 +1351,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - New BoneLookController [Demo]( https://www.babylonjs-playground.com/#1B1PUZ#15) ([abow](https://github.com/abow))
 - You can now build your own version of babylon.js with `gulp build-custom` [Doc](//doc.babylonjs.com/generals/how_to_start) ([deltakosh](https://github.com/deltakosh))
 
-### Updates
+## Updates
 
 - Added `node.doNotSerialize` to prevent specific nodes to be serialized by `SceneSerializer` ([deltakosh](https://github.com/deltakosh))
 - Added `scene.multiPick` and `scene.multiPickWithRay` to return an array of pickedMesh objects ([deltakosh](https://github.com/deltakosh))
@@ -1388,7 +1388,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - New "CubeTextureTask" function will allow you to load a CubeTexture in the assetsManager. ([agallouin](https://github.com/AGallouin)) 
 - Scene.stopAnimation has now an optional second parameter, the name of the animation to kill. Usefull if a mesh has multiple animations. ([agallouin](https://github.com/AGallouin))
 
-### Bug fixes
+## Bug fixes
 - Fixed issue with SkeletonViewer not displaying correctly with meshes that have a PoseMatrix ([abow](https://github.com/abow))
 - Fixed issue with Quaternion.toEulerAnglesToRef ([abow](https://github.com/abow))
 - Fixed issue with Animatable.goToFrame ([abow](https://github.com/abow))
@@ -1405,15 +1405,15 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed camera speed computation ([deltakosh](https://github.com/deltakosh))
 - Fixed bug with instances, LOD and edgesRendering ([deltakosh](https://github.com/deltakosh))
 
-### Breaking changes
+## Breaking changes
 - FollowCamera.target was renamed to FollowCamera.lockedTarget to avoid conflicts ([deltakosh](https://github.com/deltakosh)) 
 - Removed legacy shaders support ([deltakosh](https://github.com/deltakosh))
 
 # 2.4.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 - New refraction channel for Standard material (including fresnel support). Refraction texture can be provided by a reflection probe or a refraction texture. [See demo here](http://www.babylonjs.com/Demos/refraction/) ([deltakosh](https://github.com/deltakosh))
 - Added support for HDR cubemaps. [demo here]( https://www.babylonjs-playground.com/#19JGPR#4) ([sebavan](https://github.com/sebavan))
 - Support for shaders includes ([deltakosh](https://github.com/deltakosh))
@@ -1436,7 +1436,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Mesh can have `overridenInstanceCount` set to specify the number of meshes to draw when custom instancing is used ([benaadams](https://github.com/benaadams)) 
 - Now supporting the [Earcut](https://github.com/mapbox/earcut) polygon triangulation library as part of babylon.js library. (Look for the `Earcut` module). The `PolygonMeshBuilder` class now relies on Earcut. ([nockawa](https://github.com/nockawa))	
 
-### Updates
+## Updates
 - Added `renderTargetTexture.useCameraPostProcesses` to control postprocesses for render targets ([deltakosh](https://github.com/deltakosh))
 - Added `mesh.toLefthanded()` to convert a mesh from right handed system ([kesshi](https://github.com/Kesshi))
 - Renderlists can now also be defined using predicates ([deltakosh](https://github.com/deltakosh))
@@ -1472,7 +1472,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - `Engine.updateDynamicVertexBuffer` now has optional count as well as offset to allow partial updates ([benaadams](https://github.com/benaadams)) 
 - vertex attributes are only disabled if they aren't going to be reeabled by the next draw, to reduce gpu state changes ([benaadams](https://github.com/benaadams)) 
 
-### Bug fixes
+## Bug fixes
 - Fixed bug with billboards and parenting ([deltakosh](https://github.com/deltakosh))
 - Fixed bug with ArcRotateCamera.setTarget ([deltakosh](https://github.com/deltakosh))
 - Fixed bug with OBJ Loader - All meshes were concatenated with the previous one ([Temechon](https://github.com/Temechon))
@@ -1482,7 +1482,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed missing some parameter default values in `MeshBuilder.CreateGroundFromHeightMap()` and `MeshBuilder.CreateTiledGround()` ([jerome](https://github.com/jbousquie))
 - Fixed model shape initial red vertex color set to zero not formerly being taken in account in the `SolidParticleSystem` ([jerome](https://github.com/jbousquie))
 
-### Breaking changes
+## Breaking changes
 - `VertexData.CreateLines()` removed as `MeshBuilder.CreateLines()` now calls `MeshBuilder.CreateLineSystem()`
 - `scene.onNewXXXAdded` and `scene.onXXXRemoved` callbacks were removed and replaced by `scene.onNewXXXAddedObservable` and `scene.onXXXRemovedObservable`
 - `Material.dispose` does not dispose textures by default. You have to call `material.dispose(false, true)` to get the previous behavior.
@@ -1493,7 +1493,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Internally new `Engine.bindBuffer` is used rather than `gl.bindBuffer` which only binds when the bound buffer is changing ([benaadams](https://github.com/benaadams)) 
 - `DynamicTexture` no longer forces height/width to exponents of 2 if MIP maps are disabled ([dahlbyk](https://github.com/dahlbyk))
 
-## Exporters
+# Exporters
 - Unity3D exporter: Added support for lightmaps ([davrous](https://github.com/davrous), [deltakosh](https://github.com/deltakosh))
 - Unity3D exporter: Added support for export and run (local webserver) ([davrous](https://github.com/davrous), [deltakosh](https://github.com/deltakosh))
 - Unity exporter now support skeletons ([sebavan](https://github.com/sebavan))
@@ -1501,16 +1501,16 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added support for up to 8 bones influences per vertex for 3dsmax exporter ([deltakosh](https://github.com/deltakosh))
 - Added console logging for .babylon file loading & depreciated SceneLoader.Load() in favor of Append() ([jcpalmer](https://github.com/Palmer-JC))
 
-## API doc
+# API doc
 - class `SolidParticleSystem` documented ([jerome](https://github.com/jbousquie))
 - class `MeshBuilder` documented ([jerome](https://github.com/jbousquie))
 - class `Mesh` documented ([jerome](https://github.com/jbousquie))
 
 # 2.3.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 - [Sponza demo](http://www.babylonjs.com/Demos/Sponza/)
 - Support for procedural cube textures [Demo here](http://www.babylonjs.com/Demos/planet/) ([deltakosh](https://github.com/deltakosh))
 - New UniversalCamera which support keyboard, mouse, touch and gamepad ([davrous](https://github.com/davrous))
@@ -1539,7 +1539,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
     - Support for added to Blender Exporter ([Palmer-JC](https://github.com/Palmer-JC))
 - Support for glTF files [loader](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview release/loaders) ([julien-moreau](https://github.com/julien-moreau))
 
-### Updates
+## Updates
 - Audio files are now saved for offline access ([davrous](https://github.com/davrous))
 - New `CubeTexture.CreateFromImages()` ([deltakosh](https://github.com/deltakosh))
 - Bounding info can be locked and updated (`bb.isLocked` and `bb.update()`) ([deltakosh](https://github.com/deltakosh))
@@ -1590,7 +1590,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added `Tmp` class for internal use in order to improvement the memory management, [jerome](https://github.com/jbousquie))
 - Added `Scene.swithActiveCamera(newCamera, attachControl)` to go from one camera active to another. ([dad72](https://github.com/dad72)) [PR](https://github.com/BabylonJS/Babylon.js/pull/928)
 
-### Bug fixes
+## Bug fixes
 - Fixed IDB for offline support ([davrous](https://github.com/davrous))
 - Fixed a bug with spherical mapping ([deltakosh](https://github.com/deltakosh))
 - Fixed a bug with clone and createInstance which was forcing the recomputation of bounding boxes ([deltakosh](https://github.com/deltakosh))
@@ -1611,7 +1611,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Fixed a bug in instance serialization. [PR](https://github.com/BabylonJS/Babylon.js/pull/726) ([RaananW](https://github.com/RaananW))
 - Fixed a memory leak with textures ([deltakosh](https://github.com/deltakosh))
 
-### Breaking changes
+## Breaking changes
 - `ActionManager.OnPickTrigger` now acts as a single click/tap and is not raised on drag or swipe anymore. To get the old behavior, `ActionManager.OnPickDownTrigger` should be used instead ([vouskprod](https://github.com/vousk))
 - `VertexData.CreateCylinder()` now supports only the single _options_ parameter ([jerome](https://github.com/jbousquie))
 - `VertexData.CreateRibbon()` now supports only the single _options_ parameter ([jerome](https://github.com/jbousquie))
@@ -1632,9 +1632,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 2.2.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 - Blender can now bake Procedural textures & Cycles materials.  Plus more. See [documentation here](https://github.com/BabylonJS/Babylon.js/tree/master/Exporters/Blender) ([Palmer-JC](https://github.com/Palmer-JC))
 - Meshes can now be attached to bones. See [documentation here](//doc.babylonjs.com/How_To/How_to_use_Bones_and_Skeletons) and [sample here]( https://www.babylonjs-playground.com/#11BH6Z#18) ([deltakosh](https://github.com/deltakosh))
 - HDR Rendering pipeline. See [demo here]( https://www.babylonjs-playground.com/#2EGN4U#2) ([julien-moreau](https://github.com/julien-moreau))
@@ -1646,7 +1646,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - EdgesRenderer. See [demo here]( https://www.babylonjs-playground.com/#TYAHX#10) ([deltakosh](https://github.com/deltakosh))
 - Actions Builder tool for 3dsmax exporter. More info [here](https://medium.com/babylon-js/actions-builder-b05e72aa541a) ([julien-moreau](https://github.com/julien-moreau))
 
-### Updates
+## Updates
 - Adding layerMask to lensFlareSystem, spritesManager, particleSystem ([deltakosh](https://github.com/deltakosh))
 - Adding emissiveAsIllumination and reflectionFresnelFromSpecular for StandardMaterial ([deltakosh](https://github.com/deltakosh))
 - Adding isEnabled for ProceduralTexture ([deltakosh](https://github.com/deltakosh))
@@ -1686,12 +1686,12 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - `ComputeNormals` optimization : less object allocation and normal array initialization ([jerome](https://github.com/jbousquie))
 - Ribbon : _closePath_ parameter now creates a smooth seam ([jerome](https://github.com/jbousquie))
 
-### Bug fixes
+## Bug fixes
 - Fixing bug with rig cameras positioning ([deltakosh](https://github.com/deltakosh))
 - Instance meshes' geometry ID is now serialized correctly. [PR](https://github.com/BabylonJS/Babylon.js/pull/607) ([RaananW](https://github.com/RaananW))
 - Bug fix at set numberOfBricksWidth [PR](https://github.com/BabylonJS/Babylon.js/pull/684) ([Polatouche](https://github.com/Polatouche))
 
-### Breaking changes
+## Breaking changes
 - In LensRenderingPipeline: parameter `dof_focus_depth` (range 0..1) is deprecated, use `dof_focus_distance` (range 0..infinity) instead ([jahow](https://github.com/jahow))
 - Cylinder Mesh complete reimplementation for better normals ([jerome](https://github.com/jbousquie))
 - `RotationFromAxis()` : fixed the dot product case outside the range [-1, 1] ([jerome](https://github.com/jbousquie))
@@ -1699,9 +1699,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 2.1.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 - Collisions can now be offloaded on webworkers ([raananw](https://github.com/raananw))
 - SIMD.js support for math library. See [demo](http://www.babylonjs.com/scenes/simd.html) ([deltakosh](https://github.com/deltakosh))
 - Unity 5  scene exporter. More info [here](https://github.com/BabylonJS/Babylon.js/tree/master/Exporters/Unity%205) ([davrous](https://github.com/davrous), [deltakosh](https://github.com/deltakosh))
@@ -1714,7 +1714,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - New Loaders folder with a first additionnal plugin: [STL](//doc.babylonjs.com/page.php?p=25109)  ([raananw](https://github.com/raananw), [deltakosh](https://github.com/deltakosh))
 - Gulp building process revamped, updated and simplified and now includes a config.json ([raananw](https://github.com/raananw)) 
 
-### Updates
+## Updates
 - Better beta angle support for ArcRotateCamera ([raananw](https://github.com/raananw))
 - Better video textures support ([deltakosh](https://github.com/deltakosh))
 - Cameras hierarchy rework ([deltakosh](https://github.com/deltakosh))
@@ -1757,7 +1757,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Adding subMeshId property in PickingInfo structure ([deltakosh](https://github.com/deltakosh))
 - No more error when a manifest is not found ([deltakosh](https://github.com/deltakosh))
 
- ### Bug fixes
+ ## Bug fixes
 - Initial quaternion fix for OIMO plugin ([raananw](https://github.com/raananw)) 
 - ArcRotateCamera pinch zoom debug ([vousk](https://github.com/vousk)) 
 - Fixing animatable bug when animation is over ([temechon](https://github.com/temechon))
@@ -1767,7 +1767,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - ImportMesh now imports referenced geometries of selected meshes ([raananw](https://github.com/raananw)) 
 - CSG toMesh() and FromMesh() now support meshes without quaternion ([raananw](https://github.com/raananw)) 
 
-#### Breaking changes
+### Breaking changes
 - OculusCamera was removed ([deltakosh](https://github.com/deltakosh))
 - VRDeviceOrientationCamera was renamed to VRDeviceOrientationFreeCamera ([deltakosh](https://github.com/deltakosh))
 - WebVRCamera was renamed to WebVRFreeCamera ([deltakosh](https://github.com/deltakosh))
@@ -1775,9 +1775,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 2.0.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
  - Support for WebAudio. More info [here](//doc.babylonjs.com/page.php?p=24824) ([davrous](https://github.com/davrous))
  - Support for Procedural Texture with standard usable samples and custom support. More info [here](//doc.babylonjs.com/page.php?p=22601) ([meulta](https://github.com/meulta))
  - Support for OES_element_index_uint extension in order to support 32 bits indices and then meshes with more than 65536 vertices ([deltakosh](https://github.com/deltakosh))
@@ -1794,7 +1794,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```VolumetricLightScatteringPostProcess``` to simulate volumetric light scattering. More info [here](//doc.babylonjs.com/page.php?p=24840) ([julien-moreau](https://github.com/julien-moreau)) 
  - 3dsMax exporter can now generate binary format files ([deltakosh](https://github.com/deltakosh)) 
 
-### Updates
+## Updates
  - Moving of cloning into Mesh constructor ([Palmer-JC](https://github.com/Palmer-JC)) 
  - Camera types support in 3dsmax exporter ([deltakosh](https://github.com/deltakosh))
  - Babylon.Math is now a fluid API ([deltakosh](https://github.com/deltakosh))
@@ -1826,11 +1826,11 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Added the possibility to disable fog for a specific sprite manager ([deltakosh](https://github.com/deltakosh))
  - Added a property to ArcRotateCamera that moves the screen position of the target ([daner](https://github.com/daner))
 
-### Breaking changes
+## Breaking changes
 
  - ```Tools.GetFps()``` and ```Tools.GetDeltaTime()``` are now functions hosted by the engine: ```engine.getFps()``` and ```engine.getDeltaTime()``` [deltakosh](https://github.com/deltakosh))
 
-### Bug fixes
+## Bug fixes
  - Insane amount of fixes for 3dsmax and blender exporters ([deltakosh](https://github.com/deltakosh)) 
  - Fixed nearest texture filters ([deltakosh](https://github.com/deltakosh)) 
  - Fixed mesh loading when url has a query string ([dlajarretie](https://github.com/dlajarretie))
@@ -1839,9 +1839,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.14.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
  - New VRDeviceOrientionCamera for cardboard like systems ([demonixis](https://github.com/demonixis))
  - New WebVRCamera for WebVR compatible systems ([demonixis](https://github.com/demonixis))
  - All shaders now use high precision profile to address iOS8 compatibility ([deltakosh](https://github.com/deltakosh))
@@ -1853,7 +1853,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - TypeScript declaration file is now available ([deltakosh](https://github.com/deltakosh))
  - Binary file format supported. You can use online converter [here](http://www.babylonjs.com/binary) ([r2d2Proton](https://github.com/r2d2Proton))
 
-### Updates
+## Updates
  
  - New ```mesh.updateVerticesDataDirectly(kind, float32array)``` to update mesh data directly ([deltakosh](https://github.com/deltakosh))
  - Sandbox & IndexedDB layer are now supporting TGA & DDS textures  ([davrous](https://github.com/davrous))
@@ -1875,21 +1875,21 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New feature demo for [custom render target texture](http://www.babylonjs.com/?CUSTOMRENDERTARGET) ([deltakosh](https://github.com/deltakosh)) 
  - RenderTargetTexture can now specify a camera to use ([deltakosh](https://github.com/deltakosh)) 
  
- ### Bug fixes
+ ## Bug fixes
 
  - Fixing tons of bugs with PostProcessRenderPipeline. Wiki updated. ([deltakosh](https://github.com/deltakosh)) 
 
 # 1.13.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - TypeScript port finished ([davrous](https://github.com/davrous) & [deltakosh](https://github.com/deltakosh)) 
  - Physics engine: new OIMO plugin ([temechon](https://github.com/temechon))
  - New demo: [V8 engine](http://www.babylonjs.com/index.html?V8) (Michel Rousseau)
 
-### Updates
+## Updates
  - Fixed ray creation when the devicePixelRatio is not equals to 1 ([demonixis](https://github.com/demonixis))
  - New ```mesh.registerAfterRender``` and ```mesh.unregisterAfterRender``` functions ([deltakosh](https://github.com/deltakosh)) 
  - New ```fragmentElement``` parameter to define custom shader for ```BABYLON.ParticleSystem``` constructor ([deltakosh](https://github.com/deltakosh)) 
@@ -1909,15 +1909,15 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```Mesh.CreateTiledGround()``` function ([kostar111](https://github.com/kostar111)) 
  - Shadow Poisson Sampling ([clementlevasseur](https://github.com/clementlevasseur)) 
 
-### Bug fixes
+## Bug fixes
  - Fixing a bug when instances are used with a mesh with submeshes.length > 1 ([deltakosh](https://github.com/deltakosh)) 
  - CreateCylinder() : add subdivisions parameter and fix normals bug ([kostar111](https://github.com/kostar111)) 
 
 # 1.12.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Babylon.js is now entirely developed using TypeScript ([deltakosh](https://github.com/deltakosh), [davrous](https://github.com/davrous))
  - Physics plugins: You can add your own physics engine to Babylon.js. More info [here](https://github.com/BabylonJS/Babylon.js/wiki/Adding-your-own-physics-engine-plugin-to-Babylon.js). Cannon.js is the first supported plugin ([deltakosh](https://github.com/deltakosh))
@@ -1931,7 +1931,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```BABYLON.GroundMesh``` created by ```BABYLON.Mesh.Createground``` and ```BABYLON.Mesh.CreateGroundFromHeightMap```. This object is optimized for collisions and rendering of grounds (!!!). A first feature is also included ```GroundMesh.getHeightAtCoordinates``` ([deltakosh](https://github.com/deltakosh))
  - Beta: New [exporter for 3ds Max 2013+](https://github.com/BabylonJS/Babylon.js/tree/master/Exporters/3ds%20Max) ([deltakosh](https://github.com/deltakosh))
 
-### Updates
+## Updates
  - DDS: Support for RGB, Luminance and cube file format ([deltakosh](https://github.com/deltakosh))
  - New LensFlareSystem.isEnabled property ([deltakosh](https://github.com/deltakosh))
  - New ```samplingMode``` parameter when creating textures ([deltakosh](https://github.com/deltakosh))
@@ -1955,7 +1955,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New function: ```VertexData.CreateGroundFromHeightMap```([deltakosh](https://github.com/deltakosh))
  - New function: ```Tools.CreateScreenshot```([nicolas-obre](https://github.com/nicolas-obre))
 
-### Bug fixes
+## Bug fixes
  - Fixing ```ArcRotateCamera.setPosition()``` ([Celian](https://github.com/kostar111))
  - RenderTarget crashed when used with incremental engine ([deltakosh](https://github.com/deltakosh))
  - Depth clear is now more controlled (Mainly for Ejecta) ([deltakosh](https://github.com/deltakosh))
@@ -1966,14 +1966,14 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Fixed matricesIndices serialization ([gwenael-hagenmuller](https://github.com/gwenael-hagenmuller))
  - Bug fix and GC optimisation on CSG ([clementlevasseur](https://github.com/clementlevasseur))
 
-### Breaking changes
+## Breaking changes
  - ```Mesh.setVerticesData``` signature is now: (kind, values, updatable) instead of (values, kind, updatable) in order to be consistent with ```Mesh.updateVerticesData``` [deltakosh](https://github.com/deltakosh))
 
 # 1.11.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - New option for mesh: ```mesh.showBoundingBox``` to display mesh's bounding box. You can configure back and front color using ```scene.getBoundingBoxRenderer()```. This function returns a ```BABYLON.BoundingBoxRenderer``` where you can define ```backColor```, ```frontColor``` and ```showBackLines``` ([deltakosh](https://github.com/deltakosh))
  - New basic mesh: ```BABYLON.Mesh.CreateTorusKnot``` ([deltakosh](https://github.com/deltakosh))
@@ -1981,7 +1981,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Tags system ([gwenael-hagenmuller](https://github.com/gwenael-hagenmuller))
  - New render pipeline system for post-processes. See documentation [here](https://github.com/BabylonJS/Babylon.js/wiki/How-to-use-PostProcessRenderPipeline) ([michael-korbas](https://github.com/michael-korbas))
 
-### Updates
+## Updates
  - Added parameters to enable or disable a type of texture on all ```BABYLON.StandardMaterial``` ([demonixis](https://github.com/demonixis))
  - New ```BABYLON.VertexData.ExtractFromMesh``` function ([deltakosh](https://github.com/deltakosh))
  - Cameras can now have sub-cameras (see ```BABYLON.AnaglyphArcRotateCamera``` for example) ([deltakosh](https://github.com/deltakosh))
@@ -1989,19 +1989,19 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Darkness of a shadow + shadow on transparent meshes ([clementlevasseur](https://github.com/clementlevasseur))
  - New event for materials: ```onCompiled``` and ```onError``` ([deltakosh](https://github.com/deltakosh))
 
-### Bug fixes
+## Bug fixes
  - Fixed a bug with collisions cache
  - Fixed a bug with mesh.dispose when called twice ([deltakosh](https://github.com/deltakosh))
  - Fixed an issue with Internet Explorer while rendering a RenderTargetTexture outside the engine renderLoop ([nicolas-obre](https://github.com/nicolas-obre))
  
- ### New demos
+ ## New demos
  - [CYOS](http://www.babylonjs.com/cyos)
 
 # 1.10.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Virtual joysticks canera ([davrous](https://github.com/davrous))
  - Oculus Rift support ([davrous](https://github.com/davrous)), ([simonferquel](https://github.com/simonferquel)), ([deltakosh](https://github.com/deltakosh))
@@ -2014,7 +2014,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```BABYLON.ShaderMaterial``` object to simply create custom shaders ([deltakosh](https://github.com/deltakosh)) - See [Custom shader - cell shading](http://www.babylonjs.com/index.html?CUSTOMSHADER)
  - New ```BABYLON.VertexData``` object to easily manipulates vertex attributes ([deltakosh](https://github.com/deltakosh)) - See [VertexData](http://www.babylonjs.com/index.html?CLOUDS)
 
-### Updates
+## Updates
  - Shaders can be loaded from DOM element alongside .fx files ([deltakosh](https://github.com/deltakosh))
  - Adding arcRotateCamera.wheelPrecision ([deltakosh](https://github.com/deltakosh))
  - Support for DOMMouseScroll ([nicolas-obre](https://github.com/nicolas-obre))
@@ -2029,7 +2029,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - Add Gulp for buiding babylon cross platform ([SideraX](https://github.com/SideraX))
  - Shadow map improvement on pack method ([clementlevasseur](https://github.com/clementlevasseur))
 
-### Bug fixes
+## Bug fixes
  - Fixing multimat naming convention in Blender ([deltakosh](https://github.com/deltakosh))
  - Fixing mesh.clone ([temechon](https://github.com/temechon))
  - Fixing camera rotation export in blender ([khmm12](https://github.com/khmm12))
@@ -2045,15 +2045,15 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.9.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Beta support for scene serialization with ```BABYLON.SceneSerializer.Serialize``` function ([deltakosh](https://github.com/deltakosh))
  - Blender exporter now supports 32 bits indices ([deltakosh](https://github.com/deltakosh))
  - Flat shading support (From Blender and with ```mesh.convertToFlatShadedMesh()``) ([deltakosh](https://github.com/deltakosh))
 
-### Updates
+## Updates
  - New ```mesh.rotate``` and ```mesh.translate``` functions to rotate and translate mesh both locally and globally ([deltakosh](https://github.com/deltakosh))
  - New feature for particles: ```ParticleSystem.forceDepthWrite``` ([deltakosh](https://github.com/deltakosh))
  - Adding a new parameter to pick in order to be able to pick even on multi views ([deltakosh](https://github.com/deltakosh))
@@ -2061,7 +2061,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New postprocess system (independent from cameras) ([michael-korbas](https://github.com/michael-korbas))
  - New ```mesh.setAbsolutePosition``` function ([gwenael-hagenmuller](https://github.com/gwenael-hagenmuller))
 
-### Bug fixes
+## Bug fixes
  - Fixing issue with ```mesh.infiniteDistance``` ([deltakosh](https://github.com/deltakosh))
  - Fixing issue with camera caches ([deltakosh](https://github.com/deltakosh))
  - Fixing issue with aspect ratio ([deltakosh](https://github.com/deltakosh))
@@ -2070,13 +2070,13 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.8.5
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Visual Studio 2013 templates for Windows 8.1 and nuget packages ([pierlag](https://github.com/pierlag))
 
-### Updates
+## Updates
  - New ```matrix.multiply``` function (up to 50% faster) ([deltakosh](https://github.com/deltakosh))
  - New matrices cache system for camera (view and projection matrices) ([juliengobin](https://github.com/juliengobin))
  - New physics impostor: compound and mesh (still really slow) ([deltakosh](https://github.com/deltakosh))
@@ -2086,21 +2086,21 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New geometry functions: getLocalTranslation, setPositionWithLocalVector, getPositionExpressedInLocalSpace,locallyTranslate ([gwenael-hagenmuller](https://github.com/gwenael-hagenmuller))
  - Adding multi mesh import from same file([nicolas-obre](https://github.com/nicolas-obre)) 
 
-### Bug fixes
+## Bug fixes
  - Fixing issue when disposing a parent and not its children ([deltakosh](https://github.com/deltakosh))
  - Fixing .obj importer ([deltakosh](https://github.com/deltakosh))
  - Added guardband checks for impostors' size ([deltakosh](https://github.com/deltakosh))
 
 # 1.8.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Support for [physics engine](http://www.babylonjs.com/index.html?PHYSICS) thanks to cannon.js ([deltakosh](https://github.com/deltakosh))
  - New [sandbox tool](http://www.babylonjs.com/sandbox/) ([davrous](https://github.com/davrous))
 
-### Updates
+## Updates
  - New ```animation.currentFrame``` property to get current animation frame ([deltakosh](https://github.com/deltakosh))
  - New ```animation.floatInterpolateFunction``` property to define custom float interpolation function ([deltakosh](https://github.com/deltakosh))
  - New ```animation.vector3InterpolateFunction``` property to define custom vector3 interpolation function ([deltakosh](https://github.com/deltakosh))
@@ -2108,28 +2108,28 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.7.3
 
-## Core Engine
+# Core Engine
 
-### Updates
+## Updates
 
  - Support for "file://" moniker ([davrous](https://github.com/davrous))
  - Support for DAE (COLLADA) file format ([gwenael-hagenmuller](https://github.com/gwenael-hagenmuller))
  - Support for "empty" object type in Blender exporter ([deltakosh](https://github.com/deltakosh))
 
-### Bug fixes
+## Bug fixes
  - "use strict" is no more included in minified version ([deltakosh](https://github.com/deltakosh))
  - Fixing a bug with MSGesture with IE11 on Windows 7 ([deltakosh](https://github.com/deltakosh))
 
 # 1.7.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Support for [lens flares](https://github.com/BabylonJS/Babylon.js/wiki/How-to-use-lens-flares) ([deltakosh](https://github.com/deltakosh))
  - Support for [multi-views](https://github.com/BabylonJS/Babylon.js/wiki/How-to-use-multi-views) ([deltakosh](https://github.com/deltakosh))
 
-### Updates
+## Updates
 
  - New ```light.excludedMeshes``` property to exclude specific meshes from light computation ([deltakosh](https://github.com/deltakosh))
  - New ```texture.anisotropicFilteringLevel``` property to define the anisotropic level of a texture ([deltakosh](https://github.com/deltakosh))
@@ -2137,33 +2137,33 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```scene.customRenderTargets``` property to add our own renderTargetTexture ([deltakosh](https://github.com/deltakosh))
  - Transparent meshes are sorted back to front ([deltakosh](https://github.com/deltakosh))
 
-### Bug fixes
+## Bug fixes
  - Fixing a bug when cloning mirrorTexture ([deltakosh](https://github.com/deltakosh))
 
 # 1.6.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - Support for [postprocesses](https://github.com/BabylonJS/Babylon.js/wiki/How-to-use-postprocesses) ([deltakosh](https://github.com/deltakosh))
  - New builtin postprocesses: Pass, Refraction, Blur, Black and White, Convolution ([deltakosh](https://github.com/deltakosh))
  - New builtin postprocess: FXAA ([simonferquel](https://github.com/simonferquel))
  - Online [assets converter](http://www.babylonjs.com/converter.html)  ([pierlag](https://github.com/pierlag))
 
-### Updates
+## Updates
 
  - New features demos: [POSTPROCESS - REFRACTION](http://www.babylonjs.com/index.html?PPPREF) and [POSTPROCESS - BLOOM](http://www.babylonjs.com/index.html?PPBLOOM)
  - Removing the unused depth buffer for postprocesses chains ([simonferquel](https://github.com/simonferquel))
 
-### Bug fixes
+## Bug fixes
  - Fixing a memory leak when releasing textures ([simonferquel](https://github.com/simonferquel))
 
 # 1.5.3
 
-## Core Engine
+# Core Engine
 
-### Updates
+## Updates
 
  - New ```lockedTarget``` for freeCamera in order to allow cameras to track moving targets ([deltakosh](https://github.com/deltakosh))
  - Cameras now supports animations (see http://www.babylonjs.com/index.html?TRAIN) ([deltakosh](https://github.com/deltakosh)) 
@@ -2171,48 +2171,48 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
  - New ```upVector``` property for cameras. Cameras are now not limited to a (0, 1, 0) up vector ([deltakosh](https://github.com/deltakosh)) 
  - New ```parent``` property for cameras and lights: Lights, cameras and meshes can be related. For instance a camera can now be attached to a mesh as child and vice versa ([deltakosh](https://github.com/deltakosh))
 
-### Bug fixes
+## Bug fixes
  - Fixing a bug when exporting materials from Blender ([deltakosh](https://github.com/deltakosh)) 
  - Fixing an issue with IE11 for RT ([deltakosh](https://github.com/deltakosh))
  - Fixing an issue with looping animations ([deltakosh](https://github.com/deltakosh))
 
 # 1.5.2
 
-## Core Engine
+# Core Engine
 
-### Updates
+## Updates
 
  - New ```renderingGroupId``` for SpriteManager ([deltakosh](https://github.com/deltakosh))
  - ```BoundingBox``` and ```BoundingSphere``` are prepared with an identity matrix during construction ([deltakosh](https://github.com/deltakosh)) 
 
-### Bug fixes
+## Bug fixes
  - Fixing a bug preventing wireframe to be displayed ([deltakosh](https://github.com/deltakosh)) 
  - Fixing an issue with last IE update ([deltakosh](https://github.com/deltakosh))
 
 # 1.5.1
 
-## Core Engine
+# Core Engine
 
-### Updates
+## Updates
 
  - Massive update of typescript files ([jroblak](https://github.com/jroblak))
 
-### Bug fixes
+## Bug fixes
  - Fixing an issue with ```SceneLoader.ImportMesh``` ([nicolas-obre](https://github.com/nicolas-obre))
  - Fixing an issue with sprites rendering when no mesh is present ([deltakosh](https://github.com/deltakosh))
 
 # 1.5.0
 
-## Core Engine
+# Core Engine
 
-### Major updates
+## Major updates
 
  - New ```DeviceOrientationCamera``` that supports W3C DeviceOrientations events ([deltakosh](https://github.com/deltakosh))
  - Incremental loading support for meshes and textures ([deltakosh](https://github.com/deltakosh))
  - New API online page to convert .babylon files to .incremental.babylon files ([pierlag](https://github.com/pierlag))
  - New ```mesh.renderingGroupId``` and ```particleSystem.renderingGroupId``` properties to support rendering layers ([deltakosh](https://github.com/deltakosh))
 
-### Updates
+## Updates
 
  - New ```predicate``` parameter for ```scene.pick``` function in order to be able to select pickable meshes ([deltakosh](https://github.com/deltakosh)) 
  - New ```mesh.refreshBoundingInfo()``` method ([deltakosh](https://github.com/deltakosh)) 
@@ -2220,9 +2220,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.4.3
 
-## Core Engine
+# Core Engine
 
-### Updates
+## Updates
 
  - New ```mesh.setLocalTranslation``` and ```mesh.getLocalTranslation``` functions ([deltakosh](https://github.com/deltakosh))
  - New ```matrix.setTranslation``` function ([deltakosh](https://github.com/deltakosh))
@@ -2230,14 +2230,14 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.4.2
 
-## Core Engine
+# Core Engine
 
-### Bug fixes
+## Bug fixes
  - Fixing an issue with scene.executeWhenReady ([deltakosh](https://github.com/deltakosh))
 
 # 1.4.1
 
-## Bug fixes
+# Bug fixes
  - Support for Safari ([deltakosh](https://github.com/deltakosh))
  - Adding local transformations to Blender exporter ([deltakosh](https://github.com/deltakosh))
  - IndexedDB code refactoring to support simultaneous calls ([davrous](https://github.com/davrous))
@@ -2246,22 +2246,22 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.4.0
 
-## Core Engine
+# Core Engine
 
-### Major features
+## Major features
 
  - Bones support ([deltakosh](https://github.com/deltakosh)). Bones and animated bones are now supported. They can cast shadows. Bones can be exported from Blender or from FBX
  - Offline support ([davrous](https://github.com/davrous). You can specify to offline assets (scene and textures) to a local IndexedDB. Assets are then loaded once until you change the version on a server-side manifest
  - N-Level octrees ([deltakosh](https://github.com/deltakosh)):
  
-### Updates
+## Updates
  - Adding ```dispose()``` function and a ```disposeWhenFinishedAnimating``` property to sprites ([Cyle](https://github.com/CYle/))
  - Adding a ```applyTransform()``` function to meshes in order to bake a specific transformation into vertices ([deltakosh](https://github.com/deltakosh))
  - Adding ```setPivotMatrix()``` and ```getPivotMatrix()``` to meshes to define pivot matrix ([deltakosh](https://github.com/deltakosh))
  - ```Mesh.CreateCylinder``` now takes two diameters as parameters to be able to create cone ([deltakosh](https://github.com/deltakosh)) 
  - New ```material.Clone``` function ([deltakosh](https://github.com/deltakosh)) 
 
-### Bug fixes
+## Bug fixes
  - ```scene.IsReady()``` is more robust now and can be used to detect when the scene is EFFECTIVELY ready :) ([deltakosh](https://github.com/deltakosh))
  - Fixing animations timing. Animations should be in sync now ([deltakosh](https://github.com/deltakosh))
  - Fixing a bug with orthographic camera ([deltakosh](https://github.com/deltakosh))
@@ -2270,32 +2270,32 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.3.2
 
-## Core Engine
+# Core Engine
  - Fixing a bug with camera.detachControl
 
 # 1.3.0
 
-## Core Engine
+# Core Engine
  - Selection octrees
  - Breaking changes: Meshes now use multi vertex buffers (one for each attribute) instead of a big one. This is for more flexibility. The .babylon file format has changed accordingly (no more .vertices property on meshes but .positions, .normals, .colors, .uvs, .uvs2)
 
 # 1.2.1
 
-## Core Engine
+# Core Engine
  - Support for PointerLock ()
  - StandardMaterial now supports per-vertex color
  - Blender exporter supports per-vertex color
 
 # 1.2.0
 
-## Core Engine
+# Core Engine
  - Major rework of the API to remove GC pressure.
  - FreeCamera: Support for QWERTY keyboards
  - New 3D charting demo
 
 # 1.1.0
 
-## Core Engine
+# Core Engine
  - Shadow Maps and Variance Shadow Maps
  - Shadows Maps and animations are now exported from Blender
  - Hand.js is no longer required for ArcRotateCamera
@@ -2303,31 +2303,31 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.0.10
 
-## Core Engine
+# Core Engine
  - Using typed arrays for Matrix
  - Improving IE11 support
  - Support for new mesh primitives : Torus and cylinder
 
 # 1.0.9
 
-## Core Engine
+# Core Engine
  - Orthographic camera
 
 # 1.0.8
 
-## Core Engine
+# Core Engine
  - Adding keyboard support to ArcRotateCamera
  - Starting to use git tag
 
 # 1.0.7
 
-## Core Engine
+# Core Engine
  - New demo: Worldmonger
  - Improved IE shaders
 
 # 1.0.6
 
-## Core Engine
+# Core Engine
  - Dynamic meshes
  - Skybox
  - Support for high-DPI displays
@@ -2335,24 +2335,24 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 # 1.0.5
 
-## Core Engine
+# Core Engine
  - Adding color tint for sprites and layers
 
 # 1.0.4
 
-## Core Engine
+# Core Engine
  - Various optimizations
  - Fog
  - TypeScript support
 
 # 1.0.3
 
-## Core Engine
+# Core Engine
  - Video textures
  - Normal map (bump) 
 
 # 1.0.2
 
-## Core Engine
+# Core Engine
  - Spot lights
  - Hemispheric lights

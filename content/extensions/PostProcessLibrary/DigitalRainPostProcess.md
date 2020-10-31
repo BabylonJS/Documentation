@@ -4,7 +4,7 @@ How cool (... or nerd - ish) could it be to render all your BJS scene in a Digit
 
 If you would like it, this tutorial is made for you.
 
-## How to use ?
+# How to use ?
 
 Digital Rain Post Process Scripts can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.digitalRainPostProcess.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.digitalRainPostProcess.js)
@@ -25,7 +25,7 @@ var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera);
 
 [**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#6)
 
-## Going further
+# Going further
 
 The first you can do is changing the font used in the post process.
 

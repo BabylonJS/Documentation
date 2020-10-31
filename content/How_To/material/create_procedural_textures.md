@@ -3,7 +3,7 @@ title: Creating Custom Procedural Textures
 ---
 
 
-## Using a Files-Based Custom Procedural Texture
+# Using a Files-Based Custom Procedural Texture
 To use a files-based custom procedural texture, you need to create a folder containing at least 2 files:
 
 - config.json
@@ -90,7 +90,7 @@ To use this custom texture, you need to make your folder available to your babyl
     var texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
 ```
 
-## Using a ShaderStore for Shader Storage
+# Using a ShaderStore for Shader Storage
 You can also use the ShaderStore to write a shader inline and use it in a CustomProceduralTexture.
 This can be done easily using the **BABYLON.Effect.ShaderStore** array : 
 
@@ -112,7 +112,7 @@ To use this shader, you just have to create a CustomProceduralTexture and put th
 ```javascript
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", "Lines", 1024, scene);
 ```
-## Using a DOM Element for Shader Storage
+# Using a DOM Element for Shader Storage
 
 Finally you can also use **DOM Elements** to store your shader. You just have to create a script tag in your HTML file like this:
 
@@ -134,7 +134,7 @@ var linesShader = { fragmentElement: 'LinesPixelShader' };
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
 ```
 
-## Using Node Material to generate procedural texture
+# Using Node Material to generate procedural texture
 
 You can use NodeMaterial to generate the shaders for your procedural texture.
 The code to generate it is very simple:

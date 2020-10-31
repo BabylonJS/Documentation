@@ -19,7 +19,7 @@ BABYLON.ParticleHelper.CreateAsync("sun", scene, true).then((set) => {
 
 You can find a demo here: https://www.babylonjs-playground.com/#1VGT5D#2
 
-## ParticleSystemSet
+# ParticleSystemSet
 
 When calling `BABYLON.ParticleHelper.CreateAsync()`, you will get a Promise that will resolve returning a `ParticleSystemSet`.
 This class can be used with the following properties and functions:
@@ -31,7 +31,7 @@ This class can be used with the following properties and functions:
 You can also get the list of particle systems used by the set with `set.systems`.
 
 
-## Available effects
+# Available effects
 
 Each effect can be described using a json file like this one: https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json
 
@@ -45,7 +45,7 @@ Effect name | Image | Playground
 **fire** | ![fire](/img/how_to/particles/fire.jpg) | https://www.babylonjs-playground.com/#7IM02G#0
 **explosion** | ![explosion](/img/how_to/particles/explosion.jpg) | https://www.babylonjs-playground.com/#X37LS1#3
 
-## Custom ParticleSets
+# Custom ParticleSets
 
 It is reasonably simple to create your own custom particleSet.  Each of the particleSets listed above... is stored in a BabylonJS folder currently located [**here**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
 
@@ -68,7 +68,7 @@ Notice the _type_ is used as the name of the JSON file.  Using the previous exam
 
 Also notice the /systems/ subFolder heirarchy.  Your custom particleSet JSON file needs to be located in a subFolder called /systems/.  So, ```yourDomain/systems/tornado.json``` is where your file should be located and how it should be named (for our example).
 
-## Generate Custom ParticleSets
+# Generate Custom ParticleSets
 
 You can automatically generate a new JSON particleSet (into a variable) by creatively configuring your particles systems, and then using the ExportSet option.
 
@@ -78,7 +78,7 @@ Usage:  ```var mySet = BABYLON.ParticleHelper.ExportSet( [includedPS1, includedP
 
 # Further Reading
 
-## Basic - L1
+# Basic - L1
 
 [Particles Overview](/features/Particles)  
 
@@ -88,7 +88,7 @@ Usage:  ```var mySet = BABYLON.ParticleHelper.ExportSet( [includedPS1, includedP
 
 [Solid Particle System](/How_To/Solid_Particles)
 
-## Intermediate - L2
+# Intermediate - L2
 [How to Customize the Particle System](/how_to/Customise) 
 
 

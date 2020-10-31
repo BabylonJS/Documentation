@@ -1,6 +1,6 @@
 This tutorial will guide you through the process of creating a procedural texture for the [procedural textures library](https://github.com/BabylonJS/Babylon.js/tree/master/proceduralTexturesLibrary)
 
-## Setting up environment
+# Setting up environment
 
 First of all, you need to create a folder for your shader in the /proceduralTexturesLibrary/src folder. Let's call it **cloudBis**.
 
@@ -29,7 +29,7 @@ To build all the procedural textures and generate the _dist_ folder, just run fr
 gulp proceduralTextureLibrary
 ```
 
-## Update the shaders
+# Update the shaders
 
 Open the **cloudBisProceduralTexture.fragment.fx** file.
 The shader is composed of 3 parts:
@@ -80,7 +80,7 @@ void main() {
 }
 ```
 
-## Write the procedural texture
+# Write the procedural texture
 
 The procedural texture is a .ts file. It contains a class which has to inherit from the **ProceduralTexture** class.
 
@@ -137,7 +137,7 @@ module BABYLON {
 }
 ```
 
-## Update the test page
+# Update the test page
 
 To test your material, open the /proceduralTextureLibrary/index.html page. References are added automatically.
 
@@ -234,7 +234,7 @@ gui
   });
 ```
 
-## (Optional) enable a graphical interface.
+# (Optional) enable a graphical interface.
 
 If your procedural texture contains properties that allows the dev to customize it, you can enable an interface to change them live in the sample.
 
@@ -251,7 +251,7 @@ break;
 
 The first parameter is the texture object and the second one is an array containing the list of properties you want to make editable in the sample.
 
-## Launch the test server
+# Launch the test server
 
 To Launch the server, you can start from the tools/gulp folder:
 

@@ -18,7 +18,7 @@ The general form is
 var curve = BABYLON.Curve3.Create.CURVETYPE(parameters);
 ```
 
-## Quadratic Bezier Curve
+# Quadratic Bezier Curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve#Quadratic_curves
 
 ![Wikipedia Quadratic Bezier Curve](http://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
@@ -40,7 +40,7 @@ var l = bezier2.length();
 ```
 * [Playground Example - Bezier Quadratic Curve](https://www.babylonjs-playground.com/#W0XSPA)
 
-## Cubic Bezier curve
+# Cubic Bezier curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve# Higher-order_curves
 
 ![Wikipedia Cubic Bezier Curve](http://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
@@ -64,7 +64,7 @@ var l = bezier3.length();
 * [Playground Example - Bezier Cubic Curve](https://www.babylonjs-playground.com/#EY3EW4);
 
 
-## Hermite Spline
+# Hermite Spline
 http://en.wikipedia.org/wiki/Cubic_Hermite_spline
 
 ![Hermite Spline](/img/how_to/Mesh/hermite.jpg)
@@ -88,7 +88,7 @@ var l = hermite.length();
 
 * [Playground Example - Hermite Spline](https://www.babylonjs-playground.com/#P94GHL)
 
-## Catmull-Rom Spline  
+# Catmull-Rom Spline  
 https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Catmull.E2.80.93Rom_spline  
 
 ![Wikibooks Cubic Hermite spline](https://upload.wikimedia.org/wikipedia/commons/1/1c/Finite_difference_spline_example.png)
@@ -114,12 +114,12 @@ var l = catmullRom.length();
 * [Playground example - Catmull-Rom Spline Open Curve](https://www.babylonjs-playground.com/#1AU0M4)
 * [Playground example - Catmull-Rom Spline Closed Curve](https://www.babylonjs-playground.com/#1AU0M4#18)
 
-## Custom Curve3 Object
+# Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
 Why would you do this and not just use the points to draw a line?   
 Because the _Curve3_ object has a useful method, the  _continue()_ method, that allows you place the start of one _Curve3_ onto the end of another _Curve3_ without any calculations to match the start and end points of the curves.   
 
-### Example 1
+## Example 1
 Create an array of  Vector3 along a simple sinus curve.  
 
 ```javascript
@@ -151,7 +151,7 @@ var l = myFullCurve.length();
 
 [Playgound Example - Joined Curves](https://www.babylonjs-playground.com/#00JR7Z)
 
-### Example 2
+## Example 2
 Here is an example where a Hermite Spline is used to close smoothly a concatenation of two Bezier curves. As the spline is closing the curves the first and last points of the open continued curve need to be read from the array.  
 
 * The first and last points of the concatenation are used as last and first point of the Hermite spline.  
@@ -188,5 +188,5 @@ In light blue, these two curves are continued by each other and a hermite curve 
 # Basic - Level 1
 [How To Create Parametric Shapes](/How_To/parametric_shapes)
 
-## More Advanced - Level 3
+# More Advanced - Level 3
 [How To Use Path3D](/How_To/How_to_use_Path3D)  

@@ -14,7 +14,7 @@ The expected usage is:
 * Changes to particle properties can be achieved with the `initParticles()` or `updateParticle(particle)` methods and a call to `setParticles`.
 * Particle animation can be accomplished by defining their individual behavior in `updateParticle(particle)` and calling `setParticles()` within the render loop.
 
-## Limitations
+# Limitations
 The way the PCS is created using vertex points with a pre-applied material with `PointsCloud` set to true means that:
 1. Particles cannot be destroyed and particles off screen are still enabled;
 2. Transparency does not work on individual particles. 

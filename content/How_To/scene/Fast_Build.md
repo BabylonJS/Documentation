@@ -4,7 +4,7 @@ There are a number of helpers that, once you to have put models into a scene, ad
 
 For beginners to Babylon.js these two sections [Fastest Build](/how_to/fast_build#fastest-build) and [Import and Fastest Build](/how_to/fast_build#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
 
-## Helpers
+# Helpers
 
 The following is a list of the methods of the `scene` object that help in fast building a world, with a link to their API description:
 
@@ -15,7 +15,7 @@ The following is a list of the methods of the `scene` object that help in fast b
 * [createDefaultSkybox](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox);
 
 
-## Fastest Build
+# Fastest Build
 
 To build a world very quickly just use `createDefaultCameraOrLight` along with `createDefaultEnvironment` as in this example
 
@@ -32,11 +32,11 @@ You can see how the camera automatically adjusts by adding a second box and re-p
 More information about these methods, including details about parameters, can be found in the individual sections below.
 
 
-## Create Default Camera or Light
+# Create Default Camera or Light
 
 As can be seen in the _Fastest Build_ section the helper, `createDefaultCameraOrLight` creates both a camera and a light in one line.  The three parameters it can take are the same as for the `createDefaultCamera` method, the second parameter also refers to the light and replaces any existing camera or light when true. The approach to accessing the camera or light is the same as for the individual methods.
 
-## Create Default Camera
+# Create Default Camera
 
 The `createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are 
 
@@ -64,7 +64,7 @@ The camera will adjust depending on the size and position of each mesh in the wo
 
 * [Playground Example Camera Helper, Adjusts to Large Box](https://www.babylonjs-playground.com/#MJNICE#7)
 
-### Accessing the Camera
+## Accessing the Camera
 
 Since creating the camera this way makes the helper created camera the active camera the simplest way to access it is using
 
@@ -91,7 +91,7 @@ scene.cameras.push(helperCamera);
 
 * [Playground Example Camera Helper, Change Radius and Angles](https://www.babylonjs-playground.com/#MJNICE#8)
 
-## Create Default Light
+# Create Default Light
 
 The `createDefaultLight` takes just one boolean parameters, set to _false_ by default: 
 
@@ -102,7 +102,7 @@ When this method is used before the creation of any other lights then it is usua
 ```javascript
 scene.createDefaultLight();
 ```
-### Accessing the Light
+## Accessing the Light
 
 Provided you access the helper created light immediately after creating it, it will be the last one in the `scene.lights` array.
 
@@ -121,7 +121,7 @@ scene.lights.push(helperLight);
 
 * [Playground Example Light Helper, Change Direction and Color](https://www.babylonjs-playground.com/#MJNICE#9)
 
-## Create Default Environment
+# Create Default Environment
 
 The simple code
 
@@ -147,7 +147,7 @@ You can also see the skybox and ground by using the options parameter and settin
 
 * [Playground Example Change Skybox and Ground Color](https://www.babylonjs-playground.com/#MJNICE#10)
 
-### Options Parameters
+## Options Parameters
 As you can see in the above playground the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper options properties are available from the [API](//doc.babylonjs.com/api/interfaces/babylon.ienvironmenthelperoptions)
 
 So, for example
@@ -171,7 +171,7 @@ var helper = scene.createDefaultEnvironment({
 });
 ```
 
-### Applicable Methods
+## Applicable Methods
 
 Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](//doc.babylonjs.com/api/classes/babylon.environmenthelper)) are available. 
 
@@ -201,11 +201,11 @@ helper.updateOptions(options);
 
 * [Playground Example Change Options](https://www.babylonjs-playground.com/#MJNICE#13)
 
-### Environmental Helper
+## Environmental Helper
 
 NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/How_To/BackgroundMaterial) to be as efficient as possible.
 
-## Create Default Skybox
+# Create Default Skybox
 
 The `createDefaultSkybox` method can be used when you do not want to create a full environment. The [parameters](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox) used determine how the skybox is created.
 
@@ -223,7 +223,7 @@ The third parameter defines the scale of your skybox (this value depends on the 
 * [Playground Example Skybox](https://www.babylonjs-playground.com/#MJNICE#14)
 
 
-## Import and Fastest Build
+# Import and Fastest Build
 
 To import models and build a world very quickly just use `createDefaultCameraOrLight` along with `createDefaultEnvironment` as in this example
 
@@ -231,7 +231,7 @@ To import models and build a world very quickly just use `createDefaultCameraOrL
 
 The camera adjusts its position automatically to make the world viewable depending on the scale and position of the models. More information on importing models with the scene helpers follows below.
 
-## Importing Models for Your World
+# Importing Models for Your World
 
 Since the `createDefault...` helpers take into account any models in the scene they can only be applied after the model is loaded and so are placed in the callback function. For example
 
@@ -248,11 +248,11 @@ The solution is to replace the `createScene` function with the `delayCreateScene
 
 **NOTE:** Other [scene loader](/how_to/load_from_any_file_type) methods are available.
 
-### Using Scene Helpers with Import
+## Using Scene Helpers with Import
 
 All the helper methods described earlier on this page behave in exactly the same way when importing models. Just remember to call them within the scene loader callback.
 
-### Import Playground Examples
+## Import Playground Examples
 
 * [Playground Example Import and Main Color Change](https://www.babylonjs-playground.com/#10D6YT#33)
 * [Playground Example Import with Blur, Reflection and Shadow](https://www.babylonjs-playground.com/#10D6YT#35)

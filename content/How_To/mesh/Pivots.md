@@ -54,7 +54,7 @@ So there are two ways of setting a pivot, one that does not alter the position o
 In fact unless you have an older project coded for versions before 3.2 or want to [change the local origin to that of the pivot](/features/Position,_Rotation,_Scaling#pivot) do not use the _set pivot with move_ method. It is usually better to _set pivot only_ and then move the mesh as normal with _mesh.position_ or _mesh.translate_ When you do have an older project there is a simple way to update your project code to work with version 3.2 or later as described in the `Breaking Change` section below.
 
  
-## Breaking Change
+# Breaking Change
 
 You set a pivot at the point (x, y, z) with a translation matrix that using 
 
@@ -79,7 +79,7 @@ to
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z), false);
 ```
 
-## How To Set the Pivot Matrix
+# How To Set the Pivot Matrix
 
 To set a pivot at (x, y, z) relative to the local origin of a mesh requires the applied translation to be (-x, -y, -z).
 
@@ -89,7 +89,7 @@ mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z));
  * [Playground Example - Set Pivot Matrix](https://www.babylonjs-playground.com/#3RTT8P)
 
 
-## How To Set Pivot Position to World Space Coordinates
+# How To Set Pivot Position to World Space Coordinates
 
 When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp, zp) then you need to use (xc - xp, yc - yp, zc - zp) as the translation.
 
@@ -99,7 +99,7 @@ mesh.setPivotMatrix(BABYLON.Matrix.Translation(xc - xp, yc - yp, zc - zp));
 
 * [Playground Example - Set Pivot with World Coordinates](https://www.babylonjs-playground.com/#3RTT8P#2)
 
-## How To Reset the Pivot
+# How To Reset the Pivot
 
 Simply recalculate the translation of the pivot to the local origin of the mesh as above.
 
@@ -117,7 +117,7 @@ The following sequence of playgrounds shows setting the first pivot, rotating ar
 * [Playground Example - Rotate About First Pivot](https://www.babylonjs-playground.com/#3RTT8P#6)
 * [Playground Example - Set Second Pivot](https://www.babylonjs-playground.com/#3RTT8P#7)  
 
-## How To Set and Get a Pivot Point
+# How To Set and Get a Pivot Point
 
 There are three useful functions to aid setting and getting a pivot point. These are
 
@@ -126,7 +126,7 @@ mesh.setPivotPoint(Vector3);
 mesh.getPivotPoint(); // returns Vector3
 mesh.getAbsolutePivotPoint(); // returns Vector3
 ```
-### Set Pivot Point
+## Set Pivot Point
 
 Using _setPivotPoint_ you simply pass a Vector3 object that is the relative position of the pivot to the local origin of the mesh. To set a pivot at (x, y, z) relative to the local origin of a mesh requires
 
@@ -159,7 +159,7 @@ The following sequence of playgrounds shows setting the first pivot point, rotat
 * [Playground Example - Rotate About First Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#16)  
 * [Playground Example - Set Second Pivot Point and Rotate](https://www.babylonjs-playground.com/#3RTT8P#17)
 
-### Get Pivot Point 
+## Get Pivot Point 
 
 When using `getPivotPoint` or `getAbsolutePivotPoint` the results obtained depend on whether you are using a _set pivot only_ method, that is `setPivotMatrix(translation)` or `setPivotPoint` or the _set pivot with move_ method, that is `setPivotMatrix(translation)`.
 
@@ -191,7 +191,7 @@ This table alone shows one good reason not to use the _set pivot with move_ meth
 
 # Further Reading
 
-## More Advanced - L3 
+# More Advanced - L3 
 
 [How To Rotate Around an Axis about a Point](/How_To/Pivot)  
 

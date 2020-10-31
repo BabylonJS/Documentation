@@ -49,9 +49,9 @@ Each window object has two parameters, example new window(1, 2)
 _width_ : width of window  
 _height_ : height of window
 
-## Code
+# Code
 
-### buildFromPlan
+## buildFromPlan
 
 The following code should be copied and pasted inside the `createScene` function
 
@@ -641,7 +641,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 }
 ```
 
-### PolygonMeshBuilder wallBuilder Method
+## PolygonMeshBuilder wallBuilder Method
 
 This code should be copied and pasted within your own code.
 
@@ -669,7 +669,7 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 };
 ```
 
-### Building the Data and Parameters, an example
+## Building the Data and Parameters, an example
 
 ```javascript
 	var baseData = [-3, -2, -1, -4, 1,-4, 3, -2, 5, -2, 5, 1, 2, 1, 2, 3, -3, 3];
@@ -708,7 +708,7 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 	var ply = 0.3;
 	var height = 3.2;
 ```
-### Build Interior Walls
+## Build Interior Walls
 Really this is a method of building walls that do not form an enclosing shell, i.e. the first and last corners do not produce a wall between them.
 
 Add the option interior: true, for example 
@@ -718,7 +718,7 @@ var wall = buildFromPlan(walls, ply, height, {interior:true}, scene);
 ```
 You can add doors and windows (?hatches) to these walls as well.
 
-## Playground Examples
+# Playground Examples
 * [Playground Example of a House Built from a FloorPlan](https://www.babylonjs-playground.com/#4GBWI5#265)
 * [Playground Example of None Enclosing Wall](https://www.babylonjs-playground.com/#1Z71FW#103)
 * [Playground Example of None Enclosing Wall with UVs](https://www.babylonjs-playground.com/#1Z71FW#102)
@@ -729,8 +729,8 @@ You can add doors and windows (?hatches) to these walls as well.
 [Developing the Code for Build From Plans](/samples/House)  
 [Adding a Roof](/samples/roof)
 
-## Level 1
+# Level 1
 [Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
 
-## Level 2
+# Level 2
 [Polygon Mesh Builder](/How_To/PolygonMeshBuilder)

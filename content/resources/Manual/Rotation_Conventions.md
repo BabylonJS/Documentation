@@ -1,10 +1,10 @@
 # Transformations
-## Rotation Conventions
+# Rotation Conventions
 
 There are several methods of achieving rotations within Babylon.js all of which use a particular convention.
 
 
-## Euler Angles
+# Euler Angles
 
 In 3D space Euler angles can produce any possible orientation by providing three angles to rotate about each of three axes in a given order.  
 
@@ -14,7 +14,7 @@ Mesh.rotation(alpha, beta, gamma) uses the three Euler angles alpha, beta and ga
 
 References to Euler angles within the Babylon.js community can usually be taken to mean the angles to use with the _rotation_ method.
 
-### YXZ *Local Axes* Yaw, Pitch, Roll
+## YXZ *Local Axes* Yaw, Pitch, Roll
 
 ![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
 
@@ -38,7 +38,7 @@ which will produce this orientation whatever the orientation of the mesh prior t
 
 * [Playground Example - YXZ yaw, pitch, roll](https://www.babylonjs-playground.com/#1ST43U#50)
 
-### ZXY *World Axes*
+## ZXY *World Axes*
 
 The YXZ convention with local axes has produced a particular orientation and it turns out that taking the same angles (alpha = pitch, beta = yaw and gamma = roll) and applying them in the order ZXY in world space will produce exactly the same orientation.
 
@@ -62,9 +62,9 @@ which will produce this orientation whatever the orientation of the mesh prior t
 
 
 
-## Euler Angles to Quaternions
+# Euler Angles to Quaternions
 
-### YXZ, Local Space, Yaw, Pitch, Roll
+## YXZ, Local Space, Yaw, Pitch, Roll
 
 ![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
 
@@ -91,7 +91,7 @@ Applying the above  _rotate_ sequence to a newly created mesh (ie one that has z
 
 * [Playground Example - Yaw Pitch Roll to Quaternion](https://www.babylonjs-playground.com/#1ST43U#54)
 
-### ZXZ, World Space, A Standard Convention 
+## ZXZ, World Space, A Standard Convention 
 
 A standard Euler angle convention is to take three given angles alpha, beta and gamma and rotate alpha about Z, then beta about X, then gamma about Z using the **world** axes. In Babylon.js this can be achieved by using _rotate_
 

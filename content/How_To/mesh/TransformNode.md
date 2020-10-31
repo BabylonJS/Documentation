@@ -11,7 +11,7 @@ In all of the following Playgrounds the purple sphere is created only to show th
 
 Set a TransformNode as a parent then rotate the TransformNode.
 
-## Mesh
+# Mesh
 
 ```javascript
 //create a Center of Transformation
@@ -22,12 +22,12 @@ box.parent = CoT;  //apply to Box
 * [Playground Example - CoT Offset](https://www.babylonjs-playground.com/#2JKA91#1)
 * [Playground Example - Box Rotating about its Local Axes](https://www.babylonjs-playground.com/#2JKA91#2)
 
-### Camera 
+## Camera 
 The light blue cylinder is an additional stationary object to show that the camera is moving.
 
 For those examples stating a dummy camera a black sphere is used to show the intended path of the camera in the Playground that follows it. The purple ray shows the direction of view of the camera and the tube an indication of the view covered by the camera.
 
-### Arc Rotate Camera
+## Arc Rotate Camera
 The center of transformation is placed at the target position of the arc rotation camera.  
 * [Playground Example - Rotating Dummy Camera](https://www.babylonjs-playground.com/#PP962K#1)
 * [Playground Example - Rotating Arc Camera](https://www.babylonjs-playground.com/#2JKA91#4)
@@ -40,20 +40,20 @@ Camera position moved relative to center of transformation just changes the dist
 * [Playground Example - Rotating Dummy Camera](https://www.babylonjs-playground.com/#PP962K#3)
 * [Playground Example - Rotating Arc Camera](https://www.babylonjs-playground.com/#2JKA91#6)
 
-### Universal Camera
+## Universal Camera
 The arrow keys will allow you to move camera position (reminder to click on canvas area before using keys).  
 * [Playground Example - Rotating Universal Camera](https://www.babylonjs-playground.com/#2JKA91#8)
 
 You can also have a universal camera rotating in orbit around a target and move it with keys.  
 * [Playground Example - Rotating Universal Camera](https://www.babylonjs-playground.com/#2JKA91#9)
 
-## Lights
+# Lights
 Those lights that have a position can use a TransformNode.
 
-### Point Light
+## Point Light
 * [Playground Example - Rotating Point Light](https://www.babylonjs-playground.com/#2JKA91#10)
 
-## Spot Light
+# Spot Light
 * [Playground Example - Rotating Spot Light](https://www.babylonjs-playground.com/#2JKA91#11)
 
 # As a Center of Translation or Position
@@ -81,7 +81,7 @@ Obviously scaling has no effect on lights or cameras. Scaling takes place relati
 
 # Further Reading
 
-## More Advanced - L3
+# More Advanced - L3
 
 [How To Rotate Around an Axis about a Point](/How_To/Pivot)
 
