@@ -6,7 +6,7 @@ A dynamic texture works by creating a canvas onto which you can draw using all t
 
 ![dynamic texture](/img/how_to/dyntext.png)
 
-# Creating and Applying a Dynamic Texture
+# Creating and Applying
 
 This is simply achieved using the `dynamicTexture` function with just three parameters,
 
@@ -45,7 +45,7 @@ Here are the parameters:
 * invertY: boolean, true by default in which case y is the distance from the top, when false, y is distance from the bottom and the letters reversed;
 * update: boolean, true by default, the dynamic texture will immediately be updated.
 
-* [Playground Example DrawText](https://www.babylonjs-playground.com/#5ZCGRM#2)
+* [Playground Example - Drawing text](https://www.babylonjs-playground.com/#5ZCGRM#2)
 
 # Canvas Methods
 
@@ -56,7 +56,7 @@ var ctx = myDynamicTexture.getContext();
 ```
 exposing all the possibilities of the HTML5 canvas element. 
 
-## Drawing
+## Drawing Curves
 As an example, drawing using a quadratic curve
 
 ```javascript
@@ -79,7 +79,7 @@ myDynamicTexture.update();
 
 **Note:** use `update(false)` if you do not want to use `invertY`.
 
-* [Playground Example Drawing](https://www.babylonjs-playground.com/#5ZCGRM#3)
+* [Playground Example - Drawing a curve](https://www.babylonjs-playground.com/#5ZCGRM#3)
 
 ## Images
 
@@ -105,13 +105,13 @@ ctx.drawImage(this, image start x, image start y, image width, image height, can
 myDynamicTexture.update();
 ```
 
-* [Playground Example Image](https://www.babylonjs-playground.com/#5ZCGRM#4)
+* [Playground Example - Adding an image](https://www.babylonjs-playground.com/#5ZCGRM#4)
 
 # Playground Combination
 
 This playground combines all the above techniques.
 
-* [Playground Example Dynamic Texture](https://www.babylonjs-playground.com/#5ZCGRM#1)
+* [Playground Example - All dynamic texture techniques](https://www.babylonjs-playground.com/#5ZCGRM#1)
 
 # Text and Area Matching 
 
@@ -208,10 +208,4 @@ The dynamic texture can be serialized with the scene using `SceneSerializer.Seri
 
 This playground demonstrates serializing a dynamic texture associated with a material on a mesh:
 
-* [Playground Example Dynamic Texture Serialized Mesh](https://playground.babylonjs.com/#FU0ES5)
-
-# Further Reading
-
-# Basic - L1
-[Materials 101](/babylon101/Materials)  
-[Materials Overview](/features/Materials)  
+* [Playground Example - Drawing text andd a curve Texture Serialized Mesh](https://playground.babylonjs.com/#FU0ES5)

@@ -72,7 +72,7 @@ So with the code above, you can use the first material on the top part of the sp
 
 # With Merged Meshes
 
-When you [merge meshes](divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
+When you [merge meshes](/divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 
 * [Playground Example - MultiMaterial with Merged Meshes using multiMultiMaterials](https://playground.babylonjs.com/#INZ0Z0#59)
 

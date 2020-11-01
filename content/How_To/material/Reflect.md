@@ -28,23 +28,23 @@ not be rendered should _backFaceCulling = true_. However we still need to use _r
 var box = BABYLON.MeshBuilder.CreateBox("Box", {}, scene);
 var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
 boxMaterial.backFaceCulling = true;
-boxMaterial.reflectionTexture = new BABYLON.CubeTexture("http://babylonjsguide.github.io/img/how_to/Materials/How_To/Materials/How_To/Materials/cubeSide", scene);
+boxMaterial.reflectionTexture = new BABYLON.CubeTexture("http://babylonjsguide.github.io/img/cubeSide", scene);
 boxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 boxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
 boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 box.material = boxMaterial;
 ```
 
-* [Playground Example of Different Faces](https://www.babylonjs-playground.com/#UU7RQ#2)
+* [Playground Example - Different reflections on each face](https://www.babylonjs-playground.com/#UU7RQ#2)
 
 From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
 
 ## Reflecting on Skybox and a shape
 Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
 
-* [Playground Example of Box and CUBIC_MODE](https://www.babylonjs-playground.com/#UU7RQ#3)
-* [Playground Example of Ground and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#5)
-* [Playground Example of Sphere and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#4)
+* [Playground Example - Box and CUBIC_MODE](https://www.babylonjs-playground.com/#UU7RQ#3)
+* [Playground Example - Ground and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#5)
+* [Playground Example - Sphere and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#4)
 
 ## Using local cubemap mode
 
@@ -78,7 +78,7 @@ with
 skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
 ```
 
-* [Playground Example of HDR Skybox](https://www.babylonjs-playground.com/#114YPX#5)
+* [Playground Example - HDR Skybox](https://www.babylonjs-playground.com/#114YPX#5)
 
 # EquiRectangularCubeTexture
 Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).
@@ -98,9 +98,9 @@ cubemapDesiredSize = 512; // The cubemap desired size (the more it increases the
 skyboxMaterial.reflectionTexture = new BABYLON.EquiRectangularCubeTexture("PATH TO EQUIRECTANGULAR IMAGE", scene, cubemapDesiredSize);
 ```
 
-* [Playground Example of an Equirectangular Skybox](https://www.babylonjs-playground.com/ts.html#6YN2X1)
-* [Playground Example of an Equirectangular image on a sphere](https://www.babylonjs-playground.com/ts.html#32H1D4)
-* [Playground Example of both combined](https://www.babylonjs-playground.com/ts.html#RY8LDL)
+* [Playground Example -  Equirectangular Skybox](https://www.babylonjs-playground.com/ts.html#6YN2X1)
+* [Playground Example - Equirectangular image on a sphere](https://www.babylonjs-playground.com/ts.html#32H1D4)
+* [Playground Example - Bth combined](https://www.babylonjs-playground.com/ts.html#RY8LDL)
 
 # Spherical Reflection Texture
 Not only can a cube texture can be applied to a sphere so can a plane single image.

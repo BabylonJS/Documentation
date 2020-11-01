@@ -4,9 +4,7 @@ title: How To Start with Physically Based Rendering
  
 # Introduction
 
-After following the [standard material tutorial](/babylon101/materials) and also excelling in [unleashing its power](https://www.eternalcoding.com/?p=303), it is a good time to go further and look at another emerging kind of materials called **PBR Materials** standing for **Physically Based Rendering Materials**.
-
-PBR rendering techniques aim to simulate **real life lighting**.
+The aim of Physically Based Rendering, PBR, is to to simulate **real life lighting**.
 
 PBR is a grouping of techniques; it does not force you to choose one in particular. Among others, we can cite some like:
 
@@ -14,9 +12,9 @@ PBR is a grouping of techniques; it does not force you to choose one in particul
 - [Ashkimin Shirley BRDF](http://www.cs.utah.edu/~shirley/papers/jgtbrdf.pdf)
 - [Ashkimin Shirley Microfacets](http://www.cs.utah.edu/~shirley/papers/facets.pdf).
 
-In Babylon.js, PBR is done thanks to PBRMaterial. This material contains all features required by modern physically based rendering. For beginners we also created two additional materials to simplify your first contact with PBR. If you want to directly dig into the richer version, please have a read at [Master the PBR](/how_to/physically_based_rendering_master) for more information on how to use the main material.
+In Babylon.js, PBR is done thanks to PBRMaterial. This material contains all features required by modern physically based rendering. On this page we look at two pre-set simplified versions that allow you to quickly get started with PBR.
 
-You can find a complete demo of the PBRMaterial [here](http://www.babylonjs.com/demos/pbrglossy/)
+You can find a demonstration of the effect of using the [PBRMaterial](http://www.babylonjs.com/demos/pbrglossy/) from the main Babylon.js website.
 
 ![pbrsample](/img/pbr.jpg)
 
@@ -55,7 +53,7 @@ pbr.metallic = 0;
 pbr.roughness = 1.0;
 ```
 
-You can see a [live version here](https://www.babylonjs-playground.com/#2FDQT5)
+* [Playground Example - Roughness using PBR](https://www.babylonjs-playground.com/#2FDQT5)
 
 With this specific configuration, you can see that there is no reflection at all (metallic set to 0) and no specular (roughness set to 1).
 
@@ -78,7 +76,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 
 This call will create all required data used by the materials to produce final output.
 
-You can see a [live version here](https://www.babylonjs-playground.com/#2FDQT5#11)
+* [Playground Example - Reflective metallic surface using PBR](https://www.babylonjs-playground.com/#2FDQT5#11)
 
 Perhaps a bit too reflective now, so let's add more roughness to give it a more golden look:
 
@@ -92,7 +90,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-You can see a [live version here](https://www.babylonjs-playground.com/#2FDQT5#12)
+* [Playground Example - Reflective surface with some roughness using PBR](https://www.babylonjs-playground.com/#2FDQT5#12)
 
 To get more precise over how metallic and roughness on your object, you can also specify the metallicRoughnessTexture:
 
@@ -107,7 +105,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 ```
 
-You can see a [live version here](https://www.babylonjs-playground.com/#2FDQT5#13)
+* [Playground Example - Reflective surface with metallic roughness texture](https://www.babylonjs-playground.com/#2FDQT5#13)
 
 # PBRSpecularGlossinessMaterial
 
@@ -132,7 +130,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-You can see a [live version here](https://www.babylonjs-playground.com/#Z1VL3V#5).
+* [Playground Example - Glossiness of surface with PBR](https://www.babylonjs-playground.com/#Z1VL3V#5).
 
 The specularGlossinessTexture can then (like the metallicRoughnessTexture texture) be used to provide more control over specular and glossiness:
 
@@ -147,7 +145,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 ```
 
-You can see a [live version here](https://www.babylonjs-playground.com/#Z1VL3V#4).
+* [Playground Example - Glossiness texture added in PBR](https://www.babylonjs-playground.com/#Z1VL3V#4).
 
 # Light setup
 
@@ -160,14 +158,5 @@ To even go further, the intensity you define on the lights follows physics notio
 - Point and Spot lights are defined in luminous intensity (candela, m/sr)
 - Directional and Hemispheric lights in illuminance (nit, cd/m2)
 
-You'll find more info about how dynamic lighting works in the [Master the PBR](/How_To/Physically_Based_Rendering_Master#light-setup), but you may want read how to setup a [HDR environment](/How_To/Use_HDR_Environment) first.
+You'll find more info about how dynamic lighting works in mastering PBR but first we look at using high dynamic range (HDR) for use with PBR
 
- Further Reading
-
-# Basic
-
-[Use a HDR environment](/How_To/Use_HDR_Environment)
-
-# Advanced
-
-[Master Physically Based Rendering](/How_To/Physically_Based_Rendering_Master)

@@ -1,8 +1,10 @@
-# Use a HDR environment (for PBR)
+---
+title: Use a HDR environment (for PBR)
+---
 
 # Introduction
 
-[As you may have seen before](/How_To/Physically_Based_Rendering), the highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
+The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
 To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/api/classes/babylon.scene#createdefaultenvironment):
 
@@ -44,7 +46,7 @@ var reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr",
 This method will involve a small delay in the loading of the texture, due to the prefiltering being achieved on-the-fly. Therefore it is preferable to use .env or .dds files for optimal performance.
 Please note that WebGL2 is required for prefiltering on-the-fly.
 
-As sometimes you might even want to fully filter in realtime (for animated reflections for instance) you might want to have a look at [the reflection probes tutorial](https://doc.babylonjs.com/how_to/how_to_use_reflection_probes).
+As sometimes you might even want to fully filter in realtime (for animated reflections for instance) you might want to have a look at [the reflection probes tutorial](divingDeeper/environment/reflectionProbes).
 
 # External tools
 

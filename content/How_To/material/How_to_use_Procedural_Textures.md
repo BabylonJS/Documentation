@@ -25,7 +25,7 @@ Procedural textures can be generated:
 
 - Every 1, 2, 3, or 4, or more frames to be able to create an animated texture (like fire)
 
-See more about 'refreshrate' in the Custom Procedural Textures section... far below.
+See more about 'refresh rate' in the Custom Procedural Textures section... far below.
 
 # Procedural Textures in Babylon.js
 **Babylon.js** offers you an easy out-of-the-box way to use this kind of texture. The engine itself provides you with standard default textures that you can use right now. It also gives you the ability to create custom procedural textures and package them in a simple way.
@@ -79,7 +79,7 @@ The NoiseProceduralTexture exposes the following properties:
 * persistence: Defines the level of persistence (0.8 by default)
 * animationSpeedFactor: Gets or sets animation speed factor (default is 1)
 
-You can experiment each property in this demo: https://www.babylonjs-playground.com/#K9GLE6#1
+* [Playground Example - Experiment with noise properties](https://www.babylonjs-playground.com/#K9GLE6#1)
 
 # Using Standard Procedural Textures
 Babylon.js also has a number of pre-built procedural textures that are gathered in the Procedural Texture library: https://github.com/BabylonJS/Babylon.js/tree/master/proceduralTexturesLibrary

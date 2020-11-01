@@ -122,7 +122,7 @@ For the back faces of the cube to be visible through the transparent areas of th
 # Texture Packer
 Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
 
-[More on creating a texture package](divingDeeper/materials/advanced/texturePackage)
+[More on creating a texture package](/divingDeeper/materials/advanced/texturePackage)
 
 # Back-Face Culling
 This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object, 
