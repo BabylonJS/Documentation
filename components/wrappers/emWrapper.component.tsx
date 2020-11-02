@@ -1,9 +1,6 @@
 import { FunctionComponent } from "react";
 import { ComponentProps } from "rehype-react";
 
-import Message from "react-bulma-components/src/components/message";
-import Tag from "react-bulma-components/src/components/tag";
-
 export interface IEMLinkProps extends ComponentProps {}
 
 export enum ColorType {
@@ -34,19 +31,21 @@ export const EMWrapper: FunctionComponent<IEMLinkProps> = ({ children }) => {
         switch (parsed.type) {
             case ElementType.MESSAGE:
                 return (
-                    <Message color={color}>
-                        <Message.Body>{parsed.content}</Message.Body>
-                    </Message>
+                    // <Message color={color}>
+                    //     <Message.Body>{parsed.content}</Message.Body>
+                    // </Message>
+                    <></>
                 );
             case ElementType.TAG:
                 const splitLocation = parsed.params !== undefined ? (parsed.params as number) : 1;
                 const splits = parsed.content.split(" ");
                 const firstPart = splits.splice(0, splitLocation);
                 return (
-                    <Tag.Group gapless>
-                        <Tag color="dark">{firstPart.join(" ")}</Tag>
-                        <Tag color={color}>{splits.join(" ")}</Tag>
-                    </Tag.Group>
+                    // <Tag.Group gapless>
+                    //     <Tag color="dark">{firstPart.join(" ")}</Tag>
+                    //     <Tag color={color}>{splits.join(" ")}</Tag>
+                    // </Tag.Group>
+                    <></>
                 );
         }
     }

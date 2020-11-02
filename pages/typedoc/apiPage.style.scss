@@ -1,6 +1,43 @@
 .api-container {
     header {
-        display: none !important;
+        margin: 8px;
+        .tsd-page-toolbar {
+            display: none !important;
+        }
+
+        .tsd-breadcrumb {
+            display: none !important;
+        }
+
+        .tsd-page-title {
+            padding: 0;
+        }
+    }
+
+    footer {
+        margin: 0 8px;
+        background-color: unset !important;
+    }
+    
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .row {
+        margin: unset !important;
+        flex: 1;
+    }
+
+    .col-content {
+        overflow: auto;
+        flex: 1;
+        height: 100%;
+    }
+    .container.container-main {
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        padding: 0 !important;
     }
 
     .tsd-navigation {
@@ -18,6 +55,7 @@
     .col-menu {
         display: flex;
         flex-direction: column;
+        position: unset;
     }
 
     @media (max-width: 640px) {
@@ -1952,6 +1990,7 @@
     }
     .tsd-page-title h1 {
         margin: 0;
+        padding: 8px;
     }
 
     .tsd-breadcrumb {

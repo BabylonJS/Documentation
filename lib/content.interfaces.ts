@@ -3,6 +3,9 @@ import { MarkdownMetadata } from "./interfaces";
 export interface IMenuItem {
     name: string;
     url: string;
+    filtered?: boolean;
+    childFoundWithFilter?: boolean;
+    // TODO add keywords here for a better filtering experience
     children?: IMenuItem[]
 }
 
