@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "bulma": "^0.9.1",
-    "next": "9.5.3",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "next": "9.5.5",
     "react": "16.13.1",
-    "react-bulma-components": "^3.4.0",
     "react-dom": "16.13.1",
     "rehype-parse": "^7.0.1"
   },

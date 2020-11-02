@@ -4,7 +4,11 @@ const withTM = require("next-transpile-modules")(["react-bulma-components"]);
 module.exports = withTM(
     withSass({
         sassLoaderOptions: {
-            includePaths: ["./styles"],
+            sassOptions: {
+                includePaths: ["./styles"],
+
+            }
+
         },
         // cssModules: true,
         // cssLoaderOptions: {
