@@ -1,10 +1,10 @@
 import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
-import { IDocumentationPageProps } from "../../components/DocumentPage";
 import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
 
 import matter from "gray-matter";
 import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
+import { IDocumentationPageProps } from "../content.interfaces";
 
 export const markdownDirectory = "content/";
 
