@@ -38,6 +38,12 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: "0 1",
             position: "relative",
         },
+        appBarToolbar: {
+            [theme.breakpoints.up("sm")]: {
+                backgroundImage: "url(/img/babylonidentity.svg)",
+                backgroundRepeat: "no-repeat",
+            },
+        },
         menuButton: {
             marginRight: theme.spacing(2),
             [theme.breakpoints.up("sm")]: {
@@ -199,15 +205,13 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 {!!next && <link rel="next" href={next.id.join("/")} />}
             </Head>
             <AppBar className={classes.appBar}>
-                <Toolbar>
+                <Toolbar className={classes.appBarToolbar}>
                     <Hidden smUp implementation="css">
                         <IconButton edge="start" onClick={handleDrawerToggle} color="inherit" aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
                     </Hidden>
-                    <Typography className={classes.title}>
-                        <img src="/img/babylonjs_identity_color.svg" alt="Babylon.js documentation page" width="112" height="28" />
-                    </Typography>
+                    <Typography className={classes.title}></Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -285,6 +289,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             }}
                         >
                             <div className={classes.drawerContainer}>
+                                <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
                                 <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
                             </div>
                         </Drawer>
