@@ -14,12 +14,12 @@ import "./documentationPage.style.scss";
 import { BucketContent } from "../components/bucketContent.component";
 import { IDocumentationPageProps, IExampleLink } from "../lib/content.interfaces";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
-import { PlaygroundMarkdownComponent } from "../components/markdownComponents/playground.component";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { SyntaxHighlighting } from "../components/markdownComponents/syntaxHighlight.component";
+import { NMEMarkdownComponent, PlaygroundMarkdownComponent } from "../components/markdownComponents/example.component";
 
-const components = { Playground: PlaygroundMarkdownComponent, pre: (props) => <div {...props} />, code: SyntaxHighlighting };
+const components = { Playground: PlaygroundMarkdownComponent, nme: NMEMarkdownComponent, pre: (props) => <div {...props} />, code: SyntaxHighlighting };
 
 export const DocumentationContext = createContext({
     exampleLinks: [],

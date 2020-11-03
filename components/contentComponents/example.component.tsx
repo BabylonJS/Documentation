@@ -35,7 +35,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             display: "flex",
             flexDirection: "column",
             padding: theme.spacing(2),
-            maxHeight: '100%'
+            maxHeight: "100%",
         },
         header: {
             backgroundColor: colorPalette.linkText,
@@ -46,6 +46,11 @@ const exampleStyles = makeStyles((theme: Theme) =>
             justifyContent: "space-between",
             "& > *": {
                 padding: theme.spacing(0.5),
+            },
+            " & span": {
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
             },
         },
         footer: {
@@ -66,9 +71,6 @@ const exampleStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-/**
- * Replaces <a> element, mainly for local linking and playground links
- */
 export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
     const { id, title, description, image, type } = example;
@@ -82,16 +84,16 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <IconButton onClick={onPlaygroundPressed} aria-label="Show playground" size="small" color="inherit">
-                    <Tooltip title={`Open playground ${title}`}>
+                <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
+                    <Tooltip title={`Open ${type} ${title}`}>
                         <LinkIcon></LinkIcon>
                     </Tooltip>
                 </IconButton>
-                {title}
+                <span>{title}</span>
                 <Link href={link}>
                     <a target="_blank">
-                        <IconButton aria-label="Open playground in a new tab" size="small" color="inherit">
-                            <Tooltip title={`Open playground ${title} in a new tab`}>
+                        <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
+                            <Tooltip title={`Open ${type} ${title} in a new tab`}>
                                 <ExternalLinkIcon></ExternalLinkIcon>
                             </Tooltip>
                         </IconButton>
