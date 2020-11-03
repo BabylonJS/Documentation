@@ -23,4 +23,4 @@ To assign a material to a mesh in the scene, you can drag'n'drop the material on
 # Demo
 Here is a live demo using the Materials Viewer tool:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/alCcn_lUjRc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/alCcn_lUjRc" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>

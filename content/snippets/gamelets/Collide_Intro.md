@@ -8,7 +8,7 @@ An example of colliding complex shapes is given below. It has been constructed u
 
 ![Complex Shape](/img/samples/collide1.jpg)
 
-* [Playground Example _ Complex Shapes in Collision](https://www.babylonjs-playground.com/#WLYB9)
+* [Playground Example \_ Complex Shapes in Collision](https://www.babylonjs-playground.com/#WLYB9)
 
 To begin with the frame rate will be taken as constant throughout the animation and speed for any shape will be in units per frame.
 

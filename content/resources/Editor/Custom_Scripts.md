@@ -21,7 +21,7 @@ To add a new reference to a script to the selected object, just click on **Add N
 
 Once you select another object in the scene, the tool will refresh and draw the available scripts for the new selected object.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6U87lDX8i3A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6U87lDX8i3A" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
 # Explaining the code
 

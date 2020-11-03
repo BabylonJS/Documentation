@@ -6,7 +6,7 @@ Watch the creators of Babylon.js in this entertaining deep dive into 3D game dev
 
 Instructors | [David Catuhe](http://twitter.com/deltakosh) - Microsoft Principal Program Manager; [David Rousset](http://twitter.com/davrous) - Microsoft Senior Program Manager
 
-<img src="http://az612410.vo.msecnd.net/wwwbabylonjs/doc/agendavideoscourse.jpg" alt="Agenda" style="width: 600px;"/>
+<img src="http://az612410.vo.msecnd.net/wwwbabylonjs/doc/agendavideoscourse.jpg" alt="Agenda"/>
 
 1. [3D on the Web: Understanding the Basics](//doc.babylonjs.com/page.php?p=24827)
 2. [WebGL Basics](//doc.babylonjs.com/page.php?p=24828)

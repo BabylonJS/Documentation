@@ -164,7 +164,7 @@ BabylonViewer.viewerManager.getViewerPromiseById('babylon-viewer').then(function
 });
 ```
 
-The `loadModel` function will return a Promise<ViewerModel> that is thenable when the model was fully loaded. Helpful when you want to tell the user the model loaded successfully :
+The `loadModel` function will return a `Promise<ViewerModel>` that is thenable when the model was fully loaded. Helpful when you want to tell the user the model loaded successfully :
 
 ```javascript
 viewer.loadModel({

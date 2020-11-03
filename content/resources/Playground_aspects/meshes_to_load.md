@@ -41,7 +41,7 @@ Filename | Size | Image | Playground
 aerobatic_plane.glb | 4.4 MB | ![plane](/img/resources/meshes/plane.png) | [Playground](https://www.babylonjs-playground.com/#5NIBE1#1)
 alien.glb | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | [Playground](https://www.babylonjs-playground.com/#8IMNBM#2)
 BabylonJS-logo/v1-2/Babylogo.babylon | 510 KB | ![Babylogo](/img/resources/meshes/Babylogo.jpg) | [Playground](https://www.babylonjs-playground.com/#TZTY3Y)
-BabylonJS-logo/v3/babylonJS_logo_solid_v3.babylon<br>BabylonJS-logo/v3/babylonJS_logo_v3.babylon | 59 KB<br>8 KB | ![babylonJS_logo_v3](/img/resources/meshes/babylonJS_logo_v3.jpg) | [Playground](https://www.babylonjs-playground.com/#Q9JFZ1)
+BabylonJS-logo/v3/babylonJS_logo_solid_v3.babylon<br/>BabylonJS-logo/v3/babylonJS_logo_v3.babylon | 59 KB<br/>8 KB | ![babylonJS_logo_v3](/img/resources/meshes/babylonJS_logo_v3.jpg) | [Playground](https://www.babylonjs-playground.com/#Q9JFZ1)
 Chair/Chair.obj | 1.09 MB | ![chair](/img/resources/meshes/chair.png) | [Playground](https://www.babylonjs-playground.com/#KJV35B#1)
 Channel9/Channel9.stl | 1.03 MB | ![channel9](/img/resources/meshes/channel9.png) | [Playground](https://www.babylonjs-playground.com/#AJJ8U5#2)
 clothFolds.glb | 2.21 MB | ![clothFolds](/img/resources/meshes/clothFolds.jpg) | [Playground](https://www.babylonjs-playground.com/#5NIBE1#2)
@@ -69,7 +69,7 @@ shark.glb | 14.7 MB | ![shark](/img/resources/meshes/shark.png) | [Playground](h
 Skull/skull.babylon | 3.94 MB | ![skull](/img/resources/meshes/skull.png) | [Playground](https://www.babylonjs-playground.com/#VV935G#3)
 solar_system.glb | 3.94 MB | ![solar system](/img/resources/meshes/solar_system.png) | [Playground](https://www.babylonjs-playground.com/#KILIHT)
 toast_acrobatics.glb | 7.45 MB | ![toast acrobatics](/img/resources/meshes/toast_acrobatics.png) | [Playground](https://www.babylonjs-playground.com/#KM2N07)
-TrailMeshSpell/spellDisk.glb<br>TrailMeshSpell/pinkEnergyBall.glb<br>TrailMeshSpell/greenEnergyBall.glb<br>TrailMeshSpell/yellowEnergyBall.glb | 2.37 MB<br>2.41 MB<br>4.45 MB<br>2.22 MB | ![TrailMeshSpell](/img/resources/meshes/TrailMeshSpell.jpg) | [Playground](https://www.babylonjs-playground.com/#AAP917#1)
+TrailMeshSpell/spellDisk.glb<br/>TrailMeshSpell/pinkEnergyBall.glb<br/>TrailMeshSpell/greenEnergyBall.glb<br/>TrailMeshSpell/yellowEnergyBall.glb | 2.37 MB<br/>2.41 MB<br/>4.45 MB<br/>2.22 MB | ![TrailMeshSpell](/img/resources/meshes/TrailMeshSpell.jpg) | [Playground](https://www.babylonjs-playground.com/#AAP917#1)
 vintageFan_animated.gltf | 3.43 MB | ![vintageFan_animated](/img/resources/meshes/vintageFan_animated.jpg) | [Playground](https://www.babylonjs-playground.com/#YBEKDT)
 ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | [Playground](https://www.babylonjs-playground.com/#058SEW#4)
 

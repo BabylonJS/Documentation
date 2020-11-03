@@ -60,4 +60,4 @@ The tool supports drag'n'dropping textures on meshes. That means, once you have 
 # Demo
 Here is a live demo using the Textures Viewer tool:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3dB0GlLAJko" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3dB0GlLAJko" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>

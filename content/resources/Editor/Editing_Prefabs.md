@@ -29,7 +29,7 @@ From now, you are editing the source prefab object. Once you remove a node from 
 * 2 - Modify a prefab object in the scene
 * 3 - Modify the source prefab object
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tVMI2cUC2lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tVMI2cUC2lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 # Future
 This tool is the first version of the prefab editor and some features are incoming:

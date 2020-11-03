@@ -73,8 +73,8 @@ Additional properties are available
 
 | Property                                                 | Type      | Default | Comments                                                                                                         |
 | -------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
-| thumbImage<br>horizontalThumbImage<br>verticalThumbImage | GUI Image | none    | Image used for the thumb; required for image scroll bars                                                         |
-| barImage<br>horizontalBarImage<br>verticalBarImage       | GUI Image | none    | Image for the scroll bars                                                                                        |
+| thumbImage<br/>horizontalThumbImage<br/>verticalThumbImage | GUI Image | none    | Image used for the thumb; required for image scroll bars                                                         |
+| barImage<br/>horizontalBarImage<br/>verticalBarImage       | GUI Image | none    | Image for the scroll bars                                                                                        |
 | thumbHeight                                              | number    | 1       | Proportion of thumb compared to bar height (0 to 1)                                                              |
 | barImageHeight                                           | number    | 1       | Proportion of barImage compared to bar height (0 to 1)                                                           |
 | scrollBackground                                         | string    | grey    | background color of scroll bars excluding the bottom right square; useful behind a thin or transparent bar image |

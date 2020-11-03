@@ -32,4 +32,4 @@ From the given documentation (//doc.babylonjs.com/how_to/how_to_use_instances), 
 In conclusion, that means each mesh of a prefab will be rendered only one time but at several places on each render.
 
 # Demo video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cIT0NK0amBA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cIT0NK0amBA" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>

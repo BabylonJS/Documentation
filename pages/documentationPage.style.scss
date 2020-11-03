@@ -22,6 +22,7 @@
 
 .documentation-container {
     display: flex;
+    flex: 1;
     flex-direction: column-reverse;
     overflow: auto;
     @media (min-width: 960px) {

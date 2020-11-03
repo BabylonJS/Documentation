@@ -18,22 +18,22 @@ export interface ITemplateConfiguration {
     params?: { [key: string]: string | number | boolean | object };
     events?: {
         // pointer events
-        pointerdown?: boolean | { [id: string]: boolean; };
-        pointerup?: boolean | { [id: string]: boolean; };
-        pointermove?: boolean | { [id: string]: boolean; };
-        pointerover?: boolean | { [id: string]: boolean; };
-        pointerout?: boolean | { [id: string]: boolean; };
-        pointerenter?: boolean | { [id: string]: boolean; };
-        pointerleave?: boolean | { [id: string]: boolean; };
-        pointercancel?: boolean | { [id: string]: boolean; };
+        pointerdown?: boolean | { [id: string]: boolean },
+        pointerup?: boolean | { [id: string]: boolean },
+        pointermove?: boolean | { [id: string]: boolean },
+        pointerover?: boolean | { [id: string]: boolean },
+        pointerout?: boolean | { [id: string]: boolean },
+        pointerenter?: boolean | { [id: string]: boolean },
+        pointerleave?: boolean | { [id: string]: boolean },
+        pointercancel?: boolean | { [id: string]: boolean },
         //click, just in case
-        click?: boolean | { [id: string]: boolean; };
+        click?: boolean | { [id: string]: boolean },
         // drag and drop
-        dragstart?: boolean | { [id: string]: boolean; };
-        drop?: boolean | { [id: string]: boolean; };
+        dragstart?: boolean | { [id: string]: boolean },
+        drop?: boolean | { [id: string]: boolean },
 
-        [key: string]: boolean | { [id: string]: boolean; } | undefined; // allow injecting further events
-    }
+        [key: string]: boolean | { [id: string]: boolean } | undefined, // allow injecting further events
+    };
 }
 ```
 
@@ -45,7 +45,7 @@ The location parameter define a URL where the HTML can be found, or an ID of a s
 
 ```html
 <script id="loading-screen" type="text/x-babylon-viewer-template">
-  <img class="loading-image" src="{{loadingImage}}">
+    <img class="loading-image" src="{{loadingImage}}">
 </script>
 ```
 
@@ -106,7 +106,7 @@ is equal to this:
 
 ## Simple walkthrough
 
-The templating engine will load all defined templates in the configuration and parse them. As part of the parsing process, it will look for tags that are defined in the template configuration and will inject them in the right place. The template that will be injected to the main component (the <babylon> HTML tag per default) is always called 'main'.
+The templating engine will load all defined templates in the configuration and parse them. As part of the parsing process, it will look for tags that are defined in the template configuration and will inject them in the right place. The template that will be injected to the main component (the `<babylon>` HTML tag per default) is always called 'main'.
 
 For example, if the templating configuration looks like this:
 
@@ -127,7 +127,7 @@ For example, if the templating configuration looks like this:
     }
 ```
 
-the final <babylon> tag will look like this:
+the final `<babylon>` tag will look like this:
 
 ```html
 <babylon .....>
@@ -135,19 +135,19 @@ the final <babylon> tag will look like this:
         <canvas class="babylonjs-canvas"></canvas>
     </viewer>
     <loading-screen>
-        <img class="loading-image" src="data:image/png;base64,....">
+        <img class="loading-image" src="data:image/png;base64,...." />
     </loading-screen>
 </babylon>
 ```
 
-*Note that the html tag names are in kebab-case. The configuration (when in JSON format) uses camelCase*.
+_Note that the html tag names are in kebab-case. The configuration (when in JSON format) uses camelCase_.
 
 ## Handlebasrs expressions
 
 Going back to the configuration from the last section, you can see that the HTML template of the loading screen is:
 
 ```html
-<img class="loading-image" src="{{loadingImage}}">
+<img class="loading-image" src="{{loadingImage}}" />
 ```
 
 Anything inside a `{{` and `}}` is considered to be a handlebars expression. This parameter can be defiend in the configuration file, as also seen in the last section:
@@ -168,7 +168,7 @@ Using this method you can easily achieve internationalization, injecting the par
 
 ## Event binding
 
-Any template can have any native JavaScript event registered to it or to one of its children. The callback will  be bound to the selected element, and will trigger a callback in the template, which can be used when registering the onEventTriggered observer of the template. But first, let's see how to simply bind events:
+Any template can have any native JavaScript event registered to it or to one of its children. The callback will be bound to the selected element, and will trigger a callback in the template, which can be used when registering the onEventTriggered observer of the template. But first, let's see how to simply bind events:
 
 Let'S take a look at the following configuration (taken from the default configuration with a bit of changes):
 
@@ -187,7 +187,7 @@ This events configuration will register two events:
 1. pointerdown event that will be bound to the inner `#fullscreen-button` div
 1. drop event that will be bound to the navbar element itself.
 
-*If you are wondering why the event definition ({ 'fullscreen-button': true, 'some-other-id': true }) is a map and not an array of IDs - the template can also be configured using HTML, and HTML DOM elements don't support Arrays. This way the HTML can override the event by setting it to "false".*
+_If you are wondering why the event definition ({ 'fullscreen-button': true, 'some-other-id': true }) is a map and not an array of IDs - the template can also be configured using HTML, and HTML DOM elements don't support Arrays. This way the HTML can override the event by setting it to "false"._
 
 The event callback will deliver the following object:
 
@@ -204,24 +204,24 @@ To register for event listening, load the template using the template manager an
 
 ```javascript
 // viewer is a viewer instance. See Advanced usage (//doc.babylonjs.com/extensions/Advanced_usage) for further details on how to get it.
-let navbar = viewer.templateManager.getTemplate('navBar');
+let navbar = viewer.templateManager.getTemplate("navBar");
 // let's be safe!
 if (!navbar) return;
 
 // register a new observer
 navbar.onEventTriggered.add((data) => {
     switch (data.event.type) {
-        case 'pointerdown':
+        case "pointerdown":
             switch (data.selector) {
-                case '#fullscreen-button':
+                case "#fullscreen-button":
                     // let's go full screen!!
                     break;
-                case '#some-other-id':
+                case "#some-other-id":
                     // just do something else please
                     break;
             }
             break;
-        case 'drop':
+        case "drop":
             // What shall we do with the dropped data?
             break;
     }
@@ -239,7 +239,7 @@ The template manager is a public member of the viewer and can be used to retriev
 let viewer = getViewer();
 
 // We have previously defined a "canvas" element in the configuration. We can now retrieve it!
-let canvasContainer = viewer.templateManager.getTemplate('canvasContainer');
+let canvasContainer = viewer.templateManager.getTemplate("canvasContainer");
 ```
 
 ## The template object
@@ -272,20 +272,20 @@ If calling those functions without any parameters, the `display`of this template
 To define your own show or hide functions, simply provide the visibilityFuntion as the first parameter. The following is a real example from the default viewer:
 
 ```javascript
-template.hide((template => {
+template.hide((template) => {
     // set the opacity to '0'. Opacity transition is set using CSS.
     template.parent.style.opacity = "0";
     // define a function for when the transition has ended:
     let onTransitionEnd = () => {
         template.parent.removeEventListener("transitionend", onTransitionEnd);
         // set display none when opacity is '0'
-        template.parent.style.display = 'none';
-    }
+        template.parent.style.display = "none";
+    };
     // add the transitionend event listener
     template.parent.addEventListener("transitionend", onTransitionEnd);
     // return immediately, don't wait for the transition to end
     return Promise.resolve(template);
-}));
+});
 ```
 
 # Templates of the default viewer
@@ -294,14 +294,14 @@ The default viewer comes with predefined templates that can be simply changed if
 
 The list of templates that are delivered:
 
-* main - the main template (must always be present)
-* viewer - containing the canvas
-* loading screen - a simple loading screen template
-* nav-bar - the bottom navigation bar
-* overlay - a container for overlays, such as error or help
-* error - an error screen
-* help - a help screen
-* share - a share screen
+-   main - the main template (must always be present)
+-   viewer - containing the canvas
+-   loading screen - a simple loading screen template
+-   nav-bar - the bottom navigation bar
+-   overlay - a container for overlays, such as error or help
+-   error - an error screen
+-   help - a help screen
+-   share - a share screen
 
 All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
 
@@ -387,9 +387,9 @@ Look at the code or contact us, we will be more than happy to help!
 
 # Further Reading
 
-* [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
-* [Configuring the viewer](/extensions/Configuring_the_viewer)
-* [The templating system](/extensions/The_templating_system)
-* [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
-* [Advanced usage](/extensions/Advanced_usage)
-* [Babylon.js viewer examples](/extensions/Viewer_examples)
+-   [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
+-   [Configuring the viewer](/extensions/Configuring_the_viewer)
+-   [The templating system](/extensions/The_templating_system)
+-   [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
+-   [Advanced usage](/extensions/Advanced_usage)
+-   [Babylon.js viewer examples](/extensions/Viewer_examples)
