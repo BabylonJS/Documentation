@@ -1298,7 +1298,7 @@ scene.debugLayer.select(nodeMaterial);
 
 When selected in the Inspector, you can find an edit button in the Node Material property pane.
 
-You can also use a standalone version of the editor here: <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/> 
+You can also use a standalone version of the editor here: <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>
 
 ### Recreating the StandardMaterial
 
@@ -1389,13 +1389,13 @@ You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Dis
 You can use those playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
 -   Full use of all PBR blocks:
--   PG: <Playground id="#D8AK3Z#16" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg"/> 
+-   PG: <Playground id="#D8AK3Z#16" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg"/>
 -   Material: <nme id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.jpg"/>
 -   PBR material with sheen only:
     -   PG: <Playground id="#MUX769#4" title="PBR Blocks Sheen Only Playground" description="Playground of PBR blocks in NME using sheen only." image="/img/playgroundsAndNMEs/PGPBRSheenNME.jpg"/>
     -   Material: <nme id="#V3R0KJ" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using sheen only." image="/img/playgroundsAndNMEs/NMEPBRSheenNME.jpg"/>
 -   PBR material with clear coat only:
-    -   PG: <Playground id="#0XSPF6#6" title="PBR Blocks Clear Coat Only NME" description="Playground of PBR blocks in NME using clear coat only." image="/img/playgroundsAndNMEs/PGPBRclearCoatNME.jpg"/> 
+    -   PG: <Playground id="#0XSPF6#6" title="PBR Blocks Clear Coat Only NME" description="Playground of PBR blocks in NME using clear coat only." image="/img/playgroundsAndNMEs/PGPBRclearCoatNME.jpg"/>
     -   Material: <nme id="#C3NEY1#4" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using clear coat only." image="/img/playgroundsAndNMEs/NMEPBRclearCoatNME.jpg"/>
 -   PBR material with sub surface only:
     -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.jpg"/>
@@ -1445,7 +1445,7 @@ const myPostProcess = new BABYLON.PostProcess(...);
 nodeMaterial.createEffectForPostProcess(myPostProcess);
 ```
 
-PG: <Playground id="#WB27SW#1" title="NME Post Process Playground Example" description="Playground example of using the Node Material Editor to create a Post Process effect." image="/img/playgroundsAndNMEs/PGNMEPostProcess.jpg"/> 
+PG: <Playground id="#WB27SW#1" title="NME Post Process Playground Example" description="Playground example of using the Node Material Editor to create a Post Process effect." image="/img/playgroundsAndNMEs/PGNMEPostProcess.jpg"/>
 
 As for regular node materials, you can access the blocks programmatically and change their values:
 
@@ -1483,7 +1483,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 });
 ```
 
-Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg"/> 
+Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg"/>
 
 You can check out this video for more information:
 <Youtube id="qqMuuSM7GvI"/>
@@ -1513,9 +1513,9 @@ When you have created your particle shader in the NME, you can link the material
 nodeMaterial.createEffectForParticles(particleSystem);
 ```
 
-PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg"/> 
+PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg"/>
 
-The full fragment shader used by default by the particle system can be recreated in the NME: <nme id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/> 
+The full fragment shader used by default by the particle system can be recreated in the NME: <nme id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/>
 
 As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: <nme id="#X3PJMQ#2" title="NME Full Default Fragment Shader GPU Version" description="Node Material Editor setup of the default fragment shader for particle systems on the GPU." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShaderGPU.jpg"/>
 
@@ -1535,7 +1535,7 @@ nodeMaterial.loadAsync("file-url.json").then(() => {
 
 When using the <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
 
-Example: <nme id="2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.jpg"/> 
+Example: <nme id="#2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.jpg"/>
 
 ## Loading from a snippet (unique URL)
 
@@ -1571,7 +1571,6 @@ And then from there you could have used the Inspector to edit it (The inspector 
 
 Here are some node material examples that you can use "as is" or extend with the NME:
 
--   <nme id="I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg"/>
-
--   <nme id="YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
--   <nme id="D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
+-   <nme id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg"/>
+-   <nme id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
+-   <nme id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>

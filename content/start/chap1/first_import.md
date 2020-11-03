@@ -1,9 +1,9 @@
 ---
 title: Getting Started - Chapter 1 - Working with Models
-image: 
+image:
 description: Learn to load your first model into a Babylon.js scene.
 keywords: welcome, babylon.js, getting started, start, chapter 1, first model, import
-further-reading: 
+further-reading:
 video-overview:
 video-content:
 ---
@@ -13,7 +13,8 @@ video-content:
 The playgrounds on this page contain, for example, houses which are be positioned and rotated. Once we have introduced you to the basics of importing and putting your project on a web page we will give you details on how to do this with Babylon.js code.
 
 ## Importing a Scene or Model
-When you put a model into a scene you are, in fact, loading it into a browser. As you will already know when you load anything into a website it is asynchronous. Before you can do anything with your models you need to know they have loaded. You can do this using the *ImportMeshAsync* method of the *SceneLoader*, which has the form
+
+When you put a model into a scene you are, in fact, loading it into a browser. As you will already know when you load anything into a website it is asynchronous. Before you can do anything with your models you need to know they have loaded. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, which has the form
 
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync(model name), folder path, file name, scene);
@@ -27,38 +28,39 @@ BABYLON.SceneLoader.ImportMeshAsync("model1", "/relative path/", "myFile"); //Na
 BABYLON.SceneLoader.ImportMeshAsync(["model1", "model2"], "/relative path/", "myFile"); //Array of model names
 ```
 
-All of the above will only load the models and you will not be able to manipulate them in any way. You have set up a Promise object but not given any way to act after the Promise is fulfilled and it provides a result. Examples of this are in the following two playground which **only** import the named models. 
+All of the above will only load the models and you will not be able to manipulate them in any way. You have set up a Promise object but not given any way to act after the Promise is fulfilled and it provides a result. Examples of this are in the following two playground which **only** import the named models.
 
-_(pg | Loading Your First Model | Load a model into a scene. | YNEAUL#11 | gettingStartedFirstModel.jpg)_
+<Playground id="#YNEAUL#11" title="Loading Your First Model" description="Load a model into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModel.jpg"/>
 
-_(pg | Loading Multiple Models at Once | Load multiple models into a scene. | YNEAUL#12 | gettingStartedFirstModelwGrass.jpg)_
+<Playground id="#YNEAUL#12" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.jpg"/>
 
-To then act on the result we follow the Promise with the *then* method to call a function with the *result* of the *Promise*. The *result* is an object containing, among others, the property *meshes* which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
+To then act on the result we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among others, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
 
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((result) => {
     result.meshes[1].position.x = 20;
-    const myMesh_1 = scene.getMeshByName("myMesh_1")
+    const myMesh_1 = scene.getMeshByName("myMesh_1");
     myMesh1.rotation.y = Math.PI / 2;
-})
+});
 ```
 
 This playground imports all the models and their positions are changed.
 
-_(pg | Modifying Models After Load | Load a model into a scene and modify their position after loading completes. | YNEAUL#13 | gettingStartedFirstModelLoadSuccess.jpg)_
-
+<Playground id="#YNEAUL#13" title="Modifying Models After Load" description="Load a model into a scene and modify their position after loading completes." image="/img/playgroundsAndNMEs/gettingStartedFirstModelLoadSuccess.jpg"/>
 
 ## Moving On
+
 Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
 
 ## Warning
-An obvious statement - different file types export models differently. 
 
-A less obvious statement - different file types may be changed when importing into Babylon.js. 
+An obvious statement - different file types export models differently.
+
+A less obvious statement - different file types may be changed when importing into Babylon.js.
 
 You need to be aware of how the type you are using affects the outcome. It is not appropriate at this stage to go into detail but the following examples indicate why this is important.
 
-1. Some software saves all meshes with a rotationQuaternion set and you cannot then use the *rotation* method unless you first add
+1. Some software saves all meshes with a rotationQuaternion set and you cannot then use the _rotation_ method unless you first add
 
 ```javascript
 myMesh.rotationQuaternion = null; //Any version of Babylon.js
@@ -72,6 +74,7 @@ myMesh.rotation = BABYLON.Vector3(); //babylon.js versions > 4.00
 
 **.babylon**
 A model is stored as one mesh, i.e. each house body and roof forms one house.
+
 ```
 detached_house
 ground
@@ -80,13 +83,14 @@ semi_house
 
 **.glb**
 A \_root\_ node is added to hold all the models and model parts are stored as sub-meshes.
+
 ```
-_root_ 
+_root_
     detached_house
         detached_house primitive0
         detached_house primitive1
     ground
     semi_house
         semi_house primitive0
-        semi_house primitive1    
+        semi_house primitive1
 ```
