@@ -1,17 +1,27 @@
+---
+title: Image Filter Control
+image: /img/pageImages/imageFilterControl.jpg
+description: The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
+keywords: web controls, hardware accelerated, 2D, filter, images
+further-reading:
+video-overview: 
+video-content:
+---
+
 # Image Filter Control
 
-The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages.
+The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
 
-# Introduction
+## Introduction
 Filtering images to apply effect might be tedious and slow on the CPU. The best place to do so (for a wide variety of effects) is on the GPU. But setting up an entire WebGL pipeline simply to process images might be tricky even more if you wish to benefit from WebGL 2 to 1 fallback and workaround famous platform issues.
 
 To greatly simplify this task we introduced the `ImageFilter` Control.
 
 ![ImageFilter](/img/features/controls/imageFilter.png)
 
-# How to use
+## How to use
 
-## Installation
+### Installation
 To begin with the image filter control, you first need to install the controls npm package.
 
 ```
@@ -24,7 +34,7 @@ To reduce the size of your web page, the controls library is based on the es6 ve
 npm install @babylonjs/core
 ```
 
-## Instantiation
+### Instantiation
 Once done, you can now import the control in your code:
 
 ```
@@ -226,14 +236,10 @@ engine.runRenderLoop(() => {
 
 This requires to use the render function instead of the filter one to enhance your experience performances.
 
-# Full Code Sample
+## Full Code Sample
 
 You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/imageFilter/index.ts) if you want to see it in action and better see how some of the functionnalities could be used.
 
-# Live Demo
+## Live Demo
 
 Please, have a look at the [Live Image Filter Demo](https://controls.babylonjs.com/imageFilter) to better appreciate how it works.
-
-# Further reading
-
-[Babylon.js Controls](/features/controls)

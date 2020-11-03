@@ -1,17 +1,27 @@
+---
+title: Resizer Control
+image: /img/pageImages/resizerControl.jpg
+description: The Babylon.js Resizer Control is a web control built on top of Babylon.js in order to accelerate the resizing of pictures in web pages with blazing fast speed.
+keywords: web controls, hardware accelerated, 2D, resize, scale, images
+further-reading:
+video-overview: 
+video-content:
+---
+
 # Resizer Control
 
-The Babylon.js Resizer Control is a web control built on top of Babylon.js in order to accelerate the resizing of pictures in web pages.
+The Babylon.js Resizer Control is a web control built on top of Babylon.js in order to accelerate the resizing of pictures in web pages with blazing fast speed.
 
-# Introduction
+## Introduction
 It regularly happens on the web that one needs to resize a picture on demand. It is easy enough to do with static pictures and css, but what about capturing a frame from a video or a snapshot from a canvas ?
 
 Also this component can come in as a pair with the [Timeline](./timeline) and helps resizing thumbnails before uploading them to the GPU without relying on a separate canvas element and thus preventing the extra copies required.
 
 ![Resizer](/img/features/controls/resizer.png)
 
-# How to use
+## How to use
 
-## Installation
+### Installation
 To begin with the timeline, you first need to install the controls npm package.
 
 ```
@@ -31,7 +41,7 @@ npm install @babylonjs/controls@preview
 npm install @babylonjs/core@preview
 ```
 
-## Instantiation
+### Instantiation
 Once done, you can now import the resizer control in your code:
 
 ```
@@ -100,14 +110,10 @@ That is it, both controls are linked together making an efficient use of the GPU
 
 This is actually the technique we are relying on in the demo. The source can be seen on [Github](https://github.com/BabylonJS/Controls/blob/master/www/timeline/index.ts)
 
-# Full Code Sample
+## Full Code Sample
 
 You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/resizer/index.ts) if you want to see it in action and better see how some of the functionnalities could be used.
 
-# Live Demo
+## Live Demo
 
 Please, have a look at the [Live Resizer Demo](https://controls.babylonjs.com/resizer) to better appreciate how it works.
-
-# Further reading
-
-[Babylon.js Controls](/features/controls)

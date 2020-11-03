@@ -1,4 +1,16 @@
+---
+title: Azure Media Player 360 Video Plugin
+image: /img/pageImages/AMP360Video.jpg
+description: The Azure Media Player 360 Video Plugin is a handy 360 video plugin for easy integration into your Babylon.js 360 Web Apps.
+keywords: AMP, Azure Media Player, Azure 360 Video, 360, 360 Video, plugin
+further-reading:
+video-overview: 
+video-content:
+---
+
 # Azure Media Player 360 Video Plugin
+
+The Azure Media Player 360 Video Plugin is a handy 360 video plugin for easy integration into your Babylon.js 360 Web Apps.
 
 # Introduction 
 The [Azure media player](http://amp.azure.net/libs/amp/latest/docs/index.html) 360 Video is a plugin for AMP (aka [Azure media player](http://amp.azure.net/libs/amp/latest/docs/index.html)) using Babylon.js in order to facilitate the integration of 360 videos in your Web App.
@@ -7,7 +19,7 @@ The plugin natively supports VR headsets (Windows Mixed Reality, etc.).
 
 [Online Demo of the plugin](http://www.babylonjs.com/Demos/Amp360Video/)
 
-# How to Run Locally
+## How to Run Locally
 First, clone the Babylon.js extensions repository:
 ```
 git clone https://github.com/BabylonJS/Extensions.git
@@ -23,14 +35,14 @@ npm start
 
 The hosting web page will automatically open (using webpack-dev-server).
 
-# How it works
+## How it works
 The 360 video is a [videojs](https://docs.videojs.com/tutorial-plugins.html) plugin compatible with from AMP version 2.1.7 to the latest (2.2.3 at time of writing).
 
 The plugin depends on Babylon.js in order to enable 3D functionalities in AMP.
 
 For more information about AMP, you can access their [documentation](http://amp.azure.net/libs/amp/latest/docs/index.html).
 
-# How use in your web site
+## How use in your web site
 After deploying the bundled javascript file [`dist/amp-360video.js`](https://raw.githubusercontent.com/BabylonJS/Extensions/master/Amp360Video/dist/amp-360video.js) from the dist directory to your WebSite you can follow the steps below.
 
 > Note: if you were using the plugin before, you might have needed to reference Babylon.js in your site. We have now released a bundle ensuring the smallest delivery possible so the reference to Babylon.js is not required anymore.
