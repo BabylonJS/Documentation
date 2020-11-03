@@ -10,7 +10,7 @@ import slug from "remark-slug";
 import remark2rehype from "remark-rehype";
 import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
-import toc from "remark-toc";
+import toc from "mdast-util-toc";
 import parse from "rehype-parse";
 import html from "rehype-stringify";
 
@@ -41,10 +41,10 @@ export const testPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
 export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
     const visitor: visit.Visitor<Node> = (node /*, index, parent*/) => {
         var props = node.properties as { [key: string]: any };
-        if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== '.') {
+        if (node.tagName === "a" && props.href && !props.href.startsWith("http") && props.href.indexOf("/") !== -1 && props.href[0] !== ".") {
             props.href = `/typedoc/${props.href}`;
         }
-        if(node.tagName === "input") {
+        if (node.tagName === "input") {
             props.readonly = true;
         }
         return;
@@ -55,35 +55,39 @@ export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options
 };
 
 export interface IParsedMDObject {
-    result: ReactFragment;
+    reactFragment: ReactFragment;
+    TOCResult: toc.TOCResult;
 }
 
 export const parseMDFile = (fileContent: string): IParsedMDObject => {
-    var processor = unified()
+    const processor = unified()
         .use(markdown)
         .use(lint)
         .use(lintFirstLine, 2)
         .use(slug)
-        .use(toc)
+        // .use(toc)
         .use(remark2rehype)
         .use(highlight)
-        .use(testPlugin)
+        // .use(testPlugin)
         .use(rehype2react, {
             createElement: createElement,
             components: {
                 a: AnchorWrapper,
                 em: EMWrapper,
             },
-        }); // TODO - check how can we get react elements easily
+        });
 
-    // prerendered so we can use sync
-    processor.process(fileContent).then(
-        (result) => {},
-        (error) => {
-            console.log(error);
-        },
-    );
-    return processor.processSync(`## toc\n${fileContent}`) as any;
+        // TOC parsing
+    const tocProcessor = unified()
+        .use(markdown)
+        .use(slug)
+        // .use(toc)
+        .use(remark2rehype);
+
+    const results = toc(tocProcessor.parse(fileContent));
+
+    // parse again to get TOC
+    return { reactFragment: processor.processSync(fileContent) as ReactFragment, TOCResult: results };
 };
 
 export const htmlToJson = (fileContent: string) => {

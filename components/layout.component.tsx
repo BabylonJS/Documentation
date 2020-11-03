@@ -1,7 +1,4 @@
 import Head from "next/head";
-// import styles from "./layout.module.css";
-
-// import Link from "next/link";
 import { FunctionComponent, PropsWithChildren, useState } from "react";
 
 export const defaultSiteTitle = "Documentation page";
@@ -14,7 +11,7 @@ import Link from "next/link";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
 import { SideMenu } from "./sideMenu.component";
 import { AppBar, createStyles, Drawer, fade, Hidden, IconButton, InputBase, makeStyles, Theme, ThemeProvider, Toolbar, Tooltip, Typography } from "@material-ui/core";
-import { theme } from "../styles/theme";
+import { colorPalette, theme } from "../styles/theme";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
@@ -34,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
-            background: "#201936 0% 0% no-repeat padding-box",
+            background: `${colorPalette.header} 0% 0% no-repeat padding-box`,
             flex: "0 1",
             position: "relative",
         },
