@@ -7,6 +7,7 @@ import { createStyles, IconButton, makeStyles, TextField, Theme } from "@materia
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FilterIcon from "@material-ui/icons/FilterList";
+import { colorPalette } from "../styles/theme";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
@@ -81,7 +82,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     )}
                     <Link href={item.url}>
                         <a>
-                            <span style={{ color: isSelected ? "#9379E6" : "#252C26" }}>{item.name}</span>
+                            <span style={{ color: isSelected ? colorPalette.linkText : "#252C26" }}>{item.name}</span>
                         </a>
                     </Link>
                 </div>

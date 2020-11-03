@@ -1,15 +1,14 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
-import { theme } from "../styles/theme";
+import { colorPalette } from "../styles/theme";
 
 export default class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
                 <Head>
-                    {/* PWA primary color */}
-                    <meta name="theme-color" content="#201936" />
+                    <meta name="theme-color" content={colorPalette.header} />
                     <link rel="icon" href="/favicon.ico" />
                     <link rel="stylesheet" href="//use.typekit.net/cta4xsb.css" />
                     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
