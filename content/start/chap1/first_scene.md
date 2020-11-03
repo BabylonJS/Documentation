@@ -54,7 +54,7 @@ const createScene =  () => {
 
 Since at this point there is only one scene you may notice that this parameter can be dropped from the camera, light and box as the default is for them to be placed in the current scene.
 
-_(pg | Getting Started First Scene Playground | Getting Started First Scene Playground. | KBS9I5 | gettingStartedFirstScene.jpg)_ 
+<Playground id="#KBS9I5" title="Getting Started First Scene Playground" description="Getting Started First Scene Playground." image="/img/playgroundsAndNMEs/gettingStartedFirstScene.jpg"/>
 
 ![box](/img/getstarted/house0.png)
 
