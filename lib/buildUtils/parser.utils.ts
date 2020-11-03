@@ -87,7 +87,7 @@ export const parseMDFile = (fileContent: string): IParsedMDObject => {
     const results = toc(tocProcessor.parse(fileContent));
 
     // parse again to get TOC
-    return { reactFragment: processor.processSync(fileContent) as ReactFragment, TOCResult: results };
+    return { reactFragment: processor.processSync(fileContent).result as ReactFragment, TOCResult: results };
 };
 
 export const htmlToJson = (fileContent: string) => {
