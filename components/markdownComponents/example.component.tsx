@@ -52,14 +52,14 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
         <DocumentationContext.Consumer>
             {(context) => (
                 <Tooltip title={`Open ${props.type} ${props.title}`}>
-                    <div className={classes.linkContainer} onClick={onExamplePressed.bind(this, context)}>
+                    <span className={classes.linkContainer} onClick={onExamplePressed.bind(this, context)}>
                         {/* <IconButton aria-label="Show playground" size="small" color="inherit"> */}
                         <span>
                             <LinkIcon></LinkIcon>
                         </span>
                         {/* </IconButton> */}
                         <span>{example.title}</span>
-                    </div>
+                    </span>
                 </Tooltip>
             )}
         </DocumentationContext.Consumer>
