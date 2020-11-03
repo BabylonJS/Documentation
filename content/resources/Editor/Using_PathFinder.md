@@ -2,7 +2,7 @@
 The editor provides a tool to help creating path finders. That will require programming skills.
 
 For example in this video, a path finder is used to animate randomly a particle system in a given mesh surface:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7HucXzBYC34" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7HucXzBYC34" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
 # Using the Path Finder Editor
 To access the tool, just click on the toolbar **Tools -> Path Finder...**.

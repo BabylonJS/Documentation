@@ -20,8 +20,44 @@
     background-position: center;
 }
 
-.markdown-container {
+.documentation-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column-reverse;
+    overflow: auto;
+    @media (min-width: 960px) {
+        flex-direction: row;
+    }
+}
+
+.examples-container {
+    display: flex;
+    overflow: auto;
+    background-color: #E0DED8;
+    width: 100%;
+    height: 120px;
+    min-height: 120px;
+    flex-wrap: wrap;
+    @media (min-width: 960px) {
+        width: 280px;
+        height: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+.markdown-and-playground {
     max-width: 100%;
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+}
+
+.markdown-container {
+    padding: 16px;
+    max-width: 100%;
+    flex: 1;
+    overflow: auto;
     @media print {
         *,
         *:before,
@@ -214,7 +250,7 @@
     /* Counteract the specificity of the gross *:not() chain. */
 
     h1 {
-        padding: 4rem 0 !important;
+        padding: 0 0 2rem !important;
     }
 
     /*  === End gross hack */

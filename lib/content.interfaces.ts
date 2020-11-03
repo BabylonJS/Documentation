@@ -9,6 +9,15 @@ export interface IMenuItem {
     children?: IMenuItem[]
 }
 
+
+export interface IExampleLink {
+    type: "pg" | "nme";
+    id?: string;
+    title?: string;
+    description?: string;
+    image?: string;
+}
+
 export interface IPageProps {
     breadcrumbs: Array<{
         name: string;

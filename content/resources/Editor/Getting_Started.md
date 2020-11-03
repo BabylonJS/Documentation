@@ -23,7 +23,7 @@ Downloading:
 # Project example
 As an example, the following demo has been done 100% in the editor. It includes writing custom scripts, custom post-processes etc.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/obEuCI_pPL4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/obEuCI_pPL4" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
 # Available features
 * Create, edit and save particle systems

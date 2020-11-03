@@ -18,7 +18,7 @@ The workflow tends to:
 # Demo
 Here is a live demo using the Particle System Creator tool:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FyCGTVNchQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FyCGTVNchQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 # Creating a new set
 To add a new set you'll edit using the **Particle System Creator** tool, you first have to add a new set in the assets library.

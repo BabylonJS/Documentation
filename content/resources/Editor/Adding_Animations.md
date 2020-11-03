@@ -30,4 +30,4 @@ To remove keys, just click on the toolbar **Remove Keys**. Then, click on all th
 To preview the current animation, you can click on the toolbar **Play**. Or use the slider (by default on top-left or the tool)
 
 # Example animating the alpha value of a material
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zl_bUqo3juI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zl_bUqo3juI" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>

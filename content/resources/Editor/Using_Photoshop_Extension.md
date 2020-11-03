@@ -5,7 +5,7 @@ The Babylon.JS Editor v3.2.0 comes with a new feature: the Photoshop Extension. 
 The Editor's plugin is called a "Generator Plug-in" and works only with Photoshop CC: http://blogs.adobe.com/photoshop/2013/09/introducing-adobe-generator-for-photoshop-cc.html. In other words, the editor will connect to Photoshop and listen events.
 
 A simple demo video is available here:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-gsR6FJPA8Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-gsR6FJPA8Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 # Enabling Extensions
 

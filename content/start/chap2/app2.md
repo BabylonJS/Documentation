@@ -7,9 +7,9 @@ Whilst you probably want your game or app to take up most of the page you might 
         <canvas id="renderCanvas" touch-action="none"></canvas> <!-- touch-action="none" for best results from PEP -->
 </div>
 <div id = "instructions">
-    <br>
+    <br/>
     <h2>Instructions</h2>
-    <br>
+    <br/>
     Instructions Instructions Instructions Instructions Instructions 
     Instructions Instructions Instructions Instructions Instructions 
 </div>
