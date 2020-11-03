@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 
 export const SyntaxHighlighting: FunctionComponent<{className: string, children: string}> = (props) => {
-    const language = props.className.replace(/language-/, "") as Language;
+    const language = props.className ? props.className.replace(/language-/, "") as Language : 'javascript';
     return (
         <Highlight {...defaultProps} code={props.children.trim()} language={language}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
