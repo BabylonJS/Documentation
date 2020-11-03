@@ -1,5 +1,16 @@
+---
+title: Getting Started - Chapter 1 - Enhancing Your Website
+image: 
+description: Continue your first steps into Babylon.js by enhancing your first website.
+keywords: welcome, babylon.js, getting started, start, chapter 1, first site
+further-reading: 
+video-overview:
+video-content:
+---
+
 # Getting Started - Enhancing Your Website
-# Viewing a Model on a Web Page.
+
+## Viewing a Model on a Web Page.
 Provided the file type is one recognized by Babylon.js then you can use the Babylon.js [Viewer]() to display your scene or model on a web page using the *&lt;babylon&gt;* element. Examples of suitable file types are *.babylon*, *.gltf* and *glb* with *.glb* recommended. It makes no difference whether the scene was built with Babylon.js or created with your favorite design software. The *&lt;babylon&gt;* element will be sized to fit its container.
 
 In order to use the Viewer you need to add its code to your HTML page in a *&lt;script&gt;* element

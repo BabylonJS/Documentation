@@ -1,3 +1,13 @@
+---
+title: CastorGUI
+image: /img/pageImages/AMP360Video.jpg
+description: Library extension for displaying Castor GUI elements as a layer on top of the canvas.
+keywords: Castor, GUI, plugin, extension
+further-reading:
+video-overview: 
+video-content:
+---
+
 # CastorGUI V2.0 (ECEMAScript 6)
 
 Library to display a GUI game as a layer on top of the canvas HTML/CSS.
@@ -6,7 +16,7 @@ Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 * [Demo online of this extension](https://www.babylon.actifgames.com/demoCastorGUI/)
 * [Documentation](https://doc.babylonjs.com/extensions/)
 
-# Features:
+## Features:
 
 Select or create themes.
 
@@ -32,7 +42,7 @@ Create GUI (element html5 and css3):
 * select with options
 * system of database (localStorage and sessionStorage)
 
-# Quick overview of use GUI
+## Quick overview of use GUI
 
 We must create a GUIManager that allows to recover the origin of the canvas and provides other basic thing.
 A GUIManager can have a CSS that Formatted anything you want to customize your GUI.
@@ -59,9 +69,9 @@ dialog.add(text);
 ```
 That's it. Everything works the same way with the same simplicity.
 
-Demo in the playground : https://www.babylonjs-playground.com/#S34THY#14
+Demo in the playground : _(pg | Castor GUI Playground Demo | Basic demo for showing the Castor GUI in action. | S34THY#14 | )_
 
-# For use Database
+## For use Database
 
 ```javascript
 let db = new DataBase(false); // true if use sessionStorage else use localStorage (stockage temporary)
@@ -78,4 +88,4 @@ db.deleteTable("member");
 db.deleteDataBase();
 ```
 
-Demo in the playground :  https://www.babylonjs-playground.com/#12NLGN#56
+Demo in the playground :  _(pg | Castor GUI database Demo | Basic demo for using Castor GUI with a database. | 12NLGN#56 | )_

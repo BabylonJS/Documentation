@@ -1,4 +1,13 @@
-# Getting Started - Working with Models
+---
+title: Getting Started - Chapter 1 - First Web App
+image: 
+description: Learn to load your first model into a Babylon.js scene.
+keywords: welcome, babylon.js, getting started, start, chapter 1, first model, import
+further-reading: 
+video-overview:
+video-content:
+---
+
 # A Web Application Template
 
 You will have seen that the template needed for any code on the playground is
@@ -86,7 +95,7 @@ This line
 ```
 allows you to use a touch screen.
 
-# Examples
+## Examples
 The following loads models into an app.
 
 [First App](/webpages/app1.html)
