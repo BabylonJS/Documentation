@@ -16,7 +16,7 @@ import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/t
 export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
-            {content && <div className="markdown-container">{parseMDFile(content).result}</div>}
+            {content && <div className="markdown-container">{parseMDFile(content).reactFragment}</div>}
             <BucketContent childPages={childPages}></BucketContent>
         </Layout>
     );
