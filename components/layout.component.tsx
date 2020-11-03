@@ -31,26 +31,26 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
-            background: `${colorPalette.header} 0% 0% no-repeat padding-box`,
+            backgroundColor: `${colorPalette.header}`,
             flex: "0 1",
             position: "relative",
         },
         appBarToolbar: {
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 backgroundImage: "url(/img/babylonidentity.svg)",
                 backgroundRepeat: "no-repeat",
             },
         },
         menuButton: {
             marginRight: theme.spacing(2),
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 display: "none",
             },
         },
         title: {
             flexGrow: 1,
             display: "none",
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 display: "block",
             },
         },
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             marginLeft: 0,
             width: "100%",
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 marginLeft: theme.spacing(1),
                 width: "auto",
             },
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
             transition: theme.transitions.create("width"),
             width: "100%",
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 width: "12ch",
                 "&:focus": {
                     width: "20ch",
@@ -94,9 +94,9 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         drawer: {
-            background: "#E0DED8 0% 0% no-repeat padding-box",
+            backgroundColor: `${colorPalette.sidebarBackground}`,
             display: "block",
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 width: 300,
                 flexShrink: 0,
                 "& > div": {
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme: Theme) =>
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
             width: 300,
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 top: "unset",
                 background: "unset",
             },
@@ -121,13 +121,13 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             flexDirection: "column",
             maxWidth: "100%",
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 width: `calc(100% - ${300}px)`,
             },
         },
         contentContainer: {
             overflow: "auto",
-            padding: theme.spacing(2),
+            // padding: theme.spacing(2),
             flex: 1,
             display: "flex",
         },
@@ -141,7 +141,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             overflow: "hidden",
             fontSize: 14,
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("md")]: {
                 paddingLeft: 300,
             },
             "& > a": {
@@ -203,7 +203,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>
-                    <Hidden smUp implementation="css">
+                    <Hidden mdUp implementation="css">
                         <IconButton edge="start" onClick={handleDrawerToggle} color="inherit" aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
@@ -271,7 +271,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             <div className={classes.navAndContentContainer}>
                 <nav className={classes.drawer} aria-label="mailbox folders">
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    <Hidden smUp implementation="css">
+                    <Hidden mdUp implementation="css">
                         <Drawer
                             // container={window.document.body}
                             variant="temporary"
@@ -291,7 +291,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             </div>
                         </Drawer>
                     </Hidden>
-                    <Hidden xsDown implementation="css">
+                    <Hidden smDown implementation="css">
                         <div className={classes.drawerContainer}>
                             <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
                         </div>

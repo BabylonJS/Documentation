@@ -11,6 +11,7 @@ export const colorPalette = {
     menuHover1: "#E0684B",
     menuHover2: "#FF7656",
     text: "#D5D2CA",
+    sidebarBackground: "#E0DED8",
 };
 export const theme = createMuiTheme({
     palette: {
@@ -22,6 +23,6 @@ export const theme = createMuiTheme({
         // },
     },
     typography: {
-        fontFamily: ["acumin-pro", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
+        fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),
     },
 });
