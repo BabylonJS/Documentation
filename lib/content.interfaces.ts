@@ -1,3 +1,4 @@
+import { ReactText } from "react";
 import { MarkdownMetadata } from "./interfaces";
 
 export interface IMenuItem {
@@ -23,6 +24,14 @@ export interface IMediaEmbed {
     url?: string;
     id?: string;
     noControls?: boolean;
+}
+
+export interface IImageEmbed {
+    src: string;
+    alt: string;
+    width?: ReactText;
+    height?: ReactText;
+    unsized: true;
 }
 
 export interface IPageProps {

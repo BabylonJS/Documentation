@@ -22,6 +22,7 @@ import { InlineExampleComponent } from "../components/contentComponents/inlineEx
 import { SyntaxHighlighting } from "../components/markdownComponents/syntaxHighlight.component";
 import { NMEMarkdownComponent, PlaygroundMarkdownComponent } from "../components/markdownComponents/example.component";
 import { MediaFileComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
+import { ImageMarkdownComponent } from "../components/markdownComponents/image.component";
 
 const components = {
     Youtube: YoutubeComponent,
@@ -35,7 +36,8 @@ const components = {
     tbody: Tbody,
     tr: Tr,
     th: Th,
-    td: Td
+    td: Td,
+    img: ImageMarkdownComponent
 };
 
 export const DocumentationContext = createContext({
@@ -68,7 +70,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
-        console.log('scrollTo');
         markdownRef?.current?.scrollTo({behavior: "auto", top: 0, left: 0})
         return () => {
             clearExampleLinks();
