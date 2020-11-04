@@ -14,9 +14,9 @@ module.exports = withMDX(
         //     localIdentName: "[local]___[hash:base64:5]",
         // },
         webpack: (config, { isServer }) => {
-            if (isServer) {
-                require("./lib/buildUtils/sitemap");
-            }
+            // if (isServer) {
+            //     require("./lib/buildUtils/sitemap");
+            // }
 
             return config;
         },

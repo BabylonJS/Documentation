@@ -31,6 +31,12 @@ export const getAllFiles = (dirPath: string, arrayOfFiles?: string[], extension 
     return arrayOfFiles;
 };
 
+export const getLastModified = (relativePath: string) => {
+    const fullPath = join(markdownDirectory, `${relativePath}.md`);
+    const stat = statSync(fullPath);
+    return stat.mtime;
+}
+
 export function extractMetadataFromDocItem(docItem: IDocMenuItem) {
     // Combine the data with the id and contentHtml
     const metadata: MarkdownMetadata = {
