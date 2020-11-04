@@ -32,8 +32,8 @@ export const getAvailableUrls = (): { params: { id: string[]; content?: string }
         Object.keys(childrenObject).forEach((key) => {
             array.push({
                 params: {
+                    ...childrenObject[key],
                     id: [...prevKeys, key],
-                    content: childrenObject[key].content
                 },
             });
             if (childrenObject[key].children) {
