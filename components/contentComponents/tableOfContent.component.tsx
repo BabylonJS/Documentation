@@ -48,7 +48,7 @@ const styles = makeStyles((theme: Theme) =>
 );
 
 export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[] }> = ({ tocItems }) => {
-    const [hovered, setHovered] = useState<boolean>(true);
+    const [hovered, setHovered] = useState<boolean>(false);
     const context = useContext(DocumentationContext);
     const classes = styles();
 
