@@ -8,6 +8,7 @@ import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
 import Link from "next/link";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
+import Image from "next/image";
 
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -66,10 +67,18 @@ const exampleStyles = makeStyles((theme: Theme) =>
         },
         imageContainer: {
             height: 140,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
             cursor: "pointer",
+            display: "inline-block",
+            overflow: "hidden",
+            position: "relative",
+            width: "100%",
+            "& img": {
+                pointerEvents: "none",
+                position: "absolute",
+                minWidth: "100%",
+                minHeight: "100%",
+                objectFit: "cover",
+            },
         },
     }),
 );
@@ -103,7 +112,9 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                     </a>
                 </Link>
             </div>
-            <div onClick={onPlaygroundPressed} className={classes.imageContainer} style={{ backgroundImage: `url(${image})` }}></div>
+            <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
+                <Image src={image} unsized={true}></Image>
+            </div>
             <div className={classes.footer}>
                 [{type.toUpperCase()}] {description}
             </div>
