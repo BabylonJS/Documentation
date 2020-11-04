@@ -13,12 +13,12 @@ module.exports = withMDX(
         //     importLoaders: 2,
         //     localIdentName: "[local]___[hash:base64:5]",
         // },
-        webpack: (config, { isServer }) => {
-            // if (isServer) {
-            //     require("./lib/buildUtils/sitemap");
-            // }
+        // webpack: (config, { isServer }) => {
+        //     // if (isServer) {
+        //     //     require("./lib/buildUtils/sitemap");
+        //     // }
 
-            return config;
-        },
+        //     return config;
+        // },
     }),
 );

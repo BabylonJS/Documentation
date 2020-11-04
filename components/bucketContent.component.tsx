@@ -15,9 +15,9 @@ export interface IBucketContentProps {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         h2: {
-            borderTop: '1px black solid',
-            marginTop: '50px !important',
-            paddingTop: theme.spacing(2)
+            borderTop: "1px black solid",
+            marginTop: "50px !important",
+            paddingTop: theme.spacing(2),
         },
         container: {
             display: "flex",
@@ -67,36 +67,39 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
     const classes = useStyles();
     return (
         <>
-            <Typography className={classes.h2} component="h2" variant="h2">
-                Coming next:
-            </Typography>
-            <div className={classes.container}>
-                {childPages &&
-                    Object.keys(childPages).map((child) => {
-                        const childData = childPages[child].metadata;
-                        const title = (childData.title || child).replace(/_/g, " ");
-                        const link = "/" + childPages[child].id.join("/");
-                        return (
-                            <Link key={link} href={link}>
-                                <div className={classes.divRoot}>
-                                    <Card className={classes.root}>
-                                        <div className={classes.details}>
-                                            <CardContent className={classes.content}>
-                                                <Typography component="h5" variant="h5">
-                                                    {title}
-                                                </Typography>
-                                                <Typography variant="subtitle1" color="textSecondary">
-                                                    {childData.description}
-                                                </Typography>
-                                            </CardContent>
-                                        </div>
-                                        <div className={classes.imageContainer}>{childData.imageUrl && <Image src={childData.imageUrl} unsized={true}></Image>}</div>
-                                    </Card>
-                                </div>
-                            </Link>
-                        );
-                    })}
-            </div>
+            {childPages && !!Object.keys(childPages).length && (
+                <>
+                    <Typography className={classes.h2} component="h2" variant="h2">
+                        Coming next:
+                    </Typography>
+                    <div className={classes.container}>
+                        {Object.keys(childPages).map((child) => {
+                            const childData = childPages[child].metadata;
+                            const title = (childData.title || child).replace(/_/g, " ");
+                            const link = "/" + childPages[child].id.join("/");
+                            return (
+                                <Link key={link} href={link}>
+                                    <div className={classes.divRoot}>
+                                        <Card className={classes.root}>
+                                            <div className={classes.details}>
+                                                <CardContent className={classes.content}>
+                                                    <Typography component="h5" variant="h5">
+                                                        {title}
+                                                    </Typography>
+                                                    <Typography variant="subtitle1" color="textSecondary">
+                                                        {childData.description}
+                                                    </Typography>
+                                                </CardContent>
+                                            </div>
+                                            <div className={classes.imageContainer}>{childData.imageUrl && <Image src={childData.imageUrl} unsized={true}></Image>}</div>
+                                        </Card>
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </>
+            )}
         </>
     );
 };
