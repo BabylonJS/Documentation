@@ -88,7 +88,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
-        console.log(tocItem);
         // first make sure we don't have it yet!
         if (tocItem.level < 0 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
             return;
@@ -128,6 +127,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
                             {renderedContent}
+                            <BucketContent childPages={childPages}></BucketContent>
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
@@ -137,7 +137,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                     )}
                 </div>
             </DocumentationContext.Provider>
-            <BucketContent childPages={childPages}></BucketContent>
         </Layout>
     );
 };

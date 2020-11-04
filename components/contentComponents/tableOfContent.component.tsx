@@ -6,9 +6,9 @@ import { DocumentationContext } from "../../pages/[...id]";
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
-            paddingBottom: 16,
+            paddingBottom: '16px !important',
             width: 280,
-            maxWidth: 280
+            maxWidth: 280,
         },
         itemsContainer: {
             position: "relative",
@@ -17,18 +17,18 @@ const styles = makeStyles((theme: Theme) =>
             maxWidth: 300,
             marginRight: -16,
             marginLeft: 16,
-            overflow: 'hidden',
+            overflow: "hidden",
             "& div": {
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-            }
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+            },
         },
         itemsHovered: {
-            overflow: 'auto',
+            overflow: "auto",
             transition: "max-height 0.2s",
             maxHeight: 600,
-            height: 'auto',
+            height: "auto",
         },
         hoverButton: {
             position: "absolute",
@@ -67,8 +67,8 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                 </Typography>
                 <Typography className={`${classes.itemsContainer} ${hovered ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
                     {tocItems.map((item, idx) => (
-                        <a href={`#${item.id}`}>
-                            <div style={{marginLeft: item.level * 12 }} key={idx} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
+                        <a key={idx} href={`#${item.id}`}>
+                            <div style={{ marginLeft: item.level * 12 }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
                                 {item.title}
                             </div>
                         </a>
