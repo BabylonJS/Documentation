@@ -18,6 +18,13 @@ export interface IExampleLink {
     image?: string;
 }
 
+export interface IMediaEmbed {
+    type: "youtube" | "file";
+    url?: string;
+    id?: string;
+    noControls?: boolean;
+}
+
 export interface IPageProps {
     breadcrumbs: Array<{
         name: string;

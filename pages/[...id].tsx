@@ -18,8 +18,16 @@ import { ExamplesComponent } from "../components/contentComponents/example.compo
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { SyntaxHighlighting } from "../components/markdownComponents/syntaxHighlight.component";
 import { NMEMarkdownComponent, PlaygroundMarkdownComponent } from "../components/markdownComponents/example.component";
+import { MediaFileComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
 
-const components = { Playground: PlaygroundMarkdownComponent, nme: NMEMarkdownComponent, pre: (props) => <div {...props} />, code: SyntaxHighlighting };
+const components = {
+    Youtube: YoutubeComponent,
+    Media: MediaFileComponent,
+    Playground: PlaygroundMarkdownComponent,
+    nme: NMEMarkdownComponent,
+    pre: (props) => <div {...props} />,
+    code: SyntaxHighlighting,
+};
 
 export const DocumentationContext = createContext({
     exampleLinks: [],
@@ -35,6 +43,10 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const tmpCache = [];
 
     const addExampleLink = (link: IExampleLink) => {
+        // first make sure we don't have it yet!
+        if (tmpCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
+            return;
+        }
         tmpCache.push(link);
         setExampleLinks([...exampleLinks, ...tmpCache]);
     };

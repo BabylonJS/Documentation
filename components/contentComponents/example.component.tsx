@@ -7,6 +7,7 @@ import { colorPalette } from "../../styles/theme";
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
 import Link from "next/link";
+import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -64,9 +65,11 @@ const exampleStyles = makeStyles((theme: Theme) =>
             },
         },
         imageContainer: {
-            height: 248,
+            height: 140,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            cursor: "pointer",
         },
     }),
 );
@@ -75,7 +78,7 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
     const { id, title, description, image, type } = example;
     const classes = exampleStyles();
-    const link = (type === "pg" ? "https://playground.babylonjs.com/" : "https://nme.babylonjs.com/") + (id ? `#${id}` : "");
+    const link = getExampleLink(example);
     // just as a test
 
     const onPlaygroundPressed = () => {
@@ -100,8 +103,10 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                     </a>
                 </Link>
             </div>
-            <div className={classes.imageContainer} style={{ backgroundImage: `url(${image})` }}></div>
-            <div className={classes.footer}>{description}</div>
+            <div onClick={onPlaygroundPressed} className={classes.imageContainer} style={{ backgroundImage: `url(${image})` }}></div>
+            <div className={classes.footer}>
+                [{type.toUpperCase()}] {description}
+            </div>
         </div>
     );
 };
