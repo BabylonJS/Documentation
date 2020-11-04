@@ -1,11 +1,24 @@
+---
+title: Getting Started - Chapter 2 - Face Materials
+image: 
+description: Continue your Babylon.js learning by adding materials to individual faces of the meshes in your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 2, face material, face materials
+further-reading:
+    - title: More on Per Face Material
+      url: /How_To/material/CreateBox_Per_Face_Textures_And_Colors
+video-overview:
+video-content:
+---
+
 # Getting Started - Working with Code
-# Material per House Side
+
+## Material per House Side
 
 In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
 
 In the *faceUV* array faces are numbered 0 for back, 1, front, 2 left, 3 right, 4 top and 5 bottom.
 
-# Detached House Example
+## Detached House Example
 We will start with this image
 
 ![cubehouse texture](/img/getstarted/cubehouse.png);
@@ -39,24 +52,23 @@ const box = BABYLON.MeshBuilder.CreateBox("box", {faceUV: faceUV, wrap: true});
 ```
 Of course we also need to change the image used for the diffuse texture of the box material.
 
-https://www.babylonjs-playground.com/#KBS9I5#72
+<Playground id="#KBS9I5#72" title="Adding Materials To Individual Object Faces" description="A playground demonstrating how to add materials to individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.jpg"/>
 
 ![house 3](/img/getstarted/house3.png)
 
-# Semi Detached House Example
+## Semi Detached House Example
 In this case the house is twice as wide and so are parts of the image
 
 ![semihouse texture](/img/getstarted/semihouse.png);
 
 The front and back of the house (far left and right of the image) is twice the width of a side (middle image) which we can use twice.
 
-https://www.babylonjs-playground.com/#KBS9I5#73
+<Playground id="#KBS9I5#73" title="Reusing Materials On Individual Object Faces" description="A playground demonstrating how to add reuse materials to apply on individual faces of the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterialsDoubled.jpg"/>
 
 ![house 4](/img/getstarted/house4.png)
 
-# Moving On
+## Moving On
+
 Having created our detached and semi-detached houses we would like many copies of them to form our world. We could make, separately, copies of the boxes and the roofs but it would be easier if we could combine a box and roof into one mesh, a house. Before we do this let's tidy up the code so that we can concentrate on the new code we are adding. To this end we place the existing code into functions.
 
-https://www.babylonjs-playground.com/#KBS9I5#74
-
-[Material Chapter](CreateBox_Per_Face_Textures_And_Colors) More on Per Face Material
+<Playground id="#KBS9I5#74" title="Wrapping House Building Into Functions" description="A playground wrapping mesh-building code into functions for future repeat use." image="/img/playgroundsAndNMEs/gettingStartedFaceMaterials.jpg"/>

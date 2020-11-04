@@ -1,5 +1,18 @@
+---
+title: Getting Started - Chapter 2 - Mesh Variation
+image: 
+description: Continue your Babylon.js learning by adding a new mesh type to your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 2, meshes, cylinder, prism
+further-reading:
+    - title: More on Meshes
+      url: /how_to/set_shapes
+video-overview:
+video-content:
+---
+
 # Getting Started - Working With Code
-# A Basic House
+
+## A Basic House
 Adding a roof would make our box more house like. We need a prism like shape. Luckily we can do that using *CreateCylinder*. Well the name might imply a cylinder rather than a prism however in using it you need to state how may points around the circumference of the cylinder and for a prism we can use three points.
 
 ```javascript
@@ -11,10 +24,8 @@ roof.position.y = 1.22;
 
 Since the cylinder is created vertically we needed to rotate it to a horizontal position and scale it down in one direction so that the height of the roof is less than its width.
 
-https://www.babylonjs-playground.com/#KBS9I5#70
+<Playground id="#KBS9I5#70" title="Adding a Prism Roof Using 'CreateCylinder'" description="A playground demonstrating how to add a 'prism' roof to your house." image="/img/playgroundsAndNMEs/gettingStartedPrism.jpg"/>
 
 ![house 1](/img/getstarted/house1.png)
 
 The world will be improved with a little color and texture.
-
-[Mesh Chapter](/how_to/set_shapes) Set Mesh Types

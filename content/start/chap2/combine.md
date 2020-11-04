@@ -1,5 +1,18 @@
+---
+title: Getting Started - Chapter 2 - Combining Meshes
+image: 
+description: Continue your Babylon.js learning by combining meshes in your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 2, combine, combine meshes, merge
+further-reading:
+    - title: More on Merging Meshes
+      url: /how_to/how_to_merge_meshes
+video-overview:
+video-content:
+---
+
 # Getting Started - Working with Code
-# Combining Meshes Using Merge Meshes
+
+## Combining Meshes Using Merge Meshes
 This is a straight forwarded way of combining two or more meshes.
 
 ```javascript
@@ -9,7 +22,7 @@ In our case this would be
 ```javascript
 const house = BABYLON.Mesh.MergeMeshes([box, roof])
 ```
-https://www.babylonjs-playground.com/#KBS9I5#75
+<Playground id="#KBS9I5#75" title="Combining Meshes In Your Scene" description="A playground demonstrating how to combine meshes inside of your scene." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes.jpg"/>
 
 ![house 5](/img/getstarted/house5.png)
 
@@ -19,11 +32,8 @@ const house = BABYLON.Mesh.MergeMeshes([box, roof], true, false, null, false, tr
 ```
 At this stage it is important to note that the second parameter being true disposes of the original meshes and the last parameter being true allows the original material to be applied separately to the parts matching the original meshes.
 
-https://www.babylonjs-playground.com/#KBS9I5#76
+<Playground id="#KBS9I5#76" title="Combining Meshes And Preserving Material Assignments" description="A playground demonstrating how to combine meshes while preserving material assignments." image="/img/playgroundsAndNMEs/gettingStartedCombineMeshes2.jpg"/>
 
 ![house 3](/img/getstarted/house3.png)
 
 Before considering how to make multiple copies of our house we will first: find out the basics of [exporting]() our models; how to [import]() models made with Babylon.js or other software; and how to display your scene or models on your own website.
-
-[Mesh Chapter](/how_to/how_to_merge_meshes) Merge Meshes.
-

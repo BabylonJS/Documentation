@@ -1,5 +1,18 @@
+---
+title: Getting Started - Chapter 2 - Materials
+image: 
+description: Continue your Babylon.js learning by adding materials to the objects in your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 2, material, materials
+further-reading:
+    - title: More on Materials
+      url: /features/materials
+video-overview:
+video-content:
+---
+
 # Getting Started - Working with Code
-# add Texture
+
+## Add Texture
 In order to add color and texture to our meshes we apply a material to them. The basic material is the standard material created like this
 
 ```javascript
@@ -43,12 +56,8 @@ roof.material = roofMat;
 box.material = boxMat;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#71
+<Playground id="#KBS9I5#71" title="Adding Materials To Your Objects'" description="A playground demonstrating how to add materials to the objects in your scene." image="/img/playgroundsAndNMEs/gettingStartedMaterials.jpg"/>
 
 ![house 2](/img/getstarted/house2.png)
 
 Having stone walls with no doors or windows is not an interesting look for a house. Also when you look closely you can see that each side uses the same image and on some sides it is rotated. 
-
-[Material Chapter](/features/materials) Material
-
-
