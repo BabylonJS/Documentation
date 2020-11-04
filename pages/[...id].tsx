@@ -11,11 +11,11 @@ import hydrate from "next-mdx-remote/hydrate";
 import "./documentationPage.style.scss";
 
 // table
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
-import { IDocumentationPageProps, IExampleLink } from "../lib/content.interfaces";
+import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
@@ -23,6 +23,8 @@ import { SyntaxHighlighting } from "../components/markdownComponents/syntaxHighl
 import { NMEMarkdownComponent, PlaygroundMarkdownComponent } from "../components/markdownComponents/example.component";
 import { MediaFileComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
 import { ImageMarkdownComponent } from "../components/markdownComponents/image.component";
+import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "../components/markdownComponents/tableOfContentItem.component";
+import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 
 const components = {
     Youtube: YoutubeComponent,
@@ -37,54 +39,96 @@ const components = {
     tr: Tr,
     th: Th,
     td: Td,
-    img: ImageMarkdownComponent
+    img: ImageMarkdownComponent,
+    h1: H1MarkdownComponent,
+    h2: H2MarkdownComponent,
+    h3: H3MarkdownComponent,
+    h4: H4MarkdownComponent,
 };
 
-export const DocumentationContext = createContext({
+interface DocumentationPageContext {
+    exampleLinks: IExampleLink[];
+    addExampleLink: (_link: IExampleLink) => void;
+    setActiveExample: (_link: IExampleLink) => void;
+    addTOCItem: (_tocItem: ITableOfContentsItem) => void;
+    activeTOCItem: ITableOfContentsItem | null;
+    setActiveTOCItem: (_tocItem: ITableOfContentsItem) => void;
+}
+
+export const DocumentationContext = createContext<DocumentationPageContext>({
     exampleLinks: [],
     addExampleLink: (_link: IExampleLink) => {},
     setActiveExample: (_link: IExampleLink) => {},
+    addTOCItem: (_tocItem: ITableOfContentsItem) => {},
+    activeTOCItem: null,
+    setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
 export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
-    const [activeExample, setActiveExample] = useState<IExampleLink | null>();
+    const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
+    const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
+    const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
+
+    // console.log(metadata);
 
     const markdownRef = createRef<HTMLDivElement>();
 
     // To avoid context empty when adding more than one example in one time
-    const tmpCache = [];
+    const tmpExamplesCache = [];
+    const tmpTOCCache = [];
 
     const addExampleLink = (link: IExampleLink) => {
         // first make sure we don't have it yet!
-        if (tmpCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
+        if (tmpExamplesCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
             return;
         }
-        tmpCache.push(link);
-        setExampleLinks([...exampleLinks, ...tmpCache]);
+        tmpExamplesCache.push(link);
+        setExampleLinks([...exampleLinks, ...tmpExamplesCache]);
+    };
+
+    const addTOCItem = (tocItem: ITableOfContentsItem) => {
+        // first make sure we don't have it yet!
+        if (tocItem.level < 0 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
+            return;
+        }
+        tmpTOCCache.push(tocItem);
+        setTocLinks([...tocLinks, ...tmpTOCCache]);
     };
 
     const clearExampleLinks = () => {
-        tmpCache.length = 0;
+        tmpExamplesCache.length = 0;
         setExampleLinks([]);
     };
 
+    const clearTOCItems = () => {
+        setTocLinks([]);
+        tmpTOCCache.length = 0;
+    };
+
     useEffect(() => {
-        markdownRef?.current?.scrollTo({behavior: "auto", top: 0, left: 0})
+        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
         return () => {
             clearExampleLinks();
             setActiveExample(null);
+            clearTOCItems();
         };
     }, [id]);
 
     const renderedContent = hydrate(content, { components });
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
-            <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample }}>
+            <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
                 <div className="documentation-container">
                     <div className="markdown-and-playground">
+                        <div className="toc-container">
+                            <TableOfContent tocItems={tocLinks}></TableOfContent>
+                        </div>
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={markdownRef} className="markdown-container">{renderedContent}</div>
+                        <div ref={markdownRef} className="markdown-container">
+                            {renderedContent}
+                            <BucketContent childPages={childPages}></BucketContent>
+                        </div>
                     </div>
                     {exampleLinks.length !== 0 && (
                         <div className="examples-container">
@@ -93,7 +137,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                     )}
                 </div>
             </DocumentationContext.Provider>
-            <BucketContent childPages={childPages}></BucketContent>
         </Layout>
     );
 };
@@ -106,7 +149,14 @@ export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
     const props = getPageData(params.id, true);
-    props.content = await renderToString(props.content, { components });
+    const remarkSlug = (await import("remark-slug")).default;
+    const remarkLint = (await import("remark-lint")).default;
+    props.content = await renderToString(props.content, {
+        components,
+        mdxOptions: {
+            remarkPlugins: [remarkSlug, remarkLint],
+        },
+    });
     return {
         props,
     };
