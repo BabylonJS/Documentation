@@ -7,9 +7,8 @@ export interface IMenuItem {
     filtered?: boolean;
     childFoundWithFilter?: boolean;
     // TODO add keywords here for a better filtering experience
-    children?: IMenuItem[]
+    children?: IMenuItem[];
 }
-
 
 export interface IExampleLink {
     type: "pg" | "nme";
@@ -31,6 +30,7 @@ export interface IImageEmbed {
     alt: string;
     width?: ReactText;
     height?: ReactText;
+    layout: "fill" | "fixed" | "intrinsic" | "responsive";
     unsized: true;
 }
 
@@ -38,7 +38,7 @@ export interface IPageProps {
     breadcrumbs: Array<{
         name: string;
         url: string;
-    }>
+    }>;
     metadata: MarkdownMetadata;
     id: string[];
     disableMetadataAugmentation?: boolean;

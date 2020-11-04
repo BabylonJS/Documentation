@@ -12,15 +12,9 @@ import Image from "next/image";
 
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
-        container: {
-            display: "flex",
-            flexDirection: "column",
-            [theme.breakpoints.up("md")]: {
-                flexDirection: "row",
-            },
-        },
         header: {
             backgroundColor: colorPalette.header,
+            width: "100%",
             color: "white",
             minHeight: 48,
             display: "none",
@@ -38,6 +32,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             padding: theme.spacing(2),
             maxHeight: "100%",
+            maxWidth: 260,
         },
         header: {
             backgroundColor: colorPalette.linkText,

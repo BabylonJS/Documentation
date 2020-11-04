@@ -38,8 +38,10 @@
     height: 120px;
     min-height: 120px;
     flex-wrap: wrap;
+    align-items: center;
     @media (min-width: 960px) {
         width: 280px;
+        min-width:280px;
         height: auto;
         flex-direction: column;
         flex-wrap: nowrap;
