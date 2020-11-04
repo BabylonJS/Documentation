@@ -1,11 +1,6 @@
 // next.config.js
 const withSass = require("@zeit/next-sass");
-const withMDX = require("@next/mdx")({
-    options: {
-        remarkPlugins: [require("remark-slug"), require("remark-lint")],
-        rehypePlugins: [require("rehype-highlight")],
-    },
-});
+const withMDX = require("@next/mdx")();
 module.exports = withMDX(
     withSass({
         sassLoaderOptions: {
