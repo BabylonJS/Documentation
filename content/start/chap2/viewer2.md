@@ -1,5 +1,17 @@
+---
+title: Getting Started - Chapter 2 - The Viewer
+image: 
+description: Continue your Babylon.js learning by using the Babylon.js viewer to view a model.
+keywords: welcome, babylon.js, getting started, start, chapter 2, viewer
+further-reading:
+video-overview:
+video-content:
+---
+
 # Getting Started - Enhancing Your Website
-# Customizing the Viewer's Camera
+
+## Customizing the Viewer's Camera
+
 What happens when we put the **Village** as a model in the viewer?
 
 [Example Viewer - Village](/webpages/page2.html) using the default Viewer.
