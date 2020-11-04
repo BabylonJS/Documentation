@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { createContext, FunctionComponent, useEffect, useState } from "react";
+import { createContext, createRef, FunctionComponent, useEffect, useState } from "react";
 
 import Layout from "../components/layout.component";
 import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
@@ -9,6 +9,9 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 
 import "./documentationPage.style.scss";
+
+// table
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
@@ -27,6 +30,12 @@ const components = {
     nme: NMEMarkdownComponent,
     pre: (props) => <div {...props} />,
     code: SyntaxHighlighting,
+    table: Table,
+    thead: Thead,
+    tbody: Tbody,
+    tr: Tr,
+    th: Th,
+    td: Td
 };
 
 export const DocumentationContext = createContext({
@@ -38,6 +47,8 @@ export const DocumentationContext = createContext({
 export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>();
+
+    const markdownRef = createRef<HTMLDivElement>();
 
     // To avoid context empty when adding more than one example in one time
     const tmpCache = [];
@@ -57,6 +68,8 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
+        console.log('scrollTo');
+        markdownRef?.current?.scrollTo({behavior: "auto", top: 0, left: 0})
         return () => {
             clearExampleLinks();
             setActiveExample(null);
@@ -70,7 +83,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                 <div className="documentation-container">
                     <div className="markdown-and-playground">
                         <InlineExampleComponent {...activeExample} />
-                        <div className="markdown-container">{renderedContent}</div>
+                        <div ref={markdownRef} className="markdown-container">{renderedContent}</div>
                     </div>
                     {exampleLinks.length !== 0 && (
                         <div className="examples-container">
