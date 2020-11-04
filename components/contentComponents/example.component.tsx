@@ -7,18 +7,14 @@ import { colorPalette } from "../../styles/theme";
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
 import Link from "next/link";
+import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
+import Image from "next/image";
 
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
-        container: {
-            display: "flex",
-            flexDirection: "column",
-            [theme.breakpoints.up("md")]: {
-                flexDirection: "row",
-            },
-        },
         header: {
             backgroundColor: colorPalette.header,
+            width: "100%",
             color: "white",
             minHeight: 48,
             display: "none",
@@ -36,6 +32,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             padding: theme.spacing(2),
             maxHeight: "100%",
+            maxWidth: 260,
         },
         header: {
             backgroundColor: colorPalette.linkText,
@@ -64,9 +61,19 @@ const exampleStyles = makeStyles((theme: Theme) =>
             },
         },
         imageContainer: {
-            height: 248,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
+            height: 140,
+            cursor: "pointer",
+            display: "inline-block",
+            overflow: "hidden",
+            position: "relative",
+            width: "100%",
+            "& img": {
+                pointerEvents: "none",
+                position: "absolute",
+                minWidth: "100%",
+                minHeight: "100%",
+                objectFit: "cover",
+            },
         },
     }),
 );
@@ -75,7 +82,7 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
     const { id, title, description, image, type } = example;
     const classes = exampleStyles();
-    const link = (type === "pg" ? "https://playground.babylonjs.com/" : "https://nme.babylonjs.com/") + (id ? `#${id}` : "");
+    const link = getExampleLink(example);
     // just as a test
 
     const onPlaygroundPressed = () => {
@@ -100,8 +107,12 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                     </a>
                 </Link>
             </div>
-            <div className={classes.imageContainer} style={{ backgroundImage: `url(${image})` }}></div>
-            <div className={classes.footer}>{description}</div>
+            <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
+                <Image src={image} unsized={true}></Image>
+            </div>
+            <div className={classes.footer}>
+                [{type.toUpperCase()}] {description}
+            </div>
         </div>
     );
 };
