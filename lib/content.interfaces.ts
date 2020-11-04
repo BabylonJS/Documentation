@@ -34,6 +34,12 @@ export interface IImageEmbed {
     unsized: true;
 }
 
+export interface ITableOfContentsItem {
+    level: number;
+    id: string;
+    title: string;
+}
+
 export interface IPageProps {
     breadcrumbs: Array<{
         name: string;

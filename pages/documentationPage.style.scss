@@ -25,9 +25,17 @@
     flex: 1;
     flex-direction: column-reverse;
     overflow: auto;
+    position: relative;
     @media (min-width: 960px) {
         flex-direction: row;
     }
+}
+
+.toc-container {
+    position: absolute;
+    margin: 20px;
+    top:0;
+    right:0;
 }
 
 .examples-container {
