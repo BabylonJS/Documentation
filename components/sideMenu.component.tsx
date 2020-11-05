@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
         noChild: {
             marginLeft: 50,
         },
+        noChildFirstLevel: {
+            marginLeft: 30,
+        },
         childWithChildren: {
             marginLeft: 20,
         },
@@ -71,7 +74,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const key = item.url;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
         const isSelected = selected.startsWith(key);
-        const className = hasChildren ? (level ? classes.childWithChildren : "") : classes.noChild;
+        const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
             <li className={className} key={key}>
                 <div className={classes.menuItem}>
