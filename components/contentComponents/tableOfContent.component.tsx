@@ -40,8 +40,8 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     const [hovered, setHovered] = useState<boolean>(false);
     const [clicked, setClicked] = useState<boolean>(true);
     const [show, setShow] = useState<boolean>(true);
+    const [delayed, setDelayed] = useState<number>(0);
     const context = useContext(DocumentationContext);
-    const ref = createRef<HTMLDivElement>();
     const classes = styles();
 
     const pointerEnter = () => {
@@ -58,8 +58,28 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
 
     const disableClick = () => {
         setClicked(false);
-        setShow(false);
+        setDelayed(5);
     };
+
+    const onScroll = () => {
+        if(delayed > 0) {
+            setDelayed(delayed - 1);
+        }
+    };
+
+    useEffect(() => {
+        if(delayed === 5) {
+            setShow(false);
+        }
+        if(delayed === 0) {
+            setShow(true);
+        }
+        const scrollElement = document.querySelector(".markdown-container");
+        scrollElement.addEventListener("scroll", onScroll);
+        return () => {
+            scrollElement.removeEventListener("scroll", onScroll);
+        };
+    }, [delayed])
 
     useEffect(() => {
         const element = document.querySelector("h1");
@@ -67,8 +87,7 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
             function (entries) {
                 if (entries[0].intersectionRatio === 0) {
                     setClicked(false);
-                }
-                else if (entries[0].intersectionRatio === 1) {
+                } else if (entries[0].intersectionRatio === 1) {
                     setClicked(true);
                 }
             },
@@ -78,16 +97,14 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
         );
 
         observer.observe(element);
+
         return () => {
             observer.unobserve(element);
         };
     }, [tocItems]);
 
-    useEffect(() => {});
     return (
-        // <Card>
-        //     <CardContent className={classes.contentRoot} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
-        <div ref={ref} className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
+        <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
             <Typography onClick={pointerClick} variant="h6" component="h2">
                 Table Of Contents
             </Typography>
@@ -101,7 +118,5 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                 ))}
             </Typography>
         </div>
-        //     </CardContent>
-        // </Card>
     );
 };
