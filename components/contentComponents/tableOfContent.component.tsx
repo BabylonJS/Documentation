@@ -1,5 +1,5 @@
 import { Card, CardContent, createStyles, IconButton, makeStyles, Theme, Tooltip, Typography } from "@material-ui/core";
-import { FunctionComponent, useContext, useEffect, useState } from "react";
+import { createRef, FunctionComponent, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
@@ -8,7 +8,7 @@ const styles = makeStyles((theme: Theme) =>
         contentRoot: {
             background: "#fafafa",
             zIndex: 100,
-            width: 'unset !important',
+            width: "unset !important",
             "& h2": {
                 marginBottom: 0,
             },
@@ -23,7 +23,7 @@ const styles = makeStyles((theme: Theme) =>
                 whiteSpace: "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                fontSize: 16
+                fontSize: 16,
             },
         },
         itemsHovered: {
@@ -31,17 +31,17 @@ const styles = makeStyles((theme: Theme) =>
             transition: "max-height 0.2s",
             maxHeight: 200,
             height: "auto",
-            paddingBottom: 16
+            paddingBottom: 16,
         },
     }),
 );
 
 export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[] }> = ({ tocItems }) => {
-    const [hovered, setHovered] = useState<boolean>(true);
-    const [clicked, setClicked] = useState<boolean>(false);
+    const [hovered, setHovered] = useState<boolean>(false);
+    const [clicked, setClicked] = useState<boolean>(true);
     const [show, setShow] = useState<boolean>(true);
-    const [delayed, setDelayed] = useState<number>(0);
     const context = useContext(DocumentationContext);
+    const ref = createRef<HTMLDivElement>();
     const classes = styles();
 
     const pointerEnter = () => {
@@ -59,37 +59,35 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     const disableClick = () => {
         setClicked(false);
         setShow(false);
-        setDelayed(5);
-    };
-
-    const scrolled = () => {
-        if(hovered) {
-            setHovered(false);
-        }
-        if(delayed > 0) {
-            setDelayed(delayed - 1);
-        }
-        if (!show && !delayed) {
-            setShow(true);
-            setDelayed(5);
-        }
     };
 
     useEffect(() => {
-        const element = document.querySelector(".markdown-container");
-        element.addEventListener("scroll", scrolled);
+        const element = document.querySelector("h1");
+        var observer = new IntersectionObserver(
+            function (entries) {
+                if (entries[0].intersectionRatio === 0) {
+                    setClicked(false);
+                }
+                else if (entries[0].intersectionRatio === 1) {
+                    setClicked(true);
+                }
+            },
+            {
+                threshold: [0, 1],
+            },
+        );
+
+        observer.observe(element);
         return () => {
-            element.removeEventListener("scroll", scrolled);
+            observer.unobserve(element);
         };
-    }, [delayed]);
+    }, [tocItems]);
 
-    useEffect(() => {
-        setHovered(true);
-    }, tocItems)
+    useEffect(() => {});
     return (
         // <Card>
         //     <CardContent className={classes.contentRoot} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
-        <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
+        <div ref={ref} className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
             <Typography onClick={pointerClick} variant="h6" component="h2">
                 Table Of Contents
             </Typography>

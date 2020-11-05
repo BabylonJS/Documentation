@@ -18,6 +18,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import GithubIcon from "@material-ui/icons/GitHub";
 import LeftArrowIcon from "@material-ui/icons/FirstPage";
 import RightArrowIcon from "@material-ui/icons/LastPage";
+import { useRouter } from "next/dist/client/router";
 
 const menuStructure = generateMenuStructure();
 
@@ -179,6 +180,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+    const router = useRouter();
+    const baseDomain = process.env.VERCEL_URL || '';
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
@@ -194,9 +197,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
                 <title>{title}</title>
-                {imageUrl && <meta property="og:image" content={imageUrl} />}
+                {imageUrl && <meta property="og:image" content={baseDomain + imageUrl} />}
                 <meta name="og:title" content={title} />
-                <meta name="og:description" content={description} />
+                <meta name="og:url" content={baseDomain + router.asPath} />
+                <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
                 {!!previous && <link rel="prev" href={previous.id.join("/")} />}
                 {!!next && <link rel="next" href={next.id.join("/")} />}
