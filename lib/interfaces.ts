@@ -18,5 +18,5 @@ export interface MarkdownMetadata {
     imageUrl?: string;
     categoryId?: number;
     categoryName?: string;
-    videoOverview: string;
+    videoOverview?: string;
 }
