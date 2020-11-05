@@ -20,6 +20,9 @@ import { ExamplesComponent } from "../components/contentComponents/example.compo
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import { MediaMarkdownComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
+import { IconButton, Tooltip } from "@material-ui/core";
+
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -84,13 +87,17 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     useEffect(() => {
         setTimeout(() => {
             markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-        })
+        });
         return () => {
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
         };
     }, [id]);
+
+    const scrollToTop = () => {
+        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+    };
 
     const components = markdownComponents;
     const renderedContent = hydrate(content, { components });
@@ -114,6 +121,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             )}
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>
+                        </div>
+                        <div id="scroll-to-top">
+                            <Tooltip title={`Scroll to top`} aria-label="Scroll to top">
+                                <IconButton size="medium" onClick={scrollToTop}>
+                                    <ExpandLessIcon></ExpandLessIcon>
+                                </IconButton>
+                            </Tooltip>
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
