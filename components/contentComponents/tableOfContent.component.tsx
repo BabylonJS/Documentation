@@ -40,7 +40,6 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     const [hovered, setHovered] = useState<boolean>(false);
     const [clicked, setClicked] = useState<boolean>(true);
     const [show, setShow] = useState<boolean>(true);
-    const [delayed, setDelayed] = useState<number>(5);
     const context = useContext(DocumentationContext);
     const ref = createRef<HTMLDivElement>();
     const classes = styles();
@@ -60,33 +59,9 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     const disableClick = () => {
         setClicked(false);
         setShow(false);
-        setDelayed(5);
     };
 
-    // const scrolled = () => {
-    //     if(clicked) {
-    //         setClicked(false);
-    //     }
-    //     if(delayed > 0) {
-    //         setDelayed(delayed - 1);
-    //     }
-    //     if (!show && !delayed) {
-    //         setShow(true);
-    //         setDelayed(5);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     const element = document.querySelector(".markdown-container");
-    //     element.addEventListener("scroll", scrolled);
-    //     return () => {
-    //         element.removeEventListener("scroll", scrolled);
-    //     };
-    // }, [delayed]);
-
     useEffect(() => {
-        // setClicked(true);
-        // setDelayed(5);
         const element = document.querySelector("h1");
         var observer = new IntersectionObserver(
             function (entries) {
