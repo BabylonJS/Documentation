@@ -1300,6 +1300,30 @@ When selected in the Inspector, you can find an edit button in the Node Material
 
 You can also use a standalone version of the editor here: <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>
 
+### Custom Frames
+
+![NME](/img/how_to/Materials/custom_frames1.jpg)
+
+When using the node material editor we can create frames by holding shift and dragging the mouse across nodes within the graph.
+
+A frame is an easy way to group several nodes together and collapse them into a smaller group to declutter the graph and allow you to reuse certain node branches. We can rename the frame, change its color, and even make a note/comment about it.
+
+When we collapse the node, input and output ports that are linked to other nodes outside of the grame, will be exposed on the frame edges. (You can manually set a port to be exposed as well). Here we can edit the exposed ports by renaming them or even changing the order.
+
+![NME](/img/how_to/Materials/custom_frames2.jpg)
+
+We can export a frame by using the “Export” button.
+
+Once exported, we can load it back into our project for future use by clicking the “+” symbol on the “Custom Frames” tab of the node menu, in the left panel. 
+
+![NME](/img/how_to/Materials/custom_frames3.jpg)
+
+By loading a custom frame, we can reuse it quickly just like any other node block. Custom frames will stay in this menu any time you open the node material editor. 
+
+![NME](/img/how_to/Materials/custom_frames1.jpg)
+
+We also have a library of custom frames available for you to leverage here: https://github.com/BabylonJS/Assets/tree/master/nme/customFrames
+
 ### Recreating the StandardMaterial
 
 As a training exercise and to show what is possible to do with the Node Material Editor, the `StandardMaterial` has been recreated in the NME:
