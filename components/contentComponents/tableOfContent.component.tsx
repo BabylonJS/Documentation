@@ -65,12 +65,9 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
         const element = document.querySelector("h1");
         var observer = new IntersectionObserver(
             function (entries) {
-                console.log(entries);
-                // no intersection
                 if (entries[0].intersectionRatio === 0) {
                     setClicked(false);
                 }
-                // fully intersects
                 else if (entries[0].intersectionRatio === 1) {
                     setClicked(true);
                 }
