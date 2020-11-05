@@ -10,7 +10,7 @@ import hydrate from "next-mdx-remote/hydrate";
 
 import "./documentationPage.style.scss";
 
-import { markdownComponents } from "../components/markdownComponents/markdownComponents"
+import { markdownComponents } from "../components/markdownComponents/markdownComponents";
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
@@ -64,7 +64,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
         // first make sure we don't have it yet!
-        if (tocItem.level < 0 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
+        if (tocItem.level < 1 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
             return;
         }
         tmpTOCCache.push(tocItem);
@@ -82,7 +82,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
-        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        setTimeout(() => {
+            markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        })
         return () => {
             clearExampleLinks();
             setActiveExample(null);
@@ -97,16 +99,19 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
                 <div className="documentation-container">
                     <div className="markdown-and-playground">
-                        <div className="toc-container">
-                            <TableOfContent tocItems={tocLinks}></TableOfContent>
-                        </div>
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
-                            {metadata.videoOverview && <>
-                                <h1>Video Overview</h1>
-                                {/* Assuming video overview is always youtube! Can be changed */}
-                                <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent> 
-                            </>}
+                            <h1>{metadata.title}</h1>
+                            <div className="toc-container">
+                                <TableOfContent tocItems={tocLinks}></TableOfContent>
+                            </div>
+                            {metadata.videoOverview && (
+                                <>
+                                    <h2>Video Overview</h2>
+                                    {/* Assuming video overview is always youtube! Can be changed */}
+                                    <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent>
+                                </>
+                            )}
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>

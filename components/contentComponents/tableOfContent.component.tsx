@@ -1,54 +1,46 @@
 import { Card, CardContent, createStyles, IconButton, makeStyles, Theme, Tooltip, Typography } from "@material-ui/core";
-import { FunctionComponent, useContext, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
-            paddingBottom: '16px !important',
-            width: 280,
-            maxWidth: 280,
+            background: "#fafafa",
+            zIndex: 100,
+            width: 'unset !important',
+            "& h2": {
+                marginBottom: 0,
+            },
         },
         itemsContainer: {
             position: "relative",
             transition: "max-height 0.2s",
             maxHeight: 0,
-            maxWidth: 300,
-            marginRight: -16,
-            marginLeft: 16,
+            // paddingBottom: 16,
             overflow: "hidden",
             "& div": {
                 whiteSpace: "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
+                fontSize: 16
             },
         },
         itemsHovered: {
             overflow: "auto",
             transition: "max-height 0.2s",
-            maxHeight: 600,
+            maxHeight: 200,
             height: "auto",
-        },
-        hoverButton: {
-            position: "absolute",
-            backgroundColor: "white",
-            right: 8,
-            top: 8,
-        },
-        loading: {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            zIndex: -1,
-            transform: "translate(-50%, -50%)",
-            lineHeight: "unset",
+            paddingBottom: 16
         },
     }),
 );
 
 export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[] }> = ({ tocItems }) => {
-    const [hovered, setHovered] = useState<boolean>(false);
+    const [hovered, setHovered] = useState<boolean>(true);
+    const [clicked, setClicked] = useState<boolean>(false);
+    const [show, setShow] = useState<boolean>(true);
+    const [delayed, setDelayed] = useState<number>(0);
     const context = useContext(DocumentationContext);
     const classes = styles();
 
@@ -59,22 +51,59 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     const pointerLeave = () => {
         setHovered(false);
     };
+
+    const pointerClick = () => {
+        setClicked(true);
+    };
+
+    const disableClick = () => {
+        setClicked(false);
+        setShow(false);
+        setDelayed(5);
+    };
+
+    const scrolled = () => {
+        if(hovered) {
+            setHovered(false);
+        }
+        if(delayed > 0) {
+            setDelayed(delayed - 1);
+        }
+        if (!show && !delayed) {
+            setShow(true);
+            setDelayed(5);
+        }
+    };
+
+    useEffect(() => {
+        const element = document.querySelector(".markdown-container");
+        element.addEventListener("scroll", scrolled);
+        return () => {
+            element.removeEventListener("scroll", scrolled);
+        };
+    }, [delayed]);
+
+    useEffect(() => {
+        setHovered(true);
+    }, tocItems)
     return (
-        <Card>
-            <CardContent className={classes.contentRoot} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
-                <Typography gutterBottom variant="h5" component="h2">
-                    Table Of Contents
-                </Typography>
-                <Typography className={`${classes.itemsContainer} ${hovered ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
-                    {tocItems.map((item, idx) => (
-                        <a key={idx} href={`#${item.id}`}>
-                            <div style={{ marginLeft: item.level * 12 }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
-                                {item.title}
-                            </div>
-                        </a>
-                    ))}
-                </Typography>
-            </CardContent>
-        </Card>
+        // <Card>
+        //     <CardContent className={classes.contentRoot} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
+        <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
+            <Typography onClick={pointerClick} variant="h6" component="h2">
+                Table Of Contents
+            </Typography>
+            <Typography className={`${classes.itemsContainer} ${hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
+                {tocItems.map((item, idx) => (
+                    <a key={idx} href={`#${item.id}`}>
+                        <div onClick={disableClick} style={{ marginLeft: item.level * 16 }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
+                            {item.title}
+                        </div>
+                    </a>
+                ))}
+            </Typography>
+        </div>
+        //     </CardContent>
+        // </Card>
     );
 };
