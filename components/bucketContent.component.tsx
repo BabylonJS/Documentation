@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         divRoot: {
             padding: 16,
+            height: 150,
+            minHeight: 150,
+            
             [theme.breakpoints.up("sm")]: {
                 width: "50% !important",
             },
@@ -37,10 +40,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         root: {
             display: "flex",
+            height: "100%",
+            cursor: 'pointer',
         },
         details: {
             display: "flex",
             flexDirection: "column",
+            width: "50% !important",
+            flex: 1,
         },
         content: {
             flex: "1 0 auto",
@@ -52,6 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
             overflow: "hidden",
             position: "relative",
             minWidth: "150px !important",
+            width: 'unset !important',
             "& img": {
                 pointerEvents: "none",
                 position: "absolute",
@@ -83,10 +91,10 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                                         <Card className={classes.root}>
                                             <div className={classes.details}>
                                                 <CardContent className={classes.content}>
-                                                    <Typography component="h5" variant="h5">
+                                                    <Typography component="h6" variant="h6">
                                                         {title}
                                                     </Typography>
-                                                    <Typography variant="subtitle1" color="textSecondary">
+                                                    <Typography style={{}} variant="subtitle1" color="textSecondary">
                                                         {childData.description}
                                                     </Typography>
                                                 </CardContent>
