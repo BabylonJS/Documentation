@@ -10,8 +10,7 @@ import hydrate from "next-mdx-remote/hydrate";
 
 import "./documentationPage.style.scss";
 
-// table
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import { markdownComponents } from "../components/markdownComponents/markdownComponents";
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
@@ -19,32 +18,8 @@ import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
-import { SyntaxHighlighting } from "../components/markdownComponents/syntaxHighlight.component";
-import { NMEMarkdownComponent, PlaygroundMarkdownComponent } from "../components/markdownComponents/example.component";
-import { MediaFileComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
-import { ImageMarkdownComponent } from "../components/markdownComponents/image.component";
-import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "../components/markdownComponents/tableOfContentItem.component";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-
-const components = {
-    Youtube: YoutubeComponent,
-    Media: MediaFileComponent,
-    Playground: PlaygroundMarkdownComponent,
-    nme: NMEMarkdownComponent,
-    pre: (props) => <div {...props} />,
-    code: SyntaxHighlighting,
-    table: Table,
-    thead: Thead,
-    tbody: Tbody,
-    tr: Tr,
-    th: Th,
-    td: Td,
-    img: ImageMarkdownComponent,
-    h1: H1MarkdownComponent,
-    h2: H2MarkdownComponent,
-    h3: H3MarkdownComponent,
-    h4: H4MarkdownComponent,
-};
+import { MediaMarkdownComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -89,7 +64,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
         // first make sure we don't have it yet!
-        if (tocItem.level < 0 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
+        if (tocItem.level < 1 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
             return;
         }
         tmpTOCCache.push(tocItem);
@@ -107,7 +82,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
-        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        setTimeout(() => {
+            markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        })
         return () => {
             clearExampleLinks();
             setActiveExample(null);
@@ -115,17 +92,26 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
         };
     }, [id]);
 
+    const components = markdownComponents;
     const renderedContent = hydrate(content, { components });
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
                 <div className="documentation-container">
                     <div className="markdown-and-playground">
-                        <div className="toc-container">
-                            <TableOfContent tocItems={tocLinks}></TableOfContent>
-                        </div>
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
+                            <h1>{metadata.title}</h1>
+                            <div className="toc-container">
+                                <TableOfContent tocItems={tocLinks}></TableOfContent>
+                            </div>
+                            {metadata.videoOverview && (
+                                <>
+                                    <h2>Video Overview</h2>
+                                    {/* Assuming video overview is always youtube! Can be changed */}
+                                    <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent>
+                                </>
+                            )}
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>
@@ -152,7 +138,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
     props.content = await renderToString(props.content, {
-        components,
+        components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkSlug, remarkLint],
         },

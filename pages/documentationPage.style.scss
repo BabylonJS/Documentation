@@ -23,19 +23,19 @@
 .documentation-container {
     display: flex;
     flex: 1;
-    flex-direction: column-reverse;
+    flex-direction: row;
     overflow: auto;
     position: relative;
-    @media (min-width: 960px) {
-        flex-direction: row;
-    }
+    // @media (min-width: 960px) {
+    //     flex-direction: row;
+    // }
 }
 
 .toc-container {
-    position: absolute;
-    margin: 20px;
-    top:0;
-    right:0;
+    position: sticky;
+    top: -16px;
+    right: 0;
+    z-index: 100;
 }
 
 .examples-container {
@@ -49,7 +49,7 @@
     align-items: center;
     @media (min-width: 960px) {
         width: 280px;
-        min-width:280px;
+        min-width: 280px;
         height: auto;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -69,7 +69,8 @@
         border-collapse: collapse;
     }
 
-    th, td {
+    th,
+    td {
         padding: 8px;
     }
 
@@ -138,6 +139,7 @@
     flex-direction: column;
     display: flex;
     position: relative;
+    word-break: break-word;
 }
 
 .markdown-container {
@@ -318,14 +320,6 @@
     //     max-width: 36rem;
     //     padding: 0.25rem;
     // }
-
-    div {
-        width: 100%;
-    }
-
-    div img {
-        width: 100%;
-    }
 
     blockquote p {
         font-size: 1.5rem;

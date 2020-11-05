@@ -14,7 +14,9 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
 
     switch (item.level) {
         case 0:
-            return <h1 {...item}>{item.children}</h1>;
+            // return <h1 {...item}>{item.children}</h1>;
+            // h1 will be added by me
+            return <></>;
         case 1:
             return <h2 {...item}>{item.children}</h2>;
         case 2:
