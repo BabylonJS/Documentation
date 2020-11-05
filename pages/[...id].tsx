@@ -19,6 +19,7 @@ import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/t
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
+import { MediaMarkdownComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -101,6 +102,11 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         </div>
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
+                            {metadata.videoOverview && <>
+                                <h1>Video Overview</h1>
+                                {/* Assuming video overview is always youtube! Can be changed */}
+                                <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent> 
+                            </>}
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>

@@ -18,10 +18,5 @@ export interface MarkdownMetadata {
     imageUrl?: string;
     categoryId?: number;
     categoryName?: string;
-    // modifiers
-    
-    /**
-     * Should the titles be in Tabs (tutorials, for example)
-     */
-    tabbed?: boolean;
+    videoOverview: string;
 }
