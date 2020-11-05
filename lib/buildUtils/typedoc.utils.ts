@@ -1,6 +1,7 @@
 import { Application } from "typedoc";
 import { ScriptTarget } from "typescript";
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
+import del from "del";
 import { sep } from "path";
 import * as path from "path";
 import { getAllFiles } from "./tools";
@@ -11,6 +12,11 @@ const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
+    // force recreating the API docs
+    if(process.env.PRODUCTION) {
+        console.log('making sure directory is empty', basePathResolved)
+        await del(basePathResolved);
+    }
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
