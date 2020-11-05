@@ -32,6 +32,7 @@ export interface IImageEmbed {
     height?: ReactText;
     layout: "fill" | "fixed" | "intrinsic" | "responsive";
     unsized: true;
+    caption?: string;
 }
 
 export interface ITableOfContentsItem {

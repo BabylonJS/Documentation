@@ -285,7 +285,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 keepMounted: true, // Better open performance on mobile.
                             }}
                         >
-                            <div className={classes.drawerContainer}>
+                            <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle} className={classes.drawerContainer}>
                                 <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
                                 <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
                             </div>

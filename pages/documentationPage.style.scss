@@ -23,7 +23,7 @@
 .documentation-container {
     display: flex;
     flex: 1;
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow: auto;
     position: relative;
     @media (min-width: 960px) {
@@ -138,6 +138,7 @@
     flex-direction: column;
     display: flex;
     position: relative;
+    word-break: break-word;
 }
 
 .markdown-container {
