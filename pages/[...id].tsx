@@ -110,7 +110,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
                             <h1>{metadata.title}</h1>
-                            {tocLinks.length && <div className="toc-container">
+                            {tocLinks.length > 1 && <div className="toc-container">
                                 <TableOfContent tocItems={tocLinks}></TableOfContent>
                             </div>}
                             {metadata.videoOverview && (

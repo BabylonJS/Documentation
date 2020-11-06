@@ -221,7 +221,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                console.log(e);
                                 router.push('/search?q='+searchTerm)
                                 return false;
                             }}

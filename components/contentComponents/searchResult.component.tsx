@@ -9,6 +9,7 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
             display: "flex",
+            padding: theme.spacing(2)
         },
         imageContainer: {
             position: "relative",
@@ -21,7 +22,9 @@ const styles = makeStyles((theme: Theme) =>
         },
         pathContent: {
             display: 'flex',
-            "& span": {},
+            "& span": {
+                display: 'flex'
+            },
         },
     }),
 );
@@ -50,14 +53,14 @@ export const SearchResult: FunctionComponent<{ searchResult: ISearchResult }> = 
                 <div className={classes.pathContent}>
                     {path.map((result, idx) => {
                         return (
-                            <>
+                            <span key={idx}>
                                 <Link key={result.url} href={result.url}>
                                     <MaterialLink href={result.url}>
                                         <span>{result.name}</span>
                                     </MaterialLink>
                                 </Link>
                                 {idx < path.length - 1 && <ChevronRight></ChevronRight>}
-                            </>
+                            </span>
                         );
                     })}
                 </div>
