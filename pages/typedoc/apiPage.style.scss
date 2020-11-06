@@ -15,6 +15,10 @@
         }
     }
 
+    .tsd-sources li {
+        display: none;
+    }
+
     footer {
         margin: 0 8px;
         background-color: unset !important;
@@ -62,6 +66,10 @@
     @media (max-width: 640px) {
         .col-menu {
             display: none;
+        }
+
+        footer {
+            display: none !important;
         }
     }
 

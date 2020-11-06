@@ -19,10 +19,11 @@ import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/t
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-import { MediaMarkdownComponent, YoutubeComponent } from "../components/markdownComponents/media.component";
+import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
 import { IconButton, Tooltip } from "@material-ui/core";
 
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import { addSearchItem, clearIndex } from "../lib/buildUtils/search.utils";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -109,9 +110,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
                             <h1>{metadata.title}</h1>
-                            <div className="toc-container">
+                            {tocLinks.length && <div className="toc-container">
                                 <TableOfContent tocItems={tocLinks}></TableOfContent>
-                            </div>
+                            </div>}
                             {metadata.videoOverview && (
                                 <>
                                     <h2>Video Overview</h2>
@@ -148,7 +149,7 @@ export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
-    const props = getPageData(params.id, true);
+    const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
     props.content = await renderToString(props.content, {
@@ -164,7 +165,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("main getStaticPages");
-    const paths = getAvailableUrls();
+    const paths = await getAvailableUrls();
     checkUnusedFiles(
         paths,
         getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),

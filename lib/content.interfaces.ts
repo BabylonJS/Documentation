@@ -51,6 +51,7 @@ export interface IPageProps {
     disableMetadataAugmentation?: boolean;
     next?: IPageProps;
     previous?: IPageProps;
+    lastModified?: string;
 }
 export interface IDocumentationPageProps extends IPageProps {
     content?: string;

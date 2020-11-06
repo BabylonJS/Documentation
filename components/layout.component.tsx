@@ -177,11 +177,12 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState<string>("");
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
     const router = useRouter();
-    const baseDomain = process.env.VERCEL_URL || '';
+    const baseDomain = process.env.VERCEL_URL || "";
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
@@ -217,14 +218,29 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                console.log(e);
+                                router.push('/search?q='+searchTerm)
+                                return false;
                             }}
-                            inputProps={{ "aria-label": "search" }}
-                        />
+                            noValidate
+                            autoComplete="off"
+                        >
+                            <InputBase
+                                value={searchTerm}
+                                onChange={(e) => {
+                                    setSearchTerm(e.target.value);
+                                }}
+                                placeholder="Search…"
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                inputProps={{ "aria-label": "search" }}
+                            />
+                        </form>
                     </div>
                     <Link href="https://github.com/BabylonJS/Babylon.js">
                         <a target="_blank">

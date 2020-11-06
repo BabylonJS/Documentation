@@ -16,7 +16,7 @@ export const ApiPage: FunctionComponent<{
 }> = ({ contentNode, cssArray, metadata, id }) => {
     const html = parseNode(contentNode).result;
     // remove unneeded tags
-    const children = html.props.children[0].props.children[1].props.children;
+    const children = html.props.children[0].props.children[2].props.children;
     return (
         <Layout breadcrumbs={generateBreadcrumbs()} metadata={metadata} id={id}>
             <Head>
@@ -37,7 +37,7 @@ export default ApiPage;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async ({ params }) => {
     // HTML content
-    const content = getAPIPageData(['globals']);
+    const content = await getAPIPageData(['globals']);
     return {
         props: {
             ...content,

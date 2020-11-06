@@ -5,17 +5,21 @@ import del from "del";
 import { sep } from "path";
 import * as path from "path";
 import { getAllFiles } from "./tools";
-import { htmlToJson } from "./parser.utils";
 import { MarkdownMetadata } from "../interfaces";
+import { addSearchItem, clearIndex } from "./search.utils";
+
+import { htmlToText } from "html-to-text";
+import { parse, HTMLElement } from "node-html-parser";
 
 const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
     // force recreating the API docs
-    if(process.env.PRODUCTION) {
-        console.log('making sure directory is empty', basePathResolved)
+    if (process.env.PRODUCTION) {
+        console.log("making sure directory is empty", basePathResolved);
         await del(basePathResolved);
+        await clearIndex(true);
     }
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
@@ -31,7 +35,6 @@ export const generateTypeDoc = async () => {
 
         app.bootstrap({
             target: ScriptTarget.ES2015,
-            // out: "./public/html/api",
             name: "Babylon.js API documentation",
             excludeExternals: true,
             excludePrivate: true,
@@ -45,51 +48,92 @@ export const generateTypeDoc = async () => {
             exclude: ["node_modules/**"],
             baseUrl: basePathResolved,
             hideGenerator: true,
-            // experimentalDecorators: true,
         });
         const outputDir = `${basePathResolved}${sep}files`;
 
         // Rendered docs
         app.generateDocs([`${basePathResolved}${sep}doc.d.ts`], outputDir);
     }
-    // Alternatively generate JSON output
-    // app.generateJson(project, outputDir + "/documentation.json");
-    // }
 
-    console.log("done");
+    console.log("API done");
 
     return getTypeDocFiles();
 };
 
-export const getAPIPageData = (id: string[]) => {
+export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
+    return html.querySelectorAll(".tsd-breadcrumb li a").map((element) => {
+        const baseUrl = "/typedoc/" + id[0] + '/';
+        const href = element.getAttribute("href");
+        let url = '';
+        // index?
+        if(href === '/globals.html' || href ==='../globals.html') {
+            url = '/typedoc';
+        } else {
+            url = baseUrl + href.replace('.html', '');
+        }
+
+        return {
+            name: element.firstChild.rawText,
+            url,
+        };
+    });
+};
+
+export const getAPIPageData = async (id: string[]) => {
     const html = readFileSync(`${basePath}${sep}files${sep}${id.join(sep)}.html`, "utf-8").toString();
     // read the HTML file, extract description, title, css
-    const htmlJson = htmlToJson(html);
-    const head = htmlJson.children[1].children[0];
+    const root = parse(html);
+    const head = root.querySelector("head");
     const cssArray = [];
     const metadata: MarkdownMetadata = {
         title: "Babylon.js API",
-        description: `Babylon.js API`,
+        description: "Babylon.js API",
         keywords: "babylonjs, babylon.js, api, typedoc," + id.join(","),
     };
-    head.children.forEach((element) => {
-        if (element.tagName === "title") {
-            metadata.title = element.children[0].value;
-        }
-        if (element.tagName === "meta") {
-            if (element.properties.name === "description") {
-                metadata.description = element.properties.content;
-            }
-        }
-        if (element.tagName === "style") {
-            cssArray.push(element.children[0].value);
-        }
+    const titleNode = head.querySelector("title").firstChild;
+    if (titleNode) {
+        metadata.title = titleNode.rawText.split(" | ")[0];
+    }
+
+    try {
+        metadata.description = root.querySelector(".tsd-panel .tsd-comment .lead p").firstChild.rawText.substr(0, 150) + " - " + metadata.description;
+    } catch (e) {
+        metadata.description += ` - ${id.join(" ")}`;
+    }
+    // clean description
+    metadata.description = metadata.description.replace(/\n/g, '').replace(/\t/g, '');
+    // Search index
+    let url = "/typedoc/" + id.join("/");
+    // create a buffer
+    const buff = Buffer.from(url, "utf-8");
+    const searchId = buff.toString("base64");
+    // index page
+    if (id.length === 1 && id[0] === "globals") {
+        metadata.description = "Babylon.js API main page - BABYLON namespace";
+        url = '/typedoc'
+    }
+
+    root.querySelectorAll("script").forEach((node) => node.remove());
+
+    // TODO - check for errors
+    const res = await addSearchItem({
+        id: searchId,
+        path: url,
+        isApi: true,
+        content: htmlToText(html),
+        keywords: id,
+        description: metadata.description,
+        title: metadata.title,
+        imageUrl: metadata.imageUrl,
+        videoLink: metadata.videoOverview,
     });
+
     return {
         id,
         metadata,
         cssArray,
-        contentNode: htmlJson.children[1].children[2],
+        contentNode: root.toString(),
+        breadcrumbs: generateBreadcrumbs(root, id),
     };
 };
 
