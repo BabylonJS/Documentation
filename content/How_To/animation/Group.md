@@ -1,6 +1,18 @@
+---
+title: Grouping Animations
+image: 
+description: Learn how to group animations together for easier management.
+keywords: welcome, babylon.js, diving deeper, animation, group, grouping
+further-reading:
+video-overview:
+video-content:
+    - title: Demystifying Animation Groups
+      url: https://youtu.be/BSqxoQ-at24
+---
+
 An `AnimationGroup` allows you to link together animations and meshes and play them, pause them and stop them as a group.
 
-# Forming a Group
+## Forming a Group
 
 Following the tutorial for [creating an animation](/babylon101/animations) set up one or more animations.
 
@@ -26,7 +38,7 @@ animationGroup2.addTargetedAnimation(animation3, mesh4);
 
 As the animations may have been created with differing timelines and these have to be aligned using **normalize**
 
-# Normalize a Group
+## Normalize a Group
 
 It may be that _animation1_, _animation2_ and _animation3_ have all been created using different numbers of frames. For instance _animation1_ may go from frame 0 to frame 80, _animation2_ from frame 0 to 75 and _animation3_ from frame 0 to frame 100. You can use the **normalize** method to make the number of frames the same for all animations, as in
 
@@ -39,11 +51,11 @@ In general the parameters for **normalize** are the numbers _beginFrame_ and _en
 The _beginFrame_ number must be less than or equal to the smallest begin frame of all animations, for the above examples not greater than 0.  
 The _endFrame_ number must be greater than or equal to the largest end frame of all animations, for the above examples not less than 100.
 
-- [Playground Example 1 - Animation Group](https://www.babylonjs-playground.com/#CBGEQX#1)
-- [Playground Example 2 - Animation Group](https://www.babylonjs-playground.com/#CBGEQX#2)
-- [Playground Example 3 - Animation Group](https://www.babylonjs-playground.com/#CBGEQX#3)
+- <Playground id="#CBGEQX#1" title="Animation Group Example 1" description="First Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
+- <Playground id="#CBGEQX#2" title="Animation Group Example 2" description="Second Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
+- <Playground id="#CBGEQX#3" title="Animation Group Example 3" description="Third Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
 
-# Speed Ratio for the Group
+## Speed Ratio for the Group
 
 The **speedRatio** for all animations in the group can be set, for example
 
@@ -54,9 +66,9 @@ animationGroup2.speedRatio = 3;
 
 speeding up or slowing down the animation.
 
-- [Playground Example - Group Speed Ratio](https://www.babylonjs-playground.com/#CBGEQX#5)
+- <Playground id="#CBGEQX#5" title="Animation Group Speed Ratio" description="Example of adjust an animation group's speed ratio." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup2.jpg"/>
 
-# Creating a group from existing animatables
+## Creating a group from existing animatables
 
 You can create a new AnimationGroup from an animatable by enumerating the animations contained in the animatable:
 
@@ -68,9 +80,9 @@ for (anim of idleAnim.getAnimations()) {
 }
 ```
 
-Example: https://www.babylonjs-playground.com/#IQN716#85
+Example: - <Playground id="#CBGEQX#5" title="Create AnimationGroup From Animatable" description="Example of creating an animationGroup by enumerating through the animations contained in an animatable." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup3.jpg"/>
 
-# On Group Animation End
+## On Group Animation End
 
 There is an **onAnimationEnd** observable that can be used to trigger a function when the animation ends.
 
@@ -80,9 +92,9 @@ animationGroup1.onAnimationEndObservable.add(function() {
 });
 ```
 
-- [Playground Example - On Group Animation End](https://www.babylonjs-playground.com/#CBGEQX#4)
+- <Playground id="#CBGEQX#4" title="On Animation Group End" description="Example of executing code after all animations in an animationGroup finish." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
 
-# On Group Animation Loop
+## On Group Animation Loop
 
 There is an **onAnimationLoop** observable that can be used to trigger a function when the animation loops.
 
@@ -99,14 +111,3 @@ animationGroup1.onAnimationGroupLoopObservable.add(function(group) {
   console.log("Group looped!");
 });
 ```
-
-# Further Reading
-
-## Basic
-
-[Introduction to Animating](/babylon101/animations)
-
-## Advanced
-
-[A Sequence of Animations](/How_To/sequence)  
-[Combining Animations](/How_To/combine)

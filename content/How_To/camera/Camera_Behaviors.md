@@ -1,6 +1,16 @@
-# Apply Camera Behaviors
+---
+title: Camera Behaviors
+image: 
+description: Everything you want to know about camera behaviors.
+keywords: welcome, babylon.js, diving deeper, behaviors, cameras, camera behaviors
+further-reading:
+video-overview:
+video-content:
+---
 
-# Bouncing behavior
+# Applying Camera Behaviors
+
+## Bouncing behavior
 
 The bouncing behavior (`BABYLON.BouncingBehavior`) is designed to produce a small bouncing effect when an **ArcRotateCamera** reaches the lowerRadiusLimit or the upperRadiusLimit.
 
@@ -17,9 +27,9 @@ You can easily turn on this behavior on an ArcRotateCamera with the following co
 camera.useBouncingBehavior = true;
 ```
 
-You can find a live demo here: https://www.babylonjs-playground.com/#6FBD14
+You can find a live demo here: <Playground id="#6FBD14" title="Bouncing Behavior Example" description="A simple example of the camera bouncing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors1.jpg"/>
 
-# AutoRotation Behavior
+## AutoRotation Behavior
 
 The autoRotation behavior (`BABYLON.AutoRotationBehavior`) is designed to create a smooth rotation of an **ArcRotateCamera** when there is no user interaction.
 
@@ -36,9 +46,9 @@ You can easily turn on this behavior on an ArcRotateCamera with the following co
 camera.useAutoRotationBehavior = true;
 ```
 
-You can find a live demo here: https://www.babylonjs-playground.com/#6FBD14#1
+You can find a live demo here: <Playground id="#6FBD14#1" title="AutoRotation Behavior Example" description="A simple example of the camera AutoRotation behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors2.jpg"/>
 
-# Framing Behavior
+## Framing Behavior
 
 The framing behavior (`BABYLON.FramingBehavior`) is designed to automatically position an **ArcRotateCamera** when its target is set to a mesh.
 It is also useful if you want to prevent the camera to go under a virtual horizontal plane.
@@ -62,4 +72,4 @@ You can easily turn on this behavior on an ArcRotateCamera with the following co
 camera.useFramingBehavior = true;
 ```
 
-You can find a live demo here: https://www.babylonjs-playground.com/#6FBD14#2
+You can find a live demo here: <Playground id="#6FBD14#2" title="Framing Behavior Example" description="A simple example of the camera Framing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors3.jpg"/>

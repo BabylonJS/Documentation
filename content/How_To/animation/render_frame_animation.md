@@ -1,4 +1,15 @@
-# Animation Using the Render Loop
+---
+title: Animation Using the Render Loop
+image: 
+description: Understand how to animate objects with the scene's render loop.
+keywords: welcome, babylon.js, diving deeper, animation, advanced, render loop
+further-reading:
+video-overview:
+video-content:
+---
+
+## Animation Using the Render Loop
+
 Babylon.js allows to change an objects properties immediately before or after a frame is rendered. This is an alternative way of producing animation in a scene.
 The complex animation lets you choose everything at each frame of the animation (each tick). The code computed at run time must be located in this function:
 ```javascript
@@ -12,7 +23,7 @@ The function set by ```registerBeforeRender()``` is run before every frame (usua
 properties very quickly.
 
 A simple demonstration of complex animation can be found in the playground here:
-[Complex Animation Example](https://playground.babylonjs.com/#YJVTI6)
+<Playground id="#YJVTI6" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.jpg"/>
 
 This function can be very useful for complex animation like games, where characters have to move depending on many parameters.
 

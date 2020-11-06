@@ -97,7 +97,7 @@
                     "friendlyName": "Animation", 
                     "children": {
                         "animation_introduction": { "friendlyName": "Introduction to Animations", "children": {}, "content": "How_To/animation/animation_introduction" },
-                        "animation_design": { "friendlyName": "Designing an Animations", "children": {}, "content": "How_To/animation/animation_design" },
+                        "animation_design": { "friendlyName": "Designing an Animation", "children": {}, "content": "How_To/animation/animation_design" },
                         "animation_method": { "friendlyName": "Description of the Animation Method", "children": {}, "content": "How_To/animation/animation_method" },
                         "sequenceAnimations": { "friendlyName": "Sequencing Animations", "children": {}, "content": "How_To/animation/Sequence" },
                         "groupAnimations": { "friendlyName": "Grouping Animations", "children": {}, "content": "How_To/animation/Group" },

@@ -1,27 +1,37 @@
+---
+title: Sequencing Animations
+image: 
+description: Learn how to sequence animations one after another.
+keywords: welcome, babylon.js, diving deeper, animation, sequence, sequencing
+further-reading:
+video-overview:
+video-content:
+---
+
 One straight forward method of combining a number of clips to form a cartoon is to give start times to each animation clip.
 
-# Design
+## Design
 
-## Overview
+### Overview
 
 The camera shows a building with a door. The camera moves closer to the door and stops. The door swings open and the camera enters the room. As the camera enters the room
 lights come on in the room. The door closes and the camera sweeps around the room.
 
 Since the aim is to show how the movie clip is made the room and door will be simply made with meshes with no textures.
 
-## Performers
+### Performers
 
 Camera - Universal  
 Door - Hinged on right hand side, opening inwards  
 Spot Lights - with spheres to show position
 
-## Sequence Timetable
+### Sequence Timetable
 
 ![Time Table](/img/how_to/Animations/seq1.jpg)
 
 For each performer you create an animation with key points for each timed event.
 
-## Animations
+### Animations
 
 _For the Camera_  
 Moving the camera changes the position (a vector3) of the camera. Sweeping the camera around is a rotation around the y axis (a float).
@@ -190,7 +200,7 @@ light_keys.push({
 lightDimmer.setKeys(light_keys);
 ```
 
-# Cartoon
+## Cartoon
 
 Now just run all the clips simulaneously
 
@@ -213,4 +223,4 @@ scene.beginDirectAnimation(
 );
 ```
 
-The Finished Sequence https://www.babylonjs-playground.com/#2L26P1#8)
+<Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/divingDeeperAnimationSequence.jpg"/>
