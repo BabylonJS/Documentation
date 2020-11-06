@@ -1,5 +1,16 @@
+---
+title: Getting Started - Chapter 7 - Light the Night
+image: 
+description: Learn the how to add spotlights to your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, spotlight
+further-reading:
+video-overview:
+video-content:
+---
+
 # Getting Started - Working With Code
-# Street Lights
+
+## Street Lights
 So far we have just used the hemispheric light for all the scenes. There are a range of lights but for the moment the only new one we will introduce is the spot light. This can be positioned anywhere and given a direction in which to shine. The spread of the light is given by an angle in radians, the larger the angle the wider the spread. The final parameter indicates how fast the light will fall away, the larger the number the less distance the light will shine. The spot light can be given a color.
 
 ```javascript
@@ -39,7 +50,7 @@ To make the lamp light more visible we turn down the intensity of the hemispheri
 light.intensity = 0.5;
 ```
 
-https://www.babylonjs-playground.com/#4G38H4#6
+<Playground id="#4G38H4#6" title="Create a Street Light" description="Create a basic streetlight shape and attach a spotlight." image="/img/playgroundsAndNMEs/gettingStartedStreetLights1.jpg"/>
 
 We export the lamp, of appropriate size, to use it in the village. As we need more than one street light, once the lamp is loaded we will clone it several times. For each street light we will add the lamp light. Lights are normally restricted to four in any scene. Any more and only the last 4 created are active. To extend the number of lights used we set the number needed on any material to be lit.
 
@@ -47,6 +58,6 @@ We export the lamp, of appropriate size, to use it in the village. As we need mo
 material.maxSimultaneousLights = 5;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#94
+<Playground id="#KBS9I5#94" title="Add Street Lights" description="Add street lights to the village and adjust the lighting." image="/img/playgroundsAndNMEs/gettingStartedStreetLights2.jpg"/>
 
 It would be good if we could slide daylight into nightlight and vice-versa. We can when we add the Babylon.js GUI.

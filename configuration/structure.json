@@ -74,7 +74,7 @@
                     "children": {
                         "lights": {"friendlyName": "Street Lights", "children": {}, "content": "start/chap7/lights"},
                         "light_gui": {"friendlyName": "Day to Night", "children": {}, "content": "start/chap7/light_gui"},
-                        "shadows": {"friendlyName": "Add Shadows", "children": {}, "content": "start/chap7/shadows"}
+                        "shadows": {"friendlyName": "Adding Shadows", "children": {}, "content": "start/chap7/shadows"}
                     },
                     "content": "start/chap7/chap7intro"
                 },
@@ -83,7 +83,7 @@
                     "children": {
                         "camera": {"friendlyName": "Have a Look Around", "children": {}, "content": "start/chap8/camera"},
                         "follow": {"friendlyName": "Follow That Character", "children": {}, "content": "start/chap8/follow"},
-                        "vr": {"friendlyName": "See Our World in 3D", "children": {}, "content": "start/chap8/vr"}
+                        "vr": {"friendlyName": "Going Virtual", "children": {}, "content": "start/chap8/vr"}
                     },
                     "content": "start/chap8/chap8intro"
                 }

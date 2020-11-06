@@ -1,15 +1,18 @@
 ---
-title: Getting Started - Chapter 1 - Working with Models
+title: Getting Started - Chapter 3 - Mesh Parents
 image:
-description: Learn to load your first model into a Babylon.js scene.
-keywords: welcome, babylon.js, getting started, start, chapter 1, first model, import
+description: Learn the basics of parenting objects in your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 3, parenting, parent
 further-reading:
+    - title: More on Mesh Parenting
+      url: How_To/mesh/Parenting
 video-overview:
 video-content:
 ---
 
-# Getting Started - Working With Code
-# Parents and Children
+# Getting Started - Mesh Parents
+
+## Parents and Children
 
 We are going to add a very simple car that moves through the village. 
 
@@ -29,8 +32,7 @@ Any use of position, scaling and rotation on the parent will also be applied to 
 
 You can vary the values in the following playground to see the effect on the parent and child.
 
-https://www.babylonjs-playground.com/#GMEI6U
-
+<Playground id="#GMEI6U" title="Understanding Parenting" description="Simple playground to help demonstrate parenting." image="/img/playgroundsAndNMEs/gettingStartedParents.jpg"/>
 
 Now we are ready to build the car and afterwards to animate it.
 

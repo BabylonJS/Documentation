@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Car Material
+---
+title: Getting Started - Chapter 3 - Car Materials
+image:
+description: Learn to add materials to extruded meshes.
+keywords: welcome, babylon.js, getting started, start, chapter 3, materials, extrude
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Car Materials
+
+## Car Material
 
 Just as we used different images on different faces of a box something similar is available for extruded polygons and cylinders.
 
@@ -31,7 +42,7 @@ The edge runs from (0, 0) to (1, 0.5)
 faceUV[1] = new BABYLON.Vector4(0, 0, 1, 0.5);
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#12
+<Playground id="#KDPAQ9#12" title="Adding Materials To The Car" description="Simple demonstration of adding a material to the extruded car body." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials1.jpg"/>
 
 A wheel is more straight forward because of its symmetry and it uses the whole image for the top and bottom and just picks up a black pixel for the edges.
 
@@ -44,6 +55,6 @@ Putting these together and rotating the finished car upright gives
 
 ![car model](/img/getstarted/carmodel.png)
 
-https://www.babylonjs-playground.com/#KDPAQ9#13
+<Playground id="#KDPAQ9#13" title="Adding Materials To The Wheels" description="Simple demonstration of adding a material to the extruded wheels." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials2.jpg"/> 
 
 At last we are ready to think about animating the wheels.

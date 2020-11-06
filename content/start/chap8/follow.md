@@ -1,5 +1,17 @@
-# Getting Started - Working With Code
-# Follow That Character
+---
+title: Getting Started - Chapter 8 - Follow That Character
+image: 
+description: Learn the basics of the FollowCamera.
+keywords: welcome, babylon.js, getting started, start, chapter 8, cameras, camera, FollowCamera
+further-reading:
+video-overview:
+video-content:
+---
+
+
+# Getting Started - Follow That Character
+
+## Follow That Character
 
 Without using parenting we can also track the characters movements with a *FollowCamera*.
 
@@ -46,6 +58,6 @@ Finally we set the target
 camera.lockedTarget = targetMesh;
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#98
+<Playground id="#KBS9I5#98" title="Follow The Character" description="Use the follow cam to follow the character around the village." image="/img/playgroundsAndNMEs/gettingStartedFollowCam.jpg"/>
 
 Having created a 3D world, albeit just a small village, it would be good to see it in all its 3D glory. All you need is a 3D viewer whether a simple one such as the Google Carboard or a high tech one and the appropriate camera from Babylon.js.

@@ -1,5 +1,16 @@
+---
+title: Getting Started - Chapter 5 - Sprite Trees
+image: 
+description: Learn to add a skybox to your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 5, environment, skybox
+further-reading:
+video-overview:
+video-content:
+---
+
 # Getting Started - Working With Code
-# Sprite Trees
+
+## Sprite Trees
 We are going to plant a couple of woods in our world each containing 500 trees. To maintain rendering speed we are going to use sprites. These are two dimensional images that will always face the camera.
 
 We are using this image 
@@ -28,7 +39,7 @@ for (let i = 0; i < 500; i++) {
 }
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#89
+<Playground id="#KBS9I5#89" title="Adding Sprites" description="Add sprite trees to your scene." image="/img/playgroundsAndNMEs/gettingStartedSpriteTrees1.jpg"/>
 
 You can also use a collection of images in a sprite map to produce an animation.
 
@@ -46,7 +57,7 @@ const ufo = new BABYLON.Sprite("ufo", spriteManagerUFO);
 ufo.playAnimation(0, 16, true, 125);
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#90
+<Playground id="#KBS9I5#90" title="Animating Sprites" description="Add an animated UFO to your scene." image="/img/playgroundsAndNMEs/gettingStartedSpriteTrees2.jpg"/>
 
 Now we are going to use some more features to produce a working fountain.
 

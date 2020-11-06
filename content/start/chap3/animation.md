@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Foundation of Animation
+---
+title: Getting Started - Chapter 3 - Wheel Animation
+image:
+description: Learn to the basics of animations in Babylon.js.
+keywords: welcome, babylon.js, getting started, start, chapter 3, animation, animation basics
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Wheel Animation
+
+## Foundation of Animation
 
 We will start with a wheel and rotate it about its axle. Remember that in order to have the car the upright we rotated it about the x axis and so the axle is along the y axis of the cylinder.
 
@@ -40,7 +51,7 @@ wheelRB.animations.push(animWheel);
 scene.beginAnimation(wheelRB, 0, 30, true);
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#14
+<Playground id="#KDPAQ9#14" title="Simple Wheel Animation" description="Simple demonstration of animating one of the car's wheels." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation1.jpg"/>
 
 Since all the wheels rotate the same we can use the same animation for all.
 
@@ -66,6 +77,6 @@ BABYLON.SceneLoader.ImportMeshAsync("", "url to model car", "car.babylon").then(
 });
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#15
+<Playground id="#KDPAQ9#15" title="Animating All 4 Wheels" description="Adding the wheel animation to all 4 tires." image="/img/playgroundsAndNMEs/gettingStartedWheelAnimation2.jpg"/>
 
 We can now animate the car itself and add it into the village

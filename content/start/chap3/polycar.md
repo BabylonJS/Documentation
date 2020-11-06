@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Building the Car
+---
+title: Getting Started - Chapter 3 - Extruding Polygons
+image:
+description: Learn to create your own meshes by extruding mesh faces.
+keywords: welcome, babylon.js, getting started, start, chapter 3, extrude
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Extruding Polygons
+
+## Building the Car
 The car is going to be a very simple one. The body will be built using the *extrudePolygon* method. This is another shape that can be built using *MeshBuilder*. The outline of the shape is drawn in the XZ plane, with points in counter-clockwise order and the extrusion is in the Y direction. The origin for the polygon is the zero point on the bottom plane.
 
 The outline for the car consists of an array of vector3 points forming a horizontal base line, a quarter circle for the front, followed by a horizontal base line. The vertical back with be formed by the *extrudePolygon* method as it automatically joins the first and last point.
@@ -26,7 +37,7 @@ These and the depth to extrude along Y, give the shape for the car
 const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {shape: outline, depth: 0.2});
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#10
+<Playground id="#KDPAQ9#10" title="Learning to Extrude" description="Simple demonstration showing the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude1.jpg"/>
 
 We form the wheel for the right back position from a cylinder and add it as a child to the car. Then make copies for the right front, left back and left front wheels. This time using *clone* rather than *createInstance* since we can clone a clone. When we clone a wheel its parent is made the parent of the clone.
 
@@ -47,8 +58,6 @@ wheelLF = wheelRF.clone("wheelLF");
 wheelLF.position.y = -0.2 - 0.035;
 ```
 
-https://www.babylonjs-playground.com/#KDPAQ9#11
+<Playground id="#KDPAQ9#11" title="Extruding Wheels" description="Expanding on the basics of extruding meshes." image="/img/playgroundsAndNMEs/gettingStartedExtrude2.jpg"/>
 
 Now we will make the car look a bit more like a car using some textures.
-
-LINK TO MESH SHAPES?

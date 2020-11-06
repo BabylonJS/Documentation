@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Day to Night
+---
+title: Getting Started - Chapter 7 - Day to Night
+image: 
+description: Learn the basics the Babylon.js GUI system.
+keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, spotlight, gui
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Day to Night
+
+## Day to Night
 One useful way to add a graphical user interface to a scene is the Babylon.js GUI. When working in virtual reality this GUI is necessary as it is designed to be within and part of the Babylon.js scene canvas rather than the HTML document. This GUI is pre-loaded into the playground but is an additional script to load in your own projects with
 
 ```html
@@ -59,6 +70,7 @@ slider.onValueChangedObservable.add((value) => {
 ```
 
 Now we can control the light in our village world.
-https://www.babylonjs-playground.com/#KBS9I5#95
+
+<Playground id="#KBS9I5#95" title="Adding a Gui Slider" description="Add a gui slider that controls the lighting in the village." image="/img/playgroundsAndNMEs/gettingStartedGUI1.jpg"/>
 
 Where there is light there are shadows. In Babylon.js this is only true when you make it true.
