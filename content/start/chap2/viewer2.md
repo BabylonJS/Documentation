@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Enhancing Your Website
+# Getting Started - The Viewer
 
-## Customizing the Viewer's Camera
+## Changing the Viewer's Camera
 
 What happens when we put the **Village** as a model in the viewer?
 

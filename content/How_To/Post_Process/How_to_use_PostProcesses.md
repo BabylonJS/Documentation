@@ -167,6 +167,10 @@ Furthermore, as they share the same configuration, you can just dispose a postpr
 
 You can also decide to instantiate your own configuration and affect it to your material or to your postprocess with `postProcess.imageProcessingConfiguration = new BABYLON.ImageProcessingConfiguration()`. In this case, you will be able to configure this object independantly.
 
+*Troubleshoot*
+If you use post-processes with built-in image processing features, you might run into brighter color issues.  
+Read [this](/how_to/Image_Processing#tonemapping) if you want to know how to fix it.
+
 ### Default rendering pipeline
 
 The image processing post process is also included in a rendering pipeline: the DefaultRenderingPipeline. This pipeline adds support for FXAA and bloom on top of the image processing. You can find a complete interactive demo here: https://www.babylonjs-playground.com/#5XB8YT#1

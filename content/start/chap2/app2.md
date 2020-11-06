@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Building Out Your Web App
+title: Getting Started - Chapter 2 - Web App Layout
 image: 
 description: Continue your Babylon.js learning by transforming your progress into a web app.
 keywords: welcome, babylon.js, getting started, start, chapter 2, web app, app
@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Models
+# Getting Started - Web App Layout
 
-## Vary Web App Layout
+## Varying Web App Layout
 Whilst you probably want your game or app to take up most of the page you might want some space for instructions as an example. Just place your *&lt;canvas&gt;* element in a *&lt;div&gt;* and arrange the elements as you need.
 
 ```html

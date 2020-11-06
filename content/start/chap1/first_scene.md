@@ -10,7 +10,7 @@ video-content:
 
 # Getting Started - Chapter 1 - First Scene
 
-## A First Scene and Model
+## First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene]() to contain the world or model, a [camera]() to view it, a [light]() to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh]() of triangles or facets.
 
 ![wireframe](/img/getstarted/wireframe.png)  

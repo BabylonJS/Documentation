@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Code
+# Getting Started - Combining Meshes
 
 ## Combining Meshes Using Merge Meshes
 This is a straight forwarded way of combining two or more meshes.

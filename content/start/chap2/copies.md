@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Code
+# Getting Started - Making Copies
 
 ## Copying Meshes
 The two main ways to copy a mesh is to clone it or create an instance of it. Cloning gives you an independent copy of a mesh whereas an instance is still linked to the original for its material. You cannot change the material of an instance of a mesh. There are also advanced ways of creating copies which are available in the *Mesh Chapter*

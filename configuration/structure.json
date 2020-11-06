@@ -8,8 +8,8 @@
                 "chap1": {
                     "friendlyName": "Chapter 1 - Firsts",
                     "children": {
-                        "first_scene": {"friendlyName": "A First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
-                        "first_viewer": {"friendlyName": "A First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
+                        "first_scene": {"friendlyName": "First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
+                        "first_viewer": {"friendlyName": "First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
                         "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "start/chap1/first_import" },
                         "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "start/chap1/first_app" }
                     },
@@ -19,15 +19,15 @@
                     "friendlyName": "Chapter 2 - Build A Village",
                     "children": {
                         "ground": {"friendlyName": "Grounding the World", "children": {}, "content": "start/chap2/ground" },
-                        "sound": {"friendlyName": "Making Music?", "children": {}, "content": "start/chap2/sound" },
+                        "sound": {"friendlyName": "Adding Sound", "children": {}, "content": "start/chap2/sound" },
                         "placement": {"friendlyName": "Place and Scale a Mesh", "children": {}, "content": "start/chap2/placement" },
                         "variation": {"friendlyName": "A Basic House ", "children": {}, "content": "start/chap2/variation" },
                         "material": {"friendlyName": "Add Texture", "children": {}, "content": "start/chap2/material" },
-                        "face_material": {"friendlyName": "Material per House Side", "children": {}, "content": "start/chap2/face_material" },
-                        "combine": {"friendlyName": "Combine Meshes with Merge", "children": {}, "content": "start/chap2/combine" },
+                        "face_material": {"friendlyName": "Material For Each House Side", "children": {}, "content": "start/chap2/face_material" },
+                        "combine": {"friendlyName": "Combining Meshes", "children": {}, "content": "start/chap2/combine" },
                         "copies": {"friendlyName": "Copying Meshes", "children": {}, "content": "start/chap2/copies" },
-                        "viewer2": {"friendlyName": "Customizing the Viewer's Camera", "children": {}, "content": "start/chap2/viewer2" },
-                        "app2": {"friendlyName": "Vary Web App Layout", "children": {}, "content": "start/chap2/app2" }
+                        "viewer2": {"friendlyName": "Changing the Viewer's Camera", "children": {}, "content": "start/chap2/viewer2" },
+                        "app2": {"friendlyName": "Web App Layout", "children": {}, "content": "start/chap2/app2" }
                     },
                     "content": "start/chap2/chap2intro"
                 },

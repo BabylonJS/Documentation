@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Mesh Variation
+title: Getting Started - Chapter 2 - Basic House
 image: 
 description: Continue your Babylon.js learning by adding a new mesh type to your scene.
 keywords: welcome, babylon.js, getting started, start, chapter 2, meshes, cylinder, prism
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working With Code
+# Getting Started - Basic House
 
 ## A Basic House
 Adding a roof would make our box more house like. We need a prism like shape. Luckily we can do that using *CreateCylinder*. Well the name might imply a cylinder rather than a prism however in using it you need to state how may points around the circumference of the cylinder and for a prism we can use three points.
