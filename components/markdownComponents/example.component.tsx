@@ -1,10 +1,13 @@
-import { createStyles, IconButton, makeStyles, Theme, Tooltip } from "@material-ui/core";
-import { FunctionComponent, useContext, useEffect } from "react";
+import { createStyles, makeStyles, Snackbar, Theme, Tooltip, Hidden } from "@material-ui/core";
+import { FunctionComponent, MouseEvent, SyntheticEvent, useContext, useEffect, useState } from "react";
 import { DocumentationContext } from "../../pages/[...id]";
 
 import LinkIcon from "@material-ui/icons/Link";
+import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { colorPalette } from "../../styles/theme";
+import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
+import Link from "next/link";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,18 +18,21 @@ const styles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(0.5),
             marginTop: theme.spacing(0.5),
             justifyContent: "space-between",
-            alignItems: 'center',
-            width: 'auto',
+            alignItems: "center",
+            width: "auto",
             color: "white",
             "& span": {
-                marginRight: theme.spacing(1)
+                marginRight: theme.spacing(1),
             },
             "& span:first-child": {
-                marginLeft: theme.spacing(1)
+                marginLeft: theme.spacing(1),
             },
             "& svg": {
                 marginTop: theme.spacing(0.5),
-            }
+            },
+            "& a": {
+                color: "white",
+            },
         },
     }),
 );
@@ -37,6 +43,20 @@ const styles = makeStyles((theme: Theme) =>
 export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
     const context = useContext(DocumentationContext);
     const classes = styles();
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event: SyntheticEvent | MouseEvent, reason?: string) => {
+        if (reason === "clickaway") {
+            return;
+        }
+
+        setOpen(false);
+    };
+
     const example = {
         ...props,
     } as IExampleLink;
@@ -46,20 +66,31 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
 
     const onExamplePressed = () => {
         context.setActiveExample(example);
+        handleClick();
     };
     // just as a test
     return (
         <DocumentationContext.Consumer>
             {(context) => (
                 <Tooltip title={`Open ${props.type} ${props.title}`}>
-                    <span className={classes.linkContainer} onClick={onExamplePressed.bind(this, context)}>
-                        {/* <IconButton aria-label="Show playground" size="small" color="inherit"> */}
-                        <span>
-                            <LinkIcon></LinkIcon>
+                    <>
+                        <span className={classes.linkContainer} onClick={onExamplePressed.bind(this, context)}>
+                            <span>
+                                <LinkIcon></LinkIcon>
+                            </span>
+                            <span>{example.title}</span>
+                            <Link href={getExampleLink(example)}>
+                                <a target="_blank">
+                                    <span>
+                                        <ExternalLinkIcon></ExternalLinkIcon>
+                                    </span>
+                                </a>
+                            </Link>
                         </span>
-                        {/* </IconButton> */}
-                        <span>{example.title}</span>
-                    </span>
+                        <Hidden smUp>
+                            <Snackbar message={`${example.type} opened at the top`} onClose={handleClose} open={open} autoHideDuration={3000}></Snackbar>
+                        </Hidden>
+                    </>
                 </Tooltip>
             )}
         </DocumentationContext.Consumer>
