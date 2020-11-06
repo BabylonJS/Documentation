@@ -1,4 +1,14 @@
-# How To Customize Camera Inputs
+---
+title: Customizing Camera Inputs
+image: 
+description: Learn how to custimize input controls for Babylon.js cameras.
+keywords: welcome, babylon.js, diving deeper, cameras, input, camera input
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Customize Camera Inputs
 
 Every Babylon.js camera will automatically handle inputs for you, once you call the camera's attachControl function. You can revoke the control by using the detachControl function. Most Babylon.js experts use a two-step process to activate and attach a camera:
 
@@ -35,7 +45,7 @@ var camera = new BABYLON.FreeCamera(
 var inputManager = camera.inputs;
 ```
 
-# Configure your inputs
+## Configure your inputs
 
 Most inputs provide settings to customize the sensibility and adapt it to your own scene.
 
@@ -51,7 +61,7 @@ camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 camera.inputs.attached.gamepad.gamepadAngularSensibility = 250;
 ```
 
-# Adding an existing input
+## Adding an existing input
 
 Input manager of both ArcRotateCamera and FreeCamera expose short-hand functions for adding built-in inputs.
 
@@ -75,7 +85,7 @@ var camera = new BABYLON.FreeCamera(
 camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 ```
 
-# Enable or disable inputs
+## Enable or disable inputs
 
 When you call "attachControl" on the camera, you are activating all inputs attached to the input manager. In the same way, you could turn off all inputs by calling "detachControl" on the camera.
 
@@ -97,7 +107,7 @@ You can then call "attachInput" when you want to turn it on again.
 camera.inputs.attachInput(camera.inputs.attached.mouse);
 ```
 
-# Removing inputs
+## Removing inputs
 
 Sometimes you want a very specific input mechanism. The best approach in such case is probably to clear all inputs and add only those you may want in your scene.
 
@@ -125,7 +135,7 @@ camera.inputs.remove(camera.inputs.attached.mouse);
 camera.inputs.removeByType("FreeCameraKeyboardMoveInput");
 ```
 
-# Implementing Your Own Input
+## Implementing Your Own Input
 
 Your input method is created as a function object. You must them write code for several methods, with required names, that are called by the input function object. The method names and purpose are
 
@@ -274,9 +284,9 @@ Finally add this new input method to the camera inputs
 camera.inputs.add(new FreeCameraKeyboardRotateInput());
 ```
 
-- [Playground Example Rotate Free Camera](https://www.babylonjs-playground.com/#1WFOOA#67)
+- <Playground id="#1WFOOA#67" title="Rotate Free Camera Example" description="A simple example of customizing inputs to create a Rotate Free Camera." image=""/>
 
-## With Typescript
+### With Typescript
 
 Using TypeScript, you could implement the interface ICameraInput.
 
@@ -303,11 +313,11 @@ interface ICameraInput<TCamera extends BABYLON.Camera> {
     checkInputs?: () => void;
 }
 ```
-# How to Make a Walk and Look Around Camera
+## How to Make a Walk and Look Around Camera
 The following example customizes the keyboard and mouse inputs to a universal camera. With this change, using the arrow keys you can walk forwards and backwards in the scene and rotate to look left and right. Using the mouse you can look around and above and below. 
 
 In the example there are two viewports, the upper one gives a first person view as you move and look around. The lower one gives a representation of the camera and the collision volume surrounding it.
 
 Remember to click on the scene before using the arrow keys.
 
-* [Playground Example - Walk and Look Camera](https://www.babylonjs-playground.com/#CTCSWQ#1)
+* <Playground id="#CTCSWQ#1" title="Walk and Look Camera Example" description="A simple example of customizing camera inputs to create a walk and look camera." image="/img/playgroundsAndNMEs/divingDeeperCustomCameraInput1.jpg"/>
