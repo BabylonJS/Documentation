@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Add Shadows
+---
+title: Getting Started - Chapter 7 - Adding Shadows
+image: 
+description: Learn how to add shadows to your Babylon.js scene.
+keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, shadows
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Adding Shadows
+
+## Adding Shadows
 The light we have been using so far, the *HemisphericLight* gives an ambient background light and is not suitable for producing shadows. We could use the lamp spot lights however the shadows they produce can be faint and so we will introduce a directional light.
 
 ```javascript
@@ -44,11 +55,11 @@ shadowGenerator.addShadowCaster(dude, true);
 
 ground.receiveShadows = true;
 ```
-https://www.babylonjs-playground.com/#4G38H4#7
+<Playground id="#4G38H4#7" title="Adding Basic Shadows" description="Set up a scene for shadows with the shadow generator." image="/img/playgroundsAndNMEs/gettingStartedShadows1.jpg"/>
 
 Putting this, with suitable value adjustments, in our world gives
 
-https://www.babylonjs-playground.com/#KBS9I5#96
+<Playground id="#KBS9I5#96" title="Shadows in the Village" description="Adding basic shadows to the village." image="/img/playgroundsAndNMEs/gettingStartedShadows2.jpg"/>
 
 So far we have had only one way to view our village world. There are other possibilities with different cameras.
 

@@ -1,5 +1,16 @@
-# Getting Started - Working With Code
-# Distant Hills
+---
+title: Getting Started - Chapter 5 - Distant Hills
+image: 
+description: Learn to add some distant hills to your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 5, environment
+further-reading:
+video-overview:
+video-content:
+---
+
+# Getting Started - Distant Hills
+
+## Distant Hills
 We want to set the village in a valley. It would be possible to create hills from meshes, however there is another way to add vertical height to a ground mesh. This is achieved using a height map which uses shades of gray to determine the height of the ground. White areas are the highest parts and black the lowest.
 This simple height map
 
@@ -16,13 +27,13 @@ const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround",
 
 The subdivisions property of *options* splits the ground into 20 x 20 = 400 sections. The more subdivisions the finer gradation for height calculation. The two properties minHeight and maxHeight determine the vertical heights for the black and white areas respectively, gray areas scaled accordingly.
 
-https://www.babylonjs-playground.com/#KBS9I5#39
+<Playground id="#KBS9I5#39" title="Basic Height Map" description="Create terrain from a plane with a height map." image="/img/playgroundsAndNMEs/gettingStartedDistantHills1.jpg"/>
 
 We can add textures in the usual way.
 
 ![textured valley](/img/getstarted/valley2.png)  
 
-https://www.babylonjs-playground.com/#KBS9I5#40
+<Playground id="#KBS9I5#40" title="Height Map With Texture" description="Add a texture to your terrain." image="/img/playgroundsAndNMEs/gettingStartedDistantHills2.jpg"/>
 
 Finally we give the village ground a similar, but clearer texture, to that of the large ground.
 
@@ -51,15 +62,15 @@ largeGround.position.y = -0.01;
 ```
 ensures the two grounds do not fight and cause flickering.
 
-https://www.babylonjs-playground.com/#KBS9I5#85
+<Playground id="#KBS9I5#85" title="Layering Textures" description="Add a clearer texture to the area within the village." image="/img/playgroundsAndNMEs/gettingStartedDistantHills3.jpg"/>
 
 We add back the dwellings and create a file to import
 
-https://www.babylonjs-playground.com/#KBS9I5#86
+<Playground id="#KBS9I5#86" title="Adding The Dwellings" description="Add the dwellings back into the village scene." image="/img/playgroundsAndNMEs/gettingStartedDistantHills4.jpg"/>
 
 Then we can add back the car but this time passing through the village.
 
-https://www.babylonjs-playground.com/#KBS9I5#87
+<Playground id="#KBS9I5#87" title="Adding The Car" description="Add the animating car back into the village scene." image="/img/playgroundsAndNMEs/gettingStartedDistantHills5.jpg"/>
 
 Let's now further improve the environment by adding a sky.
 

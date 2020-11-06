@@ -1,5 +1,16 @@
+---
+title: Getting Started - Chapter 6 - Particle Spray
+image: 
+description: Learn how to create a basic particle system.
+keywords: welcome, babylon.js, getting started, start, chapter 6, particles
+further-reading:
+video-overview:
+video-content:
+---
+
 # Getting Started - Working With Code
-# Particle Spray
+
+## Particle Spray
 In this case particles are small sprites emitted in a cluster, or cloud,  to simulate used to simulate fire, smoke, water, or even faery dust.
 
 The basis for a cloud of particles is the *ParticleSystem*. With this we specify the number of particles to use 
@@ -64,10 +75,12 @@ Finally we can start the fountain
 particleSystem.start();
 ```
 
-https://www.babylonjs-playground.com/#TC31NV#4 example fountain
+Here is an example of our fountain:
+
+<Playground id="#TC31NV#4" title="A Basic Particle Fountain" description="Create a basic particle system as water spray." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.jpg"/>
 
 The fountain in place
 
-https://www.babylonjs-playground.com/#KBS9I5#92
+<Playground id="#TC31NV#4" title="Add the Spray" description="Add the particle spray to our village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.jpg"/>
 
 Let's now provide an on-off click event.

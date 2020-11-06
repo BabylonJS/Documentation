@@ -1,5 +1,17 @@
+---
+title: Getting Started - Chapter 3 - A Walk Around The Village
+image:
+description: Learn to move an animating object through your scene.
+keywords: welcome, babylon.js, getting started, start, chapter 3, animation, animation basics, character animation, model loading, parenting
+further-reading:
+video-overview:
+video-content:
+---
+
+
 # Getting Started - Working With Code
-# A Walk Around The Village
+
+## A Walk Around The Village
 
 There is a useful property of a mesh, *movePOV* which allows us to move a mesh relative to its point of view. Generally a newly created mesh will be considered as facing the negative z direction and this is the direction of its point of view. To move a mesh forward 6 units in the direction of its point of view you use
 
@@ -76,7 +88,7 @@ if (p === 0) {
 }
 ```
 
-https://www.babylonjs-playground.com/#N9IZ8M#1
+<Playground id="#N9IZ8M#1" title="Animating To a Path" description="Simple example of animating an object along a path." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk1.jpg"/>
 
 A little trickier and using a bit of trial and error for the turns and distance we can achieve a more complicated walk for the character around the village. One reason for using degrees and converting them to radians for the *rotate* method is that it is easier to adjust by adding one or two degrees.
 
@@ -96,6 +108,6 @@ if (p === 0) {
 }
 ```
 
-https://www.babylonjs-playground.com/#KBS9I5#81
+<Playground id="#KBS9I5#81" title="Character Walking Through Town" description="Animate a character walking through the village." image="/img/playgroundsAndNMEs/gettingStartedVillageWalk2.jpg"/>
 
 We now have two things moving around the village a car and a character. How can we avoid them colliding?
