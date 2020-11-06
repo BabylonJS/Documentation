@@ -1,22 +1,30 @@
 # 4.2.0 (November 12th 2020)
 
-# Major updates
+## Major updates
 
 - Added particle editor to the Inspector ([Deltakosh](https://github.com/deltakosh))
 - Added sprite editor to the Inspector ([Deltakosh](https://github.com/deltakosh))
-- Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](https://doc.babylonjs.com/babylon101/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
+- Updated skeleton viewer in the Inspector ([Pryme8](https://github.com/Pryme8))
+- Added texture inspection in the Inspector ([DarraghBurkeMS](https://github.com/DarraghBurkeMS))
+- Added PBR support in the node material editor ([Popov72](https://github.com/Popov72))
+- Added new node material editor modes: procedural textures, post processes, particle shaders ([Popov72](https://github.com/Popov72) and [Deltakosh](https://github.com/deltakosh)) 
+- Added customizable frames in the node material editor ([Pamela W](https://github.com/msDestiny14))
+- Added support for code templates in the playground ([sailro]( https://github.com/sailro))
 - Added HDR texture filtering tools to the sandbox. [Doc](https://medium.com/@babylonjs/real-time-pbr-filtering-is-coming-to-babylon-cb0e81159d79) ([Sebavan](https://github.com/sebavan/))
-- Reflection probes can now be used to give accurate shading with PBR ([CraigFeldpsar](https://github.com/craigfeldspar) and ([Sebavan](https://github.com/sebavan/)))
-- Added SubSurfaceScattering on PBR materials ([CraigFeldpsar](https://github.com/craigfeldspar) and ([Sebavan](https://github.com/sebavan/)))
-- Added edition of PBR materials, Post processes and Particle fragment shaders in the node material editor ([Popov72](https://github.com/Popov72))
-- Added edition of procedural texture in the node material editor ([Deltakosh](https://github.com/deltakosh))
-- Added support in `ShadowGenerator` for fast fake soft transparent shadows ([Popov72](https://github.com/Popov72))
+- Revamped documentation ([RaananW](https://github.com/RaananW), [John King](https://github.com/BabylonJSGuide), [Patrick Ryan](https://github.com/PatrickRyanMS), [PiratJC](https://github.com/PirateJC)) 
+- Added KTX + BasisU support ([Popov72](https://github.com/Popov72)) 
+- Updated WebXR Support ([RaananW](https://github.com/RaananW))
 - Added support for thin instances for faster mesh instances. [Doc](https://doc.babylonjs.com/how_to/how_to_use_thininstances) ([Popov72](https://github.com/Popov72))
+- Added support in `ShadowGenerator` for soft transparent shadows ([Popov72](https://github.com/Popov72))
+- Added PBR Next features: Reflection probes for accurate shading and Sub Surface Scattering ([CraigFeldpsar](https://github.com/craigfeldspar) and [Sebavan](https://github.com/sebavan/))
+- Added support for latest glTF extensions: KHR_materials_clearcoat, KHR_materials_sheen, KHR_materials_transmission, KHR_texture_basisu ([Sebavan](https://github.com/sebavan/) and [Popov72](https://github.com/Popov72))
+- Added support for 3D Commerce glTF extensions: KHR_material_variants and KHR_xmp ([Sebavan](https://github.com/sebavan/) and [Deltakosh](https://github.com/deltakosh))
 
-# Updates
 
-## General
+## Updates
 
+### General
+- Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](https://doc.babylonjs.com/babylon101/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
 - Added support for postproces serialization ([Deltakosh](https://github.com/deltakosh))
 - Added support for querystrings on KTX file URLs ([abogartz](https://github.com/abogartz))
 - Refactored React refs from old string API to React.createRef() API ([belfortk](https://github.com/belfortk))
@@ -61,7 +69,7 @@
 - Updated `axisScaleGizmo` to follow pointer on drag ([aWeirdo](https://github.com/aWeirdo))
 - Added manual input for sliders on NME and inspector ([msDestiny14](https://github.com/msDestiny14))
 
-## Engine
+### Engine
 
 - Improved world matrix caching engine by using dirty mechanism on vector3 and quaternion ([Deltakosh](https://github.com/deltakosh))
 - Allow logging of shader code when a compilation error occurs ([Popov72](https://github.com/Popov72))
@@ -74,26 +82,26 @@
 - Added customization options to VirtualJoystick ([#7398](https://github.com/BabylonJS/Babylon.js/issues/7398)) ([Rockwell15](https://github.com/Rockwell15))
 - Handle meshes with LODs in render target textures (meaning in glow/highlight layers, shadow generators, depth renderer, etc) ([Popov72](https://github.com/Popov72))
 
-## NME
+### NME
 
 - Frames are now resizable from the corners ([belfortk](https://github.com/belfortk))
 - Can now rename and re-order frame inputs and outputs ([belfortk](https://github.com/belfortk))
 - Can now edit Node port names ([belfortk](https://github.com/belfortk))
 - Updated which node ports are shown on frames by default so that only node ports connected to outside nodes are by default exposed on the frame ([belfortk](https://github.com/belfortk))
 - Added a modulo block ([ageneau](https://github.com/ageneau))
-- Fixed bug where frame port labels would be the names of incorrect nodes ([belfortk](https://github.com/belfortk))
-- Fixed bug where long comments on collapsed frames broke port alignment ([belfortk](https://github.com/belfortk))
-- Added the `FragCoord` and `ScreenSize` blocks ([Popov72](https://github.com/Popov72))
-- Particle systems: Added the `ParticlePositionWorld` block ([Popov72](https://github.com/Popov72))
-- Added isExposedOnFrame property to connection points ([belfortk](https://github.com/belfortk))
-- Added support for exporting frames ([belfortk](https://github.com/belfortk))
-- Added support for importing frames and their nodes (unconnected) and exposed frame ports ([belfortk](https://github.com/belfortk))
-- Added the `rgba` and `a` outputs to the `ReflectionTexture` block ([Popov72](https://github.com/Popov72))
-- Added custom frames to be uploaded into NME for reuse ([msDestiny14](https://github.com/msDestiny14))
+- Fix bug where frame port labels would be the names of incorrect nodes ([belfortk](https://github.com/belfortk))
+- Fix bug where long comments on collapsed frames broke port alignment ([belfortk](https://github.com/belfortk))
+- Add the `FragCoord` and `ScreenSize` blocks ([Popov72](https://github.com/Popov72))
+- Particle systems: add the `ParticlePositionWorld` block ([Popov72](https://github.com/Popov72))
+- Add isExposedOnFrame property to connection points ([belfortk](https://github.com/belfortk))
+- Add support for exporting frames ([belfortk](https://github.com/belfortk))
+- Add support for importing frames and their nodes (unconnected) and exposed frame ports ([belfortk](https://github.com/belfortk))
+- Add the `rgba` and `a` outputs to the `ReflectionTexture` block ([Popov72](https://github.com/Popov72))
+- Add custom frames to be uploaded into NME for reuse ([msDestiny14](https://github.com/msDestiny14))
 - Node ports are now serialized for custom frames ([msDestiny14](https://github.com/msDestiny14))
 - Deleting a collapsed frame will delete all nodes inside it ([msDestiny14](https://github.com/msDestiny14))
 
-## Inspector
+### Inspector
 
 - Added support for follow cameras ([Deltakosh](https://github.com/deltakosh))
 - New delta tool used to apply delta changes to a scene ([Deltakosh](https://github.com/deltakosh))
@@ -111,7 +119,7 @@
 - Along with bone index it is now possible to select a bone using its name when viewing bone weights ([#9117](https://github.com/BabylonJS/Babylon.js/issues/9117)) ([RaananW](https://github.com/RaananW))
 - Gradient nodes from NME can now be set to be visible in the inspector ([msDestiny14](https://github.com/msDestiny14))
 
-## Cameras
+### Cameras
 
 - Fixed up vector not correctly handled with stereoscopic rig ([cedricguillemet](https://github.com/cedricguillemet))
 - Handle reattachment of panning button for `ArcRotateCamera` ([cedricguillemet](https://github.com/cedricguillemet))
@@ -121,17 +129,17 @@
 - Handle scales in camera matrices ([Popov72](https://github.com/Popov72))
 - Added mouse wheel controls to FreeCamera. ([mrdunk](https://github.com/mrdunk))
 
-## Debug
+### Debug
 - Added new view modes to the `SkeletonViewer` class. ([Pryme8](https://github.com/Pryme8))
 - Added static methods to create debug shaders materials for a mesh with a skeleton. ([Pryme8](https://github.com/Pryme8))
 - Added ability to view local rotation axes of bones using new `displayOptions`: `showLocalAxes` and `localAxesSize` ([reimund](https://github.com/reimund))
 
-## Sprites
+### Sprites
 
 - Added support for 'sprite.useAlphaForPicking` to enable precise picking using sprite alpha ([Deltakosh](https://github.com/deltakosh))
 - Improved rendering engine by using instancing when available ([Deltakosh](https://github.com/deltakosh))
 
-## Physics
+### Physics
 
 - Fixed time steps or delta time with sub time step for Oimo.js and Cannon.js ([cedricguillemet](https://github.com/cedricguillemet))
 - Ammo.js collision group and mask supported by impostor parameters ([cedricguillemet](https://github.com/cedricguillemet))
@@ -143,7 +151,7 @@
 - Fixed an issue with transformation set after physics body was created using Cannon.js (excluding height and plane) ([#7928](https://github.com/BabylonJS/Babylon.js/issues/7928)) ([RaananW](https://github.com/RaananW))
 - Fixed an issue with compound creation and scaling preset ([#8888](https://github.com/BabylonJS/Babylon.js/issues/8888)) ([RaananW](https://github.com/RaananW))
 
-## Loaders
+### Loaders
 
 - Added support for glTF mesh instancing extension ([#7521](https://github.com/BabylonJS/Babylon.js/issues/7521)) ([drigax](https://github.com/Drigax))
 - Get the list of cameras retrieved from a gLTF file when loaded through the asset container ([Popov72](https://github.com/Popov72))
@@ -163,7 +171,7 @@
 - Fixed a bug when loading glTF with interleaved animation data. ([bghgary](https://github.com/bghgary))
 - Added support for KHR_materials_translucency for glTF loader. ([MiiBond](https://github.com/MiiBond/))
 
-## Serializers
+### Serializers
 
 - Added support for KHR_materials_unlit to glTF serializer ([Popov72](https://github.com/Popov72))
 - Added support for glTF Skins to glTF serializer ([Drigax](https://github.com/Drigax))
@@ -171,12 +179,12 @@
 - Fixed several bugs in stlSerializer ([aWeirdo](https://github.com/aWeirdo))
 - Added param `doNotBakeTransform` to `stlSerializer.CreateSTL` ([aWeirdo](https://github.com/aWeirdo))
 
-## Navigation
+### Navigation
 
 - export/load prebuilt binary navigation mesh ([cedricguillemet](https://github.com/cedricguillemet))
 - get next path step point for an agent ([cedricguillemet](https://github.com/cedricguillemet))
 
-## Materials
+### Materials
 
 - Added the `roughness` and `albedoScaling` parameters to PBR sheen ([Popov72](https://github.com/Popov72))
 - Updated the energy conservation factor for the clear coat layer in PBR materials ([Popov72](https://github.com/Popov72))
@@ -195,11 +203,11 @@
 - Alpha test `transparencyMode` no-longer requires a diffuse/albedo texture if `opacityTexture` is present ([metaobjects](https://github.com/metaobjects))
 - Added `hasTexture` override in `MultiMaterial` ([Vampiro](https://github.com/vampiro))
 
-## Meshes
+### Meshes
 
 - Added `MeshBuilder.CreateCapsule` and `Mesh.CreateCapsule` for creation of a capsule shape mesh and VertexBuffers. ([Pryme8](https://github.com/Pryme8))
 
-## WebXR
+### WebXR
 
 - Added optional ray and mesh selection predicates to `WebXRControllerPointerSelection` ([Exolun](https://github.com/Exolun))
 - Implemented the new WebXR HitTest API ([#7364](https://github.com/BabylonJS/Babylon.js/issues/7364)) ([RaananW](https://github.com/RaananW))
@@ -236,57 +244,57 @@
 - Updated anchor system's promise resolution and API ([#9258](https://github.com/BabylonJS/Babylon.js/issues/9258)) ([RaananW](https://github.com/RaananW))
 - Fixed an issue with teleportation re-attachment ([#9273](https://github.com/BabylonJS/Babylon.js/issues/9273)) ([RaananW](https://github.com/RaananW))
 
-## Collisions
+### Collisions
 
 - Added an option to optimize collision detection performance ([jsdream](https://github.com/jsdream)) - [PR](https://github.com/BabylonJS/Babylon.js/pull/7810)
 - Added support for collisions with unindexed meshes ([#9267](https://github.com/BabylonJS/Babylon.js/issues/9267))([Popov72](https://github.com/Popov72))
 
-## Animation
+### Animation
 
 - Added support for Additive Animation Blending. Existing animations can be converted to additive using the new MakeAnimationAdditive method for Skeletons, AnimationGroups and Animations. Animations can be played additively using the new isAdditive input parameter to the begin animation methods. ([c-morten](https://github.com/c-morten))
 - Sort events by frame in ascending order in `Animation#addEvent()` ([ycw](https://github.com/ycw))
 
-## Maths
+### Maths
 
 - Added `Vector3.projectOnPlaneToRef` ([Deltakosh](https://github.com/deltakosh))
 
-## Particles
+### Particles
 
 - Added local space support for GPU particles ([CraigFeldpsar](https://github.com/craigfeldspar))
 - Added ability to update also colors and uvs of solid particle vertices ([jerome](https://github.com/jbousquie))
 
-## Textures
+### Textures
 
 - .HDR environment files will now give accurate PBR reflections ([CraigFeldpsar](https://github.com/craigfeldspar))
 - Added a `homogeneousRotationInUVTransform` property in the `Texture` to avoid deformations when rotating the texture with non-uniform scaling ([Popov72](https://github.com/Popov72))
 - Added `Texture.ForceSerializeBuffers` ([aWeirdo](https://github.com/aWeirdo))
 
-## Audio
+### Audio
 
 - Added support of `metadata` in `Sound` class. ([julien-moreau](https://github.com/julien-moreau))
 - Added `currentTime` property to the `Sound` class. ([jocravio](https://github.com/jocravio))
 
-## Build
+### Build
 
 - Fixed an issue with gulp webpack, webpack stream and the viewer ([RaananW](https://github.com/RaananW))
 
-## Playground
+### Playground
 
 - Added support for code templates in the playground ([sailro](http://www.github.com/sailro))
 - If createEngine fails, a default engine will be created ([#8084](https://github.com/BabylonJS/Babylon.js/issues/8084)) ([RaananW](https://github.com/RaananW))
 
-## GUI
+### GUI
 
 - Added support for custom word splitting function for `TextBlock` ([Popov72](https://github.com/Popov72))
 - Added the `fixedRatio` property to the `Control` class ([Popov72](https://github.com/Popov72))
 - Clip multilines by camera near plane when point is attached to a mesh ([cedricguillemet](https://github.com/cedricguillemet))
 
-## Post Processes
+### Post Processes
 
 - SSAO 2, motion blur and screen space reflections are now using the brand new `PrePassRenderer` to avoid rendering the scene twice ([CraigFeldpsar](https://github.com/craigfeldspar)
 - Added Screen Space Curvature post process: [Doc](https://doc.babylonjs.com/how_to/how_to_use_postprocesses#screen-space-curvature) ([Popov72](https://github.com/Popov72) and [Sebavan](https://github.com/sebavan/))
 
-# Bugs
+## Bugs
 
 - Fixed infinite loop in `GlowLayer.unReferenceMeshFromUsingItsOwnMaterial` ([Popov72](https://github.com/Popov72))
 - Fixed picking issue in the Solid Particle System when MultiMaterial is enabled ([jerome](https://github.com/jbousquie))
@@ -375,7 +383,7 @@
 - Fixed bug in `QuadraticErrorSimplification` not correctly optimizing mesh. ([aWeirdo](https://github.com/aWeirdo))
 - Fixed bug in `ArcRotateCamera` where setting the position would recalculate the alpha value to a value outside the current limits. ([nilss0n](https://github.com/nilss0n))
 
-# Breaking changes
+## Breaking changes
 
 - `FollowCamera.target` was renamed to `FollowCamera.meshTarget` to not be in conflict with `TargetCamera.target` ([Deltakosh](https://github.com/deltakosh))
 - `EffectRenderer.render` now takes a `RenderTargetTexture` or an `InternalTexture` as the output texture and only a single `EffectWrapper` for its first argument ([Popov72](https://github.com/Popov72))
@@ -453,6 +461,7 @@
 - Supports clip planes with shadows ([sebavan](https://github.com/sebavan))
 - Added Workbench color scheme for VSCode ([drigax](https://github.com/drigax) & [Patrick Ryan](https://github.com/PatrickRyanMS))
 - Playground switch buttons are more intuitive ([#7601](https://github.com/BabylonJS/Babylon.js/issues/7601)) ([RaananW](https://github.com/RaananW/))
+- Added support of screen based motion blur in `MotionBlurPostProcess` (default mode is object based) to be used as a fallback to save performances on large scenes ([julien-moreau](https://github.com/julien-moreau))
 
 ### Engine
 

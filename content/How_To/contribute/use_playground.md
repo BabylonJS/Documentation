@@ -1,8 +1,18 @@
+---
+title: Using the Playground for Development in Babylon.js
+image: 
+description: Learn all about making your development process easier with the super handy playground.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, playground, develope
+further-reading:
+video-overview:
+video-content:
+---
+
 # Using the Playground in Development of BJS
 
 During the early stages of developing code to contribute to Babylon.js it can be useful to try out that code in the Playground. Just ensure that the Playground is in Typescript mode by using the link https://www.babylonjs-playground.com/ts.html# . The `New` button will then give you the starting code. 
 
-# An Example
+## An Example
 
 Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS/Babylon.js/blob/master/src/Math/babylon.math.ts , (just search for Curve3 on this page) so it would make sense to put any code to form a bezier surface on the same page.
 
@@ -10,7 +20,7 @@ The first step is to produce code that works. You can of course immediately foll
 
 So an alternative is to try out the code in the playground. The following playground shows the Typescript code for a bezier surface which is in development with the playground.
 
-* [Playground Code Example - Bezier Surface](https://www.babylonjs-playground.com/ts.html#H3AF26#1)
+* <Playground id="H3AF26#1" title="Playground Code Example - Bezier Surface" description="Simple playground example of a Bezier Surface." image="/img/playgroundsAndNMEs/divingDeeperUsingPlaygrounds1.jpg"/>
 
 Though this shows working code it is not completely ready for copying into a local repository of Babylon.js, committing and sending a PR. For a start not all the comments needed are in place. 
 
@@ -27,7 +37,7 @@ export class BezierSurface {
 ```
 
 
-# From Playground to Pull Request
+## From Playground to Pull Request
 
 Once you are happy the code works and you have copied it to your local repository then before submitting your PR please make sure you have read the following to ensure a smooth positive result.
 
