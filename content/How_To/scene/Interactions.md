@@ -1,8 +1,20 @@
-# How to Interact with A Scene
+---
+title: Interacting With Scenes
+image: 
+description: Begin learning about how to develop interactions for your Babylon.js scenes.
+keywords: welcome, babylon.js, diving deeper, events, interactions 
+further-reading:
+    - title: Observables
+	  url: /how_to/observables
+video-overview:
+video-content:
+---
+
+## How to Interact with A Scene
 
 There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/how_to/Gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
 
-# Keyboard Interactions
+## Keyboard Interactions
 
 By customizing the following code template you can control reactions within your scene to different keys. Both the `ascii` code for the key and the key itself are available to you.
 
@@ -19,7 +31,7 @@ scene.onKeyboardObservable.add((kbInfo) => {
 });
 ```
 
-# Pointer Interactions.
+## Pointer Interactions.
 
 First of all a reminder that for **touch** events in Babylon.js [PEP](https://github.com/jquery/PEP) is required. To use PEP all that is necessary is to
 
@@ -66,16 +78,10 @@ scene.onPointerObservable.add((pointerInfo) => {
 });
 ```
 
-# Playground Examples
+## Playground Examples
 
-* [Playground Example Scene Observables Template](https://www.babylonjs-playground.com/#0XYMA9#1)
-* [Playground Example Drag](https://www.babylonjs-playground.com/#7CBW04)
-* [Playground Example Keyboard](https://www.babylonjs-playground.com/#XZ0TH6)
+* <Playground id="#0XYMA9#1" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg"/>
+* <Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/divingDeeperInteractions2.jpg"/>
+* <Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.jpg"/>
 
 Remember to click in scene (to set focus) before using keyboard
-
-# Further Reading
-
-# Mid Level - L2
-
-[Observables](/how_to/observables)
