@@ -178,8 +178,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+    const handleDrawerToggle = (e) => {
+        if (!mobileOpen || (e.target as HTMLElement).tagName === "SPAN" || (e.target as HTMLElement).tagName === "DIV") {
+            setMobileOpen(!mobileOpen);
+        }
     };
     const router = useRouter();
     const baseDomain = process.env.VERCEL_URL || "";
@@ -221,7 +223,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                router.push('/search?q='+searchTerm)
+                                router.push("/search?q=" + searchTerm);
                                 return false;
                             }}
                             noValidate
