@@ -1,4 +1,14 @@
-# How to use Actions
+---
+title: Actions
+image: 
+description: Learn how to use actions in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, actions
+further-reading:
+video-overview:
+video-content:
+---
+
+## How to use Actions
 
 Actions are a simple way to add interactions in your scenes. An action is launched when its trigger is fired. For instance, you can specify that when the user clicks (or touches) a mesh, an action is executed.
 
@@ -72,7 +82,7 @@ mesh.actionManager.registerAction(
 
 In this example, the `camera.alpha` property will be animated to 0 in 500ms when the user clicks the mesh only if the `light.diffuse` property is equal to red.
 
-# Triggers
+## Triggers
 Currently, there are 14 different triggers available for meshes, and three for scenes.
 
 The triggers available for meshes are:
@@ -147,7 +157,7 @@ scene.actionManager.registerAction(
 );
 ```
 
-# Available Actions
+## Available Actions
 Most of the actions have a `propertyPath` property. This string defines the path to the property to affect with the action. 
 You can use direct values like `position` or `diffuse`. But you can also provide complex paths like `position.x`
 
@@ -168,7 +178,7 @@ You can use direct values like `position` or `diffuse`. But you can also provide
    * `BABYLON.Vector3`
    * `BABYLON.Quaternion`
 
-# Conditions
+## Conditions
 There are three kinds of conditions:
 
 * `BABYLON.ValueCondition(actionManager, target, propertyPath, value, operator)`: true when the given property and value conform to the operator. The following operators are supported:
@@ -179,7 +189,7 @@ There are three kinds of conditions:
 * `BABYLON.PredicateCondition(actionManager, predicate)`: true when the given predicate function returns true.
 * `BABYLON.StateCondition(actionManager, target, value)`: true when the ```state``` property of the target matches the given value.
 
-# Experimenting with Actions
+## Experimenting with Actions
 Imagine you want to almost hide a mesh when the user touches it.
 
 First, you'd add a  `BABYLON.ActionManager` to the mesh in question:
@@ -232,12 +242,11 @@ mesh.actionManager
 
 In this case, the first click will hide the button, the following click will restore it, and so on...
 
-# Sprites 
+## Sprites 
 Starting with Babylon.js 2.3, sprites can have an action manager: https://www.babylonjs-playground.com/#9RUHH#5
 
 Please note that the SpriteManager must turn picking support on by using `spriteManager.isPickable = true`
 Sprites can also control picking with `sprite.isPickable = false / true` (False by default)
 
-# Playground
-If you want to play with actions, you can try them at our playground:
-https://www.babylonjs-playground.com/#J19GYK#0
+## Playground
+If you want to play with actions, you can try them out in our playground here: <Playground id="#J19GYK#0" title="Play with Actions" description="Simple examples of actions in a scene." image="/img/playgroundsAndNMEs/divingDeeperActions1.jpg"/>

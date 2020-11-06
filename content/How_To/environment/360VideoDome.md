@@ -1,15 +1,27 @@
-# How To 360 Video
+---
+title: 360 Video Domes
+image: 
+description: Learn all about Babylon.js 360 video domes.
+keywords: welcome, babylon.js, diving deeper, environment, 360 video, dome, 360 video dome, video dome
+further-reading:
+    - title: VideoTexture
+      url: /classes/VideoTexture
+video-overview:
+video-content:
+---
+
+## How To 360 Video
 
 360 Video is a simplex mix of specific geometry, textures, and material properties; however, rather than put the burden on you to figure out how to connect them, we've created the VideoDome.
 
 Note that the video dome also supports 180 degrees video. Read below for further information.
 
-# VideoDome
+## VideoDome
 
 VideoDomes rely heavily on the [VideoTexture](/classes/VideoTexture) class, check out it's documentation so that some parameters make more sense.
 The source video itself should be "Equirectangular", without an equirectangular source the class won't function correctly.
 
-# VideoDome Code
+## VideoDome Code
 
 Within the playground you can copy and paste the following into your scene and then adjust the options.
 
@@ -31,11 +43,11 @@ All the options are based through the corresponding classes, mainly the dome geo
 * useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
 * halfDomeMode = false: Enable the support for 180 videos instead of 360.
 
-* [Playground Example of a VideoDome](https://www.babylonjs-playground.com/#SQ5UC1#22)
+* <Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoDome1.jpg"/>
 
 As iOS disable autoplay, you should call video play on user interaction, using `videoDome.videoTexture.video.play();` .
 
-# FOV adjustment
+## FOV adjustment
 
 Sometimes 360 Video can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
 Adjust it between 0.0 and 2.0 with the following code.
@@ -48,9 +60,9 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the video dome help reduce, but not eliminate, this.
 
-* [Playground Example of a VideoDome using fovMultiplier](https://www.babylonjs-playground.com/#SQ5UC1#0)
+* <Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier." image=""/>
 
-# Video Types
+## Video Types
 
 Several types of 360 video exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
@@ -66,7 +78,7 @@ videoDome.videoMode = BABYLON.VideoDome.MODE_SIDEBYSIDE;
 videoDome.videoMode = BABYLON.VideoDome.MODE_TOPBOTTOM;
 ```
 
-# 180 Video
+## 180 Video
 
 Another format of VR-enabled videos are the 180 degrees videos. The front of the user is recorded, but the back is black.
 
@@ -92,10 +104,3 @@ let videoDome = new BABYLON.VideoDome(
 let videoDome = ....
 videoDome.halfDome = true;
 ```
-
-# Further Reading
-
-# Advanced
-
-[VideoTexture](/classes/VideoTexture)
-
