@@ -1,12 +1,24 @@
-# How To Combine Animations
+---
+title: Combining Animations
+image: 
+description: Learn how to combine animations together.
+keywords: welcome, babylon.js, diving deeper, animation, combine, combination
+further-reading:
+video-overview:
+video-content:
+---
 
-# Concurrent
+## How To Combine Animations
+
+### Concurrent
 
 Simply set up more animations and add to the BabylonJS object's animations array.
 
-For example adding a rotation animation to the [very simple slide animation](https://www.babylonjs-playground.com/#9WUJN#11) to get:
+For example adding a rotation animation to the very simple slide animtation to get:
 
-## Slide and Rotate
+<Playground id="#9WUJN#11" title="Simple Slide Animation" description="The simple slide animation example." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
+
+### Slide and Rotate
 
 ```javascript
 var yRot = new BABYLON.Animation(
@@ -37,9 +49,9 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- [Playground Example Slide and Rotate](https://www.babylonjs-playground.com/#9WUJN#12)
+- <Playground id="#9WUJN#12" title="Slide and Rotate Animation" description="The simple slide animation with rotation introduced." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
 
-## Slide and Faster Rotation Rate
+### Slide and Faster Rotation Rate
 
 Changing the rotation values to larger numbers increases the rotation rate
 
@@ -72,9 +84,9 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- [Playground Example Slide and Faster Rotate](https://www.babylonjs-playground.com/#9WUJN#13)
+- <Playground id="#9WUJN#13" title="Slide with Faster Rotatation" description="The simple slide animation with faster rotation." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
 
-## Slide and Varying Rotation Rate
+### Slide and Varying Rotation Rate
 
 Changing the second key frame position to nearer the end of the frames gives a varying rotation rate.
 
@@ -107,16 +119,16 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- [Playground Example Slide and Varying Rotation Rate](https://www.babylonjs-playground.com/#9WUJN#14)
+- <Playground id="#9WUJN#14" title="Slide with Varying Rotatation Rate" description="The simple slide animation with varying rotation rates." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
 
-# Consecutive Animations
+## Consecutive Animations
 
 In order to have one animation follow another then a further parameter needs to be added to the beginDirectAnimation function. This parameter is
 itself a function to be called when the animation began by beginDirectAnimation is ended.
 
 In fact two new parameters are needed since the function to be called is the sixth parameter and so the fifth parameter position needs to be filled.
 
-## beginDirectAnimation and Parameters
+### beginDirectAnimation and Parameters
 
 scene.beginAnimation(target, start frame, end frame, loop, speed, on animation end);
 
@@ -134,9 +146,9 @@ scene.beginAnimation(target, start frame, end frame, loop, speed, on animation e
 
 - _on animation end_ - _function : optional_, function called when animation ends, requires loop to be false
 
-## Examples
+### Examples
 
-The following are alterations to [Slide and Rotate](https://www.babylonjs-playground.com/#9WUJN#12)
+The following are alterations to the slide and rotate example
 
 In the first example the box rotates for 5 seconds then goes into a looped slide.
 
@@ -162,7 +174,7 @@ var nextAnimation = function() {
 };
 ```
 
-- [Playground Example Consecutive Animations Rotate then Slide](https://www.babylonjs-playground.com/#9WUJN#15)
+- <Playground id="#9WUJN#15" title="Rotate Then Slide" description="The simple slide animation with rotation happening first, then sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.jpg"/>
 
 In the second example the rotation is continued as the box goes into a looped slide.
 
@@ -172,6 +184,6 @@ var nextAnimation = function() {
 };
 ```
 
-- [Playground Example Consecutive Animations Rotate then Rotate and Slide](https://www.babylonjs-playground.com/#9WUJN#16)
+- <Playground id="#9WUJN#16" title="Rotate Then Rotate and Slide" description="The simple slide animation with rotation happening first, then rotation and sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.jpg"/>
 
 

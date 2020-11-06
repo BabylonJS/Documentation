@@ -1,6 +1,16 @@
+---
+title: The Animation Method
+image: 
+description: A description of the animation method and approach in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, animation, approach, method
+further-reading:
+video-overview:
+video-content:
+---
+
 # The Animation Method
 
-# Creating the animation
+## Creating the animation
 ```javascript
 const myAnim = new BABYLON.Animation(name, property, frames per second, property type, loop mode)
 ```
@@ -25,7 +35,7 @@ const myAnim = new BABYLON.Animation(name, property, frames per second, property
     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
     BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
 
-# Set Key Frames
+## Set Key Frames
 This is an array, *myKeys* of objects. Each object having the two properties 
 
 - _frame_ - the frame number
@@ -37,7 +47,7 @@ Once constructed this is added to the animation
 myAnim.setKeys(myKeys);
 ```
 
-# Beginning The Animation
+## Beginning The Animation
 
 To run the animation it is pushed onto the *animations* array property of the mesh
 
@@ -60,7 +70,7 @@ When you want the animation to loop you and true as the fourth parameter
 scene.beginAnimation(target, from, to, true)
 ```
 
-Sliding box https://www.babylonjs-playground.com/#7V0Y1I
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
 
 The are a number of further optional parameters than you can find in the *scene* API
 
@@ -81,10 +91,9 @@ scene.beginAnimation(target, animations, from, to, loop)
 
 Further optional parameters are available and can be found at the *scene* API
 
-Sliding box direct animation https://www.babylonjs-playground.com/#7V0Y1I#1
+<Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/> 
 
-
-# Animatable
+## Animatable
 
 Both methods of starting an animation return an *Animatable* object 
 
@@ -99,4 +108,4 @@ which supports the following methods
 - _stop()_
 - _reset()_
 
-Sliding box looped animation stopped after 5 secs https://www.babylonjs-playground.com/#7V0Y1I#2
+<Playground id="#7V0Y1I#2" title="Box animation stop after 5 secs" description="An example of stopping an animation after specific amount of time." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>  

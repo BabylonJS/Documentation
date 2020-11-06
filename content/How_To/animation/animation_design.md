@@ -1,4 +1,14 @@
-# Designing a Clip
+---
+title: Designing Animations
+image: 
+description: A deeper overview of animation and how to leverage it in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, animation, introduction, intro
+further-reading:
+video-overview:
+video-content:
+---
+
+## Designing a Clip
 
 The first step is to decide what you want to see in a _clip_, that is what is the _performance_ to be. This gives the performer and its animation.
 
@@ -60,4 +70,4 @@ scene.beginAnimation(box, [xSlide], 0, 2 * frameRate, true);
 ```
 
 You can see the result here  
-Sliding box https://www.babylonjs-playground.com/#7V0Y1I
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>

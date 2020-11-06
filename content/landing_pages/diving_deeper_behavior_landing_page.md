@@ -1,9 +1,19 @@
-# Behaviors
+---
+title: Behaviors
+image: 
+description: Dive into the rich world of behaviors in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, behaviors
+further-reading:
+video-overview:
+video-content:
+---
+
+## Behaviors
 
 Babylon.js v3.1 introduced a new component based tools: the behaviors.
 A behavior is a simple class that can be attached to a target where it will provide a specific set of features. Features will be triggered by defined events.
 
-# General
+## General
 
 A behavior is defined by the following interface:
 
