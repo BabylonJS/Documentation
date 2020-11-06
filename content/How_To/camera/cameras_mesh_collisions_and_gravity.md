@@ -1,8 +1,20 @@
-# Cameras, Mesh Collisions and Gravity
+---
+title: Camera Collisions
+image: 
+description: Dive into understanding camera collisions, mesh collisions, and gravity.
+keywords: welcome, babylon.js, diving deeper, cameras, collisions, camera collisions, gravity, mesh collisions
+further-reading:
+    - title: Cameras Overview
+      url: /features/Cameras
+video-overview:
+video-content:
+---
+
+## Cameras, Mesh Collisions and Gravity
 
 Did you ever play a FPS (First Person Shooter) game? In this tutorial, we are going to simulate the same camera movements: the camera is on the floor, in collision with the ground, and potentially in collision with any objects in the scene.
 
-# How can I do this ?
+## How can I do this ?
 
 To replicate this movement, we have to do 3 simple steps:
 
@@ -56,7 +68,7 @@ box.checkCollisions = true;
 
 That’s it! Easy!
 
-You can play with the scene used in this tutorial... by visiting the Babylon.js [**playground demo**]( https://www.babylonjs-playground.com/#4HUQQ)
+You can play with the scene used in this tutorial: <Playground id="#4HUQQ" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera." image="/img/playgroundsAndNMEs/divingDeeperCameraCollisions1.jpg"/>
 
 Now, your camera is going to fall on the y-axis until it collides with the ground. And, your camera will collide with the box when you move it too near to it.
 
@@ -82,7 +94,7 @@ var backwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) /
 character.moveWithCollisions(backwards);
 ```
 
-# ArcRotateCamera
+## ArcRotateCamera
 The ArcRotateCamera can also check collisions but instead of sliding along obstacles, this camera won't move when a collision appends.
 
 To activate collisions, just call ```camera.checkCollisions = true```. You can define the collision radius with this code:
@@ -91,9 +103,5 @@ To activate collisions, just call ```camera.checkCollisions = true```. You can d
 camera.collisionRadius = new BABYLON.Vector3(0.5, 0.5, 0.5)
 ```
 
-# Next step
+## Next step
 Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? Good, because that is exactly the purpose of our [next tutorial](/babylon101/Intersect_Collisions_-_mesh).
-
-# Further Reading
-
-[Cameras Overview](/features/Cameras)

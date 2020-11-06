@@ -1,10 +1,20 @@
+---
+title: WebVR Experience Helper
+image: 
+description: Set up a VR scene with one line of code.
+keywords: welcome, babylon.js, diving deeper, WebVR, WebVR Camera, VR
+further-reading:
+video-overview:
+video-content:
+---
+
 # How to use the WebVR experience helper
 
-# WebVR vs WebXR
+## WebVR vs WebXR
 
 While the WebVR experience helper will continue to be supported, it is strongly recommended that projects instead use the [WebXR experience helper](https://doc.babylonjs.com/how_to/webxr_experience_helpers). For more information, check out our [introduction to WebXR](https://doc.babylonjs.com/how_to/introduction_to_webxr).
 
-# Introduction
+## Introduction
 
 The WebVR Experience Helper provides a quick way to add WebVR support to a Babylon scene.
 
@@ -15,7 +25,7 @@ Features include:
 1. Teleportation and rotation in the world
 1. Gaze tracking with mesh selection from HMD and controllers
 
-# Setup
+## Setup
 
 A VRExperienceHelper can be created directly from the scene.
 
@@ -26,12 +36,12 @@ var vrHelper = scene.createDefaultVRExperience();
 
 This will initialize a WebVR camera and a non-WebVR camera in the scene. It will also create an enterVR button at the bottom right of the screen which will start rendering to the HMD on click.
 
-## Options
+### Options
 
 - createDeviceOrientationCamera(default: true): If the non-WebVR camera should be created. To use an existing camera, create it and then initialize the helper with this set to false in the constructor.
 - createFallbackVRDeviceOrientationFreeCamera(default: true): When no HMD is connected, this flag specifies if the VR camera should fallback to a VRDeviceOrientationFreeCamera which will render each eye on the screen. This can be set to false to only enable entering VR if an HMD is connected.
 
-# Detect if fallback orientation camera is supported
+## Detect if fallback orientation camera is supported
 
 If a webVR capable device is not detected Babylon will fallback to using a vrDeviceOrientationCamera however device orientation will only be available if the device has an orientation sensor available. In the latest version of Safari, the orientation sensor is disabled by default and it does not prompt users to enable it in settings so currently this must be done by the app. See https://www.applemust.com/how-and-why-to-use-motion-orientation-settings-in-ios/
 
@@ -51,9 +61,9 @@ vrHelper.onAfterEnteringVRObservable.add(() => {
 });
 ```
 
-See https://playground.babylonjs.com/#TAFSN0#230
+See it in action here: <Playground id="#TAFSN0#230" title="Fallback Orientation Camera Example" description="A simple example of detecting if a fallback orienation camera is supported." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper1.jpg"/>
 
-# Teleportation and Rotation
+## Teleportation and Rotation
 
 To enable teleportation in the scene, create a mesh that the user should be able to teleport to and then enable teleportation with that mesh's name.
 
@@ -69,7 +79,7 @@ When WebVR controllers are connected, the teleportation will be based on where t
 
 When WebVR controllers are not connected, the user will teleport to where the user is looking and teleportation can be triggered with an Xbox controller.
 
-# Teleportation events
+## Teleportation events
 
 Teleportation has two observables you can subscribe to:
 
@@ -96,7 +106,7 @@ var ground = BABYLON.Mesh.CreateGround("ground", 6, 6, 2, scene);
 vrHelper.enableTeleportation({ floorMeshName: "ground" });
 ```
 
-# Enabling / disabling teleportation
+## Enabling / disabling teleportation
 
 Teleportation can be enabled or disabled on demand by using the property teleportationEnabled:
 
@@ -119,7 +129,7 @@ vrHelper.teleportationTarget = BABYLON.Mesh.CreateSphere(
 );
 ```
 
-# Accessing cameras
+## Accessing cameras
 
 The VR and non-VR camera can be accessed from the helper to handle any application specific logic.
 
@@ -132,7 +142,7 @@ vrHelper.webVRCamera;
 vrHelper.currentVRCamera;
 ```
 
-# Accessing controllers
+## Accessing controllers
 
 The controllers can be accessed from the helper to handle any application specific logic.
 
@@ -147,7 +157,7 @@ vrHelper.onControllerMeshLoaded.add(webVRController => {
 
 Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](https://doc.babylonjs.com/how_to/gltf#gltf-file-import).
 
-# Accessing vr device position and rotation
+## Accessing vr device position and rotation
 
 Position and rotation in Babylon space can be accessed through the webVRCamera's devicePosition and deviceRotationQuaternion
 
@@ -167,11 +177,11 @@ head.position = vrHelper.webVRCamera.devicePosition.clone();
 head.rotationQuaternion = vrHelper.webVRCamera.deviceRotationQuaternion.clone();
 ```
 
-See [Example](https://www.babylonjs-playground.com/#VIGXA3#7)
+See an Example here: <Playground id="#VIGXA3#7" title="Accessing VR Device position and rotation Example" description="A simple example of accessing a vr device's position and rotation." image=""/>
 
-# Gaze and interaction
+## Gaze and interaction
 
-Gaze and interactions can be enabled through the enableInteractions method. See [example](https://playground.babylonjs.com/#JA1ND3#40)
+Gaze and interactions can be enabled through the enableInteractions method. See Example: <Playground id="#JA1ND3#40" title="Gaze and Interactions Example" description="A simple example of handling VR Gaze and Interaction." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper2.jpg"/>
 
 ```javascript
 vrHelper.enableInteractions();
@@ -240,7 +250,7 @@ The logic order for raySelectionPredicate, meshSelectionPredicate, onNewMeshPick
 3. Teleportation target location is updated to where the ray collided if the collision is also a floor mesh
 4. If the collision object was not collided with on the last frame meshSelectionPredicate is checked, if it returns true the onNewMeshPicked event is fired and then onNewMeshSelected is fired
 
-The gaze tracker can be customized by setting the gazeTrackerMesh. [Example](https://www.babylonjs-playground.com/#ZHYP5K)
+The gaze tracker can be customized by setting the gazeTrackerMesh. <Playground id="#ZHYP5K" title="GazeTrackerMesh Example" description="A simple example showing how to use the gazeTrackerMesh." image=""/>
 
 ```javascript
 vrHelper.gazeTrackerMesh = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
@@ -248,7 +258,7 @@ vrHelper.gazeTrackerMesh = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
 
 On specific devices like iOS (where fullscreen is not supported), you may want to set `vrHelper.enableGazeEvenWhenNoPointerLock = true` to let the gaze controller run even when not under fullscreen and pointer lock.
 
-# Grab
+## Grab
 
 By combining By combining WebVR controller method and add/removeChild method, you can grab objects by pressing trigger button.
 
@@ -282,21 +292,21 @@ VRHelper.onSelectedMeshUnselected.add(function() {
 
 See the example.
 
-- [Playground Example of a grab objects by WebVRController](https://www.babylonjs-playground.com/#B4C2AH)
+- <Playground id="#B4C2AH" title="Grabbing Objects Example" description="A simple example of how to grab objects using the WebVRController." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper3.jpg"/>
 
-# Multiview
+## Multiview
 
 To improve rendering performance by up to 2x, try using [Multiview](/How_To/Multiview) which will render both eyes in a single render pass
 
-# Examples
+## Examples
 
 Scenes:
 
-- [Sponza](https://www.babylonjs-playground.com/#JA1ND3#6)
-- [Mansion](https://www.babylonjs-playground.com/#JA1ND3#15)
-- [HillValley](https://www.babylonjs-playground.com/#JA1ND3#18)
+- <Playground id="#JA1ND3#6" title="Sponza" description="Sponza scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper4.jpg"/>
+- <Playground id="#JA1ND3#15" title="Mansion" description="Mansion scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper5.jpg"/>
+- <Playground id="#JA1ND3#18" title="Hill Valley" description="Hill Valley scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper6.jpg"/>
 
 Games:
 
-- [Minecraft JMJ](https://www.babylonjs-playground.com/#32DWVS#4)
-- [Fruit Ninja](https://playground.babylonjs.com/#FAXLY2)
+- <Playground id="#32DWVS#4" title="Minecraft JMJ" description="Minecraft JMJ Game." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper7.jpg"/>
+- <Playground id="#FAXLY2" title="Fruit Ninja" description="Fruit Ninja Game." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper8.jpg"/>

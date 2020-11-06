@@ -1,6 +1,16 @@
+---
+title: Layer Masks and Multi-Cam Textures
+image: 
+description: Learn how to assign different objects to different layer masks.
+keywords: welcome, babylon.js, diving deeper, layer masks, multi-cam
+further-reading:
+video-overview:
+video-content:
+---
+
 # How To Use Layermasks and Multi-Camera Textures
 
-# Different meshes for multiple cameras using Layermasks
+## Different meshes for multiple cameras using Layermasks
 
 A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera.
 
@@ -31,7 +41,7 @@ var Button = new BABYLON.Mesh(...);
 Button.layerMask = 0x10000000;
 ```
 
-# Lights
+## Lights
 
 Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
 
@@ -62,7 +72,7 @@ onNewLight = function(newLight, positionInArray, scene) {
 };
 ```
 
-# Gun Sight Example
+## Gun Sight Crosshair Example
 
 Here is a simple example of using a 2nd orthographic camera which shows a gun sight. To keep it simple, emissive material was used to avoid lighting it. Just copy and paste it into any scene, then call it. The `layerMask` chosen also allows Babylon's Dialog extension to inter-operate. Perhaps these could be combined to do a heads-up tank sight with range finder.
 
@@ -129,4 +139,4 @@ function addGunSight(scene) {
 }
 ```
 
-See it in action: https://www.babylonjs-playground.com/pg/2GXKNW/revision/22
+See it in action here: <Playground id="#JU1DZP" title="Gun Sight Crosshair Example" description="A simple example of creating a gun sight crosshair using layermasks and two cameras." image="/img/playgroundsAndNMEs/divingDeeperLayerMasks1.jpg"/>

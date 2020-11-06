@@ -1,6 +1,16 @@
+---
+title: MultiViews Part 1
+image: 
+description: Learn how to leverage multiviews in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, multiview
+further-reading:
+video-overview:
+video-content:
+---
+
 # How to use Multiview
 
-# Introduction
+## Introduction
 
 The [WebGL Multiview extension](https://www.khronos.org/registry/webgl/extensions/WEBGL_multiview/) allows rendering multiple views (eg. each eye for VR scenarios) in a single render pass. This can make rendering around 1.5 to 2.0 times faster.
 
@@ -12,7 +22,7 @@ scene.getEngine().getCaps().multiview
 
 **Note:** Multiview rendering renders to a texture array instead of a standard texture. This may be unexpected issues when applying postprocessing with custom shaders, effects or postprocessing. (e.g. highlight layer will have no effect)
 
-# Using with the VRExperienceHelper
+## Using with the VRExperienceHelper
 
 Multiview can be enabled by setting the useMultiview option to true.
 
@@ -20,9 +30,9 @@ Multiview can be enabled by setting the useMultiview option to true.
 scene.createDefaultVRExperience({useMultiview: true});
 ```
 
-- [VR Experience Multiview Example](https://playground.babylonjs.com/pg/CZJYG7/revision/2)
+- <Playground id="#SRV2A0" title="VR Experience Multiview Example" description="A simple example of using multiviews for a VR experience." image="/img/playgroundsAndNMEs/divingDeeperMultiviews1.jpg"/>
 
-# Using with VRDeviceOrientationFreeCamera to display to screen
+## Using with VRDeviceOrientationFreeCamera to display to screen
 
 Enable through the option in the VRCameraMetrics object:
 
@@ -40,4 +50,4 @@ var multiviewCamera = new BABYLON.VRDeviceOrientationFreeCamera(
 );
 ```
 
-- [VRDeviceOrientationFreeCamera Multiview Example](https://playground.babylonjs.com/pg/CZJYG7)
+- <Playground id="#EZDZZV" title="VRDeviceOrientationFreeCamera Multiview Example" description="A simple example of using multiviews to create a VRDeviceOrientationFreeCamera." image="/img/playgroundsAndNMEs/divingDeeperMultiviews2.jpg"/>
