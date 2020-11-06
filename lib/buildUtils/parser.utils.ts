@@ -2,22 +2,14 @@ import { Plugin, Processor } from "unified";
 import visit from "unist-util-visit";
 import { Node } from "unist";
 
-import { ReactFragment, createElement } from "react";
+import { createElement } from "react";
 // import ReactDOM from "react-dom";
 import unified from "unified";
-import markdown from "remark-parse";
-import slug from "remark-slug";
-import remark2rehype from "remark-rehype";
 import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
-import toc from "mdast-util-toc";
 import parse from "rehype-parse";
-import html from "rehype-stringify";
 
 // linting
-import lint from "remark-lint";
-import lintFirstLine from "remark-lint";
-// import stringify from 'rehype-stringify';
 import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component";
 import { EMWrapper } from "../../components/wrappers/emWrapper.component";
 
@@ -54,49 +46,8 @@ export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options
     };
 };
 
-export interface IParsedMDObject {
-    reactFragment: ReactFragment;
-    TOCResult: toc.TOCResult;
-}
-
-export const parseMDFile = (fileContent: string): IParsedMDObject => {
-    const processor = unified()
-        .use(markdown)
-        .use(lint)
-        .use(lintFirstLine, 2)
-        .use(slug)
-        // .use(toc)
-        .use(remark2rehype)
-        .use(highlight)
-        // .use(testPlugin)
-        .use(rehype2react, {
-            createElement: createElement,
-            components: {
-                a: AnchorWrapper,
-                em: EMWrapper,
-            },
-        });
-
-        // TOC parsing
-    const tocProcessor = unified()
-        .use(markdown)
-        .use(slug)
-        // .use(toc)
-        .use(remark2rehype);
-
-    const results = toc(tocProcessor.parse(fileContent));
-
-    // parse again to get TOC
-    return { reactFragment: processor.processSync(fileContent).result as ReactFragment, TOCResult: results };
-};
-
-export const htmlToJson = (fileContent: string) => {
-    var processor = unified().use(parse, { emitParseErrors: true });
-    return processor.parse(fileContent);
-};
-
-export const parseNode = (node: Node) => {
-    const parsed = unified().use(html).stringify(node);
+export const parseNode = (htmlContent: string) => {
+    // const parsed = unified().use(html).stringify(node);
     var processor = unified()
         .use(parse, { emitParseErrors: true })
         .use(highlight)
@@ -109,5 +60,5 @@ export const parseNode = (node: Node) => {
             },
         });
 
-    return processor.processSync(parsed) as any;
+    return processor.processSync(htmlContent) as any;
 };

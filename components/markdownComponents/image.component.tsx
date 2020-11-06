@@ -27,7 +27,7 @@ const styles = makeStyles((theme: Theme) =>
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
     const classes = styles();
     const getImage = () => {
-        if (props.src.startsWith("http") || props.src.startsWith("//")) {
+        if (props.src.startsWith("http") || props.src.startsWith("//") || props.src.indexOf('.gif') !== -1) {
             return <img className={classes.image} {...props} />;
         }
         const properties: IImageEmbed = { ...props };

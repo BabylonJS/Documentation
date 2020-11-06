@@ -14,15 +14,22 @@ export const ApiPage: FunctionComponent<{
     metadata: MarkdownMetadata;
     cssArray: any[];
     contentNode: any;
-}> = ({ contentNode, cssArray, metadata, id }) => {
+    breadcrumbs: {
+        name: string;
+        url: string;
+    }[]
+}> = ({ contentNode, cssArray, metadata, id, breadcrumbs }) => {
     if (!contentNode) {
         return <></>;
     }
     const html = parseNode(contentNode).result;
-    // remove unneeded tags
-    const children = html.props.children[0].props.children[1].props.children;
+    let children = <></>;
+    try {
+        children = html.props.children[0].props.children[2].props.children;
+    } catch (e) {
+    }
     return (
-        <Layout breadcrumbs={generateBreadcrumbs(id)} metadata={metadata} id={id}>
+        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={id}>
             <Head>
                 {cssArray.map((css, idx) => {
                     return (
@@ -36,20 +43,6 @@ export const ApiPage: FunctionComponent<{
         </Layout>
     );
 };
-export const generateBreadcrumbs = (ids: string[]) => {
-    const breadcrumbs = ids.map((id, idx) => {
-        return {
-            name: id,
-            url: idx ? `/typedoc/${ids.slice(0, idx + 1).join("/")}` : "",
-        };
-    });
-    breadcrumbs.unshift({
-        name: "BABYLON",
-        url: "/typedoc/",
-    });
-
-    return breadcrumbs;
-};
 
 export default ApiPage;
 
@@ -59,7 +52,7 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery> = async ({ params }) => {
     // HTML content
-    const content = getAPIPageData(params.id);
+    const content = await getAPIPageData(params.id);
     return {
         props: {
             ...content,

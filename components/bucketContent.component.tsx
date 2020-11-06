@@ -78,7 +78,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
             {childPages && !!Object.keys(childPages).length && (
                 <>
                     <Typography className={classes.h2} component="h2" variant="h2">
-                        Coming next:
+                        Search results
                     </Typography>
                     <div className={classes.container}>
                         {Object.keys(childPages).map((child) => {

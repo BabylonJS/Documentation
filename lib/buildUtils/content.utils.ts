@@ -3,6 +3,7 @@ import { IDocMenuItem } from "../interfaces";
 // very temporary structure configuration
 import structure from "../../configuration/structure.json";
 import { IMenuItem } from "../content.interfaces";
+import { clearIndex } from "./search.utils";
 
 // cast for general usage
 export const config: IDocMenuItem = structure;
@@ -25,7 +26,7 @@ export const populateDocItemsArray = () => {
     traverseChildren([], config.children);
 };
 
-export const getAvailableUrls = (): { params: { id: string[]; content?: string } }[] => {
+export const getAvailableUrls = async (): Promise<{ params: { id: string[]; content?: string } }[]> => {
     const array = [];
 
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
@@ -44,23 +45,26 @@ export const getAvailableUrls = (): { params: { id: string[]; content?: string }
 
     traverseChildren([], config.children);
 
+    if (process.env.PRODUCTION) {
+        await clearIndex();
+    }
+
     return array;
 };
 
 export const checkUnusedFiles = (contentArray: { params: { id: string[]; content?: string } }[], allMarkdownFiles: string[]) => {
-    contentArray.forEach(contentFile => {
-        if(contentFile.params.content) {
-            const idx = allMarkdownFiles.indexOf(contentFile.params.content + '.md');
-            if(idx !== -1) {
+    contentArray.forEach((contentFile) => {
+        if (contentFile.params.content) {
+            const idx = allMarkdownFiles.indexOf(contentFile.params.content + ".md");
+            if (idx !== -1) {
                 allMarkdownFiles.splice(idx, 1);
             } else {
-
             }
         }
     });
-    if(allMarkdownFiles.length) {
-        allMarkdownFiles.forEach(file => {
-            console.log('Missing in structure.json: ', file);
+    if (allMarkdownFiles.length) {
+        allMarkdownFiles.forEach((file) => {
+            console.log("Missing in structure.json: ", file);
         });
         throw new Error("Orphan markdown files detected");
     }
