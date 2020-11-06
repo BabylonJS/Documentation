@@ -185,7 +185,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
-              title: `Babylon.js Docs | ${metadata.title}`,
+              title: `${metadata.title} | Babylon.js Documentation`,
               description: `${metadata.description}. This page is a part of Babylon.js documentation.`,
               keywords: `${metadata.keywords},${defaultKeywords}`,
               imageUrl: metadata.imageUrl || "",
