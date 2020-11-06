@@ -36,7 +36,7 @@ export const SearchResult: FunctionComponent<{ searchResult: ISearchResult }> = 
         ? searchResult.categories.map((category, idx) => {
               return {
                   name: category,
-                  url: idSplit.slice(0, idx).join("/"),
+                  url: idSplit.slice(0, idx+2).join("/"),
               };
           })
         : [
