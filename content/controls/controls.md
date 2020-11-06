@@ -6,7 +6,7 @@ keywords: web controls, hardware accelerated, 2D
 further-reading:
   - title: Web Video Processing Made Easy Blog Post
     url: https://babylonjs.medium.com/web-video-processing-made-easy-714487f7443b
-video-overview: 
+video-overview: https://youtu.be/dISLIZ4SdAM
 video-content:
 ---
 
@@ -20,6 +20,3 @@ Babylon.js provides an unified API on top of **WebGL**, **WebGL2** and **WebGPU*
 
 
 Sample https://github.com/sebavan/BabylonjsVideoProcessingSample
-
-Video overview of the Babylon Controls: [Babylon Controls Overview](https://youtu.be/dISLIZ4SdAM)
-

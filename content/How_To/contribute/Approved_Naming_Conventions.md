@@ -1,3 +1,13 @@
+---
+title: Approved Naming Conventions
+image: 
+description: Learn about standard approved naming conventions in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, naming conventions
+further-reading:
+video-overview:
+video-content:
+---
+
 If you want to contribute to babylon.js (What an _excellent_ idea!), you should attempt to align your code with the following naming conventions:
 
 - Private variables are named starting with \_ : `_myVariable`

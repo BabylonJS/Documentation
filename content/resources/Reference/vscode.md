@@ -1,3 +1,13 @@
+---
+title: Using Visual Studio Code (VSCode)
+image: 
+description: Learn how to use the popular oss IDE VSCode for Babylon.js development.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, vscode, ide, develope
+further-reading:
+video-overview:
+video-content:
+---
+
 # Visual Studio Code
 
 VSCode is one of several integrated development environments that can be used in the development of projects using Babylon.js. It has the advantage of Git integration built in and a plugin to display .babylon files.
