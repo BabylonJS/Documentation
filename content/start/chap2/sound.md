@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Code
+# Getting Started - Sound
 
-## Making Music?
+## Adding Sound
 
 Adding sounds to your world is very easy.
 
@@ -20,7 +20,7 @@ For continuous sounds we use
 const sound = new BABYLON.Sound("name", "url to sound file", scene, null, { loop: true, autoplay: true });
 ```
 
-<Playground id="#SFCC74#3" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround,jpg"/>
+<Playground id="#SFCC74#3" title="Adding Sound To Your Scene" description="A playground showing how easy it is to add sound to your scene." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
 
 To play a sound once we use
@@ -33,7 +33,7 @@ sound.play();
 
 To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds
 
-<Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a soundn every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround,jpg"/> https://www.babylonjs-playground.com/#SFCC74#4
+<Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a soundn every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
 Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Getting Started that load sounds. 
 

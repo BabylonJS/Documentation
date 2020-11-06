@@ -31,8 +31,21 @@ defines.IMAGEPROCESSINGPOSTPROCESS = scene.imageProcessingConfiguration.applyByP
 
 And now, whether you have the post-process active or not, the color should be similar !
 
-# Further Reading
+## Further Reading
 
 You may have a similar problem if you want to use fog on your scene, with a custom shader material. 
 
 [Here](/How_To/Supporting_fog_with_ShaderMaterial) is an helpful page to get your shaders to be fog-ready.
+
+# Tonemapping
+
+If you are using tonemapping on your materials, it can happen that your image appears brighter than expected. It means that several image processing are applied in your pipeline.
+
+Some post processes internally use a prepass to get some information, and this prepass proceeds to some image processing itself. In that case, color can be processed several times which is incorrect. For instance, it can happen if you use `pbr.imageProcessingConfiguration = myImageProcessingConfiguration;` along with an `SSAO2RenderingPipeline`.
+
+So if you notice that problem, try to manually deactivate the gamma transform from the prepass : 
+```
+scene.enablePrePassRenderer().disableGammaTransform = true;
+```
+
+Colors should then behave as expected from your `imageProcessingConfiguration`.

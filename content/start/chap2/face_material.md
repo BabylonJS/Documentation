@@ -10,9 +10,9 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Code
+# Getting Started - Face Materials
 
-## Material per House Side
+## Material For Each House Side
 
 In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
 

@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Code
+# Getting Started - Mesh Placement
 
 ## Place and Scale a Mesh
 
