@@ -1,17 +1,35 @@
-# The Selection Panel Helper
+---
+title: Selector
+image: 
+description: Learn about the selector in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, GUI, selector
+further-reading:
+    - title: How To Use Babylon GUI
+      url: /how_to/gui
+    - title: How To Use Babylon GUI Scroll Viewer
+      url: /how_to/ScrollViewer
+    - title: How To Use Babylon GUI Xml Loader
+      url: /how_to/XmlLoader
+    - title: How To Use Babylon GUI3D
+      url: /how_to/gui3d
+video-overview:
+video-content:
+---
+
+## The Selection Panel Helper
 
 A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
 
 ![selection panel](/img/gui/selectPanel1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
-# Referencing a Selection Panel
+## Referencing a Selection Panel
 
 As you can see in **Fig 1** a selection panel rectangle contains a vertical organisation of groups numbered from the top starting at 0. Each groups contains a header and a variable number of selectors. Each selector consists of a (or button) and a label. Within any one group all the selectors must be of the same type. You can refer to a selector by its group number and then the position of the selector within the group. So the checkbox labelled _High_ has reference 0, 1, ie. group 0, selector 1.
 
 **NOTE** Adding or removing groups or selectors with change the reference number. The reference number always refers to the current positioning of the group and of the selector.
 
-# Creating a Selection Panel
+## Creating a Selection Panel
 
 As usual with GUI containers you will need to create an advanced dynamic texture to add the selection panel to. You can set the dimensions and position of the selection panel. The format to construct a blank selection panel is
 
@@ -39,7 +57,7 @@ selectBox.addGroup(transformGroup);
 selectBox.addGroup(colorGroup);
 ```
 
-- [Playground Example Selection Panel with Added Groups](https://www.babylonjs-playground.com/#9M6M2I)
+- <Playground id="#9M6M2I" title="Selection Panel with Added Groups" description="Simple example showing how to add a selection panel with added groups to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
 
 In addition if you have already constructed selector groups then you can then pass them in an array when you create the selection panel. The format for this is
 
@@ -67,10 +85,10 @@ selectBox.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 advancedTexture.addControl(selectBox);
 ```
 
-- [Playground Example Selection Panel and Groups on Creation](https://www.babylonjs-playground.com/#BXMTCD)
-- [Playground Example Combining Both Approaches](https://www.babylonjs-playground.com/#BXMTCD#1)
+- <Playground id="#BXMTCD" title="Selection Panel and Groups on Creation" description="Simple example showing how to add a selection panel with added groups on creation." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
+- <Playground id="#BXMTCD#1" title="Selection Panel with Both Approaches" description="Simple example showing how to add a selection panel with both approaches." image="/img/playgroundsAndNMEs/divingDeeperSelector1.jpg"/>
 
-# Creating Groups
+## Creating Groups
 
 There are three types of groups, a checkbox group, a radio group and a slider group, which are created using the structure
 
@@ -86,7 +104,7 @@ var colorGroup = new BABYLON.GUI.RadioGroup("Color");
 var rotateGroup = new BABYLON.GUI.SliderGroup("Rotation");
 ```
 
-# Creating Selectors
+## Creating Selectors
 
 Naturally there are three types of selectors and each can only be added to the appropriate group. External functions for each selector refer any changes in the value to properties of scene objects.
 
@@ -200,13 +218,13 @@ var displayValue = function(value) {
 };
 ```
 
-# Customise the Selection Panel
+## Customise the Selection Panel
 
-## Colors and Font
+### Colors and Font
 
 For consistency of appearance you can only change the overall font and color of all headers, all labels and all selector buttons.
 
-- [Playground Example Selection Panel Font Change](https://www.babylonjs-playground.com/#BXMTCD#4)
+- <Playground id="#BXMTCD#4" title="Selection Panel with Font Change" description="Simple example showing how to add a selection panel with a font change." image="/img/playgroundsAndNMEs/divingDeeperSelector2.jpg"/>
 
 Without any direct setting, the color of labels follows that of the selection panel.
 
@@ -222,8 +240,8 @@ selectBox.buttonBackground = "#684502";
 selectBox.labelColor = "brown";
 ```
 
-- [Playground Example Selection Panel Change Colors Except Labels](https://www.babylonjs-playground.com/#BXMTCD#2)
-- [Playground Example Selection Panel Change Colors Including Labels](https://www.babylonjs-playground.com/#BXMTCD#3)
+- <Playground id="#BXMTCD#2" title="Selection Panel with Color Changes no labels" description="Simple example showing how to add a selection panel with color changes apart from labels." image="/img/playgroundsAndNMEs/divingDeeperSelector3.jpg"/>
+- <Playground id="#BXMTCD#3" title="Selection Panel with Color Changes" description="Simple example showing how to add a selection panel with a color change." image="/img/playgroundsAndNMEs/divingDeeperSelector4.jpg"/>
 
 Individual headers and labels can have their text changed.
 
@@ -232,10 +250,10 @@ selectBox.setHeaderName("Move", 0);
 selectBox.relabel("Theta", 2, 0);
 ```
 
-- [Playground Example Selection Panel Change Group Header](https://www.babylonjs-playground.com/#BXMTCD#5)
-- [Playground Example Selection Panel Change Selector Label](https://www.babylonjs-playground.com/#BXMTCD#6)
+- <Playground id="#BXMTCD#5" title="Selection Panel Change Group Header" description="Simple example showing how to add a selection panel and change the group header." image="/img/playgroundsAndNMEs/divingDeeperSelector5.jpg"/>
+- <Playground id="#BXMTCD#6" title="Selection Panel Change Selector Label" description="Simple example showing how to add a selection panel and change the selector label." image="/img/playgroundsAndNMEs/divingDeeperSelector5.jpg"/>
 
-## Groups and Selectors
+### Groups and Selectors
 
 As stated earlier you can add groups at the bottom of the selection panel at any time. You can also remove a group by reference to its position in the list, eg
 
@@ -251,7 +269,7 @@ In the same way a selector of the correct type can be added to the bottom of a g
 transformGroup.addCheckbox("Across", toLeft);
 ```
 
-- [Playground Example Selector Group Add Selector](https://www.babylonjs-playground.com/#BXMTCD#7)
+- <Playground id="#BXMTCD#7" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
 
 A selector can be removed from a group at any time using its position in the group, eg
 
@@ -261,7 +279,7 @@ colorGroup.removeSelector(0);
 rotationGroup.removeSelector(0);
 ```
 
-- [Playground Example Selection Group Remove Selector](https://www.babylonjs-playground.com/#BXMTCD#8)
+- <Playground id="#BXMTCD#8" title="Selector Group Add Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
 
 For a selector within a group that is contained within a selection panel you can add a selector by use of the group position and correct parameters, eg
 
@@ -278,7 +296,7 @@ selectBox.addToGroupSlider(
 );
 ```
 
-- [Playground Example Selector Panel Add Selector](https://www.babylonjs-playground.com/#BXMTCD#9)
+- <Playground id="#BXMTCD#9" title="Selector Panel Add Selector" description="Simple example showing how to add a selector panel and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>
 
 and remove a selector by using its reference position, ie. group and selector position in the group. For example
 
@@ -286,11 +304,4 @@ and remove a selector by using its reference position, ie. group and selector po
 selectBox.removeFromGroupSelector(0, 0);
 ```
 
-- [Playground Example Selection Group Remove Selector](https://www.babylonjs-playground.com/#BXMTCD#10)
-
-# Further reading
-
-[How To Use Babylon GUI](/how_to/gui)  
-[How To Use Babylon GUI Scroll Viewer](/how_to/ScrollViewer)  
-[How To Use Babylon GUI Xml Loader](/how_to/XmlLoader)  
-[How To Use Babylon GUI3D](/how_to/gui3d)
+- <Playground id="#BXMTCD#10" title="Selector Group Remove Selector" description="Simple example showing how to add a selector group and remove a selector from your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>

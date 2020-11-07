@@ -1,4 +1,22 @@
-# How To Use Babylon GUI
+---
+title: The Babylon GUI
+image: 
+description: Learn all about the Babylon.js 2D GUI system.
+keywords: welcome, babylon.js, diving deeper, GUI, 2D
+further-reading:
+    - title: How To Use the Selection Panel Helper
+      url: /how_to/selector
+    - title: How To Use Babylon GUI Scroll Viewer
+      url: /how_to/ScrollViewer
+    - title: How To Use Babylon GUI Xml Loader
+      url: /how_to/XmlLoader
+    - title: How To Use Babylon GUI3D
+      url: /how_to/gui3d
+video-overview:
+video-content:
+---
+
+## How To Use Babylon GUI
 
 The Babylon.js GUI library is an extension you can use to generate interactive user interface.
 It is build on top of the DynamicTexture.
@@ -11,11 +29,11 @@ You can find a complete demo here: https://www.babylonjs.com/demos/gui/
 
 Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](//doc.babylonjs.com//How_To/Gui3D) available to leverage as well. Both systems can be used for different needs for your project.
 
-# Introduction
+## Introduction
 
 Babylon.GUI uses a DynamicTexture to generate a fully functional user interface which is flexible and GPU accelerated.
 
-# AdvancedDynamicTexture
+## AdvancedDynamicTexture
 
 To begin with Babylon.GUI, you first need an AdvancedDynamicTexture object.
 
@@ -29,7 +47,7 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
 );
 ```
 
-Here is an example of a simple fullscreen mode GUI: https://www.babylonjs-playground.com/#XCPP9Y#1
+Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg"/>
 
 By default the ratio between rendering resolution and texture size is 1. But you can force it to different values with `advancedTexture.renderScale`. This could be useful if you want crisper texts for instance.
 
@@ -59,7 +77,7 @@ var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
 );
 ```
 
-Here is an example of a simple texture mode GUI: https://www.babylonjs-playground.com/#ZI9AK7#1
+Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
 
 Please note that handling pointer move events could be costly on complex meshes, so you can turn off supporting pointer move events with a fourth parameter:
 
@@ -74,13 +92,13 @@ var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
 
 Once you have an AdvancedDynamicTexture object, you can start adding controls.
 
-# Debugging
+## Debugging
 
 Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: https://doc.babylonjs.com/features/playground_debuglayer#gui-control-actions.
 
-# General properties
+## General properties
 
-## Events
+### Events
 
 **Please note that controls need to have `control.isPointerBlocker = true` to correctly handle all the pointer events. This property is set by default on obvious controls like buttons for instance but if you want to have it on controls like images you must turn it on.**
 
@@ -100,17 +118,17 @@ To use the clipboard events, they first need to be enabled by calling `registerC
 
 Here is an example on how to use clipboard observables:
 
-- To create new meshes: https://playground.babylonjs.com/#S0IW99#1
-- To create new textblocks from clipboard data: https://playground.babylonjs.com/#AY28VL#4
+- To create new meshes: <Playground id="#S0IW99#1" title="Clipboard Observable Mesh Creation Example" description="Simple example of creating a mesh using the clipboard observable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI3.jpg"/>
+- To create new textblocks from clipboard data: <Playground id="#AY28VL#4" title="Clipboard Observable Textblock Example" description="Simple example of creating new textblocks from clipboard data." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI4.jpg"/> 
 
 You can also define that a control is invisible to events (so you can click through it for instance). To do so, just call `control.isHitTestVisible`.
 
 Please note that `onPointerMoveObservable`, `onPointerDownObservable`, `onPointerUpObservable`, `onPointerClickObservable` will receive a Vector2 parameter containing the pointer coordinates. If you want to get the pointer coordinates in local control space, you have to call `control.getLocalCoordinates(coordinates)`.
 
-Here is an example of how to use observables: https://www.babylonjs-playground.com/#XCPP9Y#121
-Here is an example of how to use the onPointerClickObservable: https://www.babylonjs-playground.com/#7RH606
+Here is an example of how to use observables: <Playground id="#XCPP9Y#121" title="Observables Example" description="Simple example demonstrating observables." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI5.jpg"/>
+Here is an example of how to use the onPointerClickObservable: <Playground id="#7RH606" title="onPointerClickObservable Example" description="Simple example demonstrating the onPointerClickObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI6.jpg"/>
 
-## Alignments
+### Alignments
 
 You can define the alignments used by your control with the following properties:
 
@@ -121,9 +139,9 @@ You can define the alignments used by your control with the following properties
 
 Values can be taken from `BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_*` and `BABYLON.GUI.Control.VERTICAL_ALIGNMENT_*`.
 
-Here is an example of how to use alignments: https://www.babylonjs-playground.com/#XCPP9Y#13
+Here is an example of how to use alignments: <Playground id="#XCPP9Y#13" title="Alignments Example" description="Simple example demonstrating how to use gui alignments." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI7.jpg"/>
 
-## Position and size
+### Position and size
 
 You can set controls' position with the following properties:
 
@@ -156,14 +174,14 @@ To set value as percentage, use this construct: `control.left = "50%"`
 
 You can also not define the unit (In this case the default unit will be used): `control.width = 0.5` (which is equivalent to `control.width = "50%"`)
 
-Here is an example of how to use positions and sizes: https://www.babylonjs-playground.com/#XCPP9Y#14
+Here is an example of how to use positions and sizes: <Playground id="#XCPP9Y#14" title="Positions and Sizes Example" description="Simple example demonstrating gui positions and sizes." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI8.jpg"/>
 
-## Tracking positions
+### Tracking positions
 
 All controls can be moved to track position of a mesh.
 To do this, just call `control.linkWithMesh(mesh)`. You can then offset the position with `control.linkOffsetX` and `control.linkOffsetY`.
 
-Here is an example of a trackable label: https://www.babylonjs-playground.com/#XCPP9Y#16
+Here is an example of a trackable label: <Playground id="#XCPP9Y#16" title="Trackable Label Example" description="Simple example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI9.jpg"/>
 
 Please note that controls that want to track position of a mesh must be at root level (at AdvancedDynamicTexture level).
 
@@ -171,11 +189,11 @@ You can also move a control to a specific coordinates in your scene with `contro
 
 For Line control, you can also attach the second point to a control with `line.connectedControl = control`. In this case the `x2` and `y2` properties are used to offset the second point from the connected control.
 
-With these 2 options, you can create a complete trackable label: https://www.babylonjs-playground.com/#XCPP9Y#20
+With these 2 options, you can create a complete trackable label: <Playground id="#XCPP9Y#20" title="Complete Trackable Label Example" description="Complete example of a trackable gui label." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI10.jpg"/>
 
 **Tracking positions features only work when the AdvancedDynamicTexture is in fullscreen mode**
 
-## Adaptive scaling
+### Adaptive scaling
 
 When in fullscreen UI, you can decide to define your UI with a fixed resolution.
 To define this resolution, just set `myAdvancedDynamicTexture.idealWidth = 600` **or** `myAdvancedDynamicTexture.idealHeight = 400`.
@@ -190,9 +208,9 @@ In order to use both idealWidth and idealHeight, set both of them, and set `myAd
 When window width is smaller than window height - idealWidth will be used, otherwise - idealHeight will be used.
 This is a good solution for when your canvas can be resized to varying width : height ratios.
 
-Here is an example of how to use horizontal adaptive scaling: https://www.babylonjs-playground.com/#XCPP9Y#39
+Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.jpg"/>
 
-## Rotation and Scaling
+### Rotation and Scaling
 
 Controls can be transformed with the following properties:
 
@@ -206,17 +224,17 @@ Controls can be transformed with the following properties:
 
 **Please be aware that transformations are done at rendering level so after all computations.** This means that alignment or positioning will be done first without taking transform in account.
 
-Here is an example of how to use rotation and scaling: https://www.babylonjs-playground.com/#XCPP9Y#22
+Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.jpg"/>
 
-## Optimization
+### Optimization
 
 For complex controls (like the ColorPicker for instance), you can turn on rendering cache by using `control.useBitmapCache = true`. This will store a cached version of the control image in order to reuse it when the GUI is updated.
 
 Starting with Babylon.js v4.0 the GUI system uses the Invalidate Rect optimization which allows the renderer to only update portions of the texture. If you want to turn it off, you can call `adtTexture.useInvalidateRectOptimization = false`
 
-- [Example](https://playground.babylonjs.com/#GBNTXK)
+- <Playground id="#GBNTXK" title="GUI Optimization Example" description="Simple example of GUI optimization." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI13.jpg"/>
 
-# Controls
+## Controls
 
 A control is an abstraction of a piece of UI. There are two kinds of controls:
 
@@ -239,7 +257,7 @@ All controls share the following properties:
 | shadowOffsetY (0)        | number  | the offset of the shadow on the y axis                                                                                                                 |
 | shadowColor (#000)       | string  | the color of the shadow                                                                                                                                |
 | isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                             |
-| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true ([demo](https://www.babylonjs-playground.com/#XCPP9Y#888)) |
+| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.jpg"/>|
 
 Controls can be added directly to the AdvancedDynamicTexture or to a container with:
 
@@ -255,9 +273,9 @@ container.removeControl(control);
 
 You can also control the control visibility with `control.isVisible = false`. When `isVisible` is true, all children will also be invisible. If you just want to hide the current control but keep its children visible then you can use `control.notRenderable = true`.
 
-## TextBlock
+### TextBlock
 
-The TextBlock is a simple control used to display text: https://www.babylonjs-playground.com/#XCPP9Y#2
+The TextBlock is a simple control used to display text: <Playground id="#XCPP9Y#2" title="Simple TextBlock Example" description="Simple example of adding a textBlock to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI15.jpg"/>
 
 Here are the properties you can define:
 
@@ -279,8 +297,7 @@ The control currently provides 1 observable:
 | ----------------------- | -------------------------------- |
 | onTextChangedObservable | Raised when the text has changed |
 
-Please note that to get crisp texts you have to ensure that your rendering resolution is aligned with the screen:
-https://www.babylonjs-playground.com/#2ARI2W#10
+Please note that to get crisp texts you have to ensure that your rendering resolution is aligned with the screen: <Playground id="#2ARI2W#10" title="Crisp Text Resolution Example" description="Simple example showing how to get crisp text by matching the screen resolution." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI16.jpg"/>
 
 On this example you can see on line #3 that we force the engine to get the same DPI as the screen.
 Then on lines #10 and #11 we scale the GUI to align with the screen resolution.
@@ -297,7 +314,7 @@ You can configure vertical line spacing between lines in pixels or percentage va
 
 **lineSpacing should be used with textWrapping set to true.**
 
-You can try it here: https://www.babylonjs-playground.com/#44KYLP
+You can try it here: <Playground id="#44KYLP" title="Simple Line Spacing Example" description="Simple example of line spacing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI17.jpg"/>
 
 ### Resize to Fit
 
@@ -309,7 +326,7 @@ This property allows you to change the text and font of a TextBlock without havi
 
 ## InputText
 
-The InputText is a control used to let users insert text in a single line: https://www.babylonjs-playground.com/#UWS0TS
+The InputText is a control used to let users insert text in a single line: <Playground id="#UWS0TS" title="InputText Example" description="Simple example of InputText." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI18.jpg"/>
 
 Here are the properties you can define:
 
@@ -370,14 +387,13 @@ For example, if the handler wants to limit the control to only accept numerical 
 
 Please note that the observable is only triggered by printable keys, that is, keys that can be added to the text, and not by control keys like backspace and enter.
 
-Here's an example showing two inputs, one which only accepts numerical keys and one which has simple dead key support: https://www.babylonjs-playground.com/#I1Y5YT#1
+Here's an example showing two inputs, one which only accepts numerical keys and one which has simple dead key support: <Playground id="#I1Y5YT#1" title="Restricted Input Example" description="Simple example of restricting input for specific character types." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI19.jpg"/>
 
-InputText also supports clipboardObservables, here's an example: https://www.babylonjs-playground.com/#UWS0TS#20
+InputText also supports clipboardObservables, here's an example: <Playground id="#UWS0TS#20" title="InputText With ClipboardObservable" description="Simple example showing InputText with a clipboardObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI20.jpg"/>
 
 ## InputPassword
 
-The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords:
-https://www.babylonjs-playground.com/#UB58DY
+The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords: <Playground id="#UB58DY" title="InputPassword Example" description="Simple example showing how to add an InputPassword control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI21.jpg"/>
 
 Otherwise it behaves the same as the InputText control and has the same properties as shown above.
 
@@ -401,7 +417,7 @@ var button = BABYLON.GUI.Button.CreateImageButton(
 );
 ```
 
-You can try it here: https://www.babylonjs-playground.com/#XCPP9Y#3
+You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"/>
 
 - ImageWithCenterTextButton: An image button made with a image background and a centered text overlay.
 
@@ -413,15 +429,14 @@ var button = BABYLON.GUI.Button.CreateImageWithCenterTextButton(
 );
 ```
 
-You can try it here: https://www.babylonjs-playground.com/#PLTRBV
-
+You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.jpg"/>
 - SimpleButton: A simple button with text only
 
 ```javascript
 var button = BABYLON.GUI.Button.CreateSimpleButton("but", "Click Me");
 ```
 
-You can try it here: https://www.babylonjs-playground.com/#XCPP9Y#4
+You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" description="Simple example showing how to add a SimpleButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI24.jpg"/>
 
 - ImageOnlyButton:
 
@@ -432,7 +447,7 @@ var button = BABYLON.GUI.Button.CreateImageOnlyButton(
 );
 ```
 
-You can try it here: https://www.babylonjs-playground.com/#XCPP9Y#28
+You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.jpg"/>
 
 Please also note that by default buttons will handle hit testing based on their bounding info. If you want to have embedded controls to handle the picking you can call `button.delegatePickingToChildren = true`
 
@@ -495,7 +510,7 @@ The control is rendered using the following properties:
 | background     | string | black   | Background color                                                                                                                                         |
 | checkSizeRatio | number | 0.8     | Define the ratio used to compute the size of the inner checkbox (0.8 by default, which means the inner check size is equal to 80% of the control itself) |
 
-Here is an example of a checkbox: https://www.babylonjs-playground.com/#U9AC0N#2
+Here is an example of a checkbox: <Playground id="#U9AC0N#2" title="Checkbox Example" description="Simple example showing how to add a Checkbox control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI26.jpg"/>
 
 ## RadioButton
 
@@ -513,7 +528,7 @@ The control is rendered using the following properties:
 | checkSizeRatio | number | 0.8          | Define the ratio used to compute the size of the inner checkbox (0.8 by default, which means the inner check size is equal to 80% of the control itself) |
 | group          | string | empty string | Use the group property to gather radio buttons working on the same value set                                                                             |
 
-Here is an example of a radiobutton: https://www.babylonjs-playground.com/#U9AC0N#13
+Here is an example of a radiobutton: <Playground id="#U9AC0N#13" title="RadioButton Example" description="Simple example showing how to add a RadioButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI27.jpg"/>
 
 ## Slider
 
@@ -539,7 +554,7 @@ The control is rendered using the following properties:
 
 When using vertical slider, you have to make sure that height is bigger than width. The opposite has to be true when using `isVertical = false`.
 
-Here is an example of a slider: https://www.babylonjs-playground.com/#U9AC0N#1
+Here is an example of a slider: <Playground id="#U9AC0N#1" title="Slider Example" description="Simple example showing how to add a Slider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI28.jpg"/>
 
 ## ImageBasedSlider
 
@@ -558,7 +573,7 @@ It is rendered using the following properties:
 | isThumbClamped  | boolean      | false   | Indicates if the thumb should be clamped                                      |
 | isVertical      | boolean      | false   | Indicates that the slider will be rendered vertically instead of horizontally |
 
-Here is an example of a sliders and image based sliders :https://www.babylonjs-playground.com/#HATGQZ
+Here is an example of a sliders and image based sliders: <Playground id="#HATGQZ" title="ImageBasedSlider Example" description="Simple example showing how to add a ImageBasedSlider control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI29.jpg"/>
 
 ## Line
 
@@ -575,7 +590,7 @@ Here are the properties you can define:
 | dash      | array of numbers | Empty array | Defines the size of the dashes   |
 | lineWidth | number           | 1           | Width in pixel                   |
 
-Here is an example of a line: https://www.babylonjs-playground.com/#XCPP9Y#6
+Here is an example of a line: <Playground id="#XCPP9Y#6" title="Line Example" description="Simple example showing how to add a Line control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI30.jpg"/>
 
 ## MultiLine
 
@@ -604,7 +619,7 @@ Here are the properties you can define in MultiLine:
 | dash      | array of numbers | Empty array | Defines the size of the dashes |
 | lineWidth | number           | 1           | Width in pixel                 |
 
-Here is an example of a MultiLine combining meshes, a control and a point: https://www.babylonjs-playground.com/#H03KNW#2
+Here is an example of a MultiLine combining meshes, a control and a point: <Playground id="#H03KNW#2" title="MultiLine Example" description="Simple example showing how to add a MultiLine control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI31.jpg"/>
 
 ## Image
 
@@ -615,7 +630,7 @@ You can control the stretch used by the image with `image.stretch` property. You
 - BABYLON.GUI.Image.STRETCH_FILL: Scale the image to fill the container (This is the default value)
 - BABYLON.GUI.Image.STRETCH_UNIFORM: Scale the image to fill the container but maintain aspect ratio
 - BABYLON.GUI.Image.STRETCH_EXTEND: Scale the container to adapt to the image size.
-- BABYLON.GUI.Image.STRETCH_NINE_PATCH: Scale the image using a [nine patch technique](http://wiresareobsolete.com/2010/06/9-patches/). You have to either define the `sliceLeft`, `sliceRight`, `sliceTop` and `sliceBottom` properties or store data into your image (in the first and last rows and columns) and call `image.populateNinePatchSlicesFromImage = true` to read that data. Demo [here](https://www.babylonjs-playground.com/#G5H9IN#2)
+- BABYLON.GUI.Image.STRETCH_NINE_PATCH: Scale the image using a [nine patch technique](http://wiresareobsolete.com/2010/06/9-patches/). You have to either define the `sliceLeft`, `sliceRight`, `sliceTop` and `sliceBottom` properties or store data into your image (in the first and last rows and columns) and call `image.populateNinePatchSlicesFromImage = true` to read that data. Demo: <Playground id="#G5H9IN#2" title="Stretch_Nine_Patch Example" description="Simple example showing how to add an Image control with Stretch_Nine_Patch to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI32.jpg"/>
 
 You may want to have the Image control adapt its size to the source image. To do so just call `image.autoScale = true`.
 
@@ -629,13 +644,14 @@ You can also define which part of the source image you want to use with the foll
 - sourceWidth: width of the source image you want to use (in pixel)
 - sourceHeight: height of the source image you want to use (in pixel)
 
-Here is an example of an image: https://www.babylonjs-playground.com/#XCPP9Y#7
+Here is an example of an image: <Playground id="#XCPP9Y#7" title="Image Example" description="Simple example showing how to add an Image control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI33.jpg"/>
 
-You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. https://www.babylonjs-playground.com/#K60448#10
+You can use animation sheet in the image using properties `image.cellId`, `image.cellWidth`, `image.cellHeight`. <Playground id="#K60448#10" title="Image With Sprite Sheet Example" description="Simple example showing how to add an Image with a sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI34.jpg"/>
 You can also apply stretch to animation sheet using `image.stretch` property.
 
-[example 1](https://www.babylonjs-playground.com/#K60448#1)
-[example 2](https://www.babylonjs-playground.com/#K60448#2)
+<Playground id="#K60448#1" title="Image With Stetched Sprite Sheet Example 1" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI35.jpg"/>
+
+<Playground id="#K60448#2" title="Image With Stetched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.jpg"/>
 
 Starting with babylon.js v4.0, you can also set `img.detectPointerOnOpaqueOnly = true` to indicate if pointers should only be validated on pixels with alpha > 0.
 
@@ -647,7 +663,7 @@ Pre-requisite: a valid single layer SVG document with width, height, viewbox def
 
 `onSVGAttributesComputedObservable` will trigger when the sourceLeft, sourceTop, sourceWidth, sourceHeight attributes are automatically computed. You can create custom SVG buttons that are built from multiple SVG assets (glow, text, images etc) for even cleaner code.
 
-Here is an example that uses SVG assets for images and buttons: https://playground.babylonjs.com/#E5CARD
+Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.jpg"/>
 
 Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](https://doc.babylonjs.com/how_to/creating_a_custom_loading_screen).
 
@@ -663,7 +679,7 @@ The control is rendered using the following properties:
 | -------- | ---------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | size     | string or number | "200px" | The size, width, and height property will always be the same value since the color picker can only be a square. |
 
-Here is an example of a color picker: https://www.babylonjs-playground.com/#91I2RE#1
+Here is an example of a color picker: <Playground id="#91I2RE#1" title="ColorPicker Example" description="Simple example showing how to add a ColorPicker control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI38.jpg"/>
 
 ## DisplayGrid
 
@@ -682,7 +698,7 @@ The control is rendered using the following properties:
 | majorLineColor     | string | "White"    | Defines the color of the major lines     |
 | majorLineFrequency | number | 5          | Defines the frequency of major lines     |
 
-Here is an example of a display grid: https://www.babylonjs-playground.com/#747U9T
+Here is an example of a display grid: <Playground id="#747U9T" title="DisplayGrid Example" description="Simple example showing how to add a DisplayGrid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI39.jpg"/>
 
 ## VirtualKeyboard
 
@@ -765,9 +781,9 @@ addKeysRow([" "], [{ width: "200px" }]);
 
 Every time a key is pressed the `onKeyPressObservable` observable is triggered. But you can also rely on `keyboard.connect(inputText)` to automatically connect a VirtualKeyboard to an InputText. In this case, the keyboard will only appear when the InputText will be focused and all key pressed events will be sent to the InputText.
 
-You can find a complete demo here: https://www.babylonjs-playground.com/#S7L7FE
+You can find a complete demo here: <Playground id="#S7L7FE" title="VirtualKeyboard Events Example" description="Simple example showing how to add VirtualKeyboard Events to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI40.jpg"/>
 
-# Containers
+## Containers
 
 The containers are controls used to host other controls. Use them to organize your UI.
 Containers has one specific property: `container.background`. Use it to define the background color of your container.
@@ -776,7 +792,7 @@ By default containers do not block pointer events (ie. the underlying scene will
 
 Containers are responsible for managing their children's layout. To prevent layout cycles, the system will not let the layout being updated during a cycle more than 3 times. This value can be changed with `container.maxLayoutCycle`. You can also turn on console warnings when layout cycles are detected with `container.logLayoutCycleErrors = true`.
 
-## Adaptative size
+### Adaptative size
 
 You can decide to have your containers to adapt their size to their children by using one of these properties:
 
@@ -784,9 +800,9 @@ You can decide to have your containers to adapt their size to their children by 
 - adaptHeightToChildren (false by default)
 
 If you set one of these properties to true, the associated dimension (width, height or both) will be computed based on direct children size as long as it is defined in pixel (size cannot be defined in percentage because this will generate an infinite loop as the child will need the parent size and the parent will need the child size)
-You can find a demo here: https://www.babylonjs-playground.com/#GL5SIM
+You can find a demo here: <Playground id="#GL5SIM" title="Adaptative size Example" description="Simple example showing how to use adaptative sizing in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI41.jpg"/>
 
-## Clipping
+### Clipping
 
 By default containers will clip their children to their bounds. You can disable this option by calling this code:
 
@@ -796,9 +812,9 @@ container.clipChildren = false;
 
 Please note that not clipping children may generate issues with `adt.useInvalidateRectOptimization` so it is recommended to turn this optimization off if you want to use unclipped children.
 
-You can find a demo here: https://www.babylonjs-playground.com/#LBF8S2
+You can find a demo here: <Playground id="#LBF8S2" title="Clipping Example" description="Simple example showing how to use clipping in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI42.jpg"/>
 
-## Rectangle
+### Rectangle
 
 The Rectangle is a rectangular container with the following properties:
 
@@ -807,9 +823,9 @@ The Rectangle is a rectangular container with the following properties:
 | thickness    | number | 1       | Thickness of the border                                         |
 | cornerRadius | number | 0       | Size in pixel of each corner. Used to create rounded rectangles |
 
-Here is an example of a rectangle control: https://www.babylonjs-playground.com/#XCPP9Y#8
+Here is an example of a rectangle control: <Playground id="#XCPP9Y#8" title="Rectangle Example" description="Simple example showing how to add a Rectangle control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI43.jpg"/>
 
-## Ellipse
+### Ellipse
 
 The Ellipse is a ellipsoidal container with the following properties:
 
@@ -817,9 +833,9 @@ The Ellipse is a ellipsoidal container with the following properties:
 | --------- | ------ | ------- | ----------------------- |
 | thickness | number | 1       | Thickness of the border |
 
-Here is an example of an ellipse control: https://www.babylonjs-playground.com/#XCPP9Y#10
+Here is an example of an ellipse control: <Playground id="#XCPP9Y#10" title="Ellipse Example" description="Simple example showing how to add an Ellipse control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI44.jpg"/>
 
-## StackPanel
+### StackPanel
 
 The StackPanel is a control which stacks its children based on its orientation (can be horizontal or vertical).
 All children must have a defined width or height (depending on the orientation) in **pixels** (A warning will be written to the console if this is not true. This warning can be turned off with `panel.ignoreLayoutWarnings = true`).
@@ -830,13 +846,13 @@ The height (or width) of the StackPanel is defined automatically based on childr
 | ---------- | ------- | ------- | ------------------------ |
 | isVertical | boolean | true    | Orientation of the panel |
 
-Here is an example of a StackPanel: https://www.babylonjs-playground.com/#XCPP9Y#11
+Here is an example of a StackPanel: <Playground id="#XCPP9Y#11" title="StackPanel Example" description="Simple example showing how to add a StackPanel control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI45.jpg"/>
 
-## ScrollViewer
+### ScrollViewer
 
 Due to its rich feature set, the ScrollViewer has its own dedicated page right [here](/how_to/ScrollViewer).
 
-## Grid
+### Grid
 
 The Grid is a control which defines a set of rows and columns and allows children to specify which cell they want to belong to:
 
@@ -900,9 +916,9 @@ You can get the list of controls in a specific cell by calling:
 var controls = grid.getChildrenAt(2, 3);
 ```
 
-Here is an example of a Grid: https://www.babylonjs-playground.com/#KX33X8#1
+Here is an example of a Grid: <Playground id="#KX33X8#1" title="Grid Example" description="Simple example showing how to add a Grid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI46.jpg"/>
 
-# Styles
+## Styles
 
 Starting with Babylon.js v3.3, you can create a style object that will be used to share configuration across controls. To do so, you can use this code:
 
@@ -928,9 +944,9 @@ Here is the lsit of properties supported by styles so far:
 
 Please note that if a control has a style, then the style values are used instead of values directly defined on the control itself.
 
-You can find a demo here: https://www.babylonjs-playground.com/#5N4JIS
+You can find a demo here: <Playground id="#5N4JIS" title="Styles Example" description="Simple example showing how to add a Styles control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI47.jpg"/>
 
-# Helpers
+## Helpers
 
 To reduce the amount of code required to achieve frequent tasks you can use the following helpers:
 
@@ -940,13 +956,13 @@ To reduce the amount of code required to achieve frequent tasks you can use the 
 
 - `BABYLON.GUI.RadioButton.AddRadioButtonWithHeader(title, group, isChecked, onValueChanged)`: This function will create a horizontal StackPanel and will add a radio button (set with specified group and isChecked parameters) alongside a text block displaying the `title` property. `onValueChanged` defines the callback to call when radio button state changes.
 
-# GUI and postprocesses
+## GUI and postprocesses
 
-## LayerMask
+### LayerMask
 
 In order to not apply postprocesses to your GUI, you will have to use a multi-cameras approach: one for your main scene and one for your GUI.
 
-You can find an implementation example here: https://www.babylonjs-playground.com/#U9AC0N#58
+You can find an implementation example here: <Playground id="#U9AC0N#58" title="LayerMask Example" description="Simple example showing how to add a LayerMask control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI48.jpg"/>
 
 The key point is to use the camera.layerMask property to isolate your GUI:
 
@@ -984,7 +1000,7 @@ camera1.layerMask = 1;
 myMesh.layerMask = 1;
 ```
 
-## Multi-scenes
+### Multi-scenes
 
 The other option will be to use a multi scene approach with a renderloop defined like this:
 
@@ -998,15 +1014,8 @@ engine.runRenderLoop(function() {
 
 In this case the `guiScene` will host your GUI and the `mainScene` will host your scene with your postprocesses.
 
-# GUI and HighDPI Displays
+## GUI and HighDPI Displays
 
 If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
 Please see [Turning AdaptToDeviceRatio Off/On](/how_to/scene/Optimizing_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.
-
-# Further reading
-
-[How To Use the Selection Panel Helper](/how_to/selector)  
-[How To Use Babylon GUI Scroll Viewer](/how_to/ScrollViewer)
-[How To Use Babylon GUI Xml Loader](/how_to/XmlLoader)  
-[How To Use Babylon GUI3D](/how_to/gui3d)
