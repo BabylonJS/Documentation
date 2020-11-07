@@ -1,7 +1,17 @@
-# How To Use the Volumetric LightScattering post-process
+---
+title: Volumetric Light Scattering Post Process
+image: 
+description: Learn how to utilize a Babylon.js post process to simulate light scattering.
+keywords: welcome, babylon.js, diving deeper, lights, lighting, light scattering, post process
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Use the Volumetric LightScattering post-process
 BABYLON.VolumetricLightScatteringPostProcess is a post-process that will compute the light scattering according to a light source mesh.
 
-# How to use it? Easy! ##
+## How to use it? Easy! ##
 
 ```
 var vls = new BABYLON.VolumetricLightScatteringPostProcess('vls', 1.0, camera, lightSourceMesh, samplesNum, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
@@ -92,13 +102,13 @@ vls.useDiffuseColor = false; // False as default
 vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 ```
 
-# And now, it's time to play ! ##
+## And now, it's time to play ! ##
 
 Feel free to tour some examples of Volumetric LightScattering in the playground :
 
-- [Base demo](https://www.babylonjs-playground.com/#AU5641)
-- [Spherical Harmonics as source]( https://www.babylonjs-playground.com/#HYFQJ) (Hit RUN again and again for this one.)
-- [VLS through CSG-created slots]( https://www.babylonjs-playground.com/#UUXLX#37)
+- <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP1.jpg"/>
+- <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP2.jpg"/>
+- <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.jpg"/>
 
 <!-- 
 - [Colorful experiment]( https://www.babylonjs-playground.com/#1XOMH0)

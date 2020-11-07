@@ -1,3 +1,13 @@
+---
+title: .stl File Loader Plugin
+image: 
+description: Learn about the .stl File Loader Plugin available in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, .stl, stl
+further-reading:
+video-overview:
+video-content:
+---
+
 # STL File Import
 
 You can find the STL loader [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview release/loaders)
