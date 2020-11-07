@@ -1,7 +1,7 @@
 ---
 title: GUI
 image: 
-description: Learn all the Babylon.js GUI systems.
+description: Learn all about the Babylon.js GUI systems.
 keywords: welcome, babylon.js, diving deeper, GUI
 further-reading:
 video-overview:

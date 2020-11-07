@@ -1,4 +1,14 @@
-# Introduction
+---
+title: Device Source Manager
+image: 
+description: Learn about managing input devices with the Device Source Manager.
+keywords: welcome, babylon.js, diving deeper, input, manage, device manager
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 The [DeviceSourceManager](https://doc.babylonjs.com/api/classes/babylon.devicesourcemanager) is a class that will manage the connections for various user input devices and provide methods of querying those devices for their current state.  
 This class supports several methods of input:
 - **Keyboard** *(DeviceType: BABYLON.DeviceType.Keyboard, Inputs: number)*
@@ -10,7 +20,7 @@ This class supports several methods of input:
 - **Generic/Other Gamepad** *(DeviceType: BABYLON.DeviceType.Generic, Inputs: number)*
 
 Here's an example of the DeviceSourceManager in use
-* [Playground Example](https://playground.babylonjs.com/#C7PM2B)
+* <Playground id="#C7PM2B" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image=""/>
 
 To use the DeviceSourceManager, first create an instance of it.  You will need to provide an engine object.
 ```javascript
@@ -36,7 +46,7 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYL
 }
 ```
 
-# Events and Observables
+## Events and Observables
 You can use the following Observables to work with identifiers for a given device
 ```javascript
 // Before a device is registered
