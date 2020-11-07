@@ -1,4 +1,15 @@
-# Lights and Shadows
+---
+title: Lights
+image: 
+description: Learn all about lights and shadows in Babylon.js
+keywords: welcome, babylon.js, diving deeper, lights, shadows, intro
+further-reading:
+video-overview:
+video-content:
+---
+
+## Lights and Shadows
+
 Lights are of course necessary to see the meshes and affect brightness and colour. Although lights show meshes they only produce shadows when shadow generation is set on the mesh. The default number of lights allowed is four but this can be increased. 
 
 There are four types of lights that can be used with a range of lighting properties.

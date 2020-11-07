@@ -218,7 +218,7 @@
                         "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
                         "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
                         "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
-                        "assetManager": { "friendlyName": "Asset Managers", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
+                        "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
                         "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
                         "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
                     }, 

@@ -1,4 +1,14 @@
-# Introduction
+---
+title: Cascaded Shadow Maps
+image: 
+description: Learn how to utilize Cascaded Shadow Maps in Babylon.js
+keywords: welcome, babylon.js, diving deeper, lights, lighting, shadows, cascaded shadows, csm
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Cascaded Shadow Maps (CSM) can greatly enhance the shadows in your scene, but it is only available for **directional lights**. It is generally used for large outdoor scenes, to simulate the sun.
 
@@ -8,13 +18,13 @@ This is a shadow map technique, so a lot of what is said in [Shadows](/babylon10
 
 Note that CSM requires WebGL 2+.
 
-Here's a Playground demonstrating the CSM technique and the existing `ShadowGenerator`: https://www.babylonjs-playground.com/#IIZ9UU#40
+Here's a Playground demonstrating the CSM technique and the existing `ShadowGenerator`: <Playground id="#IIZ9UU#40" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM1.jpg"/>
 
-# Technical overview
+## Technical overview
 
 A quick survey of the technique will help to understand the different properties of the `CascadedShadowGenerator` class. You can also have a look at the [references](#references) provided at the end of this page for further details.
 
-# Subdividing the frustum
+## Subdividing the frustum
 
 CSM works by subdividing the view frustum (frustum of the camera, meaning what the camera can see) into several subfrusta, each of them being called a cascade (hence the name of the technique):
 
@@ -23,7 +33,7 @@ CSM works by subdividing the view frustum (frustum of the camera, meaning what t
 
 The subdivision of the camera frustum is done either linearly (each subfrustum has the same length) or logarithmically (the length of the first subfrustum is a lot smaller than the length of the last one). It can also be a combination of the linear and logarithmic splitting, a `lambda` parameter being used to combine both (a `0` value means the splitting is fully linear, `1` means it is fully logarithmic, and a value in-between implies a mix of both).
 
-# Computing the shadow level
+## Computing the shadow level
 
 For each subfrustum, a shadow map is generated, in much the same way the standard shadow generator does.
 
@@ -34,7 +44,7 @@ When rendering a mesh, the right shadow map is determined for a given pixel and 
 
 In figure 2, pixels pertaining to different cascades are drawn with different colors, so that they are clearly visible.
 
-# Blend between cascades
+## Blend between cascades
 
 Sometimes, there can be visible seams between cascades:
 
@@ -43,13 +53,13 @@ Sometimes, there can be visible seams between cascades:
 
 A blend parameter can be used to smooth the transition (see picture on the right in figure 3).
 
-# Filtering
+## Filtering
 
 As for the standard shadow generator, filtering methods can be used to improve / make soft shadows. For CSM, only the PCF (Percentage Closer Filtering) and PCSS (Contact hardening shadows) methods are currently supported (as well as no filtering at all!).
 
-# The `CascadedShadowGenerator` class
+## The `CascadedShadowGenerator` class
 
-# Creation
+## Creation
 
 You create a `CascadedShadowGenerator` instance in exactly the same way as a standard `ShadowGenerator`:
 
@@ -84,9 +94,9 @@ in your code and have CSM just working out of the box!
 
 **Important**: contrary to the standard `ShadowGenerator`, `light.shadowMinZ` and `light.shadowMaxZ` are NOT used, so don't bother to update them!
 
-# Properties
+## Properties
 
-## numCascades (default: 4)
+### numCascades (default: 4)
 
 By default, the generator uses 4 cascades, but you can change this at any time through the `numCascades` property (allowed values between 2 and 4):
 ```javascript
@@ -96,7 +106,7 @@ csmShadowGenerator.numCascades = 3;
 **Figure 4. num cascades is 2 on the left, 4 on the right**
 ![numCascades](/img/babylon101/csm/numcascades-parameter.jpg)
 
-## lambda (default: 0.5)
+### lambda (default: 0.5)
 
 The `lambda` parameter (described in the technical overview) can be set with:
 ```javascript
@@ -108,7 +118,7 @@ csmShadowGenerator.lambda = 0.5;
 
 The right value (between 0 and 1) depends on your scene and how the camera is to be used: near the ground or high in the sky. You should experiment with different values and see what works best for you.
 
-## cascadeBlendPercentage (default: 0.1)
+### cascadeBlendPercentage (default: 0.1)
 
 The cascade blend factor can be set with:
 ```javascript
@@ -120,7 +130,7 @@ csmShadowGenerator.cascadeBlendPercentage = 0.05;
 
 It's a percentage value between 0 and 1. Try to use small values, else you may get rendering artifacts.
 
-## stabilizeCascades (default: false)
+### stabilizeCascades (default: false)
 
 When rotating the camera, you may see the edges of the shadows "swimm" / "shimmer". You may fix the problem with the `stabilizeCascades` property:
 ```javascript
@@ -132,20 +142,20 @@ Note however that you will loose some precision in the shadow rendering, so use 
 **Figure 7. Precision lost when stabilization enabled (left: enabled, right: disabled)**
 ![stabilizeCascades](/img/babylon101/csm/stabilize-parameter.jpg)
 
-## shadowMaxZ
+### shadowMaxZ
 
 It's the limit beyond which shadows are not displayed. It defaults to `camera.maxZ` when constructing the generator.
 
 **Figure 8. shadowMaxZ equal to camera.maxZ on the left, is smaller on the right**
 ![shadowMaxZ](/img/babylon101/csm/shadowmaxz-parameter.jpg)
 
-## depthClamp (default: true)
+### depthClamp (default: true)
 
 When enabled, it improves the shadow quality because the near z plane of the different cascade light frusta don't need to be adjusted to account for the shadow casters far away.
 
 Note that this property is incompatible with PCSS filtering, so it won't be used in that case.
 
-## debug (default: false)
+### debug (default: false)
 
 When enabled, the cascades are materialized by different colors on the screen:
 
@@ -153,13 +163,13 @@ When enabled, the cascades are materialized by different colors on the screen:
 ![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.jpg)
 
 
-## freezeShadowCastersBoundingInfo (default: false) and shadowCastersBoundingInfo
+### freezeShadowCastersBoundingInfo (default: false) and shadowCastersBoundingInfo
 
 Enables or disables the shadow casters and receivers bounding info computation. If your shadow casters and receivers don't move, you can disable this feature. If it is enabled, the bounding box computation is done every frame and the `shadowCastersBoundingInfo` property is updated with the data. The bouding info is used to set the min and max z values of the cascade light frusta.
 
 You can provide your own bounding info by setting the `shadowCastersBoundingInfo` property (don't forget to disable the automatic computation first with `csmShadowGenerator.freezeShadowCastersBoundingInfo = true` !)
 
-## autoCalcDepthBounds (default: false)
+### autoCalcDepthBounds (default: false)
 
 _Note: it corresponds to the implementation of the first pass of the Sample Distribution Shadow Maps technique, see [3](#references) for details._
 
@@ -190,11 +200,11 @@ You should call `setDepthRenderer` if you already have a depth renderer enabled 
 
 Note that you can also call `setMinMaxDistance()` yourself (values between 0 and 1 for min and max), if you know the minimal and maximal z values by some custom means.
 
-## Filtering
+### Filtering
 
 The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/babylon101/shadows).
 
-## penumbraDarkness (default: 1)
+### penumbraDarkness (default: 1)
 
 When using the PCSS filtering method, you can change the 'darkness' of the soft shadows by updating this property:
 ```javascript
@@ -204,7 +214,7 @@ csmShadowGenerator.penumbraDarkness = 0.7;
 **Figure 11. Value of 0.7 on the left, 0.17 on the right**
 ![penumbraDarkness](/img/babylon101/csm/penumbra-darkness.jpg)
 
-# Culling
+## Culling
 
 There's currently no culling applied on the shadow caster list before rendering the meshes into each of the cascade shadow maps.
 
@@ -226,9 +236,9 @@ rtt.getCustomRenderList = (layer, renderList, renderListLength) => {
 
 `getCustomRenderList` is called by `RenderTargetTexture` each time it must render a mesh list into a cascade. If you return a regular array of meshes, this array will be used for the rendering into the cascade `layer`. If you return `null`, the `RenderTargetTexture` will proceed with the regular mesh list (that is, the `RenderTargetTexture.renderList` property, in CSM case it is the list of shadow casters).
 
-# Using the `CascadedShadowGenerator` class
+## Using the `CascadedShadowGenerator` class
 
-# Camera far plane
+## Camera far plane
 
 Perhaps the most important parameter to set is the camera `maxZ` property! Indeed, the CSM technique works by splitting the camera range (`camera.maxZ - camera.minZ`) into cascades, so if the value is not set properly you will get bad shadows.
 
@@ -246,9 +256,9 @@ Now, if we set `camera.maxZ` to `200`:
 
 Much better!
 
-Here's the updated PG: https://www.babylonjs-playground.com/#IIZ9UU#36
+Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Example 2" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM2.jpg"/>
 
-# Changing the camera near / far planes
+## Changing the camera near / far planes
 
 The generator must recalculate the frustum splits when a number of parameters change: `lambda`, `shadowMaxZ`,  `min`/`max` distance properties. It is done automatically by the generator.
 
@@ -259,15 +269,15 @@ Here's what happens if you change `camera.maxZ` after the generator is created w
 **Figure 14. Failing calling `splitFrustum`**
 ![Fail calling splitFrustum](/img/babylon101/csm/splitfrustum_nok.jpg)
 
-PG: https://www.babylonjs-playground.com/#IIZ9UU#41
+PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM3.jpg"/>
 
 
 **Figure 15. `splitFrustum` called**
 ![splitFrustum called](/img/babylon101/csm/splitfrustum_ok.jpg)
 
-PG: https://www.babylonjs-playground.com/#IIZ9UU#37
+PG: <Playground id="#IIZ9UU#37" title="Calling SplitFrustum" description="Successfully calling splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM4.jpg"/>
 
-# Optimizing for speed
+## Optimizing for speed
 
 If you don't use `shadowMaxZ` (general case, as you normally want your shadows to cover all the camera view area), set it equal to `camera.maxZ`: in that case, some code is removed from the fragment shader, speeding things up a little.
 
@@ -279,7 +289,7 @@ If your shadow casters and receivers don't move, set `freezeShadowCastersBoundin
 
 Set `depthClamp = false`. There is a (very) small GPU penality to enable this property because of a few additional instructions in the depth rendering shaders.
 
-# Optimizing for quality
+## Optimizing for quality
 
 Best shadow quality is generally achieved by:
 * tightening as much as possible the `camera.maxZ - camera.minZ` range
@@ -315,7 +325,7 @@ For comparison sake, here is the same part rendered with the standard `ShadowGen
 **Figure 17. Comparing with standard `ShadowGenerator`**
 ![Comparison](/img/babylon101/csm/comparison-with-standard.jpg)
 
-# References
+## References
 
 [1] Microsoft [Cascaded Shadow Maps](https://docs.microsoft.com/en-us/windows/win32/dxtecharts/cascaded-shadow-maps) DirectX Sample
 
