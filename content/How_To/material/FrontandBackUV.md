@@ -1,6 +1,12 @@
 ---
-title: Different Textures on the Front and Back of a Mesh
---- 
+title: Different Textures On The Front And Back Of A Mesh
+image: 
+description: Learn how to apply different textures to the front and back of a mesh.
+keywords: welcome, babylon.js, diving deeper, materials, face materials, front, back, UV, UVs
+further-reading:
+video-overview:
+video-content:
+---
 
 Having a front and a back makes most sense when talking about flat meshes such as a plane, a disc or a polygon. All of which have exactly two sides both of which can be seen only when the option _sideOrientation_ is set to **BABYLON.Mesh.DOUBLESIDE**.
 
@@ -13,7 +19,7 @@ To have different textures front and back the front and back image must be in th
 This is then split using the _frontUVs_ and _backUVs_ options.
 
 
-# FrontUVs and BackUVs
+## FrontUVs and BackUVs
 
 Both frontUVs and backUVs have the form Vector4(u0, v0, u1, v1) with 0&lt;=  u0, v0, u1, v1 &lt;= 1 and 
 (u0, v0) are the bottom left coordinates and (u1, v1) the top right coordinates of the clipping rectangle 
@@ -42,16 +48,13 @@ mat.diffuseTexture = new BABYLON.Texture("URL to Image File", scene);
 plane.material = mat;
 ```
 
-# Two Sided Examples
+## Two Sided Examples
 
-* [Playground Example - Different images on a plane](https://www.babylonjs-playground.com/#LXZPJK#3)
-* [Playground Example - Different images on a polygon](https://playground.babylonjs.com/#4G18GY#2)
+* <Playground id="#LXZPJK#3" title="Different Images On A Plane" description="Simple example of applying different images to the front and back of a plane." image="/img/playgroundsAndNMEs/divingDeeperFrontBack1.jpg"/>
+* <Playground id="#4G18GY#2" title="Different Images On A Polygon" description="Simple example of applying different images to the front and back of a Polygon." image="/img/playgroundsAndNMEs/divingDeeperFrontBack2.jpg"/>
 
-# Inside and Outside Examples
+## Inside and Outside Examples
 
-* [Playground Example - Different images on a tube](https://www.babylonjs-playground.com/#165IV6#74)
-* [Playground Example - View image on outside a sphere](https://www.babylonjs-playground.com/#K6M44R#3)
-* [Playground Example - View image inside a sphere](https://www.babylonjs-playground.com/#K6M44R#4)
-
-
-
+* <Playground id="#165IV6#74" title="Different Images On A Tube" description="Simple example of applying different images to the front and back of a tube." image="/img/playgroundsAndNMEs/divingDeeperFrontBack3.jpg"/>
+* <Playground id="#K6M44R#3" title="Image On The Outside Of A Sphere" description="Simple example of applying an image to the outside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack4.jpg"/>
+* <Playground id="#K6M44R#4" title="Image On The Inside Of A Sphere" description="Simple example of applying an image to the inside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack5.jpg"/>

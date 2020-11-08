@@ -1,8 +1,14 @@
 ---
-title: Use a HDR environment (for PBR)
+title: Using An HDR Environment For PBR
+image: 
+description: Learn about using an HDR Environment in your Babylon.js scene.
+keywords: welcome, babylon.js, diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
+further-reading:
+video-overview:
+video-content:
 ---
 
-# Introduction
+## Introduction
 
 The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
@@ -23,7 +29,7 @@ scene.environmentTexture = hdrTexture;
 
 We are detailing below the two supported ways of creating such files. As of 4.2 we now support prefiltering directly in the Sandbox !!! .hdr files are easy to find on the web so it looks like the most convenient input for filtering.
 
-# Sandbox
+## Sandbox
 
 First, open the [sandbox](https://sandbox.babylonjs.com/) and then follow the steps:
 - drag &amp; drop a PBR scene file ([example](https://models.babylonjs.com/PBR_Spheres.glb))
@@ -35,7 +41,7 @@ First, open the [sandbox](https://sandbox.babylonjs.com/) and then follow the st
 
 Tada !!! you now have your processed file.
 
-# Directly use .hdr files
+## Directly use .hdr files
 
 In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded. 
 
@@ -48,7 +54,7 @@ Please note that WebGL2 is required for prefiltering on-the-fly.
 
 As sometimes you might even want to fully filter in realtime (for animated reflections for instance) you might want to have a look at [the reflection probes tutorial](divingDeeper/environment/reflectionProbes).
 
-# External tools
+## External tools
 
 The first tool rely on an open source framework named IBL Baker whereas the second one creating higher resolution results is based on a proprietary software named Lys.
 
@@ -63,7 +69,7 @@ hdrTexture.setReflectionTextureMatrix(
 );
 ```
 
-## Creating a dds environment file from IBL Baker
+### Creating a dds environment file from IBL Baker
 You can find IBLBaker on: [https://github.com/derkreature/IBLBaker](https://github.com/derkreature/IBLBaker)
 
 After cloning the repo, you will be able to go to `/bin64` folder and launch `IBLBaker.exe`.
@@ -80,7 +86,7 @@ Once you are satisfied with the overall result, just click on `save environment`
 
 **Please do not forget to write full name with extension in order to make the save works correctly**.
 
-## Creating a dds environment file from LYS
+### Creating a dds environment file from LYS
 [Lys](https://www.knaldtech.com/lys/) can be find on the [knaldtech](https://www.knaldtech.com/lys/) website.
 
 Using Lys, the output quality of the generated mipmaps will be a higher standard really close in roughness response to the Unity standard materials. You could generate with Lys: 128, 256 or 512 px wide dds cube texture.
@@ -105,7 +111,7 @@ Finally, you can export your texture through the main tab:
 
 You are all set and ready to use the exported texture in the ```CubeTexture.CreateFromPrefilteredData``` function.
 
-# Creating a compressed environment texture
+## Creating a compressed environment texture
 As the generated DDS files can be relatively large (32Mb for a 512px wide file), we introduced in Babylon a special way to pack your texture. Here are the steps to follow to create the `.env` files used in BabylonJS:
 
 - go to the [sandbox](https://sandbox.babylonjs.com/)
@@ -121,7 +127,7 @@ As the generated DDS files can be relatively large (32Mb for a 512px wide file),
 scene.environmentTexture = new BABYLON.CubeTexture("environment.env", scene);
 ```
 
-# What is a .env (Tech Deep Dive)
+## What is a .env (Tech Deep Dive)
 
 The issue we are addressing with .env is the size and quality of our IBL Environment Textures. We decided to implement our custom packing to simplify sharing and downloading those assets. This file needs to work cross platform for an easy deployment hence why we are not relying directly on compressed textures.
 
@@ -139,7 +145,7 @@ As rendering to LOD or even copy to LOD of Half/Fulll float texture does not wor
 
 As an example of result, we can now rely on 512px cube sized texture with around 3Mb of data vs 32 Mb for the unpacked version without noticing any blocking quality drops. This also speed ups our time to first frame by not requiring the compute of the polynomials anymore.
 
-# Using a pure cube texture
+## Using a pure cube texture
 While using a dds cube texture is the best option, you may want to still rely on classic cube texture (mostly for size reason).
 So, you can still do this as well:
 ```javascript

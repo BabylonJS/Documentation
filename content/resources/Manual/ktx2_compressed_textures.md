@@ -1,4 +1,14 @@
-# Introduction
+---
+title: KTX2 Compressed Textures
+image: 
+description: Learn advanced texture compression with KTX2 support in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, texture, compression, ktx2
+further-reading:
+video-overview:
+video-content:
+---
+
+# #Introduction
 
 ![Compression](/img/resources/gpu_compressed_textures/compression_cesar.png)
 <br/><font size="1">Photo credit : © Adam Rzepka - Centre Pompidou, MNAM-CCI /Dist. RMN-GP  </font>
@@ -7,7 +17,7 @@ Using GPU compressed textures is becoming more and more important in the compute
 
 Note that we are speaking about **GPU compressed textures**, meaning textures that remain compressed on the GPU board. That's different from a .png or .jpg file, for eg, that holds compressed data too but which must be expanded before being sent to the GPU.
 
-# Working with compressed texture formats
+## Working with compressed texture formats
 ![Container](/img/resources/gpu_compressed_textures/container.jpg)
 <br/><font size="1">Photo courtesy of Depositphotos</font>
  
@@ -15,7 +25,7 @@ There are a number of compression formats used by the industry (ASTC, DXT, PVRTC
 
 It can be a bit tedious to generate and maintain so many variations of the same asset, so **container files** have been created. These files can contain multiple variants of the same asset, and being the subject of this article we are going to deal with the **KTX2 container file format**.
 
-# KTX2 container
+## KTX2 container
 ![KTX2](/img/resources/gpu_compressed_textures/ktx2.jpg)
 
 **KTX** stands for **Khronos Texture Container** and the current incarnation is [v2.0](http://github.khronos.org/KTX-Specification/#basisu_gd) (we won't discuss v1 version) and the associated file format extension is **.ktx2**.
@@ -30,7 +40,7 @@ On top of this compression, the data can be further compressed in the UASTC case
 
 Note that .ktx2 files can also store GPU compressed non-universal data, but as far as Babylon.js is concerned it is only dealing with the ETC1S and UASTC universal compression schemes listed above.
 
-# Babylon.js support for .ktx2 files
+## Babylon.js support for .ktx2 files
 ![KTX2](/img/resources/gpu_compressed_textures/breeze.gif)
 <br/><font size="1">Gif courtesy of giphy.com</font>
 
@@ -42,7 +52,7 @@ The KTX2 implemention of Babylon.js is developped as an external package (the [K
 
 *Note* : you may have already encountered/heard of **.basis** files. Those files are using the same compression scheme than the .ktx2 files but this format is not baked by any standard committee, contrary to the KTX2 format. So, you should prefer using the latter as it will become the de-facto standard.
 
-# Tools
+## Tools
 ![Tools](/img/resources/gpu_compressed_textures/tools.png)
 <br/><font size="1">Photo courtesy of pixels.com</font>
 
