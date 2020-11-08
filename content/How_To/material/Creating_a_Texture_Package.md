@@ -1,5 +1,11 @@
 ---
-title: Texture Packer
+title: Creating A Texture Package
+image: 
+description: Learn how to create your own texture package in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, advanced, textures, package
+further-reading:
+video-overview:
+video-content:
 ---
 
 Some complex scenes will require a large amount of textures. A single material will often use three or more! To simplify the loading process it can be convenient to package the textures from multiple materials into a series of images. The trade-off will be that each texture will be scaled to a set size and might cause some desegregation, there are also WebGL limits to take into consideration as well. The packer will create a set of "frames" for each unique material and its required texture channels. The result produces one image for each channel that is used by the materials that are being packed. The process then modifies a target UV# from the meshes passed into the constructor, making them match the frame of the texture sets. The system assumes textures are 1:1 ratio (square).
@@ -10,9 +16,9 @@ Create a TexturePacker series by calling:
 let pack = new BABYLON.TexturePacker(name, targetMeshes, options, scene);
 ```
 
-There are some limitations that you should consider. These include texture size limits, transparencies, and refection/refraction materials. You can find more information on [Creating a Texture Package](http://www.babylonjs-playground.com/#20OAV9#17)
+There are some limitations that you should consider. These include texture size limits, transparencies, and refection/refraction materials. You can find more information here: <Playground id="#TQ408M" title="Creating A Texture Package" description="Simple example of creating a texture package." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage1.jpg"/>
 
--   [Playground Example Texture Packer](https://www.babylonjs-playground.com/#TQ408M)
+-   <Playground id="#TQ408M" title="Texture Packer Example 1" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
 
 Create a TexturePacker by calling:
 
@@ -52,7 +58,7 @@ pack.processAsync().then(success).catch(error);
 
 Having all interactions with your pack happening in the success callback on the returned promise. See the below playgrounds for examples.
 
--   [Texture Packer Example](https://www.babylonjs-playground.com/#TQ408M#6)
+-   <Playground id="#TQ408M#6" title="Texture Packer Example 2" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
 
 Downloading the pack is simple! When initializing the package through both a JSON load or naturally like in the above mentioned constructor, a Promise Object is created.
 In order to assure that the textures are all packed and ready to go we call any interactions with the texture pack inside the success callback of the `then` method.
@@ -69,9 +75,9 @@ pack.processAsync().then(
 
 You can tell the downloaded to change between jpeg and png image types depending on if you need an alpha channel. Due to the fact that the images are stored as base64 you should avoid using png unless absolutely necessary. You can always download both types and then manually mix and match inside the JSON file.
 
--   [Texture Packer Download Example](https://www.babylonjs-playground.com/#TQ408M#7)
+-   <Playground id="#TQ408M#7" title="Texture Packer Download Example" description="Simple example of changing between jpeg and png depending on alpha channel." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
 
-# Loading From JSON
+## Loading From JSON
 
 To load from a downloaded package is easy! First create a blank Texture Package.
 
@@ -85,5 +91,5 @@ Then simply call the loadFromJSON method, with JSON file as a string and then th
 pack.updateFromJSON(jsonString).then(success).catch(error);
 ```
 
--   [Texture Packer Load Example](https://www.babylonjs-playground.com/#TQ408M#9)
--   [PBR Texture Packer Load Example](https://playground.babylonjs.com/#96CDLA)
+-   <Playground id="#TQ408M#9" title="Texture Packer Load Example" description="Simple example of using the texture packer loader in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage3.jpg"/>
+-   <Playground id="#96CDLA" title="PBR Texture Packer Load Example" description="Simple example of loading a PBR packed texture into your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage4.jpg"/>
