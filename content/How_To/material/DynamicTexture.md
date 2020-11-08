@@ -1,12 +1,18 @@
 ---
 title: Dynamic Textures
+image: 
+description: Learn all about dynamic textures in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, dynamic textures, texxture
+further-reading:
+video-overview:
+video-content:
 ---
 
 A dynamic texture works by creating a canvas onto which you can draw using all the facilities of the [HTML5 Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). 
 
 ![dynamic texture](/img/how_to/dyntext.png)
 
-# Creating and Applying
+## Creating and Applying
 
 This is simply achieved using the `dynamicTexture` function with just three parameters,
 
@@ -29,7 +35,7 @@ myMaterial.diffuseTexture = myDynamicTexture;
 mesh.material = myMaterial;
 ```
 
-# Writing Text
+## Writing Text
 
 A `drawText` method is available so that text can be written directly onto the dynamic texture.
 
@@ -45,9 +51,9 @@ Here are the parameters:
 * invertY: boolean, true by default in which case y is the distance from the top, when false, y is distance from the bottom and the letters reversed;
 * update: boolean, true by default, the dynamic texture will immediately be updated.
 
-* [Playground Example - Drawing text](https://www.babylonjs-playground.com/#5ZCGRM#2)
+* <Playground id="#5ZCGRM#2" title="Drawing Text" description="Simple example of drawing text with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture1.jpg"/>
 
-# Canvas Methods
+## Canvas Methods
 
 You can obtain the canvas context using
 
@@ -56,7 +62,7 @@ var ctx = myDynamicTexture.getContext();
 ```
 exposing all the possibilities of the HTML5 canvas element. 
 
-## Drawing Curves
+### Drawing Curves
 As an example, drawing using a quadratic curve
 
 ```javascript
@@ -79,9 +85,9 @@ myDynamicTexture.update();
 
 **Note:** use `update(false)` if you do not want to use `invertY`.
 
-* [Playground Example - Drawing a curve](https://www.babylonjs-playground.com/#5ZCGRM#3)
+* <Playground id="#5ZCGRM#3" title="Drawing A Curve" description="Simple example of drawing a circle with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture2.jpg"/>
 
-## Images
+### Images
 
 Images can be added to fill part or the whole of the canvas using the `drawImage` method. Remember that you will have to wait for the image to load before assigning it to the canvas and update the dynamic texture afterwards.
 
@@ -105,19 +111,19 @@ ctx.drawImage(this, image start x, image start y, image width, image height, can
 myDynamicTexture.update();
 ```
 
-* [Playground Example - Adding an image](https://www.babylonjs-playground.com/#5ZCGRM#4)
+* <Playground id="#5ZCGRM#4" title="Adding An Image" description="Simple example of adding an image with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture3.jpg"/>
 
-# Playground Combination
+## Playground Combination
 
 This playground combines all the above techniques.
 
-* [Playground Example - All dynamic texture techniques](https://www.babylonjs-playground.com/#5ZCGRM#1)
+* <Playground id="#5ZCGRM#1" title="All Dynamic Texture Techniques" description="Simple example of all of the dynamic texture techniques." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture4.jpg"/>
 
-# Text and Area Matching 
+## Text and Area Matching 
 
 For a single line of text it is possible to fit the text into a specified area or to fit an area to a specified text.
 
-## Fit Text Into an Area.
+### Fit Text Into an Area.
 
 You have a plane with width and height, `planeWidth` and `planeHeight`, to form the width and height of the dynamic texture multiply both the plane width and height by the same number to maintain aspect ratio. The number to multiply by defines the sharpness of the text, low numbers produce blurred text. Now you can create the dynamic texture.
 
@@ -164,9 +170,9 @@ mat.diffuseTexture = dynamicTexture;
 plane.material = mat;
 ```
 
-* [Playground Example - Fit Text to Plane](https://www.babylonjs-playground.com/#TMHF80#1)
+* <Playground id="#TMHF80#1" title="Fit Text To Plane" description="Simple example of fitting text to a plane with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture5.jpg"/>
 
-## Fit an Area to Text
+### Fit an Area to Text
 
 Take a plane mesh of fixed height, **planeHeight** and text with a set font size you can then calculate how wide the plane must be for the text to fit in. In order to do this you need to know the width the text will take up on a dynamic texture. This is calculated using a temporary dynamic texture and measuring the text.
 
@@ -199,13 +205,13 @@ dynamicTexture.drawText(text, null, null, font, "#000000", "#ffffff", true); //u
 var plane = BABYLON.MeshBuilder.CreatePlane("plane", {width:planeWidth, height:planeHeight}, scene);
 plane.material = mat;
 ```
-* [Playground Example - Fit Plane to Text](https://www.babylonjs-playground.com/#TMHF80)
+* <Playground id="#TMHF80" title="Fit Plane To Text" description="Simple example of fitting a plane to text with a dynamic texture." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture6.jpg"/>
 
-# Serialization
+## Serialization
 The dynamic texture can be serialized with the scene using `SceneSerializer.Serialize()` or a mesh using `SceneSerializer.SerializeMesh()`.  
 
 **Note:** Be sure that the scene is ready before serialization.
 
 This playground demonstrates serializing a dynamic texture associated with a material on a mesh:
 
-* [Playground Example - Drawing text andd a curve Texture Serialized Mesh](https://playground.babylonjs.com/#FU0ES5)
+* <Playground id="#FU0ES5" title="Drawing Text and a Curve Texture Serialized Mesh" description="Simple example of drawing text and a curve texture serialized mesh." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture7.jpg"/>

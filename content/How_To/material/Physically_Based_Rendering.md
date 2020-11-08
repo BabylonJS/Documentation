@@ -1,8 +1,14 @@
 ---
-title: How To Start with Physically Based Rendering
+title: Introduction to Physically Based Rendering
+image: 
+description: Start learning about Physically Based Rendering in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, PBR, Physically Based Rendering
+further-reading:
+video-overview:
+video-content:
 ---
  
-# Introduction
+## Introduction
 
 The aim of Physically Based Rendering, PBR, is to to simulate **real life lighting**.
 
@@ -23,7 +29,7 @@ The two additional materials are `PBRMetallicRoughnessMaterial` and `PBRSpecular
 - [Metallic roughness convention](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#metallic-roughness-material) (This is the recommended convention)
 - [Specular glossiness convention](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md)
 
-# PBRMetallicRoughnessMaterial
+## PBRMetallicRoughnessMaterial
 
 This material is based on five main values:
 
@@ -53,7 +59,7 @@ pbr.metallic = 0;
 pbr.roughness = 1.0;
 ```
 
-* [Playground Example - Roughness using PBR](https://www.babylonjs-playground.com/#2FDQT5)
+* <Playground id="#2FDQT5" title="Roughness Using PBR" description="Simple example PBR roughness in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro1.jpg"/>
 
 With this specific configuration, you can see that there is no reflection at all (metallic set to 0) and no specular (roughness set to 1).
 
@@ -76,7 +82,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 
 This call will create all required data used by the materials to produce final output.
 
-* [Playground Example - Reflective metallic surface using PBR](https://www.babylonjs-playground.com/#2FDQT5#11)
+* <Playground id="#2FDQT5#11" title="Reflective Metallic Surface Using PBR" description="Simple example of a reflective metallic surface using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro2.jpg"/>
 
 Perhaps a bit too reflective now, so let's add more roughness to give it a more golden look:
 
@@ -90,7 +96,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-* [Playground Example - Reflective surface with some roughness using PBR](https://www.babylonjs-playground.com/#2FDQT5#12)
+* <Playground id="#2FDQT5#12" title="Reflective Surface With Roughness Using PBR" description="Simple example of a reflective surface with roughness using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro3.jpg"/>
 
 To get more precise over how metallic and roughness on your object, you can also specify the metallicRoughnessTexture:
 
@@ -105,9 +111,9 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 ```
 
-* [Playground Example - Reflective surface with metallic roughness texture](https://www.babylonjs-playground.com/#2FDQT5#13)
+* <Playground id="#2FDQT5#13" title="Reflective Surface With A Metallic Roughness Texture" description="Simple example of a reflective surface with a metallic roughness texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro4.jpg"/>
 
-# PBRSpecularGlossinessMaterial
+## PBRSpecularGlossinessMaterial
 
 This material is based on five main values:
 
@@ -130,7 +136,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-* [Playground Example - Glossiness of surface with PBR](https://www.babylonjs-playground.com/#Z1VL3V#5).
+* <Playground id="#Z1VL3V#5" title="Surface Glossiness With PBR" description="Simple example of surface glossiness with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro5.jpg"/>
 
 The specularGlossinessTexture can then (like the metallicRoughnessTexture texture) be used to provide more control over specular and glossiness:
 
@@ -145,9 +151,9 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 ```
 
-* [Playground Example - Glossiness texture added in PBR](https://www.babylonjs-playground.com/#Z1VL3V#4).
+* <Playground id="#Z1VL3V#4" title="Glossiness Texture Added In PBR" description="Simple example of glossiness texture added in PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro6.jpg"/>
 
-# Light setup
+## Light setup
 
 Dynamic lights are an important part of your PBR setup. You can decide to have no light and only use the environment texture to light your scene or you can decide to add additional light sources to enhance your rendering.
 
@@ -159,4 +165,3 @@ To even go further, the intensity you define on the lights follows physics notio
 - Directional and Hemispheric lights in illuminance (nit, cd/m2)
 
 You'll find more info about how dynamic lighting works in mastering PBR but first we look at using high dynamic range (HDR) for use with PBR
-

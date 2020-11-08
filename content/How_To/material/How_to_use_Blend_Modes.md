@@ -1,5 +1,11 @@
 ---
-title: Introduction to Blend Modes
+title: Introduction To Blend Modes
+image: 
+description: Learn blend modes and blending pixels in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, blend modes
+further-reading:
+video-overview:
+video-content:
 ---
 
 A *blend mode* determines how, when rendering a mesh, new on-screen pixels will be mixed with existing pixels.
@@ -9,7 +15,7 @@ This may sound trivial as most of the time new pixels simply replace existing on
 Other blend modes exist, and allow you to achieve advanced visual effects.
 
 
-# Available Blend Modes
+## Available Blend Modes
 
 All the available blend modes are listed below:
 
@@ -25,7 +31,7 @@ All the available blend modes are listed below:
 Please note that the blending operations are in fact simple mathematical operations done seperately on R, G and B components of the pixel values, each one comprised between 0 and 1. As such, having a green mesh (R=0, G=1, B=0) set with ALPHA_SUBTRACT drawn over a yellow one (R=1, G=1, B=0) will give off a red value (R=1, G=0, B=0).
 
 
-# How to Use Blend Modes
+## How to Use Blend Modes
 
 Using blend modes is done by manipulating the `alphaMode` property of materials, setting it to one of the constants listed above.
 
@@ -43,10 +49,10 @@ material.opacityTexture = material.diffuseTexture;
 
 
 
-# Examples
+## Examples
 
 Here is a screenshot showing the previously mentioned blend modes:
 
 ![Available Blend Modes](/img/how_to/blend-modes/blend-modes.jpg)
 
-This playground scene showcases the available blend modes in action: https://www.babylonjs-playground.com/#1MSIXB#4
+This playground showcases the available blend modes in action: <Playground id="#1MSIXB#4" title="Blend Modes Example" description="Simple example of blend modes in Babylon.js." image="/img/playgroundsAndNMEs/divingDeeperBlendModes1.jpg"/>

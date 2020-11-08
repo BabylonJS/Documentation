@@ -1,5 +1,11 @@
 ---
-title: How To use Multi Materials
+title: Multi-Materials
+image: 
+description: Learn how to use Babylon.js Multi-Materials.
+keywords: welcome, babylon.js, diving deeper, materials, multi material
+further-reading:
+video-overview:
+video-content:
 ---
 
 A multi-material is used to apply different materials to different parts of the same object as you can see below
@@ -68,13 +74,13 @@ A submesh is defined with:
 
 So with the code above, you can use the first material on the top part of the sphere, the second material on the middle part and the last material on the bottom part of the sphere.
 
-* [Playground Example - Sphere with multi-material](https://www.babylonjs-playground.com/#2Q4S2S#268)
+* <Playground id="#2Q4S2S#268" title="Sphere With Multi-Material" description="Simple example of applying a multi-material to a sphere." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial1.jpg"/>
 
-# With Merged Meshes
+## With Merged Meshes
 
 When you [merge meshes](/divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 
-* [Playground Example - MultiMaterial with Merged Meshes using multiMultiMaterials](https://playground.babylonjs.com/#INZ0Z0#59)
+* <Playground id="#INZ0Z0#59" title="Multi-Material With Merged Meshes 1" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
 
 When you [merge meshes](/how_to/How_to_Merge_Meshes) together with the second to last parameter (`subdivideWithSubMeshes`) set to true, but the last parameter (`multiMultiMaterial`) left as false, the subMeshes array is automatically created with each merging mesh as a submesh of the new mesh. You must assign the correct subMesh index to the correct material index.
 
@@ -84,4 +90,4 @@ When you form `mergedMesh` by merging meshes in this array order [mesh1, mesh2],
 mergedMesh.subMeshes[1].materialIndex = 1;
 ```
 
-* [Playground Example - MultiMaterial with Merged Meshes](https://playground.babylonjs.com/#INZ0Z0#6)
+* <Playground id="#INZ0Z0#6" title="Multi-Material With Merged Meshes 2" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
