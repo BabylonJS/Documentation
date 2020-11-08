@@ -1,4 +1,18 @@
-# How To use the Node Material with Particles
+---
+title: Node Material and Particles
+image: 
+description: Learn how to use the node material editor to create particle shaders.
+keywords: welcome, babylon.js, diving deeper, materials, node, node material, particle, shader, particles
+further-reading:
+    - title: Particle 101
+      url: /babylon101/particles
+    - title: Node Material
+      url: /how_to/node_material
+video-overview:
+video-content:
+---
+
+## How To use the Node Material with Particles
 
 The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/how_to/node_material#creating-particle-shaders), and [post processes](/how_to/node_material#creating-post-processes).
 
@@ -6,9 +20,9 @@ This article will help you set up a simple scene that will contain only a few li
 
 You can see the final result here: 
 
-https://www.babylonjs-playground.com/#RA18GJ
+<Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.jpg"/>
 
-# Setting up the scene
+## Setting up the scene
 
 Setting up this scene is actually quite simple. We only need a scene, a camera, and a sphere to act as the particle emitter:
 
@@ -22,7 +36,7 @@ camera.attachControl(canvas, true);
 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 0.01, segments: 4}, scene);
 ```
 
-# Invoking the inspector to create our particle system
+## Invoking the inspector to create our particle system
 
 If you are executing this code in the [Playground](https://playground.babylonjs.com), you can simply click on the Inspector button inside the header bar.
 
@@ -44,7 +58,7 @@ You can see my setup in this playground:
 
 https://www.babylonjs-playground.com/#KST50Y
 
-# Working with the snippet server
+## Working with the snippet server
 
 The beauty of the snippet server is that it gives you a central place to store and update your particle system without having to modify your code.
 
@@ -79,7 +93,7 @@ BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false).then(sy
 });
 ```
 
-# Creating the node material for our particle system
+## Creating the node material for our particle system
 
 We are going to use the same approach for the node material.
 
@@ -89,7 +103,7 @@ The NME can be used for materials, particles and postprocesses. We'll switch to 
 
 ![Particle mode in NME](/img/how_to/Particles/nme_particle.jpg)
 
-For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the [shader I ended up with](https://nme.babylonjs.com/#345ATT#4):
+For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the the shader I ended up with: <nme id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.jpg"/>
 
 ![Demo shader](/img/how_to/Particles/demo_shader.jpg)
 
@@ -97,7 +111,7 @@ In a nutshell, I'm checking the particle position in world space and using a [sm
 
 Just like the particle system, you can save your creation to the snippet server and gets a snippet Id.
 
-# Applying the material
+## Applying the material
 The final step is to get that shader from the snippet server and use it with our particle system.
 
 To do so, we will use the exact same approach as before:
@@ -139,7 +153,7 @@ var createScene = async function () {
 };
 ```
 
-# Automatic updates
+## Automatic updates
 
 The best part is that our Playground can evolve automagically. If you open the main Playground (referenced at the beginning of this article), you can keep editing the particle system or the material, and your code will automatically update. This happens every time open the Inspector and use one of the editors. When you click "Save to Snippet Server", the system will be smart enough to work with the Playground and update the link for you:
 
@@ -156,10 +170,3 @@ BABYLON.ParticleHelper.CreateFromSnippetAsync("_BLANK", scene, false).then(syste
 ```
 
 And then from there you could have used the Inspector to edit it (The inspector can replace the __BLANK with the right id later on)
-
-
-# Further links
-
-* [Particle 101](/babylon101/particles)
-* [Node Material](/how_to/node_material)
-

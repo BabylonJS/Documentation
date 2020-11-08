@@ -1,6 +1,18 @@
+---
+title: Transparent Rendering
+image: 
+description: Learn all about how transparency is handled in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, transparency, transparent
+further-reading:
+    - title: Use Facet Data
+      url: /how_to/how_to_use_facetdata
+video-overview:
+video-content:
+---
+
 This article has been written to help you understand how things are drawn on screen, and how transparency is handled in BabylonJS. Feel free to contribute in whatever way seems fit to you!
 
-# General Considerations
+## General Considerations
 
 A general rule of thumb in real-time 3D rendering is that drawing several overlapping opaque objects is always easier than non-opaque ones. This is due to the fact that opaque objects are compatible with the use of a depth buffer, and thus no specific order is required when rendering them.
 
@@ -14,9 +26,9 @@ This is what a depth buffer looks like for a scene which contains only opaque me
 ![Opaque only meshes](/img/resources/transparency_meshes_rendering/opaque-depth-buffer.jpg)
 
 
-# Rendering Order
+## Rendering Order
 
-# General Order
+## General Order
 
 Before actually drawing meshes on the screen, BabylonJS puts them in the following categories, which are presented in the order in which they are drawn:
 1. **Depth pre-pass meshes**
@@ -33,7 +45,7 @@ Before actually drawing meshes on the screen, BabylonJS puts them in the followi
 
 Categories 4 and 5 should be self-explanatory, we won't discuss them further.
 
-# Rendering Groups
+## Rendering Groups
 
 Renderable objects can be organized into rendering groups, which act as layers. Layers are rendered in ascending order by ID, starting with the default one (which has the ID of 0). Within each rendering group, the "General Order" above will also be used.
 
@@ -43,7 +55,7 @@ This property exists on meshes, particle systems and sprite managers.
 
 By default, there are 4 rendering groups in total, meaning that the only valid IDs are 0, 1, 2 and 3. This can be increased by setting the static property `BABYLON.RenderingManager.MAX_RENDERINGGROUPS` to the max ID you'd like (ex. set to 8 to support 7 rendering groups).
 
-# Alpha Index
+## Alpha Index
 
 Meshes have another property that has an influence on the rendering order: `.alphaIndex`
 
@@ -57,16 +69,16 @@ Keep in mind that this property works only for alpha-blended mesh, and has absol
 
 *Note: this property can be manually set on meshes in 3DS Max with the BabylonJS exporter plugin.*
 
-# Opaque or Transparent?
+## Opaque or Transparent?
 
 How your meshes are categorized may be very important for the final aspect of your scene. Let's take a closer look at the way categories 1 to 4 are defined.
 
-# Depth pre-pass meshes
+## Depth pre-pass meshes
 
 The depth pre-pass meshes define an additional rendering pass for meshes. During this pass, meshes are only rendered to depth buffer. The depth pre-pass meshes are not exclusive. A mesh can have a depth pre-pass and an opaque or alpha blend pass. To enable the depth pre-pass for a mesh, just set `mesh.material.needDepthPrePass = true`.
 The goal is either to optimize the scene by rendering meshes to the depth buffer to reduce overdraw or to help reducing alpha blending sorting issues.
 
-# Opaque Meshes
+## Opaque Meshes
 
 These will be the easiest to render: their polygons are fully drawn on screen with their colors and textures. A depth buffer will be used to make sure nothing is drawn over something that is closer to the camera.
 
@@ -76,7 +88,7 @@ Same as opaque meshes, except that some parts of these meshes can be defined as 
 
 By default, a pixel is considered transparent if its alpha value is < 0.4, and opaque if not. For the `StandardMaterial` and `PBR` materials, you can change the `0.4` value by updating the `mesh.material.alphaCutOff` property.
 
-# Alpha Blended Meshes
+## Alpha Blended Meshes
 
 These meshes have translucent parts that may have an alpha value of 0.0 (completely transparent) to 1.0 (completely opaque). Their color is blended with what's behind them to reflect that. These meshes are sorted by depth, based on the center of their bounding sphere. This does not prevent some problems when several alpha-blended meshes overlap.
 
@@ -87,7 +99,7 @@ This is what a depth buffer looks like for a scene that contains each of those t
 
 *In this scene, the sphere is alpha tested, the base blocks are opaque and the pillars are alpha blended. As you can see, the alpha blended meshes are **not** written to the depth buffer!*
 
-# Categorizing meshes
+## Categorizing meshes
 
 The following list will help you understand which categories your meshes will be put into. For more information on each of the properties mentioned here, take a look at the [Materials tutorial](/babylon101/materials).
 
@@ -131,11 +143,11 @@ Notes:
 
 Occasionally, you may have some of your meshes falling into the wrong category, e.g. an alpha tested mesh unnecessarily marked as alpha blended, or a mesh staying opaque when it shouldn't. This will give you weird glitches, which can sometimes be very annoying. You should refer to this article to check how your meshes and materials properties are set.
 
-You're welcome to use this [playground example](https://www.babylonjs-playground.com/#1PHYB0#81) to experiment on the different things explained here. Pressing F9 will switch between normal render and depth buffer render.
+You're welcome to use this example to experiment on the different things explained here: <Playground id="#1PHYB0#81" title="Transparency Rendering Example" description="Simple example to experiment and understand how transparency is handled." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering1.jpg"/> Pressing F9 will switch between normal render and depth buffer render.
 
 It's important to note that these categories are evaluated from top to bottom, so if a mesh is considered as an alpha blended mesh, it can't be alpha tested at the same time, which is something you may need/want to do nonetheless! Enter the `transparencyMode` property.
 
-# The transparencyMode property
+## The transparencyMode property
 
 This is a property on `StandardMaterial` and `PBR` materials. It exists for PBR materials since they were introduced, and since v4.1 for `StandardMaterial`.
 
@@ -158,9 +170,9 @@ If `transparencyMode` equals:
 * Material.MATERIAL_ALPHATESTANDBLEND. Mesh will be both alpha tested and alpha blended
   * a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
 
-You're welcome to use this [playground example](https://playground.babylonjs.com/#TMDNDM) to experiment on the different values of `transparencyMode` for both the standard and PBR materials.
+You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering2.jpg"/>
 
-# Things To Do And Not To Do
+## Things To Do And Not To Do
 
 - Make sure your alpha blended meshes do not intersect, as this will inevitably lead to render glitches.
 - Avoid having heavily-stretched alpha blended meshes (i.e. large planes); since the center of its bounding sphere is used for depth sorting, doing this may result in a mesh being sorted as far away from the camera but actually closer to many other meshes.
@@ -181,32 +193,17 @@ This may help you with visible seams between meshes and other similar issues.
 - `twoSidedLighting` will not take effect if `separateCullingPass` is enabled. For double sided, transparent PBR materials you can instead use `forceNormalForward = true`, which will in practice result in the same effect. If used, you can set `twoSidedLighting = false` and `backfaceCulling = true` to slightly improve shader performance.
 - To prevent both the cost of either `needDepthPrePass` or `separateCullingPass` if the sum of your alpha stays below 1.0, you can change the alphaMode of the material to either `Engine.ALPHA_PREMULTIPLIED` or `Engine.ALPHA_PREMULTIPLIED_PORTERDUFF` which prevent the need of ordering the triangles.
 
-# Concave meshes and transparency
+## Concave meshes and transparency
 
-The transparent concave meshes render obviously with the same rules than explained before:
+The transparent concave meshes render obviously with the same rules than explained before: <Playground id="#1PLV5Z" title="Concave Meshes And Transparency Example 1" description="Simple example of transparency and concave meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering3.jpg"/>
 
-https://www.babylonjs-playground.com/#1PLV5Z  
-For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh :
+For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh : <Playground id="#1PLV5Z#1" title="Concave Meshes And Transparency Example 2" description="Simple example of transparency and concave meshes with removed backface culling." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering4.jpg"/>
 
-https://www.babylonjs-playground.com/#1PLV5Z#1  
 As you can notice, the transparency rendering rules may lead to some weird things making some parts of the mesh geometries visible.  
-In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`:
+In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`: <Playground id="#1PLV5Z#2" title="Concave Meshes And Transparency Example 3" description="Simple example of transparency and concave meshes with double sided meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering5.jpg"/>
 
-https://www.babylonjs-playground.com/#1PLV5Z#2  
-Other option will be to rely on depth pre-pass:
-
-https://www.babylonjs-playground.com/#1PLV5Z#16  
+Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering6.jpg"/>
 
 At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/how_to/how_to_use_facetdata#facet-depth-sort).
 
-Example, depth sorted on the left, standard on the right:
-
-https://playground.babylonjs.com/#FWKUY0#1  
-
-
-
-# Further Reading
-
-# How To
-
-- [Use Facet Data](/how_to/how_to_use_facetdata)
+Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>

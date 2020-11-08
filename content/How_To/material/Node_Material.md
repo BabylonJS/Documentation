@@ -15,7 +15,7 @@ further-reading:
     - title: Creating the Babylon.js Node Material
       url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
     - landing_pages/toolsAndResourcesNMELandingPage
-video-overview: https://www.youtube.com/watch?v=A-4zFsL1KDQ
+video-overview:
 video-content:
     - title: Node-Based Procedural Textures
       url: https://youtu.be/qqMuuSM7GvI
