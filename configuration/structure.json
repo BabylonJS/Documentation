@@ -566,7 +566,6 @@
                         "webXRFeaturesManager": { "friendlyName": "The WebXR Features Manager", "children": {}, "content": "How_To/WebXR/WebXR_Features_Manager" },
                         "webXRDemos": { "friendlyName": "WebXR Demos and Examples", "children": {}, "content": "How_To/WebXR/WebXR_Demos_and_Examples" },
                         "webXRInputControllerSupport": { "friendlyName": "WebXR Input and Controller Support", "children": {}, "content": "How_To/WebXR/WebXR_Controllers_Support" },
-                        "webXRSelectedFeatures": { "friendlyName": "WebXR Input and Controller Support", "children": {}, "content": "How_To/WebXR/Introduction_To_WebXR" },
                         "webXRARFeatures": { "friendlyName": "WebXR Augmented Reality Features", "children": {}, "content": "How_To/WebXR/WebXR_Augmented_Reality" }
                     }, 
                     "content": "landing_pages/divingDeeperWebXRLandingPage"

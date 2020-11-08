@@ -4,8 +4,6 @@ image:
 description: Learn the basics of lights in Babylon.js
 keywords: welcome, babylon.js, diving deeper, lights, lighting
 further-reading:
-	- title: DeLights Overview
-      url: /features/Lights
 video-overview:
 video-content:
 ---
