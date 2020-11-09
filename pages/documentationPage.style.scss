@@ -289,6 +289,23 @@
         font-size: 0.88rem;
     }
 
+    @media (max-width: 640px) {
+        h1,
+        .splendor-h1,
+        h2,
+        .splendor-h2,
+        h3,
+        .splendor-h3,
+        h4,
+        .splendor-h4,
+        h5,
+        .splendor-h5,
+        h6,
+        .splendor-h6 {
+            font-size: revert;
+        }
+    }
+
     small,
     .splendor-small {
         font-size: 0.707em;

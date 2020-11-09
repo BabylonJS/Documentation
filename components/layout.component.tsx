@@ -193,6 +193,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               keywords: `${metadata.keywords},${defaultKeywords}`,
               imageUrl: metadata.imageUrl || "",
           };
+
+          const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     return (
         <div className={classes.root}>
             <Head>
@@ -308,13 +310,13 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         >
                             <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle} className={classes.drawerContainer}>
                                 <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
-                                <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                                {MenuStructure}
                             </div>
                         </Drawer>
                     </Hidden>
                     <Hidden smDown implementation="css">
                         <div className={classes.drawerContainer}>
-                            <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                            {MenuStructure}
                         </div>
                     </Hidden>
                 </nav>

@@ -26,6 +26,10 @@ const styles = makeStyles((theme: Theme) =>
             "& span": {
                 display: "flex",
             },
+            "& svg": {
+                width: '1rem',
+                height: '1.3rem'
+            }
         },
 
         titleContent: {

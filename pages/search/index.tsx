@@ -6,12 +6,21 @@ import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 import { ISearchResult } from "../../lib/buildUtils/search.utils";
 
-const baseQueryURL = "https://babylonjs-doc.search.windows.net/indexes/newdocs/docs?api-version=2020-06-30&api-key=DF333E13A6C71B67290E46668C86DD7E&search=";
+const baseQueryURL = "https://babylonjs-doc.search.windows.net/indexes/newdocs/docs?api-version=2020-06-30&search=";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         searchContainer: {
             padding: theme.spacing(2),
+            "& h2": {
+                marginBottom: 0,
+                fontSize: 26,
+            },
+            [theme.breakpoints.up("md")]: {
+                "& h2": {
+                    fontSize: "2.827rem",
+                },
+            },
         },
         resultsContainer: {
             display: "flex",
@@ -45,7 +54,12 @@ export const SearchResults: FunctionComponent<{}> = () => {
         }
         setLoading(true);
         setResults([]);
-        fetch(baseQueryURL + query)
+        fetch(baseQueryURL + query, {
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "api-key": "DF333E13A6C71B67290E46668C86DD7E",
+            }
+        })
             .then((result) => {
                 result.json().then((json) => {
                     setResults(json.value);
@@ -68,9 +82,11 @@ export const SearchResults: FunctionComponent<{}> = () => {
             id={["search"]}
         >
             <div className={classes.searchContainer}>
-                {loading && <Typography component="h2" variant="h2">
-                            Searching for {router.query.q}...
-                        </Typography>}
+                {loading && (
+                    <Typography component="h2" variant="h2">
+                        Searching for {router.query.q}...
+                    </Typography>
+                )}
                 {!!results.length && (
                     <div>
                         <Typography component="h2" variant="h2">

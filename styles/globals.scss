@@ -76,21 +76,23 @@ th:not([align]) {
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: acumin-pro;
+    padding: 0;
+    margin: 0;
+    font-family: acumin-pro;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Further rules! */
-html, body, #__next {
+html,
+body,
+#__next {
     height: 100%;
 }
