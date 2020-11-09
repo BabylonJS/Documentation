@@ -1,4 +1,14 @@
-# Transformations
+---
+title: Mesh Transformations
+image: 
+description: Learn all about mesh transformations in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
 Transformations are the actions that change an object's position, rotation and scale. Although this section largely covers transformations applied to meshes some can also apply to other Babylon.js objects.
 
 Applying transformations can seem straightforward and in many cases they are, such as changing position. Others aspects may appear easy but in practice can be difficult either in concept, execution or both. In 3D something as simple as a rotation can prove tricky, once you have rotated a mesh about x and y then its z axis may not be where you think it should be since a mesh's local frame of reference rotates with it.

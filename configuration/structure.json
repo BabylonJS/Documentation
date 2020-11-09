@@ -218,7 +218,7 @@
                         "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
                         "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
                         "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
-                        "assetManager": { "friendlyName": "Asset Managers", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
+                        "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
                         "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
                         "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
                     }, 
@@ -395,7 +395,6 @@
                         "interactions": {
                             "friendlyName": "Interactions",
                             "children": {
-                                "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                                 "mesh_intersect": { "friendlyName": "Mesh Intersections", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
                                 "picking_collisions": { "friendlyName": "Mesh Picking", "children": {}, "content": "How_To/mesh/Raycasts" },
                                 "raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "How_To/mesh/Raycasts" }
@@ -566,7 +565,6 @@
                         "webXRFeaturesManager": { "friendlyName": "The WebXR Features Manager", "children": {}, "content": "How_To/WebXR/WebXR_Features_Manager" },
                         "webXRDemos": { "friendlyName": "WebXR Demos and Examples", "children": {}, "content": "How_To/WebXR/WebXR_Demos_and_Examples" },
                         "webXRInputControllerSupport": { "friendlyName": "WebXR Input and Controller Support", "children": {}, "content": "How_To/WebXR/WebXR_Controllers_Support" },
-                        "webXRSelectedFeatures": { "friendlyName": "WebXR Input and Controller Support", "children": {}, "content": "How_To/WebXR/Introduction_To_WebXR" },
                         "webXRARFeatures": { "friendlyName": "WebXR Augmented Reality Features", "children": {}, "content": "How_To/WebXR/WebXR_Augmented_Reality" }
                     }, 
                     "content": "landing_pages/divingDeeperWebXRLandingPage"

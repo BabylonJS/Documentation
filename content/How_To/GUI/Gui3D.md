@@ -1,4 +1,22 @@
-# How To Use Babylon 3D GUI
+---
+title: Babylon 3D GUI
+image: 
+description: Learn all about the Babylon.js 3D GUI System.
+keywords: welcome, babylon.js, diving deeper, GUI, 3D GUI, 3D
+further-reading:
+    - title: How To Use Babylon GUI
+      url: /how_to/gui
+    - title: How To Use Babylon GUI Scroll Viewer
+      url: /how_to/ScrollViewer
+    - title: How To Use Babylon GUI Xml Loader
+      url: /how_to/XmlLoader
+    - title: How To Use the Selection Panel Helper
+      url: /how_to/selector
+video-overview:
+video-content:
+---
+
+## How To Use Babylon 3D GUI
 
 The Babylon.js 3D GUI library is an extension you can use to generate 3D interactive user interface.
 
@@ -6,11 +24,11 @@ The latest version can be found [here](https://github.com/BabylonJS/Babylon.js/t
 
 And the source code is available on the main [Babylon.js GUI3D repo](https://github.com/BabylonJS/Babylon.js/tree/master/gui/src/3D)
 
-# Introduction
+## Introduction
 
 Babylon.GUI uses meshes to create an interactive user interface, which is fully integrated in your scene.
 
-# GUI3DManager
+## GUI3DManager
 
 To begin with 3D GUI, you need to instantiate a `GUI3DManager` which will be responsible for connecting all the controls together:
 
@@ -29,7 +47,7 @@ Please also note that the following functions are available:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list.
 - `removeControl()`: Removes a control from the root child list.
 
-# Containers
+## Containers
 
 A container is used to organize controls in the scene. The base class for all containers is the `Container3D` class. The `manager.rootContainer` is a `Container3D` object.
 
@@ -56,7 +74,7 @@ All specialized containers must implement the following function to provide layo
 
 - `_arrangeChildren()`: This function will be called everytime a new control is added. This is where children class can decide how to organize controls
 
-## StackPanel
+### StackPanel
 
 The `StackPanel` container can be used to stack items either horizontally or vertically:
 
@@ -69,9 +87,9 @@ The panel will automatically arrange its content every time you add a new contro
 
 You can specify the distance between elements with `panel.margin = 0.02`.
 
-Demo [here](https://www.babylonjs-playground.com/#HJZBRG#0)
+See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" description="Simple example showing how to add a 3D GUI StackPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI1.jpg"/>
 
-## VolumeBasedPanel
+### VolumeBasedPanel
 
 VolumeBasedPanel are containers used to dispatch items on the surface of a volume (like sphere or cylinder).
 
@@ -103,7 +121,7 @@ You can also control how each cell is oriented:
 | 3     | BABYLON.Container3D.FACEFORWARD_ORIENTATION         | Control will rotate to look at z axis (0, 0, 1)                 |
 | 4     | BABYLON.Container3D.FACEFORWARDREVERSED_ORIENTATION | Control will rotate to look at negative z axis (0, 0, -1)       |
 
-### SpherePanel
+#### SpherePanel
 
 The `SpherePanel` container can be used to dispatch items on the surface of a sphere:
 
@@ -114,11 +132,11 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting sphere.
 
-Demo [here](https://www.babylonjs-playground.com/#HB4C01#9)
+See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" description="Simple example showing how to add a 3D GUI SpherePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI2.jpg"/>
 
 ![SpherePanel](/img/how_to/gui/SpherePanel.jpg)
 
-### CylinderPanel
+#### CylinderPanel
 
 The `CylinderPanel` container can be used to dispatch item on the surface of a cylinder:
 
@@ -129,11 +147,11 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting cylinder.
 
-Demo [here](https://www.babylonjs-playground.com/#HB4C01#8)
+See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" description="Simple example showing how to add a 3D GUI CylinderPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI3.jpg"/>
 
 ![CylinderPanel](/img/how_to/gui/CylinderPanel.jpg)
 
-### PlanePanel
+#### PlanePanel
 
 The `PlanePanel` container can be used to dispatch item on the surface of a plane:
 
@@ -141,11 +159,11 @@ The `PlanePanel` container can be used to dispatch item on the surface of a plan
 var panel = new BABYLON.GUI.PlanePanel();
 ```
 
-Demo [here](https://www.babylonjs-playground.com/#HB4C01#7)
+See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI4.jpg"/>
 
 ![PlanePanel](/img/how_to/gui/PlanePanel.jpg)
 
-### ScatterPanel
+#### ScatterPanel
 
 The `ScatterPanel` container can be used to dispatch items using a randomized planar mapping:
 
@@ -158,9 +176,9 @@ The iterations property is used to define the number of iteration to use to scat
 
 ![ScatterPanel](/img/how_to/gui/ScatterPanel.jpg)
 
-Demo [here](https://www.babylonjs-playground.com/#HB4C01#6)
+See it in action here: <Playground id="#HB4C01#6" title="3D GUI ScatterPanel" description="Simple example showing how to add a 3D GUI ScatterPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI5.jpg"/>
 
-# Controls
+## Controls
 
 All controls inherit from the `Control3D` class which provides a set of basic features:
 
@@ -205,7 +223,7 @@ All controls can also define a callback when specific event is happening. These 
 
 All these callbacks are empty by default and will be implemented by specialized controls.
 
-## Button3D
+### Button3D
 
 `Button3D` is a class used to create 3D buttons.
 
@@ -230,9 +248,9 @@ You can use the following properties to change the texture resolution:
 - `contentResolution`: Gets or sets the texture resolution used to render content (512 by default)
 - `contentScaleRatio`: Gets or sets the texture scale ratio used to render content (2 by default)
 
-Demo [here](https://www.babylonjs-playground.com/#2YZFA0#0)
+See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI6.jpg"/>
 
-## HolographicButton
+### HolographicButton
 
 The `HolographicButton` is a specialized button that mimics the Mixed Reality Toolkit holographic button.
 
@@ -243,7 +261,7 @@ An `HolographicButton` can be defined with two properties:
 
 ![Babylon.GUI](/img/how_to/gui/MRTK_HolographicButton.jpg)
 
-Demo [here](https://www.babylonjs-playground.com/#2YZFA0#2)
+See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButton Control" description="Simple example showing how to add a 3D GUI HolographicButton to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI7.jpg"/>
 
 Please note that you can overwrite the default content but you need to do it after the call to addControl:
 
@@ -259,7 +277,7 @@ text1.fontSize = 48;
 button.content = text1;
 ```
 
-## MeshButton3D
+### MeshButton3D
 
 This class is used to to create an interactable object which will use a mesh coming from the current scene to render.
 
@@ -278,18 +296,11 @@ pushButton.pointerOutAnimation = () => {
 };
 ```
 
-See a [complete GUI3D demo](https://www.babylonjs-playground.com/#8Y780Y#20)
+See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
 
-## Custom controls
+### Custom controls
 
 You can create your own custom control by inheriting from the `Control3D` class and implementing the following functions:
 
 - `_createNode()`: Called on controls to create a transform node or a mesh to represent the control
 - `_affectMaterial()`: Called on controls to prepare and affect a material if a mesh is used to represent the control
-
-# Further reading
-
-[How To Use Babylon GUI](/how_to/gui)  
-[How To Use Babylon GUI Scroll Viewer](/how_to/ScrollViewer)
-[How To Use Babylon GUI Xml Loader](/how_to/XmlLoader)
-[How To Use the Selection Panel Helper](/how_to/selector)

@@ -1,7 +1,19 @@
-# How to use Thin Instances
+---
+title: Thin Instances
+image: 
+description: Learn how to leverage thin instances in your Babylon.js scenes.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, instances, thin instances
+further-reading:
+    - title: How To Use Instances
+      url: /How_To/How_to_use_Instances
+video-overview:
+video-content:
+---
+
+## How to use Thin Instances
 Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
 
-PG: https://playground.babylonjs.com/#V1JE4Z#1
+PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances." image=""/>
 
 As explained in [How To Use Instances](/How_To/How_to_use_Instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
 
@@ -15,7 +27,7 @@ Thin instances should be used when you need a lot of static instances that you k
 
 So, regular instances may still be the way to go, depending on your scene: if you have a lot of objects scattered and only a few are visible in a frame, or if you must add/remove instances continuously, it may be better to use instances than thin instances.
 
-# Creating thin instances
+## Creating thin instances
 A thin instance is represented by a position/rotation/scaling data packed into a matrix.
 
 The easiest way to create a thin instance is by doing:
@@ -39,13 +51,13 @@ var matrix2 = BABYLON.Matrix.Translation(2, 1, 0);
 sphere.thinInstanceSetMatrixAt(idx2, matrix2);
 ```
 
-Example: https://playground.babylonjs.com/#217750
+Example: <Playground id="#217750" title="Creating Thin Instances" description="Simple example of creating thin instances." image=""/>
 
 Those 3 methods take an additional `refresh` parameter (`true` by default) that allows you to block the buffer refresh mechanism to save performances: if you must use those methods multiple times, pass `false` for all calls except for the last one.
 
 The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitely the bounding info by calling `thinInstanceRefreshBoundingInfo`.
 
-# Custom attributes
+## Custom attributes
 As for regular instances, you can add custom attributes to thin instances.
 
 To do so, register the attribute and set the value(s) for the thin instance(s):
@@ -63,7 +75,7 @@ sphere.thinInstanceRegisterAttribute("color", 4);
 sphere.thinInstanceSetAttributeAt("color", 0, [1, 1, 0, 1, 1, 0, 0, 1]);
 ```
 
-Example: https://playground.babylonjs.com/#217750#1
+Example: <Playground id="#217750#1" title="Thin Instances Custom Attributes" description="Simple example of thin instances with custom attributes." image=""/>
 
 You can get or set the number of thin instances to display through the `thinInstanceCount` property.
 
@@ -71,7 +83,7 @@ Note that you can't set a number that is higher than what the underlying buffer 
 
 Set the number to 0 to bypass the thin instance rendering and render the mesh as usual.
 
-# Faster thin instances
+## Faster thin instances
 To get the most of the thin instance support, you can directly pass the pre-built buffer of matrices / custom attributes:
 ```typescript
 var matrix1 = BABYLON.Matrix.Translation(-2, 2, 0);
@@ -108,24 +120,21 @@ sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16, true);
 sphere.thinInstanceSetBuffer("color", bufferColors, 4, true);
 ```
 
-# Support
+## Support
 
 Thin instances are supported for collisions, picking, rendering and shadows. However, for collisions and picking, a single bounding info encompassing all the thin instances is used to check intersection: the check is not done for each thin instance separately.
 
-# Limitations
+## Limitations
 
 Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
-For eg: https://playground.babylonjs.com/#217750#3
+For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering." image=""/>
+
 ![Wrong rendering](/img/how_to/Mesh/thinInstancesWrongSideOrientation.png)
 
 The green and blue cubes are not rendered correctly because they have a -1 scale for the X direction, making the determinant of their matrix negative.
 
 To correct the problem, create another mesh, add the green/blue instances to that mesh (and remove them from the first mesh!) and set the side orientation of the material of that mesh to be **Clockwise** (by default, it is **Counter clockwise**):
 
-PG: https://playground.babylonjs.com/#217750#4
+PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering." image=""/>
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
-
-# Going further
-
-[How To Use Instances](/How_To/How_to_use_Instances)

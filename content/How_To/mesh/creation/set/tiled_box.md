@@ -1,7 +1,17 @@
-# Tiled Box
+---
+title: Creating A Tiled Box
+image: 
+description: Learn how to create a tiled box in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, box, tiled box
+further-reading:
+video-overview:
+video-content:
+---
+
+## Tiled Box
 A tiled box is only available with *MeshBuilder*. A tiled box is constructed from six tiled planes  s o that he tile size, pattern and alignment of tiles will be the same for each face. Using the faceUV array each side can have a different texture for its tiles as [explained](/how_to/createbox_per_face_textures_and_colors) for a standard box.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const tiledBox = BABYLON.MeshBuilder.CreateTiledBox("tiled box", options, scene); //scene is optional and defaults to the current scene
@@ -24,7 +34,7 @@ alignHorizontal| _(number)_ positions whole tiles at left, right or center of a 
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE 
 
-* [Playground Example of a Tiled Box](https://www.babylonjs-playground.com/#FAP6ZC#3)
+* <Playground id="#FAP6ZC#3" title="Create a Tiled Box" description="Simple example of creating a tiled box." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes3.jpg"/>
 
 The values for the options *pattern* property are the following constants
 
@@ -57,14 +67,14 @@ BABYLON.Mesh.RIGHT
 
 There are 7 * 3 * 3 = 63 different arrangements for the tiles.
 
-# Examples
+## Examples
 We use the following image as the texture in the following examples
 
 ![Arrow Pattern](/img/how_to/mesh/tiles6.jpg)  
 
 Different texture each side, tile width 1, tile height 1 
-Playground Example -  https://www.babylonjs-playground.com/#FAP6ZC#4
+Playground Example -  <Playground id="#FAP6ZC#4" title="Create a Tiled Box With Different Face Textures" description="Simple example of creating a tiled box with different textures on each side." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.jpg"/>
 
 
 All the 63 arrangements. To see the headings view the full playground.
-https://www.babylonjs-playground.com/#FAP6ZC#2
+<Playground id="#FAP6ZC#2" title="Create a Tiled Box With 63 Different Arrangements" description="Simple example of creating a tiled box with 63 different arrangements." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes4.jpg"/>

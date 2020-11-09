@@ -1,6 +1,16 @@
-# How To Update Vertices
+---
+title: Updating Vertices
+image: 
+description: Learn how to update vertices of a mesh in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, custom meshes, vertices, updating vertices
+further-reading:
+video-overview:
+video-content:
+---
 
-# Vertex Data
+## How To Update Vertices
+
+## Vertex Data
 
 The data contained in each of a mesh's vertices can be obtained from the vertex buffer. This data includes the position of and normal at the vertex 
 as well as color and/or uv values. You can also obtain the indices for each vertex. 
@@ -27,7 +37,7 @@ index|position
 4| (7, -2, 3)
 5| (3, -2, 3)
 
-# Updating the Data
+## Updating the Data
 
 Make sure that the mesh has been set as updatable on creation. Then this is just a matter of altering any of the data in the positions, normals, colors and uvs arrays to suit the project followed updating the vertex data 
 
@@ -44,12 +54,12 @@ When a mesh is created, the normal for each face is created smoothly to match th
 ```javascript
 sphere.convertToFlatShadedMesh()
 ```
-See [Example](https://www.babylonjs-playground.com/#H05E9H)
+<Playground id="#H05E9H" title="Updating Vertex Data" description="Simple example of updating vertex data." image=""/>
 
 ```javascript
 vertexData.applyToMesh(customMesh, true);
 ```
-# Adding to the Data
+## Adding to the Data
 
 What happens if you want to add to vertexData after creating a mesh? For example many of the set and parametric meshes are created without the ColorKind array so it is not possible to use
 
@@ -81,10 +91,8 @@ if(!colors) {
 mesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
  ```
 
-# Examples
+## Examples
 
-Scaling Positions https://www.babylonjs-playground.com/#VE6GP#4  
-Playing Around with Positions https://www.babylonjs-playground.com/#VE6GP#2  
-Adding Color to Vertices https://www.babylonjs-playground.com/#ZRZIIZ#2
-
-
+Scaling Positions: <Playground id="#VE6GP#4" title="Scaling Positions" description="Simple example of updating vertex data with scaled positions." image=""/>
+Playing Around with Positions: <Playground id="#VE6GP#2" title="Playing With Positions" description="Simple example of updating vertex data and playing with positions." image=""/>
+Adding Color to Vertices: <Playground id="#ZRZIIZ#2" title="Adding Colors To Vertices" description="Simple example of adding colors to vertices." image=""/>

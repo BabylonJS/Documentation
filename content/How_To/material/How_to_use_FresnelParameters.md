@@ -1,5 +1,11 @@
 ---
-title: Fresnel Parameters
+title: Fresnel Paramaters
+image: 
+description: Learn fresnel parameters in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, fresnel, fresnel parameters
+further-reading:
+video-overview:
+video-content:
 ---
 
 Babylon.js 1.14 introduced new parameters for the StandardMaterial: _FresnelParameters_.
@@ -14,7 +20,7 @@ There are 5 of them:
 * ```StandardMaterial.emissiveFresnelParameters```
 * ```StandardMaterial.refractionFresnelParameters```
 
-# How Fresnel is working
+## How Fresnel is working
 
 A fresnel term is computed by the StandardMaterial in order to change the way a color is applied by using viewing angle.
 
@@ -63,7 +69,7 @@ material.reflectionFresnelParameters.power = 4;
 
 ![](/img/how_to/Fresnel/fresnel03.jpg)
 
-# How to use it
+## How to use it
 
 A _FresnelParameter_ is defined by the following properties:
 * ```isEnabled``` to activate or deactivate fresnel effect
@@ -97,5 +103,5 @@ material.opacityFresnelParameters.rightColor = BABYLON.Color3.Black();
 ```
 
 A complete demo can be found here: http://www.babylonjs.com/?FRESNEL
-* [Playground Example - Fresnel refraction](https://www.babylonjs-playground.com/#22KZUW#6)  
-* [Playground Example -  Explore Fresnel parameters](https://www.babylonjs-playground.com/#AQZJ4C#0)
+* <Playground id="#22KZUW#6" title="Fresnel Refraction" description="Simple example of using fresnel refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel1.jpg"/>
+* <Playground id="#AQZJ4C#0" title="Fresnel Parameters" description="Simple example for you to explore fresnel parameters in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel2.jpg"/>

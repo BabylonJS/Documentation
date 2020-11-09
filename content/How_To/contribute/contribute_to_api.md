@@ -1,8 +1,18 @@
-# Need for Contribution
+---
+title: Contribute To The API
+image: 
+description: Learn how to contribute to the Babylon.js API.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, API, develope
+further-reading:
+video-overview:
+video-content:
+---
+
+## Need for Contribution
 
 Many people have asked for the API documentation to be improved. This is a major task with lots of files needing comments added. Comments are very useful for future development and maintenance of the code but now they are even more useful since in the correct format they are can be read by “TYPEDOC” and produce the API documentation for the classes, properties and methods used by Babylon.js. The core team has worked to make this happen as you can see by the new API documentation. Volunteers are needed to add comments so even if you only have time to do a couple of files then please do volunteer.
 
-# How to Contribute
+## How to Contribute
 
 You need to add appropriate comments according to the formats given below. Check the comments for errors and submit a PR when everything is validated.
 
@@ -24,7 +34,7 @@ After editing and validating files within the **src** folder and before the PR:
 11. In the new folder use `$ typedoc --out documents src` to create the documents from the src
 12. In the **documents** folder find and open index.html to check results. Note that these will not appear exactly the same as the Babylon.js API documentation web pages but close enough to check.
 
-# Format of Comments
+## Format of Comments
 
 Below are descriptions of the format of comment for the various code entities with examples.
 
@@ -46,7 +56,7 @@ or comments plus key @words
 | @see     | URL when it is useful to link to another site or page add one |
 | @ignore  | reason why it is ignored                                      |
 
-# Enum
+## Enum
 
 **Defines a set of named constants**
 
@@ -96,7 +106,7 @@ export enum DepthOfFieldEffectBlurLevel {
 };
 ```
 
-# Class
+## Class
 
 **Template containing the constructor along with the public, private and protected properties and methods defining an object**
 
@@ -121,7 +131,7 @@ export class HemisphericLight extends Light {
 }
 ```
 
-# Constructor
+## Constructor
 
 **This creates an instance of the class**
 
@@ -146,11 +156,11 @@ export class MapperManager {
 }
 ```
 
-# With Parameters
+## With Parameters
 
 A creates comment to describe the CONSTRUCTOR and use @param for each parameter. The first item after @param must be the parameter name then a further comment. In addition should any members of the constructor be declared as public the comment should be repeated before the member in the parameters list.
 
-## No Public Parameters
+### No Public Parameters
 
 Create and @param comments for constructor.
 
@@ -192,7 +202,7 @@ constructor(particleIndex: number, positionIndex: number, indiceIndex: number, m
 }
 ```
 
-## With Public Parameters
+### With Public Parameters
 
 Create and @param comments for constructor and copied comments before any public parameter in list
 
@@ -246,9 +256,9 @@ constructor(
 }
 ```
 
-# Property of Class, Constructor, Function
+## Property of Class, Constructor, Function
 
-# Public with public variable
+### Public with public variable
 
 Plain comments to describe the PROPERTY
 
@@ -266,7 +276,7 @@ public direction: Vector3
 
 ```
 
-# Public with private variable
+### Public with private variable
 
 There are occasions when a variable should be public for the use of the code but private from a user. Such variables start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
 
@@ -278,7 +288,7 @@ There are occasions when a variable should be public for the use of the code but
 public _actionManager: ActionManager;
 ```
 
-# Private or Protected
+### Private or Protected
 
 These will be ignored automatically when building the API documentation and comments are optional.
 
@@ -288,13 +298,13 @@ private _worldMatrix: Matrix;
 protected _background: string;
 ```
 
-# Method of Class, Constructor or Function
+## Method of Class, Constructor or Function
 
-# Public with public name
+### Public with public name
 
-## No Parameters
+### No Parameters
 
-### No Return Value
+#### No Return Value
 
 Plain comments to describe the FUNCTION
 
@@ -333,7 +343,7 @@ this._nextActiveAction = this;
 public onTaskSuccessObservable = new Observable<AbstractAssetTask>();
 ```
 
-### With Return Value
+#### With Return Value
 
 Comments to describe the FUNCTION and use @returns
 
@@ -370,9 +380,9 @@ public get errorObject(): { message?: string; exception?: any; } {
 }
 ```
 
-## With Parameters
+### With Parameters
 
-### No Return Value
+#### No Return Value
 
 Comments to describe the FUNCTION and use @param for each parameter. The first item after @param must be the parameter name then a further comment
 
@@ -432,7 +442,7 @@ this.update(invertY);
 
 ```
 
-### With Return Value
+#### With Return Value
 
 Comments to describe the FUNCTION and use @param for each parameter and @returns to describe what the function returns. The first item after @param must be the parameter name then a further comment.
 
@@ -471,7 +481,7 @@ lightIndex);
 }
 ```
 
-# Public with private name
+## Public with private name
 
 There are occasions when a function should be public for the use of the code but private from a user. Such names start with an underscore. Plain comments are useful for development but the variable should be ignored when building the API documentation. Hence the use of @ignore
 
@@ -504,7 +514,7 @@ this.pointerEnterAnimation();
 }
 ```
 
-# Private or Protected
+## Private or Protected
 
 These will be ignored automatically when building the API documentation and comments are optional.
 

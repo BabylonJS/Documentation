@@ -1,18 +1,28 @@
-# Introduction
+---
+title: Progressively Load .glTF Files
+image: 
+description: Learn about progressively loading .glTF files in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, progressive loading
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Downloading large assets is often slow even with a decent internet connection. Progressively loading discrete levels of detail (LODs) is one technique to combat this. The idea is to store multiple LODs in the asset and progressively load them from low to high quality. This method improves the time to first render since the lowest quality LOD is often dramatically smaller than the highest quality LOD.
 
-https://playground.babylonjs.com/#ARN6TJ#5
+<Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/divingDeeperProgressivelyLoading1.jpg"/>
 
 This demo playground loads a glTF binary (a.k.a. GLB) asset which is a single file store on the server. It uses HTTP range requests to partially download parts of the GLB. The glTF loader minimizes the amount of HTTP requests sent to the server for optimal efficiency. It also shows progress of each stage of the download. Console logging is enabled to show what the glTF loader is doing.
 
-# About MSFT_lod
+## About MSFT_lod
 
 [MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js currently only supports progressively loading these LODs for the purpose of reducing the time to first render. LODs that switch based on rendering distance or screen coverage is not currently supported.
 
 There are not many tools that can create assets with MSFT_lod at the moment. The asset in the demo above is exported from [Adobe Dimension](https://www.adobe.com/products/dimension.html) for sharing on the web. [BabylonPolymorph](https://github.com/BabylonJS/BabylonPolymorph) will eventually be able to do this, but this project is still very early. There is also [glTF-Toolkit](https://github.com/Microsoft/glTF-Toolkit) for Windows Mixed Reality which unfortunately is not well suited for Babylon.js, but perhaps it can be modified to work better.
 
-# Using HTTP Range Requests
+## Using HTTP Range Requests
 
 A glTF asset can be either loose files or packed together into a glTF binary (GLB). Serving files as GLB on a server is typically not a good idea except when using [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests). Using range requests will enable the loader to partially download a range of the asset instead of all at once. The glTF loader in Babylon.js supports range requests. It can be enabled like this:
 
@@ -24,11 +34,11 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
 });
 ```
 
-# Caveats
+## Caveats
 - The HTTP server hosting the asset must support range requests.
 - The LODs in the GLB should be authored with a contiguous range per LOD for maximum efficiency.
 
-# Showing Progress
+## Showing Progress
 
 When loading large assets either using loose files or with range requests, it is useful to show the download progress. Progress is supported through the progress callback of `BABYLON.SceneLoader` methods which is a small subset of the HTTP request [progress event](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). Here is an example from the demo above:
 
@@ -53,11 +63,11 @@ BABYLON.SceneLoader.AppendAsync(url, undefined, scene, function (event) {
 }, ".glb")
 ```
 
-# Key Notes
+## Key Notes
 - Gzipped content hosted on server often results in `lengthComputable` equaling `false` which in turn causes the `total` to be zero. When this happens, the only choices are to not show the progress or show the number of bytes downloaded instead.
 - When using HTTP range requests with a GLB, the first thing that is downloaded is the GLB header which downloads very quickly and is almost always 20 bytes loaded and 20 bytes total when the progress event fires. Ignore it by checking when `total` is exactly 20.
 
-# Debugging LODs
+## Debugging LODs
 
 It is useful to stop at a specific LOD to inspect the results. This can be achieved by setting the `maxLODsToLoad` property on the MSFT_lod loader extension:
 
@@ -74,7 +84,7 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
 }
 ```
 
-# Enabling Logging
+## Enabling Logging
 
 Enabling logging is often useful to understand and debug the loading of a glTF asset. This is especially true for MSFT_lod assets. Logging can be enabled like this:
 

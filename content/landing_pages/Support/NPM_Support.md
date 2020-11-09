@@ -1,4 +1,18 @@
-# Introduction
+---
+title: NPM_Support
+image: 
+description: Learn about Babylon.js's use of the NPM Package Manager.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, NPM
+further-reading:
+    - title: How To Get Babylon.js
+      url: /babylon101/how_to_get
+    - title: ESNext Support
+      url: /features/ES6_Support
+video-overview:
+video-content:
+---
+
+## Introduction
 
 The NPM package manager is one of the best way to define and organize your project's dependencies. Parallel to traditional javascript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
 
@@ -6,7 +20,7 @@ We now officially support our npm packages and will continue updating the npm's 
 
 All examples in this tutorial will use commonjs / es6 imports. However, since we are using [UMD](https://github.com/umdjs/umd), the same files being used in our npm packages can also be used with AMD-imports and can also be simply included in an HTML script tag.
 
-# Available packages
+## Available packages
 
 We offer babaylon.js' core and its modules as npm packages. The following are available:
 
@@ -19,11 +33,11 @@ We offer babaylon.js' core and its modules as npm packages. The following are av
 * [babylonjs-gui](https://www.npmjs.com/package/babylonjs-gui) - BabylonJS GUI module.
 * [babylonjs-viewer](https://www.npmjs.com/package/babylonjs-viewer) - The stand-alone BabylonJS Viewer.
 
-# Basic usage
+## Basic usage
 
 Babylon's core and modules take care of setting the dependencies between themselves, so the developer simply needs to import or require them to get everything working.
 
-## Installing Babylon.js
+### Installing Babylon.js
 
 To install the latest babylon version use:
 
@@ -47,7 +61,7 @@ import { Engine, Scene } from 'babylonjs';
 
 **NOTE:** if you can't make this import method to work, go to the section on typescript and webpack below.
 
-## Installing other Babylon modules
+### Installing other Babylon modules
 
 After including babylonjs you can add Babylon's extra modules using npm as follows:
 
@@ -69,7 +83,7 @@ And use it like below:
 let skyMaterial = new Materials.SkyMaterial(.....)
 ```
 
-## using require()
+### using require()
 
 If you prefer not to use es6-import syntax, you can use require in order to import babylon into your project:
 
@@ -79,7 +93,7 @@ let GUI = require('babylonjs-gui');
 let materials = require('babylonjs-materials');
 ```
 
-# TypeScript support
+## TypeScript support
 
 Being written in TypeScript, Babylon.js will always support TypeScript developers. We provide a declaration file in each package, that either extends the BABYLON namespace or declares a new namespace that can be used during development.
 
@@ -108,7 +122,7 @@ This will load BABYLON's namespace and will allow autocomplete (and of course ty
 tsc --init
 ```
 
-## Example using webpack
+### Example using webpack
 
 A very simple webpack configuration to compile a babylon.js TypeScript project can look like this:
 
@@ -150,7 +164,7 @@ npm install --save-dev ts-loader
 ```
 
 
-# ES6
+## ES6
 If you wish to benefit from tree shaking and other nitty gritties, you can now rely on our Babylon.js ES6 packages:
 
 * [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
@@ -176,17 +190,17 @@ const engine = new Engine(canvas, true);
 
 For more information, you can have a look at [the ES6 documentation](https://doc.babylonjs.com/features/ES6_support);
 
-# External libraries
+## External libraries
 
-## Pre 3.2.0-beta.1
+### Pre 3.2.0-beta.1
 
 Cannon and Oimo (both physics engines) are being delivered as dependencies when installing babylonjs using npm. There is no need to install them on your own.
 
-## Current version
+### Current version
 
 Cannon and Oimo are both optional dependencies. If you want to use any of them, please install them yourself.
 
-## using the optional dependencies with AMD
+### using the optional dependencies with AMD
 
 If you wish to use oimo for example, install Oimo using npm:
 
@@ -204,7 +218,7 @@ define('oimo', ['path/to/oimo'], function(OIMO) {
 
 Now Babylon will automatically find oimo and will inject it.
 
-## Using Webpack
+### Using Webpack
 
 To use either oimo or cannon, install them using npm. Our UMD definition will find them and inject them automatically.
 
@@ -225,32 +239,32 @@ This will define both of those dependencies as external dependencies and will no
 
 You can see an example of that in the Viewer directory of our main repository.
 
-# Questions and Troubleshooting
+## Questions and Troubleshooting
 
-## error TS2307: Cannot find module 'babylonjs' (or other modules)
+### error TS2307: Cannot find module 'babylonjs' (or other modules)
 
 * Make sure you have a version higher than 3.1.0-alpha3.4
 * Make sure you added 'babylonjs' to "types" in tsconfig.json
 
-## Even though I use only a few classes from the BABYLON namespace, the entire Babylon module is included
+### Even though I use only a few classes from the BABYLON namespace, the entire Babylon module is included
 
 Due to the way BabylonJS is built, Tree-Shaking is currently not quite possible. Babylon's internal objects have deep connections with one another (for performance reasons). That means, that your built JS file will be at least Babylon.js' minified size.
 
 You can still use custom builds to build you own minimal version: //doc.babylonjs.com/how_to/how_to_start#custom-builds
 
-## Naming is different than what the documentation states
+### Naming is different than what the documentation states
 
 Our documentation always refers to the BABYLON namespace. We therefore always use this namespace when talking about objects/classes, and also use this namespace when talking about the GUI.
 
 When using es-6 imports or require, you are the one responsible to setting the namespace in accordance to your needs. Pay attention when changing it and when copying code from the Playground.
 
-# Example of a webpack project using Babylon modules
+## Example of a webpack project using Babylon modules
 
 Let's see an example of how to setup a Babylon project written in Typescript and bundled using Webpack.
 
 I will be using webpack 4, but the same setup will work with the previous version of webpack.
 
-## Setting up the project
+### Setting up the project
 
 We will be using npm to install dependencies. We first run `npm init` to generate package.json . You can generate package.json in any other way you wish.
 
@@ -347,7 +361,7 @@ We will also add an html file with a canvas (index.html):
 
 After adding a new file called `index.ts` we are ready to start developing.
 
-## Adding babylon support
+### Adding babylon support
 
 We will start a simple project with Babylon core module, the loaders, and the GUI.
 
@@ -363,7 +377,7 @@ This will install the latest stable version of Babylon. To install the latest pr
 npm install --save babylonjs@preview babylonjs-loaders@preview babylonjs-gui@preview
 ```
 
-## Writing some code
+### Writing some code
 
 Our index.ts will show a sphere for now. I will be using a code very similar to the playground, but you can structure your code as you wish:
 
@@ -407,7 +421,7 @@ import { Engine, Scene, ArcRotateCamera, HemisphericLight, Vector3, MeshBuilder,
 
 Adding this line to the beginning of the file will load all needed dependencies to your project and will eliminate all errors.
 
-## Bundling the project
+### Bundling the project
 
 Compiling index.ts using tsc will work. But it will generate a file that is unusable without babylonjs itself. To get a bundled file we will run webpack. Again, two ways for that:
 
@@ -433,7 +447,7 @@ We will now have an index.js in the dist folder that we can use in our index.htm
 
 You will notice there are a few warnings about dependencies. We will deal with that later.
 
-## Checking your project
+### Checking your project
 
 The best way for you during development would be the webpack dev server (https://github.com/webpack/webpack-dev-server/), but it is not a part of the scope of this tutorial.
 
@@ -441,7 +455,7 @@ To check the current project, I use the http-server npm module (installed global
 
 If you open out index.html, we will see a sphere. Hooray!
 
-## Adding the GUI
+### Adding the GUI
 
 For the sake of learning, we will add a new file, `gui.ts`, even thou it can still be done with a single ts file. Our gui.ts file will look like this:
 
@@ -508,7 +522,7 @@ function createScene(): Scene {
 
 If we compile now using webpack, we will have our GUI element in our scene.
 
-## Eliminating the dependencies warnings
+### Eliminating the dependencies warnings
 
 Babylon is using oimo, cannon and earcut as external, optional dependencies. If you don't use them, you can define them as externals in webpack configuration, and avoid the warnings:
 
@@ -519,7 +533,3 @@ Babylon is using oimo, cannon and earcut as external, optional dependencies. If 
         "earcut": true
     },
 ```
-
-# Further Reading
-[How To Get Babylon.js](/babylon101/how_to_get)  
-[ESNext Support](/features/ES6_Support)

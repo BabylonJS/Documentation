@@ -1,13 +1,25 @@
-# How To 360 Photo
+---
+title: 360 Photo Domes
+image: 
+description: Learn all about Babylon.js 360 photo domes.
+keywords: welcome, babylon.js, diving deeper, environment, 360 photo, dome, 360 photo dome, photo dome
+further-reading:
+    - title: Action Manager
+      url: https://doc.babylonjs.com/how_to/how_to_use_actions
+video-overview:
+video-content:
+---
+
+## How To 360 Photo
 360 Photo is a simplex mix of specific geometry, textures, and material properties; however, rather than put the burden on you to figure out how to connect them, we've created the PhotoDome.
 
-# PhotoDome
+## PhotoDome
 PhotoDome needs a source image that must be "Equirectangular", without an equirectangular source the class won't function correctly.
 
 Example of equirectangular image:
 ![equirectangular](//playground.babylonjs.com/textures/360photo.jpg)
 
-# PhotoDome Code
+## PhotoDome Code
 Within the playground you can copy and paste the following into your scene and then adjust the options.
 
 ```javascript
@@ -21,9 +33,9 @@ All the options are based through the corresponding classes, mainly the dome geo
 * size = 1000: Physical radius to create the dome at, defaults to approximately half the far clip plane
 * useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
 
-* [Playground Example of a PhotoDome](https://www.babylonjs-playground.com/#14KRGG#3)
+* <Playground id="#14KRGG#3" title="PhotoDome Example" description="Simple example of how to use a PhotoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome1.jpg"/>
 
-# FOV adjustment
+## FOV adjustment
 Sometimes 360 photo can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
 Adjust it between 0.0 and 2.0 with the following code.
 
@@ -35,9 +47,9 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the photo dome help reduce, but not eliminate, this.
 
-* [Playground Example of a PhotoDome using fovMultiplier](https://www.babylonjs-playground.com/#14KRGG#4)
+* <Playground id="#14KRGG#4" title="PhotoDome using fovMultiplier" description="Simple example of how to use a PhotoDome with fovMultiplier." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome2.jpg"/>
 
-# Image Types
+## Image Types
 Several types of 360 image exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
 The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eyes whereas the last one contains both panoramic views respectively on the top and bottom of the image.
@@ -54,11 +66,11 @@ photoDome.imageMode = BABYLON.PhotoDome.MODE_TOPBOTTOM;
 
 Examples:
 
-- Side by side: https://www.babylonjs-playground.com/#WP9WDU
-- Top bottom: https://www.babylonjs-playground.com/#SM3YHE
+- Side by side: <Playground id="#WP9WDU" title="Steroscopic SidexSide Panoramic" description="Simple example of using a photoDome with a stereoscopic side by side panoramic source." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome3.jpg"/>
+- Top bottom: <Playground id="#SM3YHE" title="Top Bottom Panoramic" description="Simple example of using a photoDome with a top bottom panoramic source." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome2.jpg"/>
 
 
-# How To 360 Photo with WebVR
+## How To 360 Photo with WebVR
 You can combine 360 Photo with WebVR. Just add the following code.
 
 ```javascript
@@ -89,8 +101,3 @@ new BABYLON.ExecuteCodeAction({
     function () { vrHelper.exitVR(); document.exitFullscreen();}
 ));
 ```
-
-
-# Further Reading
-
-[Action Manager](https://doc.babylonjs.com/how_to/how_to_use_actions)

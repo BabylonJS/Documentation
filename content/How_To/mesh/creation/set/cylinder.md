@@ -1,6 +1,16 @@
-# Cylinder or Cone
+---
+title: Creating A Cylinder
+image: 
+description: Learn how to create a cylinder in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, cylinder
+further-reading:
+video-overview:
+video-content:
+---
+
+## Cylinder or Cone
 The created cylinder has its flat sides parallel to the xz plane with its origin at the center of the vertical line of symmetry. If you set _diameterTop_ to zero, you get a cone instead of a cylinder, with different values for _diameterTop_ and _diameterBottom_ you get a truncated cone.
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const cone = BABYLON.MeshBuilder.CreateCylinder("cone", options, scene); //scene is optional and defaults to the current scene
@@ -22,17 +32,17 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-## Examples
-Cylinder  https://www.babylonjs-playground.com/#QANVC6  
-Cone https://www.babylonjs-playground.com/#QANVC6#1  
-Triangular Prism https://www.babylonjs-playground.com/#QANVC6#2  
-arc https://www.babylonjs-playground.com/#QANVC6#3
+### Examples
+Cylinder: <Playground id="#QANVC6" title="Create a Cylinder" description="Simple example of creating a cylinder." image=""/>
+Cone: <Playground id="#QANVC6#1" title="Create a Cone" description="Simple example of creating a cone." image=""/>
+Triangular Prism: <Playground id="#QANVC6#2" title="Create a Triangular Prism" description="Simple example of creating a triangular prism." image=""/>
+Arc <Playground id="#QANVC6#3" title="Create an Arc" description="Simple example of creating an arc." image=""/>
 
 ![can label and top](/img/how_to/apply-material-to-faces/logo_label.jpg)
 
-faceUVs https://www.babylonjs-playground.com/#QANVC6#4
+Cylinder with faceUVs <Playground id="#QANVC6#4" title="Create a Cylinder With Face UVs" description="Simple example of creating a cylinder with face UVs." image=""/>
 
-# Mesh
+## Mesh
 Usage :
 ```javascript
 const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene);

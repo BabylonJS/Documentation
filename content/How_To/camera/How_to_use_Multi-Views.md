@@ -1,8 +1,18 @@
-# How To Use Multi Views
+---
+title: MultiViews Part 2
+image: 
+description: Continue learning how to leverage multiviews in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, multiview
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Use Multi Views
 
 Babylon.js is able to render multi views of the same scene.
 
-# Active cameras
+## Active cameras
 
 Basically, a scene has a `scene.activeCamera` property to define the point of view. But you can also define many active cameras with the following code:
 
@@ -11,7 +21,7 @@ scene.activeCameras.push(camera);
 scene.activeCameras.push(camera2);
 ```
 
-# Viewports
+## Viewports
 
 If you want to use many cameras, you will need to specify a viewport for each camera:
 
@@ -28,4 +38,4 @@ BABYLON.Viewport = function (x, y, width, height);
 
 where x, y, are the lower left hand corner of the viewport followed by its width and height. Values for x, y, width and height are given as a number between 0 and 1 representing a fraction of the screen width and height respectively.
 
-- [Playground Example Viewport](https://www.babylonjs-playground.com/pg/E9IRIF)
+- <Playground id="#4JXV32" title="Viewport Example" description="A simple example of constructing a viewport." image="/img/playgroundsAndNMEs/divingDeeperMultiviews3.jpg"/>

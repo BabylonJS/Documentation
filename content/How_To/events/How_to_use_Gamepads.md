@@ -1,4 +1,16 @@
-# Gamepad Manager
+---
+title: Gamepads
+image: 
+description: Learn about gamepad input support in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, input, gamepad, controller
+further-reading:
+    - title: How to use virtual joysticks
+      url: /How_To/How_to_use_Virtual_Joysticks
+video-overview:
+video-content:
+---
+
+## Gamepad Manager
 First create a GamepadManager:
 ```javascript
 var gamepadManager = new BABYLON.GamepadManager();
@@ -11,7 +23,7 @@ gamepadManager.onGamepadDisconnectedObservable.add((gamepad, state)=>{
 });
 ```
 
-# Gamepad events
+## Gamepad events
 Once a gamepad is available, event listeners can be added to handle the gamepad's inputs
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
@@ -26,7 +38,7 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 }
 ```
 
-# Gamepad types
+## Gamepad types
 Depending on the type of controller, handle any of it's unique properties:
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
@@ -45,7 +57,7 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 }
 ```
 
-# Check a gamepad's current state
+## Check a gamepad's current state
 At any time, a gamepad's current state can be checked with the gamepads properties:
 ```javascript
 scene.registerBeforeRender(function () {
@@ -58,8 +70,4 @@ scene.registerBeforeRender(function () {
 }
 ```
 
-* [Playground Example](https://playground.babylonjs.com/#U3XJTB#38)
-
-# Virtual gamepad
-
-See [How to use virtual joysticks](/How_To/How_to_use_Virtual_Joysticks)
+* <Playground id="#U3XJTB#38" title="Gamepad Example" description="Simple example of enabling gamepad support to your scene." image=""/>

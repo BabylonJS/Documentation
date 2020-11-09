@@ -1,4 +1,14 @@
-# How To Load Files with Assets Manager
+---
+title: Asset Manager
+image: 
+description: Learn the wonderful world of the Babylon.js asset manager.
+keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, asset manager
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Load Files with Assets Manager
 
 In order to help developers load multiple assets, Babylon.js (starting with version 1.14) introduced the AssetsManager class.
 
@@ -6,9 +16,9 @@ This class can be used to import meshes into a scene or load text and binary fil
 
 **Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/resources/rotation_conventions#warning).
 
-# Using AssetsManager
+## Using AssetsManager
 
-## Initializing and creating tasks
+### Initializing and creating tasks
 
 To use it, you just have to instantiate it with a current scene:
 
@@ -68,7 +78,7 @@ textureTask.onSuccess = function(task) {
 }
 ```
 
-## Task state and error handling
+### Task state and error handling
 
 Each task has a state object that represents the current execution state of the task. The state is represented by an enum, `BABYLON.AssetTaskState` and has 4 states:
 * INIT - before the task started executing
@@ -89,7 +99,7 @@ assetsManager.onTaskErrorObservable.add(function(task) {
 ```
 
 
-## Manager callbacks and observables
+### Manager callbacks and observables
 
 The manager itself provides four callbacks:
 * onFinish
@@ -128,7 +138,7 @@ assetsManager.onTasksDoneObservable.add(function(tasks) {
 });
 ```
 
-## Executing the tasks
+### Executing the tasks
 
 To launch all the tasks, you have to call:
 
@@ -137,9 +147,9 @@ assetsManager.load();
 ```
 
 * You can see a live demo [here](http://www.babylonjs.com/scenes/assets)
-* Playground demo [here]( https://www.babylonjs-playground.com/#ZJYNY#0)
+* Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.jpg"/>
 
-# Available tasks
+## Available tasks
 
 There are 7 types of tasks that can be executed using the assets manager.
 
@@ -157,7 +167,7 @@ errorObject: { message?: string; exception?: any; };
 
 Note that the properties required to initialize a task are always corresponding to the object type it creates. Foe example, the constructor signature of the CubeTextureAssetTask takes the same variables as the class BABYLON.CubeTexture . The order of the variables might vary.
 
-## MeshAssetTask
+### MeshAssetTask
 
 The mesh asset task is used to load a model externally (a .babylon, .obj, .gltf and so on).
 
@@ -175,7 +185,7 @@ public loadedParticleSystems: Array<ParticleSystem>;
 public loadedSkeletons: Array<Skeleton>;
 ```
 
-## TextFileAssetTask
+### TextFileAssetTask
 
 Is used to async-load a (text) file.
 
@@ -192,7 +202,7 @@ public url: string;
 public text: string;
 ```
 
-## BinaryFileAssetTask
+### BinaryFileAssetTask
 
 This task is used to load a binary file. The main difference between this and the TextFileAssetTask is that the data will be stored in an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
 
@@ -209,7 +219,7 @@ public url: string;
 public data: ArrayBuffer;
 ```
 
-## ImageAssetTask
+### ImageAssetTask
 
 This function will load an image (.png, .jpg, .gif). It will create an [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement) object
 
@@ -226,7 +236,7 @@ public url: string;
 public image: HTMLImageElement;
 ```
 
-## TextureAssetTask
+### TextureAssetTask
 
 This will create a new BABYLON.Texture from a provided single url.
 
@@ -242,7 +252,7 @@ Extra properties:
 public texture: Texture;
 ```
 
-## CubeTextureAssetTask
+### CubeTextureAssetTask
 
 The same as the TextureAssetTask but for a cube texture
 
@@ -258,7 +268,7 @@ Extra properties:
 public texture: CubeTexture;
 ```
 
-## HDRCubeTextureAssetTask
+### HDRCubeTextureAssetTask
 
 Same as the CubeTextureAssetTask, but for HDR cube textures
 
@@ -272,7 +282,7 @@ Extra properties:
 public texture: HDRCubeTexture;
 ```
 
-## EquiRectangularCubeTextureAssetTask
+### EquiRectangularCubeTextureAssetTask
 
 Same as the CubeTextureAssetTask, but for Equirectangular cube textures
 
@@ -286,7 +296,7 @@ Extra properties:
 public texture: EquiRectangularCubeTexture;
 ```
 
-# Using a loading screen
+## Using a loading screen
 
 By default, the AssetsManager will display a loading screen while loading assets:
 

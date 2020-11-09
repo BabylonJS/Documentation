@@ -1,8 +1,18 @@
-# Tube
+---
+title: Creating Tubes
+image: 
+description: Learn how to create tubes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, tubes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Tube
 A tube is much as you would expect it to be, a surface with  hollow length.  
 On creation the local origin of a tube is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -36,18 +46,18 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 You must set at least the _path_ option.
 On update, you must set the _path_ and _instance_ options and you may also set the _radius_, _radiusFunction_ or _arc_ options.
 
-## Examples
-non updatable tube https://www.babylonjs-playground.com/#WW0ALQ  
-updatable tube https://www.babylonjs-playground.com/#WW0ALQ#1  
-spiral tube https://www.babylonjs-playground.com/#WW0ALQ#2  
+### Examples
+non updatable tube: <Playground id="#WW0ALQ" title="Create a Non Updatable Tube" description="Simple example of creating non updatable tubes." image=""/>
+updatable tube: <Playground id="#WW0ALQ#1" title="Create an Updatable Tube" description="Simple example of creating an updatable tube." image=""/>
+spiral tube: <Playground id="#WW0ALQ#2" title="Create a Spiral Tube" description="Simple example of creating a spiral tube." image=""/>
 
 When using the radiusFunction it must return a number. Its parameter refer to a path index or a distance along the path. 
 
-distance example https://www.babylonjs-playground.com/#WW0ALQ#3  
-index example  https://www.babylonjs-playground.com/#WW0ALQ#4  
-with circular path and changing radius https://www.babylonjs-playground.com/#WW0ALQ#5  
+distance example: <Playground id="#WW0ALQ#3" title="Create a Tube With Radius Function 1" description="Simple example of creating a tube using the radiusFunction distance." image=""/>
+index example: <Playground id="#WW0ALQ#4" title="Create a Tube With Radius Function 2" description="Simple example of creating a tube using the radiusFunction index." image=""/>
+with circular path and changing radius: <Playground id="#WW0ALQ#5" title="Create a Tube With Radius Function 3" description="Simple example of creating a tube with a circular path and changing radius." image=""/>
 
-# Mesh
+## Mesh
 usage: 
 ```javascript
 let tube = BABYLON.Mesh.CreateTube("tube", path, radius, tesselation, optional radiusFunction, cap, scene);

@@ -1,10 +1,16 @@
 ---
-title: How To Obtain Reflections and Refractions
+title: Reflections and Refractions
+image: 
+description: Learn all about reflection and refraction in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, refraction, reflection
+further-reading:
+video-overview:
+video-content:
 ---
 
 Using reflection textures can simulate mirror like material and refraction textures can simulate looking through glass or water.
 
-# Reflection
+## Reflection
 Reflections are created using the _relectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/How_To/Skybox)
 
 This sets the _relectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of the _relectionTexture_ to SKYBOX_Mode as in
@@ -13,7 +19,7 @@ This sets the _relectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 ```
-# CubeTexture
+## CubeTexture
 By default six jpeg images are passed to a _CubeTexture_. The images are named in this form, commonPart\_px.jpg, commonPart\_nx.jpg,
 commonPart\_py.jpg, commonPart\_ny.jpg, commonPart\_pz.jpg, commonPart\_nz.jpg corresponding to the positions shown below.
 
@@ -35,18 +41,18 @@ boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 box.material = boxMaterial;
 ```
 
-* [Playground Example - Different reflections on each face](https://www.babylonjs-playground.com/#UU7RQ#2)
+* <Playground id="#UU7RQ#2" title="Different Reflections On Each Face" description="Simple example of different reflections on each face of a mesh." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction1.jpg"/>
 
 From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
 
-## Reflecting on Skybox and a shape
+### Reflecting on Skybox and a shape
 Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
 
-* [Playground Example - Box and CUBIC_MODE](https://www.babylonjs-playground.com/#UU7RQ#3)
-* [Playground Example - Ground and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#5)
-* [Playground Example - Sphere and PLANAR_MODE](https://www.babylonjs-playground.com/#UU7RQ#4)
+* <Playground id="#UU7RQ#3" title="Box and CUBIC_MODE Reflection" description="Simple example of a box and CUBIC_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
+* <Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE Reflection" description="Simple example of a ground and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
+* <Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE Reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
 
-## Using local cubemap mode
+### Using local cubemap mode
 
 Starting with Babylon.js v3.2, you can now use local cubemap mode when using cubemaps (with CUBIC_MODE).
 Please read [this article](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity), to get a precise understanding of what local cubemaps are.
@@ -60,9 +66,9 @@ material.reflectionTexture.boundingBoxSize = new BABYLON.Vector3(100, 100, 100);
 
 You can also specify a property named `boundingBoxPosition` if you want to define the center of the bounding box used for the cubemap (The place where the camera was set when generating the cubemap).
 
-You can find an demo of local cubemaps here: https://www.babylonjs-playground.com/#RNASML#37
+You can find an demo of local cubemaps here: <Playground id="#RNASML#37" title="Local Cubemap Example" description="Simple example of using local cubemaps in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/>
 
-# HDRCubeTexture
+## HDRCubeTexture
 High Dynamic Range (HDR) images are panoramic images that cover an entire field of vision.
 
 Below is an HDR image of a room
@@ -78,9 +84,9 @@ with
 skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
 ```
 
-* [Playground Example - HDR Skybox](https://www.babylonjs-playground.com/#114YPX#5)
+* <Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
-# EquiRectangularCubeTexture
+## EquiRectangularCubeTexture
 Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).
 
 Below is an equirectangular image of a shop
@@ -98,11 +104,11 @@ cubemapDesiredSize = 512; // The cubemap desired size (the more it increases the
 skyboxMaterial.reflectionTexture = new BABYLON.EquiRectangularCubeTexture("PATH TO EQUIRECTANGULAR IMAGE", scene, cubemapDesiredSize);
 ```
 
-* [Playground Example -  Equirectangular Skybox](https://www.babylonjs-playground.com/ts.html#6YN2X1)
-* [Playground Example - Equirectangular image on a sphere](https://www.babylonjs-playground.com/ts.html#32H1D4)
-* [Playground Example - Bth combined](https://www.babylonjs-playground.com/ts.html#RY8LDL)
+* <Playground id="#6YN2X1" title="Equirectangular Skybox" description="Simple example of an equirectangular HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction7.jpg"/>
+* <Playground id="#32H1D4" title="Equirectangular Image On A Sphere" description="Simple example of an equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction8.jpg"/>
+* <Playground id="#RY8LDL" title="Both Combined" description="Simple example of an equirectangular skybox and equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
 
-# Spherical Reflection Texture
+## Spherical Reflection Texture
 Not only can a cube texture can be applied to a sphere so can a plane single image.
 
 ![Squares](/img/how_to/Materials/reflectest.png)
@@ -116,13 +122,13 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 | Diffuse Texture | SPHERICAL_MODE |
 | PLANAR\_MODE | PROJECTION\_MODE |
 
-* [Playground Example of Coordinates Modes](https://www.babylonjs-playground.com/#20OAV9#26)
+* <Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
 
-# Mirrors
+## Mirrors
 So far reflections have been of images, using _MirrorTexture_ obects within the scene can be reflected as in a mirror. This is simulated by
 by setting the _reflectionTexture_ to a _MirrorTexture_ and applying it to a flat surface.
 
-* [Playground Example of Mirrors](https://www.babylonjs-playground.com/#1YAIO7#5)
+* <Playground id="#1YAIO7#5" title="Mirrors" description="Simple example of using mirrors in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction11.jpg"/>
 
 A real mirror is made of two parts glass and a reflected surface applied to the glass and a mirror simulated within
 BJS also contains to parts; a flat surface and a reflector. (For a reflective surface such as metal or still water - think metal plus shine and water plus air boundary).
@@ -133,7 +139,7 @@ lies on top of the flat mesh and reflects where the two overlap.
 With a real mirror it is easy to tell if you are standing in front of it or behind it. For a BJS mirror an object is
 in front of the mirror if the normals of the flat surface point towards the object.
 
-## Constructing the Mirror Reflector
+### Constructing the Mirror Reflector
 The flat surface should be constructed first from a ground or plane mesh. BJS can then construct the reflector using the position and normal of the flat surface. Since the
 reflection is on the opposite side of the mirror to the object being reflected the normal for reflection is in the opposite direction to that
 of the flat surface. For example a mesh of a plane created in BJS has a normal vector (0, 0, -1) at the time of creation and so the reflected normal will be (0, 0, 1).
@@ -164,7 +170,7 @@ glassNormal = new BABYLON.Vector3.TransformNormal(glassNormal, glass_worldMatrix
 var reflector = new BABYLON.Plane.FromPositionAndNormal(glass.position, glassNormal.scale(-1));
 ```
 
-## Constructing the Mirror
+### Constructing the Mirror
 Once the reflector is obtained a _MirrorTexture_ is made that can be applied to the flat surface.
 
 ```javascript
@@ -187,18 +193,18 @@ Finally the mirrorMaterial can be applied to the glass.
 glass.material = mirrorMaterial;
 ```
 
-## Blurring the Reflection
+### Blurring the Reflection
 _MirrorTexture_ can support blurred rendering with either:
 
 * adaptiveBlurKernel: setting this value to something other than 0 will blur the texture with a specified kernel (the bigger the blurrier). The value will be adapted to the viewport size.
 * blurKernel: same as adaptiveBlurKernel property but the value is not adapted to viewport size.
 
-* [Playground Example - Reflection Blur](https://www.babylonjs-playground.com/#LVTTQX#1)
+* <Playground id="#LVTTQX#1" title="Reflection Blur" description="Simple example of using reflection blur in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/>
 
 # Refraction
 In this case an object behind glass or under water for example can have its position and size changed by the refraction of light.
 
-* [Playground example of Refraction](https://www.babylonjs-playground.com/#22KZUW#15)
+* <Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/>
 
 Refraction is also achieved by taking a flat surface such as a plane or disc and adding, this this case, a refraction material applied to a flat mesh. The difference is that the object
 that is to be refracted is placed behind the flat surface, that is the normals of the mesh all point away from the object and the refracted normals are in the same direction.
@@ -233,6 +239,5 @@ The two examples below show the effect of changing these.
 *Note* in both examples the surfaces are transparent so that the actual position of the sphere can be identified. It is the refracted
 sphere that changes psoition as the parameters are changed.
 
-* [Playground example of changes in refraction depth from 0 to 50](https://www.babylonjs-playground.com/#1YAIO7#20)
-* [Playground example of changes in index of refraction from 0.1 to 1.5](https://www.babylonjs-playground.com/#1YAIO7#19)
-
+* <Playground id="#1YAIO7#20" title="Refraction Depth" description="Simple example of using refraction depth in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
+* <Playground id="#1YAIO7#19" title="Index Of Refraction" description="Simple example of changing the index of refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction15.jpg"/>

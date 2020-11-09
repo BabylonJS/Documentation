@@ -1,7 +1,19 @@
-# How To Use a Skybox
+---
+title: Skyboxes
+image: 
+description: Learn how to add a skybox to your Babylon.js scene.
+keywords: welcome, babylon.js, diving deeper, environment, skybox
+further-reading:
+    - title: Reflections and Refractions
+      url: /how_to/reflect
+video-overview:
+video-content:
+---
+
+## How To Use a Skybox
 A simulated sky can be added to a scene using a skybox. This is created using a large standard box, special reflective textures and a group of six images, one for each face of the cube.
 
-# Sky Images
+## Sky Images
 Six jpeg images are necessary to create a skybox, all of them should be square and of the same size which is best as a power of 2, eg 1024px x 1024px.
 The name for each image should have a common part followed by a position given by _px, _nx, _py, _ny, _pz or _nz corresponding whether 
 it is on the positive (p) or negative (n) x, y or z axis.
@@ -17,9 +29,9 @@ Notice that the images match seamlessly at the edges of the box:
 Skybox images can be found on the web by searching for skybox images. Generally, these are single images in the form of a net of a box and you will 
 need to separate them into individual images and save each.
 
-You can also use [textures available in the playground](/resources/playground_textures#cubetextures).
+You can also use [library textures in the playground](/resources/playground_textures#cubetextures).
 
-# Skybox Code 
+## Skybox Code 
 Within the playground you can copy and paste the following into your scene.
 
 ```javascript
@@ -39,8 +51,4 @@ More generally the images are referenced in the following way
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
 ```
 
-* [Playground Example of a Skybox](https://www.babylonjs-playground.com/#UU7RQ#1)
-
-# Further Reading
-
-[Reflections and Refractions](/how_to/reflect)
+* <Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.jpg"/>

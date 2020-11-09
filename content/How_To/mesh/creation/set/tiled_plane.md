@@ -1,7 +1,17 @@
-# Tiled Plane
+---
+title: Creating A Tiled Plane
+image: 
+description: Learn how to create a tiled plane in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, tiled plane
+further-reading:
+video-overview:
+video-content:
+---
+
+## Tiled Plane
 A tiled plane is only available with MeshBuilder. The tile size, pattern and alignment of tiles can be set. 
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const tiledPlane = BABYLON.MeshBuilder.CreateTiledPlane("plane", options, scene); //scene is optional and defaults to the current scene
@@ -68,14 +78,14 @@ const options = {
 }
 ``` 
 
-# Examples
+## Examples
 
 The following image is used to show the results before and after flipping alternate tiles
 
 ![Single Tile Pattern](/img/how_to/mesh/lavatile.jpg) 
 
-Before tiles flipped  https://www.babylonjs-playground.com/#XR696D  
-After tiles flipped https://www.babylonjs-playground.com/#XR696D#1
+Before tiles flipped: <Playground id="#XR696D" title="Create a Tiled Plane With Before Tiles Flipped" description="Simple example of creating a tiled plane with before tiles flipped." image=""/> 
+After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With After Tiles Flipped" description="Simple example of creating a tiled plane with after tiles flipped." image=""/>
 
 **Alternating Patterns**
 
@@ -83,13 +93,13 @@ This image
 ![Two Tile Pattern](/img/how_to/mesh/tiles2.jpg)  
 is used to show different alternating patterns using tiles of width 2 and height 1 by flipping either every other row or tile
 
-row flipped https://www.babylonjs-playground.com/#XR696D#3  
-tile filed https://www.babylonjs-playground.com/#XR696D#4) 
+Row flipped: <Playground id="#XR696D#3" title="Create a Tiled Plane With Row Flipped" description="Simple example of creating a tiled plane with row flipped." image=""/>
+Tile filed: <Playground id="#XR696D#4" title="Create a Tiled Plane With Tile Filed" description="Simple example of creating a tiled plane with tile filed." image=""/>
 
 and also how tiling can be different front and back.
 
-https://www.babylonjs-playground.com/#XR696D#2
+<Playground id="#XR696D#2" title="Create a Tiled Plane With Different Tiling Front And Back" description="Simple example of creating a tiled plane with different tiling front and back." image=""/>
 
 
 The final example use the same image to show all 63 permutations. To see heading view the full playground.
-https://www.babylonjs-playground.com/#XR696D#5
+<Playground id="#XR696D#5" title="Create a Tiled Plane With 63 Different Permutations" description="Simple example of creating a tiled plane with 63 different permutations." image=""/>

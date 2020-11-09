@@ -1,9 +1,19 @@
-# Ribbon
+---
+title: Creating Ribbons
+image: 
+description: Learn how to create ribbons in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, ribbons
+further-reading:
+video-overview:
+video-content:
+---
+
+## Ribbon
 The ribbon is a very versatile shape. Picture a ribbon in the real world with parallel wires running down its length. You can turn such a ribbon into a wide variety of shapes. Joining one long edge to its opposite you could form a tube and bend that into different shapes. This and more is possible with a Babylon.js ribbon. Instead of parallel wires a Babylon.js ribbon is formed from paths defined by an array of vector3s and how you define the paths determines the final shape. 
 
 On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -33,18 +43,18 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of a ribbon to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-## Examples
+### Examples
 
-Update of a ribbon https://www.babylonjs-playground.com/#F6JW5W#5  
+Update of a ribbon: <Playground id="#F6JW5W#5" title="Updating a Ribbon" description="Simple example of updating a ribbon." image=""/>
 
-double sided ribbon not updatable https://www.babylonjs-playground.com/#F6JW5W#6  
-double sided ribbon not updatable path lines in red https://www.babylonjs-playground.com/#F6JW5W#7  
-open ribbon https://www.babylonjs-playground.com/#F6JW5W#8  
-with closePath true https://www.babylonjs-playground.com/#F6JW5W#9  
-with closeArray true https://www.babylonjs-playground.com/#F6JW5W#10  
+double sided ribbon not updatable: <Playground id="#F6JW5W#6" title="Create a Non Updatable Double Sided Ribbon" description="Simple example of creating a non updatable double sided ribbon." image=""/>
+double sided ribbon not updatable path lines in red: <Playground id="#F6JW5W#7" title="Create a Non Updatable Double Sided Ribbon With Red Path Lines" description="Simple example of creating a non updatable double sided ribbon with red path lines." image=""/>  
+open ribbon: <Playground id="#F6JW5W#8" title="Create An Open Ribbon" description="Simple example of creating an open ribbon." image=""/>
+with closePath true: <Playground id="#F6JW5W#9" title="Create a Ribbon with closePath = True" description="Simple example of creating a ribbon with closePath set to true." image=""/> 
+with closeArray true: <Playground id="#F6JW5W#10 " title="Create a Ribbon with closeArray = True" description="Simple example of creating a ribbon with closeArray set to true." image=""/> 
 
 
-# Mesh
+## Mesh
 Usage: 
 ```javascript
 const ribbon = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, closeArray, closePath, offset, scene);

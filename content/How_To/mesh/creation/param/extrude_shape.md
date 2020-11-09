@@ -1,4 +1,14 @@
-# Extruded Shape
+---
+title: Extruding Shapes
+image: 
+description: Learn how to extrude shapes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, extruding shapes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Extruded Shape
 An extruded shape is created by defining a shape profile using vector3 coordinates in the xy plane and providing a path along which the profile will be extruded. You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_ and _instance_ options and you can set the _scale_ and _rotation_ options.
 
 On creation the local origin of an extrusion is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
@@ -9,7 +19,7 @@ When you need the appearance of a solid shape then there is an option to cap the
 
 When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](toolsAndResources/utilities/Mitred)
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -41,18 +51,18 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
-## Examples
-non updatable extrusion https://www.babylonjs-playground.com/#MR8LEL#2  
-update of extrusion including, shape, path, scale and rotation https://www.babylonjs-playground.com/#MR8LEL#3  
-extrusion with open shape https://www.babylonjs-playground.com/#MR8LEL#4  
+### Examples
+non updatable extrusion: <Playground id="#MR8LEL#2" title="Non Updatable Extrusion" description="Simple example of non updatable extrusions." image=""/>
+update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions." image=""/>
+extrusion with open shape: <Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Simple example of extrusion with open shpaes." image=""/>
 
-spiral extrusion with straight path and rotation set https://www.babylonjs-playground.com/#MR8LEL#5  
+spiral extrusion with straight path and rotation set: <Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion." image=""/>  
 
-capped extrusion https://www.babylonjs-playground.com/#MR8LEL#6  
-profile that does not cap correctly https://www.babylonjs-playground.com/#MR8LEL#7
+capped extrusion: <Playground id="#MR8LEL#6" title="Capped Extrusion" description="Simple example of capped extrusion." image=""/>
+profile that does not cap correctly: <Playground id="#MR8LEL#7" title="Incorrectly Capped Extrusion" description="Simple example of inocrrectly capped extrusion." image=""/>
 
 
-# Mesh
+## Mesh
 Usage:
 ```javascript
 let extrusion = BABYLON.Mesh.ExtrudeShape(name, shape, path, scale, rotation, cap, scene);

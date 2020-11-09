@@ -1,4 +1,14 @@
-# Common 3D Shapes
+---
+title: Creating Set Shapes
+image: 
+description: Learn how to create standard set shapes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Common 3D Shapes
 These common shapes cover 2D shapes such as horizontal planes (ground), vertical planes and regular polygons along with 3D shapes such as cuboids, spheres, ellipsoids and toruses. 
 
 To create these meshes you use

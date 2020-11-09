@@ -1,11 +1,21 @@
-# Lathe
+---
+title: Lathe
+image: 
+description: Learn how to use the lathe operation in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, lathe
+further-reading:
+video-overview:
+video-content:
+---
+
+## Lathe
 A lathed shape is created by defining a shape profile using vector3 coordinates in the xy plane. The shape profile will be rotated around the y axis to form the lather shape. It is recommended that all the x values are positive. You must set at least the _shape_ option.
 
 On creation the local origin of a lathed shape is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
 There in no _instance_ option for lathed shapes
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const lathe = BABYLON.MeshBuilder.CreateLathe("lathe", options, scene); //scene is optional and defaults to the current scene
@@ -27,13 +37,13 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 
 The radius value is a multiplier for the x values in the profile shape vector3s.
 
-## Examples
-Lathed shape https://www.babylonjs-playground.com/#PQ0GIE  
-Hexagonal nut https://www.babylonjs-playground.com/#PQ0GIE#1  
-Arc https://www.babylonjs-playground.com/#PQ0GIE#2  
+### Examples
+Lathed shape: <Playground id="#PQ0GIE" title="Lathed Shape Example" description="Simple example of a lathed shape." image=""/>
+Hexagonal nut: <Playground id="#PQ0GIE#1" title="Lathed Hexagonal Nut" description="Simple example of a lathed hexagonal nut." image=""/>  
+Arc: <Playground id="#PQ0GIE#2" title="Lathed Arc" description="Simple example of a lathed arc." image=""/>
 
 
-# Mesh
+## Mesh
 Usage:
 ```javascript
 let lathe = BABYLON.Mesh.CreateLathe("lathe", shape, radius, tessellation, scene);

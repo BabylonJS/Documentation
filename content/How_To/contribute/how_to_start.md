@@ -1,14 +1,24 @@
-# Introduction
+---
+title: Start Contributing to Babylon.js
+image: 
+description: Learn how to start contributing to Babylon.js.
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, develope
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Babylon.js is maintained on Github, a web-based hosting service for version control using Git. This page will introduce these and everything that is needed to make changes or additions to Babylon.js, from tools installation to testing, plus a brief description of why they are necessary. The steps are intended to be OS agnostic, allowing users to develop the same way on Windows, Mac and Linux.
 
-# Pre-Requisites
+## Pre-Requisites
 
 - Reading the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md).
 - An ability to code in Typescript. Babylon.js is written in Typescript then compiled and distributed in JavaScript.
 - Know how to use a Command Line Interpreter (CLI), used to issue Git commands.
 
-# Install Git
+## Install Git
 
 A quick way for Windows and Mac is from the [Git Home Page](https://git-scm.com/) and for all three operating systems from the [Git Book](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
@@ -21,19 +31,19 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
-# Install Firefox
+## Install Firefox
 
 In order to run the Babylon.js tests you will need to have Firefox installed.
 
 Download it from the [Firefox Home Page](https://www.mozilla.org/en-US/firefox/).
 
-# Fork from Github
+## Fork from Github
 
 If you do not have one already open a Github account with your email address and still signed in go to the [Babylon.js repository](https://github.com/BabylonJS/Babylon.js) and fork with button at the top.
 
 ![Fork](/img/contribute/fork.jpg);
 
-# Clone to Local
+## Clone to Local
 
 Now in your Babylon.js repository use the Clone or Download Button to find **your** repository address
 
@@ -74,7 +84,7 @@ When the time comes this will allow you push changes in your local repository to
 git push origin master
 ```
 
-# Keeping The Local Version Up To Date
+## Keeping The Local Version Up To Date
 
 When it comes time for you to request that your changes be pulled into the Babylon.js then the only difference between your version of Babylon.js and it should be the changes you have made. Of course other people are making changes as well so you need to keep your master, the local version, up to date with the main version. The main version, often termed the upstream version, is another remote version to your local repository that it can link to
 
@@ -102,7 +112,7 @@ git pull upstream master
 
 You can pull from upstream at any time provided any changes you have made are committed.
 
-# Editing, Testing and Guidelines
+## Editing, Testing and Guidelines
 
 Before embarking on editing or adding to Babylon.js please make sure you are familiar with the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md).
 
@@ -111,7 +121,7 @@ Please note that some of these are checked on submission automatically by softwa
 - The addition of comments to your code as described [here](/how_to/contribute_to_api#format-of-comments);
 - Adding a statement about the change in the **dist/preview release/what's new.md** page
 
-# Editing with Visual Studio Code
+## Editing with Visual Studio Code
 
 Visual Studio Code is a straight forward IDE with Git integration and is available for all three operating systems. It is worth a try though you may already have a favorite or recommended IDE.
 
@@ -121,11 +131,11 @@ Once you are sure you have met the guidelines and have thoroughly tested all you
 
 [More on using VSCode with babylon.js](/resources/vscode)
 
-# Adding files
+## Adding files
 
 When in doubt about where your files should be referenced then raise an issue in the Babyon.js repository or ask on the forum.
 
-# Commit
+## Commit
 
 This can be done in Visual Studio Code using the _source control icon_ on the left toolbar or with (Ctrl + Shift + G). After testing some files other than those you have added or edited will appear in the source control section of VSCode. For example changes to files in the `dist` folder. These should not be committed. Once you are ready to push to your repository these changes should be discarded. Only files you have actually changed or added should be in the commit.
 
@@ -155,11 +165,11 @@ git commit file1.ts file2.ts file3.ts -m "Description of Changes"
 
 [An alternative way](#do-not-commit) of ignoring the files changed during the testing build can also be found on this page.
 
-# Testing and Dependencies
+## Testing and Dependencies
 
 In order to carry out the testing the distribution Javascript files have to be compiled and a server set up to carry out the tests. This requires the Typescript compiler and Gulp build tools. These are installed using npm, the package manager of Node.js. Installing Node.js also installs npm.
 
-## Install Node.js and NPM
+### Install Node.js and NPM
 
 Node.js and npm can be installed from the [Node.js home page](https://nodejs.org/en/).
 
@@ -171,7 +181,7 @@ npm install -g npm@latest
 
 the `g` installs npm globally so you can use it in any folder
 
-## Install Typescript and Gulp
+### Install Typescript and Gulp
 
 Install these using your CLI
 
@@ -182,7 +192,7 @@ npm install -g gulp@4.0.0
 
 At the time of writing the version of Gulp needed was 4.0.0. The current [What's New](//doc.babylonjs.com/whats-new) should indicate if there have been any changes of version. You can also look in the Babylon.js repository for `package.json` in `Tools/Publisher` which will give the version number for Gulp and Typescript.
 
-## The Build
+### The Build
 
 This only needs to be done once for a current version of Babylon.js, updates to npm or Gulp in later versions of Babylon.js may require you to update npm and Gulp on your local computer. After it is done any changes you make will be picked up automatically. Installing the npm applications in the directory takes quite a while and the Gulp build even longer so while Gulp is running is a good time to get a coffee or beverage of choice.
 
@@ -199,7 +209,7 @@ The `npm install` places a number of files in the current directory (This is dif
 
 The `npm run build` builds everything you need to test.
 
-## Do Not Commit
+### Do Not Commit
 
 During the build the `dist` folder continuously gets updated and its files changed. These modified files should not be committed by Git so they they are not pulled during a pull request. To ignore these files you can run the following in your CLI:
 
@@ -222,7 +232,7 @@ git update-index --assume-unchanged "dist/preview release/viewer/babylon.viewer.
 git update-index --assume-unchanged "dist/preview release/viewer/babylon.viewer.max.js"
 ```
 
-## Test and Debug
+### Test and Debug
 
 Should you be using VSCode then you can open the `Command Palette` either from the `View` menu or with (Ctrl + Shift + P) then begin to type `run` this takes you to the `Tasks:run` options, choose `Tasks:run` and type `run` in the box that opens up. Alternatively press (Ctrl + ') to open the terminal which is a CLI.
 
@@ -257,13 +267,13 @@ If you wish to test the fully compiled version instead of independent files simp
 
 You could also test against the minified version by choosing ?dist=min. this will work on all the referenced URLs.
 
-## Edit Code
+### Edit Code
 
 Once the test task (npm run start) has been launched, any saved changes in the Typescript or shader files will automatically rebuild the associated Javascript files. Simply refresh your browser to see the changes in effect and begin to debug your new code.
 
 _Hint_: You may need to refresh the code before adding back a new breakpoint.
 
-## Local Dev with the Playground
+### Local Dev with the Playground
 
 A quick way to test if your code works is to open the [local playground](http://localhost:1338/Playground/index-local.html) and write code that calls on the classes you have created.
 
@@ -281,16 +291,16 @@ To launch index.{number}.js simply append in the url sample={number} so for laun
 
 This should help playing and debugging locally.
 
-## Validate changes
+### Validate changes
 
 As part of your testing process, it is highly recommended to launch the build validator: http://localhost:1338/tests/validation/index.html.
 It will run several scenes against a reference image to detect any visual changes.
 
-## Guidelines
+### Guidelines
 
 A reminder to read the [contribution guidelines](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md).
 
-# Pull-Request
+## Pull-Request
 
 Pull Requests are automatically validated. One check is for styling and you can check that quickly with `gulp tsLint`. If you are unsure, you can validate everything with a full build:
 
@@ -322,7 +332,7 @@ git pull upstream master
 
 and then push into your repository again.
 
-# Check for Success
+## Check for Success
 
 Once your `pull-request` has been issued then it needs to be checked, reviewed, approved and merged.
 
@@ -350,7 +360,7 @@ For any failures re-edit your local files, commit and push to your repository. T
 
 Once your pull-request has been merged it will become live once any changes have been deployed into the `Preview Release` usually overnight but sometimes delayed a couple of days.
 
-# Gulp Tasks
+## Gulp Tasks
 
 All the following tasks are available:
 
@@ -369,28 +379,28 @@ All the following tasks are available:
 
 Most of those tasks should be launch by authorizing node to consume more memory than default by relying on the argument: `--max-old-space-size=8192`
 
-# Summary
+## Summary
 
-# App Install
+### App Install
 
 Node.js and Git
 
-# Fork and Clone
+### Fork and Clone
 
 ![Fork and Clone](/img/contribute/summary1.jpg)
 
-# Name Remotes and Pull
+### Name Remotes and Pull
 
 ![Remotes](/img/contribute/summary2.jpg)
 
-# Global Install
+### Global Install
 
 ```bash
 npm install -g typescript
 npm install -g gulp@4.0.0
 ```
 
-# Local Install
+### Local Install
 
 Babylon.js/Tools/Gulp folder
 
@@ -398,7 +408,7 @@ Babylon.js/Tools/Gulp folder
 npm install
 ```
 
-# Local Build
+### Local Build
 
 Babylon.js/Tools/Gulp folder
 
@@ -406,7 +416,7 @@ Babylon.js/Tools/Gulp folder
 npm run build
 ```
 
-# Webserver
+### Webserver
 
 Babylon.js/Tools/Gulp folder
 
@@ -416,21 +426,21 @@ npm run start
 
 [Open Playground](http://localhost:1338/Playground/index-local.html)
 
-# Repeat
+## Repeat
 
-## Edit
+### Edit
 
 Change and save files including comments
 
-## Test
+### Test
 
 Check if your code can be used in the local playground
 
-# Success
+## Success
 
 Update `/dist/preview release/what's new.md` file.  
 Commit files you have added or edited but not those built with npm run start
 
-# Push Pull-Request Check
+## Push Pull-Request Check
 
 ![Pull-Request](/img/contribute/summary3.jpg)

@@ -1,9 +1,15 @@
 ---
-title: Creating Custom Procedural Textures
+title: Creating Procedural Textures
+image: 
+description: Learn how to create your own procedural textures in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, advanced, textures, procedural, procedural textures
+further-reading:
+video-overview:
+video-content:
 ---
 
 
-# Using a Files-Based Custom Procedural Texture
+## Using a Files-Based Custom Procedural Texture
 To use a files-based custom procedural texture, you need to create a folder containing at least 2 files:
 
 - config.json
@@ -90,7 +96,7 @@ To use this custom texture, you need to make your folder available to your babyl
     var texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
 ```
 
-# Using a ShaderStore for Shader Storage
+## Using a ShaderStore for Shader Storage
 You can also use the ShaderStore to write a shader inline and use it in a CustomProceduralTexture.
 This can be done easily using the **BABYLON.Effect.ShaderStore** array : 
 
@@ -112,7 +118,7 @@ To use this shader, you just have to create a CustomProceduralTexture and put th
 ```javascript
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", "Lines", 1024, scene);
 ```
-# Using a DOM Element for Shader Storage
+## Using a DOM Element for Shader Storage
 
 Finally you can also use **DOM Elements** to store your shader. You just have to create a script tag in your HTML file like this:
 
@@ -134,7 +140,7 @@ var linesShader = { fragmentElement: 'LinesPixelShader' };
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
 ```
 
-# Using Node Material to generate procedural texture
+## Using Node Material to generate procedural texture
 
 You can use NodeMaterial to generate the shaders for your procedural texture.
 The code to generate it is very simple:
@@ -143,12 +149,12 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
     const proceduralTexture = nodeMaterial.createProceduralTexture(256);
 });
 ```
-Example: https://www.babylonjs-playground.com/#8S19ZC#1
+Example: <Playground id="#8S19ZC#1" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture1.jpg"/>
 
 More here: https://doc.babylonjs.com/how_to/node_material#creating-procedural-textures
 
-
+<Youtube id="qqMuuSM7GvI"/>
 
 **Note :** when using ShaderStore or DOM Element shader for custom procedural textures : the config.json file is not needed anymore and you can just use setFloat or setVector3 (and so on), and setTexture on the CustomProceduralTexture will give values and Sampler2D to the shader code.
 
-Feel free to play with this scene... [at our online playground]( https://www.babylonjs-playground.com/#24C4KC#17).
+Feel free to play with this scene here: <Playground id="#24C4KC#17" title="Node Material Procedural Texture Example 2" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture2.jpg"/>

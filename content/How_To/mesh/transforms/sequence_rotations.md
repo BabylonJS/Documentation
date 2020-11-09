@@ -1,8 +1,18 @@
-# Transformations
-# Sequencing Rotations
+---
+title: Sequencing Rotations
+image: 
+description: Learn how to sequence rotations in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, sequence rotations
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
+## Sequencing Rotations
 When you use the **rotation** method on a mesh then the rotation is applied in local space first around the y axis, then the x axis and finally about the z axis. How then do you rotate a mesh around a custom sequence of axes? This involves rotation quaternions either implicitly or explicitly.
 
-# Add Rotation
+## Add Rotation
 The simplest way is to use the addRotation method, *addRotation(x, y, z)* with two zero parameters, for example both of these sets of code
 
 ```javascript
@@ -23,7 +33,7 @@ The internal calculations for addRotations convert the Euler angles to rotation 
 
 Sequence using addRotation https://www.babylonjs-playground.com/#HPKH80
 
-# Rotate
+## Rotate
 Imagine a disc with an axis through its center. The disc is able to rotate about the axis. The image below shows the disc at several different rotation points around the axis.
 
 ![disc rotate](/img/how_to/Mesh/quat1.jpg)
@@ -60,14 +70,12 @@ mesh.rotate(BABYLON.Axis.Z, -Math.PI, BABYLON.Space.LOCAL);
 
 will start with the current orientation of the mesh, the add to this a rotation of &pi;/3 about the given local space axis, then add a rotation of -&pi;/2 about the world y axis, the add a rotation of 1.5&pi; about the given world axis and finally add a rotation of -&pi; about the local z axis.
 
-## Examples
-Earth rotates on tilted axis https://playground.babylonjs.com/#TLIAXS#  
-Using mixed rotate World and Local https://playground.babylonjs.com/#Z3W74Y#1  
-Two cubes one rotates in World Space other in Local Space https://playground.babylonjs.com/#66EBY3#3  
- Purple rotates in World Space, brown Local SPace https://playground.babylonjs.com/#LLNE9E#72
+### Examples
+Earth rotates on tilted axis: <Playground id="#TLIAXS#" title="Earth Rotating On A Tilted Axis" description="Simple example of the earth rotating on a tilted axis." image=""/>
+Using mixed rotate World and Local: <Playground id="#Z3W74Y#1" title="Using Mixed Rotate World and Local" description="Simple example using mixed rotate World and Local." image=""/> 
+Two cubes one rotates in World Space other in Local Space: <Playground id="#66EBY3#3" title="2 Cubes Rotating in World and Local Space" description="Simple example of 2 cubes rotating in world and local space." image=""/> 
+Purple rotates in World Space, brown Local Space: <Playground id="#LLNE9E#72" title="Purple and Brown rotation in World and Local Space" description="Simple example of 2 colored objects rotating in world and local space." image=""/>
 
 The use of *rotate* sets the orientation of the mesh using a rotation quaternion and subsequently there can then be issues trying to set the orientation of the mesh using *rotation*.
 
 About time to look further at rotation quaternions.
-
-

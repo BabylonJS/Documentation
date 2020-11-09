@@ -1,7 +1,17 @@
-# Icosphere
+---
+title: Icospheres
+image: 
+description: Learn how to create icospheres in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes, icosphere
+further-reading:
+video-overview:
+video-content:
+---
+
+## Icosphere
 This a sphere based upon an icosahedron with 20 triangular faces which can be subdivided into smaller triangles.
 
-# MeshBuilder
+## MeshBuilder
 Usage:
 ```javascript
 const icosphere = BABYLON.MeshBuilder.CreateIcoSphere("icosphere", options, scene);
@@ -19,12 +29,12 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 ##Examples 
-Icosphere https://www.babylonjs-playground.com/#HC5FA8  
-Smoothed Icossphere https://www.babylonjs-playground.com/#HC5FA8#2  
-Less subdivisions and changed radii https://www.babylonjs-playground.com/#HC5FA8#3  
-Icosphere with animation over subdivisions https://www.babylonjs-playground.com/#E3TVT#1  
+Icosphere: <Playground id="#HC5FA8" title="Creating An Icosphere" description="Simple example of creating an icosphere." image=""/>  
+Smoothed Icossphere: <Playground id="#HC5FA8#2" title="Creating A Smoothed Icosphere" description="Simple example of creating a smoothed icosphere." image=""/>
+Less subdivisions and changed radii: <Playground id="#HC5FA8#3" title="Icosphere With Less Subdivisions" description="Simple example of creating an icosphere with less subdivisions and changed radii." image=""/> 
+Icosphere with animation over subdivisions: <Playground id="#E3TVT#1" title="Icosphere With Animation Over Subdivisions" description="Simple example of creating an icosphere with animation over subdivisions." image=""/>
 
-# Mesh
+## Mesh
 Usage:
 ```javascript
 const icosphere = BABYLON.Mesh.CreateIcoSphere("icosphere", options, scene);

@@ -1,5 +1,11 @@
 ---
 title: Depth Renderer
+image: 
+description: Learn all about the depth renderer in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, advanced, depth renderer, depth rendering
+further-reading:
+video-overview:
+video-content:
 ---
 
 BABYLON.DepthRenderer is a tool used to generate depth texture (a texture that contains depth buffer and which can be used to read scene depth values).

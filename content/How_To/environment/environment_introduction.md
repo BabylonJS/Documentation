@@ -1,11 +1,22 @@
+---
+title: Environment
+image: 
+description: Begin your learning about environments in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, environment, intro, introduction
+further-reading:
+video-overview:
+video-content:
+---
+
 # Environment
+
 How do you achieve a good and appropriately realistic environment for your game or app? We will start off with simple scene `clearColor` (background color), then talk briefly about scene `ambientColor`, then on to 6-texture skyboxes, and then fog to give an illusion of depth to your scenes.
 
 ![Environment](/img/how_to/13.jpg)
 
 _A picture showing Babylon.js fog in action_
 
-# How can I do this?
+## How can I do this?
 
 We will talk about that nice fog effect, shortly. First, I want to introduce you to two interesting properties on the [scene class object](/api/classes/babylon.scene):
 
@@ -14,7 +25,7 @@ We will talk about that nice fog effect, shortly. First, I want to introduce you
 
 Both of them are very useful, and powerful in their own right.
 
-## Changing the Background color (`scene.clearColor`)
+### Changing the Background color (`scene.clearColor`)
 
 The 'clearColor' property on the scene object is the most rudimentary of environment properties/adjustments. Simply stated, this is how you change the background color of the scene. Here is how it is done:
 
@@ -27,7 +38,7 @@ scene.clearColor = BABYLON.Color3.Blue();
 ```
 This color and property is not used in any calculations for the final colors of mesh, materials, textures, or anything else. It is simply the background color of the scene. Easy.
 
-## Changing the Ambient color (`scene.ambientColor`)
+### Changing the Ambient color (`scene.ambientColor`)
 
 Conversely, the `ambientColor` property on the scene object is a very powerful and influential environment property/adjustment. First, let's have a look at its syntax:
 
@@ -42,12 +53,12 @@ By default, `scene.ambientColor` is set to `Color3(0, 0, 0)`, which means there 
 
 (Please see the section on ambientColors in our [Unleash the Standard Material](https://www.eternalcoding.com/babylon-js-unleash-the-standardmaterial-for-your-babylon-js-game/) tutorial, for more information.)
 
-## Skybox
+### Skybox
 
 To give a perfect illusion of a beautiful sunny sky, we are going to create a simple box, but with a special texture.
 There are two ways to create a skybox. Let's start with the manual one to understand how things work under the hood and then we will be able to use the automatic one.
 
-### Manual creation
+#### Manual creation
 First, our box, nothing new, just take notice of the disabled [backface culling](http://en.wikipedia.org/wiki/Back-face_culling):
 ```javascript
 var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
@@ -94,7 +105,7 @@ myMesh.renderingGroupId = 1;
 
 More info about rendering groups and rendering order can be found [here](/resources/Transparency_and_How_Meshes_Are_Rendered).
 
-### Automatic creation
+#### Automatic creation
 Now that we understand how a skybox can be created let's move to a simpler way:
 
 ```javascript
@@ -102,11 +113,11 @@ var envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", sce
 scene.createDefaultSkybox(envTexture, true, 1000);
 ```
 
-* [Playground Example Skybox Helper](https://www.babylonjs-playground.com/#BH23ZD#1)
+* <Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg"/>
 
 Check out [scene helpers](/how_to/fast_build) for more information on this and other helpers.
 
-## Fog
+### Fog
 
 Fog is quite an advanced effect, but fog in Babylon.js has been simplified to the maximum. It’s now very easy to add fog to your scenes.&nbsp; First, we define the fog mode like this:
 
@@ -136,6 +147,6 @@ scene.fogColor = new BABYLON.Color3(0.9, 0.9, 0.85);
 ```
 See, we told you it was easy.
 
-If you want to see and play with the playground scene for this tutorial, you can [**click right here**](https://www.babylonjs-playground.com/#7G0IQW)
+If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.jpg"/>
 
 

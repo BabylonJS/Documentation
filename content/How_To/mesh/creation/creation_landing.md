@@ -1,4 +1,14 @@
-# The Creation of Different Types of Mesh
+---
+title: Creating Meshes
+image: 
+description: Learn about the different processes of creating meshes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, materials, meshes, creation, mesh creation
+further-reading:
+video-overview:
+video-content:
+---
+
+## The Creation of Different Types of Mesh
 There is a large variety of meshes that you can create. The range falls into four broad categories, the first three of which requiring a single Babylon.js method to build.
 
 1. Set Shapes - which usually have names in everyday use and their forms are well known and recognized. Examples include the box, sphere, cone and plane. These shapes are created with a method having the form *Create&lt;MeshType&gt*

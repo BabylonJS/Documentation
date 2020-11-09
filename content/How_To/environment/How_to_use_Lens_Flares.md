@@ -1,4 +1,14 @@
-# How to use Lens Flares
+---
+title: Lens Flares
+image: 
+description: Learn how to use lens flares in your Babylon.js scene.
+keywords: welcome, babylon.js, diving deeper, environment, lens flare
+further-reading:
+video-overview:
+video-content:
+---
+
+## How to use Lens Flares
 
 Babylon.js allows you to simply create lens flares effect:
 
