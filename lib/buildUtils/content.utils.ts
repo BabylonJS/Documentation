@@ -31,12 +31,13 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
 
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
         Object.keys(childrenObject).forEach((key) => {
-            array.push({
-                params: {
-                    ...childrenObject[key],
-                    id: [...prevKeys, key],
-                },
-            });
+            if (childrenObject[key].content || (childrenObject[key].children && childrenObject[key].children.length))
+                array.push({
+                    params: {
+                        ...childrenObject[key],
+                        id: [...prevKeys, key],
+                    },
+                });
             if (childrenObject[key].children) {
                 traverseChildren([...prevKeys, key], childrenObject[key].children);
             }
@@ -46,6 +47,7 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
     traverseChildren([], config.children);
 
     if (process.env.PRODUCTION) {
+        console.log("clearing search index");
         await clearIndex();
     }
 

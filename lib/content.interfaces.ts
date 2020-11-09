@@ -28,9 +28,9 @@ export interface IMediaEmbed {
 export interface IImageEmbed {
     src: string;
     alt: string;
-    width?: ReactText;
-    height?: ReactText;
-    layout: "fill" | "fixed" | "intrinsic" | "responsive";
+    width: ReactText;
+    height: ReactText;
+    layout: "fixed" | "intrinsic" | "responsive" | "fill";
     unsized: true;
     caption?: string;
 }
