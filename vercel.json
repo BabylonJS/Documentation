@@ -1,5 +1,7 @@
 {
     "redirects": [
+        { "source": "/api", "destination": "/typedoc" },
+        { "source": "/api/:match*", "destination": "/typedoc/:match*" },
         { "source": "/babylon101/About101", "destination": "/start"},
         { "source": "/babylon101/Animations", "destination": "/divingDeeper/animation/animation_introduction"},
         { "source": "/babylon101/Cameras,_Mesh_Collisions_and_Gravity", "destination": "/divingDeeper/cameras/camera_collisions"},
