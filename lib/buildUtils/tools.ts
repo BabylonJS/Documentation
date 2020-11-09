@@ -6,6 +6,7 @@ import matter from "gray-matter";
 import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
 import { IDocumentationPageProps } from "../content.interfaces";
 import { addSearchItem } from "./search.utils";
+import { addToSitemap } from "./sitemap.utils";
 
 export const markdownDirectory = "content/";
 
@@ -129,6 +130,8 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             videoLink: metadata.videoOverview,
             lastModified: lastModified,
         });
+
+        addToSitemap(metadata.title, url, lastModified ? lastModified.toUTCString() : '');
     }
 
     return {

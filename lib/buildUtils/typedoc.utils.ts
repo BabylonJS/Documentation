@@ -10,6 +10,7 @@ import { addSearchItem, clearIndex } from "./search.utils";
 
 import { htmlToText } from "html-to-text";
 import { parse, HTMLElement } from "node-html-parser";
+import { addToSitemap } from "./sitemap.utils";
 
 const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
 const basePathResolved = path.resolve(basePath);
@@ -127,6 +128,9 @@ export const getAPIPageData = async (id: string[]) => {
         imageUrl: metadata.imageUrl,
         videoLink: metadata.videoOverview,
     });
+
+    // add to sitemap
+    addToSitemap(metadata.title, url);
 
     return {
         id,
