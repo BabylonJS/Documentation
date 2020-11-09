@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-## How to Use Decals
+### How to Use Decals
 
 ![Decal](http://www.babylonjs.com/screenshots/decals.jpg)
 
