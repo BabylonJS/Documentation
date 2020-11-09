@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FunctionComponent, PropsWithChildren, useState } from "react";
+import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
 
 export const defaultSiteTitle = "Documentation page";
 export const defaultDescription = "Babylon.js documentation page";
@@ -178,8 +178,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const handleDrawerToggle = (e) => {
-        if (!mobileOpen || (e.target as HTMLElement).tagName === "SPAN" || (e.target as HTMLElement).tagName === "DIV") {
+    const handleDrawerToggle = (event: MouseEvent | KeyboardEvent) => {
+        if (!mobileOpen || (event.target as HTMLElement).tagName === "SPAN" || (event.target as HTMLElement).tagName === "DIV") {
             setMobileOpen(!mobileOpen);
         }
     };
@@ -193,6 +193,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               keywords: `${metadata.keywords},${defaultKeywords}`,
               imageUrl: metadata.imageUrl || "",
           };
+
+          const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     return (
         <div className={classes.root}>
             <Head>
@@ -308,13 +310,13 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         >
                             <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle} className={classes.drawerContainer}>
                                 <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
-                                <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                                {MenuStructure}
                             </div>
                         </Drawer>
                     </Hidden>
                     <Hidden smDown implementation="css">
                         <div className={classes.drawerContainer}>
-                            <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>
+                            {MenuStructure}
                         </div>
                     </Hidden>
                 </nav>

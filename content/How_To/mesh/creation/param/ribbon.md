@@ -15,6 +15,7 @@ On creation the local origin of a ribbon is coincident with the world origin. It
 
 ## MeshBuilder
 Usage :
+
 ```javascript
 const options = {
     pathArray: myPaths, //[vector3 array, vector3 array, vector3 array......]

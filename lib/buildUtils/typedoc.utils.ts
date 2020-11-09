@@ -87,7 +87,7 @@ export const getAPIPageData = async (id: string[]) => {
     const cssArray = [];
     const metadata: MarkdownMetadata = {
         title: "Babylon.js API",
-        description: "Babylon.js API",
+        description: "[API]",
         keywords: "babylonjs, babylon.js, api, typedoc," + id.join(","),
     };
     const titleNode = head.querySelector("title").firstChild;
@@ -96,9 +96,9 @@ export const getAPIPageData = async (id: string[]) => {
     }
 
     try {
-        metadata.description = root.querySelector(".tsd-panel .tsd-comment .lead p").firstChild.rawText.substr(0, 150) + " - " + metadata.description;
+        metadata.description = root.querySelector(".tsd-panel .tsd-comment .lead p").firstChild.rawText.substr(0, 150) + " " + metadata.description;
     } catch (e) {
-        metadata.description += ` - ${id.join(" ")}`;
+        metadata.description = `${id.join(" ")} ${metadata.description}`;
     }
     // clean description
     metadata.description = metadata.description.replace(/\n/g, '').replace(/\t/g, '');

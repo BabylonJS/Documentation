@@ -13,12 +13,12 @@ export const ApiPage: FunctionComponent<{
     metadata: MarkdownMetadata;
     cssArray: any[];
     contentNode: any;
-}> = ({ contentNode, cssArray, metadata, id }) => {
+}> = ({ contentNode, cssArray, metadata }) => {
     const html = parseNode(contentNode).result;
     // remove unneeded tags
     const children = html.props.children[0].props.children[2].props.children;
     return (
-        <Layout breadcrumbs={generateBreadcrumbs()} metadata={metadata} id={id}>
+        <Layout breadcrumbs={generateBreadcrumbs()} metadata={metadata} id={['typedoc']}>
             <Head>
                 {cssArray.map((css, idx) => {
                     return (

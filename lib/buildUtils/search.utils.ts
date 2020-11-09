@@ -106,6 +106,7 @@ export const clearIndex = async (isApi: boolean = false) => {
     while (result.value.length) {
         const toDelete = (result.value as Array<ISearchResult>).splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
+        console.log("Removed documents - ", toDelete.length, "api - ", isApi);
         if (!httpResult.ok) {
             throw new Error("error clearing index");
         }

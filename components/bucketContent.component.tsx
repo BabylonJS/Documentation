@@ -99,7 +99,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                                                     </Typography>
                                                 </CardContent>
                                             </div>
-                                            <div className={classes.imageContainer}>{childData.imageUrl && <Image src={childData.imageUrl} unsized={true}></Image>}</div>
+                                            <div className={classes.imageContainer}>{childData.imageUrl && <Image src={childData.imageUrl} layout="fill"></Image>}</div>
                                         </Card>
                                     </div>
                                 </Link>

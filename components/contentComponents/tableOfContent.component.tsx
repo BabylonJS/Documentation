@@ -11,7 +11,13 @@ const styles = makeStyles((theme: Theme) =>
             width: "unset !important",
             "& h2": {
                 marginBottom: 0,
+                fontSize: 26
             },
+            [theme.breakpoints.up("md")]: {
+                "& h2": {
+                    fontSize: '2.827rem'
+                },
+            }
         },
         itemsContainer: {
             position: "relative",
