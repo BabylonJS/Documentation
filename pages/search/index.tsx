@@ -2,7 +2,7 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Checkbox, createStyles, FormControl, FormControlLabel, FormGroup, InputAdornment, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
+import { Checkbox, createStyles, FormControlLabel, FormGroup, InputAdornment, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 import { ISearchResult } from "../../lib/buildUtils/search.utils";
 
@@ -78,6 +78,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
         fetch(baseQueryURL + query, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
+                // read key - can be exposed
                 "api-key": "DF333E13A6C71B67290E46668C86DD7E",
             },
         })
