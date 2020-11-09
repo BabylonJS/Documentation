@@ -145,8 +145,8 @@ export const SearchResults: FunctionComponent<{}> = () => {
             <div className={classes.searchContainer}>
                 {!results.length && !loading && (
                     <div className={classes.emptySearchContainer}>
-                        <Typography component="h2" variant="h2">
-                            Doc search
+                        <Typography component="h2" variant="h2" gutterBottom>
+                            Search
                         </Typography>
                         {searchForm}
                     </div>
