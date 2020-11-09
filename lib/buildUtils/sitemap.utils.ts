@@ -12,6 +12,9 @@ let timeout: NodeJS.Timeout;
 console.log("imported", process.pid);
 
 export const addToSitemap = (name: string, url: string, lastModified?: string) => {
+    if (process.env.NODE_ENV !== "production") {
+        return;
+    }
     cache.push({
         name,
         url,
