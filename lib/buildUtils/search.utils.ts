@@ -63,7 +63,7 @@ export const addSearchItem = async (searchItem: ISearchIndexItem) => {
     return result;
 };
 
-export const clearIndex = async (isApi: boolean = false) => {
+export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
     if (!process.env.SEARCH_API_KEY) {
         console.log("no search API key defined");
         return;
@@ -103,9 +103,10 @@ export const clearIndex = async (isApi: boolean = false) => {
             headers,
         });
     };
-    const result = await results.json();
-    while (result.value.length) {
-        const toDelete = (result.value as Array<ISearchResult>).splice(0, 50);
+    const result = (await results.json());
+    const filtered = (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
+    while (filtered.length) {
+        const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
         console.log("Removed documents - ", toDelete.length, "api - ", isApi);
         if (!httpResult.ok) {
