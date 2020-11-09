@@ -34,9 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const NotFoundComponent = () => {
     const router = useRouter();
     const classes = useStyles();
-    console.log(router.asPath);
     const searchTerm = router.asPath.split("/").join(" ").trim();
-    const query = searchTerm.replace(/ /g, '+');
+    const query = `/search?q=${searchTerm.replace(/ /g, '+')}`;
     return (
         <Layout
             breadcrumbs={[]}
@@ -56,8 +55,8 @@ export const NotFoundComponent = () => {
                     <span>
                         search instead for "
                         {
-                            <Link href={`/search?q=${query}`}>
-                                <MaterialLink href={`/search?q=${query}`}>
+                            <Link href={query}>
+                                <MaterialLink href={query}>
                                     {searchTerm}
                                 </MaterialLink>
                             </Link>
