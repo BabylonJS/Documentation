@@ -34,10 +34,11 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
 export const writeAllToSitemap = () => {
     const filenames = getAllFiles(tmpPath, [], ".xml");
     const results = filenames.map((fn) => readFileSync(fn).toString());
+    console.log('writing', results.join(','));
     const start = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><loc>/</loc></url>
     <url><loc>/search</loc></url>
     <url><loc>/typedoc</loc></url>`
-    writeFileSync(sitemapFile, [`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`, ...results, `</urlset>`].join("\n"), { encoding: "utf-8" });
+    writeFileSync(sitemapFile, [start, ...results, `</urlset>`].join("\n"), { encoding: "utf-8" });
 };
