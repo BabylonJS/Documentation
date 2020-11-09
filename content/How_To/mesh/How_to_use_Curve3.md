@@ -35,7 +35,7 @@ var curve = BABYLON.Curve3.Create.CURVETYPE(parameters);
 ## Quadratic Bezier Curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve#Quadratic_curves
 
-![Wikipedia Quadratic Bezier Curve](http://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
+![Wikipedia Quadratic Bezier Curve](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
 
 ```javascript
 var bezier2 = BABYLON.Curve3.CreateQuadraticBezier(origin, control, destination, nb_of_points);
@@ -57,7 +57,7 @@ var l = bezier2.length();
 ## Cubic Bezier curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve# Higher-order_curves
 
-![Wikipedia Cubic Bezier Curve](http://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
+![Wikipedia Cubic Bezier Curve](https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif)
 ```javascript
 var bezier3 = BABYLON.Curve3.CreateCubicBezier(origin, control1, control2, destination, nb_of_points)
 ```

@@ -181,7 +181,7 @@ var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI/2, Math.PI/
 
 The _eyeSpace_ parameter sets the amount of shift between the left eye view and the right eye view. Once you are wearing your 3D glasses, you might want to experiment with this float value.
 
-You can learn all about anaglyphs by visiting a [Wikipedia page that explains it thoroughly](http://en.wikipedia.org/wiki/Anaglyph_3D).
+You can learn all about anaglyphs by visiting a [Wikipedia page that explains it thoroughly](https://en.wikipedia.org/wiki/Anaglyph_3D).
 
 ## Device Orientation Camera
 
@@ -214,17 +214,17 @@ Virtual Joysticks are on-screen 2D graphics that are used to control the camera 
 
 ### Requires
 
-The third-party file [hand.js](http://handjs.codeplex.com/releases/view/119684).
+The third-party file [hand.js](https://archive.codeplex.com/?p=handjs).
 
 ### Read
 
-[Virtual Joysticks David Rousset Blog](http://blogs.msdn.com/b/davrous/archive/2013/02/22/creating-an-universal-virtual-touch-joystick-working-for-all-touch-models-thanks-to-hand-js.aspx) on David's blog.
+[Virtual Joysticks David Rousset Blog](https://blogs.msdn.com/b/davrous/archive/2013/02/22/creating-an-universal-virtual-touch-joystick-working-for-all-touch-models-thanks-to-hand-js.aspx) on David's blog.
 
 ### Video
 
 <Youtube id="53Piiy71lB0"/>
 
-![Screenshot of the Virtual Joysticks Camera in action on Espilit](http://david.blob.core.windows.net/babylonjs/VJCBabylon.jpg)
+![Screenshot of the Virtual Joysticks Camera in action on Espilit](https://david.blob.core.windows.net/babylonjs/VJCBabylon.jpg)
 
 ### Complete sample
 

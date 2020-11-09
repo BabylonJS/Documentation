@@ -357,4 +357,4 @@ Note that when updating the scene hierarchy, like deleting a node, while the Ani
 
 #  Try it out!  #
 
-Export your own scene from 3DS MAX to glTF format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/how_to/gltf).
+Export your own scene from 3DS MAX to glTF format and load it into the [Babylon Sandbox](https://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/how_to/gltf).

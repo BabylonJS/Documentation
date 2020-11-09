@@ -33,7 +33,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 # David Rousset
 
 -   website: https://www.davrous.com
--   (old) forum username: [Davrous](http://www.html5gamedevs.com/profile/5482-davrous/)
+-   (old) forum username: [Davrous](https://www.html5gamedevs.com/profile/5482-davrous/)
 -   social networkfs: [Twitter](https://twitter.com/davrous)
 
 <div class='beforeWideTable'></div>
@@ -52,7 +52,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 # Julian Chenard
 
 -   website: http://www.pixelcodr.com
--   (old) forum username: [Temechon](http://www.html5gamedevs.com/profile/5218-temechon/)
+-   (old) forum username: [Temechon](https://www.html5gamedevs.com/profile/5218-temechon/)
 -   social networks: [Twitter](https://twitter.com/Temechon)
 
 <div class='beforeWideTable'></div>
@@ -91,7 +91,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 # Julien Moreau-Mathis
 
 -   website: https://medium.com/@Luaacro
--   (old) forum username: [Luaacro](http://www.html5gamedevs.com/profile/11802-luaacro/)
+-   (old) forum username: [Luaacro](https://www.html5gamedevs.com/profile/11802-luaacro/)
 -   social networks: [Twitter](https://twitter.com/Luaacro)
 
 <div class='beforeWideTable'></div>
@@ -103,7 +103,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 # Andy Beaulieu
 
 -   website: http://www.spritehand.com/
--   (old) forum username: [AndyBeaulieu](http://www.html5gamedevs.com/profile/5636-andybeaulieu/)
+-   (old) forum username: [AndyBeaulieu](https://www.html5gamedevs.com/profile/5636-andybeaulieu/)
 -   social networks: [Twitter](https://twitter.com/AndyBeaulieu)
 
 <div class='beforeWideTable'></div>
@@ -117,7 +117,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 # Célian Garcia
 
--   (old) forum username: [celian-garcia](http://www.html5gamedevs.com/profile/8511-celian-garcia/)
+-   (old) forum username: [celian-garcia](https://www.html5gamedevs.com/profile/8511-celian-garcia/)
 -   social networks: [Github](https://github.com/kostar111/)
 
 <div class='beforeWideTable'></div>
@@ -159,7 +159,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 # Serapth
 
 -   website: https://gamefromscratch.com
--   (old) forum username: [Serapth](http://www.html5gamedevs.com/profile/9139-serapth/)
+-   (old) forum username: [Serapth](https://www.html5gamedevs.com/profile/9139-serapth/)
 
 | Title                                                                                               |    Keywords     | Description                                      |
 | :-------------------------------------------------------------------------------------------------- | :-------------: | ------------------------------------------------ |

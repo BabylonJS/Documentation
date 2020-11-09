@@ -7,11 +7,11 @@ further-reading:
     - title: Mesh Overview
       url: /features/Shapes
     - title: Forum Pick with Ray
-      url: http://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/
+      url: https://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/
     - title: Forum World Local Ray
-      url: http://www.html5gamedevs.com/topic/26602-worldlocalray/
+      url: https://www.html5gamedevs.com/topic/26602-worldlocalray/
     - title: Forum Gobal to Local
-      url: http://www.html5gamedevs.com/topic/7599-convert-global-coordinates-to-local-coordinates/
+      url: https://www.html5gamedevs.com/topic/7599-convert-global-coordinates-to-local-coordinates/
 video-overview:
 video-content:
 ---

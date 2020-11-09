@@ -244,7 +244,7 @@ For example, this is the main template (copied from https://github.com/BabylonJS
 </script>
 ```
 
-Everything inside the script tag will be sent to [handlebars](http://handlebarsjs.com/). Since we are using handlebars you can parameters or use conditions inside your templates. Looking at the main template, you can see that there are two parameters that the template expects:
+Everything inside the script tag will be sent to [handlebars](https://handlebarsjs.com/). Since we are using handlebars you can parameters or use conditions inside your templates. Looking at the main template, you can see that there are two parameters that the template expects:
 
 * A link to a font file (that includes the icons we will later use in the navigation bar)
 * a flag, `fillScreen` that will add specific style definition if we want the viewer to fill the entire screen

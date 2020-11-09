@@ -2,7 +2,7 @@
 
 The viewer has a simple integrated templating system for you to use and extend. Using the templating system you can decide how the viewer components, such as the navbar, the error screen, help screen and so on, look like.
 
-The templating system is using [Handlebars.js](http://handlebarsjs.com/) to parse the HTML. We recommend understanding the basic concepts of Handelbars before making major changes to the HTML templates.
+The templating system is using [Handlebars.js](https://handlebarsjs.com/) to parse the HTML. We recommend understanding the basic concepts of Handelbars before making major changes to the HTML templates.
 
 # Basics of the templating engine
 

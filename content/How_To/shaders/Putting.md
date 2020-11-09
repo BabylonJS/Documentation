@@ -1,7 +1,7 @@
 # Putting Shader Code in BabylonJS
 Here are four ways of putting shader code into your scene:
 
-1. Use [BabylonJS Create Your Own Shader (CYOS)](http://www.babylonjs.com/cyos/) and download a zip file; 
+1. Use [BabylonJS Create Your Own Shader (CYOS)](https://www.babylonjs.com/cyos/) and download a zip file; 
 2. Write the Vertex and Fragment Shader Code into &ltscript&gt tags
 3. Write, save and import a Vertex and Fragment Shader file of type .fx into your code; 
 4. Use the shaderBuilder extension of BabylonJS.
@@ -79,7 +79,7 @@ mesh.material = shaderMaterial;
 
 Extracting the appropriate sections of Javascript code allows you to transfer them to your own scenes.
 
-[Guide Example From CYOS Zip](http://babylonjsguide.github.io/examples/cyoszip.html)
+[Guide Example From CYOS Zip](https://babylonjsguide.github.io/examples/cyoszip.html)
 
 This method can easily be used in the Playground.
 
@@ -140,7 +140,7 @@ var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, {
 });
 ```
 
-[Guide Example From Script](http://babylonjsguide.github.io/examples/scriptcode.html)
+[Guide Example From Script](https://babylonjsguide.github.io/examples/scriptcode.html)
 
 # Shader Code in fx Files
 
@@ -167,7 +167,7 @@ var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAME"
 It is also possible to access the fx files from an URL by giving the full address of the URL, 
 provide CORS is enabled for them.
 
-[Guide Example From Import](http://babylonjsguide.github.io/examples/importcode.html)
+[Guide Example From Import](https://babylonjsguide.github.io/examples/importcode.html)
 
 # Shader Includes
 When building shaders sometimes you have parts of your code that will be reused between multiple shaders.  This is usually things like reused uniforms, functions, structs etc.  A powerful method that users have at their disposal is to accomplish this task is the 
@@ -203,7 +203,7 @@ mesh.material = new BABYLONX.ShaderBuilder()
 	.Map({ path: 'textures/amiga.jpg' })
     .BuildMaterial(scene);
 ```
-[Guide Example using ShaderBuilder](http://babylonjsguide.github.io/examples/basiccodeSB.html)
+[Guide Example using ShaderBuilder](https://babylonjsguide.github.io/examples/basiccodeSB.html)
 
 This method can be used in the Playground. However it does require the loading of the ShaderBuilder Javascript file and an `onLoad` 
 function before it can be called.

@@ -60,5 +60,5 @@ Here are the helpful functions you can find on an octree:
 These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.smartArray.ts) where duplicates are present or not according to ```allowDuplicate``` parameter/
 
 # Demos
-* http://www.babylonjs.com/?OCTREE
-* http://www.babylonjs.com/?INSTANCES
+* https://www.babylonjs.com/?OCTREE
+* https://www.babylonjs.com/?INSTANCES

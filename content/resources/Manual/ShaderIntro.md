@@ -155,7 +155,7 @@ void main(void) {
 
 Here are four ways of putting shader code into your scene:
 
-1. Use [BabylonJS Create Your Own Shader (CYOS)](http://www.babylonjs.com/cyos/) and download a zip file 
+1. Use [BabylonJS Create Your Own Shader (CYOS)](https://www.babylonjs.com/cyos/) and download a zip file 
 2. Write the Vertex and Fragment Shader Code into `<script>` tags
 3. Write, save and import a Vertex and Fragment Shader file of type *.fx* into your code
 4. Use the [ShaderBuilder extension](https://github.com/BabylonJS/Extensions/tree/master/ShaderBuilder) of BabylonJS.
