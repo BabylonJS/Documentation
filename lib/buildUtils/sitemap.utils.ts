@@ -32,7 +32,7 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         });
         writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
         writeAllToSitemap();
-    }, 800);
+    }, 10);
 };
 
 export const writeAllToSitemap = () => {
