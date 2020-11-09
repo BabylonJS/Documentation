@@ -42,7 +42,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
     // Combine the data with the id and contentHtml
     const metadata: MarkdownMetadata = {
         title: docItem.friendlyName,
-        description: `${docItem.friendlyName} - Babylon.js documentation page`,
+        description: `Documentation page for ${docItem.friendlyName}`,
         keywords: "babylonjs, babylon.js, webgl, engine," + docItem.friendlyName,
         ...(docItem && docItem.metadataOverrides),
     };
