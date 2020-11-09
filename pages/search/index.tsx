@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const SearchResults: FunctionComponent<{}> = () => {
-    // TODO define search results
     const [results, setResults] = useState<ISearchResult[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
@@ -75,7 +74,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
             breadcrumbs={generateBreadcrumbs()}
             metadata={{
                 title: "Search page",
-                description: "Search page for Babylon.js'd documentation site",
+                description: "Search page for Babylon.js documentation site",
                 imageUrl: "",
                 keywords: "search, documentation, query",
             }}
@@ -107,13 +106,6 @@ export const SearchResults: FunctionComponent<{}> = () => {
 export default SearchResults;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, any> = async ({ params }) => {
-    // // HTML content
-    // const content = getAPIPageData(['globals']);
-    // return {
-    //     props: {
-    //         ...content,
-    //     },
-    // };
     return { props: {} };
 };
 
