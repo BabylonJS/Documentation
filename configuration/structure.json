@@ -1045,6 +1045,16 @@
             "friendlyName": "What's New", 
             "children": {},
             "content": "whats-new/whats-new" 
+        },
+        "typedoc": { 
+            "friendlyName": "API", 
+            "children": {},
+            "content": "" 
+        },
+        "search": { 
+            "friendlyName": "Search", 
+            "children": {},
+            "content": "" 
         }
     },
     "navOverrides": { "previous": "" }
