@@ -1,7 +1,18 @@
-# Disc or Regular Polygon
+---
+title: Creating A Disc
+image: 
+description: Learn how to create a disc in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, disc
+further-reading:
+video-overview:
+video-content:
+---
+
+
+## Disc or Regular Polygon
 The created disc is a flat surface parallel to the xy plane with its origin at the center of the disc. Disc is a little bit of a misnomer since you can use it to create any kind of regular polygon. The number of sides is dependent on the value given to _tessellation_. The larger this value the closer to an actual disc. Using the arc option you can create a sector.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const disc = BABYLON.MeshBuilder.CreateDisc("disc", options, scene); //scene is optional and defaults to the current scene 
@@ -16,12 +27,12 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 
-## Examples
-Disc https://www.babylonjs-playground.com/#MVSQWZ#1  
-Triangle https://www.babylonjs-playground.com/#MVSQWZ#2  
-sector https://www.babylonjs-playground.com/#MVSQWZ#3
+### Examples
+Disc: <Playground id="#MVSQWZ#1" title="Create a Disc" description="Simple example of creating a disc." image=""/>
+Triangle: <Playground id="#MVSQWZ#2" title="Create a Triangle" description="Simple example of creating a triangle." image=""/>
+Sector: <Playground id="#MVSQWZ#3" title="Create a Sector" description="Simple example of creating a sector." image=""/>
 
-# Mesh
+## Mesh
 Usage :
 ```javascript
 const disc = BABYLON.Mesh.CreateDisc("disc", radius, tessellation, scene);

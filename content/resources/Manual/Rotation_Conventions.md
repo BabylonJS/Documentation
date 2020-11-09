@@ -1,10 +1,21 @@
-# Transformations
-# Rotation Conventions
+---
+title: Rotation Conventions
+image: 
+description: Learn about rotation conventions in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, rotations, rotation conventions
+further-reading:
+video-overview:
+video-content:
+---
+
+
+## Transformations
+## Rotation Conventions
 
 There are several methods of achieving rotations within Babylon.js all of which use a particular convention.
 
 
-# Euler Angles
+## Euler Angles
 
 In 3D space Euler angles can produce any possible orientation by providing three angles to rotate about each of three axes in a given order.  
 
@@ -14,7 +25,7 @@ Mesh.rotation(alpha, beta, gamma) uses the three Euler angles alpha, beta and ga
 
 References to Euler angles within the Babylon.js community can usually be taken to mean the angles to use with the _rotation_ method.
 
-## YXZ *Local Axes* Yaw, Pitch, Roll
+### YXZ *Local Axes* Yaw, Pitch, Roll
 
 ![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
 
@@ -36,9 +47,9 @@ mesh.rotation = new BABYLON.Vector3(pitch, yaw, roll);
 
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-* [Playground Example - YXZ yaw, pitch, roll](https://www.babylonjs-playground.com/#1ST43U#50)
+* <Playground id="#1ST43U#50" title="YXZ Yaw, Pitch, Roll" description="Simple example of YXZ Yaw, Pitch, Roll." image=""/>
 
-## ZXY *World Axes*
+### ZXY *World Axes*
 
 The YXZ convention with local axes has produced a particular orientation and it turns out that taking the same angles (alpha = pitch, beta = yaw and gamma = roll) and applying them in the order ZXY in world space will produce exactly the same orientation.
 
@@ -58,13 +69,13 @@ mesh.rotation = new BABYLON.Vector(alpha, beta, gamma);
 
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-* [Playground Example - ZXY](https://www.babylonjs-playground.com/#1ST43U#52)
+* <Playground id="#1ST43U#52" title="ZXY Example" description="Simple example of ZXY rotation." image=""/>
 
 
 
-# Euler Angles to Quaternions
+## Euler Angles to Quaternions
 
-## YXZ, Local Space, Yaw, Pitch, Roll
+### YXZ, Local Space, Yaw, Pitch, Roll
 
 ![Yaw pitch roll](/img/how_to/Mesh/yawpitchroll.jpg)
 
@@ -89,9 +100,9 @@ const yprQuaternion = BABYLON.Quaternion.RotationYawPitchRoll(yaw, pitch, roll);
 ``` 
 Applying the above  _rotate_ sequence to a newly created mesh (ie one that has zero rotations) in the order YXZ in **local** space and applying _RotationAlphaBetaGamma_ to a mesh, with any orientation, using the same angles will produce the same orientation. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-* [Playground Example - Yaw Pitch Roll to Quaternion](https://www.babylonjs-playground.com/#1ST43U#54)
+* <Playground id="#1ST43U#54" title="Yaw Pitch Roll to Quaternion" description="Simple example of converting yaw, pitch, and roll to quaternion." image=""/>
 
-## ZXZ, World Space, A Standard Convention 
+### ZXZ, World Space, A Standard Convention 
 
 A standard Euler angle convention is to take three given angles alpha, beta and gamma and rotate alpha about Z, then beta about X, then gamma about Z using the **world** axes. In Babylon.js this can be achieved by using _rotate_
 
@@ -109,10 +120,7 @@ var abcQuaternion = BABYLON.Quaternion.RotationAlphaBetaGamma(alpha, beta, gamma
 
 Applying the above  _rotate_ sequence to a newly created mesh (ie one that has zero rotations) in the order ZXZ in **world** space and applying _RotationAlphaBetaGamma_ to a mesh, with any orientation, using the same angles will produce the same orientation. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-* [Playground Example ZXZ to Quaternion](https://www.babylonjs-playground.com/#1ST43U#53)
+* <Playground id="#1ST43U#53" title="ZXZ To Quaternion" description="Simple example of converting ZXZ to quaternion." image=""/>
 
 
 So far we have considered one mesh operating in its local space and the world space of Babylon.js. What if we want one mesh to operate in the frame of reference of another mesh. Before we consider parenting, in the next section, we will look at ways this can be done using the data that Babylon.js directly stores on the transformation of a mesh and its coordinates.
-
-* 
-

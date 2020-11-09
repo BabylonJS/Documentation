@@ -1,4 +1,14 @@
-# Polyhedra Provided by Number
+---
+title: Provided Polyhedra
+image: 
+description: Learn the provided polyhedra in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Polyhedra Provided by Number
 There are fifteen polyhedra that can be created by setting its type number from 0 to 14. These are
 
 type|name|number of faces
@@ -19,7 +29,7 @@ type|name|number of faces
 13|Elongated Pentagonal Dipyramid (J16)|15
 14|Elongated Pentagonal Cupola (J20)|22
 
-# MeshBuilder
+## MeshBuilder
 usage :
 ```javascript
 const polyhedron = BABYLON.MeshBuilder.CreatePolyhedron("oct", options, scene); //scene is optional and defaults to the current scene
@@ -42,11 +52,11 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/How_To/CreateBox_Per_Face_Textures_And_Colors) taking into account the right number of faces of your polyhedron, instead of only 6 for a box. 
 
-# Examples
-The full set of 15 https://www.babylonjs-playground.com/#PBLS4Y  
-Dodecahedron with FaceUVs https://www.babylonjs-playground.com/#PBLS4Y#1
+## Examples
+The full set of 15: <Playground id="#PBLS4Y " title="Full Set Of 15 Polyhedra" description="Playground example showing all 15 provided polyhedra." image=""/>
+Dodecahedron with FaceUVs: <Playground id="#PBLS4Y#1 " title="Dodecahedron with FaceUVs" description="Playground example of creating a dodecahedron with faceUVs." image=""/>
 
-# Mesh
+## Mesh
 usage :
 ```javascript
 const polyhedron = BABYLON.Mesh.CreatePolyhedron("oct", options, scene); //scene is optional and defaults to the current scene

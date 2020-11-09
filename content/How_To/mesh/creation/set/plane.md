@@ -1,7 +1,17 @@
-# Plane
+---
+title: Creating A Plane
+image: 
+description: Learn how to create a plane in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, plane
+further-reading:
+video-overview:
+video-content:
+---
+
+## Plane
 The created plane is a flat surface parallel to the xy plane with its origin at the center of the plane.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const plane = BABYLON.MeshBuilder.CreatePlane("plane", options, scene); //scene is optional and defaults to the current scene
@@ -18,9 +28,9 @@ sourcePlane|_(Plane)_ source plane (math) the mesh will be transformed to|null
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-## Examples
-single sided https://www.babylonjs-playground.com/#Q9VZS9#4  
-double sided https://www.babylonjs-playground.com/#Q9VZS9#2  
+### Examples
+Single sided: <Playground id="#Q9VZS9#4" title="Create a Single Sided Plane" description="Simple example of creating a single sided plane." image=""/>  
+Double sided: <Playground id="#Q9VZS9#2" title="Create a Double Sided Plane" description="Simple example of creating a double sided plane." image=""/>
 
 Using this image  
 ![Two Tile Pattern](/img/how_to/mesh/tiles2.jpg)  
@@ -28,9 +38,9 @@ to texture the front and back
 front and back https://www.babylonjs-playground.com/#Q9VZS9#3
 
 We can also create a plane from an abstract math plane  
-https://www.babylonjs-playground.com/#Q9VZS9#1
+<Playground id="#Q9VZS9#1" title="Create a Plane From Math Path" description="Simple example of creating a plane from an abstract math plane." image=""/>
 
-# Mesh
+## Mesh
 Usage :
 ```javascript
 const plane = BABYLON.Mesh.CreatePlane("plane", size, scene);

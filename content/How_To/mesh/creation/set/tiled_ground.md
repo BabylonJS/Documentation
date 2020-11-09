@@ -1,7 +1,17 @@
-# Tiled Ground
+---
+title: Creating A Tiled Ground
+image: 
+description: Learn how to create a tiled ground in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, tiled ground
+further-reading:
+video-overview:
+video-content:
+---
+
+## Tiled Ground
 A tiled ground is created differently to a ground mesh. It still lies in the xz plane. The bottom left corner of of the tiled ground is given by the values for xmin and zmin and the top right corner by xmax and zmax. The tiled ground is be subdivided into tile regions: across into w tiles and up into h tiles. In the same way every tile can be further subdivided into w by h sections. The creation of a tiled ground relies on the use of *MultiMaterials*.
 
-# MeshBuilder
+## MeshBuilder
 Usage:
 ```javascript
 var tiledGround = BABYLON.MeshBuilder.CreateTiledGround("tiled ground", options, scene);
@@ -17,7 +27,7 @@ subdivisions|_object_ _( {w: number, h: number} )_ number of subdivisions (tiles
 precision|_( {w: number, h: number} )_ number of subdivisions on the height and the width of each tile|{w: 2, h: 2}
 updatable|_(boolean)_ true if the mesh is updatable|false
 
-## Steps to Create Tiling
+### Steps to Create Tiling
 
 * Create Tiled Ground
 * Create materials needed for each tile
@@ -45,19 +55,19 @@ updatable|_(boolean)_ true if the mesh is updatable|false
     }
 ```
 
-## Examples
+### Examples
 
-Chess Board https://www.babylonjs-playground.com/#8VDULN
+Chess Board: <Playground id="#8VDULN" title="Create a Chess Board" description="Simple example of creating a chess board." image=""/>
 
 Using these two materials
 
 ![grass](/img/how_to/Materials/grass.png) ![rock](/img/how_to/Materials/rock.png)  
 
-https://www.babylonjs-playground.com/#8VDULN#1
+<Playground id="#8VDULN#1" title="Create a Chess Board With Grass And Rock" description="Simple example of creating a chess board with grass and rock textures." image=""/>
 
-Forming a large scale map using open source map tiles https://www.babylonjs-playground.com/#1XBLWB#6
+Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#6" title="Create a Large Scale Map" description="Simple example of creating a large scale map using open source map tiles." image=""/>
 
-# Mesh
+## Mesh
 Usage :
 ```javascript
 const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene);

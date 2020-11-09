@@ -1,4 +1,22 @@
-# Raycasts 
+---
+title: Mesh Picking
+image: 
+description: Learn how to pick meshes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, interactions
+further-reading:
+    - title: Mesh Overview
+      url: /features/Shapes
+    - title: Forum Pick with Ray
+      url: http://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/
+    - title: Forum World Local Ray
+      url: http://www.html5gamedevs.com/topic/26602-worldlocalray/
+    - title: Forum Gobal to Local
+      url: http://www.html5gamedevs.com/topic/7599-convert-global-coordinates-to-local-coordinates/
+video-overview:
+video-content:
+---
+
+## Raycasts 
 
 The rays are like sunrays.
 They are used to check collisions or intersections in the scene between meshes and points.
@@ -19,9 +37,9 @@ Use the [picking info](/api/classes/babylon.pickinginfo.html) that is returned b
 
 ______
 
-# Detect the first mesh touched by the ray ##
+## Detect the first mesh touched by the ray ##
 
- Check out an example [here](https://www.babylonjs-playground.com/#KNE0O#84).
+ Check out an example here: <Playground id="#KNE0O#84" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray." image=""/>
 
  (The following descriptions will reference this example. All line references are from the most recent example link)
 
@@ -70,16 +88,16 @@ Here we change its size because it's funnier!
 **You're not forced to set `box.isPickable` to false**, if you need later to check rays intersection on this box for example. 
 You can set the origin point of the vector in front of the box, the direction a little further and the length that you want *(line #55)*:
 
- https://www.babylonjs-playground.com/#KNE0O#17
+ <Playground id="#KNE0O#17" title="Ray Picking Example" description="Simple example of ray picking." image=""/>
 
 
 -----
 
-# Predicate function ##
+## Predicate function ##
 
 It is a filter to choose which meshes will be selectable:
 
-https://www.babylonjs-playground.com/#KNE0O#18
+<Playground id="#KNE0O#18" title="Predicate Function Example" description="Simple example of the predicate function with ray picking." image=""/>
 
 ![Raycast predicate](/img/how_to/raycast02.jpg)
 
@@ -113,7 +131,7 @@ There is one other optional argument to the method `pickWithRay`. It's the boole
 
 ---
 
-# Triangle predicate # 
+## Triangle predicate # 
 
 Starting with Babylon.js v4.0 you can define a custom predicate to filter the triangles selected to be tested against the incoming ray. The predicate will be called with the 3 vertices of each face and the upcoming ray:
 
@@ -128,15 +146,15 @@ scene.pick(scene.pointerX, scene.pointerY, null, false, null, (p0, p1, p2, ray) 
 
 In this example we are filtering out all the triangles that are not facing towards the camera.
 
-Live example: https://www.babylonjs-playground.com/#EES9W5
+Live example: <Playground id="#EES9W5" title="Triangle Predicate" description="Simple example of ray picking with a triangle predicate." image=""/>
 
 ---
 
-# Multi pick # 
+## Multi pick # 
 
 We can use `scene.multiPickWithRay` if we don't want that the ray to stop at the first obstacle: 
 
- https://www.babylonjs-playground.com/#KNE0O#19
+ <Playground id="#KNE0O#19" title="Get All Meshes Hit By Ray" description="Simple example of getting all meshes hit by a ray." image=""/>
 
 ![Raycast multipick](/img/how_to/raycast02.jpg)
 
@@ -163,13 +181,13 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 ---
 
-# Picking Ray # 
+## Picking Ray # 
 
 Another handy feature is the createPickingRay. This special ray is cast from a camera, out to infinity, in the direction of the cursor (relative to the virtual lens). Confusing? Basically think of it as a ray that's cast out of the camera and 'aimed' by the cursor. This is another method for picking objects in your scene. Here's a playground and video to check out on the subject. 
 
- https://playground.babylonjs.com/#AC8XPN
+ <Playground id="#AC8XPN" title="Picking Ray Example" description="Simple example of using a picking ray." image=""/>
 
-[![](http://img.youtube.com/vi/dgsWKpa7RcY/0.jpg)](http://www.youtube.com/watch?v=dgsWKpa7RcY "Picking Meshes with Rays")
+<Youtube id="dgsWKpa7RcY"/>
 
 ---
 
@@ -189,7 +207,7 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 ---
 
-# Debugging 
+## Debugging 
 
 It could be tough to understand where a ray starts and is its direction. To help you debug you can then use the RayHelper.
 
@@ -215,23 +233,8 @@ var length = 3;
 rayHelper.attachToMesh(box, localMeshDirection, localMeshOrigin, length);
 ```
 
-https://www.babylonjs-playground.com/#ZHDBJ#48
+<Playground id="#ZHDBJ#48" title="Picking and Debugging" description="Simple example of ray picking and debugging." image=""/>
 
-# Next step
+## Next step
 
 Often it is sufficient to have some 2D shapes in your scene and [**sprites**](/babylon101/Sprites) are next.
-
-# Further Reading
-
-# Basic - L1
-
-[Mesh Overview](/features/Shapes)
-
-# External
-
-[Forum Pick with Ray](http://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/)  
-[Forum World Local Ray](http://www.html5gamedevs.com/topic/26602-worldlocalray/)  
-[Forum Gobal to Local](http://www.html5gamedevs.com/topic/7599-convert-global-coordinates-to-local-coordinates/)
-
-
-

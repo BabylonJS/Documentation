@@ -1,4 +1,18 @@
-# How to use Instances
+---
+title: Instances
+image: 
+description: Learn all about the instancing system in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, instancing
+further-reading:
+    - title: How To Use Thin Instances
+      url: /How_To/How_to_use_ThinInstances
+video-overview:
+video-content:
+    - title: Fun with Instance Buffers
+      url: https://youtu.be/rlODXrsdseA
+---
+
+## How to use Instances
 Instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes (let's imagine a forest or an army).
 
 Instances are built from a mesh with the following code:
@@ -31,7 +45,7 @@ Each instance has the same material as the root mesh. They can vary on the follo
 
 Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/How_To/How_to_use_ThinInstances) for further information.
 
-# Instancing a glTF object
+## Instancing a glTF object
 
 When you instanciate a glTF object, you need to make sure that the new instance will be under the same parent or you need to remove the parent from the source object.
 
@@ -41,7 +55,7 @@ So when instancing a glTF object you have to (either):
 - Call `source.setParent(null)`
 - Or call `newInstance.setParent(source.parent)`
 
-# Custom buffers
+## Custom buffers
 
 You also have the opportunity to specify per instance values for any attribute. For instance (no pun intended), if you want to have a specific color per instance, you only need to provide a vertex buffer flagged as "instanceable" and fill it with a color per instance:
 
@@ -62,7 +76,7 @@ box.setVerticesBuffer(buffer);
 
 The last parameter of the VertexBuffer constructor is the one to set to true to flag it as instanceable.
 
-Example: https://www.babylonjs-playground.com/#8L50Q3#1
+Example: <Playground id="#8L50Q3#1" title="Custom Buffers Example 1" description="Simple example of custom buffers." image=""/>
 
 The other way is to register a custom buffer with `registerInstancedBuffer`:
 ```javascript
@@ -79,9 +93,9 @@ instance.instancedBuffers.color = new BABYLON.Color4(Math.random(), Math.random(
 
 The system will take care of updating the internal vertex buffer.
 
-Example: https://www.babylonjs-playground.com/#YPABS1
+Example: <Playground id="#YPABS1" title="Custom Buffers Example 2" description="Simple example of custom buffers." image=""/>
 
-# Advanced control
+## Advanced control
 
 You can decide to control the world matrix instanced buffer the same way you control the custom buffers.
 
@@ -101,43 +115,36 @@ It is recommended to freeze the active meshes when controling the world matrix i
 scene.freezeActiveMeshes(true);
 ```
 
-You can find a complete example here: https://www.babylonjs-playground.com/#HJGC2G
+You can find a complete example here: <Playground id="#HJGC2G" title="Instancing Advanced Control" description="Simple example of instancing advanced controls." image=""/>
 
-# Support
+## Support
 
 Instances are supported for collisions, picking, rendering and shadows. Even if the current hardware does not support hardware accelerated instances, babylon.js will be able to optimize rendering to take instances into account.
 
-# Using 3D modeler to create instances
+## Using 3D modeler to create instances
 
-# Blender
+## Blender
 
 Using Blender, you can create instances of a mesh by just creating a linked object:
 
 ![](/img/how_to/use-instance/blender-linked-object.jpg)
 
-# 3DS Max
+## 3DS Max
 
 Using 3DS Max, you can create instances of a mesh by just creating a clone instance object with clic right on the object:
 
 ![](/img/how_to/use-instance/3ds-linked-object.jpg)
 
-# Limitations
+## Limitations
 
 * You can use instances with LOD but one limitation will apply in this case: You will have to hide the root objects.
 Here is an example where LODs reuse instances:
-https://www.babylonjs-playground.com/#0720FC#10
+<Playground id="#0720FC#10" title="Instances and LODs" description="Simple example of instancing and LODs." image=""/>
 
 * If you want to create an instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
 
 * Instances with a world matrix where determinant is different than root mesh world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
 
-# Demos
-- Trees: https://www.babylonjs-playground.com/#YB006J#75
-- 10,000 Icospheres: https://playground.babylonjs.com/#c2ynt9#12
-
-# Going further
-
-Check out this video to learn more:
-- Fun with Instance Buffers: https://youtu.be/rlODXrsdseA
-
-[How To Use Thin Instances](/How_To/How_to_use_ThinInstances)
+## Demos
+- Trees: <Playground id="#YB006J#75" title="Instancing Trees Example" description="Simple example of instancing with trees." image=""/>
+- 10,000 Icospheres: <Playground id="#c2ynt9#12" title="10,000 Icospheres" description="Simple example of instancing with 10,000 icospheres." image=""/>

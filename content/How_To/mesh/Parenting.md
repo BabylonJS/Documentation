@@ -1,4 +1,18 @@
-# Overview of a Parent
+---
+title: Parents and Children
+image: 
+description: Learn about parents and children in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, parents, children
+further-reading:
+    - title: How To Transform Coordinates
+      url: /How_To/Transform_Coordinates
+    - title: Frame of Reference
+      url: /resources/Frame_Of_Reference
+video-overview:
+video-content:
+---
+
+## Overview of a Parent
 
 Making mesh P a parent of mesh C changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
@@ -14,11 +28,10 @@ The order you set transformations, such as position or rotation, to the parent m
 
 The following playgrounds show the different behaviors
 
-* [Playground Example - Transform C and P After Parenting](https://www.babylonjs-playground.com/#NRNBMM)
-* [Playground Example - Transform C Before and P After Parenting](https://www.babylonjs-playground.com/#NRNBMM#1)
-* [Playground Example - Transform P Before and C After Parenting](https://www.babylonjs-playground.com/#NRNBMM#2)
-* [Playground Example - Transform C and P Before Parenting](https://www.babylonjs-playground.com/#NRNBMM#3)
-
+* <Playground id="#NRNBMM" title="Transform C and P After Parenting" description="Simple example of transforming C and P after parenting." image=""/>
+* <Playground id="#NRNBMM#1" title="Transform C Before and P After Parenting" description="Simple example of transforming C before and P after parenting." image=""/>
+* <Playground id="#NRNBMM#2" title="Transform P Before and C After Parenting" description="Simple example of transforming P before and C after parenting." image=""/>
+* <Playground id="#NRNBMM#3" title="Transform C and P Before Parenting" description="Simple example of transforming C and P before parenting." image=""/>
 
 To remove a child, mesh C, from a parent, mesh P you use any of 
 
@@ -29,13 +42,13 @@ meshP.removeChild(meshC);
 ```
 The following playground shows that setting a child's parent mesh P, directly to null, `meshC.parent = null`, not only removes the parent from the child, mesh C (red), but also removes from mesh C any transformation applied via mesh P leaving only the transformations applied directly to mesh C. Using this method, on the removal of the parent, the position, rotation and scale of mesh C will be seen as changed in the scene view. The other two methods, `meshC.setParent(null)` and `meshP.removeChild(meshC)`, just removes the link to the parent and any transformation to mesh C applied via mesh P up to the point of removal will remain. Using these methods, on the removal of the parent, the position, rotation and scale of mesh C will be seen as as the same in the scene view.
 
-* [Playground Example - Removing a Parent](https://www.babylonjs-playground.com/#XQI4UY#19)
+* <Playground id="#XQI4UY#19" title="Removing a Parent" description="Simple example of removing a parent." image=""/>
 
-# How To Use a Parent
+## How To Use a Parent
 
 The parent method for these examples can be directly compared to [transforming coordinates](/How_To/Transform_Coordinates) 
 
-# Satellite
+## Satellite
 
 Take a box that is rotating and translating from the top of which emerges a smaller box and travels in a direction always perpendicular to the top face of the box. 
 
@@ -53,9 +66,9 @@ The following code gives the animation.
     })
 ```
 
-* [Playground Animation - Parent](https://www.babylonjs-playground.com/#XQI4UY#1)
+* <Playground id="#XQI4UY#1" title="Animation Parent" description="Simple example of an animation parent." image=""/>
 
-# Disc World
+## Disc World
 
 Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it does make any real difference but it more natural to start with a horizontal ground).
 
@@ -71,11 +84,4 @@ The building will be an array of boxes with each box parented to the disc.
         phi +=0.01;
     });
 ```
-* [Playground Animation - Disc World](https://www.babylonjs-playground.com/#XQI4UY#3)
-
-# Further Reading
-
-[How To Transform Coordinates](/How_To/Transform_Coordinates)  
-[Frame of Reference](/resources/Frame_Of_Reference)
-
-
+* <Playground id="#XQI4UY#3" title="Disc World" description="Simple example of parenting in the disc world." image=""/>

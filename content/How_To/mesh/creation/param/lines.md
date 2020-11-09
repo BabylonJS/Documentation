@@ -1,7 +1,17 @@
-# Lines
+---
+title: Creating Lines
+image: 
+description: Learn how to create lines in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, lines
+further-reading:
+video-overview:
+video-content:
+---
+
+## Lines
 Lines are created as a contiguous series of attached line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options. You can also update the _colors_ option if previously set at construction time.
 
-# MeshBuilder
+## MeshBuilder
 Usage:
 ```javascript
 const options = {
@@ -30,15 +40,15 @@ Unlike a mesh Lines are colored after creation with a color property rather than
 lines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
-## Examples
-non updatable lines  https://www.babylonjs-playground.com/#MZ7QRG#6  
-non updatable closed lines https://www.babylonjs-playground.com/#MZ7QRG#8  
-updatable example https://www.babylonjs-playground.com/#MZ7QRG#9  
-updatable spriral https://www.babylonjs-playground.com/#MZ7QRG#10  
+### Examples
+non updatable lines: <Playground id="#MZ7QRG#6" title="Create Non Updatable Lines" description="Simple example of creating non updatable lines." image=""/>
+non updatable closed lines: <Playground id="#MZ7QRG#8" title="Create Non Updatable Closed Lines" description="Simple example of creating non updatable closed lines." image=""/> 
+updatable example: <Playground id="#MZ7QRG#9" title="Create Updatable Closed Lines" description="Simple example of creating updatable closed lines." image=""/> 
+updatable spriral: <Playground id="#MZ7QRG#10" title="Create Updatable Spiral Lines" description="Simple example of creating updatable spiral lines." image=""/>
 
-multi colored lines have to be set on creation https://www.babylonjs-playground.com/#MZ7QRG#11
+multi colored lines have to be set on creation. <Playground id="#MZ7QRG#11" title="Create Multi Colored Lines" description="Simple example of creating multi colored lines." image=""/>
 
-# Mesh
+## Mesh
 usage:
 ```javascript
 let lines = BABYLON.Mesh.CreateLines("lines", points, scene);

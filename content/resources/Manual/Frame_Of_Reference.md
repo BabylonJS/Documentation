@@ -1,5 +1,15 @@
-# Transformations
-# Introduction to Coordinate Transformation
+---
+title: Introduction To Coordinate Transformation
+image: 
+description: Learn all about coordinate transformation in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, coordinate transform
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
+## Introduction to Coordinate Transformation
 
 The first step in understanding coordinate transformation Babylon.js is to understand how the data describing a mesh is stored. The positions of each vertex is kept in an array of coordinates in the local space of the mesh. Each transformation applied to the mesh is stored in a matrix called the *World Matrix*. For each rendered frame the current *World Matrix* is used on the local space vertex data to obtain the world data for the mesh. Except for exceptional circumstance such as *baking a transformation* or a user updating it, the mesh vertex data remains unchanged. 
 
@@ -15,7 +25,7 @@ const global_position = BABYLON.Vector3.TransformCoordinates(local_position, mat
 mesh_C.position = global_position;
 ```
 
-Position sphere using TransformCoordinates https://www.babylonjs-playground.com/#TRAIXW
+Position sphere using TransformCoordinates: <Playground id="#TRAIXW" title="Position a Sphere Using Transform Coordinates" description="Simple example of positioning a sphere using transform coordinates." image=""/>
 
 To translate the sphere by the direction vector (1, 1, 1) for example you can add this to the current local position vector
 
@@ -27,6 +37,6 @@ const global_position = BABYLON.Vector3.TransformCoordinates(local_position, mat
 mesh_C.position = global_position;
 ```
 
-Translate sphere using TransformCoordinates https://www.babylonjs-playground.com/#TRAIXW#1
+Translate sphere using TransformCoordinates: <Playground id="#TRAIXW#1" title="Translate a Sphere Using Transform Coordinates" description="Simple example of translating a sphere using transform coordinates." image=""/>
 
-More extensive examples follow  
+More extensive examples follow

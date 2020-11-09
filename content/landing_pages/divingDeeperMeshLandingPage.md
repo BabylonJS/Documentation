@@ -1,4 +1,14 @@
-# Meshes
+---
+title: Meshes
+image: 
+description: Dive into the rich world of understanding meshes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Meshes
 
 In the 3D virtual world shapes are built from meshes, lots of triangular facets joined together, each facet made from three vertices.
 

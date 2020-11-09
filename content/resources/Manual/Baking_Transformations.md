@@ -1,5 +1,15 @@
-# Transformations
-# Baking 
+---
+title: Baking Transformations
+image: 
+description: Learn about how to bake transformations in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, baking transforms
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
+## Baking 
 Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its world matrix only and the vertex position data of a mesh is left unchanged. In certain situations you might be interested in applying a transform (position, rotation, scale) directly to the mesh vertices and leave world matrix unchanged. This is called baking and, of course, changes the center of transformation of the mesh, and can be useful in the following situations:
 
 - building a set of static geometry
@@ -9,7 +19,7 @@ Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its
 
 The most straight forward way is to apply a transformation to the mesh. For example take a box of side 1 and position it at (0, 3, 0). Its vertices are stored as (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (0.5, 0.5, -0.5), (-0.5, 0.5, -0.5), (-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, 0.5, 0.5) with its local origin of (0, 3, 0) stored in the world matrix. When this current transformation is baked into its vertices, the vertices are now stored as (-0.5, 2.5, -0.5), (0.5, 2.5, -0.5), (0.5, 3.5, -0.5), (-0.5, 3.5, -0.5), (-0.5, 2.5, 0.5), (0.5, 2.5, 0.5), (0.5, 3.5, 0.5), (-0.5, 3.5, 0.5) with a local origin of (0, 0, 0) stored in the world matrix. Any rotation now takes place with the center of rotation 3 below the middle of the box.
 
-Baking a current transformation https://www.babylonjs-playground.com/#6AH5EL
+Baking a current transformation: <Playground id="#6AH5EL" title="Baking Current Transformation" description="Simple example of baking current transforms." image=""/>
 
 When the current transformation is baked into the mesh the local origin of the mesh is also altered so that the location and orientation of the mesh within the seen is not changed.
 
@@ -21,9 +31,9 @@ usage:
 mesh.bakeTransformIntoVertices(matrix);
 ```
 
-Baking using matrices https://www.babylonjs-playground.com/#6AH5EL#1
+Baking using matrices <Playground id="#6AH5EL#1" title="Baking Using Matrices" description="Simple example of baking using matrices." image=""/>
 
-# Use With Scaling
+## Use With Scaling
 
 When baking scaling the normals are simply scaled in their current direction and so baking a scale can often give unrealistic results for lighting. To correct this normals need to be recomputed. This is illustrated in the following picture: 
 

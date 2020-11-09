@@ -1,4 +1,16 @@
-# A TransformNode
+---
+title: Transform Node
+image: 
+description: Learn about the transform node in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, parent, pivot, transform node
+further-reading:
+    - title: How To Rotate Around an Axis about a Point
+      url: /How_To/Pivot
+video-overview:
+video-content:
+---
+
+## A TransformNode
 
 A TransformNode is an object that is not rendered but can be used as a center of transformation. This can decrease memory usage and increase rendering speed compared to using an empty mesh as a parent and is less complicated than using a pivot matrix.
 
@@ -7,56 +19,56 @@ The TransformNode can be used as a center of transformation (CoT) for a mesh and
 Remember that, as with any parent, transformations are relative to the frame of reference of the parent.
 In all of the following Playgrounds the purple sphere is created only to show the TransformNode position. 
 
-# As a Center of Rotation
+## As a Center of Rotation
 
 Set a TransformNode as a parent then rotate the TransformNode.
 
-# Mesh
+## Mesh
 
 ```javascript
 //create a Center of Transformation
 var CoT = new BABYLON.TransformNode("root"); 
 box.parent = CoT;  //apply to Box
 ```
-* [Playground Example - CoT at Box Center](https://www.babylonjs-playground.com/#2JKA91)
-* [Playground Example - CoT Offset](https://www.babylonjs-playground.com/#2JKA91#1)
-* [Playground Example - Box Rotating about its Local Axes](https://www.babylonjs-playground.com/#2JKA91#2)
+* <Playground id="#2JKA91" title="Center of Transform At Box Center" description="Simple example of the center of transform at a box center." image=""/>
+* <Playground id="#2JKA91#1" title="Center of Transform Offset" description="Simple example of a center of transform offset." image=""/>
+* <Playground id="#2JKA91#2" title="Box Rotating about its Local Axes" description="Simple example of a box rotating about its local axes." image=""/>
 
-## Camera 
+### Camera 
 The light blue cylinder is an additional stationary object to show that the camera is moving.
 
 For those examples stating a dummy camera a black sphere is used to show the intended path of the camera in the Playground that follows it. The purple ray shows the direction of view of the camera and the tube an indication of the view covered by the camera.
 
-## Arc Rotate Camera
+### Arc Rotate Camera
 The center of transformation is placed at the target position of the arc rotation camera.  
-* [Playground Example - Rotating Dummy Camera](https://www.babylonjs-playground.com/#PP962K#1)
-* [Playground Example - Rotating Arc Camera](https://www.babylonjs-playground.com/#2JKA91#4)
+* <Playground id="#PP962K#1" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
+* <Playground id="#2JKA91#4" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
 
 Target position moved by moving center of tranformation.  
-* [Playground Example - Rotating Dummy Camera](https://www.babylonjs-playground.com/#PP962K#2)
-* [Playground Example - Rotating Arc Camera](https://www.babylonjs-playground.com/#2JKA91#5)
+* <Playground id="#PP962K#2" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
+* <Playground id="#2JKA91#5" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
 
 Camera position moved relative to center of transformation just changes the distance between the camera and target.  
-* [Playground Example - Rotating Dummy Camera](https://www.babylonjs-playground.com/#PP962K#3)
-* [Playground Example - Rotating Arc Camera](https://www.babylonjs-playground.com/#2JKA91#6)
+* <Playground id="#PP962K#3" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
+* <Playground id="#2JKA91#6" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
 
-## Universal Camera
+### Universal Camera
 The arrow keys will allow you to move camera position (reminder to click on canvas area before using keys).  
-* [Playground Example - Rotating Universal Camera](https://www.babylonjs-playground.com/#2JKA91#8)
+* <Playground id="#2JKA91#8" title="Rotating Universal Camera 1" description="Simple example of a rotating universal camera." image=""/>
 
 You can also have a universal camera rotating in orbit around a target and move it with keys.  
-* [Playground Example - Rotating Universal Camera](https://www.babylonjs-playground.com/#2JKA91#9)
+* <Playground id="#2JKA91#9" title="Rotating Universal Camera 2" description="Simple example of a rotating universal camera." image=""/>
 
-# Lights
+## Lights
 Those lights that have a position can use a TransformNode.
 
-## Point Light
-* [Playground Example - Rotating Point Light](https://www.babylonjs-playground.com/#2JKA91#10)
+### Point Light
+* <Playground id="#2JKA91#10" title="Rotating Point Light" description="Simple example of a rotating point light." image=""/>
 
 # Spot Light
-* [Playground Example - Rotating Spot Light](https://www.babylonjs-playground.com/#2JKA91#11)
+* <Playground id="#2JKA91#11" title="Rotating Spot Light" description="Simple example of a rotating spot light." image=""/>
 
-# As a Center of Translation or Position
+## As a Center of Translation or Position
 
 When you move a center of transformation anything that is parented to it will move with it.
 
@@ -69,20 +81,12 @@ box.position.x += 0.01
 ``` 
 takes place along the rotating x axis of the center of transformation.
 
-* [Playground Example - Box Translation](https://www.babylonjs-playground.com/#2JKA91#12)
+* <Playground id="#2JKA91#12" title="Box Translation" description="Simple example of a box translation." image=""/>
 
 Moving cameras and lights work in the same way.
 
-# As a Center of Enlargement
+## As a Center of Enlargement
 
 Obviously scaling has no effect on lights or cameras. Scaling takes place relative to the frame of reference of the center of enlargement.
 
-* [Playground Example = Box Scaling](https://www.babylonjs-playground.com/#2JKA91#13)
-
-# Further Reading
-
-# More Advanced - L3
-
-[How To Rotate Around an Axis about a Point](/How_To/Pivot)
-
-
+* <Playground id="#2JKA91#13" title="Box Scaling" description="Simple example of box scaling." image=""/> 

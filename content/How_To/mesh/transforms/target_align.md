@@ -1,5 +1,15 @@
-# Transformations
-# Target Axes Alignment
+---
+title: Target Axes Alignment
+image: 
+description: Learn about target axes alignment in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, target axes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
+## Target Axes Alignment
 When you want to rotate a mesh (or a camera) so that it lines up with a set of given axes you can use the *RotationFromAxis* method as follows
 
 ```javascript
@@ -13,14 +23,14 @@ where _axis1_, _axis2_ and _axis3_ are three left-handed orthogonal vectors and 
 * _axis3_ as the z axis in its local space
 
 
-# Align Plane to Curve
+## Align Plane to Curve
 At any point along curve in 3D space the tangent, normal and binormal form a set of orthogonal axes, call these the point axes. A plane created in Babylon.js has a normal along the z axis with the x and y axes lying in the plane. We can draw a curve in space using an array of position vectors. By creating a [3D path](/How_To/How_to_use_Path3D) from this curve we can obtain the normal, tangent and binormal of the curve at each of the positions that define it. Using the *RotationFromAxis* we can align the x, y and z axes of the plane with the point axes of the curve. There are 6 ways to order a group of three axes and so 6 ways to align the plane axes to the curve point axes.
 
 All six ways are used in the playground below. The top one [0] has the plane tangential to the curve and the fourth one down [3] is perpendicular to the curve. Others can twist the plane at certain points. 
 
-https://www.babylonjs-playground.com/#1PX9G0
+<Playground id="#1PX9G0" title="Aligning a Plane To a Curve" description="Simple example of aligning a plane to a curve." image=""/>
 
-# Align Camera
+## Align Camera
 Given two spheres draw a plane between them that always faces the camera. We are going to set up red and green spheres, world axes, show as red, green and blue lines, and a purple plane in the xz plane. Joining the red and green spheres is a plane with a blue arrow on it pointing from the green to the red sphere.
 
 The requirement is for the arrow plane to rotate such that 
@@ -31,7 +41,7 @@ The requirement is for the arrow plane to rotate such that
 
 In this way the camera always faces the arrow plane as can be seen in the this playground.
 
-* [Playground Example - Aligning Axes](https://www.babylonjs-playground.com/#VYM1E#32) 
+* <Playground id="#VYM1E#32" title="Aligning Camera Axes" description="Simple example of aligning camera axes." image=""/>
 
 This is achieved by forming axis 1 to join the spheres
 
@@ -48,6 +58,5 @@ The mesh is rotated to face the camera using
 mesh.rotation = BABYLON.Vector3.RotationFromAxis(axis1, axis2, axis3);
 ```
 
-# Using Quaternions 
+## Using Quaternions 
 If you prefer using quaternions instead of Euler angles, then *RotationQuaternionFromAxis()* computes the required rotation quaternion to assign to the mesh property *rotationQuaternion*. 
-

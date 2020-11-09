@@ -1,6 +1,16 @@
-# Sphere
+---
+title: Creating A Sphere
+image: 
+description: Learn how to create a sphere in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, sphere
+further-reading:
+video-overview:
+video-content:
+---
+
+## Sphere
 The created sphere has its origin at the center of the sphere. By using different values for _diameterX_, _diameterY_ and diameterZ_ lead you create an ellipsoid.
-# MeshBuilder
+## MeshBuilder
 Example :
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", options, scene); //scene is optional and defaults to the current scene
@@ -20,16 +30,16 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1)
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1) 
 
-## Examples 
-https://www.babylonjs-playground.com/#WIR77Z sphere
+### Examples 
+<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.jpg"/>
 
-https://www.babylonjs-playground.com/#WIR77Z#1 ellipsoid
+<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.jpg"/>
 
-https://www.babylonjs-playground.com/#WIR77#2 arc
+<Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes8.jpg"/>
 
-https://www.babylonjs-playground.com/#WIR77Z#3 arc and slice
+<Playground id="#WIR77Z#3" title="Create an Arc and Slice" description="Simple example of creating an arc and slice." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes9.jpg"/>
 
-# Mesh
+## Mesh
 Usage :
 ```javascript
 const sphere = BABYLON.Mesh.CreateSphere("sphere", segments, diameter, scene);

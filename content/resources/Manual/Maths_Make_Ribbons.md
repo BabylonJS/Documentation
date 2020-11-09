@@ -1,4 +1,14 @@
-# Surfaces, Mathematics and Ribbons
+---
+title: Ribbons With Math
+image: 
+description: Learn how to create ribbons with math in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, ribbons
+further-reading:
+video-overview:
+video-content:
+---
+
+## Surfaces, Mathematics and Ribbons
 Mathematics is very useful for drawing surfaces in 3D space. Surfaces are often described by the following equation type *y = f(x, z)*, that is height of point on the surface is determined by the ground coordinate position below the point
 
 For the moment take z as fixed, say *z = 6*. That means for that value of z *y = g(x)* for some function g. 
@@ -77,7 +87,7 @@ for (let t = -6; t <= 6; t++) {
     paths.push(path)
 }
 ```
-Makes a tube https://www.babylonjs-playground.com/#F6JW5W#18
+Makes a tube: <Playground id="#F6JW5W#18" title="Math-Based Ribbon Tube" description="Simple example of creating ribbon tube with math." image=""/>
 
 We can also use the *z* parameter with *x* and *y*
 ```javascript
@@ -95,7 +105,7 @@ for (let t = -6; t <= 6; t++) {
 }
 ```
 
-Makes a U tube https://www.babylonjs-playground.com/#F6JW5W#19
+Makes a U tube: <Playground id="#F6JW5W#19" title="Math-Based Ribbon U-Tube" description="Simple example of creating ribbon U-tube with math." image=""/>
 
 and surfaces get more interesting if the change in z is not linear
 ```javascript
@@ -113,16 +123,16 @@ for (let t = 0; t < Math.PI; t += Math.PI / 32) {
 }
 ```
 
-a sphere https://www.babylonjs-playground.com/#F6JW5W#25
+a sphere: <Playground id="#F6JW5W#25" title="Math-Based Ribbon Sphere" description="Simple example of creating ribbon sphere with math." image=""/>
 
-# More examples
+## More examples
 It is hard to stop playing  
-A ribbon of parabolas https://www.babylonjs-playground.com/#F6JW5W#22  
-parabolas scaled https://www.babylonjs-playground.com/#F6JW5W#21  
-parabolas with some trigonometry https://www.babylonjs-playground.com/#F6JW5W#23  
-parabolas and more trigonometry https://www.babylonjs-playground.com/#F6JW5W#24  
+A ribbon of parabolas: <Playground id="#F6JW5W#22" title="Math-Based Ribbon Parabolas" description="Simple example of creating ribbon parabolas with math." image=""/>  
+parabolas scaled: <Playground id="#F6JW5W#21" title="Math-Based Scaled Ribbon Parabolas" description="Simple example of creating scaled ribbon parabolas with math." image=""/>  
+parabolas with some trigonometry: <Playground id="#F6JW5W#23" title="Trigonometry-Based Ribbon Parabolas 1" description="Simple example of creating ribbon parabolas with trigonometry." image=""/>
+parabolas and more trigonometry: <Playground id="#F6JW5W#24" title="Trigonometry-Based Ribbon Parabolas 2" description="Simple example of creating ribbon parabolas with trigonometry." image=""/> 
 
-# Paths to Try
+## Paths to Try
 You could choose a known math curve from these sites
 http://en.wikipedia.org/wiki/List_of_curves  
 http://www.mathcurve.com/courbes2d/courbes2d.shtml  
