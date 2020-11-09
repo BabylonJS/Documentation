@@ -1,4 +1,14 @@
-# What is morphing ?
+---
+title: Dynamically Morph A Mesh
+image: 
+description: Learn how to dynamically morph a mesh in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, morph
+further-reading:
+video-overview:
+video-content:
+---
+
+## What is morphing ?
 
 This part is about the way to morph some kind of meshes.   
 For now, it concerns only ribbons, tubes, extruded shapes and lines.   
@@ -11,8 +21,8 @@ But when handling parametric shapes like ribbons, tubes, etc, it becomes very di
 
 So you will learn here how to update the shape of an existing mesh and how to morph it in the render loop.   
 
-# Ribbon
-## _ribbon updatable parameter : pathArray_ 
+## Ribbon
+### _ribbon updatable parameter : pathArray_ 
 _(reminder : only points positions can change in the path array, not the number of points. Please see the summary at the bottom of this page for more details)_ 
 
 Let's create a ribbon.   
@@ -40,7 +50,7 @@ for(var i = -20; i < 20; i++) {
 }
 var mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene, true, sideO);
 ```
-example :  https://www.babylonjs-playground.com/#1MSEBT  _(please rotate the cam to see it)_
+example : <Playground id="#1MSEBT" title="Dynamic Mesh Morph Example 1" description="Simple example of dynamically morphing a mesh." image=""/>   _(please rotate the cam to see it)_
 
 The important key to notice is that we set the **_updatable_** parameter to **_true_** in the _CreateRibbon()_ method : the one just between the _scene_ and the _sideO_ parameters.   
 
@@ -74,7 +84,7 @@ You can also use the other call signature :
 mesh = BABYLON.MeshBuilder.CreateRibbon(null, {pathArray: pathArray, instance: mesh});
 ```
 
-example :  https://www.babylonjs-playground.com/#1MSEBT#1
+example :  <Playground id="#1MSEBT#1" title="Dynamic Mesh Morph Example 2" description="Simple example of dynamically morphing a mesh." image=""/>
 
 Well, we just updated our ribbon's shape once for now.   
 
@@ -110,12 +120,12 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-example :  https://www.babylonjs-playground.com/#1MSEBT#3
+example :  <Playground id="#1MSEBT#3" title="Dynamic Mesh Morph Example 3" description="Simple example of dynamically morphing a mesh." image=""/>
 
 
-# Lines and DashedLines
-## _lines and dashed lines updatable parameter : points_
-## _lines optional updatable parameter : colors_
+## Lines and DashedLines
+### _lines and dashed lines updatable parameter : points_
+### _lines optional updatable parameter : colors_
 _(reminder : only points positions can change, not the number of points. Please see the summary at the bottom of this page for more details)_
 
 Once we got the understanding for ribbons, we can apply it to Lines or DashedLines.
@@ -135,11 +145,11 @@ dashedlines = BABYLON.MeshBuilder.CreateDashedLines(null, {points: points2, inst
 ```
 We can, of course, set the update method within the render loop.
 
-example lines :  https://www.babylonjs-playground.com/#24PQRQ
-dashed lines :  https://www.babylonjs-playground.com/#XKYAE#3
+example lines:  <Playground id="#24PQRQ" title="Lines Example" description="Simple example of dynamically morphing a mesh with lines." image=""/>
+dashed lines:  <Playground id="#XKYAE#3" title="Dashed Lines Example" description="Simple example of dynamically morphing a mesh with dashed lines." image=""/>
 
-# Tube
-## _tube updatable parameters : path, radius, radiusFunction_
+## Tube
+### _tube updatable parameters : path, radius, radiusFunction_
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_
 
 Nothing differs for tubes. Let's create a tube and then update it according to new _path_, _radius_ or _radiusFunction_ values :
@@ -164,13 +174,14 @@ tube = BABYLON.Mesh.CreateTube(null, path2, null, null, radiusFunction2, null, n
 tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radiusFunction: radiusFunction2, instance: tube});
 ```
 
-Example :  https://www.babylonjs-playground.com/#ACKC2#1
+Example:  <Playground id="#ACKC2#1" title="Tube Example" description="Simple example of dynamically morphing a tube." image=""/>
+
 As you can read at line 53, the _radiusFunction_ is redefined here at each iteration in the _registerBeforeRender_ loop because it uses the value of the incrementing parameter _k_ : the radius changes according to each path point position and according to k varying in the time.
 
 
-# Extruded shape
-## _extrusion updatable parameters for ExtrudeShape(): shape, path, scale, rotation_
-## _extrusion updatable parameters for ExtrudeShapeCustom(): shape, path, scaleFunction, rotateFunction_
+## Extruded shape
+### _extrusion updatable parameters for ExtrudeShape(): shape, path, scale, rotation_
+### _extrusion updatable parameters for ExtrudeShapeCustom(): shape, path, scaleFunction, rotateFunction_
 _(reminder : only points positions can change in the path, not the number of points. Please see the summary at the bottom of this page for more details)_   
 
 We can see extrusion as some tube generalization : a tube would be a circle _shape_ extruded along a path.   
@@ -216,10 +227,10 @@ var ext = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap
 ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2, null, null, null, null, null, null, ext);
 ```
 
-Example :  https://www.babylonjs-playground.com/#20IBWW#14
+Example:  <Playground id="#20IBWW#14" title="Extruded Shape Example" description="Simple example of dynamically morphing an extruded shape." image=""/>
 
 
-# Other shapes : updateMeshPositions
+## Other shapes : updateMeshPositions
 For now, we just talked about parametric shapes which can be updated with their own _CreateXXX()_ initial method. 
 But what about the other mesh types : boxes, spheres, cylinders, etc ? 
 
@@ -240,10 +251,10 @@ var positionFunction = function(positions) {
 };
 box.updateMeshPositions(positionFunction, true);
 ```
-Example :  https://www.babylonjs-playground.com/#1UZIZC#6
+Example: <Playground id="#1UZIZC#6" title="Custom Shape Example" description="Simple example of dynamically morphing a custom shape." image=""/>
 
 
-# More speed : freezeNormals !
+## More speed : freezeNormals !
 
 The former _CreateXXX()_ update functions try to be as much optimized as possible to run fast in the render loop.   
 However, you may need some more speed for any reason (huge mesh with dozens of thousands of vertices for instance).   
@@ -261,7 +272,7 @@ tube.unfreezeNormals();
 ```
 The normals will then be recomputed and re-applied on the next _CreateXXX()_ update call.   
 
-# Summary   
+## Summary   
 * To create an updatable mesh, it is mandatory to set its _updatable_ parameter to _true_ when calling _CreateXXX()_ method.   
 * To update then an existing parametric shape, we just have to use the same _CreateXXX_ method as we used to construct it. 
 * Only the existing mesh and the data relative to new positions (path, pathArray, array of points) must be passed to this method, the other parameters are ignored.    
@@ -294,4 +305,3 @@ scene.registerBeforeRender(function() {
 });
 
 ```
-

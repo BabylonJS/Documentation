@@ -1,10 +1,20 @@
-# Morph targets
+---
+title: Morph Targets
+image: 
+description: Learn all about morph targets in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, morph targets, blend shapes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Morph targets
 
 Morph targets are a new feature introduced with Babylon.js v3.0.
 
 ![Morph Target Before and After](/img/how_to/morphtargets.jpg)
 
-# Basics
+## Basics
 Meshes can be deformed by using morph targets. A morph target must be built from a mesh with the **EXACT** same number of vertices as the original mesh.
 Morph targets are used by the GPU to create the final geometry by applying the following formula:
 
@@ -13,13 +23,13 @@ final mesh = original mesh + sum((morph targets - original mesh) * morph targets
 For instance, you can use morph targets to simulate the opening of a mouth. The initial mesh has a closed mouth. The morph target can be the same mesh but with an opened mouth. Then by changing the influence of the morph target (from 0 to 1) you can display either a closed or an opened mouth or a mix of both.
 
 You can find live examples here: 
-* [Playground Example Animated](https://www.babylonjs-playground.com/#HPV2TZ#8)  
+* <Playground id="#HPV2TZ#8" title="Animated Morph Targets" description="Simple example of animated morph targets." image=""/>
 
 The following two examples are best seen in the full Playground where sliders can be used to change the influencers
-* [Playground Example With Standard Material](https://www.babylonjs-playground.com/#HPV2TZ#2)   
-* [Playground Example With PBR Material](https://www.babylonjs-playground.com/#HPV2TZ#4) 
+* <Playground id="#HPV2TZ#2" title="Animated Morph Targets with Standard Material" description="Simple example of animated morph targets with standard material." image=""/>  
+* <Playground id="#HPV2TZ#4" title="Animated Morph Targets with PBR Material" description="Simple example of animated morph targets with PBR material." image=""/>
 
-# How to Use Morph Targets
+## How to Use Morph Targets
 To use morph targets, you first have to create a `MorphTargetManager` and affect it to a mesh:
 
 ```
@@ -98,7 +108,7 @@ manager.addTarget(target3);
 
 At any time, you can remove a target with `manager.removeTarget(target)`
 
-# How to access morph targets in a glTF file
+## How to access morph targets in a glTF file
 You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](https://doc.babylonjs.com/api/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
 
 ```
@@ -111,9 +121,9 @@ If you want to view or change the value of a morph target influence, it can be a
 myInfluence = mesh.morphTargetManager.getTarget(key);
 ```
 See the following example for a full playground using morph targets from a glTF file.
-- [Playground using morph targets from a glTF file](https://playground.babylonjs.com/#9CLJEF).
+- <Playground id="#9CLJEF" title="Morph Targets From a .glTF File" description="Simple example of using morph targets from a .glTF file." image=""/>
 
-# List of morphable properties
+## List of morphable properties
 
 You can morph the following mesh attributes:
 - position
@@ -121,10 +131,8 @@ You can morph the following mesh attributes:
 - tangents (can be turned of by calling `manager.enableTangentMorphing = false`)
 - uvs (can be turned of by calling `manager.enableUVMorphing = false`)
 
-# Limitations
+## Limitations
 
 * Please be aware that most of the browsers are limited to 16 attributes per mesh. Adding a single morph target to a mesh add up to 4 new attributes (position + normal + tangents + uvs). This could quickly go beyond the max attributes limitation.
 * All targets within a same manager must have the same vertices count
 * A mesh and its MorphTargetManager must have the same vertices count
-
-

@@ -396,14 +396,12 @@
                             "friendlyName": "Interactions",
                             "children": {
                                 "mesh_intersect": { "friendlyName": "Mesh Intersections", "children": {}, "content": "How_To/mesh/Intersect__Collisions_-_mesh" },
-                                "picking_collisions": { "friendlyName": "Mesh Picking", "children": {}, "content": "How_To/mesh/Raycasts" },
-                                "raycasts": { "friendlyName": "Raycasts", "children": {}, "content": "How_To/mesh/Raycasts" }
+                                "picking_collisions": { "friendlyName": "Mesh Picking", "children": {}, "content": "How_To/mesh/Raycasts" }
                             },
                             "content": "landing_pages/diving_deeper_interactions_landing_page"
                         },
                         "displayBoundingBoxes": { "friendlyName": "Drawing Bounding Boxes", "children": {}, "content": "How_To/mesh/How_to_display_bounding_boxes" },
                         "decals": { "friendlyName": "Decals", "children": {}, "content": "How_To/mesh/Decals" },
-                        "transformNode": { "friendlyName": "Transform Nodes", "children": {}, "content": "How_To/mesh/TransformNode" },
                         "highlightLayer": { "friendlyName": "Highlight Meshes", "children": {}, "content": "How_To/mesh/Highlight_Layer" },
                         "glowLayer": { "friendlyName": "Making Meshes Glow", "children": {}, "content": "How_To/mesh/Glow_Layer" },
                         "mergeMeshes": { "friendlyName": "Merging Meshes", "children": {}, "content": "How_To/mesh/How_to_Merge_Meshes" },

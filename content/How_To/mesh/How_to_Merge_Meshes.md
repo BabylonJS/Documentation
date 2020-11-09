@@ -1,4 +1,14 @@
-# Native Babylon.js function
+---
+title: Merging Meshes
+image: 
+description: Learn how to merge meshes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, merge
+further-reading:
+video-overview:
+video-content:
+---
+
+## Native Babylon.js function
 
 To easily merge a number of meshes to a single mesh use the static `MergeMeshes` of the `Mesh` class:
 
@@ -17,15 +27,15 @@ var newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32Bits
 
 Since `multiMultiMaterials` defaults to false, the resulting merged mesh will have only one material applied to it (taken from the first mesh):
 
-* [Playground Example - Merged Meshes](https://playground.babylonjs.com/#INZ0Z0#5)
+* <Playground id="#INZ0Z0#5" title="Merged Meshes Example" description="Simple example of merging meshes together." image=""/>
 
 Compare with the following example which sets `multiMultiMaterials` to true:
 
-* [Playground Example - Merged Meshes multiMultiMaterials true](https://playground.babylonjs.com/#INZ0Z0#59)
+* <Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials." image=""/>
 
 See [this page](/how_to/multi_materials#with-merged-meshes) for more details on usage of merged meshes.
 
-# Use your own merge function
+## Use your own merge function
 
 If you want to merge meshes into a new one using a self implemented function, you can use the following code as basis and improve it to your needs:
 
@@ -125,4 +135,3 @@ var mergeMeshes = function (meshName, arrayObj, scene) {
     newMesh.setIndices(arrayIndice);
     return newMesh;
 };
-```

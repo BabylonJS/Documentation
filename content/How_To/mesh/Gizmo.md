@@ -1,4 +1,14 @@
-# Introduction
+---
+title: Gizmos
+image: 
+description: Learn about gizmos in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, gizmo, manipulator
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Gizmo's are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with mesh. Whereas Position, scale and rotation gizmos are also usable with TransformNodes and Bones.
 
@@ -6,7 +16,7 @@ Gizmo's are objects that can be attached to a node (mesh, bone, transform) to pr
 
 Note: Gizmos will set/modify the [rotationQuaternion](/features/Position,_Rotation,_Scaling) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
 
-# GizmoManager
+## GizmoManager
 To get a default gizmo setup, the GizmoManager class can be used.
 ```
 var gizmoManager = new BABYLON.GizmoManager(scene);
@@ -48,8 +58,9 @@ gizmoManager.gizmos.positionGizmo.updateGizmoRotationToMatchAttachedMesh = false
 ```
 Note: This is not supported on the scale gizmo
 
-[**Example**](https://www.babylonjs-playground.com/#4TBMBR#33)
-# Setup
+<Playground id="#4TBMBR#33" title="Gizmo Manager Example" description="Simple example of using the gizmo manager." image=""/>
+
+## Setup
 
 Gizmos are displayed by a [UtilityLayerRenderer](/How_To/UtilityLayerRenderer) to not disrupt the existing scene state. If not specified, the default utility layer will be used.
 
@@ -69,14 +80,15 @@ By default, the gizmo will be updated to match the attached node's rotation and 
 gizmo.updateGizmoRotationToMatchAttachedMesh = false;
 gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 ```
-[GLTF example](https://playground.babylonjs.com/#8GY6J8#20)
-# Position, scale and rotation gizmos
+<Playground id="#8GY6J8#20" title="Gizmo .glTF Setup Example" description="Simple example of how to set up a gizmo for a .glTF File." image=""/>
+
+## Position, scale and rotation gizmos
 
 Default gizmos for position, rotation and scale on a single axis are supported
 
- - [AxisDragGizmo](https://www.babylonjs-playground.com/#31M2AP#9)
- - [AxisScaleGizmo](https://www.babylonjs-playground.com/#31M2AP#10)
- - [PlaneRotationGizmo](https://www.babylonjs-playground.com/#31M2AP#11)
+ - <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo." image=""/>
+ - <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo." image=""/>
+ - <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo." image=""/>
 
 Snapping can be enabled on any of the single axis gizmos
 
@@ -101,13 +113,13 @@ gizmo.dragBehavior.onDragObservable.add(()=>{
 
 Classes for 3 axis gizmos are also provided which contain 3 of the single axis gizmos within 
 
- - [PositionGizmo](https://www.babylonjs-playground.com/#31M2AP#6)
- - [ScaleGizmo](https://www.babylonjs-playground.com/#31M2AP#8)
- - [RotationGizmo](https://www.babylonjs-playground.com/#31M2AP#7)
+ - <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo." image=""/>
+ - <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo." image=""/>
+ - <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo." image=""/>
 
 The single axis gizmos within these are exposed via the xGizmo, yGizmo and zGizmo properties. The scale gizmo also has a uniformScaleGizmo property which references center gizmo used to uniformly scale.
 
-# Bounding box Gizmo
+## Bounding box Gizmo
 
 The BoundingBoxGizmo displays a bounding box around an object as well as controls to rotate and scale the object.
 
@@ -163,11 +175,11 @@ gizmo.includeChildPredicate = (m)=>{return m == sphere2};
 
 UI can be attached to the bounding box using the [AttachToBoxBehavior](/How_To/MeshBehavior)
 
-[GLTF example](https://playground.babylonjs.com/#8GY6J8#20)
-[Animated GLTF example](https://playground.babylonjs.com/#6E4LSB#15)
-[Example](https://www.babylonjs-playground.com/#DEYAQ5#47)
+<Playground id="#8GY6J8#20" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file." image=""/>
+<Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file." image=""/>
+<Playground id="#DEYAQ5#47" title="Bounding Box Gizmo Example" description="Simple example of how to use the Bounding Box Gizmo." image=""/>
 
-# Gizmo customization
+## Gizmo customization
 
 To customize the visual appearance of an existing gizmo, create a mesh on the same utility layer and then setCustomMesh on the gizmo. Utility layers do not contain lights by default so it is recommended use a material with an emissive texture.
 ```
@@ -175,5 +187,4 @@ var customMesh = BABYLON.MeshBuilder.CreateBox("", {size: 0.1}, gizmo.gizmoLayer
 customMesh.material = material
 gizmo.setCustomMesh(customMesh)
 ```
-[Example](https://playground.babylonjs.com/#7KX2R8#133)
-
+<Playground id="#7KX2R8#133" title="Gizmo Customization Example" description="Simple example of how to customize the gizmo." image=""/>

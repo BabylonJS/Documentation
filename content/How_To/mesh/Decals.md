@@ -1,4 +1,16 @@
-# How to Use Decals
+---
+title: Decals
+image: 
+description: Learn how use decals in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, decals
+further-reading:
+    - title: Basic Shapes
+      url: /babylon101/Discover_Basic_Elements
+video-overview:
+video-content:
+---
+
+## How to Use Decals
 
 ![Decal](http://www.babylonjs.com/screenshots/decals.jpg)
 
@@ -19,9 +31,4 @@ normal|_(Vector3)_  the normal of the mesh where the decal is applied onto (Worl
 size|_(Vector3)_  the x, y, z sizes of the decal|(1, 1, 1)
 angle|_(number)_ the angle to rotate the decal|0
 
-[A Playground Example of Decals](https://www.babylonjs-playground.com/#1BAPRM#73) click on the cat.
-
-# Further Reading
-
-[Basic Shapes](/babylon101/Discover_Basic_Elements) 
- 
+<Playground id="#1BAPRM#73" title="Simple Example of Decals" description="Simple example of pasting decals in a Babylon.js scene." image=""/> click on the cat.
