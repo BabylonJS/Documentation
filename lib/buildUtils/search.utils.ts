@@ -65,6 +65,7 @@ export const addSearchItem = async (searchItem: ISearchIndexItem) => {
 
 export const clearIndex = async (isApi: boolean = false) => {
     if (!process.env.SEARCH_API_KEY) {
+        console.log("no search API key defined");
         return;
     }
     console.log("clearing search index. isApi:", isApi);
