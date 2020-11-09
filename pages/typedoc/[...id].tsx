@@ -29,7 +29,7 @@ export const ApiPage: FunctionComponent<{
     } catch (e) {
     }
     return (
-        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={id}>
+        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
             <Head>
                 {cssArray.map((css, idx) => {
                     return (
