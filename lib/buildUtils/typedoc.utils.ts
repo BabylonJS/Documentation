@@ -17,7 +17,6 @@ const tmpPath = path.join(process.cwd(), `.${sep}.temp`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
-    console.log(process.env);
     // force recreating the API docs when in production mode 
     if (process.env.NODE_ENV === "production") {
         console.log("making sure directory is empty", basePathResolved);
