@@ -1,30 +1,43 @@
-import { existsSync, readFile, readFileSync, writeFile, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { sep, join, resolve } from "path";
+import { getAllFiles } from "./tools";
 
+const tmpPath = join(process.cwd(), `.${sep}.temp`);
 const basePath = join(process.cwd(), `.${sep}public`);
-const sitemapFile = resolve(basePath, 'sitemap.xml');
+const tmpFile = resolve(tmpPath, `${process.pid}.xml`);
+const sitemapFile = resolve(basePath, `sitemap.xml`);
 
-export const addToSitemap = async (name: string, url: string, lastModified?: string) => {
-    if (!existsSync(sitemapFile)) {
-        await createSitemapFile();
+const cache = [];
+let timeout;
+
+export const addToSitemap = (name: string, url: string, lastModified?: string) => {
+    cache.push({
+        name,
+        url,
+        lastModified,
+    });
+
+    if (timeout) {
+        clearTimeout(timeout);
     }
-    const data = readFileSync(sitemapFile);
 
-    console.log('writing data to sitemap');
-
-    let theFile = data.toString().split("\n");
-    const endOfFile = theFile.splice(-1, 1);
-    endOfFile.unshift(`<url><loc>${url}</loc>${lastModified !== undefined ? `<lastmod>${lastModified}</lastmod>` : ""}</url>`);
-    writeFileSync(sitemapFile, [...theFile, ...endOfFile].join("\n"), {encoding: "utf-8"});
+    timeout = setTimeout(() => {
+        const endOfFile = [];
+        cache.forEach((c) => {
+            endOfFile.unshift(`<url><loc>${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
+        });
+        writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
+        writeAllToSitemap();
+    }, 600 * Math.random() + 200);
 };
 
-const createSitemapFile = async () => {
-    console.log('writing xml file');
-    writeFileSync(
-        sitemapFile,
-        `<?xml version="1.0" encoding="UTF-8"?>
-           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          </urlset>`,
-          {encoding: "utf-8"}
-    );
+export const writeAllToSitemap = () => {
+    const filenames = getAllFiles(tmpPath, [], ".xml");
+    const results = filenames.map((fn) => readFileSync(fn).toString());
+    const start = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>/</loc></url>
+    <url><loc>/search</loc></url>
+    <url><loc>/typedoc</loc></url>`
+    writeFileSync(sitemapFile, [`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`, ...results, `</urlset>`].join("\n"), { encoding: "utf-8" });
 };
