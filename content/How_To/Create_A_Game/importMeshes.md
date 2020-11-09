@@ -1,10 +1,20 @@
+---
+title: Importing Meshes
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, import, character
+further-reading:
+video-overview:
+video-content:
+---
+
 Importing meshes is actually a really simple process. It's just what you do with those meshes afterwards that can get tricky!
 
 The meshes for the environment and player will be linked below. We'll make a new folder called models inside of the public folder.
 
-# Environment Mesh
+## Environment Mesh
 Previously, we created an [Environment class](/how_to/page10#environment). In order to import our meshes, we'll neeed to add a [_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) function. 
-# _loadAsset
+## _loadAsset
 ```javascript
 const result = await SceneLoader.ImportMeshAsync(null, "./models/", "envSetting.glb", this._scene);
 
@@ -19,7 +29,7 @@ return {
 }
 ```
 Then, we return these objects to complete our environment set up.
-# load
+## load
 Now we need to update the **load** function to call **_loadAsset**. We use await to tell it that we'll be doing something with the returned value. Once our meshes have been imported, we want to set all of the necessary flags:
 ```javascript
 const assets = await this._loadAsset();
@@ -39,7 +49,7 @@ await this._environment.load(); //environment assets
 ```
 Notice how we are using *await* here. This is because we want to wait for the environment to be fully loaded and set up before we try to import our character mesh.
 
-# Character Mesh
+## Character Mesh
 Loading the character assets should also begin inside of _setUpGame. We want to make sure that we start loading our meshes before we actually go to the game state.
 
 Recall, we loaded our character assets in [_setUpGame](/how_to/page10#character-controller).
@@ -94,11 +104,11 @@ Instead of calling _goToGame when we click the next button, we can call it once 
 
 When you run the game now, you'll see the environment and character meshes in their raw form: all meshes imported are visible, and the character by default plays its animationGroups.
 
-# Further Reading
+## Further Reading
 **Previous:** [Character Movement Part 2](/how_to/page4)   
 **Next:** [Lanterns](/how_to/page7)
 
-# Resources
+## Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

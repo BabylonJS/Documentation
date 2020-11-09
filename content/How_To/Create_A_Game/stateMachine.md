@@ -1,9 +1,19 @@
+---
+title: Setting Up A State Machine
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, state, state machine
+further-reading:
+video-overview:
+video-content:
+---
+
 It's definitely possible to use a single scene for the entire application, but for my game, I wanted to separate the states into individual scenes. So, I created a state machine to handle rendering the different scenes of the entire game.
 
-# App.ts
+## App.ts
 Recall from the [Create a Scene](/how_to/page2#creating-a-scene) section of the getting set up tutorial that we made an app.ts file. This is going to be our main file that handles our scene creations and rendering. Starting with the constructor, we're going to break up our scene creation and rendering loop call into separate functions.
 
-# States
+## States
 How I went about this was by outlining all of the different scenes I would need for the game:
 - START
 - CUTSCENE
@@ -63,8 +73,8 @@ new App();
 ```
 I've also gone ahead and created a separate function for creating our canvas called [_createCanvas](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L103). Additionally, here is where we'll be starting to include the use of class variables (denoted by the *this* keyword).
 
-# GoTo Functions
-# Scene Setup
+## GoTo Functions
+## Scene Setup
 The goTo functions will be in charge of setting up the scene and consist of things that happen only once.
 
 Let's start with [_goToStart](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L129) for a simple example of how to set up a scene.
@@ -97,7 +107,7 @@ When the scene is ready, we hide the loading UI, dispose of the current stored s
 
 **VSCode users: At any point if you see an error for babylon specific components (like Color4 and FreeCamera...) hover over it and you should see a Quick Fix option, this will add it to your imports for you. If you don't see this, you can just manually add it to your imports at the top of the file**
 
-# GUI setup
+## GUI setup
 For now, we'll make a simple fullscreenUI with a button to transition between scenes. GUI elements will need to be imported `from "@babylonjs/gui"`.
 
 ```javascript
@@ -124,9 +134,9 @@ startBtn.onPointerDownObservable.add(() => {
 });
 ```
 Here what we're doing is creating an AdvancedDynamicTexture fullscreenUI. This is what's going to hold all of our gui elements. We then create a simple button and add an observable to detect when we click on it. This will trigger our scene to call goToCutScene. We want to make sure that we detach the controls since it's possible that as we hold down the mouse, goToCutScene gets called multiple times.
-# Other States
+## Other States
 The lose state will follow a similar format, but for organizational and performance purposes, the cutscene and game states have slightly different structures.
-# goToLose
+## goToLose
 ```javascript
 private async _goToLose(): Promise<void> {
     this._engine.displayLoadingUI();
@@ -159,7 +169,7 @@ private async _goToLose(): Promise<void> {
     this._state = State.LOSE;
 }
 ```
-# goToCutScene
+## goToCutScene
 The cutscene is set up normally along with the gui; however, what we do while in this state is what allows our game to be loaded properly. If you take a look at the [_goToCutScene](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L292) function, the scene setup is the same, but [scene finished loading](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L557) is slightly different. Notice how we don't have the hideLoadingUI. For now, we need to put this in, but in the final version I actually removed it since I hide it once my animations have finished loading and then trigger it to show once we've completed the dialogue, but the game is still loading.
 
 The most important aspect is what we do after that:
@@ -193,7 +203,7 @@ next.onPointerUpObservable.add(() => {
     this._goToGame();
 })
 ```
-# _setUpGame
+## _setUpGame
 The only thing here we need to worry about here for now is:
 ```javascript
 private async _setUpGame() {
@@ -204,7 +214,7 @@ private async _setUpGame() {
 }
 ```
 [_setUpGame](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L571) is where we are pre-creating the game scene and where we start to load all of our assets.
-# goToGame
+## goToGame
 If you look at the [_goToGame](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L603) function, we've actually encapsulated the camera setup and gui setup into their own functions. For now you can use the default UI and camera like so:
 ```javascript
 private async _goToGame(){
@@ -253,9 +263,9 @@ What we're doing here is setting up the scene normally and adding a simple butto
 
 We've also moved our light and sphere objects to this function, using this specific `scene`.
 
-# Switching States
+## Switching States
 Now that we have our scenes set up, how do we actually render and switch between them?! Within the constructor of App.ts, we want to call [main](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L65).
-# Main
+## Main
 The main function is where we'll be setting up our state machine. This will replace our current `this._engine.runRenderLoop` that we set up when we first [created the scene](/how_to/page2#creating-a-scene)
 ```javascript
 private async _main(): Promise<void> {
@@ -294,11 +304,11 @@ Now, when we run our game and progress through the states, we should see our sph
 
 If you're having trouble getting through the states, open the browser's inspector to see what error is being shown in the console (you might need to comment out the styling of the canvas to be able to open the inspector).
 
-# Further Reading
+## Further Reading
 **Previous:** [Getting Set Up](/how_to/page2)  
 **Next:** [Simple Game State](/how_to/page10)
 
-# Resources
+## Resources
 **Files Used:**
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 

@@ -1,4 +1,14 @@
-# Envrionment
+---
+title: Collisions & Triggers
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, collision, triggers
+further-reading:
+video-overview:
+video-content:
+---
+
+## Envrionment
 Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
 
 Recall that we loaded the assets in the [load](/how_to/page6#load) function. We then looped through the resulting meshes and allowed them to receive shadows and check collisions. Well, in this same forEach loop, this is where we want to specify our meshes that will be acting as collision boxes, the meshes that use those collision boxes, and the meshes that are trigger volumes.
@@ -31,7 +41,7 @@ We can break this up into 3 sections:
 
 ![before Setting Up](/img/how_to/create-a-game/beforeCollisionMeshes.png) ![after Setting Up](/img/how_to/create-a-game/afterCollisionMeshes.png)
 
-# Player and Collisions
+## Player and Collisions
 When we create our [Player class](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L105), we want to set up the interactions the player will have with the environment.
 
 We've already set up our actionManager, so now we will register new `ActionManager.OnIntersectionEnterTrigger` actions.
@@ -75,7 +85,7 @@ What we're doing here is setting up to check whenever the player intersects or c
 2. "World" ground detection
     - If we collide with the world ground, we want to reset our mesh's position to what we've stored in *this._lastGroundPos* (Recall that we actually update this every time we're grounded). This is actually a feature I added to account for world bounds that will basically reset the player's position to the last safe grounded position. That way, the player can never end up falling off or leaving the world and ending up in a "freefall" state.
 
-# Player and Trigger Volumes
+## Player and Trigger Volumes
 The trigger volumes in the scene are actually specifically for controlling the camera movement in areas of the game. So, respectively, these are located in the [_updateCamera](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L442) function. 
 
 ![rotation](/img/how_to/create-a-game/cornerrotation.gif)
@@ -115,11 +125,11 @@ if (this.mesh.intersectsMesh(this.scene.getMeshByName("destinationTrigger"))) {
 ```
 The two areas where we're rotating the camera up/down is when the character enters and exits the festival stall area. The festival area exits into the destination area. So if they enter the festival, tilt the camera downwards more, and if they leave through that same entrance, rotate it back to the original tilt. Likewise, if they exit to the destination area, return it back to the original camera tilt. (*Player.DOWN_TILT* and *Player.ORIGINAL_TILT* are constants defined at the top of the [Player](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L29) class.)
 
-# Further Reading
+## Further Reading
 **Previous:** [Lanterns](/how_to/page7)   
 **Next:** [Game GUI](/how_to/page11)
 
-# Resources
+## Resources
 **Files Used:**  
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
