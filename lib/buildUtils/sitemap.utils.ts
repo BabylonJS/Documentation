@@ -9,10 +9,10 @@ const sitemapFile = resolve(basePath, `sitemap.xml`);
 
 const cache = [];
 let timeout: NodeJS.Timeout;
-console.log("imported", process.pid);
 
 export const addToSitemap = (name: string, url: string, lastModified?: string) => {
-    if (process.env.NODE_ENV !== "production") {
+    // only in local production mode!
+    if (process.env.NODE_ENV !== "production" || process.env.ONLINE) {
         return;
     }
     cache.push({
@@ -20,8 +20,6 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         url,
         lastModified,
     });
-
-    console.log("cache", cache.length, process.pid);
 
     if (timeout) {
         clearTimeout(timeout);
@@ -32,16 +30,14 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         cache.forEach((c) => {
             endOfFile.unshift(`<url><loc>${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
         });
-        console.log("write", process.pid, endOfFile.length);
         writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
         writeAllToSitemap();
-    }, 300);
+    }, 800);
 };
 
 export const writeAllToSitemap = () => {
     const filenames = getAllFiles(tmpPath, [], ".xml");
     const results = filenames.map((fn) => readFileSync(fn).toString());
-    console.log("xml", filenames.length, process.pid);
     const start = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><loc>/</loc></url>
