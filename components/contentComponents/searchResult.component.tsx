@@ -9,7 +9,7 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
             display: "flex",
-            padding: theme.spacing(2)
+            padding: theme.spacing(2),
         },
         imageContainer: {
             position: "relative",
@@ -21,9 +21,18 @@ const styles = makeStyles((theme: Theme) =>
             flexDirection: "column",
         },
         pathContent: {
-            display: 'flex',
+            display: "flex",
+            flexWrap: "wrap",
             "& span": {
-                display: 'flex'
+                display: "flex",
+            },
+        },
+
+        titleContent: {
+            display: "flex",
+            flexWrap: "wrap",
+            "& span": {
+                marginRight: theme.spacing(1)
             },
         },
     }),
@@ -36,7 +45,7 @@ export const SearchResult: FunctionComponent<{ searchResult: ISearchResult }> = 
         ? searchResult.categories.map((category, idx) => {
               return {
                   name: category,
-                  url: idSplit.slice(0, idx+2).join("/"),
+                  url: idSplit.slice(0, idx + 2).join("/"),
               };
           })
         : [
@@ -50,20 +59,32 @@ export const SearchResult: FunctionComponent<{ searchResult: ISearchResult }> = 
         <div key={searchResult.id} className={classes.contentRoot}>
             {/* <div className={classes.imageContainer}></div> */}
             <div className={classes.textContent}>
-                <div className={classes.pathContent}>
-                    {path.map((result, idx) => {
-                        return (
-                            <span key={idx}>
-                                <Link key={result.url} href={result.url}>
-                                    <MaterialLink href={result.url}>
-                                        <span>{result.name}</span>
-                                    </MaterialLink>
-                                </Link>
-                                {idx < path.length - 1 && <ChevronRight></ChevronRight>}
-                            </span>
-                        );
-                    })}
+                <div className={classes.titleContent}>
+                    <span>
+                        <Link href={searchResult.path}>
+                            <MaterialLink href={searchResult.path}>
+                                <span>{searchResult.title}</span>
+                            </MaterialLink>
+                        </Link>
+                    </span>
+                    {searchResult.isApi && <span>[API] </span>}
                 </div>
+                {path.length > 1 && (
+                    <div className={classes.pathContent}>
+                        {path.map((result, idx) => {
+                            return (
+                                <span key={idx}>
+                                    <Link key={result.url} href={result.url}>
+                                        <MaterialLink href={result.url} variant="caption" color="secondary">
+                                            <span>{result.name}</span>
+                                        </MaterialLink>
+                                    </Link>
+                                    {idx < path.length - 1 && <ChevronRight></ChevronRight>}
+                                </span>
+                            );
+                        })}
+                    </div>
+                )}
                 <div>{searchResult.description}</div>
             </div>
         </div>
