@@ -108,7 +108,7 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                 </Link>
             </div>
             <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
-                <Image src={image} unsized={true}></Image>
+                <Image src={image} layout="fill"></Image>
             </div>
             <div className={classes.footer}>
                 [{type.toUpperCase()}] {description}
