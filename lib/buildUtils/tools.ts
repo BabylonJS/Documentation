@@ -139,6 +139,6 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         content,
         previous,
         next,
-        lastModified: lastModified.toUTCString(),
+        lastModified: lastModified ? lastModified.toUTCString() : '',
     };
 }
