@@ -1,3 +1,13 @@
+---
+title: Levels of Detail (LOD)
+image: 
+description: Learn the integrated LOD system in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, levels of detail, LOD
+further-reading:
+video-overview:
+video-content:
+---
+
 Babylon.js comes with an integrated support for level of detail.
 
 This feature allows you to specify different meshes based on distance to viewer.
@@ -29,9 +39,9 @@ knot00.removeLODLevel(knot02);
 knot00.removeLODLevel(null);
 ```
 
-Try: [LOD playground]( https://www.babylonjs-playground.com/#QE7KM)
+Try: <Playground id="#QE7KM" title="LOD Demo" description="Simple example of using the LOD system." image=""/>
 
-# Using LOD and instances
+## Using LOD and instances
 By default, instances will use LOD defined on root mesh. You do not have to specify anything on instances:
 
 ```javascript
@@ -60,4 +70,4 @@ for (var x = -count; x <= count; x++) {
 }
 ```
 
-Try: [LOD and instances playground]( https://www.babylonjs-playground.com/#14ESWC)
+Try: <Playground id="#14ESWC" title="LOD and Instances Demo" description="Simple example of using the LOD system with instances." image=""/>

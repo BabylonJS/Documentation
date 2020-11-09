@@ -1,16 +1,26 @@
+---
+title: Facet Data
+image: 
+description: Learn all about facet data in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, facet data
+further-reading:
+video-overview:
+video-content:
+---
+
 # Facet Data
 
-# What is FacetData ?
+## What is FacetData ?
 FacetData is a feature that can be enabled on a mesh.  
 As it requires some extra memory, it's not enabled by default.  
 This feature provides some methods and properties to access each facet of a mesh, like the facet positions, normals or the ability to retrieve all of a mesh facets in a given zone of the world space.
 
-# What is a mesh facet ?
+## What is a mesh facet ?
 We use here the term "facet" in order to be not confused with the term "face".  
 A mesh can have some planar faces. For example, a box has 6 sides, so 6 planar squared faces. Each of its faces are drawn at the WebGL level with 2 triangles.  
 We call "facets" these elementary triangles. 
 
-# How to enable the facet data ?
+## How to enable the facet data ?
 The feature `facetData` can work for any mesh whatever it is created from BJS provided shapes (box, sphere, cylinder, tube, parametric shapes, etc), cloned ones or instances, merged ones or imported ones from an external source (Blender, etc).  
 To enable this feature, just call once `updateFacetData()`.  
 If the mesh belongs to some parent-child relationship, the feature is then not enabled for its parents or children.  
@@ -34,8 +44,8 @@ console.log(mesh.isFacetDataEnabled);  // displays "false"
 The read-only property `.isFacetDataEnabled` returns the current state of the feature.   
 Note that disposing the mesh will automatically disable its facet data.  
 
-# The facet data tools
-## Facet position
+## The facet data tools
+### Facet position
 The position of a facet is the position of its barycenter.  
 You can get the position of the i-th facet of a mesh with `getFacetPosition(i)`. This returns a new `Vector3` that is the world coordinates of the facet center.  
 ```javascript
@@ -53,7 +63,7 @@ If you need to get some facet local position, call `getFacetLocalPositions()` to
 var localPositions = mesh.getFacetLocalPositions(); // returns the array of facet positions in the local space
 var localPos = localPositions[50];                  // Vector3 : the 50th facet local position
 ```
-## Facet normal
+### Facet normal
 The normal of a facet is the normalized vector orthogonal to the facet plane.  
 You can get the normal of the i-th facet of a mesh with `getFacetNormal(i)`. This returns a new `Vector3` that is the world coordinates of the facet normal.  
 ```javascript
@@ -71,7 +81,7 @@ If you need to get some facet local normal, call `getFacetLocalNormals()` to get
 var localNormals = mesh.getFacetLocalNormals();   // returns the array of facet normals in the local space
 var localPos = localNormals[50];                  // Vector3 : the 50th facet local position
 ```
-### Note
+#### Note
 All the methods dealing with the world coordinates use the mesh world matrix. As you may know, this matrix is automatically computed on the render call.  
 If you've just moved, scaled or rotated your mesh before calling the facetData methods using the world values and you're not sure about this, you can ever force the world matrix computation.  
 ```javascript
@@ -79,20 +89,20 @@ mesh.rotate.y += 0.2;               // the mesh will be rotated on the next rend
 mesh.computeWorldMatrix(true);      // force the world matrix computation
 var norm = mesh.getFacetNormal(50); // returns the world normal of the mesh 50th facet
 ```
-### Examples :  
-Displaying all the facet normals of an icosphere :  https://www.babylonjs-playground.com/#1YTZAC  
-Just change the mesh shape, torus knot :  https://www.babylonjs-playground.com/#1YTZAC#1  
-Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates :  https://www.babylonjs-playground.com/#1YTZAC#3  
-Of course, you can add some translation to the mesh and even some rotation to the box :  https://www.babylonjs-playground.com/#1YTZAC#4   
+#### Examples :  
+Displaying all the facet normals of an icosphere: <Playground id="#1YTZAC" title="Displaying Facet Data" description="Simple example of displaying all the facet normals of an icosphere." image=""/>
+Just change the mesh shape, torus knot : <Playground id="#1YTZAC#1" title="Displaying Facet Data - Torus Knot" description="Simple example of displaying all the facet normals of a torus knot." image=""/> 
+Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates: <Playground id="#1YTZAC#3" title="Displaying Facet Data" description="Simple example of displaying all the facet normals." image=""/> 
+Of course, you can add some translation to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals." image=""/>   
 
 Note also that the facet index is the same than the facet id `faceId` used by the pickingInfo object or the `faceId` used by the SPS when pickable.  
-Here is an example combining pickingInfo, pickable SPS and facetData facet index :  https://www.babylonjs-playground.com/#2FPT1A#119   
+Here is an example combining pickingInfo, pickable SPS and facetData facet index: <Playground id="#2FPT1A#119" title="Combining pickingInfo and facetData" description="Simple example combining pickingInfo, pickable SPS and facetData facet index." image=""/> 
 Just click and the ball is positionned at the clicked facet position, not a the clicked point.    
 
-## Mesh partitioning
+### Mesh partitioning
 The feature `facetData` provides also another tool called the mesh partitioning.  
 The mesh is logically divided in 3D blocks aligned with the X, Y and Z axis in its local space.  
-Here's an illustration about how this logical partitioning looks like (please wait until the skull is downloaded) :  https://www.babylonjs-playground.com/#UZGNA#5
+Here's an illustration about how this logical partitioning looks like (please wait until the skull is downloaded): <Playground id="#UZGNA#5" title="Mesh Partitioning" description="Simple example of mesh partitioning." image=""/> 
 In order to improve the visibility, the planes along the axis Z weren't displayed.  
 As you can see, there are by default 10 subdivisions on each axis.  
 When you call `updateFacetData()`, the indexes of the all the facets are sorted in the partioning array according to the facet belonging to each block.  
@@ -168,20 +178,20 @@ if (index != null) {
     // use the vector3 localProj here ...
 }
 ```
-### Note
+#### Note
 As said before, the returned facet indexes from all these former methods are the same values than the `PickingInfo` or pickable SPS `faceId` values. 
 So, you can easily mix all these features together. Ex : to get the facet normal from a picked mesh.  
 
-### Example
+#### Example
 A rotating torus knot with facet data enabled and a Solid Particle System (SPS) moving balls with simple custom physics :  
 
 * move the ball,
 * get the torus closest facet to the particle,
 * if any, bounce back the particle.    
 
- https://www.babylonjs-playground.com/#7ATLX
+ <Playground id="#7ATLX" title="Rotating Torus Knot With Facet Data" description="Simple example of rotating torus knot with facet data." image=""/>
 
-## Tweaking the partitioning
+### Tweaking the partitioning
 By default, the partitioning is set to 10 subdivisions per axis. These subdivisions are applied to the mesh bounding box.  
 Actually, it's a bit smarter. It divides the biggest bounding box dimension by 10 and adjust the other ones to their ratio to this biggest.  
 Example : if the mesh is sized 200 on X, 100 on Z and 3 on Y, it will subdive X in 10 subdivisions, Z in 5 subdivisions and Y in only 1.  
@@ -206,12 +216,12 @@ mesh.updateFacetData();              // now the internal block area if 5% bigger
 ```
 
 In order to understand, here are two examples :   
-ratio = 1.20 (20% bigger)   https://www.babylonjs-playground.com/#UZGNA#6    
-ratio = 0.80  (20% smaller)  https://www.babylonjs-playground.com/#UZGNA#7    
+ratio = 1.20 (20% bigger) <Playground id="#UZGNA#6" title="Partitioning With a Larger Ratio" description="Simple example of partitioning with a larger ratio." image=""/>   
+ratio = 0.80  (20% smaller) <Playground id="#UZGNA#7" title="Partitioning With a Smaller Ratio" description="Simple example of partitioning with a smaller ratio." image=""/>    
 Those examples aren't pertinent, because the values are too big or too small : the block area is too far from the mesh or inside the mesh.  
 Right values should keep between 1.0 and 1.10.  
 
-## Updating Facet Data
+### Updating Facet Data
 
 As said in the first part, you need to call once `updateFacetData()` to enable the feature.  
 This is enough if the mesh geometry keep unchanged afterwards.  
@@ -259,14 +269,14 @@ scene.registerBeforeRender(function() {
 });
 ```
 Example :   
-Custom simple physics on a dynamically morphed ribbon :  https://www.babylonjs-playground.com/#XVGK0#3  
+Custom simple physics on a dynamically morphed ribbon: <Playground id="#XVGK0#3" title="Physics On A Morphed Ribbon" description="Simple example of custom simple physics on a dynamically morphed ribbon." image=""/>
 
 
-## Facet Depth Sort  
+### Facet Depth Sort  
 
  As you may know, for performance reasons, the facets of a given mesh are always drawn in the same order. This comes to visual issues when the mesh is transparent, concave and is no longer oriented in the right place from the camera :
 
-https://playground.babylonjs.com/#FWKUY0 
+<Playground id="#FWKUY0" title="Facet Depth Sort 1" description="Simple example of using facet depth sort." image=""/>
 
 This new feature solves the self transparency issue by sorting the mesh facets from some location (the camera position by default) just before drawing them.  
 The mesh is **required** to be `updatable`.  
@@ -281,7 +291,8 @@ mesh.mustDepthSortFacets = true;             // enable the depth sort, can be di
 scene.registerBeforeRender(function() {
 mesh.updateFacetData();     // sort the facets each frame
 ```
-Example : https://playground.babylonjs.com/#FWKUY0#1   
+Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simple example of using facet depth sort." image=""/>
+
 Depth sorted on the left, standard on the right.  
 
 If don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
@@ -291,5 +302,4 @@ In both cases, the facet will keep the last given order.
 Note that if your mesh is a SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time than the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.   
 In this case, just choose what kind of sorting is better for you : at particle level (faster) or at facet level (more accurate).  
 
-As the facet depth sort reorganizes the mesh indices, it **can't work** with the MultiMaterials.   
-
+As the facet depth sort reorganizes the mesh indices, it **can't work** with the MultiMaterials.

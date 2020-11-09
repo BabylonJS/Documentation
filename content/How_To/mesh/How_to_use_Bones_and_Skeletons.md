@@ -1,4 +1,14 @@
-# Bones and Skeletons
+---
+title: Bones and Skeletons
+image: 
+description: Learn all about bones and skeletons in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, bones, skeletons, rigging
+further-reading:
+video-overview:
+video-content:
+---
+
+## Bones and Skeletons
 
 Babylon.js supports bones animations for your meshes.
 
@@ -23,7 +33,7 @@ The easiest way to do it is:
 skeleton.returnToRest();
 ```
 
-# Preparing mesh
+## Preparing mesh
 
 A skeleton can be applied to a mesh through the ```mesh.skeleton``` property.
 
@@ -49,7 +59,7 @@ By default the system will try to store the bone matrices into a texture to save
 skeleton.useTextureToStoreBoneMatrices = false;
 ```
 
-# Loading bones
+## Loading bones
 
 Skeletons and bones can be loaded from .babylon files.
 
@@ -66,9 +76,9 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 });
 ```
 
-A complete running example can be found [on this playground](https://www.babylonjs-playground.com/#92Y727)
+A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." image=""/>
 
-# Cloning bones
+## Cloning bones
 
 Bones and skeletons can be cloned (This is the case with the rabbits in the previous link).
 
@@ -95,7 +105,7 @@ BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", sce
     scene.beginAnimation(rabbit3.skeleton, 0, 72, true, 0.8);
 });
 ```
-# Cloning Complex Models
+## Cloning Complex Models
 More complex models, such as the Dude, contain submeshes. When cloning you must iterate and clone the submeshes as well. Here is an example of how to clone a more complex model:
 
 ```javascript
@@ -123,7 +133,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (
 }
 ```
 
-# Picking a mesh attached to a skeleton
+## Picking a mesh attached to a skeleton
 
 Because bones are computed by the GPU, the CPU has no clue where the mesh's vertices are. So picking a mesh with a skeleton will only work on the bind pose which could be sub-optimal.
 
@@ -136,7 +146,7 @@ var pickResult = scene.pick(scene.pointerX, scene.pointerY);
 
 Please keep in mind that this operation is using the CPU so it has to be used wisely as it could impact performance.
 
-# Attaching a mesh to a specific bone
+## Attaching a mesh to a specific bone
 
 Starting with babylon.js v2.2, you can now attach a mesh to a bone (like a sword in the hand of your character for instance). To do so, just specify on which bone with the following code:
 
@@ -145,54 +155,54 @@ sword.attachToBone(skeleton.bones[34], character);
 ```
 
 Please note that you also need to specify on which mesh the bone is currently applied.
-You can find a sample [on this playground](https://www.babylonjs-playground.com/#11BH6Z#18)
+You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone." image=""/>
 
-# Rotating, Positioning, and Scaling bones
+## Rotating, Positioning, and Scaling bones
 
 Starting with babylon.js v2.5, you can easily position, rotate, and scale bones.
 
 Bones can be rotated and positioned in local space and world space.  To move a bone in world space, you must pass BABYLON.Space.WORLD and the mesh to the method.  If a space isn't passed to the method, then the bone is moved in local space (relative to the parent bone).
 
 
-## Rotating
+### Rotating
 
 To rotate a bone around an axis, use the rotate function:
 
 ```javascript
 bone.rotate(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
-* rotate world space [demo](https://www.babylonjs-playground.com/#D4ZZ8#2)
-* rotate local space [demo](https://www.babylonjs-playground.com/#D4ZZ8#4)
+* <Playground id="#D4ZZ8#2" title="Rotated World Space" description="Simple example of rotating bones in world space." image=""/>
+* <Playground id="#D4ZZ8#4" title="Rotated Local Space" description="Simple example of rotating bones in local space." image=""/>
 
 setAxisAngle, setYawPitchRoll, setRotation, or setRotationMatrix are used to rotate a bone to a specific rotation.
 
 ```javascript
 bone.setAxisAngle(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
-* setAxisAngle world space [demo 1](https://www.babylonjs-playground.com/#D4ZZ8#8)
-* setAxisAngle world space [demo 2](https://www.babylonjs-playground.com/#D4ZZ8#9)
-* setAxisAngle local space [demo 1](https://www.babylonjs-playground.com/#D4ZZ8#10)
-* setAxisAngle local space [demo 2](https://www.babylonjs-playground.com/#D4ZZ8#11)
+* setAxisAngle world space: <Playground id="#D4ZZ8#8" title="SetAxisAngle World Space Demo 1" description="Simple example of using the setAxisAngle property in world space." image=""/>
+* setAxisAngle world space: <Playground id="#D4ZZ8#9" title="SetAxisAngle World Space Demo 2" description="Simple example of using the setAxisAngle property in world space." image=""/>
+* setAxisAngle local space: <Playground id="#D4ZZ8#10" title="SetAxisAngle Local Space Demo 1" description="Simple example of using the setAxisAngle property in local space." image=""/>
+* setAxisAngle local space: <Playground id="#D4ZZ8#11" title="SetAxisAngle Local Space Demo 2" description="Simple example of using the setAxisAngle property in local space." image=""/>
 
 ```javascript
 bone.setYawPitchRoll(yaw, pitch, roll, BABYLON.Space.WORLD, mesh);
 ```
-[demo](https://www.babylonjs-playground.com/#I6RJJ#56)
+<Playground id="#I6RJJ#56" title="Set Yaw Pitch Roll Example" description="Simple example of using the setYawPitchRoll method." image=""/>
 
 ```javascript
 bone.setRotation(rotation, BABYLON.Space.WORLD, mesh);
 ```
-[demo](https://www.babylonjs-playground.com/#I6RJJ#60)
+<Playground id="#I6RJJ#60" title="setRotation Example" description="Simple example of using the setRotation method." image=""/>
 
 ```javascript
 bone.setRotationQuaternion(quat, BABYLON.Space.WORLD, mesh);
 ```
-[demo](https://www.babylonjs-playground.com/#I6RJJ#61)
+<Playground id="#I6RJJ#61" title="setRotationQuaternion Example" description="Simple example of using the setRotationQuaternion method." image=""/>
 
 ```javascript
 bone.setRotationMatrix(rotMat, BABYLON.Space.WORLD, mesh);
 ```
-[demo](https://www.babylonjs-playground.com/#I6RJJ#57)
+<Playground id="#I6RJJ#57" title="setRotationMatrix Example" description="Simple example of using the setRotationMatrix method." image=""/>
 
 
 Use getRotation or getRotationToRef to get the Vector3 rotation of a bone.
@@ -206,7 +216,7 @@ var rotation = BABYLON.Vector3.Zero();
 
 bone.getRotationToRef(BABYLON.Space.WORLD, mesh, rotation);
 ```
-[demo](https://www.babylonjs-playground.com/#1EVNNB#12)
+<Playground id="#1EVNNB#12" title="getRotationToRef Example" description="Simple example of using the getRotationToRef method." image=""/>
 
 Use getRotationQuaternion or getRotationQuaternionToRef to get the Quaternion rotation of a bone.
 
@@ -219,11 +229,11 @@ var rotationQuaternion = BABYLON.Vector3.Zero();
 
 bone.getRotationQuaternionToRef(BABYLON.Space.WORLD, mesh, rotationQuaternion);
 ```
-[demo](https://www.babylonjs-playground.com/#1EVNNB#11)
+<Playground id="#1EVNNB#11" title="getRotationQuaternionToRef Example" description="Simple example of using the getRotationQuaternionToRef method." image=""/>
 
 You can also use `bone.rotation` to set and get local space rotation quaternion.
 
-## Positioning
+### Positioning
 
 To change the position of a bone, you can rotate the parent bone, or you can leave the parent where it is and directly modify the position of the bone.
 
@@ -231,15 +241,15 @@ One way to do this is by translating the bone from its current position.
 ```javascript
 bone.translate(x, y, z, BABYLON.Space.WORLD, mesh);
 ```
-[demo](https://www.babylonjs-playground.com/#1BZJVJ#32)
+<Playground id="#1BZJVJ#32" title="translate Example" description="Simple example of using the translate method." image=""/>
 
 If you need to set the bone to a specific location, use setPosition.
 
 ```javascript
 bone.setPosition(pos, BABYLON.Space.WORLD, mesh);
 ```
-* [demo 1](https://www.babylonjs-playground.com/#1BZJVJ#33)
-* [demo 2](https://www.babylonjs-playground.com/#1BZJVJ#34)
+* <Playground id="#1BZJVJ#33" title="setPosition Example 1" description="Simple example of using the setPosition method." image=""/>
+* <Playground id="#1BZJVJ#34" title="setPosition Example 2" description="Simple example of using the setPosition method." image=""/>
 
 To get the position of a bone, use getPosition or getPositionToRef.
 ```javascript
@@ -251,20 +261,20 @@ var pos = BABYLON.Vector3.Zero();
 
 bone.getPositionToRef(BABYLON.Space.WORLD, mesh, pos);
 ```
-[demo](https://www.babylonjs-playground.com/#1EVNNB#14)
+<Playground id="#1EVNNB#14" title="getPositionToRef Example" description="Simple example of using the getPositionToRef method." image=""/>
 
 You can also use `bone.position` to set and get local space position.
 
-## Scaling
+### Scaling
 
 You can scale a bone on the local x, y, z axes of the bone (it is a cumulative effect).
 ```javascript
 bone.scale(scaleX, scaleY, scaleZ);
 ```
-[demo](https://www.babylonjs-playground.com/#1EVNNB#9)
+<Playground id="#1EVNNB#9" title="scale Example" description="Simple example of using the scale method." image=""/>
 
 The last parameter of scale is scaleChildren.  Set scaleChildren to true if you want the scale to affect all the children / descendants of the bone. By default this parameter is off.
-[demo](https://www.babylonjs-playground.com/#1BZJVJ#117)
+<Playground id="#1BZJVJ#117" title="scale Children Example description="Simple example of using the scale method." image=""/>
 
 scale is called on every frame, because the character's animation resets the scale of the bones.
 
@@ -272,7 +282,7 @@ The setScale function can be used to directly set a bone to a certain scale vect
 ```javascript
 bone.setScale(scaleVector);
 ```
-[demo](https://www.babylonjs-playground.com/#D9U0UW#1) 
+<Playground id="#D9U0UW#1" title="setScale Example" description="Simple example of using the setScale method." image=""/>
 
 Use getScale or getScaleToRef to get the current scale of a bone.
 
@@ -287,11 +297,11 @@ bone.getScaleToRef(scale);
 
 You can also use `bone.scaling` to set and get local space scaling.
 
-# Bone Controllers
+## Bone Controllers
 
 Babylon.js v2.5 also introduced Bone controllers.
 
-## BoneLookController
+### BoneLookController
 
 The BoneLookController class is used to make a bone look toward a point in space.
 
@@ -307,10 +317,10 @@ scene.registerBeforeRender(function(){
 
 });
 ```
-[demo](https://www.babylonjs-playground.com/#1B1PUZ#15)
+<Playground id="#1B1PUZ#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method." image=""/>
 
 
-## BoneIKController
+### BoneIKController
 
 Inverse Kinematics (IK) is used to rotate a chain of bones so that the end of the first bone is at or closest to a target point.  It's often used to rotate the limbs of a character.
 
@@ -352,7 +362,7 @@ scene.registerBeforeRender(function(){
    ikCtrl.update();
 });
 ```
-[demo](https://www.babylonjs-playground.com/#1EVNNB#15)
+<Playground id="#1EVNNB#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method." image=""/>
 
 If you used a mesh for a target, you can hide it by setting enabled to false.
 
@@ -361,19 +371,19 @@ target.setEnabled(false);
 poleTarget.setEnabled(false);
 ```
 
-# Performance considerations
+## Performance considerations
 
 Bones are computed using shaders by default. This allows better performance. But on low end devices, shaders could be limited and not able to process bones. You can in this case ask Babylon.js to compute bones using CPU by setting `mesh.computeBonesUsingShaders = false`.
 
-# Debugging
+## Debugging
 
 Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](https://doc.babylonjs.com/features/playground_debuglayer#bones-viewer) on and off.
 
-## Debugging Extras
+### Debugging Extras
 
 Starting with Babylon.js v4.2, you have a few more options to debug a skeleton with.  We now have incorporated additional bone views, to help visualize the position of the bones which are accessible through the same means as explained in the above sections' Inspector link. Additionally two new methods have been added to construct ShaderMaterials for both a skeleton map and assigned bone weights.
 
-### New Viewer Info
+#### New Viewer Info
 
 There are some requirements to take into consideration when trying to use the view modes for the skeleton viewer. First the SkeletonViewer class accepts a new constructor argument of options that will dictate the visual look of the debug mesh. Through this new argument there a bunch of new options to configure the outcome. Note that this is not a required parameter and if omitted then the debug mesh will use classic lines system.
 
@@ -415,13 +425,13 @@ let displayModeOptions {
 };
 ```
 
-[Demo](https://playground.babylonjs.com/#BCU1XR#1616)
+<Playground id="#BCU1XR#1616" title="New Viewer Example" description="Simple example of using the new viewer." image=""/>
 
-### Debug Shader Usage
+#### Debug Shader Usage
 
 Sometimes you will need to actually see whart parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials! 
 
-#### SkeletonMap Shader
+##### SkeletonMap Shader
 
 The first one, which is a color map of the entire skeleton, is called a SkeletonMap. This will show you a unique color for each bone and visual feedback of how all of their influences interact. It's static method and when creating one, it expects two parameters, options and scene.
 
@@ -446,9 +456,9 @@ let colorMapItem = {
 };
 ```
 This array is expected to have the items arranged with their location value in ascending order.
-[Demo](https://playground.babylonjs.com/#BCU1XR#1618)
+<Playground id="#BCU1XR#1618" title="Skeleteon Map Shader" description="Simple example of using the skeleton map shader." image=""/>
 
-#### BoneWeight Shader
+##### BoneWeight Shader
 
 The second of the two will show more specific data on a per bone basis.
 
@@ -475,4 +485,4 @@ The bone that is to be displayed is controlled by setting a uniform on the shade
 boneWeightShader.setFloat(targetBoneIndex, index)
 ```
 
-[Demo](https://www.babylonjs-playground.com/#1BZJVJ#395)
+<Playground id="#1BZJVJ#395" title="Bone Weight Shader" description="Simple example of using the bone weight shader." image=""/>

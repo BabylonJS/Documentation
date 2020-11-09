@@ -1,4 +1,14 @@
-# How To Use MeshExploder
+---
+title: Exploding Meshes
+image: 
+description: Learn how to explode meshes in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, explode, mesh explode
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Use MeshExploder
 
 `MeshExploder` takes an array of meshes and increases/decreases distance to a center `Mesh`.
 
@@ -20,7 +30,7 @@ newExplosion.explode(-2);      //Implodes
 newExplosion.explode(0);       //Resets
 ```
 
-# Example Usage
+## Example Usage
 ```javascript
 var toExplodeArray = [];
 var sphere1 = BABYLON.MeshBuilder.CreateSphere('sphere1', { segments:12, diameter:2 }, scene);
@@ -58,7 +68,7 @@ scene.executeWhenReady(function() {
 });
 ```
 
-# Example Using the Babylon.js Viewer
+## Example Using the Babylon.js Viewer
 ```javascript
 BabylonViewer.viewerManager.getViewerPromiseById('babylon-viewer').then(function (viewer) {
     viewerObservables(viewer);
