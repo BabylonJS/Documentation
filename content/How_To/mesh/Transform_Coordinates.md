@@ -1,6 +1,16 @@
-# Examples of Coordinate Transformation
+---
+title: Coordinate Transformation Examples
+image: 
+description: Check out coordinate transformation examples in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, coordinate transform
+further-reading:
+video-overview:
+video-content:
+---
 
-# Satellite
+## Examples of Coordinate Transformation
+
+## Satellite
 
 Take a box that is rotating and translating from the top of which emerges a smaller box and travels in a direction always perpendicular to the top face of the box. 
 
@@ -28,9 +38,9 @@ The following code gives the animation.
     })
 ```
 
-Small box travels from Large Box https://www.babylonjs-playground.com/#TRAIXW#2
+Small box travels from Large Box: <Playground id="#TRAIXW#2" title="Small Box Travels From Large Box" description="Simple example of a small box traveling from a large box." image=""/>
 
-# Disc World
+## Disc World
 
 Imagine a disc flying around space with building on it. In fact the following example uses a thin cylinder as the disc since the top circular face is horizontal whilst the face of a disc in Babylon.js is vertical. (OK it does make any real difference but it more natural to start with a horizontal ground).
 
@@ -49,7 +59,6 @@ The building will be an array of boxes. Leaving the boxes as separate meshes wou
 
     });
 ```
-Disc World https://www.babylonjs-playground.com/#TRAIXW#5
+Disc World: <Playground id="#TRAIXW#5" title="Disc World" description="Simple example of a disc world with coordinate transformation." image=""/>
 
 One final step before considering using patents and pivots as a way of changing the center of transformation of a mesh is the more drastic step of changing the vertex data describing the mesh itself by baking a transformation into a mesh.
-

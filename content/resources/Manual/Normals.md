@@ -1,4 +1,18 @@
-# Vertex Normals
+---
+title: Vertex Normals
+image: 
+description: Learn all about vertex normals in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, vertex normals
+further-reading:
+    - title: Custom Meshes
+      url: /How_To/Custom.html
+    - title: Updating Vertices
+      url: /How_To/Updating_Vertices.html
+video-overview:
+video-content:
+---
+
+## Vertex Normals
 
 Each triangular facet of a mesh comprises three vertices.
 
@@ -10,11 +24,11 @@ Vertex normals are used by the [shader code](/resources/ShaderIntro) in calculat
 
 In the following two playgrounds see how the changing directions within the normals array affect how it is lit:
 
-* [Playground Example Showing Normals Varying in Unison](https://www.babylonjs-playground.com/#VKBJN#18)
+* <Playground id="#VKBJN#18" title="Vertex Normals Varying In Unison" description="Simple example of vertex normals varying in unison." image=""/>
 
-* [Playground Example Showing Normals Varying](https://www.babylonjs-playground.com/#VKBJN#19)
+* <Playground id="#VKBJN#19" title="Showing Normals Varying" description="Simple example of showing vertex normal variation." image=""/>
 
-# Normals and Minimum Vertices
+##Normals and Minimum Vertices
 
 ![Wireframe](/img/how_to/Mesh/box1.jpg)
 
@@ -34,7 +48,7 @@ the mathematical normal of the facet they belong to. They could however be the m
 
 Besides minimising the number of vertices needed there are other advantages as will be seen when creating a sphere.
 
-# Table of Indices, Positions and Normals for Box with Minimum Vertices
+## Table of Indices, Positions and Normals for Box with Minimum Vertices
 
 index | position | normal
 --- | --- | ---
@@ -47,7 +61,7 @@ index | position | normal
 6 | ( 1 ,  -1 ,  1 ) | ( 0.5773502691896258 ,  -0.5773502691896258 ,  0.5773502691896258 )
 7 | ( -1 ,  -1 ,  1 ) | ( -0.8164965809277261 ,  -0.4082482904638631 ,  0.4082482904638631 )
 
-# Normals and Flat Shaded Meshes.
+## Normals and Flat Shaded Meshes.
 
 There are times, such as needing each face of a box to be covered in a [different material](/resources/Facets.html), 
 when it is better to have the box constructed from seperate faces each of which are contructed by two facets and no two faces 
@@ -59,7 +73,7 @@ In BabylonJS this can be achieved using the `convertToFlatShadedMesh` function. 
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
-# Table of Indices, Positions and Normals for Flat Shaded Box
+## Table of Indices, Positions and Normals for Flat Shaded Box
 
 index | position | normal
 --- | --- | ---
@@ -88,21 +102,14 @@ index | position | normal
 22 | ( 1 ,  -1 ,  -1 ) | ( 0 ,  -1 ,  -0 )
 23 | ( -1 ,  -1 ,  1 ) | ( 0 ,  -1 ,  0 )
 
-# Playground Showing Box Normals
+## Playground Showing Box Normals
 
-* [Playground Example for Box Normals](https://www.babylonjs-playground.com/#1H7L5C#37)
+* <Playground id="#1H7L5C#37" title="Box Normals" description="Simple example of box normals." image=""/>
 
-# Advantage of Shared Normals
+## Advantage of Shared Normals
 
 Sharing normals means that the shader produces a rounder looking sphere since the vertex normals are the mathematical normals of the sphere surface.
 
 Applying the function `converToFlatShadedMesh` shows the individual faces making up the sphere. For a flat shaded sphere the normals of each facet are the mathematical normals of the facet.
 
-* [Playground Example Comparing Shading of Spheres](https://www.babylonjs-playground.com/#1H7L5C#38)
-
-# Further Reading
-
-[Custom Meshes](/How_To/Custom.html)  
-[Updating Vertices](/How_To/Updating_Vertices.html)
-
-
+* <Playground id="#1H7L5C#38" title="Comparing Shading of Spheres" description="Simple example comparing shading of spheres." image=""/>

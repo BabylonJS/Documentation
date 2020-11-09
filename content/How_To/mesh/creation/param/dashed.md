@@ -1,6 +1,16 @@
-# Dashed Lines
+---
+title: Creating Dashed Lines
+image: 
+description: Learn how to create dashed lines in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, dashed lines
+further-reading:
+video-overview:
+video-content:
+---
+
+## Dashed Lines
 Creates a contiguous series of dashed line segments from a list of points. You must set at least the _points_ option. On update, you must set the _points_ and _instance_ options properties and you should not change . Any other option will not be changed.
-# MeshBuilder
+## MeshBuilder
 Usage:
 ```javascript
 const options = {
@@ -37,11 +47,11 @@ gapSize = 1000;
 dashSize = 876;
 gapSize = dashSize;
 ```
-## Examples
-non updatable default dashed lines  https://www.babylonjs-playground.com/#TYF5GH#1  
-non updatable dashed lines set options  https://www.babylonjs-playground.com/#TYF5GH#2  
-non updatable 'closed' dashed lines https://www.babylonjs-playground.com/#TYF5GH#3  
-updatable example https://www.babylonjs-playground.com/#TYF5GH#4
+### Examples
+non updatable default dashed lines: <Playground id="#TYF5GH#1" title="Create Non Updatable Default Dashed Lines" description="Simple example of creating non updatable default dashed lines." image=""/> 
+non updatable dashed lines set options: <Playground id="#TYF5GH#2" title="Create Non Updatable Dashed Lines With Options" description="Simple example of creating non updatable dashed lines with options." image=""/>
+non updatable 'closed' dashed lines: <Playground id="#TYF5GH#3" title="Create Non Updatable Closed Dashed Lines" description="Simple example of creating non updatable closed dashed lines." image=""/>
+updatable example: <Playground id="#TYF5GH#4" title="Create Updatable Closed Dashed Lines" description="Simple example of creating updatable closed dashed lines." image=""/>
 
 Dashed lines are colored with a color property rather than a material.
 
@@ -49,9 +59,9 @@ Dashed lines are colored with a color property rather than a material.
 dashedlines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
-Colored Dashed Lines https://www.babylonjs-playground.com/#TYF5GH#5
+Colored Dashed Lines: <Playground id="#TYF5GH#5" title="Create Colored Dashed Lines" description="Simple example of creating colored dashed lines." image=""/>
 
-# Mesh
+## Mesh
 Usage:
 ```javascript
 const dashedlines = BABYLON.Mesh.CreateDashedLines("dashedLines", vector3 array, dashSize, gapSize, dashNb, scene);

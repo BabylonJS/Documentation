@@ -1,8 +1,18 @@
-# Capsule
+---
+title: Creating A Capsule
+image: 
+description: Learn how to create a capsule in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, capsule
+further-reading:
+video-overview:
+video-content:
+---
+
+## Capsule
 *Requires BJS version 4.2+*
 The created capsule has its origin at the center of the capsule. The height minus the sum of the top and bottom radius must be > 0.
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const capsule = BABYLON.MeshBuilder.CreateCapsule("ribbon", options, scene);  //scene is optional and defaults to the current scene
@@ -21,13 +31,13 @@ radiusBottom?|_(number)_  Overwrite for the bottom radius.
 topCapSubdivisions?|_(number)_ Overwrite for the top capSubdivisions.
 bottomCapSubdivisions?|_(number)_ Overwrite for the bottom capSubdivisions.
 
-## Examples
-Default capsule https://www.babylonjs-playground.com/#CL6HZ0  
-Different cap subdivisions https://www.babylonjs-playground.com/#CL6HZ0#1  
-Forward orientation https://www.babylonjs-playground.com/#CL6HZ0#2  
-Different radii https://www.babylonjs-playground.com/#CL6HZ0#3  
+### Examples
+Default capsule: <Playground id="#CL6HZ0" title="Create a Default Capsule" description="Simple example of creating a default capsule." image=""/>  
+Different cap subdivisions: <Playground id="#CL6HZ0#1" title="Create a Capsule With Subdivisions" description="Simple example of creating a capsule with subdivisions." image=""/>
+Forward orientation: <Playground id="#CL6HZ0#2" title="Create a Capsule With Foreward Orientation" description="Simple example of creating a capsule with forward orientation." image=""/>
+Different radii: <Playground id="#CL6HZ0#3" title="Create a Capsule With Different Radii" description="Simple example of creating a capsule with different radii." image=""/>
 
-# Mesh
+## Mesh
 ```javascript
 const capsule = BABYLON.Mesh.CreateCapsule("ribbon", options, scene);  //scene is optional and defaults to the current scene
 ```

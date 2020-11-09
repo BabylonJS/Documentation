@@ -1,11 +1,21 @@
-# Extruded Non Regular Polygon
+---
+title: Irregular Polygon Extrusion
+image: 
+description: Learn how extrude irregular polygons in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, irregular extrusion
+further-reading:
+video-overview:
+video-content:
+---
+
+## Extruded Non Regular Polygon
 *ExtrudePolygon* adds a *depth* option to *CreatePolygon*. The extrusion is carried out down the vertical y axis from the polygon shape in the horizontal xz plane. Like *CreatePolygon* it requires an Earcut script. Since it can be concave it requires a procedure to fill the polygon with triangles and an Earcut method is used. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
 
 On creation the local origin of the extruded polygon is coincident with the world origin. It is not possible to give a position relative to the extruded polygon as this depends on the data sets used.
 
 *ExtrudePolygon* calls [PolygonMeshBuilder](/How_To/polygonmeshbuilder). There is no *instance* option. You must set at least the _shape_ and _depth_ options. 
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const extrudedPolygon = BABYLON.MeshBuilder.ExtrudePolygon("polygon", options, scene); //scene is optional and defaults to the current scene
@@ -24,12 +34,12 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order;
 
-# Examples
-Extruded Polygon https://www.babylonjs-playground.com/#KIEYA6  
-Extruded Polygons using faceUV, one with wrap, one without https://www.babylonjs-playground.com/#KIEYA6#1
+## Examples
+Extruded Polygon: <Playground id="#KIEYA6" title="Extruding Irregular Polygons" description="Simple example of extruding irregular polygons." image=""/>
+Extruded Polygons using faceUV, one with wrap, one without: <Playground id="#KIEYA6#1" title="Extruding Irregular Polygons Advanced" description="Simple example of extruding irregular polygons." image=""/>
 
 
-# Mesh
+## Mesh
 ```javascript
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, depth, scene);
 let polygon = BABYLON.Mesh.CreatePolygon("polygon", shape, depth, scene, holes, updatable, sideOrientation); //optional parameters after scene

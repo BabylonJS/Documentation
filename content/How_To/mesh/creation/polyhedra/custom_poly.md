@@ -1,8 +1,18 @@
-# Custom Polyhedra
+---
+title: Creating Custom Polyhedra
+image: 
+description: Learn how to create custom polyhedra in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes
+further-reading:
+video-overview:
+video-content:
+---
+
+## Custom Polyhedra
 These are a further range of polyhedra that you can create although they need more steps to achieve. This is the reason for the *custom* option. All the other options, other than *type*, can be used with custom polyhedra.
 
 
-1.  Visit https://www.babylonjs-playground.com/#WL3U6F : minimize the code editor by unchecking the box by Editor under the Gear icon &#9881; (Options) and note the polyhedron names under the mouse pointer.  
+1.  Visit <Playground id="#WL3U6F" title="Custom Polyhedra" description="Simple example of custom polyhedra in Babylon.js." image=""/> and minimize the code editor by unchecking the box by Editor under the Gear icon &#9881; (Options) and note the polyhedron names under the mouse pointer.  
 ![Select a Polyhedron](/img/how_to/Mesh/polyhedra1.jpg);
 
 2. From the polyhedra.js file at https://github.com/BabylonJS/Extensions/tree/master/Polyhedron find the required name
@@ -28,9 +38,6 @@ const heptPrism1 = BABYLON.Mesh.CreatePolyhedron("h", {custom: heptagonalPrism},
 ```
  &nbsp;
  &nbsp;   
-HeptagonalPrism https://www.babylonjs-playground.com/#PBLS4Y#2  
-Heptagonal Prism with changed sizes https://www.babylonjs-playground.com/#PBLS4Y#3  
-Heptagonal Prism with face colors https://www.babylonjs-playground.com/#PBLS4Y#4
-
-
-
+HeptagonalPrism: <Playground id="#PBLS4Y#2" title="HeptagonalPrism" description="Simple example of a heptagonalPrism." image=""/>
+Heptagonal Prism with changed sizes: <Playground id="#PBLS4Y#3" title="HeptagonalPrism With Changed Sizes" description="Simple example of a heptagonalPrism with changed sizes." image=""/>
+Heptagonal Prism with face colors: <Playground id="#PBLS4Y#4" title="HeptagonalPrism With Face Colors" description="Simple example of a heptagonalPrism with face colors." image=""/>

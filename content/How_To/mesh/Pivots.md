@@ -1,4 +1,16 @@
-# A Pivot
+---
+title: Pivots
+image: 
+description: Learn about pivots in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, pivots
+further-reading:
+    - title: How To Rotate Around an Axis about a Point
+      url: /How_To/Pivot
+video-overview:
+video-content:
+---
+
+## A Pivot
 
 The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: https://www.babylonjs-playground.com/#GH4N1R#1
 
@@ -54,7 +66,7 @@ So there are two ways of setting a pivot, one that does not alter the position o
 In fact unless you have an older project coded for versions before 3.2 or want to [change the local origin to that of the pivot](/features/Position,_Rotation,_Scaling#pivot) do not use the _set pivot with move_ method. It is usually better to _set pivot only_ and then move the mesh as normal with _mesh.position_ or _mesh.translate_ When you do have an older project there is a simple way to update your project code to work with version 3.2 or later as described in the `Breaking Change` section below.
 
  
-# Breaking Change
+## Breaking Change
 
 You set a pivot at the point (x, y, z) with a translation matrix that using 
 
@@ -79,17 +91,17 @@ to
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z), false);
 ```
 
-# How To Set the Pivot Matrix
+## How To Set the Pivot Matrix
 
 To set a pivot at (x, y, z) relative to the local origin of a mesh requires the applied translation to be (-x, -y, -z).
 
 ```javascript
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z));
 ```
- * [Playground Example - Set Pivot Matrix](https://www.babylonjs-playground.com/#3RTT8P)
+ * <Playground id="#3RTT8P" title="Set Pivot Matrix" description="Simple example of setting a pivot matrix." image=""/>
 
 
-# How To Set Pivot Position to World Space Coordinates
+## How To Set Pivot Position to World Space Coordinates
 
 When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp, zp) then you need to use (xc - xp, yc - yp, zc - zp) as the translation.
 
@@ -97,27 +109,27 @@ When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(xc - xp, yc - yp, zc - zp));
 ```
 
-* [Playground Example - Set Pivot with World Coordinates](https://www.babylonjs-playground.com/#3RTT8P#2)
+* <Playground id="#3RTT8P#2" title="Set Pivot With World Coordinates" description="Simple example of setting a pivot with world coordinates." image=""/>
 
-# How To Reset the Pivot
+## How To Reset the Pivot
 
 Simply recalculate the translation of the pivot to the local origin of the mesh as above.
 
 The following sequence of playgrounds goes from setting the first pivot position to scaling about the second pivot position
 
-* [Playground Example - Set First Pivot](https://www.babylonjs-playground.com/#3RTT8P#3)
-* [Playground Example - Set Second Pivot](https://www.babylonjs-playground.com/#3RTT8P#11)
-* [Playground Example - Scaling from Second Pivot](https://www.babylonjs-playground.com/#3RTT8P#12)
+* <Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot." image=""/>
+* <Playground id="#3RTT8P#11" title="Set Second Pivot" description="Simple example of setting a second pivot." image=""/>
+* <Playground id="#3RTT8P#12" title="Scaling From Second Pivot" description="Simple example of scaling from a second pivot." image=""/>
 
 **NOTE:** When a mesh has been rotated before resetting the pivot on resetting the pivot the mesh will move since the current rotation will be applied to the new pivot point.
 
 The following sequence of playgrounds shows setting the first pivot, rotating around the pivot then resetting the pivot.
 
-* [Playground Example - Set First Pivot](https://www.babylonjs-playground.com/#3RTT8P#3)
-* [Playground Example - Rotate About First Pivot](https://www.babylonjs-playground.com/#3RTT8P#6)
-* [Playground Example - Set Second Pivot](https://www.babylonjs-playground.com/#3RTT8P#7)  
+* <Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot." image=""/>
+* <Playground id="#3RTT8P#6" title="Rotate About First Pivot" description="Simple example of rotating about a first pivot." image=""/>
+* <Playground id="#3RTT8P#7" title="Set Second Pivot" description="Simple example of setting a second pivot." image=""/>
 
-# How To Set and Get a Pivot Point
+## How To Set and Get a Pivot Point
 
 There are three useful functions to aid setting and getting a pivot point. These are
 
@@ -126,7 +138,7 @@ mesh.setPivotPoint(Vector3);
 mesh.getPivotPoint(); // returns Vector3
 mesh.getAbsolutePivotPoint(); // returns Vector3
 ```
-## Set Pivot Point
+### Set Pivot Point
 
 Using _setPivotPoint_ you simply pass a Vector3 object that is the relative position of the pivot to the local origin of the mesh. To set a pivot at (x, y, z) relative to the local origin of a mesh requires
 
@@ -134,20 +146,20 @@ Using _setPivotPoint_ you simply pass a Vector3 object that is the relative posi
 mesh.setPivotPoint(new BABYLON.Vector3(x, y, z));
 ```
 
-* [Playground Example - Set Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#8)
+* <Playground id="#3RTT8P#8" title="Set Pivot Point" description="Simple example of setting a pivot point." image=""/>
 
 When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp, zp) then the relative position is (xp - xc, yp - yc, zp - z) and use
 
 ```javascript
 mesh.setPivotPoint(BABYLON.Vector3(xp - xc, yp - yc, zp - z));
 ```
-* [Playground Example - Set Pivot Point to World Coordinates](https://www.babylonjs-playground.com/#3RTT8P#9)
+* <Playground id="#3RTT8P#9" title="Set Pivot Point" description="Simple example of setting a pivot point." image=""/>
 
 The following sequence of playgrounds goes from setting the first pivot point to scaling about the second pivot point
 
-* [Playground Example - Set First Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#10)  
-* [Playground Example - Set Second Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#14)  
-* [Playground Example - Scaling from Second Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#15)
+* <Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point." image=""/>
+* <Playground id="#3RTT8P#14" title="Set Second Pivot Point" description="Simple example of setting a second pivot point." image=""/>
+* <Playground id="#3RTT8P#15" title="Scaling From Second Pivot Point" description="Simple example of scaling from a second pivot point." image=""/>
 
 It is possible to reset the pivot point and maintain the position and rotation of the mesh.  
 
@@ -155,11 +167,11 @@ To do this the current rotation of the mesh has to be stored and then the mesh's
 
 The following sequence of playgrounds shows setting the first pivot point, rotating the pivot then resetting the pivot point and re-applying the rotation.
 
-* [Playground Example - Set First Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#10)  
-* [Playground Example - Rotate About First Pivot Point](https://www.babylonjs-playground.com/#3RTT8P#16)  
-* [Playground Example - Set Second Pivot Point and Rotate](https://www.babylonjs-playground.com/#3RTT8P#17)
+* <Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point." image=""/>
+* <Playground id="#3RTT8P#16" title="Rotate About First Pivot Point" description="Simple example of rotating about a first pivot point." image=""/>
+* <Playground id="#3RTT8P#17" title="Set Second Pivot Point and Rotate" description="Simple example of setting a second pivot point and rotating." image=""/>
 
-## Get Pivot Point 
+### Get Pivot Point 
 
 When using `getPivotPoint` or `getAbsolutePivotPoint` the results obtained depend on whether you are using a _set pivot only_ method, that is `setPivotMatrix(translation)` or `setPivotPoint` or the _set pivot with move_ method, that is `setPivotMatrix(translation)`.
 
@@ -188,12 +200,3 @@ In both of the following cases the box has then been rotated through 90 degrees,
 | box.getAbsolutePivotPoint() | (6, 1, 2)| Position of pivot which is the same as the position of the box due to the change in the box's local origin  |
 
 This table alone shows one good reason not to use the _set pivot with move_ method unless for amending old projects.
-
-# Further Reading
-
-# More Advanced - L3 
-
-[How To Rotate Around an Axis about a Point](/How_To/Pivot)  
-
-
-

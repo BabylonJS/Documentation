@@ -1,10 +1,20 @@
-# Custom Extruded Shapes
+---
+title: Custom Extrusion
+image: 
+description: Learn how custom extrusion works in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, custom extrusion
+further-reading:
+video-overview:
+video-content:
+---
+
+## Custom Extruded Shapes
 A custom extruded shape replaces the _rotation_ and _scale_ options with _rotationFunction_ or _scaleFunction_. These allow you to vary the rotation and scale of the mesh as it extrudes by defining them in terms of a path index or a distance along the path. Since the custom extrusion is based on the Babylon.js ribbon there are two options, *ribbonClosePath* which closes the profile shape and *ribbonCloseArray*, which closes the extrusion path array.
 
 On creation the local origin of a ribbon is coincident with the world origin. It is not possible to give a position relative to the constructed shape as this depends on the data sets used.
 
 
-# MeshBuilder
+## MeshBuilder
 Usage :
 ```javascript
 const options = {
@@ -51,24 +61,24 @@ You must set at least the _shape_ and _path_ options. On update, you must set th
 * distance is the current point distance from the beginning of the path. 
 
 
-## Examples
-non updatable extrusion https://www.babylonjs-playground.com/#ZMKN5T#1  
-update of extrusion scaleFunction and rotation Function https://www.babylonjs-playground.com/#ZMKN5T#2  
-offset open profile shape path defined by trigonometry  https://www.babylonjs-playground.com/#ZMKN5T#3  
-sine wave by alternately scaling positive/negative https://www.babylonjs-playground.com/#ZMKN5T#4  
-example of constant scale and rotation evolving with the distance https://www.babylonjs-playground.com/#ZMKN5T#5  
-non-linear rotation function https://www.babylonjs-playground.com/#ZMKN5T#6   
+### Examples
+non updatable extrusion: <Playground id="#ZMKN5T#1" title="Non Updatable Extrusion" description="Simple example of non updatable extrusion." image=""/>
+update of extrusion scaleFunction and rotation Function: <Playground id="#ZMKN5T#2" title="Updatable Extrusion" description="Simple example of updatable extrusion." image=""/>
+offset open profile shape path defined by trigonometry: <Playground id="#ZMKN5T#3" title="Offset Open Profile Shape Path Defined By Trigonometry" description="Simple example of offset open profile shape path defined by trigonometry." image=""/> 
+sine wave by alternately scaling positive/negative: <Playground id="#ZMKN5T#4" title="Sine Wave By Alternately Scaling Positive/Negative" description="Simple example of sine wave by alternately scaling positive/negative." image=""/>
+example of constant scale and rotation evolving with the distance: <Playground id="#ZMKN5T#5" title="Example Of Constant Scale And Rotation Evolving With The Distance" description="Simple example of example of constant scale and rotation evolving with the distance." image=""/> 
+non-linear rotation function: <Playground id="#ZMKN5T#6" title="Non-Linear Rotation Function" description="Simple example of non-linear rotation function." image=""/> 
 
-offset open profile shape : https://www.babylonjs-playground.com/#RF9W9#20    
-open extrusion path : https://www.babylonjs-playground.com/#RF9W9#21   
-Extrusion with constant scale 1 and no rotation : https://www.babylonjs-playground.com/#RF9W9#43  
- _ribbonCloseArray_ to true :https://www.babylonjs-playground.com/#RF9W9#44  
- _ribbonClosePath_ to true instead : https://www.babylonjs-playground.com/#RF9W9#45  
-Both true : https://www.babylonjs-playground.com/#RF9W9#46  
+offset open profile shape: <Playground id="#RF9W9#20" title="Offset Open Profile Shape" description="Simple example of offset open profile shape." image=""/>   
+open extrusion path: <Playground id="#RF9W9#21" title="Open Extrusion path" description="Simple example of open extrusion path." image=""/> 
+Extrusion with constant scale 1 and no rotation: <Playground id="#RF9W9#43" title="Extrusion With Constant Scale" description="Simple example of extrusion with constant scale 1 and no rotation." image=""/>
+ _ribbonCloseArray_ to true: <Playground id="#RF9W9#44" title="Custom Extrusion With ribbonCloseArray" description="Simple example of custom extrusion with ribbonCloseArray set to true." image=""/>
+ _ribbonClosePath_ to true instead: <Playground id="#RF9W9#45" title="Custom Extrusion With ribbonClosePath" description="Simple example of custom extrusion with ribbonClosePath set to true." image=""/> 
+Both true: <Playground id="#RF9W9#46" title="Custom Extrusion With ribbonClosePath and ribbonCloseArray" description="Simple example of custom extrusion with ribbonClosePath and ribbonCloseArray set to true." image=""/>
   
-generate strange shapes : https://www.babylonjs-playground.com/#RF9W9#47 
+generate strange shapes: <Playground id="#RF9W9#47" title="Strange Shapes With Custom Extrusion" description="Simple example of generating some strange shapes with custom extrusion." image=""/>
 
-# Mesh
+## Mesh
 Usage: 
 ```javascript
 let extrusion = BABYLON.Mesh.ExtrudeShapeCustom("extrusion", shape, path, scaleFunction, rotateFunction, ribbonCloseArray, ribbonClosePath, cap, scene);

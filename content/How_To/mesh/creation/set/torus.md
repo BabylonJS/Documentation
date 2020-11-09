@@ -1,7 +1,17 @@
-# Torus
+---
+title: Creating A Torus
+image: 
+description: Learn how to create a torus in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, torus
+further-reading:
+video-overview:
+video-content:
+---
+
+## Torus
 The created torus (doughnut shape) has its origin at the center of the torus. You can control its diameter and the thickness of its circular body.
 
-# MeshBuilder
+## MeshBuilder
 Example :
 ```javascript
 const torus = BABYLON.MeshBuilder.CreateTorus("torus", options, scene);
@@ -17,12 +27,12 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
-## Examples
-Thick https://www.babylonjs-playground.com/#IJGMXZ#1  
-Thin https://www.babylonjs-playground.com/#IJGMXZ#2
+### Examples
+Thick: <Playground id="#IJGMXZ#1" title="Create a Thick Torus" description="Simple example of creating a thick torus." image=""/>
+Thin: <Playground id="#IJGMXZ#2" title="Create a Thin Torus" description="Simple example of creating a thin torus." image=""/>
 
-# Mesh
-# Usage
+## Mesh
+## Usage
 ```javascript
 const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene);
 const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene, updatable, sideOrientation);  //optional parameters after scene

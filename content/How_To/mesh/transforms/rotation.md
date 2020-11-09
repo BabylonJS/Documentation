@@ -1,5 +1,15 @@
-# Transformations
-# Rotation
+---
+title: Mesh Rotation
+image: 
+description: Learn how to properly rotate a mesh in Babylon.js.
+keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, rotate, rotation
+further-reading:
+video-overview:
+video-content:
+---
+
+## Transformations
+## Rotation
 Rotation in 3D space is always tricky. The order in which rotations are applied and the frame of reference used changes the final orientation of a mesh. There is a range of conventions for applying rotations in 3D modelling. More on those later in this section.
 
 To help in visualizing orientation this asymmetric mesh is used in examples
@@ -58,7 +68,3 @@ Red x axis, green y axis, blue z axis.
 From 0 rotation rotate &pi;/2 about y, then &pi;/2 about x, then &pi;/2 about z.
 
 However sometimes you want to rotate around axes other than the x, y and z axes in local space and set a sequence of rotations of your own order.
-
-
-
-
