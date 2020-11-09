@@ -75,9 +75,11 @@ var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: paths },  s
 ```  
 
 <Playground id="#3XMWZ#45" title="Ribbon With CloseArray" description="Simple example of creating a ribbon With CloseArray set to true." image=""/>
+
 ```javascript
 var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: paths, closeArray: true },  scene );
 ```
+
 <Playground id="#3XMWZ#49" title="Textured Ribbon" description="Simple example of creating a textured ribbon." image=""/>
 
 Notice that the texture isn't stretched on the surface added by the automatic closing but applied independently. 
@@ -86,11 +88,14 @@ If you don't care about continuous light reflection but you do want your texture
 you just have to forget automatic closing and close the ribbon by yourself. A simple way to do this is just to re-push the first _path_ at the end of the _pathArray_
 
 <Playground id="#3XMWZ#50" title="Closed Textured Ribbon" description="Simple example of creating a closed textured ribbon." image=""/>
+
 ```javascript
 paths.push(paths[0]);
 var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", { pathArray: paths },  scene );
 ``` 
 
-The same rules and workarounds apply to the _closePath_ parameter.  
+The same rules and workarounds apply to the _closePath_ parameter.
+
 <Playground id="#3XMWZ#52" title="Ribbon With ClosePath" description="Simple example of creating a ribbon with closePath set to true." image=""/>
+
 <Playground id="#3XMWZ#51" title="Textured Ribbon With ClosePath" description="Simple example of creating a textured ribbon with closePath set to true." image=""/>
