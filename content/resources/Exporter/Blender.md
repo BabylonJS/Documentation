@@ -168,7 +168,7 @@ This add-on use the standard Blender installation procedure:
 
 # Animation
 
-(_Note: this part is under construction. You can also check [this forum thread](http://www.html5gamedevs.com/topic/36596-blender-exporter-doc-needs-feedback/) where some informations are centralised before it is written here._)
+(_Note: this part is under construction. You can also check [this forum thread](https://www.html5gamedevs.com/topic/36596-blender-exporter-doc-needs-feedback/) where some informations are centralised before it is written here._)
 
 ## Commons & Good practices
 
@@ -207,8 +207,8 @@ Now, you already have a basic scene with animations autoplaying in it.
 
 Once your scene is exported, you have multiple solutions to test it:
 
--   quick check it into the [sandbox](http://sandbox.babylonjs.com/)
--   edit the file through the [editor](http://editor.babylonjs.com/)
+-   quick check it into the [sandbox](https://sandbox.babylonjs.com/)
+-   edit the file through the [editor](https://editor.babylonjs.com/)
 -   use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
 -   script your own app using the [loader](/how_to/load_from_any_file_type)
 

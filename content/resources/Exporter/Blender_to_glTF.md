@@ -28,7 +28,7 @@ To help transforming, note that the BabylonJS loader will automatically set glTF
 
 Once your scene is exported, you have multiple solutions to test it:
 
-- quick check using the [sandbox](http://sandbox.babylonjs.com/)
+- quick check using the [sandbox](https://sandbox.babylonjs.com/)
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
 - script your own app using the [loader](/How_To/Load_From_Any_File_Type)
 

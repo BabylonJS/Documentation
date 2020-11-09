@@ -46,7 +46,7 @@ But this bounding box can be more or less precise, and that’s why we have our 
 
 So think about the collisions details you need before to choose.
 
-If you want more information about this second parameter, you can have a look at this Wikipedia page, especially about AABB and OBB mode: [http://en.wikipedia.org/wiki/Bounding_volume](http://en.wikipedia.org/wiki/Bounding_volume)
+If you want more information about this second parameter, you can have a look at this Wikipedia page, especially about AABB and OBB mode: [https://en.wikipedia.org/wiki/Bounding_volume](https://en.wikipedia.org/wiki/Bounding_volume)
 
 ### Intersect point
 

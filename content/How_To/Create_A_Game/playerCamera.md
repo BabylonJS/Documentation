@@ -1,5 +1,5 @@
 # Summary
-For this game, I wanted to create a third person camera that would follow the character, but still allow them to move freely and jump within camera view. In the beginning I struggled to find a good camera movement and cycled between different camera types and parenting hierarchies. Eventually, I decided to use the Universal Camera as it allowed for the most freedom in manipulating the camera view while still being able to lock onto the character mesh. I also came across the blog posts on [suzy cube's](http://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html) camera system. I decided to give it a try since the system allowed for different manipulations of the camera while still following the character.
+For this game, I wanted to create a third person camera that would follow the character, but still allow them to move freely and jump within camera view. In the beginning I struggled to find a good camera movement and cycled between different camera types and parenting hierarchies. Eventually, I decided to use the Universal Camera as it allowed for the most freedom in manipulating the camera view while still being able to lock onto the character mesh. I also came across the blog posts on [suzy cube's](https://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html) camera system. I decided to give it a try since the system allowed for different manipulations of the camera while still following the character.
 
 # Camera Hierarchy
 Previously, in [Simple Game State](/how_to/page10#character-controller) we made a _setupPlayerCamera. Here is where we'll be creating our camera hierarchy.
@@ -62,4 +62,4 @@ In order to update our camera's position we want to lerp from its current positi
 **Files Used:** [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
 # External
-[Suzy Cube's Camera System](http://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html)
+[Suzy Cube's Camera System](https://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html)

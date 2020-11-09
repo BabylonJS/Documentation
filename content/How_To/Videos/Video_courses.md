@@ -4,7 +4,7 @@ Watch the creators of Babylon.js in this entertaining deep dive into 3D game dev
 
 **NOTE:** For the **sample code** used throughout this course, please visit: https://github.com/deltakosh/MVA3DHTML5GameDev
 
-Instructors | [David Catuhe](http://twitter.com/deltakosh) - Microsoft Principal Program Manager; [David Rousset](http://twitter.com/davrous) - Microsoft Senior Program Manager
+Instructors | [David Catuhe](https://twitter.com/deltakosh) - Microsoft Principal Program Manager; [David Rousset](https://twitter.com/davrous) - Microsoft Senior Program Manager
 
 <img src="http://az612410.vo.msecnd.net/wwwbabylonjs/doc/agendavideoscourse.jpg" alt="Agenda"/>
 

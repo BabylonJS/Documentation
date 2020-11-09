@@ -17,14 +17,10 @@ const tmpPath = path.join(process.cwd(), `.${sep}.temp`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
-    // force recreating the API docs when in production mode 
+    // force recreating the API docs when in production mode
     if (process.env.NODE_ENV === "production") {
         console.log("making sure directory is empty", basePathResolved);
         await del(tmpPath);
-    }
-    // only run this when building for master
-    if (process.env.PRODUCTION) {
-        await clearIndex(true);
     }
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
@@ -62,7 +58,17 @@ export const generateTypeDoc = async () => {
 
     console.log("API done");
 
-    return getTypeDocFiles();
+    const files = getTypeDocFiles();
+
+    // clear the search index if needed
+    // only run this when building for master
+    if (process.env.PRODUCTION) {
+        // only remove those that don't exist anymore
+        const existingDocs = files.map(({ params }) => `/typedoc/${params.id.join("/")}`);
+        await clearIndex(true, existingDocs);
+    }
+
+    return files;
 };
 
 export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {

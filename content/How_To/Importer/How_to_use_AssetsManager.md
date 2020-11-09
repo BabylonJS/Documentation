@@ -146,7 +146,7 @@ To launch all the tasks, you have to call:
 assetsManager.load();
 ```
 
-* You can see a live demo [here](http://www.babylonjs.com/scenes/assets)
+* You can see a live demo [here](https://www.babylonjs.com/scenes/assets)
 * Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.jpg"/>
 
 ## Available tasks
@@ -300,7 +300,7 @@ public texture: EquiRectangularCubeTexture;
 
 By default, the AssetsManager will display a loading screen while loading assets:
 
-![](http://www.babylonjs.com/Screenshots/assets.jpg)
+![](https://www.babylonjs.com/Screenshots/assets.jpg)
 
 If you want to disable the loading screen, you have to set ```useDefaultLoadingScreen``` to false:
 
