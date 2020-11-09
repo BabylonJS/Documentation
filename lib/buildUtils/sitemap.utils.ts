@@ -26,15 +26,16 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         cache.forEach((c) => {
             endOfFile.unshift(`<url><loc>${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
         });
+        console.log(process.pid, endOfFile.length)
         writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
         writeAllToSitemap();
-    }, 500);
+    }, 300);
 };
 
 export const writeAllToSitemap = () => {
     const filenames = getAllFiles(tmpPath, [], ".xml");
     const results = filenames.map((fn) => readFileSync(fn).toString());
-    console.log('writing', filenames.length);
+    console.log('writing', filenames.length, process.pid);
     const start = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><loc>/</loc></url>
