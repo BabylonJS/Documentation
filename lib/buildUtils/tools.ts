@@ -5,7 +5,7 @@ import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
 import matter from "gray-matter";
 import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
 import { IDocumentationPageProps, IExampleLink } from "../content.interfaces";
-import { addSearchItem } from "./search.utils";
+import { addSearchItem, addPlaygroundItem } from "./search.utils";
 import { addToSitemap } from "./sitemap.utils";
 
 import puppeteer from "puppeteer";
@@ -177,11 +177,17 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         for (const [all, full, type, exampleId] of matches) {
             const realType = type === "nme" ? "nme" : "pg";
             const imageUrl = /image="(.*)"/.test(full) && /image="(.*)"/.exec(full)[1];
-            const title = /title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1];
-            const description = /decription="(.*)"/.test(full) && /decription="(.*)"/.exec(full)[1];
             if (!process.env.ONLINE && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);
             }
+            const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
+            const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1]) || "";
+            addPlaygroundItem({
+                title,
+                description,
+                id: exampleId[0] ? exampleId.substr(1) : exampleId,
+                keywords: metadata.keywords.split(","),
+            });
         }
     }
 
