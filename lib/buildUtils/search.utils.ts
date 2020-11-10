@@ -38,8 +38,8 @@ const headers = {
     "api-key": process.env.SEARCH_API_KEY,
 };
 
-const getUrl = (type: string, indexName: string = 'newdocs') => {
-    return `https://babylonjs-doc.search.windows.net/indexes/${indexName}/docs/${type}?api-version=2020-06-30`;
+const getUrl = (type: string, indexName: string = 'documents') => {
+    return `https://babylonjs-newdocs.search.windows.net/indexes/${indexName}/docs/${type}?api-version=2020-06-30`;
 };
 
 export const addSearchItem = async (searchItem: ISearchIndexItem) => {
