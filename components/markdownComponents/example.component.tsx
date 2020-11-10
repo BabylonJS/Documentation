@@ -31,7 +31,7 @@ const styles = makeStyles((theme: Theme) =>
                 marginTop: theme.spacing(0.5),
             },
             "& a": {
-                color: "white",
+                color: "white !important",
             },
         },
     }),
@@ -79,7 +79,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                 <LinkIcon></LinkIcon>
                             </span>
                             <span>{example.title}</span>
-                            <Link href={getExampleLink(example)}>
+                            <Link href={getExampleLink(example, false)}>
                                 <a target="_blank">
                                     <span>
                                         <ExternalLinkIcon></ExternalLinkIcon>

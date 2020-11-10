@@ -82,7 +82,7 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
     const { id, title, description, image, type } = example;
     const classes = exampleStyles();
-    const link = getExampleLink(example);
+    const link = getExampleLink(example, false);
     // just as a test
 
     const onPlaygroundPressed = () => {

@@ -8,7 +8,7 @@ import { ISearchResult } from "../../lib/buildUtils/search.utils";
 
 import SearchIcon from "@material-ui/icons/Search";
 
-const baseQueryURL = "https://babylonjs-newdocs.search.windows.net/indexes/newdocs/docs?api-version=2020-06-30&search=";
+const baseQueryURL = "https://babylonjs-newdocs.search.windows.net/indexes/documents/docs?api-version=2020-06-30&search=";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
