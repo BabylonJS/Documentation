@@ -31,7 +31,7 @@ const styles = makeStyles((theme: Theme) =>
                 marginTop: theme.spacing(0.5),
             },
             "& a": {
-                color: "white",
+                color: "white !important",
             },
         },
     }),
