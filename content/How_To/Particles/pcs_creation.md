@@ -1,3 +1,13 @@
+---
+title: Creating A Point Cloud System
+image: 
+description: Learn how to create a point cloud system in Babylon.js.
+keywords: diving deeper, point cloud, point cloud system
+further-reading:
+video-overview:
+video-content:
+---
+
 # PCS Creation
 
 To create an empty PCS requires three parameters; its name, the size for every particle and the scene, for example
@@ -18,7 +28,7 @@ pcs.addPoints(10000);
 
 will add 10000 points.
 
--   [Playground Example - Add Points Default](https://www.babylonjs-playground.com/#UI95UC)
+-   <Playground id="#UI95UC" title="Adding Point Cloud Points" description="Simple example of adding point cloud points." image=""/>
 
 You can use your own function as a second parameter to set particle properties such as position and color. This function must have this kind of signature:
 
@@ -69,7 +79,7 @@ will displace the second group of points along the x axis.
 
 ![use groupId](/img/how_to/particles/points2.jpg)
 
--   [Playground Example - Pass a Function](https://www.babylonjs-playground.com/#UI95UC#1)
+-   <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points." image=""/>
 
 ## Add Surface / Volume Points
 
@@ -145,18 +155,18 @@ BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) 
 
 **Examples**
 
--   [Playground Example - Surface Random](https://www.babylonjs-playground.com/#UI95UC#2)
--   [Playground Example - Surface Stated](https://www.babylonjs-playground.com/#UI95UC#3)
--   [Playground Example - Surface Color from Mesh Color](https://www.babylonjs-playground.com/#UI95UC#4)
--   [Playground Example - Surface Color from Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#5)
--   [Playground Example - Surface UV from Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#6)
--   [Playground Example - Surface Color from Imported Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#28)
--   [Playground Example - Volume Random](https://www.babylonjs-playground.com/#UI95UC#7)
--   [Playground Example - Volume Stated](https://www.babylonjs-playground.com/#UI95UC#8)
--   [Playground Example - Volume Color from Mesh Color](https://www.babylonjs-playground.com/#UI95UC#9)
--   [Playground Example - Volume Color from Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#10)
--   [Playground Example - Volume UV from Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#11)
--   [Playground Example - Volume Color from Imported Mesh Texture](https://www.babylonjs-playground.com/#UI95UC#29)
+-   <Playground id="#UI95UC#2" title="Random Surface" description="Simple example of a point cloud system with random surfaces." image=""/>
+-   <Playground id="#UI95UC#3" title="Stated Surface" description="Simple example of a point cloud system with stated surfaces" image=""/>
+-   <Playground id="#UI95UC#4" title="Surface Color from Mesh Color" description="Simple example of a point cloud system with surface color from mesh color." image=""/>
+-   <Playground id="#UI95UC#5" title="Surface Color from Mesh Texture" description="Simple example of a point cloud system with surface color from mesh texture." image=""/>
+-   <Playground id="#UI95UC#6" title="Surface UV from Mesh Texture" description="Simple example of a point cloud system with surface UV from mesh texture." image=""/>
+-   <Playground id="#UI95UC#28" title="Surface Color from Imported Mesh Texture" description="Simple example of a point cloud system with surface color from an imported mesh texture." image=""/>
+-   <Playground id="#UI95UC#7" title="Random Volume" description="Simple example of a point cloud system with random volume." image=""/>
+-   <Playground id="#UI95UC#8" title="Stated Volume" description="Simple example of a point cloud system with stated volume." image=""/>
+-   <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color." image=""/>
+-   <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture." image=""/>
+-   <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture." image=""/>
+-   <Playground id="#UI95UC#29" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture." image=""/>
 
 ## Building the Mesh
 
