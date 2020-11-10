@@ -1,3 +1,13 @@
+---
+title: Changing Particle Properties Over Time
+image: 
+description: Learn how to change particle properties over time in Babylon.js.
+keywords: diving deeper, particles, particle system, particle tuning
+further-reading:
+video-overview:
+video-content:
+---
+
 # Change Particle Behaviors Over Time
 Some properties of a particle, size or color for example, can be changed over their lifetime. Others, such as emit rate, start size or lifetime, can be changed over the duration of the particle system.
 
@@ -23,7 +33,7 @@ particleSystem.remove<PROPERTY>Gradient(fraction_of_time_period_elapsed);
 ```
 There are two time periods used one for a particle lifetime and one for the system duration both running from 0, start to 1, stop.
 
-# Change Size Over Lifetime
+## Change Size Over Lifetime
 To change size over the lifetime of the particle use
 
 ```javascript
@@ -42,10 +52,10 @@ To remove a size gradient you use
 ```javascript
 particleSystem.removeSizeGradient(0.4);
 ```
-Size increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#18  
-Size increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#19
+Size increases over lifetime: <Playground id="#0K3AQ2#18" title="Particle Size Increases Over Liftime" description="Simple example of particle size increasing over the lifteime of a particle." image=""/>
+Size increases then decreases over lifetime: <Playground id="#0K3AQ2#19" title="Particle Size Increases Then Decreases Over Liftime" description="Simple example of particle size increasing then decreasing over the lifteime of a particle." image=""/>
 
-# Change Color Over Lifetime
+## Change Color Over Lifetime
 
 To change size over the lifetime of the particle use
 ```javascript
@@ -66,10 +76,10 @@ To remove a color gradient you use
  particleSystem.removeColorGradient(0.4);
  ```
 
-color change over lifetime https://www.babylonjs-playground.com/#0K3AQ2#20  
-color change with ranges over lifetime https://www.babylonjs-playground.com/#0K3AQ2#22
+color change over lifetime: <Playground id="#0K3AQ2#20" title="Particle Color Change Over Liftime" description="Simple example of particle color changing over the lifteime of a particle." image=""/>
+color change with ranges over lifetime: <Playground id="#0K3AQ2#22" title="Particle Color Change With Ranges Over Liftime" description="Simple example of particle color changing with ranges over the lifteime of a particle." image=""/>
 
-# Change Speed Over Lifetime
+## Change Speed Over Lifetime
 To change the speed (magnitude of velocity) over the lifetime of the particle use
 
 ```javascript
@@ -89,10 +99,10 @@ To remove a velocity gradient you use
 particleSystem.removeVelocityGradient(0.4);
 ```
 
-Speed increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#29  
-Speed increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#30
+Speed increases over lifetime: <Playground id="#0K3AQ2#29" title="Particle Speed Increases Over Liftime" description="Simple example of particle speed increasing over the lifteime of a particle." image=""/>
+Speed increases then decreases over lifetime: <Playground id="#0K3AQ2#30" title="Particle Speed Increases Then Decreases Over Liftime" description="Simple example of particle speed increasing then decreasing over the lifteime of a particle." image=""/>
 
-# Limit Speed Over Lifetime
+## Limit Speed Over Lifetime
 You can define by how much to limit the speed of a particle with
 ```javascript
 particleSystem.limitVelocityDamping = 0.1; //damping factor
@@ -117,9 +127,9 @@ To remove a speed limit gradient you use
 particleSystem.removeLimitVelocityGradient(0.4);
 ```
 
-Speed limit increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#33
+Speed limit increases over lifetime: <Playground id="#0K3AQ2#33" title="Particle Speed Limit Increases Over Liftime" description="Simple example of particle speed limit increasing over the lifteime of a particle." image=""/>
 
-# Change Rotation Speed Over Lifetime
+## Change Rotation Speed Over Lifetime
 To change the rotation or angular speed over the lifetime of the particle use
 
 ```javascript
@@ -139,10 +149,10 @@ To remove a angular speed gradient you use
 particleSystem.removeAngularSpeedGradient(0.4);
 ```
 
-AngularSpeed increases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#26  
-AngularSpeed increases then decreases over lifetime https://www.babylonjs-playground.com/#0K3AQ2#27
+AngularSpeed increases over lifetime: <Playground id="#0K3AQ2#26" title="Particle AngularSpeed Increases Over Liftime" description="Simple example of particle Angularspeed increasing over the lifteime of a particle." image=""/>
+AngularSpeed increases then decreases over lifetime: <Playground id="#0K3AQ2#27" title="Particle AngularSpeed Increasing and Decreasing Over Liftime" description="Simple example of particle Angularspeed increasing and decreasing over the lifteime of a particle." image=""/>
 
-# Change Drag Over Lifetime
+## Change Drag Over Lifetime
 You can simulate air friction by applying a drag to the particle and you can change the amount of drag a particle experiences over its lifetime. Drag is applied in the direction of the particles velocity. A drag of 0.8 will reduce the velocity to 20% of its value. When the drag is &gt; 1 the particles direction will reverse.
 
 To change drag over the lifetime of the particle use
@@ -163,10 +173,10 @@ To remove a drag gradient you use
 ```javascript
 particleSystem.removeDragGradient(0.4);
 ```
-Drag &le; 1 https://www.babylonjs-playground.com/#0K3AQ2#39  
-Drag &gt; 1  https://www.babylonjs-playground.com/#0K3AQ2#40
+Drag &le; 1: <Playground id="#0K3AQ2#39" title="Particle Drag Changing Over Liftime 1" description="Simple example of particle drag changing over the lifteime of a particle." image=""/>
+Drag &gt; 1: <Playground id="#0K3AQ2#40" title="Particle Drag Changing Over Liftime 2" description="Simple example of particle drag changing over the lifteime of a particle." image=""/> 
 
-# Change Emit Rate Over Duration
+## Change Emit Rate Over Duration
 For example as energy builds over the duration of the particle system and increases the emit rate you might use,
 
 ```javascript
@@ -190,11 +200,11 @@ remove gradient at 0.4
 particleSystem.removeEmitRateGradient(0.4);
 ```
 
-Faster emit rate over duration https://www.babylonjs-playground.com/#0K3AQ2#13
+Faster emit rate over duration: <Playground id="#0K3AQ2#13" title="Particle Faster Emission Rate Over Duration" description="Simple example of faster particle emission rates over the duration." image=""/>
 
-Increasing and then decreasing emit rates over duration https://www.babylonjs-playground.com/#0K3AQ2#14
+Increasing and then decreasing emit rates over duration: <Playground id="#0K3AQ2#14" title="Increasing Then Decreasing Emission Rates Over Duration" description="Simple example of increasing then decreasing the emission rate over the duration." image=""/>
 
-# Change Lifetime Over Duration
+## Change Lifetime Over Duration
 
 For example to shorten lifetime as energy is used up over the duration of the particle system you might use,
 
@@ -219,11 +229,11 @@ remove gradient at 0.4
 particleSystem.removeLifeTimeGradient(0.4);
 ```
 
-Shorter lifetimes over duration https://www.babylonjs-playground.com/#0K3AQ2#9  
-Increasing and then decreasing lifetimes over duration https://www.babylonjs-playground.com/#0K3AQ2#15
+Shorter lifetimes over duration: <Playground id="#0K3AQ2#9" title="Shorter Lifetimes Over Duration" description="Simple example of shortening lifetimes of particles over duration." image=""/> 
+Increasing and then decreasing lifetimes over duration: <Playground id="#0K3AQ2#15" title="Increasing and Decreasing Lifetimes Over Duration" description="Simple example of increasing and then decreasing lifetimes over duration." image=""/>
 
 
-## Change Start Size Over Duration
+### Change Start Size Over Duration
 To change the size of a particle on emission over the duration of the particle system use
 
 ```javascript
@@ -247,6 +257,4 @@ remove gradient at 0.4
 particleSystem.removeStartSizeGradient(0.4);
 ```
 
-Increasing start sizes over duration https://www.babylonjs-playground.com/#0K3AQ2#41 
-
-
+Increasing start sizes over duration: <Playground id="#0K3AQ2#41 " title="Increasing Particle Start Sizes Over Duration" description="Simple example of increasing particle start sizes over duration." image=""/>
