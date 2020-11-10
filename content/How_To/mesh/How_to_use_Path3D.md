@@ -34,12 +34,12 @@ var binormals = path3D.getBinormals();
 
 each element of the arrays is a ```Vector3``` .
 
-* <Playground id="#2DLXYB#0" title="Tangents, Normals, and Binormals" description="Simple example of exploring tangents, normals, and binormals." image=""/>
+<Playground id="#2DLXYB#0" title="Tangents, Normals, and Binormals" description="Simple example of exploring tangents, normals, and binormals." image=""/>
 
 Please zoom in and rotate : tangents in red, normals in blue, binormal in green.  
 
 Notice, in the next example, how the the triplets slightly rotate when the curve goes more into depth.  
-* <Playground id="#2DLXYB#1" title="Tangents, Normals, and Binormals - Color Coded" description="Simple example of exploring color coded tangents, normals, and binormals." image=""/>
+<Playground id="#2DLXYB#1" title="Tangents, Normals, and Binormals - Color Coded" description="Simple example of exploring color coded tangents, normals, and binormals." image=""/>
 
 Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](#set_the_normal)
 
@@ -119,7 +119,7 @@ As can been in the diagram below, when the parameter is a vertical vector (black
 
 The playground example shows what happens as the vector setting the normal direction is rotated.
 
-* <Playground id="#8ICWNU" title="Path3D with Rotating Normals" description="Simple example of Path3D with rotating normals." image=""/>
+<Playground id="#8ICWNU" title="Path3D with Rotating Normals" description="Simple example of Path3D with rotating normals." image=""/>
 
 ## Normalization and tangent alignment
 

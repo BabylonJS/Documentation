@@ -41,16 +41,16 @@ boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 box.material = boxMaterial;
 ```
 
-* <Playground id="#UU7RQ#2" title="Different Reflections On Each Face" description="Simple example of different reflections on each face of a mesh." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction1.jpg"/>
+<Playground id="#UU7RQ#2" title="Different Reflections On Each Face" description="Simple example of different reflections on each face of a mesh." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction1.jpg"/>
 
 From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
 
 ### Reflecting on Skybox and a shape
 Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
 
-* <Playground id="#UU7RQ#3" title="Box and CUBIC_MODE Reflection" description="Simple example of a box and CUBIC_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
-* <Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE Reflection" description="Simple example of a ground and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
-* <Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE Reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
+<Playground id="#UU7RQ#3" title="Box and CUBIC_MODE Reflection" description="Simple example of a box and CUBIC_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
+<Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE Reflection" description="Simple example of a ground and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
+<Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE Reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
 
 ### Using local cubemap mode
 
@@ -84,7 +84,7 @@ with
 skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
 ```
 
-* <Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
+<Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
 ## EquiRectangularCubeTexture
 Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).
@@ -104,9 +104,9 @@ cubemapDesiredSize = 512; // The cubemap desired size (the more it increases the
 skyboxMaterial.reflectionTexture = new BABYLON.EquiRectangularCubeTexture("PATH TO EQUIRECTANGULAR IMAGE", scene, cubemapDesiredSize);
 ```
 
-* <Playground id="#6YN2X1" title="Equirectangular Skybox" description="Simple example of an equirectangular HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction7.jpg"/>
-* <Playground id="#32H1D4" title="Equirectangular Image On A Sphere" description="Simple example of an equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction8.jpg"/>
-* <Playground id="#RY8LDL" title="Both Combined" description="Simple example of an equirectangular skybox and equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
+<Playground id="#6YN2X1" title="Equirectangular Skybox" description="Simple example of an equirectangular HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction7.jpg"/>
+<Playground id="#32H1D4" title="Equirectangular Image On A Sphere" description="Simple example of an equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction8.jpg"/>
+<Playground id="#RY8LDL" title="Both Combined" description="Simple example of an equirectangular skybox and equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
 
 ## Spherical Reflection Texture
 Not only can a cube texture can be applied to a sphere so can a plane single image.
@@ -122,13 +122,13 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 | Diffuse Texture | SPHERICAL_MODE |
 | PLANAR\_MODE | PROJECTION\_MODE |
 
-* <Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
+<Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
 
 ## Mirrors
 So far reflections have been of images, using _MirrorTexture_ obects within the scene can be reflected as in a mirror. This is simulated by
 by setting the _reflectionTexture_ to a _MirrorTexture_ and applying it to a flat surface.
 
-* <Playground id="#1YAIO7#5" title="Mirrors" description="Simple example of using mirrors in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction11.jpg"/>
+<Playground id="#1YAIO7#5" title="Mirrors" description="Simple example of using mirrors in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction11.jpg"/>
 
 A real mirror is made of two parts glass and a reflected surface applied to the glass and a mirror simulated within
 BJS also contains to parts; a flat surface and a reflector. (For a reflective surface such as metal or still water - think metal plus shine and water plus air boundary).
@@ -199,12 +199,12 @@ _MirrorTexture_ can support blurred rendering with either:
 * adaptiveBlurKernel: setting this value to something other than 0 will blur the texture with a specified kernel (the bigger the blurrier). The value will be adapted to the viewport size.
 * blurKernel: same as adaptiveBlurKernel property but the value is not adapted to viewport size.
 
-* <Playground id="#LVTTQX#1" title="Reflection Blur" description="Simple example of using reflection blur in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/>
+<Playground id="#LVTTQX#1" title="Reflection Blur" description="Simple example of using reflection blur in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/>
 
 # Refraction
 In this case an object behind glass or under water for example can have its position and size changed by the refraction of light.
 
-* <Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/>
+<Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/>
 
 Refraction is also achieved by taking a flat surface such as a plane or disc and adding, this this case, a refraction material applied to a flat mesh. The difference is that the object
 that is to be refracted is placed behind the flat surface, that is the normals of the mesh all point away from the object and the refracted normals are in the same direction.
@@ -239,5 +239,5 @@ The two examples below show the effect of changing these.
 *Note* in both examples the surfaces are transparent so that the actual position of the sphere can be identified. It is the refracted
 sphere that changes psoition as the parameters are changed.
 
-* <Playground id="#1YAIO7#20" title="Refraction Depth" description="Simple example of using refraction depth in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
-* <Playground id="#1YAIO7#19" title="Index Of Refraction" description="Simple example of changing the index of refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction15.jpg"/>
+<Playground id="#1YAIO7#20" title="Refraction Depth" description="Simple example of using refraction depth in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
+<Playground id="#1YAIO7#19" title="Index Of Refraction" description="Simple example of changing the index of refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction15.jpg"/>

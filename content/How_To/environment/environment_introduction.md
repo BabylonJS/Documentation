@@ -113,7 +113,7 @@ var envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", sce
 scene.createDefaultSkybox(envTexture, true, 1000);
 ```
 
-* <Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg"/>
+<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg"/>
 
 Check out [scene helpers](/how_to/fast_build) for more information on this and other helpers.
 

@@ -20,7 +20,7 @@ The first step is to produce code that works. You can of course immediately foll
 
 So an alternative is to try out the code in the playground. The following playground shows the Typescript code for a bezier surface which is in development with the playground.
 
-* <Playground id="H3AF26#1" title="Playground Code Example - Bezier Surface" description="Simple playground example of a Bezier Surface." image="/img/playgroundsAndNMEs/divingDeeperUsingPlaygrounds1.jpg"/>
+<Playground id="H3AF26#1" title="Playground Code Example - Bezier Surface" description="Simple playground example of a Bezier Surface." image="/img/playgroundsAndNMEs/divingDeeperUsingPlaygrounds1.jpg"/>
 
 Though this shows working code it is not completely ready for copying into a local repository of Babylon.js, committing and sending a PR. For a start not all the comments needed are in place. 
 

@@ -52,7 +52,7 @@ The _length()_ method returns the curve length.
 var path = bezier2.getPoints();
 var l = bezier2.length();
 ```
-* <Playground id="#W0XSPA" title="Drawing A Bezier Quadratic Curve" description="Simple example of drawing a bezier quadratic curve." image=""/>
+<Playground id="#W0XSPA" title="Drawing A Bezier Quadratic Curve" description="Simple example of drawing a bezier quadratic curve." image=""/>
 
 ## Cubic Bezier curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve# Higher-order_curves
@@ -75,7 +75,7 @@ var path = bezier3.getPoints();
 var l = bezier3.length();
 ```
 
-* <Playground id="#EY3EW4" title="Drawing A Bezier Cubic Curve" description="Simple example of drawing a bezier cubic curve." image=""/>
+<Playground id="#EY3EW4" title="Drawing A Bezier Cubic Curve" description="Simple example of drawing a bezier cubic curve." image=""/>
 
 
 ## Hermite Spline
@@ -100,7 +100,7 @@ var path = hermite.getPoints();
 var l = hermite.length();
 ```
 
-* <Playground id="#P94GHL" title="Drawing A Hermite Spline" description="Simple example of drawing a Hermite Spline curve." image=""/>
+<Playground id="#P94GHL" title="Drawing A Hermite Spline" description="Simple example of drawing a Hermite Spline curve." image=""/>
 
 ## Catmull-Rom Spline  
 https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Catmull.E2.80.93Rom_spline  
@@ -125,8 +125,8 @@ var path = catmullRom.getPoints();
 var l = catmullRom.length();
 ```
 
-* <Playground id="#1AU0M4" title="Drawing A Catmull-Rom Spline Open Curve" description="Simple example of drawing a Catmull-Rom Spline Open Curve." image=""/>
-* <Playground id="#1AU0M4#18" title="Drawing A Catmull-Rom Spline Closed Curve" description="Simple example of drawing a Catmull-Rom Spline Closed Curve." image=""/>
+<Playground id="#1AU0M4" title="Drawing A Catmull-Rom Spline Open Curve" description="Simple example of drawing a Catmull-Rom Spline Open Curve." image=""/>
+<Playground id="#1AU0M4#18" title="Drawing A Catmull-Rom Spline Closed Curve" description="Simple example of drawing a Catmull-Rom Spline Closed Curve." image=""/>
 
 ## Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
@@ -192,7 +192,7 @@ continued = continued.continue(hermite);
 var closedCurve = BABYLON.Mesh.CreateLines("closed", continued.getPoints(), scene);
 ```
 
-* <Playground id="#2GCEVH" title="Closed Joined Curves" description="Simple example of closed joined curves." image=""/>
+<Playground id="#2GCEVH" title="Closed Joined Curves" description="Simple example of closed joined curves." image=""/>
 
 The orange and yellow curves are the original Bezier curves.   
 In light blue, these two curves are continued by each other and a hermite curve is also added in continuation to close the path.   

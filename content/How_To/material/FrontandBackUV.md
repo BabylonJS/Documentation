@@ -50,11 +50,11 @@ plane.material = mat;
 
 ## Two Sided Examples
 
-* <Playground id="#LXZPJK#3" title="Different Images On A Plane" description="Simple example of applying different images to the front and back of a plane." image="/img/playgroundsAndNMEs/divingDeeperFrontBack1.jpg"/>
-* <Playground id="#4G18GY#2" title="Different Images On A Polygon" description="Simple example of applying different images to the front and back of a Polygon." image="/img/playgroundsAndNMEs/divingDeeperFrontBack2.jpg"/>
+<Playground id="#LXZPJK#3" title="Different Images On A Plane" description="Simple example of applying different images to the front and back of a plane." image="/img/playgroundsAndNMEs/divingDeeperFrontBack1.jpg"/>
+<Playground id="#4G18GY#2" title="Different Images On A Polygon" description="Simple example of applying different images to the front and back of a Polygon." image="/img/playgroundsAndNMEs/divingDeeperFrontBack2.jpg"/>
 
 ## Inside and Outside Examples
 
-* <Playground id="#165IV6#74" title="Different Images On A Tube" description="Simple example of applying different images to the front and back of a tube." image="/img/playgroundsAndNMEs/divingDeeperFrontBack3.jpg"/>
-* <Playground id="#K6M44R#3" title="Image On The Outside Of A Sphere" description="Simple example of applying an image to the outside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack4.jpg"/>
-* <Playground id="#K6M44R#4" title="Image On The Inside Of A Sphere" description="Simple example of applying an image to the inside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack5.jpg"/>
+<Playground id="#165IV6#74" title="Different Images On A Tube" description="Simple example of applying different images to the front and back of a tube." image="/img/playgroundsAndNMEs/divingDeeperFrontBack3.jpg"/>
+<Playground id="#K6M44R#3" title="Image On The Outside Of A Sphere" description="Simple example of applying an image to the outside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack4.jpg"/>
+<Playground id="#K6M44R#4" title="Image On The Inside Of A Sphere" description="Simple example of applying an image to the inside of a sphere." image="/img/playgroundsAndNMEs/divingDeeperFrontBack5.jpg"/>

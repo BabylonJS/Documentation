@@ -34,7 +34,7 @@ alignHorizontal| _(number)_ positions whole tiles at left, right or center of a 
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE 
 
-* <Playground id="#FAP6ZC#3" title="Create a Tiled Box" description="Simple example of creating a tiled box." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes3.jpg"/>
+<Playground id="#FAP6ZC#3" title="Create a Tiled Box" description="Simple example of creating a tiled box." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes3.jpg"/>
 
 The values for the options *pattern* property are the following constants
 
