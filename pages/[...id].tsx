@@ -169,6 +169,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths,
         getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
     );
+    // TODO solve this more elegantly. 
+    // This is done since index is not a part of this dynamic url mapping (next.js issue)
+    paths.shift();
     return {
         paths,
         fallback: false,
