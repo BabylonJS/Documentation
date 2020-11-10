@@ -15,10 +15,14 @@ Particle systems are an awesome way to add more depth to actions & movements in 
 The most important particle system of my game was the fireworks as it was the only one that was essential to the game. This was supposed to give an awesome ending!
 I used a playground as reference on how to make the fireworks. You can't actually use the exact code that's here in a local project because it uses some properties of the particle system that are only available in the playground. So, I had to make some adjustments to the code to get it to work.
 
-Here's the original [Playground](https://www.babylonjs-playground.com/#ZXI9H#4)
-Here's the modified [Playground](https://playground.babylonjs.com/#IR1S8R#10)
+Here's the original playground  
+PG: <Playground id="#ZXI9H#4" title="Fireworks Base Playground" description="Playground Basis for Rocket Firework" image=""/>  
+Here's the modified playground  
+PG: <Playground id="#IR1S8R#10" title="Fireworks Modified Playground" description="Playground Modified Rocket." image=""/>  
+
 
 ![fireworks](/img/how_to/create-a-game/fireworks.gif)
+
 
 ## Setting Up the Particle Systems
 Similar to this playground, I made a [Firework class](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L170). There are two parts to a firework:
@@ -188,7 +192,9 @@ In order to toggle this on/off when the sparkler goes out, I just passed the obj
 
 ![sparklerTimeout](/img/how_to/create-a-game/sparklergoingout.gif)
 
-You can look at how I made the particle system in this [Playground Demo](https://playground.babylonjs.com/#6EGCCM)
+You can look at how I made the particle system in this playground  
+PG: <Playground id="#6EGCCM" title="Flower Sparkler Playground" description="Playground demonstration of flower sparkler." image=""/>
+
 ## Lantern Stars
 I wanted to give some sort of extra feedback to the player when they lit a lantern so that it felt like an accomplishment. I decided to add this really simple star particle system.
 
@@ -196,7 +202,8 @@ I wanted to give some sort of extra feedback to the player when they lit a lante
 
 I created a [_loadStars](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/lantern.ts#L75) function that made the particle system and called it in the Lantern constructor. Then, when *setEmissiveTexture* is called, I started the particle system.
 
-You can look at how I made the particle system in this [Playground Demo](https://playground.babylonjs.com/#YLGJ52)
+You can look at how I made the particle system in this playground  
+PG: <Playground id="#YLGJ52" title="Starburst Playground" description="Playground demonstration of starburst." image=""/>
 
 It took a bit of messing around with to get the exact effect, so this is where the editor can come in super handy as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last as the particle system won't loop in the editor if you have this set. 
 

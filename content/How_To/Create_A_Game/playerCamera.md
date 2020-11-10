@@ -67,10 +67,5 @@ In order to update our camera's position we want to lerp from its current positi
 ## Resources
 **Files Used:** [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
-<<<<<<< HEAD
 ### External
 [Suzy Cube's Camera System](http://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html)
-=======
-# External
-[Suzy Cube's Camera System](https://louardongames.blogspot.com/2016/10/lessons-from-suzy-cube-camera-system.html)
->>>>>>> 4e16b48eee88fcdd9107c92af0c4541f53c74177

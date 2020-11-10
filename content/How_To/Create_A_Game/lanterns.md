@@ -180,9 +180,11 @@ this._scene.getMeshByName("__root__").getChildMeshes().forEach(m => {
 //get rid of the sphere
 this._lightSphere.dispose();
 ```
-This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights." image=""/>
+This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this 
 
-**Note: the implemenation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/how_to/page17#lights) section.**
+PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights." image=""/>
+
+**Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/how_to/page17#lights) section.**
 
 Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one since that one is pre-lit)!
 
