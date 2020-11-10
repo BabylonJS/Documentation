@@ -1,4 +1,13 @@
-# Particles System
+---
+title: Particle System
+image: 
+description: Learn all about the particle system in Babylon.js.
+keywords: diving deeper, particles, particle system
+further-reading:
+video-overview:
+video-content:
+---
+
 The particle system uses small 2D sprites which may be animated and always face the camera to simulate effects such as smoke or abstract visual forms such as glitter and faery dust. The clouds of particles produced can be controlled with a wide range of properties including size, life time and emission rates, region and power. Gravity can also be added to the particles. 
 
 ![Particles](/img/features/particle0.png)  

@@ -59,7 +59,7 @@ To give a perfect illusion of a beautiful sunny sky, we are going to create a si
 There are two ways to create a skybox. Let's start with the manual one to understand how things work under the hood and then we will be able to use the automatic one.
 
 #### Manual creation
-First, our box, nothing new, just take notice of the disabled [backface culling](http://en.wikipedia.org/wiki/Back-face_culling):
+First, our box, nothing new, just take notice of the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
 ```javascript
 var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
 var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);

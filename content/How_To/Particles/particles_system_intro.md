@@ -1,4 +1,14 @@
-# An Introduction to the Particle System
+---
+title: Particle System Intro
+image: 
+description: Scratch the surface of how particles and particle systems work in Babylon.js.
+keywords: diving deeper, particles, particle system
+further-reading:
+video-overview:
+video-content:
+---
+
+## An Introduction to the Particle System
 
 The creation of a particle system requires a name and its capacity and the number of particles in the system (capacity). The system is designed to produce particles that emit at a given rate, move and last for a set lifetime before they are re-cycled and re-emitted.
 
@@ -27,18 +37,17 @@ While this stops the emission of new particles the ones already emitted will con
 myParticleSystem.stop();
 myParticleSystem.reset(); //Reset to empty system
 ```
-Minimal particle system https://www.babylonjs-playground.com/#0K3AQ2#3
+Minimal particle system <Playground id="#0K3AQ2#3" title="Minimal Particle System" description="Simple example of creating a minimal particle system." image=""/>
 
 You can do this all in one line using the *ParticleHelper* to create a default configured particle system.
 
-Default particle system using the helper https://www.babylonjs-playground.com/#0K3AQ2#4
+Default particle system using the helper: <Playground id="#0K3AQ2#4" title="Default Particle System Using The Helper" description="Simple example of using the particle helper to create the default particle system." image=""/>
 
-Emit particles from a box position https://www.babylonjs-playground.com/#0K3AQ2#5  
+Emit particles from a box position: <Playground id="#0K3AQ2#5 " title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position." image=""/>
 
 By fixing the size of the emission region you can constrain the emission region. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
 
-Emit particles from wholly inside the box https://www.babylonjs-playground.com/#0K3AQ2#7
-
+Emit particles from wholly inside the box: <Playground id="#0K3AQ2#7 " title="Emit Particles From Completely Inside a Box" description="Simple example showing how to make particles emit from completely inside of a box." image=""/>
 When you want the particle system to start after 3 seconds for example you use one of the following
 
 ```javascript
@@ -47,7 +56,7 @@ myParticleSystem.start(3000); //time in milliseconds
 myParticleSystem.startDelay = 3000;
 ```
 
-Delayed start particle system https://www.babylonjs-playground.com/#0K3AQ2#8
+Delayed start particle system: <Playground id="#0K3AQ2#8" title="Particle System With a Delayed Start" description="Simple example showing how to create a particle system and delay its start." image=""/>
 
 To run the particle system for a limited time you use 
 ```javascript
@@ -64,7 +73,7 @@ Once stopped you can dispose of the particle system. Very useful if you want to 
 myParticleSystem.disposeOnStop = true;
 ```
 
-# Pre-warming
+## Pre-warming
 Starting with Babylon.js v3.3, you can now specify a pre-warming period to make sure your system is in a correct state before rendering.
 
 To do so, you need to setup two properties:
@@ -81,9 +90,9 @@ system.start();
 
 It will execute the particle animation loop 100 times with a time step set to 5 times faster than real time. The more cycles you want, the slower the system will be to start. So it could be interesting to increase the time step to have less cycles to run. But keep in mind that a too big time step will introduce issues if the lifetime of a particle is smaller than the time step.
 
-Here is an example of pre-warming: https://www.babylonjs-playground.com/#MX2Z99#8
+Here is an example of pre-warming: <Playground id="#MX2Z99#8" title="Particle Pre-Warming Example" description="Simple example of pre warming particles." image=""/>
 
-# Particle Texture 
+## Particle Texture 
 To apply a texture to the particles, such as  
 ![Flare](/img/how_to/Particles/Flare.png)
 
@@ -104,7 +113,7 @@ This example produces the following
 
 To use multiple textures in the scene use multiple particle systems all of which can use the same emitter object.
 
-# Noise texture
+## Noise texture
 Starting with Babylon.js v3.3, you can now use noise texture to "perturbate" the position of particles. The noise texture is technically used to apply change to the direction of the particles:
 
 ```
@@ -120,15 +129,15 @@ particleSystem.noiseStrength = new BABYLON.Vector3(100, 100, 100);
 
 Alongside setting the noiseTexture you can also control the strength applied on each axis with *particleSystem.noiseStrength*.
 
-Adjustable noise https://www.babylonjs-playground.com/#R1JWLA#3
+Adjustable noise: <Playground id="#R1JWLA#3" title="Changing Particle Direction With Noise" description="Simple example of changing particle direction based on a noise texture." image=""/>
 
-# Local space
+## Local space
 
 If the emitter is a mesh and you set `particleSystem.isLocal = true` then all particles will be generated into the mesh local space (so rotation or transforming the mesh will transform the entire particle system).
 
-Demo: https://www.babylonjs-playground.com/#LNRAI3
+Demo: <Playground id="#LNRAI3" title="Particles In Local Space" description="Simple example showing how to make particles emit in local space." image=""/>
 
-# World offset
+## World offset
 Starting with Babylon.js v4.0, you can set up a world offset to your particles with:
 ```
 particleSystem.worldOffset = new BABYLON.Vector3(100, 20, -453);

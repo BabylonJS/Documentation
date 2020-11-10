@@ -14,6 +14,10 @@ export const populateDocItemsArray = () => {
     if (docItems.length) {
         return;
     }
+    docItems.push({
+        idArray: [],
+        ...config
+    })
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
         Object.keys(childrenObject).forEach((key) => {
             docItems.push({ ...childrenObject[key], idArray: [...prevKeys, key] });
@@ -27,7 +31,12 @@ export const populateDocItemsArray = () => {
 };
 
 export const getAvailableUrls = async (): Promise<{ params: { id: string[]; content?: string } }[]> => {
-    const array = [];
+    const array = [{
+        params: {
+            id: [] as string[],
+            ...config
+        }
+    }];
 
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
         Object.keys(childrenObject).forEach((key) => {
@@ -48,7 +57,8 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
 
     if (process.env.PRODUCTION) {
         console.log("clearing search index");
-        await clearIndex();
+        const existingDocs = array.map(({ params }) => `/${params.id.join("/")}`);
+        await clearIndex(false, existingDocs);
     }
 
     return array;

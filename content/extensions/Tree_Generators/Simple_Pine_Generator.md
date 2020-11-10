@@ -4,7 +4,7 @@
 
 The function simplePineGenerator uses a tube to generate a tree. 
 
-It is based on playgrounds from  this forum topic http://www.html5gamedevs.com/topic/21484-simple-pine-trees/
+It is based on playgrounds from  this forum topic https://www.html5gamedevs.com/topic/21484-simple-pine-trees/
 
 A demo can be found at:  https://www.babylonjs-playground.com/#LG3GS#106
 

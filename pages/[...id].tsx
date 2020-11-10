@@ -23,7 +23,6 @@ import { MediaMarkdownComponent } from "../components/markdownComponents/media.c
 import { IconButton, Tooltip } from "@material-ui/core";
 
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import { addSearchItem, clearIndex } from "../lib/buildUtils/search.utils";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -170,6 +169,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths,
         getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
     );
+    // TODO solve this more elegantly. 
+    // This is done since index is not a part of this dynamic url mapping (next.js issue)
+    paths.shift();
     return {
         paths,
         fallback: false,

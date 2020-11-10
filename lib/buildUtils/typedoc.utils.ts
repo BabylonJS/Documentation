@@ -10,16 +10,17 @@ import { addSearchItem, clearIndex } from "./search.utils";
 
 import { htmlToText } from "html-to-text";
 import { parse, HTMLElement } from "node-html-parser";
+import { addToSitemap } from "./sitemap.utils";
 
 const basePath = path.join(process.cwd(), `.${sep}.temp${sep}docdirectory`);
+const tmpPath = path.join(process.cwd(), `.${sep}.temp`);
 const basePathResolved = path.resolve(basePath);
 
 export const generateTypeDoc = async () => {
-    // force recreating the API docs
-    if (process.env.PRODUCTION) {
+    // force recreating the API docs when in production mode
+    if (process.env.NODE_ENV === "production") {
         console.log("making sure directory is empty", basePathResolved);
-        await del(basePathResolved);
-        await clearIndex(true);
+        await del(tmpPath);
     }
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
@@ -57,19 +58,29 @@ export const generateTypeDoc = async () => {
 
     console.log("API done");
 
-    return getTypeDocFiles();
+    const files = getTypeDocFiles();
+
+    // clear the search index if needed
+    // only run this when building for master
+    if (process.env.PRODUCTION) {
+        // only remove those that don't exist anymore
+        const existingDocs = files.map(({ params }) => `/typedoc/${params.id.join("/")}`);
+        await clearIndex(true, existingDocs);
+    }
+
+    return files;
 };
 
 export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
     return html.querySelectorAll(".tsd-breadcrumb li a").map((element) => {
-        const baseUrl = "/typedoc/" + id[0] + '/';
+        const baseUrl = "/typedoc/" + id[0] + "/";
         const href = element.getAttribute("href");
-        let url = '';
+        let url = "";
         // index?
-        if(href === '/globals.html' || href ==='../globals.html') {
-            url = '/typedoc';
+        if (href === "/globals.html" || href === "../globals.html") {
+            url = "/typedoc";
         } else {
-            url = baseUrl + href.replace('.html', '');
+            url = baseUrl + href.replace(".html", "");
         }
 
         return {
@@ -101,7 +112,7 @@ export const getAPIPageData = async (id: string[]) => {
         metadata.description = `${id.join(" ")} ${metadata.description}`;
     }
     // clean description
-    metadata.description = metadata.description.replace(/\n/g, '').replace(/\t/g, '');
+    metadata.description = metadata.description.replace(/\n/g, "").replace(/\t/g, "");
     // Search index
     let url = "/typedoc/" + id.join("/");
     // create a buffer
@@ -110,7 +121,7 @@ export const getAPIPageData = async (id: string[]) => {
     // index page
     if (id.length === 1 && id[0] === "globals") {
         metadata.description = "Babylon.js API main page - BABYLON namespace";
-        url = '/typedoc'
+        url = "/typedoc";
     }
 
     root.querySelectorAll("script").forEach((node) => node.remove());
@@ -127,6 +138,9 @@ export const getAPIPageData = async (id: string[]) => {
         imageUrl: metadata.imageUrl,
         videoLink: metadata.videoOverview,
     });
+
+    // add to sitemap
+    addToSitemap(metadata.title, url);
 
     return {
         id,

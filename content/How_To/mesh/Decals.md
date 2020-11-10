@@ -10,9 +10,9 @@ video-overview:
 video-content:
 ---
 
-### How to Use Decals
+## How to Use Decals
 
-![Decal](http://www.babylonjs.com/screenshots/decals.jpg)
+![Decal](https://www.babylonjs.com/screenshots/decals.jpg)
 
 These are usually used to add details on meshes (bullets hole, local details, etc...), a decal is a mesh produced from a subset of a previous one with a small offset in order to appear on top of it.
 

@@ -73,7 +73,7 @@ Pixel font: [m5x7](https://managore.itch.io/m5x7) by Daniel Linssen
 I wasn't able to get into sound development, but I have a list of different resources that include some free sound resources as well as some sites that let you experiment with music!
  - [Opengameart](https://opengameart.org/)
  - [Freesound](https://freesound.org/)
- - [Earslap](http://earslap.com/)
+ - [Earslap](https://earslap.com/)
  - [BFXR](https://www.bfxr.net/)
 
 If you're curious as to what songs and sound effects I used in the game:

@@ -1,6 +1,6 @@
 # Cheetah2Babylon
 
-[Cheetah 3D](http://www.cheetah3d.com/) exporter for [Babylon.JS](http://babylonjs.com/) .babylon scene files. Currently supports the following:
+[Cheetah 3D](http://www.cheetah3d.com/) exporter for [Babylon.JS](https://babylonjs.com/) .babylon scene files. Currently supports the following:
 
 - mesh export with functional transform, naming and parenting
 - multicamera export (only perspective, no support for orthogonal right now)
