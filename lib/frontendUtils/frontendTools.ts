@@ -5,7 +5,7 @@ export const getExampleLink = (example: Partial<IExampleLink>) => {
     return (example.type === "pg" ? "https://playground.babylonjs.com/full.html" : "https://nme.babylonjs.com/") + id;
 };
 
-export const getExampleImageUrl = (example: IExampleLink) => {
+export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
     return `/img/playgroundsAndNMEs/${example.type}${example.id.replace(/#/g, "-")}.png`;
 }
 

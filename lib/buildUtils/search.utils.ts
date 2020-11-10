@@ -14,6 +14,7 @@ export interface ISearchIndexItem {
 
 export interface IPlaygroundSearchItem {
     id: string;
+    playgroundId: string;
     title: string;
     imageUrl?: string;
     description?: string;

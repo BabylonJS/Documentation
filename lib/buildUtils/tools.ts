@@ -9,7 +9,7 @@ import { addSearchItem, addPlaygroundItem } from "./search.utils";
 import { addToSitemap } from "./sitemap.utils";
 
 import puppeteer from "puppeteer";
-import { getExampleLink } from "../frontendUtils/frontendTools";
+import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendTools";
 
 export const markdownDirectory = "content/";
 
@@ -180,14 +180,21 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             if (!process.env.ONLINE && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);
             }
-            const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
-            const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1]) || "";
-            addPlaygroundItem({
-                title,
-                description,
-                id: exampleId[0] ? exampleId.substr(1) : exampleId,
-                keywords: metadata.keywords.split(","),
-            });
+            if (realType === "pg") {
+                const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1].split('"')[0]) || `Playground for ${metadata.title}`;
+                const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1].split('"')[0]) || "";
+                const buff = Buffer.from(url, "utf-8");
+                const searchId = buff.toString("base64");
+                const playgroundId = exampleId[0] ? exampleId.substr(1) : exampleId;
+                addPlaygroundItem({
+                    title,
+                    description,
+                    id: searchId,
+                    playgroundId,
+                    keywords: metadata.keywords.split(",").map((item) => item.trim()),
+                    imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
+                });
+            }
         }
     }
 
