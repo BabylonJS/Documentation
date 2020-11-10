@@ -23,7 +23,6 @@ import { MediaMarkdownComponent } from "../components/markdownComponents/media.c
 import { IconButton, Tooltip } from "@material-ui/core";
 
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import { addSearchItem, clearIndex } from "../lib/buildUtils/search.utils";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];

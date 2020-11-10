@@ -207,8 +207,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={baseDomain + router.asPath} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                {!!previous && <link rel="prev" href={previous.id.join("/")} />}
-                {!!next && <link rel="next" href={next.id.join("/")} />}
+                {!!previous && <link rel="prev" href={'/' + previous.id.join("/")} />}
+                {!!next && <link rel="next" href={'/' + next.id.join("/")} />}
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>
@@ -258,7 +258,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <a>API</a>
                     </Link>
                     {!!previous && (
-                        <Link key="previousArticle" href={previous.id.join("/")}>
+                        <Link key="previousArticle" href={'/' + previous.id.join("/")}>
                             <a>
                                 <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
                                     <LeftArrowIcon></LeftArrowIcon>
@@ -267,7 +267,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </Link>
                     )}
                     {!!next && (
-                        <Link key="nextArticle" href={next.id.join("/")}>
+                        <Link key="nextArticle" href={'/' + next.id.join("/")}>
                             <a>
                                 <Tooltip title={`Next article: ${next.metadata.title}`} aria-label="Next article">
                                     <RightArrowIcon></RightArrowIcon>
