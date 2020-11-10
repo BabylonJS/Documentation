@@ -12,6 +12,14 @@ export interface ISearchIndexItem {
     videoLink?: string;
 }
 
+export interface IPlaygroundSearchItem {
+    id: string;
+    title: string;
+    imageUrl?: string;
+    description?: string;
+    keywords?: string[];
+}
+
 export interface ISearchResult {
     "@search.score": number;
     id: string;
@@ -30,8 +38,8 @@ const headers = {
     "api-key": process.env.SEARCH_API_KEY,
 };
 
-const getUrl = (type: string) => {
-    return `https://babylonjs-doc.search.windows.net/indexes/newdocs/docs/${type}?api-version=2020-06-30`;
+const getUrl = (type: string, indexName: string = 'newdocs') => {
+    return `https://babylonjs-doc.search.windows.net/indexes/${indexName}/${type}?api-version=2020-06-30`;
 };
 
 export const addSearchItem = async (searchItem: ISearchIndexItem) => {
@@ -62,6 +70,35 @@ export const addSearchItem = async (searchItem: ISearchIndexItem) => {
     }
     return result;
 };
+
+export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
+    if (!process.env.SEARCH_API_KEY) {
+        return;
+    }
+    const result = await fetch(getUrl("index", "playground"), {
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify({
+            value: [
+                {
+                    "@search.action": "mergeOrUpload",
+                    ...item,
+                },
+            ],
+        }),
+
+        // Adding headers to the request
+        headers,
+    });
+
+    if (!result.ok) {
+        console.log(await result.json());
+        throw new Error("error indexing playground");
+    }
+    return result;
+}
 
 export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
     if (!process.env.SEARCH_API_KEY) {
