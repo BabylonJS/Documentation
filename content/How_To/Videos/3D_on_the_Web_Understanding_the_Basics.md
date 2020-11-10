@@ -1,3 +1,16 @@
+---
+title: Explore 3D basics
+image: 
+description: Video tutorial - 3D basics with a software engine
+keywords: video tutorial, video, tutorial, software engine, 3D
+further-reading:
+video-overview:
+video-content:
+    - title: Understanding 3D Basics
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/01/player
+---
+
+
 Explore 3D basics, and take a look at 3D without hardware (creating a software engine).
 
 **Agenda**:

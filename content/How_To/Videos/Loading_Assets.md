@@ -1,3 +1,15 @@
+---
+title: Loading Scene and Assets
+image: 
+description: Video tutorial - Load your scene, meshes, and assets. And take a look at offline mode
+keywords: video tutorial, video, tutorial, scene, meshes, assets
+further-reading:
+video-overview:
+video-content:
+    - title: Load Scenes and Assets
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/06/player
+---
+
 Load your scene, meshes, and assets. And take a look at offline mode.
 
 ** Agenda **

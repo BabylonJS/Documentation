@@ -1,3 +1,15 @@
+---
+title: Materials and Inputs
+image: 
+description: Video tutorial - Learn about materials, shaders and how to work with inputs
+keywords: video tutorial, video, tutorial, materials, shaders, inputs
+further-reading:
+video-overview:
+video-content:
+    - title: Materials and Shaders
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/04/player
+---
+
 Learn about materials, shaders and how to work with inputs.
 
 ** Agenda **
