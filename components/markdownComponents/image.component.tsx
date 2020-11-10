@@ -38,7 +38,6 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             // return <img className={classes.image} {...props} />;
         }
         try {
-            console.log(properties);
             return (
                 <Image
                     onLoad={(e) => {
