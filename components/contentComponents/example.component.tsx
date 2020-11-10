@@ -7,7 +7,7 @@ import { colorPalette } from "../../styles/theme";
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
 import Link from "next/link";
-import { getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
+import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
 
 const examplesStyles = makeStyles((theme: Theme) =>
@@ -88,6 +88,7 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const onPlaygroundPressed = () => {
         context.setActiveExample(example);
     };
+
     return (
         <div className={classes.container}>
             <div className={classes.header}>
@@ -108,7 +109,17 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                 </Link>
             </div>
             <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
-                <Image src={getImageUrl(image)} layout="fill"></Image>
+                <Image
+                    onError={(e) => {
+                        // fallback to default image
+                        (e.target as HTMLImageElement).src = getImageUrl();
+                        (e.target as HTMLImageElement).srcset = "";
+                    }}
+                    src={image || getExampleImageUrl(example)}
+                    title={title}
+                    alt={title}
+                    layout="fill"
+                ></Image>
             </div>
             <div className={classes.footer}>
                 [{type.toUpperCase()}] {description}
