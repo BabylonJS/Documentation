@@ -1,4 +1,12 @@
-# Building a track for a Carriage to Follow
+---
+title: Building a Track for a Carriage to Follow
+image: 
+description: Study into how to form tracks for a carriage to follow
+keywords: welcome, babylon.js, track, carriage, follow
+further-reading:
+video-overview:
+video-content:
+---
 
 ![lean and turn](/img/snippets/roller.png)
 
@@ -26,13 +34,13 @@ Sections added to the sections array must be in increasing index order. The rota
 
 * [Playground Example - A Short Track](https://www.babylonjs-playground.com/#HSMDF2#6)
 
-# Section Options
+## Section Options
 
 There are two types of rotation 'a lean' and a 'turn' and both may be applied to any section of track. Some illustrative examples are used better understand these. The lean at each point is shown in red and the turn in green, defaults for both are 0. Twists (defaults 0) force complete rotations, waves, with a wave angle, force a rotation to the maximum set by the wave angle followed by a rotation in the reverse direction.
 
 In these examples the track is simply a straight line formed from 100 points and two sections, section0 includes all points from 0 to 99. The second section is an empty section of track but is needed as a device to specify the lean and turn at the track end. 
 
-## Leaning
+### Leaning
 
 The initial lean comes from section0 and the final lean from section 1.
 
@@ -54,7 +62,7 @@ The value of waveTwists (positive integer, default 0) gives the number of leans 
 
 When both the values of leanWaves and leanWaveAngle or non zero they will override any value given to leanTwists.
 
-## Turning
+### Turning
 
 The initial turn comes from section0 and the final turn from section 1.
 
@@ -78,13 +86,13 @@ The value of waveTwists (positive integer, default 0) gives the number of turns 
 When both the values of turnWaves and turnWaveAngle or non zero they will override any value given to turnTwists.
 
 
-## Leaning and Turning
+### Leaning and Turning
 
 It is possible to use both the lean and turn parameters
 
 ![lean and turn track](/img/snippets/track11.jpg)<------both lean and turn are used
 
-## Parameters
+### Parameters
 
 The options parameters in a section are
 
@@ -97,7 +105,7 @@ The options parameters in a section are
 * turnWaves: number of waves about local carriage y axis over the section;
 * turnWaveAngle: additional angle of turn applied during a wave.
 
-# Data Returned for Track Object
+## Data Returned for Track Object
 
 Using 
 
@@ -112,7 +120,7 @@ gives you a set of arrays of matrices, where each element with index **i** is th
 * track.carriageRotations: each element is the lean rotation;
 * track.passengerRotations: each element is the turn rotation.
 
-# Closed Tracks
+## Closed Tracks
 
 As an example of a closed path take a circle formed from 500 points
 
@@ -152,7 +160,7 @@ var track = createTrack(points, sections);
 
 * [Playground Example - Closed Track](https://www.babylonjs-playground.com/#HSMDF2#7)
 
-# Open Tracks
+## Open Tracks
 
 As an example of a open path take three quarters of a circle formed from 375 points
 
@@ -190,11 +198,11 @@ var track = createTrack(points, sections);
 
 * [Playground Example - Open Track](https://www.babylonjs-playground.com/#HSMDF2#8)
 
-# Using the Built Track
+## Using the Built Track
 
 Data from the track can be used to produce quaternions to rotate a mesh or to produce lines showing the direction of rotations or even rails parallel to the track path. Initially just animation around he track is considered.
 
-# From Matrices to Animation
+## From Matrices to Animation
 
 In these examples `scene.registerAfterRender` is used to create the animation. One aspect that governs the speed of the animation is the distance between the points, so always take this into consideration when designing you path for the track. Of course, depending on how your path is built, you can vary the number of points per length of section. Note that for curved paths it it unlikely a constant speed is obtainable as the distance between points will vary. Often this is not noticeable. You can also produce variations in speed when you construct the quaternions to rotate the carriage and or passengers.
 
@@ -295,7 +303,7 @@ while (i < nbPoints) {
 }
 ```
 
-## Animation
+### Animation
 
 The animation uses the above in
 
@@ -315,7 +323,7 @@ scene.registerAfterRender(function() {
 });
 ```
 
-# Showing Axes
+## Showing Axes
 
 The data returned by 'createTrack' can be used to produce the lines showing the intended directions of the local axes 0f the carriage at any of the points (as seen in the images and playgrounds above). These are the required tangents, normals and binormals of the path for the carriage to follow. Initially these are tangent = (1, 0, 0), normal = (0, 1, 0) and binormal = (0, 0, 1). 
 
@@ -361,9 +369,9 @@ function drawVectors(vectors, positions, size, color) {
 }
 ```
 
-# Illustrating the Path
+## Illustrating the Path
 
-## Using a Ribbon to Create a Simple Velodrome
+### Using a Ribbon to Create a Simple Velodrome
 
 In this next playground a simple velodrome track is built from a ribbon. 
 
@@ -389,7 +397,7 @@ var ribbon = BABYLON.MeshBuilder.CreateRibbon("ribbon", {pathArray: [upperPoints
 Also note that since cylinders are created with their faces horizontal, the wheels are rotated by &pi; / 2 radians and this transformation is baked into the vertices. This ensures that the wheels maintain their intended orientation as the track rotation data is applied.
 
 
-## Using Tubes and Instances to Create a Roller Coaster
+### Using Tubes and Instances to Create a Roller Coaster
 
 For this roller coaster only the lean angle is used for the carriage and the passenger rotation used to turn the passenger to look out at the start of the run. 
 In this playground paths created either side of the track are used to build tubes and the same track carriage rotational data used to place sleepers underneath the rails.
@@ -420,11 +428,5 @@ negPoints.push(negPoints[0]);
 var plusTube = BABYLON.MeshBuilder.CreateTube("tube", {path: plusPoints, radius: 0.1, tessellation: 4}, scene);
 var negTube = BABYLON.MeshBuilder.CreateTube("tube", {path: negPoints, radius: 0.1, tessellation: 4}, scene);
 ```
-
-# Further Reading
-
-# More Advanced - Level 3
-[Designing  Create Track](/snippets/Track_Code)  
-[How To Draw Curves and Create Track Points](/How_To/How_to_use_Curve3) 
 
 

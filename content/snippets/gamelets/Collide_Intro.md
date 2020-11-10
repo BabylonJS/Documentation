@@ -1,4 +1,13 @@
-# Introduction to Developing a System For Collisions
+---
+title: Introduction to Developing a System For Collisions
+image: 
+description: A collision system built using just BabylonJS code with no physics engines
+keywords: welcome, babylon.js, collision, shapes
+further-reading:
+video-overview:
+video-content:
+---
+
 
 The aim of this series of tutorials is to consider how a collision system can be built using just BabylonJS code (ie no physics engines). Some of the issues involved in developing such a system are described. The ideas in this tutorial can be used to build a collision system of complex shapes. 
 
@@ -11,13 +20,7 @@ An example of colliding complex shapes is given below. It has been constructed u
 * [Playground Example \_ Complex Shapes in Collision](https://www.babylonjs-playground.com/#WLYB9)
 
 To begin with the frame rate will be taken as constant throughout the animation and speed for any shape will be in units per frame.
-
-# Index 
-
-[Speed and Size Collision Issues](/samples/Issues.html)  
-[Simple Particle Collisions on a Grid](/samples/Grid_Moves.html)  
-[Slow Particles](/samples/Slow_Collide.html)  
-[Freely Moving Particles](/samples/Free_Collide.html)  
+  
 
 
 

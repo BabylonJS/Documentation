@@ -1,18 +1,28 @@
-# Vertical Wave with Vertex Shader
+---
+title: Vertical Wave with Vertex Shader
+image: 
+description: A row of many boxes that move vertically in a wave motion
+keywords: welcome, babylon.js, shader, vertex, vertex shader
+further-reading:
+video-overview:
+video-content:
+---
+
+## Vertical Wave with Vertex Shader
 
 As with any code it is important to have a firm idea of what you want to achieve, what is possible to code and 
 a design. 
 
-# Requirements
+## Requirements
 The requirements are a row of many boxes that move vertically in a wave motion. The motion will be achieved by 
 changing the the apparent positions of all vertices within a Vertex Shader. To be clear the positions of the boxes within 
 the scene model will not be altered. What will be changed through the Vertex Shader is their projection onto the screen.
 
-# First Stage Design
+## First Stage Design
 The boxes will be generated using the Solid Particle System as this deals with a multitude of repeated boxes efficiently. 
 The vertical height of a box at any time will depend on the time and its position along the x axis using the sin function.
 
-# First Challenge
+## First Challenge
 Generally coding this project in Javascript, for example, would give access to the position of a box and so
 ```Javascript
 box.position.y = Math.sin(box.position.x + time)
@@ -26,7 +36,7 @@ So sin(x<sub>Left</sub> + time) with differ from sin(x<sub>Right</sub> + time) d
 
 What is needed is a method of obtaining the same number h, from the numbers x<sub>Left</sub> and x<sub>Right</sub>. 
 
-# Second Stage Design
+## Second Stage Design
 
 The boxes are cubes arranged equally spaced with the following parameters, *size* of box, *gap* between boxes and *spacing* = *size* + *gap*
 
@@ -55,7 +65,7 @@ Hence obtaining a number h that is the same from the numbers x<sub>Left</sub> an
 For a box the x coordinate of any vertex will either be on a left hand or a right hand edge and so for each box *x/spacing* 
 will give a unique number. 
 
-# Third Stage Design
+## Third Stage Design
 
 Within the Vertex Shader Main function 
 
@@ -68,7 +78,7 @@ gl_Position = worldViewProjection * vec4(p, 1.0);
 
 where time and box_spacing are uniforms.
 
-# SPS Code
+## SPS Code
 
 ```
 //Create SPS of Boxes
@@ -91,9 +101,9 @@ var boxes = boxes_SPS.buildMesh(); // mesh of leaves
 box.dispose();
 ```
 
-# Shader Material Code
+## Shader Material Code
 
-## Vertex Shader
+### Vertex Shader
 
 ```
 // Attributes
@@ -118,7 +128,7 @@ void main(void) {
     vUV = uv;
 }
 ```
-## Fragment Shader
+### Fragment Shader
 
 ```
 varying vec2 vUV;
@@ -130,7 +140,7 @@ void main(void) {
 }
 ```
 
-## Set Material
+### Set Material
 
 ```javascript
 var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, {
@@ -148,7 +158,7 @@ var mainTexture = new BABYLON.Texture("amiga.jpg", scene);
 shaderMaterial.setTexture("textureSampler", mainTexture);
 ```
 
-## Animation Loop
+### Animation Loop
 
 ```javascript
 var time = 0;
@@ -158,9 +168,9 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-# Shader Builder Code
+## Shader Builder Code
 
-## Shader Code
+### Shader Code
 
 ```javascript
 BABYLONX.ShaderBuilder.InitializeEngine();
@@ -175,14 +185,14 @@ var shaderMaterial =   new BABYLONX.ShaderBuilder()
 	.BuildMaterial(scene);
 ```
 
-## Set Material
+### Set Material
 
 ```javascript
 boxes.material = shaderMaterial;
 boxes.material.setFloat("box_spacing", box_spacing)
 ```
 
-## Animation Loop
+### Animation Loop
 
 ```javascript
 var time = 0;
@@ -201,7 +211,7 @@ scene.registerBeforeRender(function () {
 });
 ```
 
-# Vertical Wave
+## Vertical Wave
 
 [Guide Example - Shader Material](http://babylonjsguide.github.io/examples/bouncecode.html)
 
