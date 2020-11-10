@@ -190,7 +190,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
         ? metadata
         : {
               title: `${metadata.title} | Babylon.js Documentation`,
-              description: `${metadata.description}. This page is a part of Babylon.js documentation.`,
+              description: metadata.description,
               keywords: `${metadata.keywords},${defaultKeywords}`,
               imageUrl: getImageUrl(metadata.imageUrl),
           };

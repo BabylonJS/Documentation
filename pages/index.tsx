@@ -76,8 +76,8 @@ export default function Home({ breadcrumbs, metadata, content, childPages, id, p
             breadcrumbs={[]}
             metadata={{
                 title: "Home",
-                description: "Babylon.js documentation page",
-                keywords: "babylonjs. documentation",
+                description: "The homepage of Babylon.js' documentation page. Start here and get to know the best 3D framework on the web.",
+                keywords: "babylonjs, documentation, typedoc, api",
             }}
             id={[]}
         >
