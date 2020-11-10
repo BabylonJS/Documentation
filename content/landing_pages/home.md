@@ -28,3 +28,28 @@ This documentation is designed to take you on a step by step journey of masterin
 
 The documentation page layout has several features that you'll want to know about in order to get the most out of your learning journey.
 
+To start, the left most panel is the navigation pane. This pane is how you navigate to where you'd like to go. 
+
+![Navigation Pane](/img/home/home1.jpg)
+
+Next is the content pane. It's in the middle, and you guessed it, it contains the main content and information.
+
+![Content Pane](/img/home/home2.jpg)
+
+Some pages have a lot of information that's organized into sub sections. The table of contents pane makes it easy to navigate lengthier pages.
+
+![Table of Contents](/img/home/home4.jpg)
+
+The panel on the right is the examples pane. It provides quick access to every playground (live examples) on the current page.
+
+![Examples Pane](/img/home/home3.jpg)
+
+Lastly, if you select any one of the examples in the examples pane, it will load that example inside of the playground pane at the top of the page content.
+
+![Examples Pane](/img/home/home5.jpg)
+
+## Getting Started
+
+The best place to get started is...well you guessed it, right at our [Getting Started](start/preface) section. If you're the type of learner that does better exploring on your own, then the [Diving Deeper](landing_pages/divingDeeperLandingPage) section is for you. If you are already in love with Babylon.js and want to start contributing to it's success, then the [Develop With Babylon.js](landing_pages/divingDeeperDevelopingLandingPage) section is the place for you.
+
+Well, that's it. Hopefully that's enough to get you started. Oh, and as we like to say, welcome to the Babylon family. Enjoy your journey!
