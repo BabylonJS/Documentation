@@ -118,9 +118,6 @@ export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
 
         const imageUrl = getExampleImagePath({ type, id });
 
-        // NB: You can use any url of your choice,
-        // I this example, I used a webpage that was already downloaded to facilitate the tutorial
-        //but if it concerns a url on the www ,  internet connection is required to navigate to the website/web page
         await page.screenshot({ path: imageUrl, fullPage: true }); // takes a screenshot
         console.log("screenshot created for", id);
     } catch (e) {
