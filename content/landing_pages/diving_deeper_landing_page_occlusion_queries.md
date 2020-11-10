@@ -1,16 +1,26 @@
-# Introduction
+---
+title: Occlusion Queries
+image: 
+description: Learn all about leveraging occlusion queries in Babylon.js.
+keywords: diving deeper, occlusion queries
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Babylon.js v3.1 introduced a new feature: Occlusion Queries.
 Occlusion Queries detect whether a Mesh is visible in the current scene or not, and based on that the Mesh get drawn or not. Occlusion Queries is useful when you have an expensive object on the scene and you want to make sure that it will get drawn if it is visible to the camera and it is not behind any opaque object.
 BabylonJs provides an implementation for Occlusion Queries using property occlusionType in AbstractMesh Class
 
-# How Occlusion Queries works behind scenes
+## How Occlusion Queries works behind scenes
 
 Babylon.js engine draw a light transparent bounding box on the targeted Mesh before drawing the object and create a query to check with WebGl engine if the bounding box is visible or not. if the box is visible, the object gets drawn if not the object is not drawn, Occlusion Queries is asynchronous and usually the query result of the object is not available in the current frame and because of this the object is drawn based on a query result of previous frame, the user wouldn't notice the difference unless your FPS is too low.
 
-[Occlusion Queries Demo](https://www.babylonjs-playground.com/#QDAZ80#5)
+<Playground id="#QDAZ80#5" title="Occlusion Query Example" description="Simple Example of using occlusion queries in your scene." image=""/>
 
-# Basics
+## Basics
 
 To use the Occlusion Queries on a Mesh
 
@@ -27,7 +37,7 @@ If your object by default is behind an opaque object you can set property `isOcc
 sphere.isOccluded = true;
 ```
 
-# Advanced
+## Advanced
 
 As described earlier the Occlusion Queries result is asynchronous and it may take some time to get the result and because of this the object would take many frames to be loaded waiting for the query result. In this case you can use property `occlusionRetryCount` to set the number of waiting frames before query get broken. Once a break happens you will need to decide whether to draw the object or to maintain its state, property `occlusionType` is used for this reason as you have 2 options
 1) OCCLUSION_TYPE_OPTIMISTIC: this option will render the mesh if a break is happened.
@@ -42,4 +52,4 @@ sphere.occlusionType = BABYLON.AbstractMesh.OCCLUSION_TYPE_STRICT;
 
 In Babylon.js you can also set the WebGl Occlusion Queries algorithm type using property `occlusionQueryAlgorithmType` for more into check AbstractMesh Class [documentations](/api/classes/babylon.abstractMesh#occlusionqueryalgorithmtype-number).
 
-You can find a live demo here: https://www.babylonjs-playground.com/#QDAZ80#3
+You can find a live demo here: <Playground id="#QDAZ80#3" title="Advanced Occlusion Queries" description="Example of using advanced occlusion query methods in your scene." image=""/>
