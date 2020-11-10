@@ -125,10 +125,6 @@ if (this.mesh.intersectsMesh(this.scene.getMeshByName("destinationTrigger"))) {
 ```
 The two areas where we're rotating the camera up/down is when the character enters and exits the festival stall area. The festival area exits into the destination area. So if they enter the festival, tilt the camera downwards more, and if they leave through that same entrance, rotate it back to the original tilt. Likewise, if they exit to the destination area, return it back to the original camera tilt. (*Player.DOWN_TILT* and *Player.ORIGINAL_TILT* are constants defined at the top of the [Player](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L29) class.)
 
-## Further Reading
-**Previous:** [Lanterns](/how_to/page7)   
-**Next:** [Game GUI](/how_to/page11)
-
 ## Resources
 **Files Used:**  
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

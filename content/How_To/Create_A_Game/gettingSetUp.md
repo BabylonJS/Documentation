@@ -4,6 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: welcome, babylon.js, guided learning, create a game, game, project creation, install, webpack, scene
 further-reading:
+    - title: Github Game Repository
+      url: https://github.com/BabylonJS/SummerFestival
 video-overview:
 video-content:
 ---
@@ -235,17 +237,13 @@ Then when you visit localhost:8080 in our browser, you should see a sphere!
 ### (Optional) Github for Version Control
 If you're working with a large project, you'll most likely want to keep it in a safe place in case your computer breaks, you lose your files, etc. Github is also very useful for keeping track of changes that you make and can make things a lot easier in case you need to bring back a previous version of your project. You can follow this to learn how to [add a project](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop) using Github Desktop.
 
-## Further Reading
-[Github Game Repo](https://github.com/BabylonJS/SummerFestival)  
-**Previous:** [Introduction](/how_to/page1)  
-**Next:** [State Machine](/how_to/page9)
-## How To
-[First Steps](/babylon101/first)  
-[How To Get Babylon.js](/babylon101/how_to_get)  
-[Npm Support](/features/NPM_Support)  
+## Resources
+[First Steps](start/chap1/first_app)  
+[How To Get Babylon.js](divingDeeper/developWithBjs/frameworkVers)  
+[NPM Support](divingDeeper/developWithBjs/npmSupport)  
 [Sample Project](https://github.com/RaananW/babylonjs-webpack-es6)
 
-## External
+### External
 [HTML Webpack Plugin](https://www.npmjs.com/package/html-webpack-plugin)  
 [Clean Webpack Plugin](https://www.npmjs.com/package/clean-webpack-plugin)  
 [Webpack Dev Server](https://www.npmjs.com/package/webpack-dev-server)  

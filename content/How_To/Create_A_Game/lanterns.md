@@ -33,7 +33,7 @@ return {
     lantern: lantern as Mesh,
 }
 ```
-## Creating Lanterns
+### Creating Lanterns
 Once we've gotten the result of our import (*assets*), the [load](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L30) function is in charge of setting up all of the lanterns in the scene.
 ```javascript
 assets.lantern.isVisible = false; //original mesh is not visible
@@ -99,7 +99,7 @@ this.mesh.setAbsolutePosition(position);
 this.mesh.isPickable = false;
 ```
 I didn't want the player to be able to jump on the lantern, so I set isPickable to false (default is true). And since I didnt want the player to collide(physically) with the lantern, I kept checkCollisions to false (which is the default value). This way, the player can easily navigate through lanterns while still having a way to check that we've intersected with them.
-## Collisions
+### Collisions
 The final setup part of our lanterns is calling [checkLanterns](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L133) in [_initializeGameAsync](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L929).
 
 The first thing we'll need to do is set up an actionManager inside of the Player Constructor
@@ -135,7 +135,7 @@ if (!this._lanternObjs[0].isLit) {
     }
     ```
 
-## Setting Emissive Texture
+### Setting Emissive Texture
 The [_setEmissiveTexture](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L48) function handles everything that's involved in "lighting" the lantern.
 1. We need to know that the lantern is now lit.
 ```javascript
@@ -145,7 +145,7 @@ this.isLit = true;
 ```javascript
 this.mesh.material = this._lightmtl;
 ```
-### Texture Swapping
+#### Texture Swapping
 This is a super simple process that involves making a material that has a texture of what the lantern looks like when "lit".  
 ![unlit lantern](/img/how_to/create-a-game/unlit.png) ![lit lantern](/img/how_to/create-a-game/lit.png)
 
@@ -169,7 +169,7 @@ light.radius = 2;
 light.diffuse = new Color3(0.45, 0.56, 0.80);
 this._findNearestMeshes(light);
 ```
-### Multiple Lights
+#### Multiple Lights
 The most important part of this is the fact that there is a default cap on the number of lights a material can have. This is for performance reasons. If you have a ton of lights, it'll slow everything down. However, it's possible to get good performance if we use small lights and limit the amount of meshes the light affects. This is what [_findNearestMeshes](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L67) does.
 ```javascript
 this._scene.getMeshByName("__root__").getChildMeshes().forEach(m => {
@@ -180,13 +180,11 @@ this._scene.getMeshByName("__root__").getChildMeshes().forEach(m => {
 //get rid of the sphere
 this._lightSphere.dispose();
 ```
-This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by refering to what was done in this [playground](https://playground.babylonjs.com/#WJWSNL) **Note: the implemenation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/how_to/page17#lights) section.**
+This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights." image=""/>
+
+**Note: the implemenation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/how_to/page17#lights) section.**
 
 Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one since that one is pre-lit)!
-
-## Further Reading
-**Previous:** [Import Meshes](/how_to/page6)   
-**Next:** [Collisions & Triggers](/how_to/page8)
 
 ## Resources
 **Files Used:**  

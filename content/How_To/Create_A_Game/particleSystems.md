@@ -198,11 +198,7 @@ I created a [_loadStars](https://github.com/BabylonJS/SummerFestival/blob/a0abcc
 
 You can look at how I made the particle system in this [Playground Demo](https://playground.babylonjs.com/#YLGJ52)
 
-It took a bit of messing around with to get the exact effect, so this is where the editor can come in super handy as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last as the particle system won't loop in the editor if you have this set.
-
-## Further Reading
-**Previous:** [Animations](/how_to/page12)  
-**Next:** [Music/SFX](/how_to/page14)  
+It took a bit of messing around with to get the exact effect, so this is where the editor can come in super handy as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last as the particle system won't loop in the editor if you have this set. 
 
 ## Resources
 [Particle Textures](https://mebiusbox.github.io/contents/EffectTextureMaker/)  

@@ -4,6 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: welcome, babylon.js, guided learning, create a game, game, feedback
 further-reading:
+    - title: Bonus Page About The Design Process, 3D Modeling and Art Assets 
+      url: /guidedLearning/createAGame/designProcess
 video-overview:
 video-content:
 ---
@@ -15,6 +17,3 @@ Please let us know how this series was for you. Feedback is always welcome and I
 
 You can check out the game [here](capucat.github.io/summers-festival)  
 The full github repo [here](https://github.com/BabylonJS/SummerFestival)
-
-## Further Reading
-**(BONUS):** [Design Process, 3D Modeling, Art Assets](/how_to/page19)

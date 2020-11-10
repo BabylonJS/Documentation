@@ -4,6 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: welcome, babylon.js, guided learning, create a game, game, introduction
 further-reading:
+    - title: Github Game Repository
+      url: https://github.com/BabylonJS/SummerFestival
 video-overview:
 video-content:
 ---
@@ -28,7 +30,3 @@ I was a complete beginner when it came to working with Babylon.js, so this was a
 Starting with setting up a project locally, this series will walk you through how I went about creating this game, linking all relevant files. This series isn't meant to be a guide to a perfect game, but rather a reflection of a learning process. Game development is meant to be an iterative process, so this series isn't a step by step of how I developed the game; however, I've done my best to break it down into sections that explain concepts and the overall methods of what I found worked best.
 
 It's important to note that this game only scratches the surface of what Babylon.js has to offer, so feel free to modify and experiment with different features!
-
-## Further Reading
-[Github Game Repo](https://github.com/BabylonJS/SummerFestival)  
-**Next:** [Getting Set Up](/How_To/page2)

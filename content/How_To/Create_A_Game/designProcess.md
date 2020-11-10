@@ -90,5 +90,3 @@ If you're curious as to what songs and sound effects I used in the game:
     - [Sound Pack](https://opengameart.org/content/level-up-power-up-coin-get-13-sounds)
     - [Selection](https://opengameart.org/content/8bit-menu-select)
 
-## Further Reading
-**Back to:** [Introduction](/how_to/page1)

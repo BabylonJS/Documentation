@@ -256,10 +256,6 @@ private _beforeRenderUpdate(): void {
 
 Now if you run the game, our player falls to the ground, and can move around!
 
-## Further Reading
-**Previous:** [Player Camera](/how_to/page5)  
-**Next:** [Character Movement Part 2](/how_to/page4)
-
 ## Resources
 **Files Used:**  
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
@@ -271,7 +267,7 @@ Now if you run the game, our player falls to the ground, and can move around!
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/characterController.ts)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/app.ts)
 
-## External
+### External
 [Unity 3D 8 Directional Character System](https://www.youtube.com/watch?v=cVy-NTjqZR8)  
 [AstroKat: Moving Kat](https://www.patreon.com/posts/21343562)  
 [How to Make a Dash Move in Unity](https://www.youtube.com/watch?v=w4YV8s9Wi3w)

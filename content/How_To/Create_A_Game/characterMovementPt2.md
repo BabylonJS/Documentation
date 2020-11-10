@@ -155,10 +155,6 @@ Previously where we just normalized our move vector, we want to multiply by the 
 
 Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early on in the development I had fixed this issue before re-writing the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, We have re-adjust to account for how much we would fall through. In addition, having more raycasts that are longer will help in detecting the ground earlier.
 
-## Further Reading
-**Previous:** [Character Movement Part 1](/how_to/page3)   
-**Next:** [Import Meshes](/how_to/page6)
-
 ## Resources
 **Files Used:**  
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
@@ -168,5 +164,5 @@ Now, if we run the game, we should be able to move, jump, and dash! You will not
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/characterController.ts)
 
-## External
+### External
 [AstroKat: Moving Kat 2 (Jumps and Slopes)](https://www.patreon.com/posts/35207209)

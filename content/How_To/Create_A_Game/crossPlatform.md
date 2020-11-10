@@ -81,10 +81,6 @@ This followed a similar structure to how we set up the mobile controls for the g
 
 ![image of notification](/img/how_to/create-a-game/rotatedevice.png)
 
-## Further Reading
-**Previous:** [Extra Features](/how_to/page15)  
-**Next:** [Performance](/how_to/page17) 
-
 ## Resources
 **Files Used:**  
 - [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)

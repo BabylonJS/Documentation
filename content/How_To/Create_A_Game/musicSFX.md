@@ -72,10 +72,6 @@ this.onRun.add((play) => {
 There is an extra measure of security in making sure that .stop() would not be called more than once because Safari gave a lot of audio issues when trying to do things with sounds.  
 In [_animatePlayer](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L247) we notify the onRun observable by passing in a boolean of whether to play or not. 
 
-## Further Reading
-**Previous:** [Particle Systems](/how_to/page13)  
-**Next:** [Extra Features](/how_to/page15) 
-
 ## Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)

@@ -4,6 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: welcome, babylon.js, guided learning, create a game, game, performance, merge, post process, optimization
 further-reading:
+    - title: Bonus Page About The Design Process, 3D Modeling and Art Assets 
+      url: /guidedLearning/createAGame/designProcess
 video-overview:
 video-content:
 ---
