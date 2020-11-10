@@ -1,12 +1,81 @@
-import Head from "next/head";
+import { GetStaticProps } from "next";
+import { createRef, useEffect, useState } from "react";
+
 import Layout from "../components/layout.component";
 
-export default function Home() {
+import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from "next-mdx-remote/hydrate";
+
+import "./documentationPage.style.scss";
+
+import { markdownComponents } from "../components/markdownComponents/markdownComponents";
+
+// testing lib instead of src (documentation states to use the src)
+import { BucketContent } from "../components/bucketContent.component";
+import { IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
+import { getPageData } from "../lib/buildUtils/tools";
+import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
+import Head from "next/head";
+import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
+
+export default function Home({ breadcrumbs, metadata, content, childPages, id, previous, next }) {
+    const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
+    const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
+    const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
+    const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
+
+    const markdownRef = createRef<HTMLDivElement>();
+
+    // To avoid context empty when adding more than one example in one time
+    const tmpExamplesCache = [];
+    const tmpTOCCache = [];
+
+    const addExampleLink = (link: IExampleLink) => {
+        // first make sure we don't have it yet!
+        if (tmpExamplesCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
+            return;
+        }
+        tmpExamplesCache.push(link);
+        setExampleLinks([...exampleLinks, ...tmpExamplesCache]);
+    };
+
+    const addTOCItem = (tocItem: ITableOfContentsItem) => {
+        // first make sure we don't have it yet!
+        if (tocItem.level < 1 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
+            return;
+        }
+        tmpTOCCache.push(tocItem);
+        setTocLinks([...tocLinks, ...tmpTOCCache]);
+    };
+
+    const clearExampleLinks = () => {
+        tmpExamplesCache.length = 0;
+        setExampleLinks([]);
+    };
+
+    const clearTOCItems = () => {
+        setTocLinks([]);
+        tmpTOCCache.length = 0;
+    };
+
+    useEffect(() => {
+        setTimeout(() => {
+            markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        });
+        return () => {
+            clearExampleLinks();
+            setActiveExample(null);
+            clearTOCItems();
+        };
+    }, [id]);
+
+    const components = markdownComponents;
+    const renderedContent = hydrate(content, { components });
     return (
         <Layout
             breadcrumbs={[]}
             metadata={{
-                title: "Babylon.js home",
+                title: "Home",
                 description: "Babylon.js documentation page",
                 keywords: "babylonjs. documentation",
             }}
@@ -26,7 +95,33 @@ export default function Home() {
     }`}
                 </script>
             </Head>
-            <>HOME</>
+            <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
+                <div className="documentation-container">
+                    <div className="markdown-and-playground">
+                        <InlineExampleComponent {...activeExample} />
+                        <div ref={markdownRef} className="markdown-container">
+                            <h1>{metadata.title}</h1>
+                            {renderedContent}
+                            <BucketContent childPages={childPages}></BucketContent>
+                        </div>
+                    </div>
+                </div>
+            </DocumentationContext.Provider>
         </Layout>
     );
 }
+
+export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
+    const props = await getPageData([], true);
+    const remarkSlug = (await import("remark-slug")).default;
+    const remarkLint = (await import("remark-lint")).default;
+    props.content = await renderToString(props.content, {
+        components: markdownComponents,
+        mdxOptions: {
+            remarkPlugins: [remarkSlug, remarkLint],
+        },
+    });
+    return {
+        props,
+    };
+};

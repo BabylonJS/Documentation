@@ -19,6 +19,7 @@ import GithubIcon from "@material-ui/icons/GitHub";
 import LeftArrowIcon from "@material-ui/icons/FirstPage";
 import RightArrowIcon from "@material-ui/icons/LastPage";
 import { useRouter } from "next/dist/client/router";
+import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 
 const menuStructure = generateMenuStructure();
 
@@ -191,10 +192,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
               title: `${metadata.title} | Babylon.js Documentation`,
               description: `${metadata.description}. This page is a part of Babylon.js documentation.`,
               keywords: `${metadata.keywords},${defaultKeywords}`,
-              imageUrl: metadata.imageUrl || "",
+              imageUrl: getImageUrl(metadata.imageUrl),
           };
 
-          const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
+    const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     return (
         <div className={classes.root}>
             <Head>
@@ -207,8 +208,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={baseDomain + router.asPath} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                {!!previous && <link rel="prev" href={previous.id.join("/")} />}
-                {!!next && <link rel="next" href={next.id.join("/")} />}
+                {!!previous && <link rel="prev" href={"/" + previous.id.join("/")} />}
+                {!!next && <link rel="next" href={"/" + next.id.join("/")} />}
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>
@@ -258,7 +259,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         <a>API</a>
                     </Link>
                     {!!previous && (
-                        <Link key="previousArticle" href={previous.id.join("/")}>
+                        <Link key="previousArticle" href={"/" + previous.id.join("/")}>
                             <a>
                                 <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
                                     <LeftArrowIcon></LeftArrowIcon>
@@ -267,7 +268,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </Link>
                     )}
                     {!!next && (
-                        <Link key="nextArticle" href={next.id.join("/")}>
+                        <Link key="nextArticle" href={"/" + next.id.join("/")}>
                             <a>
                                 <Tooltip title={`Next article: ${next.metadata.title}`} aria-label="Next article">
                                     <RightArrowIcon></RightArrowIcon>
@@ -315,9 +316,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </Drawer>
                     </Hidden>
                     <Hidden smDown implementation="css">
-                        <div className={classes.drawerContainer}>
-                            {MenuStructure}
-                        </div>
+                        <div className={classes.drawerContainer}>{MenuStructure}</div>
                     </Hidden>
                 </nav>
                 <main className={classes.content}>

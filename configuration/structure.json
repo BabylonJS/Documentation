@@ -1,6 +1,6 @@
 {
     "friendlyName": "Home Page",
-    "content": "",
+    "content": "landing_pages/home",
     "children": {
         "start" :{
             "friendlyName": "Getting Started",
