@@ -5,6 +5,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import Link from "next/link";
 import Image from "next/image";
+import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 
 export interface IBucketContentProps {
     childPages?: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: 16,
             height: 150,
             minHeight: 150,
-            
+
             [theme.breakpoints.up("sm")]: {
                 width: "50% !important",
             },
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             display: "flex",
             height: "100%",
-            cursor: 'pointer',
+            cursor: "pointer",
         },
         details: {
             display: "flex",
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) =>
             overflow: "hidden",
             position: "relative",
             minWidth: "150px !important",
-            width: 'unset !important',
+            width: "unset !important",
             "& img": {
                 pointerEvents: "none",
                 position: "absolute",
@@ -85,6 +86,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                             const childData = childPages[child].metadata;
                             const title = (childData.title || child).replace(/_/g, " ");
                             const link = "/" + childPages[child].id.join("/");
+                            const imageUrl = getImageUrl(childData.imageUrl);
                             return (
                                 <Link key={link} href={link}>
                                     <div className={classes.divRoot}>
@@ -99,7 +101,9 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                                                     </Typography>
                                                 </CardContent>
                                             </div>
-                                            <div className={classes.imageContainer}>{childData.imageUrl && <Image src={childData.imageUrl} layout="fill"></Image>}</div>
+                                            <div className={classes.imageContainer}>
+                                                <Image src={imageUrl} layout="fill"></Image>
+                                            </div>
                                         </Card>
                                     </div>
                                 </Link>
