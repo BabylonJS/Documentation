@@ -1,3 +1,13 @@
+---
+title: Character Movement Part 2
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, character movement
+further-reading:
+video-overview:
+video-content:
+---
+
 Now that we have our character moving around, let's give them the ability to navigate platforms!
 ## Input Controller
 First we'll start by adding in inputs for our jumping and dashing to [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)!
@@ -126,7 +136,7 @@ if (this._dashPressed) {
 }
 ```
 If we've begun our dash sequence, we want to increment our timer every frame. If we are in the dashing sequence, we set our dashFactor. If we've completed our dash, we reset our timer and set *_dashPressed* to false to exit the sequence.
-## Reset
+### Reset
 Returning to [the grounded check](#grounded-check), this is where we want to reset our dashing ability.
 ```javascript
 //dashing reset
@@ -145,11 +155,7 @@ Previously where we just normalized our move vector, we want to multiply by the 
 
 Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early on in the development I had fixed this issue before re-writing the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, We have re-adjust to account for how much we would fall through. In addition, having more raycasts that are longer will help in detecting the ground earlier.
 
-# Further Reading
-**Previous:** [Character Movement Part 1](/how_to/page3)   
-**Next:** [Import Meshes](/how_to/page6)
-
-# Resources
+## Resources
 **Files Used:**  
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
@@ -158,5 +164,5 @@ Now, if we run the game, we should be able to move, jump, and dash! You will not
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/characterController.ts)
 
-# External
+### External
 [AstroKat: Moving Kat 2 (Jumps and Slopes)](https://www.patreon.com/posts/35207209)

@@ -1,7 +1,17 @@
-# Summary
+---
+title: Design Process
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, assets, design
+further-reading:
+video-overview:
+video-content:
+---
+
+## Summary
 This is just a little bonus content if you're curious as to how I went about designing the game assets and what resources I used!
 
-# References
+## References
 Before I began any of the art asset creation, I used Pinterest to collect all of the resources I'd need. I had a bunch of different boards and made sure to save anything I thought could give me inspiration.
 
 I made some really rough sketches of how I wanted the character and environment to look. The environment was the most vague as I wasn't sure in the beginning how I wanted the feel of the game to be. I went back in with more detail for the character reference to help with modeling.
@@ -11,8 +21,8 @@ I made some really rough sketches of how I wanted the character and environment 
 
 This is also where I started thinking about what color palette I wanted to use. Similar to the pixel-art games I usually make, I wanted to use a limited color palette to keep it consistent and bring everything together. Colors aren't usually my strength, so I just try to keep a set of colors I think work well together and go from there. This is where looking for color palettes on pinterest is really helpful.
 
-# 3D Modeling with Blender
-# Character
+## 3D Modeling with Blender
+## Character
 This area was the most new to me, so I spent a lot of time learning through studying youtube tutorial and speed modeling videos. The most challening part of this would have been the character modeling + rigging process. I modeled and rigged it several times until I was satisfied with the final outcome.
 
 The first time was to get a player model done for animation and movement testing. The main problem I had was with clipping.
@@ -32,14 +42,14 @@ These are some of the tutorials I watched for the animation process:
 - [3D Animation Hub's Jump Animation](https://www.youtube.com/watch?v=VvTEovuTCgA)
 - [Jayanam's Basic Running Cycle Tutorial](https://www.youtube.com/watch?v=0PkBq9NW7K8)
 
-# Environment
+## Environment
 
 Here are some of the youtubers I watched for inspiration on 3D Modeling environments!
 - [Grant Abbitt](https://www.youtube.com/user/mediagabbitt)
 - [Polygon Runway](https://www.youtube.com/channel/UCGSJevmBuDyxjLLOBNaYMGA)
 - [MortMort's Gradient Texturing](https://www.youtube.com/watch?v=uOyiZaioX1U&list=PLR3Ra9cf8aV23C2oBB3aFLla6ABAPYiDk&index=5)
 
-# 2D Art
+## 2D Art
 I initially started out planning on using pixel art for all of the 2D assets, but I recently got this app called Procreate, so I wanted to try and see what I could do with it.
 
 For the pixelart ui elements in the game, I used Aseprite with my wacom intuos drawing tablet, and for all of the other 2D art I used Procreate on my ipad air.
@@ -55,11 +65,11 @@ Both of these are paid programs, however there are free alteratives for each tha
     - [Autodesk Sketchbook](https://www.sketchbook.com/)
     - [Krita](https://krita.org/en/)
 
-# Resources
+## Resources
 This is the pixel font I used for the dialogue. I always use this one for 2D games!  
 Pixel font: [m5x7](https://managore.itch.io/m5x7) by Daniel Linssen
 
-# Sounds
+## Sounds
 I wasn't able to get into sound development, but I have a list of different resources that include some free sound resources as well as some sites that let you experiment with music!
  - [Opengameart](https://opengameart.org/)
  - [Freesound](https://freesound.org/)
@@ -80,5 +90,3 @@ If you're curious as to what songs and sound effects I used in the game:
     - [Sound Pack](https://opengameart.org/content/level-up-power-up-coin-get-13-sounds)
     - [Selection](https://opengameart.org/content/8bit-menu-select)
 
-# Further Reading
-**Back to:** [Introduction](/how_to/page1)

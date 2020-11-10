@@ -1,25 +1,37 @@
-# Summary
-The purpose of this performance section is to specifically attack the # of draw calls being made. At the current state of the game, it is a little over 1000. After the changes listed below are made, it drops to about 460. 
+---
+title: Performance
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, performance, merge, post process, optimization
+further-reading:
+    - title: Bonus Page About The Design Process, 3D Modeling and Art Assets 
+      url: /guidedLearning/createAGame/designProcess
+video-overview:
+video-content:
+---
+
+## Summary
+The purpose of this performance section is to specifically attack the number of draw calls being made. At the current state of the game, it is a little over 1000. After the changes listed below are made, it drops to about 460. 
 
 Initially, there were actually some other changes that were made that DRASTICALLY improved performance. The most impactful must have been the removal of all meshes casting shadows. It did a ton of draw calls because of how many different meshes were actually in the scene. When first inspecting the draw calls, there were about 8000 being made. This wasn't noticeable on PC local server, but it severely impacted mobile and web performance. BEWARE!!
 
 You can check draw calls by using: [spector.js](https://spector.babylonjs.com/).
-# Merging Meshes
-# Character
+## Merging Meshes
+### Character
 Again, the more meshes you have, the more draw calls you'll have. My character mesh, although a "single mesh" in blender, was split into separate meshes when imported into babylon because I used separate materials for different colors. What I did to reduce this was to use a color palette texture material + UV mapping. This is actually the process I had used for the environment.
 
 ![character palette](/img/how_to/create-a-game/characteruv.png)
-# Environment
+### Environment
 The environment consisted of a lot of separate & duplicated meshes since it was the entire game world. I just went back into the blender file and tried to join as many of the meshes as possible into groups that made sense.
 
-# Glow Layer
+## Glow Layer
 The glow layer really only needed to be used with the lanterns to give that extra glowy feel, so limiting what meshes are affected by the glow layer will reduce the amount of draw calls being made since it's only rendering the included meshes. I just added this to when I was [setting up my glow layer](/how_to/page15#glow-layer).
 ```javascript
 this._environment._lanternObjs.forEach(lantern => {
     gl.addIncludedOnlyMesh(lantern.mesh);
 });
 ```
-# Fade Transition Post Process
+## Fade Transition Post Process
 The fade transition is a post-process effect that's needed when we transition between scenes. Therefore, we really don't need it on at any other time. To apply this only when we transition, I just moved the creation of the post process and applications of the effect into the pointer observables. For example, in [goToStart]():
 ```javascript
 Effect.RegisterShader("fade",
@@ -45,7 +57,7 @@ startBtn.onPointerDownObservable.add(() => {
     //...other stuff done when startBtn is pressed
 });
 ```
-# Lights
+## Lights
 Before, when you would collide with the first lantern, and the first lantern after the sparkler went out, there would be a slight lag in the game. This was due to the shaders updating since we were dynamically creating lights.
 
 The solution to this was to pre-create all lights with intensity 0 -- a constant cost. This led to a restructuring for the [Lantern class](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/lantern.ts#L17).
@@ -78,12 +90,12 @@ this._scene.getTransformNodeByName(this.mesh.name + "lights").getChildMeshes().f
 ```
 This became a little tricky in the festival area because there were 2 lanterns on a platform, so for these I had to manually check for the grouped lanterns on the platform. This is why the first part of the function has checks for lanterns 14-21.
 
-# Further Reading
+## Further Reading
 **Previous:** [Cross Platform - Mobile](/how_to/page16)   
 **Next:** [Outro](/how_to/page18)   
 **(BONUS):** [Design Process & 3D Modeling](/how_to/page19)
 
-# Resources
+## Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/lantern.ts)

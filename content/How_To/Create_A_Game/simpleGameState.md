@@ -1,11 +1,21 @@
-# Summary
+---
+title: Simple Game State
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, state machine, character controller, state
+further-reading:
+video-overview:
+video-content:
+---
+
+## Summary
 Now that we have our state machine set up, it's time to build a simple scene with a player and ground out of primitives! At this point, we only have an app.ts to deal with setting up scenes, so we're going to need to make some new files and classes:
 1. environment.ts
 2. characterController.ts
 
 I chose to work with only these files as I wanted to separate my code to focus on single aspects of the game. Feel free to make as many files as you need.
 
-# Environment
+## Environment
 [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts) will contain all information necessary for the game scene's world.
 ```javascript
 export class Environment {
@@ -40,7 +50,7 @@ Before we go to the game state, we're creating our environment and loading the a
 ```javascript
 import { Environment } from "./environment";
 ```
-# Character Controller
+## Character Controller
 [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts) is going to contain all of the logic relating to our player and the player's movements.
 ```javascript
 export class Player extends TransformNode {
@@ -78,7 +88,7 @@ Notice how in our constructor, we are passing in assets. These assets should be 
 //..loaded environment
 await this._loadCharacterAssets(scene); //character
 ```
-# Loading Assets
+### Loading Assets
 In app.ts, we create [_loadCharacterAssets](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L868). Inside of this function, we have the **loadCharacter** function, this is where we're setting up the character mesh system.
 ```javascript
 //collision mesh
@@ -133,7 +143,7 @@ We can now pass these assets to the Player constructor.
 
 You'll want this kind of structuring if you plan on importing a character mesh later on because it will ensure that all of the assets are loaded before moving on. 
 
-# Initialize Game Async
+## Initialize Game Async
 The final steps of our player set up is to actually call the constructor in app.ts. **_initializeGameAsync** will do all of the finishing touches to prepare the game scene once everything is imported & meshes are created. At this point this function should only need to look like this:
 ```javascript
 private async _initializeGameAsync(scene): Promise<void> {
@@ -169,11 +179,7 @@ scene.getMeshByName("outer").position = new Vector3(0,3,0);
 Now you when you go to the game state, you'll have a player mesh and a ground!
 ![player mesh and ground](/img/how_to/create-a-game/simplegamestate.png)
 
-# Further Reading
-**Previous:** [State Machine](/how_to/page9)  
-**Next:** [Player Camera](/how_to/page5)
-
-# Resources
+## Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

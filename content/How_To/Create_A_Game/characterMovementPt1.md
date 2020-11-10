@@ -1,4 +1,14 @@
-# Summary
+---
+title: Character Movement Part 1
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, character movement
+further-reading:
+video-overview:
+video-content:
+---
+
+## Summary
 The first step I took towards making the game was to figure out how movement would work. My past experience with 3D games pushed me towards thinking that movement would be the most difficult part of the development process, so I wanted to make sure to focus on that early on. Since I was just getting started, I knew I needed to get some prototyping in for it, so I started off by making a playground to test out simple walking, jumping, and dashing: [early prototype](https://playground.babylonjs.com/#UP84Y8#10)
 
 A few things you can see from this is:
@@ -11,7 +21,7 @@ This prototype underwent a lot of transformations to get to the point that it's 
 For part 1 we'll be going over how to detect inputs and how to get simple walking/running movement. Links to the complete files are below, but I'll be referencing certain parts that are important.
 
 In order to achieve certain character movements, I referenced a few different Unity tutorials as well as game dev blog posts that will be linked below.
-# Input Controller
+## Input Controller
 For this part of the tutorial, we'll be going over the basics for movement with keyboard controls. You'll want to create a file called **inputController.ts**. Here we'll be creating a [PlayerInput](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts#L4) class that will handle all of the inputs for our game.
 ```javascript
 constructor(scene: Scene) {
@@ -76,9 +86,9 @@ This means we will also need to update the line where we create our Player to ta
 this._player = new Player(this.assets, scene, shadowGenerator, this._input);
 ```
 
-# Basic Movement Setup
+## Basic Movement Setup
 Now that we can detect our inputs, we need to implement what to do when those inputs are detected. We'll be focusing on the [updateFromControls](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L158) function inside of **characterController.ts**.
-## Input
+### Input
 ```javascript
 this._moveDirection = Vector3.Zero(); // vector that holds movement information
 this._h = this._input.horizontal; //x-axis
@@ -119,7 +129,7 @@ this._moveDirection = this._moveDirection.scaleInPlace(this._inputAmt * Player.P
 ```
 We then scale our final *_moveDirection* by that amount multiplied by the speed we want the player to move at.
 
-## Updating the Game
+### Updating the Game
 In order to actually see our player move, we'll need to do a few things:
 1. Before each render, we need to make sure that we're updating our character. To do this, we first need to activate our player in **activatePlayerCamera**:
 ```javascript
@@ -149,7 +159,7 @@ Here we are also calling `mesh.moveWithCollisions` that uses the _moveDirection 
 const camera = this._player.activatePlayerCamera();
 ```
 
-# Rotation
+## Rotation
 Now, how do we get our player to rotate towards the direction it's moving? This is where we're checking our input axes (**_updateFromControls**).
 ```javascript
 //check if there is movement to determine if rotation is needed
@@ -171,7 +181,7 @@ Here we are calculating the angle to move the player to based off of the camera'
 
 At this point, if we run the project, we should be able to move around & see our player rotate directions!
 
-## Raycasts
+### Raycasts
 **Raycast**
 
 Raycasting is going to be our main method of detecting the ground beneath the character. First, we need a function [_floorRaycast](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L278):
@@ -246,11 +256,7 @@ private _beforeRenderUpdate(): void {
 
 Now if you run the game, our player falls to the ground, and can move around!
 
-# Further Reading
-**Previous:** [Player Camera](/how_to/page5)  
-**Next:** [Character Movement Part 2](/how_to/page4)
-
-# Resources
+## Resources
 **Files Used:**  
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
@@ -261,7 +267,7 @@ Now if you run the game, our player falls to the ground, and can move around!
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/characterController.ts)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/app.ts)
 
-# External
+### External
 [Unity 3D 8 Directional Character System](https://www.youtube.com/watch?v=cVy-NTjqZR8)  
 [AstroKat: Moving Kat](https://www.patreon.com/posts/21343562)  
 [How to Make a Dash Move in Unity](https://www.youtube.com/watch?v=w4YV8s9Wi3w)

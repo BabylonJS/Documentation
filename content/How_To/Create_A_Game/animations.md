@@ -1,10 +1,22 @@
-# Summary
+---
+title: Animations
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, animation, 
+further-reading:
+    - title: All About Animations](/babylon101/animations)
+      url: /divingDeeper/animation
+video-overview:
+video-content:
+---
+
+## Summary
 For this game, I made all of the animations myself in blender. In the past, I've had difficulty getting the animations to work correctly in Unity while using my own character rig with mixamo animations. So, I decided to learn how to animate them myself. The meshes are exported as glTF/.glb.
 
 If you'd like to see the animations themselves, you can drag the .glb files into the [Sandbox](https://sandbox.babylonjs.com/).
 
-# Character (Rigged)
-# Setting up Animations
+## Character (Rigged)
+### Setting up Animations
 When you import a mesh with animations, they will be a part of the result`.animationGroups`. We just need to return this along with the mesh import in [loadCharacter](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/app.ts#L897).
 
 In the constructor of our Player class, we'll be storing each animationGroup that was imported.
@@ -31,7 +43,7 @@ this._prevAnim = this._land;
 2. Set which animations are looping.
 3. Initialize our current and previous animations.
 
-# Animating the Player
+### Animating the Player
 In order to actually animate the player, I created an [_animatePlayer](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L247) function that checks for different states of the player.
 ```javascript
 if (!this._dashPressed && !this._isFalling && !this._jumped 
@@ -106,14 +118,15 @@ if(this._currentAnim != null && this._prevAnim !== this._currentAnim){
     this._prevAnim = this._currentAnim;
 }
 ```
-# Playing Animations
+### Playing Animations
 Now that we have the animations hooked up, we need to call **_setUpAnimations** in the *Constructor* and **_animatePlayer** in *_beforeRenderUpdate*
 
-# Mesh
+## Mesh
 The other meshes in my game that used animations were the lanterns.
 
 The setup for these was a little different because I had to somehow clone the animations as well. I used [Demystifying Animation Groups](https://www.youtube.com/watch?v=BSqxoQ-at24&t=802s) to learn how to extract and clone the animationGroups.
-# Importing
+
+### Importing
 The animation groups get imported along with the mesh. Returning to [_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) in the Environment class, we need to extract the animation from the lantern.
 ```javascript
 const importedAnims = res.animationGroups;
@@ -130,7 +143,7 @@ return {
 ```
 What we do is, from the imported animationGroup, we extract the animation. Then we create a new animation that sets the mesh to its targeted animation. In the video, this was useful because the cannon mesh had two animations each belonging to a different mesh. Even though we have only 1 animation and 1 mesh, it's good to have this structure in case we wanted to add another animation later on.
 
-# Cloning & Setting Up
+### Cloning & Setting Up
 Similar to how we [cloned our lantern meshes](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L66), we need to clone the animationGroups so that they are paired with their corresponding mesh.
 ```javascript
 //Animation cloning
@@ -143,15 +156,10 @@ We create a new animation group for each lantern, and use the animationGroup tha
 assets.animationGroups.dispose();
 ```
 After we're done setting up all the lanterns, we can dispose of the original animationGroup, like how we did for the original lantern mesh.
-# Playing
+### Playing
 Playing the animation is really simple since it's non-looping. Whenever the lantern is lit, we want to play the animation in [setEmissiveTexture](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/lantern.ts#L47) since this is where we're doing all the "lighting" effects.
 
-# Further Reading
-**Previous:** [Game GUI](/how_to/page11)  
-**Next:** [Particle Systems](/how_to/page13)  
-[Animations](/babylon101/animations)
-
-# Resources
+## Resources
 **Files Used:**  
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

@@ -1,7 +1,17 @@
-# Summary
+---
+title: Extra Features
+image: 
+description: Dive into some deeper game creation methods and techniques.
+keywords: welcome, babylon.js, guided learning, create a game, game, lighting, lights, transitions, fonts
+further-reading:
+video-overview:
+video-content:
+---
+
+## Summary
 This section goes over some additional features & visual effects that you can use to enhance your game!
 
-# IBL (Image-Based Lighting)
+## IBL (Image-Based Lighting)
 Image based lighting is really great if you want to give some ambient light to your scene without using an actual light source. Since my implementation of the lanterns took up all of the actual light sources I could use, I needed to figure out a way to add some ambient light into my scene to make the background of the player a little bit brighter.
 
 [Image-based lighting](/how_to/use_hdr_environment) uses an HRDI image to provide light to a scene, particularly useful for PBR materials. [Image-Based Lighting: The Easy Way](https://www.youtube.com/watch?v=W1wNF7z8vKQ) was super helpful in explaining how IBL works and how to actually create the **.env** that is needed.
@@ -23,7 +33,7 @@ scene.environmentIntensity = 0.04;
 ```
 It's especially helpful when you need the player to be able to see areas they can get to in the distance as well as providing light once the player's sparkler runs out.
 
-# Glow Layer
+## Glow Layer
 Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/how_to/glow_layer) is super easy to set up a simple glow layer and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
 
 ![without GL](/img/how_to/create-a-game/withoutGL.png) ![withGL](/img/how_to/create-a-game/withGL.png)
@@ -33,7 +43,7 @@ It really only takes 2 lines!
 const gl = new GlowLayer("glow", scene);
 gl.intensity = 0.4;
 ```
-# Transition Effect
+## Transition Effect
 When switching scenes, I wanted there to be a smooth transition, and ended up finding a playground that used a post process to fade the screen to black: [here](https://www.babylonjs-playground.com/#2FGYE8#0)
 
 We modified the effect to use `RegisterShader` instead of `ShadersStore` so that it made a bit more sense at first glance: [here](https://www.babylonjs-playground.com/#2FGYE8#4)
@@ -76,7 +86,7 @@ scene.registerBeforeRender(() => {
 In our button's `onPointerDownObservable` **this._transition** would be set to **true**.
 
 The differences you see with this and the playground have to do with the fact that we want to go from no post process to full black screen, so our fadeLevel actually decreases to make the screen dark. In addition, I set the length of the fade by just using a set value to decrease by whereas the playground cycles between fading in/out.
-# Custom Fonts
+## Custom Fonts
 Adding custom fonts is really simple. I brought in some google fonts that I thought matched well with the game's style by just modifying the index.html file. In the head of your index.html, just add the link you get from google fonts!
 ```javascript
 <head>
@@ -87,14 +97,10 @@ Adding custom fonts is really simple. I brought in some google fonts that I thou
 </head>
 ```
 
-# Further Reading
-**Previous:** [Music/SFX](/how_to/page14)  
-**Next:** [Cross Platform - Mobile](/how_to/page16) 
-
-# Resources
+## Resources
 **Files Used:**  
 - [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 
-# External
+### External
 [HDRI image used](https://hdrihaven.com/hdri/?h=kiara_1_dawn)
