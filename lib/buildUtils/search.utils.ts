@@ -75,7 +75,7 @@ export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
     if (!process.env.SEARCH_API_KEY) {
         return;
     }
-    const result = await fetch(getUrl("index", "playground"), {
+    const result = await fetch(getUrl("index", "playgrounds"), {
         // Adding method type
         method: "POST",
 
