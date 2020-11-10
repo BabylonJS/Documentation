@@ -8,7 +8,7 @@ import { ISearchResult } from "../../lib/buildUtils/search.utils";
 
 import SearchIcon from "@material-ui/icons/Search";
 
-const baseQueryURL = "https://babylonjs-doc.search.windows.net/indexes/newdocs/docs?api-version=2020-06-30&search=";
+const baseQueryURL = "https://babylonjs-newdocs.search.windows.net/indexes/newdocs/docs?api-version=2020-06-30&search=";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -79,7 +79,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 // read key - can be exposed
-                "api-key": "DF333E13A6C71B67290E46668C86DD7E",
+                "api-key": "820DCA4087091C0386B0F0A266710390",
             },
         })
             .then((result) => {

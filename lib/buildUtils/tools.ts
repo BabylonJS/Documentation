@@ -1,12 +1,15 @@
-import { readdirSync, statSync, readFileSync } from "fs";
+import { readdirSync, statSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { IDocMenuItem, MarkdownMetadata } from "../interfaces";
 
 import matter from "gray-matter";
 import { generateBreadcrumbs, getElementByIdArray } from "./content.utils";
-import { IDocumentationPageProps } from "../content.interfaces";
-import { addSearchItem } from "./search.utils";
+import { IDocumentationPageProps, IExampleLink } from "../content.interfaces";
+import { addSearchItem, addPlaygroundItem } from "./search.utils";
 import { addToSitemap } from "./sitemap.utils";
+
+import puppeteer from "puppeteer";
+import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendTools";
 
 export const markdownDirectory = "content/";
 
@@ -87,6 +90,42 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
     };
 }
 
+export const getExampleImagePath = (example: Partial<IExampleLink>) => {
+    return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
+};
+
+export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
+    const browser = await puppeteer.launch(); // opens a virtual browser
+
+    try {
+        const page = await browser.newPage(); // creates a new page
+
+        await page.setDefaultNavigationTimeout(60000);
+
+        // you can also set dimensions
+        await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
+
+        const url = getExampleLink({ type, id });
+        await page.goto(url); // navigates to the url
+        if (type === "pg") {
+            await page.waitForSelector("#renderCanvas", { visible: true });
+            await page.waitForFunction(`typeof scene !== 'undefined' && scene.isLoading === false`, { timeout: 60000 });
+            await page.waitForSelector("#babylonjsLoadingDiv", { hidden: true, timeout: 60000 });
+        } else {
+            await page.waitForSelector("#graph-canvas", { visible: true, timeout: 60000 });
+        }
+        await page.waitForTimeout(500);
+
+        const imageUrl = getExampleImagePath({ type, id });
+
+        await page.screenshot({ path: imageUrl, fullPage: true }); // takes a screenshot
+        console.log("screenshot created for", id);
+    } catch (e) {
+        console.log("error", type, id);
+    }
+    await browser.close(); // closes the browser.
+};
+
 export async function getPageData(id: string[], fullPage?: boolean): Promise<IDocumentationPageProps> {
     // get fullPath from the configuration
     const docs = getElementByIdArray(id, !fullPage);
@@ -131,7 +170,32 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             lastModified: lastModified,
         });
 
-        addToSitemap(metadata.title, url, lastModified ? lastModified.toUTCString() : '');
+        addToSitemap(metadata.title, url, lastModified ? lastModified.toUTCString() : "");
+
+        // generate images to examples. Offline only at the moment
+        const matches = Array.from(content.matchAll(/(<(Playground|nme).*id="([A-Za-z0-9#]*)".*\/>)/g));
+        for (const [all, full, type, exampleId] of matches) {
+            const realType = type === "nme" ? "nme" : "pg";
+            const imageUrl = /image="(.*)"/.test(full) && /image="(.*)"/.exec(full)[1];
+            if (!process.env.ONLINE && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
+                await generateExampleImage(realType, exampleId);
+            }
+            if (realType === "pg") {
+                const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1].split('"')[0]) || `Playground for ${metadata.title}`;
+                const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1].split('"')[0]) || "";
+                const buff = Buffer.from(url, "utf-8");
+                const searchId = buff.toString("base64");
+                const playgroundId = exampleId[0] ? exampleId.substr(1) : exampleId;
+                addPlaygroundItem({
+                    title,
+                    description,
+                    id: searchId,
+                    playgroundId,
+                    keywords: metadata.keywords.split(",").map((item) => item.trim()),
+                    imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
+                });
+            }
+        }
     }
 
     return {
@@ -142,6 +206,6 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         content,
         previous,
         next,
-        lastModified: lastModified ? lastModified.toUTCString() : '',
+        lastModified: lastModified ? lastModified.toUTCString() : "",
     };
 }

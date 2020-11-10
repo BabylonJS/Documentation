@@ -12,6 +12,15 @@ export interface ISearchIndexItem {
     videoLink?: string;
 }
 
+export interface IPlaygroundSearchItem {
+    id: string;
+    playgroundId: string;
+    title: string;
+    imageUrl?: string;
+    description?: string;
+    keywords?: string[];
+}
+
 export interface ISearchResult {
     "@search.score": number;
     id: string;
@@ -30,8 +39,8 @@ const headers = {
     "api-key": process.env.SEARCH_API_KEY,
 };
 
-const getUrl = (type: string) => {
-    return `https://babylonjs-doc.search.windows.net/indexes/newdocs/docs/${type}?api-version=2020-06-30`;
+const getUrl = (type: string, indexName: string = 'documents') => {
+    return `https://babylonjs-newdocs.search.windows.net/indexes/${indexName}/docs/${type}?api-version=2020-06-30`;
 };
 
 export const addSearchItem = async (searchItem: ISearchIndexItem) => {
@@ -62,6 +71,35 @@ export const addSearchItem = async (searchItem: ISearchIndexItem) => {
     }
     return result;
 };
+
+export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
+    if (!process.env.SEARCH_API_KEY) {
+        return;
+    }
+    const result = await fetch(getUrl("index", "playgrounds"), {
+        // Adding method type
+        method: "POST",
+
+        // Adding body or contents to send
+        body: JSON.stringify({
+            value: [
+                {
+                    "@search.action": "mergeOrUpload",
+                    ...item,
+                },
+            ],
+        }),
+
+        // Adding headers to the request
+        headers,
+    });
+
+    if (!result.ok) {
+        console.log(await result.json());
+        throw new Error("error indexing playground");
+    }
+    return result;
+}
 
 export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
     if (!process.env.SEARCH_API_KEY) {
@@ -104,7 +142,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         });
     };
     const result = (await results.json());
-    const filtered = (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
+    const filtered = result.value && (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
