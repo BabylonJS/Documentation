@@ -1,5 +1,12 @@
-
-
+---
+title: Solid Particle System Materials
+image: 
+description: Learn all about solid particle system materials in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, materials
+further-reading:
+video-overview:
+video-content:
+---
 
 ## Different Materials
 
@@ -27,7 +34,7 @@ This enables the multimaterial support, then copies the model geometries and cre
 - if several models share the same material, this material is used only once in the SPS : particles are sorted in this purpose to minimize the draw call numbers,
 - if a model has no material, a standard material is created,
 - if another following model has also no material, the first rule applies : the newly created standard material is shared among the particles depicting all the models with no material.  
-  Example : https://playground.babylonjs.com/#RCUHJA
+  Example: <Playground id="#RCUHJA" title="Materials In SPS" description="Simple example of applying materials to solid particles." image=""/>
 
 You can obviously notice that this method associates the model materials to the particles on the particle shape basis : all the particles of a given shape share the same material.  
 You can still change this behavior by assignig some materials on the particle basis by setting the particle property `.materialIndex` value to the wanted material index. The material index is simply the index of the shape material in the order the shape are created : 0 for the first shape, 1 for the second one, and so on. If set, it overwrites the assigned shape material index.  
@@ -54,7 +61,7 @@ sps.addShape(model3, 300, { positionFunction: initFunction });
 sps.buildMesh();
 ```
 
-Example : https://playground.babylonjs.com/#RCUHJA#2
+Example: <Playground id="#RCUHJA#2" title="Solid Particle Material Assignment" description="Simple example of assigning materials to solid particles." image=""/>
 
 This method can be used to build non-updatable meshes with MultiMaterials by assembling shapes of different materials even when knowing nothing about indices nor vertices as it's required to define a MultiMaterial object by hands : https://doc.babylonjs.com/how_to/multi_materials
 
@@ -86,7 +93,7 @@ sps.setMultiMaterial([mat1, mat0, mat2]);
 
 This method can be called as many times as needed once the SPS mesh is built.  
 It recomputes the underlying MultiMaterial object and the SPS geometry in order to group the particles by materials, so it's probably not a good idea to call it each frame in the render loop.  
-Example : https://playground.babylonjs.com/#RCUHJA#3
+Example: <Playground id="#RCUHJA#3" title="Intermediate Solid Particle Material Assignment" description="Intermediate example of assigning materials to solid particles." image=""/>
 
 ### Advanced way
 
@@ -118,10 +125,8 @@ sps.setParticles(); // updates the particle positions
 sps.computeSubMeshes(); // actually computes the submeshes and materials
 ```
 
-Examples :
-https://playground.babylonjs.com/#RCUHJA#4  
-In this second example the particles above a given altitude are given the next material in turn every 15 frames.  
-https://playground.babylonjs.com/#RCUHJA#7
+Examples: <Playground id="#RCUHJA#4" title="Advanced Solid Particle Material Assignment 1" description="Advanced example of assigning materials to solid particles." image=""/>
+In this second example the particles above a given altitude are given the next material in turn every 15 frames. <Playground id="#RCUHJA#7" title="Advanced Solid Particle Material Assignment 2" description="Advanced example of assigning materials to solid particles where the particles above a given altitude are given the next material in turn every 15 frames." image=""/>
 
 If you still really want to call `computeSubMeshes()` each time you call `setParticles()` because your particle materials are updated at this same frequency, you can then set the property `sps.autoUpdateSubMeshes` to `true` (default `false`). In this case, no more need for calling `sps.computeSubMeshes()` by hands as `setParticles()` will do it for you internally.
 
@@ -130,7 +135,7 @@ sps.autoUpdateSubMeshes = true;
 sps.setParticles(); // updates the particle material indexes AND recomputes the subMeshes
 ```
 
-Example : https://playground.babylonjs.com/#RCUHJA#8
+Example: <Playground id="#RCUHJA#8" title="Advanced Solid Particle Material Assignment 3" description="Advanced example of material assignment to solid particles with computeSubMeshes()." image=""/>
 
 In the case you want to make your own MultiMaterial object by hands, then set it to the SPS mesh material property and call `sps.computeSubMeshes()` to internally build the needed SubMesh objects.
 
@@ -148,4 +153,3 @@ sps.computeSubMeshes();
 When enabling the MultiMaterial in the SPS, this value is set to zero for every particle until it's overwritten by the user or automatically set to some model material index by `useModelMaterial`.  
 **Note 2 :** The particle depth sort doesn't work with the MultiMaterial support because particles can't be sorted by their distances to the camera and by materials in the same time. So if you enable both modes, it won't crash but it will get to some weird visible results.  
 **Note 3 :** The SPS MultiMaterial support works also with an expandable SPS, meaning you can add/store/remove particles with different materials. When calling `sps.buildMesh()` again, everything is then recomputed automatically.
-

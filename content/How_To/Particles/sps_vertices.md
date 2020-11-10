@@ -1,3 +1,13 @@
+---
+title: Updating A Solid Particle's Shape
+image: 
+description: Learn how to change a solid particles shape in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, vertices
+further-reading:
+video-overview:
+video-content:
+---
+
 # Update a Particle's Shape
 
 - `SPS.updateParticleVertex()` _usage_ :  
@@ -53,5 +63,5 @@ function setParticles() {
 }
 ```
 
-Example : https://www.babylonjs-playground.com/#1X7SUN#11    
-or dancing glow-worms : https://www.babylonjs-playground.com/#1X7SUN#12  
+Example: <Playground id="#1X7SUN#11" title="Updating Solid Particle Geometry" description="Simple example of manipulating solid particle geometry." image=""/>
+or dancing glow-worms: <Playground id="#1X7SUN#12" title="Dancing Glow Worm Solid Particles" description="Fun Glow Worm example of changing solid particle geometry." image=""/>

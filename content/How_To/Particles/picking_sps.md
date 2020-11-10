@@ -1,4 +1,14 @@
-# Pickable Particles
+---
+title: Picking Solid Particles
+image: 
+description: Learn how to pick and interact with solid particles in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, picking
+further-reading:
+video-overview:
+video-content:
+---
+
+## Pickable Particles
 
 You can set your particles as pickable with the parameter `isPickable` (default _false_) when creating your SPS :
 
@@ -36,5 +46,5 @@ scene.onPointerDown = function(evt, pickResult) {
 ```
 
 The SPS pickability is directly related to the size of its bounding box (please read 'SPS Visibility' part). So, in order to make sure your particles will be pickable, don't forget to force, at least once, the bounding box size recomputation once the particles are set in the space with `setParticles()`.  
-Pickable particle example (no SPS update in the render loop) : https://www.babylonjs-playground.com/#2FPT1A#351    
-Pickable particle example (particle rotation) : https://www.babylonjs-playground.com/#2FPT1A#352  
+Pickable particle example (no SPS update in the render loop): <Playground id="#2FPT1A#351" title="Pickable Solid Particles Example" description="Simple example showing how to make solid particles pickable." image=""/>
+Pickable particle example (particle rotation): <Playground id="#2FPT1A#352" title="Pickable Solid Particles That Rotate" description="Simple example of picking solid particles that then rotate in the render loop." image=""/>
