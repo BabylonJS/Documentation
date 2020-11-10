@@ -39,7 +39,7 @@ const headers = {
 };
 
 const getUrl = (type: string, indexName: string = 'newdocs') => {
-    return `https://babylonjs-doc.search.windows.net/indexes/${indexName}/${type}?api-version=2020-06-30`;
+    return `https://babylonjs-doc.search.windows.net/indexes/${indexName}/docs/${type}?api-version=2020-06-30`;
 };
 
 export const addSearchItem = async (searchItem: ISearchIndexItem) => {
@@ -141,7 +141,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         });
     };
     const result = (await results.json());
-    const filtered = (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
+    const filtered = result.value && (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
