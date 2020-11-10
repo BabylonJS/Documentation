@@ -1,3 +1,15 @@
+---
+title: Game Pipeline
+image: 
+description: Video tutorial - Working with Blender, using Sandbox, and exploring 3ds Max.
+keywords: video tutorial, video, tutorial, Blender, Sandbox, 3D Max
+further-reading:
+video-overview:
+video-content:
+    - title: Game Pipeline
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/05/player
+---
+
 Working with Blender, using Sandbox, and exploring 3ds Max.
 
 ** Agenda **

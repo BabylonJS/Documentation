@@ -1,3 +1,15 @@
+---
+title: WebGL basics
+image: 
+description: Video tutorial WebGL basics
+keywords: video tutorial, video, tutorial, webgl
+further-reading:
+video-overview:
+video-content:
+    - title: WebGL Basics
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/02/player
+---
+
 Think of this as a WebGL 101 course, with a look at geometries and shaders, resources, and performance considerations.
 
 ** Agenda **

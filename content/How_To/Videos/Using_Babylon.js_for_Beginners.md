@@ -1,3 +1,15 @@
+---
+title: Basic Components
+image: 
+description: Video tutorial -  Basics of a scene with lights, cameras, and meshes, materials, and inputs
+keywords: video tutorial, video, tutorial, scene, lights, cameras, meshes, materials, inputs, gamepads, touch, WebVR, and orientation, playground
+further-reading:
+video-overview:
+video-content:
+    - title: Basic Components
+      url: https://channel9.msdn.com/Series/introduction-to-WebGL-3D-with-HTML5-and-Babylonjs/03/player
+---
+
 Take a look at basic scene components (lights, cameras, and meshes), materials, and inputs (gamepads, touch, WebVR, and orientation), plus get insights on using the Playground.
 
 ** Agenda **

@@ -1,3 +1,18 @@
+---
+title: RTS Game Development
+image: 
+description: Video tutorial - RTS Game
+keywords: video tutorial, video, tutorial, rts, 
+further-reading:
+video-overview:
+video-content:
+    - title: RTS Game
+      url: https://www.youtube.com/watch?v=i7tdJpf6Pnc&list=PLCrwuqjmVebK8M9DW_MNOxqn5ic6hF4ua&index=1
+    - title: RTS Game Development Series
+      url: https://www.youtube.com/playlist?list=PLCrwuqjmVebK8M9DW_MNOxqn5ic6hF4ua      
+---
+
+
 Hello, my name is Nikos and I run a YouTube channel catering for programmers.
 
 Have you ever wanted to build an awesome RTS game using Babylon.js?
