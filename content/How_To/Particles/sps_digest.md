@@ -1,4 +1,14 @@
-# Digest a Mesh
+---
+title: Solid Particles From Mesh Facets
+image: 
+description: Learn how to create solid particles from mesh facets in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, facets
+further-reading:
+video-overview:
+video-content:
+---
+
+## Digest a Mesh
 
 There is another way than adding shapes of meshes used as models to populate the SPS : you can directly "digest" a mesh.  
 To digest a mesh means that the SPS will decompose this mesh geometry and use all its facets to generate the particles. So, by default, a digested mesh generates as many particles as the mesh number of facets.
@@ -55,4 +65,4 @@ model.dispose();
 SPS.buildMesh();
 ```
 
-Example (click on the torus knot) : https://www.babylonjs-playground.com/#HDHQN
+Example (click on the torus knot): <Playground id="#HDHQN" title="Solid Particle From Mesh Facets Example" description="Simple example of solid particles from mesh facets (click on the torus knot)" image=""/>

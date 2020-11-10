@@ -1,3 +1,13 @@
+---
+title: Point Cloud System
+image: 
+description: Learn all about the point cloud system in Babylon.js.
+keywords: diving deeper, point cloud, point cloud system
+further-reading:
+video-overview:
+video-content:
+---
+
 # Points Cloud System
 
 A points cloud particle system (PCS) is a single updatable mesh with the the `PointsCloud` property of its material set to `true`. The point particles are simply the vertices of the mesh. As a mesh a PCS has most of the properties of a mesh, The exceptions are those related to its material which is already set and cannot be changed and also anything related to its vertex normals and indices as it does not have any set.

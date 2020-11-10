@@ -1,3 +1,13 @@
+---
+title: The Point Cloud Particle System
+image: 
+description: Dive into the point cloud particle system in Babylon.js.
+keywords: diving deeper, point cloud, point cloud system, particle
+further-reading:
+video-overview:
+video-content:
+---
+
 # Points Cloud Particle System (PCS)
 
 A PCS is a single updatable mesh with the the `PointsCloud` property of its material set to `true`. The point particles are simply the vertices of the mesh. As a mesh a PCS has most of the properties of a mesh, The exceptions are those related to its material which is already set and cannot be changed and also anything related to its vertex normals and indices as it does not have any set.
@@ -15,7 +25,7 @@ The expected usage is:
 -   Changes to particle properties can be achieved with the `initParticles()` or `updateParticle(particle)` methods and a call to `setParticles`.
 -   Particle animation can be accomplished by defining their individual behavior in `updateParticle(particle)` and calling `setParticles()` within the render loop.
 
-# Limitations
+## Limitations
 
 The way the PCS is created using vertex points with a pre-applied material with `PointsCloud` set to true means that:
 
