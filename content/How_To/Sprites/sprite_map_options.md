@@ -1,4 +1,14 @@
-# Sprite Map Options
+---
+title: Sprite Map Options
+image: 
+description: Learn all about sprite map options in Babylon.js.
+keywords: babylon.js, diving deeper, sprites, options
+further-reading:
+video-overview:
+video-content:
+---
+
+## Sprite Map Options
 The options parameter object, when creating a sprite map, contains a number of properties
 ```javascript
 const spriteMap = new BABYLON.SpriteMap(name, atlasJSON, spriteTexture, options, scene);
@@ -18,12 +28,8 @@ Each of the options properties helps the sprite map reserve the proper data buff
 
 After initialization you can change the rotation and position of the output plane by referencing the spriteMaps.position | rotation like a standard mesh.  For any other option change (like stageSize, or layerCount etc...) its recommended that you dispose the map and re-initialize with the correct options.
 
-# Examples of Option Properties
-base tile used to fill whole grid https://www.babylonjs-playground.com/#YCY2IL#16  
-outputSize changes size and ratio of plane https://www.babylonjs-playground.com/#YCY2IL#17  
-two layers individual sprites in layer 1 on top of base tile in layer 0 https://www.babylonjs-playground.com/#YCY2IL#18  
-color multiplied by red  https://www.babylonjs-playground.com/#YCY2IL#19
-
-
-
-
+## Examples of Option Properties
+base tile used to fill whole grid: <Playground id="#YCY2IL#16" title="Base Tile Used To Fill Whole Grid" description="Simple example of a base tile used to fill a whole grid." image=""/>
+outputSize changes size and ratio of plane: <Playground id="#YCY2IL#17" title="OutputSize Changes Size And Ratio Of Plane" description="Simple example showing outputSize changing the size and ratio of a plane." image=""/>
+two layers individual sprites in layer 1 on top of base tile in layer 0: <Playground id="#YCY2IL#18" title="Two Layre Individual Sprites" description="Simple example of two layers individual sprites in layer 1 on top of base tile in layer 0." image=""/>
+color multiplied by red: <Playground id="#YCY2IL#19" title="Color Multipled By Red" description="Simple example of color multiplied by red." image=""/>

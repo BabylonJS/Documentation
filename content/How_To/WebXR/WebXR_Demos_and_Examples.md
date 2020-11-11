@@ -1,4 +1,14 @@
-# Basic scene
+---
+title: WebXR Demos and Examples
+image: 
+description: Check out a series of WebXR demos and examples in Babylon.js.
+keywords: babylon.js, diving deeper, WebXR, VR, AR, demo, example
+further-reading:
+video-overview:
+video-content:
+---
+
+## Basic scene
 
 This is a step-by-step guide on how to add XR features to a basic scene
 
@@ -10,9 +20,9 @@ Here we just add an environment, a sphere, and XR support
 const xrHelper = await scene.createDefaultXRExperienceAsync();
 ```
 
-[Basic scene with XR support](https://playground.babylonjs.com/pg/9K3MRA)
+<Playground id="#9K3MRA" title="Basic Scene With WebXR Support" description="Simple example of a basic scene with WebXR support." image=""/>
 
-## Adding teleportation
+### Adding teleportation
 
 To get teleportation enabled, we want to provide the experience helper with an array of floor meshes:
 
@@ -23,9 +33,9 @@ const xrHelper = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-[Basic example with teleportation](https://playground.babylonjs.com/pg/9K3MRA/revision/1)
+<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled." image=""/>
 
-## Adding a color picker to the basic scene
+### Adding a color picker to the basic scene
 
 Add a color picker (from our GUI library) and use it to change the sphere's color.
 
@@ -56,15 +66,15 @@ picker.onValueChangedObservable.add(function(value) {
 panel.addControl(picker);
 ```
 
-[WebXR color picker](https://playground.babylonjs.com/pg/9K3MRA/revision/2)
+<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." image=""/>
 
-# Other demos
+## Other demos
 
-* [Goalkeeper training](https://playground.babylonjs.com/pg/PPM311/revision/63)
-* [Physics playground (beta)](https://playground.babylonjs.com/pg/B922X8/revision/19)
+* <Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" image=""/>
+* <Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" image=""/>
 
-# Babylon.js scenes with XR support
+## Babylon.js scenes with XR support
 
-* [Mansion](https://www.babylonjs-playground.com/pg/JA1ND3/revision/161)
-* [Hill Valley](https://www.babylonjs-playground.com/pg/TJIGQ1/revision/3)
-* [Espilit](https://www.babylonjs-playground.com/pg/JA1ND3/revision/164)
+* <Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo" image=""/>
+* <Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley" image=""/>
+* <Playground id="#JA1ND3#164" title="Espilit" description="Espilit" image=""/>
