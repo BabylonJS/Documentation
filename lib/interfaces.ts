@@ -19,4 +19,5 @@ export interface MarkdownMetadata {
     categoryId?: number;
     categoryName?: string;
     videoOverview?: string;
+    tocLevels?: number;
 }

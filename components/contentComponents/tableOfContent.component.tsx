@@ -51,7 +51,7 @@ const styles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[] }> = ({ tocItems }) => {
+export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[], levels: number }> = ({ tocItems, levels }) => {
     const [hovered, setHovered] = useState<boolean>(false);
     const [clicked, setClicked] = useState<boolean>(false);
     const [fullHeight, setFullHeight] = useState<boolean>(true);
@@ -126,7 +126,10 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                 Table Of Contents
             </Typography>
             <Typography className={`${classes.itemsContainer} ${fullHeight ? classes.itemsFullHeight : hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
-                {tocItems.map((item, idx) => (
+                {tocItems.filter((item) => {
+                    return item.level <= levels
+                })
+                .map((item, idx) => (
                     <a key={idx} href={`#${item.id}`}>
                         <div onClick={disableClick} style={{ marginLeft: item.level * 16, display: 'inline' }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
                             {item.title}
