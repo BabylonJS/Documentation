@@ -1,8 +1,19 @@
+---
+title: The .babylon File Format
+image: 
+description: Dive deep into the inner workings of the .babylon file format.
+keywords: babylon.js, advanced, .babylon
+further-reading:
+video-overview:
+video-content:
+---
+
+
 **Babylon.js** uses a JSON file format for describing scenes.
 
 You can find the complete loader code [here](https://github.com/BabylonJS/Babylon.js/blob/master/src/Loading/Plugins/babylonFileLoader.ts).
 
-# Basic types
+## Basic types
 .babylon files uses the following convention for basic types:
 
 * **Vector3**: An array of 3 floats ([x, y, z]). Example: [1.1, 2.2, 3.3]
@@ -11,7 +22,7 @@ You can find the complete loader code [here](https://github.com/BabylonJS/Babylo
 * **Matrix**: An array of 16 floats exposed with row first convention
 * **Boolean**: true or false
 
-# Global structure
+## Global structure
 The global structure of a .babylon file is the following:
 
 ```javascript
@@ -46,7 +57,7 @@ The global structure of a .babylon file is the following:
     "autoAnimateSpeed": number (can be omitted)
 }
 ```
-# Cameras
+## Cameras
 A camera is defined by the following JSON:
 ```javascript
 {
@@ -82,10 +93,10 @@ A camera is defined by the following JSON:
     "inputmgr" : map of camera inputs (can be omitted, see below)
 }
 ```
-# Map of camera inputs
+## Map of camera inputs
 This is an object literal using the input type as a key, and the input settings as a child object. Each input type has its own properties.
 
-# Lights
+## Lights
 A light is defined by the following JSON:
 ```javascript
 {
@@ -113,7 +124,7 @@ A light is defined by the following JSON:
 }
 ```
 
-# Materials
+## Materials
 A material is defined by the following JSON:
 ```javascript
 {
@@ -151,7 +162,7 @@ A material is defined by the following JSON:
 }
 ```
 
-# Fresnel parameters
+## Fresnel parameters
 Fresnel parameters are defined by the following JSON:
 ```javascript
 {
@@ -163,7 +174,7 @@ Fresnel parameters are defined by the following JSON:
 }
 ```
 
-# Textures
+## Textures
 A texture is defined by the following JSON:
 ```javascript
 {
@@ -187,7 +198,7 @@ A texture is defined by the following JSON:
 }
 ```
 
-# ReflectionProbe
+## ReflectionProbe
 A reflection probe is defined by the following JSON which extends the RenderTargetTexture JSON (see below):
 ```javascript
 {
@@ -197,7 +208,7 @@ A reflection probe is defined by the following JSON which extends the RenderTarg
 }
 ```
 
-# RenderTargetTexture
+## RenderTargetTexture
 A render target texture is defined by the following JSON which extends the Texture JSON (see below):
 ```javascript
 {
@@ -209,7 +220,7 @@ A render target texture is defined by the following JSON which extends the Textu
 }
 ```
 
-# MultiMaterials
+## MultiMaterials
 A multiMaterial is defined by the following JSON:
 ```javascript
 {
@@ -220,7 +231,7 @@ A multiMaterial is defined by the following JSON:
 }
 ```
 
-# Geometries
+## Geometries
 The structure of "geometries" is the following:
 ```javascript
 {
@@ -228,7 +239,7 @@ The structure of "geometries" is the following:
 }
 ```
 
-# VertexData
+## VertexData
 A vertexData is defined by the following JSON:
 ```javascript
 {
@@ -250,7 +261,7 @@ A vertexData is defined by the following JSON:
 }
 ```
 
-# Instances
+## Instances
 A instance is defined by the following JSON:
 ```javascript
 {
@@ -263,7 +274,7 @@ A instance is defined by the following JSON:
 }
 ```
 
-# Meshes
+## Meshes
 A mesh is defined by the following JSON:
 ```javascript
 {
@@ -321,7 +332,7 @@ A mesh is defined by the following JSON:
 
 Please note that a parent mesh must be described before their children nodes
 
-# SubMeshes
+## SubMeshes
 A subMesh is defined by the following JSON:
 ```javascript
 {
@@ -333,7 +344,7 @@ A subMesh is defined by the following JSON:
 }
 ```
 
-# Animations
+## Animations
 An animation can be defined by the following JSON:
 ```javascript
 {
@@ -350,7 +361,7 @@ An animation can be defined by the following JSON:
 }
 ```
 
-# AnimationKeys
+## AnimationKeys
 An animationKey is defined by the following JSON:
 ```javascript
 {
@@ -359,7 +370,7 @@ An animationKey is defined by the following JSON:
 }
 ```
 
-# ShadowGenerators
+## ShadowGenerators
 A shadowGenerator is defined by the following JSON:
 ```javascript
 {
@@ -374,7 +385,7 @@ A shadowGenerator is defined by the following JSON:
 }
 ```
 
-# Skeletons
+## Skeletons
 A skeleton is defined by the following JSON:
 ```javascript
 {
@@ -385,7 +396,7 @@ A skeleton is defined by the following JSON:
 }
 ```
 
-# Bones
+## Bones
 A bone is defined by the following JSON:
 ```javascript
 {
@@ -396,7 +407,7 @@ A bone is defined by the following JSON:
 }
 ```
 
-# ParticleSystems
+## ParticleSystems
 A particle system is defined by the following JSON:
 ```javascript
 {
@@ -435,7 +446,7 @@ A particle system is defined by the following JSON:
 }
 ```
 
-# LensFlareSystems
+## LensFlareSystems
 A lens flare system is defined by the following JSON:
 ```javascript
 {
@@ -445,7 +456,7 @@ A lens flare system is defined by the following JSON:
 }
 ```
 
-# LensFlares
+## LensFlares
 A lens flare is defined by the following JSON:
 ```javascript
 {
@@ -456,7 +467,7 @@ A lens flare is defined by the following JSON:
 }
 ```
 
-# Sounds
+## Sounds
 A sound is defined by the following JSON:
 ```javascript
 {
@@ -481,7 +492,7 @@ A sound is defined by the following JSON:
 }
 ```
 
-# Actions
+## Actions
 An action is defined by the following JSON. An action can contain children actions.
 ```javascript
 {
@@ -503,7 +514,7 @@ A property is defined by the following JSON. A property value is always a string
 }
 ```
 
-# Example
+## Example
 Here is a simple example of .babylon file:
 ```javascript
 {

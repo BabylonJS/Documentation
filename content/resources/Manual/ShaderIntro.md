@@ -1,10 +1,21 @@
-# Introduction to Shaders in BabylonJS
+---
+title: Introduction to Shaders
+image: 
+description: Dive deep into the inner workings of shaders in Babylon.js.
+keywords: babylon.js, advanced, shaders
+further-reading:
+video-overview:
+video-content:
+---
+
+
+## Introduction to Shaders in BabylonJS
 
 A shader is a program processed by the Graphical Processing Unit (GPU) to produce a screen image by manipulating data to 
 produce individual pixels. The GPU is optimised, through parallel processing, to deal with these thousand of operations 
 in an extremely fast way.
 
-# Suggested Pre-Reading
+## Suggested Pre-Reading
 
 - How To:
   - [Custom Meshes](/How_To/Custom.html)
@@ -13,9 +24,9 @@ in an extremely fast way.
   - [Normals in BJS](/resources/Normals.html)
 
 
-# An Overview
+## An Overview
 
-## Basic
+### Basic
 
 To produce a BabylonJS scene, code is written in Javascript which the BabylonJS Engine processes and displays the result on screen. 
 The scene can alter through changes to the meshes, the lights or camera position. To show possible changes in a timely way the screen 
@@ -37,7 +48,7 @@ and turns it into vertex data including positions, colors and normals.
 
 The BabylonJS Engine creates the shader code for this data and is passed to the GPU.
 
-## Custom
+### Custom
 
 Much more than this as well as Scene Code you can write your own user Shader Code so that 
 the process becomes:
@@ -46,7 +57,7 @@ the process becomes:
 * Virtual 3D Model and User Shader Code is processed in the CPU by the BJS Engine Code to produce the Shader GPU Code 
 * Shader GPU Code is processed by GPU to produce the screen image.
 
-# Types of Shader
+## Types of Shader
 
 Shaders are written in Graphics Library Shader Language (GLSL) and come in two parts:
 
@@ -58,7 +69,7 @@ Fragment Shaders are sometimes refered to as Pixel Shaders.
 
 ![Shaders](/img/how_to/Shaders/shade1.jpg)
 
-# Passing Variables
+## Passing Variables
 
 The vertex data for position, normal and uv coordinates are passed to the Vertex Shader as variables of category attribute. 
 User data can be passed to both the Vertex Shader and the Fragment Shader as variables of category uniform. 
@@ -69,7 +80,7 @@ pass scene 3D - 2D projection data to the Vertex Shader.
 
 ![Pass Variables](/img/how_to/Shaders/shade2.jpg)
 
-# Variable types
+## Variable types
 
 All variables used in both shaders must be given a type and any numbers assigned to the variable must be consistent with its type.
 
@@ -100,7 +111,7 @@ This is done at the start of the code for each shader using:
 precision highp float
 ```
 
-# Built In Variables
+## Built In Variables
 
 The GLSL language has a number of built in variables. Two are vital to the operation of the two shaders and are always necessary:
 
@@ -109,7 +120,7 @@ Variable | Description
 gl_Position | provide positional data for screen coordinates
 gl_FragColor | provide colour data for the representation of a facet on screen
 
-# Built In Inputs
+## Built In Inputs
 
 Attribute | Type | Description
 --- | --- | ---
@@ -128,7 +139,7 @@ view | mat4 | mesh local view part
 projection | mat4 | local camera
 time | float | per each frame
 
-# Functions
+## Functions
 
 Functions needed to be typed as do their parameters and have the form:
 
@@ -138,7 +149,7 @@ float NAME(typed parameters) {
 }
 ```
 
-# Running Shader Code
+## Running Shader Code
 
 Both the Vertex and the Fragment Shader are run from a function which must be called `main` and be of type `void` since it returns 
 no result. It must also must type the empty parameter list as void:
@@ -151,7 +162,7 @@ void main(void) {
 
 ![Shader Code](/img/how_to/Shaders/shade3.jpg)
 
-# Putting Shader Code in BabylonJS
+## Putting Shader Code in BabylonJS
 
 Here are four ways of putting shader code into your scene:
 
@@ -162,9 +173,9 @@ Here are four ways of putting shader code into your scene:
 
 More details on this can be found below.
 
-# Further Reading
+## Further Reading
 
-# How To
+## How To
 
 - [Putting Shader Code in BabylonJS](/How_To/Putting.html)  
 - [ShaderMaterial Object](/How_To/Shader_Material.html)
