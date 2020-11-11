@@ -1,7 +1,16 @@
-# Making a Simple Car
+---
+title: Making a Simple Car
+image: 
+description: A Simple Car Demonstrating Rotate
+keywords: welcome, babylon.js, car, rotate
+further-reading:
+video-overview:
+video-content:
+---
+
 This is to show the practical use of rotate. 
 
-# The Design
+## The Design
 
 The car will consist of a trapezoid for the body, four cylinders for wheels. The car will be animated to follow a path an remain parallel to it. 
 The wheels will rotate and be given a texture to show that they are rotating. For simplicity all wheels will remain parallel to the car and 
@@ -10,7 +19,7 @@ The path will be a curved line with large turning radius and will be shown in th
 
 ![Basic Car](/img/samples/car1.jpg)
 
-## Car body
+### Car body
 
 The car body will be an extrusion of the trapezium formed from the trapezium given by the points (-4, 2), (4, 2), (5, -2), (-7, -2) 
 in the direction of the positive x axis from (0, 0, -2) to (0, 0, 2)
@@ -34,9 +43,9 @@ var carBody = BABYLON.MeshBuilder.ExtrudeShape("body", {shape: side, path: extru
 carBody.material = bodyMaterial;
 ```
 
-* [Playground Construction of the Car Body](https://www.babylonjs-playground.com/#1YD970#8)
+PG: <Playground id="#1YD970#8" title="Car Body" description="Constructing the car body." image=""/>
 
-## Wheel
+### Wheel
 
 The wheel is made from a cylinder using MeshBuilder as this allows different textures and colours to be applied 
 to the flat and curved surfaces of the cylinder.
@@ -62,9 +71,9 @@ wheel.material = wheelMaterial;
 wheel.rotation.x = Math.PI/2;
 ```
 
-* [Playground Construction of a Wheel](https://www.babylonjs-playground.com/#1YD970#4)
+PG: <Playground id="#1YD970#4" title="Wheels" description="Constructing the wheels" image=""/>
 
-## Attaching the Wheels to the Car
+### Attaching the Wheels to the Car
 
 As the car moves forward so will the wheels, this can be achieved by making the car the parent of the wheels. 
 
@@ -93,9 +102,9 @@ wheelRO.position = new BABYLON.Vector3(2.5, -2, 2.8);
 wheelFI.position = new BABYLON.Vector3(-4.5, -2, -2.8);
 ```
 
-* [Playground Attachment of Wheels](https://www.babylonjs-playground.com/#1YD970#5)
+PG: <Playground id="#1YD970#5" title="Attach Wheels" description=" Attaching the wheels." image=""/>           
 
-## Rotate Wheels
+### Rotate Wheels
 The animation is achieved using scene.registerAfterRender and small rotations within the render loop. 
 
 *Note:* when using rotate and translate scene.register*After*Render is preferable to scene.register*Before*Render as 
@@ -111,9 +120,9 @@ the calculations will take place after the world matrix has been computer for ea
   });
 ```
 
-* [Playground Rotate Wheels](https://www.babylonjs-playground.com/#1YD970#7)
+PG: <Playground id="#1YD970#7" title="Rotate Wheels" description="Adding a method to rotate the wheels." image=""/>
 
-## Path
+### Path
 
 To draw a path a sequence of points are needed. Starting with a circle of radius r in the xz plane with centre (0, 0, 0) calculate points around the
 circle and vary r slightly and smoothly on the way round to give a less regular path. This is achieved by adding to the radius, at each angle, a fraction of r 
@@ -138,9 +147,9 @@ track.color = new BABYLON.Color3(0, 0, 0);
 var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 3*r, height: 3*r}, scene);
 ```
 
-* [Playground Path](https://www.babylonjs-playground.com/#172C5E#2)
+PG: <Playground id="#172C5E#2" title="The Path" description="The path that the car will follow." image=""/>
 
-## Following the Path
+### Following the Path
 
 The car will be moved forward using the sequence of points calculated for the path. As it moves round the path the car side should remain tangential to the path and the wheels should rotate about an axis that is normal to the path. 
 Since the normals to the path need to be calculated for the wheel axes it will be the normals that will be used to rotate the car. 
@@ -170,7 +179,7 @@ var dir = dir/Math.abs(dir); //dir takes value 1 or -1
 carBody.rotate(BABYLON.Axis.Y, dir * theta, BABYLON.Space.WORLD);
 ```
 
-## Placing the Car
+### Placing the Car
 
 To stand on the ground the car will need to be lifted. To be set on the path it will be moved to the point (0, r, 4). Its current normal is 
 along the z axis so determine the turn necessary from
@@ -180,7 +189,7 @@ var theta = Math.acos(BABYLON.Vector3.Dot(BABYLON.Axis.Z,normals[0]));
 carBody.rotate(BABYLON.Axis.Y, theta, BABYLON.Space.WORLD);
 ```
 
-## Animating the Car
+### Animating the Car
 
 The animation is achieved using scene.registerAfterRender. Within this render loop:
 the car is moved forward from point to point; 
@@ -206,9 +215,9 @@ scene.registerAfterRender(function() {
 });
 ```
 
-* [Playground Finalised](https://www.babylonjs-playground.com/#1YD970#12)
+PG: <Playground id="#1YD970#12" title="Car Travels The Path" description="First prototype of car following a path" image=""/>
 
-# Correction
+## Correction
 
 After allowing the finalised playground of the car to run for a while it can be seen that the rotating of the car becomes askew. 
 This is due to rounding errors in the floating point (probably). 
@@ -221,7 +230,5 @@ if(i == 0) {
 }
 ```
 
-* [Playground Corrected Finally](https://www.babylonjs-playground.com/#1YD970#14)
-  
-  
+PG: <Playground id="#1YD970#14" title="Car Folloing a Path" description="Removed rotation errors for car path following ." image=""/>
 

@@ -1,9 +1,18 @@
-# Making a Simple Driven Car
-This is to show a practical use of translate, rotate and  using a parent.
+---
+title: Making a Simple Driven Car
+image: 
+description: Design and construct a car driven by key presses
+keywords: welcome, babylon.js, workshop, simple car, design, translate, rotate, parent
+further-reading:
+video-overview:
+video-content:
+---
 
-# The Design
+This is to show a practical use of translate, rotate and using a parent.
 
-The car will be designed in the same way as for the [Simple Car](/samples/Car_Path). In this case the car will be flatter and the view will be from behind 
+## The Design
+
+The car will be designed in the same way as for the [Simple Car](/snippets/gamelets/Car_Path). In this case the car will be flatter and the view will be from behind 
 the car and this will be fixed as the camera will not be attached to the canvas. The front wheels will be further away from the side of the body 
 to allow them to turn, each will have its own pivot. The car will be driven forward using the space bar as an accelerator up to a maximum speed. 
 The front wheels will be steered with A and D. The rotation of the wheels will be matched with the speed of the car. 
@@ -14,9 +23,9 @@ The ground will be covered in random boxes to give the illusion of movement. For
 no consequences other than perhaps the loss of the sense of motion. 
 
 
-* [Playground - The Car](https://www.babylonjs-playground.com/#1WEZZ7)
+PG: <Playground id="" title="A Basic Car" description="Building the car." image=""/>
 
-# Steering
+## Steering
 
 The steering will be based on a simplified Ackerman steering system. In the true Ackerman system when turning 
 the rotation of the left and right front wheels will be different. For the purposes of this simulation they will 
@@ -24,13 +33,13 @@ be taken to be the same.
 
 ![Ackerman Steering](/img/samples/ackerman.jpg)
 
-The front wheel pivots and the rear wheel supports form a rectangle with a distance L between thefront and rear and a distance A 
+The front wheel pivots and the rear wheel supports form a rectangle with a distance L between the front and rear and a distance A 
 betwen the two front wheels. When the front inside wheel is turned through an angle of theta the centre of rotation is where the 
 line through the pivot point normal to the wheel meets the line through the two real wheel supports. 
 The distance R of the centre of rotation from the inside rear wheel support can be found using R = L/tan(theta) and from the middle 
 of the to rear wheels it is A/2 + L/tan(theta).
 
-# Mathematics of Rotation for Car
+## Mathematics of Rotation for Car
 
 When the BabylonJS engine is running at F frames per second the time for one frame is 1/F seconds.
 
@@ -70,7 +79,7 @@ The following diagram indicates the procedure.
 
 ![Centre of Rotation](/img/samples/car3.jpg)
 
-# Applying the Calculations
+## Applying the Calculations
 
 The centre of rotation will be an empty mesh, the pivot, which will be the parent of the car. The pivot's position 
 will depend on the angle theta of the front wheels. The car has been created with its front pointing towards the negative x axis. 
@@ -83,7 +92,7 @@ When theta changes a new value NR for the radius of the circle of rotation will 
 R - NR along the local positive z axis and the car translated NR - R along the local positive z axis. This results in the car not changing position 
 and the centre of rotation being a distance NR froom the car. R is then set to NR.
 
-## Turning the Front wheels
+### Turning the Front wheels
 
 An action manager is used to register a key up and a key down event. There are three keys used A, D and Space (with or without caps lock). 
 As acceleration and turning can take place at the same time multiple key presses are required. Whenever a key down event occurs the key is added to 
@@ -125,7 +134,7 @@ if((map["a"] || map["A"]) && -Math.PI/6 < theta) {
 }; 
 ```
 
-## Moving the Car
+### Moving the Car
 
 When speed greater than zero and When theta is not zero rotate the pivot and rotate each wheel depending on its position. Otherwise translate the pivot in the local negative x direction 
 and rotate wheels by same amount.
@@ -155,19 +164,19 @@ if(D > 0) {
 }
 ```
 
-# Playground Examples
+## Playground Examples
 
-The first playground is the gamelet as described above.
+The first playground is the example as described above.
 
-NOTE to use the keys with the playground you MUST click on the car after it loads or you use RUN.
+NOTE to use the keys with the playground you MUST click on the car after it loads or you have used RUN.
 
-* [Playground - The Car Gamelet](https://www.babylonjs-playground.com/#102TBD#31)
+PG: <Playground id="#102TBD#31" title="Driven Car" description="View behind the car." image=""/>
 
 The second playground is similar. The pivot has been made into a sphere so you can see it and the camera position changed to give 
 an overview. The camera is now attached to the canvas so you can change viewing angles. This may help give more insight into 
 the workings of the code.
 
-* [Playground - The Car Overview](https://www.babylonjs-playground.com/#102TBD#33)
+PG: <Playground id="" title="Driven Car Overview" description="Visible pivot and flexible camera view" image=""/>
 
 
 

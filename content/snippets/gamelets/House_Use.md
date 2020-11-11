@@ -1,4 +1,12 @@
-# Using Build a House from Plans.
+---
+title: Using Build a House from Plans
+image: 
+description: Starting with a 2D plan of the outline of a house use the functions to build a house
+keywords: welcome, babylon.js, house, outline, plan, build
+further-reading:
+video-overview:
+video-content:
+---
 
 **Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
 
@@ -9,7 +17,7 @@ var house buildFromPlan(walls, ply, height, options, scene);
 ```
 which requires an additional prototype to `PolygonMeshBuilder`.
 
-The code for both of these is given below and can be copied and used in your own projects. Further details can be found by reading the [development of this code](/samples/House). 
+The code for both of these is given below and can be copied and used in your own projects. Further details can be found by reading the [development of this code](/snippets/gamelets/House). 
 
 The parameters are
 
@@ -49,9 +57,9 @@ Each window object has two parameters, example new window(1, 2)
 _width_ : width of window  
 _height_ : height of window
 
-# Code
+## Code
 
-## buildFromPlan
+### buildFromPlan
 
 The following code should be copied and pasted inside the `createScene` function
 
@@ -641,7 +649,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 }
 ```
 
-## PolygonMeshBuilder wallBuilder Method
+### PolygonMeshBuilder wallBuilder Method
 
 This code should be copied and pasted within your own code.
 
@@ -669,7 +677,7 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 };
 ```
 
-## Building the Data and Parameters, an example
+### Building the Data and Parameters, an example
 
 ```javascript
 	var baseData = [-3, -2, -1, -4, 1,-4, 3, -2, 5, -2, 5, 1, 2, 1, 2, 3, -3, 3];
@@ -708,7 +716,7 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 	var ply = 0.3;
 	var height = 3.2;
 ```
-## Build Interior Walls
+### Build Interior Walls
 Really this is a method of building walls that do not form an enclosing shell, i.e. the first and last corners do not produce a wall between them.
 
 Add the option interior: true, for example 
@@ -718,19 +726,9 @@ var wall = buildFromPlan(walls, ply, height, {interior:true}, scene);
 ```
 You can add doors and windows (?hatches) to these walls as well.
 
-# Playground Examples
-* [Playground Example of a House Built from a FloorPlan](https://www.babylonjs-playground.com/#4GBWI5#265)
-* [Playground Example of None Enclosing Wall](https://www.babylonjs-playground.com/#1Z71FW#103)
-* [Playground Example of None Enclosing Wall with UVs](https://www.babylonjs-playground.com/#1Z71FW#102)
-* [Playground Example of House and Interior Walls](https://www.babylonjs-playground.com/#1Z71FW#45)
+## Playground Examples
+PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Example of a House Built from a FloorPlan." image=""/>  
+PG: <Playground id="#1Z71FW#103" title="Wall From Floorplan 1" description="Example of None Enclosing Wall." image=""/>  
+PG: <Playground id="#1Z71FW#102" title="Wall From Floorplan 2" description="Example of None Enclosing Wall with texture." image=""/>  
+PG: <Playground id="#1Z71FW#45" title="House and Interior Walls" description="Example of House with interior walls." image=""/>
 
-# Further Reading
-
-[Developing the Code for Build From Plans](/samples/House)  
-[Adding a Roof](/samples/roof)
-
-# Level 1
-[Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
-
-# Level 2
-[Polygon Mesh Builder](/How_To/PolygonMeshBuilder)

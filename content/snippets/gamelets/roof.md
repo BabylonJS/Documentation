@@ -1,10 +1,18 @@
-# Adding a Roof to a House Built from Plans
+---
+title: Adding a Roof to a House Built from Plans
+image: 
+description: Using a 2D plan to describe a roof build it in 3D
+keywords: welcome, babylon.js, house, roof, plan
+further-reading:
+video-overview:
+video-content:
+---
 
-For any house there is a range of different types of roof that can be added and so there is no automatic way to use the footprint of a house to build a roof directly. However with a little bit of manual design there are methods that can complete the build. Here we present two ways to design and create a hip roof. The example used is based on the [design](/samples/House) and [coding](/samples/House_Use) of this [house](https://www.babylonjs-playground.com/#4GBWI5#265).
+For any house there is a range of different types of roof that can be added and so there is no automatic way to use the footprint of a house to build a roof directly. However with a little bit of manual design there are methods that can complete the build. Here we present two ways to design and create a hip roof. The example used is based on the [design](/snippets/gamelets/House) and [coding](/snippets/gamelets/House_Use) of this [house](https://www.babylonjs-playground.com/#4GBWI5#265).
 
 **Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
 
-# Design Whole Roof
+## Design Whole Roof
 
 In this case the **rise**, or roof height, is the same for all sections of the roof.
 
@@ -25,9 +33,9 @@ The function **roofprint** returns a list of Vector3 representing the corners of
 
 Using the roofprint the floor of the roof (or top ceiling) can be added as a mesh.
 
-* [Playground Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
+PG: <Playground id="" title="" description="." image=""/> Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
 
-# Plan of Roof
+## Plan of Roof
 
 Though it is possibly more accurate to use the roofprint as a guide to a plan for the roof it is probably easier (in terms of coordinates) to use the original footprint. All you need to do is draw, in a plan diagram, the planes of the roof. An **apex** is a highest point on the roof where planes meet. The plan diagram in _Fig 2_ shows the floorprint corners numbered C0, C1, C2 etc and the apexes numbered in sequence using A0, A1 etc. _Fig 2_ is drawn to scale based on the original base data. 
 
@@ -91,9 +99,9 @@ In the example the roof mesh is built using
 var roofSection = roof(wholeRoofprint, apexes, planes, 2, height, 5.6);
 ```
 
-* [Playground Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
+PG: <Playground id="" title="" description="." image=""/> Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
 
-# Design Roof In Sections
+## Design Roof In Sections
 
 When you want different parts of the roof to have different heights then although it is possible to choose suitable apexes and planes it is much more difficult to determine the apex where a low roof meets the plane of a higher roof. For example in _Fig 3_ it is possible to calculate the x coordinate of apex A using 3D vector geometry.
 
@@ -168,15 +176,4 @@ var roofSection = roof(mainRoofprint, apexes, planes, 2, height, 5.1);
 var smallRoofSection = roof(smallRoofprint, smallApexes, smallPlanes, 2, height - 1, 5.1);
 ```
 
-* [Playground Example Roof](https://www.babylonjs-playground.com/#1Z71FW#43)
-
-# Further Reading
-
-[Developing the Code for Build From Plans](/samples/House)  
-[The Code for Build From Plans](/samples/House_Use)
-
-# Level 1
-[Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
-
-# Level 2
-[Polygon Mesh Builder](/How_To/PolygonMeshBuilder)
+PG: <Playground id="#1Z71FW#43" title="Roof Added" description="Building and adding a roof" image=""/>

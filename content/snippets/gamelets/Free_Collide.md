@@ -1,11 +1,19 @@
-# Free Particles
+---
+title: Free Particle Collisions
+image: 
+description: Particles that move with no restriction to their start position or velocity
+keywords: welcome, babylon.js, particle, collisions, free
+further-reading:
+video-overview:
+video-content:
+---
 
-After considering the [issues](/samples/Issues.html) involved and slow [slow particles](/samples/Slow_Collide.html) we are now ready to consider **free particles**, ones that move with no restriction to their start position or velocity.
+After considering the [issues](/snippets/gamelets/Issues.html) involved and slow [slow particles](/snippets/gamelets/Slow_Collide.html) we are now ready to consider **free particles**, ones that move with no restriction to their start position or velocity.
 
 The velocity of a particle is its displacement per frame.
 
 
-# Colliding with a Wall
+## Colliding with a Wall
 
 Given a particle of radius r, at position p and velocity v in *frame n*, the particle will collide with a wall when it is travelling towards the wall in *frame n* and in *frame n+1* the centre of the particle, at p + v,  is within a distance r from the wall or is moving away from the wall.
 
@@ -53,7 +61,7 @@ Which is the reflection of the particle at *frame n* in the plane parallel to th
 
 This means after *frame n* is displayed the particle's position has to be reset as indicated.
 
-# Colliding Particles
+## Colliding Particles
 
 Given a two particles P and Q of radius r, at positions p and q with velocities v and u repectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particle are at p + v and q + u. Between *frame n* and frame n+1* the two particles would collide when there is a time t &lt;= 1 when the distance between the positions of the particles is 2r. See Fig 22.
 
@@ -82,9 +90,9 @@ There will be a collision between *frame n* and *frame n+1* provided b<sup>2</su
 
 Based on the above the following Playground shows two spheres and their paths. Should they collide their positions at first touch are shown. Their start positions and velocities may be set at lines 35 to 38.
 
-* [Playground Example - First Contact](https://www.babylonjs-playground.com/#A4HZTV).
+PG: <Playground id="#A4HZTV" title="First Contact" description="Two moving spheres showing their paths and their positions at first contact." image=""/>
 
-## Reaction
+### Reaction
 
 Since only the velocities along the line joining the centres of the particles are affected during the collision we need to consider axes along this radial line and a tangential line. The particles are at first contact at time t, with P at p + vt and Q at q + ut
 
@@ -146,23 +154,23 @@ After a collision these values are used to recalculate the  positions of particl
 
 The following Playground shows the first contact position of two particles and their paths before and after collision. Start position and velocities may be set on lines 36 to 39.
 
-* [Playground Example - First Contact Rebound](https://www.babylonjs-playground.com/#A4HZTV#1).
+PG: <Playground id="#A4HZTV#1" title="Contact and Rebound" description="Shows the first contact position of two particles and their paths before and after collision." image=""/>
 
 This Playground fires particles randomly towards each other to see the effect when they collide.
 
-* [Playground Example - Colliding Particles](https://www.babylonjs-playground.com/#A4HZTV#2).
+PG: <Playground id="#A4HZTV#2" title="Random Collisions" description="Particles are fired randomly towards each other to see the effect when they collide." image=""/>
 
-# A Multitude of Particles
+## A Multitude of Particles
 
 Combining all of the above the following Playgrounds put many particles inside a box and have them collide with the box and each other.
 
-* [Playground Example - Slow Moving Particles](https://www.babylonjs-playground.com/#HIM0WS)
+PG: <Playground id="#HIM0WS" title="Slow Moving Particles" description="Particles inside a box, collide with the box and each other." image=""/>
 
-* [Playground Example - Fast Moving Particles](https://www.babylonjs-playground.com/#HIM0WS#1)
+PG: <Playground id="#HIM0WS#1" title="Fast Moving Particles" description="." image=""/>
 
 Maximum speeds, for both,  can be changed on lines 21 to 23.
 
-# Further Reading
+## Further Reading
 
-[Slow Particles](/samples/Slow_Collide.html)  
+[Slow Particles](/snippets/gamelets/Slow_Collide.html)  
 
