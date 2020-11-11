@@ -1,4 +1,14 @@
-# Introduction
+---
+title: Screen Space Reflections (SSR) Post Process
+image: 
+description: Learn about the screen space reflection post process in Babylon.js.
+keywords: diving deeper, post processes, post process, screen space reflection, reflection, SSR
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 Rendering reflections in real-time can be done using several methods. Each method contains its own pros and cons. For Web technologies, 2 main methods exist:
 * **Using a Mirror Texture**:
     * pros: renders perfect reflections on a plane.
@@ -13,9 +23,9 @@ As an example, with SSR enabled (look at the water-tank):
 With SSR disabled:
 ![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/without_ssr.png)
 
-You can find a simple example of the SSR post-process in our playground: [https://playground.babylonjs.com/#PIZ1GK](https://playground.babylonjs.com/#PIZ1GK)
+You can find a simple example of the SSR post-process in our playground: <Playground id="#PIZ1GK" title="SSR Post Process Example" description="Simple example of the screen space reflection Post Process." image=""/>
 
-# Prerequisite
+## Prerequisite
 To render reflections using the SSR post-process, the device must support WebGL 2 or at least the multiple render targets extension for WebGL 1. If not supported, the post-process will just work as a pass-through.
 
 To any reflecting geometry in your scene, the post-process must know what are its "reflectivity" properties. To provide these informations, your reflecting meshes must contain for:
@@ -36,7 +46,7 @@ myMaterial.reflectivityTexture = new BABYLON.Texture("textures/reflectivity.png"
 
 **Note: the SSR post-process is a kind of greedy post-process. It is not intended to work smoothly on low-end devices and requires an enough powerful device.**
 
-# Creating the SSR post-process
+## Creating the SSR post-process
 Just create an instance of BABYLON.ScreenSpaceReflectionPostProcess:
 ```javascript
 var ssr = new BABYLON.ScreenSpaceReflectionPostProcess(
@@ -47,9 +57,9 @@ var ssr = new BABYLON.ScreenSpaceReflectionPostProcess(
 ); 
 ```
 
-# Customizing
+## Customizing
 
-# Strength
+## Strength
 The strength is applied on the overall specular/reflectivy informations in the scene and can be customized. The default value for the strength is 1.0 and should be used only if you are looking for a particular result (means that the result will not be realistic).
 
 ```javascript
@@ -57,9 +67,9 @@ The strength is applied on the overall specular/reflectivy informations in the s
 ssr.strength = 2;
 ```
 
-Example playground: [https://playground.babylonjs.com/#PIZ1GK#3](https://playground.babylonjs.com/#PIZ1GK#3)
+Example playground: <Playground id="#PIZ1GK#3" title="SSR Reflective Strength Example" description="Simple example of the reflective strength of the screen space reflection post process." image=""/>
 
-# Falloff Exponent
+## Falloff Exponent
 The falloff exponent is used to linearly reduce the reflection's intensities. The default value is "3.0" and works for most cases.
 
 ```javascript
@@ -67,9 +77,9 @@ The falloff exponent is used to linearly reduce the reflection's intensities. Th
 ssr.reflectionSpecularFalloffExponent = 4;
 ```
 
-Example playground with an almost equal to 0 exponent: [https://playground.babylonjs.com/#PIZ1GK#2](https://playground.babylonjs.com/#PIZ1GK#2)
+Example playground with an almost equal to 0 exponent: <Playground id="#PIZ1GK#2" title="SSR Falloff Example" description="Simple example falloff in the screen space reflection post process." image=""/>
 
-# Quality
+## Quality
 The reflections quality can be customized to save performances and should be adjusted to each scene type. 
 
 The post-process is based on ray-tracing algorithms. That means more the post-process picks samples, more the result looks good.
@@ -81,6 +91,6 @@ The quality is defined as:
 
 According to the nature of the scene, the post-process quality can be not necessary perceptible between the medium and high qualities as the ray-tracing algorithm stops once it finds the reflection color. In other words, the high quality will be not be always needed.
 
-High quality playground: [https://playground.babylonjs.com/#PIZ1GK#7](https://playground.babylonjs.com/#PIZ1GK#7)
-Medium quality playground: [https://playground.babylonjs.com/#PIZ1GK#5](https://playground.babylonjs.com/#PIZ1GK#5)
-Low quality playground: [https://playground.babylonjs.com/#PIZ1GK#6](https://playground.babylonjs.com/#PIZ1GK#6)
+High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections." image=""/>
+Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections." image=""/>
+Low quality playground: <Playground id="#PIZ1GK#6" title="Low Quality SSR Example" description="Example of low quality screen space reflections." image=""/>

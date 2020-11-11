@@ -1,8 +1,18 @@
-# The standard pipeline is no longer maintained.
+---
+title: Using the Standard Rendering Pipeline (depricated)
+image: 
+description: Learn about the standard rendering pipeline in Babylon.js.
+keywords: diving deeper, post processes, post process, render pipeline, render, standard rendering
+further-reading:
+video-overview:
+video-content:
+---
+
+## The standard pipeline is no longer maintained.
 
 [Default pipeline](/how_to/using_default_rendering_pipeline) should be used going forward but the standard pipeline will be kept for backwards compatibility.
 
-# Introduction
+## Introduction
 
 This rendering pipeline tends to simulate a chain of famous post-process effects such as
 
@@ -12,10 +22,10 @@ This rendering pipeline tends to simulate a chain of famous post-process effects
 -   Motion Blur
 -   Volumetric Lights
 
-Simple playground : [https://www.babylonjs-playground.com/#FRUD8#2](https://www.babylonjs-playground.com/#FRUD8#2)
-Full playground: [ https://www.babylonjs-playground.com/#X3XD2C](https://www.babylonjs-playground.com/#X3XD2C#1)
+Simple playground : <Playground id="#FRUD8#2" title="Standard Rendering Pipeline Example" description="Simple example of the standard rendering pipeline." image=""/>
+Full playground: <Playground id="#X3XD2C#1" title="Standard Rendering Pipeline Example (full example)" description="Full example of the standard rendering pipeline." image=""/>
 
-# Creating the rendering pipeline
+## Creating the rendering pipeline
 
 Just create an instance of BABYLON.StandardRenderingPipeline
 
@@ -29,9 +39,9 @@ var pipeline = new BABYLON.StandardRenderingPipeline(
 );
 ```
 
-# Customizing
+## Customizing
 
-# Bright threshold
+## Bright threshold
 
 Highlighted surfaces are following a configured threshold which is a number.
 Each pixel intensity above the given threshold is creating lens imperfections.
@@ -41,7 +51,7 @@ Just set the ".brightThreshold" property:
 pipeline.brightThreshold = 0.8;
 ```
 
-# Change exposure
+## Change exposure
 
 To globally intensify the highlighted surfaces result (before it is merged with the final scene color), you can change the ".exposure" property:
 
@@ -49,7 +59,7 @@ To globally intensify the highlighted surfaces result (before it is merged with 
 pipeline.exposure = 1.0; // which multiplies the final scene color with the highlighted surfaces result
 ```
 
-# Blur width
+## Blur width
 
 The blur width (or kernel size) can be customized and is by default equal to 512
 
@@ -57,7 +67,7 @@ The blur width (or kernel size) can be customized and is by default equal to 512
 pipeline.exposure = 128; // Blur is less expansive and is less spreaded
 ```
 
-# Setting up the dirty lens effect
+## Setting up the dirty lens effect
 
 To add a dirty lens effect, you can set the ".lensTexture" mask texture (background must be black) which will be applied on the screen following the highlighted surfaces:
 
@@ -70,9 +80,9 @@ A dirty lens mask should look like:
 
 ![DirtyLensTexture](/img/how_to/advanced/standardRenderingPipeline/lensdirt.jpg)
 
-# Setting up the pseudo lens flare
+## Setting up the pseudo lens flare
 
-# Setting up textures
+## Setting up textures
 
 First, to activate the pseudo lens flare effect, just set the ".LensFlareEnabled" to true:
 
@@ -113,7 +123,7 @@ Color texture like:
 
 ![LensColorTexture](/img/how_to/advanced/standardRenderingPipeline/lenscolor.png)
 
-# Setting up parameters
+## Setting up parameters
 
 Once you added the textures, you can customize some parameters that will allow you to customize the final result:
 
@@ -140,13 +150,13 @@ The distortion strength:
 pipeline.lensFlareDistortionStrength = 35; // Default 4.0
 ```
 
-# Setting up Luminance Adaptation
+## Setting up Luminance Adaptation
 
 The standard rendering pipeline now allows you to compute luminance adaptation. This process tends to simulate real life events:
 it means that if you focus on a higly brighted zone, the camera will adapt itself. In another words, this technique allows you to create
 glare effects and it is also linked to what we call "_HDR_"
 
-# Customizing luminance adaptation
+## Customizing luminance adaptation
 
 First, let's activate the luminance adatation:
 
@@ -170,9 +180,9 @@ pipeline.hdrDecreaseRate = 0.5;
 pipeline.hdrIncreaseRate = 0.5;
 ```
 
-# Setting up the depth of field
+## Setting up the depth of field
 
-# Activating the depth of field
+## Activating the depth of field
 
 To active the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
 
@@ -181,7 +191,7 @@ To active the depth of field, simply set the property ".DepthOfFieldEnabled" to 
 pipeline.DepthOfFieldEnabled = true;
 ```
 
-# Customizing depth of field distance
+## Customizing depth of field distance
 
 To manipulate depth of field, you can set the distance to blur by setting the ".depthOfFieldDistance" property. This property represents the distance to focus on:
 
@@ -190,17 +200,17 @@ To manipulate depth of field, you can set the distance to blur by setting the ".
 pipeline.depthOfFieldDistance = 20;
 ```
 
-Playground example : [https://www.babylonjs-playground.com/#LB63T#2](https://www.babylonjs-playground.com/#LB63T#2)
+Playground example : <Playground id="#LB63T#2" title="Custom Depth of Field Example" description="Simple example of custom depth of field distance." image=""/>
 
 **note: Activating the depth of field will activate the depth renderer of Babylon.js, which can have an impact on performances**
 
-# Setting up the Motion Blur
+## Setting up the Motion Blur
 
 As a demo, you have a look at https://www.youtube.com/watch?v=14Ejsj1_ywM
 
 Motion Blur simply tries to blur the overall image when the camera moves fast.
 
-# Customizing Motion Blur
+## Customizing Motion Blur
 
 ```
 // Enable motion blur in the pipeline
@@ -216,15 +226,15 @@ pipeline.motionBlurSamples = 32.0;
 
 **note: Activating the Motion Blur will activate the depth renderer of Babylon.js, which can have an impact on performances**
 
-# Setting up volumetric lights
+## Setting up volumetric lights
 
 Volumetric Lights, as seen in the playground available in introduction can be computed with a post-process.
 
 **note: Volumetric Lights require to have the multiple render targets support, basically WebGL 2 support**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UKdWPj7VRu0" frameborder="0" allowFullScreen></iframe>
+<Youtube id="UKdWPj7VRu0"/>
 
-# Customizing volumetric lights
+## Customizing volumetric lights
 
 ```
 // Enable Volumetric Lights computation in the pipeline

@@ -1,3 +1,13 @@
+---
+title: Render Scenes To .png Files
+image: 
+description: Learn how to render scenes to .png files.
+keywords: diving deeper, scene, render, export, .png, png
+further-reading:
+video-overview:
+video-content:
+---
+
 # How To Render a Scene to a PNG
 
 First you may ask why is it better than "ctrl + prt scr" screenshot or the Snippet app?
@@ -34,7 +44,7 @@ BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 400);
 
 However even this will not work if the scene is very complex and has not been rendered in time. It is best to use timing or an action.
 
-# CreateScreenshot
+## CreateScreenshot
 It's done by simply calling this method: `BABYLON.Tools.CreateScreenshot(engine, camera, size)`.
 You need to provide your BabylonJS engine, the camera you want to use for the rendering, and a size.
 
@@ -45,7 +55,7 @@ var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, ste
 
 The size parameter is very versatile, it can be a simple number or an object.
 
-## Examples of Results
+### Examples of Results
 
 Starting with a view of the part of the screen showing the canvas there then follows a sequence of images taken using `CreateScreenshot`
 
@@ -73,7 +83,7 @@ Precision can be used as a multiplier of the screen resolution.
 `BABYLON.Tools.CreateScreenshot(engine, camera, {precision: 2})`
 
 
-# CreateScreenshotUsingRenderTarget
+## CreateScreenshotUsingRenderTarget
 As for the other method it's done by simply calling this method: `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size)`.
 You need to provide your BabylonJS engine, the camera you want to use for the rendering, and a size.
 
@@ -81,7 +91,7 @@ Again the size parameter is very versatile and can be a simple number or an obje
 
 > **_HINT:_** When using a camera other than the active camera, only objects located in the viewport of the active camera are visible. As a workaround, all meshes that should be visible can be explicitly set to `alwaysSelectAsActiveMesh = true`. In case of performance issues, the meshes can be set to `alwaysSelectAsActiveMesh = true` shortly before taking the screenshot and then to `alwaysSelectAsActiveMesh = false` again.
 
-## Examples of Results
+### Examples of Results
 
 Starting with a view of the part of the screen showing the canvas there then follows a sequence of images taken using `CreateScreenshotUsingRenderTarget`
 
@@ -108,7 +118,7 @@ Precision can be used as a multiplier of the screen resolution.
 ![size = {precision: 2}](/img/how_to/scene/rt400p20.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {precision: 2})`
 
-## Alternative Camera
+### Alternative Camera
 
 The `CreateScreenshotUsingRenderTarget` has an extra facility, the camera used does not have to be the active camera.
 
@@ -124,7 +134,7 @@ to produce
 
 ![secondcamera](/img/how_to/scene/fc.png) 
 
-# Pixel Density
+## Pixel Density
 
 The following image of the canvas on screen and the resulting screenshot using 'precision: 8' show that although the image is 8 times larger the pixel density stays the same.
 
@@ -133,7 +143,7 @@ The following image of the canvas on screen and the resulting screenshot using '
 ![Enlarged Image](/img/how_to/scene/sbp80.png)
 
 
-# Gif Creation
+## Gif Creation
 
 In order to create an animated Gif, you will usually need a set of static images to stick together.
 
@@ -163,7 +173,7 @@ Here is the result after stitching in your favorite external tool:
 
 ![Gif](/img/how_to/scene/ssanim.gif)
 
-# Callback Function
+## Callback Function
 
 There is a further parameter that can be added to both methods of obtaining screenshots. This is a callback function added after the size parameter. The methods become `BABYLON.Tools.CreateScreenshot(engine, camera, size, onSuccessCallback)`  and  `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size, onSuccessCallback)`.
 
@@ -191,4 +201,3 @@ BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200, function(da
 you obtain
 
 ![Box with sky texture and sky](/img/how_to/scene/bx2.png)
-

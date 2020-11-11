@@ -1,9 +1,19 @@
+---
+title: How To Use A Post Process Render Pipeline
+image: 
+description: Learn how to use a post process render pipeline in Babylon.js.
+keywords: diving deeper, post processes, post process, render pipeline, render
+further-reading:
+video-overview:
+video-content:
+---
+
 # How to use PostProcessRenderPipeline
 Post Process Renders pipelines allow you to create a chain of post processes and attach it to a camera.
 A render pipeline can be managed by enabling and disabling some effects and displaying a specific pass for debugging.
 
 
-# Base Render Pipeline
+## Base Render Pipeline
 
 ![](/img/PPArchitecture.png)
 
@@ -16,9 +26,9 @@ Renders Pipelines are composed of several classes.
 |**`BABYLON.PostProcessRenderEffect`**|A render effect contains one or more post processes.|
 |**`BABYLON.PostProcess`**|A render pass which will apply a shader.|
 
-# Let's play with Render Pipeline
+## Let's play with Render Pipeline
 
-## Simple Pipeline
+### Simple Pipeline
 Create pipeline
 ```javascript
 var standardPipeline = new BABYLON.PostProcessRenderPipeline(engine, "standardPipeline");
@@ -42,4 +52,4 @@ scene.postProcessRenderPipelineManager.addPipeline(standardPipeline);
 scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("standardPipeline", camera);
 ```
 
-[Demo](https://www.babylonjs-playground.com/#QCGFI6)
+<Playground id="#QCGFI6" title="Post Process Render Pipeline Example" description="Simple example of using a post process render pipeline." image=""/>
