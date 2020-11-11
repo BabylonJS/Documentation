@@ -1,10 +1,20 @@
+---
+title: Offscreen Canvas
+image: 
+description: Learn all about the offscreen canvas in Babylon.js.
+keywords: diving deeper, scene, offscreen canvas
+further-reading:
+video-overview:
+video-content:
+---
+
 An offscreen canvas is a canvas that can be rendered off screen and on a different thread than the main UI thread.
 
 It could be really interesting to do so if your main thread is already heavily used for other tasks.
 
 You can see a page demonstrating this use case here: https://www.babylonjs.com/Demos/Offscreen
 
-Also - here is a video overview: https://youtu.be/zYrZNROQzKQ
+<Youtube id="zYrZNROQzKQ"/>
 
 # Setting up the engine
 Starting with Babylon.js v4.1, you can create an engine inside a worker by initializing it with an offscreen canvas.

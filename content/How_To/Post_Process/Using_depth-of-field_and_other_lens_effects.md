@@ -1,3 +1,15 @@
+---
+title: Depth of Filed and Other Lense Effects
+image: 
+description: Learn how to use depth of field and other lens effects in Babylon.js.
+keywords: diving deeper, post processes, post process, lens effects, DoF
+further-reading:
+    - title: Use the default rendering pipeline
+      url: /how_to/using_default_rendering_pipeline
+video-overview:
+video-content:
+---
+
 # How To Use Depth-of-field and other Lens Effects
 
 `BABYLON.LensRenderingPipeline` is a predefined chain of postprocesses that helps achieving photograph-like realism.
@@ -7,7 +19,7 @@ _An example of what can be achieved with this postprocess pipeline._
 
 You can see a live example of it here:
 
-https://www.babylonjs-playground.com/#DX6AV#4
+<Playground id="#DX6AV#4" title="Depth of Field Example" description="Simple example showcasing depth of field." image=""/>
 
 Three post-processes are used in the pipeline:
 
@@ -93,9 +105,3 @@ These effects are based on general approximations of real world optics phenomeno
 Keep in mind that the approximation used does not give good results when an object inside focus is rendered on top of a strongly blurred one, or the other way around. Bleeding around one object or the other will probably occur in this case.
 
 Finally, these effects can be pretty intensive on the GPU. A lower blur effect (i.e. smaller blur radius) will be less demanding, so you can try to lower aperture instead of disabling it altogether. Highlight enhancing is also quite intensive, so be sure that this effect contribute to the quality of your render if you have it active.
-
-# Further Reading
-
-# How To
-
-- [Use the default rendering pipeline](/how_to/using_default_rendering_pipeline)

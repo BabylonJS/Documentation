@@ -1,3 +1,13 @@
+---
+title: Scene
+image: 
+description: Learn all about the core "scene" object in Babylon.js.
+keywords: diving deeper, scene
+further-reading:
+video-overview:
+video-content:
+---
+
 # The Scene
 
 The scene is somewhat like the stage on which all the meshes are placed to be seen and the cameras and lights are placed that make them viewable. Of course there are more than meshes, cameras and lights that make a scene a good experience for your users, for example the user interface. Also there are special effects to be had to make the environment more realistic. Want to overlap two or more scenes that is possible as well. 

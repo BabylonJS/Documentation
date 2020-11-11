@@ -1,4 +1,16 @@
-# How To Create a Custom Loading Screen
+---
+title: Creating Custom Loading Screens
+image: 
+description: Learn how to create custom loading screens in Babylon.js.
+keywords: diving deeper, scene, loader, loading screen
+further-reading:
+video-overview:
+video-content:
+    - title: Custom Loading Screens
+      url: https://youtu.be/cLqK9vgTKBw
+---
+
+## How To Create a Custom Loading Screen
 
 Starting with Babylon.js 2.3 the loading screen (the screen used when loading assets or a scene) can be changed by the developer.
 
@@ -65,11 +77,11 @@ engine.displayLoadingUI();
 engine.hideLoadingUI();
 ```
 
-# Example
+## Example
 
 Here a playground using a custom loading screen:
 
-https://www.babylonjs-playground.com/#5Y2GIC#39
+<Playground id="#5Y2GIC#39" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen." image=""/>
 
 You might also be interested in a standalone html example:
 
@@ -171,7 +183,7 @@ You might also be interested in a standalone html example:
 </html>
 ```
 
-# Getting File Loading Rate
+## Getting File Loading Rate
 
 When loading files, you can get the [SceneLoaderProgressEvent](https://doc.babylonjs.com/api/classes/babylon.sceneloaderprogressevent) sent in the `onProgress` callback.
 
@@ -205,9 +217,3 @@ BABYLON.SceneLoader.ImportMesh(
 
 
 ```
-
-
-# Going further
-
-Check out this handy video explaining how to create your own loading screen:
-- Custom Loading Screens: https://youtu.be/cLqK9vgTKBw
