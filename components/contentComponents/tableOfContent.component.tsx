@@ -118,7 +118,6 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     //         observer.unobserve(element);
     //     };
     // }, [tocItems]);
-    let currentLevel = 1;
 
     return (
         <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
