@@ -20,7 +20,7 @@ This class supports several methods of input:
 - **Generic/Other Gamepad** *(DeviceType: BABYLON.DeviceType.Generic, Inputs: number)*
 
 Here's an example of the DeviceSourceManager in use
-* <Playground id="#C7PM2B" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image=""/>
+<Playground id="#C7PM2B" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image=""/>
 
 To use the DeviceSourceManager, first create an instance of it.  You will need to provide an engine object.
 ```javascript

@@ -74,13 +74,13 @@ A submesh is defined with:
 
 So with the code above, you can use the first material on the top part of the sphere, the second material on the middle part and the last material on the bottom part of the sphere.
 
-* <Playground id="#2Q4S2S#268" title="Sphere With Multi-Material" description="Simple example of applying a multi-material to a sphere." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial1.jpg"/>
+<Playground id="#2Q4S2S#268" title="Sphere With Multi-Material" description="Simple example of applying a multi-material to a sphere." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial1.jpg"/>
 
 ## With Merged Meshes
 
 When you [merge meshes](/divingDeeper/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 
-* <Playground id="#INZ0Z0#59" title="Multi-Material With Merged Meshes 1" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
+<Playground id="#INZ0Z0#59" title="Multi-Material With Merged Meshes 1" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
 
 When you [merge meshes](/how_to/How_to_Merge_Meshes) together with the second to last parameter (`subdivideWithSubMeshes`) set to true, but the last parameter (`multiMultiMaterial`) left as false, the subMeshes array is automatically created with each merging mesh as a submesh of the new mesh. You must assign the correct subMesh index to the correct material index.
 
@@ -90,4 +90,4 @@ When you form `mergedMesh` by merging meshes in this array order [mesh1, mesh2],
 mergedMesh.subMeshes[1].materialIndex = 1;
 ```
 
-* <Playground id="#INZ0Z0#6" title="Multi-Material With Merged Meshes 2" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
+<Playground id="#INZ0Z0#6" title="Multi-Material With Merged Meshes 2" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>

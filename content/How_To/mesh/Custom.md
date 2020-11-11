@@ -60,7 +60,7 @@ vertexData.indices = indices;
 vertexData.applyToMesh(customMesh);
 ```
 
-* <Playground id="#VKBJN#2" title="Custom Mesh With Positions And Indices" description="Simple example of a custom mesh with positions and indices." image=""/>
+<Playground id="#VKBJN#2" title="Custom Mesh With Positions And Indices" description="Simple example of a custom mesh with positions and indices." image=""/>
 
 ## Normals 
 
@@ -126,7 +126,7 @@ Looking from the origin towards facet 3, 4, 5 then the order in the indices arra
 
 Looking from the origin towards facet 0, 1, 2 then the order in the indices array 0, 1, 2 around the facet is also clockwise.
 
-* <Playground id="#VKBJN#6" title="Custom Mesh With Normals" description="Simple example of a custom mesh with normals." image=""/>
+<Playground id="#VKBJN#6" title="Custom Mesh With Normals" description="Simple example of a custom mesh with normals." image=""/>
 
 Reversing the order of one or both sets of facet indices in the playground will show how the normals change direction.
 
@@ -174,7 +174,7 @@ mat.backFaceCulling = false;
 
 Comment line 41 out in the following to see back face culling happening.
 
-* <Playground id="#VKBJN#7" title="Custom Mesh With Both Facets" description="Simple example of a custom mesh with both facets." image=""/>
+<Playground id="#VKBJN#7" title="Custom Mesh With Both Facets" description="Simple example of a custom mesh with both facets." image=""/>
 
 ## Color
 
@@ -218,7 +218,7 @@ vertexData.applyToMesh(customMesh);
 ```
 In the playground below see what happens when you make the vertices on the red facet different colors.
 
-* <Playground id="#VKBJN#8" title="Custom Mesh With Vertex Colors" description="Simple example of a custom mesh with vertex colors." image=""/>
+<Playground id="#VKBJN#8" title="Custom Mesh With Vertex Colors" description="Simple example of a custom mesh with vertex colors." image=""/>
 
 ### Notes on the Playground
 
@@ -232,9 +232,9 @@ For a more controlled lighting effects use a [material](/babylon101/Materials.ht
 
 Adding a light with direction the reverse of the current one will light both sides.
 
-* <Playground id="#VKBJN#104" title="Custom Mesh With Both Sides Lit" description="Simple example of a custom mesh with both sides lit." image=""/>
+<Playground id="#VKBJN#104" title="Custom Mesh With Both Sides Lit" description="Simple example of a custom mesh with both sides lit." image=""/>
 
-* <Playground id="#VKBJN#105" title="Custom Mesh With Both Sides Color Variation" description="Simple example of a custom mesh with both sides color variation." image=""/> 
+<Playground id="#VKBJN#105" title="Custom Mesh With Both Sides Color Variation" description="Simple example of a custom mesh with both sides color variation." image=""/> 
 
 ## Texture
 
@@ -311,7 +311,7 @@ One day this playground might improve. You will get some idea of how to achieve 
 
 Calculating the uvs for a custom mesh obviously depends on the shape of the mesh and which parts of the texture you want projected onto the mesh at which position. Here is an example with a relatively simple mesh which is basically a flat surface with a couple of protudences.
 
-* <Playground id="#I092BE" title="Custom Mesh With UV Calculation" description="Simple example of a custom mesh with UV calculation." image=""/>
+<Playground id="#I092BE" title="Custom Mesh With UV Calculation" description="Simple example of a custom mesh with UV calculation." image=""/>
 
 The above playground takes the bottom left corner as matching the bottom left corner of the texture image and from the x, z position of each vertex calculates the uv value as the fractional distance of `(x, z)` from the bottom left corner.
 

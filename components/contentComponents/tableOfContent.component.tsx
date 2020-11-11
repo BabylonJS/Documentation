@@ -118,11 +118,10 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
     //         observer.unobserve(element);
     //     };
     // }, [tocItems]);
-    let currentLevel = 1;
 
     return (
         <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
-            <Typography onClick={pointerClick} variant="h6" component="h2">
+            <Typography onClick={pointerClick} variant="h6" component="h3">
                 Table Of Contents
             </Typography>
             <Typography className={`${classes.itemsContainer} ${fullHeight ? classes.itemsFullHeight : hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">

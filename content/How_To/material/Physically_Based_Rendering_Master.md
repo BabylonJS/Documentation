@@ -49,7 +49,7 @@ pbr.useRoughnessFromMetallicTextureGreen = true;
 pbr.useMetallnessFromMetallicTextureBlue = true;
 ```
 
-* <Playground id="#2FDQT5#14" title="Customizing Metallic Surfaces In PBR" description="Simple example of customizing metallic surfaces in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster1.jpg"/>
+<Playground id="#2FDQT5#14" title="Customizing Metallic Surfaces In PBR" description="Simple example of customizing metallic surfaces in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster1.jpg"/>
 
 Once the conversion done, let's see the custom options available on this version:
 
@@ -86,7 +86,7 @@ Also, as the channel used for glossiness can be customized, in order to be setup
 pbr.useMicroSurfaceFromReflectivityMapAlpha = false;
 ```
 
-* <Playground id="#Z1VL3V#8" title="Customizing Glossiness Surfaces In PBR" description="Simple example of customizing glossiness surfaces in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster2.jpg"/>
+<Playground id="#Z1VL3V#8" title="Customizing Glossiness Surfaces In PBR" description="Simple example of customizing glossiness surfaces in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster2.jpg"/>
 
 Once the conversion done, let's see the custom options available on this version:
 
@@ -98,7 +98,7 @@ Once the conversion done, let's see the custom options available on this version
 ## Opacity
 Another interesting addition to the reflection is the ability to keep the most luminous part of the reflection over transparent surface... Yeah, it does not make much sense... Actually, if you look through a window at night from a lit room, you can see the reflection of lights or TV on the glass. This is the same for reflection in the PBR Material. A special property `pbr.useRadianceOverAlpha = true;` has been added to allow you to control this effect. Not only reflection (AKA radiance) but specular highlights can be seen on top of transparency.
 
-* <Playground id="#19JGPR#13" title="Opacity In PBR" description="Simple example of opacity in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster3.jpg"/>
+<Playground id="#19JGPR#13" title="Opacity In PBR" description="Simple example of opacity in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster3.jpg"/>
 
 ```javascript
 glass.reflectionTexture = hdrTexture;
@@ -116,7 +116,7 @@ Refraction is a little bit like reflection (Please purists, do not kill me now, 
 
 As refraction is equivalent to how you can **see through different materials boundaries**, the effect can be controlled via the transparency in BJS. A special property helps you to do it, simply put `pbr.linkRefractionWithTransparency=true;` in your code and then the alpha will control how refractive the material is. Putting it to false leaves the alpha controlling the default transparency.
 
-* <Playground id="#19JGPR#12" title="Refraction In PBR" description="Simple example of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster4.jpg"/> 
+<Playground id="#19JGPR#12" title="Refraction In PBR" description="Simple example of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster4.jpg"/> 
 
 ```javascript
 var glass = new BABYLON.PBRMaterial("glass", scene);
@@ -139,7 +139,7 @@ I will not redefine the refraction component here as it has been addressed in th
 
 Enabling the refraction would be done through a flag on the sub surface section:
 
-* <Playground id="#FEEK7G#17" title="Enabling Refraction In PBR" description="Simple example of how to enable refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster5.jpg"/>
+<Playground id="#FEEK7G#17" title="Enabling Refraction In PBR" description="Simple example of how to enable refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster5.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -153,7 +153,7 @@ pbr.subSurface.refractionIntensity = 0.8;
 ```
 
 As before you can control the index of refraction:
-* <Playground id="#FEEK7G#24" title="Controlling The Index Of Refraction" description="Simple example of how to control the index of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster6.jpg"/>
+<Playground id="#FEEK7G#24" title="Controlling The Index Of Refraction" description="Simple example of how to control the index of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster6.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -173,7 +173,7 @@ You can control the tint of the material (representing its color below the surfa
 * `tintColor`: defines the color of the tint.
 * `tintColorAtDistance`: defines at what distance under the surface the color should be the defined one (simulating absorption through beer lambert law).
 
-* <Playground id="#FEEK7G#25" title="Color Control In PBR" description="Simple example of how to control color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster7.jpg"/>
+<Playground id="#FEEK7G#25" title="Color Control In PBR" description="Simple example of how to control color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster7.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -214,7 +214,7 @@ The refraction is good to represent the light passing through on low density med
 
 In this case, you can rely on the translucency properties of the material.
 
-* <Playground id="#FEEK7G#37" title="Translucency In PBR" description="Simple example of how to control translucency in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster8.jpg"/>
+<Playground id="#FEEK7G#37" title="Translucency In PBR" description="Simple example of how to control translucency in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster8.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -229,7 +229,7 @@ pbr.subSurface.translucencyIntensity = 0.8;
 
 Sharing some setup with the refraction (it actually makes sense as we are speaking about the same material), you can rely upon the tint color to define the color of the material below the surface:
 
-* <Playground id="#FEEK7G#27" title="Tint Color In PBR" description="Simple example of how to control tint color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster9.jpg"/>
+<Playground id="#FEEK7G#27" title="Tint Color In PBR" description="Simple example of how to control tint color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster9.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -257,7 +257,7 @@ You can use this in addition of translucency to accurately represent the spread 
 
 ![SubSurfaceScattering](/img/extensions/PBRSubSurfaceScattering.jpg)
 
-* <Playground id="#GTQKYK#4" title="Sub-Surface Scattering In PBR" description="Simple example of how to control sub-surface scattering color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster10.jpg"/>
+<Playground id="#GTQKYK#4" title="Sub-Surface Scattering In PBR" description="Simple example of how to control sub-surface scattering color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster10.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -279,7 +279,7 @@ Pushing realism even further, material volume albedo affects how far light trave
 
 Let's say you want a skin tone diffusion profile, you can add this to your subsurface configuration by doing :
 
-* <Playground id="#W7DYG2#2" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster11.jpg"/>
+<Playground id="#W7DYG2#2" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster11.jpg"/>
 
 ```javascript
 pbr.subSurface.scatteringDiffusionProfile = new BABYLON.Color3(0.750, 0.25, 0.20);
@@ -328,7 +328,7 @@ Clear coat is a way to simulate the coating you can find in automotive car paint
 
 The clear coat is the uppersurface of the material.
 
-* <Playground id="#FEEK7G#36" title="Clear Coat In PBR" description="Simple example of clear coat in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster12.jpg"/>
+<Playground id="#FEEK7G#36" title="Clear Coat In PBR" description="Simple example of clear coat in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster12.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -341,7 +341,7 @@ pbr.clearCoat.intensity = 0.5;
 
 As the clear coat is the final interaction layer with the external medium it applies on top of the bump map, which can be amazing to simulate coating above small geometries represented by the bump map:
 
-* <Playground id="#FEEK7G#28" title="Clear Coat and Bump Map In PBR" description="Simple example of clear coat and bump map in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster13.jpg"/>
+<Playground id="#FEEK7G#28" title="Clear Coat and Bump Map In PBR" description="Simple example of clear coat and bump map in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster13.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -357,7 +357,7 @@ pbr.clearCoat.isEnabled = true;
 
 This goes without saying that sometimes even the coating as some imperfection who can have a different shape than the bump map:
 
-* <Playground id="#FEEK7G#30" title="Clear Coat, Imperfections, and Bump Map In PBR" description="Simple example of clear coat, imperfections, and bump map in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster14.jpg"/>
+<Playground id="#FEEK7G#30" title="Clear Coat, Imperfections, and Bump Map In PBR" description="Simple example of clear coat, imperfections, and bump map in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster14.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -382,7 +382,7 @@ This is all great but what about a different color (all coatings are not transpa
 
 It is intuitive enough to understand the thicker the coat is, the darker the color of the surface under the coating would appear. We are following carefully [Beer Lambert's law](https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law) in order to deduce the final color based off the chosen color, the "at distance" and the thickness.
 
-* <Playground id="#FEEK7G#7" title="Clear Coat Thickness In PBR" description="Simple example of clear coat thickness in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster15.jpg"/>
+<Playground id="#FEEK7G#7" title="Clear Coat Thickness In PBR" description="Simple example of clear coat thickness in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster15.jpg"/>
 
 ```javascript
 pbr.clearCoat.isTintEnabled = true;
@@ -393,7 +393,7 @@ pbr.clearCoat.tintThickness = 1.5;
 
 By default the clear coat is fully glossy. Yet, you can define a special roughness value for the coating simulating for instance a used coating:
 
-* <Playground id="#FEEK7G#31" title="Clear Coat Roughness In PBR" description="Simple example of clear coat roughness in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster16.jpg"/>
+<Playground id="#FEEK7G#31" title="Clear Coat Roughness In PBR" description="Simple example of clear coat roughness in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster16.jpg"/>
 
 ```javascript
 pbr.clearCoat.roughness = 0.15;
@@ -401,7 +401,7 @@ pbr.clearCoat.roughness = 0.15;
 
 Finally, you can play with the Index of Refraction of the coating to change the fresnel effect applied to the environment. The default configuration represents a polyurethane layer:
 
-* <Playground id="#FEEK7G#50" title="Clear Coat Index Of Refraction In PBR" description="Simple example of clear coat index of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster17.jpg"/>
+<Playground id="#FEEK7G#50" title="Clear Coat Index Of Refraction In PBR" description="Simple example of clear coat index of refraction in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster17.jpg"/>
 
 ```javascript
 pbr.clearCoat.isTintEnabled = true;
@@ -423,7 +423,7 @@ By default the PBR material is isotropic. This means the shape of the reflection
 
 In the PBR material, you can enable anisotropy with the following code:
 
-* <Playground id="#FEEK7G#10" title="Anisotropy In PBR" description="Simple example of anisotropy in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster18.jpg"/>
+<Playground id="#FEEK7G#10" title="Anisotropy In PBR" description="Simple example of anisotropy in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster18.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -438,7 +438,7 @@ Please note that the anisotropic effect follows the tangent space of the materia
 
 The anisotropic direction is by default along the tangent direction. You can modify it by using the following parameter:
 
-* <Playground id="#FEEK7G#32" title="Modified Anisotropy In PBR" description="Simple example of modified anisotropy in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster19.jpg"/>
+<Playground id="#FEEK7G#32" title="Modified Anisotropy In PBR" description="Simple example of modified anisotropy in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster19.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -466,7 +466,7 @@ Some materials have a totally different shapes for the specular lobe. By default
 
 In the PBR material, you can enable sheen with the following code:
 
-* <Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/> 
+<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/> 
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -481,7 +481,7 @@ Please note that the sheen effect will only be useful on rough dielectric materi
 
 To help with multi color material like special kind of satin, you can control the tint of the sheen with the following code:
 
-* <Playground id="#FEEK7G#35" title="Multi Color In PBR" description="Simple example of multi color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster21.jpg"/>
+<Playground id="#FEEK7G#35" title="Multi Color In PBR" description="Simple example of multi color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster21.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -563,11 +563,11 @@ Light Radius has been added as a property of each light and controls the fact th
 
 Why? Simply because if your material is really glossy, each specular highlights (from the direct lights) will only be seen as a simple dot.
 
-* <Playground id="#19JGPR#10" title="Small Dot Light Radius Using PBR" description="Simple example of a small dot light radius using PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster22.jpg"/>
+<Playground id="#19JGPR#10" title="Small Dot Light Radius Using PBR" description="Simple example of a small dot light radius using PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster22.jpg"/>
 
 Now, increasing the light radius makes this dot wider
 
-* <Playground id="#19JGPR#11" title="Wider Dot Light Radius Using PBR" description="Simple example of a wider dot light radius using PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster23.jpg"/>
+<Playground id="#19JGPR#11" title="Wider Dot Light Radius Using PBR" description="Simple example of a wider dot light radius using PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster23.jpg"/>
 
 This uses internally a lot of approximation like Tan(theta) is almost theta for small angles so if you try to put bigger radius than a tenth of the light distance you will not see the desired effect.
 
@@ -590,7 +590,7 @@ Babylon version 3.2 includes a simple way to enable Specular anti-aliasing in PB
 pbr.enableSpecularAntiAliasing = true;
 ```
 
-* <Playground id="#1XJD4C" title="Specular Aliasing in PBR" description="Simple example of specular aliasing in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster24.jpg"/>
+<Playground id="#1XJD4C" title="Specular Aliasing in PBR" description="Simple example of specular aliasing in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster24.jpg"/>
 
 ## Environment Irradiance
 A big part of the lighting in PBR is assured by the environment texture. This provides two kinds of light contributions, **radiance which could be considered alike reflection** and **irradiance which could be thought as the diffuse component of the Image Based Lighting**.
@@ -626,7 +626,7 @@ pbr.brdf.useSphericalHarmonics = false;
 
 Here is how the difference looks like in live (toggle the Spherical Harmonics switch on and off to see the difference):
 
-* <Playground id="#FEEK7G#38" title="Spherical Harmonics in PBR" description="Simple example of using spherical harmonics in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster25.jpg"/>
+<Playground id="#FEEK7G#38" title="Spherical Harmonics in PBR" description="Simple example of using spherical harmonics in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster25.jpg"/>
 
 If you want to hear the full story behind it, you can have a read at our blog post : [A tale of a bug](https://medium.com/@babylonjs/a-tale-of-a-bug-ce7e84467800).
 
@@ -653,7 +653,7 @@ pbr.brdf.useEnergyConservation = false;
 
 Here is how the difference looks like in live (Left sphere is using energy conservation while the right one does not):
 
-* <Playground id="#FEEK7G#39" title="Energy Conservation in PBR" description="Simple example of energy conservation in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/>
+<Playground id="#FEEK7G#39" title="Energy Conservation in PBR" description="Simple example of energy conservation in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/>
 
 ## Image Based Lighting: Babylon VS RayTracers
 We spent a lot of time working on the implementation of our IBL environments. We reworked how we generate the DDS prefiltered environments so that we aligned with what perceptual ray tracers and popular game engines like Unity and Unreal are doing with their IBL rendering. We are approximating a perceptual roughness model which drops what is perceived to be 50% rough falls in the middle of middle of the linear ramp for roughness. The GGX algorithm that we use for our lighting calculations has more of a linear roughness scale which loses clarity in reflections quickly (by around 0.3 roughness). We adjusted the falloff to mirror what happens in Arnold ray tracing, which is the renderer we chose as our ground truth for this work:
@@ -669,4 +669,4 @@ In order to simplify troubleshooting within the PBR material, a special section 
 
 You can choose from the exhaustive list of information what you would like to see. You can also use the split position to choose from which horizontal position the debug mode starts on the screen. This can help looking side by side at the different renders. The output factor can be helpful if you are looking at values pretty small as it would help seeing different colors on screen.
 
-* <Playground id="#2FDQT5#104" title="Using The Inspector with PBR" description="Simple example of using the inspector with PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/> [Playground Example - Use of inspector with PBR](https://www.babylonjs-playground.com/#2FDQT5#104)
+<Playground id="#2FDQT5#104" title="Using The Inspector with PBR" description="Simple example of using the inspector with PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/> [Playground Example - Use of inspector with PBR](https://www.babylonjs-playground.com/#2FDQT5#104)

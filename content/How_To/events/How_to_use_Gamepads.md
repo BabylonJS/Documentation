@@ -70,4 +70,4 @@ scene.registerBeforeRender(function () {
 }
 ```
 
-* <Playground id="#U3XJTB#38" title="Gamepad Example" description="Simple example of enabling gamepad support to your scene." image=""/>
+<Playground id="#U3XJTB#38" title="Gamepad Example" description="Simple example of enabling gamepad support to your scene." image=""/>
