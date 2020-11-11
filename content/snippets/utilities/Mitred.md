@@ -1,22 +1,32 @@
-# Extrude Shape with Mitred Corners
+---
+title: Extrusion With Sharp Corners
+image: 
+description: Helpful code snippet for extruding with sharp corners in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, mitre, extrusion, corner
+further-reading:
+video-overview:
+video-content:
+---
+
+## Extrude Shape with Mitred Corners
 
 Neither [CreateTube](/how_to/parametric_shapes#tube) nor [ExtrudeShape](/how_to/parametric_shapes#extruded-shapes) were designed to handle sharp corners but to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following
 
--   [Playground Example - 90<sup>o</sup> Bend in Tube](https://www.babylonjs-playground.com/#PDRDFA)
--   [Playground Example - 90<sup>o</sup> Bend in Extruded Tube](https://www.babylonjs-playground.com/#PDRDFA#1)
--   [Playground Example - 90<sup>o</sup> Bend in Extruded Shape](https://www.babylonjs-playground.com/#PDRDFA#2)
+<Playground id="#PDRDFA" title="Bend In Tube" description="" image=""/>
+<Playground id="#PDRDFA#1" title="Bend In Extruded Tube" description="" image=""/>
+<Playground id="#PDRDFA#2" title="Bend in Extruded Shape" description="" image=""/>
 
 Whereas they are very good for smooth curves giving a bend as you would get in a physically bent tube
 
--   [Playground Example - Slow Bend in Tube](https://www.babylonjs-playground.com/#PDRDFA#6)
--   [Playground Example - Slow Bend in Extruded Shape](https://www.babylonjs-playground.com/#PDRDFA#2)
+<Playground id="#PDRDFA#6" title="Slow Bend In Tube" description="" image=""/>
+<Playground id="#PDRDFA#2" title="Slow Bend In Extruded Shape" description="" image=""/>
 
 The function `mitredExtrude` allows an extrusion path with sharp corners such as you would get by cutting and forming a mitre join.
 
--   [Playground Example - 90<sup>o</sup> in Extruded Tube with Mitre](https://www.babylonjs-playground.com/#PDRDFA#4)
--   [Playground Example - 90<sup>o</sup> in Extruded Shape](https://www.babylonjs-playground.com/#PDRDFA#5)
+<Playground id="#PDRDFA#4" title="Right Angle in Extruded Tube With Mitre" description="" image=""/>
+<Playground id="#PDRDFA#5" title="Right Angle in Extruded Shape" description="" image=""/>
 
-# Using Mitre Extrude
+## Using Mitre Extrude
 
 The function has the form
 
@@ -30,15 +40,15 @@ var extrude = mitredExtrude("name", options, scene);
 | shape  | _(Vector3[])_ array of Vector3 points (x, y, 0) forming the shape to be extruded in the XY plane | **REQUIRED**  |
 | close  | _(boolean)_ true if the first and last points are to be joined to form a closed extrusion        | false         |
 
-# Playground Examples
+## Playground Examples
 
 To form a mitre the bend must take place along a line that is in the plane of one of the extruded faces (ie one formed by the edges of the shape to be extruded) and that line must be perpendicular to the edges of that face. For a closed extrusion to have a proper mitre when joining the first and last point the path for the extrusion must have a series of turns that allows the bend line to meet this requirement. When the requirement is not met the final join will be twisted.
 
--   [Playground Example - Open](https://www.babylonjs-playground.com/#376T60#2)
--   [Playground Example - Closed With Twist](https://www.babylonjs-playground.com/#376T60#3)
--   [Playground Example - Closed Meeting Requirements](https://www.babylonjs-playground.com/#376T60#4)
+<Playground id="#376T60#2" title="Open" description="" image=""/>
+<Playground id="#376T60#3" title="Closed With Twist" description="" image=""/>
+<Playground id="#376T60#4" title="Closed Meeting Requirements" description="\" image=""/>
 
-# The Code
+## The Code
 
 ```javascript
 var mitredExtrude = function (name, options, scene) {

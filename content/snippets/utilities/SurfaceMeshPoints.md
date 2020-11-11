@@ -1,8 +1,22 @@
-# How To Create Points on the Mesh Surface
+---
+title: Draw Points on a Mesh Surface
+image: 
+description: Helpful code snippet for drawing points on a mesh surface in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, camera
+further-reading:
+    - title: How To Create Points Inside a Mesh
+      url: /snippets/innerMeshPoints
+    - title: How To Check When Point is Inside a Mesh
+      url: /snippets/isInside
+video-overview:
+video-content:
+---
+
+## How To Create Points on the Mesh Surface
 
 This utility enables you to create and store Vector3 points each of which is randomly positioned uniformly on the surface of a mesh.
 
-# Design Outline.
+## Design Outline.
 
 1. Take a random triangular facet belonging to the mesh;
 2. Calculate the area of the triangle;
@@ -10,7 +24,7 @@ This utility enables you to create and store Vector3 points each of which is ran
 4. Choose random points inside this triangle;
 
 
-# Design Method.
+## Design Method.
 
 For the mesh get the vertex positions and indices using
 
@@ -31,7 +45,7 @@ facetPoint = vertex0.add(vec0.scale(lambda)).add(vec1.scale(lambda * mu));
 
 Repeat for density * area random points for each facet.
 
-# The Whole function
+## The Whole function
 
 Set the density for the points and generate the points and store and return them in an array.
 
@@ -114,9 +128,4 @@ BABYLON.Mesh.prototype.createSurfacePoints = function(pointDensity) {
 }
 ```
 
-* [Playground Example - Points on the Surface of a Cylinder](https://www.babylonjs-playground.com/#NFSGWT#2)
-
-# Further Reading
-
-[How To Create Points Inside a Mesh](/snippets/innerMeshPoints)  
-[How To Check When Point is Inside a Mesh](/snippets/isInside)
+<Playground id="#NFSGWT#2" title="Drawing Points on a Mesh Surface" description="" image=""/>
