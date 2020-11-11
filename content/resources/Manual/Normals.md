@@ -24,9 +24,9 @@ Vertex normals are used by the [shader code](/resources/ShaderIntro) in calculat
 
 In the following two playgrounds see how the changing directions within the normals array affect how it is lit:
 
-* <Playground id="#VKBJN#18" title="Vertex Normals Varying In Unison" description="Simple example of vertex normals varying in unison." image=""/>
+<Playground id="#VKBJN#18" title="Vertex Normals Varying In Unison" description="Simple example of vertex normals varying in unison." image=""/>
 
-* <Playground id="#VKBJN#19" title="Showing Normals Varying" description="Simple example of showing vertex normal variation." image=""/>
+<Playground id="#VKBJN#19" title="Showing Normals Varying" description="Simple example of showing vertex normal variation." image=""/>
 
 ##Normals and Minimum Vertices
 
@@ -104,7 +104,7 @@ index | position | normal
 
 ## Playground Showing Box Normals
 
-* <Playground id="#1H7L5C#37" title="Box Normals" description="Simple example of box normals." image=""/>
+<Playground id="#1H7L5C#37" title="Box Normals" description="Simple example of box normals." image=""/>
 
 ## Advantage of Shared Normals
 
@@ -112,4 +112,4 @@ Sharing normals means that the shader produces a rounder looking sphere since th
 
 Applying the function `converToFlatShadedMesh` shows the individual faces making up the sphere. For a flat shaded sphere the normals of each facet are the mathematical normals of the facet.
 
-* <Playground id="#1H7L5C#38" title="Comparing Shading of Spheres" description="Simple example comparing shading of spheres." image=""/>
+<Playground id="#1H7L5C#38" title="Comparing Shading of Spheres" description="Simple example comparing shading of spheres." image=""/>

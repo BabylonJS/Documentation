@@ -59,7 +59,7 @@ pbr.metallic = 0;
 pbr.roughness = 1.0;
 ```
 
-* <Playground id="#2FDQT5" title="Roughness Using PBR" description="Simple example PBR roughness in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro1.jpg"/>
+<Playground id="#2FDQT5" title="Roughness Using PBR" description="Simple example PBR roughness in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro1.jpg"/>
 
 With this specific configuration, you can see that there is no reflection at all (metallic set to 0) and no specular (roughness set to 1).
 
@@ -82,7 +82,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 
 This call will create all required data used by the materials to produce final output.
 
-* <Playground id="#2FDQT5#11" title="Reflective Metallic Surface Using PBR" description="Simple example of a reflective metallic surface using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro2.jpg"/>
+<Playground id="#2FDQT5#11" title="Reflective Metallic Surface Using PBR" description="Simple example of a reflective metallic surface using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro2.jpg"/>
 
 Perhaps a bit too reflective now, so let's add more roughness to give it a more golden look:
 
@@ -96,7 +96,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-* <Playground id="#2FDQT5#12" title="Reflective Surface With Roughness Using PBR" description="Simple example of a reflective surface with roughness using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro3.jpg"/>
+<Playground id="#2FDQT5#12" title="Reflective Surface With Roughness Using PBR" description="Simple example of a reflective surface with roughness using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro3.jpg"/>
 
 To get more precise over how metallic and roughness on your object, you can also specify the metallicRoughnessTexture:
 
@@ -111,7 +111,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 ```
 
-* <Playground id="#2FDQT5#13" title="Reflective Surface With A Metallic Roughness Texture" description="Simple example of a reflective surface with a metallic roughness texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro4.jpg"/>
+<Playground id="#2FDQT5#13" title="Reflective Surface With A Metallic Roughness Texture" description="Simple example of a reflective surface with a metallic roughness texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro4.jpg"/>
 
 ## PBRSpecularGlossinessMaterial
 
@@ -136,7 +136,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 );
 ```
 
-* <Playground id="#Z1VL3V#5" title="Surface Glossiness With PBR" description="Simple example of surface glossiness with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro5.jpg"/>
+<Playground id="#Z1VL3V#5" title="Surface Glossiness With PBR" description="Simple example of surface glossiness with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro5.jpg"/>
 
 The specularGlossinessTexture can then (like the metallicRoughnessTexture texture) be used to provide more control over specular and glossiness:
 
@@ -151,7 +151,7 @@ pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
 pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 ```
 
-* <Playground id="#Z1VL3V#4" title="Glossiness Texture Added In PBR" description="Simple example of glossiness texture added in PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro6.jpg"/>
+<Playground id="#Z1VL3V#4" title="Glossiness Texture Added In PBR" description="Simple example of glossiness texture added in PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro6.jpg"/>
 
 ## Light setup
 

@@ -46,7 +46,7 @@ mesh.material = myMaterial;
 ## Diffuse Color Example
 To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
 
-* <Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg"/>
+<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg"/>
 
 This reaction of 
 
@@ -66,14 +66,14 @@ When a scene ambient color component is set to 0, for example red, then whatever
 
 ![Ambient](/img/how_to/Materials/ambient1.png)
 
-* <Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro2.jpg"/>
+<Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro2.jpg"/>
 
 ## Transparent Color Example
 Transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
 ```javascript
 myMaterial.alpha = 0.5;
 ```
-* <Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg"/>
+<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg"/>
 
 ## Texture
 Textures are formed using a saved image.
@@ -102,14 +102,14 @@ In this image all spheres are lit by the same hemispheric light, with _diffuse_ 
 
 ![Texture](/img/how_to/Materials/texture1.png)
 
-* <Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg"/>
+<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg"/>
 
 ## Transparent Texture Examples
 For colors, the transparency is achieved by setting a materials _alpha_ property from 0 (invisible) to 1 (opaque).
 ```javascript
 myMaterial.alpha = 0.5;
 ```
-* <Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.jpg"/>
+<Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.jpg"/>
 
 In addition, the image used for the texture might already have a transparency setting, such as this picture of a dog from wikimedia commons, 
 which has a transparent background;
@@ -121,7 +121,7 @@ In this case we set the _hasAlpha_ property of the **texture** to true.
 myMaterial.diffuseTexture.hasAlpha = true;
 ```
 
-* <Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro6.jpg"/>
+<Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro6.jpg"/>
 
 For the back faces of the cube to be visible through the transparent areas of the front faces we have to deal with back-face culling.
 
@@ -142,7 +142,7 @@ When _backFaceCulling_ is false the back faces are not removed during rendering 
 |-----|--------|
 | ![BFC True](/img/how_to/Materials/bfc2.png) | ![BFC False](/img/how_to/Materials/bfc1.png) |
 
-* <Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.jpg"/>
+<Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.jpg"/>
 
 ## WireFrame
 You can see a mesh in wireframe mode by using:

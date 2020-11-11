@@ -41,7 +41,7 @@ The requirement is for the arrow plane to rotate such that
 
 In this way the camera always faces the arrow plane as can be seen in the this playground.
 
-* <Playground id="#VYM1E#32" title="Aligning Camera Axes" description="Simple example of aligning camera axes." image=""/>
+<Playground id="#VYM1E#32" title="Aligning Camera Axes" description="Simple example of aligning camera axes." image=""/>
 
 This is achieved by forming axis 1 to join the spheres
 
