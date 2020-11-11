@@ -1,4 +1,27 @@
-# The Playground
+---
+title: Playground
+image: 
+description: Learn about the incredibly powerful playground, the online Babylon.js IDE.
+keywords: babylon.js, tools, resources, playground
+further-reading:
+    - title: Textures Directly Available to the Playground
+      url: /resources/Playground_Textures.html
+    - title: Meshes Available to Import into the Playground
+      url: /resources/meshes_to_load
+    - title: Using External Assets in the Playground
+      url: /resources/External_PG_assets
+    - title: How to Use The Inspector in Projects
+      url: /features/playground_debuglayer
+    - title: How to Use The Inspector in Projects
+      url: /How_To/debug_layer
+    - title: How To Customize the Inspector
+      url: /How_To/customize_debug_layer
+video-overview:
+video-content:
+---
+
+
+## The Playground
 
 The place to try out coding with Babylon.js.
 
@@ -7,7 +30,7 @@ Original code can be restored by refreshing the browser.
 
 You can write the code in JavaScript or Typescript. The playground software compiles the code to JavaScript, in the background, before rendering.
 
-# Overview
+## Overview
 
 ![Playground Overview](/img/how_to/Introduction/playground.jpg)
 
@@ -20,7 +43,7 @@ The Playground consists of four areas:
 
 The space for the coding editor and rendering area can be adjusted by dragging the vertical bar between them.
 
-# The Menu
+## The Menu
 
 ![Playground Menu](/img/how_to/Introduction/pgmenu.jpg)
 
@@ -28,7 +51,7 @@ In Typescript mode the menu has an orange color theme
 
 ![Playground Typescript Menu](/img/how_to/Introduction/pgmenu_ts.jpg)
 
-## Large Screen
+### Large Screen
 
 - **Title and Version**: As stated.
 - **Language**: Typescript/JavaScript switch.
@@ -52,13 +75,13 @@ which contains everything necessary to run the code in your browser, including l
 - **Version**: Allows and shows your choice of the BABYLON.js framework, either the current stable one or the latest preview version.
 - **Examples** ![examples](/img/features/PGsupport/ex.jpg): A drop down menu giving examples of playgrounds with a search filter.
 
-## Small Screens
+### Small Screens
 
 - **Menu** ![menu](/img/features/PGsupport/menu.jpg): Contains Run, New, Clear, Save and Zip as submenus.
 - **Code** ![code](/img/features/PGsupport/code.jpg): Bottom Left Corner - switch to Code View and Editor.
 - **Scene** ![scene](/img/features/PGsupport/scene.jpg): Bottom Right Corner - switch to Scene View.
 
-# Playground URL formats
+## Playground URL formats
 
 New playgrounds have this URL format
 
@@ -92,7 +115,7 @@ Template | Description
 [debug.html](https://www.babylonjs-playground.com/debug.html#6F0LKI#2) | used to run a version of the playground which uses debug version of babylon.js
 [index-local.html](https://www.babylonjs-playground.com/index-local.html#6F0LKI#2) | used for local development using VSCode
 
-# Forum sharing
+## Forum sharing
 
 Of course the playground is extremely useful to get help from the community. In the forum, simply paste the link of your playground.
 
@@ -105,7 +128,7 @@ You can have fun showing directly your playground imbedded into your message, us
 ![playground forum sharing ways](/img/features/pgsupport/pg-forum-sharing-ways.jpg)
 > *so many ways to share an issue*
 
-# Compilation Errors
+## Compilation Errors
 
 ![compilation error popup](/img/features/pgsupport/pg-compilation-error.jpg)
 
@@ -113,15 +136,6 @@ Any errors in your playground are flagged with a red pop-up box containing limit
 
 Please note that you can name your main function `delayCreateScene` instead of `createScene` if you want to return a scene without a camera (because for instance you plan to load a scene using `SceneLoader`).
 
-# Focus
+## Focus
 
 Whenever a scene in the playground needs the use of keys to move an object, such as a mesh or camera, around then the rendering area needs to have the focus. After running the playground ensure that the render area has the focus by clicking inside it before using the keys. 
-
-# Further Reading
- 
-- [Textures Directly Available to the Playground](/resources/Playground_Textures.html)
-- [Meshes Available to Import into the Playground](/resources/meshes_to_load)
-- [Using External Assets in the Playground](/resources/External_PG_assets)
-- [The Inspector Features](/features/playground_debuglayer)
-- [How to Use The Inspector in Projects](/How_To/debug_layer)
-- [How To Customize the Inspector](/How_To/customize_debug_layer)
