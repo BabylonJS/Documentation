@@ -101,7 +101,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
             markdownRef?.current?.classList.add("closed");
         } else if (markdownRef?.current?.classList.contains("closed")) {
             markdownRef?.current?.classList.remove("closed");
-            markdownRef?.current?.scrollTo({ behavior: "smooth", top: markdownRef?.current?.scrollTop + 400, left: 0 });
+            markdownRef?.current?.scrollTo({ behavior: "auto", top: markdownRef?.current?.scrollTop + 400, left: 0 });
         }
     }, [activeExample]);
 

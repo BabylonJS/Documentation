@@ -10,7 +10,7 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         iframeContainer: {
             position: "relative",
-            transition: "height 0.4s",
+            // transition: "height 0.4s",
             height: "100%",
         },
         closeButton: {
