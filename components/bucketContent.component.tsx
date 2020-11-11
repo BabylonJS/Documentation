@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         container: {
             display: "flex",
             flexWrap: "wrap",
+            maxWidth: '100%'
         },
         divRoot: {
             padding: 16,
