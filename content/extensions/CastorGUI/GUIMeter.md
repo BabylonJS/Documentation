@@ -1,6 +1,14 @@
-# GUIMeter
+---
+title: GUIMeter
+image:  
+description: Creates a new GUIMeter.
+keywords: Castor, GUI, plugin, extension, GUIMeter
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIMeter(id, options, guimanager, callback, append)
+## new GUIMeter(id, options, guimanager, callback, append)
 Creates a new GUIMeter
 
 ### Parameters

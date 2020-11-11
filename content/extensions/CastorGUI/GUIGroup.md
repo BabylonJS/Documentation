@@ -1,6 +1,14 @@
-# GUIGroup
+---
+title: GUIGroup
+image:  
+description: Creates a new GUIGroup.
+keywords: Castor, GUI, plugin, extension, GUIGroup
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIGroup(id, options, guimanager)
+## new GUIGroup(id, options, guimanager)
 Creates a new GUIGroup
 
 ### Parameters

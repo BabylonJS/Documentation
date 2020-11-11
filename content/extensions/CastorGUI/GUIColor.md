@@ -1,7 +1,14 @@
-# GUIColor
+---
+title: GUIColor
+image:  
+description: Creates a new GUIColor
+keywords: Castor, GUI, plugin, extension, GUIColor
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIColor(id, options, guimanager, callback, append)
-
+## new GUIColor(id, options, guimanager, callback, append)
 Creates a new GUIColor
 
 ### Parameters

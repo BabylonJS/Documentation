@@ -1,6 +1,14 @@
-# GUISpinner
+---
+title: GUISpinner
+image:  
+description: Creates a new GUISpinner
+keywords: Castor, GUI, plugin, extension, GUISpinner
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUISpinner(id, options, guimanager, callback, append)
+## new GUISpinner(id, options, guimanager, callback, append)
 Creates a new GUISpinner
 
 ### Parameters

@@ -1,4 +1,12 @@
-# GUIFieldset
+---
+title: GUIFieldset
+image:  
+description: Creates a new GUIFieldset
+keywords: Castor, GUI, plugin, extension, GUIFieldset
+further-reading:
+video-overview: 
+video-content:
+---
 
 # new GUIFieldset(id, options, guimanager, append)
 Creates a new GUIFieldset

@@ -1,12 +1,20 @@
-# Fire material
+---
+title: Fire Material
+image: 
+description: The Babylon.js materials library fire effects.
+keywords: welcome, babylon.js, library, materials, materials library, fire, fire material
+further-reading:
+video-overview:
+video-content:
+---
 
 ![Fire material](/img/extensions/materials/fire.png)
 
-# Using the fire material
+## Using the fire material
 
 Fire material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.fireMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.fireMaterial.js)
 
-A demo can be found here:  https://www.babylonjs-playground.com/#21IIM9#1
+A demo can be found here:   PG: <Playground id="#21IIM9#1" title="Fire Material" description="Example of fire material" image=""/>
 
 The fire material works with 3 textures:
 - The diffuse texture (fire texture)

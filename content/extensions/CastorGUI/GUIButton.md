@@ -1,6 +1,14 @@
-# GUIButton
+---
+title: GUIButton
+image:  
+description: Creates a new GUIButton
+keywords: Castor, GUI, plugin, extension, GUIButton
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIButton(id, options, guimanager, callback, append)
+## new GUIButton(id, options, guimanager, callback, append)
 Creates a new GUIButton
 
 ### Parameters

@@ -1,6 +1,14 @@
-# Dynamic Terrain Examples
+---
+title: Dynamic Terrain Examples
+image: 
+description: Examples of how to use the dynamic terrain extension.
+keywords: welcome, babylon.js, dynamic terrain, terrain, dynamic
+further-reading:
+video-overview:
+video-content:
+---
 
-# FreeCamera on the Ground
+## FreeCamera on the Ground
 
 In this example, our player moves on the ground : a character walking, a car driving or anything like we can find in a FPS game.  
 The used camera is a FreeCamera. It will keeps on the ground while moving onward, backward, to the right or to the left.  
@@ -46,7 +54,7 @@ Now we can set the camera altitude on each frame at a fixed elevation above the 
 ```
 If we move the camera with the keyboard arrow keys, it will follow the terrain ground.   
 
-* [Playground Example Follow Terrain](https://www.babylonjs-playground.com/#J6FMJ#6)  
+PG: <Playground id="#J6FMJ#6" title="Dynamic Terrain" description="Example Follow Terrain" image=""/>   
 
 We could also make a bigger map and a bigger terrain : 
 ```javascript
@@ -74,10 +82,5 @@ terrain.LODLimits = [4, 3, 2, 1, 1];
 ```
 Let's don't worry if this feature seems complex to understand and let's just remember that it extends the terrain visible size on its perimeter and reduces the rendered map details in the same time.  
 
-* [Playground Example](https://www.babylonjs-playground.com/#J6FMJ#7)  
-
-
-# Further Reading
-
-[Dynamic Terrain](/extensions/Dynamic_Terrain)  
-[Dynamic Terrain with Objects](/extensions/DT_Objects)  
+PG: <Playground id="#J6FMJ#7" title="Dynamic Terrain" description="Example Larger Map" image=""/> ](https://www.babylonjs-playground.com/)  
+ 

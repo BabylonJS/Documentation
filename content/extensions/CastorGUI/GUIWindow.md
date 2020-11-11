@@ -1,6 +1,14 @@
-# GUIWindow
+---
+title: GUIWindow
+image:  
+description: Creates a new GUIWindow.
+keywords: Castor, GUI, plugin, extension, GUIWindow
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIWindow(id, imageUrl, options, guimanager)
+## new GUIWindow(id, imageUrl, options, guimanager)
 Creates a new GUIWindow
 
 ### Parameters

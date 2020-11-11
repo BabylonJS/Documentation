@@ -1,6 +1,14 @@
-# GUIRadio
+---
+title: GUIRadio
+image:  
+description: Creates a new GUIRadio.
+keywords: Castor, GUI, plugin, extension, GUIRadio
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIRadio(id, options, guimanager, callback, append)
+## new GUIRadio(id, options, guimanager, callback, append)
 Creates a new GUIRadio
 
 ### Parameters
