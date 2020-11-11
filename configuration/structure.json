@@ -652,11 +652,6 @@
                             "children": {}, 
                             "content": "landing_pages/toolsAndResourcesSpriteEditorLandingPage"
                         },
-                        "curveEditor": {
-                            "friendlyName": "Curve Editor", 
-                            "children": {}, 
-                            "content": "landing_pages/toolsAndResourcesCurveEditorLandingPage"
-                        },
                         "textureInspector": {
                             "friendlyName": "Texture Inspector", 
                             "children": {}, 

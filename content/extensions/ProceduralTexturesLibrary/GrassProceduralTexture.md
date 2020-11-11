@@ -1,8 +1,18 @@
+---
+title: Grass Procedural Texture
+image: 
+description: Check out the free Grass Procedural Texture.
+keywords: babylon.js, tools, resources, assets, library, procedural texture, grass
+further-reading:
+video-overview:
+video-content:
+---
+
 # Grass Procedural texture
 
 ![Grass Procedural texture](/img/extensions/proceduraltextures/grasspt.png)
 
-# Using the Grass procedural texture
+## Using the Grass procedural texture
 
 Grass procedural texture can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.grassProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.grassProceduralTexture.js)
