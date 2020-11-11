@@ -1,3 +1,13 @@
+---
+title: Configuring the Babylon.js Viewer
+image: 
+description: How to configure the Babylon.js viewer.
+keywords: welcome, babylon.js, viewer, modify, configure
+further-reading:
+video-overview:
+video-content:
+---
+
 # Configuring the viewer
 
 (Almost) every aspect of the viewer can be configured. The configuration is expressed using a TypeScript interface that is a JSON-like object describing the data that can be provided.
