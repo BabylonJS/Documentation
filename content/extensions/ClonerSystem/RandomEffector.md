@@ -1,4 +1,12 @@
-# RandomEffector
+---
+title: RandomEffector
+image: 
+description: The RandomEffector can influence all transformation properties applied to a Cloner with repeatable random values.
+keywords: welcome, babylon.js, cloner system, RandomEffector
+further-reading:
+video-overview:
+video-content:
+---
 
 Each Cloner can have a set of Effectors assigned. At this time of writing, there is only one Effector available, the RandomEffector.
 
@@ -6,7 +14,7 @@ So what does an Effector generally? It influences properties of the clones clone
 
 *Note:* the scaling transformation will be done in two different ways depending on the property **uniformScale**: if this property is set to true, only one random value will be used for all three scaling components (x,y,z) and the y/z componets of the **scale property** will be ignored. If set to false, each direction is scaled independently with an extra random value. 
 
-# Example
+## Example
 
 In the following example a RandomEffector is created with a default seed value. After then the rotation values will be so adjusted, that the rotation random y-values are in the range 0-180, x and z are remaining unaffected. In the next step the RandomEffecor is added to the RadialCloner with a sensitivity of 1 and finally the effectors strength is set to 1.
 

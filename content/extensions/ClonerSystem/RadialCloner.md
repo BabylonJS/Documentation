@@ -1,4 +1,12 @@
-# RadialCloner
+---
+title: RadialCloner
+image: 
+description: The RadialCloner distributes given meshes in a radial manner.
+keywords: welcome, babylon.js, cloner system, RadialCloner
+further-reading:
+video-overview:
+video-content:
+---
 
 ![idpic1](/img/extensions/clonerSystem/radialCloner.jpg "RadialCloner's from left to right: aligned, unaligned, aligned clones")
 
