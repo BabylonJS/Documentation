@@ -1,4 +1,27 @@
-# Tool and Resources Particle Editor Landing Page
-This is a placeholder for the landing page for the Particle Editor sub section of Tools and Resources
+---
+title: The Particle Editor
+image: 
+description: Learn all about the Particle Editor in Babylon.js.
+keywords: babylon.js, tools, resources, particles, particle editor
+further-reading:
+video-overview:
+video-content:
+---
 
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+## Creating Particles The Easy Way
+
+Babylon.js has a feature-rich, powerful particle system. Babylon.js 4.2 introduced a new tool to make it simple and easy to leverage this powerful system. The Babylon.js Particle Editor. Built right into [The Inspector](landing_pages/PGsupport/Playground_debuglayer), creating particle systems is now as easy as right-clicking!
+
+<img src="/img/tools/particleEditor.jpg" title="Babylon.js Particle Editor"/>
+
+You can jump in and play around with it here: <Playground id="#M7MYT8#11" title="Particle Editor" description="Simple example of particles using the particle editor." image=""/>
+
+For an introductory look at the Particle Editor, check out where it all started with these videos:
+
+<Youtube id="BPJ0SZQnOXk"/>
+
+<Youtube id="HgcUkTZmWyA"/>
+
+<Youtube id="mKTD2P1lF9Q"/>
+
+When you're ready to learn more about particles and particle systems, head on over to the [Particle System Documentation](/divingDeeper/particles/particle_system).

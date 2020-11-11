@@ -1,10 +1,21 @@
-# Using the Digital Rain post-process
+---
+title: Digital Rain
+image: 
+description: Check out the free Digital Rain Post Process available for you to use in your Babylon.js scenes.
+keywords: babylon.js, tools, resources, assets, library, post process, digital rain
+further-reading:
+video-overview:
+video-content:
+---
+
+
+## Using the Digital Rain post-process
 
 How cool (... or nerd - ish) could it be to render all your BJS scene in a Digital Rain Fall?
 
 If you would like it, this tutorial is made for you.
 
-# How to use ?
+## How to use ?
 
 Digital Rain Post Process Scripts can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.digitalRainPostProcess.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.digitalRainPostProcess.js)
@@ -23,9 +34,9 @@ Then, you only need to instantiate the post process attach to your main camera t
 var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera);
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#6)
+<Playground id="#2I28SC#6" title="Digital Rain Post Process Demo" description="Digital Rain Post Process Demo" image=""/>
 
-# Going further
+## Going further
 
 The first you can do is changing the font used in the post process.
 
@@ -34,7 +45,7 @@ The first you can do is changing the font used in the post process.
 var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera, "3px Monospace");
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#7)
+<Playground id="#2I28SC#7" title="Digital Rain Post Process Modified Demo 1" description="Digital Rain Post Process Modified Demo 1" image=""/>
 
 But you could also play with more parameters:
 
@@ -48,7 +59,7 @@ var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera,
     });
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#8)
+<Playground id="#2I28SC#8" title="Digital Rain Post Process Modified Demo 2" description="Digital Rain Post Process Modified Demo 2" image=""/>
 
 The availables parameters are:
 
@@ -69,5 +80,4 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#9)
-
+<Playground id="#2I28SC#9" title="Digital Rain Post Process Modified Demo 3" description="Digital Rain Post Process Modified Demo 3" image=""/>
