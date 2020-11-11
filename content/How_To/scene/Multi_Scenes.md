@@ -162,4 +162,4 @@ engine.runRenderLoop(function () {
 });
 ``` 
 
-* <Playground id="#L0IMUD#1" title="Overlaying Scenes" description="Simple example of overlaying scenes." image=""/>
+<Playground id="#L0IMUD#1" title="Overlaying Scenes" description="Simple example of overlaying scenes." image=""/>

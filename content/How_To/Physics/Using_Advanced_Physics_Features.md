@@ -68,8 +68,8 @@ mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor
 ```
 
 A demo for both of these examples can be found here - 
-* <Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh." image=""/>
-* <Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon." image=""/>
+<Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh." image=""/>
+<Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon." image=""/>
 
 ## Mesh Impostor
 

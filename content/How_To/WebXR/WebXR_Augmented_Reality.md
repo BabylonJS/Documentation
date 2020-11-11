@@ -424,5 +424,5 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 
 # Demos
 
-* <Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image=""/>
-* <Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image=""/>
+<Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image=""/>
+<Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image=""/>

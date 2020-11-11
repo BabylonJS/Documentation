@@ -95,7 +95,7 @@ const sprite = new BABYLON.Sprite("sprite", mySpritePackedManager);
 sprite.cellRef = "spot.png";
 ```
 
-Multiple sprites from *pack1.json* <Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file." image=""/>
+Multiple sprites from *pack1.json<Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file." image=""/>
 
 The same as for the sprite manager you can apply the following properties,
 
