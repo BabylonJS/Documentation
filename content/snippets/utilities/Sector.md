@@ -1,4 +1,15 @@
-# Draw an Arc Between Two Vectors
+---
+title: Draw a Sector of a Circle
+image: 
+description: Helpful code snippet for drawing a sector of a circle in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, draw, circle, sector
+further-reading:
+video-overview:
+video-content:
+---
+
+## Draw an Arc Between Two Vectors
+
 Given an origin O and two vectors OA and OB this snippet draws an arc between the two vectors with a given radius. The arc can be drawn in three types 0 (default) a solid line, 1 a dashed line, 2 filled between arc and vectors.
 
 ```javascript
@@ -48,6 +59,6 @@ function showAngleSector(origin, vector1, vector2, radius, sectorType) {
     return sector;
 }
 ```
-# Playground
+## Playground
 
-* [Playground Example ](https://www.babylonjs-playground.com/#FUK3S#8)
+<Playground id="#FUK3S#8" title="Draw an Arc Between Two Vectors" description="" image=""/>

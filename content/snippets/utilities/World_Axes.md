@@ -1,4 +1,15 @@
-# World Axes.
+---
+title: Display World Axes
+image: 
+description: Helpful code snippet for displaying world axes in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, world axes
+further-reading:
+video-overview:
+video-content:
+---
+
+## World Axes
+
 This snippet displays the world axes. The X axis is red, the Y axis green and the Z axis blue. The length of the axes may be set with the size parameter.
 
 ```javascript
@@ -38,6 +49,6 @@ function showWorldAxis(size) {
 };
 ```
 
-# Playground
+## Playground
 
-* [Playground Example](https://www.babylonjs-playground.com/#2EYZPE)
+<Playground id="#2EYZPE" title="Displaying World Axes" description="" image=""/>

@@ -1,4 +1,14 @@
-# Surface Area Of a Mesh
+---
+title: Mesh Surface Area
+image: 
+description: Helpful code snippet for finding the surface area of a mesh in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, area
+further-reading:
+video-overview:
+video-content:
+---
+
+## Surface Area Of a Mesh
 
 This functions will together find the surface area of a mesh.
 
@@ -62,7 +72,8 @@ The function surfaceArea has been written so that you can use the function facet
 
 Run the following playgrounds directly and view the results in the console.
 
-* [Playground Example Surface Area of a Box](https://www.babylonjs-playground.com/#3VV5IV)
-* [Playground Example Surface Area of a Sphere](https://www.babylonjs-playground.com/#3VV5IV#2)
+<Playground id="#3VV5IV" title="Surface Area of a Box" description="Simple example of how to get the surface area of a box." image=""/>
+<Playground id="#3VV5IV#2" title="Surface Area of a Sphere" description="Simple example of how to get the surface area of a sphere." image=""/>
+
 
 **NOTE** For double sided meshes the surface area will be the sum of the exterior and interior areas.
