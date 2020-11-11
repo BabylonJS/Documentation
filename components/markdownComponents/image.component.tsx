@@ -31,14 +31,12 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     const classes = styles();
     const containerRef = useRef<HTMLImageElement>();
     const onResize = () => {
-        console.log(intrinsic.h);
         if (intrinsic.h === 0) {
             return;
         }
         let { h, w } = intrinsic;
         const markdownContainer = document.querySelector(".markdown-container") as HTMLDivElement;
         const containerWidth =  markdownContainer.clientWidth - 32;
-        console.log(w, containerWidth);
         if (w > containerWidth) {
             h = (h * containerWidth) / w;
             w = containerWidth;
@@ -46,10 +44,9 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         setContainerScale({ h, w });
     };
     useEffect(() => {
-        if (containerScale.h === 0) {
+        if (intrinsic.h === 0) {
             return;
         }
-        console.log("useEffect", props.src);
         const resize = throttle(onResize, 100);
         window.addEventListener("resize", resize, false);
         return () => {

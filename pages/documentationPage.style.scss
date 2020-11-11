@@ -154,9 +154,12 @@
 .markdown-container {
     position: relative;
     padding: 16px;
-    max-width: 100%;
     flex: 1;
     overflow: auto;
+    max-width: 100%;
+    * {
+        max-width: 880px;
+    }
     @media print {
         *,
         *:before,
