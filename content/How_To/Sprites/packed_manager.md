@@ -1,4 +1,14 @@
-# Sprite Packed Manager
+---
+title: Sprite Packed Manager
+image: 
+description: Learn about the sprite packed manager in Babylon.js.
+keywords: babylon.js, diving deeper, sprites, sprite manager
+further-reading:
+video-overview:
+video-content:
+---
+
+## Sprite Packed Manager
 *Available from BJS version 4.1*
 
 A packed spritesheet will look something like this
@@ -85,7 +95,7 @@ const sprite = new BABYLON.Sprite("sprite", mySpritePackedManager);
 sprite.cellRef = "spot.png";
 ```
 
-Multiple sprites from *pack1.json* https://www.babylonjs-playground.com/#YCY2IL#8
+Multiple sprites from *pack1.json* <Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file." image=""/>
 
 The same as for the sprite manager you can apply the following properties,
 
@@ -101,6 +111,5 @@ sprite.invertV = true; //horizontal reflection
 
 You are able to animate using a packed spritesheet with *playAnimation*. You must ensure that the frames for the animation are consecutive and in the correct order in the JSON file.
 
-Slide show animation from JSON file https://www.babylonjs-playground.com/#YCY2IL#5  
-Slide show animation with in-line JSON to show order of slides https://www.babylonjs-playground.com/#YCY2IL#13
-
+Slide show animation from JSON file: <Playground id="#YCY2IL#5" title="Slide Show From .json" description="Simple example of a slide show loaded from a .json file." image=""/>
+Slide show animation with in-line JSON to show order of slides: <Playground id="#YCY2IL#13" title="Slide Show Animation With In-Line .json" description="Simple example of a slide show animation with in-line .json." image=""/>

@@ -1,4 +1,14 @@
-# Sprite Map 
+---
+title: Sprite Map
+image: 
+description: Learn about sprite maps in Babylon.js.
+keywords: babylon.js, diving deeper, sprites, map, sprite map
+further-reading:
+video-overview:
+video-content:
+---
+
+## Sprite Map 
 *Available from BJS version 4.1*
 
 A sprite map allows you to display layers of sprites on a grid and can render thousands (dare I say millions?) of animated sprites on screen.  A large area of use, as used in this section, is in 2D and 2.5D games but other applications can also benefit. The only current limitation of this system is that the positions of the sprites are static within the grid and are dictated by the sprite map's initializing parameters. 
@@ -91,11 +101,11 @@ The parameters are
 - _frameID_ - _(number)_ the index number in the frames array
 
 
-A 2 x 2 single layer sprite map, JSON loaded from file https://www.babylonjs-playground.com/#YCY2IL#14
+A 2 x 2 single layer sprite map, JSON loaded from file: <Playground id="#YCY2IL#14" title="Single Layer Sprite Map From A File" description="Simple example of a 2x2 single layer sprite map loaded from a .json file." image=""/>
 
 Once created you can export the sprite map to save it and then load it into another sprite sheet of the same structure.
 
-# Saving a Sprite Map
+## Saving a Sprite Map
 After you have created a sprite map you can export this composition for later use, with
 
 ```javascript
@@ -108,6 +118,3 @@ When importing it you must make sure that the sprite map you are importing it in
 ```javascript
 spriteMap.loadTileMaps(url); //url is the location of the .tilemaps file
 ```
-
-
-

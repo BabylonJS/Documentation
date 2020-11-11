@@ -1,6 +1,32 @@
+---
+title: WebXR
+image: 
+description: Learn about creating immersive web experineces with WebXR in Babylon.js.
+keywords: babylon.js, diving deeper, WebXR, VR, AR
+further-reading:
+    - title: Demos and Examples
+      url: ./WebXR_Demos_and_Examples
+    - title: The WebXR Experience Helper
+      url: ./WebXR_Experience_Helpers
+    - title: The Session Manager
+      url: ./WebXR_Session_Manager
+    - title: The WebXR Camera
+      url: ./WebXR_Camera
+    - title: WebXR Input Sources and Controller Support
+      url: ./WebXR_Controllers_Support
+    - title: Features Manager and Available Features
+      url: ./WebXR_Features_Manager
+    - title: Selected WebXR Features
+      url: ./WebXR_Selected_Features
+    - title: Augmented Reality
+      url: ./WebXR_Augmented_Reality
+video-overview:
+video-content:
+---
+
 # WebXR
 
-# Current state
+## Current state
 
 The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in its draft phase. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) to know about others browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. 
 
@@ -8,13 +34,13 @@ As the API continuously changes, it is difficult to keep up with feature changes
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
-# Device and browser support
+## Device and browser support
 
-## PC
+### PC
 
 Chrome 79 on windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) Devices. Unofficially, WebXR is working well with the oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
 
-## Mobile and Quest
+### Mobile and Quest
 
 WebXR is supported on Google Daydream using Chrome.
 
@@ -24,7 +50,7 @@ Oculus Quest supports WebXR (in VR mode) in the latest oculus browser. Babylon's
 
 No official iOS/iPhone support is planed at the moment. Mozilla has built the [WebXR iOS Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056) which is a (very) limited AR-oriented browser.
 
-## Polyfill
+### Polyfill
 
 For older browsers that support WebVR but not WebXR you can use the [WebXR Polyfill](https://github.com/immersive-web/webxr-polyfill) which is the WebXR API implementation using WebVR features. Some functions will not work (or will simply return without changes) but the basic functionality works well.
 
@@ -72,11 +98,11 @@ var createScene = async function () {
 
 If you experience low-resolution when using the polyfill, make sure to resize the canvas to a higher resolution. This is a limitation of WebVR (that required resizing the canvas) which we didn't integrate for WebXR.
 
-## The WebXR Emulator
+### The WebXR Emulator
 
 If you are developing and don't want to constantly test on a real device, use mozilla's [WebXR Emulator](https://blog.mozvr.com/webxr-emulator-extension/) which is available for [chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje) and [firefox](https://addons.mozilla.org/firefox/addon/webxr-api-emulator). We support it and actually use it during development. Highly recommended.
 
-# Getting started
+## Getting started
 
 The simplest way to get started is using a WebXR-enabled browser and add a single line of code to your scene:
 
@@ -111,17 +137,17 @@ var createScene = async function() {
 };
 ```
 
-[Sphere in WebXR using Babylon.js](https://www.babylonjs-playground.com/#F41V6N) playground link
+<Playground id="#F41V6N" title="Sphere In WebXR Using Babylon.js" description="Simple example of a sphere in WebXR using Babylon.js" image=""/>
 
 And that's it!
 
 Make sure to read more on the [WebXR Experience Helper](./WebXR_Experience_Helpers) for further tips and tricks, and take a look at our [Demos and examples](./WebXR_Demos_and_Examples) page.
 
-# Migrating from WebVR
+## Migrating from WebVR
 
 WebVR is deprecated and will soon end its life in most if not all browsers. It is highly recommended to port all WebVR implementations to WebXR.
 
-## Migrating from the VR Experience helper
+### Migrating from the VR Experience helper
 
 If you used our [VR experience helper](./WebVR_Helper) remove the VR initializer and add the XR experience helper. So this:
 
@@ -139,7 +165,7 @@ var xrHelper = scene.createDefaultXRExperienceAsync();
 
 The XR helper has full controller support per default, including interactions with the scene meshes, pointer events and more. Read more about the [XR Experience helper](./WebXR_Experience_Helpers).
 
-## Migrating controller support
+### Migrating controller support
 
 Since WebXR controllers are no longer considered to be Gamepads the architecture is a bit different.
 
@@ -239,11 +265,11 @@ if (touchpad) {
 
 Read more about the [XR Controllers system](./WebXR_Controllers_Support).
 
-## Legacy support
+### Legacy support
 
 Thou we always encourage backwards compatibility **We recommend using WebXR directly** and stop using the WebVR experience helper. However:
 
-The latest WebVR Experience helper has a new flag in its init options - `useXR` . This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in [the WebVR color-picker demo](https://www.babylonjs-playground.com/#TAFSN0#323):
+The latest WebVR Experience helper has a new flag in its init options - `useXR` . This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead." image=""/>
 
 ``` javascript
 var createScene = function() {
@@ -329,15 +355,3 @@ The color picker works since it is using the pointer architecture. If XR is pres
 Note that some features will not work correctly or will not work at all. For example, camera gaze will not work at all. Controller will work, but since the interaction architecture is different, it is highly likely you will need to adjust a few observers in order to get it to work, especially if there are VR-specific callbacks.
 
 We recommend using the WebXR polyfill instead.
-
-# Further reading
-
-1. [Demos and Examples](./WebXR_Demos_and_Examples)
-1. [The WebXR Experience Helper](./WebXR_Experience_Helpers)
-1. [The Session Manager](./WebXR_Session_Manager)
-1. [The WebXR Camera](./WebXR_Camera)
-1. [WebXR Input Sources and Controller support](./WebXR_Controllers_Support)
-1. [Features Manager and available features](./WebXR_Features_Manager)
-1. [Selected WebXR Features](./WebXR_Selected_Features)
-1. [Augmented Reality](./WebXR_Augmented_Reality)
-1. Advanced usage, troubleshooting, tips and tricks
