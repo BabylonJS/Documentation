@@ -1,3 +1,27 @@
+---
+title: Joints
+image: 
+description: Learn all about using joints in physics engines within Babylon.js.
+keywords: diving deeper, phyiscs, joints
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Forces
+      url: /how_to/forces
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
 # Joints
 
 A joint in a physics engine is a constraining feature between two bodies. This area has the largest differences between the physics engine both in the joints available and the names used. Not all native joints are available in some plugins.
@@ -6,7 +30,7 @@ Playgrounds are available to check out the coding. In the playgrounds the physic
 
 See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
 
-# Physical Joint Types
+## Physical Joint Types
 
 | Number | Joint                                                   | Name            | Notes                                                                           |
 | ------ | ------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------- |
@@ -19,7 +43,7 @@ See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an o
 | 7      | ![Distance](/img/how_to/physics/distance.jpg)           | Distance        | Set Bodies a Fixed Distance Apart                                               |
 | 8      | ![Locked](/img/how_to/physics/locked.jpg)               | Locked          | Bodies Act As One Body                                                          |
 
-# Native Joints for Each Physics Engine
+## Native Joints for Each Physics Engine
 
 The relationship between native joints and physical joints
 
@@ -54,7 +78,7 @@ The relationship between native joints and physical joints
 | SliderConstraint      | 5 Slider          |
 | FixedConstraint       | 8 Locked(?)       |
 
-# Babylon.js Joints
+## Babylon.js Joints
 
 The following table lists those joints within Babylon.js and where available their equivalence to each other and their link to the native joints
 
@@ -82,7 +106,7 @@ mainImpostor.addJoint(connectedImpostor, joint);
 
 where the `jointData` object contains the properties for the joint.
 
-## Hinge Joint
+### Hinge Joint
 
 For a hinge the only component of any force that produces movement is one perpendicular to the axis of the hinge. It is possible however that a large impulse in another direction can produce a reaction between the two bodies that does produce an impulse component in the perpendicular direction.
 
@@ -101,11 +125,11 @@ var joint1 = new BABYLON.HingeJoint(jointData);
 
 **_PhysicsJoint Playground_**
 
-- [Playground Example - Hinge as Sphere - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#32)
+- <Playground id="#UFVU18#32" title="Hinge As A Sphere 1" description="Simple example of using a hinge as a sphere with PhysicsJoint." image=""/>
 
 **_Helper Class Playground_**
 
-- [Playground Example - Hinge as Sphere - Box and Sphere Imposters](https://www.babylonjs-playground.com/#F15U0G#55)
+- <Playground id="#F15U0G#55" title="Hinge As A Sphere 2" description="Simple example of using a hinge as a sphere with the helper class." image=""/>
 
 Since a hinge gives movement about only one axis it would seem to make sense to replace the representation of the hinge with a cylinder. Doing this, reshaping the box and keeping the sphere mesh imposter as a sphere does produce changes.
 
@@ -113,23 +137,23 @@ In this case, for all the physics' engines whatever the direction of impulse set
 
 **_PhysicsJoint Playground_**
 
-- [Playground Example - Hinge as Cylinder - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#33)
+- <Playground id="#UFVU18#33" title="Hinge As A Cylinder 1" description="Simple example of using a hinge as a cylinder with PhysicsJoint." image=""/>
 
 **_Helper Class Playground_**
 
-- [Playground Example - Hinge as Cylinder - Box and Sphere Imposters](https://www.babylonjs-playground.com/#F15U0G#56)
+- <Playground id="#F15U0G#56" title="Hinge As A Cylinder 2" description="Simple example of using a hinge as a cylinder with the helper class." image=""/>
 
 You can, of course, use a cylinder impostor for the cylinder mesh
 
 **_PhysicsJoint Playground_**
 
-- [Playground Example - Hinge as Cylinder - Box and Cylinder Imposters](https://www.babylonjs-playground.com/#RHBQY9#13)
+- <Playground id="#RHBQY9#13" title="Hinge As A Cylinder 3 (box and cylinder)" description="Simple example of using a hinge as a cylinder with PhysicsJoint." image=""/>
 
 **_Helper Class Playground_**
 
-- [Playground Example - Hinge as Cylinder - Box and Cylinder Imposters](https://www.babylonjs-playground.com/#RHBQY9#14)
+- <Playground id="#RHBQY9#14" title="Hinge As A Cylinder 4 (box and cylinder)" description="Simple example of using a hinge as a cylinder with the helper class." image=""/>
 
-## Ball And Socket Joint
+### Ball And Socket Joint
 
 For a ball and socket joint a force can produce rotation about all three axes.
 
@@ -140,9 +164,9 @@ The positioning of the connected body is determined by the connected pivot. The 
 
 **_PhysicsJoint Playground_**
 
-- [Playground Example - Ball and Socket - Box and Sphere Imposters](https://www.babylonjs-playground.com/#RHBQY9#15)
+- <Playground id="#RHBQY9#15" title="Ball and Socket" description="Simple example of a ball and socket joint with box and sphere imposters." image=""/>
 
-## Wheel Joint
+### Wheel Joint
 
 For a wheel the a force produces rotation about two axes.
 
@@ -157,7 +181,7 @@ The `jointData` object for a hinge contains the following properties
 
 **_PhysicsJoint Playground_**
 
-- [Playground Example Oimo.js - Wheel - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#7)
+- <Playground id="#UFVU18#7" title="Oimo.js Wheel Joint Example" description="Simple example of creating a wheel joint in Oimo with box and sphere imposters." image=""/>
 
 The `PhysicsJoint` called `Hinge2Joint` can be used as an alternative. Note however that there is no helper call `WheelJoint` and the helper must be
 
@@ -169,10 +193,10 @@ When this helper class is used with `Ammo.js` it forms a `BallAndSocketJoint` no
 
 **_Helper Class Playgrounds_**
 
-- [Playground Example Oimo.js - Hinge2 - Box and Sphere Imposters](https://www.babylonjs-playground.com/#F15U0G#26)
-- [Playground Example Ammo.js - Hinge2 - Box and Sphere Imposters](https://www.babylonjs-playground.com/#F15U0G#64)
+- <Playground id="#F15U0G#26" title="Oimo.js Hinge2" description="Simple Oimo.js example of a hinge2 with box and sphere imposters." image=""/>
+- <Playground id="#F15U0G#64" title="Ammo.js Hinge2" description="Simple Ammo.js example of a hinge2 with box and sphere imposters." image=""/>
 
-## Slider Joint
+### Slider Joint
 
 Currently `Oimo.js` only. Any component of force in the direction of the slider axis will move the body along this axis. Any component of force perpendicular to the slider axis will rotate the body around the axis.
 
@@ -183,9 +207,9 @@ The `jointData` object for a slider contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- [Playground Example Oimo.js - Slider - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#17)
+- <Playground id="#UFVU18#17" title="Oimo.js Slier Example" description="Simple Oimo.js example of a slider with box and sphere imposters." image=""/>
 
-## Prismatic Joint
+### Prismatic Joint
 
 Currently `Oimo.js` only. Only the component of force in the direction of the axis will move the body and the movement will be a translation only along this axis.
 
@@ -196,9 +220,9 @@ The `jointData` object for a slider contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- [Playground Example Oimo.js - Prismatic Joint - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#18)
+- <Playground id="#UFVU18#18" title="Oimo.js Prismatic Joint" description="Simple Oimo.js example of a prismatic Joint with box and sphere imposters." image=""/>
 
-## Distance Joint
+### Distance Joint
 
 The `jointData` object for a distance joint contains the following properties
 
@@ -206,21 +230,21 @@ The `jointData` object for a distance joint contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- [Playground Example - Distance - Box and Sphere Imposters](https://www.babylonjs-playground.com/#UFVU18#34)
+- <Playground id="#UFVU18#34" title="Distance Joint 1" description="Simple example of a distance joint with box and sphere imposters." image=""/>
 
 **_Helper Class Playgrounds_**
 
-- [Playground Example - Distance - Box and Sphere Imposters](https://www.babylonjs-playground.com/#F15U0G#57)
+- <Playground id="#F15U0G#57" title="Distance Joint 2" description="Simple example of a distance joint with box and sphere imposters, created with the helper class." image=""/>
 
-## LockJoint
+### LockJoint
 
 `Cannon.js` only. The two connected bodies act as one body.
 
 **_PhysicsJoint Playgrounds_**
 
-- [Playground Example Cannon.js - Lock Joint - Both Box Imposters](https://www.babylonjs-playground.com/#UFVU18#19)
+- <Playground id="#UFVU18#19" title="Cannon.js Lock Joint Example" description="Simple Cannon.js example of a lock joint using box imposters." image=""/>
 
-## Spring
+### Spring
 
 `Cannon,js` Only. The `jointData` object for a spring contains the following properties
 
@@ -230,9 +254,9 @@ The `jointData` object for a distance joint contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- [Playground Example Cannon.js - Spring Joint - Both Box Imposters](https://www.babylonjs-playground.com/#UFVU18#36)
+- <Playground id="#UFVU18#36" title="Cannon.js Spring Joint Example" description="Simple Cannon.js example of a spring joint with box imposters." image=""/>
 
-# Motors
+## Motors
 
 A motor requires a target speed (angular velocity) and the maximum force (torque) that can be applied by the motor. It is possible to set a torque that is insufficient for it to reach the target speed. Depending on the shape and mass of the body the torque has to overcome the moment of inertia of the body. A too low value for the torque will make the body struggle and stutter to reach the target speed. Even attempting to simulate a virtual motor in zero gravity with no friction and a zero mass for the axel joint turning a cylinder can make determining an appropriate value for the torque difficult. Since moment of inertia, which determines torque, also depends on the volume of the body it is a good idea to keep linear dimensions around 10 or less though it is probably worth experimenting to get obtain what you need. Adding gravity, friction and further bodies, that the motored body has to move, makes it even more difficult. Sometimes in your project all you will want is for the motor to turn. This can be achieved by just setting the target speed (the motor will be over torqued by default), as in
 
@@ -278,19 +302,19 @@ joint.setMotor(target speed, maximum torque)
 
 The helper classes for `HingeJoint` and `Hinge2Joint` are already motorised and only `setMotor` is needed.
 
-# Playground Examples
+## Playground Examples
 
-## Hinge Motor Speed Only
+### Hinge Motor Speed Only
 
 **_MotorEnabledJoint Playground_**
 
-- [Playground Example - Hinge Motor](https://www.babylonjs-playground.com/#UFVU18#35)
+- <Playground id="#UFVU18#35" title="Hinge Motor 1" description="Simple example of a hinge motor." image=""/>
 
 **_Helper Class Playground_**
 
-- [Playground Example - Hinge Motor](https://www.babylonjs-playground.com/#F15U0G#58)
+- <Playground id="#F15U0G#58" title="Hinge Motor 2" description="Simple example of a hinge motor, created with the helper class." image=""/>
 
-## Hinge Motor Speed and Torque (Force)
+### Hinge Motor Speed and Torque (Force)
 
 Different engines use differing scales for the torque and a little trial and error is often necessary to determine the required effect.
 
@@ -302,42 +326,24 @@ In the hinge motor playgrounds below there are two wheels you can try out differ
 
 **_MotorEnabledJoint Playground_**
 
-- [Playground Example - Hinge Motor](https://www.babylonjs-playground.com/#WWNQ10#19)
+- <Playground id="#WWNQ10#19" title="Hinge Motor 3" description="Simple example of a hinge motor (play with torque values)." image=""/>
 
 **_Helper Class Playground_**
 
-- [Playground Example - Hinge Motor](https://www.babylonjs-playground.com/#WWNQ10#20)
+- <Playground id="#WWNQ10#20" title="Hinge Motor 4" description="Simple example of a hinge motor created with the helper class (play with torque values)." image=""/>
 
-## Wheel (Hinge2) Motor
+### Wheel (Hinge2) Motor
 
 **_MotorEnabledJoint Playgrounds_**
 
-- [Playground Example Oimo.js - Wheel Z Axis](https://www.babylonjs-playground.com/#UFVU18#28)
-- [Playground Example Oimo.js - Wheel Y Axis](https://www.babylonjs-playground.com/#UFVU18#29)
-- [Playground Example Oimo.js - Wheel X Axis](https://www.babylonjs-playground.com/#UFVU18#30)
+- <Playground id="#UFVU18#28" title="Oimo.js Wheel Z Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Z axis." image=""/>
+- <Playground id="#UFVU18#29" title="Oimo.js Wheel Y Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Y axis." image=""/>
+- <Playground id="#UFVU18#30" title="Oimo.js Wheel X Axis" description="Simple Oimo.js example of a wheel (hinge2) along the X axis." image=""/>
 
-## Slider Motor
+### Slider Motor
 
 The motor rotates the body around the slider axis.
 
 **_MotorEnabledJoint Playground_**
 
-- [Playground Example Oimo.js - Slider X axis](https://www.babylonjs-playground.com/#UFVU18#31)
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Forces](/how_to/forces)  
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
-
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
+- <Playground id="#UFVU18#31" title="Oimo.js Slider X Axis" description="Simple Oimo.js example of a slider along the X axis." image=""/>

@@ -1,4 +1,28 @@
-# How To Use Forces
+---
+title: Forces
+image: 
+description: Learn all about applying physical forces in Babylon.js.
+keywords: diving deeper, phyiscs, forces
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Joints
+      url: /how_to/joints
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
+## How To Use Forces
 
 This section gives some terminology needed to discuss the use of forces in the three physics' engines 
 
@@ -12,13 +36,13 @@ See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an o
 
 
 
-# Body
+## Body
 
 Solids in physics are often referred to as `bodies`. In the simulation bodies are made up of two parts, the rendered object and the physics object. The rendered object is a mesh and the physics object, which holds the data about the body, is called a physics imposter. 
 
 **Note:** a box imposter is often preferable when the body is a plane.
 
-# Mass
+## Mass
 
 This is the amount of matter in the body and is set when the imposter is formed. Static bodies should have a mass of zero.
 
@@ -26,11 +50,11 @@ This is the amount of matter in the body and is set when the imposter is formed.
 new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 2 }, scene);
 ```
 
-# Forces
+## Forces
 
 These are gravity, impulses, friction and applied forces.
 
-## Gravity 
+### Gravity 
 
 In the simulations gravity is a universal force applied throughout the time of the simulation producing a gravitational acceleration. Setting a Vector3 for gravity is in fact setting the gravitational acceleration. The default value being `(0, -9.807, 0)`. Since it is a universal force it is set in the physics' engine either when it is enabled or later. 
 
@@ -57,9 +81,9 @@ var gravity = physicsEngine.gravity;
 physicsEngine.setGravity(new BABYLON.Vector3(0, -5, 0))
 ```
 
-*[Playground Example - Gravity](https://www.babylonjs-playground.com/#YUNAST#3)
+<Playground id="#YUNAST#3" title="Gravity Example" description="Simple example of using gravity in a phyics engine." image=""/>
 
-## Impulses
+### Impulses
 
 An impulse is a force applied to a body in an instance which will change the current linear velocity and/or the angular velocity of the body. Impulses acting at the center of mass of the body will not change the angular velocity.  Unless other forces act on it the body will continue with the new velocities.
 
@@ -79,9 +103,9 @@ imposter.applyImpulse(ImpulseVector, mesh.getAbsolutePosition().add(localRefPoin
 
 The following playground is initially set up to apply an impulse at the center of mass vertically against gravity which eventually return the box to earth. Leaving the friction as 0 and applying horizontal impulses shows the continuity of movement.
 
-* [Playground Example - Impulses](https://www.babylonjs-playground.com/#RHBQY9#12)
+<Playground id="#RHBQY9#12" title="Impulses Example 1" description="Simple example of adding impulses to objects." image=""/>
 
-## Friction
+### Friction
 
 Friction is a property of a body and is set in the imposter and provides a continuous force between two bodies while they are in contact. You can set friction when creating an imposter and also get and set it later.
 
@@ -96,9 +120,9 @@ Since friction occurs at the boundary of a body, applying an impulse at the cent
 
 Re-visiting the following playground and setting friction on **both** bodies and applying horizontal impulses will show the angular velocity effect.
 
-* [Playground Example - Impulses](https://www.babylonjs-playground.com/#RHBQY9#12)
+<Playground id="#RHBQY9#12" title="Impulses Example 2" description="Simple example of adding impulses to objects." image=""/>
 
-## Applied Forces
+### Applied Forces
 
 An applied force will only affect the body over the time period that it is applied which is the duration of the frame interval. For zero friction a sufficiently large force (to overcome inertia) applied in the first frame interval will set the body in motion. While `Cannon.js` and `Ammo.js` have a native apply force method `Oimo.js` does not and so an applying force is replaced (internally in Babylon.js) with the apply impulse method so a smaller value has a greater effect. 
 
@@ -114,22 +138,4 @@ impostor.applyForce(forceDirection.scale(forceMagnitude), mesh.getAbsolutePositi
 
 The following playground initially set up with zero friction and to apply an impulse at the center of mass horizontally in the X direction.
 
-* [Playground Example - Applied Force](https://www.babylonjs-playground.com/#RHBQY9#1)
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Joints](/how_to/joints)   
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
- 
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
+<Playground id="#RHBQY9#1" title="Applying Forces" description="Simple example of applying forces to objects." image=""/>

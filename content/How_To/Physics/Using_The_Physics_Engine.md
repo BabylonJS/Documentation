@@ -1,6 +1,30 @@
+---
+title: Using A Physics Engine
+image: 
+description: Learn how to use one of the available physics engines in Babylon.js.
+keywords: diving deeper, phyiscs
+further-reading:
+    - title: How To Use Forces
+      url: /how_to/forces
+    - title: How to use Joints
+      url: /how_to/joints
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
 # How to Use a Physics Engine
 
-# Introduction
+## Introduction
 
 Babylon.js has a plugin system for physics engines that enables the user to add physics interactions to the scene's objects.
 Unlike the internal collision system, a physics engine calculates objects'  body dynamics and emulates "real-life" interactions between them. So if two objects collide, they will "bounce" off one another, just like you would expect from a real-life object.
@@ -9,7 +33,7 @@ Babylon.js' plugin system allowed us to use well established physics engines and
 
 This tutorial will show the basic usage of the physics system.
 
-# What physics engine are integrated
+## What physics engine are integrated
 
 There are plugins for 4 physics engines:
 
@@ -26,9 +50,9 @@ Once you picked an engine, do not forget to add a reference to the engine code:
 1. Oimo: https://cdn.babylonjs.com/Oimo.js
 1. Ammo: https://cdn.babylonjs.com/ammo.js or directly from https://github.com/kripken/ammo.js/blob/master/builds/ammo.js
 
-# Basic usage
+## Basic usage
 
-## Enabling the physics engine
+### Enabling the physics engine
 
 To enable the physics engine, call the scene's `enablePhysics` function:
 
@@ -55,7 +79,7 @@ Calling this function will create a new BABYLON.PhysicsEngine object that will b
 
 The physics engine is now enabled and is running during the render loop.
 
-## Impostors
+### Impostors
 
 To allow interaction between objects, the physics engines use an impostor, which is a simpler representation of a complex object. 
 An impostor, as a rule, is a rigid body - meaning it cannot be changed during interaction. A sphere will always have the same radius, a box will always have the same length. If you want to change the object, a new impostor will be created.
@@ -75,18 +99,18 @@ Each physics engine has different types of Impostors. The following table shows 
 
 Using simple impostors for complex objects will increase performance but decrease the reality of the scene's physics. Consider when complex impostors (like the mesh or the heightmap) is needed, and when the simpler geometries can be used.
 
-## Authoring and loading a mesh with a collider mesh (Currently works with AmmoJS plugin only)
+### Authoring and loading a mesh with a collider mesh (Currently works with AmmoJS plugin only)
 
 To get reasonably accurate collisions without overloading the physics engine, a collider mesh is recommended. One way to do this is as followed:
 
-### Authoring
+#### Authoring
 1. Model a mesh as usual (eg. in Blender, Babylon, Maya, etc.)
 1. Using impostor primitives (eg. Box or Sphere) create collider meshes outlining the mesh
 1. Label the collider meshes so they can be accessed within Babylon by name
 1. Ensure that the collider mesh nodes do not have their orientation frozen as this info is needed within Babylon to generate the physics imposters
 1. Export to a Babylon supported file format: GLTF, GLB, Babylon, etc.
 
-### Loading
+#### Loading
 
 1. Import mesh file within Babylon
 1. Create a new Babylon mesh which will be used as the root of physics mesh, the position of this mesh act as the center of mass for the physics object
@@ -96,15 +120,15 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 1. Create a physics impostor of the root physics mesh of type NoImpostor (The mass of this impostor will override the mass of the child impostors)
 1. Position/rotate the root physics mesh to the desired place within the world
 
-### Examples
+#### Examples
 
-- Loading mesh and colliders from file: https://playground.babylonjs.com/#66PS52
-- Loading and adding colliders manually in Babylon: https://playground.babylonjs.com/#FD65RR
-- Loading and adding collider with joints and pointer interactions: https://playground.babylonjs.com/#DGEP8N
-- WebVR grabbing and throwing: https://playground.babylonjs.com/#ZNX043#28
-- Custom engine with [`deterministicLockstep`](https://doc.babylonjs.com/babylon101/animations#deterministic-lockstep): https://www.babylonjs-playground.com/#3ZW889#11
+- Loading mesh and colliders from file: <Playground id="#66PS52" title="Loading A Mesh And Colliders From A File" description="Simple example of loading a mesh and colliders from a file." image=""/>
+- Loading and adding colliders manually in Babylon: <Playground id="#FD65RR" title="Loading And Adding Colliders Manually" description="Simple example of loading meshes but creating colliders manually." image=""/>
+- Loading and adding collider with joints and pointer interactions: <Playground id="#DGEP8N" title="Loading And Adding A Collider With Joints And Interactions" description="Simple example of loading and adding a collider with joints and pointer interactions." image=""/>
+- WebVR grabbing and throwing: <Playground id="#ZNX043#28" title="WebVR Grabbing And Throwing" description="Simple example of a WebVR scene with grabbing and throwing enabled." image=""/>
+- Custom engine with [`deterministicLockstep`](https://doc.babylonjs.com/babylon101/animations#deterministic-lockstep): <Playground id="#3ZW889#11" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image=""/>
 
-## Babylon's physics impostor
+### Babylon's physics impostor
 
 To enable physics on an object(*) you need to assign it a physics impostor. The signature of the impostor's constructor is (provided with TypeScript type definition):
 
@@ -112,7 +136,7 @@ To enable physics on an object(*) you need to assign it a physics impostor. The 
 new BABYLON.PhysicsImpostor(object: IPhysicsEnabledObject, type: number, options: PhysicsImpostorParameters, scene:BABYLON.Scene);
 ```
 
-### object
+#### object
 
 You will notice that I keep on writing object and not mesh, and that the first parameter is not a mesh but an interface (IPhysicsEnabledObject). It is possible to assign an impostor to any Babylon object that has at least two parameters:
 
@@ -123,7 +147,7 @@ rotationQuaternion: BABYLON.Quaternion
 
 An AbstractMesh will be the first choice, of course. But a Solid Particle also applies, and so does a light or certain cameras. I will show how to use an impostor on different object types in the advanced tutorial.
 
-### type
+#### type
 
 Type can be one of the following:
 
@@ -138,7 +162,7 @@ BABYLON.PhysicsImpostor.HeightmapImpostor;
 BABYLON.PhysicsImpostor.ConvexHullImpostor;
 ```
 
-### options
+#### options
 
 Options is a JSON. The interface is as follows:
 
@@ -162,11 +186,11 @@ Options is a JSON. The interface is as follows:
 * group: set the collision group (ammojs only)
 * mask: collision bit mask. Only impostor's group that have at least one bit in the mask will have collisions (ammojs)
 
-### scene
+#### scene
 
 I hope no explanation is required.
 
-## Basic physics scene
+### Basic physics scene
 
 I will extend the playground's basic scene to have physics interactions between the sphere and the ground.
 
@@ -183,26 +207,26 @@ sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpo
 ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 ```
 
-Playground example:  https://www.babylonjs-playground.com/#BEFOO
+Playground example: <Playground id="#BEFOO" title="Basic Physics Scene" description="Simple example of a basic physics scene." image=""/>
 
-## Further functionality of the Impostor class
+### Further functionality of the Impostor class
 
 In the example above, you noticed I kept a reference of the physics impostor attached to the sphere and the ground. This is not mandatory, but it is recommended to keep a reference of this object in order to interact with the physics body.
 
 The physics impostor holds a set of functions that can be executed on the physics engine's body:
 
-### Bidirectional transformation linking
+#### Bidirectional transformation linking
 
 The physics impostor synchronizes the physics engine's body and the connected object with each frame.
 That means that changing the object's position or rotation in Babylon code will also move the impostor. The impostor is also the one updating the object's position after the physics engine is finished calculating the next step.
 
-Playground example (sphere rotation and position) -  https://www.babylonjs-playground.com/#B5BDU
+Playground example (sphere rotation and position) -  <Playground id="#B5BDU" title="Rotating A Sphere's Physics Imposter" description="Simple example of rotating a sphere via its physics imposter." image=""/>
 Notice how the sphere rotates (due to the rotate function), but this rotation is not being taken into account by the physics engine.
 
-Playground example (box rotation and position) -  https://www.babylonjs-playground.com/#2ADVLV
+Playground example (box rotation and position) - <Playground id="#2ADVLV" title="Rotating A Box's Physics Imposter" description="Simple example of rotating a box via its physics imposter." image=""/>
 In this case, the rotation does influence the physics engine due to the geometric shape - a box standing on its edge will need to fall to either side, which influences its velocities.
 
-### Linear velocity
+#### Linear velocity
 
 Simply put, the linear velocity is in charge of updating the object's position. A velocity in any axis will cause a movement in its direction.
 To get the object's liner velocity (a BABYLON.Vector3):
@@ -217,11 +241,11 @@ To set the object's linear velocity use:
 impostor.setLinearVelocity(new BABYLON.Vector3(0,1,0));
 ```
 
-Playground example -  https://www.babylonjs-playground.com/#BXII
+Playground example - <Playground id="#BXII" title="Linear Velocity Example" description="Simple example of physics linear velocity." image=""/>
 
 The physics engine is in charge of calculating the body's velocity. Changing it will not make it fixed, but give it a "push". The physics engine will take the velocity into account and will modify it using gravity and collision interactions.
 
-### Angular velocity
+#### Angular velocity
 
 If the linear velocity was changing the position, the angular velocity is changing the rotation.
 
@@ -236,11 +260,11 @@ To set the object's angular velocity use:
 impostor.setAngularVelocity(new BABYLON.Quaternion(0,1,0,0));
 ```
 
-Playground example -  https://www.babylonjs-playground.com/#IGM3H
+Playground example - <Playground id="#IGM3H" title="Angular Velocity Example" description="Simple example of physics angular velocity." image=""/>
 
 Same as the linear velocity - setting this value will only cause the physics engine to recalculate the body dynamics. The value will not stay fixed.
 
-### Impulses and forces
+#### Impulses and forces
 
 Applying a force/impulse on a body will change its velocities (linear and angular) according to the body's properties (mass is taken into account, for example).
 
@@ -255,10 +279,10 @@ impostor.applyImpulse(new BABYLON.Vector3(10, 10, 0), sphere.getAbsolutePosition
 
 The first variable is the direction and amount of impulse to apply. The second is where on the body itself the force will be applied. Using this in a game of pool - you can hit the ball at various contact point locations and the interaction will vary (sometimes called "using English"). This is the way to simulate that.
 
-Playground example -  https://www.babylonjs-playground.com/#26LQEZ
-Playground example with a different position of the impulse, giving the ball a "spin" -  https://www.babylonjs-playground.com/#26LQEZ#1
+Playground example - <Playground id="#26LQEZ" title="Impulse Example" description="Simple example of adding physics impulses." image=""/>
+Playground example with a different position of the impulse, giving the ball a "spin" - <Playground id="#26LQEZ#1" title="Different Impulse Positions" description="Simple example of spinning a ball with different impulse positions." image=""/>
 
-### Radial explosion impulse/force & gravitational fields
+#### Radial explosion impulse/force & gravitational fields
 
 You have the ability to create radial explosions & gravitational forces. 
 
@@ -322,9 +346,9 @@ In case you want to do some debug, like visually show the sphere and/or rays, yo
 
 *For a more detailed explanation, please take a look at the playground example below.*
 
-Playground example - https://playground.babylonjs.com/#UZHINX
+Playground example - <Playground id="#UZHINX" title="Radial Explosion" description="Simple example of a radial explosion." image=""/>
 
-### Collision callbacks
+#### Collision callbacks
 
 You can add a callback function that will be called when an impostor collides with another impostor. 
 This is how to change the color of an object if it collides against the ground.
@@ -337,13 +361,13 @@ sphereImpostor.registerOnPhysicsCollide(groundImpostor, function(main, collided)
 
 Note that in this case, I assumed the impostor's body is a mesh with a material.
 
-Playground example -  https://www.babylonjs-playground.com/#1NASOD
+Playground example - <Playground id="#1NASOD" title="Collision Callback Example" description="Simple example of leveraging collision callbacks." image=""/>
 
 Notice that the callback will be executed each and every time both impostors collide, but will stop when they are touching (when the sphere no longer bounces).
 
-## Physics Joints
+### Physics Joints
 
-### What are joints
+#### What are joints
 
 To connect two impostors together, you can now use joints.
 Think of the joint as a limitation (or constraint) of either rotation or position (or both) between two impostors.
@@ -359,7 +383,7 @@ Each engine supports different types of joints (which usually have different nam
 
 Cannon also has a special Spring joint that will simulate a spring connected between two impostors.
 
-### Adding a new joint
+#### Adding a new joint
 
 To add a new joint the impostor has two help classes:
 
@@ -386,10 +410,10 @@ Babylon has 3 help-classes to add joints:
 
 `BABYLON.DistanceJoint` , `BABYLON.HingeJoint`, `BABYLON.Hinge2Joint`.
 
-DistanceJoint playground -  https://www.babylonjs-playground.com/#26QVLZ 
-SpringJoint example -  https://www.babylonjs-playground.com/#1BHF6C
+DistanceJoint playground - <Playground id="#26QVLZ" title="Adding A DistanceJoint" description="Simple example of adding a DistanceJoint." image=""/>
+SpringJoint example - <Playground id="#1BHF6C" title="Adding A SpringJoint" description="Simple example of adding a SpringJoint" image=""/>
 
-### Setting the joint data
+#### Setting the joint data
 
 The physics joint data interface looks like this:
 
@@ -404,55 +428,36 @@ interface PhysicsJointData {
 }
 ```
 
-* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: https://www.babylonjs-playground.com/#BGUY#3
+* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot." image=""/>
 * **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
-* **mainAxis**: the axis on the main object on which the constraint will work. https://www.babylonjs-playground.com/#BGUY#5
+* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#5" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work." image=""/>
 * **connectedAxis**: the axis on the connected object on which the constraint will work.
 * **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
 * **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
 
 You can read further about joint data in this blog article : [WebGL physics-based car using Babylon.js and Oimo.js](https://blog.raananweber.com/2016/09/06/webgl-car-physics-using-babylon-js-and-oimo-js/).
 
-## Interaction with the physics engine
+### Interaction with the physics engine
 
 Using `scene.getPhysicsEngine()`, you can get access to functions that will influence the engine directly.
 
-### Setting the time step
+#### Setting the time step
 
 The physics engine assumes a certain frame-rate to be taken into account when calculating the interactions.
 The time between each step can be changed to "accelerate" or "slow down" the physics interaction.
 Here is the same scene with different time steps - accelerating and slowing down:
 
-- Default time step: https://www.babylonjs-playground.com/#2B84TV
-- Slowing down: https://www.babylonjs-playground.com/#2B84TV#1
-- Speeding up: https://www.babylonjs-playground.com/#2B84TV#2
+- Default time step: <Playground id="#2B84TV" title="Default Time Step Example" description="Simple example of the default time step." image=""/>
+- Slowing down: <Playground id="#2B84TV#1" title="Slowing Down Time" description="Simple example of slowing down physics time." image=""/>
+- Speeding up: <Playground id="#2B84TV#2" title="Speeding Up Time" description="Simple example of speeding up physics time." image=""/>
 
-### Setting the scene's gravity
+#### Setting the scene's gravity
 
 You can change the scene's gravity using the physics engine's `setGravity(vector3)` function.
 This can be done in real time, even after setting the gravity:
 
-Playground demo (click to toggle positive/negative gravity) -  https://www.babylonjs-playground.com/#A2WGF
+Playground demo (click to toggle positive/negative gravity) - <Playground id="#A2WGF" title="Playing With Gravity" description="Simple example of manipulating the gravity of a physics engine." image=""/>
 
-### See it all working together
+#### See it all working together
 
-Marble Tower Playground -  https://playground.babylonjs.com/#3I55DK#0
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use Forces](/how_to/forces)  
-[How to use Joints](/how_to/joints)  
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
- 
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
-   
+Marble Tower Playground - <Playground id="#3I55DK#0" title="Marble Tower Demo" description="Fun example showcasing what you can do with physics in your scene." image=""/>
