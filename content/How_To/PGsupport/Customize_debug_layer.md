@@ -1,3 +1,17 @@
+---
+title: Customizing The Inspector
+image: 
+description: Learn how to customize the inspector in Babylon.js.
+keywords: babylon.js, tools, resources, inpsector, debug layer
+further-reading:
+    - title: The Inspector Features
+      url: /features/playground_debuglayer
+    - title: How To Use The Inspector in Projects
+      url: /How_To/debug_layer
+video-overview:
+video-content:
+---
+
 # Customize the Inspector
 
 The Inspector is part of the Babylon.js repository and can be customized in the same way as Babylon.js can. 
@@ -31,8 +45,3 @@ You can update the test file, and press F5 in your browser to check the changes.
 # React
 
 Babylon.js Inspector is based on a React. You may want to read more about React before updating the inspector: https://reactjs.org/
-
-# Further Reading
-
-[The Inspector Features](/features/playground_debuglayer)  
-[How To use The Inspector in Projects](/How_To/debug_layer)     

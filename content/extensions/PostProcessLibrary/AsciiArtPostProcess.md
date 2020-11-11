@@ -1,10 +1,20 @@
-# Using the Ascii Art post-process
+---
+title: Ascii Art
+image: 
+description: Check out the free Ascii Art Post Process available for you to use in your Babylon.js scenes.
+keywords: babylon.js, tools, resources, assets, library, post process, ascii
+further-reading:
+video-overview:
+video-content:
+---
+
+## Using the Ascii Art post-process
 
 How cool (... or nerd - ish) could it be to render all your BJS scene in Ascii ART?
 
 If you would like it, this tutorial is made for you.
 
-# How to use ?
+## How to use ?
 
 Ascii Art Post Process Scripts can be found here: 
 - Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js)
@@ -23,9 +33,9 @@ Then, you only need to instantiate the post process attach to your main camera t
 var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera);
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#0)
+<Playground id="#2I28SC#0" title="Ascii Post Process Demo" description="Ascii Post Process Demo" image=""/>
 
-# Going further
+## Going further
 
 The first you can do is changing the font used in the post process.
 
@@ -34,7 +44,7 @@ The first you can do is changing the font used in the post process.
 var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera, "10px Monospace");
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#1)
+<Playground id="#2I28SC#1" title="Modified Ascii Post Process Demo 1" description="Modified Ascii Post Process Demo" image=""/>
 
 But you could also play with more parameters:
 
@@ -49,7 +59,7 @@ var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera,
     });
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#5)
+<Playground id="#2I28SC#5" title="Modified Ascii Post Process Demo 2" description="Modified Ascii Post Process Demo 2" image=""/>
 
 The availables parameters are:
 
@@ -71,5 +81,4 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-[**Playground Demo Scene**](https://www.babylonjs-playground.com/#2I28SC#3)
-
+<Playground id="#2I28SC#3" title="Modified Ascii Post Process Demo 3" description="Modified Ascii Post Process Demo 3" image=""/>
