@@ -33,6 +33,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(2),
             maxHeight: "100%",
             maxWidth: 260,
+            minWidth: 260,
         },
         header: {
             backgroundColor: colorPalette.linkText,

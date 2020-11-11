@@ -25,7 +25,7 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
-    const [height, setHeight] = useState<number>(0);
+    const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const classes = styles();
     const getImage = () => {
         if (props.src.startsWith("http") || props.src.startsWith("//") || props.src.indexOf(".gif") !== -1) {
@@ -41,12 +41,19 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return (
                 <Image
                     onLoad={(e) => {
-                        try {
-                            const imgTag = e.target as HTMLImageElement;
-                            const height = imgTag.naturalHeight * imgTag.clientWidth / imgTag.naturalWidth;
-                            setHeight(height);
-                        } catch (e) {
-                            //no-op
+                        if (properties.layout === "fill") {
+                            try {
+                                const imgTag = e.target as HTMLImageElement;
+                                let h = imgTag.naturalHeight;
+                                let w = imgTag.naturalWidth;
+                                if(imgTag.naturalWidth > imgTag.clientWidth) {
+                                    h = h * imgTag.clientWidth / w;
+                                    w = imgTag.clientWidth;
+                                }
+                                setContainerScale({ h, w });
+                            } catch (e) {
+                                //no-op
+                            }
                         }
                     }}
                     className={classes.image}
@@ -59,7 +66,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     };
 
     return (
-        <div style={{ height: height !== 0 ? height : "100%" }} className={classes.imageWrapper}>
+        <div style={{ height: containerScale.h !== 0 ? containerScale.h : "100%", maxWidth: containerScale.w !== 0 ? containerScale.w : "800px" }} className={classes.imageWrapper}>
             {getImage()}
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </div>
