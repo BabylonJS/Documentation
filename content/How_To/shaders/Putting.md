@@ -1,4 +1,18 @@
-# Putting Shader Code in BabylonJS
+---
+title: Putting Shader Code Into Babylon.js
+image: 
+description: Dive deep into the inner workings of how Babylon.js handles shaders.
+keywords: babylon.js, advanced, shaders
+further-reading:
+    - title: Introduction To Shaders in BabylonJS
+      url: /resources/ShaderIntro
+    - title: ShaderMaterial Object
+      url: /how_to/shader_material
+video-overview:
+video-content:
+---
+
+## Putting Shader Code in BabylonJS
 Here are four ways of putting shader code into your scene:
 
 1. Use [BabylonJS Create Your Own Shader (CYOS)](https://www.babylonjs.com/cyos/) and download a zip file; 
@@ -8,7 +22,7 @@ Here are four ways of putting shader code into your scene:
 
 Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced/Shader_Material.html) to pass data to the shaders.
 
-# BabylonJS CYOS Download
+## BabylonJS CYOS Download
 
 This site allows you to write code for a Vertex Shader and a Fragment Shader and see the results on a variety of meshes. 
 Downloading a zip file produces a folder containing and index.html file and some image files for texture.
@@ -83,9 +97,9 @@ Extracting the appropriate sections of Javascript code allows you to transfer th
 
 This method can easily be used in the Playground.
 
-[Playground Example From CYOS](https://www.babylonjs-playground.com/#1OH09K#131)
+<Playground id="#1OH09K#131" title="Playground Example From CYOS" description="Playground Example From CYOS" image=""/>
 
-# Shader Code in &lt;script&gt; Tags
+## Shader Code in &lt;script&gt; Tags
 
 In the *index.html* file the Javascript code for the shaders is
 
@@ -142,7 +156,7 @@ var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, {
 
 [Guide Example From Script](https://babylonjsguide.github.io/examples/scriptcode.html)
 
-# Shader Code in fx Files
+## Shader Code in fx Files
 
 Save your code in two files, one for the Vertex Shader and one for the Fragment Shader. 
 
@@ -169,7 +183,7 @@ provide CORS is enabled for them.
 
 [Guide Example From Import](https://babylonjsguide.github.io/examples/importcode.html)
 
-# Shader Includes
+## Shader Includes
 When building shaders sometimes you have parts of your code that will be reused between multiple shaders.  This is usually things like reused uniforms, functions, structs etc.  A powerful method that users have at their disposal is to accomplish this task is the 
 ```javascript
 BABYLON.Effect.IncludesShadersStore["includeName"] = "..."
@@ -182,7 +196,7 @@ Additionally you can add anything you want to the IncludesShadersStore pre or po
 ```
 In the appropriate section of your shader code to have them injected into your shader when it is compiled [see example](https://www.babylonjs-playground.com/#0MAYNY).
 
-# Shader Builder
+## Shader Builder
 
 This is an extension to BabylonJS. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
 
@@ -208,9 +222,4 @@ mesh.material = new BABYLONX.ShaderBuilder()
 This method can be used in the Playground. However it does require the loading of the ShaderBuilder Javascript file and an `onLoad` 
 function before it can be called.
 
-* [Playground Example using ShaderBuilder](https://www.babylonjs-playground.com/#NCY1Q#36)
-
-# Further Reading
-
-[Introduction to Shaders in BabylonJS](/resources/shaderintro)  
-[ShaderMaterial Object](/how_to/shader_material)
+* <Playground id="#NCY1Q#36" title="Playground Example Using ShaderBuilder" description="Playground example using shaderbuilder." image=""/>

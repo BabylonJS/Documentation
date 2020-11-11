@@ -1,8 +1,18 @@
+---
+title: Image Processing
+image: 
+description: Learn all about image processing in Babylon.js.
+keywords: babylon.js, advanced, image processing
+further-reading:
+video-overview:
+video-content:
+---
+
 In case you are using an `ImageProcessingPostProcess` on your scene, or another post process that may use `ImageProcessingPostProcess` under the hood, like `MotionBlurPostProcess`, you will notice a slightly different color output in the final image, compared to what you want to output with `gl_FragColor`.
 
 This is due to the fact that `ImageProcessingPostProcess` is expecting a linear color input, and therefore converts every pixel to gamma color space. If you want to read more about linear color space versus gamma color space, read [this](https://en.wikipedia.org/wiki/Gamma_correction).
 
-# Fix my pixel shader 
+## Fix my pixel shader 
 
 To spare you the reading, basically, your `gl_FragColor` is put to the power `1 / 2.2`, which we call a standard gamma transformation. 
 
@@ -31,13 +41,13 @@ defines.IMAGEPROCESSINGPOSTPROCESS = scene.imageProcessingConfiguration.applyByP
 
 And now, whether you have the post-process active or not, the color should be similar !
 
-## Further Reading
+### Further Reading
 
 You may have a similar problem if you want to use fog on your scene, with a custom shader material. 
 
 [Here](/How_To/Supporting_fog_with_ShaderMaterial) is an helpful page to get your shaders to be fog-ready.
 
-# Tonemapping
+## Tonemapping
 
 If you are using tonemapping on your materials, it can happen that your image appears brighter than expected. It means that several image processing are applied in your pipeline.
 
