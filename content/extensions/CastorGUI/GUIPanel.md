@@ -1,6 +1,14 @@
-# GUIPanel
+---
+title: GUIPanel
+image:  
+description: Creates a new GUIPanel.
+keywords: Castor, GUI, plugin, extension, GUIPanel
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIPanel(id, options, guimanager, append)
+## new GUIPanel(id, options, guimanager, append)
 Creates a new GUIPanel
 
 ### Parameters

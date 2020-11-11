@@ -1,6 +1,14 @@
-# GUITexture
+---
+title: GUITexture
+image:  
+description: Creates a new GUITexture.
+keywords: Castor, GUI, plugin, extension, GUITexture
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUITexture(id, imageUrl, options, guimanager, callback, append)
+## new GUITexture(id, imageUrl, options, guimanager, callback, append)
 Creates a new GUITexture
 
 ### Parameters

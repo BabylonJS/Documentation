@@ -1,6 +1,14 @@
-# GUIText
+---
+title: GUIText
+image:  
+description: Library extension for displaying Castor GUI elements as a layer on top of the canvas.
+keywords: Castor, GUI, plugin, extension, GUIText
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIText(id, options, guimanager, append)
+## new GUIText(id, options, guimanager, append)
 Creates a new GUIText
 
 ### Parameters

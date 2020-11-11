@@ -1,12 +1,20 @@
-# Terrain material
+---
+title: Terrain Material
+image: 
+description: The Babylon.js materials library terrain material displays upto 4 terrain textures.
+keywords: welcome, babylon.js, library, materials, materials library, terrain, terrain material
+further-reading:
+video-overview:
+video-content:
+---
 
 ![Terrain Material](/img/extensions/materials/terrain.jpg)
 
-# Playground example
+## Playground example
 
-A Playground example can be found here: [Terrain Playground]( https://www.babylonjs-playground.com/#E6OZX#7)
+PG: <Playground id="#E6OZX#7" title="Terrain Material" description="Example of terrain material" image=""/>
 
-# Using the terrain material
+## Using the terrain material
 
 The terrain material works with at least 4 textures:
 - 3 Diffuse textures. (required)

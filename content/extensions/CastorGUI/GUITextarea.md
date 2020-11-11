@@ -1,6 +1,14 @@
-# GUITextarea
+---
+title: GUITextarea
+image:  
+description: Creates a new GUITextarea.
+keywords: Castor, GUI, plugin, extension, GUITextarea
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUITextarea(id, options, guimanager, append)
+## new GUITextarea(id, options, guimanager, append)
 Creates a new GUITextarea
 
 ### Parameters

@@ -1,6 +1,12 @@
-
-
-# ObjectCloner
+---
+title: ObjectCloner
+image: 
+description: The ObjectCloner clones and distributes given meshes to the facet position of another input-mesh which acts as a template.
+keywords: welcome, babylon.js, cloner system, ObjectCloner
+further-reading:
+video-overview:
+video-content:
+---
 
 ![idpic1](/img/extensions/clonerSystem/objectcloner.jpg "ObjectCloner")
 

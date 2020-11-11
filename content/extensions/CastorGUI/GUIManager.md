@@ -1,6 +1,14 @@
-# GUIManager
+---
+title: GUIManager
+image:  
+description: Creates a new GUIManager
+keywords: Castor, GUI, plugin, extension, GUIManager
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIManager(canvas, css)
+## new GUIManager(canvas, css)
 Creates a new GUIManager
 
 ### Parameters

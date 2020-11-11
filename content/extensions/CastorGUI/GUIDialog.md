@@ -1,6 +1,14 @@
-# GUIDialog
+---
+title: GUIDialog
+image:  
+description: Creates a new GUIDialog
+keywords: Castor, GUI, plugin, extension, GUIDialog
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIDialog(id, options, guimanager, callback, append)
+## new GUIDialog(id, options, guimanager, callback, append)
 Creates a new GUIDialog
 
 ### Parameters

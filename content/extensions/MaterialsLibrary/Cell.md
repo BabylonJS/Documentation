@@ -1,4 +1,12 @@
-# Cell material
+---
+title: Cell material
+image: 
+description: The Babylon.js materials library cell material.
+keywords: welcome, babylon.js, library, materials, materials library, cell, cell material
+further-reading:
+video-overview:
+video-content:
+---
 
 ![Toon material](/img/extensions/materials/toon.png)
 
@@ -6,7 +14,7 @@
 
 Cell material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.cellMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.cellMaterial.js)
 
-A demo can be found here:  https://www.babylonjs-playground.com/#36VUUE
+A demo can be found here:   PG: <Playground id="#36VUUE" title="Cell Material" description="Example of cell material" image=""/>
 
 # Creating and customizing the cell material
 

@@ -1,5 +1,12 @@
-
-# LinearCloner
+---
+title: LinearCloner
+image: 
+description: The LinearCloner clones and distributes given meshes in a linear manner.
+keywords: welcome, babylon.js, cloner system
+further-reading:
+video-overview:
+video-content:
+---
 
 ![idpic1](/img/extensions/clonerSystem/linearCloner.jpg "LinearCloner's with different transforming parameters")
 

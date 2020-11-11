@@ -1,14 +1,12 @@
 ---
-title: CastorGUI
-image: /img/pageImages/AMP360Video.jpg
+title: CastorGUI V2.0 (ECEMAScript 6)
+image:  
 description: Library extension for displaying Castor GUI elements as a layer on top of the canvas.
 keywords: Castor, GUI, plugin, extension
 further-reading:
 video-overview: 
 video-content:
 ---
-
-# CastorGUI V2.0 (ECEMAScript 6)
 
 Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 
@@ -69,7 +67,7 @@ dialog.add(text);
 ```
 That's it. Everything works the same way with the same simplicity.
 
-Demo in the playground : _(pg | Castor GUI Playground Demo | Basic demo for showing the Castor GUI in action. | S34THY#14 | )_
+Demo PG: <Playground id="S34THY#14" title="Castor GUI Playground Demo" description="Basic demo for showing the Castor GUI in action." image=""/>
 
 ## For use Database
 
@@ -88,4 +86,4 @@ db.deleteTable("member");
 db.deleteDataBase();
 ```
 
-Demo in the playground :  _(pg | Castor GUI database Demo | Basic demo for using Castor GUI with a database. | 12NLGN#56 | )_
+Demo PG: <Playground id="12NLGN#56" title="Castor GUI database Demo" description="Basic demo for using Castor GUI with a database." image=""/>

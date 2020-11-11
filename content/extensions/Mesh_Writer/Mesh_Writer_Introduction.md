@@ -1,4 +1,12 @@
-# Mesh Writer
+---
+title: Mesh Writer
+image: 
+description: The Mesh Writer allows you to write 3D text, as meshes, in various fonts.
+keywords: welcome, babylon.js, library, 3D text, font
+further-reading:
+video-overview:
+video-content:
+---
 
 Generate letters in BABYLON meshes.
 
@@ -18,6 +26,7 @@ Generate letters in BABYLON meshes.
 	            );
 
 &#9679; See playground example:  https://www.babylonjs-playground.com/#PL752W#1
+PG: <Playground id="#E6OZX#221" title="Mesh Writer" description="Sky material animation" image=""/>
 
 ## Getting the code
 
