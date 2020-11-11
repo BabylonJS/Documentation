@@ -1,12 +1,20 @@
-# Fur material
+---
+title: Fur Material
+image: 
+description: The Babylon.js materials library fur effect.
+keywords: welcome, babylon.js, library, materials, materials library, fur, fur material
+further-reading:
+video-overview:
+video-content:
+---
 
 ![Fur material high](/img/extensions/materials/furHigh.png)
 
 Fur material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.furMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.furMaterial.js)
 
-# Using the High Level mode
+## Using the High Level mode
 
-A demo can be found at:  https://www.babylonjs-playground.com/#2322Y7#0 
+A demo can be found at:   PG: <Playground id="#2322Y7#0" title="Fur Material" description="Example using high level mode" image=""/> 
 
 Fur materials have always been subjects of a lot of theories and conferences with multiple implementations thanks to multiple technologies.
 Here, with WebGL, we decided to choose one of these implementations, not hard to use and pretty smart (with performances) with simple models
@@ -61,7 +69,7 @@ allFurMaterials.furSpeed = 100; // Divides the animation of fur in time accordin
 allFurMaterials.furGravity = new BABYLON.Vector3(0, -1, 0);
 ```
 
-# Using the fur material without High Level Mode
+## Using the fur material without High Level Mode
 
 First, deactivate the high level (activated by default so following line MUST be included):
 ```
@@ -71,8 +79,8 @@ furMaterial.highLevelFur = false;
 ![Fur material](/img/extensions/materials/fur.png)
 
 Demos can be found at:
-  https://www.babylonjs-playground.com/#EUCNP#6  (Basic)
-  https://www.babylonjs-playground.com/#EUCNP#7  (Uses heightmaps)
+   PG: <Playground id="#EUCNP#6 " title="Fur Material" description="Example using low level mode" image=""/>  
+   PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap" image=""/>
 
 
 The fur material needs a high number of the triangular facets that make up a mesh to work well.
@@ -92,7 +100,7 @@ var furMaterial = new BABYLON.FurMaterial("fur_material", scene);
 ground.material = furMaterial;
 ```
 
-# Customize the fur material
+## Customize the fur material
 
 You can customise three properties of the fur material:
 
@@ -102,9 +110,9 @@ furMaterial.furAngle = Math.PI/6; // Represents the angle the fur lies on the me
 furMaterial.furColor = new BABYLON.Color3(0.44, 0.21, 0.02); // is the default color if furColor is not set.
 ```
 
-# Using textures
+## Using textures
 
-# heightTexture
+## heightTexture
 
 A greyscale image can be used to set the fur length. 
 A speckled greyscale image can produce fur like results.
@@ -113,7 +121,7 @@ Any greyscale image with affect the fur length producing a heightMap type effect
 ```
 furMaterial.heightTexture = new BABYLON.Texture("speckles.jpg", scene); // Set the fur length with a texture.
 ```
-# diffuseTexture
+## diffuseTexture
 A texture can also be used to paint the mesh. 
 The leopard fur texture used in the test is by Martin Wegmann from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leopard_fur.JPG)
 under the [license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
@@ -122,11 +130,11 @@ under the [license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)
 furMaterial.diffuseTexture = new BABYLON.Texture("leopard_fur.jpg", scene); // Set the fur length with a texture.
 ```
 
-# Meshes where the number of facets is not user controlled on creation.
+## Meshes where the number of facets is not user controlled on creation.
 
 Demos can be found at:
-  https://www.babylonjs-playground.com/#EUCNP#16  (Leopard fur converted to smooth before increasing facets)
-  https://www.babylonjs-playground.com/#EUCNP#17  (Leopard fur converted to smooth after increasing facets)
+   PG: <Playground id="#EUCNP#16" title="Fur Material" description="Leopard fur converted to smooth before increasing facets" image=""/>  
+   PG: <Playground id="#EUCNP#17" title="Fur Material" description="Leopard fur converted to smooth after increasing facets" image=""/>
 
 Unlike the ground mesh where you can supply the number of subdivisions or the sphere mesh where you can supply the number of segments the majority of meshes are created using a minimum number of facets.
 To apply the fur material to these the number of facets per face of the mesh needs to be increased.
