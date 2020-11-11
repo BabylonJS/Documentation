@@ -1,4 +1,13 @@
-# Tools and Resources Landing Page
-This is a placeholder for the landing page for Tools and Resources
+---
+title: Tools And Resources
+image: 
+description: Learn about handy development tools and resources available to you for creating stunning Babylon.js scenes.
+keywords: babylon.js, tools, resources
+further-reading:
+video-overview:
+video-content:
+---
 
-![Captain Jack](https://media1.giphy.com/media/dH4eBrNQXB8S4/giphy.gif)
+# Tools and Resources
+
+This section contains all sorts of handy information for developing in Babylon.js. From a rich set of tools to make development easier, to several free asset libraries for you to leverage in your scenes, this section is sure to help you make the most beautiful experiences possible, as quickly and effeciently as possible!

@@ -48,6 +48,8 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
 
+    const tocLevel = typeof metadata.tocLevels === 'number' ? metadata.tocLevels : 0;
+
     const markdownRef = createRef<HTMLDivElement>();
 
     // To avoid context empty when adding more than one example in one time
@@ -108,9 +110,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
                             <h1>{metadata.title}</h1>
-                            {tocLinks.length > 1 && (
+                            {tocLinks.length > 1 && !!tocLevel && (
                                 <div className="toc-container">
-                                    <TableOfContent tocItems={tocLinks}></TableOfContent>
+                                    <TableOfContent tocItems={tocLinks} levels={tocLevel}></TableOfContent>
                                 </div>
                             )}
                             {metadata.videoOverview && (

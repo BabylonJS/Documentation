@@ -1,4 +1,18 @@
-# ShaderMaterial
+---
+title: Shader Material
+image: 
+description: Learn about the shader material in Babylon.js.
+keywords: babylon.js, advanced, shader material
+further-reading:
+    - title: Introduction To Shaders in BabylonJS
+      url: /resources/ShaderIntro
+    - title: How To Put Shader Code in BabylonJS
+      url: /How_To/Putting.html
+video-overview:
+video-content:
+---
+
+## ShaderMaterial
 
 The ShaderMaterial object has the necessary methods to pass data from your scene to the Vertex and Fragment Shaders and returns a material that can be applied to any mesh. This returned material effects how the mesh will look based on the code in the shaders.
 
@@ -60,13 +74,8 @@ myShaderMaterial.setVector3("direction", BABYLON.Vector3.Zero());
 
 the set method depending on the type passed.
 
-# Troubleshoot
+## Troubleshoot
 
 In some specific cases when you use post-processes, you might notice a slightly brighter color output than what you implemented in your shader.
 
 Read [this](/how_to/Image_Processing) if you want to know how to fix it.
-
-# Further Reading
-
-[Introduction To Shaders in BabylonJS](/resources/ShaderIntro)  
-[How To Put Shader Code in BabylonJS](/How_To/Putting.html)
