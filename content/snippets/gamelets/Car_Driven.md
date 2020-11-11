@@ -23,7 +23,7 @@ The ground will be covered in random boxes to give the illusion of movement. For
 no consequences other than perhaps the loss of the sense of motion. 
 
 
-* [Playground - The Car](https://www.babylonjs-playground.com/#1WEZZ7)
+PG: <Playground id="" title="A Basic Car" description="Building the car." image=""/>
 
 ## Steering
 
@@ -33,7 +33,7 @@ be taken to be the same.
 
 ![Ackerman Steering](/img/samples/ackerman.jpg)
 
-The front wheel pivots and the rear wheel supports form a rectangle with a distance L between thefront and rear and a distance A 
+The front wheel pivots and the rear wheel supports form a rectangle with a distance L between the front and rear and a distance A 
 betwen the two front wheels. When the front inside wheel is turned through an angle of theta the centre of rotation is where the 
 line through the pivot point normal to the wheel meets the line through the two real wheel supports. 
 The distance R of the centre of rotation from the inside rear wheel support can be found using R = L/tan(theta) and from the middle 
@@ -166,17 +166,17 @@ if(D > 0) {
 
 ## Playground Examples
 
-The first playground is the gamelet as described above.
+The first playground is the example as described above.
 
-NOTE to use the keys with the playground you MUST click on the car after it loads or you use RUN.
+NOTE to use the keys with the playground you MUST click on the car after it loads or you have used RUN.
 
-* [Playground - The Car Gamelet](https://www.babylonjs-playground.com/#102TBD#31)
+PG: <Playground id="#102TBD#31" title="Driven Car" description="View behind the car." image=""/>
 
 The second playground is similar. The pivot has been made into a sphere so you can see it and the camera position changed to give 
 an overview. The camera is now attached to the canvas so you can change viewing angles. This may help give more insight into 
 the workings of the code.
 
-* [Playground - The Car Overview](https://www.babylonjs-playground.com/#102TBD#33)
+PG: <Playground id="" title="Driven Car Overview" description="Visible pivot and flexible camera view" image=""/>
 
 
 

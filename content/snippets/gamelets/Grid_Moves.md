@@ -110,8 +110,8 @@ In both these examples on particle is coloured red to aid focus on one particle 
 
 Which one do you think gives the most random type movement?
 
-* [Playground Example - Swap Velocities](https://www.babylonjs-playground.com/#CGSXR)
-* [Playground Example - Reverse Velocities](https://www.babylonjs-playground.com/#CGSXR#1)
+PG: <Playground id="#CGSXR" title="Particles Swap Velocities" description="Colliding particles swap their velocities." image=""/>    
+PG: <Playground id="#CGSXR#1" title="Particles Reverse velocity" description="Colliding particles reverse their velocity." image=""/>
 
 
 

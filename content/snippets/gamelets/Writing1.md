@@ -213,10 +213,10 @@ scene.registerBeforeRender(function () {
 
 ## Vertical Wave
 
-[Guide Example - Shader Material](http://babylonjsguide.github.io/examples/bouncecode.html)
+[External Example - Shader Material](http://babylonjsguide.github.io/examples/bouncecode.html)
 
-* [Playground Example - Shader Material](https://www.babylonjs-playground.com/#1OH09K#3)
+PG: <Playground id="#1OH09K#3" title="Vertical Wave" description="Built from Shader Material." image=""/>
 
-[Guide Example - Shader Builder](http://babylonjsguide.github.io/examples/bouncecodeSB.html)
+[External Example - Shader Builder](http://babylonjsguide.github.io/examples/bouncecodeSB.html)
 
-* [Playground Example - Shader Builder](https://www.babylonjs-playground.com/#1NXPC3#4)
+PG: <Playground id="#1NXPC3#4" title="Vertical Wave" description="Built from Shader Builder." image=""/>

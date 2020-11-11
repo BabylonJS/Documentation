@@ -43,7 +43,7 @@ var carBody = BABYLON.MeshBuilder.ExtrudeShape("body", {shape: side, path: extru
 carBody.material = bodyMaterial;
 ```
 
-* [Playground Construction of the Car Body](https://www.babylonjs-playground.com/#1YD970#8)
+PG: <Playground id="#1YD970#8" title="Car Body" description="Constructing the car body." image=""/>
 
 ### Wheel
 
@@ -71,7 +71,7 @@ wheel.material = wheelMaterial;
 wheel.rotation.x = Math.PI/2;
 ```
 
-* [Playground Construction of a Wheel](https://www.babylonjs-playground.com/#1YD970#4)
+PG: <Playground id="#1YD970#4" title="Wheels" description="Constructing the wheels" image=""/>
 
 ### Attaching the Wheels to the Car
 
@@ -102,7 +102,7 @@ wheelRO.position = new BABYLON.Vector3(2.5, -2, 2.8);
 wheelFI.position = new BABYLON.Vector3(-4.5, -2, -2.8);
 ```
 
-* [Playground Attachment of Wheels](https://www.babylonjs-playground.com/#1YD970#5)
+PG: <Playground id="#1YD970#5" title="Attach Wheels" description=" Attaching the wheels." image=""/>           
 
 ### Rotate Wheels
 The animation is achieved using scene.registerAfterRender and small rotations within the render loop. 
@@ -120,7 +120,7 @@ the calculations will take place after the world matrix has been computer for ea
   });
 ```
 
-* [Playground Rotate Wheels](https://www.babylonjs-playground.com/#1YD970#7)
+PG: <Playground id="#1YD970#7" title="Rotate Wheels" description="Adding a method to rotate the wheels." image=""/>
 
 ### Path
 
@@ -147,7 +147,7 @@ track.color = new BABYLON.Color3(0, 0, 0);
 var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 3*r, height: 3*r}, scene);
 ```
 
-* [Playground Path](https://www.babylonjs-playground.com/#172C5E#2)
+PG: <Playground id="#172C5E#2" title="The Path" description="The path that the car will follow." image=""/>
 
 ### Following the Path
 
@@ -215,7 +215,7 @@ scene.registerAfterRender(function() {
 });
 ```
 
-* [Playground Finalised](https://www.babylonjs-playground.com/#1YD970#12)
+PG: <Playground id="#1YD970#12" title="Car Travels The Path" description="First prototype of car following a path" image=""/>
 
 ## Correction
 
@@ -230,7 +230,5 @@ if(i == 0) {
 }
 ```
 
-* [Playground Corrected Finally](https://www.babylonjs-playground.com/#1YD970#14)
-  
-  
+PG: <Playground id="#1YD970#14" title="Car Folloing a Path" description="Removed rotation errors for car path following ." image=""/>
 

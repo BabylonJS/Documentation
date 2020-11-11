@@ -82,7 +82,7 @@ top facets : w + 1 + 3nbWalls, w + 1 + 2nbWalls, w + 2nbWalls, w + 3nbWalls, w +
 
 outer facets : w + 1 + 3nbWalls, w + 3nbWalls, w + nbWalls, w + 1 + nbWalls, w + 1 + 3nbWalls, w + nbWalls
 
--   [Playground Example Walls Only](https://www.babylonjs-playground.com/#4GBWI5)
+PG: <Playground id="#4GBWI5" title="Blank House Walls" description="Walls with no doors or windows" image=""/>
 
 So far fairly straight forward, now to add door and window spaces.
 
@@ -119,7 +119,7 @@ Since for polygonMeshBuilder corners have to be in counter clockwise consecutive
 
 At this stage code was written to add in the doors using existing positions. However as you can see in the following playground sharing vertices and normals made the triangular facets stand out.
 
--   [Playground Example with Shared Vertices](https://www.babylonjs-playground.com/#4GBWI5#266)
+PG: <Playground id="#4GBWI5#266" title="Using Shared Vertices" description="Show lighting effect on walls with shared vertices" image=""/>
 
 To stop this effect a flat shaded mesh is necessary and rather than just converting the existing mesh to a flat shaded one it was decided to re-code for a flat shaded mesh from the start. This simplified the procedures for adding in the edges to doors and windows. Also because the interior and exterior walls were now separate it gave the possibility of applying different materials and colors to these walls.
 
@@ -261,5 +261,4 @@ wall 6 - doorSpace door, left 1
 
 Applying the plan leads to
 
--   [Playground Example of a House Built from a FloorPlan](https://www.babylonjs-playground.com/#4GBWI5#272)
-
+PG: <Playground id="#4GBWI5#272" title="House Built from a FloorPlan" description="A basic house built from a floorplan." image=""/>

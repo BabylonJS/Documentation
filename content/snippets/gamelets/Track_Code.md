@@ -247,7 +247,7 @@ var createTrack = function(points, sections) {
 
 }
 ```
-## Playground
+## Playground Example
 
-* [Playground Example Using Above Code](https://www.babylonjs-playground.com/#HSMDF2#10)
+PG: <Playground id="#HSMDF2#10" title="Set Carriage Variables" description="Shows how the carriage behaves on varying its parameters." image=""/>
   

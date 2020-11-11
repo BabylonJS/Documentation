@@ -855,7 +855,7 @@
                         "roof": {"friendlyName": "Adding a Roof","children": {},"content": "snippets/gamelets/roof"},
                         "Track": {"friendlyName": "Following a Complex Track","children": {},"content": "snippets/gamelets/Track"},
                         "Track_Code": {"friendlyName": "Code for Complex Track","children": {},"content": "snippets/gamelets/Track_Code"},
-                        "Collide_Intro": {"friendlyName": "Thoughs on Non Physics Collisions","children": {},"content": "snippets/gamelets/Collide_Intro"},
+                        "Collide_Intro": {"friendlyName": "Thoughts on Non Physics Collisions","children": {},"content": "snippets/gamelets/Collide_Intro"},
                         "Issues": {"friendlyName": "Issues with Collisions","children": {},"content": "snippets/gamelets/Issues"},
                         "Grid_Moves": {"friendlyName": "Collisions Within a Grid","children": {},"content": "snippets/gamelets/Grid_Moves"},
                         "Slow_Collide": {"friendlyName": "Slow Particle Collisions","children": {},"content": "snippets/gamelets/Slow_Collide"},

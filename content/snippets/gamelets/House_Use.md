@@ -727,18 +727,8 @@ var wall = buildFromPlan(walls, ply, height, {interior:true}, scene);
 You can add doors and windows (?hatches) to these walls as well.
 
 ## Playground Examples
-* [Playground Example of a House Built from a FloorPlan](https://www.babylonjs-playground.com/#4GBWI5#265)
-* [Playground Example of None Enclosing Wall](https://www.babylonjs-playground.com/#1Z71FW#103)
-* [Playground Example of None Enclosing Wall with UVs](https://www.babylonjs-playground.com/#1Z71FW#102)
-* [Playground Example of House and Interior Walls](https://www.babylonjs-playground.com/#1Z71FW#45)
+PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Example of a House Built from a FloorPlan." image=""/>  
+PG: <Playground id="#1Z71FW#103" title="Wall From Floorplan 1" description="Example of None Enclosing Wall." image=""/>  
+PG: <Playground id="#1Z71FW#102" title="Wall From Floorplan 2" description="Example of None Enclosing Wall with texture." image=""/>  
+PG: <Playground id="#1Z71FW#45" title="House and Interior Walls" description="Example of House with interior walls." image=""/>
 
-## Further Reading
-
-[Developing the Code for Build From Plans](/snippets/gamelets/House)  
-[Adding a Roof](/snippets/gamelets/roof)
-
-## Level 1
-[Extruded Non Regular Polygon](/how_to/parametric_shapes#extruded-non-regular-polygon)  
-
-## Level 2
-[Polygon Mesh Builder](/How_To/PolygonMeshBuilder)

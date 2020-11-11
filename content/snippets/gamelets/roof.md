@@ -33,7 +33,7 @@ The function **roofprint** returns a list of Vector3 representing the corners of
 
 Using the roofprint the floor of the roof (or top ceiling) can be added as a mesh.
 
-* [Playground Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
+PG: <Playground id="" title="" description="." image=""/> Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
 
 ## Plan of Roof
 
@@ -99,7 +99,7 @@ In the example the roof mesh is built using
 var roofSection = roof(wholeRoofprint, apexes, planes, 2, height, 5.6);
 ```
 
-* [Playground Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
+PG: <Playground id="" title="" description="." image=""/> Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
 
 ## Design Roof In Sections
 
@@ -176,5 +176,4 @@ var roofSection = roof(mainRoofprint, apexes, planes, 2, height, 5.1);
 var smallRoofSection = roof(smallRoofprint, smallApexes, smallPlanes, 2, height - 1, 5.1);
 ```
 
-* [Playground Example Roof](https://www.babylonjs-playground.com/#1Z71FW#43)
-
+PG: <Playground id="#1Z71FW#43" title="Roof Added" description="Building and adding a roof" image=""/>
