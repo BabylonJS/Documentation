@@ -1,3 +1,13 @@
+---
+title: Managing The Solid Particle System
+image: 
+description: Learn about solid particle system management in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, management
+further-reading:
+video-overview:
+video-content:
+---
+
 # Managing the SPS
 
 The SPS mesh when built has all the properties and methods that you can apply to any mesh. In addition there are useful properties you can use with the SPS. Some you should have met already.
@@ -28,9 +38,4 @@ SPS.computeParticleVertex | Boolean | false | allows or prevents calling the cus
 
 These properties affect the *SPS.setParticles()* process only. You can change them between calls to *SPS.setParticles()*.  For example setting *SPS.computeParticleColor* to false after the first call to *SPS.setParticles()* allows particle colors set during *initParticles()* to be applied but prevents any call to updating colors in subsequent calls to *SPS.setParticles()*. When *SPS.setParticles()* is inside the render loop this can be very beneficial.
 
-Tetra fountain color and texture not updated https://www.babylonjs-playground.com/#GLZ1PX#10
-
-  
-
-
-
+Tetra fountain color and texture not updated: <Playground id="#GLZ1PX#10" title="Tetrahedron Fountain Color And Texture Not Updated" description="Simple example of creating a particle fountain where color and textures are not updated." image=""/>

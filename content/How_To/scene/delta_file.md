@@ -1,9 +1,19 @@
+---
+title: Applying Delta Changes To A Scene
+image: 
+description: Learn about using the delta system in Babylon.js to save and reload changes made to your scenes.
+keywords: diving deeper, scene, delta system
+further-reading:
+video-overview:
+video-content:
+---
+
 Starting with Babylon.js v4.2, you have the opportunity to apply delta changes to a scene.
 This means you can "record" all changes done to a scene and later on reapply these changes.
 
 This is particularly useful when you load a scene from a .babylon or a .gltf file and you want to apply changes to it (without reexporting the scene from your DCC tool).
 
-# Recording the changes
+## Recording the changes
 
 To record changes done to a scene, you simply have to create a new `SceneRecorder` and call its `track()` function:
 
@@ -15,7 +25,7 @@ recorder.track(scene);
 
 This will mark the origin of the changes eg. the original state of your scene. Every changes (well, almost actually, please check the limitations chapter below) made after that call will be tracked and available in the delta file.
 
-# Applying the changes
+## Applying the changes
 
 Once you're done with the changes you want to record, you can get the delta file with this call:
 
@@ -37,7 +47,7 @@ If you want to apply it to your scene, you can call that static function:
 BABYLON.SceneRecorder.ApplyDelta(delta, scene);
 ```
 
-# Example
+## Example
 
 Let's have a look at an example to see it in action:
 ```
@@ -83,9 +93,9 @@ light.intensity = 1.0;
 BABYLON.SceneRecorder.ApplyDelta(delta, scene);
 ```
 
-You can play with this code on this Playground: https://www.babylonjs-playground.com/#MPD4TQ#1
+You can play with this code on this Playground: <Playground id="#MPD4TQ#1" title="Delta System Example" description="Simple example showing how to save deltas and apply them to your scene." image=""/>
 
-# Using the Inspector
+## Using the Inspector
 
 You can also use the Inspector to record your delta. To do so, jump to the Tools tab and select the [Start recording] button in the Replay section:
 
@@ -97,7 +107,7 @@ When you are done with your recording, go to the same place and hit the [Generat
 
 This will download the file locally.
 
-# Limitations
+## Limitations
 
 The recorder has some limitations listed here:
 - It will only record simple values (array, colors, vectors, boolean, number)

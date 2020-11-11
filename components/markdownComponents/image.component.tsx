@@ -59,7 +59,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     };
 
     return (
-        <div style={{ height: height ?? "100%" }} className={classes.imageWrapper}>
+        <div style={{ height: height !== 0 ? height : "100%" }} className={classes.imageWrapper}>
             {getImage()}
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </div>

@@ -1,3 +1,13 @@
+---
+title: Troubleshooting Solid Particle System Visibility Issues
+image: 
+description: Learn some troubleshooting tips for dealing with common SPS visibility issues in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, visibility
+further-reading:
+video-overview:
+video-content:
+---
+
 # SPS Visibility
 
 To render the meshes on the screen, BJS uses their bounding box (BBox) : if the BBox is in the frustum, then the mesh is selected to be rendered on the screen. This method is really performant as it avoids to make the GPU compute things that wouldn't be visible. The BBox of each mesh is recomputed when its World Martix is updated.  
@@ -26,7 +36,7 @@ So if your SPS stays within some fixed bounds that you don't know the values, yo
 If the SPS keeps within some known limits, then it is better to use `SPS.setVisibilityBox(size)` with the right value and then to lock the visibility box.  
 At last, if you still need pickability or variable visibility, and don't know how your SPS will evolve, then you might set `SPS.computeBoundingBox` to true.
 
-# Particle In Frustum
+## Particle In Frustum
 
 When the SPS is enabled to manage particle intersections, each particle is given a bounding box and a bouding sphere.  
 You can then check whether a particle intersects the camera frustum with the method `particle.isInFrustum(frustumPlanes, [cullingStrategy])` like you would do with meshes.
@@ -46,6 +56,6 @@ The test done by `isInFrustum()` has also its own CPU cost, so it's probably not
 Actually, it's up to you to choose if the test is worth it for your own need.  
 Let's imagine a case where each particle computation is really intensive (example : when using `computeParticleVertex`). In this case, the frustum test could be faster than the particle computation, so it would be interesting to use it to disable the particle computation for particles outside the frustum.  
 In this following example, the computation charge is directly related to the number of vertices and shouldn't change whatever the camera direction. But, as we disable the particles outside the frustum, if you rotate the camera to isolate one or two worms in the camera field, you can check the performance gain  
-https://www.babylonjs-playground.com/#BKX11Q#2    
+<Playground id="#BKX11Q#2" title="Dealing With Solid Particle Visbility Issues" description="Simple example of how to manage common visibility issues in Solid Particle Systems." image=""/>
 Note : the default culling strategy used in the particle frustum test is the fastest (`BoundingSphereOnly`).  
 You can change it at will for each particle by using the same values than the static properties `CULLINGSTRATEGY_XXX` ones of the `AbstractMesh` class.

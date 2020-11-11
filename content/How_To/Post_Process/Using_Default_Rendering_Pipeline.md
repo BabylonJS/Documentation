@@ -1,8 +1,24 @@
-# Introduction
+---
+title: Using the Default Rendering Pipeline
+image: 
+description: Learn about the default rendering pipeline in Babylon.js.
+keywords: diving deeper, post processes, post process, render pipeline, render, default rendering
+further-reading:
+    - title: How To Use PostProcess
+      url: /how_to/How_to_use_PostProcesses
+    - title: Babylon.DefaultRenderingPipeline
+      url: /api/classes/babylon.defaultrenderingpipeline.html
+    - title: Babylon.ImageProcessingPostProcess
+      url: /api/classes/babylon.imageprocessingpostprocess.html
+video-overview:
+video-content:
+---
+
+## Introduction
 
 You can find a complete example of this pipeline in our playground:
 
-[https://www.babylonjs-playground.com/#Y3C0HQ#146](https://www.babylonjs-playground.com/#Y3C0HQ#146)
+<Playground id="#Y3C0HQ#146" title="Default Rendering Pipeline Example" description="Complete example of the default rendering pipeline." image=""/>
 
 ![default rendering pipeline example](/img/how_to/defaultRenderingPipeline/defaultRenderingPipeline.jpg)
 
@@ -22,7 +38,7 @@ The default rendering pipeline provides visual improvements to enhance the outpu
 * Grain
 * Sharpening
 
-# Creating the rendering pipeline
+## Creating the rendering pipeline
 
 You just have to create an instance of `BABYLON.DefaultRenderingPipeline`:
 
@@ -41,11 +57,11 @@ Notes:
 
 1. The HDR value should be `true` as long as possible, unless you're targetting cheap fallback for low end devices. This value allow one of the half float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
 
-2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this [example](https://www.babylonjs-playground.com/#08A2BS#15)
+2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this <Playground id="#08A2BS#15" title="Clear Color Fix" description="Simple example of fixing the clear color in the default rendering pipeline to match what you have set." image=""/>
 
-# Customizing
+## Customizing
 
-# Antialiasing
+## Antialiasing
 
 The MSAA antialiasing (only supported in webGL 2.0 browsers) effect is off by default (set to 1) but can be increased using:
 
@@ -63,7 +79,7 @@ pipeline.fxaaEnabled = true;
 
 Note: without using the pipeline, your scene already use a MSAA antialiasing, which is webGL native. As said above, pipeline is running on a post-process texture: unfortunatly, webGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available but not as powerfull as MSAA.
 
-# Sharpening
+## Sharpening
 
 Sharpening can be enabled with:
 
@@ -82,7 +98,7 @@ The amount of the original image in the output can be set with (setting this to 
 pipeline.sharpen.colorAmount = 0.0;
 ```
 
-# Depth of field
+## Depth of field
 
 You can turn the depth of field effect on and off with:
 
@@ -104,9 +120,9 @@ pipeline.depthOfField.focalLength  = 50; // focal length of the camera in millim
 pipeline.depthOfField.fStop  = 1.4; // aka F number of the camera defined in stops as it would be on a physical device
 ```
 
-[Demo](https://www.babylonjs-playground.com/#8F5HYV#9)
+<Playground id="#8F5HYV#9" title="Depth Of Field Example" description="Simple example of depth of field in the default rendering pipeline." image=""/>
 
-# Bloom
+## Bloom
 
 You can turn the bloom effect on and off with:
 
@@ -123,7 +139,7 @@ pipeline.bloomKernel = 64;
 pipeline.bloomScale = 0.5;
 ```
 
-# Image processing effect
+## Image processing effect
 
 You can turn the image processing effect on and off with:
 
@@ -133,7 +149,7 @@ pipeline.imageProcessingEnabled = true;
 
 You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/How_To/how_to_use_postprocesses#imageprocessing).
 
-# Chromatic Aberration
+## Chromatic Aberration
 
 You can turn the effect on and off with:
 
@@ -163,7 +179,7 @@ pipeline.chromaticAberration.direction.y = Math.cos(rotation)
 
 Note: If both these values are set to 0 the direction will be towards the center of the screen.
 
-# Grain
+## Grain
 
 You can turn the effect on and off with:
 
@@ -183,7 +199,7 @@ To set grain to animate on every frame set:
 pipeline.grain.animated = value;
 ```
 
-# Example
+## Example
 
 You may be interested by this code example using default values, ready to be copy-pasted into your application:
 
@@ -297,15 +313,4 @@ You may be interested by this code example using default values, ready to be cop
     }
 ```
 
-As usual, a [playground is available](https://www.babylonjs-playground.com/#ECI2Q0#5)
-
-# Further Reading
-
-# How To
-
-- [How To Use PostProcess](/how_to/How_to_use_PostProcesses)
-
-# API
-
-- [Babylon.DefaultRenderingPipeline](/api/classes/babylon.defaultrenderingpipeline.html)
-- [Babylon.ImageProcessingPostProcess](/api/classes/babylon.imageprocessingpostprocess.html)
+As usual, a playground is available to check out: <Playground id="#ECI2Q0#5" title="Default Rendering Pipeline Template Code" description="Simple playground with cut and paste code for the default rendering pipeline." image=""/>

@@ -1,8 +1,18 @@
+---
+title: WebXR Session Manager
+image: 
+description: Learn all about the WebXR session manager in Babylon.js.
+keywords: babylon.js, diving deeper, WebXR, VR, AR
+further-reading:
+video-overview:
+video-content:
+---
+
 Babylon's [WebXRSessionManager](/api/classes/babylon.webxrsessionmanager) class is your direct contact to the browser's native XR session. Each XR experience has a corresponding session that holds the entire XR functionality. A session is initialized with a session mode (the default is `vr-immersive` ) and a reference space mode (default is `local-floor` ) that decides how the scene calculates the user's location and what functionality is available.
 
 Usually, the Session Manager will be initialized by the [experience helper](./WebXR_Experience_Helpers), but if you don't use the experience helper, you can create a session manger yourself. The session manager, along with the XR camera, are the only requirement on babylon's side to implement an XR experience.
 
-# Basic usage and initialization
+## Basic usage and initialization
 
 To construct a new session manager, initialize it with a babylon scene:
 
@@ -54,7 +64,7 @@ const xrWebGLLayer = renderTarget.initializeXRLayerAsync(this.sessionManager.ses
 
 The session manager is now ready to render the scene using the XR session.
 
-# Start rendering
+## Start rendering
 
 To start rendering the scene use the `runXRRenderLoop` :
 
@@ -70,9 +80,9 @@ To stop rendering, end the session:
 await sessionManager.exitXRAsync();
 ```
 
-# Reference Space management
+## Reference Space management
 
-## Managing yourself
+### Managing yourself
 
 WebXR coordinate system is based on a reference space object, that defines the user's current transformation in the scene. This object calculates the current HUD and controllers transformation, and is also required for all AR features.
 
@@ -101,7 +111,7 @@ xrSession.referenceSpace = newReferenceSpace;
 
 Read more about [`getOffsetReferenceSpace`](https://www.w3.org/TR/webxr/#dom-xrreferencespace-getoffsetreferencespace).
 
-## Using a new reference space mode
+### Using a new reference space mode
 
 To get a reference space object using a different `XRReferenceSpaceType` , use the `xrSession.setReferenceSpaceTypeAsync` with the requested reference space type. This will reset the viewer and base reference space as well. This function accepts a new reference mode and is promise based:
 
@@ -112,28 +122,28 @@ const newReferenceSpace = await xrSession.setReferenceSpaceTypeAsync('local-floo
 // The session will take care of updating all reference space objects (base, viewer, and the current one).
 ```
 
-# Observables available
+## Observables available
 
-## onXRFrameObservable
+### onXRFrameObservable
 
 Observers registered here will be triggered on each XR frame rendered. Can be compared to the `beforeRender` of the scene, but executed only when the scene is rendered in XR.
 
-## onXRSessionInit
+### onXRSessionInit
 
 Will be triggered when the session was initialized, before a frame was rendered and before any transformation was applied.
 In XR terms, this is called right after `requestSession` was called and returned with a successful result (a new XRSession).
 
-## onXRSessionEnded
+### onXRSessionEnded
 
 Will be triggered after the XRSession has ended and Babylon finished with clean-ups. It is triggered one frame before the regular scene render function is triggered.
 
-## onXRReferenceSpaceChanged
+### onXRReferenceSpaceChanged
 
  Will be triggered every time a new reference space was applied to the current scene. This is a good way of finding our if the user transported to a new location.
 
-# Further functionalities
+## Further functionalities
 
-## Manually start rendering the XR session
+### Manually start rendering the XR session
 
 When creating the experience yourself and not using the [WebXR Experience helper](./WebXR_Experience_Helpers) you will need to tell the session manager to start rendering. To do that, call the `runXRRenderLoop` function.
 

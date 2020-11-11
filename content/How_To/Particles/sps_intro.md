@@ -1,3 +1,13 @@
+---
+title: An Introduction To The Solid Particle System
+image: 
+description: Learn the basics of the solid particle system in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles
+further-reading:
+video-overview:
+video-content:
+---
+
 # An Introduction to The Solid Particle System
 
 The Solid Particle System, SPS, is a single updatable mesh rendered with one draw call. It is built by combining multiple copies of one or more model meshes which become the particles of the system. Once the SPS is built it has the same properties as any other Babylon.js mesh, no more, no less. It can be scaled, rotated, translated, light, textured, etc.
@@ -59,14 +69,14 @@ SPS.initParticles();
 SPS.setParticles();
 ```
 
-A basic SPS https://www.babylonjs-playground.com/#GLZ1PX#1  
-Colored Green https://www.babylonjs-playground.com/#GLZ1PX#2  
-With Texture https://www.babylonjs-playground.com/#GLZ1PX#3
+A basic SPS: <Playground id="#GLZ1PX#1" title="A Basic Solid Particle System" description="Simple example of a basic solid particle system." image=""/>
+Colored Green: <Playground id="#GLZ1PX#2" title="Green Colored Solid Particle System" description="Simple example of a green colored solid particle system." image=""/>
+With Texture: <Playground id="#GLZ1PX#3" title="Solid Particle System With Textures" description="Simple example of a solid particle system with textures." image=""/>
 
 As well as position you can also set properties such as color or uv values. More on managing particles later in this section
 
-Color individual particles https://www.babylonjs-playground.com/#GLZ1PX#4  
-Texture individual particles https://www.babylonjs-playground.com/#GLZ1PX#5
+Color individual particles: <Playground id="#GLZ1PX#4" title="Individually Colored Solid Particles" description="Simple example of individually colored solid particles." image=""/>
+Texture individual particles: <Playground id="#GLZ1PX#5" title="Individually Textured Solid Particles" description="Simple example of individually textured solid particles" image=""/>
 
 While it can be useful to have an SPS that will not change, for example to represent an asteroid field or city buildings
 

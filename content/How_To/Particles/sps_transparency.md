@@ -1,3 +1,13 @@
+---
+title: Troubleshooting Solid Particle System Transparency Issues
+image: 
+description: Learn some troubleshooting tips for dealing with common SPS transparency issues in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, visibility
+further-reading:
+video-overview:
+video-content:
+---
+
 # Transparency Concerns
 
 As you know, the SPS is a standard mesh.
@@ -6,9 +16,9 @@ Applying the transparency to a standard mesh leads to well-known issues, not whe
 Indeed, when passing the mesh geometry to the GPU, this one draws the mesh in the order the mesh facets are sorted in the `indices` array : first triangle, second one then, etc ... whatever the position of the camera.  
 The shader only respects the geometry order and this geometry is fixed.
 
-As the SPS is a standard mesh, it has the same issue when dealing with transparent particles (rotate the camera) : https://playground.babylonjs.com/#EPBTB7#3
+As the SPS is a standard mesh, it has the same issue when dealing with transparent particles (rotate the camera): <Playground id="#EPBTB7#3" title="Understanding SPS Transparency Issues" description="Simple example showing common transparency issues with solid particles." image=""/>
 
-A parameter allows to sort the internal mesh geometry live according to the current camera position : https://playground.babylonjs.com/#EPBTB7#2
+A parameter allows you to sort the internal mesh geometry live according to the current camera position: <Playground id="#EPBTB7#2" title="Sorting Mesh Geometry Based On Camera" description="Simple example of dealing with sorting issues live, based on the camera position." image=""/>
 
 It sorts the SPS particles only, not all the facets, for performance reasons.
 

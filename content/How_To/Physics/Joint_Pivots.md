@@ -1,3 +1,27 @@
+---
+title: Pivots and Axes
+image: 
+description: Learn all about physics pivots and axes in Babylon.js.
+keywords: diving deeper, phyiscs, joint, pivots, joint pivots.
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Forces
+      url: /how_to/forces
+    - title: How To Use Joints
+      url: /how_to/joints
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
 # Pivots and Axes
 
 Through the use of playgrounds this section considers how the pivot and axis parameters of the hinge joint effect the behaviour of the joint in the three physics engines 
@@ -36,7 +60,7 @@ When the position and orientation of the bodies' imposters set by their pivots d
 
 The first and second set of playgrounds show examples when the mass of the connected axle is zero. In the first set the connected axle is positioned at the origin with no rotation. In the second the connected axle one or both of position or rotation can be non-zero. In the third set of examples both the body and the axle have a non-zero mass.
 
-# Playground Examples  - Connected Axle Has Zero Mass and is at the Origin with No Rotation
+## Playground Examples  - Connected Axle Has Zero Mass and is at the Origin with No Rotation
 
 (A) Parameter Settings
 ```javascript
@@ -46,7 +70,7 @@ mainAxis: new BABYLON.Vector3(0, 1, 0), //
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
 
-* [Playground Example - A](https://www.babylonjs-playground.com/#8RQJ1R#2)
+* <Playground id="#8RQJ1R#2" title="Pivots and Axes (A Parameters)" description="Simple example of pivots and axes with A parameters." image=""/>
 
 ----
 
@@ -57,7 +81,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - B](https://www.babylonjs-playground.com/#8RQJ1R#3)
+* <Playground id="#8RQJ1R#3" title="Pivots and Axes (B Parameters)" description="Simple example of pivots and axes with B parameters." image=""/>
 
 ----
 
@@ -68,7 +92,7 @@ connectedPivot: new BABYLON.Vector3(5, 0, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - C](https://www.babylonjs-playground.com/#8RQJ1R#4)
+* <Playground id="#8RQJ1R#4" title="Pivots and Axes (C Parameters)" description="Simple example of pivots and axes with C parameters." image=""/>[Playground Example - C](https://www.babylonjs-playground.com/#8RQJ1R#4)
 
 ----
 
@@ -79,7 +103,7 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0),
 mainAxis: new BABYLON.Vector3(1, 0, 0), //different axes will orientate main body to align axes.
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - D](https://www.babylonjs-playground.com/#8RQJ1R#5)
+* <Playground id="#8RQJ1R#5" title="Pivots and Axes (D Parameters)" description="Simple example of pivots and axes with D parameters." image=""/>
 
 ----
 
@@ -90,10 +114,9 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 0, 1), //different axes will orientate main body to align axes.
 connectedAxis: new BABYLON.Vector3(1, 0, 0)
 ```
-* [Playground Example - E](https://www.babylonjs-playground.com/#8RQJ1R#6)
+* <Playground id="#8RQJ1R#6" title="Pivots and Axes (E Parameters)" description="Simple example of pivots and axes with E parameters." image=""/>
 
-
-# Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
+## Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
 
 Any translation or rotation of the connected axle results in the same transformation being applied to the whole hinge joint system.
 
@@ -104,7 +127,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0), //
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - F](https://www.babylonjs-playground.com/#8RQJ1R#7)
+* <Playground id="#8RQJ1R#7" title="Pivots and Axes (F Parameters)" description="Simple example of pivots and axes with F parameters." image=""/>[Playground Example - F](https://www.babylonjs-playground.com/#8RQJ1R#7)
 
 ----
 
@@ -115,7 +138,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - G](https://www.babylonjs-playground.com/#8RQJ1R#8)
+* <Playground id="#8RQJ1R#8" title="Pivots and Axes (G Parameters)" description="Simple example of pivots and axes with G parameters." image=""/>
 
 ----
 
@@ -126,7 +149,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ``` 
-* [Playground Example - H](https://www.babylonjs-playground.com/#8RQJ1R#9)
+* <Playground id="#8RQJ1R#9" title="Pivots and Axes (H Parameters)" description="Simple example of pivots and axes with H parameters." image=""/>
 
 ----
 
@@ -137,7 +160,7 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 1, 0), 
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* [Playground Example - J](https://www.babylonjs-playground.com/#8RQJ1R#10)
+* <Playground id="#8RQJ1R#10" title="Pivots and Axes (J Parameters)" description="Simple example of pivots and axes with J parameters." image=""/>
 
 ----
 
@@ -148,9 +171,9 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 0, 1), //different axes will rotate main body so stated axes align.
 connectedAxis: new BABYLON.Vector3(1, 0, 0)
 ```
-* [Playground Example - K](https://www.babylonjs-playground.com/#8RQJ1R#11)
+* <Playground id="#8RQJ1R#11" title="Pivots and Axes (K Parameters)" description="Simple example of pivots and axes with K parameters." image=""/>
 
-# Playground Examples  - Connected Axle Has Non-Zero Mass and is at the Origin with No Rotation
+## Playground Examples  - Connected Axle Has Non-Zero Mass and is at the Origin with No Rotation
 
 When the position of the main body mesh is not the same as the position imposed on the impostors by the pivots or axes the body the physics will move the body from its mesh position to the position determined by the pivots and axes. This movement acts in the physics' world and so will set the hinge joint system in motion. 
 
@@ -169,27 +192,7 @@ mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
 
-* [Playground Example - L i](https://www.babylonjs-playground.com/#8RQJ1R#13)
-* [Playground Example - L ii](https://www.babylonjs-playground.com/#8RQJ1R#14)
-* [Playground Example - L iii](https://www.babylonjs-playground.com/#8RQJ1R#15)
-* [Playground Example - L iv](https://www.babylonjs-playground.com/#8RQJ1R#16)
-
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Forces](/how_to/forces)  
-[How to use Joints](/how_to/joints)   
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies) 
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
- 
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
-
+* <Playground id="#8RQJ1R#13" title="Pivots and Axes (L(i) Parameters)" description="Simple example of pivots and axes with L(i) parameters." image=""/>
+* <Playground id="#8RQJ1R#14" title="Pivots and Axes (L(ii) Parameters)" description="Simple example of pivots and axes with L(ii) parameters." image=""/>
+* <Playground id="#8RQJ1R#15" title="Pivots and Axes (L(iii) Parameters)" description="Simple example of pivots and axes with L(iii) parameters." image=""/>
+* <Playground id="#8RQJ1R#16" title="Pivots and Axes (L(iv) Parameters)" description="Simple example of pivots and axes with L(iv) parameters." image=""/>

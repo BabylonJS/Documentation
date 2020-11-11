@@ -83,9 +83,10 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
+        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
         setTimeout(() => {
             markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-        });
+        }, 100);
         return () => {
             clearExampleLinks();
             setActiveExample(null);

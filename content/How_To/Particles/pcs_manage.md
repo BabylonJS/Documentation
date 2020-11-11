@@ -1,3 +1,13 @@
+---
+title: Managing A Point Cloud System
+image: 
+description: Learn all point cloud system management in Babylon.js.
+keywords: diving deeper, point cloud, point cloud system, management
+further-reading:
+video-overview:
+video-content:
+---
+
 # PCS Management
 
 As you can see above the `setParticles()` function is used in the BabylonJS render loop to provide behavior to the PCS.
@@ -67,13 +77,14 @@ Example 1 : to only update 10000 particles mesh every three frames
 
 In this playground change _invSpeed_ (line 29) to change speed.
 
--   [Playground Example - Start and End For Animation Speed](https://www.babylonjs-playground.com/#UI95UC#25)
+-   <Playground id="#UI95UC#25" title="Start And End For Animation Speed" description="Simple example of setting a start and end to a system's animation speed." image=""/>
 
 Example 2 : you could keep, say, the first 5000 particles as unused ones and compute the particle behavior only for the last 5000 in your global pool - `setParticles(5000, 9999, true)` computes everything for particles from 5000 to 9999 and updates the mesh.
 
--   [Playground Example - Start and End For Part Animation](https://www.babylonjs-playground.com/#UI95UC#26)
+-   <Playground id="#UI95UC#26" title="Start And End For Part Animation" description="Simple example of setting a start and end to a part's animation" image=""/>
 
-# Hints and Tips
+
+## Hints and Tips
 
 A PCS can iterate over a very large number of particles during a call to `updateParticle` and it would be nice to avoid any apparent pauses in scene generation. The JavaScript Garbage Collector can start its cleaning in the middle of what you want to be a very smooth animation and produce lags. One possibility of lessening these is avoid creating new objects in the loops that execute often, where particles are created or updated.
 

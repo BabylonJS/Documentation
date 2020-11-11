@@ -1,3 +1,13 @@
+---
+title: Immutable Solid Particle Systems
+image: 
+description: Learn how to create immutable solid particle systems in Babylon.js.
+keywords: diving deeper, particles, solid particle system, solid particles, immutable
+further-reading:
+video-overview:
+video-content:
+---
+
 # Immutable Solid Particle System
 An immutable SPS is one where particle properties will not change. This is one way to optimize your scene when it needs many similar objects that won't change afterwards, such as buildings in the distance or asteroids. Placing multiple copies of a model into one mesh means only one draw call for each frame rendering. Besides SPS there are other methods of forming a single mesh from multiple copies of one mesh; these are merge meshes, instances and thin instances.
 
@@ -70,8 +80,8 @@ SPS.addShape(box, 150, {positionFunction: myBuilder}); // myBuilder will be call
 const mesh = SPS.buildMesh();
 ```
 
-Immutable color cube of triangle particles  https://www.babylonjs-playground.com/#2FPT1A#5  
-Immutable town with 80 000 buildings https://www.babylonjs-playground.com/#2FPT1A#36
+Immutable color cube of triangle particles: <Playground id="#2FPT1A#5" title="Immutable Color Cube of Triangle Particles" description="Simple example of immutable color cube of triangle particles." image=""/>
+Immutable town with 80,000 buildings: <Playground id="#2FPT1A#36" title="Immutable Town With 80,000 Buildings" description="Simple example of an immutable town with 80,000 buildings" image=""/>
 
 Note that although the particles cannot move but you can still move, scale or rotate the whole SPS mesh. When there is no need for you SPS mesh to move, scale or rotate you can use the standard Babylon.js mesh _freezeXXX()_ methods for further performance gain
 
@@ -82,7 +92,7 @@ SPS.mesh.freezeNormals(); // prevents from re-computing the normals each frame
 
 You are not restricted to using the *positionFunction* to just a SPS created with *updatable = true* although using *initParticles()* and *setParticles()* is probably easier and you have a few more particle properties.
 
-# Solid Particle Vertex Position
+## Solid Particle Vertex Position
 In addition to the *positionFunction* to set a particle's property there is also a *vertexFunction* option to modify the shape of each particle by changing the positions of the vertices of the model forming the particle. The custom function you assign to the *vertexFunction* is called once by *SPS.buildMesh()* for each vertex of a particle.
 
 ```javascript
@@ -105,11 +115,11 @@ SPS.addShape(box, 150, {
 });
 ```
 
-Example with asteroids : https://www.babylonjs-playground.com/#2FPT1A#2
+Example with asteroids: <Playground id="#2FPT1A#2" title="Solid Particle Vertex Position Example" description="Simple example of updating solid particle vertex positions" image=""/>
 
 Making your SPS immutable is one way to optimize your scene. Next we will consider ways to optimize when using an updatable SPS.
 
-# Rebuild the mesh
+## Rebuild the mesh
 
 if a mesh, changed at creation time with `positionFunction` or `vertexFunction` has been then modified with `setParticles()`, it can be rebuild by reapplying the internally stored `positionFunction` or `vertexFunction` functions.  
 Note that only the function are stored, not their results. This means that if one of your function produces different results each call (using `Math.random()` for instance), you won't get back the same SPS mesh shape but another computed shape.
