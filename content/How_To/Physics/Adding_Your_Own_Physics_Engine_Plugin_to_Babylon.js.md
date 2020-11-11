@@ -1,6 +1,30 @@
+---
+title: Add Your Own Physics Engine
+image: 
+description: Learn how to add your own physics engine to Babylon.js.
+keywords: diving deeper, phyiscs, advanced physics, physics engine
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Forces
+      url: /how_to/forces
+    - title: How To Use Joints
+      url: /how_to/joints
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+video-overview:
+video-content:
+---
+
 # How To Add Your Own Physics Engine
 
-# Define your plugin
+## Define your plugin
 You can create your own plugin by creating a class that provides the following interface:
 
 * ```function initialize()```: Must initialize your engine
@@ -31,7 +55,7 @@ You can create your own plugin by creating a class that provides the following i
 
 For implementation details, you can refer to cannon.js plugin: https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Physics/Plugins/babylon.cannonJSPlugin.js
 
-# Using your plugin
+## Using your plugin
 When you launch the physics simulation, you can add a new parameter to ```enablePhysics``` function to indicate which plugin to use:
 
 ```javascript
@@ -39,18 +63,3 @@ scene.enablePhysics(null, new BABYLON.CannonJSPlugin()),
 ```
 
 The first parameter can be used to define gravity (which is (0, -9.82, 0) by default).
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Forces](/how_to/forces)  
-[How to use Joints](/how_to/joints)  
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)

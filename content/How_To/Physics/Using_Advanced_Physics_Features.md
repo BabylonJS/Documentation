@@ -1,6 +1,30 @@
+---
+title: Advanced Physics Features
+image: 
+description: Unlock the full potential of physics with advanced physics features in Babylon.js.
+keywords: diving deeper, phyiscs, advanced physics
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Forces
+      url: /how_to/forces
+    - title: How To Use Joints
+      url: /how_to/joints
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Compound Bodies
+      url: /how_to/compounds
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
 # How To Use Advanced Physics Features
 
-# The Heightmap
+## The Heightmap
 
 One of the best way of interacting with a ground object is the Heightmap impostor (supported currently only with the CannonJS plugin).
 
@@ -44,10 +68,10 @@ mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor
 ```
 
 A demo for both of these examples can be found here - 
-* https://www.babylonjs-playground.com/#D3LQD#7
-* https://www.babylonjs-playground.com/#EXL6K#9
+* <Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh." image=""/>
+* <Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon." image=""/>
 
-# Mesh Impostor
+## Mesh Impostor
 
 A mesh impostor wraps a complex mesh with a physics body, allowing exact collision detection with the object. As opposed to the heightmap impostor, a mesh impostor has the entire mesh covered.
 
@@ -55,7 +79,7 @@ A mesh impostor is only available with cannon.js, and only collides against sphe
 
 Regarding performance - you will notice that the mesh impostor doesn't influence performance too much, until an object collides against it. Then the calculations are rather complex and can lower your FPS significantly, depending on the mesh's complexity.
 
-A simple example of the mesh impostor can be found here - https://playground.babylonjs.com/#3B3135#1
+A simple example of the mesh impostor can be found here - <Playground id="#3B3135#1" title="Mesh Imposter Example" description="Simple example of a mesh imposter." image=""/>
 
 To generate a mesh impostor, simply set the MeshImpostor type when creating the physics impostor of the mesh:
 
@@ -67,13 +91,13 @@ The rest will be done by Babylon and the physics engine.
 
 A wonderful example of the abilities of the mesh impostor can be found here - https://ajna4taiga.tk/PerplexusShadowOpen/Home.html
 
-# Motors
+## Motors
 
 Certain joint types like the wheel (hinge) joint have the ability to run a motor that will move the impostor connecting to the joint in the direction set by the user.
 
 Motors can be used to move a wheel of a car, to simulate an elevator or create a gear system. The motor is responsible to enable the circular movement of those simulations.
 
-A simple example can be seen here - https://playground.babylonjs.com/#5W5B6W#1
+A simple example can be seen here - <Playground id="#5W5B6W#1" title="Simple Motor Example" description="Simple example of a motor joint." image=""/>
 
 Motor.enabled joints are using the `IMotorEnabledJoint` :
 
@@ -99,7 +123,7 @@ holder.physicsImpostor.addJoint(wheel.physicsImpostor, joint1); // attach holder
 joint1.setMotor(3, 20); // start turning!
 ```
 
-# Compounds and Babylon's parenting system
+## Compounds and Babylon's parenting system
 
 Babylon.js supports creating physics compounds. A compound is a collection of physics bodies that are connected together to create a single physics body with the joint geometry of all of the meshes connected.
 
@@ -125,11 +149,11 @@ sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpo
 
 The mass will be accumulated. So this single physics body's mass will be 4. `sphere2`'s physics impostor will be "disabled" and will be joined to `sphere`'s impostor, which is the main impostor. To apply impulses, set the liner velocity etc', use `sphere.physicsImpostor`.
 
-https://playground.babylonjs.com/#PRHF00#6
+<Playground id="#PRHF00#6" title="Advanced Physics Compounds Example 1" description="Advanced example of physics compounds." image=""/>
 
-An advanced example of compounds can be seen here - https://playground.babylonjs.com/#5W5B6W#3 . The boxes connected to the disc are connected using Babylon's parenting system.
+An advanced example of compounds can be seen here - <Playground id="#5W5B6W#3" title="Advanced Physics Compounds Example 2" description="Advanced example of physics compounds." image=""/>. The boxes connected to the disc are connected using Babylon's parenting system.
 
-## ignoreParent
+### ignoreParent
 
 You can disable the compound behavior of babylon by setting the ignoreParent flag when creating the impostor.
 It is important to note that this will only work if your parent has no impostor attached to it. Otherwise the results can vary from weird physics calculations to missing collisions.
@@ -140,9 +164,9 @@ To create an impostor for a child mesh using the ignoreParent flag:
 sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, {ignoreParent: true, mass: 2, restitution: 0.8});
 ```
 
-A simple example can be found here - https://playground.babylonjs.com/#PRHF00#4
+A simple example can be found here - <Playground id="#PRHF00#4" title="Ignore Parent Example" description="Simple example of ignoring a physics parent." image=""/>
 
-# Substeps
+## Substeps
 
 It's possible to run the physics ticks at a different frequency than the framerate while keeping consistent display.
 This means it's possible to display at 60 frames per seconds while updating the physics 1000 times a second.
@@ -156,31 +180,16 @@ var physicsEngine = scene.getPhysicsEngine();
 physicsEngine.setSubTimeStep(100);
 ```
 
-https://www.babylonjs-playground.com/#YUNAST#21
+<Playground id="#YUNAST#21" title="Substeps Example" description="Simple example of using substeps." image=""/>
 
-# Cloth simulation
+## Cloth simulation
 
 Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.raananweber.com/2016/04/03/cloth-physics-simulation-for-babylon-js/>
 
-# Some random demos
+## Some random demos
 
-* Cannon car demo - https://www.babylonjs-playground.com/#UGMIH#8
-* Oimo car demo - https://www.babylonjs-playground.com/#SFELK#3
-* Heightmap game - https://www.babylonjs-playground.com/#DLBW7#11
-* Net on a sphere - https://www.babylonjs-playground.com/#1M67K8#7
-* Newton's cradle - https://www.babylonjs-playground.com/#MDMVA#18
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Forces](/how_to/forces)  
-[How to use Joints](/how_to/joints)  
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Compound Bodies](/how_to/compounds)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
- 
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
+* Cannon car demo - <Playground id="#UGMIH#8" title="Cannon Car Demo" description="Cannon Car Demo" image=""/>
+* Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo" image=""/>
+* Heightmap game - <Playground id="#DLBW7#11" title="Heightmap Game" description="Heightmap Game" image=""/>
+* Net on a sphere - <Playground id="#1M67K8#7" title="Net On A Sphere" description="Net On A Sphere" image=""/>
+* Newton's cradle - <Playground id="#MDMVA#18" title="Newton's Cradle" description="Newton's Cradle" image=""/>
