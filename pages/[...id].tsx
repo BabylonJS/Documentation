@@ -48,7 +48,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
 
-    const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 0;
+    const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 3;
 
     const markdownRef = useRef<HTMLDivElement>();
 
