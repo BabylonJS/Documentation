@@ -1,6 +1,14 @@
-# GUIProgress
+---
+title: GUIProgress
+image:  
+description: Creates a new GUIProgress.
+keywords: Castor, GUI, plugin, extension, GUIProgress
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUIProgress(id, options, guimanager, callback, append)
+## new GUIProgress(id, options, guimanager, callback, append)
 Creates a new GUIProgress
 
 ### Parameters

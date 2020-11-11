@@ -1,6 +1,14 @@
-# GUITextfield
+---
+title: GUITextfield
+image:  
+description: Creates a new GUITextfield.
+keywords: Castor, GUI, plugin, extension, GUITextfield
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUITextfield(id, options, guimanager, append)
+## new GUITextfield(id, options, guimanager, append)
 Creates a new GUITextfield
 
 ### Parameters

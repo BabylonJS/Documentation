@@ -1,6 +1,14 @@
-# GUILabel
+---
+title: GUILabel
+image:  
+description: Creates a new GUILabel
+keywords: Castor, GUI, plugin, extension, GUILabel
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUILabel(id, options, guimanager, append)
+## new GUILabel(id, options, guimanager, append)
 Creates a new GUILabel
 
 ### Parameters

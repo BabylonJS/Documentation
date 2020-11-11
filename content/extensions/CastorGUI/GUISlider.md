@@ -1,6 +1,14 @@
-# GUISlider
+---
+title: GUISlider
+image:  
+description: Creates a new GUISlider.
+keywords: Castor, GUI, plugin, extension, GUISlider
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUISlider(id, options, guimanager, callback, append)
+## new GUISlider(id, options, guimanager, callback, append)
 Creates a new GUISlider
 
 ### Parameters

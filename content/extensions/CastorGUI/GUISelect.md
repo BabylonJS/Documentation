@@ -1,6 +1,14 @@
-# GUISelect
+---
+title: GUISelect
+image:  
+description: Creates a new GUISelect
+keywords: Castor, GUI, plugin, extension, GUISelect
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUISelect(id, options, guimanager, callback, append)
+## new GUISelect(id, options, guimanager, callback, append)
 Creates a new GUISelect
 
 ### Parameters

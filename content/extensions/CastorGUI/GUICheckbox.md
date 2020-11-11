@@ -1,6 +1,14 @@
-# GUICheckbox
+---
+title: GUICheckbox
+image:  
+description: Creates a new GUICheckbox.
+keywords: Castor, GUI, plugin, extension, GUICheckbox
+further-reading:
+video-overview: 
+video-content:
+---
 
-# new GUICheckbox(id, options, guimanager, callback, append)
+## new GUICheckbox(id, options, guimanager, callback, append)
 Creates a new GUICheckbox
 
 ### Parameters
