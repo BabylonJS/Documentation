@@ -519,7 +519,6 @@
                         "customLoadingScreen": { "friendlyName": "Creating Custom Loading Screens", "children": {}, "content": "How_To/scene/Creating_a_custom_loading_screen" },
                         "optimize_your_scene": { "friendlyName": "Optimize Your Scene", "children": {}, "content": "How_To/scene/Optimizing_your_scene" },
                         "sceneOptimizer": { "friendlyName": "The Scene Optimizer", "children": {}, "content": "How_To/scene/How_to_use_SceneOptimizer" },
-                        "optimizeScenes": { "friendlyName": "More Scene Optimizations", "children": {}, "content": "How_To/scene/Fast_Build" },
                         "optimizeOctrees": { "friendlyName": "Optimizing with Octrees", "children": {}, "content": "How_To/scene/Optimizing_Your_Scene_with_Octrees" },
                         "optimizeCached": { "friendlyName": "Optimizing Using Cached Resources", "children": {}, "content": "How_To/scene/Caching_Resources_in_IndexedDB" },
                         "reducingMemoryUsage": { "friendlyName": "Reducing Memory Footprint", "children": {}, "content": "How_To/scene/Reduce_memory_footprint" },

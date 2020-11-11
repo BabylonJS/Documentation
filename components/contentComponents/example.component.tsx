@@ -33,6 +33,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(2),
             maxHeight: "100%",
             maxWidth: 260,
+            minWidth: 260,
         },
         header: {
             backgroundColor: colorPalette.linkText,
@@ -92,11 +93,13 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
-                    <Tooltip title={`Open ${type} ${title}`}>
-                        <LinkIcon></LinkIcon>
-                    </Tooltip>
-                </IconButton>
+                <a href={`#example-${example.type}-${example.id.replace(/#/g, "-")}`}>
+                    <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
+                        <Tooltip title={`Open ${type} ${title}`}>
+                            <LinkIcon></LinkIcon>
+                        </Tooltip>
+                    </IconButton>
+                </a>
                 <span>{title}</span>
                 <Link href={link}>
                     <a target="_blank">

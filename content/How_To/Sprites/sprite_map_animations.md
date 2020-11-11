@@ -1,4 +1,14 @@
-# Sprite Map Animations
+---
+title: Sprite Map Animations
+image: 
+description: Learn all about sprite map animations in Babylon.js.
+keywords: babylon.js, diving deeper, sprites, animations
+further-reading:
+video-overview:
+video-content:
+---
+
+## Sprite Map Animations
 A sprite map animation is created, as you would expect, from a sequence of frameIDs from the frames array. The sequence does not have to be in consecutive order of frameIDs. For example, animation frame 0 could draw the sprite from frameID 19 and animation frame 1 could draw the sprite from frameID 6. Also each animation frame can have its own independent timing.
 
 The terms of frame and animation frame are not to be confused.  Frame is a reference to the position of the sprite on the atlas, and the animation frame is the specific frame that is being displayed at that moment
@@ -46,7 +56,7 @@ background.addAnimationToTile(24, 6, 31, eighth * 7, speed);
 background.addAnimationToTile(24, 7, 24, 1, 	 	 speed);
 ```
 
-Single tile animation https://www.babylonjs-playground.com/#YCY2IL#26
+Single tile animation: <Playground id="#YCY2IL#26" title="Single Tile Animation" description="Simple example of single tile animation." image=""/>
 
 More generally to create an animation use
 ```javascript

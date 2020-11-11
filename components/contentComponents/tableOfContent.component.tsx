@@ -11,19 +11,21 @@ const styles = makeStyles((theme: Theme) =>
             width: "unset !important",
             "& h2": {
                 marginBottom: 0,
-                fontSize: 26
+                fontSize: 20,
             },
             [theme.breakpoints.up("md")]: {
                 "& h2": {
-                    fontSize: '2.827rem'
+                    fontSize: "1.4rem",
                 },
-            }
+            },
         },
         itemsContainer: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'start',
             position: "relative",
             transition: "max-height 0.2s",
             maxHeight: 0,
-            // paddingBottom: 16,
             overflow: "hidden",
             "& div": {
                 whiteSpace: "nowrap",
@@ -35,16 +37,24 @@ const styles = makeStyles((theme: Theme) =>
         itemsHovered: {
             overflow: "auto",
             transition: "max-height 0.2s",
-            maxHeight: 200,
+            maxHeight: 400,
+            height: "auto",
+            paddingBottom: 16,
+        },
+        itemsFullHeight: {
+            overflow: "auto",
+            transition: "max-height 0.2s",
+            maxHeight: '100vh',
             height: "auto",
             paddingBottom: 16,
         },
     }),
 );
 
-export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[] }> = ({ tocItems }) => {
+export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[], levels: number }> = ({ tocItems, levels }) => {
     const [hovered, setHovered] = useState<boolean>(false);
-    const [clicked, setClicked] = useState<boolean>(true);
+    const [clicked, setClicked] = useState<boolean>(false);
+    const [fullHeight, setFullHeight] = useState<boolean>(true);
     const [show, setShow] = useState<boolean>(true);
     const [delayed, setDelayed] = useState<number>(0);
     const context = useContext(DocumentationContext);
@@ -67,57 +77,60 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
         setDelayed(5);
     };
 
-    const onScroll = () => {
-        if(delayed > 0) {
-            setDelayed(delayed - 1);
-        }
-    };
+    // const onScroll = () => {
+    //     if (delayed > 0) {
+    //         setDelayed(delayed - 1);
+    //     }
+    // };
 
-    useEffect(() => {
-        if(delayed === 5) {
-            setShow(false);
-        }
-        if(delayed === 0) {
-            setShow(true);
-        }
-        const scrollElement = document.querySelector(".markdown-container");
-        scrollElement.addEventListener("scroll", onScroll);
-        return () => {
-            scrollElement.removeEventListener("scroll", onScroll);
-        };
-    }, [delayed])
+    // useEffect(() => {
+    //     if (delayed === 5) {
+    //         setShow(false);
+    //     }
+    //     if (delayed === 0) {
+    //         setShow(true);
+    //     }
+    //     const scrollElement = document.querySelector(".markdown-container");
+    //     scrollElement.addEventListener("scroll", onScroll);
+    //     return () => {
+    //         scrollElement.removeEventListener("scroll", onScroll);
+    //     };
+    // }, [delayed]);
 
-    useEffect(() => {
-        const element = document.querySelector("h1");
-        var observer = new IntersectionObserver(
-            function (entries) {
-                if (entries[0].intersectionRatio === 0) {
-                    setClicked(false);
-                } else if (entries[0].intersectionRatio === 1) {
-                    setClicked(true);
-                }
-            },
-            {
-                threshold: [0, 1],
-            },
-        );
+    // useEffect(() => {
+    //     const element = document.querySelector("h1");
+    //     var observer = new IntersectionObserver(
+    //         function (entries) {
+    //             if (entries[0].intersectionRatio === 0) {
+    //                 setFullHeight(false);
+    //             } else if (entries[0].intersectionRatio === 1) {
+    //                 setFullHeight(true);
+    //             }
+    //         },
+    //         {
+    //             threshold: [0, 1],
+    //         },
+    //     );
 
-        observer.observe(element);
+    //     observer.observe(element);
 
-        return () => {
-            observer.unobserve(element);
-        };
-    }, [tocItems]);
+    //     return () => {
+    //         observer.unobserve(element);
+    //     };
+    // }, [tocItems]);
 
     return (
         <div className={classes.contentRoot} style={{ display: show ? "block" : "none" }} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave}>
             <Typography onClick={pointerClick} variant="h6" component="h3">
                 Table Of Contents
             </Typography>
-            <Typography className={`${classes.itemsContainer} ${hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
-                {tocItems.map((item, idx) => (
+            <Typography className={`${classes.itemsContainer} ${fullHeight ? classes.itemsFullHeight : hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
+                {tocItems.filter((item) => {
+                    return item.level <= levels
+                })
+                .map((item, idx) => (
                     <a key={idx} href={`#${item.id}`}>
-                        <div onClick={disableClick} style={{ marginLeft: item.level * 16 }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
+                        <div onClick={disableClick} style={{ marginLeft: item.level * 16, display: 'inline' }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
                             {item.title}
                         </div>
                     </a>

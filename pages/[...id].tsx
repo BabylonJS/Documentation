@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { createContext, createRef, FunctionComponent, useEffect, useState } from "react";
+import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
 
 import Layout from "../components/layout.component";
 import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
@@ -48,7 +48,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
 
-    const markdownRef = createRef<HTMLDivElement>();
+    const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 0;
+
+    const markdownRef = useRef<HTMLDivElement>();
 
     // To avoid context empty when adding more than one example in one time
     const tmpExamplesCache = [];
@@ -94,6 +96,15 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
         };
     }, [id]);
 
+    useEffect(() => {
+        if (!activeExample) {
+            markdownRef?.current?.classList.add("closed");
+        } else if (markdownRef?.current?.classList.contains("closed")) {
+            markdownRef?.current?.classList.remove("closed");
+            markdownRef?.current?.scrollTo({ behavior: "auto", top: markdownRef?.current?.scrollTop + 400, left: 0 });
+        }
+    }, [activeExample]);
+
     const scrollToTop = () => {
         markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
     };
@@ -108,9 +119,9 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         <InlineExampleComponent {...activeExample} />
                         <div ref={markdownRef} className="markdown-container">
                             <h1>{metadata.title}</h1>
-                            {tocLinks.length > 1 && (
+                            {tocLinks.length > 1 && !!tocLevel && (
                                 <div className="toc-container">
-                                    <TableOfContent tocItems={tocLinks}></TableOfContent>
+                                    <TableOfContent tocItems={tocLinks} levels={tocLevel}></TableOfContent>
                                 </div>
                             )}
                             {metadata.videoOverview && (
@@ -170,7 +181,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths,
         getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
     );
-    // TODO solve this more elegantly. 
+    // TODO solve this more elegantly.
     // This is done since index is not a part of this dynamic url mapping (next.js issue)
     paths.shift();
     return {

@@ -1,9 +1,19 @@
+---
+title: Using the SSAO Rendering Pipeline
+image: 
+description: Learn how to the SSAO Rendering Pipeline in Babylon.js.
+keywords: diving deeper, post processes, post process, render pipeline, render, SSAO
+further-reading:
+video-overview:
+video-content:
+---
+
 # How To Use the SSAO rendering pipeline
 
 BABYLON.SSAORenderingPipeline is a rendering pipeline (chained post-processes) that will compute the ambient occlusion of a given scene from the screen space.
 You can find an example in our playground:
 
-https://www.babylonjs-playground.com/#N96NXC
+<Playground id="#N96NXC" title="SSAO Rendering Pipeline Example" description="Simple example of using the SSAO rendering pipeline." image=""/>
 
 The post-processes chain is defined by:
 

@@ -1,4 +1,28 @@
-# The Skull as a Compound Body
+---
+title: Compound Bodies
+image: 
+description: Learn all about physics compound bodies in Babylon.js.
+keywords: diving deeper, phyiscs, compound boides
+further-reading:
+    - title: How To Use The Physics Engines
+      url: /how_to/using_the_physics_engine
+    - title: How to use Forces
+      url: /how_to/forces
+    - title: How To Use Joints
+      url: /how_to/joints
+    - title: How To Use Pivots and Axes
+      url: /how_to/joint_pivots
+    - title: How To Create Soft Bodies
+      url: /how_to/soft_bodies
+    - title: How To Use Advanced Features
+      url: /how_to/Using_Advanced_Physics_Features
+    - title: How To Add Your Own Physics Engine
+      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+video-overview:
+video-content:
+---
+
+## The Skull as a Compound Body
 
 ![Skull](/img/how_to/physics/skull.jpg)
 The skull is an interesting shape to try to compound and you can see it in all its magnificence [here](https://www.babylonjs-playground.com/#UKNERM#0)
@@ -9,7 +33,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Center of mass is at the origin of the compound object.
 
-# Compound to Empty Mesh
+## Compound to Empty Mesh
 
 1. Create an empty mesh to be used as a parent for the compound body;
 2. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
@@ -20,9 +44,9 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 3 MUST come before step 4 and step 5 before step 6.
 
-* [Playground Example 1 - Skull as a Compound Body](https://www.babylonjs-playground.com/#492ZK0#7)
+* <Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body." image=""/>
 
-# Compound Covering Meshes to The Complex Mesh 
+## Compound Covering Meshes to The Complex Mesh 
 
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Parent the standard meshes to the irregular mesh;
@@ -32,9 +56,10 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Steps 2, 4 and 5 must be in that order.
 
-* [Playground Example 2 - Skull as a Compound Body](https://www.babylonjs-playground.com/#492ZK0#12)
+* <Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body." image=""/>
 
-# Compound to One of the Covering Meshes
+
+## Compound to One of the Covering Meshes
 
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Choose one standard mesh and parent the other standard meshes and the irregular mesh to this mesh;
@@ -43,23 +68,4 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 2 MUST come before step 4.
 
-* [Playground Example 3- Skull as a Compound Body](https://www.babylonjs-playground.com/#492ZK0#8)
-
-# Further Reading
-
-# Basic - L1
-
-[How To Use The Physics' Engines](/how_to/using_the_physics_engine)  
-[How To Use Forces](/how_to/forces)   
-[How To Use Joints](/how_to/joints)   
-[How To Use Pivots and Axes](/how_to/joint_pivots)  
-[How To Create Soft Bodies](/how_to/soft_bodies)
-
-# Mid Level - L2
-
-[How To Use Advanced Features](/how_to/Using_Advanced_Physics_Features)
- 
-# More Advanced - L3
-
-[How To Add Your Own Physics Engine](/how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js)
-
+* <Playground id="#492ZK0#8" title="Skull As A Compound Body 3" description="Simple example of a skull as a compound body." image=""/>

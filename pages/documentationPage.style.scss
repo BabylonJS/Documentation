@@ -29,11 +29,11 @@
 }
 
 .toc-container {
-    position: sticky;
-    top: -16px;
-    right: 0;
-    z-index: 100;
-    margin-bottom: 16px;
+    // position: sticky;
+    // top: -16px;
+    // right: 0;
+    // z-index: 100;
+    // margin-bottom: 16px;
 }
 
 .examples-container {
@@ -154,9 +154,12 @@
 .markdown-container {
     position: relative;
     padding: 16px;
-    max-width: 100%;
     flex: 1;
     overflow: auto;
+    max-width: 100%;
+    * {
+        max-width: 880px;
+    }
     @media print {
         *,
         *:before,
@@ -247,7 +250,7 @@
 
     p,
     .splendor-p {
-        font-size: 1rem;
+        // font-size: 0.98rem;
         margin-bottom: 1.3rem;
     }
 
@@ -287,7 +290,7 @@
 
     h5,
     .splendor-h5 {
-        font-size: 0.121rem;
+        font-size: 0.6rem;
     }
 
     h6,

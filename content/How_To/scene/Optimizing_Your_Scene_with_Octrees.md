@@ -1,10 +1,20 @@
-# How To Optimize Your Scene with Octrees
+---
+title: Optimizing With Octrees
+image: 
+description: Learn how to optimize your scene using octrees in Babylon.js.
+keywords: diving deeper, scene, optimization, optimize, octrees
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Optimize Your Scene with Octrees
 Octrees are a really powerful data structure that can quickly select entities based on space coordinates.
 More on wikipedia: http://en.wikipedia.org/wiki/Octree
 
 Babylon.js supports octrees through a class named ```BABYLON.Octree```. Dedicated functions are available to help you create these octrees when required:
 
-# Optimizing Meshes Selection for Rendering
+## Optimizing Meshes Selection for Rendering
 If your scene has a lot of meshes, it can be useful to create an octree to speed visible meshes selection (e.g. finding meshes the camera can see). To do so, just call this function:
 
 ```javascript
@@ -28,7 +38,7 @@ octree.dynamicContent.push(mesh)
 
 In this case, the octree will always select the dynamic mesh.
 
-# Optimizing Collisions and Picking
+## Optimizing Collisions and Picking
 Computing collisions or clicking-on complex meshes (more than 10k vertices for instance) can be really slow. You can speed things up by subdividing your mesh into submeshes using ```mesh.subdivide(x)``` where x is the number of submeshes you want.
 
 Then you can optimize the selection of submeshes for collisions or picking by creating an octree on the mesh for its submeshes:
@@ -43,12 +53,12 @@ You can even specify the usage of your octree independently:
 * ```mesh.useOctreeForPicking```
 * ```mesh.useOctreeForRenderingSelection``` : Octree for submeshes can even be used during mesh selection based on camera field of view. Once a mesh is selected by the camera, if the mesh has submeshes, the camera has to select which one is visible. In this case, having an octree can be really helpful.
 
-# GroundMesh
+## GroundMesh
 For the specific case of ground meshes, Babylon.js provides a class called ```BABYLON.GroundMesh``` that you can create using ```BABYLON.Mesh.CreateGround``` and ```BABYLON.Mesh.CreateGroundFromHeightMap```.
 
 By calling ```groundMesh.optimize(chunkSize)``` where chunkSize defines the number of submeshes you want, the mesh will be optimized for rendering, picking and collisions by creating an internal octree (Be sure to select a correct chunkSize).
 
-# Using Octrees Manually
+## Using Octrees Manually
 You can also use octrees from your code to get a list of meshes or submeshes.
 
 Here are the helpful functions you can find on an octree:
@@ -59,6 +69,6 @@ Here are the helpful functions you can find on an octree:
 
 These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.smartArray.ts) where duplicates are present or not according to ```allowDuplicate``` parameter/
 
-# Demos
+## Demos
 * https://www.babylonjs.com/?OCTREE
 * https://www.babylonjs.com/?INSTANCES

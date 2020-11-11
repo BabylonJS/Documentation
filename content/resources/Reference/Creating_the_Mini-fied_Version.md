@@ -1,3 +1,13 @@
+---
+title: Creating The Mini-fied Version of Babylon.js
+image: 
+description: Learn how to create the mini-fied version of Babylon.js.
+keywords: babylon.js, advanced, minified, thin
+further-reading:
+video-overview:
+video-content:
+---
+
 To create the minified version of Babylon.js you just have to 
 use [gulp](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/Gulp)
 

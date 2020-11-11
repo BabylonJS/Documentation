@@ -1,10 +1,20 @@
-# How To Use SceneOptimizer
+---
+title: The Scene Optimizer
+image: 
+description: Learn all about the scene optimizer in Babylon.js.
+keywords: diving deeper, scene, optimize, scene optimizer
+further-reading:
+video-overview:
+video-content:
+---
+
+## How To Use SceneOptimizer
 
 Rendering a scene on a browser is a great experience because you can reach a lot of different users and hardware. But the main associated caveat is that you can encounter very low-end devices.
 
 The SceneOptimizer tool is designed to help you reach a specific framerate by gracefully degrading rendering quality at runtime.
 
-# Basic usage
+## Basic usage
 To start using the SceneOptimizer, you can create a new ```BABYLON.SceneOptimizer``` instance.
 The SceneOptimizer constructor requires the current scene and a ```BABYLON.SceneOptimizerOptions``` object (we will get back to it later):
 
@@ -38,7 +48,7 @@ It also provides several functions:
 - ```reset()```: used to restore the current priority level to 0
 - ```dispose()```: used to release all resources
 
-# Helper
+## Helper
 You can also decide to use a static helper that will create everything you need in one line. ```BABYLON.SceneOptimizer.OptimizeAsync()```. You can call this function when you want to optimize your scene. The simplest call you can do is the following:
 
 ```javascript
@@ -59,7 +69,7 @@ function() {
 As you can see, you can provide success/fail callbacks and a set of options.
 Please note that the ```BABYLON.SceneOptimizer.OptimizeAsync()``` function returns a SceneOptimizer object which is created with `autoGeneratePriorities` to false.
 
-# Options
+## Options
 A set of options contains a list of optimizations to apply in a specific order. As soon as the target FPS is reached, the SceneOptimizer stops. There are different layers (or passes) that are applied one after another. The SceneOptimizer pauses between each layer to ensure a stable FPS, for measuring.
 
 By default, there are 3 sets available:
@@ -111,7 +121,7 @@ Based on these optimizations, the basic sets are configured like this:
  * Level 3: RenderTargetsOptimization
  * Level 4: HardwareScalingOptimization(4, 4)
 
-# Advanced usage
+## Advanced usage
 You can create your own set of options with the following code (please note that if `autoGeneratePriorities` is true, you don't need to define the priority value)
 
 ```javascript
@@ -161,9 +171,9 @@ function mySceneOptimization(priority) {
 }
 ```
 
-# Improvement mode
+## Improvement mode
 When created in improvement mode (4th parameter of the constructor), the SceneOptimizer object will run all optimization while the current FPS is above the target frame rate. So, for instance if, the target FPS is 60, the optimizer will execute all optimizations in its list while the FPS remains at 60. It is a good tool to provide rendering improvements to a given scene.
 Please note that when in improvement mode, the optimizations will adapt their behavior automatically (for instance, the ShadowsOptimization will turn shadows on instead of off).
 
-# Demo
-A demo can be found here: https://www.babylonjs-playground.com/#3Q8PCL
+## Demo
+A demo can be found here: <Playground id="#3Q8PCL" title="Scene Optimizer Example" description="Simple example of how to use the scene optimizer." image=""/>

@@ -10,8 +10,8 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         iframeContainer: {
             position: "relative",
-            transition: "height 0.2s",
-            height: '100%',
+            // transition: "height 0.4s",
+            height: "100%",
         },
         closeButton: {
             position: "absolute",
@@ -24,8 +24,8 @@ const styles = makeStyles((theme: Theme) =>
             top: "50%",
             left: "50%",
             zIndex: -1,
-            transform: 'translate(-50%, -50%)',
-            lineHeight: 'unset'
+            transform: "translate(-50%, -50%)",
+            lineHeight: "unset",
         },
     }),
 );

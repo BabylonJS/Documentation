@@ -1,8 +1,18 @@
-# Concepts
+---
+title: Tags
+image: 
+description: Learn all about tags in Babylon.js.
+keywords: babylon.js, diving deeper, tags
+further-reading:
+video-overview:
+video-content:
+---
+
+## Concepts
 
 Tag? You may already have heard or read this word before. Let's see some generic concepts.
 
-## Tags are used:
+### Tags are used:
 
 - as an index term assigned to a piece of information
 - to pass parameters to subroutines
@@ -14,7 +24,7 @@ Tag? You may already have heard or read this word before. Let's see some generic
 
 (from [Wikipedia](http://en.wikipedia.org/wiki/Tag))
 
-## Tags on forums / Categories
+### Tags on forums / Categories
 
 If you spend some time on forums (let's pick one randomly: [forum](https://forum.babylonjs.com) ;)), you may have noticed that tags are attached to topics (and/or posts sometimes).
 The author can write words (tags) to shortly describe his/her topic without having to write a gramatically correct sentence. It's kind of a list of words that you could say during a brainstorming after reading the post.
@@ -30,7 +40,7 @@ Here the first search results:
 
 ![Search results for "mesh" tag](http://pix.keuse.fr/images/meshtag.jpg)
 
-## CSS classes
+### CSS classes
 
 OK...? What's the link with tags? Why are we about to talk about CSS classes?
 
@@ -62,13 +72,13 @@ The above directive would gather a collection of all HTML elements that use the 
 
 Here we are! **Tags in babylon.js can be used to categorize/group elements, and helper functions are provided to retrieve/gather tagged elements.**
 
-# Integration to babylon.js
+## Integration to babylon.js
 
 Tags were integrated into babylon.js on April 7, 2014. [Pull request](https://github.com/BabylonJS/Babylon.js/pull/170#event-109351015)
 
 There was a [discussion](https://www.html5gamedevs.com/topic/4961-user-data-in-mesh-object/?p=30458) about adding this feature on the forum. The goal was to be able to retrieve meshes.
 
-## Pure javascript
+### Pure javascript
 
 The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The ```Tag``` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.tags.ts)) and internally uses the ```AndOrNotEvaluator``` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.andOrNotEvaluator.ts)).
 
@@ -167,13 +177,13 @@ BABYLON.Tags.MatchesQuery(myJSObj4, undefined); // true
 BABYLON.Tags.MatchesQuery(myJSObj4); // true
 ```
 
-## Rules to respect
+### Rules to respect
 
 * the tags "true" and "false" are reserved and cannot be used as tags.
 * a tag cannot start with "||", "&&", or '!'
 * a tag cannot contain whitespaces
 
-## Use in babylon.js
+### Use in babylon.js
 
 Since it's possible to use tags on any javascript object and since meshes are javascript objects, it's possible to add tags on them and to retrieve them according to a tags query.
 
@@ -183,7 +193,7 @@ var meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag
 
 All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/generals/File_Format_Map_(.babylon))) and reloaded from them.
 
-# What to do with them?
+## What to do with them?
 
 It's up to you!
 

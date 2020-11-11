@@ -1,4 +1,14 @@
-# Why is it needed
+---
+title: WebXR Features Manager
+image: 
+description: Learn all about the powerful WebXR features manager in Babylon.js.
+keywords: babylon.js, diving deeper, WebXR, VR, AR, features manager
+further-reading:
+video-overview:
+video-content:
+---
+
+## Why is it needed
 
 The Features manager, our XR plugin system, was born out of a simple need - stay backwards compatible, but still deliver cutting edge APIs in a production system.
 
@@ -6,9 +16,9 @@ Since APIs like [hit test](https://github.com/immersive-web/hit-test) and [ancho
 
 If you are a bit impatient you can check the [selected WebXR features](./WebXR_Selected_Features) section, but it is recommended to at least read this section quickly.
 
-# How to use
+## How to use
 
-## Construct a new features manager
+### Construct a new features manager
 
 If you are using the [base WebXR experience helper](./WebXR_Experience_Helpers) a features manager will be created for you and will be available in `xrBaseHelper.featuresManager` . If not, you only need to provide an XR session manager object to initialize a new one:
 
@@ -18,7 +28,7 @@ const fm = new FeaturesManager(xrSessionManager);
 
 Note that even before creating the features manager you could call its static methods (check availability, register a new feature, etc').
 
-## What is available
+### What is available
 
 To check what feature is available, use the features manager's static `GetAvailableFeatures` function, which will return an array of strings corresponding to specific features:
 
@@ -52,7 +62,7 @@ import {
 fm.enableFeature(WebXRControllerPhysics.Name, "latest");
 ```
 
-## Versioning
+### Versioning
 
 Just like any plugin system, the features are versioned numerically. The version is a number. Higher the number, the newer the version (pretty simple).
 
@@ -68,7 +78,7 @@ const availableVersions = featuresManager.GetAvailableVersions(WebXRFeatureName.
 
 This means that you can ask for version 1, but also for the stable version which will be one of the 2 - "1" or "2", depends on our definition. The "latest" version will load "2".
 
-## Enable and disable a feature
+### Enable and disable a feature
 
 Enabling a feature means that the feature is ready to be used in a working session. When a feature is enabled, it is ready to be attached, which technically means - influence the scene actively.
 
@@ -90,7 +100,7 @@ const xrHitTestLatest = fm.enableFeature(WebXRFeatureName.HIT_TEST, "latest");
 const xrHitTest1 = fm.enableFeature(WebXRFeatureName.HIT_TES, 1);
 ```
 
-## Configuring the feature
+### Configuring the feature
 
 Every feature (as of now) has a different configuration options object that can be provided when enabling the feature. Each feature has an options interface. For example, Version 1 of Hit-Test has the following options configuration interface:
 
@@ -122,7 +132,7 @@ const xrHitTestLatest = fm.enableFeature(WebXRFeatureName.HIT_TEST, "latest", {
 const xrHitTest1 = fm.enableFeature(WebXRFeatureName.HIT_TES, 1);
 ```
 
-## Attach and detach a feature
+### Attach and detach a feature
 
 Once you have a feature enabled, you can use its synchronous attach and detach methods to attach (or detach) it to the scene:
 
@@ -148,7 +158,7 @@ const xrHitTestLatest = fm.enableFeature(WebXRFeatureName.HIT_TEST, "latest", {
 }, false /* prevent attaching automatically */ );
 ```
 
-# ES6 passive loader
+## ES6 passive loader
 
 When using the ES6 module loader you will notice that no features apart from transportation and pointer selection are available. That is because the features and their version must be imported by you. It is done so that unneeded code will not be included in the build and will be loaded only when your experience needs it. Wonderful for tree shaking!
 
@@ -174,11 +184,11 @@ const featuresManager = giveMeMyFeaturesManagerSomehow();
 const xrHitTest1 = featuresManager.enableFeature(WebXRFeatureName.HIT_TEST /* Same as "xr-hit-test" */ , 1);
 ```
 
-# Writing a new feature
+## Writing a new feature
 
 If you want to add your own feature here are a few guidelines:
 
-## IWebXRFeature
+### IWebXRFeature
 
 The feature should implement the `IWebXRFeature` interface, which looks like this:
 
