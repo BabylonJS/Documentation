@@ -1,4 +1,14 @@
-# Force Shared Vertices
+---
+title: Forcing Shared Vertices
+image: 
+description: Helpful code snippet for forcing mesh to share vertices in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, shared verts, minimize
+further-reading:
+video-overview:
+video-content:
+---
+
+## Force Shared Vertices
 
 This function will remove some indices and vertices from a mesh. It removes facets where two of its vertices 
 share the same position and forces vertices to share normals. So it will, therefore, also change a flat shaded mesh to a smooth (for the 
@@ -13,19 +23,19 @@ More information on the need for extra facets, which turn out to be lines, can b
 ```javascript
 mesh.forceSharedVertices();
 ```
-# Playground
+## Playground
 
 Using the Inspector in the Playground below with the minimise vertices function applied you will see that there are 366 vertices. However you can also see how the texture has been split and it does not seam correctly. This seaming would also happen if you used an image of the earth for example.
 
 If you comment out line 12 and so no longer apply the force shared vertices function you can use the Inspector to check that there are 435 vertices. In this case though the image is applied correctly.
 
-* [Playground Example - Force Shared Vertices](https://www.babylonjs-playground.com/#5ITGBA#2)
+<Playground id="#5ITGBA#2" title="Force Shared Vertices 1" description="Force shared vertices example." image=""/>
 
-# Prior to Version 4.0
+## Prior to Version 4.0
 
 Use the function below. Any examples found in the playground then used the term 'minimizeVertices' rather than 'forceSharedVertices'.
 
-# The Function
+## The Function
 
 ```javascript
 BABYLON.Mesh.prototype.minimizeVertices = function() {
@@ -92,6 +102,6 @@ BABYLON.Mesh.prototype.minimizeVertices = function() {
     }	
 ```
 
-# Playground
+## Playground
 
-* [Playground Example Minimising Vertices](https://www.babylonjs-playground.com/#1JBMJ3#18)
+<Playground id="#1JBMJ3#18" title="Minimizing Vertices" description="Simple example of minimizing vertices." image=""/>

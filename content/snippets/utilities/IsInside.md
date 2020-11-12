@@ -1,16 +1,29 @@
- 
-# How To Check When Point is Inside a Mesh
+---
+title: Check When a Point is Inside a Mesh
+image: 
+description: Helpful code snippet for checking when a point is inside of a mesh in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, inside
+further-reading:
+    - title: How To Create Points on a Mesh Surface
+      url: /snippets/SurfaceMeshPoints
+    - title: How To Create Points Inside a Mesh
+	  url: /snippets/innerMeshPoints
+video-overview:
+video-content:
+---
+
+## How To Check When Point is Inside a Mesh
 
 This mesh method takes a Vector3 point and checks if it inside the mesh.
 
-# Design Outline
+## Design Outline
 
 1. Check if point inside or outside of bounding box, when inside continue with following checks;
 2. Cast a ray from the point in the positive and negative x directions;
 3. When there is a hit, move forward from hit point a very small amount along ray direction and recast ray from new point;
 4. Count hits, when zero or an odd number of hits then point is inside mesh and for a even number of hits > 0 non zero then point is outside of mesh. 
 
-# Design Method
+## Design Method
 
 1. Check bounding box;
 
@@ -62,7 +75,7 @@ else if ((hitCount % 2) === 0 && hitCount > 0) {
 return pointFound;
 ```
 
-# The Whole Function
+## The Whole Function
 
 Returns true if point is inside mesh, false otherwise.
 
@@ -112,14 +125,8 @@ BABYLON.Mesh.prototype.pointIsInside = function (point) {
 };
 ```
 
-# Playground Example
+## Playground Example
 
 Generate random points in a volume around a twelve pointed star mesh. Place a sphere at each point and turn it red when inside the star.
 
-* [Playground Example - Twelve Pointed Star](https://www.babylonjs-playground.com/#XJEG9A#4)
-
-# Further Reading
-
-[How To Create Points Inside a Mesh](/snippets/innerMeshPoints)  
-[How To Create Points on a Mesh Surface](/snippets/SurfaceMeshPoints)  
-
+<Playground id="#XJEG9A#4" title="Twelve Pointed Star" description="Twelve Pointed Star" image=""/>

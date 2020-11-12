@@ -30,7 +30,7 @@ There are of course different tools and possible workflows to create an animated
 
 The first step is to create a character (a low poly character in this example). It usually involves starting from the 2D drawing of a character and then model it in 3D from head to toes. This is a quite long but fun experience. [**Blender**](https://www.blender.org) can be used to model a low poly character such as in Grant Abbitt's Low-Poly anime girl tutorial: 
 
-<Youtube id="PLn3ukorJv4vuOi2Ar-Xt46VFbDFP3c_RE"/>
+<Youtube id="E5HnnGcGvmc"/>
 
 ![Create Character in Blender](/img/how_to/animatedCharact/createCharact.jpg)
 
@@ -102,7 +102,7 @@ animationGroups[0].stop();
 
 ### Control animations via keyboard
 
-The [**Action Manager**](/How_To/events/How_to_use_Actions) can be used to capture the keys pressed on the keyboard:
+The [**Action Manager**](/divingDeeper/events/actions) can be used to capture the keys pressed on the keyboard:
 
 ```javascript
 var inputMap = {};
@@ -166,5 +166,5 @@ if (keydown) {
 
 This simple example can be enhanced:
 - By adding a more robust logic to manage the details of selecting multiple keys and combining them
-- By using the [**Device Source Manager**](/How_To/events/How_to_use_DeviceSourceManager) instead of the Action Manager for key presses
-- With [**animation blending**](/How_To/events/advanced_animations#animation-blending) to ensure much more natural transitions between animations
+- By using the [**Device Source Manager**](/divingDeeper/input/deviceSourceManager) instead of the Action Manager for key presses
+- With [**animation blending**](/divingDeeper/animation/advanced_animations#animation-blending) to ensure much more natural transitions between animations

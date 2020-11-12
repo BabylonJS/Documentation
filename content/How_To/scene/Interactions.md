@@ -12,7 +12,7 @@ video-content:
 
 ## How to Interact with A Scene
 
-There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/how_to/Gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
+There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/divingDeeper/gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
 
 ## Keyboard Interactions
 

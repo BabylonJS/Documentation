@@ -103,5 +103,5 @@ To activate collisions, just call ```camera.checkCollisions = true```. You can d
 camera.collisionRadius = new BABYLON.Vector3(0.5, 0.5, 0.5)
 ```
 
-## Next step
-Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? Good, because that is exactly the purpose of our [next tutorial](/babylon101/Intersect_Collisions_-_mesh).
+## Other Types of Collisions
+Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? If that interests you, you can head on over here: [Mesh Collisions](/divingDeeper/mesh/interactions/mesh_intersect).

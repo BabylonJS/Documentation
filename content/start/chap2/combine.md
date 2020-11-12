@@ -36,4 +36,4 @@ At this stage it is important to note that the second parameter being true dispo
 
 ![house 3](/img/getstarted/house3.png)
 
-Before considering how to make multiple copies of our house we will first: find out the basics of [exporting]() our models; how to [import]() models made with Babylon.js or other software; and how to display your scene or models on your own website.
+Before considering how to make multiple copies of our house we will first: find out the basics of [exporting](/extensions/glTFExporter) our models; how to [import](/divingDeeper/importers) models made with Babylon.js or other software; and how to display your scene or models on your own website.

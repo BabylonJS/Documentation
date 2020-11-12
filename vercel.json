@@ -389,6 +389,21 @@
         { "source": "/snippets/Sector", "destination": "/toolsAndResources/utilities/Sector"},
         { "source": "/snippets/SphericalPanning", "destination": "/toolsAndResources/utilities/SphericalPanning"},
         { "source": "/snippets/SurfaceMeshPoints", "destination": "/toolsAndResources/utilities/SurfaceMeshPoints"},
-        { "source": "/snippets/World_Axes", "destination": "/toolsAndResources/utilities/World_Axes"}
+        { "source": "/snippets/World_Axes", "destination": "/toolsAndResources/utilities/World_Axes"},
+        { "source": "/resources/rotation_conventions", "destination": "/divingDeeper/mesh/transforms/center_origin/rotation_conventions"},
+        { "source": "/how_to/customizing_camera_inputs", "destination": "/divingDeeper/cameras/customizingCameraInputs"},
+        { "source": "/how_to/customizing_camera_inputs", "destination": "/divingDeeper/materials/using/introToPBR"},
+        { "source": "/how_to/introduction_to_webxr", "destination": "/divingDeeper/webXR/introToWebXR"},
+        { "source": "/how_to/webxr_camera", "destination": "/divingDeeper/webXR/webXRCamera"},
+        { "source": "/how_to/gltf", "destination": "/divingDeeper/importers/glTF"},
+        { "source": "/features/ES6_support", "destination": "/divingDeeper/developWithBjs/treeShaking"},
+        { "source": "/how_to/approved_naming_conventions", "destination": "/divingDeeper/developWithBjs/approvedNamingConventions"},
+        { "source": "/how_to/contribute_to_api", "destination": "/divingDeeper/developWithBjs/contributeToAPI"},
+        { "source": "/how_to/contribute_to_documentation", "destination": "/divingDeeper/developWithBjs/contributeToDocs"},
+        { "source": "/babylon101/animations", "destination": "/divingDeeper/animation"},
+        { "source": "/how_to/gui3d", "destination": "/divingDeeper/gui/gui3D"},
+        { "source": "/features/playground_debuglayer", "destination": "/toolsAndResources/tools/inspector"},
+        { "source": "/how_to/creating_a_custom_loading_screen", "destination": "/divingDeeper/scene/customLoadingScreen"},
+        { "source": "/features/behaviour", "destination": "/divingDeeper/behaviors"}
     ]
 }

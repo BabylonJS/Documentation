@@ -207,7 +207,7 @@ Some observables are also available to help tracking control state:
 - `onPointerClickObservable`: An event triggered when a control is clicked on (with a mouse)
 - `onPointerMoveObservable`: An event triggered when the pointer move over the control
 
-All controls can also be the target of [behaviors](//doc.babylonjs.com/features/behaviour) so they expose the associated properties and functions:
+All controls can also be the target of [behaviors](/divingDeeper/behaviors) so they expose the associated properties and functions:
 
 - `behaviors`: Gets the list of attached behaviors
 - `addBehavior()`: Attach a behavior to the control
@@ -230,7 +230,7 @@ All these callbacks are empty by default and will be implemented by specialized 
 A button is a control with default animations for enter/out/down and up events.
 It is based on a 2D GUI content.
 
-You can specify the content through the `content` property and set it to any regular [2D GUI content](//doc.babylonjs.com/how_to/gui):
+You can specify the content through the `content` property and set it to any regular [2D GUI content](/divingDeeper/gui):
 
 ```javascript
 var button = new BABYLON.GUI.Button3D("reset");

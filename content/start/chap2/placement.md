@@ -40,7 +40,7 @@ As you can see, from the above codes, scaling is a vector object with properties
 All three of the above sets of codes will produce boxes of the same size
 
 ## Position
-For the majority of meshes the [position]() property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
+For the majority of meshes the [position](/divingDeeper/mesh/transforms/center_origin/position) property places the center of the mesh at that position. Position is also a vector object with properties x, y, and z, so that the following two sets of codes position the box in the same place.
 
 ```javascript
 box.position.x = -2;
@@ -57,7 +57,7 @@ We can now use positions to place the boxes sized in three different ways in one
 <Playground id="#KBS9I5#68" title="Positioning Meshes" description="A playground demonstrating different ways to position a mesh in your scene." image="/img/playgroundsAndNMEs/gettingStartedMeshPlacement.jpg"/>
 
 ### Orientation
-As for scaling and position the [rotation](/babylon101/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
+As for scaling and position the [rotation](/divingDeeper/mesh/transforms/center_origin/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
 
 Rotations are given in radians. If you prefer working in degrees Babylon.js provides a conversion tool. Both these lines of code with produce the same rotation.
 

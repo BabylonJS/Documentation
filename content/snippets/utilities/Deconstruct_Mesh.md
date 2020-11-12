@@ -1,4 +1,14 @@
-# Deconstruct Mesh.
+---
+title: Deconstruct A Mesh
+image: 
+description: Helpful code snippet for deconstructing a mesh in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, deconstruct
+further-reading:
+video-overview:
+video-content:
+---
+
+## Extract Submeshes as Meshes
 This snippet takes a mesh and splits its subMeshes into individual meshes. Returns array of new meshes.
 
 ```javascript

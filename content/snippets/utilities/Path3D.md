@@ -1,4 +1,15 @@
-# Displays a Path3D Curve.
+---
+title: Display Tangent, Normal, and Binormal of a Path3D
+image: 
+description: Helpful code snippet for displaying helpful information about a Path3D object in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, tangent, normal, binormal
+further-reading:
+video-overview:
+video-content:
+---
+
+## Displays a Path3D Curve.
+
 This snippet displays a path3D curve and for on each point its tangent, normal and binormal in red, green and blue respectively. 
 The size parameter, default 0.5, sets the length for the tangents, normals and binormals.
 
@@ -21,6 +32,6 @@ function showPath3D(path3d, size) {
   }
 };
 ```
-# Playground
+## Playground
 
-* [Playground Example](https://www.babylonjs-playground.com/#2IX4FB)
+<Playground id="#2IX4FB" title="Display Path3D Info" description="" image=""/>

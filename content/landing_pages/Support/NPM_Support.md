@@ -188,7 +188,7 @@ const engine = new Engine(canvas, true);
 // code continues....
 ```
 
-For more information, you can have a look at [the ES6 documentation](https://doc.babylonjs.com/features/ES6_support);
+For more information, you can have a look at [the ES6 documentation](/divingDeeper/developWithBjs/treeShaking);
 
 ## External libraries
 

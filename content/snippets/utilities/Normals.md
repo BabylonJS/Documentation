@@ -1,4 +1,14 @@
-# Show Mesh Vertex Normals
+---
+title: Display Vertex Normals
+image: 
+description: Helpful code snippet for displaying vertex normals in Babylon.js.
+keywords: babylon.js, tools, resources, utilities, vertex normals, normals
+further-reading:
+video-overview:
+video-content:
+---
+
+## Show Mesh Vertex Normals
 This snippet allows you to add lines showing the normals for each vertex of a mesh. The colour and size of the lines can be set.
 
 ```javascript
@@ -20,6 +30,6 @@ function showNormals(mesh, size, color, sc) {
     return normalLines;
 }
 ```
-# Playground
+## Playground
 
-* [Playground Example ](https://www.babylonjs-playground.com/#1ENDNT)
+<Playground id="#1ENDNT" title="Displaying Vertex Normals" description="" image=""/>
