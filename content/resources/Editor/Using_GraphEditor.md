@@ -1,10 +1,20 @@
-# Introduction
+---
+title: Using the graph Editor
+image: 
+description: Babylon.js Editor 'Graph Editor' is used to create custom behaviors for elements in the scene without having to know how to code..
+keywords: welcome, babylon.js, editor, graph, graph editor
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 
 Introduced in the Editor v2.0.0 as a POC, the `Graph Editor` is now live starting from the Editor v3.2.0.
 As all other tools available in the Editor, the `Graph Editor` is available over the main toolbar in `Tools -> Graph Editor`:
 ![OpeningGraphEditor](/img/extensions/Editor/GraphEditor/opening.png)
 
-# Understanding the tool
+## Understanding the tool
 
 As for the [Node Material Editor](https://doc.babylonjs.com/how_to/node_material#using-the-node-material-editor), the `Graph Editor` is used to create custom behaviors for elements in the scene without having to know how to code.
 The `Graph Editor` tends to evoluate and provide features such as the [Unreal Engine Blueprints](https://docs.unrealengine.com/en-US/Engine/Blueprints/index.html)
@@ -17,7 +27,7 @@ The way to attach graphs to elements of the scene is the same as the [`Code Edit
 
 All graphs are standalone and can be attached to multiple elements in the scene by clicking `Add` in the list on the left side of the tool.
 
-# Adding nodes by the example
+## Adding nodes by the example
 Once a graph has been created and attached to an element of the scene, the goal is to add nodes and connect them to finally create a real algorithm.
 
 Let's have a sphere and try the following example: on the user clicks on the sphere, we want to translate the sphere from x=0,y=0,z=0 to x=2,y=3,z=4.
@@ -61,7 +71,7 @@ The edition tool shows all the customizable properties. Here, the values x, y an
 Finally, let's test our graph! To live test a graph, just click the button `Start/Stop` in the Graph Editor an then click the sphere.
 The connection between the `PointerDown` and `Transform` nodes will be animated to show an activity: the `PointerDown` node triggered the output on the sphere has been clicked and the `Transform` node has be triggered to change the position of the sphere. That's all!
 
-# Using variables
+## Using variables
 Each graph can have a list of variables. All variables are scoped and available ONLY and ONLY in the graph's context.
 These are used to store values that support read/write. Variable can be read and written using the `Variable` and are identified by a name, like when writing code.
 
@@ -90,14 +100,14 @@ Once added, a combo box is available on the node and can be customized to select
 From now, what we have to do is to remove the constant Vector 3D previously added and replace by our variable:
 ![GraphVariableFinal](/img/extensions/Editor/GraphEditor/variable_final.png)
 
-# Advanced behavior example
+## Advanced behavior example
 Let's take this graph as example to illustrate a more advanced behavior. The goal is to rotate the sphere on the Y axis on the pointer is over the sphere.
 Then, once the pointer is out, restore the rotation on the Y axis to 0:
 ![GraphAdvancedGraph](/img/extensions/Editor/GraphEditor/advanced_graph.png)
 
 Teaching logic can't be done here. So, let's experiment with all other available nodes and create awesome graphs for awesome behaviors in your scene.
 
-# List of all available nodes
+## List of all available nodes
 * **Types**
     * **`Number`**: represents a number and outputs its value
     * **`String`**: represents a string and outputs its value
