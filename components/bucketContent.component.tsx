@@ -116,7 +116,6 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                     {externalLinks && (
                         <ul>
                             {externalLinks.map(({ url, title }) => {
-                                console.log(url, title);
                                 return (
                                     <li key={url}>
                                         <Link href={url}>
