@@ -1,5 +1,5 @@
 ---
-title: Creating Custom Loading Screens
+title: Optimizing Your Scene
 image: 
 description: Learn how to optimize your scene in Babylon.js.
 keywords: diving deeper, scene, optimization, optimize

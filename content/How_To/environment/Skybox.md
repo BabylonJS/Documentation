@@ -29,7 +29,7 @@ Notice that the images match seamlessly at the edges of the box:
 Skybox images can be found on the web by searching for skybox images. Generally, these are single images in the form of a net of a box and you will 
 need to separate them into individual images and save each.
 
-You can also use [library textures in the playground](/resources/playground_textures#cubetextures).
+You can also use [library textures in the playground](/toolsAndResources/assetLibraries/availableTextures#cubetextures).
 
 ## Skybox Code 
 Within the playground you can copy and paste the following into your scene.

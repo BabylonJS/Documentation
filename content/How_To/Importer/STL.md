@@ -10,7 +10,7 @@ video-content:
 
 # STL File Import
 
-You can find the STL loader [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview release/loaders)
+You can find the STL loader [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview%20release/loaders)
 
 To use it you just have to reference it after Babylon.js:
 

@@ -176,7 +176,7 @@ This one was generated with PCF, for eg.
 ## Examples
 
 You can find a live example here: 
-https://playground.babylonjs.com/#B48X7G
+<Playground id="#B48X7G" title="Transparent Shadow Example" description="Simple transparent shadow example" image=""/>
 
 Please find here pictures of various filters used with a spot light:
 
@@ -230,7 +230,7 @@ The light's position, as well as the positions of the mesh that you have pushed 
 
 You can also set `light.autoCalcShadowZBounds = true` to compute automatically the best `light.shadowMinZ` and `light.shadowMaxZ` values for each frame. Tightening those values to best fit your scene improve the precision of the depth map, and consequently the shadow rendering. Be warned, however, that when using this parameter with PCF and PCSS you may miss some shadows because of the way those filtering technics are implemented (if all your meshes are both shadow casters and receivers, you won't have any problems with PCF / PCSS, though). Note that `light.autoUpdateExtends` must be set to `true` for `light.autoCalcShadowZBounds` to work.
 
-Starting with Babylon.js 4.1, Cascaded Shadow Maps are now available for directional lights. Check the [dedicated page](/babylon101/shadows_csm) for details.
+Starting with Babylon.js 4.1, Cascaded Shadow Maps are now available for directional lights. Check the [dedicated page](/divingDeeper/lights/shadows_csm) for details.
 
 #### In-depth analyzing of Directional light position
 

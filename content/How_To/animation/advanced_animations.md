@@ -133,7 +133,7 @@ idleAnim.syncWith(runAnim);
 
 To disable animation synchronization, just call `animation.syncWith(null)`.
 
-A complete demo can be find here: https://www.babylonjs-playground.com/#IQN716#9
+A complete demo can be find here: <Playground id="#IQN716#9" title="Animation Weights Example" description="Simple example of animation weights." image=""/>
 
 ## Additive animation blending
 So far the type of animation blending we've gone over has been override blending. This means that adding influence to an animation takes influence away from other animations that are playing. The result is always normalized, so the more animations playing at the same time, the smaller amount of influence each individual animation has over the final result. All of the keyframes in override animations are stored relative to the object's parent. Say for example you have an object with 2 override animations. The first animation has a translation value of [0, 0, 0] at frame 0, then it interpolates to [0, 2, 0] on frame 30, then back to [0, 0, 0] on frame 60. The second animation has a translation value of [0, 0, 0] at frame 0, interpolates to [0, 0, 2] on frame 30, and then back to [0, 0, 0] on frame 60. If you played these animations simultaneously at full weight, frame 30 would result in a translation value of [0, 1, 1]. Neither the Y or Z axes would ever be able to fully reach a value of 2 with both animations playing. This behavior works great for transitioning between animations, like blending from a walk to a run, but what if you want the motions to build on top of each other? This is where additive animation becomes useful.

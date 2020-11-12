@@ -18,7 +18,7 @@ Note that the video dome also supports 180 degrees video. Read below for further
 
 ## VideoDome
 
-VideoDomes rely heavily on the [VideoTexture](/classes/VideoTexture) class, check out it's documentation so that some parameters make more sense.
+VideoDomes rely heavily on the [VideoTexture](/divingDeeper/materials/using/videoTexture) class, check out it's documentation so that some parameters make more sense.
 The source video itself should be "Equirectangular", without an equirectangular source the class won't function correctly.
 
 ## VideoDome Code
