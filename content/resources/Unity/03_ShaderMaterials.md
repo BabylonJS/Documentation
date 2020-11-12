@@ -1,3 +1,13 @@
+---
+title: Shader Materials
+image: 
+description: Creating shader materials with the Unity Toolkit.
+keywords: babylon.js, exporter, unity, extension, material, shader 
+further-reading:
+video-overview:
+video-content:
+---
+
 There is a close relationship between **Materials**, **Shaders** and **Textures** within a game engine render pipeline:
 
 * **Materials** are definitions of how a surface should be rendered, including references to textures used, tiling information, colour tints and more. The available options for a material depend on which shader the material is using.
@@ -13,7 +23,7 @@ For most normal rendering - by which we mean characters, scenery, environments, 
 Please refer to the [Unity Material](https://docs.unity3d.com/Manual/class-Material.html) documentation for details.
 
 
-# Creating And Using Shader Materials
+## Creating And Using Shader Materials
 
 To create a new Material, use **Assets > Create > Material** from the main menu or the Project View context menu.
 
@@ -23,7 +33,7 @@ By default, new materials are assigned the **Standard Shader**, with all map pro
 
 Once the Material has been created, you can apply it to an object and tweak all of its properties in the Inspector. To apply it to an object, just drag it from the Project View to any object in the Scene or Hierarchy.
 
-# Set Shader Material Properties
+## Set Shader Material Properties
 
 You can select which Shader you want any particular Material to use. Simply expand the Shader drop-down in the Inspector, and choose your new Shader. The Shader you choose will dictate the available properties to change. The properties can be colors, sliders, textures, numbers, or vectors. If you have applied the Material to an active object in the Scene, you will see your property changes applied to the object in real-time.
 
@@ -33,7 +43,7 @@ There are two ways to apply a Texture to a property.
 
 * Click the Select button, and choose the texture from the drop-down list that appears
 
-# Unity Shader Technical Details
+## Unity Shader Technical Details
 
 A Shader is a script which contains mathematical calculations and algorithms for how the pixels on the surface of a model should look. The standard shader performs complex and realistic lighting calculations. Other shaders may use simpler or different calculations to show different results. Within any given Shader are a number of properties which can be given values by a Material using that shader. These properties can be numbers, colours definitions or textures, which appear in the inspector when viewing a Material. Materials are then used by Renderer components attached to Game Objects, to render each Game Object’s mesh.
 
@@ -72,17 +82,17 @@ The specific values for the shader’s parameters - such as which texture maps, 
 Custom Shaders are meant to be written by graphics programmers. They are created using the GLSL shader language, which is quite simple. However, getting a shader to work well on a variety graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
 
 
-# Babylon Shader Material Pipeline
+## Babylon Shader Material Pipeline
 
-# Physical Based Rendering
+## Physical Based Rendering
 
 The **BABYLON.PBRMaterial** is the default shader material that will be used for **all** materials using **Unity Standard Shader** pipeline properties. These include the built-in Standard, Standard Roughness, Standard Specular and **any** other shader that uses **Metallic Type** properties (IE: _Metallic). 
 
-# Diffuse Shader Materials
+## Diffuse Shader Materials
 
 The **BABYLON.StandardMaterial** is used as the base shader for **all non** physical babsed rendering shaders. During exportation, the toolkit will **scrape** all materials looking for standard shader properties like **_MainTex** and assign them to the standard diffuse shader pipeline.
 
-# Custom Shader Materials
+## Custom Shader Materials
 
 Custom shader materials creates a custom unity shader (.shader) program for use as the design time shader. You can change the content of the unity design time as it is only used for design time * **WYSIWYG** * display purposes. The actual **Shader Controller** class defines the native babylon shader material class to control the material export.
 
@@ -158,7 +168,7 @@ The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader co
     #endif //BABYLON_INFO_END
     ENDCG
 
-# Shader Controller Scripts
+## Shader Controller Scripts
 
 The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** sub class properties. The controller class uses the shader properties specfied in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
 

@@ -1,3 +1,13 @@
+---
+title: Prefabs
+image: 
+description: The Unity Toolkit has a prefab asset type that allows you to store a game object complete with components and properties.
+keywords: babylon.js, exporter, unity, extension, prefab
+further-reading:
+video-overview:
+video-content:
+---
+
 It is convenient to build a game object in the scene by adding components and setting their properties to the appropriate values. This can create problems, however, when you have an object like an NPC, prop or piece of scenery that is reused in the scene several times. Simply copying the object will certainly produce duplicates but they will all be independently editable. Generally, you want all instances of a particular object to have the same properties, so when you edit one object in the scene, you would prefer not to have to make the same edit repeatedly to all the copies.
 
 Fortunately, Unity has a Prefab asset type that allows you to store a game object complete with components and properties. The prefab acts as a template from which you can create new object instances in the scene. Any edits made to a prefab asset are immediately reflected in all instances produced from it but you can also override components and settings for each instance individually.
@@ -7,9 +17,9 @@ Fortunately, Unity has a Prefab asset type that allows you to store a game objec
 Check out the [Unity Prefab Concept Video](https://unity3d.com/learn/tutorials/topics/interface-essentials/prefabs-concept-usage) for details on the prefab usage.
 
 
-# Unity Prefab System
+## Unity Prefab System
 
-# Using Runtime Prefabs
+## Using Runtime Prefabs
 
 You can create a prefab by selecting **Asset > Create Prefab** and then dragging an object from the scene onto the “empty” prefab asset that appears. If you then drag a different game object onto the prefab you will be asked if you want to replace your current game object with the new one. Simply dragging the prefab asset from the project view to the scene view will then create instances of the prefab. Objects created as prefab instances will be shown in the hierarchy view in blue text. (Normal objects are shown in black text.)
 
@@ -19,7 +29,7 @@ As mentioned above changes to the prefab asset itself will be reflected in all i
 
 You can also create instances of prefabs at runtime from your scripts. See the **Managed Runtime Support** section for further details.
 
-# Editing Runtime Prefabs
+## Editing Runtime Prefabs
 
 The inspector for a prefab instance has three buttons not present for a normal object: **Select**, **Revert** and **Apply**.
 
@@ -28,7 +38,7 @@ The **Select** button selects the prefab asset from which the instance was gener
 If you experiment with overriding properties but then decide you preferred the default values, you can use the **Revert** button to realign the instance with its prefab.
 
 
-# Babylon Prefab Layer
+## Babylon Prefab Layer
 
 ![Prefab Layer](/img/exporters/unity/prefablayer.jpg)
 
@@ -36,7 +46,7 @@ The prefab layer can prepare your objects to take advantage of the toolkit's dee
 
 By setting game objects to the **Babylon Prefab** layer you will create disabled source meshes used for deep cloning when you call the scene manager instantiate prefab function.
 
-# Managed Runtime Support
+## Managed Runtime Support
 
 The toolkit scene manager provides easy to use helper functions for client side prefab instantiation:
 

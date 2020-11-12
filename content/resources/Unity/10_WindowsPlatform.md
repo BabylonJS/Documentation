@@ -1,7 +1,17 @@
+---
+title: Windows Platform
+image: 
+description: Using the Windows platform with the Unity Toolkit.
+keywords: babylon.js, exporter, unity, extension, windows platform 
+further-reading:
+video-overview:
+video-content:
+---
+
 Windows 10 introduced the Universal Windows Platform (**UWP**), which provides a common app platform on every device that runs Windows 10. The **UWP** core APIs are the same on all Windows devices. If your app only uses the core APIs, it will run on any Windows 10 device no matter whether you are targeting a desktop PC, Xbox, Mixed-reality headset, and so on. Please refer to the [Universal Windows Platform](https://docs.microsoft.com/en-us/windows/uwp/index) documentation for details.
 
 
-# Hosted Web Applications
+## Hosted Web Applications
 
 **Progressive Web Apps** are simply web apps that are progressively enhanced with native **UWP** features on supporting platforms and browser engines, such as launch-from-homescreen installation, offline support, and push notifications. On Windows 10 with the Microsoft Edge (EdgeHTML) engine, PWAs enjoy the added advantage of running independently of the browser window as Universal Windows Platform apps. Please refer to the [Progressive Web Apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/windows-features) documentation for details.
 
@@ -14,12 +24,12 @@ You must use your toolkit address or hostname as the application start page. Exa
 You must use your production hostname as the application start page. Example: **https://www.myserver.com/game**
 
 
-# Windows Runtime Library
+## Windows Runtime Library
 
 When you write a Universal Windows Platform (**UWP**) app, you can use **Windows Runtime Library** classes, methods, and properties in much the same way that you would use native JavaScript objects, methods, and properties. Please refer to the [JavaScript Windows Runtime](https://docs.microsoft.com/en-us/scripting/jswinrt/using-the-windows-runtime-in-javascript) documentation for details.
 
 
-# Managed Xbox Live Services
+## Managed Xbox Live Services
 
 The toolkit's [Xbox Live Plugin](https://www.nuget.org/packages/BabylonToolkit.XboxLive/) provides built-in access to the **Microsoft.Xbox.Services** runtime for your game projects. Simply install the plugin into your hosted **UWP** application with the **NuGet Package Manager** command:
 

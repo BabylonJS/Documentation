@@ -1,3 +1,12 @@
+---
+title: Navigation Mesh
+image: 
+description: The Unity Toolkit  navigation mesh approximates the walkable surfaces of the level.
+keywords: babylon.js, exporter, unity, extension, navigation, navigation mesh 
+further-reading:
+video-overview:
+video-content:
+---
 
 The process of creating a navigation mesh from the level geometry is called **NavMesh Baking**. The process collects the **Render Meshes** and **Terrains** of all game objects which are marked as Navigation Static, and then processes them to create a navigation mesh that approximates the walkable surfaces of the level. Please refer to [Unity Navigation](https://docs.unity3d.com/Manual/nav-Overview.html) documentation on navigation.
 
@@ -6,12 +15,12 @@ In Unity, navigation mesh generation is handled from the * **Navigation** * wind
 Building a navigation mesh for your scene can be done in 4 quick steps. Please refer to the [Unity Navigation Mesh](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) documentation for details.
 
 
-# Babylon Navigation Mesh
+## Babylon Navigation Mesh
 
 The [Babylon Navigation Mesh](https://github.com/wanadev/babylon-navigation-mesh) extension is a path finder for AI agents. It uses the **A Star** and **Funnel** algorithms to calculate a path on the exported baked navigation mesh and is packaged as a toolkit plugin.
 
 
-# Managed Runtime Support
+## Managed Runtime Support
 
 The toolkit scene manager provides easy to use helper functions for client side navigation:
 

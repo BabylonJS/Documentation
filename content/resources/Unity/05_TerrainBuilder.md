@@ -1,7 +1,17 @@
+---
+title: Terrain Builder
+image: 
+description: The Unity Toolkit terrain builder allows you to add vast landscapes to your games.
+keywords: babylon.js, exporter, unity, terrain builder, extension, terrain
+further-reading:
+video-overview:
+video-content:
+---
+
 The toolkit's **Terrain Builder** system allows you to add vast landscapes to your games. At runtime, terrain rendering is highly optimized for rendering efficiency while in the editor, a selection of tools is available to make terrains easy and quick to create. Please refer to the [Unity Terrain](https://docs.unity3d.com/Manual/script-Terrain.html) documentation for details.
 
 
-# Creating And Editing Terrains
+## Creating And Editing Terrains
 
 To add a Terrain game object to your Scene, select **GameObject > 3D Object > Terrain** from the menu. This also adds a corresponding **Terrain Asset** to the Project view. When you do this, the landscape is initially a large, flat plane. The Terrain’s Inspector window provides a number of tools you can use to create detailed landscape features.
 
@@ -12,7 +22,7 @@ With the exception of the tree placement tool and the settings panel, all the to
 The details of all of the tools will be given in subsequent sections. However, all of them are based around the concept of painting detail and with the exception of the tree placement tool, all have the same options for brushes, brush size and opacity. The tools can be used to set the height of the terrain and also to add coloration, plants and other objects.
 
 
-# Terrain Keyboard Shortcuts
+## Terrain Keyboard Shortcuts
 
 You can use the following keyboard shortcuts in the terrain inspector:
 
@@ -25,7 +35,7 @@ You can use the following keyboard shortcuts in the terrain inspector:
 Additionally, the standard F keystroke works slightly differently for terrains. Normally, it frames the selection around the whole object when the mouse is over the scene view. However, since terrains are typically very large, pressing F will focus the scene view on the area of terrain where the mouse/brush is currently hovering. This provides a very quick and intuitive way to jump to the area of terrain you want to edit. If you press F when the mouse is away from the terrain object, the standard framing behaviour will return.
 
 
-# Still Under Development
+## Still Under Development
 
 The following **Terrain Builder** features are still under development:
 
