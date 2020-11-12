@@ -103,8 +103,8 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;
-        const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
         const isSelected = selected === key;
+        const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1 || isSelected;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
             <li className={className} key={key}>
