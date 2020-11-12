@@ -9,7 +9,7 @@
                     "friendlyName": "Chapter 1 - Firsts",
                     "children": {
                         "first_scene": {"friendlyName": "First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
-                        "first_viewer": {"friendlyName": "First Model on a Web Page.", "children": {}, "content": "start/chap1/first_viewer" },
+                        "first_viewer": {"friendlyName": "First Model on a Web Page", "children": {}, "content": "start/chap1/first_viewer" },
                         "first_import": {"friendlyName": "First Import of a Model", "children": {}, "content": "start/chap1/first_import" },
                         "first_app": {"friendlyName": "First App on the Web", "children": {}, "content": "start/chap1/first_app" }
                     },
