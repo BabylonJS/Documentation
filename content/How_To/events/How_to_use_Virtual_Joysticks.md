@@ -21,7 +21,7 @@ leftJoystick.deltaPosition.x
 leftJoystick.deltaPosition.y
 ```
 
-<Playground id="#PRQU53" title="VirtualJoystick Example" description="Simple example showing how to add a VirtualJoystick to your scene." image="/img/playgroundsAndNMEs/divingDeeperVirtualJoystick1.jpg"/>
+<Playground id="#PRQU53#7" title="VirtualJoystick Example" description="Simple example showing how to add a VirtualJoystick to your scene." image="/img/playgroundsAndNMEs/divingDeeperVirtualJoystick1.jpg"/>
 
 Note: This will create an overlay canvas on top of the canvas for the scene. This will disable interaction with the Babylon GUI elements and scene pointer events. To avoid this the overlay joystick canvas's z index can be modified to toggle between scene interaction and joysticks input as seen in the playground above. Another option would be to create a custom joystick using the Babylon GUI as described below. 
 
