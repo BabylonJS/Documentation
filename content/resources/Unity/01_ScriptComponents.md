@@ -1,3 +1,13 @@
+---
+title: Script Components
+image: 
+description: The Unity Toolkit allows you to script your own components, allowing you to trigger game events, modify component properties over time and respond to user input in any way you like.
+keywords: babylon.js, export, unity, script, component, script component, extension
+further-reading:
+video-overview:
+video-content:
+---
+
 Game object behavior is controlled by the components that are attached to them. Although the toolkit's built-in components can be very versatile, you will soon find you need to go beyond what they can provide to implement your own gameplay features. The toolkit allows you to create your own components using scripts. These allow you to trigger game events, modify component properties over time and respond to user input in any way you like. The toolkit requires two programming languages natively:
 
 * **TypeScript**, a language designed specifically for strong typed JavaScript development. Required for babylon toolkit development;
@@ -9,7 +19,7 @@ In addition to these, many other .NET languages can be used with the Unity Edito
 Learning the art of programming and the use of these particular languages is beyond the scope of this introduction. However, there are many books, tutorials and other resources for learning how to use and program **Unity Editor** inspector windows.
 
 
-# Babylon Script Classes
+## Babylon Script Classes
 
 Babylon script classes are referred to as **Backing Classes**. The backing class is the native runtime class that gets instantiated for the owned game object. The toolkit provides a set of script file templates for use in your project.
 
@@ -32,7 +42,7 @@ Babylon script classes are referred to as **Backing Classes**. The backing class
 Unity does not support normal html javascript (.js) files. So rename any plain (.js) file extensions to (.bjs) to be included in your game project output.
 
 
-# Creating Backing Classes
+## Creating Backing Classes
 
 Unlike most other assets, scripts are usually created within Unity directly. You can create a new backing class script from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Babylon TypeScript** and select the desired backing class script asset type from the main menu.
 
@@ -43,7 +53,7 @@ The new backing class script will be created in whichever folder you have select
 It is a good idea to enter the name of the new backing class script at this point rather than editing it later. You must **rename** the class initial text inside the file with your new script name.
 
 
-# Anatomy Of A Backing Class
+## Anatomy Of A Backing Class
 
 When you double-click a script Asset in Unity, it will be opened in a text editor. By default, Unity will use the default code editor, but you can select any code editor you like from the External Tools panel in Unity’s preferences (go to **Unity > Preferences**).
 
@@ -80,7 +90,7 @@ The main things to note, however, are the four functions defined inside the clas
 **Note to beginner game developers:** You may not be aware that the use of any game play logic should **not** be handled in the constructor function. This is because the construction of objects is handled by the scene manager parser and does not take place at the start of gameplay as you might expect. If you include **game loop** type logic in a constructor for a script component, it will interfere with the normal operation of the managed life cycle and can cause major problems with the project. Use construction for internal property setup only.
 
 
-# Editor Script Components (C#)
+## Editor Script Components (C#)
 
 Editor script components are the primary way of attaching native babylon classes to game objects and prefabs in the editor. They represent the design time interface to your game object. You can create a new design time editor script component from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Editor Script Component (C#)** from the main menu.
 
@@ -181,11 +191,11 @@ Example custom property inspector editor script component file:
     }
 
 
-# Managed System Components
+## Managed System Components
 
 The toolkit provides a base set of babylon toolkit managed framework script components for easy use in your projects.
 
-# Default Scene Controller
+## Default Scene Controller
 
 The primary component to serve as the main entry point and controller class for the scene is the **Default Scene Controller**. The default scene controller component should be attached to an empty game object. 
 
@@ -195,77 +205,77 @@ It is a good idea to attach all scene level script components (not required on a
 
 The attached default scene controller provided many properties to simplfy scene configuration and the amount of required code (if any) to load and manage the life cycle of your scene.
 
-# Core System Components
+## Core System Components
 
 The toolkit provides serveral built-in core script components. You can attach any of the toolkit's script components by selecting **Components > Babylon > System Components** from the main menu and choosing the desired component name.
 
-## Light Scale
+### Light Scale
 
 The light component is for a **Light** only. It scales the brightness and sets the mode of the light. The Intensity of a light is multiplied with the Light color. The value can be between 0 and 10. This allows you to create over bright lights.
 
 ![Light Scale Component](/img/exporters/unity/lightscale.jpg)
 
-## Camera Rig
+### Camera Rig
 
 The camera rig component is for a **Camera** only. The rig enables custom render features. Cameras are the devices that capture and display the world to the player. By customizing and manipulating cameras, you can make the presentation of your game truly unique. You can have an unlimited number of cameras in a scene. They can be set to render in any order, at any place on the screen, or only certain parts of the screen.
 
 ![Camera Rig Component](/img/exporters/unity/camerarig.jpg)
 
-## Audio Track
+### Audio Track
 
 The audio track components plays back an audio clip in the scene. The sound engine offers ambient sound, spatialized sound and directional sound. It can be created by code or by loading a .babylon file. It follows the simple & powerful philosophy of the rest of the engine as you’re going to see. The sound format supported is the one from the browser. It’s usually at least .mp3 and .wav.
 
 ![Audio Track Component](/img/exporters/unity/audiotrack.jpg)
 
-## Socket Mesh
+### Socket Mesh
 
 The socket mesh component attaches an empty mesh to a character. Commonly in games, you will want to attach an object to the bone of a character. This might be a weapon attached to a hand, or a hat attached to the head. For this purpose, the toolkit allows you to create **Sockets** which are attached to a bone of a skeleton. Socket meshes can then be translated, rotated, and scaled relative to the bone. Static Meshes and/or Skeletal Meshes can also be attached to sockets.
 
 ![Socket Mesh Component](/img/exporters/unity/socketmesh.jpg)
 
-## Mesh Details
+### Mesh Details
 
 The mesh details component enables several **Runtime** rendering properties to be set on a game object during the design phase. This is very useful for overriding visibilty and collision details for the specified mesh game object.
 
 ![Mesh Details Component](/img/exporters/unity/meshdetails.jpg)
 
-## Physics State
+### Physics State
 
 The physics state component activates runtime physical simualation for game objects. To have convincing physical behaviour, an object in a game must accelerate correctly and be affected by collisions, gravity and other forces. The built-in physics engines provide components that handle the physical simulation for you. With just a few parameter settings, you can create objects that behave passively in a realistic way (ie, they will be moved by collisions and falls but will not start moving by themselves). By controlling the physics from scripts, you can give an object the dynamics of a vehicle, a machine, or even a piece of fabric.
 
 ![Physics State Component](/img/exporters/unity/physicsstate.jpg)
 
-## Level Of Detail
+### Level Of Detail
 
 The level of detail component can help improve overall game performance. When a game object in the scene is a long way from the camera, the amount of detail that can be seen on it is greatly reduced. However, the same number of triangles will be used to render the object, even though the detail will not be noticed. An optimisation technique called Level Of Detail (LOD) rendering allows you to reduce the number of triangles rendered for an object as its distance from the camera increases. As long as your objects aren’t all close to the camera at the same time, LOD will reduce the load on the hardware and improve rendering performance. The toolkit also requires the **LOD Group** component to set up LOD rendering for a object.
 
 ![Level Detail Component](/img/exporters/unity/leveldetail.jpg)
 
-## Terrain Builder
+### Terrain Builder
 
 The terrain builder component is for a **Terrain** only. The builder allows you to add vast landscapes to your games. At runtime, terrain rendering is highly optimized for rendering efficiency while in the editor, a selection of tools is available to make terrains easy and quick to create. The toolkit also requires the **Terrain** component set setup terrain landscapes for your game project.
 
 ![Terrain Builder Component](/img/exporters/unity/terrainbuilder.jpg)
 
-## Animation State
+### Animation State
 
 The animation state component supports frame by frame skeletal animation posing. Animation states are the basic building blocks of an **Animation State Machine**. Each state contains an individual animation sequence (or blend tree) which will play while the character is in that state. When an event in the game triggers a state transition, the character will be left in a new state whose animation sequence will then take over.
 
 ![Animation State Component](/img/exporters/unity/animationstate.jpg)
 
-## Particle Systems
+### Particle Systems
 
 The particle system component provides. In a 3D game, most characters, props and scenery elements are represented as meshes. Meshes and sprites are the ideal way to depict “solid” objects with a well-defined shape. There are other entities in games, however, that are fluid and intangible in nature and consequently difficult to portray using meshes or sprites. For effects like moving liquids, smoke, clouds, flames and magic spells, a different approach to graphics known as particle systems can be used to capture the inherent fluidity and energy.
 
 ![Particle System Component](/img/exporters/unity/particlesystem.jpg)
 
-## Asset References
+### Asset References
 
 The asset references component attaches project files to the current scene for exportation. This is useful for exporting scene content that is **not** already associated with a script component or a shader material.
 
 ![Asset References Component](/img/exporters/unity/assetref.jpg)
 
-## Component Tags
+### Component Tags
 
 The component tags support additional object tags. A Tag is a reference word which you can assign to one or more game bbjects. For example, you might define “Player” Tags for player-controlled characters and an “Enemy” Tag for non-player-controlled characters. You might define items the player can collect in a Scene with a “Collectable” Tag.
 
@@ -273,13 +283,13 @@ Tags help you identify game objects for scripting purposes. They ensure you don�
 
 ![Object Component Tags](/img/exporters/unity/tags.jpg)
 
-## Lens Flare Systems
+### Lens Flare Systems
 
 The lens flare systems component simulate the effect of lights refracting inside camera lens. They are used to represent really bright lights or, more subtly, just to add a bit more atmosphere to your scene.
 
 ![Lens Flare Component](/img/exporters/unity/lensflare.jpg)
 
-## Character Controller
+### Character Controller
 
 The character controller component controls game object movement. The character in a first or third person game will often need some collision based physics so that it doesn’t fall through the floor or walk through walls. Usually, though, the character’s acceleration and movement will not be physically realistic, so it may be able to accelerate, brake and change direction almost instantly without being affected by momentum.
 
@@ -287,7 +297,7 @@ A character controller cannot walk through static colliders in a scene, and so w
 
 ![Character Controller Component](/img/exporters/unity/charactercontrol.jpg)
 
-## Shadow Map Generator
+### Shadow Map Generator
 
 The shadow map generator component is for a **Light** only. The generator enables dynamically generated shadows depending upon a light. This is the main object responsible of generating shadows in the framework.
 
