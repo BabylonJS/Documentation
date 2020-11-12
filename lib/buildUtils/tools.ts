@@ -219,7 +219,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             console.log("Error indexing item. Probably an index error.");
         }
 
-        addToSitemap(metadata.title, url, lastModified ? lastModified.toUTCString() : "");
+        addToSitemap(metadata.title, url, lastModified ? lastModified.toISOString() : "");
 
         // generate images to examples. Offline only at the moment
         const matches = Array.from(content.matchAll(/(<(Playground|nme).*id="([A-Za-z0-9#]*)".*\/>)/g));
