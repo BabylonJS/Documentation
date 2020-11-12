@@ -104,7 +104,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        console.log(selected, key);
         const isSelected = selected === key;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
@@ -157,7 +156,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
 
     useEffect(() => {
         if (toggleFilter) {
-            console.log(textFieldRef.current);
             textFieldRef.current?.querySelector("input").focus();
         }
     }, [toggleFilter]);
