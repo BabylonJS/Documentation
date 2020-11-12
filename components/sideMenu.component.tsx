@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: 20,
             position: "fixed",
             bottom: 8,
-            backgroundColor: 'white',
+            backgroundColor: "white",
             padding: theme.spacing(1),
             "& svg": {
                 height: 24,
@@ -63,22 +63,21 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             "& a": {
                 display: "flex",
-            }
+            },
         },
         menuItemLink: {
             color: colorPalette.regularSideText,
             "&:hover": {
-                color: colorPalette.menuHover1
-            }
+                color: colorPalette.menuHover1,
+            },
         },
         selectedMenuItemLink: {
             color: colorPalette.linkText,
             fontWeight: 800,
             "&:hover": {
-                color: colorPalette.menuHover1
-            }
-        }
-
+                color: colorPalette.menuHover1,
+            },
+        },
     }),
 );
 
@@ -105,7 +104,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        console.log(selected, key)
+        console.log(selected, key);
         const isSelected = selected === key;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
@@ -157,11 +156,11 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     }, []);
 
     useEffect(() => {
-        if(toggleFilter) {
+        if (toggleFilter) {
             console.log(textFieldRef.current);
-            textFieldRef.current?.querySelector('input').focus();
+            textFieldRef.current?.querySelector("input").focus();
         }
-    }, [toggleFilter])
+    }, [toggleFilter]);
 
     getFilteredItems(items, filter.toLowerCase().trim());
 
