@@ -23,7 +23,7 @@
         { "source": "/babylon101/Shadows", "destination": "/divingDeeper/lights/shadows"},
         { "source": "/babylon101/Shadows_csm", "destination": "/divingDeeper/lights/shadows_csm"},
         { "source": "/babylon101/Sprites", "destination": "/divingDeeper/sprites"},
-        { "source": "/extensions/Amp360Video", "destination": "/extensions/Amp360Video/Amp360Video"},
+        { "source": "/extensions/Amp360Video", "destination": "/extensions/amp360Video"},
         { "source": "/extensions/CastorGUI", "destination": "/extensions/CastorGUI/CastorGUI"},
         { "source": "/extensions/GUIButton", "destination": "/extensions/CastorGUI/GUIButton"},
         { "source": "/extensions/GUICheckbox", "destination": "/extensions/CastorGUI/GUICheckbox"},
