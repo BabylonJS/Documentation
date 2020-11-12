@@ -28,7 +28,7 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
     timeout = setTimeout(() => {
         const endOfFile = [];
         cache.forEach((c) => {
-            endOfFile.unshift(`<url><loc>${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
+            endOfFile.unshift(`<url><loc>https://doc.babylonjs.com${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
         });
         writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
         writeAllToSitemap();
@@ -40,6 +40,8 @@ export const writeAllToSitemap = () => {
     const results = filenames.map((fn) => readFileSync(fn).toString());
     const start = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>/search</loc></url>`;
+    <url><loc>https://doc.babylonjs.com/search</loc></url>;
+    <url><loc>https://doc.babylonjs.com/playground</loc></url>`;
+    results.sort();
     writeFileSync(sitemapFile, [start, ...results, `</urlset>`].join("\n"), { encoding: "utf-8" });
 };
