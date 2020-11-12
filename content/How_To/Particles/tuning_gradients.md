@@ -233,7 +233,7 @@ Shorter lifetimes over duration: <Playground id="#0K3AQ2#9" title="Shorter Lifet
 Increasing and then decreasing lifetimes over duration: <Playground id="#0K3AQ2#15" title="Increasing and Decreasing Lifetimes Over Duration" description="Simple example of increasing and then decreasing lifetimes over duration." image=""/>
 
 
-### Change Start Size Over Duration
+## Change Start Size Over Duration
 To change the size of a particle on emission over the duration of the particle system use
 
 ```javascript
