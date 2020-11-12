@@ -1,4 +1,12 @@
-# Physics Collider Components
+---
+title: Physics Collider Components
+image: 
+description: Using colliders in the Unity Toolkit.
+keywords: babylon.js, exporter, unity, collisions, collider, extension 
+further-reading:
+video-overview:
+video-content:
+---
 
 Collider components define the shape of an object for the purposes of physical collisions. A collider, which is invisible, need not be the exact same shape as the object’s mesh and in fact, a rough approximation is often more efficient and indistinguishable in gameplay.
 
@@ -13,7 +21,7 @@ Colliders can be added to an object component to create floors, walls and other 
 Please refer to the [Unity Collision](https://docs.unity3d.com/Manual/CollidersOverview.html) documentation for details.
 
 
-# Managed Runtime Collision Events
+## Managed Runtime Collision Events
 
 Example **Collision Event** script component:
 

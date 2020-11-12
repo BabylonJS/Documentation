@@ -1,12 +1,21 @@
-# BabylonJS with React.
-# How to use BabylonJS with React
+---
+title: BabylonJS and React
+image: 
+description: How to integrate BabylonJS into a React application.
+keywords: babylon.js, extension, external libraries, external
+further-reading:
+video-overview:
+video-content:
+---
+
+## How to use BabylonJS with React
 
 For anyone interested, it is not difficult to integrate BabylonJS into a React application. 
 
-# What you need
+## What you need
 It's up to you if you choose Create React App or a custom project; only how to load BabylonJS in a component will be discussed here.  This example uses the newer `@babylonjs/core` ES6 NPM, but can also be modified to work with the `babylonjs` NPM.
 
-# Component
+## Component
 We are going to build a reusable React component that takes care of starting up BabylonJS for us!
 
 In a working React project you first need to install the package `@babylonjs/core` using npm or yarn:
@@ -139,7 +148,7 @@ export default () => (
 )
 ```
 
-# A few notes on the code
+## A few notes on the code
 This will show the basic playground in your website!  A rotation has been added in the render loop (and the sphere changed to a box, so you would notice).
 
 If you would like to see this in action, there is a boilerplate project using the original NPM `babylonjs`, which you can clone from
@@ -148,17 +157,17 @@ If you would like to see this in action, there is a boilerplate project using th
 There is a boilerplate using above component with ES6 NPM `@babylonjs/core` here
 * [Reactjs + BabylonJS](https://github.com/brianzinn/babylonjs-cra-vanilla-ts)
 
-# Adding other BabylonJS NPMs
+## Adding other BabylonJS NPMs
 If you start with the `@babylonjs` [ES6 NPMs](https://doc.babylonjs.com/features/es6_support) (as we have done) then add those ones only.  
 > For GUI use `@babylonjs/gui` instead of the NPMs that don't start with `@`.
 
-# Conclusion
+## Conclusion
 
 Integrating BabylonJS into a React site turns out to be not so tough.  Since BabylonJS 3.1 we can use ES6 imports not only for BabylonJS, but also for supported libraries (GUI/loaders/etc).
 
 If the above component we created does everything you need then that's all you will need and you are all set!  If you want to take it a step further you may want to take the `react-babylonjs` renderer for a spin.
 
-# react-babylonjs renderer
+## react-babylonjs renderer
 A renderer is a next-level React integration that lets you use JSX to build your scenes and GUI.  State changes will flow automatically to your BabylonJS components (and persist through HMR) and you can maintain your scene graph in a declarative syntax and through components.
 
 There is an NPM project called `react-babylonjs` that is a react renderer for BabylonJS.

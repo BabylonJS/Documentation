@@ -1,4 +1,12 @@
-# Running a local webserver for Babylon.js - 101
+---
+title: A Local Webserver for Babylon.js
+image: 
+description: A simple local webserver for running Babylon.js.
+keywords: babylon.js, extension, external libraries, external, npm, node.js, webserver
+further-reading:
+video-overview:
+video-content:
+---
 
 This tutorial:
  - Is for you, if you have no or limited experience with web development or servers in general.
@@ -6,7 +14,7 @@ This tutorial:
  - Is primarily focused on Windows.
 
 
-# Nodejs & NPM
+## Nodejs & NPM
 
 If you already have NodeJs and NPM installed, skip to **Sample** section.
 
@@ -17,7 +25,7 @@ Run the installer and follow the NodeJs setup Wizard. The default settings are f
 NPM is included in this installation.
 
 
-# Sample
+## Sample
 Having installed NodeJs and NPM, we're now ready for our server code.
 
  - Create a folder for your project 
@@ -67,7 +75,7 @@ Server is listening on port 80
  
  _If anyone wish to expand this section, feel free to PR_
 
-# Public Folder
+## Public Folder
 In the Public folder you'll find a sample scene consisting of a index.html and a babylonScene.js file.
 
 The browser's access is restricted to this folder and it's files & sub-folders.

@@ -1,24 +1,34 @@
+---
+title: Babylon.js and VRM
+image: 
+description: Using 3D humanoid avatar data for VR applications in Babylon.js.
+keywords: babylon.js, extension, external libraries, external, vrm, humanoid, vr
+further-reading:
+video-overview:
+video-content:
+---
+
 ![VRM top header](/img/resources/babylonjs_and_vrm/vrm_topheader.png)
 
-# What is VRM?
+## What is VRM?
 
 > “VRM” is **a file format for handling 3D humanoid avatar (3D model) data for VR applications**. It is based on glTF2.0. Anyone is free to use it.
 > 
-> In addition, a standard implementation ([UniVRM](https://github.com/vrm-c/UniVRM)) in c# that can import and export VRM file in [Unity](https://unity3d.com/) is released as open source.
+> In addition, a standard implementation ([UniVRM](https://github.com/vrm-c/UniVRM)) in c## that can import and export VRM file in [Unity](https://unity3d.com/) is released as open source.
 
-Additional informations can view at [vrm.dev](https://vrm.dev/en/).
+Additional information can be viewed at [vrm.dev](https://vrm.dev/en/).
 
-# How to load VRM file in BabylonJS?
+## How to load VRM file in BabylonJS?
 
 You can load VRM file in BabylonJS that uses [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is community-made BabylonJS glTF Loader Extension for `VRM`.
 
 It supports `.vrm` and `.vci` file loading.
 
-# A brief example
+## A brief example
 
-https://playground.babylonjs.com/#K5W35Y
+PG: <Playground id="#K5W35Y" title="VRM" description="Example of loading a VRM file." image=""/>
 
-# What can do?
+## What can do?
 
 For example, once write some animation code, all VRM models can animate it!
 
@@ -62,19 +72,19 @@ BabylonJS [standard animation mechanism](/babylon101/animations) also can be use
 
 For instance, you can make pose to any VRM.
 
-https://playground.babylonjs.com/#K5W35Y#8
+PG: <Playground id="#K5W35Y#8" title="VRM" description="Posing the VRM" image=""/>
 
-# How to use?
+## How to use?
 
 On browser example is [here](https://codepen.io/anon/pen/zQXyxL?editors=1010).
 
-On BabylonJS Playground example is https://playground.babylonjs.com/#K5W35Y
+Example PG: <Playground id="#K5W35Y" title="VRM" description="Example VRM" image=""/>
 
 On npm/yarn with webpack...
 
 ```bash
 $ npm install --save @babylonjs/core @babylonjs/loaders babylon-vrm-loader
-# or
+## or
 $ yarn add @babylonjs/core @babylonjs/loaders babylon-vrm-loader
 ```
 
@@ -104,7 +114,7 @@ vrmManager.humanoidBone.leftUpperArm.addRotation(0, 1, 0);
 vrmManager.morphing('Joy', 1.0);
 ```
 
-# External
+## External
 
 * [vrm.dev](https://vrm.dev/en/)
 * [virtual-cast/babylon-vrm-loader: GitHub](https://github.com/virtual-cast/babylon-vrm-loader)
