@@ -1,4 +1,14 @@
-# Introduction
+---
+title: Using the Particle System Editor
+image: 
+description: Babylon.js Editor tool to edit custom particle system sets
+keywords: welcome, babylon.js, editor, particle, particle system
+further-reading:
+video-overview:
+video-content:
+---
+
+## Introduction
 Introduced in the version 3.1.0, a new tool is available to edit custom particle system sets.
 More informations about particle systems set here: [https://doc.babylonjs.com/how_to/particlehelper#particlesystemset](https://doc.babylonjs.com/how_to/particlehelper#particlesystemset).
 
@@ -15,12 +25,12 @@ The workflow tends to:
 * preview
 * etc. until the set fits the wanted result
 
-# Demo
+## Demo
 Here is a live demo using the Particle System Creator tool:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FyCGTVNchQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
-# Creating a new set
+## Creating a new set
 To add a new set you'll edit using the **Particle System Creator** tool, you first have to add a new set in the assets library.
 In the assets panel, a tab named **Particles** shows you all the available particle system sets in the current project.
 
@@ -32,7 +42,7 @@ Example, a set named **maki**:
 To load the **Particle System Creator**, just double-click on the asset and the tool will open and load the selected particle system set.
 ![OpeningSet](/img/extensions/Editor/CreatingParticleSystemSet/OpeningSet.png)
 
-# Using the timeline
+## Using the timeline
 The tool is set of two panels:
 * The timeline
 * The realtime preview
@@ -46,13 +56,13 @@ Using the mouse scroll, you can zoom/unzoom the time scale of the timeline.
 Example drag'n'dropping the **New Particle System** system to 2 seconds (2000 ms):
 ![UsingTimeline](/img/extensions/Editor/CreatingParticleSystemSet/UsingTimeline.png)
 
-# Editing a system
+## Editing a system
 Still using the timeline, when you click a system, the Editor's Inspector will be updated to show the selected particle system's properties.
 When you modify a property, the result is applied in the realtime preview panel of the tool.
 
 The set is saved automatically.
 
-# Adding a new system to the set
+## Adding a new system to the set
 By default, a new set is composed of a default system. Fortunately, you can add new systems to the set.
 To add a new system, just click the tool's toolbar **Add System...**. A dialog will appear to ask the new system's name. Once confirmed, the timeline is updated and a new row is created with the new system.
 
@@ -61,20 +71,20 @@ You can now edit the new system.
 Example by adding a new system named **awesome system**:
 ![AddNewSystem](/img/extensions/Editor/CreatingParticleSystemSet/AddNewSystem.png)
 
-# Removing a system from the set
+## Removing a system from the set
 Hopefully, you can also remove a system from the set. Just right-click on the system in the timeline and select **Remove** in the context menu.
 
 **Note: Undo/Redo is not yet supported in the tool, be careful before removing any system.**
 
 ![RemovingSystem](/img/extensions/Editor/CreatingParticleSystemSet/RemovingSystem.png)
 
-# Previewing the set
+## Previewing the set
 Once you are happy with the current configuration of the set, you can preview the result by clicking on the tool's toolbar **Reset**.
 This will stop all the active systems and restart the set.
 
 Once started, the timeline's cursor (reading head) will show the current progress in time of the set. Each time a system is started, the system in timeline will be animated to visually notify that it started.
 
-# Exporting a set
+## Exporting a set
 The current set being edited can be exported. It is typically useful to re-use later in other projects or to populate a collection of particle system sets.
 
 To export a set and sanve on the local file system, just click the tool's toolbar **Export As...**.
@@ -89,7 +99,7 @@ Embedding textures means that the `.json` file will grow faster than separating 
 
 ![ExportAs](/img/extensions/Editor/CreatingParticleSystemSet/ExportAs.png)
 
-# Importing from a set
+## Importing from a set
 In case of you have already exported a set, it is possible to import systems from a saved set to the current set being modified in the **Particle System Creator** tool.
 To import a set, just click the tool's toolbar **Import From...**. A dialog will appear to select the set's `.json` file to import.
 
@@ -97,7 +107,7 @@ To import a set, just click the tool's toolbar **Import From...**. A dialog will
 
 Once confirmed, all the systems and textures will be imported to the current set.
 
-# Loading from a preset
+## Loading from a preset
 BabylonJS provides a list of already built sets: [https://doc.babylonjs.com/how_to/particlehelper#available-effects](https://doc.babylonjs.com/how_to/particlehelper#available-effects).
 It's useful to start from these presets as they are also good examples to understand how to build a cool particle system set.
 
@@ -110,11 +120,11 @@ A dialog will appear to ask if you want to override the current set:
 
 ![PresetOverride](/img/extensions/Editor/CreatingParticleSystemSet/PresetOverride.png)
 
-Example with the explosion preset: [https://www.babylonjs-playground.com/#X37LS1#3](https://www.babylonjs-playground.com/#X37LS1#3)
+PG: <Playground id="#X37LS1#3" title="Explosion" description="Example with the explosion preset" image=""/>
 
 ![ExplosionPreset](/img/extensions/Editor/CreatingParticleSystemSet/ExplosionPreset.png)
 
-# Adding a set to the current scene
+## Adding a set to the current scene
 Once the set is finalized, you can instantiate the set in the scene.
 To instantiate a set in the scene, just drag'n'drop the asset from the assets panel to the scene preview. The set will be created with:
 * An empty mesh containing all the particle systems. The mesh will have the set's name.

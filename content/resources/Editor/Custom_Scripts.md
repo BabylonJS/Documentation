@@ -1,6 +1,14 @@
-# Writing custom scripts
+---
+title: Writing Custom Scripts
+image: 
+description: Babylon.js Editor tool to write and attach custom scripts to objects in the scene.
+keywords: welcome, babylon.js, editor, custom, scripts, custom scripts
+further-reading:
+video-overview:
+video-content:
+---
 
-The editor provides a tool to write and attach custom scripts to objects in the scene
+The editor provides a tool to write and attach custom scripts to objects in the scene.
 
 This includes:
 * The scene itself
@@ -23,7 +31,7 @@ Once you select another object in the scene, the tool will refresh and draw the 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6U87lDX8i3A" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
-# Explaining the code
+## Explaining the code
 
 ```javascript
 import { Scene, Color4 } from 'babylonjs';
@@ -77,12 +85,12 @@ exportScript(
 );
 ```
 
-# Debugging the code
+## Debugging the code
 Once you are happy and want to test your code, just run the scene by clicking in the toolbar **Play and Debug**. The editor will open a new window.
 
 To see errors and debug your code (break points, logs, etc.), just type F12 in the new opened window. To set breakpoints, all the custom scripts are available at **behaviors/**. For instance, sourcemaps are not supported but will come in future versions.
 
-# Importing custom classes in your scripts
+## Importing custom classes in your scripts
 
 To help you factorizing your code, you can create different kinds of scripts:
 * Scripts that you'll attach to nodes
@@ -108,7 +116,7 @@ Then, running your project, the `.log` function is called:
 
 ![EditorCodeEditor](/img/extensions/Editor/CodeEditor/maki_result.png)
 
-# Accessing the project files
+## Accessing the project files
 The Editor is designed to create, edit and add the maximum of scene objects using the Editor's tools. The code editor is done to only interact with the scene objects and add logic.
 Anyway, it is also possible to create scene objects in scripts such as textures etc. and that means you have to access the files.
 

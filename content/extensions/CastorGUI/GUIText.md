@@ -20,7 +20,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-# Options
+## Options
 
 * **x**: position left of text (in pixel)
 * **y**: position top of text (in pixel)
@@ -36,19 +36,19 @@ Name | Type | Description
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 * **inline**: text inline or no. false by default.
 
-# Methods
+## Methods
 
-## updateText(string:text) → void
+### updateText(string:text) → void
 Updates the text of the GUI element
 
-## getTextWidth(string:text, string:font) → void : static
+### getTextWidth(string:text, string:font) → void : static
 Get size the text of the GUI element
 
-## setVisible(bool, fad) → void
+### setVisible(bool, fad) → void
 Set this GUI element to visible or invisible
 
-## isVisible(e) → void
+### isVisible(e) → void
 Returns element if is visible or no
 
-## dispose() → void
+### dispose() → void
 Dispose the GUIText Manager, and delete element.

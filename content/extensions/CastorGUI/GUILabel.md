@@ -20,7 +20,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-# Options
+## Options
 
 * **w**: width of label (in pixel)
 * **h**: height of label (in pixel)
@@ -29,13 +29,13 @@ Name | Type | Description
 * **text**: value text label (string)
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 
-# Methods
+## Methods
 
-## setVisible(bool, fade) → void
+### setVisible(bool, fade) → void
 Set this GUI element to visible or invisible
 
-## isVisible() → void
+### isVisible() → void
 Returns element if is visible or no
 
-## dispose() → void
+### dispose() → void
 Dispose the GUILabel, and delete element.

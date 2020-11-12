@@ -2,7 +2,7 @@
 title: Azure Media Player 360 Video Plugin
 image: /img/pageImages/AMP360Video.jpg
 description: The Azure Media Player 360 Video Plugin is a handy 360 video plugin for easy integration into your Babylon.js 360 Web Apps.
-keywords: AMP, Azure Media Player, Azure 360 Video, 360, 360 Video, plugin
+keywords: extensions, AMP, Azure Media Player, Azure 360 Video, 360, 360 Video, plugin
 further-reading:
 video-overview: 
 video-content:

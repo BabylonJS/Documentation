@@ -2,8 +2,18 @@
 title: Babylon.js Viewer Examples
 image: 
 description: Examples of using the viewer
-keywords: welcome, babylon.js, viewer, examples
+keywords: extensions, babylon.js, viewer, examples
 further-reading:
+    - title: Babylon.js Viewer
+      url: /extensions/The_Babylon_Viewer
+    - title: Configuring the viewer
+      url: /extensions/Configuring_the_viewer
+    - title: The templating system
+      url: /extensions/The_templating_system
+    - title: Recreating the default configuration for the viewer
+      url: /extensions/Recreating_the_default_configuration
+    - title: Advanced usage
+      url: /extensions/Advanced_usage
 video-overview:
 video-content:
 ---
@@ -41,12 +51,3 @@ An example on how to load the viewer and use its observers using promises, obser
 An example of the animation system of the default viewer
 
 [Live demo](https://viewer.babylonjs.com/ufoexample)
-
-## Further Reading
-
-* [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
-* [Configuring the viewer](/extensions/Configuring_the_viewer)
-* [The templating system](/extensions/The_templating_system)
-* [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
-* [Advanced usage](/extensions/Advanced_usage)
-* [Babylon.js viewer examples](/extensions/Viewer_examples)

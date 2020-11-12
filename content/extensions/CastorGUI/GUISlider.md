@@ -21,7 +21,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-# Options
+## Options
 
 * **w**: width of slider (in pixel)
 * **h**: height of slider (in pixel)
@@ -35,13 +35,13 @@ Name | Type | Description
 * **zIndex**: depth of the element (int) =&gt; 1 by default
 * **tabindex**: Tab order of the field.
 
-# Methods
+## Methods
 
-## setVisible(bool, fade) → void
+### setVisible(bool, fade) → void
 Set this GUI element to visible or invisible
 
-## isVisible() → void
+### isVisible() → void
 Returns element if is visible or no
 
-## dispose() → void
+### dispose() → void
 Dispose the GUISlider, and delete element.

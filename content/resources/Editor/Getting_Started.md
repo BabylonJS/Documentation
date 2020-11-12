@@ -1,5 +1,13 @@
+---
+title: Getting Started with the Editor
+image: 
+description: Getting Started with the Babylon.js Editor, a community project maintained mostly by Julien Moreau.
+keywords: welcome, babylon.js, editor
+further-reading:
+video-overview:
+video-content:
+---
 
-# Getting Started with the Editor
 The V3 of the Babylon.js Editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
 
 The editor V3 is available at http://editor.babylonjs.com/.
@@ -7,10 +15,10 @@ The video tutorials are all available on [a Youtube playlist](https://www.youtub
 
 Please note that the editor is a community project maintained mostly by Julien Moreau.
 
-# Desktop App
+## Desktop App
 The Babylon.js Editor is firstly available as a desktop application.
 
-**Note: It is highly recommanded to use the desktop app as you'll get access to the local file system to save your projects.**
+**Note: It is highly recommended to use the desktop app as you'll get access to the local file system to save your projects.**
 
 When an update is available (new features, bug fixes), you'll get notified and the editor will download the new installer for you.
 This will also allow you to continue working even in offline mode and save projects directly on your local file system instead of using OneDrive. Basically, the online version must be just used as a playground or a scene explorer.
@@ -20,12 +28,12 @@ Downloading:
 * Mac OS X: [http://editor.babylonjs.com/BabylonJS Editor.dmg](http://editor.babylonjs.com/download/osx.html)
 * Linux: [http://editor.babylonjs.com/BabylonJS Editor.zip](https://editor.babylonjs.com/BabylonJS%20Editor.zip)
 
-# Project example
+## Project example
 As an example, the following demo has been done 100% in the editor. It includes writing custom scripts, custom post-processes etc.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/obEuCI_pPL4" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
-# Available features
+## Available features
 * Create, edit and save particle systems
 * Create, edit and save particle system sets
 * Create and edit animations
@@ -41,7 +49,7 @@ As an example, the following demo has been done 100% in the editor. It includes 
 * Attach custom scripts (JavaScript and TypeScript) to your objects
 * Test your scenes with debug support
 
-# Starting with the editor
+## Starting with the editor
 Once you run the editor, you'll see several panels:
 * Preview: the scene preview in live
 * Assets: this will contain assets in future such as custom scripts etc. that you'll be able to modify and drag'n'drop

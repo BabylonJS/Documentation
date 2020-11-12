@@ -1,10 +1,19 @@
-# Using Path Finder
+---
+title: Using Path Finder
+image: 
+description: Babylon.js Editor tool to help creating path finders
+keywords: welcome, babylon.js, editor, path finder
+further-reading:
+video-overview:
+video-content:
+---
+
 The editor provides a tool to help creating path finders. That will require programming skills.
 
 For example in this video, a path finder is used to animate randomly a particle system in a given mesh surface:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7HucXzBYC34" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
-# Using the Path Finder Editor
+## Using the Path Finder Editor
 To access the tool, just click on the toolbar **Tools -> Path Finder...**.
 
 The tool will show 2 panels:
@@ -21,10 +30,10 @@ To edit the path finder configuration, just click on the toolbar **Edit**. Now, 
 * Remove...: Remove the current path finder configuration
 * Create new...: Create a new path finder configuration
 
-# Selecting a path finder configuration
+## Selecting a path finder configuration
 To select a path finder configuration, just click on the toolbar **Paths -> the configuration to edit**.
 
-# Programming using path finder configurations
+## Programming using path finder configurations
 As a developer, you'll want to use a previously configured path finder. For example, when you add a script to a node, you can use the global instance named **tools** to access all extensions including the path finder extension.
 
 For example, animating randomly an object:

@@ -1,4 +1,12 @@
-# Creating Prefabs
+---
+title: Creating Prefabs
+image: 
+description: Babylon.js Editor, in order to optimize and speed up design, allows you to create prefab.
+keywords: welcome, babylon.js, editor, prefabs, creating, creating prefabs
+further-reading:
+video-overview:
+video-content:
+---
 
 In order to optimize and go faster in design, the editor allows you to create prefabs.
 For instance, only meshes are supported by prefabs (no lights, no particle systems, etc.).
@@ -22,7 +30,7 @@ From now, you can drag'n'drop your prefab assets in the scene in order to add ne
 In the scene graph, the hierarchy of a prefab will not be drawn as you cannot remove or clone a child of a prefab for instance.
 Anyway, you can of course attach scripts, graphs etc. to your prefabs, including the children of a prefab.
 
-# What about performances?
+## What about performances?
 For instance, only meshes are supported by prefabs (no lights, no particle systems, etc.).
 In fact, the meshes used for the prefabs are not cloned because it would need the engine to draw multiple times the same mesh and then increase draw calls.
 To overcome the draw calls problem, the editor will just create **Mesh Instances** from source meshes you have selected.
@@ -31,5 +39,5 @@ From the given documentation (//doc.babylonjs.com/how_to/how_to_use_instances), 
 
 In conclusion, that means each mesh of a prefab will be rendered only one time but at several places on each render.
 
-# Demo video
+## Demo video
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cIT0NK0amBA" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>

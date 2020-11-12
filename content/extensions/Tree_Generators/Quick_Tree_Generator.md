@@ -1,4 +1,12 @@
-# Quick Tree Generator
+---
+title: Quick Tree Generator
+image: 
+description: Learn about the quick tree generator extension.
+keywords: extensions, babylon.js, tree, tree generator, quick tree
+further-reading:
+video-overview:
+video-content:
+---
 
 ![Generated Tree ](/img/extensions/trees/quick1.png)
 
@@ -6,9 +14,9 @@ The function QuickTreeGenerator uses a sphere with randomized vertices to genera
 
 It is based on Julian Temechon's tutorial on the VertexData object http://www.pixelcodr.com/tutos/trees/trees.html
 
-A demo can be found at:  https://www.babylonjs-playground.com/#LG3GS#107
+A demo can be found at: <Playground id="#LG3GS#107" title="Quick Tree Generator Example" description="Simple example of the quick tree generator." image=""/>
 
-# How to use it.
+## How to use it.
 
 Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeGenerators/QuickTreeGenerator
 
@@ -21,7 +29,7 @@ call the function
 var tree = QuickTreeGenerator(sizeBranch, sizeTrunk, radius, trunkMaterial, leafMaterial, scene);
 ```
 
-# Parameters
+## Parameters
 
 sizeBranch - sphere radius used for branches and leaves 15 to 20.
 

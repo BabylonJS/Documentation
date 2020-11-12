@@ -1,14 +1,24 @@
-# TextureCanvas
+---
+title: Texture Canvas
+image: 
+description: Learn about the texture canvas extension that functions as a texture that other textures can be drawn upon.
+keywords: extensions, babylon.js, texture canvas
+further-reading:
+video-overview:
+video-content:
+---
+
+## TextureCanvas
 
 ![Fur material high](/img/extensions/texturecanvas.jpg)
 
-# About
+## About
 
 TextureCanvas is a texture on which other textures can be drawn.
 
-# Usage
+## Usage
 
-# Creating a canvas
+## Creating a canvas
 
 To construct a TextureCanvas, you need to provide the size and the scene the texture will be used in:
 
@@ -28,9 +38,13 @@ Aditionally, you may pass three more parameters, which are:
 -   _onReady_, a function to be called when the canvas is ready.
 -   _options_, an object with the properties _generateMipMaps_ (boolean) and _samplingMode_ (number)
 
-https://www.babylonjs-playground.com/#9S5YZY#6
+<<<<<<< HEAD
+PG: <Playground id="#9S5YZY#6" title="Texture Canvas" description="Example of a TextureCanavas" image=""/>
+=======
+<Playground id="#9S5YZY#6" title="Texture Canvas Example 2" description="Simple example of a texture canvas." image=""/>
+>>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
-# Draw using contexts
+## Draw using contexts
 
 Contexts can be used to specify how a texture should be drawn. Multiple contexts can be created and used interchangably.
 
@@ -75,13 +89,17 @@ And the following methods:
 
 Once the context is set up, simply call `ctx.draw()` or `ctx.drawTexture(myTexture)`
 
-https://www.babylonjs-playground.com/#436DIW#2
+<<<<<<< HEAD
+PG: <Playground id="#436DIW#2" title="Texture Canvas" description="Example of drawing on a TextureCanavas" image=""/>
+=======
+<Playground id="#436DIW#2" title="Texture Canvas Example 2" description="Texture canvas example with drawing using context." image=""/>
+>>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
-# Notes
+## Notes
 
 Please note that uv-coordinates are used rather than pixel values.
 
-# Rotation
+## Rotation
 
 Rotating a texture happens in three dimensions in the default coordinate system of Babylon.js, with _z_ being the forward axis.
 
