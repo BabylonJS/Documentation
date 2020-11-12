@@ -5,17 +5,17 @@ description: Learn how to use one of the available physics engines in Babylon.js
 keywords: diving deeper, phyiscs
 further-reading:
     - title: How To Use Forces
-      url: /how_to/forces
+      url: /divingDeeper/physics/forces
     - title: How to use Joints
-      url: /how_to/joints
+      url: /divingDeeper/physics/joints
     - title: How To Use Pivots and Axes
-      url: /how_to/joint_pivots
+      url: /divingDeeper/physics/pivotsAxes
     - title: How To Create Compound Bodies
       url: /divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /how_to/soft_bodies
+      url: /divingDeeper/physics/softBodies
     - title: How To Use Advanced Features
-      url: /how_to/Using_Advanced_Physics_Features
+      url: /divingDeeper/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
       url: /divingDeeper/physics/addPhysicsEngine
 video-overview:

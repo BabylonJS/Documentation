@@ -5,9 +5,9 @@ description: Helpful code snippet for drawing points on a mesh surface in Babylo
 keywords: babylon.js, tools, resources, utilities, camera
 further-reading:
     - title: How To Create Points Inside a Mesh
-      url: /snippets/innerMeshPoints
+      url: /toolsAndResources/utilities/InnerMeshPoints
     - title: How To Check When Point is Inside a Mesh
-      url: /snippets/isInside
+      url: /toolsAndResources/utilities/IsInside
 video-overview:
 video-content:
 ---

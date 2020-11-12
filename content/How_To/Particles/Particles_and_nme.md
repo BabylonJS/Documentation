@@ -7,7 +7,7 @@ further-reading:
     - title: Particle 101
       url: /divingDeeper/particles
     - title: Node Material
-      url: /how_to/node_material
+      url: /divingDeeper/materials/node_material/particles_and_nme
 video-overview:
 video-content:
 ---

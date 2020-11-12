@@ -5,9 +5,9 @@ description: Learn how to use external assets in the playground in Babylon.js.
 keywords: babylon.js, tools, resources, playground
 further-reading:
     - title: Textures Directly Available to the Playground
-      url: /resources/Playground_Textures.html
+      url: /toolsAndResources/assetLibraries/availableTextures.html
     - title: Meshes Available to Import into the Playground
-      url: /resources/meshes_to_load
+      url: /toolsAndResources/assetLibraries/availableMeshes
 video-overview:
 video-content:
     - title: Using External Assets In the Playground

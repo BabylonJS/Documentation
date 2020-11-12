@@ -5,9 +5,9 @@ description: Learn how to draw curves in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, curves
 further-reading:
     - title: How To Create Parametric Shapes
-      url: /How_To/parametric_shapes
+      url: /divingDeeper/mesh/creation/param
     - title: How To Use Path3D
-      url: /How_To/How_to_use_Path3D
+      url: /divingDeeper/mesh/path3D
 video-overview:
 video-content:
 ---

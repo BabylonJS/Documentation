@@ -7,17 +7,17 @@ further-reading:
     - title: How to get Babylon.js
       url: /divingDeeper/developWithBjs/frameworkVers
     - title: Use the glTF File Loader Plugin
-      url: /how_to/gltf
+      url: /divingDeeper/importers/glTF
     - title: Use the OBJ File Loader Plugin
-      url: /how_to/obj
+      url: /divingDeeper/importers/oBJ
     - title: Use the STL File Loader Plugin
-      url: /how_to/stl
+      url: /divingDeeper/importers/stl
     - title: Load Files with Assets Manager
-      url: /how_to/how_to_use_AssetsManager
+      url: /divingDeeper/importers/assetManager
     - title: Available Meshes for Importing into Playground
-      url: /resources/meshes_to_load
+      url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /resources/external_pg_assets
+      url: /toolsAndResources/tools/playground/externalPGAssets
     - title: SceneLoader
       url: /typedoc/classes/babylon.sceneloader.html
 video-overview:

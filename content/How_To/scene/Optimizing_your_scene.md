@@ -5,11 +5,11 @@ description: Learn how to optimize your scene in Babylon.js.
 keywords: diving deeper, scene, optimization, optimize
 further-reading:
     - title: How to Use Scene Optimizer
-      url: /How_To/How_to_use_SceneOptimizer
+      url: /divingDeeper/scene/sceneOptimizer
     - title: How To Optimize Your Scene With Octrees
-      url: /How_To/optimizing_your_scene_with_octrees
+      url: /divingDeeper/scene/optimizeOctrees
     - title: Multiview VR optimization
-      url: /How_To/Multiview
+      url: /divingDeeper/cameras/multiViewsPart1
 video-overview:
 video-content:
 ---

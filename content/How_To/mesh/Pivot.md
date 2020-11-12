@@ -5,7 +5,7 @@ description: Learn how to rotate around an axis in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, axis rotation
 further-reading:
     - title: Using a Pivot
-      url: /How_To/Pivots
+      url: /divingDeeper/mesh/transforms/parent_pivot/pivots
 video-overview:
 video-content:
 ---

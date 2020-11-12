@@ -15,8 +15,8 @@ video-content:
 ## Using the Wood procedural texture
 
 Wood procedural texture can be found here: 
-- Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)
-- Minified : [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js)
+- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)
+- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js)
 
 A demo can be found here: <Playground id="#K41IJ" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo" image=""/>
 

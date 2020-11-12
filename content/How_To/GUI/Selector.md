@@ -5,13 +5,13 @@ description: Learn about the selector in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, GUI, selector
 further-reading:
     - title: How To Use Babylon GUI
-      url: /how_to/gui
+      url: /divingDeeper/gui/gui
     - title: How To Use Babylon GUI Scroll Viewer
-      url: /how_to/ScrollViewer
+      url: /divingDeeper/gui/scrollViewer
     - title: How To Use Babylon GUI Xml Loader
-      url: /how_to/XmlLoader
+      url: /divingDeeper/gui/xmlLoader
     - title: How To Use Babylon GUI3D
-      url: /how_to/gui3d
+      url: /divingDeeper/gui/gui3D
 video-overview:
 video-content:
 ---

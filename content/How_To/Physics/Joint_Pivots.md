@@ -5,17 +5,17 @@ description: Learn all about physics pivots and axes in Babylon.js.
 keywords: diving deeper, phyiscs, joint, pivots, joint pivots.
 further-reading:
     - title: How To Use The Physics Engines
-      url: /how_to/using_the_physics_engine
+      url: /divingDeeper/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /how_to/forces
+      url: /divingDeeper/physics/forces
     - title: How To Use Joints
-      url: /how_to/joints
+      url: /divingDeeper/physics/joints
     - title: How To Create Compound Bodies
       url: /divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /how_to/soft_bodies
+      url: /divingDeeper/physics/softBodies
     - title: How To Use Advanced Features
-      url: /how_to/Using_Advanced_Physics_Features
+      url: /divingDeeper/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
       url: /divingDeeper/physics/addPhysicsEngine
 video-overview:

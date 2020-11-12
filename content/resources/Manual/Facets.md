@@ -5,11 +5,11 @@ description: Learn about the relationship between materials and vetices.
 keywords: welcome, babylon.js, diving deeper, materials, advanced
 further-reading:
     - title: Calculating UVs
-      url: /How_To/Custom#calculating-uvs
+      url: /divingDeeper/mesh/creation/custom/custom#calculating-uvs
     - title: How To Update Vertices
-      url: /How_To/Updating_Vertices.html
+      url: /divingDeeper/mesh/creation/custom/updatingVertices
     - title: Normals in BJS
-      url: /resources/Normals.html
+      url: /divingDeeper/mesh/creation/custom/vertexNormals
 video-overview:
 video-content:
 ---

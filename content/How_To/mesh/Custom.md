@@ -5,9 +5,9 @@ description: Learn how to create custom meshes in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, custom meshes
 further-reading:
     - title: How To Update Vertices
-      url: /How_To/Updating_Vertices.html
+      url: /divingDeeper/mesh/creation/custom/updatingVertices
     - title: Normals in BJS
-      url: /resources/Normals.html
+      url: /divingDeeper/mesh/creation/custom/vertexNormals
 video-overview:
 video-content:
 ---
