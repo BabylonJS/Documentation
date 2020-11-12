@@ -1,28 +1,23 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import { ParsedUrlQuery } from "querystring";
-import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
-
-import Layout from "../components/layout.component";
-import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
-
-import renderToString from "next-mdx-remote/render-to-string";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import hydrate from "next-mdx-remote/hydrate";
-
+import Layout from "../components/layout.component";
+import renderToString from "next-mdx-remote/render-to-string";
+import { BucketContent } from "../components/bucketContent.component";
+import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
+import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
+import { ExamplesComponent } from "../components/contentComponents/example.component";
+import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { IconButton, Tooltip } from "@material-ui/core";
+import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
+import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
+import { markdownComponents } from "../components/markdownComponents/markdownComponents";
+import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
+import { ParsedUrlQuery } from "querystring";
+import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import "./documentationPage.style.scss";
 
-import { markdownComponents } from "../components/markdownComponents/markdownComponents";
-
 // testing lib instead of src (documentation states to use the src)
-import { BucketContent } from "../components/bucketContent.component";
-import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
-import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
-import { ExamplesComponent } from "../components/contentComponents/example.component";
-import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
-import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
-import { IconButton, Tooltip } from "@material-ui/core";
-
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -42,7 +37,7 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next, relatedArticles, relatedExternalLinks }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -99,8 +94,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     useEffect(() => {
         if (!activeExample) {
             markdownRef?.current?.classList.add("closed");
+            if (markdownRef?.current?.classList.contains("opened")) {
+                markdownRef?.current?.classList.remove("opened");
+                markdownRef?.current?.scrollTo({ behavior: "auto", top: markdownRef?.current?.scrollTop - 400, left: 0 });
+            }
         } else if (markdownRef?.current?.classList.contains("closed")) {
             markdownRef?.current?.classList.remove("closed");
+            markdownRef?.current?.classList.add("opened");
             markdownRef?.current?.scrollTo({ behavior: "auto", top: markdownRef?.current?.scrollTop + 400, left: 0 });
         }
     }, [activeExample]);
@@ -132,6 +132,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                                 </>
                             )}
                             {renderedContent}
+                            <BucketContent title="Further reading" childPages={relatedArticles} externalLinks={relatedExternalLinks}></BucketContent>
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>
                         <div id="scroll-to-top">

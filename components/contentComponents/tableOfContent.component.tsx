@@ -1,5 +1,5 @@
-import { Card, CardContent, createStyles, IconButton, makeStyles, Theme, Tooltip, Typography } from "@material-ui/core";
-import { createRef, FunctionComponent, useContext, useEffect, useState } from "react";
+import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { FunctionComponent, useContext, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
@@ -20,12 +20,12 @@ const styles = makeStyles((theme: Theme) =>
             },
         },
         itemsContainer: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'start',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
             position: "relative",
-            transition: "max-height 0.2s",
-            maxHeight: 0,
+            // transition: "max-height 0.2s",
+            // maxHeight: 0,
             overflow: "hidden",
             "& div": {
                 whiteSpace: "nowrap",
@@ -36,22 +36,24 @@ const styles = makeStyles((theme: Theme) =>
         },
         itemsHovered: {
             overflow: "auto",
-            transition: "max-height 0.2s",
+            // transition: "max-height 0.2s",
             maxHeight: 400,
             height: "auto",
             paddingBottom: 16,
         },
         itemsFullHeight: {
             overflow: "auto",
-            transition: "max-height 0.2s",
-            maxHeight: '100vh',
+            // transition: "max-height 0.2s",
+            // maxHeight: "2000px",
             height: "auto",
             paddingBottom: 16,
         },
     }),
 );
 
-export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[], levels: number }> = ({ tocItems, levels }) => {
+export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[]; levels: number }> = ({ tocItems, levels }) => {
+    // To commented-out lines in this file are for future use.
+
     const [hovered, setHovered] = useState<boolean>(false);
     const [clicked, setClicked] = useState<boolean>(false);
     const [fullHeight, setFullHeight] = useState<boolean>(true);
@@ -125,16 +127,17 @@ export const TableOfContent: FunctionComponent<{ tocItems: ITableOfContentsItem[
                 Table Of Contents
             </Typography>
             <Typography className={`${classes.itemsContainer} ${fullHeight ? classes.itemsFullHeight : hovered || clicked ? classes.itemsHovered : ""}`} variant="body2" color="textSecondary" component="div">
-                {tocItems.filter((item) => {
-                    return item.level <= levels
-                })
-                .map((item, idx) => (
-                    <a key={idx} href={`#${item.id}`}>
-                        <div onClick={disableClick} style={{ marginLeft: item.level * 16, display: 'inline' }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
-                            {item.title}
-                        </div>
-                    </a>
-                ))}
+                {tocItems
+                    .filter((item) => {
+                        return item.level <= levels;
+                    })
+                    .map((item, idx) => (
+                        <a key={idx} href={`#${item.id}`}>
+                            <div onClick={disableClick} style={{ marginLeft: item.level * 16, display: "inline" }} className={item.id === (context.activeTOCItem && context.activeTOCItem.id) ? "active" : ""}>
+                                {item.title}
+                            </div>
+                        </a>
+                    ))}
             </Typography>
         </div>
     );

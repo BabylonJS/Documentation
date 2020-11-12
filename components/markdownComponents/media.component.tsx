@@ -19,8 +19,9 @@ const styles = makeStyles((theme: Theme) =>
         },
         container: {
             maxWidth: 800,
-            maxHeight: 450
-        }
+            maxHeight: 450,
+            margin: theme.spacing(2, 0),
+        },
     }),
 );
 

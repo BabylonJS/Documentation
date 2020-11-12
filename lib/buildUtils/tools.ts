@@ -13,6 +13,8 @@ import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendToo
 
 export const markdownDirectory = "content/";
 
+const childPageData = {};
+
 export const getAllFiles = (dirPath: string, arrayOfFiles?: string[], extension = ".md"): string[] => {
     const files = readdirSync(dirPath);
 
@@ -127,6 +129,10 @@ export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
 };
 
 export async function getPageData(id: string[], fullPage?: boolean): Promise<IDocumentationPageProps> {
+    if (!fullPage && childPageData[id.join("-")]) {
+        return childPageData[id.join("-")];
+    }
+
     // get fullPath from the configuration
     const docs = getElementByIdArray(id, !fullPage);
     if (!docs) {
@@ -148,6 +154,42 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
     const next = (await (fullPage && docs.next && getPageData(docs.next.idArray))) || null;
 
     const breadcrumbs = generateBreadcrumbs(id);
+
+    const relatedArticles = {};
+    const relatedExternalLinks = [];
+
+    const promises = [];
+    if (fullPage && metadata.furtherReading) {
+        metadata.furtherReading.forEach((item) => {
+            const url = typeof item === "string" ? item : item.url;
+            const title = typeof item === "string" ? item : item.title;
+            if(!url) {
+                throw new Error("Error in md file, maybe used tab instead of space?")
+            }
+            if (!url.startsWith("http")) {
+                const idArray = url.split("/");
+                if (idArray[0] === "") {
+                    idArray.shift();
+                }
+                const lastId = idArray[idArray.length - 1];
+                promises.push(
+                    getPageData(idArray, false).then((data) => {
+                        return relatedArticles[lastId] = (data);
+                    }, () => {
+                        console.log('Error - url not found:', url)
+                    }),
+                );
+                // console.log('pushed');
+            } else {
+                relatedExternalLinks.push({
+                    url,
+                    title,
+                });
+            }
+        });
+    }
+
+    await Promise.all(promises);
 
     // Search index!
     if (fullPage) {
@@ -198,7 +240,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         }
     }
 
-    return {
+    const pageProps = {
         id,
         breadcrumbs,
         childPages,
@@ -206,6 +248,15 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         content,
         previous,
         next,
+        relatedArticles,
+        relatedExternalLinks,
         lastModified: lastModified ? lastModified.toUTCString() : "",
-    };
+    } as IDocumentationPageProps;
+
+    if (!fullPage) {
+        // store this in cache
+        childPageData[id.join("-")] = pageProps;
+    }
+
+    return pageProps;
 }

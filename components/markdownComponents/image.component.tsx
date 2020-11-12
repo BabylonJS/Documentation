@@ -1,23 +1,26 @@
-import { createRef, FunctionComponent, useEffect, useRef, useState } from "react";
-import { IImageEmbed } from "../../lib/content.interfaces";
 import Image from "next/image";
-import { makeStyles, createStyles, Theme } from "@material-ui/core";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         imageWrapper: {
             position: "relative",
-            display: "flex",
+            // display: "flex",
             flexDirection: "column",
             maxWidth: 800,
-            height: "100%",
+            height: "auto",
+            margin: theme.spacing(2, 0)
         },
         image: {
             flex: 1,
         },
         caption: {
             fontSize: 12,
+            display: "block",
+            marginBottom: theme.spacing(2)
         },
     }),
 );
@@ -36,7 +39,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         let { h, w } = intrinsic;
         const markdownContainer = document.querySelector(".markdown-container") as HTMLDivElement;
-        const containerWidth =  markdownContainer.clientWidth - 32;
+        const containerWidth = markdownContainer.clientWidth - 32;
         if (w > containerWidth) {
             h = (h * containerWidth) / w;
             w = containerWidth;
@@ -59,9 +62,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         const properties: IImageEmbed = { ...props };
         if (!props.width || !props.height) {
-            // properties.unsized = true;
             properties.layout = "fill";
-            // return <img className={classes.image} {...props} />;
         }
         try {
             return (
@@ -95,9 +96,11 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     };
 
     return (
-        <div ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "100%", width: containerScale.w !== 0 ? containerScale.w : "800px" }} className={classes.imageWrapper}>
-            {getImage()}
+        <>
+            <div ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
+                {getImage()}
+            </div>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
-        </div>
+        </>
     );
 };

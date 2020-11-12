@@ -71,4 +71,8 @@ export interface IDocumentationPageProps extends IPageProps {
     childPages?: {
         [key: string]: IDocumentationPageProps;
     };
+    relatedArticles?: {
+        [key: string]: IDocumentationPageProps;
+    };
+    relatedExternalLinks?: { url: string; title: string }[];
 }
