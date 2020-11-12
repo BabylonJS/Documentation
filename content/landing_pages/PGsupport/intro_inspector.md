@@ -5,11 +5,11 @@ description: Dive into a video series overview of The Inspector in Babylon.js.
 keywords: babylon.js, tools, resources, inpsector, debug layer
 further-reading:
     - title: The Inspector overview
-      url: Playground_debuglayer
+      url: /toolsAndResources/tools/inspector
     - title: How To Use The Inspector in Projects
-      url: /How_To/debug_layer
+      url: /toolsAndResources/tools/inspector
     - title: How To Customize the Inspector
-      url: /How_To/customize_debug_layer
+      url: /toolsAndResources/tools/inspector/customizingInspector
     - title: Dev blog about the inspector
       url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
     - title: Using the Texture Inspector

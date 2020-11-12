@@ -5,13 +5,13 @@ description: Learn all about the Babylon.js 3D GUI System.
 keywords: welcome, babylon.js, diving deeper, GUI, 3D GUI, 3D
 further-reading:
     - title: How To Use Babylon GUI
-      url: /how_to/gui
+      url: /divingDeeper/gui/gui
     - title: How To Use Babylon GUI Scroll Viewer
-      url: /how_to/ScrollViewer
+      url: /divingDeeper/gui/scrollViewer
     - title: How To Use Babylon GUI Xml Loader
-      url: /how_to/XmlLoader
+      url: /divingDeeper/gui/xmlLoader
     - title: How To Use the Selection Panel Helper
-      url: /how_to/selector
+      url: /divingDeeper/gui/selector
 video-overview:
 video-content:
 ---

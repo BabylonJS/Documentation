@@ -5,9 +5,9 @@ description: Learn all about vertex normals in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, vertex normals
 further-reading:
     - title: Custom Meshes
-      url: /How_To/Custom.html
+      url: /divingDeeper/mesh/creation/custom
     - title: Updating Vertices
-      url: /How_To/Updating_Vertices.html
+      url: /divingDeeper/mesh/creation/custom/updatingVertices
 video-overview:
 video-content:
 ---

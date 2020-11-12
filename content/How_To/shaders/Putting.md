@@ -5,9 +5,9 @@ description: Dive deep into the inner workings of how Babylon.js handles shaders
 keywords: babylon.js, advanced, shaders
 further-reading:
     - title: Introduction To Shaders in BabylonJS
-      url: /resources/ShaderIntro
+      url: /advanced_topics/introToShaders
     - title: ShaderMaterial Object
-      url: /how_to/shader_material
+      url: /advanced_topics/introToShaders
 video-overview:
 video-content:
 ---
