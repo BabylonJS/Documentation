@@ -20,7 +20,7 @@ This class supports several methods of input:
 - **Generic/Other Gamepad** *(DeviceType: BABYLON.DeviceType.Generic, Inputs: number)*
 
 Here's an example of the DeviceSourceManager in use
-<Playground id="#C7PM2B" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image=""/>
+<Playground id="#C7PM2B#15" title="DeviceSourceManager Example" description="Simple example showing how to use the DeviceSourceManager in your scene." image=""/>
 
 To use the DeviceSourceManager, first create an instance of it.  You will need to provide an engine object.
 ```javascript
@@ -49,26 +49,18 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYL
 ## Events and Observables
 You can use the following Observables to work with identifiers for a given device
 ```javascript
-// Before a device is registered
-onBeforeDeviceConnectedObservable.add((device) => {
+
+// When a device is registered
+onDeviceConnectedObservable.add((device) => {
     // You can get the device type by using device.deviceType
-    // You can also get the device slot (only applicable to gamepads and touch) by using device.deviceSlot
+    // You can also get the device slot by using device.deviceSlot (default is 0 for keyboard and 1 for mouse)
+    // "device" is of Type DeviceSource do you can also access the getInput function or add an observable for onInputChangedObservable
 });
 
-onBeforeDeviceDisconnectedObservable.add((device) => {
+onDeviceDisconnectedObservable.add((device) => {
     // You can get the device type by using device.deviceType
-    // You can also get the device slot (only applicable to gamepads and touch) by using device.deviceSlot
-});
-
-// After a device is registered
-onAfterDeviceConnectedObservable.add((device) => {
-    // You can get the device type by using device.deviceType
-    // You can also get the device slot (only applicable to gamepads and touch) by using device.deviceSlot
-});
-
-onAfterDeviceDisconnectedObservable.add((device) => {
-    // You can get the device type by using device.deviceType
-    // You can also get the device slot (only applicable to gamepads and touch) by using device.deviceSlot
+    // You can also get the device slot by using device.deviceSlot (default is 0 for keyboard and 1 for mouse)
+    // "device" is of Type DeviceSource
 });
 ```
 
