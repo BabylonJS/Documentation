@@ -17,8 +17,8 @@ If you would like it, this tutorial is made for you.
 ## How to use ?
 
 Ascii Art Post Process Scripts can be found here: 
-- Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js)
-- Minified : [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.min.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.min.js)
+- Normal: https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.js
+- Minified: https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/postProcessesLibrary/babylon.asciiArtPostProcess.min.js
 
 Please, first reference this script in your page:
 
