@@ -15,8 +15,8 @@ video-content:
 ## Using the Brick procedural texture
 
 Brick procedural texture can be found here: 
-- Normal: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)
-- Minified : [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js)
+- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)
+- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js)
 
 A demo can be found here:  <Playground id="#1CL0BO" title="Brick Procedural Texture" description="Brick Procedural Texture" image=""/>
 

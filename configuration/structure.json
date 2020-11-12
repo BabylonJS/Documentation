@@ -726,7 +726,7 @@
                     "children": {
                         "area": {"friendlyName": "Mesh Surface Area","children": {},"content": "snippets/utilities/area"},
                         "Deconstruct_Mesh": {"friendlyName": "Extract Submeshes as Meshes","children": {},"content": "snippets/utilities/Deconstruct_Mesh"},
-                        "Frame": {"friendlyName": "Picute Frame","children": {},"content": "snippets/utilities/Frame"},
+                        "Frame": {"friendlyName": "Picture Frame","children": {},"content": "snippets/utilities/Frame"},
                         "Increasing_Facets": {"friendlyName": "Increase Facets","children": {},"content": "snippets/utilities/Increasing_Facets"},
                         "InnerMeshPoints": {"friendlyName": "Create Points Inside a Mesh","children": {},"content": "snippets/utilities/InnerMeshPoints"},
                         "IsInside": {"friendlyName": "Checks When a Point is Inside a Mesh","children": {},"content": "snippets/utilities/IsInside"},
