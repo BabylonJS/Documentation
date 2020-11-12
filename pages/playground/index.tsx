@@ -197,12 +197,12 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                     }}
                 />
                 <FormControl margin="dense" variant="outlined" className={classes.formControl}>
-                    <InputLabel htmlFor="search-type">Search type</InputLabel>
+                    <InputLabel htmlFor="search-type">Search Type</InputLabel>
                     <Select
                         native
                         value={type}
                         onChange={handleTypeChange}
-                        label="Type"
+                        label="Search Type"
                         inputProps={{
                             name: "type",
                             id: "search-type",
