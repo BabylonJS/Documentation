@@ -41,8 +41,7 @@ On top of this compression, the data can be further compressed in the UASTC case
 Note that .ktx2 files can also store GPU compressed non-universal data, but as far as Babylon.js is concerned it is only dealing with the ETC1S and UASTC universal compression schemes listed above.
 
 ## Babylon.js support for .ktx2 files
-![KTX2](/img/resources/gpu_compressed_textures/breeze.gif)
-<br/><font size="1">Gif courtesy of giphy.com</font>
+<img src="/img/resources/gpu_compressed_textures/breeze.gif" title="KTX2" caption="Gif courtesy of giphy.com"/>
 
 On **Babylon.js** side, using such files is a breeze: just create a Texture instance by pointing to the .ktx2 file you want to use, as you would with any other standard picture format (png, jpg, etc) !
 
@@ -53,8 +52,7 @@ The KTX2 implemention of Babylon.js is developped as an external package (the [K
 *Note* : you may have already encountered/heard of **.basis** files. Those files are using the same compression scheme than the .ktx2 files but this format is not baked by any standard committee, contrary to the KTX2 format. So, you should prefer using the latter as it will become the de-facto standard.
 
 ## Tools
-![Tools](/img/resources/gpu_compressed_textures/tools.png)
-<br/><font size="1">Photo courtesy of pixels.com</font>
+<img src="/img/resources/gpu_compressed_textures/tools.png" title="Tools" caption="Photo courtesy of pixels.com"/>
 
 Now that you know why you should use .ktx2 files, you will need to actually generate them ! 
 
@@ -66,5 +64,4 @@ Khronos is providing [command line tools](https://github.com/KhronosGroup/KTX-So
 
 *Happy compressions !*
 
-![KTX2](/img/resources/gpu_compressed_textures/compression.gif)
-<br/><font size="1">Gif courtesy of giphy.com</font>
+<img src="/img/resources/gpu_compressed_textures/compression.gif" title="KTX2" caption="Gif courtesy of giphy.com"/>
