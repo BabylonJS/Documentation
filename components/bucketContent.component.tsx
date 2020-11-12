@@ -11,6 +11,8 @@ export interface IBucketContentProps {
     childPages?: {
         [key: string]: IDocumentationPageProps;
     };
+    title?: string;
+    externalLinks?: { title: string; url: string }[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
         container: {
             display: "flex",
             flexWrap: "wrap",
-            maxWidth: '100%'
+            maxWidth: "100%",
         },
         divRoot: {
             padding: 16,
@@ -73,14 +75,15 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages }) => {
+export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
     const classes = useStyles();
+    console.log(externalLinks);
     return (
         <>
             {childPages && !!Object.keys(childPages).length && (
                 <>
                     <Typography className={classes.h2} component="h2" variant="h2">
-                        Coming next:
+                        {title}
                     </Typography>
                     <div className={classes.container}>
                         {Object.keys(childPages).map((child) => {
@@ -111,6 +114,20 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                             );
                         })}
                     </div>
+                    {externalLinks && (
+                        <ul>
+                            {externalLinks.map(({ url, title }) => {
+                                console.log(url, title);
+                                return (
+                                    <li key={url}>
+                                        <Link href={url}>
+                                            <a target="_blank">{title}</a>
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
                 </>
             )}
         </>

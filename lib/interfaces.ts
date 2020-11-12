@@ -4,11 +4,11 @@ export interface IDocMenuItem {
     friendlyName: string;
     content?: string;
     metadataOverrides?: Partial<MarkdownMetadata>;
-    children?: {[uniqueName: string] : IDocMenuItem };
+    children?: { [uniqueName: string]: IDocMenuItem };
     navOverrides?: {
         next?: string;
         previous?: string;
-    }
+    };
 }
 
 export interface MarkdownMetadata {
@@ -20,4 +20,6 @@ export interface MarkdownMetadata {
     categoryName?: string;
     videoOverview?: string;
     tocLevels?: number;
+    videoContent?: Array<string | { title: string; url: string }>;
+    furtherReading?: Array<string | { title: string; url: string }>;
 }
