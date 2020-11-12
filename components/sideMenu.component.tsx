@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginLeft: 30,
         },
         childWithChildren: {
-            marginLeft: 20,
+            marginLeft: 15,
         },
         drawer: {
             flexShrink: 0,
@@ -109,7 +109,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isSelected = selected === key;
-        const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1 || isSelected;
+
+        if (isSelected && hasChildren && opened.indexOf(key) === -1) {
+            opened.push(key);
+        }
+
+        const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
             <li className={className} key={key}>
@@ -123,7 +128,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                         <a>
                             <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>
                                 {
-                                    !hasChildren && 
+                                    !hasChildren && level > 1 &&
                                     <Stop className={classes.positionIcon}/>
                                 }
                                 {item.name}
