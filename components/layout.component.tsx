@@ -189,7 +189,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
         }
     };
     const router = useRouter();
-    const baseDomain = process.env.VERCEL_URL || "";
+    const baseDomain = "https://doc.babylonjs.com/";
     const { title, description, keywords, imageUrl } = disableMetadataAugmentation
         ? metadata
         : {
@@ -212,8 +212,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={baseDomain + router.asPath} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                {!!previous && <link rel="prev" href={"/" + previous.id.join("/")} />}
-                {!!next && <link rel="next" href={"/" + next.id.join("/")} />}
+                {!!previous && <link rel="prev" href={baseDomain + previous.id.join("/")} />}
+                {!!next && <link rel="next" href={baseDomain + next.id.join("/")} />}
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>

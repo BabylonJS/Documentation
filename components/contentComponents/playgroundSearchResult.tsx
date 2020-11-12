@@ -1,7 +1,6 @@
 import { createStyles, makeStyles, Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip } from "@material-ui/core";
 import { FunctionComponent, useState } from "react";
 
-import ChevronRight from "@material-ui/icons/ChevronRight";
 import Link from "next/link";
 
 export interface IPlaygroundSearchResult {
