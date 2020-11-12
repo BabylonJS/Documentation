@@ -238,6 +238,11 @@
         flex-wrap: wrap;
     }
 
+    .token.comment {
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
     ul {
         list-style: unset;
     }
