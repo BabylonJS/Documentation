@@ -234,8 +234,8 @@
     //     line-height: 1.85;
     // }
     .token-line {
-        display: flex;
-        flex-wrap: wrap;
+        word-wrap: break-word;
+        white-space: normal;
     }
 
     .token.comment {
