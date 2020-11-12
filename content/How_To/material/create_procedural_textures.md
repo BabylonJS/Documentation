@@ -151,7 +151,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 ```
 Example: <Playground id="#8S19ZC#1" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture1.jpg"/>
 
-More here: https://doc.babylonjs.com/how_to/node_material#creating-procedural-textures
+More here: [Creating Procedural Textures](/divingDeeper/materials/node_material/nodeMaterial#creating-procedural-textures)
 
 <Youtube id="qqMuuSM7GvI"/>
 

@@ -32,7 +32,7 @@ This section gives some terminology needed to discuss the use of forces in the t
 
 as well as playground examples to check out the coding. In the playgrounds the physics' engine used can be changed by selecting which ones to comment out.
 
-See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 
 

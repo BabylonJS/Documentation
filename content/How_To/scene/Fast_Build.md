@@ -13,7 +13,7 @@ video-content:
 
 There are a number of helpers that, once you to have put models into a scene, add cameras, light and environment that adjust to the models automatically allowing you to quickly view them. You can then make adjustments as you need.
 
-For beginners to Babylon.js these two sections [Fastest Build](/how_to/fast_build#fastest-build) and [Import and Fastest Build](/how_to/fast_build#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
+For beginners to Babylon.js these two sections [Fastest Build](/divingDeeper/scene/fastBuildWorld#fastest-build) and [Import and Fastest Build](/divingDeeper/scene/fastBuildWorld#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
 
 ## Helpers
 
@@ -142,7 +142,7 @@ scene.createDefaultEnvironment()
 
 adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](//doc.babylonjs.com/api/classes/babylon.environmenthelper) to the scene.
 
-You will also find below a helper for [just a skybox](/how_to/fast_build#create-default-skybox).
+You will also find below a helper for [just a skybox](/divingDeeper/scene/fastBuildWorld#create-default-skybox).
 
 When you look at the following playground
 
@@ -257,7 +257,7 @@ There is then a problem. When creating a scene Babylon.js checks for a camera. W
 
 The solution is to replace the `createScene` function with the `delayCreateScene` function. Whether in a playground or in your own project this is a direct replacement.
 
-**NOTE:** Other [scene loader](/how_to/load_from_any_file_type) methods are available.
+**NOTE:** Other [scene loader](/divingDeeper/importers/loadingFileTypes) methods are available.
 
 ### Using Scene Helpers with Import
 

@@ -23,7 +23,7 @@ var uvs = mesh.getVerticesData(BABYLON.VertexBuffer.UVKind);
 
 var indices = mesh.getIndices();
 ```
-Each set of data is an array of numbers as detailed in [Creating Custom Meshes](/How_To/Custom.html). 
+Each set of data is an array of numbers as detailed in [Creating Custom Meshes](/divingDeeper/mesh/creation/custom/custom). 
 
 For example positions will be an array such as [-5, 2, -3, -7, -2, -3, -3, -2, -3, 5, 2, 3, 7, -2, 3, 3, -2, 3] and the  
 indices array such as [0, 1, 2, 3, 4, 5] giving the following table.

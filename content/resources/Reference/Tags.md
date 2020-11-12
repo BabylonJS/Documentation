@@ -80,7 +80,7 @@ There was a [discussion](https://www.html5gamedevs.com/topic/4961-user-data-in-m
 
 ### Pure javascript
 
-The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The ```Tag``` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.tags.ts)) and internally uses the ```AndOrNotEvaluator``` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.andOrNotEvaluator.ts)).
+The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The ```Tag``` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/src/Misc/tags.ts)) and internally uses the ```AndOrNotEvaluator``` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.andOrNotEvaluator.ts)).
 
 The use of tags for a javascript object can be enabled/disabled like this (javascript code):
 
@@ -191,7 +191,7 @@ Since it's possible to use tags on any javascript object and since meshes are ja
 var meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5");
 ```
 
-All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/generals/File_Format_Map_(.babylon))) and reloaded from them.
+All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/advanced_topics/.babylonFileFormat) and reloaded from them.
 
 ## What to do with them?
 

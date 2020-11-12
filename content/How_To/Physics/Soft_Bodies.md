@@ -25,7 +25,7 @@ video-content:
 # Soft Bodies
 In terms of physics' engines a soft body is a body that can have its shape deformed by interactions with other bodies or forces within the physics world. Out of the three plugins available with Babylon.js soft bodies are only available using Ammo.js. There are three soft bodies you can create, the three dimensional `softbody`, the two dimensional `cloth` and the one dimensional rope. First a number of limitations need to be considered, followed by some aspects particular to soft bodies and then some examples.
 
-See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 ## Limitations
 A deformation of a body can only be shown if there are sufficient vertices to produce the deformation. The number of vertices used and the need to check their positions and velocities each time step means that the number of soft bodies can be restricted to one, two or possibly three. 
@@ -80,13 +80,13 @@ You may have to do a trial and error on the above parameters to get the effect y
 
 ## The Softbody Soft Body
 
-A softbody is a 3D soft body. To ensure that the body is not pulled apart the mesh used has to have [shared vertices](/snippets/minimise_vertices). This is achieved using
+A softbody is a 3D soft body. To ensure that the body is not pulled apart the mesh used has to have [shared vertices](/toolsAndResources/utilities/Minimise_Vertices). This is achieved using
 
 ```javascript
 mesh.forceSharedVertices()
 ```
 
-It also has to have sufficient vertices to simulate the body. Where the mesh used cannot [increase the number of vertices](/snippets/increasing_facets) in its construction, a box for example, you use 
+It also has to have sufficient vertices to simulate the body. Where the mesh used cannot [increase the number of vertices](/toolsAndResources/utilities/Increasing_Facets) in its construction, a box for example, you use 
 
 ```javascript
 mesh.increaseVertices(n);
@@ -126,7 +126,7 @@ mesh.physicsImpostor.stiffness = 0.9;
 
 ## The Cloth Soft Body
 
-A 2D soft body. All cloth soft bodies are created from a [ground mesh](/how_to/set_shapes#ground) as this is already two dimensional, has shared vertices and the number of vertices can be increased by setting the subdivisions used. The usual [options](#options-for-soft-bodies) are available.
+A 2D soft body. All cloth soft bodies are created from a [ground mesh](/divingDeeper/mesh/creation/set/ground) as this is already two dimensional, has shared vertices and the number of vertices can be increased by setting the subdivisions used. The usual [options](/divingDeeper/physics/softBodies#options-for-soft-bodies) are available.
 
 The clothImpostor is created by, for example,
 
@@ -209,11 +209,11 @@ cloth.physicsImpostor.addAnchor(box.physicsImpostor, 0, 1);
 cloth.physicsImpostor.addAnchor(box.physicsImpostor, 1, 1, 0.8);
 ```
 
-* [Playground Example - Anchoring a Cloth](https://www.babylonjs-playground.com/#480ZBN#8)
+<Playground id="#480ZBN#8" title="Anchoring A Cloth" description="Simple example of anchoring a cloth." image=""/>
 
 ## The Rope Soft Body
 
-A rope is a 1D soft body. This can be constructed using a [lines mesh](/how_to/parametric_shapes#lines) or an [extruded shape](parametric_shapes#extruded-shapes) mesh. The usual [options](#options-for-soft-bodies) available for both, however the use of an extruded shape requires extra parameters in the options.
+A rope is a 1D soft body. This can be constructed using a [lines mesh](/divingDeeper/mesh/creation/param/lines) or an [extruded shape](/divingDeeper/mesh/creation/param/extrude_shape) mesh. The usual [options](/divingDeeper/physics/softBodies#options-for-soft-bodies) available for both, however the use of an extruded shape requires extra parameters in the options.
 
 ### Using Lines
 

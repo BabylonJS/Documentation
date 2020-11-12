@@ -147,7 +147,7 @@ You can turn the image processing effect on and off with:
 pipeline.imageProcessingEnabled = true;
 ```
 
-You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/How_To/how_to_use_postprocesses#imageprocessing).
+You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/divingDeeper/postProcesses/usePostProcesses#imageprocessing).
 
 ## Chromatic Aberration
 

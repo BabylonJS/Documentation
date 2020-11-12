@@ -12,9 +12,9 @@ video-content:
 
 ## A Pivot
 
-The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: https://www.babylonjs-playground.com/#GH4N1R#1
+The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: <Playground id="#GH4N1R#1" title="Simple Pivot Example" description="Simple pivot example." image=""/>
 
-A pivot can be set with a [translation matrix](/how_to/pivots#how-to-set-the-pivot-matrix) or directly with the [_setPivotPoint_](/how_to/pivots#how-to-set-and-get-a-pivot-point) method.
+A pivot can be set with a [translation matrix](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-the-pivot-matrix) or directly with the [_setPivotPoint_](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-and-get-a-pivot-point) method.
 
 A pivot in Babylon.js is the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. When a mesh is created the pivot (red sphere) is always at the local origin (yellow sphere) and the local origin always at the world origin, as in Fig 1. When the pivot and local origin are coincident they are shown as a red and yellow striped sphere.
 
@@ -61,7 +61,7 @@ box.position.x = 2;
 ```
 Compare this with Fig 5.
 
-So there are two ways of setting a pivot, one that does not alter the position of the mesh (_set pivot only_) and one that does alter the mesh position (_set pivot with move_). The _set pivot only_ method is much more straightforward and all playground examples on this page use this method. The [_setPivotPoint_](/how_to/pivots#how-to-set-and-get-a-pivot-point) function, describe later, uses _set pivot only_. 
+So there are two ways of setting a pivot, one that does not alter the position of the mesh (_set pivot only_) and one that does alter the mesh position (_set pivot with move_). The _set pivot only_ method is much more straightforward and all playground examples on this page use this method. The [_setPivotPoint_](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-and-get-a-pivot-point) function, describe later, uses _set pivot only_. 
 
 In fact unless you have an older project coded for versions before 3.2 or want to [change the local origin to that of the pivot](/features/Position,_Rotation,_Scaling#pivot) do not use the _set pivot with move_ method. It is usually better to _set pivot only_ and then move the mesh as normal with _mesh.position_ or _mesh.translate_ When you do have an older project there is a simple way to update your project code to work with version 3.2 or later as described in the `Breaking Change` section below.
 

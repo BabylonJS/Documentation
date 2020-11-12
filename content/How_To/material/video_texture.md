@@ -18,7 +18,7 @@ This plays a video on the demo's ZTV screen (ecran = screen).
 ecran.material.diffuseTexture = new BABYLON.VideoTexture("video", "textures/babylonjs.mp4", scene, true);
 ```
 
-The [_VideoTexture_ object](/api/classes/babylon.videoTexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded... is the one used as content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
+The [_VideoTexture_ object](https://doc.babylonjs.com/api/classes/babylon.videotexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded... is the one used as content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
 
 The internal [video DOM object](https://www.w3.org/wiki/HTML/Elements/video) is accessible via the VideoTexture.video property... which allows you to control some characteristics and monitor the status of the video (things such as play, pause, loop, autoplay, etc). See the link above for the full story.
 

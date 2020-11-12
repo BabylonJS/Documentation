@@ -30,7 +30,7 @@ Through the use of playgrounds this section considers how the pivot and axis par
 2. Oimo.js;
 3. Ammo.js
 
-See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 The examples on this page a hinge joint and a main body are added to a connected axle using
 
@@ -92,7 +92,8 @@ connectedPivot: new BABYLON.Vector3(5, 0, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-<Playground id="#8RQJ1R#4" title="Pivots and Axes (C Parameters)" description="Simple example of pivots and axes with C parameters." image=""/>[Playground Example - C](https://www.babylonjs-playground.com/#8RQJ1R#4)
+
+* <Playground id="#8RQJ1R#4" title="Pivots and Axes (C Parameters)" description="Simple example of pivots and axes with C parameters." image=""/>
 
 ----
 
@@ -127,7 +128,8 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0), //
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-<Playground id="#8RQJ1R#7" title="Pivots and Axes (F Parameters)" description="Simple example of pivots and axes with F parameters." image=""/>[Playground Example - F](https://www.babylonjs-playground.com/#8RQJ1R#7)
+
+* <Playground id="#8RQJ1R#7" title="Pivots and Axes (F Parameters)" description="Simple example of pivots and axes with F parameters." image=""/>
 
 ----
 

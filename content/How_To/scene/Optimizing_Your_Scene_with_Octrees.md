@@ -67,7 +67,7 @@ Here are the helpful functions you can find on an octree:
 * ```intersects(sphereCenter: Vector3, sphereRadius: number, allowDuplicate: boolean)```
 * ```intersectsRay(ray: Ray)```
 
-These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.smartArray.ts) where duplicates are present or not according to ```allowDuplicate``` parameter/
+These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/blob/master/src/Misc/smartArray.ts) where duplicates are present or not according to ```allowDuplicate``` parameter/
 
 ## Demos
 * https://www.babylonjs.com/?OCTREE
