@@ -802,6 +802,7 @@
         { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
         { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
         { "source": "/webpages/app4.html", "destination": "/webpages/app4" },
-        { "source": "/How_To/material/Node_Material", "destination": "/divingDeeper/materials/node_material/nodeMaterial" }
+        { "source": "/How_To/material/Node_Material", "destination": "/divingDeeper/materials/node_material/nodeMaterial" },
+        { "source": "/examples", "destination": "/" }
     ]
 }
