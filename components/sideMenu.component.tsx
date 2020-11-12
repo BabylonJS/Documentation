@@ -76,13 +76,12 @@ const useStyles = makeStyles((theme: Theme) =>
             color: colorPalette.menuLinkText,
             fontWeight: 800,
             "&:hover": {
-                color: colorPalette.menuHover1
-            }
+                color: colorPalette.menuHover1,
+            },
         },
         positionIcon: {
-            transform: "scale(0.8) translateY(8px)"
-        }
-
+            transform: "scale(0.8) translateY(8px)",
+        },
     }),
 );
 
