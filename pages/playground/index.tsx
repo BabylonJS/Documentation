@@ -1,6 +1,6 @@
 import Layout from "../../components/layout.component";
 import SearchIcon from "@material-ui/icons/Search";
-import { Button, createStyles, FormControl, FormGroup, InputAdornment, InputLabel, makeStyles, Select, TextField, Theme, Typography } from "@material-ui/core";
+import { Button, CircularProgress, createStyles, FormControl, FormGroup, InputAdornment, InputLabel, makeStyles, Select, TextField, Theme, Typography } from "@material-ui/core";
 import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import { IPlaygroundSearchResult, PlaygroundSearchResult } from "../../components/contentComponents/playgroundSearchResult";
@@ -246,6 +246,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                 {loading && (
                     <Typography component="h3" variant="h3">
                         Loading results for {query} in {type}...
+                        <CircularProgress />
                     </Typography>
                 )}
                 {!!results.length && (
@@ -256,7 +257,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                             </Typography>
                         )}
                         {searchForm}
-                        <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+                        <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: 'stretch' }}>
                             {results.map((res) => {
                                 return (
                                     <div key={res.id} className={classes.resultContainer}>
@@ -267,7 +268,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                         </div>
                     </div>
                 )}
-                {!!count && count > results.length && (
+                {!!count && !loading && count > results.length && (
                     <Button
                         disabled={loading}
                         onClick={() => {

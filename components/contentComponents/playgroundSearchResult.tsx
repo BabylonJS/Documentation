@@ -19,36 +19,7 @@ export interface IPlaygroundSearchResult {
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
-            display: "flex",
-            padding: theme.spacing(2),
-        },
-        imageContainer: {
-            position: "relative",
-            width: 100,
-        },
-        textContent: {
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-        },
-        pathContent: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& span": {
-                display: "flex",
-            },
-            "& svg": {
-                width: "1rem",
-                height: "1.3rem",
-            },
-        },
-
-        titleContent: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& span": {
-                marginRight: theme.spacing(1),
-            },
+            height: '100%'
         },
         chipHolder: {
             "& div": {
@@ -66,11 +37,14 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
     const tags = new Set();
     (searchResult.tags || "").split(",").forEach((tag) => {
-        tags.add(tag.trim());
+        const trim = tag.trim();
+        if (trim) {
+            tags.add(tag.trim());
+        }
     });
 
     return (
-        <Card>
+        <Card className={classes.contentRoot}>
             <CardContent>
                 <Typography color="textSecondary" gutterBottom></Typography>
                 <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
