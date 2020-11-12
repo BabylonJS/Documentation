@@ -5,7 +5,7 @@ description: Begin learning about how to develop interactions for your Babylon.j
 keywords: welcome, babylon.js, diving deeper, events, interactions 
 further-reading:
     - title: Observables
-	  url: /how_to/observables
+      url: /how_to/observables
 video-overview:
 video-content:
 ---

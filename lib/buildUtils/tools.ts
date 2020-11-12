@@ -163,6 +163,9 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         metadata.furtherReading.forEach((item) => {
             const url = typeof item === "string" ? item : item.url;
             const title = typeof item === "string" ? item : item.title;
+            if(!url) {
+                throw new Error("Error in md file, maybe used tab instead of space?")
+            }
             if (!url.startsWith("http")) {
                 const idArray = url.split("/");
                 if (idArray[0] === "") {

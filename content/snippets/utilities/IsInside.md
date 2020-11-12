@@ -7,7 +7,7 @@ further-reading:
     - title: How To Create Points on a Mesh Surface
       url: /snippets/SurfaceMeshPoints
     - title: How To Create Points Inside a Mesh
-	  url: /snippets/innerMeshPoints
+      url: /snippets/innerMeshPoints
 video-overview:
 video-content:
 ---
