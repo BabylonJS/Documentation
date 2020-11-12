@@ -3,7 +3,7 @@ import { IDocMenuItem } from "../interfaces";
 // very temporary structure configuration
 import structure from "../../configuration/structure.json";
 import { IMenuItem } from "../content.interfaces";
-import { clearIndex } from "./search.utils";
+import { clearIndex, clearPlaygroundIndex } from "./search.utils";
 
 // cast for general usage
 export const config: IDocMenuItem = structure;
@@ -59,6 +59,7 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
         console.log("clearing search index");
         const existingDocs = array.map(({ params }) => `/${params.id.join("/")}`);
         await clearIndex(false, existingDocs);
+        await clearPlaygroundIndex();
     }
 
     return array;
