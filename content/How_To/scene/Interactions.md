@@ -31,7 +31,7 @@ scene.onKeyboardObservable.add((kbInfo) => {
 });
 ```
 
-## Pointer Interactions.
+## Pointer Interactions
 
 First of all a reminder that for **touch** events in Babylon.js [PEP](https://github.com/jquery/PEP) is required. To use PEP all that is necessary is to
 

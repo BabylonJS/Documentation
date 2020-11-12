@@ -88,7 +88,7 @@ finalPass.onApply = (effect) => {
 };
 ```
 
-We now can [use a pipeline](/how_to/how_to_use_postprocessrenderpipeline) that performs a base render and uses the `finalPass` to compose it with the caustics.
+We now can [use a pipeline](/divingDeeper/postProcesses/postProcessRenderPipeline) that performs a base render and uses the `finalPass` to compose it with the caustics.
 
 ```
 // the render pipeline
@@ -266,4 +266,4 @@ void main() {
 
 Testing passes in separate and then adding them one at a time to the composer will make it easier to debug any issues. You can use the technique from the playgrounds above, splitting the screen on columns, each with a different pass, as well.
 
-Finally you can also check RT textures with the [Babylon inspector](/how_to/debug_layerEnable).
+Finally you can also check RT textures with the [Babylon inspector](/toolsAndResources/tools/inspector).

@@ -170,7 +170,7 @@ To only ignore certain children when computing the bounding box, the includeChil
 ```
 gizmo.includeChildPredicate = (m)=>{return m == sphere2};
 ```
-[Example](https://www.babylonjs-playground.com/#SG9ZZB)
+<Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo." image=""/>
 
 
 UI can be attached to the bounding box using the [AttachToBoxBehavior](/How_To/MeshBehavior)

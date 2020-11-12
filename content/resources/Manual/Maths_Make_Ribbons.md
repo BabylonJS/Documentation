@@ -136,7 +136,6 @@ parabolas and more trigonometry: <Playground id="#F6JW5W#24" title="Trigonometry
 You could choose a known math curve from these sites
 http://en.wikipedia.org/wiki/List_of_curves  
 http://www.mathcurve.com/courbes2d/courbes2d.shtml  
-http://www.uiowa.edu/~examserv/mathmatters/tutorial_quiz/geometry/commoncurves.html  
 or others.  
 When you feel more comfortable, create you own.  
 

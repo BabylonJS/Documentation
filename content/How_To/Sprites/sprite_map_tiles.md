@@ -39,4 +39,4 @@ In the spritesheet file used in these docs there is a transparent pixel at x = 2
 	"sourceSize": {"w":32,"h":32}
 },
 ```
-Blank tile added to JSON https://www.babylonjs-playground.com/#YCY2IL#21
+<Playground id="#YCY2IL#21" title="Blank Tile Added to JSON" description="Simple example of adding a blank tile to a JSON file." image=""/>

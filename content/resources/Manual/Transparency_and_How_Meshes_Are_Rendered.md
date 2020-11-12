@@ -101,7 +101,7 @@ This is what a depth buffer looks like for a scene that contains each of those t
 
 ## Categorizing meshes
 
-The following list will help you understand which categories your meshes will be put into. For more information on each of the properties mentioned here, take a look at the [Materials tutorial](/babylon101/materials).
+The following list will help you understand which categories your meshes will be put into. For more information on each of the properties mentioned here, take a look at the [Materials tutorial](/start/chap2/face_material).
 
 **Alpha blended meshes:**
 
@@ -177,7 +177,7 @@ You're welcome to use this example to experiment on the different values of `tra
 - Make sure your alpha blended meshes do not intersect, as this will inevitably lead to render glitches.
 - Avoid having heavily-stretched alpha blended meshes (i.e. large planes); since the center of its bounding sphere is used for depth sorting, doing this may result in a mesh being sorted as far away from the camera but actually closer to many other meshes.
 - Use alpha test as much as possible; this may look perfect for a pixel art style, or if the transparent parts boundaries are straight horizontal or vertical lines.
-- To get rid of jagged edges on your alpha tested meshes, use anti-aliasing for your scene ([FxaaPostProcess](/how_to/How_to_use_PostProcesses#fxaa)); when using anti-aliasing, you can even disable the built-in smoothing of WebGL when creating the engine object:
+- To get rid of jagged edges on your alpha tested meshes, use anti-aliasing for your scene ([FxaaPostProcess](/divingDeeper/postProcesses/usePostProcesses#fxaa)); when using anti-aliasing, you can even disable the built-in smoothing of WebGL when creating the engine object:
 
 ```javascript
 engine = new BABYLON.Engine(canvas, false); // built-in smoothing will be disabled
@@ -204,6 +204,6 @@ In this very case, an acceptable workaround would then be to enable the backface
 
 Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering6.jpg"/>
 
-At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/how_to/how_to_use_facetdata#facet-depth-sort).
+At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/divingDeeper/mesh/facetData#facet-depth-sort).
 
 Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>

@@ -41,7 +41,7 @@ Please zoom in and rotate : tangents in red, normals in blue, binormal in green.
 Notice, in the next example, how the the triplets slightly rotate when the curve goes more into depth.  
 <Playground id="#2DLXYB#1" title="Tangents, Normals, and Binormals - Color Coded" description="Simple example of exploring color coded tangents, normals, and binormals." image=""/>
 
-Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](#set_the_normal)
+Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](/divingDeeper/mesh/path3D#set-the-normal)
 
 
 ## Path3D Methods

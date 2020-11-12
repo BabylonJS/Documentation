@@ -29,7 +29,7 @@ var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
 sphere.occlusionType = BABYLON.AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC;
 ```
 
-For more about occlusionType and the supported algorithm check AbstractMesh class [documentations](/api/classes/babylon.abstractMesh#occlusiontype-number).
+For more about occlusionType and the supported algorithm check AbstractMesh class [documentations](/typedoc/classes/babylon.abstractmesh).
 
 If your object by default is behind an opaque object you can set property `isOccluded` to true so Babylon.js engine won't take a decision to render or not until the query result is retrieved from WebGl engine.
 
@@ -50,6 +50,6 @@ sphere.occlusionRetryCount = 10;
 sphere.occlusionType = BABYLON.AbstractMesh.OCCLUSION_TYPE_STRICT;
 ```
 
-In Babylon.js you can also set the WebGl Occlusion Queries algorithm type using property `occlusionQueryAlgorithmType` for more into check AbstractMesh Class [documentations](/api/classes/babylon.abstractMesh#occlusionqueryalgorithmtype-number).
+In Babylon.js you can also set the WebGl Occlusion Queries algorithm type using property `occlusionQueryAlgorithmType` for more into check AbstractMesh Class [documentations](/typedoc/classes/babylon.abstractmesh).
 
 You can find a live demo here: <Playground id="#QDAZ80#3" title="Advanced Occlusion Queries" description="Example of using advanced occlusion query methods in your scene." image=""/>

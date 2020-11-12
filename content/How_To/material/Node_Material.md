@@ -1180,7 +1180,7 @@ By default, the node material provides the following blocks:
         -   Output:
             -   output: Color3
 
-    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties https://doc.babylonjs.com/how_to/how_to_use_postprocesses
+    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
 
         -   Input:
             -   color: Color4

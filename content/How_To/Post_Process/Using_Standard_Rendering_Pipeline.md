@@ -10,7 +10,7 @@ video-content:
 
 ## The standard pipeline is no longer maintained.
 
-[Default pipeline](/how_to/using_default_rendering_pipeline) should be used going forward but the standard pipeline will be kept for backwards compatibility.
+[Default pipeline](/divingDeeper/postProcesses/defaultRenderingPipeline) should be used going forward but the standard pipeline will be kept for backwards compatibility.
 
 ## Introduction
 
@@ -206,7 +206,9 @@ Playground example : <Playground id="#LB63T#2" title="Custom Depth of Field Exam
 
 ## Setting up the Motion Blur
 
-As a demo, you have a look at https://www.youtube.com/watch?v=14Ejsj1_ywM
+As a demo, you have a look at this video:
+
+<Youtube id="14Ejsj1_ywM"/>
 
 Motion Blur simply tries to blur the overall image when the camera moves fast.
 

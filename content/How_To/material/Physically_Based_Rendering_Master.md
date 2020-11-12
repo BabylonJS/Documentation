@@ -18,7 +18,7 @@ The two simplified versions of PBR Materials e.g. *PBRSpecularGlossinessMaterial
 * Dedicated image processing
 
 
-[**Demo Scene - PBR Materials**](https://www.babylonjs.com+/demos/pbrrough/)
+[**Demo Scene - PBR Materials**](https://www.babylonjs.com/demos/pbrrough/)
 
 This page addresses *the differences* between the PBRMaterial and its the simpler versions.
 
@@ -135,7 +135,7 @@ The sub surface section of the material defines everything happening below the s
 
 ## Refraction
 
-I will not redefine the refraction component here as it has been addressed in the previous section but only highlights the main differences [Here](/How_To/reflect#refraction)
+I will not redefine the refraction component here as it has been addressed in the previous section but only highlights the main differences [Here](/divingDeeper/materials/using/reflectionTexture)
 
 Enabling the refraction would be done through a flag on the sub surface section:
 
@@ -669,4 +669,4 @@ In order to simplify troubleshooting within the PBR material, a special section 
 
 You can choose from the exhaustive list of information what you would like to see. You can also use the split position to choose from which horizontal position the debug mode starts on the screen. This can help looking side by side at the different renders. The output factor can be helpful if you are looking at values pretty small as it would help seeing different colors on screen.
 
-<Playground id="#2FDQT5#104" title="Using The Inspector with PBR" description="Simple example of using the inspector with PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/> [Playground Example - Use of inspector with PBR](https://www.babylonjs-playground.com/#2FDQT5#104)
+<Playground id="#2FDQT5#104" title="Using The Inspector with PBR" description="Simple example of using the inspector with PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster26.jpg"/>

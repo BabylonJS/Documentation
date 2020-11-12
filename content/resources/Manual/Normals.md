@@ -63,7 +63,7 @@ index | position | normal
 
 ## Normals and Flat Shaded Meshes.
 
-There are times, such as needing each face of a box to be covered in a [different material](/resources/Facets.html), 
+There are times, such as needing each face of a box to be covered in a [different material](/divingDeeper/mesh/facetData), 
 when it is better to have the box constructed from seperate faces each of which are contructed by two facets and no two faces 
 sharing a vertex indices. They will of course share vertex positions.
 

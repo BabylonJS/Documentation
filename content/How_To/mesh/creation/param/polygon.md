@@ -13,7 +13,7 @@ A polygon of any type, regular or irregular, convex or concave, is created in th
 
 On creation the local origin of the polygon is coincident with the world origin. It is not possible to give a position relative to the polygon as this depends on the data sets used.
 
-*CreatePolygon* calls [PolygonMeshBuilder](/How_To/polygonmeshbuilder). There is no *instance* option. You must set at least the _shape_ option. 
+*CreatePolygon* calls [PolygonMeshBuilder](/divingDeeper/mesh/creation/param/polyMeshBuilder). There is no *instance* option. You must set at least the _shape_ option. 
 
 ## MeshBuilder
 Usage :

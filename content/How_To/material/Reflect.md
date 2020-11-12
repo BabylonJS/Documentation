@@ -57,7 +57,7 @@ Using different _coordinatesMode_ with different shapes will reflect the skybox 
 Starting with Babylon.js v3.2, you can now use local cubemap mode when using cubemaps (with CUBIC_MODE).
 Please read [this article](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity), to get a precise understanding of what local cubemaps are.
 
-CubeTexture and RenderTargetTexture (when in cube mode, like when used with [probes](/how_to/how_to_use_reflection_probes) for instance) can be switched to local mode by setting  property named `boundingBoxSize` (by default cubemaps are in infinite mode):
+CubeTexture and RenderTargetTexture (when in cube mode, like when used with [probes](/divingDeeper/environment/reflectionProbes) for instance) can be switched to local mode by setting  property named `boundingBoxSize` (by default cubemaps are in infinite mode):
 
 ```
 material.reflectionTexture = new BABYLON.CubeTexture("/textures/TropicalSunnyDay", scene);
