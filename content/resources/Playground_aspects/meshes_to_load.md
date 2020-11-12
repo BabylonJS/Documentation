@@ -5,11 +5,11 @@ description: Learn about the free available meshes in the Babylon.js meshes libr
 keywords: babylon.js, tools, resources, assets, library, meshes
 further-reading:
     - title: Load from any file type - glTF, OBJ, STL, etc.
-      url: /how_to/load_from_any_file_type
+      url: /divingDeeper/importers/loadingFileTypes
     - title: Textures Available in the Playground
-      url: /resources/playground_textures
+      url: /toolsAndResources/assetLibraries/availableTextures
     - title: Using External Assets in the Playground
-      url: /resources/External_PG_assets
+      url: /toolsAndResources/tools/playground/externalPGAssets
 video-overview:
 video-content:
 ---

@@ -5,7 +5,7 @@ description: Learn how to leverage thin instances in your Babylon.js scenes.
 keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, instances, thin instances
 further-reading:
     - title: How To Use Instances
-      url: /How_To/How_to_use_Instances
+      url: /divingDeeper/mesh/copies/instances
 video-overview:
 video-content:
 ---

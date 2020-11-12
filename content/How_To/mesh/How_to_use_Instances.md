@@ -5,7 +5,7 @@ description: Learn all about the instancing system in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, instancing
 further-reading:
     - title: How To Use Thin Instances
-      url: /How_To/How_to_use_ThinInstances
+      url: /divingDeeper/mesh/copies/thinInstances
 video-overview:
 video-content:
     - title: Fun with Instance Buffers

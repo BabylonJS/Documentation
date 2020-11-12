@@ -5,7 +5,7 @@ description: Learn all about the powerful Node Material Editor in Babylon.js.
 keywords: babylon.js, tools, resources, nme, Node Material Editor
 further-reading:
     - title: Node Material
-      url: /How_To/material/Node_Material
+      url: /divingDeeper/materials/node_material/nodeMaterial
     - title: Dedicated NME Forum Examples
       url: https://forum.babylonjs.com/t/node-materials-examples/6048
     - title: 3 Tips For Getting Started Building Procedural Node Material Shaders
@@ -16,7 +16,6 @@ further-reading:
       url: https://babylonjs.medium.com/fighting-self-doubt-with-water-3b1509218009
     - title: Creating the Babylon.js Node Material
       url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
-    - landing_pages/toolsAndResourcesNMELandingPage
 video-overview:
 video-content:
     - title: Node-Based Procedural Textures

@@ -5,7 +5,7 @@ description: Learn about pivots in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, pivots
 further-reading:
     - title: How To Rotate Around an Axis about a Point
-      url: /How_To/Pivot
+      url: /divingDeeper/mesh/creation/param/divingDeeper/mesh/transforms/parent_pivot/pivot
 video-overview:
 video-content:
 ---

@@ -7,7 +7,7 @@ further-reading:
     - title: The Inspector Features
       url: /toolsAndResources/tools/inspector
     - title: How To Use The Inspector in Projects
-      url: /How_To/debug_layer
+      url: /toolsAndResources/tools/inspector
 video-overview:
 video-content:
 ---

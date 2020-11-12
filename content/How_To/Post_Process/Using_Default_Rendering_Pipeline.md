@@ -5,7 +5,7 @@ description: Learn about the default rendering pipeline in Babylon.js.
 keywords: diving deeper, post processes, post process, render pipeline, render, default rendering
 further-reading:
     - title: How To Use PostProcess
-      url: /how_to/How_to_use_PostProcesses
+      url: /divingDeeper/postProcesses/usePostProcesses
     - title: Babylon.DefaultRenderingPipeline
       url: /typedoc/classes/babylon.defaultrenderingpipeline.html
     - title: Babylon.ImageProcessingPostProcess

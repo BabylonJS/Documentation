@@ -11,9 +11,9 @@ further-reading:
     - title: How to Create Animated Particles
       url: /divingDeeper/particles/particle_system/animation
     - title: Solid Particle System
-      url: /How_To/Solid_Particles
+      url: /divingDeeper/particles/solid_particle_system
     - title: How to Customize the Particle System
-      url: /how_to/Customise
+      url: /divingDeeper/particles/particle_system/customizingParticles
 video-overview:
 video-content:
 ---

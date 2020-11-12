@@ -6,14 +6,14 @@ keywords: diving deeper, particles, particle system, helper, particle helper
 further-reading:
     - title: Particles Overview
       url: /divingDeeper/particles/particle_system
-    - title: Particles 101
+    - title: Particles
       url: /divingDeeper/particles
     - title: How to Use Sub Emitters
-      url: /how_to/Sub_Emitters
+      url: /divingDeeper/particles/particle_system/subEmitters
     - title: Solid Particle System
-      url: /How_To/Solid_Particles
+      url: /divingDeeper/particles/solid_particle_system
     - title: How to Customize the Particle System
-      url: /how_to/Customise
+      url: /divingDeeper/particles/particle_system/customizingParticles
 video-overview:
 video-content:
 ---
