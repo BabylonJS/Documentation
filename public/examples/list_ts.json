@@ -1,0 +1,23 @@
+{
+    "examples": [
+        {
+            "title": "Developer Support",
+            "samples": [
+                {
+                    "title": "Adding a Class",
+                    "doc": "https://doc.babylonjs.com/how_to/how_to_start",
+                    "icon": "icons/normals.jpg",
+                    "description": "Adding a simple class",
+                    "PGID": "#NS23BT"
+                },
+                {
+                    "title": "Adding a Class with Properties and Methods",
+                    "doc": "https://doc.babylonjs.com/how_to/how_to_start",
+                    "icon": "icons/surface.jpg",
+                    "description": "Adding a class with properties and methods",
+                    "PGID": "#H3AF26#1"
+                }
+            ]
+        }
+    ]
+}
