@@ -2,8 +2,18 @@
 title: Babylon.js Viewer - Advanced usage
 image: 
 description: Advanced uses of the viewer.
-keywords: welcome, babylon.js, library, viewer, advanced
+keywords: extensions, babylon.js, library, viewer, advanced
 further-reading:
+    - title: Babylon.js Viewer
+      url: /extensions/The_Babylon_Viewer
+    - title: Configuring the viewer
+      url: /extensions/Configuring_the_viewer
+    - title: The templating system
+      url: /extensions/The_templating_system
+    - title: Recreating the default configuration for the viewer
+      url: /extensions/Recreating_the_default_configuration
+    - title: Babylon.js viewer examples
+      url: /extensions/Viewer_examples
 video-overview:
 video-content:
 ---
@@ -187,12 +197,3 @@ viewer.loadModel({
     console.log("error loading the model!", error);
 });
 ```
-
-## Further Reading
-
-* [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
-* [Configuring the viewer](/extensions/Configuring_the_viewer)
-* [The templating system](/extensions/The_templating_system)
-* [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
-* [Advanced usage](/extensions/Advanced_usage)
-* [Babylon.js viewer examples](/extensions/Viewer_examples)

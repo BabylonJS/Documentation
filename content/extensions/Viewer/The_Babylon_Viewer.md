@@ -2,8 +2,18 @@
 title: Babylon.js Viewer
 image: 
 description: The viewer is the simplest way to display 3D content on a web page.
-keywords: welcome, babylon.js, viewer, web page, display
+keywords: extensions, babylon.js, viewer, web page, display
 further-reading:
+    - title: Configuring the viewer
+      url: /extensions/Configuring_the_viewer
+    - title: The templating system
+      url: /extensions/The_templating_system
+    - title: Recreating the default configuration for the viewer
+      url: /extensions/Recreating_the_default_configuration
+    - title: Advanced usage
+      url: /extensions/Advanced_usage
+    - title: Babylon.js viewer examples
+      url: /extensions/Viewer_examples
 video-overview:
 video-content:
 ---
@@ -75,12 +85,3 @@ import 'babylonjs-viewer';
 ```
 
 This will enable the `BabylonViewer` namespace.
-
-## Further Reading
-
-* [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
-* [Configuring the viewer](/extensions/Configuring_the_viewer)
-* [The templating system](/extensions/The_templating_system)
-* [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
-* [Advanced usage](/extensions/Advanced_usage)
-* [Babylon.js viewer examples](/extensions/Viewer_examples)

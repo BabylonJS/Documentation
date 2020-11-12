@@ -21,7 +21,7 @@ Name | Type | Description
 **append** | bool | is added to the &lt;body&gt;. =&gt; True by default (optional)
 ---
 
-# Options
+## Options
 
 * **name**: Name to group radio buttons
 * **x**: Position left of radio button (in pixel)
@@ -30,19 +30,19 @@ Name | Type | Description
 * **zIndex**: Depth of the element (int) =&gt; 1 by default
 * **tabindex**: Tab order of the field.
 
-# Methods
+## Methods
 
-## isChecked() → void
+### isChecked() → void
 return if element is checked
 
 ## setChecked(value) → void
 check element
 
-## setVisible(bool, fade) → void
+### setVisible(bool, fade) → void
 Set this GUI element to visible or invisible
 
-## isVisible() → void
+### isVisible() → void
 Returns element if is visible or no
 
-## dispose() → void
+### dispose() → void
 Dispose the GUIRadio, and delete element.

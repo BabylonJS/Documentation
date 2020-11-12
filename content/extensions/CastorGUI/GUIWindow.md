@@ -20,7 +20,7 @@ Name | Type | Description
 **guimanager** | GUIManager | The gui manager
 ---
 
-# Options
+## Options
 
 * **w**: Width of image (in pixel)
 * **h**: Height of image (in pixel)
@@ -45,16 +45,16 @@ Name | Type | Description
 * **zIndex**: Depth of the element (int) =&gt; 1 by default
 * **overflow**: overflow auto or hidden (auto by default)
 
-# Methods
+## Methods
 
-## add(element) → void
+### add(element) → void
 add element in the GUIWindow
 
-## setVisible(bool, fade) → void
+### setVisible(bool, fade) → void
 Set this GUI element to visible or invisible (false by default)
 
-## isVisible() → void
+### isVisible() → void
 Returns element if is visible or no
 
-## dispose() → void
+### dispose() → void
 Dispose the GUIWindow, and delete element.

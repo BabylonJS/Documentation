@@ -1,12 +1,14 @@
 ---
-title: How to Create and Use the Navigation Mesh
+title: Creating A Navigation Mesh
 image: 
-description: A Navigation Mesh is a surface topology describing the space where an agent can go based on constraints.
-keywords: welcome, babylon.js, navigation, navigation mesh, constrained
+description: Learn how to create a mesh as a confinment system for crowd agents.
+keywords: extensions, babylon.js, crowd
 further-reading:
 video-overview:
 video-content:
 ---
+
+## How to use the navigation mesh?
 
 There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases the BabylonJS users will find.
 

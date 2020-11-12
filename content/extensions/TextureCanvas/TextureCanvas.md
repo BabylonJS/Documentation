@@ -1,12 +1,14 @@
 ---
-title: TextureCanvas
+title: Texture Canvas
 image: 
-description: TextureCanvas is a texture on which other textures can be drawn.
-keywords: welcome, babylon.js, texturecanvas, texture canvas
+description: Learn about the texture canvas extension that functions as a texture that other textures can be drawn upon.
+keywords: extensions, babylon.js, texture canvas
 further-reading:
 video-overview:
 video-content:
 ---
+
+## TextureCanvas
 
 ![Fur material high](/img/extensions/texturecanvas.jpg)
 
@@ -36,7 +38,11 @@ Aditionally, you may pass three more parameters, which are:
 -   _onReady_, a function to be called when the canvas is ready.
 -   _options_, an object with the properties _generateMipMaps_ (boolean) and _samplingMode_ (number)
 
+<<<<<<< HEAD
 PG: <Playground id="#9S5YZY#6" title="Texture Canvas" description="Example of a TextureCanavas" image=""/>
+=======
+<Playground id="#9S5YZY#6" title="Texture Canvas Example 2" description="Simple example of a texture canvas." image=""/>
+>>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
 ## Draw using contexts
 
@@ -83,7 +89,11 @@ And the following methods:
 
 Once the context is set up, simply call `ctx.draw()` or `ctx.drawTexture(myTexture)`
 
+<<<<<<< HEAD
 PG: <Playground id="#436DIW#2" title="Texture Canvas" description="Example of drawing on a TextureCanavas" image=""/>
+=======
+<Playground id="#436DIW#2" title="Texture Canvas Example 2" description="Texture canvas example with drawing using context." image=""/>
+>>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
 ## Notes
 
