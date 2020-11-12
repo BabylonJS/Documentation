@@ -19,7 +19,7 @@ export interface IPlaygroundSearchItem {
     imageUrl?: string;
     description?: string;
     keywords?: string[];
-    documentationUrl?: string;
+    documentationPage?: string;
 }
 
 export interface ISearchResult {

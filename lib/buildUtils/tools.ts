@@ -243,7 +243,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                         playgroundId,
                         keywords: metadata.keywords.split(",").map((item) => item.trim()),
                         imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
-                        documentationUrl: url
+                        documentationPage: url
                     });
                 } catch (e) {
                     console.log("Error indexing playground. Probably an index error.");
