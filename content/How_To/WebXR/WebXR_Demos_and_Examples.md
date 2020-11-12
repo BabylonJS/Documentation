@@ -70,11 +70,11 @@ panel.addControl(picker);
 
 ## Other demos
 
-* <Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" image=""/>
-* <Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" image=""/>
+<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" image=""/>
+<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" image=""/>
 
 ## Babylon.js scenes with XR support
 
-* <Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo" image=""/>
-* <Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley" image=""/>
-* <Playground id="#JA1ND3#164" title="Espilit" description="Espilit" image=""/>
+<Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo" image=""/>
+<Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley" image=""/>
+<Playground id="#JA1ND3#164" title="Espilit" description="Espilit" image=""/>

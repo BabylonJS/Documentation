@@ -70,7 +70,7 @@ mainAxis: new BABYLON.Vector3(0, 1, 0), //
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
 
-* <Playground id="#8RQJ1R#2" title="Pivots and Axes (A Parameters)" description="Simple example of pivots and axes with A parameters." image=""/>
+<Playground id="#8RQJ1R#2" title="Pivots and Axes (A Parameters)" description="Simple example of pivots and axes with A parameters." image=""/>
 
 ----
 
@@ -81,7 +81,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* <Playground id="#8RQJ1R#3" title="Pivots and Axes (B Parameters)" description="Simple example of pivots and axes with B parameters." image=""/>
+<Playground id="#8RQJ1R#3" title="Pivots and Axes (B Parameters)" description="Simple example of pivots and axes with B parameters." image=""/>
 
 ----
 
@@ -92,6 +92,7 @@ connectedPivot: new BABYLON.Vector3(5, 0, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
+
 * <Playground id="#8RQJ1R#4" title="Pivots and Axes (C Parameters)" description="Simple example of pivots and axes with C parameters." image=""/>
 
 ----
@@ -103,7 +104,7 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0),
 mainAxis: new BABYLON.Vector3(1, 0, 0), //different axes will orientate main body to align axes.
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* <Playground id="#8RQJ1R#5" title="Pivots and Axes (D Parameters)" description="Simple example of pivots and axes with D parameters." image=""/>
+<Playground id="#8RQJ1R#5" title="Pivots and Axes (D Parameters)" description="Simple example of pivots and axes with D parameters." image=""/>
 
 ----
 
@@ -114,7 +115,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 0, 1), //different axes will orientate main body to align axes.
 connectedAxis: new BABYLON.Vector3(1, 0, 0)
 ```
-* <Playground id="#8RQJ1R#6" title="Pivots and Axes (E Parameters)" description="Simple example of pivots and axes with E parameters." image=""/>
+<Playground id="#8RQJ1R#6" title="Pivots and Axes (E Parameters)" description="Simple example of pivots and axes with E parameters." image=""/>
 
 ## Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
 
@@ -127,6 +128,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0), //
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
+
 * <Playground id="#8RQJ1R#7" title="Pivots and Axes (F Parameters)" description="Simple example of pivots and axes with F parameters." image=""/>
 
 ----
@@ -138,7 +140,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* <Playground id="#8RQJ1R#8" title="Pivots and Axes (G Parameters)" description="Simple example of pivots and axes with G parameters." image=""/>
+<Playground id="#8RQJ1R#8" title="Pivots and Axes (G Parameters)" description="Simple example of pivots and axes with G parameters." image=""/>
 
 ----
 
@@ -149,7 +151,7 @@ connectedPivot: new BABYLON.Vector3(0, 0, 0),
 mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ``` 
-* <Playground id="#8RQJ1R#9" title="Pivots and Axes (H Parameters)" description="Simple example of pivots and axes with H parameters." image=""/>
+<Playground id="#8RQJ1R#9" title="Pivots and Axes (H Parameters)" description="Simple example of pivots and axes with H parameters." image=""/>
 
 ----
 
@@ -160,7 +162,7 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 1, 0), 
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
-* <Playground id="#8RQJ1R#10" title="Pivots and Axes (J Parameters)" description="Simple example of pivots and axes with J parameters." image=""/>
+<Playground id="#8RQJ1R#10" title="Pivots and Axes (J Parameters)" description="Simple example of pivots and axes with J parameters." image=""/>
 
 ----
 
@@ -171,7 +173,7 @@ connectedPivot: new BABYLON.Vector3(0, 5, 0), //adjust main body position and ra
 mainAxis: new BABYLON.Vector3(0, 0, 1), //different axes will rotate main body so stated axes align.
 connectedAxis: new BABYLON.Vector3(1, 0, 0)
 ```
-* <Playground id="#8RQJ1R#11" title="Pivots and Axes (K Parameters)" description="Simple example of pivots and axes with K parameters." image=""/>
+<Playground id="#8RQJ1R#11" title="Pivots and Axes (K Parameters)" description="Simple example of pivots and axes with K parameters." image=""/>
 
 ## Playground Examples  - Connected Axle Has Non-Zero Mass and is at the Origin with No Rotation
 
@@ -192,7 +194,7 @@ mainAxis: new BABYLON.Vector3(0, 1, 0),
 connectedAxis: new BABYLON.Vector3(0, 1, 0)
 ```
 
-* <Playground id="#8RQJ1R#13" title="Pivots and Axes (L(i) Parameters)" description="Simple example of pivots and axes with L(i) parameters." image=""/>
-* <Playground id="#8RQJ1R#14" title="Pivots and Axes (L(ii) Parameters)" description="Simple example of pivots and axes with L(ii) parameters." image=""/>
-* <Playground id="#8RQJ1R#15" title="Pivots and Axes (L(iii) Parameters)" description="Simple example of pivots and axes with L(iii) parameters." image=""/>
-* <Playground id="#8RQJ1R#16" title="Pivots and Axes (L(iv) Parameters)" description="Simple example of pivots and axes with L(iv) parameters." image=""/>
+<Playground id="#8RQJ1R#13" title="Pivots and Axes (L(i) Parameters)" description="Simple example of pivots and axes with L(i) parameters." image=""/>
+<Playground id="#8RQJ1R#14" title="Pivots and Axes (L(ii) Parameters)" description="Simple example of pivots and axes with L(ii) parameters." image=""/>
+<Playground id="#8RQJ1R#15" title="Pivots and Axes (L(iii) Parameters)" description="Simple example of pivots and axes with L(iii) parameters." image=""/>
+<Playground id="#8RQJ1R#16" title="Pivots and Axes (L(iv) Parameters)" description="Simple example of pivots and axes with L(iv) parameters." image=""/>

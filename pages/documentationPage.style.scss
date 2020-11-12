@@ -70,6 +70,7 @@
     th {
         border: 1px solid black;
         border-collapse: collapse;
+        min-width: 100px;
     }
 
     th,
@@ -285,17 +286,17 @@
 
     h4,
     .splendor-h4 {
-        font-size: 0.414rem;
+        font-size: 1.14rem;
     }
 
     h5,
     .splendor-h5 {
-        font-size: 0.6rem;
+        font-size: 0.95rem;
     }
 
     h6,
     .splendor-h6 {
-        font-size: 0.58rem;
+        font-size: 0.8rem;
     }
 
     @media (max-width: 640px) {

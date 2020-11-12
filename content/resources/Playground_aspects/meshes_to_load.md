@@ -31,7 +31,7 @@ Using a `scene` method to append or import scenes or meshes, the `rootUrl` param
 
 
 Filename | Size | Image | Playground
----|---|---|---|---
+---|---|---|---|
 Alien.gltf | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | <Playground id="#8IMNBM#1" title="Alien" description="" image=""/>
 BrainStem.gltf | 3.19 MB | ![brainstem](/img/resources/meshes/brainstem.png) | <Playground id="#J62R3F#1" title="Brainstem" description="" image=""/>
 BoomBox.glb | 10.7 MB | ![boombox](/img/resources/meshes/boombox.png) | <Playground id="#QCU8DJ#2" title="Boombox" description="" image=""/>

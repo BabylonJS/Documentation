@@ -44,7 +44,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 3 MUST come before step 4 and step 5 before step 6.
 
-* <Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body." image=""/>
 
 ## Compound Covering Meshes to The Complex Mesh 
 
@@ -56,7 +56,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Steps 2, 4 and 5 must be in that order.
 
-* <Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body." image=""/>
 
 
 ## Compound to One of the Covering Meshes
@@ -68,4 +68,4 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 2 MUST come before step 4.
 
-* <Playground id="#492ZK0#8" title="Skull As A Compound Body 3" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#8" title="Skull As A Compound Body 3" description="Simple example of a skull as a compound body." image=""/>

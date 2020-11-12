@@ -120,8 +120,8 @@ mesh.physicsImpostor.positionIterations = 10;
 mesh.physicsImpostor.stiffness = 0.9;
 ```
 ### Examples
-* <Playground id="#480ZBN#1" title="Softbody Example" description="Simple example of a softbody." image=""/>
-* <Playground id="#480ZBN#2" title="Softbody and Rigid Sphere" description="Simple example of a soft body and a rigid sphere." image=""/>
+<Playground id="#480ZBN#1" title="Softbody Example" description="Simple example of a softbody." image=""/>
+<Playground id="#480ZBN#2" title="Softbody and Rigid Sphere" description="Simple example of a soft body and a rigid sphere." image=""/>
 
 
 ## The Cloth Soft Body
@@ -143,9 +143,9 @@ To see both sides of a cloth set `backFaceCulling = false` on the material to be
 
 ### Examples
 
-* <Playground id="#480ZBN#3" title="Cloth Over a Softbody" description="Simple example of a cloth over a softbody." image=""/>
-* <Playground id="#480ZBN#4" title="Cloth Over a Rigid Box" description="Simple example of a cloth over a rigid box." image=""/>
-* <Playground id="#480ZBN#5" title="Cloth Over Rigid Box With Fixed Corners" description="Simple example of a cloth over a rigid box with fixed corners." image=""/>
+<Playground id="#480ZBN#3" title="Cloth Over a Softbody" description="Simple example of a cloth over a softbody." image=""/>
+<Playground id="#480ZBN#4" title="Cloth Over a Rigid Box" description="Simple example of a cloth over a rigid box." image=""/>
+<Playground id="#480ZBN#5" title="Cloth Over Rigid Box With Fixed Corners" description="Simple example of a cloth over a rigid box with fixed corners." image=""/>
 
 ### Fixed Points
 
@@ -162,7 +162,7 @@ cloth.physicsImpostor.positionIterations = 10;
 cloth.physicsImpostor.stiffness = 1;
 ```
 
-* <Playground id="#480ZBN#6" title="Fixed Points Example" description="Simple example of a cloth over rigid box fixed at 1 + 2 = 3." image=""/>
+<Playground id="#480ZBN#6" title="Fixed Points Example" description="Simple example of a cloth over rigid box fixed at 1 + 2 = 3." image=""/>
 
 ### Anchors
 
@@ -229,10 +229,10 @@ rope.physicsImpostor.positionIterations = 20;
 rope.physicsImpostor.stiffness = 0.8;
 ```
 
-* <Playground id="#8WC6ZN" title="Rope With Fixed Ends" description="Simple example of a rope with fixed ends." image=""/>
+<Playground id="#8WC6ZN" title="Rope With Fixed Ends" description="Simple example of a rope with fixed ends." image=""/>
 
 In the following playground note the use of the margin for the rope impostor to prevent the rope cutting into the soft box.
-* <Playground id="#8WC6ZN#1" title="Rope With Fixed Ends Over Soft Box" description="Simple example of a rope with fixed ends over a soft box." image=""/>
+<Playground id="#8WC6ZN#1" title="Rope With Fixed Ends Over Soft Box" description="Simple example of a rope with fixed ends over a soft box." image=""/>
 
 ### Using an Extruded Shape
 
@@ -247,10 +247,10 @@ rope.physicsImpostor.velocityIterations = 20;
 rope.physicsImpostor.positionIterations = 20;
 rope.physicsImpostor.stiffness = 1;
 ```
-* <Playground id="#8WC6ZN#2" title="Extruded Rope With Fixed Ends" description="Simple example of an extruded rope with fixed ends." image=""/>
+<Playground id="#8WC6ZN#2" title="Extruded Rope With Fixed Ends" description="Simple example of an extruded rope with fixed ends." image=""/>
 
 In the following playground remember that the extruded shape does not have an impostor, that it lies on the surface of the box is because the margin for the rope is set to the radius of the extruded shape.
-* <Playground id="#8WC6ZN#3" title="Extruded Rope With Fixed Ends Over Soft Box" description="Simple example of an extruded rope with fixed ends over a soft box." image=""/>
+<Playground id="#8WC6ZN#3" title="Extruded Rope With Fixed Ends Over Soft Box" description="Simple example of an extruded rope with fixed ends over a soft box." image=""/>
 
 ### Fixed Points
 Fixing the end points for a rope is the same whichever of the two meshes are used and must be set during construction. A 1 fixes the starting point of the rope, a 2 fixes the end point of the rope and 3 fixes both.
@@ -277,6 +277,6 @@ rope.physicsImpostor.addHook(crossbar.physicsImpostor, 0, 1);
 rope.physicsImpostor.addHook(ball.physicsImpostor, 1, 1);
 ```
 
-* <Playground id="#8WC6ZN#4" title="Winging Ball (Lines Mesh)" description="Simple example of a swinging ball using a lines mesh." image=""/>
+<Playground id="#8WC6ZN#4" title="Winging Ball (Lines Mesh)" description="Simple example of a swinging ball using a lines mesh." image=""/>
 
-* <Playground id="#8WC6ZN#5" title="Swinging Ball (Extruded Mesh)" description="Simple example of a swinging ball using an extruded shape mesh." image=""/>
+<Playground id="#8WC6ZN#5" title="Swinging Ball (Extruded Mesh)" description="Simple example of a swinging ball using an extruded shape mesh." image=""/>
