@@ -163,8 +163,8 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         metadata.furtherReading.forEach((item) => {
             const url = typeof item === "string" ? item : item.url;
             const title = typeof item === "string" ? item : item.title;
-            if(!url) {
-                throw new Error("Error in md file, maybe used tab instead of space?")
+            if (!url) {
+                throw new Error("Error in md file, maybe used tab instead of space?");
             }
             if (!url.startsWith("http")) {
                 const idArray = url.split("/");
@@ -173,11 +173,14 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 }
                 const lastId = idArray[idArray.length - 1];
                 promises.push(
-                    getPageData(idArray, false).then((data) => {
-                        return relatedArticles[lastId] = (data);
-                    }, () => {
-                        console.log('Error - url not found:', url)
-                    }),
+                    getPageData(idArray, false).then(
+                        (data) => {
+                            return (relatedArticles[lastId] = data);
+                        },
+                        () => {
+                            console.log("Error - url not found:", url);
+                        },
+                    ),
                 );
                 // console.log('pushed');
             } else {
@@ -198,19 +201,23 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         const buff = Buffer.from(url, "utf-8");
         const searchId = buff.toString("base64");
         // TODO - check for errors
-        const res = await addSearchItem({
-            id: searchId,
-            categories: breadcrumbs.map((bc) => bc.name),
-            path: url,
-            isApi: false,
-            content: content,
-            keywords: metadata.keywords.split(","),
-            description: metadata.description,
-            title: metadata.title,
-            imageUrl: metadata.imageUrl,
-            videoLink: metadata.videoOverview,
-            lastModified: lastModified,
-        });
+        try {
+            await addSearchItem({
+                id: searchId,
+                categories: breadcrumbs.map((bc) => bc.name),
+                path: url,
+                isApi: false,
+                content: content,
+                keywords: metadata.keywords.split(","),
+                description: metadata.description,
+                title: metadata.title,
+                imageUrl: metadata.imageUrl,
+                videoLink: metadata.videoOverview,
+                lastModified: lastModified,
+            });
+        } catch (e) {
+            console.log("Error indexing item. Probably an index error.");
+        }
 
         addToSitemap(metadata.title, url, lastModified ? lastModified.toUTCString() : "");
 
@@ -228,14 +235,18 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 const buff = Buffer.from(url, "utf-8");
                 const searchId = buff.toString("base64");
                 const playgroundId = exampleId[0] ? exampleId.substr(1) : exampleId;
-                addPlaygroundItem({
-                    title,
-                    description,
-                    id: searchId,
-                    playgroundId,
-                    keywords: metadata.keywords.split(",").map((item) => item.trim()),
-                    imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
-                });
+                try {
+                    await addPlaygroundItem({
+                        title,
+                        description,
+                        id: searchId,
+                        playgroundId,
+                        keywords: metadata.keywords.split(",").map((item) => item.trim()),
+                        imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
+                    });
+                } catch (e) {
+                    console.log("Error indexing playground. Probably an index error.");
+                }
             }
         }
     }

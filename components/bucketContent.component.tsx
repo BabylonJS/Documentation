@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         divRoot: {
             padding: 16,
-            height: 150,
-            minHeight: 150,
+            height: 160,
+            minHeight: 160,
 
             [theme.breakpoints.up("sm")]: {
                 width: "50% !important",

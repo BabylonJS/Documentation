@@ -1047,6 +1047,11 @@
             "friendlyName": "Search", 
             "children": {},
             "content": "" 
+        },
+        "playground": { 
+            "friendlyName": "Playground search", 
+            "children": {},
+            "content": "" 
         }
     },
     "navOverrides": { "previous": "" }
