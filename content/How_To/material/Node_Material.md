@@ -14,7 +14,7 @@ further-reading:
       url: https://babylonjs.medium.com/fighting-self-doubt-with-water-3b1509218009
     - title: Creating the Babylon.js Node Material
       url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
-    - landing_pages/toolsAndResourcesNMELandingPage
+    - /toolsAndResources/tools/nme
 video-overview:
 video-content:
     - title: Node-Based Procedural Textures
