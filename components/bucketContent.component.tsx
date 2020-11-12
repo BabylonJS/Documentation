@@ -77,7 +77,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
     const classes = useStyles();
-    console.log(externalLinks);
     return (
         <>
             {childPages && !!Object.keys(childPages).length && (
