@@ -6,8 +6,10 @@ import { createStyles, IconButton, makeStyles, TextField, Theme } from "@materia
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Brightness1Rounded from "@material-ui/icons/Brightness1Rounded";
 import FilterIcon from "@material-ui/icons/FilterList";
 import { colorPalette } from "../styles/theme";
+import { Stop } from "@material-ui/icons";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
@@ -105,7 +107,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const hasChildren = item.children && item.children.length;
         const key = item.url;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        console.log(selected, key)
         const isSelected = selected === key;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
@@ -118,7 +119,12 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     )}
                     <Link href={item.url}>
                         <a>
-                            <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>{item.name}</span>
+                            <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>
+                                {!hasChildren && <Stop style={{
+                                    transform: "scale(0.8), translateY(8px)"
+                                }}/>}
+                                {item.name}
+                            </span>
                         </a>
                     </Link>
                 </div>
