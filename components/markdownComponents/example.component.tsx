@@ -74,11 +74,11 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
             {(context) => (
                 <Tooltip title={`Open ${props.type} ${props.title}`}>
                     <>
-                        <span id={`example-${props.type}-${props.id.replace(/#/g, '-')}`} className={classes.linkContainer} onClick={onExamplePressed.bind(this, context)}>
-                            <span>
+                        <span id={`example-${props.type}-${props.id.replace(/#/g, "-")}`} className={classes.linkContainer}>
+                            <span onClick={onExamplePressed.bind(this, context)}>
                                 <LinkIcon></LinkIcon>
                             </span>
-                            <span>{example.title}</span>
+                            <span onClick={onExamplePressed.bind(this, context)}>{example.title}</span>
                             <Link href={getExampleLink(example, false)}>
                                 <a target="_blank">
                                     <span>
