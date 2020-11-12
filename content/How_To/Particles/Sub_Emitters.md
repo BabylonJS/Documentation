@@ -5,11 +5,11 @@ description: Learn about color ramps, blends, and particle billboard mode in Bab
 keywords: diving deeper, particles, particle system, color ramps, ramps, blends, billboard, billboard mode
 further-reading:
     - title: Particles Overview
-      url: /features/Particles
+      url: /divingDeeper/particles/particle_system
     - title: Particles 101
-      url: /babylon101/particles
+      url: /divingDeeper/particles
     - title: How to Create Animated Particles
-      url: /how_to/Animate
+      url: /divingDeeper/particles/particle_system/animation
     - title: Solid Particle System
       url: /How_To/Solid_Particles
     - title: How to Customize the Particle System

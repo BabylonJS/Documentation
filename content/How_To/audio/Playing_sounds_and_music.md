@@ -5,9 +5,9 @@ description: Dive into everything you could want to know about using the Babylon
 keywords: welcome, babylon.js, diving deeper, sound, audio, sound engine, audio engine
 further-reading:
     - title: Sound
-      url: /api/classes/babylon.sound
+      url: /typedoc/classes/babylon.sound
     - title: SoundTrack
-      url: /api/classes/babylon.soundtrack
+      url: /typedoc/classes/babylon.soundtrack
 video-overview:
 video-content:
 ---

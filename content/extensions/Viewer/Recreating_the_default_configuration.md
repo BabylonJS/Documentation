@@ -5,15 +5,15 @@ description: Modifying the Babylon.js viewer using HTML.
 keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
     - title: Babylon.js Viewer
-      url: /extensions/The_Babylon_Viewer
+      url: /extensions/babylonViewer
     - title: Configuring the viewer
-      url: /extensions/Configuring_the_viewer
+      url: /extensions/babylonViewer/configuringViewer
     - title: The templating system
-      url: /extensions/The_templating_system
+      url: /extensions/babylonViewer/viewerTemplatingSystem
     - title: Advanced usage
-      url: /extensions/Advanced_usage
+      url: /extensions/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /extensions/Viewer_examples
+      url: /extensions/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---

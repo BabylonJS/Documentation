@@ -787,6 +787,7 @@
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
         { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
-        { "source": "/webpages/app4.html", "destination": "/webpages/app4" }
+        { "source": "/webpages/app4.html", "destination": "/webpages/app4" },
+        { "source": "/How_To/material/Node_Material", "destination": "/materials/node_material/nodeMaterial" }
     ]
 }

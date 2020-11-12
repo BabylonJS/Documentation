@@ -5,21 +5,21 @@ description: Learn about creating immersive web experineces with WebXR in Babylo
 keywords: babylon.js, diving deeper, WebXR, VR, AR
 further-reading:
     - title: Demos and Examples
-      url: ./WebXR_Demos_and_Examples
+      url: /divingDeeper/webXR/webXRDemos
     - title: The WebXR Experience Helper
-      url: ./WebXR_Experience_Helpers
+      url: /divingDeeper/webXR/webXRExperienceHelpers
     - title: The Session Manager
-      url: ./WebXR_Session_Manager
+      url: /divingDeeper/webXR/webXRSessionManagers
     - title: The WebXR Camera
-      url: ./WebXR_Camera
+      url: /divingDeeper/webXR/webXRCamera
     - title: WebXR Input Sources and Controller Support
-      url: ./WebXR_Controllers_Support
+      url: /divingDeeper/webXR/webXRInputControllerSupport
     - title: Features Manager and Available Features
-      url: ./WebXR_Features_Manager
+      url: /divingDeeper/webXR/webXRFeaturesManager
     - title: Selected WebXR Features
-      url: ./WebXR_Selected_Features
+      url: /divingDeeper/webXR/WebXRSelectedFeatures
     - title: Augmented Reality
-      url: ./WebXR_Augmented_Reality
+      url: /divingDeeper/webXR/webXRARFeatures
 video-overview:
 video-content:
 ---

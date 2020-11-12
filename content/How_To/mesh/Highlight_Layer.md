@@ -7,7 +7,7 @@ further-reading:
     - title: How To Make a Mesh Glow
       url: /how_to/glow_layer
     - title: HighlightLayer API
-      url: /api/classes/babylon.highlightlayer
+      url: /typedoc/classes/babylon.highlightlayer
 video-overview:
 video-content:
 ---

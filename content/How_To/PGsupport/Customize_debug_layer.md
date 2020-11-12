@@ -5,7 +5,7 @@ description: Learn how to customize the inspector in Babylon.js.
 keywords: babylon.js, tools, resources, inpsector, debug layer
 further-reading:
     - title: The Inspector Features
-      url: /features/playground_debuglayer
+      url: /toolsAndResources/tools/inspector
     - title: How To Use The Inspector in Projects
       url: /How_To/debug_layer
 video-overview:

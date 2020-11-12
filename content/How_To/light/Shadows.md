@@ -567,6 +567,3 @@ This means that this shader will only be used for depth rendering and won't be u
 In the demo, this is used for the small floating sphere:
 * the base material of the sphere is a `CustomMaterial`
 * the wrapper bound to `sphereFloating.material.shadowDepthWrapper` is a wrapper generated around a specific `ShaderMaterial` material that only implements the logic for fragment discarding, so which is much more lightweight than the shader that would be generated were it based on the `CustomMaterial` base material
-
-## Next step
-Now that you are becoming a real professional about Babylon.js, maybe it’s time to go deeper into the code to manipulate complex shaders, mesh, or textures. Our [home menu for our wiki](/) is your portal to many advanced topics. You can also participate in this project by going to our Github page: [https://github.com/BabylonJS/Babylon.js](https://github.com/BabylonJS/Babylon.js) and also by participating in our very active forum: [https://forum.babylonjs.com](https://forum.babylonjs.com). See you there.

@@ -11,7 +11,7 @@ further-reading:
     - title: Using External Assets in the Playground
       url: /resources/External_PG_assets
     - title: How to Use The Inspector in Projects
-      url: /features/playground_debuglayer
+      url: /toolsAndResources/tools/inspector
     - title: How to Use The Inspector in Projects
       url: /How_To/debug_layer
     - title: How To Customize the Inspector

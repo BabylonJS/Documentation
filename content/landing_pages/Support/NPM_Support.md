@@ -5,9 +5,9 @@ description: Learn about Babylon.js's use of the NPM Package Manager.
 keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, NPM
 further-reading:
     - title: How To Get Babylon.js
-      url: /babylon101/how_to_get
+      url: /divingDeeper/developWithBjs/frameworkVers
     - title: ESNext Support
-      url: /features/ES6_Support
+      url: /divingDeeper/developWithBjs/treeShaking
 video-overview:
 video-content:
 ---
