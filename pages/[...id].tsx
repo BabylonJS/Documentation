@@ -16,6 +16,7 @@ import { MediaMarkdownComponent } from "../components/markdownComponents/media.c
 import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import "./documentationPage.style.scss";
+import { VideoCollection } from "../components/videoCollection.component";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -132,6 +133,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                                 </>
                             )}
                             {renderedContent}
+                            {metadata.videoContent && <VideoCollection videoLinks={metadata.videoContent}></VideoCollection>}
                             <BucketContent title="Further reading" childPages={relatedArticles} externalLinks={relatedExternalLinks}></BucketContent>
                             <BucketContent childPages={childPages}></BucketContent>
                         </div>
