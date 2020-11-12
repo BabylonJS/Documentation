@@ -1,4 +1,12 @@
-# Cheetah2Babylon
+---
+title: Export from Cheetah to Babylon.js
+image: 
+description: How to export from Cheetah to Babylon.js.
+keywords: babylon.js, exporter, export, extension, cheetah
+further-reading:
+video-overview:
+video-content:
+---
 
 [Cheetah 3D](http://www.cheetah3d.com/) exporter for [Babylon.JS](https://babylonjs.com/) .babylon scene files. Currently supports the following:
 
@@ -18,13 +26,13 @@
 
 More info on [my blog](http://cubeslam.net/).
 
-## Install
+### Install
 
 Put js script in this folder :
 
 /Users/YOUR_USER/Library/Application Support/Cheetah3D/Scripts/Macro/
 
-## Usage
+### Usage
 
 Just load your scene and go to Tools/Scripts/Macro/Babylon file export. Choose a destination, and load your scene inside Babylon.JS!
 

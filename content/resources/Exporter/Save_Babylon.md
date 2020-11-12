@@ -1,8 +1,16 @@
-# Save Your Scene or Meshes
+---
+title: Save Your Scene or Meshes
+image: 
+description: Using the scene serializer
+keywords: babylon.js, exporter, export, scene, serializer
+further-reading:
+video-overview:
+video-content:
+---
 
 This is achieved with the [scene serializer](//doc.babylonjs.com/api/classes/babylon.sceneserializer)
 
-# Scene
+## Scene
 
 Include the following code in your project to download your scene
 
@@ -35,9 +43,9 @@ function doDownload(filename, scene) {
 }
 ```
 
-* [Playground Example Save Scene](https://www.babylonjs-playground.com/#1AGCWP#1)
+PG: <Playground id="#1AGCWP#1" title="Save Scene" description="Example of saving a scene." image=""/>
 
-# Meshes
+## Meshes
 
 ```javascript
 var objectUrl;

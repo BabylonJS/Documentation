@@ -1,3 +1,13 @@
+---
+title: Blender to BJS, using glTF
+image: 
+description: How to export from Blender to gltf.
+keywords: babylon.js, exporter, export, extension, blender, gltf
+further-reading:
+video-overview:
+video-content:
+---
+
 # Blender to BJS, using glTF
 
 glTF exporter will allow you to export your scene using PBR workflow.

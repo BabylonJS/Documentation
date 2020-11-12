@@ -1,3 +1,13 @@
+---
+title: Export Maya scene as glTF
+image: 
+description: How to export from Maya scene as glTF.
+keywords: babylon.js, exporter, export, extension, Maya, gltf
+further-reading:
+video-overview:
+video-content:
+---
+
 # How to export Maya scene as glTF
 
 If you have not already installed the babylon plugin for Maya, you can find all instructions [here](/resources/Maya) as well as general information about the plugin.

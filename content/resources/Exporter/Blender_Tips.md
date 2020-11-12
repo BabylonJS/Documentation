@@ -1,10 +1,18 @@
-Since Babylon and Blender often do things differently, it can sometimes be a pain working with both of them together. Here's a few tips that will smooth things out a bit.
-
+---
+title: Blender Tips
+image: 
+description: Tips on exporting from Blender.
+keywords: babylon.js, exporter, export, extension, blender
+further-reading:
+video-overview:
+video-content:
 ---
 
-# Geometry
+Since Babylon and Blender often do things differently, it can sometimes be a pain working with both of them together. Here's a few tips that will smooth things out a bit.
 
-## Smooth shading
+## Geometry
+
+### Smooth shading
 
 If you export the default Blender scene to BJS, you'll shortly see that your cube doesn't look like exactly as it should:
 
@@ -21,9 +29,9 @@ Now, you're cube looks ugly. You have to set up its sharpness, by adding an *edg
 
 ---
 
-# Cameras
+## Cameras
 
-## ArcRotate
+### ArcRotate
 
 When choosing arc rotate camera type, you have to add a target to your camera. 
 
@@ -34,9 +42,9 @@ To do that:
 
 ---
 
-# Workflow
+## Workflow
 
-## Quickly Export
+### Quickly Export
 
 If you go to *File* > *export* and right click on babylon, you can select *Create Shortcut*, and make a easy to use shortcut to export to babylon! For example, you can use *Ctrl-E*.
 
@@ -44,17 +52,17 @@ If you go to *File* > *export* and right click on babylon, you can select *Creat
 
 ---
 
-# Animation
+## Animation
 
-## Commons
+### Commons
 
-### One file per animated object
+#### One file per animated object
 
 Usually, you will have one master scene containing all statics elements, and a blend file for each animated elements.
 
 To easily see your animated element inside the master scene, open your master scene and go to File > Link, then go inside the blend containing the animated element, and import your objects. It can be more simple to link groups instead of objects, to update links in an easier way.
 
-### Rotation mode
+#### Rotation mode
 
 By default, Blender use the `XYZ Euler` rotation mode, which is fine for most of cases, but you have to know that `Quaternion` (which avoid gimbal lock issue) is also supported.
 
@@ -63,11 +71,11 @@ By default, Blender use the `XYZ Euler` rotation mode, which is fine for most of
 
 For armatures, it does not matter because the animation is kind of baked during export.
 
-## Armatures
+### Armatures
 
-### Maximum # of influencers fix
+#### Maximum ## of influencers fix
 
-If you ever get the error ``` WARNING: Maximum # of influencers exceeded for a vertex, extras ignored ```, never fear!
+If you ever get the error ``` WARNING: Maximum ## of influencers exceeded for a vertex, extras ignored ```, never fear!
 
 In weight painting mode, click *weights* and then *limit total*. This will automatically limit the mesh's vertices to 4 influences.
 
