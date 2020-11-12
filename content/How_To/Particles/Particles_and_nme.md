@@ -14,7 +14,7 @@ video-content:
 
 ## How To use the Node Material with Particles
 
-The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/how_to/node_material#creating-particle-shaders), and [post processes](/how_to/node_material#creating-post-processes).
+The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/divingDeeper/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/divingDeeper/materials/node_material/nodeMaterial#creating-post-processes).
 
 This article will help you set up a simple scene that will contain only a few lines of code, because all of the work will be done using our editors.
 
@@ -56,7 +56,7 @@ This will give you a snippet ID that we will use later to load the particle syst
 
 You can see my setup in this playground:
 
-https://www.babylonjs-playground.com/#KST50Y
+<Playground id="#KST50Y" title="Particles Created In the Inspector" description="Simple example showing particles saved and loaded from the snippet server." image=""/>
 
 ## Working with the snippet server
 

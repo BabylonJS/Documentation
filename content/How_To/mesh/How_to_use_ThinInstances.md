@@ -104,7 +104,7 @@ sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16);
 sphere.thinInstanceSetBuffer("color", bufferColors, 4);
 ```
 
-Example: https://playground.babylonjs.com/#217750#2
+Example: <Playground id="#217750#2" title="Thin Instances Example" description="Simple example showing how to use thin instances." image=""/>
 
 If you have a lot of thin instances to create, it could be a lot faster than calling `thinInstanceAdd` / `thinInstanceSetAttributeAt`. Also, you can allocate a bigger buffer than what you really need at start and play with the `thinInstanceCount` property to adjust the number of instances to display during the course of your program.
 

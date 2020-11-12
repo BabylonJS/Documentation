@@ -28,7 +28,7 @@ A joint in a physics engine is a constraining feature between two bodies. This a
 
 Playgrounds are available to check out the coding. In the playgrounds the physics' engine used can be changed by selecting which ones to comment out.
 
-See [How to Use The Physics' Engines](/how_to/using_the_physics_engine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 ## Physical Joint Types
 

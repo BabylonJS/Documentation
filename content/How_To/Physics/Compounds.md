@@ -25,7 +25,7 @@ video-content:
 ## The Skull as a Compound Body
 
 ![Skull](/img/how_to/physics/skull.jpg)
-The skull is an interesting shape to try to compound and you can see it in all its magnificence [here](https://www.babylonjs-playground.com/#UKNERM#0)
+The skull is an interesting shape to try to compound and you can see it in all its magnificence here: <Playground id="#UKNERM#0" title="Skull As A Compound Body" description="Simple example of the skull as a compound body." image=""/>
 
 It is roughly composed of a sphere for most of it with a box around the jaw area, with a bit of work involved to position the sphere and box as best as possible. The skull is compounded to these two covering meshes.
 

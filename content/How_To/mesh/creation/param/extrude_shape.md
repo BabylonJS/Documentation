@@ -17,7 +17,7 @@ The profile shape's local origin is (0, 0, 0) relative to its defining coordinat
 
 When you need the appearance of a solid shape then there is an option to cap the ends. The caps are drawn by creating triangles from the Barycenter of the shape profile to the profile vertices, so that there are profile shapes that cause caps to not correctly fit the profile shape. In this case you can used CreatePolygon for the caps, however you do need to position and rotate these caps in addition to creating them.
 
-When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](toolsAndResources/utilities/Mitred)
+When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](/toolsAndResources/utilities/Mitred)
 
 ## MeshBuilder
 Usage :

@@ -185,7 +185,7 @@ You might also be interested in a standalone html example:
 
 ## Getting File Loading Rate
 
-When loading files, you can get the [SceneLoaderProgressEvent](https://doc.babylonjs.com/api/classes/babylon.sceneloaderprogressevent) sent in the `onProgress` callback.
+When loading files, you can get the [SceneLoaderProgressEvent](https://doc.babylonjs.com/api/classes/babylon.sceneloader) sent in the `onProgress` callback.
 
 Example using `BABYLON.SceneLoader.ImportMesh`:
 

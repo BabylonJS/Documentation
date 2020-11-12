@@ -21,7 +21,7 @@ We will get back to _fragmentUrl_, _parameters_ and _samplers_ parameters.
 
 The _ratio_ is used to define the size of the postprocess (0.5 means that your postprocess will have a width = canvas.width * 0.5 and a height = canvas.height * 0.5).
 
-The _camera_ parameter specifies which camera to attach to. If creating a post process to be managed by a render pipeline this should be set to null. See [Post Process Pipeline](/how_to/how_to_use_postprocessrenderpipeline)
+The _camera_ parameter specifies which camera to attach to. If creating a post process to be managed by a render pipeline this should be set to null. See [Post Process Pipeline](/divingDeeper/postProcesses/postProcessRenderPipeline)
 
 The _samplingMode_ can be one of the following:
 * BABYLON.Texture.NEAREST_SAMPLINGMODE
@@ -144,7 +144,7 @@ You have several options available:
 * colorGradingTexture: Used to provide a color grading texture applied on your scene. You can use:
     * a [colorGradingTexture](//doc.babylonjs.com/api/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process." image=""/>
     * a standard texture (using .png for example) but with _invertY_ set to _true_, wrap mode as clamp and _imageProcessingConfiguration.colorGradingWithGreenDepth_ set to _false_. Demo: <Playground id="#17VHYI#9" title="ColorGrading Texture Post Process Green Depth" description="Simple example of a colorgrading texture post process." image=""/>
-* colorCurves: Used to provide several properties to change colors. More [details here](/overviews/physically_based_rendering_master#color-curves). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process." image=""/>
+* colorCurves: Used to provide several properties to change colors. More [details here](/divingDeeper/materials/using/masterPBR). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process." image=""/>
 * contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#9" title="colorCurves Post Process (Contrast)" description="Simple example of changing the the contrast of a colorCurves Post Process." image=""/>
 * exposure: 1.0 by default. Used to change the exposure of the image. Demo: <Playground id="#J9H084#10" title="colorCurves Post Process (Exposure)" description="Simple example of changing the exposure of a colorCurves Post Process." image=""/>
 

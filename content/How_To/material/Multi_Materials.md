@@ -82,7 +82,7 @@ When you [merge meshes](/divingDeeper/mesh/mergeMeshes) together setting the fin
 
 <Playground id="#INZ0Z0#59" title="Multi-Material With Merged Meshes 1" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
 
-When you [merge meshes](/how_to/How_to_Merge_Meshes) together with the second to last parameter (`subdivideWithSubMeshes`) set to true, but the last parameter (`multiMultiMaterial`) left as false, the subMeshes array is automatically created with each merging mesh as a submesh of the new mesh. You must assign the correct subMesh index to the correct material index.
+When you [merge meshes](/divingDeeper/mesh/mergeMeshes) together with the second to last parameter (`subdivideWithSubMeshes`) set to true, but the last parameter (`multiMultiMaterial`) left as false, the subMeshes array is automatically created with each merging mesh as a submesh of the new mesh. You must assign the correct subMesh index to the correct material index.
 
 When you form `mergedMesh` by merging meshes in this array order [mesh1, mesh2], and the multiMaterials subMaterials array contains materials in the order [mat1, mat2] then for the subMesh from `mesh2` to have material `mat2` you need to set
 

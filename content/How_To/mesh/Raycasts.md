@@ -29,11 +29,11 @@ For example in a shooting game at 3rd person view: collisions between our bullet
 
 **Documentation of classes :**
 
-You must first [create a ray](/api/classes/babylon.ray.html).
+You must first [create a ray](/api/classes/babylon.ray).
 
-The method [scene.pickWithRay()](/api/classes/babylon.scene.html#pickwithray) throws a ray in your scene to pick a mesh.
+The method [scene.pickWithRay()](/api/classes/babylon.scene#pickwithray) throws a ray in your scene to pick a mesh.
 
-Use the [picking info](/api/classes/babylon.pickinginfo.html) that is returned by [scene.pickWithRay()](/api/classes/babylon.scene.html#pickwithray).
+Use the [picking info](/api/classes/babylon.pickinginfo) that is returned by [scene.pickWithRay()](/api/classes/babylon.scene#pickwithray).
 
 ______
 
@@ -234,7 +234,3 @@ rayHelper.attachToMesh(box, localMeshDirection, localMeshOrigin, length);
 ```
 
 <Playground id="#ZHDBJ#48" title="Picking and Debugging" description="Simple example of ray picking and debugging." image=""/>
-
-## Next step
-
-Often it is sufficient to have some 2D shapes in your scene and [**sprites**](/babylon101/Sprites) are next.

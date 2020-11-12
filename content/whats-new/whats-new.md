@@ -1,5 +1,5 @@
 ---
-toc-levels: 1
+toc-levels: 0
 ---
 
 # What's new

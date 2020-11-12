@@ -66,7 +66,7 @@ vertexData.applyToMesh(customMesh);
 
 Usually a normal to a plane is a vector that is at right angles to a plane and for this example this is true. 
 BabylonJS will calculate normals for a facet and for free standing facets not sharing any vertices with another facet 
-the normals will be mathematical normals. For more on how normals affect lighting see [Normals](/resources/Normals.html).
+the normals will be mathematical normals. For more on how normals affect lighting see [Normals](/divingDeeper/mesh/creation/custom/vertexNormals).
 
 ### Calculating
 
@@ -179,7 +179,7 @@ Comment line 41 out in the following to see back face culling happening.
 ## Color
 
 The simplest way to assign a color to the custom mesh is by applying a standard material to the mesh and let BabylonJS do all the work. However 
-color can be set for a facet within the vertex data. For information on how the arrangement of facets used in constructing a mesh can affect how colors are displayed see [Applying Materials to Facets](/resources/Facets.html).
+color can be set for a facet within the vertex data. For information on how the arrangement of facets used in constructing a mesh can affect how colors are displayed see [Applying Materials to Facets](/divingDeeper/materials/using/texturePerBoxFace).
 
 Colors for each vertex are placed in an array as groups of four in the order red, green, blue and alpha for transparency. For the facet 0, 1, 2 to be colored red and the facet 3, 4, 5 to be colored green, each vertex 
 on each facet is given the same color.
@@ -228,7 +228,7 @@ When the scene starts the camera is very nearly full face on to the facet and po
 
 As the camera is rotated around the facet will change from appearing as white to red as the highlight effect dissipates.
 
-For a more controlled lighting effects use a [material](/babylon101/Materials.html) as well as, or instead of, setting vertex colors.
+For a more controlled lighting effects use a [material](/divingDeeper/materials/using/materials_introduction) as well as, or instead of, setting vertex colors.
 
 Adding a light with direction the reverse of the current one will light both sides.
 
@@ -238,7 +238,7 @@ Adding a light with direction the reverse of the current one will light both sid
 
 ## Texture
 
-The simplest method is to just use [materials](/babylon101/Materials.html) and let BabylonJS apply the given image as a texture. 
+The simplest method is to just use [materials](/divingDeeper/materials/using/materials_introduction) and let BabylonJS apply the given image as a texture. 
 However should you wish to have more control on how a texture is applied to a facet then you need to create and set the uv array.
 
 Think of any image to be applied as a texture as having a pair of axes set at the bottom and left-hand side of the image; the u axis and the v axis respectively. 
@@ -302,10 +302,10 @@ gives:
 
 In the playground below clicking on next will cycle you through a variety of values for the uv coordinates.
 
-* [Playground Example Varying UV Values](https://www.babylonjs-playground.com/#VKBJN#14) 
+<Playground id="#VKBJN#14" title="Varying UV Values" description="Simple example of varying UV values." image=""/>
 
 *Notes about Playground above*: The camera has been disabled for the above playground. The uv values are shown and the relative index are shown on the texture image. 
-One day this playground might improve. You will get some idea of how to achieve reflections and rotations of textures on a facet. However for a mesh the [arrangement of facets](/resources/Facets.html) must be considered when trying to achieve a particular texture mapping on the mesh.
+One day this playground might improve. You will get some idea of how to achieve reflections and rotations of textures on a facet. However for a mesh the [arrangement of facets](/divingDeeper/mesh/facetData) must be considered when trying to achieve a particular texture mapping on the mesh.
 
 ### Calculating UVs
 

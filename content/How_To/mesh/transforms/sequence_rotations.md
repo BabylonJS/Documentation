@@ -31,7 +31,7 @@ Using non zero x, y and z values with addRotation will add rotations in the orde
 
 The internal calculations for addRotations convert the Euler angles to rotation quaternions and back again.
 
-Sequence using addRotation https://www.babylonjs-playground.com/#HPKH80
+Sequence using addRotation: <Playground id="#HPKH80" title="Sequence Rotations Using addRotation" description="Simple example of sequencing rotations with addRotation." image=""/>
 
 ## Rotate
 Imagine a disc with an axis through its center. The disc is able to rotate about the axis. The image below shows the disc at several different rotation points around the axis.

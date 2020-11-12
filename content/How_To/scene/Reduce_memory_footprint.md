@@ -23,7 +23,7 @@ This feature uses memory so you can turn it off at engine level with:
 
 ## Turning off support for context lost / contest restore
 
-Babylon.js will automatically recreate everything in a transparent way if the [WebGL context is lost](//doc.babylonjs.com/how_to/optimizing_your_scene#handling-webgl-context-lost).
+Babylon.js will automatically recreate everything in a transparent way if the [WebGL context is lost](/divingDeeper/scene/optimize_your_scene#handling-webgl-context-lost).
 While being handy, this feature consumes a lot of memory so you may want to turn if off when creating the engine with:
 
 ```
