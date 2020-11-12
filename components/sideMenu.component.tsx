@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
             }
         },
         selectedMenuItemLink: {
-            color: colorPalette.linkText,
+            color: colorPalette.menuLinkText,
             fontWeight: 800,
             "&:hover": {
                 color: colorPalette.menuHover1
