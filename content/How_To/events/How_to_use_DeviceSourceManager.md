@@ -50,13 +50,14 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYL
 You can use the following Observables to work with identifiers for a given device
 ```javascript
 
-// When a device is registered
+// When a device is registered in the DeviceSourceManager
 onDeviceConnectedObservable.add((device) => {
     // You can get the device type by using device.deviceType
     // You can also get the device slot by using device.deviceSlot (default is 0 for keyboard and 1 for mouse)
     // "device" is of Type DeviceSource do you can also access the getInput function or add an observable for onInputChangedObservable
 });
 
+// When a device is unregistered in the DeviceSourceManager
 onDeviceDisconnectedObservable.add((device) => {
     // You can get the device type by using device.deviceType
     // You can also get the device slot by using device.deviceSlot (default is 0 for keyboard and 1 for mouse)
