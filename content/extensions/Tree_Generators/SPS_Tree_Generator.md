@@ -1,4 +1,14 @@
-# SPS Tree Generator
+---
+title: SPS Tree Generator
+image: 
+description: Learn about the sps tree generator extension.
+keywords: extensions, babylon.js, tree, tree generator, sps
+further-reading:
+video-overview:
+video-content:
+---
+
+## SPS Tree Generator
 
 ![Generated Tree ](/img/extensions/trees/genTree.png)
 
@@ -10,9 +20,9 @@ This base tree is used in two different ways.
     
   ![Base Tree to Full Tree Sequence ](/img/extensions/trees/baseToFull.png)  
   
-  A demo can be found at:  https://www.babylonjs-playground.com/#1LXNS9#4 
+  A demo can be found at: <Playground id="#1LXNS9#4" title="SPS Tree Generator Example" description="Simple example of the sps tree generator." image=""/>
 
-# How to use it.
+## How to use it.
 
 Clone or copy the file https://github.com/BabylonJS/Extensions/blob/master/TreeGenerators/SPSTreeGenerator/TreeGenerator.js
 
@@ -22,7 +32,7 @@ call the function
 var tree = createTree(trunkHeight, trunkTaper, trunkSlices, trunkMaterial, boughs, forks, forkAngle, forkRatio, branches, branchAngle, bowFreq, bowHeight, leavesOnBranch, leafWHRatio, leafMaterial, scene);
 ```
 
-# Parameters
+## Parameters
 
 trunkHeight - height of trunk of tree. The initial trunk radius is 1 unit.  
 trunkTaper -  fraction of starting radius for the end radius of a branch between 0 and 1.   
@@ -41,7 +51,7 @@ leafWHRatio - width to height ratio for a leaf between 0 and 1, closer to 0 long
 leafMaterial - material used for all leaves.  
 scene - BABYLON scene.  
 
-# Examples of Results for some Parameters
+## Examples of Results for some Parameters
 
 ![Forks and Boughs ](/img/extensions/trees/forks.png)
 

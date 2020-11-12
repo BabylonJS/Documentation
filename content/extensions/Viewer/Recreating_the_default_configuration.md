@@ -2,8 +2,18 @@
 title: Modify the Babylon.js Viewer
 image: 
 description: Modifying the Babylon.js viewer using HTML.
-keywords: welcome, babylon.js, viewer, modify, configure
+keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
+    - title: Babylon.js Viewer
+      url: /extensions/The_Babylon_Viewer
+    - title: Configuring the viewer
+      url: /extensions/Configuring_the_viewer
+    - title: The templating system
+      url: /extensions/The_templating_system
+    - title: Advanced usage
+      url: /extensions/Advanced_usage
+    - title: Babylon.js viewer examples
+      url: /extensions/Viewer_examples
 video-overview:
 video-content:
 ---
@@ -445,12 +455,3 @@ The examples point to a sample [shark glTF model](https://github.com/BabylonJS/M
 
 <p data-height="550" data-theme-id="light" data-slug-hash="KBXVdw" data-default-tab="html,result" data-user="BabylonJS" data-pen-title="[Babylon.js Viewer] Recreating default configuration" class="codepen">See the Pen <a href="https://codepen.io/BabylonJS/pen/KBXVdw/">[Babylon.js Viewer] Recreating default configuration</a> by Babylon.js (<a href="https://codepen.io/BabylonJS">@BabylonJS</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-## Further Reading
-
-* [The Babylon.js Viewer](/extensions/The_Babylon_Viewer)
-* [Configuring the viewer](/extensions/Configuring_the_viewer)
-* [The templating system](/extensions/The_templating_system)
-* [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration)
-* [Advanced usage](/extensions/Advanced_usage)
-* [Babylon.js viewer examples](/extensions/Viewer_examples)

@@ -1,4 +1,14 @@
-# Crowds and navigation agents
+---
+title: Crowd Agents
+image: 
+description: Learn how to create crowd agents that follow a path along a navigation mesh.
+keywords: extensions, babylon.js, crowd
+further-reading:
+video-overview:
+video-content:
+---
+
+## Crowds and navigation agents
 
 ![a crowd ](/img/extensions/navigation/CrowdExample.png)
 
@@ -6,11 +16,11 @@ Now we have a navmesh, we can create autonomous agents and make them navigate wi
 The agents will find the best path to that destination while avoinding other crowd agents.
 An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
-A demo can be found at:  https://www.babylonjs-playground.com/#X5XCVT#240
+A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents." image=""/>
 
 Click anywhere on the navmesh to make the agents go to that location.
 
-# How to use it?
+## How to use it?
 
 First thing is to create a crowd that all agents will belong to. Parameters are the maximum number of agents in the crowd, the maximum agent radius and the scene.
 
@@ -32,7 +42,7 @@ crowd.agentGoto(agentIndex, navigationPlugin.getClosestPoint(endPoint));
 This code will get the closest position on the navmesh to endPoint. Then it asks the agent to go to that position.
 Depending on your agent parameters, it will get there faster of slower.
 
-# Agent Parameters
+## Agent Parameters
 
 radius - Radius of the agent. World Unit.
 
@@ -55,7 +65,7 @@ You can update any of these parameters, per agent, by calling :
 crowd.updateAgentParameters(agentIndex, {maxSpeed:10, maxAcceleration:200});
 ```
 
-# Teleport
+## Teleport
 
 You can teleport an agent to any position using this call:
 
@@ -65,7 +75,7 @@ crowd.agentTeleport(agentIndex, navigationPlugin.getClosestPoint(destinationPoin
 
 Please note the navigation state is reseted when teleporting. You'll have to call ```agentGoto``` to choose a new destination.
 
-# Agent orientation and next path target
+## Agent orientation and next path target
 
 Recastjs crowd system does not handle agent orientation. But the velocity is available and it's possible to orient the geometry toward it.
 To do so, you will need to use Math.atan2 like in the following example. Please take care of the length of the velocity vector. If it's not big enough, you may encounter jittering.
@@ -79,5 +89,6 @@ if (velocity.length() > 0.2)
     ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
 }
 ```
-In this PG  https://playground.babylonjs.com/#6AE0RP
+In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting." image=""/>
+
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.
