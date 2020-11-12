@@ -20,7 +20,7 @@ Here are four ways of putting shader code into your scene:
 3. Write, save and import a Vertex and Fragment Shader file of type .fx into your code; 
 4. Use the shaderBuilder extension of BabylonJS.
 
-Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced/Shader_Material.html) to pass data to the shaders.
+Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced/Shader_Material) to pass data to the shaders.
 
 ## BabylonJS CYOS Download
 
