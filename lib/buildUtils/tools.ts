@@ -172,6 +172,8 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 promises.push(
                     getPageData(idArray, false).then((data) => {
                         return relatedArticles[lastId] = (data);
+                    }, () => {
+                        console.log('Error - url not found:', url)
                     }),
                 );
                 // console.log('pushed');
@@ -234,8 +236,6 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             }
         }
     }
-
-    console.log(relatedExternalLinks);
 
     const pageProps = {
         id,
