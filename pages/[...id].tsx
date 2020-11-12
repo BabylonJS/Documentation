@@ -1,28 +1,34 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import { ParsedUrlQuery } from "querystring";
-import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import hydrate from 'next-mdx-remote/hydrate';
+import Layout from '../components/layout.component';
+import renderToString from 'next-mdx-remote/render-to-string';
+import { BucketContent } from '../components/bucketContent.component';
+import { checkUnusedFiles, getAvailableUrls } from '../lib/buildUtils/content.utils';
+import {
+    createContext,
+    FunctionComponent,
+    useEffect,
+    useRef,
+    useState
+    } from 'react';
+import { ExamplesComponent } from '../components/contentComponents/example.component';
+import { getAllFiles, getPageData, markdownDirectory } from '../lib/buildUtils/tools';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { IconButton, Tooltip } from '@material-ui/core';
+import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from '../lib/content.interfaces';
+import { InlineExampleComponent } from '../components/contentComponents/inlineExample.component';
+import { markdownComponents } from '../components/markdownComponents/markdownComponents';
+import { MediaMarkdownComponent } from '../components/markdownComponents/media.component';
+import { ParsedUrlQuery } from 'querystring';
+import { TableOfContent } from '../components/contentComponents/tableOfContent.component';
+import './documentationPage.style.scss';
 
-import Layout from "../components/layout.component";
-import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
 
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
 
-import "./documentationPage.style.scss";
 
-import { markdownComponents } from "../components/markdownComponents/markdownComponents";
 
 // testing lib instead of src (documentation states to use the src)
-import { BucketContent } from "../components/bucketContent.component";
-import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
-import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
-import { ExamplesComponent } from "../components/contentComponents/example.component";
-import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
-import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
-import { IconButton, Tooltip } from "@material-ui/core";
 
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];

@@ -1,25 +1,22 @@
+import GithubIcon from "@material-ui/icons/GitHub";
 import Head from "next/head";
+import LeftArrowIcon from "@material-ui/icons/FirstPage";
+import Link from "next/link";
+import MenuIcon from "@material-ui/icons/Menu";
+import RightArrowIcon from "@material-ui/icons/LastPage";
+import SearchIcon from "@material-ui/icons/Search";
+import { AppBar, createStyles, Drawer, fade, Hidden, IconButton, InputBase, makeStyles, Theme, Toolbar, Tooltip, Typography } from "@material-ui/core";
+import { colorPalette, theme } from "../styles/theme";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
+import { generateMenuStructure } from "../lib/buildUtils/content.utils";
+import { getImageUrl } from "../lib/frontendUtils/frontendTools";
+import { IPageProps } from "../lib/content.interfaces";
+import { SideMenu } from "./sideMenu.component";
+import { useRouter } from "next/dist/client/router";
 
-export const defaultSiteTitle = "Documentation page";
-export const defaultDescription = "Babylon.js documentation page";
-export const defaultKeywords = ["babylonjs", "documentation", "webgl"].join(", ");
+export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
 
 // very temporary structure configuration
-import { IPageProps } from "../lib/content.interfaces";
-import Link from "next/link";
-import { generateMenuStructure } from "../lib/buildUtils/content.utils";
-import { SideMenu } from "./sideMenu.component";
-import { AppBar, createStyles, Drawer, fade, Hidden, IconButton, InputBase, makeStyles, Theme, ThemeProvider, Toolbar, Tooltip, Typography } from "@material-ui/core";
-import { colorPalette, theme } from "../styles/theme";
-
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import GithubIcon from "@material-ui/icons/GitHub";
-import LeftArrowIcon from "@material-ui/icons/FirstPage";
-import RightArrowIcon from "@material-ui/icons/LastPage";
-import { useRouter } from "next/dist/client/router";
-import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 
 const menuStructure = generateMenuStructure();
 
