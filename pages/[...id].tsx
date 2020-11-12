@@ -17,6 +17,7 @@ import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import "./documentationPage.style.scss";
 import { VideoCollection } from "../components/videoCollection.component";
+import { useRouter } from "next/dist/client/router";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -43,6 +44,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
+    const router = useRouter();
 
     const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 3;
 
@@ -81,16 +83,24 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
-        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-        setTimeout(() => {
+        if (!window.location.hash) {
             markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
-        }, 100);
+        }
         return () => {
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
         };
     }, [id]);
+
+    useEffect(() => {
+        // since toc changes the page's height, if there is an anchor, correct to it.
+        if (window.location.hash) {
+            const hash = window.location.hash;
+            window.location.hash = "";
+            window.location.hash = hash;
+        }
+    }, [tocLinks]);
 
     useEffect(() => {
         if (!activeExample) {
