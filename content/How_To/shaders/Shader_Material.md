@@ -78,4 +78,4 @@ the set method depending on the type passed.
 
 In some specific cases when you use post-processes, you might notice a slightly brighter color output than what you implemented in your shader.
 
-Read [this](/how_to/Image_Processing) if you want to know how to fix it.
+Read [this](/advanced_topics/introToShaders/image_processing) if you want to know how to fix it.
