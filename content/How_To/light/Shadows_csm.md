@@ -14,7 +14,7 @@ Cascaded Shadow Maps (CSM) can greatly enhance the shadows in your scene, but it
 
 This page will explain everything you need to know in order to setup this shadow rendering technique and get the best out of your shadows!
 
-This is a shadow map technique, so a lot of what is said in [Shadows](/babylon101/shadows) does apply, so don't hesitate to read this page first.
+This is a shadow map technique, so a lot of what is said in [Shadows](/start/chap7/shadows) does apply, so don't hesitate to read this page first.
 
 Note that CSM requires WebGL 2+.
 
@@ -22,7 +22,7 @@ Here's a Playground demonstrating the CSM technique and the existing `ShadowGene
 
 ## Technical overview
 
-A quick survey of the technique will help to understand the different properties of the `CascadedShadowGenerator` class. You can also have a look at the [references](#references) provided at the end of this page for further details.
+A quick survey of the technique will help to understand the different properties of the `CascadedShadowGenerator` class. You can also have a look at the [references](/divingDeeper/lights/shadows_csm#references) provided at the end of this page for further details.
 
 ## Subdividing the frustum
 
@@ -202,7 +202,7 @@ Note that you can also call `setMinMaxDistance()` yourself (values between 0 and
 
 ### Filtering
 
-The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/babylon101/shadows).
+The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/start/chap7/shadows).
 
 ### penumbraDarkness (default: 1)
 
@@ -247,7 +247,7 @@ In the Playground samples, the camera `maxZ` value is generally not explicitly s
 **Figure 12. Standard shadows and CSM shadows on PG example**
 ![CSM and bad camera range](/img/babylon101/csm/bad-camera-maxz.jpg)
 
-It's the very first sample linked in the [Shadow](/babylon101/shadows) page (left part of the picture) where `ShadowGenerator` has simply been changed to `CascadedShadowGenerator` (right part of the picture). As you can see, the shadows on the right are very bad because the `camera.maxZ` value is not set and so is equal to `10000`.
+It's the very first sample linked in the [Shadow](/start/chap7/shadows) page (left part of the picture) where `ShadowGenerator` has simply been changed to `CascadedShadowGenerator` (right part of the picture). As you can see, the shadows on the right are very bad because the `camera.maxZ` value is not set and so is equal to `10000`.
 
 Now, if we set `camera.maxZ` to `200`:
 

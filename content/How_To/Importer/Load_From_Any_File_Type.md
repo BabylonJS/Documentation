@@ -31,9 +31,9 @@ video-content:
 To load a file of a given type, Babylon must first have a reference to the plugin for that file type.
 
 Currently plugins can be found for:
- - [.glTF also use for binary version .glb](/how_to/glTF)
- - [.obj](/how_to/OBJ)
- - [.stl](/how_to/STL)
+ - [.glTF also use for binary version .glb](/divingDeeper/importers/glTF)
+ - [.obj](/divingDeeper/importers/oBJ)
+ - [.stl](/divingDeeper/importers/stl)
 
 To quickly add support for all loaders the following script can be added to your page:
 
@@ -153,7 +153,7 @@ BABYLON.SceneLoader.AppendAsync("./", "duck.gltf", scene).then(function (scene) 
 });
 ```
 
-See [How to Use Promises](/how_to/Promises) to learn more about using promises.
+See [How to Use Promises](/divingDeeper/events/promises) to learn more about using promises.
 
 ## Advanced Usage
 
@@ -184,4 +184,4 @@ var loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene
 ## Loading multiple assets
 
 For assistance when load multiple assets the AssetsManager class can be used.
-See [Load Files with Assets Manager](/how_to/how_to_use_AssetsManager)
+See [Load Files with Assets Manager](/divingDeeper/importers/assetManager)

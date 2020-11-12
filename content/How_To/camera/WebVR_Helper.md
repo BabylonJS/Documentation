@@ -12,7 +12,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR experience helper will continue to be supported, it is strongly recommended that projects instead use the [WebXR experience helper](https://doc.babylonjs.com/how_to/webxr_experience_helpers). For more information, check out our [introduction to WebXR](https://doc.babylonjs.com/how_to/introduction_to_webxr).
+While the WebVR experience helper will continue to be supported, it is strongly recommended that projects instead use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers). For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
@@ -155,7 +155,7 @@ vrHelper.onControllerMeshLoaded.add(webVRController => {
 });
 ```
 
-Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](https://doc.babylonjs.com/how_to/gltf#gltf-file-import).
+Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](https://doc.babylonjs.com/how_to/gltf#gltf-file-import /divingDeeper/importers/glTF).
 
 ## Accessing vr device position and rotation
 
@@ -296,7 +296,7 @@ See the example.
 
 ## Multiview
 
-To improve rendering performance by up to 2x, try using [Multiview](/How_To/Multiview) which will render both eyes in a single render pass
+To improve rendering performance by up to 2x, try using [Multiview](/divingDeeper/cameras/multiViewsPart1) which will render both eyes in a single render pass
 
 ## Examples
 

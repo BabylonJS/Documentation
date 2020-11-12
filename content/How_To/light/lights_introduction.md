@@ -180,8 +180,3 @@ In order to control the projection orientation and range, you can also rely on t
 * ```projectionTextureUpDirection``` : helps defining the light space which is oriented towards the light direction and aligned with the up direction.
 
 The projected information is multiplied against the normal light values to better fit in the Babylon JS lighting. It also only impact the diffuse value. So it might be necessary to change the specular color of the light to better fit with the scene.
-
-## Next step
-With the use of these powerful lights, your scene is likely really starting to 'shine'. And don't forget that you can animate light positions, directions, colors, and therefore create wonderful 'light shows'. We'll talk about that soon, or have fun discovering how to do it on your own. Maybe you could do light property settings inside the scene's render loop function. Its fun and beautiful!
-
-Guess what! The next tutorial... is about animation! [Click this and let's go!](/babylon101/Animations)

@@ -36,4 +36,4 @@ You can vary the values in the following playground to see the effect on the par
 
 Now we are ready to build the car and afterwards to animate it.
 
-LINK TO PARENTS 
+You can read more about [parenting](/divingDeeper/mesh/transforms/parent_pivot).

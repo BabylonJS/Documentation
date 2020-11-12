@@ -46,7 +46,7 @@ Congratulations, your modifications are now waiting to be validated and merged i
 
 ![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
 
-Do not hesitate to read [Good Practice](#good-practices) section.
+Do not hesitate to read [Good Practice](/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
 
 ## Deeper Changes
 
@@ -211,7 +211,7 @@ Click on _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 
-If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](#the-easy-way) section.
+If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/divingDeeper/developWithBjs/contributeToDocs#the-easy-way) section.
 
 Congratulation again, you're now a documentation master!
 
@@ -230,7 +230,7 @@ Congratulation again, you're now a documentation master!
 
 ### Images
 
-- use and store images from the documentation FTP as much as possible, read [Adding new images](https://doc.babylonjs.com/how_to/contribute_to_documentation#adding-new-images)
+- use and store images from the documentation FTP as much as possible, read [Adding new images](/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code

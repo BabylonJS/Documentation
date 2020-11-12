@@ -14,7 +14,7 @@ In order to help developers load multiple assets, Babylon.js (starting with vers
 
 This class can be used to import meshes into a scene or load text and binary files.
 
-**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/resources/rotation_conventions#warning).
+**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/divingDeeper/mesh/transforms/center_origin/rotation_conventions).
 
 ## Using AssetsManager
 
@@ -300,7 +300,7 @@ public texture: EquiRectangularCubeTexture;
 
 By default, the AssetsManager will display a loading screen while loading assets:
 
-![](https://www.babylonjs.com/Screenshots/assets.jpg)
+<img src="/img/features/scene/loader.jpg" title="Babylon.js Loading Spinner"/>
 
 If you want to disable the loading screen, you have to set ```useDefaultLoadingScreen``` to false:
 

@@ -27,7 +27,7 @@ And the source code is available on the main Babylon.js repo: https://github.com
 
 You can find a complete demo here: https://www.babylonjs.com/demos/gui/
 
-Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](//doc.babylonjs.com//How_To/Gui3D) available to leverage as well. Both systems can be used for different needs for your project.
+Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](/divingDeeper/gui/gui3D) available to leverage as well. Both systems can be used for different needs for your project.
 
 ## Introduction
 
@@ -94,7 +94,7 @@ Once you have an AdvancedDynamicTexture object, you can start adding controls.
 
 ## Debugging
 
-Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: https://doc.babylonjs.com/features/playground_debuglayer#gui-control-actions.
+Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/tools/inspector)
 
 ## General properties
 
@@ -665,7 +665,7 @@ Pre-requisite: a valid single layer SVG document with width, height, viewbox def
 
 Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.jpg"/>
 
-Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](https://doc.babylonjs.com/how_to/creating_a_custom_loading_screen).
+Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](/divingDeeper/scene/customLoadingScreen).
 
 ## ColorPicker
 
@@ -850,7 +850,7 @@ Here is an example of a StackPanel: <Playground id="#XCPP9Y#11" title="StackPane
 
 ### ScrollViewer
 
-Due to its rich feature set, the ScrollViewer has its own dedicated page right [here](/how_to/ScrollViewer).
+Due to its rich feature set, the ScrollViewer has its own dedicated page right [here](/divingDeeper/gui/scrollViewer).
 
 ### Grid
 
@@ -1018,4 +1018,4 @@ In this case the `guiScene` will host your GUI and the `mainScene` will host you
 
 If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
-Please see [Turning AdaptToDeviceRatio Off/On](/how_to/scene/Optimizing_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.
+Please see [Turning AdaptToDeviceRatio Off/On](/divingDeeper/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.

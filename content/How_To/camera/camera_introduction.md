@@ -23,12 +23,12 @@ The second parameter is optional and defaults to **false**. When **false** then 
 
 **Notes**
 
-1. A [Gamepad](/How_To/how_to_use_gamepads) may be used a controller.
+1. A [Gamepad](/divingDeeper/input/gamepads) may be used a controller.
 2. For touch control either [PEP](https://github.com/jquery/PEP) or [hand.js](https://github.com/Deltakosh/handjs) is needed.
 
 ## Universal Camera
 
-This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/How_To/how_to_use_gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/api/classes/babylon.freecamera), the [Touch Camera](/api/classes/babylon.touchcamera) and the [Gamepad Camera](/api/classes/babylon.gamepadcamera) which are all still available.
+This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/divingDeeper/input/gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/api/classes/babylon.freecamera), the [Touch Camera](/api/classes/babylon.touchcamera) and the [Gamepad Camera](/api/classes/babylon.gamepadcamera) which are all still available.
 
 The Universal Camera is now the default camera used by Babylon.js if nothing is specified, and it’s your best choice if you’d like to have a FPS-like control in your scene.
 All demos on babylonjs.com are based upon that feature. Plug a Xbox controller into your PC and using it you’ll still be able to navigate most of the demos.
@@ -41,7 +41,7 @@ The default actions are:
 
 3. Touch - Swipe left and right to move camera left and right, and swipe up and down to move it forward and backwards;
 
-4. [gamepad](/How_To/how_to_use_gamepads) - corresponds to device.
+4. [gamepad](/divingDeeper/input/gamepads) - corresponds to device.
 
 Optional actions are:
 
@@ -216,10 +216,6 @@ Virtual Joysticks are on-screen 2D graphics that are used to control the camera 
 
 The third-party file [hand.js](https://archive.codeplex.com/?p=handjs).
 
-### Read
-
-[Virtual Joysticks David Rousset Blog](https://blogs.msdn.com/b/davrous/archive/2013/02/22/creating-an-universal-virtual-touch-joystick-working-for-all-touch-models-thanks-to-hand-js.aspx) on David's blog.
-
 ### Video
 
 <Youtube id="53Piiy71lB0"/>
@@ -301,7 +297,7 @@ The new virtual reality camera
     var camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
 ```
 
-This camera deserves a page to itself so here it is [Using the WebVR Camera](/How_To/WebVR_Camera);
+This camera deserves a page to itself so here it is [Using the WebVR Camera](/divingDeeper/cameras/webVRCamera);
 
 ## FlyCamera
 
@@ -339,7 +335,7 @@ camera.attachControl(canvas, true);
 
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
-If you want to change user inputs based upon user preferences, customize one of the existing presets, or use your own input mechanisms.  Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/How_To/Customizing_Camera_Inputs) to learn more about tweaking inputs on your cameras.
+If you want to change user inputs based upon user preferences, customize one of the existing presets, or use your own input mechanisms.  Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/divingDeeper/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
 
 ## Next step
 You have now learned how to use many cameras, and learned some advanced input options available on our two most-used cameras. You can control how you see your scene, you can choose your input and viewing devices, and you now know how to move cameras around. To give your scene a more realistic effect, we are now going to learn [**how to manage lights**](/babylon101/Lights). See you soon.

@@ -16,7 +16,7 @@ To use it, you just have to reference the loader file:
 <script src="babylon.js"></script>
 <script src="babylon.objFileLoader.js"></script>
 ```
-You can find it [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview release/loaders)
+You can find it [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview%20release/loaders)
 
 
 If you are using ES6 imports via NPM, you need to reference with side-effects:
@@ -24,10 +24,10 @@ If you are using ES6 imports via NPM, you need to reference with side-effects:
 import 'babylonjs-loaders'
 ```
 
-You can read more about [NPM support](/features/npm_support)
+You can read more about [NPM support](/divingDeeper/developWithBjs/npmSupport)
 
 ### Load
-See [how to load from any file type](/how_to/Load_From_Any_File_Type)
+See [how to load from any file type](/divingDeeper/importers/loadingFileTypes)
 Babylon.js will know how to load the obj file and its mtl file automatically: 
 
 ## Good things to know

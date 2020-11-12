@@ -103,7 +103,7 @@ skybox.renderingGroupId = 0;
 myMesh.renderingGroupId = 1;
 ```
 
-More info about rendering groups and rendering order can be found [here](/resources/Transparency_and_How_Meshes_Are_Rendered).
+More info about rendering groups and rendering order can be found [here](/divingDeeper/materials/advanced/transparent_rendering).
 
 #### Automatic creation
 Now that we understand how a skybox can be created let's move to a simpler way:
@@ -115,7 +115,7 @@ scene.createDefaultSkybox(envTexture, true, 1000);
 
 <Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg"/>
 
-Check out [scene helpers](/how_to/fast_build) for more information on this and other helpers.
+Check out [scene helpers](/divingDeeper/scene/fastBuildWorld#environmental-helper) for more information on this and other helpers.
 
 ### Fog
 
