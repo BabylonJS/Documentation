@@ -12,6 +12,7 @@ const styles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             maxWidth: 800,
             height: "auto",
+            margin: theme.spacing(2, 0)
         },
         image: {
             flex: 1,
