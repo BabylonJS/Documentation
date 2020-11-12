@@ -6,7 +6,6 @@ import { createStyles, IconButton, makeStyles, TextField, Theme } from "@materia
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Brightness1Rounded from "@material-ui/icons/Brightness1Rounded";
 import FilterIcon from "@material-ui/icons/FilterList";
 import { colorPalette } from "../styles/theme";
 import { Stop } from "@material-ui/icons";
@@ -79,6 +78,9 @@ const useStyles = makeStyles((theme: Theme) =>
             "&:hover": {
                 color: colorPalette.menuHover1
             }
+        },
+        positionIcon: {
+            transform: "scale(0.8) translateY(8px)"
         }
 
     }),
@@ -120,9 +122,10 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     <Link href={item.url}>
                         <a>
                             <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>
-                                {!hasChildren && <Stop style={{
-                                    transform: "scale(0.8), translateY(8px)"
-                                }}/>}
+                                {
+                                    !hasChildren && 
+                                    <Stop className={classes.positionIcon}/>
+                                }
                                 {item.name}
                             </span>
                         </a>
