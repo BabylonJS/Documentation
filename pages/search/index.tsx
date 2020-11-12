@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             [theme.breakpoints.up("md")]: {
                 "& h2": {
-                    fontSize: "2.827rem",
+                    fontSize: "1.4rem",
                 },
                 "& form": {
                     maxWidth: "50%",
