@@ -18,6 +18,9 @@ const styles = makeStyles((theme: Theme) =>
             backgroundColor: "white",
             right: 8,
             top: 8,
+            "&:hover" : {
+                backgroundColor: "white",
+            }
         },
         loading: {
             position: "absolute",
