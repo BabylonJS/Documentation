@@ -1,22 +1,12 @@
 ---
 title: SPS Tree Generator
 image: 
-<<<<<<< HEAD
-description: A method of generating a tree using SPS.
-keywords: welcome, babylon.js, tree, tree generator
-=======
 description: Learn about the sps tree generator extension.
 keywords: extensions, babylon.js, tree, tree generator, sps
->>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 further-reading:
 video-overview:
 video-content:
 ---
-<<<<<<< HEAD
-=======
-
-## SPS Tree Generator
->>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
 ![Generated Tree ](/img/extensions/trees/genTree.png)
 
@@ -28,11 +18,7 @@ This base tree is used in two different ways.
     
   ![Base Tree to Full Tree Sequence ](/img/extensions/trees/baseToFull.png)  
   
-<<<<<<< HEAD
-  A demo can be found at:  PG: <Playground id="#1LXNS9#4" title="SPS Tree Generator" description="Example of a SPS Tree Generator" image=""/>
-=======
   A demo can be found at: <Playground id="#1LXNS9#4" title="SPS Tree Generator Example" description="Simple example of the sps tree generator." image=""/>
->>>>>>> 0a9d2fb9c99e3447ee3122c8df9d8182db9c7827
 
 ## How to use it.
 
