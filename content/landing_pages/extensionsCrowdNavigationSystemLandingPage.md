@@ -8,8 +8,6 @@ video-overview:
 video-content:
 ---
 
-# Navigation Mesh
-
 ![Generated Navmesh ](/img/extensions/navigation/NavMeshGeneration.png)
 
 A Navigation Mesh (or navmesh for short) is a surface topology describing the space where an agent can go based on constraints.

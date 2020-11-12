@@ -8,8 +8,6 @@ video-overview:
 video-content:
 ---
 
-## Simple Pine Tree Generator
-
 ![Generated Tree ](/img/extensions/trees/pine1.png)
 
 The function simplePineGenerator uses a tube to generate a tree. 

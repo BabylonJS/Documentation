@@ -1,4 +1,12 @@
-# Babylon JS Editor Workflow Boilerplate
+---
+title: Babylon.js Editor Workflow Boilerplate
+image: 
+description: A short guide to the recommended workflow for Babylon.js Editor.
+keywords: welcome, babylon.js, editor
+further-reading:
+video-overview:
+video-content:
+---
 
 ![image](https://user-images.githubusercontent.com/954596/59084404-b697a280-88c0-11e9-959a-336c0b8d15e2.png)
 
@@ -52,12 +60,12 @@ The git repository of the boiletplate is available on GitHub here: https://githu
 
 ---
 
-# 1. Create Your First Scene
+## 1. Create Your First Scene
 
 After Installing the BabylonJsEditor on your particular platform, open the editor.
 ![image](https://user-images.githubusercontent.com/954596/59078070-05364400-88a3-11e9-82d4-f05da127312c.png)
 
-### Your First Clicks
+#### Your First Clicks
 
 You should see something like the image above. This is the editor in a default state. If at any point you're concerned your editor is not in a default state, a handy tool is the reset button in the `edit` menu. You can click this now, or anytime you need to reset the editor into a default, 'vanilla' state.
 
@@ -75,7 +83,7 @@ This is just an aesthetic decision, but aren't you glad you did that? Dark Theme
 >
 > ---
 
-### Set Up Folders
+#### Set Up Folders
 
 Now we want to make some changes to this project, so we can be sure we're saving and loading the project correctly. Let's prepare the working directory.
 
@@ -85,7 +93,7 @@ Now we want to make some changes to this project, so we can be sure we're saving
 Your folder structure thus far will look like this.
 ![image](https://user-images.githubusercontent.com/954596/59078492-ffd9f900-88a4-11e9-9bc3-2834b8ef1d23.png)
 
-### Small Change in the Mesh Inspector
+#### Small Change in the Mesh Inspector
 
 Now let's make some trivial changes to the default project. I am going to assign new materials to each mesh in the scene for now. I can start this process by clicking the first sphere in the default project. When you do, you'll see a new menu open on the left. This is the `Inspector`. Now is a good time to briefly describe what this is.
 
@@ -99,7 +107,7 @@ So for now, just click each sphere, and change the material to something. You ca
 
 I just changed the spheres to `Ground`. So they all look the same.
 
-### Checking Your Work
+#### Checking Your Work
 
 Let's say I wanted to do a quick test of this scene before I decide to save. No problem. Just click the `Play` Button at the top.
 
@@ -111,7 +119,7 @@ When you do, you'll see a window appear that plays the current scene. This is th
 
 You can see your scene now without the labels, and some basic information in a window, such as the current FPS and the size of the game window. You can use `WASD` and your mouse to fly around with the camera. This is how we think the scene will look.
 
-### SideQuest: Make a Movie
+#### SideQuest: Make a Movie
 
 The `Game` tab has a cool feature. You can record a short scene with the camera, by clicking the record button that appeared.
 
@@ -127,7 +135,7 @@ Doing so you will output a nice quality .webm video that you can save locally.
 [![image](https://user-images.githubusercontent.com/954596/59082997-2c990b00-88bb-11e9-917b-d24fd6d03371.png)](https://i.imgur.com/V0H8SpK.mp4)
 [You can see the output of this little example here](https://i.imgur.com/V0H8SpK.mp4) (Hosted on Imgur)
 
-### Save It!
+#### Save It!
 
 So far we've opened the editor. We've made a very tiny change to the meshes by reassigning some materials and we want to save our work. Let's decide to call this scene `Rainy-Day`. I will now make a folder inside of the `editor-projects` folder called `Rainy-Day`. So far, this seems excessively nested, but the reasoning will be clear as you read.
 
@@ -175,7 +183,7 @@ Of special note are two files
 
 I encourage you to open them both in your favorite editor (VS Code) and take a look.
 
-# 2. Iterate on that Scene.
+## 2. Iterate on that Scene.
 
 Close the editor.
 
@@ -196,7 +204,7 @@ Now we can make more small changes. I will
 1. remove the documentation plane.
 2. move and scale some of the orbs
 
-### Remove Documentation Plane and The Graph Tab
+#### Remove Documentation Plane and The Graph Tab
 
 One way you can select something is to select it in the preview pane. Another way to do it is in the `Graph` Tab as well. Select the Documentation and hit `Delete`. Boom! it is gone.
 
@@ -206,7 +214,7 @@ The graph tab seems less useful at this time with so few things, but it can be a
 
 As your scene grows, so does the utility of this tab.
 
-### Manipulate Orbs with the `Preview` Controls
+#### Manipulate Orbs with the `Preview` Controls
 
 One way to manipulate the qualities, such as position, scale. and rotation of assets in the scene is to select the item by clicking in it, or in the `Graph` Tab and then go to the corresponding property in the `Inspector` and just type in or select what you like. This is how we changed the Material on these spheres. There's another way to do it with the controls atop the preview.
 
@@ -214,7 +222,7 @@ I don't think there's much to say here, except this is exactly how any other 3d 
 
 ![preview-controls-optimized](https://user-images.githubusercontent.com/954596/59081276-dcb64600-88b2-11e9-889e-2c6de7da65ef.gif)
 
-### Resave.
+#### Resave.
 
 You can, in this case, just click `Save Project` or CTRL+ S. However, when we begin to export to the web project as well as work in these scenes it might be a good idea to always use the `Save Project As ...` Option, so that you always explicitly target the correct folder and never accidentally stomp over the wrong project accidentally.
 
@@ -227,7 +235,7 @@ Great. This is the core iterative loop for working on a single scene. We took so
 
 Next, we will add another scene, before we explore how the process will be modified in the context of a web application that relies on this editor.
 
-# 3. Make another new scene.
+## 3. Make another new scene.
 
 To make the pattern for scene management in a larger project more clear, it makes sense to also make a second scene, we can also cover some simple editor features.
 
@@ -245,7 +253,7 @@ The editor is in a completely blank state now, and looks like this:
 
 Let us add some stuff. Since we are in a completely "blank state", it might be useful to cover the ground and the sky, since many scenes use that.
 
-### Add Skybox
+#### Add Skybox
 
 If you looked in the default scene beforehand, you might have noticed that the skybox was a special sort of Material and the file used has a `.dds` extension. The type of material is based on Physically Based Rendering (PBR), which is a really cool and powerful feature of BabylonJs. The full scope of this is outside the scope of this editor and workflow tutorial, but
 
@@ -340,7 +348,7 @@ Now you should see the skybox all around you! run the game preview tab and take 
 
 ![space-scape](https://user-images.githubusercontent.com/954596/59150588-7bde5900-89eb-11e9-8006-6c1eb931087a.gif)
 
-### Save Your Work Thusfar
+#### Save Your Work Thusfar
 
 We have a simple scene with only one skybox, and its a good time to save this scene. Just as before, Save this into its own folder, with a sensible name in the folder called `editor-projects`. I just called mine `Space-Scene`. Your entire project directory structure thus far will look (probably) like this:
 
@@ -382,7 +390,7 @@ As you add more projects, they file in just like this in this editor-projects di
 >
 > ---
 
-### Put a Bird on it (adding a mesh)
+#### Put a Bird on it (adding a mesh)
 
 Since our second scene is literally only a skybox, I think its probably a good idea to add just one more thing into the scene before we start to go into the workflow related to managing scenes in the context of a web project you plan to publish.
 
@@ -405,7 +413,7 @@ The short version is, look in [this repo](https://github.com/BabylonJS/Exporters
 
 We have a space-scene, so let us add a space-dude. In order to do this, you will need the `.babylon` file, which is a JSON file describing the mesh as well as all the textures. Here is an example of this mesh in a Babylon playground.
 
-- [Babylon.js Playground](https://www.babylonjs-playground.com/#NA2WKW)
+- PG: <Playground id="#NA2WKW" title="Head from the Playground" description="Example of asset" image=""/>
 
 Here are all the assets you need, download them all somewhere.
 
@@ -435,7 +443,7 @@ Here comes the hard part. After you download the file and the assets.. you drag 
 Test this with the `play` button, and save it as we have been.
 ![fly-dude](https://user-images.githubusercontent.com/954596/59163473-5888dc00-8ac7-11e9-8b6b-00a103e9bd71.gif)
 
-### Verify Work Thus Far.
+#### Verify Work Thus Far.
 
 - Open and close both projects
 - Review your folder structure, it should be like this
@@ -473,11 +481,11 @@ Test this with the `play` button, and save it as we have been.
         `📜 scene.editorproject
 ```
 
-# 4. Scaffold and provision a web project
+## 4. Scaffold and provision a web project
 
 Now we want to establish the other half of our project, the part that will run in the context of a web application.
 
-### Scaffold basic project
+#### Scaffold basic project
 
 Make a folder at the root of the project called `web-project` this is where all this work will go.
 
@@ -541,7 +549,7 @@ Do you see that there's now a lot of new material sitting in the `web-project` f
 
 This new `project.editorproject` holds some metadata that will be used in the web app that is not used in the editor. Its a different file for a different purpose, despite the fact the extension is the same extension.
 
-### Verify basic project scaffold
+#### Verify basic project scaffold
 
 As it stands, this scaffold is not completely done and structured the way it will need to be structured to support multiple projects. Nonetheless, we can still run a quick test to make sure our work is correct thus far!
 
@@ -565,7 +573,7 @@ This command will do the following:
 ![localhost-optimized](https://user-images.githubusercontent.com/954596/59164861-7f9bd980-8ad8-11e9-97b3-36d5cd648480.gif)
 Check [`localhost:1338`](http://localhost:1338/), you should see your scene working.
 
-### Provision Multiscene Project
+#### Provision Multiscene Project
 
 We are getting close to establishing our final workflow for a web project with multiple scenes. Now we need to provision our project to support multiple scenes.
 
@@ -912,7 +920,7 @@ Check the Space Scene. Use `F12` to open the inspector. If you get the same scen
 - make sure to disable caching in the inspector
   ![image](https://user-images.githubusercontent.com/954596/59168991-f3041200-8afd-11e9-8b0c-928b7186c8de.png)
 
-# 5. The Final Workflow
+## 5. The Final Workflow
 
 Now, henceforth, you should follow this workflow carefully.
 
@@ -922,7 +930,7 @@ Now, henceforth, you should follow this workflow carefully.
    - carefully use `Project` > `Save Project As...` and navigate to the Scene folder in `editor-projects`
    - use `Scene` > `Export Final Scene and Assets...` and navigate to the Scene folder in `web-project`
 
-### Workflow Tips
+#### Workflow Tips
 
 - _Never_ try to load from the files in the `web-project`
 - the files in the `web-project` are effectively are _output only_. It is essentially no different than a build folder.
@@ -930,7 +938,7 @@ Now, henceforth, you should follow this workflow carefully.
 - Exporting to the `web-project` will show changes in the web-app right away, but if you close the editor before you saved in `editor projects` your changes might be gone. If you like what you see, carefully export to both.
 - Honestly? Don't use `CTRL + S` if you are switching between projects, or if you are working in the editor project and periodically exporting to the web-project. The GUI/path always remembers whatever was used last. You might stomp over a project, that or accidentally save your editor-project stuff in the web-project. Just Always use `Save As...` until this is changes.
 
-### For Next time: What wasn't covered (but might come in the future)
+#### For Next time: What wasn't covered (but might come in the future)
 
 - How to access and manipulate things in the scene.babylon from the game.ts (code-first).
 - How to change scenes, like in a video game.

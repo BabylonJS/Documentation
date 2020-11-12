@@ -8,8 +8,6 @@ video-overview:
 video-content:
 ---
 
-## SPS Tree Generator
-
 ![Generated Tree ](/img/extensions/trees/genTree.png)
 
 The function createTree uses the solid particle system to generate a tree. 

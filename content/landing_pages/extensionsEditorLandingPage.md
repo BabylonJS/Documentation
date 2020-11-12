@@ -1,9 +1,18 @@
-# Editor
+---
+title: Babylon.js Editor
+image: 
+description: The Babylon.js Editor is a community project maintained mostly by Julien Moreau.
+keywords: welcome, babylon.js, editor
+further-reading:
+video-overview:
+video-content:
+---
+
 Please note that the Babylon.js Editor is a community project maintained mostly by Julien Moreau. V3 of the editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
 
 It is highly recommended that you use the desktop app as you'll get access to the local file system to save your projects.
 
-# Available features
+## Available features
 * Create, edit and save particle systems
 * Create, edit and save particle system sets
 * Create and edit animations

@@ -8,5 +8,4 @@ video-overview:
 video-content:
 ---
 
-# Tree Generators
-A seires of extensions that generate 3D trees.
+A series of extensions that generate 3D trees.
