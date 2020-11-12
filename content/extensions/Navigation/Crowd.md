@@ -1,4 +1,12 @@
-# Crowds and navigation agents
+---
+title: Crowds and Navigation Agents
+image: 
+description: A crowd, or group of agents, are constrained to remain in the Navigation Mesh and head for a target.
+keywords: welcome, babylon.js, navigation, navigation mesh, constrained, crowd, agent
+further-reading:
+video-overview:
+video-content:
+---
 
 ![a crowd ](/img/extensions/navigation/CrowdExample.png)
 
@@ -6,7 +14,7 @@ Now we have a navmesh, we can create autonomous agents and make them navigate wi
 The agents will find the best path to that destination while avoinding other crowd agents.
 An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
-A demo can be found at:  https://www.babylonjs-playground.com/#X5XCVT#240
+A demo can be found at:  PG: <Playground id="#X5XCVT#240" title="Navigation Mesh" description="Crowd moves to taget" image=""/>
 
 Click anywhere on the navmesh to make the agents go to that location.
 
@@ -79,5 +87,5 @@ if (velocity.length() > 0.2)
     ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
 }
 ```
-In this PG  https://playground.babylonjs.com/#6AE0RP
+In this PG: <Playground id="#6AE0RP" title="Navigation Mesh" description="Example of agent orientation" image=""/>  
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.
