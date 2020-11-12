@@ -19,6 +19,7 @@ export interface IPlaygroundSearchItem {
     imageUrl?: string;
     description?: string;
     keywords?: string[];
+    documentationUrl?: string;
 }
 
 export interface ISearchResult {
@@ -100,6 +101,58 @@ export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
     }
     return result;
 }
+
+export const clearPlaygroundIndex = async () => {
+    if (!process.env.SEARCH_API_KEY) {
+        console.log("no search API key defined");
+        return;
+    }
+    console.log("clearing playgrounds index.");
+    // get all elements
+    const results = await fetch(getUrl("search", "playgrounds"), {
+        // Adding method type
+        method: "POST",
+
+        body: JSON.stringify({
+            top: 1000,
+        }),
+
+        // Adding body or contents to send
+
+        // Adding headers to the request
+        headers,
+    });
+    const removeDocuments = async (ids: string[]) => {
+        return await fetch(getUrl("index", "playgrounds"), {
+            // Adding method type
+            method: "POST",
+
+            // Adding body or contents to send
+            body: JSON.stringify({
+                value: ids.map((id) => {
+                    return {
+                        "@search.action": "delete",
+                        id,
+                    };
+                }),
+            }),
+
+            // Adding headers to the request
+            headers,
+        });
+    };
+    const result = (await results.json());
+    const filtered = result.value && (result.value as Array<ISearchResult>);
+    while (filtered.length) {
+        const toDelete = filtered.splice(0, 50);
+        const httpResult = await removeDocuments(toDelete.map((item) => item.id));
+        console.log("Removed playground - ", toDelete.length);
+        if (!httpResult.ok) {
+            throw new Error("error clearing index");
+        }
+    }
+    console.log("search index cleared");
+};
 
 export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] = []) => {
     if (!process.env.SEARCH_API_KEY) {

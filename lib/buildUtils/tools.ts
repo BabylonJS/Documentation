@@ -232,9 +232,9 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             if (realType === "pg") {
                 const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1].split('"')[0]) || `Playground for ${metadata.title}`;
                 const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1].split('"')[0]) || "";
-                const buff = Buffer.from(url, "utf-8");
-                const searchId = buff.toString("base64");
                 const playgroundId = exampleId[0] ? exampleId.substr(1) : exampleId;
+                const buff = Buffer.from(playgroundId, "utf-8");
+                const searchId = buff.toString("base64");
                 try {
                     await addPlaygroundItem({
                         title,
@@ -243,6 +243,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                         playgroundId,
                         keywords: metadata.keywords.split(",").map((item) => item.trim()),
                         imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
+                        documentationUrl: url
                     });
                 } catch (e) {
                     console.log("Error indexing playground. Probably an index error.");
