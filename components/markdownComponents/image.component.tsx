@@ -61,9 +61,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         const properties: IImageEmbed = { ...props };
         if (!props.width || !props.height) {
-            // properties.unsized = true;
             properties.layout = "fill";
-            // return <img className={classes.image} {...props} />;
         }
         try {
             return (
