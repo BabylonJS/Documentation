@@ -58,7 +58,7 @@ The are multiple encoder programs for .KTX files (see .KTX link above).  Most al
 If you are going to do the encoding on your own in the PVRTexTool GUI tool, there are a few things to keep in mind:
 *  The texture must be encoded with the Y-axis flipped. ('Vertical Flipped' checkbox at bottom of Encode window)
 *  PVRTC textures must be square for iOS.  ('Make Square' button in the Toolbox window using Resize tool)
-*  ASTC support is dropped in from an [external program](https://github.com/ARM-software/astc-encoder/tree/master/Binary) from ARM that you put on the path.  (See PVRTexTool [manual](http://cdn.imgtec.com/sdk-documentation/PVRTexTool.User+Manual.pdf), section 1.2.1)
+*  ASTC support is dropped in from an [external program](https://github.com/ARM-software/astc-encoder) from ARM that you put on the path.  (See PVRTexTool [manual](http://cdn.imgtec.com/sdk-documentation/PVRTexTool.User+Manual.pdf), section 1.2.1)
 *  DXT support is done with 'BCx' names.  (Better UI design for WebGL has been [requested](https://community.imgtec.com/forums/topic/could-webgl-be-added-as-an-encoding-groupapi/).)
 *  Indicating to generate mipmaps should really be done as well. (checkbox to the left of 'Vertical Flipped')
 *  Always use a Linear-RGB encoding type.
