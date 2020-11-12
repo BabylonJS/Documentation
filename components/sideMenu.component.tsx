@@ -63,8 +63,22 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             "& a": {
                 display: "flex",
-            },
+            }
         },
+        menuItemLink: {
+            color: colorPalette.regularSideText,
+            "&:hover": {
+                color: colorPalette.menuHover1
+            }
+        },
+        selectedMenuItemLink: {
+            color: colorPalette.linkText,
+            fontWeight: 800,
+            "&:hover": {
+                color: colorPalette.menuHover1
+            }
+        }
+
     }),
 );
 
@@ -90,8 +104,14 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;
+<<<<<<< HEAD
         const isSelected = selected.startsWith(key);
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1 || isSelected;
+=======
+        const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
+        console.log(selected, key)
+        const isSelected = selected === key;
+>>>>>>> remotes/origin/HEAD
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
             <li className={className} key={key}>
@@ -103,7 +123,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     )}
                     <Link href={item.url}>
                         <a>
-                            <span style={{ color: isSelected ? colorPalette.linkText : "#252C26" }}>{item.name}</span>
+                            <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>{item.name}</span>
                         </a>
                     </Link>
                 </div>
