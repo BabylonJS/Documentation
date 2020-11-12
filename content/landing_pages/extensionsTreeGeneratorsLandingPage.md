@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-A seires of extensions that generate 3D trees.
+A series of extensions that generate 3D trees.
