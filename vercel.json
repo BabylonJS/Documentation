@@ -13,6 +13,7 @@
     "redirects": [
         { "source": "/api", "destination": "/typedoc" },
         { "source": "/api/:match*", "destination": "/typedoc/:match*" },
+        { "source": "/babylon101", "destination": "/start" },
         { "source": "/babylon101/About101", "destination": "/start" },
         { "source": "/babylon101/about101", "destination": "/start" },
         { "source": "/babylon101/Animations", "destination": "/divingDeeper/animation/animation_introduction" },
@@ -233,6 +234,8 @@
         { "source": "/features/physics_engine", "destination": "/divingDeeper/physics" },
         { "source": "/features/WebGL2", "destination": "/advanced_topics/webGL2" },
         { "source": "/features/webgl2", "destination": "/advanced_topics/webGL2" },
+        { "source": "/How_To", "destination": "/divingDeeper" },
+        { "source": "/how_to", "destination": "/divingDeeper" },
         { "source": "/How_To/Camera_Behaviors", "destination": "/divingDeeper/behaviors/cameraBehaviors" },
         { "source": "/how_to/camera_behaviors", "destination": "/divingDeeper/behaviors/cameraBehaviors" },
         { "source": "/How_To/playground_tutorials", "destination": "/Code required for this no longer exists page should have been deleted before" },
