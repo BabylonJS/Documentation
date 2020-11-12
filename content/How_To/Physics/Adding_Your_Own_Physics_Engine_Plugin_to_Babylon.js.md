@@ -13,7 +13,7 @@ further-reading:
     - title: How To Use Pivots and Axes
       url: /how_to/joint_pivots
     - title: How To Create Compound Bodies
-      url: /how_to/compounds
+      url: /divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
       url: /how_to/soft_bodies
     - title: How To Use Advanced Features

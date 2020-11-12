@@ -17,7 +17,7 @@ further-reading:
     - title: How To Use Advanced Features
       url: /how_to/Using_Advanced_Physics_Features
     - title: How To Add Your Own Physics Engine
-      url: /how_to/Adding_Your_Own_Physics_Engine_Plugin_to_Babylon.js
+      url: /divingDeeper/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---

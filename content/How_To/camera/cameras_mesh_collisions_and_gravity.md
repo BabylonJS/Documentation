@@ -5,7 +5,7 @@ description: Dive into understanding camera collisions, mesh collisions, and gra
 keywords: welcome, babylon.js, diving deeper, cameras, collisions, camera collisions, gravity, mesh collisions
 further-reading:
     - title: Cameras Overview
-      url: /features/Cameras
+      url: /divingDeeper/cameras
 video-overview:
 video-content:
 ---

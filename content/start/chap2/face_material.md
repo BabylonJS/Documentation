@@ -5,7 +5,7 @@ description: Continue your Babylon.js learning by adding materials to individual
 keywords: welcome, babylon.js, getting started, start, chapter 2, face material, face materials
 further-reading:
     - title: More on Per Face Material
-      url: /How_To/material/CreateBox_Per_Face_Textures_And_Colors
+      url: /divingDeeper/materials/using/texturePerBoxFace
 video-overview:
 video-content:
 ---

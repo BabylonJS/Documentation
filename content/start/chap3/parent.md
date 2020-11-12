@@ -5,7 +5,7 @@ description: Learn the basics of parenting objects in your scene.
 keywords: welcome, babylon.js, getting started, start, chapter 3, parenting, parent
 further-reading:
     - title: More on Mesh Parenting
-      url: How_To/mesh/Parenting
+      url: /divingDeeper/mesh/transforms/parent_pivot
 video-overview:
 video-content:
 ---

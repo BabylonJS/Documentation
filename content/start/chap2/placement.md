@@ -5,7 +5,7 @@ description: Continue your Babylon.js learning by placing and positioning meshes
 keywords: welcome, babylon.js, getting started, start, chapter 2, placement, position
 further-reading: 
     - title: More on Placement
-      url: /how_to/transforms/position
+      url: /divingDeeper/mesh/transforms/center_origin/position
 video-overview:
 video-content:
 ---

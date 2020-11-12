@@ -13,7 +13,7 @@ further-reading:
     - title: Dev blog about the inspector
       url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
     - title: Using the Texture Inspector
-      url: /features/texture_inspector
+      url: /toolsAndResources/tools/textureInspector
 video-overview:
 video-content:
 ---
