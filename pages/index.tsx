@@ -82,9 +82,12 @@ export default function Home({ breadcrumbs, metadata, content, childPages, id, p
             id={[]}
         >
             <Head>
-                <script type="application/ld+json">
-                    {`{"@context": "https://schema.org","@type": "WebSite","url": "https://docs.babylonjs.com/","potentialAction": {"@type": "SearchAction","target": "https://docs.babylonjs.com/search?q={search_term_string}","query-input": "required name=search_term_string"}}`}
-                </script>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `{"@context": "https://schema.org","@type": "WebSite","url": "https://docs.babylonjs.com/","potentialAction": {"@type": "SearchAction","target": "https://docs.babylonjs.com/search?q={search_term_string}","query-input": "required name=search_term_string"}}`,
+                    }}
+                ></script>
             </Head>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
                 <div className="documentation-container">
