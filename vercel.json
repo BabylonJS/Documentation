@@ -1,4 +1,15 @@
 {
+    "headers": [
+        {
+            "source": "/examples/(.*)",
+            "headers": [
+                { "key": "Access-Control-Allow-Credentials", "value": "true" },
+                { "key": "Access-Control-Allow-Origin", "value": "*" },
+                { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+            ]
+        }
+    ],
     "redirects": [
         { "source": "/api", "destination": "/typedoc" },
         { "source": "/api/:match*", "destination": "/typedoc/:match*" },
@@ -787,6 +798,7 @@
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
         { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
-        { "source": "/webpages/app4.html", "destination": "/webpages/app4" }
+        { "source": "/webpages/app4.html", "destination": "/webpages/app4" },
+        { "source": "/How_To/material/Node_Material", "destination": "/divingDeeper/materials/node_material/nodeMaterial" }
     ]
 }
