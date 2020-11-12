@@ -1,4 +1,12 @@
-# Make 3D Text
+---
+title: Make 3D Text
+image: 
+description: The 3D text extension allows you to make and export Babylon.js ready 3D text.
+keywords: babylon.js, exporter, extension, 3D text
+further-reading:
+video-overview:
+video-content:
+---
 
 Produced by forum user [vinhpt](https://www.html5gamedevs.com/profile/28165-vinhpt/) this [3D Text site](http://grid.vn/3dtext/), together with other apps, acknowledged on site by the author, allows you to make and export Babylon.js ready 3D text like this:
 

@@ -1,3 +1,13 @@
+---
+title: Exporting Bones from 3D MAX
+image: 
+description: Babylon.js Editor tool to preview, edit and add materials.
+keywords: babylon.js, exporter, export, extension, 3D MAX, bones, influences
+further-reading:
+video-overview:
+video-content:
+---
+
 This is a common error you may have when working with bones:
 
 *"Too many bones influences per vertex: 5. Babylon.js only support 4 bones influences per vertex."*
