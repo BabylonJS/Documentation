@@ -1,5 +1,5 @@
 ---
-title: Depth of Filed and Other Lense Effects
+title: Depth of Field and Other Lens Effects
 image: 
 description: Learn how to use depth of field and other lens effects in Babylon.js.
 keywords: diving deeper, post processes, post process, lens effects, DoF
