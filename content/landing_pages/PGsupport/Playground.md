@@ -23,7 +23,7 @@ video-content:
 
 ## The Playground
 
-The place to try out coding with Babylon.js.
+The place to try out coding with Babylon.js. [Playground](https://playground.babylonjs.com/)
 
 Experimenting and changing any code in the playground and clicking on the **Run** button will not affect any original code in the playground you currently using. 
 Original code can be restored by refreshing the browser.
