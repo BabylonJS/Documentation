@@ -50,7 +50,7 @@
         { "source": "/extensions/ObjectCloner", "destination": "/extensions/clonerSystem/objectCloner"},
         { "source": "/extensions/RadialCloner", "destination": "/extensions/clonerSystem/radialCloner"},
         { "source": "/extensions/RandomEffector", "destination": "/extensions/clonerSystem/randomEffector"},
-        { "source": "/extensions/glTFExporter", "destination": "/extensions/glTFExporter/glTFExporter"},
+        { "source": "/extensions/glTFExporter", "destination": "/extensions/glTFExporter"},
         { "source": "/extensions/Cell", "destination": "/extensions/MaterialsLibrary/Cell"},
         { "source": "/extensions/Fire", "destination": "/extensions/MaterialsLibrary/Fire"},
         { "source": "/extensions/Fur", "destination": "/extensions/MaterialsLibrary/Fur"},
