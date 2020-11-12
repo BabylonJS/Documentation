@@ -5,7 +5,7 @@ description: Continue your Babylon.js learning by adding materials to the object
 keywords: welcome, babylon.js, getting started, start, chapter 2, material, materials
 further-reading:
     - title: More on Materials
-      url: /features/materials
+      url: /divingDeeper/materials
 video-overview:
 video-content:
 ---

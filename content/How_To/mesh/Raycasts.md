@@ -5,7 +5,7 @@ description: Learn how to pick meshes in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, interactions
 further-reading:
     - title: Mesh Overview
-      url: /features/Shapes
+      url: /divingDeeper/mesh/creation/set
     - title: Forum Pick with Ray
       url: https://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/
     - title: Forum World Local Ray

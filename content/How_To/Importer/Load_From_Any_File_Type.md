@@ -5,7 +5,7 @@ description: Learn how to import any file type in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing
 further-reading:
     - title: How to get Babylon.js
-      url: /babylon101/how_to_get
+      url: /divingDeeper/developWithBjs/frameworkVers
     - title: Use the glTF File Loader Plugin
       url: /how_to/gltf
     - title: Use the OBJ File Loader Plugin
@@ -19,7 +19,7 @@ further-reading:
     - title: Using External Assets in the Playground
       url: /resources/external_pg_assets
     - title: SceneLoader
-      url: /api/classes/babylon.sceneloader.html
+      url: /typedoc/classes/babylon.sceneloader.html
 video-overview:
 video-content:
 ---

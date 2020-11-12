@@ -238,9 +238,9 @@ Then when you visit localhost:8080 in our browser, you should see a sphere!
 If you're working with a large project, you'll most likely want to keep it in a safe place in case your computer breaks, you lose your files, etc. Github is also very useful for keeping track of changes that you make and can make things a lot easier in case you need to bring back a previous version of your project. You can follow this to learn how to [add a project](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop) using Github Desktop.
 
 ## Resources
-[First Steps](start/chap1/first_app)  
-[How To Get Babylon.js](divingDeeper/developWithBjs/frameworkVers)  
-[NPM Support](divingDeeper/developWithBjs/npmSupport)  
+[First Steps](/start/chap1/first_app)  
+[How To Get Babylon.js](/divingDeeper/developWithBjs/frameworkVers)  
+[NPM Support](/divingDeeper/developWithBjs/npmSupport)  
 [Sample Project](https://github.com/RaananW/babylonjs-webpack-es6)
 
 ### External

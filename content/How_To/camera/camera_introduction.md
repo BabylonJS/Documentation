@@ -5,7 +5,7 @@ description: Introduction to the different camera types in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, cameras, intro
 further-reading:
     - title: Cameras Overview
-      url: /features/Cameras
+      url: /divingDeeper/cameras
 video-overview:
 video-content:
 ---
@@ -336,6 +336,3 @@ camera.attachControl(canvas, true);
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
 If you want to change user inputs based upon user preferences, customize one of the existing presets, or use your own input mechanisms.  Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/divingDeeper/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
-
-## Next step
-You have now learned how to use many cameras, and learned some advanced input options available on our two most-used cameras. You can control how you see your scene, you can choose your input and viewing devices, and you now know how to move cameras around. To give your scene a more realistic effect, we are now going to learn [**how to manage lights**](/babylon101/Lights). See you soon.
