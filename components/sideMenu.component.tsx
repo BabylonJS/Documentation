@@ -76,13 +76,12 @@ const useStyles = makeStyles((theme: Theme) =>
             color: colorPalette.menuLinkText,
             fontWeight: 800,
             "&:hover": {
-                color: colorPalette.menuHover1
-            }
+                color: colorPalette.menuHover1,
+            },
         },
         positionIcon: {
-            transform: "scale(0.8) translateY(8px)"
-        }
-
+            transform: "scale(0.8) translateY(8px)",
+        },
     }),
 );
 
@@ -122,10 +121,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     <Link href={item.url}>
                         <a>
                             <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>
-                                {
-                                    !hasChildren && 
-                                    <Stop className={classes.positionIcon}/>
-                                }
+                                {!hasChildren && <Stop className={classes.positionIcon} />}
                                 {item.name}
                             </span>
                         </a>
