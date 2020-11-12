@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: "center",
         },
         noChild: {
-            marginLeft: 50,
+            marginLeft: 20,
         },
         noChildFirstLevel: {
             marginLeft: 30,
         },
         childWithChildren: {
-            marginLeft: 15,
+            marginLeft: 20,
         },
         drawer: {
             flexShrink: 0,
@@ -123,15 +123,14 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                             {hasChildren ? isOpened ? <ExpandMoreIcon></ExpandMoreIcon> : <ChevronRightIcon></ChevronRightIcon> : <></>}
                         </IconButton>
                     )}
+                    {!hasChildren && level > 1 && (
+                        <IconButton disabled={true} size="small">
+                            <Stop />
+                        </IconButton>
+                    )}
                     <Link href={item.url}>
                         <a>
-                            <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>
-                                {
-                                    !hasChildren && level > 1 &&
-                                    <Stop className={classes.positionIcon}/>
-                                }
-                                {item.name}
-                            </span>
+                            <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>{item.name}</span>
                         </a>
                     </Link>
                 </div>
