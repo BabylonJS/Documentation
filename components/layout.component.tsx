@@ -52,6 +52,13 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.up("md")]: {
                 display: "block",
             },
+            "& span": {
+                display: "inline-block",
+                width: 170,
+                height: 40,
+                marginLeft: 20,
+                cursor: "pointer",
+            },
         },
         search: {
             position: "relative",
@@ -215,7 +222,11 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <MenuIcon />
                         </IconButton>
                     </Hidden>
-                    <Typography className={classes.title}></Typography>
+                    <Typography className={classes.title}>
+                        <Link href="/">
+                            <span></span>
+                        </Link>
+                    </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
