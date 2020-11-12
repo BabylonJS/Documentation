@@ -1,4 +1,12 @@
-# How to export 3DS MAX scene as glTF
+---
+title: How to export 3DS MAX scene as glTF
+image: 
+description: With the 3DS MAX plugin, you can also export your project to glTF 2.0 format.
+keywords: babylon.js, exporter, export, extension, 3D Max, gltf
+further-reading:
+video-overview:
+video-content:
+---
 
 If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/resources/3dsmax) as well as general information about the plugin.
 
@@ -13,9 +21,9 @@ The notable exported files are the .gltf and .bin ones.
 
 To export to a single .glb file, choose __glb__ as __Output format__.
 
-#  Features  #
+##  Features
 
-# Exported features
+## Exported features
 
 Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/resources/3dsmax#features).
 
@@ -65,7 +73,7 @@ Since the plugin first exports to babylon then converts it to glTF, glTF feature
     * Export without animations
     * Export animations only
 
-# Conversion Standard to PBR materials
+## Conversion Standard to PBR materials
 
 3DS MAX Standard materials are converted to PBR materials based on their diffuse, specular, opacity and glossiness.
 
@@ -75,7 +83,7 @@ Since the plugin first exports to babylon then converts it to glTF, glTF feature
 
 Note that the conversion duration scales with images size and may have a severe impact on export duration.
 
-# PBR materials
+## PBR materials
 
 The physical materials are exported to glTF format as PBR materials.
 
@@ -85,7 +93,7 @@ Involved parameters are highlighted bellow and described in the following sectio
 
 Remember that in 3DS MAX, when a map is assigned to a parameter, the basic parameter value is ignored. This behaviour is kept when exporting.
 
-# Base color and Transparency
+## Base color and Transparency
 
 Only the color of base color is used. The weight of base color is ignored.
 
@@ -105,7 +113,7 @@ The basic parameter value is used as default value when binded map is not provid
 
 ![glTF base color map and transparency weight combined](/img/exporters/3DSMax/17_gltf_baseColor_transparencyWeight_combined.jpg)
 
-# Metalness and Roughness
+## Metalness and Roughness
 
 The metalness is used.
 
@@ -125,21 +133,21 @@ Note that the duration of this process scales with images size and may have a se
 
 Like for base color and transparency, the basic parameter value is used as default value when binded map is not provided.
 
-# Emission
+## Emission
 
 The exported emission color value is computed based on all 4 parameters: emission weight, color, luminance and Kelvin.
 
 However, the exported emission color map is identical to the specified one in generic map. This mean that emisson weight, luminance and Kelvin __are not__ used. The emission map is assumed to be precomputed.
 
-# Ambient occlusion
+## Ambient occlusion
 
 The diffuse roughness map is used as ambient occlusion.
 
-# Bump map
+## Bump map
 
 The bump map (or normal map) and its weight are used.  A tangent-space normal map can be directly connected to the Bump input.  Note that glTF does not support height maps.  Connecting a height map may yield to unexpected results.  __Normal Bump map nodes are currently not supported__.
 
-# Standard Surface Arnold material
+## Standard Surface Arnold material
 
 The Standard Surface Arnold material is exported to glTF format as a PBR material.
 
@@ -149,7 +157,7 @@ Involved parameters are highlighted bellow.
 
 When exporting, if a map is assigned to a parameter, the basic parameter value is ignored.
 
-# Base color and Transparency
+## Base color and Transparency
 
 In the _Basic Parameters_ and _Transparency_ sections, the base color weight, the base color and the transparency weight values are supported.
 And you can use a map for the base color and the transparency weight (the base color weight map is not supported).
@@ -159,7 +167,7 @@ Also if the base color map and the transparency map are used, they must have the
 
 _Note:_ it is recommended to always set the base color weight to 1.
 
-# Metalness, Roughness and Occlusion
+## Metalness, Roughness and Occlusion
 
 In the _Specular Reflections_ section, the metalness and the roughness values and maps are supported.
 If both maps are used, they must have the same size to be merged successfully.
@@ -168,13 +176,13 @@ In 3DS Max, metalness and roughness maps are black and white images (R=G=B).
 But in glTF format, the metalness is stored in the blue channel and the roughness in the green one (the red channel is for the occlusion).
 So during the export the metalness and roughness maps are merged in one map using their respective channel.
 
-## Metalness and roughness
+### Metalness and roughness
 
 If you use one of the two maps, then the exporter creates a new map using the provided map and the value of the other parameter.
 
 If you use two different maps, then the exporter merges them in one map.
 
-## Metalness, roughness and occlusion all in one map
+### Metalness, roughness and occlusion all in one map
 
 Alternatively, you can provide a single texture used in both _Metalness_ and _Roughness_ to set an extra attribut: the Ambient Occlusion.
 
@@ -193,56 +201,56 @@ In this case the exporter does not merge textures, but instead assumes the textu
 
 You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
-# Emission
+## Emission
 
 In the _Emission section_, the emission weight and the emission color values are supported. But only the emission color map is supported.
 If the emission color map is used, then the emission weight and the emission color values are ignored.
 
-# Normal
+## Normal
 
 In the _Special Features_ section, only the normal map is supported.
 
-# What you should know
+## What you should know
 
-# Babylon properties
+## Babylon properties
 
 Most babylon properties are not used when exporting to glTF format. The only one which matter is:
 * __Do not export__: Self-explanatory, this object/light/camera won’t be exported. False by default.
 
-# Lights
+## Lights
 
 Lights are not supported in glTF 2.0. An empty node is exported in place of light only when it is relevant to do so (when a light has a mesh or a camera as descendant).  
 There is a glTF lights extension, (https://github.com/KhronosGroup/glTF/pull/1223)[KHR_lights_punctual] that is in the process of ratification, so should be considered experimental.  It can be enabled by turning on the KHR_lights_punctual extension checkbox.
 
-# Left to right handed coordinate system
+## Left to right handed coordinate system
 
 As glTF export relies on conversion from babylon, the coordinate system is changing from left (babylon) to right handed (glTF).
 To do it simply, a root node named "root" is added to the scene. All nodes are set as descendants of this root node. It has specific rotation and scaling to do the trick.
 
-# Consideration about skins
+## Consideration about skins
 
 In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible of its transformation (translation, rotation, scale).
 
-# Textures image format
+## Textures image format
 
 glTF 2.0 only supports the following image formats: jpg and png. You are adviced to use those formats for your textures when exporting to glTF.
 
 Note that the exporter also supports textures with bmp, gif, tga, tif and dds formats. But, those textures will be automatically converted to png/jpg by the exporter to follow glTF specifications.
 
-# Texture transform
+## Texture transform
 glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform).  When enabled during export, it would be set to required, meaning that the loader is expected to support the extension.  Disabling the extension checkbox from the exporter window will export textures without apply the texture transform, which may look visually incorrect when loading into a glTF importer.
 
-# Environment texture
+## Environment texture
 
 To enjoy PBR material rendering, you should have an environmnent texture in your scene. The plugin exports the environment map if any is provided in 3DS MAX.
 
 However, glTF format does not support this feature and the environment map needs to be added manually in client implementations. The Babylon Sandbox, see bellow, provides such feature.
 
-# Double sided material
+## Double sided material
 
 The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/resources/3DSMax#double-sided-material).
 
-# Babylon material attributes
+## Babylon material attributes
 
 Native materials are enhanced to have extra attributes under Babylon attributes section.
 
@@ -256,7 +264,7 @@ Most Babylon attributes are common to all materials:
     * _Cutoff_: The alpha cutoff value is 0.5 (not exported as it is the glTF default value). Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
     * _Blend_: This how 3ds Max handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
-# Custom attributes
+## Custom attributes
 
 Attributes defined by you, the user, are exported as well!
 
@@ -280,7 +288,7 @@ Following types have particularities you should know:
 - _Percent_ : Exported in base 1 as well. Ex: 80% => 0.8
 - _Texture_ : __Not supported__. Custom attributes are exported as row values. Thus textures are exported under babylon format instead of glTF format. Bitmaps associated to textures are not exported.
 
-# Shell material
+## Shell material
 
 In 3DS Max, the _Shell material_ is a container for other materials and controls which material is used in which rendering.
 
@@ -290,7 +298,7 @@ It contains two materials:
 
 ![3DS Max Shell material parameters](/img/exporters/3DSMax/shellMaterial.png)
 
-# DirectX Shader material
+## DirectX Shader material
 
 In 3DS Max the DirectX shader material is used to represent more accurately how the material will render in another application. That is why only the material contained in its _Software Render Style_ section is exported. All other parameters are ignored.
 
@@ -299,7 +307,7 @@ In 3DS Max the DirectX shader material is used to represent more accurately how 
 More information on how you could use this material in conjunction with the Shell material in the discussion [here](https://github.com/BabylonJS/Exporters/issues/296).
 
 
-# Draco compression
+## Draco compression
 
 On the export form, the _Use Draco compression_ option enables the Draco compression. It needs [Node.js](https://nodejs.org) and [gltf-pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) in order to work.
 
@@ -307,9 +315,9 @@ To install the Node.js, go to the web site download and install it.
 Then to install gltf-pipeline, open et normal shell (cmd.exe or powershell.exe) and run the following command `npm install -g gltf-pipeline`.
 Once they are installed, check the _Use Draco compression_ option and the compression will be automatically done at the export end.
 
-# How to export 3D model with animation to .babylon / .gltf format
+## How to export 3D model with animation to .babylon / .gltf format
 
-# Single animation clip
+## Single animation clip
 
 You can export all animations of the objects in your scene into a single animation clip following these steps:
 
@@ -331,7 +339,7 @@ You can export all animations of the objects in your scene into a single animati
 
 ![3ds Babylon Exporter](/img/exporters/3DSMax/babylon_exporter.jpg)
 
-# Multiple animation clips
+## Multiple animation clips
 
 You can also export multiple animations clips and play one of them depending on the situation. For example, a character would have "Walk", "Run" and "Jump" animations, each spread along the timeline.
 
@@ -355,6 +363,6 @@ When updating an input field or the animation nodes, changes are highlighted thr
 
 Note that when updating the scene hierarchy, like deleting a node, while the Animation Group window is opened, the Animation Nodes frame is not updated. Close the Animation Groups window and re-open it to take hierarchy updates into account.
 
-#  Try it out!  #
+##  Try it out!  #
 
 Export your own scene from 3DS MAX to glTF format and load it into the [Babylon Sandbox](https://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/how_to/gltf).
