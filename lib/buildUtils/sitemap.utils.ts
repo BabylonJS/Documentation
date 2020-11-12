@@ -12,7 +12,7 @@ let timeout: NodeJS.Timeout;
 
 export const addToSitemap = (name: string, url: string, lastModified?: string) => {
     // only in local production mode!
-    if (process.env.NODE_ENV !== "production" || process.env.ONLINE) {
+    if (!process.env.EXTRA_BUILD || process.env.NODE_ENV !== "production" || process.env.ONLINE) {
         return;
     }
     cache.push({
@@ -30,6 +30,7 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         cache.forEach((c) => {
             endOfFile.unshift(`<url><loc>https://doc.babylonjs.com${c.url}</loc>${c.lastModified !== undefined ? `<lastmod>${c.lastModified}</lastmod>` : ""}</url>`);
         });
+        endOfFile.sort();
         writeFileSync(tmpFile, endOfFile.join("\n"), { encoding: "utf-8" });
         writeAllToSitemap();
     }, 10);
