@@ -114,6 +114,7 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerContainer: {
             overflow: "auto",
             height: "100%",
+            paddingBottom: '36px'
         },
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
