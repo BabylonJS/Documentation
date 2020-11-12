@@ -76,7 +76,6 @@ const useStyles = makeStyles((theme: Theme) =>
             color: colorPalette.menuLinkText,
             fontWeight: 800,
             "&:hover": {
-<<<<<<< .mine
                 color: colorPalette.menuHover1
             }
         },
@@ -84,15 +83,6 @@ const useStyles = makeStyles((theme: Theme) =>
             transform: "scale(0.8) translateY(8px)"
         }
 
-=======
-                color: colorPalette.menuHover1,
-            },
-        },
-
-
-
-
->>>>>>> .theirs
     }),
 );
 
