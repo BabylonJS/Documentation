@@ -1,5 +1,5 @@
 import { IMenuItem } from "../lib/content.interfaces";
-import { FunctionComponent, useState, ReactFragment, useEffect } from "react";
+import { FunctionComponent, useState, ReactFragment, useEffect, useRef } from "react";
 
 import Link from "next/link";
 import { createStyles, IconButton, makeStyles, TextField, Theme } from "@material-ui/core";
@@ -74,6 +74,8 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     const [filter, setFilter] = useState<string>("");
     const [toggleFilter, setToggleFilter] = useState<boolean>();
 
+    const textFieldRef = useRef<HTMLInputElement>();
+
     const openCloseItem = (item: IMenuItem) => {
         const idx = opened.indexOf(item.url);
         if (idx !== -1) {
@@ -139,12 +141,19 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         setOpened(openedArray);
     }, []);
 
+    useEffect(() => {
+        if(toggleFilter) {
+            console.log(textFieldRef.current);
+            textFieldRef.current?.querySelector('input').focus();
+        }
+    }, [toggleFilter])
+
     getFilteredItems(items, filter.toLowerCase().trim());
 
     return (
         <aside className={classes.aside}>
             <div style={{ height: toggleFilter ? 40 : 0, overflow: toggleFilter ? "unset" : "hidden" }} className={classes.filterContainer}>
-                <TextField label="Filter" onChange={(e) => setFilter(e.target.value.toLowerCase())} variant="outlined" size="small" />
+                <TextField ref={textFieldRef} label="Filter" onChange={(e) => setFilter(e.target.value.toLowerCase())} variant="outlined" size="small" />
             </div>
             <IconButton className={classes.filterIcon} aria-label="filter" size="small" onClick={() => setToggleFilter(!toggleFilter)}>
                 <FilterIcon />
