@@ -18,10 +18,10 @@ in an extremely fast way.
 ## Suggested Pre-Reading
 
 - How To:
-  - [Custom Meshes](/How_To/Custom.html)
-  - [Updating Vertices](/How_To/Updating_Vertices.html)
+  - [Custom Meshes](/How_To/Custom)
+  - [Updating Vertices](/How_To/Updating_Vertices)
 - Resources:
-  - [Normals in BJS](/resources/Normals.html)
+  - [Normals in BJS](/resources/Normals)
 
 
 ## An Overview
@@ -177,5 +177,5 @@ More details on this can be found below.
 
 ## How To
 
-- [Putting Shader Code in BabylonJS](/How_To/Putting.html)  
-- [ShaderMaterial Object](/How_To/Shader_Material.html)
+- [Putting Shader Code in BabylonJS](/How_To/Putting)  
+- [ShaderMaterial Object](/How_To/Shader_Material)
