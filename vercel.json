@@ -25,7 +25,7 @@
         { "source": "/babylon101/Sprites", "destination": "/divingDeeper/sprites"},
         { "source": "/extensions/Amp360Video", "destination": "/extensions/amp360Video"},
         { "source": "/extensions/CastorGUI", "destination": "/extensions/CastorGUI"},
-        { "source": "/extensions/GUIButton", "destination": "/extensions/CastorGUI/GUIButton"},
+        { "source": "/extensions/GUIButton", "destination": "/extensions/castorGUI/guiButton"},
         { "source": "/extensions/GUICheckbox", "destination": "/extensions/CastorGUI/GUICheckbox"},
         { "source": "/extensions/GUIColor", "destination": "/extensions/CastorGUI/GUIColor"},
         { "source": "/extensions/GUIDialog", "destination": "/extensions/CastorGUI/GUIDialog"},
