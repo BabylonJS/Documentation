@@ -13,24 +13,17 @@ import { IExampleLink } from "../../lib/content.interfaces";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        flexContainer: {
-            display: "flex",
-            flex: 1,
-        },
-        h2: {
-            marginBottom: 0,
-            fontSize: 26,
-            [theme.breakpoints.up("md")]: {
-                fontSize: "1.4rem",
-            },
-        },
         searchContainer: {
-            flex: 1,
-            overflow: "auto",
             padding: theme.spacing(2),
-            position: "relative",
             width: "100%",
+            "& h2": {
+                marginBottom: 0,
+                fontSize: 26,
+            },
             [theme.breakpoints.up("md")]: {
+                "& h2": {
+                    fontSize: "1.4rem",
+                },
                 "& form": {
                     maxWidth: "50%",
                 },
@@ -38,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         emptySearchContainer: {
             display: "flex",
-            flex: 1,
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
@@ -70,32 +62,26 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const SearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
-    const query = (router.query.q as string) || (router.query.bjsq as string);
+    const query = router.query.q as string || router.query.bjsq as string;
     const [results, setResults] = useState<IDocumentSearchResult[]>([]);
     const [pgResults, setPGResults] = useState<IPlaygroundSearchResult[]>([]);
-    const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
+    const [activeExample, setActiveExample] = useState<IExampleLink>();
     const [loading, setLoading] = useState<boolean>(false);
     const [apiOnly, setApiOnly] = useState<boolean>(false);
-    const [noResults, setNoResults] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const classes = useStyles();
 
     useEffect(() => {
         setResults([]);
         setPGResults([]);
-        setActiveExample(null);
         if (!query || query === "undefined") {
             return;
         }
         setSearchTerm(query);
         setLoading(true);
-        setNoResults(false);
         queryIndex<IDocumentSearchResult>(query)
             .then((results) => {
                 setResults(results);
-                if (results.length === 0) {
-                    setNoResults(true);
-                }
                 setLoading(false);
             })
             .catch(() => {
@@ -103,9 +89,13 @@ export const SearchResults: FunctionComponent<{}> = () => {
             });
         queryIndex<IPlaygroundSearchResult>(query, "playgrounds")
             .then((results) => {
+                console.log('results');
                 setPGResults(results);
+                setLoading(false);
             })
-            .catch(() => {});
+            .catch(() => {
+                setLoading(false);
+            });
     }, [query]);
 
     const handleApiChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -151,59 +141,51 @@ export const SearchResults: FunctionComponent<{}> = () => {
             breadcrumbs={generateBreadcrumbs()}
             metadata={{
                 title: "Search page",
-                description: "Search page for Babylon.js documentation site. Search for documents and code examples",
+                description: "Search page for Babylon.js documentation site",
                 imageUrl: "",
-                keywords: "search, documentation, query, examples, playground",
+                keywords: "search, documentation, query",
             }}
             id={["search"]}
         >
-            <>
+            <div className={classes.searchContainer}>
+                <InlineExampleComponent {...activeExample} />
                 {!results.length && !loading && (
                     <div className={classes.emptySearchContainer}>
-                        <Typography className={classes.h2} component="h2" variant="h2" gutterBottom>
+                        <Typography component="h2" variant="h2" gutterBottom>
                             Search
                         </Typography>
                         {searchForm}
-                        {noResults && (
-                            <Typography className={classes.h2} component="h2" variant="h2" gutterBottom>
-                                No results found for {query}
-                            </Typography>
-                        )}
                     </div>
                 )}
-                {(results.length || loading) && (
-                    <div className={classes.flexContainer}>
-                        <div className={classes.searchContainer}>
-                            {loading && (
-                                <Typography className={classes.h2} component="h2" variant="h2">
-                                    Searching for {query}...
-                                </Typography>
-                            )}
-                            {!!results.length && (
-                                <>
-                                    <InlineExampleComponent {...activeExample} />
-                                    <Typography className={classes.h2} component="h2" variant="h2">
-                                        Search results for {query}
-                                    </Typography>
-                                    {searchForm}
-                                    <div style={{ display: "flex", flexDirection: "column" }}>
-                                        {results
-                                            .filter((res) => (apiOnly ? res.isApi : true))
-                                            .map((res) => {
-                                                return <SearchResult key={res.id} searchResult={res}></SearchResult>;
-                                            })}
-                                    </div>
-                                </>
-                            )}
+                {loading && (
+                    <Typography component="h2" variant="h2">
+                        Searching for {query}...
+                    </Typography>
+                )}
+                {!!results.length && (
+                    <div>
+                        <div>
+                            <Typography component="h2" variant="h2">
+                                Search results for {query}
+                            </Typography>
+                            {searchForm}
+                            <div style={{ display: "flex", flexDirection: "column" }}>
+                                {results
+                                    .filter((res) => (apiOnly ? res.isApi : true))
+                                    .map((res) => {
+                                        return <SearchResult key={res.id} searchResult={res}></SearchResult>;
+                                    })}
+                            </div>
                         </div>
                         {pgResults.length !== 0 && (
                             <div className="examples-container">
-                                <ExamplesComponent title="Related examples" onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
+                                TEST
+                                <ExamplesComponent onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
                             </div>
                         )}
                     </div>
                 )}
-            </>
+            </div>
         </Layout>
     );
 };
