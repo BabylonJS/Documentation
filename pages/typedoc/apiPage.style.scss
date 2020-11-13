@@ -16,6 +16,19 @@
         }
     }
 
+    footer {
+        h2 {
+            display: none;
+        }
+        .tsd-legend-group {
+            display: flex;
+            .tsd-legend {
+                display: flex;
+                font-size: 12px;
+            }
+        }
+    }
+
     .tsd-sources li {
         display: none;
     }
