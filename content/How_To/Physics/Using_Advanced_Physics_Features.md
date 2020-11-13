@@ -186,10 +186,6 @@ physicsEngine.setSubTimeStep(100);
 
 Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.raananweber.com/2016/04/03/cloth-physics-simulation-for-babylon-js/>
 
-## Some random demos
+## An Oimo Demo
 
-* Cannon car demo - <Playground id="#UGMIH#8" title="Cannon Car Demo" description="Cannon Car Demo" image=""/>
 * Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo" image=""/>
-* Heightmap game - <Playground id="#DLBW7#11" title="Heightmap Game" description="Heightmap Game" image=""/>
-* Net on a sphere - <Playground id="#1M67K8#7" title="Net On A Sphere" description="Net On A Sphere" image=""/>
-* Newton's cradle - <Playground id="#MDMVA#18" title="Newton's Cradle" description="Newton's Cradle" image=""/>

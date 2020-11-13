@@ -33,7 +33,7 @@ Then, you only need to instantiate the post process attach to your main camera t
 var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera);
 ```
 
-<Playground id="#2I28SC#0" title="Ascii Post Process Demo" description="Ascii Post Process Demo" image=""/>
+<Playground id="#2I28SC#24" title="Ascii Post Process Demo" description="Ascii Post Process Demo" image=""/>
 
 ## Going further
 
@@ -44,7 +44,7 @@ The first you can do is changing the font used in the post process.
 var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera, "10px Monospace");
 ```
 
-<Playground id="#2I28SC#1" title="Modified Ascii Post Process Demo 1" description="Modified Ascii Post Process Demo" image=""/>
+<Playground id="#2I28SC#25" title="Modified Ascii Post Process Demo 1" description="Modified Ascii Post Process Demo" image=""/>
 
 But you could also play with more parameters:
 
@@ -59,7 +59,7 @@ var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera,
     });
 ```
 
-<Playground id="#2I28SC#5" title="Modified Ascii Post Process Demo 2" description="Modified Ascii Post Process Demo 2" image=""/>
+<Playground id="#2I28SC#26" title="Modified Ascii Post Process Demo 2" description="Modified Ascii Post Process Demo 2" image=""/>
 
 The availables parameters are:
 
@@ -81,4 +81,4 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-<Playground id="#2I28SC#3" title="Modified Ascii Post Process Demo 3" description="Modified Ascii Post Process Demo 3" image=""/>
+<Playground id="#2I28SC#27" title="Modified Ascii Post Process Demo 3" description="Modified Ascii Post Process Demo 3" image=""/>

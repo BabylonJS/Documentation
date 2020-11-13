@@ -284,7 +284,7 @@ Finally add this new input method to the camera inputs
 camera.inputs.add(new FreeCameraKeyboardRotateInput());
 ```
 
-- <Playground id="#1WFOOA#67" title="Rotate Free Camera Example" description="A simple example of customizing inputs to create a Rotate Free Camera." image=""/>
+- <Playground id="#KHQBRL" title="Rotate Free Camera Example" description="A simple example of customizing inputs to create a Rotate Free Camera." image=""/>
 
 ### With Typescript
 
