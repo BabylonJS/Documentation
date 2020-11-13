@@ -16,7 +16,13 @@
         }
     }
 
+    .tsd-sources li {
+        display: none;
+    }
+
     footer {
+        margin: 0 8px;
+        background-color: unset !important;
         h2 {
             display: none;
         }
@@ -30,18 +36,19 @@
         }
     }
 
-    .tsd-sources li {
-        display: none;
-    }
-
-    footer {
-        margin: 0 8px;
-        background-color: unset !important;
-    }
-    
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    .playground-search-link {
+        float: right;
+        right: 8px;
+        font-size: 16px;
+    }
+
+    .tsd-signature.tsd-kind-icon {
+        margin-top: 16px;
+    }
 
     .row {
         margin: unset !important;

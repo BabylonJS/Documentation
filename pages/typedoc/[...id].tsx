@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useRef } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
@@ -22,12 +22,14 @@ export const ApiPage: FunctionComponent<{
     if (!contentNode) {
         return <></>;
     }
+    const ref = useRef<HTMLDivElement>();
     const html = parseNode(contentNode).result;
     let children = <></>;
     try {
         children = html.props.children[0].props.children[2].props.children;
     } catch (e) {
     }
+
     return (
         <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
             <Head>
@@ -39,7 +41,7 @@ export const ApiPage: FunctionComponent<{
                     );
                 })}
             </Head>
-            <div className="api-container">{children}</div>
+            <div ref={ref} className="api-container">{children}</div>
         </Layout>
     );
 };
