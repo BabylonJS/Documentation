@@ -1,3 +1,5 @@
+import { IDocumentSearchResult, ISearchResult } from "../frontendUtils/searchQuery.utils";
+
 export interface ISearchIndexItem {
     id: string;
     title: string;
@@ -20,24 +22,14 @@ export interface IPlaygroundSearchItem {
     description?: string;
     keywords?: string[];
     documentationPage?: string;
+    isMain?: boolean;
 }
 
-export interface ISearchResult {
-    "@search.score": number;
-    id: string;
-    title: string;
-    imageUrl: string;
-    description: string;
-    isApi: boolean;
-    path: string;
-    categories: string[];
-    lastModified: Date;
-    videoLink: string;
-}
+const API_KEY = process.env.SEARCH_API_KEY;
 
 const headers = {
     "Content-type": "application/json; charset=UTF-8",
-    "api-key": process.env.SEARCH_API_KEY,
+    "api-key": API_KEY,
 };
 
 const getUrl = (type: string, indexName: string = 'documents') => {
@@ -195,7 +187,7 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         });
     };
     const result = (await results.json());
-    const filtered = result.value && (result.value as Array<ISearchResult>).filter((res) => !doNotDelete.includes(res.path));
+    const filtered = result.value && (result.value as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));

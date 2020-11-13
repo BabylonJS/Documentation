@@ -1,5 +1,5 @@
 import { createStyles, IconButton, makeStyles, Theme, Tooltip, Typography } from "@material-ui/core";
-import { FunctionComponent, useContext, useEffect } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
@@ -18,9 +18,9 @@ const styles = makeStyles((theme: Theme) =>
             backgroundColor: "white",
             right: 8,
             top: 8,
-            "&:hover" : {
+            "&:hover": {
                 backgroundColor: "white",
-            }
+            },
         },
         loading: {
             position: "absolute",
@@ -35,14 +35,24 @@ const styles = makeStyles((theme: Theme) =>
 
 export const InlineExampleComponent: FunctionComponent<IExampleLink> = (example) => {
     const context = useContext(DocumentationContext);
-    const show = example && typeof example.id === "string";
+    const id = example && (example.playgroundId || example.id);
+    const [show, setShow] = useState<boolean>(typeof id === "string");
     const classes = styles();
     const link = show && getExampleLink(example);
+    const onCloseClicked = () => {
+        context.setActiveExample(null);
+        setShow(false);
+    };
+
+    useEffect(() => {
+        const id = example && (example.playgroundId || example.id);
+        setShow(typeof id === "string");
+    }, [example]);
     return (
         <div className={classes.iframeContainer} style={{ height: show ? 400 : 0 }}>
             {show && (
                 <div className={classes.iframeContainer}>
-                    <IconButton className={classes.closeButton} onClick={() => context.setActiveExample(null)} aria-label="Show playground" size="medium" color="inherit">
+                    <IconButton className={classes.closeButton} onClick={onCloseClicked} aria-label="Close playground preview" size="medium" color="inherit">
                         <Tooltip title={`Close playground`}>
                             <CloseIcon></CloseIcon>
                         </Tooltip>

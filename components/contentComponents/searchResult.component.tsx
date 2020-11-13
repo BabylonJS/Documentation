@@ -1,9 +1,9 @@
 import { createStyles, makeStyles, Theme, Link as MaterialLink } from "@material-ui/core";
 import { FunctionComponent } from "react";
-import { ISearchResult } from "../../lib/buildUtils/search.utils";
 
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import Link from "next/link";
+import { IDocumentSearchResult } from "../../lib/frontendUtils/searchQuery.utils";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -42,7 +42,7 @@ const styles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SearchResult: FunctionComponent<{ searchResult: ISearchResult }> = ({ searchResult }) => {
+export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResult }> = ({ searchResult }) => {
     const classes = styles();
     const idSplit = searchResult.path.split("/");
     const path = searchResult.categories.length

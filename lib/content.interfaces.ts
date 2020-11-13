@@ -11,11 +11,15 @@ export interface IMenuItem {
 }
 
 export interface IExampleLink {
-    type: "pg" | "nme";
-    id?: string;
+    type?: "pg" | "nme";
+    id?: string; // both are accepted
+    playgroundId?: string; // both are accepted. This one has priority
     title?: string;
     description?: string;
-    image?: string;
+    image?: string; // both are accepted. This one has priority
+    imageUrl?: string; // both are accepted
+    isMain?: boolean;
+    documentationPage?: string; // optional, only for examples coming from search results!
 }
 
 export interface IMediaEmbed {

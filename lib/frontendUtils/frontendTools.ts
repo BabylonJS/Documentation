@@ -1,12 +1,14 @@
 import { IExampleLink } from "../content.interfaces";
 
 export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = true) => {
-    const id = example.id ? (example.id[0] === "#" ? example.id : `#${example.id}`) : "";
-    return (example.type === "pg" ? "https://playground.babylonjs.com/" + (full ? "full.html" : "") : "https://nme.babylonjs.com/") + id;
+    const idToUse = example.playgroundId || example.id;
+    const id = idToUse ? (idToUse[0] === "#" ? idToUse : `#${idToUse}`) : "";
+    return (example.type === "nme" ? "https://nme.babylonjs.com/" : "https://playground.babylonjs.com/" + (full ? "full.html" : "")) + id;
 };
 
 export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
-    return `/img/playgroundsAndNMEs/${example.type}${example.id.replace(/#/g, "-")}.png`;
+    const idToUse = example.playgroundId || example.id;
+    return `/img/playgroundsAndNMEs/${example.type}${idToUse.replace(/#/g, "-")}.png`;
 };
 
 export const getImageUrl = (imageUrl?: string) => {

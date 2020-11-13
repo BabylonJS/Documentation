@@ -79,28 +79,31 @@ const exampleStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
+export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExamplePressed?: (example: IExampleLink) => void; }> = ({ example, onExamplePressed }) => {
     const context = useContext(DocumentationContext);
-    const { id, title, description, image, type } = example;
+    const { title, description, image, imageUrl, type = "pg" } = example;
     const classes = exampleStyles();
     const link = getExampleLink(example, false);
     // just as a test
 
     const onPlaygroundPressed = () => {
         context.setActiveExample(example);
+        if (onExamplePressed) {
+            onExamplePressed(example);
+        }
     };
 
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <a href={`#example-${example.type}-${example.id.replace(/#/g, "-")}`}>
+                <a href={`#example-${example.type || 'pg'}-${example.id.replace(/#/g, "-")}`}>
                     <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
                         <Tooltip title={`Open ${type} ${title}`}>
                             <LinkIcon></LinkIcon>
                         </Tooltip>
                     </IconButton>
                 </a>
-                <span>{title}</span>
+                <span title={title}>{title}</span>
                 <Link href={link}>
                     <a target="_blank">
                         <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
@@ -118,31 +121,31 @@ export const ExampleComponent: FunctionComponent<IExampleLink> = (example) => {
                         (e.target as HTMLImageElement).src = getImageUrl();
                         (e.target as HTMLImageElement).srcset = "";
                     }}
-                    src={image || getExampleImageUrl(example)}
+                    src={image || imageUrl || getExampleImageUrl(example)}
                     title={title}
                     alt={title}
                     layout="fill"
                 ></Image>
             </div>
             <div className={classes.footer}>
-                [{type.toUpperCase()}] {description}
+                [{type.toUpperCase()}] {description} {example.documentationPage && <><br/><Link href={example.documentationPage}><a>[Go to documentation...]</a></Link></>}
             </div>
         </div>
     );
 };
 
-export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[] }> = ({ examples }) => {
+export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[]; onExamplePressed?: (example: IExampleLink) => void; title?: string }> = ({ examples, onExamplePressed, title = "Examples" }) => {
     const classes = examplesStyles();
     // just as a test
     return (
         <>
             <Toolbar className={classes.header}>
                 <Typography variant="h6" noWrap>
-                    Examples
+                    {title}
                 </Typography>
             </Toolbar>
             {examples.map((link) => (
-                <ExampleComponent key={link.id} {...link} />
+                <ExampleComponent key={link.id} example={link} onExamplePressed={onExamplePressed} />
             ))}
         </>
     );
