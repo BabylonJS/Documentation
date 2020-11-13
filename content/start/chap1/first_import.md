@@ -17,7 +17,7 @@ The playgrounds on this page contain, for example, houses which are be positione
 When you put a model into a scene you are, in fact, loading it into a browser. As you will already know when you load anything into a website it is asynchronous. Before you can do anything with your models you need to know they have loaded. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, which has the form
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync(model name), folder path, file name, scene);
+BABYLON.SceneLoader.ImportMeshAsync(model name, folder path, file name, scene);
 ```
 
 The scene parameter is optional and will default to the current scene. The first parameter can be of three types depending whether you want to load all the models, just one model or a list of models.
