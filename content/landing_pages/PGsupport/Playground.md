@@ -5,7 +5,7 @@ description: Learn about the incredibly powerful playground, the online Babylon.
 keywords: babylon.js, tools, resources, playground
 further-reading:
     - title: Textures Directly Available to the Playground
-      url: /toolsAndResources/assetLibraries/availableTextures.html
+      url: /toolsAndResources/assetLibraries/availableTextures
     - title: Meshes Available to Import into the Playground
       url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground

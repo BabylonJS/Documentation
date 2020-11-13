@@ -5,7 +5,7 @@ description: Continue your Babylon.js learning by combining meshes in your scene
 keywords: welcome, babylon.js, getting started, start, chapter 2, combine, combine meshes, merge
 further-reading:
     - title: More on Merging Meshes
-      url: /divingDeeper/mesh/mergeMeshes/how_to/how_to_merge_meshes
+      url: /divingDeeper/mesh/mergeMeshes
 video-overview:
 video-content:
 ---
