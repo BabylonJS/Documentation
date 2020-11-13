@@ -6,6 +6,7 @@ import { colorPalette } from "../../styles/theme";
 
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
+import {Link as MaterialLink } from "@material-ui/core";
 import Link from "next/link";
 import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
@@ -128,7 +129,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                 ></Image>
             </div>
             <div className={classes.footer}>
-                [{type.toUpperCase()}] {description} {example.documentationPage && <><br/><Link href={example.documentationPage}><a>[Go to documentation...]</a></Link></>}
+                [{type.toUpperCase()}] {description} {example.documentationPage && <><br/><Link href={example.documentationPage}><MaterialLink href={example.documentationPage}>Documentation</MaterialLink></Link></>}
             </div>
         </div>
     );
