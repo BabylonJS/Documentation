@@ -89,7 +89,7 @@ Whether using the keyboard, mouse or touch swipes left right directions change _
 
 ```javascript
 
-// Parameters: alpha, beta, radius, target position, scene
+// Parameters: name, alpha, beta, radius, target position, scene
 	var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
 
 // Positions the camera overwriting alpha, beta, radius
