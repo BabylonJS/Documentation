@@ -367,7 +367,7 @@ var polygon = polygon_triangulation.build(false, 0.01);
 
 ```
 
-A simple usecase for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Dedication Demo" description="WebXR Plane Dedication Demo" image=""/>
+A simple usecase for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Dedication Demo" description="WebXR Plane Dedication Demo" image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/>
 
 
 ### Background remover
@@ -424,5 +424,5 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 
 # Demos
 
-<Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image=""/>
-<Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image=""/>
+<Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/>
+<Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/>
