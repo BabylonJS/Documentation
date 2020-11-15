@@ -83,6 +83,17 @@ export const checkUnusedFiles = (contentArray: { params: { id: string[]; content
     }
 };
 
+export const checkDuplicates = (contentArray: { params: { id: string[]; content?: string } }[]) => {
+    const map = {};
+    contentArray.forEach((contentFile) => {
+        if(map[contentFile.params.content]) {
+            console.log('duplicate content in id', contentFile.params.id, map[contentFile.params.content])
+        } else {
+            map[contentFile.params.content] = contentFile.params.id;
+        }
+    });
+}
+
 export const generateBreadcrumbs = (ids: string[]) => {
     let currentChildren = config.children;
     return ids.map((id, idx) => {
