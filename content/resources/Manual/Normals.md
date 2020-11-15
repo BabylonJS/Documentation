@@ -14,13 +14,11 @@ video-content:
 
 ## Vertex Normals
 
-Each triangular facet of a mesh comprises three vertices.
+Each triangular facet of a mesh comprises three vertices. Besides a position each vertex has another important vector3 called a normal. These vertex normals are used by the [shader code](/resources/ShaderIntro) in calculating how the mesh is lit. Unlike a mathematical normal there is no necessity for them to be set at right angles and for curved shapes such as a sphere they may not be. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
 
-For an individual facet BabylonJS computes its normals as mathematical normals, at right angle to the facet.
+At first the vertex normals are calculated as the mathematical normals for the facet. It then depends whether you want to view the facets as flat surfaces or as part of curve. For flat surfaces the vertex normals remain as the mathematical normals. To enhance the curve when viewed under light where triangular facets share vertices with the same positions each shared vertex normal is recalculated to be the average of the mathematical normals of the shared vertex normals. 
 
-However there is no necessity for them to be set at right angles and for curved shapes such as a sphere they are not. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
-
-Vertex normals are used by the [shader code](/resources/ShaderIntro) in calculating how the mesh is lit.
+These effects are explored below.
 
 In the following two playgrounds see how the changing directions within the normals array affect how it is lit:
 
@@ -43,12 +41,11 @@ The diagram below shows that the average of the three mathematical normals at ea
 
 ![Normals](/img/how_to/Mesh/box4.jpg)
 
-*Note:* each of the triples in the normals array is referred to as a normal even though they are not strictly speaking 
-the mathematical normal of the facet they belong to. They could however be the mathematical normal of the intended surface of the shape at that position.
-
 Besides minimising the number of vertices needed there are other advantages as will be seen when creating a sphere.
 
-## Table of Indices, Positions and Normals for Box with Minimum Vertices
+Keeping the indices to a minimum the normals at each corner are an average of the mathematical normals of the three faces that meet at that corner. So 8 corners and 8 unique vertex normals.
+
+## Table of Unique Indices, Positions and Normals for Box with Minimum Vertices
 
 index | position | normal
 --- | --- | ---
@@ -73,7 +70,9 @@ In BabylonJS this can be achieved using the `convertToFlatShadedMesh` function. 
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
-## Table of Indices, Positions and Normals for Flat Shaded Box
+For a flat shaded mesh each the triangular facets making a face of the box has mathematical normals as the vertex normals. Each face has 4 corners each of which has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals. Since each face is made up of two triangular facets and each facet has three normals there will be 6 x 2 * 3 = 36 normals in the normals array. However since two facets will meet at two corners there will be 12 repeats within these 36.
+
+## Table of Indices, Positions and Unique Normals for Flat Shaded Box
 
 index | position | normal
 --- | --- | ---
