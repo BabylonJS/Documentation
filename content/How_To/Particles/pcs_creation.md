@@ -166,7 +166,7 @@ BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) 
 -   <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color." image=""/>
 -   <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture." image=""/>
 -   <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture." image=""/>
--   <Playground id="#UI95UC#29" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture." image=""/>
+-   <Playground id="#UI95UC#28" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture." image=""/>
 
 ## Building the Mesh
 

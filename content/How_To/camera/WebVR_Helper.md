@@ -250,7 +250,7 @@ The logic order for raySelectionPredicate, meshSelectionPredicate, onNewMeshPick
 3. Teleportation target location is updated to where the ray collided if the collision is also a floor mesh
 4. If the collision object was not collided with on the last frame meshSelectionPredicate is checked, if it returns true the onNewMeshPicked event is fired and then onNewMeshSelected is fired
 
-The gaze tracker can be customized by setting the gazeTrackerMesh. <Playground id="#ZHYP5K" title="GazeTrackerMesh Example" description="A simple example showing how to use the gazeTrackerMesh." image=""/>
+The gaze tracker can be customized by setting the gazeTrackerMesh. <Playground id="#ZHYP5K" title="GazeTrackerMesh Example" description="A simple example showing how to use the gazeTrackerMesh." image="/img/playgroundsAndNMEs/vrglasses.png"/>
 
 ```javascript
 vrHelper.gazeTrackerMesh = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
