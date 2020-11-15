@@ -235,12 +235,12 @@
     // }
     .token-line {
         word-wrap: break-word;
-        white-space: normal;
+        white-space: break-spaces;
     }
 
     .token.comment {
         word-wrap: break-word;
-        white-space: normal;
+        white-space: break-spaces;
     }
 
     ul {
