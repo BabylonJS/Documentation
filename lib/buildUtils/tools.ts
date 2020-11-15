@@ -226,7 +226,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         for (const [all, full, type, exampleId] of matches) {
             const realType = type === "nme" ? "nme" : "pg";
             const imageUrl = /image="(.*)"/.test(full) && /image="(.*)"/.exec(full)[1];
-            if (!process.env.ONLINE && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
+            if (!(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);
             }
             if (realType === "pg") {

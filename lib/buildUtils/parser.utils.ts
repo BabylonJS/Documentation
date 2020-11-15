@@ -87,7 +87,7 @@ export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options
 export const parseNode = (htmlContent: string) => {
     // const parsed = unified().use(html).stringify(node);
     var processor = unified()
-        .use(parse, { emitParseErrors: true })
+        .use(parse)
         .use(highlight)
         .use(apiLinkParserPlugin)
         .use(addPlaygroundSearch)

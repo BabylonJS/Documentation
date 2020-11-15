@@ -12,7 +12,7 @@ let timeout: NodeJS.Timeout;
 
 export const addToSitemap = (name: string, url: string, lastModified?: string) => {
     // only in local production mode!
-    if (!process.env.EXTRA_BUILD || process.env.NODE_ENV !== "production" || process.env.ONLINE) {
+    if (!process.env.EXTRA_BUILD || process.env.NODE_ENV !== "production" || process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) {
         return;
     }
     cache.push({
