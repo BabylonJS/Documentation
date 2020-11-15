@@ -6,7 +6,7 @@ import { colorPalette } from "../../styles/theme";
 
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
-import {Link as MaterialLink } from "@material-ui/core";
+import { Link as MaterialLink } from "@material-ui/core";
 import Link from "next/link";
 import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
@@ -29,7 +29,7 @@ const examplesStyles = makeStyles((theme: Theme) =>
 const exampleStyles = makeStyles((theme: Theme) =>
     createStyles({
         container: {
-            display: "flex",
+            // display: "flex",
             flexDirection: "column",
             padding: theme.spacing(2),
             maxHeight: "100%",
@@ -59,13 +59,12 @@ const exampleStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(0.5),
             display: "none",
             [theme.breakpoints.up("md")]: {
-                display: "unset",
+                display: "inline-block",
             },
         },
         imageContainer: {
-            height: 140,
+            height: 120,
             cursor: "pointer",
-            display: "inline-block",
             overflow: "hidden",
             position: "relative",
             width: "100%",
@@ -80,7 +79,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExamplePressed?: (example: IExampleLink) => void; }> = ({ example, onExamplePressed }) => {
+export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExamplePressed?: (example: IExampleLink) => void }> = ({ example, onExamplePressed }) => {
     const context = useContext(DocumentationContext);
     const { title, description, image, imageUrl, type = "pg" } = example;
     const classes = exampleStyles();
@@ -97,7 +96,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <a href={`#example-${example.type || 'pg'}-${example.id.replace(/#/g, "-")}`}>
+                <a href={`#example-${example.type || "pg"}-${example.id.replace(/#/g, "-")}`}>
                     <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
                         <Tooltip title={`Open ${type} ${title}`}>
                             <LinkIcon></LinkIcon>
@@ -129,7 +128,15 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                 ></Image>
             </div>
             <div className={classes.footer}>
-                [{type.toUpperCase()}] {description} {example.documentationPage && <><br/><Link href={example.documentationPage}><MaterialLink href={example.documentationPage}>Documentation</MaterialLink></Link></>}
+                [{type.toUpperCase()}] {description}{" "}
+                {example.documentationPage && (
+                    <>
+                        <br />
+                        <Link href={example.documentationPage}>
+                            <MaterialLink href={example.documentationPage}>Documentation</MaterialLink>
+                        </Link>
+                    </>
+                )}
             </div>
         </div>
     );

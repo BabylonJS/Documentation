@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: `${colorPalette.header}`,
             flex: "0 1",
             position: "relative",
+            display: 'block',
         },
         appBarToolbar: {
             backgroundColor: `${colorPalette.header}`,
