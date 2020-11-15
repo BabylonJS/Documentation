@@ -82,7 +82,7 @@ A dirty lens mask should look like:
 
 ## Setting up the pseudo lens flare
 
-## Setting up textures
+### Setting up textures
 
 First, to activate the pseudo lens flare effect, just set the ".LensFlareEnabled" to true:
 
@@ -123,7 +123,7 @@ Color texture like:
 
 ![LensColorTexture](/img/how_to/advanced/standardRenderingPipeline/lenscolor.png)
 
-## Setting up parameters
+### Setting up parameters
 
 Once you added the textures, you can customize some parameters that will allow you to customize the final result:
 
@@ -156,7 +156,7 @@ The standard rendering pipeline now allows you to compute luminance adaptation. 
 it means that if you focus on a higly brighted zone, the camera will adapt itself. In another words, this technique allows you to create
 glare effects and it is also linked to what we call "_HDR_"
 
-## Customizing luminance adaptation
+### Customizing luminance adaptation
 
 First, let's activate the luminance adatation:
 
@@ -182,7 +182,7 @@ pipeline.hdrIncreaseRate = 0.5;
 
 ## Setting up the depth of field
 
-## Activating the depth of field
+### Activating the depth of field
 
 To active the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
 
@@ -191,7 +191,7 @@ To active the depth of field, simply set the property ".DepthOfFieldEnabled" to 
 pipeline.DepthOfFieldEnabled = true;
 ```
 
-## Customizing depth of field distance
+### Customizing depth of field distance
 
 To manipulate depth of field, you can set the distance to blur by setting the ".depthOfFieldDistance" property. This property represents the distance to focus on:
 
@@ -200,7 +200,7 @@ To manipulate depth of field, you can set the distance to blur by setting the ".
 pipeline.depthOfFieldDistance = 20;
 ```
 
-Playground example : <Playground id="#LB63T#2" title="Custom Depth of Field Example" description="Simple example of custom depth of field distance." image=""/>
+Playground example : <Playground id="#LB63T#1" title="Custom Depth of Field Example" description="Simple example of custom depth of field distance." image=""/>
 
 **note: Activating the depth of field will activate the depth renderer of Babylon.js, which can have an impact on performances**
 

@@ -33,9 +33,9 @@ The near distance map is an example of loading a pre-created and exported sprite
 
 The steps for this are: create and set the levelStage sprite map with a structure matching the one to be imported; load the *.tilemap* file; and position in the near distance, z = 5.
 
-Near distance sprite map: <Playground id="#YCY2IL#24" title="Near Distance Sprite Map" description="Simple example of a near distance sprite map." image=""/>
+Near distance sprite map: <Playground id="#YCY2IL#28" title="Near Distance Sprite Map" description="Simple example of a near distance sprite map." image="/img/playgroundsAndNMEs/pg-YCY2IL-28.png"/>
 
 ## Complete Example
 The three distance levels are now combined into one, the camera is changed to a universal one and positioned so that the levels fill the screen. The copy of the background animation map is copied over to the levelBase sprite map.
 
-Complete example: <Playground id="#YCY2IL#27" title="Complete Sprite Map Example" description="Complete example of a sprite map." image=""/>
+Complete example: <Playground id="#YCY2IL#29" title="Complete Sprite Map Example" description="Complete example of a sprite map." image=""/>
