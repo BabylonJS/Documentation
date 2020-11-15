@@ -123,7 +123,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                             {hasChildren ? isOpened ? <ExpandMoreIcon></ExpandMoreIcon> : <ChevronRightIcon></ChevronRightIcon> : <></>}
                         </IconButton>
                     )}
-                    {!hasChildren && level > 1 && (
+                    {!hasChildren && level > 0 && (
                         <IconButton disabled={true} size="small">
                             <Stop />
                         </IconButton>
