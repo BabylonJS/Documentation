@@ -166,7 +166,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             if (!url) {
                 throw new Error("Error in md file, maybe used tab instead of space?");
             }
-            if (!url.startsWith("http")) {
+            if (!url.startsWith("http") && !url.startsWith("/typedoc")) {
                 const idArray = url.split("/");
                 if (idArray[0] === "") {
                     idArray.shift();

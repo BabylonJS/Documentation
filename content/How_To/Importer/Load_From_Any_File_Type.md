@@ -19,7 +19,7 @@ further-reading:
     - title: Using External Assets in the Playground
       url: /toolsAndResources/tools/playground/externalPGAssets
     - title: SceneLoader
-      url: /typedoc/classes/babylon.sceneloader.html
+      url: /typedoc/classes/babylon.sceneloader
 video-overview:
 video-content:
 ---
