@@ -3,7 +3,7 @@ import hydrate from "next-mdx-remote/hydrate";
 import Layout from "../components/layout.component";
 import renderToString from "next-mdx-remote/render-to-string";
 import { BucketContent } from "../components/bucketContent.component";
-import { checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
+import { checkDuplicates, checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
@@ -194,6 +194,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths,
         getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
     );
+    checkDuplicates(paths);
     // TODO solve this more elegantly.
     // This is done since index is not a part of this dynamic url mapping (next.js issue)
     paths.shift();
