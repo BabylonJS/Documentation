@@ -19,7 +19,7 @@ const myParticleSystem = new BABYLON.ParticleSystem("particles", capacity, scene
 Before you can start the system running you need to provide a texture so that the particles can be seen. Also you need to set the point of origin for the particle emissions. You set this as an emitter, i.e. a mesh, whose position provides the emission origin or it can be just a vector3. Particles are emitted from random points inside a region of given size about the emission point of origin.
 
 ```javascript
-myParticleSystem = new BABYLON.Texture("path to texture");
+myParticleSystem.particleTexture = new BABYLON.Texture("path to texture");
 
 myParticleSystem.emitter = mesh;
 myParticleSystem.emitter = point; //a Vector3
