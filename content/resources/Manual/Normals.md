@@ -70,36 +70,36 @@ In BabylonJS this can be achieved using the `convertToFlatShadedMesh` function. 
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
-For a flat shaded mesh each the triangular facets making a face of the box has mathematical normals as the vertex normals. Each face has 4 corners each of which has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals. Since each face is made up of two triangular facets and each facet has three normals there will be 6 x 2 * 3 = 36 normals in the normals array. However since two facets will meet at two corners there will be 12 repeats within these 36.
+For a flat shaded mesh each of the triangular facets making a face of the box has mathematical normals as their vertex normals. For simplicity of illustration we will only consider the the six faces making up the box than the full range of triangular facets used in the mesh construction. Each face has 4 corners, each corner has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals. 
 
-## Table of Indices, Positions and Unique Normals for Flat Shaded Box
+## Table of Faces, Corners, Positions and Normals for Flat Shaded Box
 
-index | position | normal
---- | --- | ---
-0 | ( -1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
-1 | ( 1 ,  -1 ,  -1 ) | ( 0 ,  0 ,  -1 )
-2 | ( 1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
-3 | ( -1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
-4 | ( -1 ,  1 ,  1 ) | ( 0 ,  0 ,  1 )
-5 | ( 1 ,  -1 ,  1 ) | ( 0 ,  0 ,  1 )
-6 | ( -1 ,  -1 ,  1 ) | ( 0 ,  0 ,  1 )
-7 | ( -1 ,  1 ,  1 ) | ( 0 ,  0 ,  1 )
-8 | ( 1 ,  1 ,  -1 ) | ( 1 ,  -0 ,  0 )
-9 | ( 1 ,  -1 ,  1 ) | ( 1 ,  -0 ,  0 )
-10 | ( 1 ,  1 ,  1 ) | ( 1 ,  -0 ,  0 )
-11 | ( 1 ,  1 ,  -1 ) | ( 1 ,  0 ,  0 )
-12 | ( -1 ,  1 ,  -1 ) | ( -1 ,  0 ,  0 )
-13 | ( -1 ,  -1 ,  1 ) | ( -1 ,  0 ,  0 )
-14 | ( -1 ,  -1 ,  -1 ) | ( -1 ,  0 ,  0 )
-15 | ( -1 ,  1 ,  -1 ) | ( -1 ,  -0 ,  -0 )
-16 | ( -1 ,  1 ,  -1 ) | ( 0 ,  1 ,  0 )
-17 | ( 1 ,  1 ,  1 ) | ( 0 ,  1 ,  0 )
-18 | ( -1 ,  1 ,  1 ) | ( 0 ,  1 ,  0 )
-19 | ( 1 ,  1 ,  -1 ) | ( 0 ,  1 ,  -0 )
-20 | ( -1 ,  -1 ,  -1 ) | ( 0 ,  -1 ,  -0 )
-21 | ( 1 ,  -1 ,  1 ) | ( 0 ,  -1 ,  -0 )
-22 | ( 1 ,  -1 ,  -1 ) | ( 0 ,  -1 ,  -0 )
-23 | ( -1 ,  -1 ,  1 ) | ( 0 ,  -1 ,  0 )
+Face | corner | position | normal
+--- | --- | --- | ---
+Front | 0 | ( -1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
+Front | 1 | ( 1 ,  -1 ,  -1 ) | ( 0 ,  0 ,  -1 )
+Front | 2 | ( 1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
+Front | 3 | ( -1 ,  1 ,  -1 ) | ( 0 ,  0 ,  -1 )
+Back | 4 | ( -1 ,  1 ,  1 ) | ( 0 ,  0 ,  1 )
+Back | 5 | ( 1 ,  -1 ,  1 ) | ( 0 ,  0 ,  1 )
+Back | 6 | ( -1 ,  -1 ,  1 ) | ( 0 ,  0 ,  1 )
+Back | 7 | ( -1 ,  1 ,  1 ) | ( 0 ,  0 ,  1 )
+Right | 8 | ( 1 ,  1 ,  -1 ) | ( 1 ,  -0 ,  0 )
+Right | 9 | ( 1 ,  -1 ,  1 ) | ( 1 ,  -0 ,  0 )
+Right | 10 | ( 1 ,  1 ,  1 ) | ( 1 ,  -0 ,  0 )
+Right | 11 | ( 1 ,  1 ,  -1 ) | ( 1 ,  0 ,  0 )
+Left | 12 | ( -1 ,  1 ,  -1 ) | ( -1 ,  0 ,  0 )
+Left | 13 | ( -1 ,  -1 ,  1 ) | ( -1 ,  0 ,  0 )
+Left | 14 | ( -1 ,  -1 ,  -1 ) | ( -1 ,  0 ,  0 )
+Left | 15 | ( -1 ,  1 ,  -1 ) | ( -1 ,  -0 ,  -0 )
+Top | 16 | ( -1 ,  1 ,  -1 ) | ( 0 ,  1 ,  0 )
+Top | 17 | ( 1 ,  1 ,  1 ) | ( 0 ,  1 ,  0 )
+Top | 18 | ( -1 ,  1 ,  1 ) | ( 0 ,  1 ,  0 )
+Top | 19 | ( 1 ,  1 ,  -1 ) | ( 0 ,  1 ,  -0 )
+Base | 20 | ( -1 ,  -1 ,  -1 ) | ( 0 ,  -1 ,  -0 )
+Base | 21 | ( 1 ,  -1 ,  1 ) | ( 0 ,  -1 ,  -0 )
+Base | 22 | ( 1 ,  -1 ,  -1 ) | ( 0 ,  -1 ,  -0 )
+Base | 23 | ( -1 ,  -1 ,  1 ) | ( 0 ,  -1 ,  0 )
 
 ## Playground Showing Box Normals
 
