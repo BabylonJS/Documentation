@@ -3,7 +3,7 @@ import hydrate from "next-mdx-remote/hydrate";
 import Layout from "../components/layout.component";
 import renderToString from "next-mdx-remote/render-to-string";
 import { BucketContent } from "../components/bucketContent.component";
-import { checkDuplicates, checkUnusedFiles, getAvailableUrls } from "../lib/buildUtils/content.utils";
+import { getAvailableUrls, validateContent } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
@@ -15,9 +15,9 @@ import { markdownComponents } from "../components/markdownComponents/markdownCom
 import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
 import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-import "./documentationPage.style.scss";
-import { VideoCollection } from "../components/videoCollection.component";
 import { useRouter } from "next/dist/client/router";
+import { VideoCollection } from "../components/videoCollection.component";
+import "./documentationPage.style.scss";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -190,11 +190,11 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
 export const getStaticPaths: GetStaticPaths = async () => {
     console.log("main getStaticPages");
     const paths = await getAvailableUrls();
-    checkUnusedFiles(
-        paths,
-        getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
-    );
-    checkDuplicates(paths);
+    // ONLY when building
+    if (process.env.PRODUCTION) {
+        validateContent(paths,
+            getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")));
+    }
     // TODO solve this more elegantly.
     // This is done since index is not a part of this dynamic url mapping (next.js issue)
     paths.shift();

@@ -1,6 +1,5 @@
 import { IDocMenuItem } from "../interfaces";
 
-// very temporary structure configuration
 import structure from "../../configuration/structure.json";
 import { IMenuItem } from "../content.interfaces";
 import { clearIndex, clearPlaygroundIndex } from "./search.utils";
@@ -16,8 +15,8 @@ export const populateDocItemsArray = () => {
     }
     docItems.push({
         idArray: [],
-        ...config
-    })
+        ...config,
+    });
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
         Object.keys(childrenObject).forEach((key) => {
             docItems.push({ ...childrenObject[key], idArray: [...prevKeys, key] });
@@ -31,12 +30,14 @@ export const populateDocItemsArray = () => {
 };
 
 export const getAvailableUrls = async (): Promise<{ params: { id: string[]; content?: string } }[]> => {
-    const array = [{
-        params: {
-            id: [] as string[],
-            ...config
-        }
-    }];
+    const array = [
+        {
+            params: {
+                id: [] as string[],
+                ...config,
+            },
+        },
+    ];
 
     function traverseChildren(prevKeys: string[], childrenObject: { [key: string]: IDocMenuItem }) {
         Object.keys(childrenObject).forEach((key) => {
@@ -86,13 +87,21 @@ export const checkUnusedFiles = (contentArray: { params: { id: string[]; content
 export const checkDuplicates = (contentArray: { params: { id: string[]; content?: string } }[]) => {
     const map = {};
     contentArray.forEach((contentFile) => {
-        if(map[contentFile.params.content]) {
-            console.log('duplicate content in id', contentFile.params.id, map[contentFile.params.content])
+        if (map[contentFile.params.content]) {
+            console.log("duplicate content in id", contentFile.params.id, map[contentFile.params.content]);
         } else {
             map[contentFile.params.content] = contentFile.params.id;
         }
     });
-}
+};
+
+export const validateContent = (contentArray: { params: { id: string[]; content?: string } }[], allMarkdownFiles: string[]) => {
+    if (process.env.PRODUCTION) {
+        // validating missing pages, duplications, missing/wrong links.
+        checkUnusedFiles(contentArray, allMarkdownFiles);
+        checkDuplicates(contentArray);
+    }
+};
 
 export const generateBreadcrumbs = (ids: string[]) => {
     let currentChildren = config.children;
