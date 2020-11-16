@@ -58,6 +58,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             minHeight: 36,
             padding: theme.spacing(0.5),
             display: "none",
+            width: "100%",
             [theme.breakpoints.up("md")]: {
                 display: "inline-block",
             },

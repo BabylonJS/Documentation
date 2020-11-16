@@ -76,16 +76,24 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                     <>
                         <span id={`example-${props.type}-${props.id.replace(/#/g, "-")}`} className={classes.linkContainer}>
                             <span onClick={onExamplePressed.bind(this, context)}>
-                                <LinkIcon></LinkIcon>
+                                <Tooltip title={`Preview ${props.type} ${props.title}`}>
+                                    <LinkIcon></LinkIcon>
+                                </Tooltip>
                             </span>
-                            <span onClick={onExamplePressed.bind(this, context)}>{example.title}</span>
-                            <Link href={getExampleLink(example, false)}>
-                                <a target="_blank">
-                                    <span>
-                                        <ExternalLinkIcon></ExternalLinkIcon>
-                                    </span>
-                                </a>
-                            </Link>
+                            <Tooltip title={`Preview ${props.type} ${props.title}`}>
+                                <span style={{ minWidth: 120 }} onClick={onExamplePressed.bind(this, context)}>
+                                    {example.title}
+                                </span>
+                            </Tooltip>
+                            <span style={{ minWidth: 20 }}>
+                                <Link href={getExampleLink(example, false)}>
+                                    <a target="_blank">
+                                        <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
+                                            <ExternalLinkIcon></ExternalLinkIcon>
+                                        </Tooltip>
+                                    </a>
+                                </Link>
+                            </span>
                         </span>
                         <Hidden smUp>
                             <Snackbar message={`${example.type} opened at the top`} onClose={handleClose} open={open} autoHideDuration={3000}></Snackbar>
