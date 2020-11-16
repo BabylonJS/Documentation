@@ -80,6 +80,6 @@ For an introductory look at the Node Material Editor, check out where it all sta
 
 <Youtube id="34uIGJH0ySU"/>
 
-When you're ready to learn more, head on over to the [Node Material Documentation](/How_To/material/Node_Material) for more info.
+When you're ready to learn more, head on over to the [Node Material Documentation](/divingDeeper/materials/node_material/nodeMaterial) for more info.
 
-You can also dive into the API that powers it all here: [API documentation.](https://doc.babylonjs.com/api/classes/babylon.nodematerial)
+You can also dive into the API that powers it all here: [API documentation.](/typedoc/classes/babylon.nodematerial)

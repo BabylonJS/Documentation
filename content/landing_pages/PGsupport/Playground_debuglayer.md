@@ -22,7 +22,7 @@ video-content:
 
 Babylon.js inspector is a visual debugging tool created to help pinpoint issues you may have with a scene.
 
-For a video overview of the inspector, check out [Introduction to the inspector - video series](intro_inspector).
+For a video overview of the inspector, check out [Introduction to the inspector - video series](/toolsAndResources/tools/inspector/inspectorVideoOverview).
 
 The inspector offers multiple tools like:
 - A hierarchical view of your scene
