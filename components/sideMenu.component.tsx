@@ -190,7 +190,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                 <ul>{items.map((item) => renderMenuItem(item))}</ul>
             </nav>
             <div className={classes.poweredBy}>
-                <Link href="https://vercel.com/?utm_source=new-doc-page&utm_campaign=oss">
+                <Link href="https://vercel.com/?utm_source=babylonjs&utm_campaign=oss">
                     <a target="_blank">
                         Powered by{" "}
                         <svg width="283" height="64" viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg">
