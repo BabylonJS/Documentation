@@ -51,13 +51,13 @@ const useStyles = makeStyles((theme: Theme) =>
             margin: 16,
         },
         poweredBy: {
-            // maxHeight: 24,
             display: "flex",
-            marginTop: 20,
             position: "fixed",
             bottom: 8,
             backgroundColor: "white",
-            padding: theme.spacing(1),
+            fontSize: '0.9rem',
+            border: 'solid 1px',
+            padding: theme.spacing(0, 1),
             "& svg": {
                 height: 24,
                 width: 56,
@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme: Theme) =>
             "& a": {
                 display: "flex",
             },
+            [theme.breakpoints.up("md")] : {
+                backgroundColor: colorPalette.sidebarBackground,
+            }
         },
         menuItemLink: {
             color: colorPalette.regularSideText,

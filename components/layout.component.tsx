@@ -104,6 +104,7 @@ const useStyles = makeStyles((theme: Theme) =>
         drawer: {
             backgroundColor: `${colorPalette.sidebarBackground}`,
             display: "block",
+            paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
                 width: 300,
                 flexShrink: 0,
@@ -115,12 +116,13 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerContainer: {
             overflow: "auto",
             height: "100%",
-            paddingBottom: '36px'
         },
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
             width: 300,
+            paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
+                paddingBottom: 0,
                 top: "unset",
                 background: "unset",
             },
