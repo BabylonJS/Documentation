@@ -8,7 +8,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FilterIcon from "@material-ui/icons/FilterList";
 import { colorPalette } from "../styles/theme";
-import { Stop } from "@material-ui/icons";
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 export interface ISideMenuProps {
     items: IMenuItem[];
@@ -123,7 +123,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     )}
                     {!hasChildren && level > 0 && (
                         <IconButton disabled={true} size="small">
-                            <Stop />
+                            <FiberManualRecordIcon style={{height: 12}} />
                         </IconButton>
                     )}
                     <Link href={item.url}>

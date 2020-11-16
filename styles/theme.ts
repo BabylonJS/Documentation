@@ -26,5 +26,6 @@ export const theme = createMuiTheme({
     },
     typography: {
         fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),
+        fontSize: 16
     },
 });
