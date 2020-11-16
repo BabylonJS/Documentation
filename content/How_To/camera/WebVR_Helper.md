@@ -12,7 +12,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR experience helper will continue to be supported, it is strongly recommended that projects instead use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers). For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+While the WebVR experience helper will continue to work, **it is strongly recommended that projects instead use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
