@@ -252,6 +252,25 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 }
             }
         }
+
+        // search for internal links
+        try {
+            // stay safe, catch all errors here.
+            const internalLinks = Array.from(content.matchAll(/]\(\/(.*?)\)/g))
+                .map((res) => {
+                    return res[1].replace(/\)/g, "").split("#")[0];
+                })
+                .filter((link) => link.indexOf(".") === -1);
+
+            internalLinks.forEach((link) => {
+                const found = getElementByIdArray(link.split("/"), true);
+                if (!found) {
+                    console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
+                }
+            });
+        } catch (e) {
+            // no-op
+        }
     }
 
     const pageProps = {

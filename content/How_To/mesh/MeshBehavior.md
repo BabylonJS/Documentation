@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Introduction
-Mesh behaviors are [Behaviors](/features/behaviour) that can be attached to a mesh.
+Mesh behaviors are [Behaviors](/divingDeeper/behaviour) that can be attached to a mesh.
 
 ## PointerDragBehavior
 This is used to drag a mesh around a plane or axis using a mouse or vr controller.
@@ -23,7 +23,7 @@ It can be initialized in 3 different modes
 
 By default, the dragging plane/axis will be modified by the objects orientation. To keep the specified axis/plane fixed to the world set this to false.
 ```
-pointerDragBehavior.useObjectOrienationForDragging = false;
+pointerDragBehavior.useObjectOrientationForDragging = false;
 ```
 By default, the drag plane will update on every frame, to disable this set updateDragPlane to false
 ```
@@ -79,7 +79,7 @@ By default, dragging objects away/towards you will be magnified to make moving o
 // The distance towards the target drag position to move each frame. This can be useful to avoid jitter. Set this to 1 for no delay. (Default: 0.2)
 sixDofDragBehavior.zDragFactor = 0.2;
 ```
-**Note** - To avoid large performance hits when using with models with complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/How_To/Gizmo)
+**Note** - To avoid large performance hits when using with models with complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/divingDeeper/mesh/gizmo)
 * Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg"/>
 
 ## MultiPointerScaleBehavior
@@ -87,7 +87,7 @@ This is used to scale a mesh based on 2 pointers (eg. fingers or vr controllers)
 ```
 var multiPointerScaleBehavior = new BABYLON.MultiPointerScaleBehavior();
 ```
-**Note** - To avoid large performance hits when using with models with complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/How_To/Gizmo)
+**Note** - To avoid large performance hits when using with models with complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/divingDeeper/mesh/gizmo)
 * Playground Example: <Playground id="#5G9MC5" title="MultiPointerScaleBehavior Example" description="A simple example of SixDofDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg"/>
 
 ## AttachToBoxBehavior (AppBar)
