@@ -184,7 +184,6 @@
                     "children": {
                         "actions": { "friendlyName": "Actions", "children": {}, "content": "How_To/events/How_to_use_Actions" },
                         "observables": { "friendlyName": "Observables", "children": {}, "content": "How_To/events/Observables" },
-                        "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                         "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" }
                     }, 
                     "content": "landing_pages/divingDeeperEventsLandingPage"
