@@ -95,10 +95,13 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
 
     const openCloseItem = (item: IMenuItem) => {
         const idx = opened.indexOf(item.url);
+        console.log(item);
         if (idx !== -1) {
             const newOpened = opened.slice(0);
             newOpened.splice(idx, 1);
             setOpened(newOpened);
+            console.log('closing');
+            console.log(newOpened);
         } else {
             setOpened([...opened, item.url]);
         }
@@ -107,12 +110,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     const renderMenuItem = (item: IMenuItem, level: number = 0): ReactFragment => {
         const hasChildren = item.children && item.children.length;
         const key = item.url;
-        const isSelected = selected === key;
-
-        if (isSelected && hasChildren && opened.indexOf(key) === -1) {
-            opened.push(key);
-        }
-
+        const isSelected = selected === key;        
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
         const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
@@ -165,8 +163,9 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
             openedArray.push(`${prev}/${current}`);
             return `${prev}/${current}`;
         }, "");
-        setOpened(openedArray);
-    }, []);
+        const filteredOpened = opened.filter(o => openedArray.indexOf(o) === -1);
+        setOpened([...filteredOpened, ...openedArray]);
+    }, [selected]);
 
     useEffect(() => {
         if (toggleFilter) {

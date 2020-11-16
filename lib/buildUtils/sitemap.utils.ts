@@ -43,6 +43,17 @@ export const writeAllToSitemap = () => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><loc>https://doc.babylonjs.com/search</loc></url>;
     <url><loc>https://doc.babylonjs.com/playground</loc></url>`;
-    results.sort();
-    writeFileSync(sitemapFile, [start, ...results, `</urlset>`].join("\n"), { encoding: "utf-8" });
+    const lines = [];
+    results.forEach((result) => {
+        const lineRes = result.split("\n");
+        lineRes.forEach((l) => {
+            if (l.trim()) lines.push(l);
+        });
+    });
+    lines.sort();
+    try {
+        writeFileSync(sitemapFile, [start, ...lines, `</urlset>`].join("\n"), { encoding: "utf-8" });
+    } catch(e) {
+        // no-op
+    }
 };

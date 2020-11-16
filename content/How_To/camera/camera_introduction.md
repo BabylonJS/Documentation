@@ -289,6 +289,8 @@ var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.
 
 ## WebVR Free Camera
 
+**Please note that WebVR is deprecated! Please use WebXR instead**
+
 The new virtual reality camera
 
 ```javascript

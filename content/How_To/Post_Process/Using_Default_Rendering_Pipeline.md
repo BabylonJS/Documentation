@@ -7,9 +7,9 @@ further-reading:
     - title: How To Use PostProcess
       url: /divingDeeper/postProcesses/usePostProcesses
     - title: Babylon.DefaultRenderingPipeline
-      url: /typedoc/classes/babylon.defaultrenderingpipeline.html
+      url: /typedoc/classes/babylon.defaultrenderingpipeline
     - title: Babylon.ImageProcessingPostProcess
-      url: /typedoc/classes/babylon.imageprocessingpostprocess.html
+      url: /typedoc/classes/babylon.imageprocessingpostprocess
 video-overview:
 video-content:
 ---

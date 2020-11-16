@@ -8,10 +8,9 @@ video-overview:
 video-content:
 ---
 
-
 ## WebVR vs WebXR
 
-While the WebVR camera will continue to be supported, it is strongly recommended that projects instead use the [WebXR camera](/divingDeeper/webXR/webXRCamera). For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+While the WebVR camera will continue to be supported, **it is strongly recommended that projects instead use the [WebXR camera](/divingDeeper/webXR/webXRCamera)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
