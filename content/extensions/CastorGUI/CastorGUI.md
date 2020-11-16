@@ -11,7 +11,6 @@ video-content:
 Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 
 * [Depot](https://github.com/dad72/CastorGUI)
-* [Demo online of this extension](https://www.babylon.actifgames.com/demoCastorGUI/)
 * [Documentation](https://doc.babylonjs.com/extensions/)
 
 ## Features:
@@ -67,7 +66,7 @@ dialog.add(text);
 ```
 That's it. Everything works the same way with the same simplicity.
 
-Demo PG: <Playground id="S34THY#14" title="Castor GUI Playground Demo" description="Basic demo for showing the Castor GUI in action." image=""/>
+Demo PG: <Playground id="#S34THY#55" title="Castor GUI Playground Demo" description="Basic demo for showing the Castor GUI in action." image="/img/playgroundsAndNMEs/pg-S34THY-55"/>
 
 ## For use Database
 
@@ -86,4 +85,4 @@ db.deleteTable("member");
 db.deleteDataBase();
 ```
 
-Demo PG: <Playground id="12NLGN#56" title="Castor GUI database Demo" description="Basic demo for using Castor GUI with a database." image=""/>
+Demo PG: <Playground id="#S34THY#57" title="Castor GUI database Demo" description="Basic demo for using Castor GUI with a database." image="/img/playgroundsAndNMEs/pg-S34THY-57.png"/>
