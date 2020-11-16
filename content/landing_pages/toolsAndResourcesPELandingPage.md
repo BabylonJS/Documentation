@@ -10,7 +10,7 @@ video-content:
 
 ## Creating Particles The Easy Way
 
-Babylon.js has a feature-rich, powerful particle system. Babylon.js 4.2 introduced a new tool to make it simple and easy to leverage this powerful system. The Babylon.js Particle Editor. Built right into [The Inspector](landing_pages/PGsupport/Playground_debuglayer), creating particle systems is now as easy as right-clicking!
+Babylon.js has a feature-rich, powerful particle system. Babylon.js 4.2 introduced a new tool to make it simple and easy to leverage this powerful system. The Babylon.js Particle Editor. Built right into [The Inspector](/toolsAndResources/tools/inspector), creating particle systems is now as easy as right-clicking!
 
 <img src="/img/tools/particleEditor.jpg" title="Babylon.js Particle Editor"/>
 
