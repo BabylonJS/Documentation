@@ -155,7 +155,7 @@ vrHelper.onControllerMeshLoaded.add(webVRController => {
 });
 ```
 
-Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](https://doc.babylonjs.com/how_to/gltf#gltf-file-import /divingDeeper/importers/glTF).
+Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](/divingDeeper/importers/glTF).
 
 ## Accessing vr device position and rotation
 

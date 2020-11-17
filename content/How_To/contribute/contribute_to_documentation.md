@@ -115,7 +115,7 @@ You can finally starting to update the markdown files!
 
 ## Adding new images
 
-In case you have to create new illustrations, you need to send them on the Github repo into a specific folder: [`Documentation/public/html/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/html/img).
+In case you have to create new illustrations, you need to send them on the Github repo into a specific folder: [`Documentation/public/html/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/img).
 
 So on your local fork, go to this `img` folder. You can see there are already a lot of folders, so try to use existing folders to put your new images if possible.
 

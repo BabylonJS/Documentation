@@ -1,5 +1,5 @@
 ---
-title: NPM_Support
+title: NPM Support
 image: 
 description: Learn about Babylon.js's use of the NPM Package Manager.
 keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, NPM

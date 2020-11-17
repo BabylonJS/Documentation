@@ -250,7 +250,7 @@ Also using VSCode there is a `Debug` tab on the menu. To use it with Babylon.js 
 
 Once the task is run the links below provide the main entry points in Babylon.js:
 
-1. [Sandbox]("http://localhost:1338/sandbox/index-local.html"): [http://localhost:1338/sandbox/index-local.html](http://localhost:1338/sandbox/index-local.html)
+1. [Sandbox]("http://localhost:1338/sandbox/public/index-local.html"): [http://localhost:1338/sandbox/public/index-local.html](http://localhost:1338/sandbox/public/index-local.html)
 2. [Playground]("http://localhost:1338/Playground/index-local.html"): [http://localhost:1338/Playground/index-local.html](http://localhost:1338/Playground/index-local.html)
 3. [Materials Library]("http://localhost:1338/materialsLibrary/index.html"): [http://localhost:1338/materialsLibrary/index.html](http://localhost:1338/materialsLibrary/index.html)
 4. [Post Process Library]("http://localhost:1338/postProcessLibrary/index.html"): [http://localhost:1338/postProcessLibrary/index.html](http://localhost:1338/postProcessLibrary/index.html)
