@@ -17,9 +17,9 @@ export const colorPalette = {
 };
 export const theme = createMuiTheme({
     palette: {
-        // primary: {
-        //     main: purple[500],
-        // },
+        primary: {
+            main: colorPalette.menuHover1,
+        },
         // secondary: {
         //     main: green[500],
         // },

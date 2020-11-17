@@ -44,7 +44,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
     const [activeTOCItem, setActiveTOCItem] = useState<ITableOfContentsItem | null>(null);
-    const router = useRouter();
 
     const tocLevel = typeof metadata.tocLevels === "number" ? metadata.tocLevels : 3;
 

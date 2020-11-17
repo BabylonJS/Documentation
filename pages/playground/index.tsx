@@ -1,20 +1,29 @@
 import Layout from "../../components/layout.component";
 import SearchIcon from "@material-ui/icons/Search";
 import { Button, CircularProgress, createStyles, FormControl, FormGroup, InputAdornment, InputLabel, makeStyles, Select, TextField, Theme, Typography } from "@material-ui/core";
-import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
+import { ChangeEvent, FunctionComponent, useEffect, useRef, useState } from "react";
 import { GetStaticProps } from "next";
-import { IPlaygroundSearchResult, PlaygroundSearchResult } from "../../components/contentComponents/playgroundSearchResult";
+import { IPlaygroundSearchResult, PlaygroundSearchResult, SearchType } from "../../components/contentComponents/playgroundSearchResult";
 import { useRouter } from "next/dist/client/router";
+import { IExampleLink } from "../../lib/content.interfaces";
+import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 
 const baseQueryURL = "https://snippet.babylonjs.com/search";
 const baseCountURL = "https://snippet.babylonjs.com/count";
 
-type searchType = "code" | "name" | "tags";
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        flexContainer: {
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            width: "100%",
+        },
         searchContainer: {
+            flex: 1,
+            overflow: "auto",
             padding: theme.spacing(2),
+            position: "relative",
             width: "100%",
             "& h3": {
                 marginBottom: 0,
@@ -30,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         emptySearchContainer: {
+            width:'100%',
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -50,15 +60,15 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
             padding: theme.spacing(2),
             minWidth: "100%",
-            [theme.breakpoints.up("sm")]: {
-                minWidth: "50% !important",
-            },
-            [theme.breakpoints.up("lg")]: {
-                minWidth: "50% !important",
-            },
-            [theme.breakpoints.up("xl")]: {
-                minWidth: "33.333% !important",
-            },
+            // [theme.breakpoints.up("sm")]: {
+            //     minWidth: "50% !important",
+            // },
+            // [theme.breakpoints.up("lg")]: {
+            //     minWidth: "50% !important",
+            // },
+            // [theme.breakpoints.up("xl")]: {
+            //     minWidth: "33.333% !important",
+            // },
         },
         itemsHovered: {
             overflow: "auto",
@@ -68,6 +78,11 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingBottom: 16,
         },
         formControl: {},
+        loadingCircular: {
+            position: 'absolute',
+            top: '50%',
+            right: 'calc(50% - 40px)'
+        }
     }),
 );
 
@@ -78,11 +93,14 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const [count, setCount] = useState<number>(0);
     const [page, setPage] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(false);
-    const queryType = router.query.type as searchType;
-    const [type, setType] = useState<searchType>(queryType || "code");
+    const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
+    const queryType = router.query.type as SearchType;
+    const [type, setType] = useState<SearchType>(queryType || "code");
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [noResults, setNoResults] = useState<boolean>(false);
     const classes = useStyles();
+
+    const searchRef = useRef<HTMLDivElement>();
 
     useEffect(() => {
         setResults([]);
@@ -95,6 +113,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         setSearchTerm(query);
         setType(queryType);
         setLoading(true);
+        setActiveExample(null);
         console.log(`${baseQueryURL}/${queryType}/`);
         fetch(`${baseQueryURL}/${queryType}/`, {
             method: "POST",
@@ -161,7 +180,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const handleTypeChange = (
         event: ChangeEvent<{
             name?: string;
-            value: searchType;
+            value: SearchType;
         }>,
     ) => {
         setType(event.target.value);
@@ -228,7 +247,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             }}
             id={["playground"]}
         >
-            <div className={classes.searchContainer}>
+            <>
                 {!results.length && !loading && (
                     <div className={classes.emptySearchContainer}>
                         <Typography component="h3" variant="h3" gutterBottom>
@@ -242,44 +261,50 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                         )}
                     </div>
                 )}
-
-                {loading && (
-                    <Typography component="h3" variant="h3">
-                        Loading results for {query} in {type}...
-                        <CircularProgress />
-                    </Typography>
-                )}
-                {!!results.length && (
-                    <div>
-                        {!loading && (
-                            <Typography component="h3" variant="h3">
-                                Playground search results for {query} in {queryType} ({count})
-                            </Typography>
-                        )}
-                        {searchForm}
-                        <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: 'stretch' }}>
-                            {results.map((res) => {
-                                return (
-                                    <div key={res.id} className={classes.resultContainer}>
-                                        <PlaygroundSearchResult searchResult={res}></PlaygroundSearchResult>
+                {(results.length || loading) && (
+                    <div className={classes.flexContainer}>
+                        <InlineExampleComponent {...activeExample} />
+                        <div ref={searchRef} className={classes.searchContainer}>
+                            {loading && (
+                                <Typography component="h3" variant="h3">
+                                    Loading results for {query} in {queryType}...
+                                    <CircularProgress className={classes.loadingCircular} size="80px" />
+                                </Typography>
+                            )}
+                            {!!results.length && (
+                                <>
+                                    <div>
+                                        <Typography component="h3" variant="h3">
+                                            Playground search results for {query} in {queryType} ({count})
+                                        </Typography>
+                                        {searchForm}
+                                        <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "stretch" }}>
+                                            {results.map((res) => {
+                                                return (
+                                                    <div key={res.id} className={classes.resultContainer}>
+                                                        <PlaygroundSearchResult setActiveExample={setActiveExample} type={queryType} term={query} searchResult={res}></PlaygroundSearchResult>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
-                                );
-                            })}
+                                </>
+                            )}
+                            {!!count && !loading && count > results.length && (
+                                <Button
+                                    disabled={loading}
+                                    onClick={() => {
+                                        setPage(page + 1);
+                                    }}
+                                    variant="contained"
+                                >
+                                    Load more
+                                </Button>
+                            )}
                         </div>
                     </div>
                 )}
-                {!!count && !loading && count > results.length && (
-                    <Button
-                        disabled={loading}
-                        onClick={() => {
-                            setPage(page + 1);
-                        }}
-                        variant="contained"
-                    >
-                        Load more
-                    </Button>
-                )}
-            </div>
+            </>
         </Layout>
     );
 };
