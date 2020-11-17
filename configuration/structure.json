@@ -132,9 +132,9 @@
                         "customizingCameraInputs": { "friendlyName": "Customizing Camera Inputs", "children": {}, "content": "How_To/camera/Customizing_Camera_Inputs" },
                         "multiViewsPart1": { "friendlyName": "Multiviews Part1", "children": {}, "content": "How_To/camera/Multiview" },
                         "multiViewsPart2": { "friendlyName": "Multiviews Part2", "children": {}, "content": "How_To/camera/How_to_use_Multi-Views" },
-                        "layerMasksAndMultiCam": { "friendlyName": "Layermasks and Multi-Cam Textures", "children": {}, "content": "How_To/camera/Layermasks_and_Multi-Cam_Textures" },
+                        "layerMasksAndMultiCam": { "friendlyName": "Layer Masks and Multi-Cam Textures", "children": {}, "content": "How_To/camera/Layermasks_and_Multi-Cam_Textures" },
                         "webVRCamera": { "friendlyName": "WebVR Camera", "children": {}, "content": "How_To/camera/WebVR_Camera" },
-                        "webVRHelper": { "friendlyName": "WevVR Experience Helper", "children": {}, "content": "How_To/camera/WebVR_Helper" }
+                        "webVRHelper": { "friendlyName": "WebVR Experience Helper", "children": {}, "content": "How_To/camera/WebVR_Helper" }
                     }, 
                     "content": "landing_pages/divingDeeperCamerasLandingPage"
                 },
@@ -152,7 +152,7 @@
                     "children": {
                         "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
                         "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
-                        "npmSupport": { "friendlyName": "NPM_Support", "children": {}, "content": "landing_pages/Support/NPM_Support"},
+                        "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support"},
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support"},
                         "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads"},
                         "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" },
