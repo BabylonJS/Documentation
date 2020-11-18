@@ -20,7 +20,10 @@ const useStyles = makeStyles((theme: Theme) =>
         menuItem: {
             minHeight: 30,
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
+            "& a": {
+                marginTop: theme.spacing(0.6)
+            }
         },
         noChild: {
             marginLeft: 20,
@@ -103,8 +106,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
             const newOpened = opened.slice(0);
             newOpened.splice(idx, 1);
             setOpened(newOpened);
-            console.log('closing');
-            console.log(newOpened);
         } else {
             setOpened([...opened, item.url]);
         }
@@ -126,7 +127,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                     )}
                     {!hasChildren && level > 0 && (
                         <IconButton disabled={true} size="small">
-                            <FiberManualRecordIcon style={{height: 12}} />
+                            <FiberManualRecordIcon style={{padding: 8}} />
                         </IconButton>
                     )}
                     <Link href={item.url}>
