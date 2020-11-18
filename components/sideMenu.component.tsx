@@ -101,7 +101,6 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
 
     const openCloseItem = (item: IMenuItem) => {
         const idx = opened.indexOf(item.url);
-        console.log(item);
         if (idx !== -1) {
             const newOpened = opened.slice(0);
             newOpened.splice(idx, 1);
