@@ -382,6 +382,9 @@
     pre,
     code {
         font-family: Menlo, Monaco, "Courier New", monospace;
+        &.prism-code {
+            margin: 8px 0;
+        }
     }
 
     // pre {
