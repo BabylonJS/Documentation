@@ -27,7 +27,7 @@ It can be found on [github](https://github.com/dad72/CastorGUI)
 <Playground id="#S34THY#14" title="CastorGUI Example" description="Simple example of using the CastorGUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI2.jpg"/>
 
 # Dat.GUI
- The external [dat.GUI](https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage) is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js
+ The external [dat.GUI](https://github.com/dataarts/dat.gui) is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js
 
  <Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI3.jpg"/>
 
