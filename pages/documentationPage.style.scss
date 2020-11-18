@@ -361,8 +361,13 @@
         // max-width: 48rem;
     }
 
+    ol, ul {
+        margin: 4px 0
+    }
+
     li {
         margin-left: 2rem;
+        margin-top: 2px;
     }
 
     /* Counteract the specificity of the gross *:not() chain. */
