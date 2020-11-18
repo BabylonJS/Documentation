@@ -20,7 +20,7 @@ video-content:
 
 A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
 
-![selection panel](/img/gui/selectPanel1.jpg)
+![selection panel](/img/GUI/selectPanel1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 ## Referencing a Selection Panel

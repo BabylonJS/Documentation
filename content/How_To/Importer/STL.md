@@ -21,4 +21,4 @@ To use it you just have to reference it after Babylon.js:
 ```
 
 Then you can use one of the static functions on the `SceneLoader` to load.
-See [how to load from any file type](/how_to/Load_From_Any_File_Type)
+See [how to load from any file type](/divingDeeper/importers/loadingFileTypes)

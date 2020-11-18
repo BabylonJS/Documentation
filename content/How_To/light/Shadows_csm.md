@@ -327,8 +327,8 @@ For comparison sake, here is the same part rendered with the standard `ShadowGen
 
 ## References
 
-[1] Microsoft [Cascaded Shadow Maps](https://docs.microsoft.com/en-us/windows/win32/dxtecharts/cascaded-shadow-maps) DirectX Sample
+Microsoft [Cascaded Shadow Maps](https://docs.microsoft.com/en-us/windows/win32/dxtecharts/cascaded-shadow-maps) DirectX Sample
 
-[2] [A sampling of Shadow Techniques](https://mynameismjp.wordpress.com/2013/09/10/shadow-maps/) by MJP
+[A sampling of Shadow Techniques](https://mynameismjp.wordpress.com/2013/09/10/shadow-maps/) by MJP
 
-[3] [Sample Distribution Shadow Maps](https://software.intel.com/en-us/articles/sample-distribution-shadow-maps) by Andrew Lauritzen (Intel), Kohei, Komono, Aaron Lefohn (Intel)
+[Sample Distribution Shadow Maps](https://software.intel.com/en-us/articles/sample-distribution-shadow-maps) by Andrew Lauritzen (Intel), Kohei, Komono, Aaron Lefohn (Intel)
