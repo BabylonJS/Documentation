@@ -22,6 +22,7 @@ This documentation explains how to transform an existing Babylon.js game to make
 ## Some Babylon.js games on Poki
 
 * [Minecraft Classic - By Mojan](https://poki.com/en/g/minecraft-classic)
+* [Temple Run 2 - By Imangi Studios](https://poki.com/en/g/temple-run-2)
 * [Tunnel Rush - By Deer Cat](https://poki.com/en/g/tunnel-rush)
 * [Shell Shockers - By Blue Wizard Digital](https://poki.com/en/g/shell-shockers)
 
