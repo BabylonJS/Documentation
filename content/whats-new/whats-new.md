@@ -1375,7 +1375,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Added [depth of field](https://www.babylonjs-playground.com/frame.html#8F5HYV#9), [MSAA, sharpening, chromatic aberration and grain effect](https://www.babylonjs-playground.com/#Y3C0HQ#146) to the default pipeline ([trevordev](https://github.com/trevordev))
 -   Added support for [animation weights](//doc.babylonjs.com/babylon101/animations#animation-weights). Demo [here](https://www.babylonjs-playground.com/#LL5BIQ) ([deltakosh](https://github.com/deltakosh))
 -   Added [sub emitters for particle system](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#sub-emitters) which will spawn new particle systems when particles die. Demo [here](https://www.babylonjs-playground.com/frame.html#9NHBCC#1) ([IbraheemOsama](https://github.com/IbraheemOsama))
--   New [Babylon.js](//doc.babylonjs.com/resources/maya) and [glTF](//doc.babylonjs.com/extensions/Exporters/Maya_to_glTF) exporter for Autodesk Maya ([Noalak](https://github.com/Noalak))
+-   New [Babylon.js](//doc.babylonjs.com/extensions/Exporters/Maya) and [glTF](//doc.babylonjs.com/extensions/Exporters/Maya_to_glTF) exporter for Autodesk Maya ([Noalak](https://github.com/Noalak))
 -   New [glTF exporter](//doc.babylonjs.com/extensions/Exporters/3DSMax_to_glTF) for Autodesk 3dsmax ([Noalak](https://github.com/Noalak))
 -   New glTF [serializer](//doc.babylonjs.com/extensions/gltfexporter). You can now export glTF or glb files directly from a Babylon scene ([kcoley](https://github.com/kcoley))
 -   Physics - Latest production version of Oimo.js is being used - 1.0.9 ([RaananW](https://github.com/RaananW))

@@ -187,7 +187,7 @@ This add-on use the standard Blender installation procedure:
 
 You will find an example on this [.zip archive](//doc.babylonjs.com/examples/blender/animations/babylon-format.zip). 3D sources files are on `sources` folder, BJS app is on `BJS` folder.
 
-In `sources`, we have our master scene, with only static objects (on the layer 1), and just for us to see it, we have the logo linked on the layer 6. When exporting, take care to have only layer 1 active, as we have checked in the [scene panel](//doc.babylonjs.com/resources/blender#scene) _Export only selected layers_.
+In `sources`, we have our master scene, with only static objects (on the layer 1), and just for us to see it, we have the logo linked on the layer 6. When exporting, take care to have only layer 1 active, as we have checked in the [scene panel](//doc.babylonjs.com/extensions/Exporters/Blender#scene) _Export only selected layers_.
 
 Once exported, you can see in `BJS/index.html` that we create our main scene using this `.babylon`: line 36
 

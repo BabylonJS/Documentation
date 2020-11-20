@@ -10,7 +10,7 @@ video-content:
 
 # How to export Maya scene as glTF
 
-If you have not already installed the babylon plugin for Maya, you can find all instructions [here](/resources/Maya) as well as general information about the plugin.
+If you have not already installed the babylon plugin for Maya, you can find all instructions [here](/extensions/Exporters/Maya) as well as general information about the plugin.
 
 With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
@@ -27,7 +27,7 @@ To export to a single .glb file, choose __glb__ as __Output format__.
 
 # Exported features
 
-Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/resources/Maya#features).
+Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/extensions/Exporters/Maya#features).
 
 * _Cameras_
     * zfar
@@ -319,7 +319,7 @@ Once they are installed, check the _Use Draco compression_ option and the compre
 
 # Double sided material
 
-The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/resources/Maya#double-sided-material).
+The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/extensions/Exporters/Maya#double-sided-material).
 
 # Babylon material attributes
 

@@ -1,6 +1,6 @@
 ---
 title: Babylon.js Editor Workflow Boilerplate
-image: 
+image:
 description: A short guide to the recommended workflow for Babylon.js Editor.
 keywords: welcome, babylon.js, editor
 further-reading:
@@ -10,12 +10,13 @@ video-content:
 
 ![image](https://user-images.githubusercontent.com/954596/59084404-b697a280-88c0-11e9-959a-336c0b8d15e2.png)
 
-> ** **
-> - Author: *Jesse Harlin* (info[at]simiancraft.com)
-> - Author Twitter: [*@5imian*](https://twitter.com/5imian)
-> - Author Site: [jesseharlin.net](http://jesseharlin.net/)
-> ** **
-
+> ---
+>
+> -   Author: _Jesse Harlin_ (info[at]simiancraft.com)
+> -   Author Twitter: [_@5imian_](https://twitter.com/5imian)
+> -   Author Site: [jesseharlin.net](http://jesseharlin.net/)
+>
+> ---
 
 One of the most important things in working in the BabylonJs Editor system is a reliable and stable workflow. The purpose of this short guide is to jumpstart anyone with the BabylonJs Editor and adopt the recommended workflow.
 
@@ -30,35 +31,6 @@ In short here are our goals:
 5. Be able to make changes to the scenes, and to the web project and maintain a proper sequence of events so that no work is lost and the workflow is comfortable.
 
 The git repository of the boiletplate is available on GitHub here: https://github.com/simiancraft/BabylonJs-Editor-Workflow-Boilerplate
-
----
-
-- [Babylon JS Editor Workflow Boilerplate](#babylon-js-editor-workflow-boilerplate)
-  - [1. Create Your First Scene](#1-create-your-first-scene)
-      - [Your First Clicks](#your-first-clicks)
-      - [Set Up Folders](#set-up-folders)
-      - [Small Change in the Mesh Inspector](#small-change-in-the-mesh-inspector)
-      - [Checking Your Work](#checking-your-work)
-      - [SideQuest: Make a Movie](#sidequest-make-a-movie)
-      - [Save It!](#save-it)
-  - [2. Iterate on that Scene.](#2-iterate-on-that-scene)
-      - [Remove Documentation Plane and The Graph Tab](#remove-documentation-plane-and-the-graph-tab)
-      - [Manipulate Orbs with the `Preview` Controls](#manipulate-orbs-with-the-preview-controls)
-      - [Resave.](#resave)
-  - [3. Make another new scene.](#3-make-another-new-scene)
-      - [Add Skybox](#add-skybox)
-      - [Save Your Work Thusfar](#save-your-work-thusfar)
-      - [Put a Bird on it (adding a mesh)](#put-a-bird-on-it-adding-a-mesh)
-      - [Verify Work Thus Far.](#verify-work-thus-far)
-  - [4. Scaffold and provision a web project](#4-scaffold-and-provision-a-web-project)
-      - [Scaffold basic project](#scaffold-basic-project)
-      - [Verify basic project scaffold](#verify-basic-project-scaffold)
-      - [Provision Multiscene Project](#provision-multiscene-project)
-  - [5. The Final Workflow](#5-the-final-workflow)
-      - [Workflow Tips](#workflow-tips)
-      - [For Next time: What wasn't covered (but might come in the future)](#for-next-time-what-wasnt-covered-but-might-come-in-the-future)
-
----
 
 ## 1. Create Your First Scene
 
@@ -306,18 +278,18 @@ When you have the Material, change a couple of properties. Click the new Materia
 
 1. Rename the Material to something useful, like `SpaceBox`
 
-   ![image](https://user-images.githubusercontent.com/954596/59149092-d1f4d180-89d6-11e9-9b37-10d3630bc798.png)
-   You need this to be readable, so you can find it in other places, like when assigning it to a Mesh.
+    ![image](https://user-images.githubusercontent.com/954596/59149092-d1f4d180-89d6-11e9-9b37-10d3630bc798.png)
+    You need this to be readable, so you can find it in other places, like when assigning it to a Mesh.
 
 2. We need to Turn Off `Back Face Culling`.
 
-   ![image](https://user-images.githubusercontent.com/954596/59149117-25671f80-89d7-11e9-8930-2c1881bed257.png)
-   This is what makes the material visible on the inside of the cube, when its surrounding you, so its a very important thing. At the very bottom of the Inspector, there's a checkbox in the Options accordion menu
+    ![image](https://user-images.githubusercontent.com/954596/59149117-25671f80-89d7-11e9-8930-2c1881bed257.png)
+    This is what makes the material visible on the inside of the cube, when its surrounding you, so its a very important thing. At the very bottom of the Inspector, there's a checkbox in the Options accordion menu
 
 3. Assign the actual texture!
 
-   ![image](https://user-images.githubusercontent.com/954596/59149120-3879ef80-89d7-11e9-892e-eac22e6d26f0.png)
-   Just select the `.dds` file you added in the `Reflection Texture` property in the `Reflection` accordion menu of the `Inspector`.
+    ![image](https://user-images.githubusercontent.com/954596/59149120-3879ef80-89d7-11e9-892e-eac22e6d26f0.png)
+    Just select the `.dds` file you added in the `Reflection Texture` property in the `Reflection` accordion menu of the `Inspector`.
 
 Now, Just as it was with the `Texture Viewer`, you should see your sphere in the `Materials Viewer` showing the right texture.
 
@@ -398,9 +370,9 @@ The folks working on Babylon have provided some really nice meshes that are basi
 
 The easiest way to get the meshes is to look at the CDN and just download it. That CDN is `https://models.babylonjs.com/`, and it holds meshes in a variety of formats (including .babylon). You can read more about Mesh type support [here](/divingDeeper/importers/loadingFileTypes) when you feel like you need to know more. There is a page that lists every mesh that's available to work with
 
-- [https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes](/toolsAndResources/assetLibraries/availableMeshes)
+-   [https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes](/toolsAndResources/assetLibraries/availableMeshes)
 
-Also, if you already work in a program for mesh creation, such as Blender, 3ds Max, Cheetah 3d and so on, there's probably an exporter you can install to make this very easy for you. There's a bunch of articles on this in the [Resources](/resources/) section of the BabylonJs Docs.
+Also, if you already work in a program for mesh creation, such as Blender, 3ds Max, Cheetah 3d and so on, there's probably an exporter you can install to make this very easy for you. There's a bunch of articles on this in the [Tools and Resources](/toolsAndResources) section of the BabylonJs Docs.
 
 [![image](https://user-images.githubusercontent.com/954596/59151226-12fbde80-89f5-11e9-8e12-fd25c8d7b032.png)](https://github.com/BabylonJS/Exporters)
 The short version is, look in [this repo](https://github.com/BabylonJS/Exporters) to see if there's an exporter for your favorite mesh editor. It is probably supported.
@@ -413,17 +385,17 @@ The short version is, look in [this repo](https://github.com/BabylonJS/Exporters
 
 We have a space-scene, so let us add a space-dude. In order to do this, you will need the `.babylon` file, which is a JSON file describing the mesh as well as all the textures. Here is an example of this mesh in a Babylon playground.
 
-- PG: <Playground id="#NA2WKW" title="Head from the Playground" description="Example of asset" image=""/>
+-   PG: <Playground id="#NA2WKW" title="Head from the Playground" description="Example of asset" image=""/>
 
 Here are all the assets you need, download them all somewhere.
 
 **Dude.babylon**
 
-- Mesh: https://www.babylonjs-playground.com/scenes/Dude/Dude.babylon
-- Asset: https://www.babylonjs-playground.com/scenes/Dude/0.jpg
-- Asset: https://www.babylonjs-playground.com/scenes/Dude/1.jpg
-- Asset: https://www.babylonjs-playground.com/scenes/Dude/2.jpg
-- Asset: https://www.babylonjs-playground.com/scenes/Dude/3.jpg
+-   Mesh: https://www.babylonjs-playground.com/scenes/Dude/Dude.babylon
+-   Asset: https://www.babylonjs-playground.com/scenes/Dude/0.jpg
+-   Asset: https://www.babylonjs-playground.com/scenes/Dude/1.jpg
+-   Asset: https://www.babylonjs-playground.com/scenes/Dude/2.jpg
+-   Asset: https://www.babylonjs-playground.com/scenes/Dude/3.jpg
 
 I would put them all in a folder called 'Dude' on your computer. Like this:
 ![image](https://user-images.githubusercontent.com/954596/59163223-b6b3c000-8ac3-11e9-875c-96f5e788eec0.png)
@@ -431,22 +403,22 @@ I would put them all in a folder called 'Dude' on your computer. Like this:
 Here comes the hard part. After you download the file and the assets.. you drag them all into the editor and click `yes` on the prompt.
 ![dragdude-2](https://user-images.githubusercontent.com/954596/59163281-69841e00-8ac4-11e9-9046-abe766eef6f2.gif)
 
-- There are a lot more Textures in the `Texture viewer`!
-  ![image](https://user-images.githubusercontent.com/954596/59163440-f4feae80-8ac6-11e9-9489-ca185c3facd9.png)
-- Same with the `Material Viewer`
-  ![image](https://user-images.githubusercontent.com/954596/59163433-d26c9580-8ac6-11e9-9a9c-a3873da9c43b.png)
-- There's a new node in the `Graph`
-- They might be extra cameras in the `Graph`, you can delete them. You want something like this:
-  ![image](https://user-images.githubusercontent.com/954596/59163410-79046680-8ac6-11e9-8fdb-f2aecacfd21f.png)
-- There's a Mesh in the `Preview` tab.
+-   There are a lot more Textures in the `Texture viewer`!
+    ![image](https://user-images.githubusercontent.com/954596/59163440-f4feae80-8ac6-11e9-9489-ca185c3facd9.png)
+-   Same with the `Material Viewer`
+    ![image](https://user-images.githubusercontent.com/954596/59163433-d26c9580-8ac6-11e9-9a9c-a3873da9c43b.png)
+-   There's a new node in the `Graph`
+-   They might be extra cameras in the `Graph`, you can delete them. You want something like this:
+    ![image](https://user-images.githubusercontent.com/954596/59163410-79046680-8ac6-11e9-8fdb-f2aecacfd21f.png)
+-   There's a Mesh in the `Preview` tab.
 
 Test this with the `play` button, and save it as we have been.
 ![fly-dude](https://user-images.githubusercontent.com/954596/59163473-5888dc00-8ac7-11e9-8b6b-00a103e9bd71.gif)
 
 #### Verify Work Thus Far.
 
-- Open and close both projects
-- Review your folder structure, it should be like this
+-   Open and close both projects
+-   Review your folder structure, it should be like this
 
 ```bash
 📁 editor-projects
@@ -543,9 +515,9 @@ Your folder structure will look like this now:
 
 Do you see that there's now a lot of new material sitting in the `web-project` folder? Additionally, there is a folder called `scene` that has dumped all the files from the `Rainy-Day` scene into here. There are some things to point out
 
-- the `scene.babylon` is the same as the one in the `Rainy-Day`.
-- there is no `scene.editorproject` file at all! There will never be one in this part of the file structure
-- there is a new `project.editorproject` file that is not in the `editor-projects` folder. there will always be one of these in each scene in the `web-project` section and **not** in the `editor-projects` section of this whole big project.
+-   the `scene.babylon` is the same as the one in the `Rainy-Day`.
+-   there is no `scene.editorproject` file at all! There will never be one in this part of the file structure
+-   there is a new `project.editorproject` file that is not in the `editor-projects` folder. there will always be one of these in each scene in the `web-project` section and **not** in the `editor-projects` section of this whole big project.
 
 This new `project.editorproject` holds some metadata that will be used in the web app that is not used in the editor. Its a different file for a different purpose, despite the fact the extension is the same extension.
 
@@ -580,8 +552,8 @@ We are getting close to establishing our final workflow for a web project with m
 1.  simply delete `web-project/scene`. We are going to replace this.
 2.  In its places add a new empty folder called `scenes`.
 3.  Inside of scenes, make two empty folders that mirror the contents of `editor-projects` Don't just copy the folders over, we need to make two actually empty folders.
-    - make `web-project/scenes/Rainy-Day`
-    - make `web-project/scenes/Space-Scene`
+    -   make `web-project/scenes/Rainy-Day`
+    -   make `web-project/scenes/Space-Scene`
 
 Now our project is basically laid out correctly, but we need to actually put the needed scene assets and files in these projects. We are going to open them and export them one at a time. Now if your editor is open, just close it so you're starting in the same state as this tutorial.
 
@@ -682,81 +654,67 @@ Your project needs to resemble this:
     `-- yarn.lock
 ```
 
-- In the editor Projects: The Scenes have a `scene.editorproject` at the root, all assets in a `scene` folder.
-- In the web project scenes: The structure is flat, and there is instead a `project.editorproject`.
+-   In the editor Projects: The Scenes have a `scene.editorproject` at the root, all assets in a `scene` folder.
+-   In the web project scenes: The structure is flat, and there is instead a `project.editorproject`.
 
 Now that this is done, we need to make changes to our `game.ts` to handle the new structure.
 
 Right, before making any changes now your `game.ts` looks like this:
 
 ```ts
-import {
-  Engine,
-  Scene,
-  SceneLoader,
-  Tools,
-  Vector3,
-  CannonJSPlugin
-} from "babylonjs";
+import { Engine, Scene, SceneLoader, Tools, Vector3, CannonJSPlugin } from "babylonjs";
 
 import { Extensions } from "babylonjs-editor";
 
 export default class Game {
-  // Public members
-  public engine: Engine;
-  public canvas: HTMLCanvasElement = <HTMLCanvasElement>(
-    document.getElementById("renderCanvas")
-  );
+    // Public members
+    public engine: Engine;
+    public canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("renderCanvas");
 
-  public scene: Scene = null;
+    public scene: Scene = null;
 
-  /**
-   * Constructor
-   */
-  constructor() {
-    // Create engine
-    this.engine = new Engine(this.canvas, true, {
-      // Options
-    });
-
-    // Events
-    window.addEventListener("resize", () => this.engine.resize());
-  }
-
-  /**
-   * Runs the game
-   */
-  public run(): void {
-    // Load Scene
-    SceneLoader.Load(
-      "./scene/",
-      "scene.babylon",
-      this.engine,
-      (scene: Scene) => {
-        this.scene = scene;
-
-        // No camera?
-        if (!this.scene.activeCamera) {
-          this.scene.createDefaultCamera(false, true, true);
-        }
-
-        // Attach camera
-        this.scene.activeCamera.attachControl(this.canvas, true);
-
-        // Load extensions
-        Tools.LoadFile("./scene/project.editorproject", (data: string) => {
-          // Apply extensions (such as custom code, custom materials etc.)
-          Extensions.RoolUrl = "./scene/";
-          Extensions.ApplyExtensions(this.scene, JSON.parse(data));
-
-          // Run render loop
-          this.engine.runRenderLoop(() => {
-            this.scene.render();
-          });
+    /**
+     * Constructor
+     */
+    constructor() {
+        // Create engine
+        this.engine = new Engine(this.canvas, true, {
+            // Options
         });
-      }
-    );
-  }
+
+        // Events
+        window.addEventListener("resize", () => this.engine.resize());
+    }
+
+    /**
+     * Runs the game
+     */
+    public run(): void {
+        // Load Scene
+        SceneLoader.Load("./scene/", "scene.babylon", this.engine, (scene: Scene) => {
+            this.scene = scene;
+
+            // No camera?
+            if (!this.scene.activeCamera) {
+                this.scene.createDefaultCamera(false, true, true);
+            }
+
+            // Attach camera
+            this.scene.activeCamera.attachControl(this.canvas, true);
+
+            // Load extensions
+            Tools.LoadFile("./scene/project.editorproject", (data: string) => {
+                // Apply extensions (such as custom code, custom materials etc.)
+                Extensions.RoolUrl = "./scene/";
+                Extensions.ApplyExtensions(this.scene, JSON.parse(data));
+
+                // Run render loop
+                this.engine.runRenderLoop(() => {
+                    this.scene.render();
+                });
+            });
+        });
+    }
 }
 ```
 
@@ -778,29 +736,29 @@ This is the constructor, and there's not much to it, except it creates the engin
 
 ```ts
 SceneLoader.Load(
-  "./scene/",
-  "scene.babylon",
-  this.engine,
-  (scene: Scene) => {
-    this.scene = scene;
-  }
+    "./scene/",
+    "scene.babylon",
+    this.engine,
+    (scene: Scene) => {
+        this.scene = scene;
+    },
 
-  //..other stuff
+    //..other stuff
 );
 ```
 
 In this closure, we essentially run the scene when the Game is done with the constructor. Right now, you can see this is clearly pointing to the wrong place, its pointing to the way the folders looked before we changed things. When this works this will be responsible for things like
 
-- meshes
-- cameras
-- lights
-- scaling, positioning
-- locations of assets, like textures, etc.
+-   meshes
+-   cameras
+-   lights
+-   scaling, positioning
+-   locations of assets, like textures, etc.
 
 ```ts
 // No camera?
 if (!this.scene.activeCamera) {
-  this.scene.createDefaultCamera(false, true, true);
+    this.scene.createDefaultCamera(false, true, true);
 }
 
 // Attach camera
@@ -811,23 +769,23 @@ This is just some code to make sure the camera is there and works. If for some r
 
 ```ts
 Tools.LoadFile("./scene/project.editorproject", (data: string) => {
-  // Apply extensions (such as custom code, custom materials etc.)
-  Extensions.RoolUrl = "./scene/";
-  Extensions.ApplyExtensions(this.scene, JSON.parse(data));
+    // Apply extensions (such as custom code, custom materials etc.)
+    Extensions.RoolUrl = "./scene/";
+    Extensions.ApplyExtensions(this.scene, JSON.parse(data));
 
-  // Run render loop
-  this.engine.runRenderLoop(() => {
-    this.scene.render();
-  });
+    // Run render loop
+    this.engine.runRenderLoop(() => {
+        this.scene.render();
+    });
 });
 ```
 
 After the scene is loaded, this is the second async event in the boilerplate. We then need to load that `project.editorproject` file, and then it basically decorates the scene with some additional information in this file. This file is responsible for things like
 
-- particles
-- prefabs
-- post processing
-- metadata about the scene
+-   particles
+-   prefabs
+-   post processing
+-   metadata about the scene
 
 finally, after these two sequential file loads, we can begin to render.
 
@@ -843,60 +801,43 @@ So basically the process is to
 Replace your `game.ts` with this:
 
 ```ts
-import {
-  CannonJSPlugin,
-  Engine,
-  Scene,
-  SceneLoader,
-  Tools,
-  Vector3
-} from "babylonjs";
+import { CannonJSPlugin, Engine, Scene, SceneLoader, Tools, Vector3 } from "babylonjs";
 
 import { Extensions } from "babylonjs-editor";
 
 export default class Game {
-  public engine: Engine;
-  public canvas: HTMLCanvasElement = <HTMLCanvasElement>(
-    document.getElementById("renderCanvas")
-  );
+    public engine: Engine;
+    public canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("renderCanvas");
 
-  public scene: Scene = null;
-  constructor() {
-    this.engine = new Engine(this.canvas, true, {});
-    window.addEventListener("resize", () => this.engine.resize());
-  }
+    public scene: Scene = null;
+    constructor() {
+        this.engine = new Engine(this.canvas, true, {});
+        window.addEventListener("resize", () => this.engine.resize());
+    }
 
-  public run(): void {
-    const rainyDay = `./scenes/Rainy-Day/`;
-    const spaceScene = `./scenes/Space-Scene/`;
-    let currentScene = rainyDay;
+    public run(): void {
+        const rainyDay = `./scenes/Rainy-Day/`;
+        const spaceScene = `./scenes/Space-Scene/`;
+        let currentScene = rainyDay;
 
-    SceneLoader.Load(
-      `${currentScene}`,
-      "scene.babylon",
-      this.engine,
-      (scene: Scene) => {
-        this.scene = scene;
+        SceneLoader.Load(`${currentScene}`, "scene.babylon", this.engine, (scene: Scene) => {
+            this.scene = scene;
 
-        if (!this.scene.activeCamera) {
-          this.scene.createDefaultCamera(false, true, true);
-        }
+            if (!this.scene.activeCamera) {
+                this.scene.createDefaultCamera(false, true, true);
+            }
 
-        this.scene.activeCamera.attachControl(this.canvas, true);
+            this.scene.activeCamera.attachControl(this.canvas, true);
 
-        Tools.LoadFile(
-          `${currentScene}/project.editorproject`,
-          (data: string) => {
-            Extensions.RoolUrl = currentScene;
-            Extensions.ApplyExtensions(this.scene, JSON.parse(data));
-            this.engine.runRenderLoop(() => {
-              this.scene.render();
+            Tools.LoadFile(`${currentScene}/project.editorproject`, (data: string) => {
+                Extensions.RoolUrl = currentScene;
+                Extensions.ApplyExtensions(this.scene, JSON.parse(data));
+                this.engine.runRenderLoop(() => {
+                    this.scene.render();
+                });
             });
-          }
-        );
-      }
-    );
-  }
+        });
+    }
 }
 ```
 
@@ -916,9 +857,9 @@ let currentScene = spaceScene;
 
 Check the Space Scene. Use `F12` to open the inspector. If you get the same scene from before check a few things
 
-- make sure the build script is actually cleaning out the right folder with `rimraf`
-- make sure to disable caching in the inspector
-  ![image](https://user-images.githubusercontent.com/954596/59168991-f3041200-8afd-11e9-8b0c-928b7186c8de.png)
+-   make sure the build script is actually cleaning out the right folder with `rimraf`
+-   make sure to disable caching in the inspector
+    ![image](https://user-images.githubusercontent.com/954596/59168991-f3041200-8afd-11e9-8b0c-928b7186c8de.png)
 
 ## 5. The Final Workflow
 
@@ -927,18 +868,18 @@ Now, henceforth, you should follow this workflow carefully.
 1. To open a scene, always double click the `scene.editorproject` in the right scene folder in the `editor-projects`
 2. Also, start up the webserver from the `web-project` directory.
 3. Make whatever changes you wish in the editor. When it looks right in the editor
-   - carefully use `Project` > `Save Project As...` and navigate to the Scene folder in `editor-projects`
-   - use `Scene` > `Export Final Scene and Assets...` and navigate to the Scene folder in `web-project`
+    - carefully use `Project` > `Save Project As...` and navigate to the Scene folder in `editor-projects`
+    - use `Scene` > `Export Final Scene and Assets...` and navigate to the Scene folder in `web-project`
 
 #### Workflow Tips
 
-- _Never_ try to load from the files in the `web-project`
-- the files in the `web-project` are effectively are _output only_. It is essentially no different than a build folder.
-- If the artists wish to keep multiple versions of scenes, then it is their responsibility to make the right folders in the `editor-projects`.
-- Exporting to the `web-project` will show changes in the web-app right away, but if you close the editor before you saved in `editor projects` your changes might be gone. If you like what you see, carefully export to both.
-- Honestly? Don't use `CTRL + S` if you are switching between projects, or if you are working in the editor project and periodically exporting to the web-project. The GUI/path always remembers whatever was used last. You might stomp over a project, that or accidentally save your editor-project stuff in the web-project. Just Always use `Save As...` until this is changes.
+-   _Never_ try to load from the files in the `web-project`
+-   the files in the `web-project` are effectively are _output only_. It is essentially no different than a build folder.
+-   If the artists wish to keep multiple versions of scenes, then it is their responsibility to make the right folders in the `editor-projects`.
+-   Exporting to the `web-project` will show changes in the web-app right away, but if you close the editor before you saved in `editor projects` your changes might be gone. If you like what you see, carefully export to both.
+-   Honestly? Don't use `CTRL + S` if you are switching between projects, or if you are working in the editor project and periodically exporting to the web-project. The GUI/path always remembers whatever was used last. You might stomp over a project, that or accidentally save your editor-project stuff in the web-project. Just Always use `Save As...` until this is changes.
 
 #### For Next time: What wasn't covered (but might come in the future)
 
-- How to access and manipulate things in the scene.babylon from the game.ts (code-first).
-- How to change scenes, like in a video game.
+-   How to access and manipulate things in the scene.babylon from the game.ts (code-first).
+-   How to change scenes, like in a video game.

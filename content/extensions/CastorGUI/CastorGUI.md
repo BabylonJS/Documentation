@@ -11,7 +11,7 @@ video-content:
 Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 
 * [Depot](https://github.com/dad72/CastorGUI)
-* [Documentation](/extensions/)
+* [Documentation](/extensions/castorGUI)
 
 ## Features:
 
