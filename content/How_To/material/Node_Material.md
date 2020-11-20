@@ -216,7 +216,7 @@ let block = nodeMaterial.getInputBlockByPredicate((b) => b.name === "foo");
 block.value = 10;
 ```
 
-Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example texture blocks would have block.texture instead of block.value. Be sure to check the [API documentation](https://doc.babylonjs.com/api/classes/babylon.nodematerial) for detail.
+Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example texture blocks would have block.texture instead of block.value. Be sure to check the [API documentation](/api/classes/babylon.nodematerial) for detail.
 
 You can access the list of InputBlocks with:
 
@@ -230,7 +230,7 @@ Or you can get all blocks registered with a node material with:
 nodeMaterial.attachedBlocks
 ```
 
-Be sure to also check out the full [API documentation.](https://doc.babylonjs.com/api/classes/babylon.nodematerial)
+Be sure to also check out the full [API documentation.](/api/classes/babylon.nodematerial)
 
 ### List of available blocks
 
@@ -1425,7 +1425,7 @@ You can use those playgrounds and materials as starting points for your own expe
     -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.jpg"/>
     -   Material: <nme id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.jpg"/>
 
-The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](https://doc.babylonjs.com/api/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
+The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](/api/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
 
 Some of the parameters are available as properties when clicking on the block in the NME.
 

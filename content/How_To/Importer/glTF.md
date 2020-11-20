@@ -50,11 +50,11 @@ See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" descript
 
 ## Properties and Methods
 
-See the available [properties and methods](https://doc.babylonjs.com/api/classes/babylon.gltffileloader) from the API documentation.
+See the available [properties and methods](/api/classes/babylon.gltffileloader) from the API documentation.
 
 ## Extensions
 
-See the available [extensions](https://doc.babylonjs.com/api/modules/babylon.gltf2.loader.extensions) from the API documentation.
+See the available [extensions](/api/modules/babylon.gltf2.loader.extensions) from the API documentation.
 
 ## API (Version 1)
 

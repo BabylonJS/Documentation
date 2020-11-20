@@ -334,7 +334,7 @@ Congratulation again, you're now a documentation master!
 ### Links
 
 -   use relative links
-    -   example: `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` instead of `[Load Files with Assets Manager](https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs)`
+    -   example: `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` instead of `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)`
 
 ## Further Reading
 

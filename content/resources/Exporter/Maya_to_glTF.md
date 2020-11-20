@@ -149,7 +149,7 @@ You can also merge your metallic and roughness maps and use this file for both p
 
 In that way the exporter wont merge the metallic and roughness map and the export duration is going to be faster.
 
-You can see how to get [a merged MR texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged MR texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 # Metallic, Roughness & Occlusion
 
@@ -165,7 +165,7 @@ You can merge the metallic, roughness and occlusion maps in order to use only on
 
 In that way the result is going to be lighter than with an Ambiant Occlusion map and a Metallic Roughness.
 
-You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 # Emission
 
@@ -266,7 +266,7 @@ Such texture defines:
 
 The exporter does not merge textures for you, but instead assumes the texture provided is already merged.
 
-You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 # Emission
 
@@ -377,4 +377,4 @@ When updating an input field, changes are highlighted in red. Press the _Confirm
 
 #  Try it out!  #
 
-Export your own scene from Maya to glTF format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [Babylon loader](/how_to/gltf).
+Export your own scene from Maya to glTF format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [Babylon loader](/divingDeeper/importers/glTF).

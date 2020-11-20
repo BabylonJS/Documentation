@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 Introduced in the version 3.1.0, a new tool is available to edit custom particle system sets.
-More informations about particle systems set here: [https://doc.babylonjs.com/how_to/particlehelper#particlesystemset](https://doc.babylonjs.com/how_to/particlehelper#particlesystemset).
+More informations about particle systems set here: [https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper#particlesystemset](/divingDeeper/particles/particle_system/particleHelper#particlesystemset).
 
 A set of particle systems is done to handle a collection of systems that can be played all together according to their properties (start time, end time etc.).
 The Editor provides a tool named **Particle System Creator** that allows to create sets and add / edit / remove systems from these sets.
@@ -108,7 +108,7 @@ To import a set, just click the tool's toolbar **Import From...**. A dialog will
 Once confirmed, all the systems and textures will be imported to the current set.
 
 ## Loading from a preset
-BabylonJS provides a list of already built sets: [https://doc.babylonjs.com/how_to/particlehelper#available-effects](https://doc.babylonjs.com/how_to/particlehelper#available-effects).
+BabylonJS provides a list of already built sets: [https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper#available-effects](/divingDeeper/particles/particle_system/particleHelper#available-effects).
 It's useful to start from these presets as they are also good examples to understand how to build a cool particle system set.
 
 **Note: an internet connection is required to load the following presets.**

@@ -274,7 +274,9 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                             return redirect.source === `/${link}`;
                         })
                         if(redirectFound) {
-                            console.log(`should probably be ${redirectFound.destination}`)
+                            console.log(`Internal link /${link} in doc /${id.join("/")} should be ${redirectFound.destination}`);
+                        } else {
+                            console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
                         }
                     }
 

@@ -260,7 +260,7 @@ If you looked in the default scene beforehand, you might have noticed that the s
 You can also see a demo of the underlying material PBR Material type [here.](<[![image](https://user-images.githubusercontent.com/954596/59141279-63c8f400-896f-11e9-9f2a-177b451f069f.png)](https://www.babylonjs.com/demos/pbrglossy/)>)
 [![image](https://user-images.githubusercontent.com/954596/59141279-63c8f400-896f-11e9-9f2a-177b451f069f.png)](https://www.babylonjs.com/demos/pbrglossy/)
 
-Also, you can read more in the documentation here: https://doc.babylonjs.com/how_to/physically_based_rendering
+Also, you can read more in the documentation here: https://doc.babylonjs.com/divingDeeper/materials/using/introToPBR
 
 Do you see all the reflections in the helmet and the materials and the added sense of realism? This is the power of PBR. In addition to that fancy helmet mesh, physical based modelling is great for Skyboxes.
 
@@ -281,8 +281,8 @@ You can download this [here if you'd like to try it for yourself](http://alexcpe
 >
 > **My Advice:** For now, avoid those really high-resolution texture outputs. The raw skybox is a big file, and we're just covering the workflow. Optimizing this asset, such as converting to a .env file is outside the scope of this tutorial. If you're still wanting to know this right now, read more here in the documentation:
 >
-> [Use a HDR environment (for PBR)](https://doc.babylonjs.com/how_to/use_hdr_environment),
-> in particular the section [What is a .env (Tech Deep Dive)](https://doc.babylonjs.com/how_to/use_hdr_environment#what-is-a-env-tech-deep-dive)
+> [Use a HDR environment (for PBR)](/divingDeeper/materials/using/HDREnvironment),
+> in particular the section [What is a .env (Tech Deep Dive)](/divingDeeper/materials/using/HDREnvironment#what-is-a-env-tech-deep-dive)
 >
 > ---
 
@@ -396,11 +396,11 @@ Since our second scene is literally only a skybox, I think its probably a good i
 
 The folks working on Babylon have provided some really nice meshes that are basically ready-to-go that we can experiment with. Since this tutorial is more about workflow and less about making your own custom meshes, we can just use one of these.
 
-The easiest way to get the meshes is to look at the CDN and just download it. That CDN is `https://models.babylonjs.com/`, and it holds meshes in a variety of formats (including .babylon). You can read more about Mesh type support [here](https://doc.babylonjs.com/how_to/load_from_any_file_type) when you feel like you need to know more. There is a page that lists every mesh that's available to work with
+The easiest way to get the meshes is to look at the CDN and just download it. That CDN is `https://models.babylonjs.com/`, and it holds meshes in a variety of formats (including .babylon). You can read more about Mesh type support [here](/divingDeeper/importers/loadingFileTypes) when you feel like you need to know more. There is a page that lists every mesh that's available to work with
 
-- [https://doc.babylonjs.com/resources/meshes_to_load](https://doc.babylonjs.com/resources/meshes_to_load)
+- [https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes](/toolsAndResources/assetLibraries/availableMeshes)
 
-Also, if you already work in a program for mesh creation, such as Blender, 3ds Max, Cheetah 3d and so on, there's probably an exporter you can install to make this very easy for you. There's a bunch of articles on this in the [Resources](https://doc.babylonjs.com/resources/) section of the BabylonJs Docs.
+Also, if you already work in a program for mesh creation, such as Blender, 3ds Max, Cheetah 3d and so on, there's probably an exporter you can install to make this very easy for you. There's a bunch of articles on this in the [Resources](/resources/) section of the BabylonJs Docs.
 
 [![image](https://user-images.githubusercontent.com/954596/59151226-12fbde80-89f5-11e9-8e12-fd25c8d7b032.png)](https://github.com/BabylonJS/Exporters)
 The short version is, look in [this repo](https://github.com/BabylonJS/Exporters) to see if there's an exporter for your favorite mesh editor. It is probably supported.
