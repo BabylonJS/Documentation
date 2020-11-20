@@ -91,7 +91,7 @@ Run:
 
 `yarn run dev`
 
-This will launch the local documentation website on http://localhost:8080
+This will launch the dev server on http://localhost:3000
 
 Open the project using your favorite code editor. This can be done also from Github Desktop:
 
@@ -239,7 +239,7 @@ It is always great to provide examples in your documentation page. You can add p
 To add a playground, add the following code:
 
 ```html
-<Playground id="playgroundId" title="Playground title" description="A short description" />
+<Playground id="playgroundId" title="Playground title" description="A short description" image="Optional image url" />
 ```
 
 The playground ID is the 6-chars id and the version number, if needed. For example: `#Y642I8#2`.
@@ -251,6 +251,8 @@ Same thing does to NME examples:
 ```
 
 This can be either inline or in a new line and will automatically add the external and example link.
+
+An image will be generated for each playground without an image, so don't worry about screen-capturing your playground. Please commit those images along with your document!
 
 ### Adding media (videos and images)
 
@@ -332,7 +334,7 @@ Congratulation again, you're now a documentation master!
 ### Links
 
 -   use relative links
-    -   example: `[Load Files with Assets Manager](/how_to/how_to_use_assetsmanager)` instead of `[Load Files with Assets Manager](https://doc.babylonjs.com/how_to/how_to_use_assetsmanager)`
+    -   example: `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` instead of `[Load Files with Assets Manager](https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs)`
 
 ## Further Reading
 
