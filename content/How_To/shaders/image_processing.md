@@ -1,6 +1,6 @@
 ---
 title: Image Processing
-image: 
+image:
 description: Learn all about image processing in Babylon.js.
 keywords: babylon.js, advanced, image processing
 further-reading:
@@ -12,28 +12,28 @@ In case you are using an `ImageProcessingPostProcess` on your scene, or another 
 
 This is due to the fact that `ImageProcessingPostProcess` is expecting a linear color input, and therefore converts every pixel to gamma color space. If you want to read more about linear color space versus gamma color space, read [this](https://en.wikipedia.org/wiki/Gamma_correction).
 
-## Fix my pixel shader 
+## Fix my pixel shader
 
-To spare you the reading, basically, your `gl_FragColor` is put to the power `1 / 2.2`, which we call a standard gamma transformation. 
+To spare you the reading, basically, your `gl_FragColor` is put to the power `1 / 2.2`, which we call a standard gamma transformation.
 
-In order to counteract that, you should apply the opposite transformation, which is, in GLSL language :  
+In order to counteract that, you should apply the opposite transformation, which is, in GLSL language :
 
 ```
-#ifdef IMAGEPROCESSINGPOSTPROCESS 
+#ifdef IMAGEPROCESSINGPOSTPROCESS
     gl_FragColor.rgb = pow(gl_FragColor.rgb, vec3(2.2));
 #endif
 ```
 
-Of course you want to only have this additionnal line in your shader in case an `ImageProcessingPostProcess` is active on your scene. That's why you must enclose this in a `#define` statement.  
+Of course you want to only have this additional line in your shader in case an `ImageProcessingPostProcess` is active on your scene. That's why you must enclose this in a `#define` statement.
 
-For convenience, we added a small shader include that does just that. You can add this after every `gl_FragColor` output : 
+For convenience, we added a small shader include that does just that. You can add this after every `gl_FragColor` output :
 
 ```
 #include<imageProcessingCompatibility>
 ```
 
 Now you need to toggle that define based on the presence of an `ImageProcessingPostProcess`.
-In your material code, it should ressemble something like this : 
+In your material code, it should resemble something like this :
 
 ```
 defines.IMAGEPROCESSINGPOSTPROCESS = scene.imageProcessingConfiguration.applyByPostProcess;
@@ -43,9 +43,9 @@ And now, whether you have the post-process active or not, the color should be si
 
 ### Further Reading
 
-You may have a similar problem if you want to use fog on your scene, with a custom shader material. 
+You may have a similar problem if you want to use fog on your scene, with a custom shader material.
 
-[Here](/How_To/Supporting_fog_with_ShaderMaterial) is an helpful page to get your shaders to be fog-ready.
+[Here](/advanced_topics/introToShaders/Fog+ShaderMat) is an helpful page to get your shaders to be fog-ready.
 
 ## Tonemapping
 
@@ -53,7 +53,8 @@ If you are using tonemapping on your materials, it can happen that your image ap
 
 Some post processes internally use a prepass to get some information, and this prepass proceeds to some image processing itself. In that case, color can be processed several times which is incorrect. For instance, it can happen if you use `pbr.imageProcessingConfiguration = myImageProcessingConfiguration;` along with an `SSAO2RenderingPipeline`.
 
-So if you notice that problem, try to manually deactivate the gamma transform from the prepass : 
+So if you notice that problem, try to manually deactivate the gamma transform from the prepass :
+
 ```
 scene.enablePrePassRenderer().disableGammaTransform = true;
 ```

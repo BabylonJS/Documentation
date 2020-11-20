@@ -20,7 +20,7 @@ Other possible GUIs are:
 <Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI1.jpg"/>
 
 # CastorGUI
-An alternative 2D GUI is the extension [CastorGUI](/extensions/CastorGUI) with [documentation](/extensions/CastorGUI). It has to be loaded both for the playground and for your own projects.
+An alternative 2D GUI is the extension [CastorGUI](/extensions/castorGUI). It has to be loaded both for the playground and for your own projects.
 
 It can be found on [github](https://github.com/dad72/CastorGUI) 
 

@@ -66,7 +66,7 @@ When we export a .babylon file, we don’t change anything about the texture fil
 
 So how do we fix this. There are three ways we can work around this issue when adding new textures to a loaded .babylon file, one art fix and two code fixes. The art fix would be to author your normal textures in DirectX format and save your textures inverted in Y. You could do this on export from your texturing tool like Substance or you could manually invert them in Y in an image editor. This could be very disruptive to your art pipeline, so it may not be the right solve.
 
-The code fixes are simpler. One is to invert your texture when you load it by using the [invertY parameter available in BABYLON.Texture](https://doc.babylonjs.com/api/classes/babylon.texture#constructor) which is the easiest solve. However, if you are loading textures through Node Material rather than in your javascript, that won’t work. This leads us to the other code solve which is to add a one minus Y operation to the UVs fed to your texture as you can see below.
+The code fixes are simpler. One is to invert your texture when you load it by using the [invertY parameter available in BABYLON.Texture](/api/classes/babylon.texture#constructor) which is the easiest solve. However, if you are loading textures through Node Material rather than in your javascript, that won’t work. This leads us to the other code solve which is to add a one minus Y operation to the UVs fed to your texture as you can see below.
 
 ![Node material](/img/how_to/Materials/normal_maps7.png)
 

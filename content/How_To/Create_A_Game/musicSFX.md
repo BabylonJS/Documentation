@@ -12,7 +12,7 @@ video-content:
 Although I would have liked to mess around with audio for the game, I don't really have any experience with making music, so instead I just found some that I thought fit the style of the game.
 
 ## Loading Sounds
-Sounds are really easy to get started with, and I mostly referenced [Playing Sounds and Music](/how_to/playing_sounds_and_music).
+Sounds are really easy to get started with, and I mostly referenced [Playing Sounds and Music](/divingDeeper/audio/playingSoundsMusic).
 
 The thing about sounds is that they have to be attached to a single scene, so I loaded sounds based off of where they'd need to be used:
 - **app.ts**

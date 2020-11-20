@@ -46,7 +46,7 @@ reticle.isPickable = false;
 reticle.position.z = 2;
 ```
 
-The secret behind creating a reticle is [Raycasting](https://doc.babylonjs.com/babylon101/raycasts). A Ray is a straight line that'll tell us when it intersects with an object. We want to create a Ray from the middle of our camera facing forward, and change the color of the reticle to green when we can interact with the mesh.
+The secret behind creating a reticle is [Raycasting](/divingDeeper/mesh/interactions/picking_collisions). A Ray is a straight line that'll tell us when it intersects with an object. We want to create a Ray from the middle of our camera facing forward, and change the color of the reticle to green when we can interact with the mesh.
 
 We put the funciton in registerBeforeRender() so that it gets continually updated every frame.
 
@@ -87,7 +87,7 @@ You could improve this reticle a number of ways. As mentioned previously, provid
 
 ### Dynamic GUI
 
-In the context of our game, our GUI consists of a Score variable that increases every time the user clicks the rotating box. To do this, we have a scoreVar object with a 'score' attribute that gets incremented with the action below. Follow these guides for more about [GUI](https://doc.babylonjs.com/how_to/gui) and [Actions](https://doc.babylonjs.com/how_to/how_to_use_actions).
+In the context of our game, our GUI consists of a Score variable that increases every time the user clicks the rotating box. To do this, we have a scoreVar object with a 'score' attribute that gets incremented with the action below. Follow these guides for more about [GUI](/divingDeeper/gui/gui) and [Actions](/divingDeeper/events/actions).
 
 ```javascript
 /*Object keeping track of score. It's an object and not an int because of the available actions. */
@@ -114,7 +114,7 @@ blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.Act
 
 ### VR Cameras
 
-Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](https://doc.babylonjs.com/how_to/webvr_camera).
+Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/how_to/webvr_camera).
 
 ```javascript
 var camera = new BABYLON.WebVRFreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);
@@ -126,7 +126,7 @@ Alternatively, you can include `scene.createDefaultVRExperience();` to toggle be
 ### Spatial Sound
 
 Spatializing a sound in Babylon.js can be as simple as marking the BABYLON.Sound `spatialSound` attribute as 'true'. However, there are a number of other options you can specify, including linear, inverse, or exponential distance, max distance, and the panning model.  
-A more in depth guide can be found [here](https://doc.babylonjs.com/how_to/playing_sounds_and_music#creating-a-spatial-3d-sound).
+A more in depth guide can be found [here](/divingDeeper/audio/playingSoundsMusic#creating-a-spatial-3d-sound).
 
 Afterwards, we make sure to attach the sound to our moving box, and register the sound to play when the box is clicked.
 

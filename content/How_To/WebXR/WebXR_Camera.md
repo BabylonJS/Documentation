@@ -37,7 +37,7 @@ Or a position in front of the camera in a certain distance:
 const frontPosition = xrCamera.getFrontPosition(2);
 ```
 
-If the camera's position changes between frames (manually by you, or by the [WebXR teleportation feature](/api/classes/babylon.webxrmotioncontrollerteleportation)) a new reference space is being calculated (compensating for the position change). This reference space will now be used to update the camera's position.
+If the camera's position changes between frames (manually by you, or by the [WebXR teleportation feature](/typedoc/classes/babylon.webxrmotioncontrollerteleportation)) a new reference space is being calculated (compensating for the position change). This reference space will now be used to update the camera's position.
 
 The camera's Rig-system is the one responsible for rendering. The Rig-Camera's pose is always calculated based on the pose coming from the XR-Frame and **NOT** the WebXR Camera's pose. The main camera's pose is only a reference of the base transformation and is not directly influencing the rendered cameras.
 

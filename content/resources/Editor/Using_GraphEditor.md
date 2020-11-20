@@ -16,10 +16,10 @@ As all other tools available in the Editor, the `Graph Editor` is available over
 
 ## Understanding the tool
 
-As for the [Node Material Editor](https://doc.babylonjs.com/how_to/node_material#using-the-node-material-editor), the `Graph Editor` is used to create custom behaviors for elements in the scene without having to know how to code.
+As for the [Node Material Editor](/divingDeeper/materials/node_material/nodeMaterial#using-the-node-material-editor), the `Graph Editor` is used to create custom behaviors for elements in the scene without having to know how to code.
 The `Graph Editor` tends to evoluate and provide features such as the [Unreal Engine Blueprints](https://docs.unrealengine.com/en-US/Engine/Blueprints/index.html)
 
-The way to attach graphs to elements of the scene is the same as the [`Code Editor`](https://doc.babylonjs.com/resources/custom_scripts):
+The way to attach graphs to elements of the scene is the same as the [`Code Editor`](/extensions/Editor/Custom_Scripts):
 * Select an element in the scene
 * Click `Add New Graph`
 * Give it a name

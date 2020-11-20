@@ -1,6 +1,6 @@
 ---
 title: Physics and Solid Particles
-image: 
+image:
 description: Learn how to add physics to solid particle systems in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, physics
 further-reading:
@@ -44,7 +44,7 @@ if (someMesh.intersectsMesh(p)) { // change p velocity vector }
 ```
 
 Under the hood, when creating a SPS with `particleIntersection`, a bounding box and a bouding sphere are given to each solid particle.  
-For performance reasons, the particle intersections are always computed the fastest way, it is to say with Axis Aligned Bounding Boxes (AABB). [More Details on Intersection Collisions](/babylon101/Intersect_Collisions_-_mesh)
+For performance reasons, the particle intersections are always computed the fastest way, it is to say with Axis Aligned Bounding Boxes (AABB). [More Details on Intersection Collisions](/divingDeeper/mesh/interactions/mesh_intersect)
 
 If you use the `AbstractMesh` `intersectsMesh()` method, what allows to force OBB computation (precise mode), only the mesh bounding box will be rotated, not the particle one, so the intersection detection will be just a bit better than in AABB mode.  
 The precise mode has a CPU significant cost, so it's not recommended to use it with solid particles.
@@ -60,8 +60,8 @@ For a SPS having thousands of particles, computing the bounding box for each par
 
 ```javascript
 var SPS = new SolidParticleSystem("sps", scene, {
-  particleIntersection: true,
-  boundingSphereOnly: true
+    particleIntersection: true,
+    boundingSphereOnly: true,
 });
 ```
 
@@ -74,9 +74,9 @@ Imagine that your particle is a spherical shape with a radius of R. Its bounding
 
 ```javascript
 var SPS = new SolidParticleSystem("sps", scene, {
-  particleIntersection: true,
-  boundingSphereOnly: true,
-  bSphereRadiusFactor: 1 / Math.sqrt(3)
+    particleIntersection: true,
+    boundingSphereOnly: true,
+    bSphereRadiusFactor: 1 / Math.sqrt(3),
 });
 ```
 

@@ -35,7 +35,7 @@ For instance, only meshes are supported by prefabs (no lights, no particle syste
 In fact, the meshes used for the prefabs are not cloned because it would need the engine to draw multiple times the same mesh and then increase draw calls.
 To overcome the draw calls problem, the editor will just create **Mesh Instances** from source meshes you have selected.
 
-From the given documentation (//doc.babylonjs.com/how_to/how_to_use_instances), instances can be explain like: **Instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes (let's imagine a forest or an army)**.
+From the given documentation (//doc.babylonjs.com/divingDeeper/mesh/copies/instances), instances can be explain like: **Instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes (let's imagine a forest or an army)**.
 
 In conclusion, that means each mesh of a prefab will be rendered only one time but at several places on each render.
 

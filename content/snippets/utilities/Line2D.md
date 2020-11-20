@@ -655,7 +655,7 @@ var line2D = function(name, options, scene) {
 
 ## Lines in 3D
 
-The [lines](/how_to/parametric_shapes#lines) and [line system](/how_to/parametric_shapes#line-system) methods just produce a thin line and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/how_to/parametric_shapes#tube).
+The [lines](/divingDeeper/mesh/creation/param#lines) and [line system](/divingDeeper/mesh/creation/param#line-system) methods just produce a thin line and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/divingDeeper/mesh/creation/param#tube).
 
 <Playground id="#MRE78Z" title="Tube As Line" description="Tube as a line example." image=""/>
 

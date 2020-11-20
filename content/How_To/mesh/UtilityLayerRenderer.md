@@ -10,7 +10,7 @@ video-content:
 
 ## UtilityLayerRenderer
 
-The UtilityLayerRenderer class overlays objects in a scene without modifying the existing scene. It can be used to enable custom overlays or [Gizmos](/How_To/Gizmo).
+The UtilityLayerRenderer class overlays objects in a scene without modifying the existing scene. It can be used to enable custom overlays or [Gizmos](/divingDeeper/mesh/gizmo).
 
 Default utilityLayerRenderers are available with the following
 
