@@ -20,7 +20,7 @@ toc-levels: 0
 -   Revamped documentation ([RaananW](https://github.com/RaananW), [John King](https://github.com/BabylonJSGuide), [Patrick Ryan](https://github.com/PatrickRyanMS), [PiratJC](https://github.com/PirateJC))
 -   Added KTX + BasisU support ([Popov72](https://github.com/Popov72))
 -   Updated WebXR Support ([RaananW](https://github.com/RaananW))
--   Added support for thin instances for faster mesh instances. [Doc](/how_to/how_to_use_thininstances) ([Popov72](https://github.com/Popov72))
+-   Added support for thin instances for faster mesh instances. [Doc](/divingDeeper/mesh/copies/thinInstances) ([Popov72](https://github.com/Popov72))
 -   Added support in `ShadowGenerator` for soft transparent shadows ([Popov72](https://github.com/Popov72))
 -   Added PBR Next features: Reflection probes for accurate shading and Sub Surface Scattering ([CraigFeldpsar](https://github.com/craigfeldspar) and [Sebavan](https://github.com/sebavan/))
 -   Added support for latest glTF extensions: KHR_materials_clearcoat, KHR_materials_sheen, KHR_materials_transmission, KHR_texture_basisu ([Sebavan](https://github.com/sebavan/) and [Popov72](https://github.com/Popov72))
@@ -30,7 +30,7 @@ toc-levels: 0
 
 #### General
 
--   Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](/babylon101/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
+-   Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](/divingDeeper/lights/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
 -   Added support for postproces serialization ([Deltakosh](https://github.com/deltakosh))
 -   Added support for querystrings on KTX file URLs ([abogartz](https://github.com/abogartz))
 -   Refactored React refs from old string API to React.createRef() API ([belfortk](https://github.com/belfortk))
@@ -410,7 +410,7 @@ toc-levels: 0
 ### Major updates
 
 -   Node Material and Node material editor [Doc](/divingDeeper/materials/node_material/nodeMaterial) ([Deltakosh](https://github.com/deltakosh/) / [TrevorDev](https://github.com/TrevorDev))
--   WebGPU preliminary support [Doc](/extensions/webgpu) ([Sebavan](https://github.com/sebavan/))
+-   WebGPU preliminary support [Doc](/advanced_topics/webGPU) ([Sebavan](https://github.com/sebavan/))
 -   Added the "Cascaded Shadow Mapping" (CSM) shadow rendering technique ([Popov72](https://github.com/Popov72) (initiated by [lockphase](https://github.com/lockphase/)))
 -   .basis texture file format support [Doc](/advanced_topics/mutliPlatTextures#basis-file-format) ([TrevorDev](https://github.com/TrevorDev))
 -   Navigation mesh and crowd of moving agents [Doc](/extensions/crowdNavigation/createNavMesh) ([CedricGuillemet](https://github.com/CedricGuillemet))
@@ -419,9 +419,9 @@ toc-levels: 0
 -   Babylon.js controls [Doc](/divingDeeper/controls) ([Sebavan](https://github.com/sebavan/) / [Deltakosh](https://github.com/deltakosh/))
 -   Massive WebXR updates (See below) ([RaananW](https://github.com/RaananW/) / [TrevorDev](https://github.com/TrevorDev))
 -   Added support for Offscreen canvas [Doc](/divingDeeper/scene/offscreenCanvas) ([Deltakosh](https://github.com/deltakosh/))
--   Added support for multiple canvases with one engine [Doc](/how_to/multi_canvases) ([Deltakosh](https://github.com/deltakosh/))
+-   Added support for multiple canvases with one engine [Doc](/divingDeeper/scene/multiCanvas) ([Deltakosh](https://github.com/deltakosh/))
 -   Added useReverseDepthBuffer to Engine which can provide greater z depth for distant objects without the cost of a logarithmic depth buffer ([BenAdams](https://github.com/benaadams/))
--   Screen space reflections post-process [Doc](/how_to/using_screenspacereflectionspostprocess) ([julien-moreau](https://github.com/julien-moreau))
+-   Screen space reflections post-process [Doc](/divingDeeper/postProcesses/screenSpaceReflectionsPostProcess) ([julien-moreau](https://github.com/julien-moreau))
 
 ### Updates
 
@@ -472,7 +472,7 @@ toc-levels: 0
 
 #### Engine
 
--   Improved instanceMesh with user defined custom buffers [Doc](/how_to/how_to_use_instances#custom-buffers) ([Deltakosh](https://github.com/deltakosh/))
+-   Improved instanceMesh with user defined custom buffers [Doc](/divingDeeper/mesh/copies/instances#custom-buffers) ([Deltakosh](https://github.com/deltakosh/))
 -   Morph targets now can morph UV channel as well ([Deltakosh](https://github.com/deltakosh/))
 -   Added MorphTarget support to the DepthRenderer, GeometryBufferRenderer and OutlineRenderer ([MarkusBillharz](https://github.com/MarkusBillharz))
 -   Added preprocessors for shaders to improve how shaders are compiled for WebGL1/2 or WebGPU ([Deltakosh](https://github.com/deltakosh/))
@@ -784,8 +784,8 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   [Inspector v2.0](/toolsAndResources/tools/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
 -   Added support for [parallel shader compilation](https://www.khronos.org/registry/webgl/extensions/KHR_parallel_shader_compile/) ([Deltakosh](https://github.com/deltakosh))
 -   Added [Object Based Motion Blur](http://doc.babylonjs.com/how_to/using_motionblurpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
--   Added [support for ammo.js](/how_to/using_the_physics_engine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
-    -   Added [support for soft bodies](/how_to/soft_bodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
+-   Added [support for ammo.js](/divingDeeper/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
+    -   Added [support for soft bodies](/divingDeeper/physics/softBodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
     -   Added support for [Convex Hull Impostor](https://github.com/kripken/ammo.js/blob/master/bullet/src/BulletCollision/CollisionShapes/btConvexHullShape.h) using ammo.js plugin ([MackeyK24](https://github.com/mackeyk24))
     -   Added `AmmoJSPlugin` scene file loader ([MackeyK24](https://github.com/mackeyk24))
 -   Added support for [WebXR](/divingDeeper/webXR/introToWebXR) ([TrevorDev](https://github.com/TrevorDev))
@@ -801,12 +801,12 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
     -   Added `control.useBitmapCache` to optimize re-rendering of complex controls by keeping a cached version ([Deltakosh](https://github.com/deltakosh))
     -   Added new [ImageBasedSlider](http://doc.babylonjs.com/how_to/gui#imagebasedslider) to let users customize sliders using images ([Deltakosh](https://github.com/deltakosh))
     -   Added support for clipboard events to let users perform `cut`, `copy` and `paste` events ([Saket Saurabh](https://github.com/ssaket))
-    -   Added new [ScrollViewer](/how_to/scrollviewer) with mouse wheel scrolling for larger containers to be viewed using Sliders ([JohnK](https://github.com/BabylonJSGuide/) and [Deltakosh](https://github.com/deltakosh))
+    -   Added new [ScrollViewer](/divingDeeper/gui/scrollViewer) with mouse wheel scrolling for larger containers to be viewed using Sliders ([JohnK](https://github.com/BabylonJSGuide/) and [Deltakosh](https://github.com/deltakosh))
     -   Moved to a measure/draw mechanism ([Deltakosh](https://github.com/deltakosh))
     -   Added support for [nine patch stretch](https://www.babylonjs-playground.com/#G5H9IN#2) mode for images. ([Deltakosh](https://github.com/deltakosh))
     -   Added invalidateRect to [AdvancedDynamicTexture](/api/classes/babylon.gui.advanceddynamictexture) to improve perf for heavily populated GUIs, works with shadows ([TrevorDev](https://github.com/TrevorDev))
--   Migrated the code to modules and deploy [ES6 npm packages](/features/es6_support) ([Sebavan](https://github.com/Sebavan))
--   Added [TrailMesh](/how_to/how_to_use_trailmesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
+-   Migrated the code to modules and deploy [ES6 npm packages](/divingDeeper/developWithBjs/treeShaking) ([Sebavan](https://github.com/Sebavan))
+-   Added [TrailMesh](/divingDeeper/mesh/trailMesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
 -   Support rendering to a multiview outputRenderTargetTexture with multiview engine component to improve performance for XR scenarios ([TrevorDev](https://github.com/TrevorDev))
 -   PBR ([Sebavan](https://github.com/Sebavan)):
     -   Added [clear coat](/divingDeeper/materials/using/masterPBR#clear-coat)
@@ -907,7 +907,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Added option `multiMultiMaterials` to `mesh.mergeMeshes` ([danjpar](https://github.com/danjpar))
 -   Exposed fallback camera distortion metrics option in `vrExperienceHelper` ([TrevorDev](https://github.com/TrevorDev))
 -   Added `OnAfterEnteringVRObservable` to `webVRHelper` ([TrevorDev](https://github.com/TrevorDev))
--   Added support for side by side and top/bottom VR videos in the [video dome](/how_to/360videodome#video-types) ([Sebavan](https://github.com/Sebavan))
+-   Added support for side by side and top/bottom VR videos in the [video dome](/divingDeeper/environment/360VideoDome#video-types) ([Sebavan](https://github.com/Sebavan))
 -   Added unit tests for `BaseCameraPointersInput` and `ArcRotateCameraPointersInput` ([mrdunk](https://github.com))
 -   Prevented `onActiveCameraChanged` from being fired when rendering rig cameras ([TrevorDev](https://github.com/TrevorDev))
 -   Added `MeshExploder` class ([danjpar](https://github.com/danjpar))
@@ -952,7 +952,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 #### Post-Processes Library
 
--   Added the [Ocean](/extensions/water) post-process ([julien-moreau](https://github.com/julien-moreau))
+-   Added the [Ocean](/toolsAndResources/assetLibraries/materialsLibrary/waterMat) post-process ([julien-moreau](https://github.com/julien-moreau))
 
 #### Materials Library
 
@@ -1158,7 +1158,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   GUI and Inspector are now ES-Modules ([RaananW](https://github.com/RaananW))
 -   Added support for noise procedural textures. [Doc](//doc.babylonjs.com/divingDeeper/materials/using/proceduralTextures#noise-procedural-texture) ([Deltakosh](https://github.com/deltakosh))
 -   Added new `PhotoDome` object to display 360 photos. [Demo](https://www.babylonjs-playground.com/#14KRGG#0) ([SzeyinLee](https://github.com/SzeyinLee))
--   Added Video Recorder. [Doc](/How_To/Render_Scene_on_a_Video) ([sebavan](https://github.com/sebavan))
+-   Added Video Recorder. [Doc](/divingDeeper/scene/renderToVideo) ([sebavan](https://github.com/sebavan))
 
 ### Updates
 
@@ -1369,7 +1369,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   `WebVRCamera`: added basic support for Daydream and Gear VR ([brianzinn](https://github.com/brianzinn))
 -   Introduced [Projection Texture on SpotLight](//doc.babylonjs.com/babylon101/lights#projection-texture). Demo [here](https://www.babylonjs-playground.com/frame.html#CQNGRK) ([lostink](https://github.com/lostink))
 -   Introduced support for [local cubemaps](//doc.babylonjs.com/how_to/reflect#using-local-cubemap-mode). Demo [here](https://www.babylonjs-playground.com/frame.html#RNASML#4) ([deltakosh](https://github.com/deltakosh))
--   Added [VideoDome](//doc.babylonjs.com/how_to/360videodome) class to easily support 360 videos. Demo [here](https://www.babylonjs-playground.com/frame.html#1E9JQ8#7) ([DavidHGillen](https://github.com/DavidHGillen))
+-   Added [VideoDome](//doc.babylonjs.com/divingDeeper/environment/360VideoDome) class to easily support 360 videos. Demo [here](https://www.babylonjs-playground.com/frame.html#1E9JQ8#7) ([DavidHGillen](https://github.com/DavidHGillen))
 -   Added [GlowLayer](/divingDeeper/mesh/glowLayer) to easily support glow from emissive materials. Demo [here](https://www.babylonjs.com/demos/GlowLayer/) ([sebavan](https://github.com/sebavan))
 -   New [AssetContainer](//doc.babylonjs.com/how_to/how_to_use_assetcontainer) class and loading methods ([trevordev](https://github.com/trevordev))
 -   Added [depth of field](https://www.babylonjs-playground.com/frame.html#8F5HYV#9), [MSAA, sharpening, chromatic aberration and grain effect](https://www.babylonjs-playground.com/#Y3C0HQ#146) to the default pipeline ([trevordev](https://github.com/trevordev))
@@ -1379,7 +1379,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   New [glTF exporter](//doc.babylonjs.com/extensions/Exporters/3DSMax_to_glTF) for Autodesk 3dsmax ([Noalak](https://github.com/Noalak))
 -   New glTF [serializer](//doc.babylonjs.com/extensions/gltfexporter). You can now export glTF or glb files directly from a Babylon scene ([kcoley](https://github.com/kcoley))
 -   Physics - Latest production version of Oimo.js is being used - 1.0.9 ([RaananW](https://github.com/RaananW))
--   Introduces [PCF](/babylon101/shadows#percentage-closer-filtering-webgl2-only) and [PCSS](/babylon101/shadows#contact-hardening-shadow-webgl2-only) shadow support in WebGL 2 ([sebavan](https://github.com/sebavan)))
+-   Introduces [PCF](/divingDeeper/lights/shadows#percentage-closer-filtering-webgl2-only) and [PCSS](/divingDeeper/lights/shadows#contact-hardening-shadow-webgl2-only) shadow support in WebGL 2 ([sebavan](https://github.com/sebavan)))
 -   Introduces [PBR Specular Anti Aliasing support](/divingDeeper/materials/using/masterPBR#specular-aliasing). Demo [here](https://www.babylonjs-playground.com/#1XJD4C) ([sebavan](https://github.com/sebavan)))
 
 ### Documentation
@@ -1471,7 +1471,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Added setTextureFromPostProcessOutput to bind the output of a postprocess into an effect ([trevordev](https://github.com/trevordev))
 -   Updated bloom effect to only bloom areas of the image above a luminance threshold ([trevordev](https://github.com/trevordev))
 -   Cannon and Oimo are optional dependencies ([RaananW](https://github.com/RaananW))
--   Shadows - Introduces [Normal Bias](/babylon101/shadows#normal-bias-since-32) ([sebavan](https://github.com/sebavan)))
+-   Shadows - Introduces [Normal Bias](/divingDeeper/lights/shadows#normal-bias-since-32) ([sebavan](https://github.com/sebavan)))
 -   Earcut is an external, optional dependency. ([RaananW](https://github.com/RaananW))
 -   Return animation groups when calling `SceneLoader.ImportMesh`. ([bghgary](https://github.com/bghgary)]
 -   Add support for normalized and non-float data to `Buffer` and `VertexBuffer`. ([bghgary](https://github.com/bghgary)]
@@ -1521,7 +1521,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 -   Added VRExperienceHelper to create WebVR experience with 2 lines of code. [Documentation](//doc.babylonjs.com/how_to/webvr_helper) ([davrous](https://github.com/davrous), [TrevorDev](https://github.com/TrevorDev))
 -   Added BackgroundMaterial. [Documentation](/divingDeeper/environment/backgroundMaterial) ([sebavan](https://github.com/sebavan))
--   Added EnvironmentHelper. [Documentation](/babylon101/environment#skybox-and-ground) ([sebavan](https://github.com/sebavan))
+-   Added EnvironmentHelper. [Documentation](/divingDeeper/environment/environment_introduction#skybox-and-ground) ([sebavan](https://github.com/sebavan))
 -   Added support for WebGL context lost and restored events. [Documentation](//doc.babylonjs.com/tutorials/optimizing_your_scene#handling-webgl-context-lost) ([deltakosh](https://github.com/deltakosh))
 -   Added support for non-pow2 textures when in WebGL2 mode ([deltakosh](https://github.com/deltakosh))
 -   Engine can now be initialized with an existing WebGL context ([deltakosh](https://github.com/deltakosh))
@@ -1578,7 +1578,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Playground has an optional createEngine function to replace the default engine. [Example](https://www.babylonjs-playground.com/#5CAP01#5) ([RaananW](https://github.com/RaananW))
 -   Error handling in the Assets Manager was revamped and now also includes a message and an exception (if provided). [Documentation](//doc.babylonjs.com/divingDeeper/importers/assetManager#task-state-and-error-handling) ([RaananW](https://github.com/RaananW))
 -   Asset Task has a state (INIT, RUNNING, DONE and ERROR). [Documentation](//doc.babylonjs.com/divingDeeper/importers/assetManager#task-state-and-error-handling) ([RaananW](https://github.com/RaananW))
--   Added new options to the physics impostor constructor - ignoreParent and diableBidirectionalTransformation. [Documentation](//doc.babylonjs.com/how_to/using_the_physics_engine#impostors) ([RaananW](https://github.com/RaananW))
+-   Added new options to the physics impostor constructor - ignoreParent and diableBidirectionalTransformation. [Documentation](//doc.babylonjs.com/divingDeeper/physics/usingPhysicsEngine#impostors) ([RaananW](https://github.com/RaananW))
 -   It is now possible to define which loader to use when loading assets using the SceneLoader. [Commit](https://github.com/BabylonJS/Babylon.js/commit/91bffeaafc668980be0f9cf83df69b8eb2e2ba5f) ([RaananW](https://github.com/RaananW))
 -   Added scope option to Observerable ([adam](https://github.com/abow))
 -   Added shadowBlur, shadowOffsetX, shadowOffsetY, shadowColor to GUI Controls ([adam](https://github.com/abow))
@@ -1638,7 +1638,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Updates
 
 -   Added `syncBoneWithImpostor()` and `syncImpostorWithBone()` to PhysicsImpostor to help with creating ragdoll effects. [Demo](https://playground.babylonjs.com/#PM5MFS#5) ([abow](https://github.com/abow))
--   New automatic creation mode for skybox. [Doc here](/babylon101/environment#automatic-creation) ([deltakosh](https://github.com/deltakosh))
+-   New automatic creation mode for skybox. [Doc here](/divingDeeper/environment/environment_introduction#automatic-creation) ([deltakosh](https://github.com/deltakosh))
 -   New way to force compilation of materials. [Doc here](//doc.babylonjs.com/resources/How_materials_work) ([deltakosh](https://github.com/deltakosh))
 -   Added a Physics tab to the inspector ([abow](https://github.com/abow))
 -   New Debug.PhysicsViewer class for viewing PhysicsImpostors. [Demo](https://www.babylonjs-playground.com/#CA51CM#2) ([abow](https://github.com/abow))
@@ -1845,7 +1845,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Introduced Canvas2D feature: a 2D engine to render primitives, sprites in 2D, text. Canvas2D can be displayed in Screen Space (above the 3D scene) or in World Space to be a part of the Scene. ([nockawa](https://github.com/nockawa))
 -   Added two new types of Texture: FontTexture and MapTexture ([quick doc](https://www.html5gamedevs.com/topic/22565-two-new-texture-types-fonttexture-and-maptexture/)) ([nockawa](https://github.com/nockawa))
 -   Added a dynamic [2D Bin Packing Algorithm](http://stackoverflow.com/questions/8762569/how-is-2d-bin-packing-achieved-programmatically), ([more info here](https://www.html5gamedevs.com/topic/22565-two-new-texture-types-fonttexture-and-maptexture/)) ([nockawa](https://github.com/nockawa))
--   Physics engine was completely rewritten, including both plugins for Oimo.js and Cannon.js. [feature](//doc.babylonjs.com/how_to/Using_The_Physics_Engine) ([RaananW](https://github.com/RaananW))
+-   Physics engine was completely rewritten, including both plugins for Oimo.js and Cannon.js. [feature](//doc.babylonjs.com/divingDeeper/physics/usingPhysicsEngine) ([RaananW](https://github.com/RaananW))
 -   Interleaved buffers are now directly supported. Create a `Buffer` object and then use `buffer.createVertexBuffer` to specify the vertex buffers ([benaadams](https://github.com/benaadams))
 -   Vertex buffers can be marked as instanced to allow custom instancing attributes ([benaadams](https://github.com/benaadams))
 -   Mesh can have `overridenInstanceCount` set to specify the number of meshes to draw when custom instancing is used ([benaadams](https://github.com/benaadams))
@@ -1937,7 +1937,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   New UniversalCamera which support keyboard, mouse, touch and gamepad ([davrous](https://github.com/davrous))
 -   Point lights shadow mapping. [Demo here](https://www.babylonjs-playground.com/#XDNVAY#0) ([deltakosh](https://github.com/deltakosh))
 -   Introducing [Materials Library](https://github.com/BabylonJS/Babylon.js/tree/master/materialsLibrary) ([deltakosh](https://github.com/deltakosh))
-    -   Water material: //doc.babylonjs.com/extensions/Water. [Demo here](https://www.babylonjs.com/Demos/WaterMaterial/) ([julien-moreau](https://github.com/julien-moreau))
+    -   Water material: //doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/waterMat. [Demo here](https://www.babylonjs.com/Demos/WaterMaterial/) ([julien-moreau](https://github.com/julien-moreau))
     -   Fire material: //doc.babylonjs.com/extensions/fire. [Demo here](https://www.babylonjs.com/Demos/FireMaterial/) ([julien-moreau](https://github.com/julien-moreau))
     -   Normal material: //doc.babylonjs.com/extensions/normal ([temechon](https://github.com/temechon))
     -   Lava Material: //doc.babylonjs.com/extensions/lava ([temechon](https://github.com/temechon))
@@ -2136,7 +2136,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Unity 5 scene exporter. More info [here](https://github.com/BabylonJS/Babylon.js/tree/master/Exporters/Unity%205) ([davrous](https://github.com/davrous), [deltakosh](https://github.com/deltakosh))
 -   New `Mesh.CreateDecal()` function to create decals. See [demo](https://www.babylonjs.com/?DECALS). More info [here](//doc.babylonjs.com/how_to/decals) ([deltakosh](https://github.com/deltakosh))
 -   New tool for debugLayer: You can now dump renderTargets to see their content ([deltakosh](https://github.com/deltakosh))
--   Complete shadows code rework: New bias property for ShadowGenerator, new orthogonal shadows for directional shadows, automatic projection size for directional lights, new BlurVarianceShadowMap filter. See [demo](https://www.babylonjs.com/?SOFTSHADOWS). Documentation updated [here](//doc.babylonjs.com/babylon101/shadows) ([deltakosh](https://github.com/deltakosh))
+-   Complete shadows code rework: New bias property for ShadowGenerator, new orthogonal shadows for directional shadows, automatic projection size for directional lights, new BlurVarianceShadowMap filter. See [demo](https://www.babylonjs.com/?SOFTSHADOWS). Documentation updated [here](//doc.babylonjs.com/divingDeeper/lights/shadows) ([deltakosh](https://github.com/deltakosh))
 -   New lens effects rendering pipeline. More info [here](//doc.babylonjs.com/how_to/using_standard_rendering_pipeline) ([jahow](https://github.com/jahow))
 -   New basic mesh type: Ribbons. See [demo](https://www.babylonjs.com/?RIBBONS). More info [here](//doc.babylonjs.com/how_to/legacy_param#ribbon) ([jbousquie](https://github.com/jbousquie))
 -   New `BABYLON.Mesh.ExtrudeShape` and `BABYLON.Mesh.ExtrudeShapeCustom`. More info [here](//doc.babylonjs.com/how_to/legacy_param) ([jbousquie](https://github.com/jbousquie))

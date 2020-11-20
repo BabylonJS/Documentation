@@ -158,7 +158,7 @@ There is a boilerplate using above component with ES6 NPM `@babylonjs/core` here
 * [Reactjs + BabylonJS](https://github.com/brianzinn/babylonjs-cra-vanilla-ts)
 
 ## Adding other BabylonJS NPMs
-If you start with the `@babylonjs` [ES6 NPMs](/features/es6_support) (as we have done) then add those ones only.  
+If you start with the `@babylonjs` [ES6 NPMs](/divingDeeper/developWithBjs/treeShaking) (as we have done) then add those ones only.  
 > For GUI use `@babylonjs/gui` instead of the NPMs that don't start with `@`.
 
 ## Conclusion
