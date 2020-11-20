@@ -129,7 +129,7 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 Once you are sure you have met the guidelines and have thoroughly tested all your changes you need to commit your changes.
 
-[More on using VSCode with babylon.js](/resources/vscode)
+[More on using VSCode with babylon.js](/divingDeeper/developWithBjs/vsCode)
 
 ## Adding files
 
