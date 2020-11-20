@@ -15,7 +15,7 @@ Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
 
 PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances." image=""/>
 
-As explained in [How To Use Instances](/How_To/How_to_use_Instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
+As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
 
 However, regular instances still have a performance penalty on the javascript side because each instance is its own object (`InstancedMesh`): if you have 10000 instances in your scene, the engine must loop over all those objects to make a number of processing (visibility check, etc).
 

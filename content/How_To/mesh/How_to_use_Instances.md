@@ -43,7 +43,7 @@ Each instance has the same material as the root mesh. They can vary on the follo
 * ```setPivotMatrix```
 * ```scaling```
 
-Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/How_To/How_to_use_ThinInstances) for further information.
+Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/divingDeeper/mesh/copies/thinInstances) for further information.
 
 ## Instancing a glTF object
 

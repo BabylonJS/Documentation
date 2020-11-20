@@ -1,6 +1,6 @@
 ---
 title: Rotating Around Axis
-image: 
+image:
 description: Learn how to rotate around an axis in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, axis rotation
 further-reading:
@@ -12,22 +12,21 @@ video-content:
 
 ## How To Rotate Around an Axis About a Point
 
-Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the the local origin of the mesh which is the mesh's position. Using [rotation](/babylon101/Position#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/features/Position,_Rotation,_Scaling#rotationquaternion) and [rotate](/features/Position,_Rotation,_Scaling#rotate) it is specified explicitly. 
+Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the the local origin of the mesh which is the mesh's position. Using [rotation](/divingDeeper/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/divingDeeper/mesh/transforms) and [rotate](/divingDeeper/mesh/transforms#rotate) it is specified explicitly.
 
-There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/How_To/TransformNode), a parent and [setting a pivot](/How_To/Pivots).
+There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/divingDeeper/mesh/transforms/parent_pivot/transform_node), a parent and [setting a pivot](/divingDeeper/mesh/transforms/parent_pivot/pivots).
 
 Together an axis and a center of rotation define a straight line in space and in the following animated playgrounds this line is shown in white. The asymmetric pilot mesh is used to demonstrate the rotation.
 
 ![The Pilot](/img/how_to/Mesh/pilot.jpg)
 The Pilot
 
-
 In each of the following examples there is
 
-* a center of rotation at CoR_At;
-* a marker mesh for the center of rotation, a small sphere positioned at CoR_At;
-* an axis to rotate around
-* the pilot mesh at a starting position relative to the center of rotation, pilotStart.
+-   a center of rotation at CoR_At;
+-   a marker mesh for the center of rotation, a small sphere positioned at CoR_At;
+-   an axis to rotate around
+-   the pilot mesh at a starting position relative to the center of rotation, pilotStart.
 
 ## How to Use TransformNode as a Center of Rotation
 
@@ -44,6 +43,7 @@ pilot.position = pilotStart;
 
 pivot.rotate(axis, angle, BABYLON.Space.WORLD);
 ```
+
 In these playgrounds a sphere is created only to show the position of the TransformNode.
 
 <Playground id="#1JLGFP#36" title="Rotating TransformNode" description="Simple example of a Rotating TransformNode." image=""/>
@@ -73,19 +73,20 @@ sphere.rotate(axis, angle, BABYLON.Space.WORLD);
 var CoR_At = new BABYLON.Vector3(1, 3, 2);
 var pilotStart = new BABYLON.Vector3(3, 6, 6);
 
-pilot.position = pilotStart; 
+pilot.position = pilotStart;
 
 var pivotTranslate = pilotStart.subtract(CoR_At);
 pilot.setPivotMatrix(BABYLON.Matrix.Translation(pivotTranslate.x, pivotTranslate.y, pivotTranslate.z));
 ```
 
-```javascript	
+```javascript
 /*-------------------Rotation Animation--------------------*/
-var angle=0.025;   
-scene.registerAfterRender(function() {
-    pilot.rotate(axis, angle, BABYLON.Space.LOCAL);  
+var angle = 0.025;
+scene.registerAfterRender(function () {
+    pilot.rotate(axis, angle, BABYLON.Space.LOCAL);
 });
 ```
+
 <Playground id="#C12LH3#7" title="Rotating Mesh with Pivot" description="Simple example of a rotating mesh with pivot." image=""/>
 <Playground id="#C12LH3#8" title="Rotating Mesh Moving Pivot along Axis" description="Simple example of a rotating mesh moving pivot along axis." image=""/>
 

@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Introduction
-Mesh behaviors are [Behaviors](/divingDeeper/behavior) that can be attached to a mesh.
+Mesh behaviors are [Behaviors](/divingDeeper/behaviors) that can be attached to a mesh.
 
 ## PointerDragBehavior
 This is used to drag a mesh around a plane or axis using a mouse or vr controller.
