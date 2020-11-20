@@ -28,7 +28,7 @@ The second parameter is optional and defaults to **false**. When **false** then 
 
 ## Universal Camera
 
-This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/divingDeeper/input/gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/api/classes/babylon.freecamera), the [Touch Camera](/api/classes/babylon.touchcamera) and the [Gamepad Camera](/api/classes/babylon.gamepadcamera) which are all still available.
+This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/divingDeeper/input/gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/typedoc/classes/babylon.freecamera), the [Touch Camera](/typedoc/classes/babylon.touchcamera) and the [Gamepad Camera](/typedoc/classes/babylon.gamepadcamera) which are all still available.
 
 The Universal Camera is now the default camera used by Babylon.js if nothing is specified, and it’s your best choice if you’d like to have a FPS-like control in your scene.
 All demos on babylonjs.com are based upon that feature. Plug a Xbox controller into your PC and using it you’ll still be able to navigate most of the demos.

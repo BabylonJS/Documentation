@@ -29,11 +29,11 @@ For example in a shooting game at 3rd person view: collisions between our bullet
 
 **Documentation of classes :**
 
-You must first [create a ray](/api/classes/babylon.ray).
+You must first [create a ray](/typedoc/classes/babylon.ray).
 
-The method [scene.pickWithRay()](/api/classes/babylon.scene#pickwithray) throws a ray in your scene to pick a mesh.
+The method [scene.pickWithRay()](/typedoc/classes/babylon.scene#pickwithray) throws a ray in your scene to pick a mesh.
 
-Use the [picking info](/api/classes/babylon.pickinginfo) that is returned by [scene.pickWithRay()](/api/classes/babylon.scene#pickwithray).
+Use the [picking info](/typedoc/classes/babylon.pickinginfo) that is returned by [scene.pickWithRay()](/typedoc/classes/babylon.scene#pickwithray).
 
 ______
 

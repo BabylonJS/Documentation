@@ -269,4 +269,4 @@ you can see an example of the above in this playground
 
 ### Particle Effect Object
 
-The particle effect object is a slightly-modified [Babylon Effect Object](/api/classes/babylon.effect). Also notice that the ShadersStore is a namespace upon this special effect-object. 
+The particle effect object is a slightly-modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also notice that the ShadersStore is a namespace upon this special effect-object. 

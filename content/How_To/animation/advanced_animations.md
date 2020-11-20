@@ -261,7 +261,7 @@ You will find a complete demonstration of the easing functions behaviors, in thi
 
 ## Attach events to animations
 
-From Babylon.js version 2.3, you can attach [animation events](/api/classes/babylon.animationevent) to specific frames on an animation.
+From Babylon.js version 2.3, you can attach [animation events](/typedoc/classes/babylon.animationevent) to specific frames on an animation.
 
 An event is a function that will be called at a given frame.
 
