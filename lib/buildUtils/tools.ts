@@ -267,7 +267,6 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
                 if (!found) {
-                    console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
                     // try to find a redirect
                     if(vercelConfig?.redirects) {
                         const redirectFound = vercelConfig.redirects.find((redirect) => {
