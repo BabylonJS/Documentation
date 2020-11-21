@@ -12,7 +12,7 @@ video-content:
 
 The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
-To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/api/classes/babylon.scene#createdefaultenvironment):
+To load a HDR environment, you can use a [createDefaultEnvironment](/api/classes/babylon.scene#createdefaultenvironment):
 
 ```javascript
 scene.createDefaultEnvironment();

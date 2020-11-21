@@ -4,7 +4,7 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: welcome, babylon.js, guided learning, create a game, game, animation, 
 further-reading:
-    - title: All About Animations](/babylon101/animations)
+    - title: All About Animations](/divingDeeper/animation/animation_introduction)
       url: /divingDeeper/animation
 video-overview:
 video-content:

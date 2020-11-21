@@ -40,7 +40,7 @@ Once your scene is exported, you have multiple solutions to test it:
 
 - quick check using the [sandbox](https://sandbox.babylonjs.com/)
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
-- script your own app using the [loader](/How_To/Load_From_Any_File_Type)
+- script your own app using the [loader](/divingDeeper/importers/loadingFileTypes)
 
 ## Example
 
@@ -109,7 +109,7 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
 ```
 
 - double-click on the *index.html* file
-  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver ([local](/resources/running_a_local_webserver_for_babylonjs) or not), or try into another browser (e.g.: Firefox, Edge)
+  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver ([local](/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs) or not), or try into another browser (e.g.: Firefox, Edge)
 
 - ... profit!
 

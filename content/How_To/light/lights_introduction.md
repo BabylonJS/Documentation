@@ -13,7 +13,7 @@ Lights are used, as you would expect, to affect how meshes are seen, in terms of
 All meshes allow light to pass through them unless shadow generation is activated. The default number of lights allowed is
 four but this can be increased.
 
-![Elements](https://doc.babylonjs.com/img/testlight.jpg)
+![Elements](/img/testlight.jpg)
 
 _A pretty sphere with multiple lights_
 
@@ -124,7 +124,7 @@ A mesh can be added to the _excludedMeshes_ array or add the ones not to be excl
 ## Lighting Normals
 How lights react to a mesh depend on values set for each mesh vertex termed _normals_, shown in the picture below as arrows giving the direction of the lighting normals. The picture shows two planes and two lights. One light is a spot light, the other is a point light. The front face of each plane is the one you see when the _normals_ are pointing towards you, the back face the opposite side.
 
-![Elements](https://doc.babylonjs.com/img/how_to/Mesh/normals6.jpg)
+![Elements](/img/how_to/Mesh/normals6.jpg)
 
 _A blue back-faced plane and a blue front-faced plane, with a spot light and point light_
 

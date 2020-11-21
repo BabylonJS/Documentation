@@ -31,7 +31,7 @@ The tool also registered the files and they'll be saved when saving the project.
 **Note: you can also drag'n'drop the texture files in the Textures Viewer panel**
 
 ## Adding procedural textures
-More informations about procedural textures: [https://doc.babylonjs.com/how_to/how_to_use_procedural_textures](https://doc.babylonjs.com/how_to/how_to_use_procedural_textures)
+More informations about procedural textures: [https://doc.babylonjs.com/divingDeeper/materials/using/proceduralTextures](/divingDeeper/materials/using/proceduralTextures)
 
 To add procedural textures, select in the tool's toolbar **Add -> Add Procedural...** and a dialog will open to ask which type of texture.
 Once you have chosen the texture type, the texture will be added to the scene and will appear in the available textures in the tool.
@@ -53,7 +53,7 @@ Once removed, all affected materials will be updated to remove the texture refer
 ![RemovingTexture](/img/extensions/Editor/ManagingTextures/RemovingTexture.png)
 
 ## Using the tool to convert textures
-BabylonJS provides a tool to convert environment textures (.dds) to custom .env files. More informations about the format here: [https://doc.babylonjs.com/how_to/use_hdr_environment#what-is-a-env-tech-deep-dive](https://doc.babylonjs.com/how_to/use_hdr_environment#what-is-a-env-tech-deep-dive).
+BabylonJS provides a tool to convert environment textures (.dds) to custom .env files. More informations about the format here: [https://doc.babylonjs.com/divingDeeper/materials/using/HDREnvironment#what-is-a-env-tech-deep-dive](/divingDeeper/materials/using/HDREnvironment#what-is-a-env-tech-deep-dive).
 
 To help converting, just ckick the toolbar **Convert .dds to .env**. A dialog will open to select all .dds texture files. Once selected, the tool will process the conversion.
 Once done, a dialog will open for each converted texture to choose the folder where to save the result.

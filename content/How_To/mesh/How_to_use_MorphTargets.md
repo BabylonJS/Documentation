@@ -109,7 +109,7 @@ manager.addTarget(target3);
 At any time, you can remove a target with `manager.removeTarget(target)`
 
 ## How to access morph targets in a glTF file
-You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](https://doc.babylonjs.com/api/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
+You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](/api/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
 
 ```
 console.log(mesh.morphTargetManager);

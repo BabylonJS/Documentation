@@ -36,4 +36,4 @@ Here is a video explanation, diving a little futher into how this demo uses the 
 
 Of course, creating an RBG texture on the fly is only the tip of the iceberg. There's a LOT more you can do with Raw Texture, such as creating RGBA, Luminance, Alpha, and Luminance Alpha textures. 
 
-For more detail, be sure to check out the full API documentation on Raw Texture [here](https://doc.babylonjs.com/api/classes/babylon.rawtexture).
+For more detail, be sure to check out the full API documentation on Raw Texture [here](/api/classes/babylon.rawtexture).

@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Introduction
-The [DeviceSourceManager](https://doc.babylonjs.com/api/classes/babylon.devicesourcemanager) is a class that will manage the connections for various user input devices and provide methods of querying those devices for their current state.  
+The [DeviceSourceManager](/api/classes/babylon.devicesourcemanager) is a class that will manage the connections for various user input devices and provide methods of querying those devices for their current state.  
 This class supports several methods of input:
 - **Keyboard** *(DeviceType: BABYLON.DeviceType.Keyboard, Inputs: number)*
 - **Mouse** *(DeviceType: BABYLON.DeviceType.Mouse, Inputs: BABYLON.PointerInput)*

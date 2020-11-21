@@ -5,7 +5,7 @@ description: Learn all about Babylon.js 360 photo domes.
 keywords: welcome, babylon.js, diving deeper, environment, 360 photo, dome, 360 photo dome, photo dome
 further-reading:
     - title: Action Manager
-      url: https://doc.babylonjs.com/how_to/how_to_use_actions
+      url: https://doc.babylonjs.com/divingDeeper/events/actions
 video-overview:
 video-content:
 ---

@@ -13,6 +13,8 @@ import { getExampleImageUrl, getExampleLink } from "../frontendUtils/frontendToo
 
 export const markdownDirectory = "content/";
 
+import vercelConfig from "../../vercel.json";
+
 const childPageData = {};
 
 export const getAllFiles = (dirPath: string, arrayOfFiles?: string[], extension = ".md"): string[] => {
@@ -260,12 +262,23 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 .map((res) => {
                     return res[1].replace(/\)/g, "").split("#")[0];
                 })
-                .filter((link) => link.indexOf(".") === -1);
+                .filter((link) => (link.indexOf(".") === -1 && link.indexOf('/typedoc') === -1));
 
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
                 if (!found) {
-                    console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
+                    // try to find a redirect
+                    if(vercelConfig?.redirects) {
+                        const redirectFound = vercelConfig.redirects.find((redirect) => {
+                            return redirect.source === `/${link}`;
+                        })
+                        if(redirectFound) {
+                            console.log(`Internal link /${link} in doc /${id.join("/")} should be ${redirectFound.destination}`);
+                        } else {
+                            console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
+                        }
+                    }
+
                 }
             });
         } catch (e) {

@@ -29,4 +29,4 @@ This function can be very useful for complex animation like games, where charact
 
 Don’t hesitate to combine all those types of animations. If well done, it’s very powerful.
 
-Don't forget to [visit our API documentation](/api/) in order to learn more about the [**Babylon.js Animation**](/api/classes/babylon.animation) and [**Babylon.js Animatable**](/api/classes/babylon.animatable) classes.
+Don't forget to [visit our API documentation](/typedoc) in order to learn more about the [**Babylon.js Animation**](/typedoc/classes/babylon.animation) and [**Babylon.js Animatable**](/typedoc/classes/babylon.animatable) classes.

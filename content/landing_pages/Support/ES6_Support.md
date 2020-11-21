@@ -1,6 +1,6 @@
 ---
-title: Tree Shaking (Take What You Need)
-image: 
+title: Babylon.js ES6 support with Tree Shaking
+image:
 description: Learn about tree shaking and package management in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
 further-reading:
@@ -26,14 +26,14 @@ All the babylon es6 packages are available within the npm scope @babylonjs.
 
 We offer babylon.js' core and its modules as npm packages. The following are available:
 
-* [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
-* [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
-* [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) -  All of Babylon's official loaders (OBJ, STL, glTF)
-* [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
-* [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
-* [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
-* [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - BabylonJS GUI module.
-* [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone BabylonJS Viewer.
+-   [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
+-   [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
+-   [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
+-   [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
+-   [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
+-   [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
+-   [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - BabylonJS GUI module.
+-   [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone BabylonJS Viewer.
 
 ## Basic Example
 
@@ -53,9 +53,8 @@ As the ES6 version is composed of many separated files the usual way to consume 
 6. Create **index.html** file in **MyAwesomeApp** as described in `First App Section` below
 7. Create Folder **src** in **MyAwesomeApp**
 8. Create **index.js** file in **src** as described in `First App Section` below
-9. npx webpack-dev-server _to check result in_  `http://localhost:8080/`
-10. npx webpack _to create dist folder
-
+9. npx webpack-dev-server _to check result in_ `http://localhost:8080/`
+10. npx webpack \_to create dist folder
 
 Read all the following sections for full description.
 
@@ -73,7 +72,7 @@ Following the default webpack convention, you do not even need a configuration f
 
 To install the latest babylon es6 version use:
 
-``` bash
+```bash
 npm install --save-dev @babylonjs/core
 ```
 
@@ -81,19 +80,16 @@ This will install babylonjs' javascript files and will also include a TypeScript
 
 To include all Babylon in a javascript or typescript file, use:
 
-``` javascript
-import * as BABYLON from '@babylonjs/core/Legacy/legacy';
+```javascript
+import * as BABYLON from "@babylonjs/core/Legacy/legacy";
 ```
 
 This will work exactly like the none es6 version and the entire library will be included as a dependency.
 
 You can also load specific classes to help with your code:
 
-``` javascript
-import {
-    Engine,
-    Scene
-} from '@babylonjs/core';
+```javascript
+import { Engine, Scene } from "@babylonjs/core";
 ```
 
 **NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder"` ` ` for side effects only in order to rely on any of the Mesh creation static methods like ` ` `Mesh.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
@@ -102,7 +98,7 @@ import {
 
 After including `` `@babylonjs/core` `` you can add Babylon's extra modules using npm as follows:
 
-``` bash
+```bash
 npm install --save-dev @babylonjs/materials [other packages]
 ```
 
@@ -110,7 +106,7 @@ Same as the babylonjs, this will install the javascript files and a declaration 
 
 To import the dependencies, you simply need to import the library (without giving it a namespace):
 
-``` javascript
+```javascript
 import {
     GridMaterial
 } from '@babylonjs/materials';
@@ -122,40 +118,38 @@ let skyMaterial = new GridMaterial(.....)
 
 Now we have all the dependencies created, create an index.html file in the `MyAwesomeApp` folder and fill it with the following code:
 
-``` html
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Local Development</title>
 
-<head>
-    <title>Local Development</title>
+        <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
 
-    <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
 
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            overflow: hidden;
-        }
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                display: block;
+                font-size: 0;
+            }
+        </style>
+    </head>
 
-        #renderCanvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-            font-size: 0;
-        }
-    </style>
-</head>
+    <body>
+        <canvas id="renderCanvas" touch-action="none"></canvas>
 
-<body>
-    <canvas id="renderCanvas" touch-action="none"></canvas>
-
-    <script src="main.js"></script>
-</body>
-
+        <script src="main.js"></script>
+    </body>
 </html>
 ```
 
@@ -163,29 +157,15 @@ This will only have a fullscreen canvas as well as a reference to our applicatio
 
 Once done you can create a `src` folder containing an index.js file with the following content:
 
-``` javascript
-import {
-    Engine
-} from "@babylonjs/core/Engines/engine";
-import {
-    Scene
-} from "@babylonjs/core/scene";
-import {
-    Vector3
-} from "@babylonjs/core/Maths/math";
-import {
-    FreeCamera
-} from "@babylonjs/core/Cameras/freeCamera";
-import {
-    HemisphericLight
-} from "@babylonjs/core/Lights/hemisphericLight";
-import {
-    Mesh
-} from "@babylonjs/core/Meshes/mesh";
+```javascript
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { Scene } from "@babylonjs/core/scene";
+import { Vector3 } from "@babylonjs/core/Maths/math";
+import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { Mesh } from "@babylonjs/core/Meshes/mesh";
 
-import {
-    GridMaterial
-} from "@babylonjs/materials/grid";
+import { GridMaterial } from "@babylonjs/materials/grid";
 
 // Required side effects to populate the Create methods on the mesh class. Without this, the bundle would be smaller but the createXXX methods from mesh would not be accessible.
 import "@babylonjs/core/Meshes/meshBuilder";
@@ -250,7 +230,7 @@ Switching the project to typescript is pretty straight forward. First in the pre
 
 Once done we can replace our previous index.js by its typescript equivalent index.ts:
 
-``` javascript
+```javascript
 import {
     Engine
 } from "@babylonjs/core/Engines/engine";
@@ -329,23 +309,25 @@ The only change being the addition of `as HTMLCanvasElement` on the canvas eleme
 
 With that done we need to configure Webpack to allow the use of Typescript. Add a `webpack.config.js` at the root of your project containing the following:
 
-``` javascript
+```javascript
 module.exports = {
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: [".ts", ".js"],
     },
     module: {
-        rules: [{
-            test: /\.tsx?$/,
-            loader: 'ts-loader'
-        }]
-    }
-}
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+            },
+        ],
+    },
+};
 ```
 
 We also need to configure typescript in the application folder. The simplest is to add a tsconfig.json file at the root of the project containing:
 
-``` javascript
+```javascript
 {
     "compilerOptions": {
         "module": "esNext",
@@ -381,52 +363,52 @@ The treatment even if a bit annoying is simple: you need to import manually only
 
 ### FAQ
 
-*How do I efficiently use the Mesh. Create... methods ?*
+_How do I efficiently use the Mesh. Create... methods ?_
 
 The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import "@babylonjs/core/Meshes/Builders/boxBuilder";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
 
-*Why using the default material is not working ?*
+_Why using the default material is not working ?_
 By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operationnal.
 
-*How does deserialization work ?*
+_How does deserialization work ?_
 
 When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know before hand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` before hand.
 
-*How do I know if I am importing a folder or a file ?*
+_How do I know if I am importing a folder or a file ?_
 
 By convention and to simplify the discovery, all folders starts with an upper case character where the files starts with a lower case one.
 
-*How to find what module contains the entity I am trying to import?*
+_How to find what module contains the entity I am trying to import?_
 
 This is actually a pretty good question. It should be intuitive enough and if not, do not hesistate to ping us so we can add it to the documentation.
 
-*The intellisense does not propose the method I normally use in the bundled version and an undefined error is raised at runtime?*
+_The intellisense does not propose the method I normally use in the bundled version and an undefined error is raised at runtime?_
 
 This will be the case for all the methods defined by module augmentation. This means that as long as you are not importing the parent modules, the methods will not even be discoverable. This is the case for all our scene components. For enabling physics on the scene you need `import "@babylonjs\core\Physics\physicsEngineComponent"` to populate the `scene.enablePhysics` function. Please find below the list of those components for their augmented methods:
 
-* scene."animationRelatedMethods like beginAnimation and so on... " are available in the `Animations/animatable` module.
-* scene."audioRelatedMethods" are available in the `Audio/audioSceneComponent` and `Audio/audioEngine` module.
-* Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
-* Ray and Picking functions can be found in the `Culling/ray` module.
-* Debug Layer functions can be found in the `Debug/debugLayer` module.
-* Occlusion Queries can be found in the `Engines/Extensions/engine.occlusionQuery` module.
-* Transform Feedback can be found in the `Engines/Extensions/engine.transformFeedback` module.
-* Gamepad support can be found in the `Gamepad/gamepadSceneComponent` module.
-* Scene Helpers like createDefaultCamera, createDefaultXXX can be found in the `Helpers/sceneHelpers` module.
-* Mesh Simplification functions can be found in the `Meshes/meshSimplicationSceneComponent` .
-* DDS Loader support can be installed from the `Materials/Textures/Loaders/ddsTextureLoader` and you will also need `core/Misc/dds` module.
-* Env Loader support can be installed from the `Materials/Textures/Loaders/envTextureLoader` .
-* KTX Loader support can be installed from the `Materials/Textures/Loaders/ktxTextureLoader` .
-* TGA Loader support can be installed from the `Materials/Textures/Loaders/tgaTextureLoader` .
-* Particle support can be found in the `Particles/particleSystemComponent` .
-* Physics Engine support can be found in the `Physics/physicsEngineComponent` .
-* .babylon file support can be found in the `Loading/Plugins/babylonFileLoader` .
-* shadowGenerator support can be found in the `Lights/Shadows/shadowGeneratorSceneComponent` .
-* depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
-* screenshot support can be found in the `Misc/screenshotTools` .
-* boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
+-   scene."animationRelatedMethods like beginAnimation and so on... " are available in the `Animations/animatable` module.
+-   scene."audioRelatedMethods" are available in the `Audio/audioSceneComponent` and `Audio/audioEngine` module.
+-   Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
+-   Ray and Picking functions can be found in the `Culling/ray` module.
+-   Debug Layer functions can be found in the `Debug/debugLayer` module.
+-   Occlusion Queries can be found in the `Engines/Extensions/engine.occlusionQuery` module.
+-   Transform Feedback can be found in the `Engines/Extensions/engine.transformFeedback` module.
+-   Gamepad support can be found in the `Gamepad/gamepadSceneComponent` module.
+-   Scene Helpers like createDefaultCamera, createDefaultXXX can be found in the `Helpers/sceneHelpers` module.
+-   Mesh Simplification functions can be found in the `Meshes/meshSimplicationSceneComponent` .
+-   DDS Loader support can be installed from the `Materials/Textures/Loaders/ddsTextureLoader` and you will also need `core/Misc/dds` module.
+-   Env Loader support can be installed from the `Materials/Textures/Loaders/envTextureLoader` .
+-   KTX Loader support can be installed from the `Materials/Textures/Loaders/ktxTextureLoader` .
+-   TGA Loader support can be installed from the `Materials/Textures/Loaders/tgaTextureLoader` .
+-   Particle support can be found in the `Particles/particleSystemComponent` .
+-   Physics Engine support can be found in the `Physics/physicsEngineComponent` .
+-   .babylon file support can be found in the `Loading/Plugins/babylonFileLoader` .
+-   shadowGenerator support can be found in the `Lights/Shadows/shadowGeneratorSceneComponent` .
+-   depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
+-   screenshot support can be found in the `Misc/screenshotTools` .
+-   boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
 
-*Why do I have an error in the console inviting me to import some other modules?*
+_Why do I have an error in the console inviting me to import some other modules?_
 
 This might happen on some modules where we are heavily relying on side effects and where we can automatically detect the none presence of the dependency.
 
@@ -436,13 +418,13 @@ Due to the modules name changing and other es6 modules differences, the UMD and 
 
 First install the inspector package:
 
-``` bash
+```bash
 npm install --save-dev @babylonjs/inspector
 ```
 
 And then in your code:
 
-``` javascript
+```javascript
 import "@babylonjs/core/Debug/debugLayer"; // Augments the scene with the debug methods
 import "@babylonjs/inspector"; // Injects a local ES6 version of the inspector to prevent automatically relying on the none compatible version
 ...
@@ -455,7 +437,7 @@ As we do not want to force by default our user to include any dependencies, we h
 
 For each of the external dependencies Babylon.js is relying upon, if you are planing on relying on them, you can either provide them as global var in you bundler. For instance if you are willing to use the `PolygonMeshBuilder` class in your app you can add earcut in webpack like this:
 
-``` javascript
+```javascript
 module.exports = {
     context: __dirname,
     ...
@@ -469,7 +451,7 @@ module.exports = {
 
 Or if you do not want to use a global var for earcut, you could simply pass the dependency to the PolygonMeshBuilder class like this:
 
-``` javascript
+```javascript
 import * as MyEarcut from "earcut";
 ...
 new PolygonMeshBuilder("polytri", corners, scene, MyEarcut);
@@ -483,13 +465,13 @@ Exactly like in the previous paragraph, you can inject your ammo dependency into
 
 First, install ammo.js from its github build folder (in order to benefit from an up to date version):
 
-``` javascript
+```javascript
 npm install kripken / ammo.js
 ```
 
 Then in Webpack, you need to disable the fs dependency to generate a successful package (obviously if you are targeting web builds):
 
-``` javascript
+```javascript
 module.exports = {
     context: __dirname,
     ...
@@ -501,7 +483,7 @@ module.exports = {
 
 Finally, in your code, you can setup the AmmoJSPlugin this way:
 
-``` javascript
+```javascript
 import * as Ammo from "ammo.js";
 ...
 var ammoPlugin = new AmmoJSPlugin(true, Ammo);

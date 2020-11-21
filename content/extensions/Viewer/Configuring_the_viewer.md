@@ -35,7 +35,7 @@ The default configuration will be loaded per default, unless other configuration
 <babylon extends="minimal" model="https://playground.babylonjs.com/scenes/Rabbit.babylon"></babylon>
 ```
 
-To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/extensions/Recreating_the_default_configuration) 
+To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/extensions/babylonViewer/defaultViewerConfig) 
 
 ## Extending and changing the default configurations
 

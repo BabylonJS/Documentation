@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/resources/3dsmax) as well as general information about the plugin.
+If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/extensions/Exporters/3DSMax) as well as general information about the plugin.
 
 With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
@@ -25,7 +25,7 @@ To export to a single .glb file, choose __glb__ as __Output format__.
 
 ## Exported features
 
-Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/resources/3dsmax#features).
+Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/extensions/Exporters/3DSMax#features).
 
 * _Cameras_
     * zfar
@@ -199,7 +199,7 @@ Such texture defines:
 
 In this case the exporter does not merge textures, but instead assumes the texture provided is already merged.
 
-You can see how to get [a merged ORM texture here](/resources/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 ## Emission
 
@@ -248,7 +248,7 @@ However, glTF format does not support this feature and the environment map needs
 
 ## Double sided material
 
-The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/resources/3DSMax#double-sided-material).
+The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/extensions/Exporters/3DSMax#double-sided-material).
 
 ## Babylon material attributes
 
@@ -365,4 +365,4 @@ Note that when updating the scene hierarchy, like deleting a node, while the Ani
 
 ##  Try it out!  #
 
-Export your own scene from 3DS MAX to glTF format and load it into the [Babylon Sandbox](https://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/how_to/gltf).
+Export your own scene from 3DS MAX to glTF format and load it into the [Babylon Sandbox](https://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/divingDeeper/importers/glTF).

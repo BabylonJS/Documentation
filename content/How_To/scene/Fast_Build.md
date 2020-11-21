@@ -1,13 +1,12 @@
 ---
 title: Scene
-image: 
+image:
 description: Learn how to quickly build a world in a "scene" within Babylon.js.
 keywords: diving deeper, scene
 further-reading:
 video-overview:
 video-content:
 ---
-
 
 ## How To Fast Build a World
 
@@ -19,12 +18,11 @@ For beginners to Babylon.js these two sections [Fastest Build](/divingDeeper/sce
 
 The following is a list of the methods of the `scene` object that help in fast building a world, with a link to their API description:
 
-* [createDefaultCameraOrLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcameraorlight);
-* [createDefaultCamera](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcamera);
-* [createDefaultLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultlight);
-* [createDefaultEnvironment](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultenvironment);
-* [createDefaultSkybox](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox);
-
+-   [createDefaultCameraOrLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcameraorlight);
+-   [createDefaultCamera](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcamera);
+-   [createDefaultLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultlight);
+-   [createDefaultEnvironment](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultenvironment);
+-   [createDefaultSkybox](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox);
 
 ## Fastest Build
 
@@ -34,6 +32,7 @@ To build a world very quickly just use `createDefaultCameraOrLight` along with `
 scene.createDefaultCameraOrLight(true, true, true);
 scene.createDefaultEnvironment();
 ```
+
 <Playground id="#MJNICE" title="The Quickest Way To Build A World" description="Simple example of creating a world with createDefaultEnviornment." image=""/>
 
 You can see how the camera automatically adjusts by adding a second box and re-positioning it
@@ -42,33 +41,33 @@ You can see how the camera automatically adjusts by adding a second box and re-p
 
 More information about these methods, including details about parameters, can be found in the individual sections below.
 
-
 ## Create Default Camera or Light
 
-As can be seen in the _Fastest Build_ section the helper, `createDefaultCameraOrLight` creates both a camera and a light in one line.  The three parameters it can take are the same as for the `createDefaultCamera` method, the second parameter also refers to the light and replaces any existing camera or light when true. The approach to accessing the camera or light is the same as for the individual methods.
+As can be seen in the _Fastest Build_ section the helper, `createDefaultCameraOrLight` creates both a camera and a light in one line. The three parameters it can take are the same as for the `createDefaultCamera` method, the second parameter also refers to the light and replaces any existing camera or light when true. The approach to accessing the camera or light is the same as for the individual methods.
 
 ## Create Default Camera
 
-The `createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are 
+The `createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are
 
-- createArcRotateCamera: creates a free camera by default and an arc rotate camera when _true_;
-- replace: when _true_ the created camera will replace the existing active one;
-- attachCameraControls: when _true_ attaches control to the canvas.
+-   createArcRotateCamera: creates a free camera by default and an arc rotate camera when _true_;
+-   replace: when _true_ the created camera will replace the existing active one;
+-   attachCameraControls: when _true_ attaches control to the canvas.
 
 This code will create an arc rotate camera, replace any existing camera and attach the camera control to the canvas
 
 ```javascript
-scene.createDefaultCamera(true, true, true)
+scene.createDefaultCamera(true, true, true);
 ```
 
 <Playground id="#MJNICE#4" title="Camera Helper Example (no light)" description="Simple example of the camera helper with no light." image=""/>
 <Playground id="#MJNICE#5" title="Camera Helper Example" description="Simple example of the camera helper." image=""/>
 
-For a free camera 
+For a free camera
 
 ```javascript
-scene.createDefaultCamera(false, true, true)
+scene.createDefaultCamera(false, true, true);
 ```
+
 <Playground id="#MJNICE#6" title="Camera Helper Example (Free Camera)" description="Simple example of the camera helper with a free camera." image=""/>
 
 The camera will adjust depending on the size and position of each mesh in the world.
@@ -104,15 +103,16 @@ scene.cameras.push(helperCamera);
 
 ## Create Default Light
 
-The `createDefaultLight` takes just one boolean parameters, set to _false_ by default: 
+The `createDefaultLight` takes just one boolean parameters, set to _false_ by default:
 
-- replace: when _true_ the created light will replace all the existing ones; when _false_ and there are no existing lights a hemispherical light is created; when _false_ and lights already exist, no change is made to the scene.
+-   replace: when _true_ the created light will replace all the existing ones; when _false_ and there are no existing lights a hemispherical light is created; when _false_ and lights already exist, no change is made to the scene.
 
 When this method is used before the creation of any other lights then it is usually sufficient to use
 
 ```javascript
 scene.createDefaultLight();
 ```
+
 ### Accessing the Light
 
 Provided you access the helper created light immediately after creating it, it will be the last one in the `scene.lights` array.
@@ -137,7 +137,7 @@ scene.lights.push(helperLight);
 The simple code
 
 ```javascript
-scene.createDefaultEnvironment()
+scene.createDefaultEnvironment();
 ```
 
 adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](//doc.babylonjs.com/api/classes/babylon.environmenthelper) to the scene.
@@ -159,32 +159,38 @@ You can also see the skybox and ground by using the options parameter and settin
 <Playground id="#MJNICE#10" title="Skybox and Ground Changes" description="Simple example of creating a skybox and ground and changing their properties." image=""/>
 
 ### Options Parameters
+
 As you can see in the above playground the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper options properties are available from the [API](//doc.babylonjs.com/api/interfaces/babylon.ienvironmenthelperoptions)
 
 So, for example
 
 to prevent the creation of the skybox:
+
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    createSkybox: false
+    createSkybox: false,
 });
 ```
+
 to enable ground reflection:
+
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    enableGroundMirror: true
+    enableGroundMirror: true,
 });
 ```
+
 when you see z-fighting with the ground, modify the `groundYBias` to a larger number:
+
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    groundYBias: 0.01
+    groundYBias: 0.01,
 });
 ```
 
 ### Applicable Methods
 
-Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](//doc.babylonjs.com/api/classes/babylon.environmenthelper)) are available. 
+Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](//doc.babylonjs.com/api/classes/babylon.environmenthelper)) are available.
 
 So, for example if the environment color is not your favorite choice you can modify it after creation
 
@@ -196,17 +202,19 @@ helper.setMainColor(BABYLON.Color3.Teal());
 <Playground id="#MJNICE#12" title="Changing The Main Color" description="Simple example of changing the scene's main color." image=""/>
 
 or for instance should you wish to dispose of the ground after creation of the environment use
+
 ```javascript
 var helper = scene.createDefaultEnvironment();
 helper.ground.dispose();
 ```
 
 or how about changing the options parameters
+
 ```javascript
 var helper = scene.createDefaultEnvironment();
 var options = {
-    skyboxTexture: new BABYLON.CubeTexture("/textures/skybox", scene)
-}
+    skyboxTexture: new BABYLON.CubeTexture("/textures/skybox", scene),
+};
 helper.updateOptions(options);
 ```
 
@@ -214,25 +222,24 @@ helper.updateOptions(options);
 
 ### Environmental Helper
 
-NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/How_To/BackgroundMaterial) to be as efficient as possible.
+NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/divingDeeper/environment/backgroundMaterial) to be as efficient as possible.
 
 ## Create Default Skybox
 
 The `createDefaultSkybox` method can be used when you do not want to create a full environment. The [parameters](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox) used determine how the skybox is created.
 
-for example 
+for example
 
 ```javascript
 var texture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
 scene.createDefaultSkybox(texture, true, 100);
 ```
 
-In this case the first two parameters used give the texture for the skybox and specify that [a PBRMaterial](/how_to/physically_based_rendering) is to be used (second parameter, _true_) as opposed to a standard material (second parameter, _false_ - default value).
+In this case the first two parameters used give the texture for the skybox and specify that [a PBRMaterial](/divingDeeper/materials/using/introToPBR) is to be used (second parameter, _true_) as opposed to a standard material (second parameter, _false_ - default value).
 
 The third parameter defines the scale of your skybox (this value depends on the scale of your scene), the default value is _1000_.
 
 <Playground id="#MJNICE#14" title="Skybox Scale Example" description="Simple example showing how to scale a skybox in the playground." image=""/>
-
 
 ## Import and Fastest Build
 
@@ -249,7 +256,7 @@ Since the `createDefault...` helpers take into account any models in the scene t
 ```javascript
 BABYLON.SceneLoader.Append("https://www.babylonjs.com/Assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
     scene.createDefaultCameraOrLight(true, true, true);
-    scene.createDefaultEnvironment();       
+    scene.createDefaultEnvironment();
 });
 ```
 

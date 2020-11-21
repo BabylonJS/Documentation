@@ -153,6 +153,6 @@ To dive even further into bounding boxes, make sure to check out the API as well
 
 # API
 
-- [boundingBox](/api/classes/babylon.boundingbox)
+- [boundingBox](/typedoc/classes/babylon.boundingbox)
 
 
