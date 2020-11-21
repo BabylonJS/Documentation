@@ -257,7 +257,7 @@ You can use this in addition of translucency to accurately represent the spread 
 
 ![SubSurfaceScattering](/img/extensions/PBRSubSurfaceScattering.jpg)
 
-<Playground id="#GTQKYK#4" title="Sub-Surface Scattering In PBR" description="Simple example of how to control sub-surface scattering color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster10.jpg"/>
+<Playground id="#5H0H89#5" title="Sub-Surface Scattering In PBR" description="Simple example of how to control sub-surface scattering color in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster10.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
