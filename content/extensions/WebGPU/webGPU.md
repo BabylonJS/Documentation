@@ -34,7 +34,7 @@ The current implementation is now merged in the main branch of the repo [Github]
 We are putting a big effort all along our next release to implement the support and every contribution is more than welcome; So feel free to create some PR if you are interested in contributing to a fresh engine implementation based on cutting edge tech.
 
 ## What could go wrong ?
-As this is really early in the development, we are subject to a lot of potential changes as well as spec uncertainties. We will deal with them one at a time but we may be subject to change the release schedule at any time.
+Even if we are now well in the development process, we are subject to potential changes as well as spec uncertainties. We will deal with them one at a time but we may be subject to change the release schedule at any time.
 
 We have the full support from the amazing teams implementing the browsers support so it will be easier to directly chat with them when needed.
 
