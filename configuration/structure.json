@@ -602,7 +602,10 @@
                 },
                 "webGPU": {
                     "friendlyName": "WebGPU",
-                    "children": {},
+                    "children": {
+                        "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
+                        "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" }
+                    },
                     "content": "extensions/WebGPU/webGPU"
                 },
                 "serverSide": {
