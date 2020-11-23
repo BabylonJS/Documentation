@@ -813,6 +813,7 @@
         { "source": "/How_To/Videos/Special_Effects", "destination": "/guidedLearning/videos/specialEffects" },
         { "source": "/snippets/track/", "destination": "/guidedLearning/workshop/Track" },
         { "source": "/how_to/webvr_camera", "destination": "/divingDeeper/cameras/webVRCamera" },
+        { "source": "/how_to/Observables", "destination": "/divingDeeper/events/observables" },
         { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" }
     ]
 }
