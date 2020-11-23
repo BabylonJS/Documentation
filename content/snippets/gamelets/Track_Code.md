@@ -26,7 +26,7 @@ The track data produce by `createTrack` are the arrays
 * carriageRotations: lean rotations;
 * passengerRotations: turn rotations.
 
-The [parameters](/snippets/track/#parameters) needed for each section are 
+The [parameters](/guidedLearning/workshop/Track#parameters) needed for each section are 
 
 * start index;
 

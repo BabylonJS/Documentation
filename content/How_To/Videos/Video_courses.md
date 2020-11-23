@@ -16,13 +16,11 @@ Watch the creators of Babylon.js in this entertaining deep dive into 3D game dev
 
 Instructors | [David Catuhe](https://twitter.com/deltakosh) - Microsoft Principal Program Manager; [David Rousset](https://twitter.com/davrous) - Microsoft Senior Program Manager
 
-<img src="http://az612410.vo.msecnd.net/wwwbabylonjs/doc/agendavideoscourse.jpg" alt="Agenda"/>
-
-1. [3D on the Web: Understanding the Basics](/How_To/Videos/3D_on_the_Web_Understanding_the_Basics)
-2. [WebGL Basics](/How_To/Videos/WebGL_Basics)
+1. [3D on the Web: Understanding the Basics](/guidedLearning/videos/3DWebBasics)
+2. [WebGL Basics](/guidedLearning/videos/WebGLBasics)
 3. [Using Babylon.js for Beginners](/How_To/Videos/Using_Babylon.js_for_Beginners)
-4. [Understanding Materials and Inputs](/How_To/Videos/Understanding_Materials_and_Inputs)
+4. [Understanding Materials and Inputs](/guidedLearning/videos/materialsInputs)
 5. [Game Pipeline Integration with Babylon.js](/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js)
 6. [Loading Assets](/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js)
 7. [Babylon.js: Advanced Features](/How_To/Videos/Babylon.js_Advanced_Features)
-8. [Special Effects](/How_To/Videos/Special_Effects)
+8. [Special Effects](/guidedLearning/videos/specialEffects)
