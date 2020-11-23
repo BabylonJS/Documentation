@@ -21,7 +21,7 @@ video-content:
 The rays are like sunrays.
 They are used to check collisions or intersections in the scene between meshes and points.
 
-In the [previous tutorial](/divingDeeper/events/interactWithScenes), we used it to select meshes with the mouse (a ray goes from camera to mouse position in 3D),
+In the [previous tutorial](/divingDeeper/scene/interactWithScenes), we used it to select meshes with the mouse (a ray goes from camera to mouse position in 3D),
 using the function `scene.pick(scene.pointerX, scene.pointerY)`.
 
 But here we will see that we can throw ray from any point and in any direction.
