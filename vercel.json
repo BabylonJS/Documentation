@@ -805,6 +805,14 @@
         { "source": "/How_To/material/Node_Material", "destination": "/divingDeeper/materials/node_material/nodeMaterial" },
         { "source": "/examples", "destination": "/", "permanent": false },
         { "source": "/resources/playgroundtemplates", "destination": "/toolsAndResources/tools/playground/pgTemplates" },
+        { "source": "/how_to/Image_Processing", "destination": "/advanced_topics/introToShaders/image_processing" },
+        { "source": "/advanced/Shader_Material", "destination": "/advanced_topics/introToShaders/shaderMaterial" },
+        { "source": "/How_To/Videos/3D_on_the_Web_Understanding_the_Basics", "destination": "/guidedLearning/videos/3DWebBasics" },
+        { "source": "/How_To/Videos/WebGL_Basics", "destination": "/guidedLearning/videos/WebGLBasics" },
+        { "source": "/How_To/Videos/Understanding_Materials_and_Inputs", "destination": "/guidedLearning/videos/materialsInputs" },
+        { "source": "/How_To/Videos/Special_Effects", "destination": "/guidedLearning/videos/specialEffects" },
+        { "source": "/snippets/track/", "destination": "/guidedLearning/workshop/Track" },
+        { "source": "/how_to/webvr_camera", "destination": "/divingDeeper/cameras/webVRCamera" },
         { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" }
     ]
 }
