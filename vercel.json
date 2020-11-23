@@ -109,7 +109,6 @@
         { "source": "/extensions/radialcloner", "destination": "/extensions/clonerSystem/radialCloner" },
         { "source": "/extensions/RandomEffector", "destination": "/extensions/clonerSystem/randomEffector" },
         { "source": "/extensions/randomeffector", "destination": "/extensions/clonerSystem/randomEffector" },
-        { "source": "/extensions/glTFExporter", "destination": "/extensions/glTFExporter" },
         { "source": "/extensions/gltfexporter", "destination": "/extensions/glTFExporter" },
         { "source": "/extensions/Cell", "destination": "/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat" },
         { "source": "/extensions/cell", "destination": "/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat" },
