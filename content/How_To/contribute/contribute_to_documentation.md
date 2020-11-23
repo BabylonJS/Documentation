@@ -46,7 +46,7 @@ Congratulations, your modifications are now waiting to be validated and merged i
 
 ![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
 
-Do not hesitate to read [Good Practice](/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
+Do not hesitate to read the [Good Practice](/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
 
 ## Deeper Changes
 
@@ -58,8 +58,9 @@ Requirements:
 -   [git](https://www.git-scm.com/downloads)
 -   [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
 -   [node.js](https://nodejs.org/en/), we support node 12 and up.
+-   [yarn](https://yarnpkg.com/getting-started/install)
 
-## Forking
+### Forking
 
 Start by going to the main BabylonJS [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
 
@@ -85,7 +86,7 @@ After installing yarn type `yarn install`, press enter and wait the operation to
 
 This fork operation has to be done only once. You're now able to run locally the documentation by following the next section.
 
-## Running and editing the doc locally
+### Running and editing the doc locally
 
 Run:
 
@@ -103,7 +104,7 @@ You can finally starting to update the markdown files!
 
 ![visual studio](/img/contribute/documentation/further-editing.png)
 
-## Adding new images
+### Adding new images
 
 In case you have to create new illustrations, you need to send them on the Github repo into a specific folder: [`Documentation/public/img/`](https://github.com/BabylonJS/Documentation/tree/master/public/img).
 
@@ -121,9 +122,9 @@ Then, on your markdown page, use this link pattern:
 
 Of course, try to keep image size as low as you can (while keeping a good visual quality). Our build system will do its best to optimize the image nonetheless.
 
-## Adding new pages
+### Adding new pages
 
-### Page structure
+#### Page structure
 
 Now that everything is working well, you may want to add new content. To do so, please open `/configuration/structure.json`.
 
@@ -169,7 +170,7 @@ Notice the object's key. This will be your new page filename (without markdown e
 
 ![new content](/img/contribute/documentation/further-new-content.png)
 
-### Page metadata
+#### Page metadata
 
 Each page can (but not must) have a metadata section, that provides further information for this page. This is important if you want the page to be visible when being searched.
 
@@ -224,7 +225,7 @@ Everything in the metadata is optional and has a different value. However, it is
 
 The image provided will be used when sharing this link on sites supporting open graph, such as facebook, medium, twitter and so on. The default image is the babylon logo.
 
-### Internal links
+#### Internal links
 
 To link to an internal document, use its path from root without adding the domain. For example:
 
@@ -274,7 +275,7 @@ but you can also use the more advanced `<img/>` tag, that has more control over 
 <img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image"/>
 ```
 
-## Sending pull request
+### Sending pull request
 
 A Pull Request (PR) has to be made to integrate your modifications into the documentation.
 
