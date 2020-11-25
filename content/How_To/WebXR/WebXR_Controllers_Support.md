@@ -20,7 +20,7 @@ An Input source has one of three target Ray modes - `tracked-pointer` for gamepa
 
 The [WebXRInput](/typedoc/classes/babylon.webxrinput) class is responsible of coordinating the addition and removal of input sources. It creates **WebXR Input Sources** classes and disposes them automatically for you.
 
-Babylon's [WebXR Input Source](/typedoc/classes/babylon.webxrcontroller) class is the container for all user-input related objects. It is created automatically for you by the WebXR Input class for every controller.it is in charge of attaching the motion controller, which, in turn, is in charge of attaching the components and load the model.
+Babylon's [WebXR Input Source](/typedoc/classes/babylon.webxrinputsource) class is the container for all user-input related objects. It is created automatically for you by the WebXR Input class for every controller.it is in charge of attaching the motion controller, which, in turn, is in charge of attaching the components and load the model.
 
 An input source has two important reference spaces - one it the **`targetRay`** which represents the pointer's position and direction. Think - the edge of your finger.and the **`gripSpace`** which is the base of a handheld device connected to this input source. Think - the base of your hand. The `gripSpace` is optional and is only available when a motion controller is connected. And, althou sometimes the same, the grip and target ray space can have different transformation altogether.
 

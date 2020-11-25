@@ -14,8 +14,8 @@ video-content:
 
 The sky material allows to create dynamic and texture free effects for skyboxes.
 
-This work is based on ["A Practical Analytic Model for Daylight"](http://www.cs.utah.edu/~shirley/papers/sunsky/sunsky.pdf).
-First implemented by [Simon Wallner](http://www.simonwallner.at/projects/atmospheric-scattering),
+This work is based on ["A Practical Analytic Model for Daylight"](https://www2.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p91-preetham.pdf).
+First implemented by [Simon Wallner](http://simonwallner.at/project/atmospheric-scattering/),
 improved by [Martin Upitis](http://blenderartists.org/forum/showthread.php?245954-preethams-sky-impementation-HDR)
 and finally implmented in Three.js by [zz85](http://twitter.com/blurspline)
 

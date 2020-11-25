@@ -12,7 +12,7 @@ video-content:
 
 # Using the water material
 
-Water material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.waterMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview release/materialsLibrary/babylon.waterMaterial.js)
+Water material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.waterMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.waterMaterial.js)
 
 A demo can be found here:   PG: <Playground id="#1SLLOJ#20" title="Water Material" description="Example of water material" image=""/>
 

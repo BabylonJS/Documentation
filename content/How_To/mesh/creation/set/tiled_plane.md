@@ -82,7 +82,7 @@ const options = {
 
 The following image is used to show the results before and after flipping alternate tiles
 
-![Single Tile Pattern](/img/how_to/mesh/lavatile.jpg) 
+![Single Tile Pattern](/img/how_to/Mesh/lavatile.jpg) 
 
 Before tiles flipped: <Playground id="#XR696D" title="Create a Tiled Plane With Before Tiles Flipped" description="Simple example of creating a tiled plane with before tiles flipped." image=""/> 
 After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With After Tiles Flipped" description="Simple example of creating a tiled plane with after tiles flipped." image=""/>
@@ -90,7 +90,7 @@ After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With
 **Alternating Patterns**
 
 This image  
-![Two Tile Pattern](/img/how_to/mesh/tiles2.jpg)  
+![Two Tile Pattern](/img/how_to/Mesh/tiles2.jpg)  
 is used to show different alternating patterns using tiles of width 2 and height 1 by flipping either every other row or tile
 
 Row flipped: <Playground id="#XR696D#3" title="Create a Tiled Plane With Row Flipped" description="Simple example of creating a tiled plane with row flipped." image=""/>

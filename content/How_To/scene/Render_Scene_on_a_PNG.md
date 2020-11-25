@@ -89,7 +89,7 @@ You need to provide your BabylonJS engine, the camera you want to use for the re
 
 Again the size parameter is very versatile and can be a simple number or an object. However you will see differences in the results using the same parameters as before.
 
-> **_HINT:_** When using a camera other than the active camera, only objects located in the viewport of the active camera are visible. As a workaround, all meshes that should be visible can be explicitly set to `alwaysSelectAsActiveMesh = true`. In case of performance issues, the meshes can be set to `alwaysSelectAsActiveMesh = true` shortly before taking the screenshot and then to `alwaysSelectAsActiveMesh = false` again.
+*Hint:* When using a camera other than the active camera, only objects located in the viewport of the active camera are visible. As a workaround, all meshes that should be visible can be explicitly set to `alwaysSelectAsActiveMesh = true`. In case of performance issues, the meshes can be set to `alwaysSelectAsActiveMesh = true` shortly before taking the screenshot and then to `alwaysSelectAsActiveMesh = false` again.
 
 ### Examples of Results
 

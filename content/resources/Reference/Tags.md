@@ -29,16 +29,8 @@ Tag? You may already have heard or read this word before. Let's see some generic
 If you spend some time on forums (let's pick one randomly: [forum](https://forum.babylonjs.com) ;)), you may have noticed that tags are attached to topics (and/or posts sometimes).
 The author can write words (tags) to shortly describe his/her topic without having to write a gramatically correct sentence. It's kind of a list of words that you could say during a brainstorming after reading the post.
 
-Example of a topic with tags:
-
-![Topic with tags](http://pix.keuse.fr/images/topic.jpg)
-
 Thus, if you need information about, let's say, meshes, you can search for topics having "mesh" as a word in those topics, BUT you could also search for "mesh" as a tag of the topic. Indeed, maybe the word is never used in the topic (maybe it's only used, or not, in the title) but the author can choose to add it as a tag in the aim to categorize his/her topic.
 Tags can be used to categorize/group things.
-
-Here the first search results:
-
-![Search results for "mesh" tag](http://pix.keuse.fr/images/meshtag.jpg)
 
 ### CSS classes
 

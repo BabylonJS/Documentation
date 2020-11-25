@@ -16,7 +16,6 @@ PBR is a grouping of techniques; it does not force you to choose one in particul
 
 - [Disney](http://blog.selfshadow.com/publications/s2012-shading-course/burley/s2012_pbs_disney_brdf_slides_v2.pdf)
 - [Ashkimin Shirley BRDF](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.4558&rep=rep1&type=pdf)
-- [Ashkimin Shirley Microfacets](http://www.cs.utah.edu/~shirley/papers/facets.pdf).
 
 In Babylon.js, PBR is done thanks to PBRMaterial. This material contains all features required by modern physically based rendering. On this page we look at two pre-set simplified versions that allow you to quickly get started with PBR.
 
