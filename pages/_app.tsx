@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { useEffect, Fragment } from 'react';
+import { useEffect } from 'react';
 
 import '../styles/globals.scss';
 import { theme } from '../styles/theme';
@@ -17,9 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Head>
-        <title>My page</title>
+        <title>Babylon.js docs</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </Fragment>
+    </>
   );
 }
 

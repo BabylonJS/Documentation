@@ -225,10 +225,10 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
         // generate images to examples. Offline only at the moment
         const matches = Array.from(content.matchAll(/(<(Playground|nme).*id="([A-Za-z0-9#]*)".*\/>)/g));
-        for (const [all, full, type, exampleId] of matches) {
+        for (const [_, full, type, exampleId] of matches) {
             const realType = type === "nme" ? "nme" : "pg";
             const imageUrl = /image="(.*)"/.test(full) && /image="(.*)"/.exec(full)[1];
-            if (!(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
+            if (exampleId && exampleId !== "nmeId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);
             }
             if (realType === "pg") {
@@ -262,23 +262,22 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 .map((res) => {
                     return res[1].replace(/\)/g, "").split("#")[0];
                 })
-                .filter((link) => (link.indexOf(".") === -1 && link.indexOf('/typedoc') === -1));
+                .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1);
 
             internalLinks.forEach((link) => {
                 const found = getElementByIdArray(link.split("/"), true);
                 if (!found) {
                     // try to find a redirect
-                    if(vercelConfig?.redirects) {
+                    if (vercelConfig?.redirects) {
                         const redirectFound = vercelConfig.redirects.find((redirect) => {
                             return redirect.source === `/${link}`;
-                        })
-                        if(redirectFound) {
+                        });
+                        if (redirectFound) {
                             console.log(`Internal link /${link} in doc /${id.join("/")} should be ${redirectFound.destination}`);
                         } else {
                             console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
                         }
                     }
-
                 }
             });
         } catch (e) {
