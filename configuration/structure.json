@@ -155,7 +155,13 @@
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                         "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                         "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" },
-                        "howToStart": { "friendlyName": "Start Contributing to Babylon.js", "children": {}, "content": "How_To/contribute/how_to_start" },
+                        "howToStart": { 
+                            "friendlyName": "Start Contributing to Babylon.js",
+                            "children": {
+                                "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests" }
+                            },
+                            "content": "How_To/contribute/how_to_start"
+                        },
                         "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
                         "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
                         "contributeToAPI": { "friendlyName": "Contribute To The API", "children": {}, "content": "How_To/contribute/contribute_to_api" },
