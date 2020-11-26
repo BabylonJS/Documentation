@@ -293,8 +293,10 @@ This should help playing and debugging locally.
 
 ### Validate changes
 
-As part of your testing process, it is highly recommended to launch the build validator: http://localhost:1338/tests/validation/index.html.
+As part of your testing process, it is highly recommended to launch the build validator: [http://localhost:1338/tests/validation/index.html](http://localhost:1338/tests/validation/index.html).
 It will run several scenes against a reference image to detect any visual changes.
+
+There's an [advanced page](/divingDeeper/developWithBjs/howToStart/validationTests) for validation tests, but you should not need it, simply launching [http://localhost:1338/tests/validation/index.html](http://localhost:1338/tests/validation/index.html) and making sure all tests are ok should be enough.
 
 ### Guidelines
 
