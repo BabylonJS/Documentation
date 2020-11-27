@@ -50,7 +50,8 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs</loc><lastmod>2020-11-23T12:32:15.719Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/forum</loc><lastmod>2020-11-20T18:23:34.427Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/frameworkVers</loc><lastmod>2020-11-09T13:26:32.353Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart</loc><lastmod>2020-11-20T18:23:34.358Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart/validationTests</loc><lastmod>2020-11-27T09:41:34.908Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart</loc><lastmod>2020-11-27T09:41:34.906Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/matForMatLibrary</loc><lastmod>2020-11-09T13:26:32.258Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/npmSupport</loc><lastmod>2020-11-18T11:19:32.330Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/proceduralTextureForTexLibrary</loc><lastmod>2020-11-09T13:26:32.259Z</lastmod></url>
@@ -270,7 +271,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/multiScenes</loc><lastmod>2020-11-12T06:55:15.678Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/offscreenCanvas</loc><lastmod>2020-11-11T09:04:50.769Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/optimizeCached</loc><lastmod>2020-11-11T09:04:50.761Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/scene/optimizeOctrees</loc><lastmod>2020-11-12T09:13:40.075Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/scene/optimizeOctrees</loc><lastmod>2020-11-27T09:41:34.910Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/optimize_your_scene</loc><lastmod>2020-11-12T18:54:32.023Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/reducingMemoryUsage</loc><lastmod>2020-11-12T09:13:40.076Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/renderRemoteScreenshot</loc><lastmod>2020-11-11T09:04:50.768Z</lastmod></url>
