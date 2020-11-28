@@ -21,7 +21,7 @@ In the *faceUV* array faces are numbered 0 for back, 1, front, 2 left, 3 right, 
 ## Detached House Example
 We will start with this image
 
-![cubehouse texture](/img/getstarted/cubehouse.png);
+![cubehouse texture](/img/getstarted/cubehouse.png)
 
 which contains, in order, images of the same size for the front, right, back and left sides of the house.
 
@@ -59,7 +59,7 @@ Of course we also need to change the image used for the diffuse texture of the b
 ## Semi Detached House Example
 In this case the house is twice as wide and so are parts of the image
 
-![semihouse texture](/img/getstarted/semihouse.png);
+![semihouse texture](/img/getstarted/semihouse.png)
 
 The front and back of the house (far left and right of the image) is twice the width of a side (middle image) which we can use twice.
 
