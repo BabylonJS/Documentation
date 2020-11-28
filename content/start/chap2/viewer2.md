@@ -36,7 +36,7 @@ Removing the default ground has stopped the flickering. However the default View
 
 When you want the camera further away you have to get your hands dirty with some code, which of course you can just copy and paste as needed.
 
-To move the camera we have to adjust its _radius_ property. This has to be done before the model is loaded. Propeties cannot be changed once the model is loaded in the Viewer. We need to remove the _model_ attribute from the &lt;babylon&gt; element to prevent the model loading before the camera radius can be changed. the %lt;babylon&gt: element must also be given an _id_ which is referenced by the script that will alter the camera properties.
+To move the camera we have to adjust its _radius_ property. This has to be done before the model is loaded. Properties cannot be changed once the model is loaded in the Viewer. We need to remove the _model_ attribute from the &lt;babylon&gt; element to prevent the model loading before the camera radius can be changed. the %lt;babylon&gt: element must also be given an _id_ which is referenced by the script that will alter the camera properties.
 
 ```html
 <babylon id="myViewer" extends="minimal"></babylon>
