@@ -16,7 +16,7 @@ What happens when we put the **Village** as a model in the viewer?
 
 [Example Viewer - Village](/webpages/page2.html) using the default Viewer.
 
-![View 2](/img/getstarted/view2.png);
+![View 2](/img/getstarted/view2.png)
 
 We see that the ground flickers. Why is that? This is because by default the Viewer already adds a ground and where they overlap they 'fight' for supremacy.
 
@@ -30,7 +30,7 @@ This removes the default ground along with other aspects such as the Babylon.js 
 
 [Example Viewer - Village](/webpages/page3.html) using the minimal Viewer.
 
-![view3](/img/getstarted/view3.png);
+![view3](/img/getstarted/view3.png)
 
 Removing the default ground has stopped the flickering. However the default Viewer calculates the extent of the model and adjusts the camera accordingly. By using _minimal_ the camera just defaults to close to the center of the model village.
 
