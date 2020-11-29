@@ -15,7 +15,7 @@ Sometimes the easiest way to add a model to a scene is to obtain one from elsewh
 
 The *Dude* model is one that has been built with its own skeleton animation.
 
-![dude walking](/img/getstarted/dude.gif);
+![dude walking](/img/getstarted/dude.gif)
 
 Once imported the character and its skeleton are obtained from the meshes and skeletons properties of the results object.
 
