@@ -10,7 +10,7 @@ video-content:
 
 The V3 of the Babylon.js Editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
 
-The editor V3 is available at http://editor.babylonjs.com/.
+The editor V3 is available at http://editor.babylonjs.com/v3.
 The video tutorials are all available on [a Youtube playlist](https://www.youtube.com/watch?v=obEuCI_pPL4&list=PLuZE-0i73Wo-xqfBsgZA531BXeesXQ3Op&index=1)
 
 Please note that the editor is a community project maintained mostly by Julien Moreau.
@@ -26,7 +26,7 @@ This will also allow you to continue working even in offline mode and save proje
 Downloading:
 * Windows: [http://editor.babylonjs.com/BabylonJS Editor.exe](http://editor.babylonjs.com/download/win32.html)
 * Mac OS X: [http://editor.babylonjs.com/BabylonJS Editor.dmg](http://editor.babylonjs.com/download/osx.html)
-* Linux: [http://editor.babylonjs.com/BabylonJS Editor.zip](https://editor.babylonjs.com/BabylonJS%20Editor.zip)
+* Linux: [http://editor.babylonjs.com/v3/BabylonJS Editor.zip](https://editor.babylonjs.com/v3/BabylonJS%20Editor.zip)
 
 ## Project example
 As an example, the following demo has been done 100% in the editor. It includes writing custom scripts, custom post-processes etc.

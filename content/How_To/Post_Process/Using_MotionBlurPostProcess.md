@@ -60,3 +60,14 @@ The clear color of the render buffer collides with the needed clear color of the
 
 # Notes
 The Motion Blur post-process needs at least support of WebGL 2 or WebGL 1 with multiple render targets support. If not available, the post-process will work as a passthrough.
+
+## Disabling Object-Based Motion Blur
+By default, the motion blur post-process is using object-based velocity to calculate blur. In large scenes, it can have a cost to calculate velocity of each object available on the screen. Object-based velocity can be disabled to fallback on screen-based mode. The screen-based mode allows to avoid calculating objects velocities by calculating the velocity based only on the camera's movement.
+
+To enable to screen-based mode, just flag the post-process to disable object-based mode like:
+```javascript
+// Disable object-based mode in order to enable screen-based mode.
+motionblur.isObjectBased = false;
+```
+
+Example: <Playground id="#E5YGEL#7" title="Screen-Based Motion Blur" description="Simple example of customizing the motion blur post process to disable object-based mode." image=""/>
