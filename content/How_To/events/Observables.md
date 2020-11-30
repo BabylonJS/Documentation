@@ -134,7 +134,7 @@ setTimeout(() => {
 }, 3000);
 
 // the new and simple way
-BABYLON.setTimerAndStart({
+BABYLON.setAndStartTimer({
   timeout: 3000,
   contextObservable: scene.onBeforeRenderObservable,
   onEnded: () => {
@@ -143,7 +143,7 @@ BABYLON.setTimerAndStart({
 });
 ```
 
-### setTimerAndStart
+### setAndStartTimer
 
 As you can see in the example, the babylon countdown timer is taking an observable as context. This observable is the most important part of this code - the observable is the context in which the rest of the time functions will be called and is in charge of calculating the delta time until finished. To explain it simply, these are the steps for the function we implemented before:
 
@@ -157,7 +157,7 @@ As you can see in the example, the babylon countdown timer is taking an observab
 A full example of the function's API:
 
 ```javascript
-BABYLON.setTimerAndStart({
+BABYLON.setAndStartTimer({
   timeout: 3000,
   contextObservable: scene.onBeforeRenderObservable,
   breakCondition: () => {
@@ -180,7 +180,7 @@ As you can understand, any observable can be used here, but some don't really ma
 
 ```javascript
 let gameIsOn = true;
-BABYLON.setTimerAndStart({
+BABYLON.setAndStartTimer({
     timeout: 2 * 60 * 1000,
     contextObservable: scene.onPointerObservable,
     observableParameters: { mask: BABYLON.PointerEventTypes.POINTERDOWN },
@@ -204,7 +204,7 @@ const guiButtonMaterial = ... // get the material
 let pressed = false;
 scene.onPointerDown = () => {
     pressed = true;
-    BABYLON.setTimerAndStart({
+    BABYLON.setAndStartTimer({
         timeout: 2 * 60 * 1000,
         contextObservable: scene.onBeforeRenderObservable,
         breakCondition: () => {
