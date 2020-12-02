@@ -44,7 +44,7 @@ For the majority of meshes the [position](/divingDeeper/mesh/transforms/center_o
 
 ```javascript
 box.position.x = -2;
-box/position.y = 4.2;
+box.position.y = 4.2;
 box.position.z = 0.1;
 ```
 
