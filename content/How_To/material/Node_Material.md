@@ -17,6 +17,8 @@ further-reading:
     - /toolsAndResources/tools/nme
 video-overview:
 video-content:
+    - title: PBR Nodes in Nodes Materials Part 1
+      url: https://youtu.be/CRg8P1Af1M0
     - title: Node-Based Procedural Textures
       url: https://youtu.be/qqMuuSM7GvI
     - title: Creating Procedural Node Materials Through Code
@@ -1442,6 +1444,8 @@ As for the standard `PBRMaterial`, if no texture is provided for the **Reflectio
 By default, if something is connected to the `a` input of the `FragmentOutput` block, alpha blending is enabled. If you don't need alpha blending, don't connect this input.
 
 Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
+
+<Youtube id="CRg8P1Af1M0"/>
 
 ## Creating Post Processes
 
