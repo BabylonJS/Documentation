@@ -140,3 +140,7 @@ function addGunSight(scene) {
 ```
 
 See it in action here: <Playground id="#JU1DZP" title="Gun Sight Crosshair Example" description="A simple example of creating a gun sight crosshair using layermasks and two cameras." image="/img/playgroundsAndNMEs/divingDeeperLayerMasks1.jpg"/>
+
+Using the information here and combining it with the viewport information from the previous [section](/divingDeeper/cameras/multiViewsPart2), we can create a more complex example that includes the option to omit meshes from specific cameras.
+
+- <Playground id="#L92PHY#36" title="Picture in Picture Visual Camera" description="Using layer masks and viewports, show a visual representation of camera movement." image="/img/playgroundsAndNMEs/pipcamera.png"/>
