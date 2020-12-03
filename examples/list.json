@@ -73,10 +73,10 @@
                 },
                 {
                     "title": "Picture in Picture Visual Camera",
-                    "doc": "https://doc.babylonjs.com/divingDeeper/cameras/multiViewsPart2",
+                    "doc": "https://doc.babylonjs.com/divingDeeper/cameras/layerMasksAndMultiCam",
                     "icon": "icons/pipcamera.png",
                     "description": "Using layer masks and viewports, show a visual representation of camera movement",
-                    "PGID": "#L92PHY#29"
+                    "PGID": "#L92PHY#36"
                 }
             ]
         },
