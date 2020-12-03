@@ -333,6 +333,28 @@ camera.bankedTurnMultiplier = 1;
 camera.attachControl(canvas, true);
 ```
 
+## Clipping Planes and Infinite Perspective
+
+Cameras in Babylon.js have [clipping planes](/divingDeeper/scene/clipPlanes) that specify a visual range in the scene that will be rendered. Anything outside of that range will not be rendered. For example, setting the camera's far clipping plane to 100 like this:
+
+```javascript
+camera.maxZ = 100;
+```
+will not render anything past 100 units from camera. The same is true of the near clipping plane as well. For example, setting the near clipping plane to 10 like this:
+
+```javascript
+camera.minZ = 10;
+```
+will not rendering anything closer than 10 units from the camera.
+
+In some cases you may not want to clip the rendering of your scene. You may want your scene to effectively render out to infinity. This can be done by setting the far clipping plane to 0 like this:
+
+```javascript
+camera.maxZ = 0;
+```
+
+Just a friendly warning, setting the far clipping plane to infinity can reduce depth precision, so use this carefully!
+
 ## Customizing inputs
 
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
