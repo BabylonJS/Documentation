@@ -18,9 +18,9 @@ Instructors | [David Catuhe](https://twitter.com/deltakosh) - Microsoft Principa
 
 1. [3D on the Web: Understanding the Basics](/guidedLearning/videos/3DWebBasics)
 2. [WebGL Basics](/guidedLearning/videos/WebGLBasics)
-3. [Using Babylon.js for Beginners](/How_To/Videos/Using_Babylon.js_for_Beginners)
+3. [Using Babylon.js for Beginners](/guidedLearning/videos/videoCourses)
 4. [Understanding Materials and Inputs](/guidedLearning/videos/materialsInputs)
-5. [Game Pipeline Integration with Babylon.js](/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js)
-6. [Loading Assets](/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js)
-7. [Babylon.js: Advanced Features](/How_To/Videos/Babylon.js_Advanced_Features)
+5. [Game Pipeline Integration with Babylon.js](/guidedLearning/videos/gamePipelineIntegration)
+6. [Loading Assets](/guidedLearning/videos/loadingAssets)
+7. [Babylon.js: Advanced Features](/guidedLearning/videos/bjsAdvancedFeatures)
 8. [Special Effects](/guidedLearning/videos/specialEffects)

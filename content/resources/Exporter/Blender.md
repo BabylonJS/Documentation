@@ -12,7 +12,7 @@ The Blender export plugin can be found on [github repository](https://github.co
 
 Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or below can be found in the `deprecated` folder.
 
-An extension named [Tower of Babel](https://github.com/BabylonJS/Extensions/tree/master/QueuedInterpolation/Blender) can also be used as exporter. It exports JavaScript modules with in-line geometry and simplifies the loading process. See its readme or that of the [QueuedInterpolation](https://github.com/BabylonJS/Extensions/tree/master/QueuedInterpolation) extension, which it is part of, to know more about its functionalities, and access its proper documentation.
+An extension named [Tower of Babel](https://github.com/BabylonJS/BlenderExporter) can also be used as exporter. It exports JavaScript modules with in-line geometry and simplifies the loading process. See its readme or that of the [QueuedInterpolation](https://github.com/BabylonJS/BlenderExporter) extension, which it is part of, to know more about its functionalities, and access its proper documentation.
 
 ## Installation
 
@@ -73,7 +73,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                           | BJS equivalent                                                                                                               |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| ![constraints](/img/exporters/blender/constraints/constraints.png) | <ul><li>Track To: useful when using ArcRotate camera [(tip)](//doc.babylonjs.com/exporters/blender_tips#arcrotate)</li></ul> |
+| ![constraints](/img/exporters/blender/constraints/constraints.png) | <ul><li>Track To: useful when using ArcRotate camera [(tip)](/extensions/Exporters/Blender_Tips#arcrotate)</li></ul> |
 
 ---
 
@@ -84,7 +84,7 @@ This add-on use the standard Blender installation procedure:
 | Blender                                                                                                | [BJS equivalent](/typedoc/classes/babylon.camera)                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Lens![lens](/img/exporters/blender/cameras/lens.png)                                                    | <ul><li>Field of View: fov</li><li>Clipping: minZ & maxZ</li></ul>                                                                                                                                                                                                                                               |
-| Exporter panel ![exporter-cameras-options](/img/exporters/blender/cameras/exporter-cameras-options.png) | <ul><li>Camera Type, choose between:<ul><li>Arc Rotate [(tip)](//doc.babylonjs.com/exporters/blender_tips#arcrotate)</li><li>Device Orientation</li><li>Follow</li><li>Gamepad</li><li>Touch</li><li>Universal</li><li>Virtual Joysticks</li><li>VR Dev Orientation Free</li><li>Web VR Free</li></ul></li></ul> |
+| Exporter panel ![exporter-cameras-options](/img/exporters/blender/cameras/exporter-cameras-options.png) | <ul><li>Camera Type, choose between:<ul><li>Arc Rotate [(tip)](/extensions/Exporters/Blender_Tips#arcrotate)</li><li>Device Orientation</li><li>Follow</li><li>Gamepad</li><li>Touch</li><li>Universal</li><li>Virtual Joysticks</li><li>VR Dev Orientation Free</li><li>Web VR Free</li></ul></li></ul> |
 
 ---
 
@@ -104,7 +104,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                                                             | [BJS equivalent](/typedoc/classes/babylon.mesh)                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](//doc.babylonjs.com/exporters/blender_tips#smooth-shading).                                                                                                                                                                                                                                 |
+| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/extensions/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                                                 |
 | UV Maps ![uv-maps](/img/exporters/blender/meshes/uv-maps.png)                                        | <ul><li>UVMap: coordinatesIndex</li><li>limited to 2 channels</li></ul>                                                                                                                                                                                                                                                                                                                                    |
 | Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.png)                      | <ul><li>if multiples layers exist, they will be merge</li></ul>                                                                                                                                                                                                                                                                                                                                            |
 | Exporter panel ![exporter-meshes-options](/img/exporters/blender/meshes/exporter-meshes-options.png) | <ul><li>**Tags**: allow using [scene.getMeshesByTags()](//doc.babylonjs.com/api/classes/babylon.scene#getmeshesbytags)</li><li>**Materials**:<ul><li>**Name Space**: automatically add a suffix to the mesh materials. Default is Blender filename.</li></ul></li><li>**Procedural Textures / Cycles Baking**: texture baking settings when using procedural textures (Blender Render) or Cycles</li></ul> |
@@ -158,7 +158,7 @@ This add-on use the standard Blender installation procedure:
 #### General
 
 -   Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
--   about automatic baking, see [Materials](//doc.babylonjs.com/exporters/blender#materials).
+-   about automatic baking, see [Materials](/extensions/Exporters/Blender#materials).
 
 #### Blender Render
 
@@ -180,7 +180,7 @@ This add-on use the standard Blender installation procedure:
 
 ### Commons & Good practices
 
--   you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](//doc.babylonjs.com/exporters/blender_tips#Animation) for a basic workflow.
+-   you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/extensions/Exporters/Blender_Tips#Animation) for a basic workflow.
 -   be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
 
 ### Classic Animations

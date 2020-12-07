@@ -18,7 +18,7 @@ Here is how to solve this in 3ds max (By default 3ds max has a limit of 20):
 
 In 3ds Max (English version)
 
-![bones influences parameter En](http://www.visualiser.fr/img/max.jpg)
+![bones influences parameter En](/img/exporters/3DSMax/bonesEN.jpg)
 
 In 3ds Max (French version)
 

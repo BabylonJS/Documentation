@@ -12,8 +12,6 @@ video-content:
 
 The function QuickTreeGenerator uses a sphere with randomized vertices to generate a tree. 
 
-It is based on Julian Temechon's tutorial on the VertexData object http://www.pixelcodr.com/tutos/trees/trees.html
-
 A demo can be found at: <Playground id="#LG3GS#107" title="Quick Tree Generator Example" description="Simple example of the quick tree generator." image=""/>
 
 ## How to use it.

@@ -25,7 +25,7 @@ You can create a prefab by selecting **Asset > Create Prefab** and then dragging
 
 As mentioned above changes to the prefab asset itself will be reflected in all instances but you can also modify individual instances separately. This is useful, say, when you want to create several similar NPCs but introduce variations to make them more realistic. To make it clear when a property has been overridden, it is shown in the inspector with its name label in boldface. (When a completely new component is added to a prefab instance, all of its properties will be shown in boldface.)
 
-![Prefab Override](https://docs.unity3d.com/uploads/Main/PrefabWithOverride.png)
+![Prefab Override](https://docs.unity3d.com/uploads/Main/PrefabsAddedObjectIndicator1.png)
 
 You can also create instances of prefabs at runtime from your scripts. See the **Managed Runtime Support** section for further details.
 
