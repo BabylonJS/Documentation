@@ -60,7 +60,7 @@ with the same gradient applied to the material as in the image below.
 Add an _opacityTexture_ to any existing texture.
 ```javascript
 var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-myMaterial.opacityTexture = new BABYLON.Texture("PATH TO NORMAL MAP", scene);
+myMaterial.opacityTexture = new BABYLON.Texture("PATH TO OPACITY MAP", scene);
 ```
 
 ## Tiling
