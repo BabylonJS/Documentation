@@ -19,7 +19,7 @@ This documentation will explain how to transform an existing Babylon.js game to 
 * [Instant Games SDK documentation](https://developers.facebook.com/docs/games/instant-games/sdk/fbinstant6.2)
 
 ## The process
-1) Create an Instant Game app : [Facebook Dashboard](https://developers.facebook.com/apps/async/create/platform-setup/dialog/)
+1) Create an Instant Game app : [Facebook Dashboard](https://developers.facebook.com/docs/games/instant-games/)
 
 2) Include the Facebook SDK URL in your game HTML page: 
 ```html

@@ -15,7 +15,7 @@ The toolkit's **Terrain Builder** system allows you to add vast landscapes to yo
 
 To add a Terrain game object to your Scene, select **GameObject > 3D Object > Terrain** from the menu. This also adds a corresponding **Terrain Asset** to the Project view. When you do this, the landscape is initially a large, flat plane. The Terrain’s Inspector window provides a number of tools you can use to create detailed landscape features.
 
-![Terrain Editing](https://docs.unity3d.com/uploads/Main/TerrainEditingTools.png)
+![Terrain Editing](https://docs.unity3d.com/uploads/Main/1.1-TerrainInspector.png)
 
 With the exception of the tree placement tool and the settings panel, all the tools on the toolbar provide a set of “brushes” and settings for brush size and opacity. It is no coincidence that these resemble the painting tools from an image editor because detail in the terrain is created precisely that way, by “painting” detail onto the landscape. If you select the leftmost tool on the bar (Raise/Lower Terrain) and move the mouse over the terrain in the scene view, you will see a cursor resembling a spotlight on the surface. When you click the mouse, you can paint gradual changes in height onto the landscape at the mouse’s position. By selecting different options from the Brushes toolbar, you can paint with different shapes. The Brush Size and Opacity options vary the area of the brush and the strength of its effect respectively.
 

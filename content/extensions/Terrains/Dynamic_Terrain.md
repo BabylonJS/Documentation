@@ -750,7 +750,7 @@ Actually, we could even not pass the `terrainSub` and the terrain would still be
 
 A Dynamic Terrain generated without any data map looks like a simple planar ribbon initially 
 
-PG: <Playground id="#FJNR5#191" title="Dynamic Terrain" description="Example No Data Map" image=""/> ](https://www.babylonjs-playground.com/)   
+PG: <Playground id="#FJNR5#191" title="Dynamic Terrain" description="Example No Data Map" image=""/> ] 
 
 Of course we can always add to it some LOD behavior (perimetric or camera LOD) like to any standard terrain created with a data map.  
 But it may be interesting to use in this case the user custom function and to modify the terrain vertex positions, something we wouldn't probably want to do with a data map generated terrain.  

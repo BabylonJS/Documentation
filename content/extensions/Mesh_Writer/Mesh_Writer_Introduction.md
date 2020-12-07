@@ -25,8 +25,7 @@ Generate letters in BABYLON meshes.
 	                }
 	            );
 
-&#9679; See playground example:  https://www.babylonjs-playground.com/#PL752W#1
-PG: <Playground id="#E6OZX#221" title="Mesh Writer" description="Sky material animation" image=""/>
+PG: <Playground id="#PL752W#1" title="Mesh Writer" description="" image=""/>
 
 ## Getting the code
 

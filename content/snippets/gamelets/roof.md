@@ -33,7 +33,7 @@ The function **roofprint** returns a list of Vector3 representing the corners of
 
 Using the roofprint the floor of the roof (or top ceiling) can be added as a mesh.
 
-PG: <Playground id="" title="" description="." image=""/> Example Roof Floor](https://www.babylonjs-playground.com/#1Z71FW#41)
+PG: <Playground id="#1Z71FW#41" title="Example Roof Floor" description="." image=""/>
 
 ## Plan of Roof
 

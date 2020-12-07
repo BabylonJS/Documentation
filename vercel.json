@@ -613,8 +613,6 @@
         { "source": "/resources/3dsmax", "destination": "/extensions/Exporters/3DSMax" },
         { "source": "/resources/3DSMax_to_glTF", "destination": "/extensions/Exporters/3DSMax_to_glTF" },
         { "source": "/resources/3dsmax_to_gltf", "destination": "/extensions/Exporters/3DSMax_to_glTF" },
-        { "source": "/resources/3Dtext", "destination": "/extensions/Exporters/3Dtext" },
-        { "source": "/resources/3dtext", "destination": "/extensions/Exporters/3Dtext" },
         { "source": "/resources/Blender", "destination": "/extensions/Exporters/Blender" },
         { "source": "/resources/blender", "destination": "/extensions/Exporters/Blender" },
         { "source": "/resources/Blender_Tips", "destination": "/extensions/Exporters/Blender_Tips" },
@@ -814,6 +812,9 @@
         { "source": "/snippets/track/", "destination": "/guidedLearning/workshop/Track" },
         { "source": "/how_to/webvr_camera", "destination": "/divingDeeper/cameras/webVRCamera" },
         { "source": "/how_to/Observables", "destination": "/divingDeeper/events/observables" },
+        { "source": "/How_To/Videos/Using_Babylon.js_for_Beginners", "destination": "/guidedLearning/videos/videoCourses" },
+        { "source": "/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js", "destination": "/guidedLearning/videos/gamePipelineIntegration" },
+        { "source": "/How_To/Videos/Babylon.js_Advanced_Features", "destination": "/guidedLearning/videos/bjsAdvancedFeatures" },
         { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" }
     ]
 }
