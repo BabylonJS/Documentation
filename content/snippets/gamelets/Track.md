@@ -403,7 +403,7 @@ For this roller coaster only the lean angle is used for the carriage and the pas
 In this playground paths created either side of the track are used to build tubes and the same track carriage rotational data used to place sleepers underneath the rails.
 
 PG: <Playground id="#SQFG0Q#5" title="Roller Coaster Overview" description="." image=""/>
-PG: <Playground id="" title="#SQFG0Q#6" description="Passenger View From Roller Coaster" image=""/>
+PG: <Playground id="#SQFG0Q#6" title="Roller Coaster Passenger View" description="Passenger View From Roller Coaster" image=""/>
 
 ```javascript
 for (var i = 0; i < points.length; i+=5) {
