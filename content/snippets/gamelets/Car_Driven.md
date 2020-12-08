@@ -22,9 +22,6 @@ The car will be created with the origin in the middle of the centres of the two 
 The ground will be covered in random boxes to give the illusion of movement. For simplicty it will be possible to drive off the ground with 
 no consequences other than perhaps the loss of the sense of motion. 
 
-
-PG: <Playground id="" title="A Basic Car" description="Building the car." image=""/>
-
 ## Steering
 
 The steering will be based on a simplified Ackerman steering system. In the true Ackerman system when turning 

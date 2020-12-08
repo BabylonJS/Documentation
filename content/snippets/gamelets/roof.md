@@ -99,7 +99,7 @@ In the example the roof mesh is built using
 var roofSection = roof(wholeRoofprint, apexes, planes, 2, height, 5.6);
 ```
 
-PG: <Playground id="" title="" description="." image=""/> Example Roof](https://www.babylonjs-playground.com/#1Z71FW#42)
+PG: <Playground id="#1Z71FW#42" title="Simple Roof Plan Example" description="." image=""/>
 
 ## Design Roof In Sections
 

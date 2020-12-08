@@ -116,7 +116,7 @@ Should a sphere be moving at right angles to a wall a distance 8r units from the
 
 The following Playground shows spheres all starting from a distance of 8r units from two walls, all moving at right angles to the walls with speeds ranging from 20r to 12r units.
 
-PG: <Playground id="" title="Strobing Effect" description="Shows the effect of position, radius and speed." image=""/>
+PG: <Playground id="#1LOEWK#2" title="Strobing Effect" description="Shows the effect of position, radius and speed." image=""/>
 
 ## Conclusion
 
