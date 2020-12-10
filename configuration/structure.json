@@ -890,6 +890,18 @@
                     },
                     "content": "extensions/Viewer/The_Babylon_Viewer"
                 },
+                "babylonCMSIntegration": {
+                    "friendlyName": "Babylon.js CMS Integration",
+                    "children": {
+                        "wordPress": {
+                            "friendlyName": "Babylon.js WordPress Integration",
+                            "children": {
+                            },
+                            "content": "landing_pages/extensions_wordpress"
+                        }
+                    },
+                    "content": "landing_pages/extensions_CMS_landingpage"
+                },
                 "castorGUI": {
                     "friendlyName": "Castor GUI",
                     "children": {
