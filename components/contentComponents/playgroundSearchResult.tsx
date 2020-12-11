@@ -90,7 +90,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
     });
 
     const { code } = JSON.parse(searchResult.jsonPayload);
-    const codeLines: Array<string> = code.split("\n");
+    const codeLines: Array<string> = (code || '').split("\n");
     let startingLine = 0;
     let foundLine = -1;
     const lowerTerm = term.toLowerCase();
