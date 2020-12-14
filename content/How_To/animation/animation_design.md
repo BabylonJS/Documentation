@@ -66,7 +66,7 @@ box.animations.push(xSlide);
 The _performance_ (*Animatable*) is started with
 
 ```javascript
-scene.beginAnimation(box, [xSlide], 0, 2 * frameRate, true);
+scene.beginAnimation(box, 0, 2 * frameRate, true);
 ```
 
 You can see the result here  
