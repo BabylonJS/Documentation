@@ -64,6 +64,8 @@ The default list of visual tests is configured in the file **tests/validation/co
 
 However, other lists can be created: you simply need to create .json file(s) in the **tests/validation/** directory. For eg **tests/validation/webgpu.json**, which is a list used during the webgpu implementation.
 
+The reference pictures used by the validation tests of the list must be located in a directory named after the list itself. So, if you have created a list `mylist.json`, you should create a directory `mylist/` under `tests/validation/ReferenceImages/` and put the reference pictures there.
+
 ## Running tests
 
 The url to use to start the tests from a validation list is [http://localhost:1338/tests/validation](http://localhost:1338/tests/validation): it will run the tests from the default list (`config.json`).
