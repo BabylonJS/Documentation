@@ -19,9 +19,9 @@
 <url><loc>https://doc.babylonjs.com/advanced_topics</loc><lastmod>2020-11-11T09:04:50.774Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/advanced_animations</loc><lastmod>2020-11-20T18:23:34.352Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/animatedCharacter</loc><lastmod>2020-11-20T18:23:34.351Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_design</loc><lastmod>2020-11-09T13:26:32.247Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_design</loc><lastmod>2020-12-15T18:43:26.775Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_introduction</loc><lastmod>2020-11-09T13:26:32.248Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_method</loc><lastmod>2020-11-09T13:26:32.248Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_method</loc><lastmod>2020-12-15T18:43:26.776Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/combineAnimations</loc><lastmod>2020-11-09T13:26:32.244Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/groupAnimations</loc><lastmod>2020-11-12T06:56:33.569Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/render_frame_animation</loc><lastmod>2020-11-20T18:23:34.354Z</lastmod></url>
@@ -50,7 +50,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs</loc><lastmod>2020-11-23T12:32:15.719Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/forum</loc><lastmod>2020-11-20T18:23:34.427Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/frameworkVers</loc><lastmod>2020-11-09T13:26:32.353Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart/validationTests</loc><lastmod>2020-11-27T09:41:34.908Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart/validationTests</loc><lastmod>2020-12-15T18:43:26.777Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart</loc><lastmod>2020-11-27T09:41:34.906Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/matForMatLibrary</loc><lastmod>2020-11-09T13:26:32.258Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/npmSupport</loc><lastmod>2020-11-18T11:19:32.330Z</lastmod></url>
@@ -353,7 +353,7 @@
 <url><loc>https://doc.babylonjs.com/extensions/Unity/Projects</loc><lastmod>2020-11-12T13:34:43.302Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Unity</loc><lastmod>2020-11-12T13:34:43.280Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/amp360Video</loc><lastmod>2020-11-12T11:53:54.862Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/extensions/babylonCMSIntegration/wordPress</loc><lastmod>2020-12-11T14:34:06.559Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/extensions/babylonCMSIntegration/wordPress</loc><lastmod>2020-12-15T18:43:26.779Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonCMSIntegration</loc><lastmod>2020-12-11T14:34:06.558Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer/advancedViewerUsage</loc><lastmod>2020-11-12T17:15:54.976Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer/configuringViewer</loc><lastmod>2020-11-20T18:23:34.400Z</lastmod></url>
