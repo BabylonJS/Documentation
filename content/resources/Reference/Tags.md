@@ -1,6 +1,6 @@
 ---
 title: Tags
-image: 
+image:
 description: Learn all about tags in Babylon.js.
 keywords: babylon.js, diving deeper, tags
 further-reading:
@@ -14,13 +14,13 @@ Tag? You may already have heard or read this word before. Let's see some generic
 
 ### Tags are used:
 
-- as an index term assigned to a piece of information
-- to pass parameters to subroutines
-- as components of the HTML markup language
-- as labels for specific revisions of a project
-- as unique identifiers in URI
-- as links to other Facebook pages
-...
+-   as an index term assigned to a piece of information
+-   to pass parameters to subroutines
+-   as components of the HTML markup language
+-   as labels for specific revisions of a project
+-   as unique identifiers in URI
+-   as links to other Facebook pages
+    ...
 
 (from [Wikipedia](http://en.wikipedia.org/wiki/Tag))
 
@@ -40,9 +40,9 @@ Because CSS classes are great and Tags in Babylon.js can be considered similar, 
 
 CSS stands for Cascading Style Sheets. It's used to define how to display HTML elements.
 
-CSS classes are added to HTML elements (by writing them directly in the HTML code or by adding them via javascript) as a value of the ```class``` attribute of the corresponding HTML elements.
+CSS classes are added to HTML elements (by writing them directly in the HTML code or by adding them via javascript) as a value of the `class` attribute of the corresponding HTML elements.
 
-HTML elements can have several CSS classes in their ```class``` attribute and the same CSS class can be used on different HTML elements. CSS classes, just like tags on forums, can then be used to categorize HTML elements. Thus, a same style (background, font, color...) can easily be applied to a group of HTML elements identified by a CSS class (or a list of CSS classes).
+HTML elements can have several CSS classes in their `class` attribute and the same CSS class can be used on different HTML elements. CSS classes, just like tags on forums, can then be used to categorize HTML elements. Thus, a same style (background, font, color...) can easily be applied to a group of HTML elements identified by a CSS class (or a list of CSS classes).
 
 _Style for all HTML elements of the page having the "center" class on them (to find elements with a specific class, write a period character, followed by the name of the class)_
 
@@ -72,7 +72,7 @@ There was a [discussion](https://www.html5gamedevs.com/topic/4961-user-data-in-m
 
 ### Pure javascript
 
-The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The ```Tag``` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/src/Misc/tags.ts)) and internally uses the ```AndOrNotEvaluator``` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.andOrNotEvaluator.ts)).
+The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The `Tag` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/src/Misc/tags.ts)) and internally uses the `AndOrNotEvaluator` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/Babylon/Tools/babylon.andOrNotEvaluator.ts)).
 
 The use of tags for a javascript object can be enabled/disabled like this (javascript code):
 
@@ -85,22 +85,23 @@ BABYLON.Tags.EnableFor(myJSObj);
 BABYLON.Tags.DisableFor(myJSObj);
 ```
 
-```EnableFor``` adds functions to the javascript object in the aim to:
-*  test if it has tags ```hasTags```
-*  add tags to it ```addTags```
-*  remove tags from it ```removesTags```
-*  test if it matches a tags query ```matchesTagsQuery``` (see below)
+`EnableFor` adds functions to the javascript object in the aim to:
 
-Those functions are proxies of static methods of ```Tags``` (```HasTags```, ```AddTagsTo```, ```RemoveTagsFrom``` and ```MatchesQuery```).
+-   test if it has tags `hasTags`
+-   add tags to it `addTags`
+-   remove tags from it `removesTags`
+-   test if it matches a tags query `matchesTagsQuery` (see below)
 
-```Tags``` also contains ```GetTags``` which retrieves the array of tags of the javascript object.
+Those functions are proxies of static methods of `Tags` (`HasTags`, `AddTagsTo`, `RemoveTagsFrom` and `MatchesQuery`).
+
+`Tags` also contains `GetTags` which retrieves the array of tags of the javascript object.
 
 Remark: Tags.AddTagsTo enables tags for the object if needed
 
 ```javascript
 var myJSObj1 = {};
 // enable tags for myJSObj1
-BABYLON.Tags.EnableFor(myJSObj);// => addTags is available on myJSObj1
+BABYLON.Tags.EnableFor(myJSObj); // => addTags is available on myJSObj1
 // add tags to myJSObj1
 myJSObj1.addTags("tag1 tag2"); // same as BABYLON.Tags.AddTagsTo(myJSObj1, "tag1 tag2"),
 
@@ -111,7 +112,7 @@ BABYLON.Tags.AddTagsTo(myJSObj2, "tag1 tag2"); // addTags couldn't be used on my
 
 Tags query:
 
-```Tags.MatchesQuery``` (and ```matchesTagsQuery``` if tags are enabled for the javascript object) accepts a list of correct tags (see "Rules to respect") containing parenthesis, and boolean evaluators such as ```(tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5```. The tags query is evaluated thanks to ```AndOrNotEvaluator```.
+`Tags.MatchesQuery` (and `matchesTagsQuery` if tags are enabled for the javascript object) accepts a list of correct tags (see "Rules to respect") containing parenthesis, and boolean evaluators such as `(tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5`. The tags query is evaluated thanks to `AndOrNotEvaluator`.
 
 Full example:
 
@@ -171,9 +172,9 @@ BABYLON.Tags.MatchesQuery(myJSObj4); // true
 
 ### Rules to respect
 
-* the tags "true" and "false" are reserved and cannot be used as tags.
-* a tag cannot start with "||", "&&", or '!'
-* a tag cannot contain whitespaces
+-   the tags "true" and "false" are reserved and cannot be used as tags.
+-   a tag cannot start with "||", "&&", or '!'
+-   a tag cannot contain whitespaces
 
 ### Use in babylon.js
 
@@ -200,7 +201,7 @@ or make some green ghosts appear when you want:
 ```javascript
 var ghosts = myScene.getMeshesByTags("ghost && green");
 
-for(var index=0; index < ghosts.length; index++) {
-    ghosts[index].isVisible = true;
+for (var index = 0; index < ghosts.length; index++) {
+    ghosts[index].isVisible = true;
 }
 ```

@@ -20,15 +20,27 @@ To replicate this movement, we have to do 3 simple steps:
 
 **1 - Define and apply gravity**
 
-The first thing to do is to define our gravity vector, defining the G-force. In a classic world such as Earth, the direction of the force of gravity is down (negative) along the Y axis, but feel free to change it!
+The first thing to do is to define our gravity vector, defining the G-force.
+
+In the real world, gravity is a _force_ (ok, sort of) that is exerted downward -- _i.e._, in the negative direction along the Y axis. On Earth, this force is roughly 9.81m/s². Falling bodies *accelerate* as they fall, so it takes 1 second to fully reach this rate, then the velocity is 19.62m/s after 2 seconds, 29.43m/s after 3 seconds, etc. Eventually, wind drag matches this value and the body no longer continues so increase in velocity.
+
+BabylonJS has a `scene.gravity` vector that can be applied to any camera you've previously defined in your code. This follows a much simpler gravitational model, however -- it represents a *constant velocity*, not a force of acceleration, and it is measured in *units/frame* rather than *meters/second*. As each frame is rendered, the cameras you apply this gravity to will *move* by the vector's value in the `x`, `y`, and `z` direction, until they collide with a mesh with `checkCollisions=true` (such as your ground mesh).
+
+While BabylonJS units have no direct physical equivalent, with the default camera field of view, an approximation of 1 unit = 1 meter is a fairly standard assumption. So, if you want to approximate nominal Earth gravity, you'll need to make some assumptions about the number of frames being rendered per second, and compute a suitable vector:
+
 ```javascript
-scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+const assumedFramesPerSecond = 60;
+const earthGravity = -9.81;
+scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0);
 ```
- 
-Gravity can be applied to any camera that you have defined previously in your code.
-```javascript 
+
+```javascript
 camera.applyGravity = true; 
 ```
+
+Since this is computed once per frame, the camera isn't actually "moving," it is making tiny "hops" based on that gravity vector. This may be important if you are relying on collision detection to determine if the camera (or, rather, a mesh attached to it for that purpose) has "entered" or "exited" some other mesh (for example, a plane under your "ground" layer to sense a falling character and reset the game play). Depending on your chosen gravity, the starting elevation, and the position and height of the "trigger" mesh, the camera may jump *right through* the trigger mesh without ever "intersecting" it. Be sure to check the math to ensure that at least one multiple of `scene.gravity` added to the starting elevation will intersect your trigger mesh.
+
+If you need a more accurate representation of gravitational (or other) forces, you can add your own physics engine. See [Add Your Own Physics Engine](/divingDeeper/physics/addPhysicsEngine).
 
 **2 - Define an ellipsoid**
 
