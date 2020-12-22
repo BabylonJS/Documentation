@@ -2,12 +2,12 @@
 title: Contribute To The Documentation
 image:
 description: Learn how to contribute to the Babylon.js Documentation.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develope
+keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
-    - title: Improve API Documentation
-      url: /divingDeeper/developWithBjs/contributeToAPI
-    - title: Mastering Markdown
-      url: https://guides.github.com/features/mastering-markdown/
+  - title: Improve API Documentation
+    url: /divingDeeper/developWithBjs/contributeToAPI
+  - title: Mastering Markdown
+    url: https://guides.github.com/features/mastering-markdown/
 video-overview:
 video-content:
 ---
@@ -50,15 +50,15 @@ Do not hesitate to read the [Good Practice](/divingDeeper/developWithBjs/contrib
 
 ## Deeper Changes
 
-Sometimes, quick edits like above are not sufficient. Indeed, you might want to run the documentation locally on your computer before pushing online, just to be sure nothing is broken.
+Sometimes, quick edits like described above are not sufficient. Indeed, you might want to run the documentation locally on your computer before pushing online, just to be sure nothing is broken.
 
 Requirements:
 
--   a [Github](https://github.com) account
--   [git](https://www.git-scm.com/downloads)
--   [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
--   [node.js](https://nodejs.org/en/), we support node 12 and up.
--   [yarn](https://yarnpkg.com/getting-started/install)
+- a [Github](https://github.com) account
+- [git](https://www.git-scm.com/downloads)
+- [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
+- [node.js](https://nodejs.org/en/), we support node 12 and up.
+- [yarn](https://yarnpkg.com/getting-started/install)
 
 ### Forking
 
@@ -68,23 +68,23 @@ Start by going to the main BabylonJS [Documentation](https://github.com/BabylonJ
 
 This will make a copy of the repository, but on your account.
 
-Click on _Clone or download_ button, and _Open in Desktop_:
+Click on the _Clone or download_ button, and _Open in Desktop_:
 
 ![open locally](/img/contribute/documentation/further-open-desktop.png)
 
 Github Desktop will be opened and ask you where you want to save your fork.
 
-When the files are downloaded, open a command in this repo. It can be done quickly using Github Desktop menu:
+When the files are downloaded, open a terminal/command prompt in this repo. It can be done quickly using the Github Desktop menu:
 
 ![powershell](/img/contribute/documentation/further-powershell.png)
 
 (_you may have_ Open in Command _rather than_ Open in PowerShell _, that's not a big deal_)
 
-You need 'yarn' installed. For further information about yarn you can go to the [yarn installation guide](https://yarnpkg.com/getting-started/install).
+You need 'yarn' installed. For further information about yarn, you can go to the [yarn installation guide](https://yarnpkg.com/getting-started/install).
 
-After installing yarn type `yarn install`, press enter and wait the operation to be done.
+After installing yarn, type `yarn install`, press <kbd>enter</kbd>, and wait for the operation to finish.
 
-This fork operation has to be done only once. You're now able to run locally the documentation by following the next section.
+This fork operation only has to be done once. You're now able to run locally the documentation by following the next section.
 
 ### Running and editing the doc locally
 
@@ -100,7 +100,7 @@ Open the project using your favorite code editor. This can be done also from Git
 
 (_you may have_ Open in Atom _rather than_ Open in Visual Studio _, that's not a big deal_)
 
-You can finally starting to update the markdown files!
+You can finally start to update the markdown files!
 
 ![visual studio](/img/contribute/documentation/further-editing.png)
 
@@ -120,7 +120,7 @@ Then, on your markdown page, use this link pattern:
 ![quick description (for accessibility)](/img/divingDeeper/my_very_great_page/my-wonderful-image.jpg)
 ```
 
-Of course, try to keep image size as low as you can (while keeping a good visual quality). Our build system will do its best to optimize the image nonetheless.
+Of course, try to keep the image size as small as you can (while keeping a good visual quality). Our build system will do its best to optimize the image nonetheless.
 
 ### Adding new pages
 
@@ -155,14 +155,18 @@ For example, let's say we want to add this page. We know that our new page will 
             }
     }
     /* [...] */
-    }
+}
 ```
 
 Just add necessary information about your new page:
 
 ```javascript
 /* [...] */
-"documentKeyAndUrl": { "friendlyName": "A friendly title to your document", "children": {/* if any, children will contain the rest of the documents */}, "content": "the markdown file that correlates to this document." },
+"documentKeyAndUrl": {
+  "friendlyName": "A friendly title to your document",
+  "children": {/* if any, children will contain the rest of the documents */},
+  "content": "the markdown file that correlates to this document."
+},
 /* [...] */
 ```
 
@@ -198,36 +202,36 @@ image: /img/pageImages/nodeMaterial.jpg
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
-    - title: Dedicated NME Forum Examples
-      url: https://forum.babylonjs.com/t/node-materials-examples/6048
-    - title: 3 Tips For Getting Started Building Procedural Node Material Shaders
-      url: https://babylonjs.medium.com/procedural-node-material-shaders-3-tips-for-getting-started-4089c1832dfc
-    - title: Mesh shattering with baked physics
-      url: https://babylonjs.medium.com/mesh-shattering-with-baked-physics-5b3f8f381743
-    - title: Fighting Self-Doubt, with Water
+  - title: Dedicated NME Forum Examples
+    url: https://forum.babylonjs.com/t/node-materials-examples/6048
+  - title: 3 Tips For Getting Started Building Procedural Node Material Shaders
+    url: https://babylonjs.medium.com/procedural-node-material-shaders-3-tips-for-getting-started-4089c1832dfc
+  - title: Mesh shattering with baked physics
+    url: https://babylonjs.medium.com/mesh-shattering-with-baked-physics-5b3f8f381743
+  - title: Fighting Self-Doubt, with Water
 video-content:
-    - title: Node-Based Procedural Textures
-      url: https://youtu.be/qqMuuSM7GvI
-    - title: Creating Procedural Node Materials Through Code
-      url: https://youtu.be/GrmVObi6caQ
-    - title: Node Material Post Processes
-      url: https://youtu.be/QTuL5raapQQ
-    - title: Node Material Editor Particles!!!!
-      url: https://youtu.be/fZvZMXDoVp4
-    - title: Interactive Hex Tile Series
-      url: https://www.youtube.com/playlist?list=PLsaE__vWcRamMC5oJwhrSj3x3jT9TWOPB
-    - title: Unraveling Advanced Anisotropic Reflections
+  - title: Node-Based Procedural Textures
+    url: https://youtu.be/qqMuuSM7GvI
+  - title: Creating Procedural Node Materials Through Code
+    url: https://youtu.be/GrmVObi6caQ
+  - title: Node Material Post Processes
+    url: https://youtu.be/QTuL5raapQQ
+  - title: Node Material Editor Particles!!!!
+    url: https://youtu.be/fZvZMXDoVp4
+  - title: Interactive Hex Tile Series
+    url: https://www.youtube.com/playlist?list=PLsaE__vWcRamMC5oJwhrSj3x3jT9TWOPB
+  - title: Unraveling Advanced Anisotropic Reflections
 ---
 
 ```
 
 Everything in the metadata is optional and has a different value. However, it is always better to add as much information as possible. This will help people find and use the page. And this is the goal here!
 
-The image provided will be used when sharing this link on sites supporting open graph, such as facebook, medium, twitter and so on. The default image is the babylon logo.
+The image provided will be used when sharing this link on sites supporting open graph, such as Facebook, Medium, Twitter, and so on. The default image is the Babylon.js logo.
 
 #### Internal links
 
-To link to an internal document, use its path from root without adding the domain. For example:
+To link to an internal document, use its path from the root without adding the domain. For example:
 
 ```markdown
 [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
@@ -235,7 +239,7 @@ To link to an internal document, use its path from root without adding the domai
 
 ### Adding examples
 
-It is always great to provide examples in your documentation page. You can add playgrounds and NME, and they will be added automatically to the page's side menu, if you use the right markdown.
+It is always great to provide examples in your documentation page. By using the correct markdown, you can add playgrounds and NME, and they will be added automatically to the page's side menu.
 
 To add a playground, add the following code:
 
@@ -243,9 +247,9 @@ To add a playground, add the following code:
 <Playground id="playgroundId" title="Playground title" description="A short description" image="Optional image url" />
 ```
 
-The playground ID is the 6-chars id and the version number, if needed. For example: `#Y642I8#2`.
+The playground ID is the 6-character id, and the version number if needed. For example: `#Y642I8#2`.
 
-Same thing does to NME examples:
+The same applies to NME examples:
 
 ```html
 <nme id="nmeId" title="NME title" description="A short description" />
@@ -260,7 +264,7 @@ An image will be generated for each playground without an image, so don't worry 
 To add a youtube link, use the youtube markdown tag:
 
 ```html
-<Youtube id="qqMuuSM7GvI"/>
+<Youtube id="qqMuuSM7GvI" />
 ```
 
 To add an image, you can use the markdown annotation:
@@ -272,7 +276,7 @@ To add an image, you can use the markdown annotation:
 but you can also use the more advanced `<img/>` tag, that has more control over formatting, size and so on. As always, everything is optional, but very nice to have:
 
 ```html
-<img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image"/>
+<img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image" />
 ```
 
 ### Sending pull request
@@ -287,17 +291,17 @@ Add an explicit summary into the required field, and click to _Commit to master_
 
 ![pushing](/img/contribute/documentation/further-pushing.png)
 
-Then, click on _Push origin_ button:
+Then, click the _Push origin_ button:
 
 ![push](/img/contribute/documentation/further-push.png)
 
-And go to your online github repo. You can use Github Desktop for that:
+And go to your online Github repo. You can use Github Desktop for that:
 
 ![github](/img/contribute/documentation/further-github.png)
 
 For now, your fork is updated online, having your last modifications.
 
-Click on _New pull request_ button:
+Click the _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 
@@ -309,34 +313,35 @@ Congratulation again, you're now a documentation master!
 
 ### General
 
--   if you're not familiar with markdown, you can read this short [Github guide](https://guides.github.com/features/mastering-markdown/)
--   even if you're seeing just a tiny typo, feel free to do a pull request dedicated to it
--   do one commit per tasks, a pull request can take into account multiple commits if needed
-    -   example: if you have two pages to modify, once the first page is edited, do a commit
--   tables can be a great help for readability
--   avoid the use of first person
--   pay attention to spelling, grammar and punctuation
--   when you're not sure about a point, ask for proof-reading
+- if you're not familiar with markdown, you can read this short [Github guide](https://guides.github.com/features/mastering-markdown/)
+- even if you're seeing just a tiny typo, feel free to do a pull request dedicated to it
+- do one commit per tasks, a pull request can take into account multiple commits if needed
+  - example: if you have two pages to modify, once the first page is edited, do a commit
+- tables can be a great help for readability
+- avoid the use of first person
+- pay attention to spelling, grammar, and punctuation
+- when you're not sure about a point, ask for proof-reading
 
 ### Images
 
--   use and store images from the documentation FTP as much as possible, read [Adding new images](/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
--   be careful about image size (tip: Photoshop has a "Save for the web" export)
+- use and store images from the documentation FTP as much as possible, read [Adding new images](/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
+- be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code
 
--   when showing a JavaScript block of code, inform Markdown that it's JavaScript to ensure syntax highlighting:
+- when showing a block of JavaScript or TypeScript, include the language name after the code block starting ticks to ensure syntax highlighting:
 
 ![markdown code](/img/contribute/documentation/markdown-code.png)
 
--   when quoting a property in a sentence, you can use single _\`_ char (Alt + numpad 96)
-    -   example: You can set the `roughness` of a PBR material to 1.
+- when quoting a property in a sentence, you can use single _\`_ char (<kbd>Alt</kbd> + numpad <kbd>96</kbd>)
+  - example: You can set the `roughness` of a PBR material to 1.
 
 ### Links
 
--   use relative links
-    -   example: `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` instead of `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)`
+For links to other parts of the Babylon.js documentation and API, use relative links.
+
+For example, use `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs)`
 
 ## Further Reading
 
-Any articles, urls, docs, links that you'd like the reader to have as reference for a doc page, should go into the further reading section of the metadata at the top of each page.
+Any articles, URLs, documents, and links that you'd like the reader to have as a reference on the page should go into the "further reading" metadata section at the top of the page.
