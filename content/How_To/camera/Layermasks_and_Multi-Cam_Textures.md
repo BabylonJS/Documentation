@@ -1,6 +1,6 @@
 ---
 title: Layer Masks and Multi-Cam Textures
-image: 
+image:
 description: Learn how to assign different objects to different layer masks.
 keywords: welcome, babylon.js, diving deeper, layer masks, multi-cam
 further-reading:
@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-# How To Use Layermasks and Multi-Camera Textures
+# How to use Layer Masks and Multi-Camera Textures
 
-## Different meshes for multiple cameras using Layermasks
+## Different meshes for multiple cameras using layer masks
 
 A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera.
 
@@ -58,7 +58,7 @@ var light = new BABYLON.Light(...);
 light.includeOnlyWithLayerMask = 0x10000000;
 ```
 
-Finally, if there may be more lights generated later, you can register a call-back whenever a light is added:
+Finally, if there may be more lights generated later, you can register a call-back when a light is added:
 
 ```javascript
 scene.onNewLightAdded = onNewLight;
@@ -67,27 +67,23 @@ scene.onNewLightAdded = onNewLight;
 This could be:
 
 ```javascript
-onNewLight = function(newLight, positionInArray, scene) {
+onNewLight = function (newLight, positionInArray, scene) {
   newLight.excludeWithLayerMask = 0x10000000;
 };
 ```
 
 ## Gun Sight Crosshair Example
 
-Here is a simple example of using a 2nd orthographic camera which shows a gun sight. To keep it simple, emissive material was used to avoid lighting it. Just copy and paste it into any scene, then call it. The `layerMask` chosen also allows Babylon's Dialog extension to inter-operate. Perhaps these could be combined to do a heads-up tank sight with range finder.
+Here is a simple example of using a 2nd orthographic camera that shows a gun sight. To keep it simple, emissive material was used to avoid lighting it. Just copy and paste it into any scene, then call it. The `layerMask` chosen also allows Babylon's Dialog extension to inter-operate. Perhaps these could be combined to do a heads-up tank sight with a rangefinder.
 
-A commercial quality implementation would probably not use `CreateBox()`, since it creates depth faces that cannot be seen straight-on anyway. It should also take into account a window size change, unless it is a tablet app.
+A commercial-quality implementation would probably not use `CreateBox()`, since it creates depth faces that cannot be seen straight-on anyway. It should also take into account a window size change unless it is a tablet app.
 
 ```javascript
 function addGunSight(scene) {
   if (scene.activeCameras.length === 0) {
     scene.activeCameras.push(scene.activeCamera);
   }
-  var secondCamera = new BABYLON.FreeCamera(
-    "GunSightCamera",
-    new BABYLON.Vector3(0, 0, -50),
-    scene
-  );
+  var secondCamera = new BABYLON.FreeCamera("GunSightCamera", new BABYLON.Vector3(0, 0, -50), scene);
   secondCamera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
   secondCamera.layerMask = 0x20000000;
   scene.activeCameras.push(secondCamera);
@@ -139,8 +135,8 @@ function addGunSight(scene) {
 }
 ```
 
-See it in action here: <Playground id="#JU1DZP" title="Gun Sight Crosshair Example" description="A simple example of creating a gun sight crosshair using layermasks and two cameras." image="/img/playgroundsAndNMEs/divingDeeperLayerMasks1.jpg"/>
+See it in action here: <Playground id="#JU1DZP" title="Gun Sight Crosshair Example" description="A simple example of creating a gun sight crosshair using layer masks and two cameras." image="/img/playgroundsAndNMEs/divingDeeperLayerMasks1.jpg"/>
 
 Using the information here and combining it with the viewport information from the previous [section](/divingDeeper/cameras/multiViewsPart2), we can create a more complex example that includes the option to omit meshes from specific cameras.
 
-- <Playground id="#L92PHY#36" title="Picture in Picture Visual Camera" description="Using layer masks and viewports, show a visual representation of camera movement." image="/img/playgroundsAndNMEs/pipcamera.png"/>
+<Playground id="#L92PHY#36" title="Picture in Picture Visual Camera" description="Using layer masks and viewports, show a visual representation of camera movement." image="/img/playgroundsAndNMEs/pipcamera.png"/>
