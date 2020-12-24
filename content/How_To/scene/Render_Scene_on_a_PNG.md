@@ -201,3 +201,21 @@ BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200, function(da
 you obtain
 
 ![Box with sky texture and sky](/img/how_to/scene/bx2.png)
+
+## Specific resolution with CreateScreenshot
+
+You may end up having to use `BABYLON.Tools.CreateScreenshot` because you may need to capture advanced effets (that are not captured by the RTT version), In this case, if you want to get a specific resolution you can use the following code (please note the direct use of the `ScreenshotTools` class):
+
+Example:
+```
+var currentCanvasSizeWidth = canvas.style.width;
+var currentCanvasSizeHeight = canvas.style.height;
+activeCanvas.style.width = renderWidth + "px";
+activeCanvas.style.height = renderHeight + "px";
+engine.resize(true);
+BABYLON.ScreenshotTools.CreateScreenshotWithResizeAsync(engine, scene.activeCamera, renderWidth, renderHeight).then(() => {
+    canvas.style.width = currentCanvasSizeWidth;
+    canvas.style.height = currentCanvasSizeHeight;
+    engine.resize(true);                        
+});
+```

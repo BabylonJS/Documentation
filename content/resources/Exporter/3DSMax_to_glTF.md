@@ -220,7 +220,7 @@ Most babylon properties are not used when exporting to glTF format. The only one
 ## Lights
 
 Lights are not supported in glTF 2.0. An empty node is exported in place of light only when it is relevant to do so (when a light has a mesh or a camera as descendant).  
-There is a glTF lights extension, (https://github.com/KhronosGroup/glTF/pull/1223)[KHR_lights_punctual] that is in the process of ratification, so should be considered experimental.  It can be enabled by turning on the KHR_lights_punctual extension checkbox.
+There is a glTF lights extension, [KHR_lights_punctual](https://github.com/KhronosGroup/glTF/pull/1223) that is in the process of ratification, so should be considered experimental.  It can be enabled by turning on the KHR_lights_punctual extension checkbox.
 
 ## Left to right handed coordinate system
 

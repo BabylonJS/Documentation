@@ -8,11 +8,19 @@ video-overview:
 video-content:
 ---
 
-Please note that the Babylon.js Editor is a community project maintained mostly by Julien Moreau. V3 of the editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
+Please note that the Babylon.js Editor is a community project maintained mostly by Julien Moreau.
+
+## Babylon.JS Editor v4.0 now available
+**The Babylon.JS Editor v4.0 is available and is open to beta-tests. The Editor v4.0 can be downloaded here: http://editor.babylonjs.com/**
+
+For new projects, it is highly recommanded to start using the version 4.0 of the Editor as it comes with more powerful tools to help Babylon.JS developers & artists to create awesome 3D games / applications.
+
+## Babylon.JS Editor v3
+V3 of the editor is now available and comes with new features from the V2. Such as multiple scene managements, improved tools and new tools.
 
 It is highly recommended that you use the desktop app as you'll get access to the local file system to save your projects.
 
-## Available features
+### Available features
 * Create, edit and save particle systems
 * Create, edit and save particle system sets
 * Create and edit animations

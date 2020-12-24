@@ -27,7 +27,6 @@ export default class MyDocument extends Document {
                     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
                     <link rel="stylesheet" href="//use.typekit.net/cta4xsb.css" />
                     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 </Head>
                 <body>
                     <Main />

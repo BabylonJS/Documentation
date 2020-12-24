@@ -247,7 +247,7 @@ rope.physicsImpostor.velocityIterations = 20;
 rope.physicsImpostor.positionIterations = 20;
 rope.physicsImpostor.stiffness = 1;
 ```
-<Playground id="#8WC6ZN#2" title="Extruded Rope With Fixed Ends" description="Simple example of an extruded rope with fixed ends." image=""/>
+<Playground id="#8WC6ZN#122" title="Extruded Rope With Fixed Ends" description="Simple example of an extruded rope with fixed ends." image=""/>
 
 In the following playground remember that the extruded shape does not have an impostor, that it lies on the surface of the box is because the margin for the rope is set to the radius of the extruded shape.
 <Playground id="#8WC6ZN#3" title="Extruded Rope With Fixed Ends Over Soft Box" description="Simple example of an extruded rope with fixed ends over a soft box." image=""/>
@@ -279,4 +279,4 @@ rope.physicsImpostor.addHook(ball.physicsImpostor, 1, 1);
 
 <Playground id="#8WC6ZN#4" title="Winging Ball (Lines Mesh)" description="Simple example of a swinging ball using a lines mesh." image=""/>
 
-<Playground id="#8WC6ZN#5" title="Swinging Ball (Extruded Mesh)" description="Simple example of a swinging ball using an extruded shape mesh." image=""/>
+<Playground id="#8WC6ZN#121" title="Swinging Ball (Extruded Mesh)" description="Simple example of a swinging ball using an extruded shape mesh." image=""/>

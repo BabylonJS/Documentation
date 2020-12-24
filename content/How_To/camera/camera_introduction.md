@@ -1,45 +1,45 @@
 ---
 title: Camera Introduction
-image: 
+image:
 description: Introduction to the different camera types in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, cameras, intro
 further-reading:
-    - title: Cameras Overview
-      url: /divingDeeper/cameras
+  - title: Cameras Overview
+    url: /divingDeeper/cameras
 video-overview:
 video-content:
 ---
 
 ## Cameras
 
-Of the many cameras available in Babylon.js the two most used are probably - the Universal Camera used for First Person Movement and the Arc Rotate Camera which is an orbital camera. Though with the advent of WebVR this may change.
+Of the many cameras available in Babylon.js, the two most used are probably the [Universal Camera](/typedoc/classes/babylon.universalcamera), used for "first-person" movement, [ArcRotateCamera](/typedoc/classes/babylon.arcrotatecamera), an orbital camera, and [WebXRCamera](/typedoc/classes/babylon.webxrcamera), used for modern virtual reality experiences.
 
-For input control by the user all cameras need to be attached to the canvas once constructed using
+For allow user input, a camera must be attached to the canvas using:
 
 ```javascript
 camera.attachControl(canvas, true);
 ```
-The second parameter is optional and defaults to **false**. When **false** then default actions on a canvas event are prevented. Set to true to allow canvas default actions.
 
-**Notes**
+The second parameter is optional and defaults to `false`, which prevents default actions on a canvas event. Set to `true` to allow canvas default actions.
 
-1. A [Gamepad](/divingDeeper/input/gamepads) may be used a controller.
-2. For touch control either [PEP](https://github.com/jquery/PEP) or [hand.js](https://github.com/Deltakosh/handjs) is needed.
+### Notes
+
+1. A [Gamepad](/divingDeeper/input/gamepads) may be used as a controller.
+2. For touch control, either [PEP](https://github.com/jquery/PEP) or [hand.js](https://github.com/Deltakosh/handjs) is needed.
 
 ## Universal Camera
 
-This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch or [gamepad](/divingDeeper/input/gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/typedoc/classes/babylon.freecamera), the [Touch Camera](/typedoc/classes/babylon.touchcamera) and the [Gamepad Camera](/typedoc/classes/babylon.gamepadcamera) which are all still available.
+This was introduced with version 2.3 of Babylon.js and is controlled by the keyboard, mouse, touch, or [gamepad](/divingDeeper/input/gamepads) depending on the input device used, with no need for the controller to be specified. This extends and replaces the [Free Camera](/typedoc/classes/babylon.freecamera), the [Touch Camera](/typedoc/classes/babylon.touchcamera) and the [Gamepad Camera](/typedoc/classes/babylon.gamepadcamera), which are all still available.
 
-The Universal Camera is now the default camera used by Babylon.js if nothing is specified, and it’s your best choice if you’d like to have a FPS-like control in your scene.
-All demos on babylonjs.com are based upon that feature. Plug a Xbox controller into your PC and using it you’ll still be able to navigate most of the demos.
+The Universal Camera is now the default camera used by Babylon.js, and it’s your best choice if you’d like to have an FPS-like control in your scene. All demos on [babylonjs.com](babylonjs.com) are based upon that feature. Plug an Xbox controller into your PC and using it you’ll still be able to navigate most of the demos.
 
 The default actions are:
 
-1. Keyboard - The left and right arrows move the camera left and right, and up and down arrows move it forwards and backwards;
+1. Keyboard - The left and right arrow keys move the camera left and right, and the up and down arrow keys move it forwards and backward;
 
 2. Mouse - Rotates the camera about the axes with the camera as origin;
 
-3. Touch - Swipe left and right to move camera left and right, and swipe up and down to move it forward and backwards;
+3. Touch - Swipe left and right to move the camera left and right, and swipe up and down to move it forward and backward;
 
 4. [gamepad](/divingDeeper/input/gamepads) - corresponds to device.
 
@@ -47,90 +47,91 @@ Optional actions are:
 
 1. MouseWheel - The scroll wheel on a mouse or scroll actions on a touchpad. <Playground id="#DWPQ9R#1" title="Adding Scroll Wheel to Universal Camera" description="A simple example of adding scroll wheel functionality to the universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro1.jpg"/>
 
-**Note**
+### Note
 
-- Using keys in the Playground requires you to click inside the rendering area to give it the focus.
+Using keys in the Playground requires you to click inside the rendering area to give it the focus.
 
 ### Constructing a Universal Camera
 
 ```javascript
-
 // Parameters : name, position, scene
-    var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 0, -10), scene);
+var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 0, -10), scene);
 
 // Targets the camera to a particular position. In this case the scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+camera.setTarget(BABYLON.Vector3.Zero());
 
 // Attach the camera to the canvas
-    camera.attachControl(canvas, true);
+camera.attachControl(canvas, true);
 ```
+
 <Playground id="#DWPQ9R#1" title="Universal Camera Example" description="A simple example of how to construct a universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg"/>
 
 ## Arc Rotate Camera
 
-This camera always points towards a given target position and can be rotated around that target with the target as the center of rotation.
-It can be controlled with cursors and mouse, or with touch events.
+This camera always points towards a given target position and can be rotated around that target with the target as the center of rotation. It can be controlled with cursors and mouse, or with touch events.
 
-Think of this camera as one orbiting its target position, or more imaginatively as a spy satellite orbiting the earth. Its position relative to the target (earth) can be set by three parameters, _alpha_ (radians) the longitudinal rotation, _beta_ (radians) the latitudinal rotation and  _radius_ the distance from the target position.
+Think of this camera as one orbiting its target position, or more imaginatively as a satellite orbiting the earth. Its position relative to the target ("Earth") can be set by three parameters:
+
+- [alpha](/typedoc/classes/babylon.arcrotatecamera#alpha) (the longitudinal rotation, in radians),
+- [beta](/typedoc/classes/babylon.arcrotatecamera#beta) (the latitudinal rotation, in radians), and
+- [radius](/typedoc/classes/babylon.arcrotatecamera#radius) (the distance from the target).
+
 Here is an illustration:
 
 ![arc rotate camera](/img/how_to/camalphabeta.jpg)
 
-Setting _beta_ to 0 or PI can, for technical reasons, cause problems and in this situation _beta_ is offset by 0.1 radians (about 0.6 degrees).
+Setting `beta` to 0 or PI can, for technical reasons, cause problems, so in this situation, `beta` is offset by 0.1 radians (about 0.6 degrees).
 
-_beta_ increases in a clockwise direction while _alpha_ increases counter clockwise.
+`beta` increases in a clockwise direction, while `alpha` increases counter-clockwise.
 
-The position of the camera can also be set from a vector which will override any current value for _alpha_, _beta_ and _radius_.
-This can be much easier than calculating the required angles.
+The position of the camera can also be set from a vector, which will override any current value for `alpha`, `beta` and `radius`. This can be much easier than calculating the required angles.
 
-Whether using the keyboard, mouse or touch swipes left right directions change _alpha_ and up down directions change _beta_.
+Whether using the keyboard, mouse, or touch swipes, left/right directions change `alpha`, and up/down directions change `beta`.
 
 ### Constructing an Arc Rotate Camera
 
 ```javascript
-
 // Parameters: name, alpha, beta, radius, target position, scene
-	var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
+var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
 
 // Positions the camera overwriting alpha, beta, radius
-    camera.setPosition(new BABYLON.Vector3(0, 0, 20));
+camera.setPosition(new BABYLON.Vector3(0, 0, 20));
 
 // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+camera.attachControl(canvas, true);
 ```
+
 <Playground id="#SRZRWV#1" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg"/>
 
-Panning with an ArcRotateCamera is also possible by using CTRL + MouseLeftClick, the default action. You can specify to use MouseRightClick instead, by setting _useCtrlForPanning_ to false in the _attachControl_ call :
+By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call :
 
 ```javascript
-   camera.attachControl(canvas, noPreventDefault, useCtrlForPanning);
+camera.attachControl(canvas, noPreventDefault, useCtrlForPanning);
 ```
 
-If required you can also totally deactivate panning by setting :
+If required, you can also totally deactivate panning by setting :
 
 ```javascript
-   scene.activeCamera.panningSensibility = 0;
+scene.activeCamera.panningSensibility = 0;
 ```
 
 ## FollowCamera
 
-The Follow Camera does what it says on the tin. Give it a mesh as a target and from whatever position it is currently at it will move to a goal position from which to view
-the target. When the target moves so will the Follow Camera.
+The [FollowCamera](/typedoc/classes/babylon.followcamera) does what it says on the tin. Give it a mesh as a target, and from whatever position it is currently at it will move to a goal position from which to view the target. When the target moves, so will the Follow Camera.
 
 The initial position of the Follow Camera is set when it is created then the goal position is set with three parameters:
 
-1. the distance from the target - camera.radius;
+1. [radius](/typedoc/classes/babylon.followcamera#radius): the distance from the target
 
-2. the height above the target - camera.heightOffset;
+2. [heightOffset](/typedoc/classes/babylon.followcamera#heightOffset): the height above the target;
 
-3. the angle in degrees around the target in the x y plane.
+3. [rotationOffset](/typedoc/classes/babylon.followcamera#rotationOffset): the goal angle in degrees around the target in the x y plane.
 
-The speed with which the camera moves to a goal position is set through its acceleration (camera.cameraAcceleration) up to a maximum speed (camera.maxCameraSpeed).
+The speed with which the camera moves to a goal position is set through its acceleration ([cameraAcceleration](/typedoc/classes/babylon.followcamera#cameraacceleration)) up to a maximum speed ([maxCameraSpeed](/typedoc/classes/babylon.followcamera#maxcameraspeed)).
 
 ### Constructing a Follow Camera
 
 ```javascript
-
 // Parameters: name, position, scene
 var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 10, -10), scene);
 
@@ -144,77 +145,72 @@ camera.heightOffset = 10;
 camera.rotationOffset = 0;
 
 // Acceleration of camera in moving from current to goal position
-camera.cameraAcceleration = 0.005
+camera.cameraAcceleration = 0.005;
 
 // The speed at which acceleration is halted
-camera.maxCameraSpeed = 10
+camera.maxCameraSpeed = 10;
 
 // This attaches the camera to the canvas
 camera.attachControl(canvas, true);
 
 // NOTE:: SET CAMERA TARGET AFTER THE TARGET'S CREATION AND NOTE CHANGE FROM BABYLONJS V 2.5
 // targetMesh created here.
-camera.target = targetMesh;   // version 2.4 and earlier
+camera.target = targetMesh; // version 2.4 and earlier
 camera.lockedTarget = targetMesh; //version 2.5 onwards
 ```
+
 <Playground id="#SRZRWV#6" title="Follow Camera Example" description="A simple example of how to construct a follow camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro3.jpg"/>
 
 ## AnaglyphCameras
 
-These extend the use of the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. They use post-processing filtering techniques.
+The [AnaglyphUniversalCamera](/typedoc/classes/babylon.anaglyphuniversalcamera) and [AnaglyphArcRotateCamera](/typedoc/classes/babylon.anaglypharcrotatecamera) extend the use of the Universal and Arc Rotate Cameras for use with red and cyan 3D glasses. They use post-processing filtering techniques.
 
-### Constructing Anaglyph Universal Camera
+### Constructing an Anaglyph Universal Camera
 
 ```javascript
-
 // Parameters : name, position, eyeSpace, scene
 var camera = new BABYLON.AnaglyphUniversalCamera("af_cam", new BABYLON.Vector3(0, 1, -15), 0.033, scene);
 ```
 
-### Constructing Anaglyph ArcRotateCamera
+### Constructing an Anaglyph ArcRotateCamera
 
 ```javascript
-
 // Parameters : name, alpha, beta, radius, target, eyeSpace, scene
-var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI/2, Math.PI/4, 20, new BABYLON.Vector3.Zero(), 0.033, scene);
+var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI / 2, Math.PI / 4, 20, new BABYLON.Vector3.Zero(), 0.033, scene);
 ```
 
-The _eyeSpace_ parameter sets the amount of shift between the left eye view and the right eye view. Once you are wearing your 3D glasses, you might want to experiment with this float value.
+The `eyeSpace` parameter sets the amount of shift between the left-eye view and the right-eye view. Once you are wearing your 3D glasses, you might want to experiment with this float value.
 
 You can learn all about anaglyphs by visiting a [Wikipedia page that explains it thoroughly](https://en.wikipedia.org/wiki/Anaglyph_3D).
 
 ## Device Orientation Camera
 
-This is a camera specifically designed to react to device orientation events such as a modern mobile device being tilted forward or back and left or right.
+The [DeviceOrientationCamera](/typedoc/classes/babylon.deviceorientationcamera) is specifically designed to react to device orientation events such as a modern mobile device being tilted forward, back, left, or right.
 
 ### Constructing a Device Orientation Camera
 
 ```javascript
-
 // Parameters : name, position, scene
-   var camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
+var camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
 
-    // Targets the camera to a particular position
-    camera.setTarget(new BABYLON.Vector3(0, 0, -10));
+// Targets the camera to a particular position
+camera.setTarget(new BABYLON.Vector3(0, 0, -10));
 
-	// Sets the sensitivity of the camera to movement and rotation
-	camera.angularSensibility = 10;
-	camera.moveSensibility = 10;
+// Sets the sensitivity of the camera to movement and rotation
+camera.angularSensibility = 10;
+camera.moveSensibility = 10;
 
-    // Attach the camera to the canvas
-    camera.attachControl(canvas, true);
-
+// Attach the camera to the canvas
+camera.attachControl(canvas, true);
 ```
+
 <Playground id="#SRZRWV#3" title="Device Orientation Camera Example" description="A simple example of how to construct a Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro4.jpg"/>
 
 ## Virtual Joysticks Camera
 
-This is specifically designed to react to Virtual Joystick events.
-Virtual Joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
+The [VirtualJoysticksCamera](/typedoc/classes/babylon.virtualjoystickscamera) is specifically designed to react to Virtual Joystick events. Virtual Joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
 
-### Requires
-
-The third-party file [hand.js](https://archive.codeplex.com/?p=handjs).
+**Note:** This camera requires the third-party file [hand.js](https://archive.codeplex.com/?p=handjs).
 
 ### Video
 
@@ -257,64 +253,63 @@ function startGame() {
 }
 ```
 
-If you switch back to another camera, don’t forget to call the dispose() function first. Indeed, the VirtualJoysticks are creating a 2D canvas on top of the 3D WebGL canvas to draw the joysticks with cyan and yellow circles. If you forget to call the dispose() function, the 2D canvas will remain, and will continue to use touch events input.
-
+If you switch back to another camera, don’t forget to call `dispose()` first. The `VirtualJoysticks` are creating a 2D canvas on top of the 3D WebGL canvas to draw the joysticks with cyan and yellow circles. If you forget to call `dispose()`, the 2D canvas will remain and will continue to handle touch events.
 
 ## VR Device Orientation Cameras
 
-A new range of cameras.
-VR Device Orientation Camera Example (Needs VR device)
+The [VRDeviceOrientationFreeCamera](/typedoc/classes/babylon.vrdeviceorientationfreecamera), [VRDeviceOrientationArcRotateCamera](/typedoc/classes/babylon.vrdeviceorientationarcrotatecamera), and [VRDeviceOrientationGamepadCamera](/typedoc/classes/babylon.vrdeviceorientationgamepadcamera) are a newer set of cameras that extend the cameras above to handle device orientation from a VR device.
+
+Example (requires a VR device):
+
 <Playground id="#SRZRWV#4" title="VR Device Orientation Camera Example" description="A simple example of how to construct a VR Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro5.jpg"/>
 
-## Constructing the VR Device Orientation Free Camera
+## Constructing a VR Device Orientation Free Camera
 
 ```javascript
-//Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationFreeCamera ("Camera", new BABYLON.Vector3 (-6.7, 1.2, -1.3), scene);
+// Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
+var camera = new BABYLON.VRDeviceOrientationFreeCamera("Camera", new BABYLON.Vector3(-6.7, 1.2, -1.3), scene);
 ```
 
-### Constructing the VR Device Orientation Arc Rotate Camera
+### Constructing a VR Device Orientation Arc Rotate Camera
 
 ```javascript
-//Parameters: name, alpha, beta, radius, target, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/4, 25, new BABYLON.Vector3 (0, 0, 0), scene);
+// Parameters: name, alpha, beta, radius, target, scene, compensateDistortion, vrCameraMetrics
+var camera = new BABYLON.VRDeviceOrientationArcRotateCamera("Camera", Math.PI / 2, Math.PI / 4, 25, new BABYLON.Vector3(0, 0, 0), scene);
 ```
 
-### Constructing the VR Device Orientation Gamepad Camera
+### Constructing a VR Device Orientation Gamepad Camera
 
 ```javascript
-//Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.Vector3 (-10, 5, 14));
+// Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
+var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.Vector3(-10, 5, 14));
 ```
 
 ## WebVR Free Camera
 
-**Please note that WebVR is deprecated! Please use WebXR instead**
+**NOTE:** WebVR is deprecated! Please use WebXR instead
 
-The new virtual reality camera
+[WebVRFreeCamera](/typedoc/classes/babylon.webvrfreecamera) is the legacy virtual reality camera, now intended for use with older VR device browsers that don't support the WebXR standard.
 
 ```javascript
-
 // Parameters : name, position, scene, webVROptions
-    var camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
+var camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
 ```
 
-This camera deserves a page to itself so here it is [Using the WebVR Camera](/divingDeeper/cameras/webVRCamera);
+This camera deserves its own page: [Using the WebVR Camera](/divingDeeper/cameras/webVRCamera).
 
 ## FlyCamera
 
-This camera imitates free movement in 3D space, think "a ghost in space." It comes with an option to gradually correct Roll, and also an option to mimic banked-turns.
+[FlyCamera](/typedoc/classes/babylon.flycamera) imitates free movement in 3D space, think "a ghost in space." It comes with an option to gradually correct Roll, and also an option to mimic banked-turns.
 
 Its defaults are:
 
-1. Keyboard - The __A__ and __D__ keys move the camera left and right. The __W__ and __S__ keys move it forward and backward. The __E__ and __Q__ keys move it up and down.
+1. Keyboard - The <kbd>A</kbd> and <kbd>D</kbd> keys move the camera left and right. The <kbd>W</kbd> and <kbd>S</kbd> keys move it forward and backward. The <kbd>E</kbd> and <kbd>Q</kbd> keys move it up and down.
 
-2. Mouse - Rotates the camera about the Pitch and Yaw (X, Y) axes with the camera as origin. Holding the __right mouse-button__ rotates the camera about the Roll (Z) axis with the camera as origin.
+2. Mouse - Rotates the camera about the Pitch and Yaw (X, Y) axes with the camera as the origin. Holding the <kbd>right mouse button</kbd> rotates the camera about the Roll (Z) axis with the camera as the origin.
 
 ### Constructing a Fly Camera
 
 ```javascript
-
 // Parameters: name, position, scene
 var camera = new BABYLON.FlyCamera("FlyCamera", new BABYLON.Vector3(0, 5, -10), scene);
 
@@ -333,8 +328,32 @@ camera.bankedTurnMultiplier = 1;
 camera.attachControl(canvas, true);
 ```
 
+## Clipping Planes and Infinite Perspective
+
+Cameras in Babylon.js have [clipping planes](/divingDeeper/scene/clipPlanes) that specify a visual range in the scene that will be rendered. Anything outside of that range will not be rendered. For example, setting the camera's far clipping plane to 100 like this:
+
+```javascript
+camera.maxZ = 100;
+```
+
+will not render anything past 100 units from the camera. The same is true of the near clipping plane as well. For example, setting the near clipping plane to 10 like this:
+
+```javascript
+camera.minZ = 10;
+```
+
+will not rendering anything closer than 10 units from the camera.
+
+In some cases, you may not want to clip the rendering of your scene. You may want your scene to effectively render out to infinity. This can be done by setting the far clipping plane to 0 like this:
+
+```javascript
+camera.maxZ = 0;
+```
+
+Just a friendly warning, setting the far clipping plane to infinity can reduce depth precision, so use this carefully!
+
 ## Customizing inputs
 
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
-If you want to change user inputs based upon user preferences, customize one of the existing presets, or use your own input mechanisms.  Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/divingDeeper/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
+If you want to change user inputs based upon user preferences, customize one of the existing presets, or use custom input mechanisms. Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/divingDeeper/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.

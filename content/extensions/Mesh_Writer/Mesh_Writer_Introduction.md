@@ -25,8 +25,7 @@ Generate letters in BABYLON meshes.
 	                }
 	            );
 
-&#9679; See playground example:  https://www.babylonjs-playground.com/#PL752W#1
-PG: <Playground id="#E6OZX#221" title="Mesh Writer" description="Sky material animation" image=""/>
+PG: <Playground id="#PL752W#150" title="Mesh Writer Example 1" description="" image=""/>
 
 ## Getting the code
 
@@ -122,8 +121,7 @@ Each **writer** instance has methods to allow one to retrieve the BabylonJS obje
 If you wish to do extensive things with position, rotation or animation, retrieve the meshes and materials from the instance using the methods shown above.&nbsp; The output from **new Writer()** is an SPS with one particle for each character.
 
 Example:
-
-https://www.babylonjs-playground.com/#PL752W#176
+PG: <Playground id="#PL752W#151" title="Mesh Writer Example 2" description="" image=""/>
 
 	    const SCALE =.25 
 	    const TEXT_SIZE = 35

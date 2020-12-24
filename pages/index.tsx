@@ -82,6 +82,7 @@ export default function Home({ breadcrumbs, metadata, content, childPages, id, p
             id={[]}
         >
             <Head>
+                <meta name="google-site-verification" content="wcRjktXhF6DAjmhneKS7UatweBIkEF6QfqsNhAYbUgg" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{

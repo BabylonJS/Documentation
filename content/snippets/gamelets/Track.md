@@ -32,7 +32,7 @@ var section4 = new sectionData(240, {turn: 0, turnTwists: 0, turnWaves: 0, turnW
 
 Sections added to the sections array must be in increasing index order. The rotations in any one section are built from the options given in that section and some options from the following section. The following playground allows you to play with these options and others.
 
-PG: <Playground id="" title="" description="." image=""/> Example - A Short Track](https://www.babylonjs-playground.com/#HSMDF2#6)
+PG: <Playground id="#HSMDF2#6" title="Short Track Example" description="." image=""/>
 
 ## Section Options
 
@@ -158,7 +158,7 @@ var sections = [section0, section1, section2, section3];
 var track = createTrack(points, sections);
 ```
 
-PG: <Playground id="" title="" description="." image=""/> Example - Closed Track](https://www.babylonjs-playground.com/#HSMDF2#7)
+PG: <Playground id="#HSMDF2#7" title="Closed Track Example" description="." image=""/>
 
 ## Open Tracks
 
@@ -196,7 +196,7 @@ var sections = [section0, section1, section2, section3];
 var track = createTrack(points, sections);
 ```
 
-PG: <Playground id="" title="" description="." image=""/> Example - Open Track](https://www.babylonjs-playground.com/#HSMDF2#8)
+PG: <Playground id="#HSMDF2#8" title="Open Track Example" description="." image=""/>
 
 ## Using the Built Track
 
@@ -375,7 +375,7 @@ function drawVectors(vectors, positions, size, color) {
 
 In this next playground a simple velodrome track is built from a ribbon. 
 
-PG: <Playground id="" title="" description="." image=""/> Example - Velodrome](https://www.babylonjs-playground.com/#HSMDF2#9)
+PG: <Playground id="#HSMDF2#9" title="Velodrome Example" description="." image=""/>
 
 The normals and binormals of the track are used to create two paths for the ribbon, with a given offset and height. So that the velodrome track sits beneath the wheels a radial vector (from the origin to a point on the track) is used to extend the track outwards.
 
@@ -402,8 +402,8 @@ Also note that since cylinders are created with their faces horizontal, the whee
 For this roller coaster only the lean angle is used for the carriage and the passenger rotation used to turn the passenger to look out at the start of the run. 
 In this playground paths created either side of the track are used to build tubes and the same track carriage rotational data used to place sleepers underneath the rails.
 
-PG: <Playground id="" title="" description="." image=""/> Example - Overview of Roller Coaster](https://www.babylonjs-playground.com/#SQFG0Q#5)
-PG: <Playground id="" title="" description="." image=""/> Example - Passenger View from Roller Coaster](https://www.babylonjs-playground.com/#SQFG0Q#6)
+PG: <Playground id="#SQFG0Q#5" title="Roller Coaster Overview" description="." image=""/>
+PG: <Playground id="#SQFG0Q#6" title="Roller Coaster Passenger View" description="Passenger View From Roller Coaster" image=""/>
 
 ```javascript
 for (var i = 0; i < points.length; i+=5) {

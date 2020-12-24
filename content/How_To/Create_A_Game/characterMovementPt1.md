@@ -21,6 +21,7 @@ This prototype underwent a lot of transformations to get to the point that it's 
 For part 1 we'll be going over how to detect inputs and how to get simple walking/running movement. Links to the complete files are below, but I'll be referencing certain parts that are important.
 
 In order to achieve certain character movements, I referenced a few different Unity tutorials as well as game dev blog posts that will be linked below.
+
 ## Input Controller
 For this part of the tutorial, we'll be going over the basics for movement with keyboard controls. You'll want to create a file called **inputController.ts**. Here we'll be creating a [PlayerInput](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts#L4) class that will handle all of the inputs for our game.
 ```javascript
@@ -88,6 +89,7 @@ this._player = new Player(this.assets, scene, shadowGenerator, this._input);
 
 ## Basic Movement Setup
 Now that we can detect our inputs, we need to implement what to do when those inputs are detected. We'll be focusing on the [updateFromControls](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L158) function inside of **characterController.ts**.
+
 ### Input
 ```javascript
 this._moveDirection = Vector3.Zero(); // vector that holds movement information
@@ -182,7 +184,8 @@ Here we are calculating the angle to move the player to based off of the camera'
 At this point, if we run the project, we should be able to move around & see our player rotate directions!
 
 ### Raycasts
-**Raycast**
+
+#### Raycast
 
 Raycasting is going to be our main method of detecting the ground beneath the character. First, we need a function [_floorRaycast](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L278):
 ```javascript
@@ -206,7 +209,7 @@ if (pick.hit) {
 ```
 If our ray has hit anything, return the pickedPoint, a Vector3. Else, we return the zero vector.
 
-**Grounded**
+#### Grounded
 
 The [_isGrounded](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L298) function checks whether or not the player is on a ground by sending a raycast.
 ```javascript
@@ -218,7 +221,7 @@ if (this._floorRaycast(0, 0, 0.6).equals(Vector3.Zero())) {
 ```
 The raycast that we send is at the center of our character and extends 0.1 past the bottom. We want it to extend a little further so that it detects the ground before the player has a chance to intersect it.
 
-**Gravity**
+#### Gravity
 
 Now that we're able to detect the ground, we need to apply gravity to the player to keep them grounded! The [_updateGroundDetection](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L355) will handle everything that has to do with gravity.
 ```javascript
@@ -257,12 +260,13 @@ private _beforeRenderUpdate(): void {
 Now if you run the game, our player falls to the ground, and can move around!
 
 ## Resources
-**Files Used:**  
+
+### Files Used:
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 
-**Follow Along:** 
+### Follow Along:
 - [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/inputController.ts)
 - [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/characterController.ts)
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/app.ts)

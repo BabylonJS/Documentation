@@ -31,7 +31,7 @@ const myAnim = new BABYLON.Animation(name, property, frames per second, property
 
 -   _loop mode_ - _number optional_, This can be set using the following Parameters
 
-    BABYLON.Animation.ANIMATIONLOOPMODE*CYCLE - Restart the animation from initial value  
+    BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE - Restart the animation from initial value  
     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
     BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
 
@@ -62,7 +62,7 @@ scene.beginAnimation(target, from, to);
 
 -   _target_ - _BabylonJS Object_, the BabylonJS object to be animated
 -   _from_ - _number_, the frame at which to start the animation
--   _end frame_ - _number_, the frame at which to end the animation
+-   _to_ - _number_, the frame at which to end the animation
 
 
 When you want the animation to loop you and true as the fourth parameter
@@ -76,7 +76,7 @@ The are a number of further optional parameters than you can find in the *scene*
 
 You can apply several animations to a target using
 ```javascript
-scene.beginAnimation(target, animations, from, to, loop)
+scene.beginDirectAnimation(target, animations, from, to, loop)
 ```
 
 -   _target_ - _BabylonJS Object_, the BabylonJS object to be animated

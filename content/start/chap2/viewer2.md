@@ -16,7 +16,7 @@ What happens when we put the **Village** as a model in the viewer?
 
 [Example Viewer - Village](/webpages/page2.html) using the default Viewer.
 
-![View 2](/img/getstarted/view2.png);
+![View 2](/img/getstarted/view2.png)
 
 We see that the ground flickers. Why is that? This is because by default the Viewer already adds a ground and where they overlap they 'fight' for supremacy.
 
@@ -30,13 +30,13 @@ This removes the default ground along with other aspects such as the Babylon.js 
 
 [Example Viewer - Village](/webpages/page3.html) using the minimal Viewer.
 
-![view3](/img/getstarted/view3.png);
+![view3](/img/getstarted/view3.png)
 
 Removing the default ground has stopped the flickering. However the default Viewer calculates the extent of the model and adjusts the camera accordingly. By using _minimal_ the camera just defaults to close to the center of the model village.
 
 When you want the camera further away you have to get your hands dirty with some code, which of course you can just copy and paste as needed.
 
-To move the camera we have to adjust its _radius_ property. This has to be done before the model is loaded. Propeties cannot be changed once the model is loaded in the Viewer. We need to remove the _model_ attribute from the &lt;babylon&gt; element to prevent the model loading before the camera radius can be changed. the %lt;babylon&gt: element must also be given an _id_ which is referenced by the script that will alter the camera properties.
+To move the camera we have to adjust its _radius_ property. This has to be done before the model is loaded. Properties cannot be changed once the model is loaded in the Viewer. We need to remove the _model_ attribute from the &lt;babylon&gt; element to prevent the model loading before the camera radius can be changed. The &lt;babylon&gt; element must also be given an _id_ which is referenced by the script that will alter the camera properties.
 
 ```html
 <babylon id="myViewer" extends="minimal"></babylon>

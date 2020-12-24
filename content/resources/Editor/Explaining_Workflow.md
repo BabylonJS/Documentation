@@ -229,7 +229,7 @@ Let us add some stuff. Since we are in a completely "blank state", it might be u
 
 If you looked in the default scene beforehand, you might have noticed that the skybox was a special sort of Material and the file used has a `.dds` extension. The type of material is based on Physically Based Rendering (PBR), which is a really cool and powerful feature of BabylonJs. The full scope of this is outside the scope of this editor and workflow tutorial, but
 
-You can also see a demo of the underlying material PBR Material type [here.](<[![image](https://user-images.githubusercontent.com/954596/59141279-63c8f400-896f-11e9-9f2a-177b451f069f.png)](https://www.babylonjs.com/demos/pbrglossy/)>)
+You can also see a demo of the underlying material PBR Material type [here.](https://www.babylonjs.com/demos/pbrglossy/)
 [![image](https://user-images.githubusercontent.com/954596/59141279-63c8f400-896f-11e9-9f2a-177b451f069f.png)](https://www.babylonjs.com/demos/pbrglossy/)
 
 Also, you can read more in the documentation here: https://doc.babylonjs.com/divingDeeper/materials/using/introToPBR

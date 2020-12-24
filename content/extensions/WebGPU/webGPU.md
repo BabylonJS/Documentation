@@ -52,7 +52,9 @@ FOR SURE :-) There is no change of plans and we will deliver both supports side 
 ## I want to test it
 You can refer [to this page](https://github.com/gpuweb/gpuweb/wiki/Implementation-Status) for detailed information on browser support.
 
-The [Playground](https://playground.babylonjs.com/) will soon be updated to support the new WebGPU engine: stay tuned!
+Assuming you're using a browser that supports WebGPU, you can try it out yourself in the The [Playground](https://playground.babylonjs.com/) 
+
+![WebGPU](/img/extensions/webGPUPlayground.jpg)
 
 You can follow the status from the dedicated [Chrome Status Platform Page](https://www.chromestatus.com/feature/6213121689518080).
 

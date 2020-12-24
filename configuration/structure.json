@@ -890,6 +890,18 @@
                     },
                     "content": "extensions/Viewer/The_Babylon_Viewer"
                 },
+                "babylonCMSIntegration": {
+                    "friendlyName": "Babylon.js CMS Integration",
+                    "children": {
+                        "wordPress": {
+                            "friendlyName": "Babylon.js WordPress Integration",
+                            "children": {
+                            },
+                            "content": "landing_pages/extensions_wordpress"
+                        }
+                    },
+                    "content": "landing_pages/extensions_CMS_landingpage"
+                },
                 "castorGUI": {
                     "friendlyName": "Castor GUI",
                     "children": {
@@ -986,7 +998,6 @@
                     "children": {
                         "3DSMax": { "friendlyName": "3DSMax", "children": {}, "content": "resources/Exporter/3DSMax" },
                         "3DSMax_to_glTF": { "friendlyName": "3DSMax to glTF", "children": {}, "content": "resources/Exporter/3DSMax_to_glTF" },
-                        "3Dtext": { "friendlyName": "3Dtext", "children": {}, "content": "resources/Exporter/3Dtext" },
                         "Blender": { "friendlyName": "Blender", "children": {}, "content": "resources/Exporter/Blender" },
                         "Blender_Tips": { "friendlyName": "Blender Tips", "children": {}, "content": "resources/Exporter/Blender_Tips" },
                         "Blender_to_glTF": { "friendlyName": "Blender to glTF", "children": {}, "content": "resources/Exporter/Blender_to_glTF" },
