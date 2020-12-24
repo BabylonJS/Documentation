@@ -64,6 +64,11 @@ If you have an OBJ file without normals or wish to have them calculated for you,
 BABYLON.OBJFileLoader.COMPUTE_NORMALS = true;
 ```
 
+When using OPTIMIZE_WITH_UV = true you may experience some discontinuities in shading. Setting OPTIMIZE_NORMALS will help with this problem:
+```
+BABYLON.OBJFileLoader.OPTIMIZE_NORMALS = true;
+```
+
 To have your imported model inverted on the y-axis, set the variable:
 ```
 BABYLON.OBJFileLoader.INVERT_Y = true;
