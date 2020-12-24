@@ -39,7 +39,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
   * [CreateScreenshot](/typedoc/classes/babylon.screenshottools#createscreenshot) does not work because of that
 * [Multiple Render Targets (MRT)](/typedoc/classes/babylon.multirendertarget)
   * Chrome does not currently support more than 4 targets, so your code will crash if it is using more. In Babylon.js, MRTs are used in the geometry renderer and the pre-pass renderer
-  * Also, there is currently another limitation in the MRT feature which is that we can't bind some targets and not others, so some samples using the geometry/pre-pass renderer will break because of that
 
 ## Make it fast: Optimizations
 We need to implement some specific mechanisms / features to get the most of our implementation:

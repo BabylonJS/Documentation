@@ -55,3 +55,14 @@ WebGPU is less forgiving than WebGL, all sampler variables declared in a shader 
 If using a custom attribute in a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) (or [CustomMaterial](/typedoc/classes/babylon.custommaterial) / [PBRCustomMaterial](/typedoc/classes/babylon.pbrcustommaterial)), it must be declared in the list of attributes used by that shader. For eg, for [ShaderMaterial](/typedoc/classes/babylon.shadermaterial), you must pass its name in the *attributes* array of the options passed to the constructor. In WebGL you can omit this declaration and it will still work (but as a side-effect, it is not really supported).
 
 In WebGL you could list several times the same attribute when creating a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) and it would work (it was as if you gave this attribute a single time), but in WebGPU it will fail.
+
+## Miscellaneous
+The viewport can't spread outside the framebuffer/texture, contrary to WebGL. So, if you call something like:
+```javascript
+new BABYLON.Viewport(x, y, w, h);
+```
+* x, y, w, h must be >= 0 and <= 1.
+* x + w must be <= 1
+* y + h must be <= 1
+
+The stride of an attribute in a vertex buffer can't be less than 4 bytes, contrary to WebGL. Also, for the time being, position vertex kind must be number/float, it can't be char/int (Int8Array/Int32Array). Try this PG, which works in WebGL but not in WebGPU: <Playground id="#U1CZV3#4" title="Stride of 3 bytes" description="Demonstrate using a byte buffer for position" image=""/>
