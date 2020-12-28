@@ -79,6 +79,13 @@ Calling this function will create a new BABYLON.PhysicsEngine object that will b
 
 The physics engine is now enabled and is running during the render loop.
 
+Please note that when using Ammo since version 5.0 you are required to initialize it before creating the ammo plugin:
+
+```javascript
+await Ammo();
+scene.enablePhysics(new BABYLON.Vector3(0,-9.81, 0), new BABYLON.AmmoJSPlugin());
+```
+
 ### Impostors
 
 To allow interaction between objects, the physics engines use an impostor, which is a simpler representation of a complex object. 

@@ -62,6 +62,8 @@ In the simulations gravity is a universal force applied throughout the time of t
 /*When physics is enabled use default gravity*/ 
 scene.enablePhysics(null, new BABYLON.CannonJSPlugin());
 scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
+
+await Ammo();
 scene.enablePhysics(null, new BABYLON.AmmoJSPlugin());
 
 //set gravity
@@ -72,6 +74,8 @@ scene.enablePhysics(new BABYLON.Vector3(0, -5, 0), new BABYLON.AmmoJSPlugin());
 /*Get and set gravity*/
 var physicsEngine = scene.enablePhysics(null, new BABYLON.CannonJSPlugin());
 var physicsEngine = scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
+
+await Ammo();
 var physicsEngine = scene.enablePhysics(null, new BABYLON.AmmoJSPlugin());
 
 //Get gravity

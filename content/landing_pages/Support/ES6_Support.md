@@ -484,7 +484,9 @@ module.exports = {
 Finally, in your code, you can setup the AmmoJSPlugin this way:
 
 ```javascript
-import * as Ammo from "ammo.js";
+import * as ammo from "ammo.js";
+
+const Ammo = await ammo.default();
 ...
 var ammoPlugin = new AmmoJSPlugin(true, Ammo);
 ```
