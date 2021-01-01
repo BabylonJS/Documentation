@@ -61,7 +61,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         };
     }, [intrinsic]);
     const getImage = () => {
-        if (props.src.startsWith("http") || props.src.startsWith("//") || props.src.indexOf(".gif") !== -1) {
+        if (props.src.startsWith("http") || props.src.startsWith("/") || props.src.indexOf(".gif") !== -1) {
             return <img className={classes.image} {...props} />;
         }
         const properties: IImageEmbed = { ...props };
@@ -92,7 +92,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     }}
                     className={classes.image}
                     {...properties}
-                ></Image>
+                />
             );
         } catch (e) {
             return <img className={classes.image} {...props} />;
