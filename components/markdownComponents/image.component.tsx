@@ -17,6 +17,7 @@ const styles = makeStyles((theme: Theme) =>
         },
         image: {
             flex: 1,
+            width: '100%'
         },
         caption: {
             fontSize: 12,
@@ -77,6 +78,8 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 const imgTag = e.target as HTMLImageElement;
                                 let h = imgTag.naturalHeight;
                                 let w = imgTag.naturalWidth;
+                                // avoid using the loading gif to calculate size
+                                if(imgTag.src.startsWith('data:image/gif;base64')) { return; }
                                 if (imgTag.naturalWidth > imgTag.clientWidth) {
                                     h = (h * imgTag.clientWidth) / w;
                                     w = imgTag.clientWidth;
