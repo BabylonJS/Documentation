@@ -83,7 +83,6 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
                 } else {
                     // find a playground
                     const playgrounds = fileContents.match(/<Playground (.*)\/>/gm) || [];
-                    console.log(playgrounds);
                     if (playgrounds[1]) {
                         // take the playground image
                         const pg = playgrounds[1];
@@ -95,14 +94,11 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
                         } else {
                             const idPos = pg.indexOf('id="');
                             const imgId = pg.substr(idPos + 4).split('"')[0];
-                            console.log(pg.substr(idPos + 4));
                             metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.png`;
                         }
                     }
                 }
             }
-            console.log("found", metadata.title, metadata.imageUrl);
-            // }
             return {
                 content: matterResult.content,
                 metadata,
