@@ -52,4 +52,4 @@ scene.postProcessRenderPipelineManager.addPipeline(standardPipeline);
 scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("standardPipeline", camera);
 ```
 
-<Playground id="#QCGFI6" title="Post Process Render Pipeline Example" description="Simple example of using a post process render pipeline." image=""/>
+<Playground id="#QCGFI6" title="Post Process Render Pipeline Example" description="Simple example of using a post process render pipeline."/>

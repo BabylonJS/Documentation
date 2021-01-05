@@ -91,8 +91,8 @@ var postProcess = new BABYLON.BlurPostProcess("Horizontal blur", new BABYLON.Vec
 
 The kernel value will define the ideal number of taps done by the postprocess. The postprocess will then adapt the kernel based on screen size and DPI resolution.
 
-For instance here is an example with a kernel value of 32: <Playground id="#FBH4J7#3" title="Blur Post Process Example" description="Simple example of a blur post process." image=""/>
-Or 256: <Playground id="#FBH4J7#4" title="Blur Post Process With Kernal Value Of 256" description="Simple example of a blur post process with a kernal value of 256." image=""/>
+For instance here is an example with a kernel value of 32: <Playground id="#FBH4J7#3" title="Blur Post Process Example" description="Simple example of a blur post process."/>
+Or 256: <Playground id="#FBH4J7#4" title="Blur Post Process With Kernal Value Of 256" description="Simple example of a blur post process with a kernal value of 256."/>
 
 Obviously, as usual, try to stay reasonable with kernel size as it will impact the overall rendering speed.
 
@@ -131,7 +131,7 @@ The second parameter helps defining which operator will be used among the follow
 
 The third parameter define the exposure adjustement.
 
-You can find a demo here: <Playground id="#J9H084#8" title="Tonemap Post Process" description="Simple Example of a tonemap post process." image=""/>
+You can find a demo here: <Playground id="#J9H084#8" title="Tonemap Post Process" description="Simple Example of a tonemap post process."/>
 
 ### ImageProcessing
 Apply a complete range of special image treaments (image processing):
@@ -142,11 +142,11 @@ var postProcess = new BABYLON.ImageProcessingPostProcess("processing", 1.0, came
 
 You have several options available:
 * colorGradingTexture: Used to provide a color grading texture applied on your scene. You can use:
-    * a [colorGradingTexture](//doc.babylonjs.com/api/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process." image=""/>
-    * a standard texture (using .png for example) but with _invertY_ set to _true_, wrap mode as clamp and _imageProcessingConfiguration.colorGradingWithGreenDepth_ set to _false_. Demo: <Playground id="#17VHYI#9" title="ColorGrading Texture Post Process Green Depth" description="Simple example of a colorgrading texture post process." image=""/>
-* colorCurves: Used to provide several properties to change colors. More [details here](/divingDeeper/materials/using/masterPBR). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process." image=""/>
-* contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#9" title="colorCurves Post Process (Contrast)" description="Simple example of changing the the contrast of a colorCurves Post Process." image=""/>
-* exposure: 1.0 by default. Used to change the exposure of the image. Demo: <Playground id="#J9H084#10" title="colorCurves Post Process (Exposure)" description="Simple example of changing the exposure of a colorCurves Post Process." image=""/>
+    * a [colorGradingTexture](//doc.babylonjs.com/api/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process."/>
+    * a standard texture (using .png for example) but with _invertY_ set to _true_, wrap mode as clamp and _imageProcessingConfiguration.colorGradingWithGreenDepth_ set to _false_. Demo: <Playground id="#17VHYI#9" title="ColorGrading Texture Post Process Green Depth" description="Simple example of a colorgrading texture post process."/>
+* colorCurves: Used to provide several properties to change colors. More [details here](/divingDeeper/materials/using/masterPBR). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process."/>
+* contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#9" title="colorCurves Post Process (Contrast)" description="Simple example of changing the the contrast of a colorCurves Post Process."/>
+* exposure: 1.0 by default. Used to change the exposure of the image. Demo: <Playground id="#J9H084#10" title="colorCurves Post Process (Exposure)" description="Simple example of changing the exposure of a colorCurves Post Process."/>
 
 You can also use this postprocess to enable a vignette effect. The vignette is positioned thanks to the following parameters:
 * vignetteStretch: 0 by default
@@ -156,7 +156,7 @@ You can also use this postprocess to enable a vignette effect. The vignette is p
 * vignetteColor: Color4 value to define the overall color
 * vignetteBlendMode: BABYLON.ImageProcessingPostProcess.VIGNETTEMODE_MULTIPLY or BABYLON.ImageProcessingPostProcess.VIGNETTEMODE_OPAQUE
 
-You can find a demo of the vignette here: <Playground id="#J9H084#11" title="Vignette Post Process" description="Simple example of a Vignette Post Process." image=""/>
+You can find a demo of the vignette here: <Playground id="#J9H084#11" title="Vignette Post Process" description="Simple example of a Vignette Post Process."/>
 
 All features can be turned on and off with the following booleans:
 * colorCurvesEnabled
@@ -171,9 +171,9 @@ This object hosts the same properties as the ImageProcessingPostProcess.
 
 By default, ImageProcessingPostProcess, StandardMaterial and PBRMaterial share the same configuration object (The one from the scene). This means that if you change a value on `scene.imageProcessingConfiguration` or directly on ImageProcessingPostProcess, StandardMaterial or PBRMaterial, this will affect all entities sharing the same configuration.
 
-Here is an example of a global configuration: <Playground id="#J9H084#13" title="Post Process Global Configuration" description="Simple example of a post process globbal configuration." image=""/>
+Here is an example of a global configuration: <Playground id="#J9H084#13" title="Post Process Global Configuration" description="Simple example of a post process globbal configuration."/>
 
-Furthermore, as they share the same configuration, you can just dispose a postprocess you were using and automatically the image processing will be done at materials level. So here is an example of a configuration done at scene level, but with no postprocess to use it: <Playground id="#J9H084#14" title="Configuration At The Scene Level" description="Simple example of a scene level configuration." image=""/> (As you can see the processing is then done by the material itself).
+Furthermore, as they share the same configuration, you can just dispose a postprocess you were using and automatically the image processing will be done at materials level. So here is an example of a configuration done at scene level, but with no postprocess to use it: <Playground id="#J9H084#14" title="Configuration At The Scene Level" description="Simple example of a scene level configuration."/> (As you can see the processing is then done by the material itself).
 
 You can also decide to instantiate your own configuration and affect it to your material or to your postprocess with `postProcess.imageProcessingConfiguration = new BABYLON.ImageProcessingConfiguration()`. In this case, you will be able to configure this object independantly.
 
@@ -183,7 +183,7 @@ Read [this](/advanced_topics/introToShaders/image_processing#tonemapping) if you
 
 #### Default rendering pipeline
 
-The image processing post process is also included in a rendering pipeline: the DefaultRenderingPipeline. This pipeline adds support for FXAA and bloom on top of the image processing. You can find a complete interactive demo here: <Playground id="#5XB8YT#1" title="Default Rendering Pipeline Featuring Bloom" description="Simple example of the default rendering pipeline with bloom." image=""/>
+The image processing post process is also included in a rendering pipeline: the DefaultRenderingPipeline. This pipeline adds support for FXAA and bloom on top of the image processing. You can find a complete interactive demo here: <Playground id="#5XB8YT#1" title="Default Rendering Pipeline Featuring Bloom" description="Simple example of the default rendering pipeline with bloom."/>
 
 You can turn pipeline features on and off with the following booleans:
 * fxaaEnabled
@@ -300,7 +300,7 @@ postProcess.onApply = function (effect) {
 };
 ```
 
-You can find another example here: <Playground id="#DAC1WM" title="Custom Post Process Example" description="Simple example of a custom post process." image=""/>
+You can find another example here: <Playground id="#DAC1WM" title="Custom Post Process Example" description="Simple example of a custom post process."/>
 
 To use the output of a previous post process setTextureFromPostProcess can be used.
 Note: This will set sceneSampler to the output of the post process before postProcess0 NOT the output of postProcess0.

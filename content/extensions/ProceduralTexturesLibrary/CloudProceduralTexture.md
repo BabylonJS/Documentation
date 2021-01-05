@@ -18,7 +18,7 @@ Cloud procedural texture can be found here:
 - Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.cloudProceduralTexture.js)
 - Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.cloudProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo" image=""/>
+A demo can be found here:  <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
 
 This texture has 2 parameters :
 - **skyColor** : the color for the sky (BABYLON.Color3/4)

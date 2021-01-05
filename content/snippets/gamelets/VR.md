@@ -145,4 +145,4 @@ blubox.actionManager.registerAction(new BABYLON.PlaySoundAction(BABYLON.ActionMa
 
 The full code, featuring the sections mentioned above and including the rest of the game scene, can be found below.
 
-PG: <Playground id="#KJ8ZRZ#2" title="Full VR Game" description= "The game in action." image=""/>
+PG: <Playground id="#KJ8ZRZ#2" title="Full VR Game" description= "The game in action."/>

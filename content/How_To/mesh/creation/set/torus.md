@@ -28,8 +28,8 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 ### Examples
-Thick: <Playground id="#IJGMXZ#1" title="Create a Thick Torus" description="Simple example of creating a thick torus." image=""/>
-Thin: <Playground id="#IJGMXZ#2" title="Create a Thin Torus" description="Simple example of creating a thin torus." image=""/>
+Thick: <Playground id="#IJGMXZ#1" title="Create a Thick Torus" description="Simple example of creating a thick torus."/>
+Thin: <Playground id="#IJGMXZ#2" title="Create a Thin Torus" description="Simple example of creating a thin torus."/>
 
 ## Mesh
 ## Usage

@@ -23,7 +23,7 @@ As an example, with SSR enabled (look at the water-tank):
 With SSR disabled:
 ![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/without_ssr.png)
 
-You can find a simple example of the SSR post-process in our playground: <Playground id="#PIZ1GK" title="SSR Post Process Example" description="Simple example of the screen space reflection Post Process." image=""/>
+You can find a simple example of the SSR post-process in our playground: <Playground id="#PIZ1GK" title="SSR Post Process Example" description="Simple example of the screen space reflection Post Process."/>
 
 ## Prerequisite
 To render reflections using the SSR post-process, the device must support WebGL 2 or at least the multiple render targets extension for WebGL 1. If not supported, the post-process will just work as a pass-through.
@@ -67,7 +67,7 @@ The strength is applied on the overall specular/reflectivy informations in the s
 ssr.strength = 2;
 ```
 
-Example playground: <Playground id="#PIZ1GK#3" title="SSR Reflective Strength Example" description="Simple example of the reflective strength of the screen space reflection post process." image=""/>
+Example playground: <Playground id="#PIZ1GK#3" title="SSR Reflective Strength Example" description="Simple example of the reflective strength of the screen space reflection post process."/>
 
 ## Falloff Exponent
 The falloff exponent is used to linearly reduce the reflection's intensities. The default value is "3.0" and works for most cases.
@@ -77,7 +77,7 @@ The falloff exponent is used to linearly reduce the reflection's intensities. Th
 ssr.reflectionSpecularFalloffExponent = 4;
 ```
 
-Example playground with an almost equal to 0 exponent: <Playground id="#PIZ1GK#2" title="SSR Falloff Example" description="Simple example falloff in the screen space reflection post process." image=""/>
+Example playground with an almost equal to 0 exponent: <Playground id="#PIZ1GK#2" title="SSR Falloff Example" description="Simple example falloff in the screen space reflection post process."/>
 
 ## Quality
 The reflections quality can be customized to save performances and should be adjusted to each scene type. 
@@ -91,6 +91,6 @@ The quality is defined as:
 
 According to the nature of the scene, the post-process quality can be not necessary perceptible between the medium and high qualities as the ray-tracing algorithm stops once it finds the reflection color. In other words, the high quality will be not be always needed.
 
-High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections." image=""/>
-Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections." image=""/>
-Low quality playground: <Playground id="#PIZ1GK#6" title="Low Quality SSR Example" description="Example of low quality screen space reflections." image=""/>
+High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections."/>
+Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections."/>
+Low quality playground: <Playground id="#PIZ1GK#6" title="Low Quality SSR Example" description="Example of low quality screen space reflections."/>

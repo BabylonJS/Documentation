@@ -25,7 +25,7 @@ const global_position = BABYLON.Vector3.TransformCoordinates(local_position, mat
 mesh_C.position = global_position;
 ```
 
-Position sphere using TransformCoordinates: <Playground id="#TRAIXW" title="Position a Sphere Using Transform Coordinates" description="Simple example of positioning a sphere using transform coordinates." image=""/>
+Position sphere using TransformCoordinates: <Playground id="#TRAIXW" title="Position a Sphere Using Transform Coordinates" description="Simple example of positioning a sphere using transform coordinates."/>
 
 To translate the sphere by the direction vector (1, 1, 1) for example you can add this to the current local position vector
 
@@ -37,6 +37,6 @@ const global_position = BABYLON.Vector3.TransformCoordinates(local_position, mat
 mesh_C.position = global_position;
 ```
 
-Translate sphere using TransformCoordinates: <Playground id="#TRAIXW#1" title="Translate a Sphere Using Transform Coordinates" description="Simple example of translating a sphere using transform coordinates." image=""/>
+Translate sphere using TransformCoordinates: <Playground id="#TRAIXW#1" title="Translate a Sphere Using Transform Coordinates" description="Simple example of translating a sphere using transform coordinates."/>
 
 More extensive examples follow

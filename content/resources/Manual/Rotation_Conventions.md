@@ -47,7 +47,7 @@ mesh.rotation = new BABYLON.Vector3(pitch, yaw, roll);
 
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-<Playground id="#1ST43U#50" title="YXZ Yaw, Pitch, Roll" description="Simple example of YXZ Yaw, Pitch, Roll." image=""/>
+<Playground id="#1ST43U#50" title="YXZ Yaw, Pitch, Roll" description="Simple example of YXZ Yaw, Pitch, Roll."/>
 
 ### ZXY *World Axes*
 
@@ -69,7 +69,7 @@ mesh.rotation = new BABYLON.Vector(alpha, beta, gamma);
 
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-<Playground id="#1ST43U#52" title="ZXY Example" description="Simple example of ZXY rotation." image=""/>
+<Playground id="#1ST43U#52" title="ZXY Example" description="Simple example of ZXY rotation."/>
 
 
 
@@ -100,7 +100,7 @@ const yprQuaternion = BABYLON.Quaternion.RotationYawPitchRoll(yaw, pitch, roll);
 ``` 
 Applying the above  _rotate_ sequence to a newly created mesh (ie one that has zero rotations) in the order YXZ in **local** space and applying _RotationAlphaBetaGamma_ to a mesh, with any orientation, using the same angles will produce the same orientation. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-<Playground id="#1ST43U#54" title="Yaw Pitch Roll to Quaternion" description="Simple example of converting yaw, pitch, and roll to quaternion." image=""/>
+<Playground id="#1ST43U#54" title="Yaw Pitch Roll to Quaternion" description="Simple example of converting yaw, pitch, and roll to quaternion."/>
 
 ### ZXZ, World Space, A Standard Convention 
 
@@ -120,7 +120,7 @@ var abcQuaternion = BABYLON.Quaternion.RotationAlphaBetaGamma(alpha, beta, gamma
 
 Applying the above  _rotate_ sequence to a newly created mesh (ie one that has zero rotations) in the order ZXZ in **world** space and applying _RotationAlphaBetaGamma_ to a mesh, with any orientation, using the same angles will produce the same orientation. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
 
-<Playground id="#1ST43U#53" title="ZXZ To Quaternion" description="Simple example of converting ZXZ to quaternion." image=""/>
+<Playground id="#1ST43U#53" title="ZXZ To Quaternion" description="Simple example of converting ZXZ to quaternion."/>
 
 
 So far we have considered one mesh operating in its local space and the world space of Babylon.js. What if we want one mesh to operate in the frame of reference of another mesh. Before we consider parenting, in the next section, we will look at ways this can be done using the data that Babylon.js directly stores on the transformation of a mesh and its coordinates.

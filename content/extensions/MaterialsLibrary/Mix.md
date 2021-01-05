@@ -12,7 +12,7 @@ video-content:
 
 ## Playground example
 
-PG: <Playground id="#1DFTDT" title="Mix Material" description="Example of mix material" image=""/>/)
+PG: <Playground id="#1DFTDT" title="Mix Material" description="Example of mix material"/>/)
 
 ## Using the mix material
 

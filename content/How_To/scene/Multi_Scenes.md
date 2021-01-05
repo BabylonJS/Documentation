@@ -141,7 +141,7 @@ engine.runRenderLoop(function () {
 }); 
 ```
 
-<Playground id="#MXCRPS#1" title="Switching Scenes" description="Simple example showing how to switch scenes." image=""/>
+<Playground id="#MXCRPS#1" title="Switching Scenes" description="Simple example showing how to switch scenes."/>
 
 ## Overlay Multiple Scenes
 
@@ -162,4 +162,4 @@ engine.runRenderLoop(function () {
 });
 ``` 
 
-<Playground id="#L0IMUD#1" title="Overlaying Scenes" description="Simple example of overlaying scenes." image=""/>
+<Playground id="#L0IMUD#1" title="Overlaying Scenes" description="Simple example of overlaying scenes."/>

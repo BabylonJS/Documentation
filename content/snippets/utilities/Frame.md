@@ -51,9 +51,9 @@ path.reverse();
 
 ### Playground Examples
 
-<Playground id="#ZGVYNB" title="Window With Rebate" description="Window With Rebate." image=""/>
-<Playground id="#ZGVYNB#1" title="Traingular Frame with L Shape Profile" description="Traingular Frame with L Shape Profile." image=""/>
-<Playground id="#ZGVYNB#2" title="Oval Frame" description="Oval Frame" image=""/>
+<Playground id="#ZGVYNB" title="Window With Rebate" description="Window With Rebate."/>
+<Playground id="#ZGVYNB#1" title="Traingular Frame with L Shape Profile" description="Traingular Frame with L Shape Profile."/>
+<Playground id="#ZGVYNB#2" title="Oval Frame" description="Oval Frame"/>
 
 ## Code
 

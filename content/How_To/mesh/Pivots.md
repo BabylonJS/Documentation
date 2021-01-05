@@ -12,7 +12,7 @@ video-content:
 
 ## A Pivot
 
-The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: <Playground id="#GH4N1R#1" title="Simple Pivot Example" description="Simple pivot example." image=""/>
+The latest pivot in Babylon (v3.2+) is a pre-transformation pivot and behaves differently than in tools like 3DS Max and Maya as the object's position will move if scale is applied prior to setting the pivot. To get pivot behavior that matches these tools it is recommended to set the object as a child of another transform node that will act as the pivot see: <Playground id="#GH4N1R#1" title="Simple Pivot Example" description="Simple pivot example."/>
 
 A pivot can be set with a [translation matrix](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-the-pivot-matrix) or directly with the [_setPivotPoint_](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-and-get-a-pivot-point) method.
 
@@ -103,7 +103,7 @@ To set a pivot at (x, y, z) relative to the local origin of a mesh requires the 
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(-x, -y, -z));
 ```
 
- <Playground id="#3RTT8P" title="Set Pivot Matrix" description="Simple example of setting a pivot matrix." image=""/>
+ <Playground id="#3RTT8P" title="Set Pivot Matrix" description="Simple example of setting a pivot matrix."/>
 
 ## How To Set Pivot Position to World Space Coordinates
 
@@ -113,7 +113,7 @@ When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp
 mesh.setPivotMatrix(BABYLON.Matrix.Translation(xc - xp, yc - yp, zc - zp));
 ```
 
-<Playground id="#3RTT8P#2" title="Set Pivot With World Coordinates" description="Simple example of setting a pivot with world coordinates." image=""/>
+<Playground id="#3RTT8P#2" title="Set Pivot With World Coordinates" description="Simple example of setting a pivot with world coordinates."/>
 
 ## How To Reset the Pivot
 
@@ -121,17 +121,17 @@ Simply recalculate the translation of the pivot to the local origin of the mesh 
 
 The following sequence of playgrounds goes from setting the first pivot position to scaling about the second pivot position
 
-<Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot." image=""/>
-<Playground id="#3RTT8P#11" title="Set Second Pivot" description="Simple example of setting a second pivot." image=""/>
-<Playground id="#3RTT8P#12" title="Scaling From Second Pivot" description="Simple example of scaling from a second pivot." image=""/>
+<Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot."/>
+<Playground id="#3RTT8P#11" title="Set Second Pivot" description="Simple example of setting a second pivot."/>
+<Playground id="#3RTT8P#12" title="Scaling From Second Pivot" description="Simple example of scaling from a second pivot."/>
 
 **NOTE:** When a mesh has been rotated before resetting the pivot on resetting the pivot the mesh will move since the current rotation will be applied to the new pivot point.
 
 The following sequence of playgrounds shows setting the first pivot, rotating around the pivot then resetting the pivot.
 
-<Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot." image=""/>
-<Playground id="#3RTT8P#6" title="Rotate About First Pivot" description="Simple example of rotating about a first pivot." image=""/>
-<Playground id="#3RTT8P#7" title="Set Second Pivot" description="Simple example of setting a second pivot." image=""/>
+<Playground id="#3RTT8P#3" title="Set First Pivot" description="Simple example of setting a first pivot."/>
+<Playground id="#3RTT8P#6" title="Rotate About First Pivot" description="Simple example of rotating about a first pivot."/>
+<Playground id="#3RTT8P#7" title="Set Second Pivot" description="Simple example of setting a second pivot."/>
 
 ## How To Set and Get a Pivot Point
 
@@ -151,7 +151,7 @@ Using _setPivotPoint_ you simply pass a Vector3 object that is the relative posi
 mesh.setPivotPoint(new BABYLON.Vector3(x, y, z));
 ```
 
-<Playground id="#3RTT8P#8" title="Set Pivot Point" description="Simple example of setting a pivot point." image=""/>
+<Playground id="#3RTT8P#8" title="Set Pivot Point" description="Simple example of setting a pivot point."/>
 
 When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp, zp) then the relative position is (xp - xc, yp - yc, zp - z) and use
 
@@ -159,13 +159,13 @@ When there is a mesh at position (xc, yc, zc) you want to set a pivot at (xp, yp
 mesh.setPivotPoint(BABYLON.Vector3(xp - xc, yp - yc, zp - z));
 ```
 
-<Playground id="#3RTT8P#9" title="Set Pivot Point" description="Simple example of setting a pivot point." image=""/>
+<Playground id="#3RTT8P#9" title="Set Pivot Point" description="Simple example of setting a pivot point."/>
 
 The following sequence of playgrounds goes from setting the first pivot point to scaling about the second pivot point
 
-<Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point." image=""/>
-<Playground id="#3RTT8P#14" title="Set Second Pivot Point" description="Simple example of setting a second pivot point." image=""/>
-<Playground id="#3RTT8P#15" title="Scaling From Second Pivot Point" description="Simple example of scaling from a second pivot point." image=""/>
+<Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point."/>
+<Playground id="#3RTT8P#14" title="Set Second Pivot Point" description="Simple example of setting a second pivot point."/>
+<Playground id="#3RTT8P#15" title="Scaling From Second Pivot Point" description="Simple example of scaling from a second pivot point."/>
 
 It is possible to reset the pivot point and maintain the position and rotation of the mesh.
 
@@ -173,9 +173,9 @@ To do this the current rotation of the mesh has to be stored and then the mesh's
 
 The following sequence of playgrounds shows setting the first pivot point, rotating the pivot then resetting the pivot point and re-applying the rotation.
 
-<Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point." image=""/>
-<Playground id="#3RTT8P#16" title="Rotate About First Pivot Point" description="Simple example of rotating about a first pivot point." image=""/>
-<Playground id="#3RTT8P#17" title="Set Second Pivot Point and Rotate" description="Simple example of setting a second pivot point and rotating." image=""/>
+<Playground id="#3RTT8P#10" title="Set First Pivot Point" description="Simple example of setting a first pivot point."/>
+<Playground id="#3RTT8P#16" title="Rotate About First Pivot Point" description="Simple example of rotating about a first pivot point."/>
+<Playground id="#3RTT8P#17" title="Set Second Pivot Point and Rotate" description="Simple example of setting a second pivot point and rotating."/>
 
 ### Get Pivot Point
 

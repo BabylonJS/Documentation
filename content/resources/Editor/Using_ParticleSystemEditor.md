@@ -120,7 +120,7 @@ A dialog will appear to ask if you want to override the current set:
 
 ![PresetOverride](/img/extensions/Editor/CreatingParticleSystemSet/PresetOverride.png)
 
-PG: <Playground id="#X37LS1#3" title="Explosion" description="Example with the explosion preset" image=""/>
+PG: <Playground id="#X37LS1#3" title="Explosion" description="Example with the explosion preset"/>
 
 ![ExplosionPreset](/img/extensions/Editor/CreatingParticleSystemSet/ExplosionPreset.png)
 

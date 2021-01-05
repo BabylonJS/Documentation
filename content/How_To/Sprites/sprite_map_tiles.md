@@ -24,7 +24,7 @@ spriteMap.changeTiles(layerID, [tileID0, tileID1, ... tileIDn], frameID); //Chan
 
 When you are going to make multiple changes using just one frameID then passing the tileIDs in an array is optimal. It prevents the buffers having to be updated for each tile instead of in batches. 
 
-Change a whole row of stones to Roman columns <Playground id="#YCY2IL#20" title="Sprite Map Tile Layout" description="Simple example showing sprite map tile layouts." image=""/>
+Change a whole row of stones to Roman columns <Playground id="#YCY2IL#20" title="Sprite Map Tile Layout" description="Simple example showing sprite map tile layouts."/>
 
 You will often find the need for a blank tile. We recommend that you find a single transparent pixel on your packed spritesheet file You can reference this in JSON file.  
 
@@ -39,4 +39,4 @@ In the spritesheet file used in these docs there is a transparent pixel at x = 2
 	"sourceSize": {"w":32,"h":32}
 },
 ```
-<Playground id="#YCY2IL#21" title="Blank Tile Added to JSON" description="Simple example of adding a blank tile to a JSON file." image=""/>
+<Playground id="#YCY2IL#21" title="Blank Tile Added to JSON" description="Simple example of adding a blank tile to a JSON file."/>

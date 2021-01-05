@@ -28,7 +28,7 @@ At any point along curve in 3D space the tangent, normal and binormal form a set
 
 All six ways are used in the playground below. The top one [0] has the plane tangential to the curve and the fourth one down [3] is perpendicular to the curve. Others can twist the plane at certain points. 
 
-<Playground id="#1PX9G0" title="Aligning a Plane To a Curve" description="Simple example of aligning a plane to a curve." image=""/>
+<Playground id="#1PX9G0" title="Aligning a Plane To a Curve" description="Simple example of aligning a plane to a curve."/>
 
 ## Align Camera
 Given two spheres draw a plane between them that always faces the camera. We are going to set up red and green spheres, world axes, show as red, green and blue lines, and a purple plane in the xz plane. Joining the red and green spheres is a plane with a blue arrow on it pointing from the green to the red sphere.
@@ -41,7 +41,7 @@ The requirement is for the arrow plane to rotate such that
 
 In this way the camera always faces the arrow plane as can be seen in the this playground.
 
-<Playground id="#VYM1E#32" title="Aligning Camera Axes" description="Simple example of aligning camera axes." image=""/>
+<Playground id="#VYM1E#32" title="Aligning Camera Axes" description="Simple example of aligning camera axes."/>
 
 This is achieved by forming axis 1 to join the spheres
 

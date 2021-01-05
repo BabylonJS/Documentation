@@ -47,15 +47,15 @@ You must set at least the _path_ option.
 On update, you must set the _path_ and _instance_ options and you may also set the _radius_, _radiusFunction_ or _arc_ options.
 
 ### Examples
-non updatable tube: <Playground id="#WW0ALQ" title="Create a Non Updatable Tube" description="Simple example of creating non updatable tubes." image=""/>
-updatable tube: <Playground id="#WW0ALQ#1" title="Create an Updatable Tube" description="Simple example of creating an updatable tube." image=""/>
-spiral tube: <Playground id="#WW0ALQ#2" title="Create a Spiral Tube" description="Simple example of creating a spiral tube." image=""/>
+non updatable tube: <Playground id="#WW0ALQ" title="Create a Non Updatable Tube" description="Simple example of creating non updatable tubes."/>
+updatable tube: <Playground id="#WW0ALQ#1" title="Create an Updatable Tube" description="Simple example of creating an updatable tube."/>
+spiral tube: <Playground id="#WW0ALQ#2" title="Create a Spiral Tube" description="Simple example of creating a spiral tube."/>
 
 When using the radiusFunction it must return a number. Its parameter refer to a path index or a distance along the path. 
 
-distance example: <Playground id="#WW0ALQ#3" title="Create a Tube With Radius Function 1" description="Simple example of creating a tube using the radiusFunction distance." image=""/>
-index example: <Playground id="#WW0ALQ#4" title="Create a Tube With Radius Function 2" description="Simple example of creating a tube using the radiusFunction index." image=""/>
-with circular path and changing radius: <Playground id="#WW0ALQ#5" title="Create a Tube With Radius Function 3" description="Simple example of creating a tube with a circular path and changing radius." image=""/>
+distance example: <Playground id="#WW0ALQ#3" title="Create a Tube With Radius Function 1" description="Simple example of creating a tube using the radiusFunction distance."/>
+index example: <Playground id="#WW0ALQ#4" title="Create a Tube With Radius Function 2" description="Simple example of creating a tube using the radiusFunction index."/>
+with circular path and changing radius: <Playground id="#WW0ALQ#5" title="Create a Tube With Radius Function 3" description="Simple example of creating a tube with a circular path and changing radius."/>
 
 ## Mesh
 usage: 

@@ -52,14 +52,14 @@ instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
 ### Examples
-non updatable extrusion: <Playground id="#MR8LEL#2" title="Non Updatable Extrusion" description="Simple example of non updatable extrusions." image=""/>
-update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions." image=""/>
-extrusion with open shape: <Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Simple example of extrusion with open shpaes." image=""/>
+non updatable extrusion: <Playground id="#MR8LEL#2" title="Non Updatable Extrusion" description="Simple example of non updatable extrusions."/>
+update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions."/>
+extrusion with open shape: <Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Simple example of extrusion with open shpaes."/>
 
-spiral extrusion with straight path and rotation set: <Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion." image=""/>  
+spiral extrusion with straight path and rotation set: <Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion."/>  
 
-capped extrusion: <Playground id="#MR8LEL#6" title="Capped Extrusion" description="Simple example of capped extrusion." image=""/>
-profile that does not cap correctly: <Playground id="#MR8LEL#7" title="Incorrectly Capped Extrusion" description="Simple example of inocrrectly capped extrusion." image=""/>
+capped extrusion: <Playground id="#MR8LEL#6" title="Capped Extrusion" description="Simple example of capped extrusion."/>
+profile that does not cap correctly: <Playground id="#MR8LEL#7" title="Incorrectly Capped Extrusion" description="Simple example of inocrrectly capped extrusion."/>
 
 
 ## Mesh

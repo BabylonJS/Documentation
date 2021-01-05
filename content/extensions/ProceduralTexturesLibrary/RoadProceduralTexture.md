@@ -18,7 +18,7 @@ Road procedural texture can be found here:
 - Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.roadProceduralTexture.js)
 - Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.roadProceduralTexture.min.js) 
 
-A demo can be found here: <Playground id="#FBW4N#0" title="Road Procedural Texture Demo" description="Road Procedural Texture Demo" image=""/>
+A demo can be found here: <Playground id="#FBW4N#0" title="Road Procedural Texture Demo" description="Road Procedural Texture Demo"/>
 
 This texture has 1 parameter :
 - **roadColor** is the color for the road (BABYLON.Color3/4)

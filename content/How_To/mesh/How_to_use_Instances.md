@@ -76,7 +76,7 @@ box.setVerticesBuffer(buffer);
 
 The last parameter of the VertexBuffer constructor is the one to set to true to flag it as instanceable.
 
-Example: <Playground id="#8L50Q3#1" title="Custom Buffers Example 1" description="Simple example of custom buffers." image=""/>
+Example: <Playground id="#8L50Q3#1" title="Custom Buffers Example 1" description="Simple example of custom buffers."/>
 
 The other way is to register a custom buffer with `registerInstancedBuffer`:
 ```javascript
@@ -93,7 +93,7 @@ instance.instancedBuffers.color = new BABYLON.Color4(Math.random(), Math.random(
 
 The system will take care of updating the internal vertex buffer.
 
-Example: <Playground id="#YPABS1" title="Custom Buffers Example 2" description="Simple example of custom buffers." image=""/>
+Example: <Playground id="#YPABS1" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
 
 ## Advanced control
 
@@ -115,7 +115,7 @@ It is recommended to freeze the active meshes when controling the world matrix i
 scene.freezeActiveMeshes(true);
 ```
 
-You can find a complete example here: <Playground id="#HJGC2G" title="Instancing Advanced Control" description="Simple example of instancing advanced controls." image=""/>
+You can find a complete example here: <Playground id="#HJGC2G" title="Instancing Advanced Control" description="Simple example of instancing advanced controls."/>
 
 ## Support
 
@@ -139,12 +139,12 @@ Using 3DS Max, you can create instances of a mesh by just creating a clone insta
 
 * You can use instances with LOD but one limitation will apply in this case: You will have to hide the root objects.
 Here is an example where LODs reuse instances:
-<Playground id="#0720FC#10" title="Instances and LODs" description="Simple example of instancing and LODs." image=""/>
+<Playground id="#0720FC#10" title="Instances and LODs" description="Simple example of instancing and LODs."/>
 
 * If you want to create an instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
 
 * Instances with a world matrix where determinant is different than root mesh world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
 
 ## Demos
-- Trees: <Playground id="#YB006J#75" title="Instancing Trees Example" description="Simple example of instancing with trees." image=""/>
-- 10,000 Icospheres: <Playground id="#c2ynt9#12" title="10,000 Icospheres" description="Simple example of instancing with 10,000 icospheres." image=""/>
+- Trees: <Playground id="#YB006J#75" title="Instancing Trees Example" description="Simple example of instancing with trees."/>
+- 10,000 Icospheres: <Playground id="#c2ynt9#12" title="10,000 Icospheres" description="Simple example of instancing with 10,000 icospheres."/>

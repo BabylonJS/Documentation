@@ -41,12 +41,12 @@ lines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
 ### Examples
-non updatable lines: <Playground id="#MZ7QRG#6" title="Create Non Updatable Lines" description="Simple example of creating non updatable lines." image=""/>
-non updatable closed lines: <Playground id="#MZ7QRG#8" title="Create Non Updatable Closed Lines" description="Simple example of creating non updatable closed lines." image=""/> 
-updatable example: <Playground id="#MZ7QRG#9" title="Create Updatable Closed Lines" description="Simple example of creating updatable closed lines." image=""/> 
-updatable spriral: <Playground id="#MZ7QRG#10" title="Create Updatable Spiral Lines" description="Simple example of creating updatable spiral lines." image=""/>
+non updatable lines: <Playground id="#MZ7QRG#6" title="Create Non Updatable Lines" description="Simple example of creating non updatable lines."/>
+non updatable closed lines: <Playground id="#MZ7QRG#8" title="Create Non Updatable Closed Lines" description="Simple example of creating non updatable closed lines."/> 
+updatable example: <Playground id="#MZ7QRG#9" title="Create Updatable Closed Lines" description="Simple example of creating updatable closed lines."/> 
+updatable spriral: <Playground id="#MZ7QRG#10" title="Create Updatable Spiral Lines" description="Simple example of creating updatable spiral lines."/>
 
-multi colored lines have to be set on creation. <Playground id="#MZ7QRG#11" title="Create Multi Colored Lines" description="Simple example of creating multi colored lines." image=""/>
+multi colored lines have to be set on creation. <Playground id="#MZ7QRG#11" title="Create Multi Colored Lines" description="Simple example of creating multi colored lines."/>
 
 ## Mesh
 usage:

@@ -60,7 +60,7 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the video dome help reduce, but not eliminate, this.
 
-<Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier." image=""/>
+<Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier."/>
 
 ## Video Types
 

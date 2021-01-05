@@ -63,5 +63,5 @@ function setParticles() {
 }
 ```
 
-Example: <Playground id="#1X7SUN#11" title="Updating Solid Particle Geometry" description="Simple example of manipulating solid particle geometry." image=""/>
-or dancing glow-worms: <Playground id="#1X7SUN#12" title="Dancing Glow Worm Solid Particles" description="Fun Glow Worm example of changing solid particle geometry." image=""/>
+Example: <Playground id="#1X7SUN#11" title="Updating Solid Particle Geometry" description="Simple example of manipulating solid particle geometry."/>
+or dancing glow-worms: <Playground id="#1X7SUN#12" title="Dancing Glow Worm Solid Particles" description="Fun Glow Worm example of changing solid particle geometry."/>

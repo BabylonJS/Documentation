@@ -18,7 +18,7 @@ Brick procedural texture can be found here:
 - Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)
 - Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#1CL0BO" title="Brick Procedural Texture" description="Brick Procedural Texture" image=""/>
+A demo can be found here:  <Playground id="#1CL0BO" title="Brick Procedural Texture" description="Brick Procedural Texture"/>
 
 This texture has 4 parameters :
 - **numberOfBricksHeight** controls the number of bricks in height (Int)

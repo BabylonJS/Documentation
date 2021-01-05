@@ -24,7 +24,7 @@ In other words, for example, determine how the light (from sun) is scattered by 
 
 ## Playground example
 
-PG: <Playground id="#E6OZX#221" title="Sky Material" description="Sky material animation" image=""/>
+PG: <Playground id="#E6OZX#221" title="Sky Material" description="Sky material animation"/>
 
 Just press the following keys:
 * 1: Set Day
@@ -119,4 +119,4 @@ skyMaterial.cameraOffset.y = scene.activeCamera.globalPosition.y;
 
 As a common technique, it would be useful to use the sky material result to reflect the environment. For example, using a PBR material.
 
-The technique consists on creating a reflection probe (which is a cube texture) and render the sky mesh with the sky material assigned to it. As an example  PG: <Playground id="#4R1H1U" title="Sky Material" description="Example of sky material reflecting the environment" image=""/>
+The technique consists on creating a reflection probe (which is a cube texture) and render the sky mesh with the sky material assigned to it. As an example  PG: <Playground id="#4R1H1U" title="Sky Material" description="Example of sky material reflecting the environment"/>

@@ -167,13 +167,13 @@ The first playground is the example as described above.
 
 NOTE to use the keys with the playground you MUST click on the car after it loads or you have used RUN.
 
-PG: <Playground id="#102TBD#31" title="Driven Car" description="View behind the car." image=""/>
+PG: <Playground id="#102TBD#31" title="Driven Car" description="View behind the car."/>
 
 The second playground is similar. The pivot has been made into a sphere so you can see it and the camera position changed to give 
 an overview. The camera is now attached to the canvas so you can change viewing angles. This may help give more insight into 
 the workings of the code.
 
-PG: <Playground id="" title="Driven Car Overview" description="Visible pivot and flexible camera view" image=""/>
+PG: <Playground id="" title="Driven Car Overview" description="Visible pivot and flexible camera view"/>
 
 
 

@@ -39,7 +39,7 @@ Use the [picking info](/typedoc/classes/babylon.pickinginfo) that is returned by
 
 ## Detect the first mesh touched by the ray
 
-Check out an example here: <Playground id="#KNE0O#84" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray." image=""/>
+Check out an example here: <Playground id="#KNE0O#84" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray."/>
 
 (The following descriptions will reference this example. All line references are from the most recent example link)
 
@@ -88,7 +88,7 @@ Here we change its size because it's funnier!
 **You're not forced to set `box.isPickable` to false**, if you need later to check rays intersection on this box for example.
 You can set the origin point of the vector in front of the box, the direction a little further and the length that you want _(line #55)_:
 
- <Playground id="#KNE0O#17" title="Ray Picking Example" description="Simple example of ray picking." image=""/>
+ <Playground id="#KNE0O#17" title="Ray Picking Example" description="Simple example of ray picking."/>
 
 ---
 
@@ -96,7 +96,7 @@ You can set the origin point of the vector in front of the box, the direction a 
 
 It is a filter to choose which meshes will be selectable:
 
-<Playground id="#KNE0O#18" title="Predicate Function Example" description="Simple example of the predicate function with ray picking." image=""/>
+<Playground id="#KNE0O#18" title="Predicate Function Example" description="Simple example of the predicate function with ray picking."/>
 
 ![Raycast predicate](/img/how_to/raycast02.jpg)
 
@@ -145,7 +145,7 @@ scene.pick(scene.pointerX, scene.pointerY, null, false, null, (p0, p1, p2, ray) 
 
 In this example we are filtering out all the triangles that are not facing towards the camera.
 
-Live example: <Playground id="#EES9W5" title="Triangle Predicate" description="Simple example of ray picking with a triangle predicate." image=""/>
+Live example: <Playground id="#EES9W5" title="Triangle Predicate" description="Simple example of ray picking with a triangle predicate."/>
 
 ---
 
@@ -153,7 +153,7 @@ Live example: <Playground id="#EES9W5" title="Triangle Predicate" description="S
 
 We can use `scene.multiPickWithRay` if we don't want that the ray to stop at the first obstacle:
 
- <Playground id="#KNE0O#19" title="Get All Meshes Hit By Ray" description="Simple example of getting all meshes hit by a ray." image=""/>
+ <Playground id="#KNE0O#19" title="Get All Meshes Hit By Ray" description="Simple example of getting all meshes hit by a ray."/>
 
 ![Raycast multipick](/img/how_to/raycast02.jpg)
 
@@ -184,7 +184,7 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 Another handy feature is the createPickingRay. This special ray is cast from a camera, out to infinity, in the direction of the cursor (relative to the virtual lens). Confusing? Basically think of it as a ray that's cast out of the camera and 'aimed' by the cursor. This is another method for picking objects in your scene. Here's a playground and video to check out on the subject.
 
- <Playground id="#AC8XPN" title="Picking Ray Example" description="Simple example of using a picking ray." image=""/>
+ <Playground id="#AC8XPN" title="Picking Ray Example" description="Simple example of using a picking ray."/>
 
 <Youtube id="dgsWKpa7RcY"/>
 
@@ -232,4 +232,4 @@ var length = 3;
 rayHelper.attachToMesh(box, localMeshDirection, localMeshOrigin, length);
 ```
 
-<Playground id="#ZHDBJ#48" title="Picking and Debugging" description="Simple example of ray picking and debugging." image=""/>
+<Playground id="#ZHDBJ#48" title="Picking and Debugging" description="Simple example of ray picking and debugging."/>

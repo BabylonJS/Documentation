@@ -65,4 +65,4 @@ model.dispose();
 SPS.buildMesh();
 ```
 
-Example (click on the torus knot): <Playground id="#HDHQN" title="Solid Particle From Mesh Facets Example" description="Simple example of solid particles from mesh facets (click on the torus knot)" image=""/>
+Example (click on the torus knot): <Playground id="#HDHQN" title="Solid Particle From Mesh Facets Example" description="Simple example of solid particles from mesh facets (click on the torus knot)"/>

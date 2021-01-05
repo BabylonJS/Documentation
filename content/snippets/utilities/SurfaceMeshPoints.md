@@ -128,4 +128,4 @@ BABYLON.Mesh.prototype.createSurfacePoints = function(pointDensity) {
 }
 ```
 
-<Playground id="#NFSGWT#2" title="Drawing Points on a Mesh Surface" description="" image=""/>
+<Playground id="#NFSGWT#2" title="Drawing Points on a Mesh Surface" description=""/>

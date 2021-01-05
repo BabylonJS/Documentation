@@ -90,7 +90,7 @@ There will be a collision between *frame n* and *frame n+1* provided b<sup>2</su
 
 Based on the above the following Playground shows two spheres and their paths. Should they collide their positions at first touch are shown. Their start positions and velocities may be set at lines 35 to 38.
 
-PG: <Playground id="#A4HZTV" title="First Contact" description="Two moving spheres showing their paths and their positions at first contact." image=""/>
+PG: <Playground id="#A4HZTV" title="First Contact" description="Two moving spheres showing their paths and their positions at first contact."/>
 
 ### Reaction
 
@@ -154,19 +154,19 @@ After a collision these values are used to recalculate the  positions of particl
 
 The following Playground shows the first contact position of two particles and their paths before and after collision. Start position and velocities may be set on lines 36 to 39.
 
-PG: <Playground id="#A4HZTV#1" title="Contact and Rebound" description="Shows the first contact position of two particles and their paths before and after collision." image=""/>
+PG: <Playground id="#A4HZTV#1" title="Contact and Rebound" description="Shows the first contact position of two particles and their paths before and after collision."/>
 
 This Playground fires particles randomly towards each other to see the effect when they collide.
 
-PG: <Playground id="#A4HZTV#2" title="Random Collisions" description="Particles are fired randomly towards each other to see the effect when they collide." image=""/>
+PG: <Playground id="#A4HZTV#2" title="Random Collisions" description="Particles are fired randomly towards each other to see the effect when they collide."/>
 
 ## A Multitude of Particles
 
 Combining all of the above the following Playgrounds put many particles inside a box and have them collide with the box and each other.
 
-PG: <Playground id="#HIM0WS" title="Slow Moving Particles" description="Particles inside a box, collide with the box and each other." image=""/>
+PG: <Playground id="#HIM0WS" title="Slow Moving Particles" description="Particles inside a box, collide with the box and each other."/>
 
-PG: <Playground id="#HIM0WS#1" title="Fast Moving Particles" description="." image=""/>
+PG: <Playground id="#HIM0WS#1" title="Fast Moving Particles" description="."/>
 
 Maximum speeds, for both,  can be changed on lines 21 to 23.
 

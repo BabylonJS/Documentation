@@ -80,8 +80,8 @@ SPS.addShape(box, 150, {positionFunction: myBuilder}); // myBuilder will be call
 const mesh = SPS.buildMesh();
 ```
 
-Immutable color cube of triangle particles: <Playground id="#2FPT1A#5" title="Immutable Color Cube of Triangle Particles" description="Simple example of immutable color cube of triangle particles." image=""/>
-Immutable town with 80,000 buildings: <Playground id="#2FPT1A#36" title="Immutable Town With 80,000 Buildings" description="Simple example of an immutable town with 80,000 buildings" image=""/>
+Immutable color cube of triangle particles: <Playground id="#2FPT1A#5" title="Immutable Color Cube of Triangle Particles" description="Simple example of immutable color cube of triangle particles."/>
+Immutable town with 80,000 buildings: <Playground id="#2FPT1A#36" title="Immutable Town With 80,000 Buildings" description="Simple example of an immutable town with 80,000 buildings"/>
 
 Note that although the particles cannot move but you can still move, scale or rotate the whole SPS mesh. When there is no need for you SPS mesh to move, scale or rotate you can use the standard Babylon.js mesh _freezeXXX()_ methods for further performance gain
 
@@ -115,7 +115,7 @@ SPS.addShape(box, 150, {
 });
 ```
 
-Example with asteroids: <Playground id="#2FPT1A#2" title="Solid Particle Vertex Position Example" description="Simple example of updating solid particle vertex positions" image=""/>
+Example with asteroids: <Playground id="#2FPT1A#2" title="Solid Particle Vertex Position Example" description="Simple example of updating solid particle vertex positions"/>
 
 Making your SPS immutable is one way to optimize your scene. Next we will consider ways to optimize when using an updatable SPS.
 

@@ -29,7 +29,7 @@ Using the Inspector in the Playground below with the minimise vertices function 
 
 If you comment out line 12 and so no longer apply the force shared vertices function you can use the Inspector to check that there are 435 vertices. In this case though the image is applied correctly.
 
-<Playground id="#5ITGBA#2" title="Force Shared Vertices 1" description="Force shared vertices example." image=""/>
+<Playground id="#5ITGBA#2" title="Force Shared Vertices 1" description="Force shared vertices example."/>
 
 ## Prior to Version 4.0
 
@@ -104,4 +104,4 @@ BABYLON.Mesh.prototype.minimizeVertices = function() {
 
 ## Playground
 
-<Playground id="#1JBMJ3#18" title="Minimizing Vertices" description="Simple example of minimizing vertices." image=""/>
+<Playground id="#1JBMJ3#18" title="Minimizing Vertices" description="Simple example of minimizing vertices."/>

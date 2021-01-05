@@ -26,7 +26,7 @@ It supports `.vrm` and `.vci` file loading.
 
 ## A brief example
 
-PG: <Playground id="#K5W35Y" title="VRM" description="Example of loading a VRM file." image=""/>
+PG: <Playground id="#K5W35Y" title="VRM" description="Example of loading a VRM file."/>
 
 ## What can do?
 
@@ -72,13 +72,13 @@ BabylonJS [standard animation mechanism](/divingDeeper/animation/animation_intro
 
 For instance, you can make pose to any VRM.
 
-PG: <Playground id="#K5W35Y#8" title="VRM" description="Posing the VRM" image=""/>
+PG: <Playground id="#K5W35Y#8" title="VRM" description="Posing the VRM"/>
 
 ## How to use?
 
 On browser example is [here](https://codepen.io/anon/pen/zQXyxL?editors=1010).
 
-Example PG: <Playground id="#K5W35Y" title="VRM" description="Example VRM" image=""/>
+Example PG: <Playground id="#K5W35Y" title="VRM" description="Example VRM"/>
 
 On npm/yarn with webpack...
 

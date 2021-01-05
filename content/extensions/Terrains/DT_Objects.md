@@ -106,7 +106,7 @@ Now, each time that the terrain is updated and that it covers a part of map cont
 # Playground Example
 
 Using only the solid particle system 3000 particles are used to render dozens of thousands objects from the map. A free camera is used.   
-PG: <Playground id="#FJNR5#264" title="Dynamic Terrain" description="Example of Added SPS Objects" image=""/>
+PG: <Playground id="#FJNR5#264" title="Dynamic Terrain" description="Example of Added SPS Objects"/>
 # Cautionary Note
 The SPMap feature seems to not work correctly with the LOD in some cases.
 
@@ -173,10 +173,10 @@ We use the parameter `SPcolorData` and `SPuvData`.
 
 ```
 The objects get more green or more red according to the map areas (north, south, east, west) and more blue when in altitude. 
-PG: <Playground id="#FJNR5#267" title="" description="Example of colour with SPS objects" image=""/> 
+PG: <Playground id="#FJNR5#267" title="" description="Example of colour with SPS objects"/> 
 
 Each object is given a part of the image file.
-PG: <Playground id="#FJNR5#268" title="" description="Example using UV with SPS objects" image=""/> 
+PG: <Playground id="#FJNR5#268" title="" description="Example using UV with SPS objects"/> 
 
 **Note :**
 The object map (SPMap) requires a terrain data map to work.  

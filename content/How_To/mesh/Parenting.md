@@ -28,10 +28,10 @@ The order you set transformations, such as position or rotation, to the parent m
 
 The following playgrounds show the different behaviors
 
-<Playground id="#NRNBMM" title="Transform C and P After Parenting" description="Simple example of transforming C and P after parenting." image=""/>
-<Playground id="#NRNBMM#1" title="Transform C Before and P After Parenting" description="Simple example of transforming C before and P after parenting." image=""/>
-<Playground id="#NRNBMM#2" title="Transform P Before and C After Parenting" description="Simple example of transforming P before and C after parenting." image=""/>
-<Playground id="#NRNBMM#3" title="Transform C and P Before Parenting" description="Simple example of transforming C and P before parenting." image=""/>
+<Playground id="#NRNBMM" title="Transform C and P After Parenting" description="Simple example of transforming C and P after parenting."/>
+<Playground id="#NRNBMM#1" title="Transform C Before and P After Parenting" description="Simple example of transforming C before and P after parenting."/>
+<Playground id="#NRNBMM#2" title="Transform P Before and C After Parenting" description="Simple example of transforming P before and C after parenting."/>
+<Playground id="#NRNBMM#3" title="Transform C and P Before Parenting" description="Simple example of transforming C and P before parenting."/>
 
 To remove a child, mesh C, from a parent, mesh P you use any of
 
@@ -43,7 +43,7 @@ meshP.removeChild(meshC);
 
 The following playground shows that setting a child's parent mesh P, directly to null, `meshC.parent = null`, not only removes the parent from the child, mesh C (red), but also removes from mesh C any transformation applied via mesh P leaving only the transformations applied directly to mesh C. Using this method, on the removal of the parent, the position, rotation and scale of mesh C will be seen as changed in the scene view. The other two methods, `meshC.setParent(null)` and `meshP.removeChild(meshC)`, just removes the link to the parent and any transformation to mesh C applied via mesh P up to the point of removal will remain. Using these methods, on the removal of the parent, the position, rotation and scale of mesh C will be seen as as the same in the scene view.
 
-<Playground id="#XQI4UY#19" title="Removing a Parent" description="Simple example of removing a parent." image=""/>
+<Playground id="#XQI4UY#19" title="Removing a Parent" description="Simple example of removing a parent."/>
 
 ## How To Use a Parent
 
@@ -67,7 +67,7 @@ scene.registerAfterRender(function () {
 });
 ```
 
-<Playground id="#XQI4UY#1" title="Animation Parent" description="Simple example of an animation parent." image=""/>
+<Playground id="#XQI4UY#1" title="Animation Parent" description="Simple example of an animation parent."/>
 
 ## Disc World
 
@@ -86,4 +86,4 @@ scene.registerAfterRender(function () {
 });
 ```
 
-<Playground id="#XQI4UY#3" title="Disc World" description="Simple example of parenting in the disc world." image=""/>
+<Playground id="#XQI4UY#3" title="Disc World" description="Simple example of parenting in the disc world."/>

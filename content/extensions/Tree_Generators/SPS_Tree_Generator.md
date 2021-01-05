@@ -18,7 +18,7 @@ This base tree is used in two different ways.
     
   ![Base Tree to Full Tree Sequence ](/img/extensions/trees/baseToFull.png)  
   
-  A demo can be found at: <Playground id="#1LXNS9#4" title="SPS Tree Generator Example" description="Simple example of the sps tree generator." image=""/>
+  A demo can be found at: <Playground id="#1LXNS9#4" title="SPS Tree Generator Example" description="Simple example of the sps tree generator."/>
 
 ## How to use it.
 

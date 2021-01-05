@@ -313,8 +313,8 @@ Just like the WebVR camera, the controllers export their (right-handed!) raw pos
 
 ## Examples
 
-<Playground id="G46RP6#2" title="VR Helmet Example" description="A simple example of how to leverage the WebVRFreeCamera." image=""/>
-<Playground id="#5MV04" title="Basic VR Scene" description="A simple example of a basic VR scene." image=""/>
+<Playground id="G46RP6#2" title="VR Helmet Example" description="A simple example of how to leverage the WebVRFreeCamera."/>
+<Playground id="#5MV04" title="Basic VR Scene" description="A simple example of a basic VR scene."/>
 
 Enjoy!
 

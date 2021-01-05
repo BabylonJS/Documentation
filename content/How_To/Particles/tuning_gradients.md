@@ -52,8 +52,8 @@ To remove a size gradient you use
 ```javascript
 particleSystem.removeSizeGradient(0.4);
 ```
-Size increases over lifetime: <Playground id="#0K3AQ2#18" title="Particle Size Increases Over Liftime" description="Simple example of particle size increasing over the lifteime of a particle." image=""/>
-Size increases then decreases over lifetime: <Playground id="#0K3AQ2#19" title="Particle Size Increases Then Decreases Over Liftime" description="Simple example of particle size increasing then decreasing over the lifteime of a particle." image=""/>
+Size increases over lifetime: <Playground id="#0K3AQ2#18" title="Particle Size Increases Over Liftime" description="Simple example of particle size increasing over the lifteime of a particle."/>
+Size increases then decreases over lifetime: <Playground id="#0K3AQ2#19" title="Particle Size Increases Then Decreases Over Liftime" description="Simple example of particle size increasing then decreasing over the lifteime of a particle."/>
 
 ## Change Color Over Lifetime
 
@@ -76,8 +76,8 @@ To remove a color gradient you use
  particleSystem.removeColorGradient(0.4);
  ```
 
-color change over lifetime: <Playground id="#0K3AQ2#20" title="Particle Color Change Over Liftime" description="Simple example of particle color changing over the lifteime of a particle." image=""/>
-color change with ranges over lifetime: <Playground id="#0K3AQ2#22" title="Particle Color Change With Ranges Over Liftime" description="Simple example of particle color changing with ranges over the lifteime of a particle." image=""/>
+color change over lifetime: <Playground id="#0K3AQ2#20" title="Particle Color Change Over Liftime" description="Simple example of particle color changing over the lifteime of a particle."/>
+color change with ranges over lifetime: <Playground id="#0K3AQ2#22" title="Particle Color Change With Ranges Over Liftime" description="Simple example of particle color changing with ranges over the lifteime of a particle."/>
 
 ## Change Speed Over Lifetime
 To change the speed (magnitude of velocity) over the lifetime of the particle use
@@ -99,8 +99,8 @@ To remove a velocity gradient you use
 particleSystem.removeVelocityGradient(0.4);
 ```
 
-Speed increases over lifetime: <Playground id="#0K3AQ2#29" title="Particle Speed Increases Over Liftime" description="Simple example of particle speed increasing over the lifteime of a particle." image=""/>
-Speed increases then decreases over lifetime: <Playground id="#0K3AQ2#30" title="Particle Speed Increases Then Decreases Over Liftime" description="Simple example of particle speed increasing then decreasing over the lifteime of a particle." image=""/>
+Speed increases over lifetime: <Playground id="#0K3AQ2#29" title="Particle Speed Increases Over Liftime" description="Simple example of particle speed increasing over the lifteime of a particle."/>
+Speed increases then decreases over lifetime: <Playground id="#0K3AQ2#30" title="Particle Speed Increases Then Decreases Over Liftime" description="Simple example of particle speed increasing then decreasing over the lifteime of a particle."/>
 
 ## Limit Speed Over Lifetime
 You can define by how much to limit the speed of a particle with
@@ -127,7 +127,7 @@ To remove a speed limit gradient you use
 particleSystem.removeLimitVelocityGradient(0.4);
 ```
 
-Speed limit increases over lifetime: <Playground id="#0K3AQ2#33" title="Particle Speed Limit Increases Over Liftime" description="Simple example of particle speed limit increasing over the lifteime of a particle." image=""/>
+Speed limit increases over lifetime: <Playground id="#0K3AQ2#33" title="Particle Speed Limit Increases Over Liftime" description="Simple example of particle speed limit increasing over the lifteime of a particle."/>
 
 ## Change Rotation Speed Over Lifetime
 To change the rotation or angular speed over the lifetime of the particle use
@@ -149,8 +149,8 @@ To remove a angular speed gradient you use
 particleSystem.removeAngularSpeedGradient(0.4);
 ```
 
-AngularSpeed increases over lifetime: <Playground id="#0K3AQ2#26" title="Particle AngularSpeed Increases Over Liftime" description="Simple example of particle Angularspeed increasing over the lifteime of a particle." image=""/>
-AngularSpeed increases then decreases over lifetime: <Playground id="#0K3AQ2#27" title="Particle AngularSpeed Increasing and Decreasing Over Liftime" description="Simple example of particle Angularspeed increasing and decreasing over the lifteime of a particle." image=""/>
+AngularSpeed increases over lifetime: <Playground id="#0K3AQ2#26" title="Particle AngularSpeed Increases Over Liftime" description="Simple example of particle Angularspeed increasing over the lifteime of a particle."/>
+AngularSpeed increases then decreases over lifetime: <Playground id="#0K3AQ2#27" title="Particle AngularSpeed Increasing and Decreasing Over Liftime" description="Simple example of particle Angularspeed increasing and decreasing over the lifteime of a particle."/>
 
 ## Change Drag Over Lifetime
 You can simulate air friction by applying a drag to the particle and you can change the amount of drag a particle experiences over its lifetime. Drag is applied in the direction of the particles velocity. A drag of 0.8 will reduce the velocity to 20% of its value. When the drag is &gt; 1 the particles direction will reverse.
@@ -173,8 +173,8 @@ To remove a drag gradient you use
 ```javascript
 particleSystem.removeDragGradient(0.4);
 ```
-Drag &le; 1: <Playground id="#0K3AQ2#39" title="Particle Drag Changing Over Liftime 1" description="Simple example of particle drag changing over the lifteime of a particle." image=""/>
-Drag &gt; 1: <Playground id="#0K3AQ2#40" title="Particle Drag Changing Over Liftime 2" description="Simple example of particle drag changing over the lifteime of a particle." image=""/> 
+Drag &le; 1: <Playground id="#0K3AQ2#39" title="Particle Drag Changing Over Liftime 1" description="Simple example of particle drag changing over the lifteime of a particle."/>
+Drag &gt; 1: <Playground id="#0K3AQ2#40" title="Particle Drag Changing Over Liftime 2" description="Simple example of particle drag changing over the lifteime of a particle."/> 
 
 ## Change Emit Rate Over Duration
 For example as energy builds over the duration of the particle system and increases the emit rate you might use,
@@ -200,9 +200,9 @@ remove gradient at 0.4
 particleSystem.removeEmitRateGradient(0.4);
 ```
 
-Faster emit rate over duration: <Playground id="#0K3AQ2#13" title="Particle Faster Emission Rate Over Duration" description="Simple example of faster particle emission rates over the duration." image=""/>
+Faster emit rate over duration: <Playground id="#0K3AQ2#13" title="Particle Faster Emission Rate Over Duration" description="Simple example of faster particle emission rates over the duration."/>
 
-Increasing and then decreasing emit rates over duration: <Playground id="#0K3AQ2#14" title="Increasing Then Decreasing Emission Rates Over Duration" description="Simple example of increasing then decreasing the emission rate over the duration." image=""/>
+Increasing and then decreasing emit rates over duration: <Playground id="#0K3AQ2#14" title="Increasing Then Decreasing Emission Rates Over Duration" description="Simple example of increasing then decreasing the emission rate over the duration."/>
 
 ## Change Lifetime Over Duration
 
@@ -229,8 +229,8 @@ remove gradient at 0.4
 particleSystem.removeLifeTimeGradient(0.4);
 ```
 
-Shorter lifetimes over duration: <Playground id="#0K3AQ2#9" title="Shorter Lifetimes Over Duration" description="Simple example of shortening lifetimes of particles over duration." image=""/> 
-Increasing and then decreasing lifetimes over duration: <Playground id="#0K3AQ2#15" title="Increasing and Decreasing Lifetimes Over Duration" description="Simple example of increasing and then decreasing lifetimes over duration." image=""/>
+Shorter lifetimes over duration: <Playground id="#0K3AQ2#9" title="Shorter Lifetimes Over Duration" description="Simple example of shortening lifetimes of particles over duration."/> 
+Increasing and then decreasing lifetimes over duration: <Playground id="#0K3AQ2#15" title="Increasing and Decreasing Lifetimes Over Duration" description="Simple example of increasing and then decreasing lifetimes over duration."/>
 
 
 ## Change Start Size Over Duration
@@ -257,4 +257,4 @@ remove gradient at 0.4
 particleSystem.removeStartSizeGradient(0.4);
 ```
 
-Increasing start sizes over duration: <Playground id="#0K3AQ2#41 " title="Increasing Particle Start Sizes Over Duration" description="Simple example of increasing particle start sizes over duration." image=""/>
+Increasing start sizes over duration: <Playground id="#0K3AQ2#41 " title="Increasing Particle Start Sizes Over Duration" description="Simple example of increasing particle start sizes over duration."/>

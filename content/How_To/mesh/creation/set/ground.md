@@ -25,7 +25,7 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 subdivisions|_(number)_ number of square subdivisions|1
 
 ### Example
-Ground: <Playground id="#45R5JK" title="Create a Ground" description="Simple example of creating a ground." image=""/>
+Ground: <Playground id="#45R5JK" title="Create a Ground" description="Simple example of creating a ground."/>
 
 
 ## Mesh

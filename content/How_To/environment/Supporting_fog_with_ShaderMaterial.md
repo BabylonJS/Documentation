@@ -84,4 +84,4 @@ shaderMaterial.onBind = function(mat, mesh) {
 
 And, you are done :)
 
-Please find an example here: <Playground id="#11GAIH#17" title="Fog And Shader Material" description="Example of supporting fog with the shader material." image=""/>
+Please find an example here: <Playground id="#11GAIH#17" title="Fog And Shader Material" description="Example of supporting fog with the shader material."/>

@@ -69,14 +69,14 @@ SPS.initParticles();
 SPS.setParticles();
 ```
 
-A basic SPS: <Playground id="#GLZ1PX#1" title="A Basic Solid Particle System" description="Simple example of a basic solid particle system." image=""/>
-Colored Green: <Playground id="#GLZ1PX#2" title="Green Colored Solid Particle System" description="Simple example of a green colored solid particle system." image=""/>
-With Texture: <Playground id="#GLZ1PX#3" title="Solid Particle System With Textures" description="Simple example of a solid particle system with textures." image=""/>
+A basic SPS: <Playground id="#GLZ1PX#1" title="A Basic Solid Particle System" description="Simple example of a basic solid particle system."/>
+Colored Green: <Playground id="#GLZ1PX#2" title="Green Colored Solid Particle System" description="Simple example of a green colored solid particle system."/>
+With Texture: <Playground id="#GLZ1PX#3" title="Solid Particle System With Textures" description="Simple example of a solid particle system with textures."/>
 
 As well as position you can also set properties such as color or uv values. More on managing particles later in this section
 
-Color individual particles: <Playground id="#GLZ1PX#4" title="Individually Colored Solid Particles" description="Simple example of individually colored solid particles." image=""/>
-Texture individual particles: <Playground id="#GLZ1PX#5" title="Individually Textured Solid Particles" description="Simple example of individually textured solid particles" image=""/>
+Color individual particles: <Playground id="#GLZ1PX#4" title="Individually Colored Solid Particles" description="Simple example of individually colored solid particles."/>
+Texture individual particles: <Playground id="#GLZ1PX#5" title="Individually Textured Solid Particles" description="Simple example of individually textured solid particles"/>
 
 While it can be useful to have an SPS that will not change, for example to represent an asteroid field or city buildings
 

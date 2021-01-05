@@ -28,7 +28,7 @@ pcs.addPoints(10000);
 
 will add 10000 points.
 
--   <Playground id="#UI95UC" title="Adding Point Cloud Points" description="Simple example of adding point cloud points." image=""/>
+-   <Playground id="#UI95UC" title="Adding Point Cloud Points" description="Simple example of adding point cloud points."/>
 
 You can use your own function as a second parameter to set particle properties such as position and color. This function must have this kind of signature:
 
@@ -79,7 +79,7 @@ will displace the second group of points along the x axis.
 
 ![use groupId](/img/how_to/particles/points2.jpg)
 
--   <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points." image=""/>
+-   <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points."/>
 
 ## Add Surface / Volume Points
 
@@ -155,18 +155,18 @@ BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) 
 
 **Examples**
 
--   <Playground id="#UI95UC#2" title="Random Surface" description="Simple example of a point cloud system with random surfaces." image=""/>
--   <Playground id="#UI95UC#3" title="Stated Surface" description="Simple example of a point cloud system with stated surfaces" image=""/>
--   <Playground id="#UI95UC#4" title="Surface Color from Mesh Color" description="Simple example of a point cloud system with surface color from mesh color." image=""/>
--   <Playground id="#UI95UC#5" title="Surface Color from Mesh Texture" description="Simple example of a point cloud system with surface color from mesh texture." image=""/>
--   <Playground id="#UI95UC#6" title="Surface UV from Mesh Texture" description="Simple example of a point cloud system with surface UV from mesh texture." image=""/>
--   <Playground id="#UI95UC#28" title="Surface Color from Imported Mesh Texture" description="Simple example of a point cloud system with surface color from an imported mesh texture." image=""/>
--   <Playground id="#UI95UC#7" title="Random Volume" description="Simple example of a point cloud system with random volume." image=""/>
--   <Playground id="#UI95UC#8" title="Stated Volume" description="Simple example of a point cloud system with stated volume." image=""/>
--   <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color." image=""/>
--   <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture." image=""/>
--   <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture." image=""/>
--   <Playground id="#UI95UC#28" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture." image=""/>
+-   <Playground id="#UI95UC#2" title="Random Surface" description="Simple example of a point cloud system with random surfaces."/>
+-   <Playground id="#UI95UC#3" title="Stated Surface" description="Simple example of a point cloud system with stated surfaces"/>
+-   <Playground id="#UI95UC#4" title="Surface Color from Mesh Color" description="Simple example of a point cloud system with surface color from mesh color."/>
+-   <Playground id="#UI95UC#5" title="Surface Color from Mesh Texture" description="Simple example of a point cloud system with surface color from mesh texture."/>
+-   <Playground id="#UI95UC#6" title="Surface UV from Mesh Texture" description="Simple example of a point cloud system with surface UV from mesh texture."/>
+-   <Playground id="#UI95UC#28" title="Surface Color from Imported Mesh Texture" description="Simple example of a point cloud system with surface color from an imported mesh texture."/>
+-   <Playground id="#UI95UC#7" title="Random Volume" description="Simple example of a point cloud system with random volume."/>
+-   <Playground id="#UI95UC#8" title="Stated Volume" description="Simple example of a point cloud system with stated volume."/>
+-   <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color."/>
+-   <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture."/>
+-   <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture."/>
+-   <Playground id="#UI95UC#28" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture."/>
 
 ## Building the Mesh
 

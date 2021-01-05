@@ -125,11 +125,11 @@ var joint1 = new BABYLON.HingeJoint(jointData);
 
 **_PhysicsJoint Playground_**
 
-- <Playground id="#UFVU18#32" title="Hinge As A Sphere 1" description="Simple example of using a hinge as a sphere with PhysicsJoint." image=""/>
+- <Playground id="#UFVU18#32" title="Hinge As A Sphere 1" description="Simple example of using a hinge as a sphere with PhysicsJoint."/>
 
 **_Helper Class Playground_**
 
-- <Playground id="#F15U0G#55" title="Hinge As A Sphere 2" description="Simple example of using a hinge as a sphere with the helper class." image=""/>
+- <Playground id="#F15U0G#55" title="Hinge As A Sphere 2" description="Simple example of using a hinge as a sphere with the helper class."/>
 
 Since a hinge gives movement about only one axis it would seem to make sense to replace the representation of the hinge with a cylinder. Doing this, reshaping the box and keeping the sphere mesh imposter as a sphere does produce changes.
 
@@ -137,21 +137,21 @@ In this case, for all the physics' engines whatever the direction of impulse set
 
 **_PhysicsJoint Playground_**
 
-- <Playground id="#UFVU18#33" title="Hinge As A Cylinder 1" description="Simple example of using a hinge as a cylinder with PhysicsJoint." image=""/>
+- <Playground id="#UFVU18#33" title="Hinge As A Cylinder 1" description="Simple example of using a hinge as a cylinder with PhysicsJoint."/>
 
 **_Helper Class Playground_**
 
-- <Playground id="#F15U0G#56" title="Hinge As A Cylinder 2" description="Simple example of using a hinge as a cylinder with the helper class." image=""/>
+- <Playground id="#F15U0G#56" title="Hinge As A Cylinder 2" description="Simple example of using a hinge as a cylinder with the helper class."/>
 
 You can, of course, use a cylinder impostor for the cylinder mesh
 
 **_PhysicsJoint Playground_**
 
-- <Playground id="#RHBQY9#13" title="Hinge As A Cylinder 3 (box and cylinder)" description="Simple example of using a hinge as a cylinder with PhysicsJoint." image=""/>
+- <Playground id="#RHBQY9#13" title="Hinge As A Cylinder 3 (box and cylinder)" description="Simple example of using a hinge as a cylinder with PhysicsJoint."/>
 
 **_Helper Class Playground_**
 
-- <Playground id="#RHBQY9#14" title="Hinge As A Cylinder 4 (box and cylinder)" description="Simple example of using a hinge as a cylinder with the helper class." image=""/>
+- <Playground id="#RHBQY9#14" title="Hinge As A Cylinder 4 (box and cylinder)" description="Simple example of using a hinge as a cylinder with the helper class."/>
 
 ### Ball And Socket Joint
 
@@ -164,7 +164,7 @@ The positioning of the connected body is determined by the connected pivot. The 
 
 **_PhysicsJoint Playground_**
 
-- <Playground id="#RHBQY9#15" title="Ball and Socket" description="Simple example of a ball and socket joint with box and sphere imposters." image=""/>
+- <Playground id="#RHBQY9#15" title="Ball and Socket" description="Simple example of a ball and socket joint with box and sphere imposters."/>
 
 ### Wheel Joint
 
@@ -181,7 +181,7 @@ The `jointData` object for a hinge contains the following properties
 
 **_PhysicsJoint Playground_**
 
-- <Playground id="#UFVU18#7" title="Oimo.js Wheel Joint Example" description="Simple example of creating a wheel joint in Oimo with box and sphere imposters." image=""/>
+- <Playground id="#UFVU18#7" title="Oimo.js Wheel Joint Example" description="Simple example of creating a wheel joint in Oimo with box and sphere imposters."/>
 
 The `PhysicsJoint` called `Hinge2Joint` can be used as an alternative. Note however that there is no helper call `WheelJoint` and the helper must be
 
@@ -193,8 +193,8 @@ When this helper class is used with `Ammo.js` it forms a `BallAndSocketJoint` no
 
 **_Helper Class Playgrounds_**
 
-- <Playground id="#F15U0G#26" title="Oimo.js Hinge2" description="Simple Oimo.js example of a hinge2 with box and sphere imposters." image=""/>
-- <Playground id="#F15U0G#64" title="Ammo.js Hinge2" description="Simple Ammo.js example of a hinge2 with box and sphere imposters." image=""/>
+- <Playground id="#F15U0G#26" title="Oimo.js Hinge2" description="Simple Oimo.js example of a hinge2 with box and sphere imposters."/>
+- <Playground id="#F15U0G#64" title="Ammo.js Hinge2" description="Simple Ammo.js example of a hinge2 with box and sphere imposters."/>
 
 ### Slider Joint
 
@@ -207,7 +207,7 @@ The `jointData` object for a slider contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- <Playground id="#UFVU18#17" title="Oimo.js Slier Example" description="Simple Oimo.js example of a slider with box and sphere imposters." image=""/>
+- <Playground id="#UFVU18#17" title="Oimo.js Slier Example" description="Simple Oimo.js example of a slider with box and sphere imposters."/>
 
 ### Prismatic Joint
 
@@ -220,7 +220,7 @@ The `jointData` object for a slider contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- <Playground id="#UFVU18#18" title="Oimo.js Prismatic Joint" description="Simple Oimo.js example of a prismatic Joint with box and sphere imposters." image=""/>
+- <Playground id="#UFVU18#18" title="Oimo.js Prismatic Joint" description="Simple Oimo.js example of a prismatic Joint with box and sphere imposters."/>
 
 ### Distance Joint
 
@@ -230,11 +230,11 @@ The `jointData` object for a distance joint contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- <Playground id="#UFVU18#34" title="Distance Joint 1" description="Simple example of a distance joint with box and sphere imposters." image=""/>
+- <Playground id="#UFVU18#34" title="Distance Joint 1" description="Simple example of a distance joint with box and sphere imposters."/>
 
 **_Helper Class Playgrounds_**
 
-- <Playground id="#F15U0G#57" title="Distance Joint 2" description="Simple example of a distance joint with box and sphere imposters, created with the helper class." image=""/>
+- <Playground id="#F15U0G#57" title="Distance Joint 2" description="Simple example of a distance joint with box and sphere imposters, created with the helper class."/>
 
 ### LockJoint
 
@@ -242,7 +242,7 @@ The `jointData` object for a distance joint contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- <Playground id="#UFVU18#19" title="Cannon.js Lock Joint Example" description="Simple Cannon.js example of a lock joint using box imposters." image=""/>
+- <Playground id="#UFVU18#19" title="Cannon.js Lock Joint Example" description="Simple Cannon.js example of a lock joint using box imposters."/>
 
 ### Spring
 
@@ -254,7 +254,7 @@ The `jointData` object for a distance joint contains the following properties
 
 **_PhysicsJoint Playgrounds_**
 
-- <Playground id="#UFVU18#36" title="Cannon.js Spring Joint Example" description="Simple Cannon.js example of a spring joint with box imposters." image=""/>
+- <Playground id="#UFVU18#36" title="Cannon.js Spring Joint Example" description="Simple Cannon.js example of a spring joint with box imposters."/>
 
 ## Motors
 
@@ -308,11 +308,11 @@ The helper classes for `HingeJoint` and `Hinge2Joint` are already motorised and 
 
 **_MotorEnabledJoint Playground_**
 
-- <Playground id="#UFVU18#35" title="Hinge Motor 1" description="Simple example of a hinge motor." image=""/>
+- <Playground id="#UFVU18#35" title="Hinge Motor 1" description="Simple example of a hinge motor."/>
 
 **_Helper Class Playground_**
 
-- <Playground id="#F15U0G#58" title="Hinge Motor 2" description="Simple example of a hinge motor, created with the helper class." image=""/>
+- <Playground id="#F15U0G#58" title="Hinge Motor 2" description="Simple example of a hinge motor, created with the helper class."/>
 
 ### Hinge Motor Speed and Torque (Force)
 
@@ -326,19 +326,19 @@ In the hinge motor playgrounds below there are two wheels you can try out differ
 
 **_MotorEnabledJoint Playground_**
 
-- <Playground id="#WWNQ10#19" title="Hinge Motor 3" description="Simple example of a hinge motor (play with torque values)." image=""/>
+- <Playground id="#WWNQ10#19" title="Hinge Motor 3" description="Simple example of a hinge motor (play with torque values)."/>
 
 **_Helper Class Playground_**
 
-- <Playground id="#WWNQ10#20" title="Hinge Motor 4" description="Simple example of a hinge motor created with the helper class (play with torque values)." image=""/>
+- <Playground id="#WWNQ10#20" title="Hinge Motor 4" description="Simple example of a hinge motor created with the helper class (play with torque values)."/>
 
 ### Wheel (Hinge2) Motor
 
 **_MotorEnabledJoint Playgrounds_**
 
-- <Playground id="#UFVU18#28" title="Oimo.js Wheel Z Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Z axis." image=""/>
-- <Playground id="#UFVU18#29" title="Oimo.js Wheel Y Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Y axis." image=""/>
-- <Playground id="#UFVU18#30" title="Oimo.js Wheel X Axis" description="Simple Oimo.js example of a wheel (hinge2) along the X axis." image=""/>
+- <Playground id="#UFVU18#28" title="Oimo.js Wheel Z Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Z axis."/>
+- <Playground id="#UFVU18#29" title="Oimo.js Wheel Y Axis" description="Simple Oimo.js example of a wheel (hinge2) along the Y axis."/>
+- <Playground id="#UFVU18#30" title="Oimo.js Wheel X Axis" description="Simple Oimo.js example of a wheel (hinge2) along the X axis."/>
 
 ### Slider Motor
 
@@ -346,4 +346,4 @@ The motor rotates the body around the slider axis.
 
 **_MotorEnabledJoint Playground_**
 
-- <Playground id="#UFVU18#31" title="Oimo.js Slider X Axis" description="Simple Oimo.js example of a slider along the X axis." image=""/>
+- <Playground id="#UFVU18#31" title="Oimo.js Slider X Axis" description="Simple Oimo.js example of a slider along the X axis."/>

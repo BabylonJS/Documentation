@@ -41,7 +41,7 @@ var music = new BABYLON.Sound("Music", "music.wav", scene, null, {
 - 5th parameter: a **JSON object** providing various options we’ll see in details. But you can already understand the goal of the 2 options provided.
 
 You can test this first sample in our music playground example here:
-<Playground id="#PCY1J" title="Simple Music Playback Example" description="A simple example of playing sounds or music in your scene." image=""/>
+<Playground id="#PCY1J" title="Simple Music Playback Example" description="A simple example of playing sounds or music in your scene."/>
 
 ## Handling the 'ready to play' callback function
 
@@ -61,7 +61,7 @@ var music = new BABYLON.Sound("Music", "music.wav", scene, function() {
 
 This code loads the `music.wav` file from the web server, decode it and play it in the callback function only once using the `play()` function. The play function plays the sound immediately if no parameter is passed. You can provide a parameter of type number to play the sound after x seconds.
 
-Test it in this playground: <Playground id="#PCY1J#1" title="Load and Play Sounds With A Callback" description="A simple example loading a sound and playing it once after the file has loaded." image=""/>
+Test it in this playground: <Playground id="#PCY1J#1" title="Load and Play Sounds With A Callback" description="A simple example loading a sound and playing it once after the file has loaded."/>
 
 ## Playing a sound on mouse click or keydown
 
@@ -85,7 +85,7 @@ window.addEventListener("keydown", function(evt) {
 });
 ```
 
-Test it on this gunshot sound playground: <Playground id="#PCY1J#4" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction." image=""/>
+Test it on this gunshot sound playground: <Playground id="#PCY1J#4" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction."/>
 
 ## Some basic properties
 
@@ -135,7 +135,7 @@ var soundSprite = new BABYLON.Sound(
 );
 ```
 
-You can find an example here: <Playground id="#6LXPBX" title="Playing Sound Sprites" description="A simple example playing sound sprites." image=""/>
+You can find an example here: <Playground id="#6LXPBX" title="Playing Sound Sprites" description="A simple example playing sound sprites."/>
 
 ## Playing several sounds simultaneously and synchronized
 
@@ -176,7 +176,7 @@ function soundReady() {
 }
 ```
 
-Test it in our playground here: <Playground id="#PCY1J#6" title="Playing Sounds Together" description="A simple example playing sounds together and synchronized." image=""/>
+Test it in our playground here: <Playground id="#PCY1J#6" title="Playing Sounds Together" description="A simple example playing sounds together and synchronized."/>
 
 ## Loading a sound from an ArrayBuffer
 
@@ -212,9 +212,9 @@ function soundReadyToBePlayed() {
 }
 ```
 
-Test it out in our playground: <Playground id="#PCY1J#2" title="Loading A Sound From an ArrayBuffer" description="A simple example of loading a sound from an ArrayBuffer." image=""/>
+Test it out in our playground: <Playground id="#PCY1J#2" title="Loading A Sound From an ArrayBuffer" description="A simple example of loading a sound from an ArrayBuffer."/>
 
-Here is another example where we load the sound from the audio file: <Playground id="#PWY6NL" title="Loading A Sound From the Microphone" description="A simple example of loading a sound from the microphone." image=""/>
+Here is another example where we load the sound from the audio file: <Playground id="#PWY6NL" title="Loading A Sound From the Microphone" description="A simple example of loading a sound from the microphone."/>
 
 ## Loading a sound using the Assets Manager
 
@@ -270,7 +270,7 @@ function soundReady() {
 assetsManager.load();
 ```
 
-Test it out in our playground: <Playground id="#PCY1J#8" title="Loading A Sound with the Asset Manager" description="A simple example of loading a sound with the asset manager." image=""/>
+Test it out in our playground: <Playground id="#PCY1J#8" title="Loading A Sound with the Asset Manager" description="A simple example of loading a sound with the asset manager."/>
 
 ## Creating a spatial 3D sound
 
@@ -310,7 +310,7 @@ Default position of sound in the 3D world is `(0,0,0)`. To change that, use the 
 music.setPosition(new BABYLON.Vector3(100, 0, 0));
 ```
 
-To have a better understanding, please have a look at this sample in our playground: <Playground id="#2AH4YH" title="3D Spatial Sound" description="A simple example of creating spatial sound in your scene." image=""/>
+To have a better understanding, please have a look at this sample in our playground: <Playground id="#2AH4YH" title="3D Spatial Sound" description="A simple example of creating spatial sound in your scene."/>
 
 Move into the scene using keyboard & mouse. Each sound is represented by a purple sphere. When you’re entering a sphere, you’ll start hearing one the music. The sound is louder at the center of the sphere and fall down to 0 when leaving the sphere.
 
@@ -332,7 +332,7 @@ music.attachToMesh(box);
 
 Calling the `attachToMesh()` function on a sound will transform it automatically into a spatial 3D sound. Using the above code, you’ll fall into default Babylon.js values: a `linear` attenuation with a `maxDistance` of 100 and a panning model of type `HRTF`.
 
-Put your headphones on and launch this sample in our playground: <Playground id="#EDVU95" title="Sound Attached to a Mesh" description="A simple example of attaching sound to a mesh." image=""/>
+Put your headphones on and launch this sample in our playground: <Playground id="#EDVU95" title="Sound Attached to a Mesh" description="A simple example of attaching sound to a mesh."/>
 
 ## Setting a position as the audio listener
 
@@ -385,7 +385,7 @@ Outer angle of the cone must be superior or equal to the inner angle, otherwise 
 
 `setLocalDirectionToMesh()` is simply the orientation of the cone related to the mesh you’re attached to. By default, it’s `(1,0,0)`.
 
-You can play with this sample from our playground to better understand the output: <Playground id="#1BO0YS" title="Spatial Directional Sound" description="A simple example of spatial directional 3D sound." image=""/>
+You can play with this sample from our playground to better understand the output: <Playground id="#1BO0YS" title="Spatial Directional Sound" description="A simple example of spatial directional 3D sound."/>
 
 Move into the 3D scene. If you’re inside the space defined by the grey cone, you should hear the music, if not you’ll not hear it as the `coneOuterGain` is set to 0.
 
@@ -428,7 +428,7 @@ You can play with these 5 parameters and do whatever you’d like with it. Simpl
 
 In this example, the logic is a bit weird as the volume is louder the farther you are from the mesh. ;-)
 
-Play with it in our Playground: <Playground id="#2AH4YH#2" title="Custom Attenuation Function" description="An example of creating a custom attenuation function." image=""/>
+Play with it in our Playground: <Playground id="#2AH4YH#2" title="Custom Attenuation Function" description="An example of creating a custom attenuation function."/>
 
 Moreover, Firefox has currently a bug in their Web Audio implementation in handling properly linear attenuation. This can be fixed by using the Babylon.js default linear custom attenuation.
 
@@ -526,4 +526,4 @@ myAnalyser.drawDebugCanvas();
 
 You can also call yourself the analyser functions to create your own usage of it.
 
-Here is a full audio playground example to play with: <Playground id="#PTV7W#1" title="Full Audio Example" description="Full audio playground example." image=""/>
+Here is a full audio playground example to play with: <Playground id="#PTV7W#1" title="Full Audio Example" description="Full audio playground example."/>

@@ -176,7 +176,7 @@ This one was generated with PCF, for eg.
 ## Examples
 
 You can find a live example here: 
-<Playground id="#B48X7G" title="Transparent Shadow Example" description="Simple transparent shadow example" image=""/>
+<Playground id="#B48X7G" title="Transparent Shadow Example" description="Simple transparent shadow example"/>
 
 Please find here pictures of various filters used with a spot light:
 

@@ -23,11 +23,11 @@ final mesh = original mesh + sum((morph targets - original mesh) * morph targets
 For instance, you can use morph targets to simulate the opening of a mouth. The initial mesh has a closed mouth. The morph target can be the same mesh but with an opened mouth. Then by changing the influence of the morph target (from 0 to 1) you can display either a closed or an opened mouth or a mix of both.
 
 You can find live examples here: 
-<Playground id="#HPV2TZ#8" title="Animated Morph Targets" description="Simple example of animated morph targets." image=""/>
+<Playground id="#HPV2TZ#8" title="Animated Morph Targets" description="Simple example of animated morph targets."/>
 
 The following two examples are best seen in the full Playground where sliders can be used to change the influencers
-<Playground id="#HPV2TZ#2" title="Animated Morph Targets with Standard Material" description="Simple example of animated morph targets with standard material." image=""/>  
-<Playground id="#HPV2TZ#4" title="Animated Morph Targets with PBR Material" description="Simple example of animated morph targets with PBR material." image=""/>
+<Playground id="#HPV2TZ#2" title="Animated Morph Targets with Standard Material" description="Simple example of animated morph targets with standard material."/>  
+<Playground id="#HPV2TZ#4" title="Animated Morph Targets with PBR Material" description="Simple example of animated morph targets with PBR material."/>
 
 ## How to Use Morph Targets
 To use morph targets, you first have to create a `MorphTargetManager` and affect it to a mesh:
@@ -121,7 +121,7 @@ If you want to view or change the value of a morph target influence, it can be a
 myInfluence = mesh.morphTargetManager.getTarget(key);
 ```
 See the following example for a full playground using morph targets from a glTF file.
-- <Playground id="#9CLJEF" title="Morph Targets From a .glTF File" description="Simple example of using morph targets from a .glTF file." image=""/>
+- <Playground id="#9CLJEF" title="Morph Targets From a .glTF File" description="Simple example of using morph targets from a .glTF file."/>
 
 ## List of morphable properties
 

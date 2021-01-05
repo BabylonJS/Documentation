@@ -92,7 +92,7 @@ Add the line in the `else` section
 particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);
 ```
 
-<Playground id="#MRRGXL#6" title="Random Colored Particles" description="Simple example of creating random colored particles." image=""/>
+<Playground id="#MRRGXL#6" title="Random Colored Particles" description="Simple example of creating random colored particles."/>
 
 **Grow Particles from Size 0 to a Final Size**
 
@@ -115,7 +115,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 }
 ```
 
-<Playground id="#WJBZQH#2" title="Growing Particles" description="Simple example of creating growing particles." image=""/>
+<Playground id="#WJBZQH#2" title="Growing Particles" description="Simple example of creating growing particles."/>
 
 ### Particle Emitter Type
 
@@ -204,8 +204,8 @@ var SprayParticleEmitter = (function () {
 BABYLON.SprayParticleEmitter = SprayParticleEmitter;
 ```
 
-<Playground id="#V07WF8#10" title="Custom Spray Emitter Showing Container" description="Simple example of a custom spray emitter showing container." image=""/>
-<Playground id="#V07WF8#11" title="Custom Spray Emitter Without Container" description="Simple example of a custom spray emitter without container." image=""/>
+<Playground id="#V07WF8#10" title="Custom Spray Emitter Showing Container" description="Simple example of a custom spray emitter showing container."/>
+<Playground id="#V07WF8#11" title="Custom Spray Emitter Without Container" description="Simple example of a custom spray emitter without container."/>
 
 ## Custom Effects
 
@@ -267,7 +267,7 @@ customEffect.onBind = function () {
 ```
 
 you can see an example of the above in this playground  
-<Playground id="#1ASENS#43" title="Custom Effect using Shader Store" description="Simple example of a custom effect using shader store." image=""/>
+<Playground id="#1ASENS#43" title="Custom Effect using Shader Store" description="Simple example of a custom effect using shader store."/>
 
 ### Particle Effect Object
 

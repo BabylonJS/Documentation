@@ -137,7 +137,7 @@ var createScene = async function() {
 };
 ```
 
-<Playground id="#F41V6N" title="Sphere In WebXR Using Babylon.js" description="Simple example of a sphere in WebXR using Babylon.js" image=""/>
+<Playground id="#F41V6N" title="Sphere In WebXR Using Babylon.js" description="Simple example of a sphere in WebXR using Babylon.js"/>
 
 And that's it!
 
@@ -269,7 +269,7 @@ Read more about the [XR Controllers system](/divingDeeper/webXR/webXRInputContro
 
 Thou we always encourage backwards compatibility **We recommend using WebXR directly** and stop using the WebVR experience helper. However:
 
-The latest WebVR Experience helper has a new flag in its init options - `useXR` . This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead." image=""/>
+The latest WebVR Experience helper has a new flag in its init options - `useXR` . This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead."/>
 
 ``` javascript
 var createScene = function() {

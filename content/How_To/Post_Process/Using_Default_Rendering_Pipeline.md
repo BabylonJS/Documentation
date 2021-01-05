@@ -18,7 +18,7 @@ video-content:
 
 You can find a complete example of this pipeline in our playground:
 
-<Playground id="#Y3C0HQ#146" title="Default Rendering Pipeline Example" description="Complete example of the default rendering pipeline." image=""/>
+<Playground id="#Y3C0HQ#146" title="Default Rendering Pipeline Example" description="Complete example of the default rendering pipeline."/>
 
 ![default rendering pipeline example](/img/how_to/defaultRenderingPipeline/defaultRenderingPipeline.jpg)
 
@@ -57,7 +57,7 @@ Notes:
 
 1. The HDR value should be `true` as long as possible, unless you're targetting cheap fallback for low end devices. This value allow one of the half float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
 
-2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this <Playground id="#08A2BS#15" title="Clear Color Fix" description="Simple example of fixing the clear color in the default rendering pipeline to match what you have set." image=""/>
+2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this <Playground id="#08A2BS#15" title="Clear Color Fix" description="Simple example of fixing the clear color in the default rendering pipeline to match what you have set."/>
 
 ## Customizing
 
@@ -120,7 +120,7 @@ pipeline.depthOfField.focalLength  = 50; // focal length of the camera in millim
 pipeline.depthOfField.fStop  = 1.4; // aka F number of the camera defined in stops as it would be on a physical device
 ```
 
-<Playground id="#8F5HYV#9" title="Depth Of Field Example" description="Simple example of depth of field in the default rendering pipeline." image=""/>
+<Playground id="#8F5HYV#9" title="Depth Of Field Example" description="Simple example of depth of field in the default rendering pipeline."/>
 
 ## Bloom
 
@@ -313,4 +313,4 @@ You may be interested by this code example using default values, ready to be cop
     }
 ```
 
-As usual, a playground is available to check out: <Playground id="#ECI2Q0#5" title="Default Rendering Pipeline Template Code" description="Simple playground with cut and paste code for the default rendering pipeline." image=""/>
+As usual, a playground is available to check out: <Playground id="#ECI2Q0#5" title="Default Rendering Pipeline Template Code" description="Simple playground with cut and paste code for the default rendering pipeline."/>

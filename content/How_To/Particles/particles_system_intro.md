@@ -37,17 +37,17 @@ While this stops the emission of new particles the ones already emitted will con
 myParticleSystem.stop();
 myParticleSystem.reset(); //Reset to empty system
 ```
-Minimal particle system <Playground id="#0K3AQ2#3" title="Minimal Particle System" description="Simple example of creating a minimal particle system." image=""/>
+Minimal particle system <Playground id="#0K3AQ2#3" title="Minimal Particle System" description="Simple example of creating a minimal particle system."/>
 
 You can do this all in one line using the *ParticleHelper* to create a default configured particle system.
 
-Default particle system using the helper: <Playground id="#0K3AQ2#4" title="Default Particle System Using The Helper" description="Simple example of using the particle helper to create the default particle system." image=""/>
+Default particle system using the helper: <Playground id="#0K3AQ2#4" title="Default Particle System Using The Helper" description="Simple example of using the particle helper to create the default particle system."/>
 
-Emit particles from a box position: <Playground id="#0K3AQ2#5 " title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position." image=""/>
+Emit particles from a box position: <Playground id="#0K3AQ2#5 " title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position."/>
 
 By fixing the size of the emission region you can constrain the emission region. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
 
-Emit particles from wholly inside the box: <Playground id="#0K3AQ2#7 " title="Emit Particles From Completely Inside a Box" description="Simple example showing how to make particles emit from completely inside of a box." image=""/>
+Emit particles from wholly inside the box: <Playground id="#0K3AQ2#7 " title="Emit Particles From Completely Inside a Box" description="Simple example showing how to make particles emit from completely inside of a box."/>
 When you want the particle system to start after 3 seconds for example you use one of the following
 
 ```javascript
@@ -56,7 +56,7 @@ myParticleSystem.start(3000); //time in milliseconds
 myParticleSystem.startDelay = 3000;
 ```
 
-Delayed start particle system: <Playground id="#0K3AQ2#8" title="Particle System With a Delayed Start" description="Simple example showing how to create a particle system and delay its start." image=""/>
+Delayed start particle system: <Playground id="#0K3AQ2#8" title="Particle System With a Delayed Start" description="Simple example showing how to create a particle system and delay its start."/>
 
 To run the particle system for a limited time you use 
 ```javascript
@@ -90,7 +90,7 @@ system.start();
 
 It will execute the particle animation loop 100 times with a time step set to 5 times faster than real time. The more cycles you want, the slower the system will be to start. So it could be interesting to increase the time step to have less cycles to run. But keep in mind that a too big time step will introduce issues if the lifetime of a particle is smaller than the time step.
 
-Here is an example of pre-warming: <Playground id="#MX2Z99#8" title="Particle Pre-Warming Example" description="Simple example of pre warming particles." image=""/>
+Here is an example of pre-warming: <Playground id="#MX2Z99#8" title="Particle Pre-Warming Example" description="Simple example of pre warming particles."/>
 
 ## Particle Texture 
 To apply a texture to the particles, such as  
@@ -129,13 +129,13 @@ particleSystem.noiseStrength = new BABYLON.Vector3(100, 100, 100);
 
 Alongside setting the noiseTexture you can also control the strength applied on each axis with *particleSystem.noiseStrength*.
 
-Adjustable noise: <Playground id="#R1JWLA#3" title="Changing Particle Direction With Noise" description="Simple example of changing particle direction based on a noise texture." image=""/>
+Adjustable noise: <Playground id="#R1JWLA#3" title="Changing Particle Direction With Noise" description="Simple example of changing particle direction based on a noise texture."/>
 
 ## Local space
 
 If the emitter is a mesh and you set `particleSystem.isLocal = true` then all particles will be generated into the mesh local space (so rotation or transforming the mesh will transform the entire particle system).
 
-Demo: <Playground id="#LNRAI3" title="Particles In Local Space" description="Simple example showing how to make particles emit in local space." image=""/>
+Demo: <Playground id="#LNRAI3" title="Particles In Local Space" description="Simple example showing how to make particles emit in local space."/>
 
 ## World offset
 Starting with Babylon.js v4.0, you can set up a world offset to your particles with:

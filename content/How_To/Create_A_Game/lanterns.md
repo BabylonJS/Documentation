@@ -239,7 +239,7 @@ this._lightSphere.dispose();
 
 This goes through the entire scene, looks for what the lightSphere intersects with and pushes those meshes to the list of what our light affects. I was able to achieve this by referring to what was done in this
 
-PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights." image=""/>
+PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights."/>
 
 **Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/guidedLearning/createAGame/performance#lights) section.**
 

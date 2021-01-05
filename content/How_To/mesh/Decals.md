@@ -29,4 +29,4 @@ normal|_(Vector3)_  the normal of the mesh where the decal is applied onto (Worl
 size|_(Vector3)_  the x, y, z sizes of the decal|(1, 1, 1)
 angle|_(number)_ the angle to rotate the decal|0
 
-<Playground id="#1BAPRM#73" title="Simple Example of Decals" description="Simple example of pasting decals in a Babylon.js scene." image=""/> click on the cat.
+<Playground id="#1BAPRM#73" title="Simple Example of Decals" description="Simple example of pasting decals in a Babylon.js scene."/> click on the cat.

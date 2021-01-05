@@ -31,9 +31,9 @@ Given that the dark red particles reaches position (x, y, 0) when its speed reac
 
 The following Playgrounds use four such sets of particles, to produce four particles that combine to give one particle a speed four times that of the original particles. In each case the higher two groups are set in the XY plane and the lower two groups are in the YZ plane. 
 
-PG: <Playground id="#1DJ7RH" title="Collision Increases Speed" description="Shows how collsions increase speed." image=""/>  
-PG: <Playground id="#1DJ7RH#1" title="Increases Speed with Trails" description="Shows how collsions increase speed with trail markers for path." image=""/>  
-PG: <Playground id="#1DJ7RH#2" title="Increases Speed with More Spacing" description="Shows the effect of spacing" image=""/>  
+PG: <Playground id="#1DJ7RH" title="Collision Increases Speed" description="Shows how collsions increase speed."/>  
+PG: <Playground id="#1DJ7RH#1" title="Increases Speed with Trails" description="Shows how collsions increase speed with trail markers for path."/>  
+PG: <Playground id="#1DJ7RH#2" title="Increases Speed with More Spacing" description="Shows the effect of spacing"/>  
 
 ## Escaping Particles
 
@@ -41,7 +41,7 @@ In the above examples the four fold increase in speed depended on setting the pa
 
 In the Playground below, there are occasions when particles escape the box even though there initial speeds are set to below 2r. You may need to run the code more than once to see the effect.
 
-PG: <Playground id="#MYGV6#3" title="Escaping Particles" description="Shows how increase speed allows particles to leave the box" image=""/> 
+PG: <Playground id="#MYGV6#3" title="Escaping Particles" description="Shows how increase speed allows particles to leave the box"/> 
 
 The maximum speed of the particles can be changed on lines 21 to 23. Lowering the values for the speed decreases the probability of escape.  
 
@@ -55,7 +55,7 @@ Making no changes to the intersection between particles means there can be times
 
 The following Playground is an example that uses the above method to stop particles escaping. One downside is that particles can be seen breaching the walls.
 
-PG: <Playground id="#MYGV6#4" title="Particles Stopped from Escaping" description="Reverse velocity if displacement from wall is negative." image=""/>
+PG: <Playground id="#MYGV6#4" title="Particles Stopped from Escaping" description="Reverse velocity if displacement from wall is negative."/>
 
 The maximum speed of the particles can be changed on lines 21 to 23. 
 

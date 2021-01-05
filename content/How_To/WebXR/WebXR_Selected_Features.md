@@ -90,7 +90,7 @@ And to remove simply use the `removeFloorMesh` function:
 teleportation.removeFloorMesh(ground2);
 ```
 
-A simple example for enabling floor meshes: <Playground id="#B8D5Z6" title="Enable Floor Meshes" description="Simple example of enabling floor meshes." image=""/>
+A simple example for enabling floor meshes: <Playground id="#B8D5Z6" title="Enable Floor Meshes" description="Simple example of enabling floor meshes."/>
 
 ### Direct and indirect landing zones
 
@@ -183,7 +183,7 @@ Which looks like this:
 
 ![WebXR Custom landing zone](/img/how_to/xr/xr-landing-zone-custom.png)
 
-The example can be found here: <Playground id="#B8D5Z6#9" title="Custom Landing Zone" description="Simple example of a custom landing zone." image=""/>
+The example can be found here: <Playground id="#B8D5Z6#9" title="Custom Landing Zone" description="Simple example of a custom landing zone."/>
 
 #### The ring's material
 
@@ -347,7 +347,7 @@ const teleportation = featuresManager.enableFeature(WebXRFeatureName.TELEPORTATI
 
 Now any position of target zone within a 1.2 units (meters) radius of one of the snap-to points will change the target zoné location to be the close point. You can test it in this playground:
 
--   <Playground id="#DGS0NV#1" title="Snap To Point With Movement Freedom" description="Simple example of snapping to a point with movement freedom." image=""/>
+-   <Playground id="#DGS0NV#1" title="Snap To Point With Movement Freedom" description="Simple example of snapping to a point with movement freedom."/>
 
 If you want to disable the user's free movements and only let the user land on snap-to points, set the `snapPointsOnly` , either during construction:
 
@@ -375,4 +375,4 @@ The feature will look like this:
 
 You can play around in this playground:
 
-<Playground id="#DGS0NV#3" title="Snap-to Hotspot Example" description="Simple example of snap-to hotspots." image=""/>
+<Playground id="#DGS0NV#3" title="Snap-to Hotspot Example" description="Simple example of snap-to hotspots."/>

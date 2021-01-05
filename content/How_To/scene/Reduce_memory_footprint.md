@@ -55,4 +55,4 @@ scene.cleanCachedTextureBuffer();
 ```
 
 
-You can find a demo here: <Playground id="#AS54U8#1" title="Reducing Memory Footprint Example" description="Simple example showing how to reduce the memory footprint of a scene." image=""/>
+You can find a demo here: <Playground id="#AS54U8#1" title="Reducing Memory Footprint Example" description="Simple example showing how to reduce the memory footprint of a scene."/>

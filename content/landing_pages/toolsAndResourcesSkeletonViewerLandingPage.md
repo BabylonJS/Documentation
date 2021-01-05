@@ -14,6 +14,6 @@ When something isn't working right, simple debugging tools can help us identify 
 
 <img src="/img/tools/skeletonViewer.jpg" title="Babylon.js Skeleton Viewer"/>
 
-You can jump in and play around with it here: <Playground id="#KK9Z6D#1" title="Skeleton Viewer" description="Simple example of the skeleton viewer in The Inspector." image=""/>
+You can jump in and play around with it here: <Playground id="#KK9Z6D#1" title="Skeleton Viewer" description="Simple example of the skeleton viewer in The Inspector."/>
 
 When you're ready to learn more about the different skeleton viewer options, head on over to the [Skeleton Viewer Documentation](/toolsAndResources/tools/inspector#bones-viewer).
