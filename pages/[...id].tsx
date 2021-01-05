@@ -15,7 +15,6 @@ import { markdownComponents } from "../components/markdownComponents/markdownCom
 import { MediaMarkdownComponent } from "../components/markdownComponents/media.component";
 import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
-import { useRouter } from "next/dist/client/router";
 import { VideoCollection } from "../components/videoCollection.component";
 import "./documentationPage.style.scss";
 
