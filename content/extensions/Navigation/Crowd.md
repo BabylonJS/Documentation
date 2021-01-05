@@ -16,7 +16,7 @@ Now we have a navmesh, we can create autonomous agents and make them navigate wi
 The agents will find the best path to that destination while avoinding other crowd agents.
 An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
-A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents." image=""/>
+A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents."/>
 
 Click anywhere on the navmesh to make the agents go to that location.
 
@@ -89,6 +89,6 @@ if (velocity.length() > 0.2)
     ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
 }
 ```
-In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting." image=""/>
+In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting."/>
 
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.

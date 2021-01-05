@@ -19,7 +19,7 @@ To get started follow the steps below:
 
 ## Setup a Babylon scene you would like to render
 
-Create a local server hosting the scene or use a playground eg. <Playground id="#PN1NNI#1" title="Initial Setup" description="Simple example showing how to set up youur scene." image=""/>
+Create a local server hosting the scene or use a playground eg. <Playground id="#PN1NNI#1" title="Initial Setup" description="Simple example showing how to set up youur scene."/>
 
 ## Using Puppeteer
 [Puppeteer](https://github.com/GoogleChrome/puppeteer) is an npm package that can be used to run and interact with a headless version of chrome. This way the same code written with Babylon to run in the browser should run the same way with puppeteer.

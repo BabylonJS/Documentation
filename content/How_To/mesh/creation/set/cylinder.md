@@ -33,14 +33,14 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
 
 ### Examples
-Cylinder: <Playground id="#QANVC6" title="Create a Cylinder" description="Simple example of creating a cylinder." image=""/>
-Cone: <Playground id="#QANVC6#1" title="Create a Cone" description="Simple example of creating a cone." image=""/>
-Triangular Prism: <Playground id="#QANVC6#2" title="Create a Triangular Prism" description="Simple example of creating a triangular prism." image=""/>
-Arc <Playground id="#QANVC6#3" title="Create an Arc" description="Simple example of creating an arc." image=""/>
+Cylinder: <Playground id="#QANVC6" title="Create a Cylinder" description="Simple example of creating a cylinder."/>
+Cone: <Playground id="#QANVC6#1" title="Create a Cone" description="Simple example of creating a cone."/>
+Triangular Prism: <Playground id="#QANVC6#2" title="Create a Triangular Prism" description="Simple example of creating a triangular prism."/>
+Arc <Playground id="#QANVC6#3" title="Create an Arc" description="Simple example of creating an arc."/>
 
 ![can label and top](/img/how_to/apply-material-to-faces/logo_label.jpg)
 
-Cylinder with faceUVs <Playground id="#QANVC6#4" title="Create a Cylinder With Face UVs" description="Simple example of creating a cylinder with face UVs." image=""/>
+Cylinder with faceUVs <Playground id="#QANVC6#4" title="Create a Cylinder With Face UVs" description="Simple example of creating a cylinder with face UVs."/>
 
 ## Mesh
 Usage :

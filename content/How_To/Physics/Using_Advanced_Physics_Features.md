@@ -68,8 +68,8 @@ mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor
 ```
 
 A demo for both of these examples can be found here - 
-<Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh." image=""/>
-<Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon." image=""/>
+<Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh."/>
+<Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon."/>
 
 ## Mesh Impostor
 
@@ -79,7 +79,7 @@ A mesh impostor is only available with cannon.js, and only collides against sphe
 
 Regarding performance - you will notice that the mesh impostor doesn't influence performance too much, until an object collides against it. Then the calculations are rather complex and can lower your FPS significantly, depending on the mesh's complexity.
 
-A simple example of the mesh impostor can be found here - <Playground id="#3B3135#1" title="Mesh Imposter Example" description="Simple example of a mesh imposter." image=""/>
+A simple example of the mesh impostor can be found here - <Playground id="#3B3135#1" title="Mesh Imposter Example" description="Simple example of a mesh imposter."/>
 
 To generate a mesh impostor, simply set the MeshImpostor type when creating the physics impostor of the mesh:
 
@@ -97,7 +97,7 @@ Certain joint types like the wheel (hinge) joint have the ability to run a motor
 
 Motors can be used to move a wheel of a car, to simulate an elevator or create a gear system. The motor is responsible to enable the circular movement of those simulations.
 
-A simple example can be seen here - <Playground id="#5W5B6W#1" title="Simple Motor Example" description="Simple example of a motor joint." image=""/>
+A simple example can be seen here - <Playground id="#5W5B6W#1" title="Simple Motor Example" description="Simple example of a motor joint."/>
 
 Motor.enabled joints are using the `IMotorEnabledJoint` :
 
@@ -149,9 +149,9 @@ sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpo
 
 The mass will be accumulated. So this single physics body's mass will be 4. `sphere2`'s physics impostor will be "disabled" and will be joined to `sphere`'s impostor, which is the main impostor. To apply impulses, set the liner velocity etc', use `sphere.physicsImpostor`.
 
-<Playground id="#PRHF00#6" title="Advanced Physics Compounds Example 1" description="Advanced example of physics compounds." image=""/>
+<Playground id="#PRHF00#6" title="Advanced Physics Compounds Example 1" description="Advanced example of physics compounds."/>
 
-An advanced example of compounds can be seen here - <Playground id="#5W5B6W#3" title="Advanced Physics Compounds Example 2" description="Advanced example of physics compounds." image=""/>. The boxes connected to the disc are connected using Babylon's parenting system.
+An advanced example of compounds can be seen here - <Playground id="#5W5B6W#3" title="Advanced Physics Compounds Example 2" description="Advanced example of physics compounds."/>. The boxes connected to the disc are connected using Babylon's parenting system.
 
 ### ignoreParent
 
@@ -164,7 +164,7 @@ To create an impostor for a child mesh using the ignoreParent flag:
 sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, {ignoreParent: true, mass: 2, restitution: 0.8});
 ```
 
-A simple example can be found here - <Playground id="#PRHF00#4" title="Ignore Parent Example" description="Simple example of ignoring a physics parent." image=""/>
+A simple example can be found here - <Playground id="#PRHF00#4" title="Ignore Parent Example" description="Simple example of ignoring a physics parent."/>
 
 ## Substeps
 
@@ -180,7 +180,7 @@ var physicsEngine = scene.getPhysicsEngine();
 physicsEngine.setSubTimeStep(100);
 ```
 
-<Playground id="#YUNAST#21" title="Substeps Example" description="Simple example of using substeps." image=""/>
+<Playground id="#YUNAST#21" title="Substeps Example" description="Simple example of using substeps."/>
 
 ## Cloth simulation
 
@@ -188,4 +188,4 @@ Raanan Weber wrote an article about cloth simulation in his blog: <https://blog.
 
 ## An Oimo Demo
 
-* Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo" image=""/>
+* Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo"/>

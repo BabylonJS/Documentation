@@ -28,9 +28,9 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
 
 ### Examples
-Disc: <Playground id="#MVSQWZ#1" title="Create a Disc" description="Simple example of creating a disc." image=""/>
-Triangle: <Playground id="#MVSQWZ#2" title="Create a Triangle" description="Simple example of creating a triangle." image=""/>
-Sector: <Playground id="#MVSQWZ#3" title="Create a Sector" description="Simple example of creating a sector." image=""/>
+Disc: <Playground id="#MVSQWZ#1" title="Create a Disc" description="Simple example of creating a disc."/>
+Triangle: <Playground id="#MVSQWZ#2" title="Create a Triangle" description="Simple example of creating a triangle."/>
+Sector: <Playground id="#MVSQWZ#3" title="Create a Sector" description="Simple example of creating a sector."/>
 
 ## Mesh
 Usage :

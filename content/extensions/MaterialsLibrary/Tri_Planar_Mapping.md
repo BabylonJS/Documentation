@@ -12,7 +12,7 @@ video-content:
 
 # Playground Example
 
-PG: <Playground id="#E6OZX#9" title="Tri-Panar Material" description="Example of tri-planar material" image=""/>
+PG: <Playground id="#E6OZX#9" title="Tri-Panar Material" description="Example of tri-planar material"/>
 
 Press "1" to activate the Tri-Planar material (by default)
 Press "2" to active the default material

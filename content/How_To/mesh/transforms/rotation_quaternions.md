@@ -38,7 +38,7 @@ Any rotation quaternion can be converted to Euler angles to use with *mesh.rotat
 const euler = rotation_quaternion.toEulerAngles();
 ```
 
-Showing that converted Euler angles to and from rotation quaternion align. <Playground id="#DN4IPH" title="Converting Euler to Quaternion Alignment" description="Simple example showing that converted Euler angles to and from rotation quaternion align." image=""/>
+Showing that converted Euler angles to and from rotation quaternion align. <Playground id="#DN4IPH" title="Converting Euler to Quaternion Alignment" description="Simple example showing that converted Euler angles to and from rotation quaternion align."/>
 
 You can also change the orientation of a mesh using a number of different conventions.
 

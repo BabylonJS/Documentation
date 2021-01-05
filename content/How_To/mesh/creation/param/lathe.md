@@ -38,9 +38,9 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 The radius value is a multiplier for the x values in the profile shape vector3s.
 
 ### Examples
-Lathed shape: <Playground id="#PQ0GIE" title="Lathed Shape Example" description="Simple example of a lathed shape." image=""/>
-Hexagonal nut: <Playground id="#PQ0GIE#1" title="Lathed Hexagonal Nut" description="Simple example of a lathed hexagonal nut." image=""/>  
-Arc: <Playground id="#PQ0GIE#2" title="Lathed Arc" description="Simple example of a lathed arc." image=""/>
+Lathed shape: <Playground id="#PQ0GIE" title="Lathed Shape Example" description="Simple example of a lathed shape."/>
+Hexagonal nut: <Playground id="#PQ0GIE#1" title="Lathed Hexagonal Nut" description="Simple example of a lathed hexagonal nut."/>  
+Arc: <Playground id="#PQ0GIE#2" title="Lathed Arc" description="Simple example of a lathed arc."/>
 
 
 ## Mesh

@@ -27,7 +27,7 @@ mesh.increaseVertices(n);
 
 The disc at the top left has the number of facets made when it was created. The lower right has had the facets increased.
 
-<Playground id="#5ITGBA#1" title="Increase Facets 1" description="Simple example of increasing facets of a mesh." image=""/>
+<Playground id="#5ITGBA#1" title="Increase Facets 1" description="Simple example of increasing facets of a mesh."/>
 
 ## Prior to Version 4.0
 
@@ -158,4 +158,4 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
 
 The disc at the top left has the number of facets made when it was created. The lower right has had the facets increased.
 
-<Playground id="#2322Y7#14" title="Increase Facets 2" description="Simple example of increasing facets of a mesh." image=""/>
+<Playground id="#2322Y7#14" title="Increase Facets 2" description="Simple example of increasing facets of a mesh."/>

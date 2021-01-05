@@ -20,7 +20,7 @@ Here we just add an environment, a sphere, and XR support
 const xrHelper = await scene.createDefaultXRExperienceAsync();
 ```
 
-<Playground id="#9K3MRA" title="Basic Scene With WebXR Support" description="Simple example of a basic scene with WebXR support." image=""/>
+<Playground id="#9K3MRA" title="Basic Scene With WebXR Support" description="Simple example of a basic scene with WebXR support."/>
 
 ### Adding teleportation
 
@@ -33,7 +33,7 @@ const xrHelper = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled." image=""/>
+<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled."/>
 
 ### Adding a color picker to the basic scene
 
@@ -66,15 +66,15 @@ picker.onValueChangedObservable.add(function(value) {
 panel.addControl(picker);
 ```
 
-<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." image=""/>
+<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example."/>
 
 ## Other demos
 
-<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" image=""/>
-<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" image=""/>
+<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training"/>
+<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground"/>
 
 ## Babylon.js scenes with XR support
 
-<Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo" image=""/>
-<Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley" image=""/>
-<Playground id="#JA1ND3#164" title="Espilit" description="Espilit" image=""/>
+<Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo"/>
+<Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley"/>
+<Playground id="#JA1ND3#164" title="Espilit" description="Espilit"/>

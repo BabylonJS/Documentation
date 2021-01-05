@@ -62,4 +62,4 @@ function animate() {
 
 ## Examples
 
-- <Playground id="#1F4UET#4" title="Glowing orbs with trail" description="Simple example of using trailmesh in your scene." image=""/>
+- <Playground id="#1F4UET#4" title="Glowing orbs with trail" description="Simple example of using trailmesh in your scene."/>

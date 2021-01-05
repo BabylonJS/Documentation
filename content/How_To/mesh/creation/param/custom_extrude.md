@@ -63,21 +63,21 @@ The _scaleFunction_ and _rotationFunction_ are called on each path point and req
 
 ### Examples
 
-non updatable extrusion: <Playground id="#ZMKN5T#1" title="Non Updatable Extrusion" description="Simple example of non updatable extrusion." image=""/>
-update of extrusion scaleFunction and rotation Function: <Playground id="#ZMKN5T#2" title="Updatable Extrusion" description="Simple example of updatable extrusion." image=""/>
-offset open profile shape path defined by trigonometry: <Playground id="#ZMKN5T#3" title="Offset Open Profile Shape Path Defined By Trigonometry" description="Simple example of offset open profile shape path defined by trigonometry." image=""/>
-sine wave by alternately scaling positive/negative: <Playground id="#ZMKN5T#4" title="Sine Wave By Alternately Scaling Positive/Negative" description="Simple example of sine wave by alternately scaling positive/negative." image=""/>
-example of constant scale and rotation evolving with the distance: <Playground id="#ZMKN5T#5" title="Example Of Constant Scale And Rotation Evolving With The Distance" description="Simple example of example of constant scale and rotation evolving with the distance." image=""/>
-non-linear rotation function: <Playground id="#ZMKN5T#6" title="Non-Linear Rotation Function" description="Simple example of non-linear rotation function." image=""/>
+non updatable extrusion: <Playground id="#ZMKN5T#1" title="Non Updatable Extrusion" description="Simple example of non updatable extrusion."/>
+update of extrusion scaleFunction and rotation Function: <Playground id="#ZMKN5T#2" title="Updatable Extrusion" description="Simple example of updatable extrusion."/>
+offset open profile shape path defined by trigonometry: <Playground id="#ZMKN5T#3" title="Offset Open Profile Shape Path Defined By Trigonometry" description="Simple example of offset open profile shape path defined by trigonometry."/>
+sine wave by alternately scaling positive/negative: <Playground id="#ZMKN5T#4" title="Sine Wave By Alternately Scaling Positive/Negative" description="Simple example of sine wave by alternately scaling positive/negative."/>
+example of constant scale and rotation evolving with the distance: <Playground id="#ZMKN5T#5" title="Example Of Constant Scale And Rotation Evolving With The Distance" description="Simple example of example of constant scale and rotation evolving with the distance."/>
+non-linear rotation function: <Playground id="#ZMKN5T#6" title="Non-Linear Rotation Function" description="Simple example of non-linear rotation function."/>
 
-offset open profile shape: <Playground id="#RF9W9#20" title="Offset Open Profile Shape" description="Simple example of offset open profile shape." image=""/>  
-open extrusion path: <Playground id="#RF9W9#21" title="Open Extrusion path" description="Simple example of open extrusion path." image=""/>
-Extrusion with constant scale 1 and no rotation: <Playground id="#RF9W9#43" title="Extrusion With Constant Scale" description="Simple example of extrusion with constant scale 1 and no rotation." image=""/>
-_ribbonCloseArray_ to true: <Playground id="#RF9W9#44" title="Custom Extrusion With ribbonCloseArray" description="Simple example of custom extrusion with ribbonCloseArray set to true." image=""/>
-_ribbonClosePath_ to true instead: <Playground id="#RF9W9#45" title="Custom Extrusion With ribbonClosePath" description="Simple example of custom extrusion with ribbonClosePath set to true." image=""/>
-Both true: <Playground id="#RF9W9#46" title="Custom Extrusion With ribbonClosePath and ribbonCloseArray" description="Simple example of custom extrusion with ribbonClosePath and ribbonCloseArray set to true." image=""/>
+offset open profile shape: <Playground id="#RF9W9#20" title="Offset Open Profile Shape" description="Simple example of offset open profile shape."/>  
+open extrusion path: <Playground id="#RF9W9#21" title="Open Extrusion path" description="Simple example of open extrusion path."/>
+Extrusion with constant scale 1 and no rotation: <Playground id="#RF9W9#43" title="Extrusion With Constant Scale" description="Simple example of extrusion with constant scale 1 and no rotation."/>
+_ribbonCloseArray_ to true: <Playground id="#RF9W9#44" title="Custom Extrusion With ribbonCloseArray" description="Simple example of custom extrusion with ribbonCloseArray set to true."/>
+_ribbonClosePath_ to true instead: <Playground id="#RF9W9#45" title="Custom Extrusion With ribbonClosePath" description="Simple example of custom extrusion with ribbonClosePath set to true."/>
+Both true: <Playground id="#RF9W9#46" title="Custom Extrusion With ribbonClosePath and ribbonCloseArray" description="Simple example of custom extrusion with ribbonClosePath and ribbonCloseArray set to true."/>
 
-generate strange shapes: <Playground id="#RF9W9#47" title="Strange Shapes With Custom Extrusion" description="Simple example of generating some strange shapes with custom extrusion." image=""/>
+generate strange shapes: <Playground id="#RF9W9#47" title="Strange Shapes With Custom Extrusion" description="Simple example of generating some strange shapes with custom extrusion."/>
 
 ## Mesh
 

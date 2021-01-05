@@ -93,7 +93,7 @@ light.intensity = 1.0;
 BABYLON.SceneRecorder.ApplyDelta(delta, scene);
 ```
 
-You can play with this code on this Playground: <Playground id="#MPD4TQ#1" title="Delta System Example" description="Simple example showing how to save deltas and apply them to your scene." image=""/>
+You can play with this code on this Playground: <Playground id="#MPD4TQ#1" title="Delta System Example" description="Simple example showing how to save deltas and apply them to your scene."/>
 
 ## Using the Inspector
 

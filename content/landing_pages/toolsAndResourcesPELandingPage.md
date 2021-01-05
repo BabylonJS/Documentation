@@ -14,7 +14,7 @@ Babylon.js has a feature-rich, powerful particle system. Babylon.js 4.2 introduc
 
 <img src="/img/tools/particleEditor.jpg" title="Babylon.js Particle Editor"/>
 
-You can jump in and play around with it here: <Playground id="#M7MYT8#11" title="Particle Editor" description="Simple example of particles using the particle editor." image=""/>
+You can jump in and play around with it here: <Playground id="#M7MYT8#11" title="Particle Editor" description="Simple example of particles using the particle editor."/>
 
 For an introductory look at the Particle Editor, check out where it all started with these videos:
 

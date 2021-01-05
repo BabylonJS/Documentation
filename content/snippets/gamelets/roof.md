@@ -33,7 +33,7 @@ The function **roofprint** returns a list of Vector3 representing the corners of
 
 Using the roofprint the floor of the roof (or top ceiling) can be added as a mesh.
 
-PG: <Playground id="#1Z71FW#41" title="Example Roof Floor" description="." image=""/>
+PG: <Playground id="#1Z71FW#41" title="Example Roof Floor" description="."/>
 
 ## Plan of Roof
 
@@ -99,7 +99,7 @@ In the example the roof mesh is built using
 var roofSection = roof(wholeRoofprint, apexes, planes, 2, height, 5.6);
 ```
 
-PG: <Playground id="#1Z71FW#42" title="Simple Roof Plan Example" description="." image=""/>
+PG: <Playground id="#1Z71FW#42" title="Simple Roof Plan Example" description="."/>
 
 ## Design Roof In Sections
 
@@ -176,4 +176,4 @@ var roofSection = roof(mainRoofprint, apexes, planes, 2, height, 5.1);
 var smallRoofSection = roof(smallRoofprint, smallApexes, smallPlanes, 2, height - 1, 5.1);
 ```
 
-PG: <Playground id="#1Z71FW#43" title="Roof Added" description="Building and adding a roof" image=""/>
+PG: <Playground id="#1Z71FW#43" title="Roof Added" description="Building and adding a roof"/>

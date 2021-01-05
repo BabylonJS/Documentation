@@ -25,7 +25,7 @@ SPS.billboard = true; //false by default
 ```
 The required rotation for the mesh to face the camera has to be calculated each render frame so the above render loop needs to be added.
 
-Billboard set to true, comment line 35 for false: <Playground id="#GLZ1PX#6" title="Solid Particle Billboards" description="Simple example of solid particle billboards" image=""/>
+Billboard set to true, comment line 35 for false: <Playground id="#GLZ1PX#6" title="Solid Particle Billboards" description="Simple example of solid particle billboards"/>
 
 To achieve an animation of solid particles their properties have to be updated render frame by render frame. To do this you need to code a custom *myUpdateParticle(particle)*. You can then set 
 
@@ -43,8 +43,8 @@ let y = h * (1 + Math.cos(angle))
 
 will give y from 0 to 2h as the angle varies.
 
-Bouncing tetrahedrons: <Playground id="#GLZ1PX#7" title="Bouncing Tetrahedrons" description="Simple example of bouncing tetrahedrons." image=""/>
-Bouncing tetrahedrons SPS mesh rotating: <Playground id="#GLZ1PX#8" title="Bouncing Tetrahedrons With Meshes Rotating" description="Simple example of bouncing tetrahedrons with meshes rotating." image=""/>
+Bouncing tetrahedrons: <Playground id="#GLZ1PX#7" title="Bouncing Tetrahedrons" description="Simple example of bouncing tetrahedrons."/>
+Bouncing tetrahedrons SPS mesh rotating: <Playground id="#GLZ1PX#8" title="Bouncing Tetrahedrons With Meshes Rotating" description="Simple example of bouncing tetrahedrons with meshes rotating."/>
 
 Another very useful custom function to create is *recycle(particle)* and call this from *updateParticle* on some condition, for example
 
@@ -57,6 +57,6 @@ const updateParticle = (particle) => {
 }
 ```
 
-A fountain of recycled tetrahedra: <Playground id="#GLZ1PX#9" title="A Fountain Of Recycled Tetrahedra" description="Simple example of a fountain of recycled tetrahedra." image=""/>
+A fountain of recycled tetrahedra: <Playground id="#GLZ1PX#9" title="A Fountain Of Recycled Tetrahedra" description="Simple example of a fountain of recycled tetrahedra."/>
 
 Before moving on much further it is time to pull together in one place all the features of managing the SPS and its particles.

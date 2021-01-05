@@ -46,9 +46,9 @@ pivot.rotate(axis, angle, BABYLON.Space.WORLD);
 
 In these playgrounds a sphere is created only to show the position of the TransformNode.
 
-<Playground id="#1JLGFP#36" title="Rotating TransformNode" description="Simple example of a Rotating TransformNode." image=""/>
-<Playground id="#C12LH3#3" title="Rotating Mesh Moving TransformNode along Axis" description="Simple example of a rotating mesh moving TransformNode along axis." image=""/>
-<Playground id="#C12LH3#4" title="Rotating Mesh Moving TransformNode" description="Simple example of a rotating mesh moving TransformNode." image=""/>
+<Playground id="#1JLGFP#36" title="Rotating TransformNode" description="Simple example of a Rotating TransformNode."/>
+<Playground id="#C12LH3#3" title="Rotating Mesh Moving TransformNode along Axis" description="Simple example of a rotating mesh moving TransformNode along axis."/>
+<Playground id="#C12LH3#4" title="Rotating Mesh Moving TransformNode" description="Simple example of a rotating mesh moving TransformNode."/>
 
 ## How To Use a Parent as Center of Rotation
 
@@ -65,7 +65,7 @@ sphere.rotate(axis, angle, BABYLON.Space.WORLD);
 
 **Note:** Any movement of the sphere will result in the pilot being moved.
 
-<Playground id="#1JLGFP#31" title="Rotating Parent" description="Simple example of a rotating parent." image=""/>
+<Playground id="#1JLGFP#31" title="Rotating Parent" description="Simple example of a rotating parent."/>
 
 ## How To Use a Pivot as a Center of Rotation
 
@@ -87,11 +87,11 @@ scene.registerAfterRender(function () {
 });
 ```
 
-<Playground id="#C12LH3#7" title="Rotating Mesh with Pivot" description="Simple example of a rotating mesh with pivot." image=""/>
-<Playground id="#C12LH3#8" title="Rotating Mesh Moving Pivot along Axis" description="Simple example of a rotating mesh moving pivot along axis." image=""/>
+<Playground id="#C12LH3#7" title="Rotating Mesh with Pivot" description="Simple example of a rotating mesh with pivot."/>
+<Playground id="#C12LH3#8" title="Rotating Mesh Moving Pivot along Axis" description="Simple example of a rotating mesh moving pivot along axis."/>
 
 Notice that as the pivot is moved the axis line moves with the pivot, though the axis direction remains the same.  
-<Playground id="#C12LH3#9" title="Rotating Mesh Moving Pivot" description="Simple example of a rotating mesh moving pivot." image=""/>
+<Playground id="#C12LH3#9" title="Rotating Mesh Moving Pivot" description="Simple example of a rotating mesh moving pivot."/>
 
 ## How to Use a Pivot as a Parent
 
@@ -108,8 +108,8 @@ pilot.setPivotMatrix(BABYLON.Matrix.Translation(pilotTranslate.x, pilotTranslate
 pilot.rotate(axis, angle, BABYLON.Space.WORLD);
 ```
 
-<Playground id="#1JLGFP#77" title="Rotating Mesh as Pivot's Child" description="Simple example of a rotating mesh as pivot's child." image=""/>
+<Playground id="#1JLGFP#77" title="Rotating Mesh as Pivot's Child" description="Simple example of a rotating mesh as pivot's child."/>
 
 Done this way any movement of the pivot is done by moving the parent mesh representing the pivot.  
-<Playground id="#1JLGFP#78" title="Rotating Mesh Moving Pivot's Parent along Axis" description="Simple example of a rotating mesh moving pivot's parent along axis." image=""/>
-<Playground id="#1JLGFP#80" title="Rotating Mesh Moving Pivot's Parent" description="Simple example of a rotating mesh moving pivot's parent." image=""/>
+<Playground id="#1JLGFP#78" title="Rotating Mesh Moving Pivot's Parent along Axis" description="Simple example of a rotating mesh moving pivot's parent along axis."/>
+<Playground id="#1JLGFP#80" title="Rotating Mesh Moving Pivot's Parent" description="Simple example of a rotating mesh moving pivot's parent."/>

@@ -28,7 +28,7 @@ Only one line is needed to make all the emissive parts of a scene glow:
 var gl = new BABYLON.GlowLayer("glow", scene);
 ```
 
-<Playground id="#LRFB2D#1" title="Glow Layer Example" description="Simple example of using the glow layer." image=""/>
+<Playground id="#LRFB2D#1" title="Glow Layer Example" description="Simple example of using the glow layer."/>
 
 ## Intensity Controls
 
@@ -43,7 +43,7 @@ var gl = new BABYLON.GlowLayer("glow", scene);
 gl.intensity = 0.5;
 ```
 
-<Playground id="#LRFB2D#2" title="Glow Layer Color Intensity" description="Simple example of using the glow layer with color intensity." image=""/>
+<Playground id="#LRFB2D#2" title="Glow Layer Color Intensity" description="Simple example of using the glow layer with color intensity."/>
 
 ### Blur Intensity
 
@@ -60,7 +60,7 @@ var gl = new BABYLON.GlowLayer("glow", scene, {
 });
 ```
 
-<Playground id="#LRFB2D#3" title="Glow Layer Blur Intensity" description="Simple example of using the glow layer with blur intensity." image=""/>
+<Playground id="#LRFB2D#3" title="Glow Layer Blur Intensity" description="Simple example of using the glow layer with blur intensity."/>
 
 ### Controlling glow color per mesh
 By default the glow layer will use emissive texture and emissive color to generate the glow color of every active mesh.
@@ -90,7 +90,7 @@ var gl = new BABYLON.GlowLayer("glow", scene, {
 });
 ```
 
-<Playground id="#LRFB2D#4" title="Glow Layer Anti Aliasing" description="Simple example of using the glow layer with anti aliasing." image=""/>
+<Playground id="#LRFB2D#4" title="Glow Layer Anti Aliasing" description="Simple example of using the glow layer with anti aliasing."/>
 
 ## Mesh Management
 
@@ -105,7 +105,7 @@ var gl = new BABYLON.GlowLayer("glow", scene);
 gl.addExcludedMesh(mesh)
 ```
 
-<Playground id="#LRFB2D#29" title="Excluding Meshes From The Glow Layer" description="Simple example of excluding meshes from the glow layer." image=""/>
+<Playground id="#LRFB2D#29" title="Excluding Meshes From The Glow Layer" description="Simple example of excluding meshes from the glow layer."/>
 
 ### Include Only some Meshes
 
@@ -118,4 +118,4 @@ gl.addIncludedOnlyMesh(mesh)
 
 Using the function will automatically switch mode and only render the included meshes.
 
-<Playground id="#LRFB2D#30" title="Including Specific Meshes In The Glow Layer" description="Simple example of including specific meshes in the glow layer." image=""/>
+<Playground id="#LRFB2D#30" title="Including Specific Meshes In The Glow Layer" description="Simple example of including specific meshes in the glow layer."/>

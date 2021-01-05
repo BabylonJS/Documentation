@@ -18,7 +18,7 @@ Wood procedural texture can be found here:
 - Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)
 - Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js)
 
-A demo can be found here: <Playground id="#K41IJ" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo" image=""/>
+A demo can be found here: <Playground id="#K41IJ" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo"/>
 
 This texture has 2 parameters :
 - **woodColor** to modify the color of the wood in the texture (BABYLON.Color3/4)

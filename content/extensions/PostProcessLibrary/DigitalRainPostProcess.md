@@ -34,7 +34,7 @@ Then, you only need to instantiate the post process attach to your main camera t
 var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera);
 ```
 
-<Playground id="#2I28SC#6" title="Digital Rain Post Process Demo" description="Digital Rain Post Process Demo" image=""/>
+<Playground id="#2I28SC#6" title="Digital Rain Post Process Demo" description="Digital Rain Post Process Demo"/>
 
 ## Going further
 
@@ -45,7 +45,7 @@ The first you can do is changing the font used in the post process.
 var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera, "3px Monospace");
 ```
 
-<Playground id="#2I28SC#7" title="Digital Rain Post Process Modified Demo 1" description="Digital Rain Post Process Modified Demo 1" image=""/>
+<Playground id="#2I28SC#7" title="Digital Rain Post Process Modified Demo 1" description="Digital Rain Post Process Modified Demo 1"/>
 
 But you could also play with more parameters:
 
@@ -59,7 +59,7 @@ var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera,
     });
 ```
 
-<Playground id="#2I28SC#8" title="Digital Rain Post Process Modified Demo 2" description="Digital Rain Post Process Modified Demo 2" image=""/>
+<Playground id="#2I28SC#8" title="Digital Rain Post Process Modified Demo 2" description="Digital Rain Post Process Modified Demo 2"/>
 
 The availables parameters are:
 
@@ -80,4 +80,4 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-<Playground id="#2I28SC#9" title="Digital Rain Post Process Modified Demo 3" description="Digital Rain Post Process Modified Demo 3" image=""/>
+<Playground id="#2I28SC#9" title="Digital Rain Post Process Modified Demo 3" description="Digital Rain Post Process Modified Demo 3"/>

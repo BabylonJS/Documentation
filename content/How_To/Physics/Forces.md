@@ -85,7 +85,7 @@ var gravity = physicsEngine.gravity;
 physicsEngine.setGravity(new BABYLON.Vector3(0, -5, 0))
 ```
 
-<Playground id="#YUNAST#3" title="Gravity Example" description="Simple example of using gravity in a phyics engine." image=""/>
+<Playground id="#YUNAST#3" title="Gravity Example" description="Simple example of using gravity in a phyics engine."/>
 
 ### Impulses
 
@@ -107,7 +107,7 @@ imposter.applyImpulse(ImpulseVector, mesh.getAbsolutePosition().add(localRefPoin
 
 The following playground is initially set up to apply an impulse at the center of mass vertically against gravity which eventually return the box to earth. Leaving the friction as 0 and applying horizontal impulses shows the continuity of movement.
 
-<Playground id="#RHBQY9#12" title="Impulses Example 1" description="Simple example of adding impulses to objects." image=""/>
+<Playground id="#RHBQY9#12" title="Impulses Example 1" description="Simple example of adding impulses to objects."/>
 
 ### Friction
 
@@ -124,7 +124,7 @@ Since friction occurs at the boundary of a body, applying an impulse at the cent
 
 Re-visiting the following playground and setting friction on **both** bodies and applying horizontal impulses will show the angular velocity effect.
 
-<Playground id="#RHBQY9#12" title="Impulses Example 2" description="Simple example of adding impulses to objects." image=""/>
+<Playground id="#RHBQY9#12" title="Impulses Example 2" description="Simple example of adding impulses to objects."/>
 
 ### Applied Forces
 
@@ -142,4 +142,4 @@ impostor.applyForce(forceDirection.scale(forceMagnitude), mesh.getAbsolutePositi
 
 The following playground initially set up with zero friction and to apply an impulse at the center of mass horizontally in the X direction.
 
-<Playground id="#RHBQY9#1" title="Applying Forces" description="Simple example of applying forces to objects." image=""/>
+<Playground id="#RHBQY9#1" title="Applying Forces" description="Simple example of applying forces to objects."/>

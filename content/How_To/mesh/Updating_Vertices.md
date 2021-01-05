@@ -54,7 +54,7 @@ When a mesh is created, the normal for each face is created smoothly to match th
 ```javascript
 sphere.convertToFlatShadedMesh()
 ```
-<Playground id="#H05E9H" title="Updating Vertex Data" description="Simple example of updating vertex data." image=""/>
+<Playground id="#H05E9H" title="Updating Vertex Data" description="Simple example of updating vertex data."/>
 
 ```javascript
 vertexData.applyToMesh(customMesh, true);
@@ -93,6 +93,6 @@ mesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, colors);
 
 ## Examples
 
-Scaling Positions: <Playground id="#VE6GP#4" title="Scaling Positions" description="Simple example of updating vertex data with scaled positions." image=""/>
-Playing Around with Positions: <Playground id="#VE6GP#2" title="Playing With Positions" description="Simple example of updating vertex data and playing with positions." image=""/>
-Adding Color to Vertices: <Playground id="#ZRZIIZ#2" title="Adding Colors To Vertices" description="Simple example of adding colors to vertices." image=""/>
+Scaling Positions: <Playground id="#VE6GP#4" title="Scaling Positions" description="Simple example of updating vertex data with scaled positions."/>
+Playing Around with Positions: <Playground id="#VE6GP#2" title="Playing With Positions" description="Simple example of updating vertex data and playing with positions."/>
+Adding Color to Vertices: <Playground id="#ZRZIIZ#2" title="Adding Colors To Vertices" description="Simple example of adding colors to vertices."/>

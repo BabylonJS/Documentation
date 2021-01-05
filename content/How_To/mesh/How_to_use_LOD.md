@@ -39,7 +39,7 @@ knot00.removeLODLevel(knot02);
 knot00.removeLODLevel(null);
 ```
 
-Try: <Playground id="#QE7KM" title="LOD Demo" description="Simple example of using the LOD system." image=""/>
+Try: <Playground id="#QE7KM" title="LOD Demo" description="Simple example of using the LOD system."/>
 
 ## Using LOD and instances
 By default, instances will use LOD defined on root mesh. You do not have to specify anything on instances:
@@ -70,4 +70,4 @@ for (var x = -count; x <= count; x++) {
 }
 ```
 
-Try: <Playground id="#14ESWC" title="LOD and Instances Demo" description="Simple example of using the LOD system with instances." image=""/>
+Try: <Playground id="#14ESWC" title="LOD and Instances Demo" description="Simple example of using the LOD system with instances."/>

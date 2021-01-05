@@ -13,7 +13,7 @@ video-content:
 ## How to use Thin Instances
 Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
 
-PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances." image=""/>
+PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances."/>
 
 As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
 
@@ -51,7 +51,7 @@ var matrix2 = BABYLON.Matrix.Translation(2, 1, 0);
 sphere.thinInstanceSetMatrixAt(idx2, matrix2);
 ```
 
-Example: <Playground id="#217750" title="Creating Thin Instances" description="Simple example of creating thin instances." image=""/>
+Example: <Playground id="#217750" title="Creating Thin Instances" description="Simple example of creating thin instances."/>
 
 Those 3 methods take an additional `refresh` parameter (`true` by default) that allows you to block the buffer refresh mechanism to save performances: if you must use those methods multiple times, pass `false` for all calls except for the last one.
 
@@ -75,7 +75,7 @@ sphere.thinInstanceRegisterAttribute("color", 4);
 sphere.thinInstanceSetAttributeAt("color", 0, [1, 1, 0, 1, 1, 0, 0, 1]);
 ```
 
-Example: <Playground id="#217750#1" title="Thin Instances Custom Attributes" description="Simple example of thin instances with custom attributes." image=""/>
+Example: <Playground id="#217750#1" title="Thin Instances Custom Attributes" description="Simple example of thin instances with custom attributes."/>
 
 You can get or set the number of thin instances to display through the `thinInstanceCount` property.
 
@@ -104,7 +104,7 @@ sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16);
 sphere.thinInstanceSetBuffer("color", bufferColors, 4);
 ```
 
-Example: <Playground id="#217750#2" title="Thin Instances Example" description="Simple example showing how to use thin instances." image=""/>
+Example: <Playground id="#217750#2" title="Thin Instances Example" description="Simple example showing how to use thin instances."/>
 
 If you have a lot of thin instances to create, it could be a lot faster than calling `thinInstanceAdd` / `thinInstanceSetAttributeAt`. Also, you can allocate a bigger buffer than what you really need at start and play with the `thinInstanceCount` property to adjust the number of instances to display during the course of your program.
 
@@ -128,7 +128,7 @@ Thin instances are supported for collisions, picking, rendering and shadows. How
 
 Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
-For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering." image=""/>
+For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
 
 ![Wrong rendering](/img/how_to/Mesh/thinInstancesWrongSideOrientation.png)
 
@@ -136,5 +136,5 @@ The green and blue cubes are not rendered correctly because they have a -1 scale
 
 To correct the problem, create another mesh, add the green/blue instances to that mesh (and remove them from the first mesh!) and set the side orientation of the material of that mesh to be **Clockwise** (by default, it is **Counter clockwise**):
 
-PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering." image=""/>
+PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering."/>
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)

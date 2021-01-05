@@ -16,7 +16,7 @@ The goal of the ShadowOnlyMaterial is to display only shadows casted by a light 
 
 ShadowOnly material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.shadowOnlyMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.shadowOnlyMaterial.js)
 
-A demo can be found here:  PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material" image=""/>
+A demo can be found here:  PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material"/>
 
 ## Using the ShadowOnly material
 
@@ -31,7 +31,7 @@ ground.receiveShadows = true
 
 By default the shadow color is black but you can force an artificial color with `material.shadowColor = BABYLON.Color3.Red()`.
 
-Demo here:  PG: <Playground id="#1KF7V1#19" title="Shadow Only Material" description="Example of shadow only material color" image=""/>
+Demo here:  PG: <Playground id="#1KF7V1#19" title="Shadow Only Material" description="Example of shadow only material color"/>
 
 **Limitation:** Please note that only the first light that can reach the mesh will be used. 
 So if you have multiple lights in your scene you may end up using `light.includedOnlyMeshes` or `light.excludedMeshes` or `light.includeOnlyWithLayerMask` or `light.excludeWithLayerMask`.

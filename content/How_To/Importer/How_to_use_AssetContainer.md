@@ -39,7 +39,7 @@ var keepAssets = new BABYLON.KeepAssets();
 keepAssets.cameras.push(camera);
 container.moveAllFromScene(keepAssets);
 ```
-<Playground id="#5NFRVE#3" title="Moving Assets Into an Asset Container" description="Simple Example of moving assets in a scene into an asset container." image=""/> 
+<Playground id="#5NFRVE#3" title="Moving Assets Into an Asset Container" description="Simple Example of moving assets in a scene into an asset container."/> 
 
 ## Duplicating the models
 Asset containers can also be used as "templates" to duplicate models without reloading them.

@@ -65,4 +65,4 @@ new BABYLON.Viewport(x, y, w, h);
 * x + w must be <= 1
 * y + h must be <= 1
 
-The stride of an attribute in a vertex buffer can't be less than 4 bytes, contrary to WebGL. Also, for the time being, position vertex kind must be number/float, it can't be char/int (Int8Array/Int32Array). Try this PG, which works in WebGL but not in WebGPU: <Playground id="#U1CZV3#4" title="Stride of 3 bytes" description="Demonstrate using a byte buffer for position" image=""/>
+The stride of an attribute in a vertex buffer can't be less than 4 bytes, contrary to WebGL. Also, for the time being, position vertex kind must be number/float, it can't be char/int (Int8Array/Int32Array). Try this PG, which works in WebGL but not in WebGPU: <Playground id="#U1CZV3#4" title="Stride of 3 bytes" description="Demonstrate using a byte buffer for position"/>

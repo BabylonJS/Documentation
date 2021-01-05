@@ -31,10 +31,10 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 The following image is used for the height map in the first examples
 
 ![height map](/img/how_to/HeightMap/heightMap.png)  
-Low subdivisions: <Playground id="#LQ4LI1" title="Create Ground From A HeightMap - Low Subdivisions" description="Simple example of creating ground from a heightmap with low subdivision." image=""/>
-High subdivisions: <Playground id="#LQ4LI1#1" title="Create Ground From A HeightMap - High Subdivisions" description="Simple example of creating ground from a heightmap with high subdivision." image=""/>
+Low subdivisions: <Playground id="#LQ4LI1" title="Create Ground From A HeightMap - Low Subdivisions" description="Simple example of creating ground from a heightmap with low subdivision."/>
+High subdivisions: <Playground id="#LQ4LI1#1" title="Create Ground From A HeightMap - High Subdivisions" description="Simple example of creating ground from a heightmap with high subdivision."/>
 
-Flat world: <Playground id="#LQ4LI1#3" title="Create Ground From A HeightMap" description="Simple example of creating ground from a heightmap." image=""/>
+Flat world: <Playground id="#LQ4LI1#3" title="Create Ground From A HeightMap" description="Simple example of creating ground from a heightmap."/>
 
 ## Mesh
 Usage :

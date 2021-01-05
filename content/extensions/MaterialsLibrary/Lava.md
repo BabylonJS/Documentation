@@ -10,7 +10,7 @@ video-content:
 
 ![Screenshot](/img/extensions/materials/lava.jpg)
 
-PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material" image=""/>
+PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
 
 
 Lava material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.lavaMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.lavaMaterial.js)
@@ -40,7 +40,7 @@ By default, the material is subject to lights. If you wish, you can cancel this 
 material.unlit = true;
 ```
 
-PG: <Playground id="#1BLVWO#22" title="Lava Material" description="Lava with unlit material" image=""/>
+PG: <Playground id="#1BLVWO#22" title="Lava Material" description="Lava with unlit material"/>
 
 ## Customize the lava material
 

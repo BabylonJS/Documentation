@@ -56,6 +56,6 @@ The test done by `isInFrustum()` has also its own CPU cost, so it's probably not
 Actually, it's up to you to choose if the test is worth it for your own need.  
 Let's imagine a case where each particle computation is really intensive (example : when using `computeParticleVertex`). In this case, the frustum test could be faster than the particle computation, so it would be interesting to use it to disable the particle computation for particles outside the frustum.  
 In this following example, the computation charge is directly related to the number of vertices and shouldn't change whatever the camera direction. But, as we disable the particles outside the frustum, if you rotate the camera to isolate one or two worms in the camera field, you can check the performance gain  
-<Playground id="#BKX11Q#2" title="Dealing With Solid Particle Visbility Issues" description="Simple example of how to manage common visibility issues in Solid Particle Systems." image=""/>
+<Playground id="#BKX11Q#2" title="Dealing With Solid Particle Visbility Issues" description="Simple example of how to manage common visibility issues in Solid Particle Systems."/>
 Note : the default culling strategy used in the particle frustum test is the fastest (`BoundingSphereOnly`).  
 You can change it at will for each particle by using the same values than the static properties `CULLINGSTRATEGY_XXX` ones of the `AbstractMesh` class.

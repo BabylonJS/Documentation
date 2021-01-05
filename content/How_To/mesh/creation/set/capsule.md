@@ -32,10 +32,10 @@ topCapSubdivisions?|_(number)_ Overwrite for the top capSubdivisions.
 bottomCapSubdivisions?|_(number)_ Overwrite for the bottom capSubdivisions.
 
 ### Examples
-Default capsule: <Playground id="#CL6HZ0" title="Create a Default Capsule" description="Simple example of creating a default capsule." image=""/>  
-Different cap subdivisions: <Playground id="#CL6HZ0#1" title="Create a Capsule With Subdivisions" description="Simple example of creating a capsule with subdivisions." image=""/>
-Forward orientation: <Playground id="#CL6HZ0#2" title="Create a Capsule With Foreward Orientation" description="Simple example of creating a capsule with forward orientation." image=""/>
-Different radii: <Playground id="#CL6HZ0#3" title="Create a Capsule With Different Radii" description="Simple example of creating a capsule with different radii." image=""/>
+Default capsule: <Playground id="#CL6HZ0" title="Create a Default Capsule" description="Simple example of creating a default capsule."/>  
+Different cap subdivisions: <Playground id="#CL6HZ0#1" title="Create a Capsule With Subdivisions" description="Simple example of creating a capsule with subdivisions."/>
+Forward orientation: <Playground id="#CL6HZ0#2" title="Create a Capsule With Foreward Orientation" description="Simple example of creating a capsule with forward orientation."/>
+Different radii: <Playground id="#CL6HZ0#3" title="Create a Capsule With Different Radii" description="Simple example of creating a capsule with different radii."/>
 
 ## Mesh
 ```javascript

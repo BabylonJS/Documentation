@@ -38,7 +38,7 @@ Aditionally, you may pass three more parameters, which are:
 -   _onReady_, a function to be called when the canvas is ready.
 -   _options_, an object with the properties _generateMipMaps_ (boolean) and _samplingMode_ (number)
 
-PG: <Playground id="#9S5YZY#6" title="Texture Canvas" description="Example of a TextureCanavas" image=""/>
+PG: <Playground id="#9S5YZY#6" title="Texture Canvas" description="Example of a TextureCanavas"/>
 
 ## Draw using contexts
 
@@ -85,7 +85,7 @@ And the following methods:
 
 Once the context is set up, simply call `ctx.draw()` or `ctx.drawTexture(myTexture)`
 
-PG: <Playground id="#436DIW#2" title="Texture Canvas" description="Example of drawing on a TextureCanavas" image=""/>
+PG: <Playground id="#436DIW#2" title="Texture Canvas" description="Example of drawing on a TextureCanavas"/>
 
 ## Notes
 

@@ -1,6 +1,6 @@
 ---
 title: Cell material
-image: 
+image:
 description: The Babylon.js materials library cell material.
 keywords: welcome, babylon.js, library, materials, materials library, cell, cell material
 further-reading:
@@ -14,13 +14,13 @@ video-content:
 
 Cell material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.cellMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.cellMaterial.js)
 
-A demo can be found here:   PG: <Playground id="#36VUUE" title="Cell Material" description="Example of cell material" image=""/>
+A demo can be found here: PG: <Playground id="#36VUUE" title="Cell Material" description="Example of cell material"/>
 
 # Creating and customizing the cell material
 
 You can customize special properties of the material:
 
-```
+```javascript
 // Create a new cell material
 var cell = new BABYLON.CellMaterial("cell", scene);
 
