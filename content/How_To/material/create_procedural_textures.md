@@ -1,6 +1,6 @@
 ---
 title: Creating Procedural Textures
-image: 
+image:
 description: Learn how to create your own procedural textures in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, materials, advanced, textures, procedural, procedural textures
 further-reading:
@@ -8,8 +8,8 @@ video-overview:
 video-content:
 ---
 
-
 ## Using a Files-Based Custom Procedural Texture
+
 To use a files-based custom procedural texture, you need to create a folder containing at least 2 files:
 
 - config.json
@@ -45,10 +45,10 @@ The **animate** property indicates if a time value should be created and increas
 
 The **refreshrate** property is set to 0 if you want the texture to only render once. If set to 1, it will render every frame, 2 every two frames, etc.
 
-**Uniforms** are the values that will be passed from the javascript code to the shader code. By setting them that way, you can allow the custom texture user to modify this value at runtime... to customize the texture. 
+**Uniforms** are the values that will be passed from the javascript code to the shader code. By setting them that way, you can allow the custom texture user to modify this value at runtime... to customize the texture.
 
 Uniforms can be of type:
- 
+
 - **float** (parameters : value)
 - **Vector2** (parameters: x, y)
 - **Vector3** (parameters: x, y, z)
@@ -61,44 +61,47 @@ The **custom.fragment.fx** file contains the GLSL code. The purpose of this wiki
 
 Here is a simple code which is setting all pixels to a specific gray.
 
-```javascript 
+```javascript
     #ifdef GL_ES
     precision highp float;
     #endif
-    
+
     void main(void) {
      vec3 color = vec3(0.9, 0.9, 0.9);
      gl_FragColor = vec4(color, 1.0);
     }
 ```
+
 Gl_FragColor is the variable in which you put the color object you want the pixel to be.
-Here is a more complex example using 2 samplers and mixing their color equally. 
+Here is a more complex example using 2 samplers and mixing their color equally.
 
 ```javascript
     #ifdef GL_ES
     precision highp float;
     #endif
-    
+
     varying vec2 vPosition;
     varying vec2 vUV;
-    
+
     uniform sampler2D grass;
     uniform sampler2D dirt;
-    
+
     void main(void) {
      vec3 color = mix(texture2D(dirt, vUV).xyz, texture2D(grass, vUV).xyz, 0.5);
      gl_FragColor = vec4(color, 1.0);
     }
 ```
+
 To use this custom texture, you need to make your folder available to your babylon.js html/javascript files and use a **CustomProceduralTexture** class instead of a standard one. The difference is only that you specify a new parameter which is the relative path to the folder containing the custom texture. Babylon.js will automatically read the config.json and custom.fragment.fx files and load everything for you.
 
 ```javascript
-    var texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
+var texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
 ```
 
 ## Using a ShaderStore for Shader Storage
+
 You can also use the ShaderStore to write a shader inline and use it in a CustomProceduralTexture.
-This can be done easily using the **BABYLON.Effect.ShaderStore** array : 
+This can be done easily using the **BABYLON.Effect.ShaderStore** array :
 
 ```javascript
 BABYLON.Effect.ShadersStore["LinesPixelShader"] =
@@ -111,6 +114,7 @@ BABYLON.Effect.ShadersStore["LinesPixelShader"] =
        "}\n" +
        "";
 ```
+
 Note that your shader name should be suffixed with **PixelShader** as the Procedural Texture shader is always a pixel shader. Babylon.JS will automatically understand it is a pixel shader.
 
 To use this shader, you just have to create a CustomProceduralTexture and put the name of your shader in the store instead of the path to the files.
@@ -118,25 +122,27 @@ To use this shader, you just have to create a CustomProceduralTexture and put th
 ```javascript
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", "Lines", 1024, scene);
 ```
+
 ## Using a DOM Element for Shader Storage
 
 Finally you can also use **DOM Elements** to store your shader. You just have to create a script tag in your HTML file like this:
 
-```javascript
+```html
 <script type="application/pixelShader" id="LinesPixelShader">
         #ifdef GL_ES
         precision highp float;
         #endif
-        varying vec2 vUV; 
+        varying vec2 vUV;
         void main(void) {
              gl_FragColor = vec4(vUV.x,vUV.y,-vUV.x, 1.0);
         }
 </script>
 ```
+
 To use it, you just have to create a simple object containing one property which is named **fragmentElement** and contains the id identifying the script DOM element.
 
 ```javascript
-var linesShader = { fragmentElement: 'LinesPixelShader' };
+var linesShader = { fragmentElement: "LinesPixelShader" };
 var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
 ```
 
@@ -144,12 +150,14 @@ var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShad
 
 You can use NodeMaterial to generate the shaders for your procedural texture.
 The code to generate it is very simple:
+
 ```
 BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMaterial) => {
     const proceduralTexture = nodeMaterial.createProceduralTexture(256);
 });
 ```
-Example: <Playground id="#8S19ZC#1" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture1.jpg"/>
+
+Example: <Playground id="#8S19ZC#49" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture1.jpg"/>
 
 More here: [Creating Procedural Textures](/divingDeeper/materials/node_material/nodeMaterial#creating-procedural-textures)
 
