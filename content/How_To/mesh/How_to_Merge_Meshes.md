@@ -27,11 +27,11 @@ var newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32Bits
 
 Since `multiMultiMaterials` defaults to false, the resulting merged mesh will have only one material applied to it (taken from the first mesh):
 
-<Playground id="#INZ0Z0#5" title="Merged Meshes Example" description="Simple example of merging meshes together." image=""/>
+<Playground id="#INZ0Z0#5" title="Merged Meshes Example" description="Simple example of merging meshes together."/>
 
 Compare with the following example which sets `multiMultiMaterials` to true:
 
-<Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials." image=""/>
+<Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials."/>
 
 See [this page](/divingDeeper/materials/using/multiMaterials) for more details on usage of merged meshes.
 
@@ -167,4 +167,4 @@ function createPipe(diamInner: number, diamOuter: number, length: number, scene:
 ```
 
 Playground example:
-<Playground id="#61Q7UC#1" title="Pipe CSG Example" description="Creating a pipe from a cylinder and a tube using CSGs." image=""/>
+<Playground id="#61Q7UC#1" title="Pipe CSG Example" description="Creating a pipe from a cylinder and a tube using CSGs."/>

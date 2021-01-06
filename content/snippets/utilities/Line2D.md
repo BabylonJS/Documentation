@@ -32,10 +32,10 @@ Just copy the code below if you want to use it.
 
 These examples use an orthographic camera giving a 2D view
 
-<Playground id="#FA2H7X#3" title="Open Line" description="Open line example." image=""/>
-<Playground id="#FA2H7X#4" title="Closed Line" description="Closed line example." image=""/>
-<Playground id="#FA2H7X#5" title="Standard UV = True" description="Standard UV is true." image=""/>
-<Playground id="#FA2H7X#6" title="Standard UV = False" description="Standard UV is false." image=""/>
+<Playground id="#FA2H7X#3" title="Open Line" description="Open line example."/>
+<Playground id="#FA2H7X#4" title="Closed Line" description="Closed line example."/>
+<Playground id="#FA2H7X#5" title="Standard UV = True" description="Standard UV is true."/>
+<Playground id="#FA2H7X#6" title="Standard UV = False" description="Standard UV is false."/>
 
 ### Line2D Code
 
@@ -244,10 +244,10 @@ Just copy the code below if you want to use it.
 
 ### Playground Examples
 
-<Playground id="#0RIS0M" title="Open Line" description="Open line example." image=""/>
-<Playground id="#0RIS0M#1" title="Closed Line" description="Closed line example." image=""/>
-<Playground id="#0RIS0M#2" title="Standard UV = True" description="Standard UV is true." image=""/>
-<Playground id="#0RIS0M#3" title="Standard UV = False" description="Standard UV is false." image=""/>
+<Playground id="#0RIS0M" title="Open Line" description="Open line example."/>
+<Playground id="#0RIS0M#1" title="Closed Line" description="Closed line example."/>
+<Playground id="#0RIS0M#2" title="Standard UV = True" description="Standard UV is true."/>
+<Playground id="#0RIS0M#3" title="Standard UV = False" description="Standard UV is false."/>
 
 ### Line2D Code
 
@@ -458,10 +458,10 @@ Just copy the code below if you want to use it.
 
 ### Playground Examples (Including Use as Edge to Polygon)
 
-<Playground id="#S7HM64" title="Open Line" description="Open line example." image=""/>
-<Playground id="#S7HM64#1" title="Closed Line" description="Closed line example." image=""/>
-<Playground id="#S7HM64#2" title="Edge Around Polygon, Standard UV = True" description="Edge Around Polygon, Standard UV = True" image=""/>
-<Playground id="#S7HM64#3" title="Edge Around Polygon, Standard UV = False" description="Edge Around Polygon, Standard UV = False" image=""/>
+<Playground id="#S7HM64" title="Open Line" description="Open line example."/>
+<Playground id="#S7HM64#1" title="Closed Line" description="Closed line example."/>
+<Playground id="#S7HM64#2" title="Edge Around Polygon, Standard UV = True" description="Edge Around Polygon, Standard UV = True"/>
+<Playground id="#S7HM64#3" title="Edge Around Polygon, Standard UV = False" description="Edge Around Polygon, Standard UV = False"/>
 
 ### Line2D Code
 
@@ -657,7 +657,7 @@ var line2D = function(name, options, scene) {
 
 The [lines](/divingDeeper/mesh/creation/param#lines) and [line system](/divingDeeper/mesh/creation/param#line-system) methods just produce a thin line and you cannot vary the width. The best way to simulate a line with a given width in 3D is to use a [tube](/divingDeeper/mesh/creation/param#tube).
 
-<Playground id="#MRE78Z" title="Tube As Line" description="Tube as a line example." image=""/>
+<Playground id="#MRE78Z" title="Tube As Line" description="Tube as a line example."/>
 
 ## Parallel Lines in XoY Plane
 
@@ -678,7 +678,7 @@ Just copy the code below if you want to use it.
 
 ### Playground Example
 
-<Playground id="#FA2H7X#18" title="Dotted Lines Parallel To Central Line" description="Dotted Lines Parallel To Central Line" image=""/>
+<Playground id="#FA2H7X#18" title="Dotted Lines Parallel To Central Line" description="Dotted Lines Parallel To Central Line"/>
 
 ### Parallel Line Code
 

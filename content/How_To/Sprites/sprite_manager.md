@@ -27,12 +27,12 @@ tree.width = 1;
 tree.height = 2;
 ```
 
-single sprite image <Playground id="#YCY2IL" title="Single Sprite Image" description="Simple example of a single sprite image." image=""/>
+single sprite image <Playground id="#YCY2IL" title="Single Sprite Image" description="Simple example of a single sprite image."/>
 
 You can alter the cell width and height after creation using these properties *mySpriteManager.cellWidth* and *mySpriteManager.cellWidth*
 
-with single image size altered <Playground id="#YCY2IL#1" title="Single Sprite Image Altered" description="Simple example of a single sprite image altered." image=""/>
-multiple trees <Playground id="#YCY2IL#2" title="Multiple Sprites Example" description="Simple example of multiple sprites." image=""/>
+with single image size altered <Playground id="#YCY2IL#1" title="Single Sprite Image Altered" description="Simple example of a single sprite image altered."/>
+multiple trees <Playground id="#YCY2IL#2" title="Multiple Sprites Example" description="Simple example of multiple sprites."/>
 
 As well as width and height you can apply the following properties,
 
@@ -61,7 +61,7 @@ player.cellIndex = 1;
 
 Since the cells are square the default values for player width and height are 1 and the ratio is correct they are not needed. However the if the sprite is to draw from a cell with index other than 0 it must be specified.
 
-Sprites from different cells: <Playground id="#YCY2IL#3" title="Sprites From Different Cells" description="Simple example of sprites from different cells" image=""/>
+Sprites from different cells: <Playground id="#YCY2IL#3" title="Sprites From Different Cells" description="Simple example of sprites from different cells"/>
 
 It is by changing of cell numbers that you produce a sprite animation.
 
@@ -71,4 +71,4 @@ mySprite.playAnimation(start cell, end cell, loop, delay);
 ```
 The sprite will be animated from the start cell to the end cell. when *loop* is set to true the animation will loop. The delay is the time delay between the frames of the animation (the smaller it is, the faster the animation). The cells must be in animation frame order.
 
-Sprite animation: <Playground id="#YCY2IL#4" title="Sprite Animation" description="Simple example of how to handle sprite animation." image=""/>
+Sprite animation: <Playground id="#YCY2IL#4" title="Sprite Animation" description="Simple example of how to handle sprite animation."/>

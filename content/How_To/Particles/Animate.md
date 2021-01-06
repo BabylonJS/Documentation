@@ -60,5 +60,5 @@ To control the speed of animation you can play around with adjusting direction, 
 To adjust the sprite animation frame rate you set the property *spriteCellChangeSpeed*. A value of 1 matches the animation rate to lifetime of a particle. The particle will be emitted with the sprite at *startSpriteCellID* and will die displaying the sprite at *endSpriteCellID*. As values increase above 1 the animation frame rate speeds up. Although the particle will be emitted with the sprite at *startSpriteCellID* the sprite on display when the particle dies will depend on the value of the speed and the lifetime of the particle.
 
 ## Examples
-Adjust emit power and update speed: <Playground id="#0K3AQ2#47" title="Adjust Emit Power And Update Speed" description="Simple example of adjusting emit power and update speed." image=""/>
-Cell Change Speed: <Playground id="#0K3AQ2#48" title="Cell Change Speed" description="Simple example of adjusting the cell change speed." image=""/>
+Adjust emit power and update speed: <Playground id="#0K3AQ2#47" title="Adjust Emit Power And Update Speed" description="Simple example of adjusting emit power and update speed."/>
+Cell Change Speed: <Playground id="#0K3AQ2#48" title="Cell Change Speed" description="Simple example of adjusting the cell change speed."/>

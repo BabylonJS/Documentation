@@ -76,9 +76,28 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
             });
 
             // find the first image in the document (if not already set)
-            const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
-            if (imageUrl) {
-                metadata.imageUrl = metadata.imageUrl || imageUrl;
+            if (!metadata.imageUrl) {
+                const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
+                if (imageUrl) {
+                    metadata.imageUrl = imageUrl;
+                } else {
+                    // find a playground
+                    const playgrounds = fileContents.match(/<Playground (.*)\/>/gm) || [];
+                    if (playgrounds[1]) {
+                        // take the playground image
+                        const pg = playgrounds[1];
+                        const imagePosition = pg.indexOf('image="');
+                        if (imagePosition !== -1 && pg.substr(imagePosition + 7).split('"')[0]) {
+                            // find the image url
+                            // pos + 'image="'.length
+                            metadata.imageUrl = pg.substr(imagePosition + 7).split('"')[0];
+                        } else {
+                            const idPos = pg.indexOf('id="');
+                            const imgId = pg.substr(idPos + 4).split('"')[0];
+                            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.png`;
+                        }
+                    }
+                }
             }
             return {
                 content: matterResult.content,

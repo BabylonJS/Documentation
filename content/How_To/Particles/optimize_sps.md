@@ -32,7 +32,7 @@ Example 1 : you may want to update your 10K particle mesh only every three frame
 - frame 2 : `setParticles(3301, 6600, false)` computes everything for particles from 3301 to 6600 and doesn't update the mesh.
 - frame 3 : `setParticles(6601, 9999, true)` computes everything for particles from 6601 to 9999 and finally updates the mesh.
 
-10,000 boxes updated per bunch of 3500 here: <Playground id="#2V1C4Z#12" title="10,000 Boxes Updated Per Bunch of 3500" description="Example of optimizing a scene to render 10,000 boxes updated per bunch of 3500." image=""/>
+10,000 boxes updated per bunch of 3500 here: <Playground id="#2V1C4Z#12" title="10,000 Boxes Updated Per Bunch of 3500" description="Example of optimizing a scene to render 10,000 boxes updated per bunch of 3500."/>
 
 Example 2 : you could keep, say, the first 5000 particles as unused ones and compute the particle behavior only for the last 5000 lasts in your global pool.
 
@@ -79,4 +79,4 @@ SPS.vars.myString = "foo"; // just keep setting string values to myString afterw
 ```
 
 Here is an implementation of a simple particle IA called "flocking" what a behavior of association, then cohesion and separation. This example uses *SPS.vars* to allocate the memory used for results only once instead of in-function temporary variables.  
- <Playground id="#2FPT1A#35" title="Solid Particle System Optimization" description="Simple example of a flocking behavior in an optimized solid particle system." image=""/>
+ <Playground id="#2FPT1A#35" title="Solid Particle System Optimization" description="Simple example of a flocking behavior in an optimized solid particle system."/>

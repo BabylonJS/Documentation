@@ -72,8 +72,8 @@ The function surfaceArea has been written so that you can use the function facet
 
 Run the following playgrounds directly and view the results in the console.
 
-<Playground id="#3VV5IV" title="Surface Area of a Box" description="Simple example of how to get the surface area of a box." image=""/>
-<Playground id="#3VV5IV#2" title="Surface Area of a Sphere" description="Simple example of how to get the surface area of a sphere." image=""/>
+<Playground id="#3VV5IV" title="Surface Area of a Box" description="Simple example of how to get the surface area of a box."/>
+<Playground id="#3VV5IV#2" title="Surface Area of a Sphere" description="Simple example of how to get the surface area of a sphere."/>
 
 
 **NOTE** For double sided meshes the surface area will be the sum of the exterior and interior areas.

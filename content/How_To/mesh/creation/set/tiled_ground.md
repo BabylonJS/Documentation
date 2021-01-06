@@ -57,15 +57,15 @@ updatable|_(boolean)_ true if the mesh is updatable|false
 
 ### Examples
 
-Chess Board: <Playground id="#8VDULN" title="Create a Chess Board" description="Simple example of creating a chess board." image=""/>
+Chess Board: <Playground id="#8VDULN" title="Create a Chess Board" description="Simple example of creating a chess board."/>
 
 Using these two materials
 
 ![grass](/img/how_to/Materials/grass.png) ![rock](/img/how_to/Materials/rock.png)  
 
-<Playground id="#8VDULN#1" title="Create a Chess Board With Grass And Rock" description="Simple example of creating a chess board with grass and rock textures." image=""/>
+<Playground id="#8VDULN#1" title="Create a Chess Board With Grass And Rock" description="Simple example of creating a chess board with grass and rock textures."/>
 
-Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#6" title="Create a Large Scale Map" description="Simple example of creating a large scale map using open source map tiles." image=""/>
+Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#6" title="Create a Large Scale Map" description="Simple example of creating a large scale map using open source map tiles."/>
 
 ## Mesh
 Usage :

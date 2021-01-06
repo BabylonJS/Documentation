@@ -42,7 +42,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a <Playground id="#47H64G" title="Simple Video Recording Example" description="Simple example of recording a video of the current scene." image=""/>
+You can see a <Playground id="#47H64G" title="Simple Video Recording Example" description="Simple example of recording a video of the current scene."/>
 
 This will by default record 7 seconds of video to a file name "babylonjs.webm".
 
@@ -56,7 +56,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a live version here: <Playground id="#47H64G#1" title="Changing The Default Recorded Video Name" description="Simple example showing how to record a video of the current scene and change the default file name." image=""/>
+You can see a live version here: <Playground id="#47H64G#1" title="Changing The Default Recorded Video Name" description="Simple example showing how to record a video of the current scene and change the default file name."/>
 
 This will by default record 7 seconds of video to a file name "test.webm".
 
@@ -70,7 +70,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a live demo here: <Playground id="#47H64G#2" title="Chaning Default Record Time" description="Simple example showing how to change the default record time of recorded videos." image=""/>
+You can see a live demo here: <Playground id="#47H64G#2" title="Chaning Default Record Time" description="Simple example showing how to change the default record time of recorded videos."/>
 
 This will by default record 2 seconds of video to a file name "test.webm".
 
@@ -87,7 +87,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a live version here: <Playground id="#47H64G#3" title="Stopping Video Before Record Time" description="Simple example showing how to stop recording before the allotted time has completed." image=""/>
+You can see a live version here: <Playground id="#47H64G#3" title="Stopping Video Before Record Time" description="Simple example showing how to stop recording before the allotted time has completed."/>
 
 This will record 500 milliseconds of video to a file name "babylonjs.webm".
 
@@ -103,7 +103,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a live version here: <Playground id="#47H64G#4" title="Detect Recording End" description="Simple example showing how to detect when a recording has ended." image=""/>
+You can see a live version here: <Playground id="#47H64G#4" title="Detect Recording End" description="Simple example showing how to detect when a recording has ended."/>
 
 This will record 7 seconds of video to a file name "babylonjs.webm" and display the "done" message.
 
@@ -119,7 +119,7 @@ if (BABYLON.VideoRecorder.IsSupported(engine)) {
 }
 ```
 
-You can see a live version here: <Playground id="#47H64G#5" title="Not Downloading The Recorded Video" description="Simple example showing how you can stop an automatic download of the recorded video." image=""/>
+You can see a live version here: <Playground id="#47H64G#5" title="Not Downloading The Recorded Video" description="Simple example showing how you can stop an automatic download of the recorded video."/>
 
 This will record 1 second of video to a blob.
 

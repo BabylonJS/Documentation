@@ -24,7 +24,7 @@ There is more than one format for compressed textures.  Due to the low level imp
 ## The Solution
 Starting with Babylon.js v3.0, the compressed texture formats supported by a browser / device can be [detected](http://renderingpipeline.com/webgl-extension-viewer/).  This is done when ```var engine = new BABYLON.Engine(...);``` is encountered. So now your engine instance knows which compressed formats could be used here.  That does not solve that different devices will report different results though.
 
-You can also use this playground: <Playground id="#1SCH7H#5" title="Compressed Textures Example" description="Simple example of multi-platform compressed textures." image=""/> to test which format is supported on your devices.
+You can also use this playground: <Playground id="#1SCH7H#5" title="Compressed Textures Example" description="Simple example of multi-platform compressed textures."/> to test which format is supported on your devices.
 
 There is no getting around the fact that you need to provide multiple versions of each texture in different formats(more on that later).  The only way of doing that involves having different files for each of the variants obviously, but the naming structure must be formalized in order to programmatically substitute for the image format file described in a .babylon file.  The image format file of each texture still needs to be on the server as well, in cases when it needs to be used.
 
@@ -93,5 +93,5 @@ See: https://github.com/BinomialLLC/basis_universal
 
 Basis Universal is a "supercompressed" GPU texture and texture video compression system that outputs a highly compressed intermediate file format (.basis) that can be quickly transcoded to a wide variety of GPU texture compression formats: PVRTC1 4bpp RGB, BC7 mode 6 RGB, BC1-5, ETC1, and ETC2. We will be adding ASTC RGB or RGBA, BC7 mode 4/5 RGBA, and PVRTC1 4bpp RGBA next. Basis files support non-uniform texture arrays, so cubemaps, volume textures, texture arrays, mipmap levels, video sequences, or arbitrary texture "tiles" can be stored in a single file. The compressor is able to exploit color and pattern correlations across the entire file, so multiple images with mipmaps can be stored very efficiently in a single file.
 
-Basic example: <Playground id="#4RN0VF" title="Basic Example of Basis Textures" description="Simple example of using .basis compressed textures in your scene." image=""/>
-Basis vs png example scene: <Playground id="#E4VDDW" title="Basis Texture vs. png Texture" description="Simple example of .png vs basis compressed textures." image=""/>
+Basic example: <Playground id="#4RN0VF" title="Basic Example of Basis Textures" description="Simple example of using .basis compressed textures in your scene."/>
+Basis vs png example scene: <Playground id="#E4VDDW" title="Basis Texture vs. png Texture" description="Simple example of .png vs basis compressed textures."/>

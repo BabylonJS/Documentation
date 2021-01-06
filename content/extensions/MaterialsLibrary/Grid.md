@@ -14,7 +14,7 @@ video-content:
 
 ## Playground example
 
-A full playground example can be found here: PG: <Playground id="#1UFGZH#12" title="Grid Material" description="Example of grid material" image=""/>
+A full playground example can be found here: PG: <Playground id="#1UFGZH#12" title="Grid Material" description="Example of grid material"/>
 
 ## Using the Grid material
 
@@ -24,7 +24,7 @@ The default grid behaviour does not require any setup and displays a black and w
 
 ![gridDefault](/img/extensions/materials/gridDefault.png)
 
-You can access the live example in this  PG: <Playground id="#2KKVBH" title="Grid Material" description="Example of grid material" image=""/>
+You can access the live example in this  PG: <Playground id="#2KKVBH" title="Grid Material" description="Example of grid material"/>
 
 The grid is using the local position to outline any of the axis fitting with one unit in black. Only one on ten lines will be fully black, the other lines will be in lighter grey. You can imagine it as a ruler with bigger marks for centimeters and smaller for millimeters.
 
@@ -53,13 +53,13 @@ For instance a 1 size cube will by default only have one line:
 
 ![Grid Ratio 1](/img/extensions/materials/gridRatio1.png)
 
- PG: <Playground id="#5S6MD" title="Grid Material" description="Grid ratio of 1" image=""/>
+ PG: <Playground id="#5S6MD" title="Grid Material" description="Grid ratio of 1"/>
 
 Using a gridRatio of 0.1, will then make appear ten lines on it:
 
 ![Grid Ratio 2](/img/extensions/materials/gridRatio2.png)
 
- PG: <Playground id="#5S6MD#1" title="Grid Material" description="Grid ratio of 2" image=""/>
+ PG: <Playground id="#5S6MD#1" title="Grid Material" description="Grid ratio of 2"/>
 
 #### majorUnitFrequency
 
@@ -69,7 +69,7 @@ Setting it to 2, will make appear one strong line each 2 lines. This is only a s
 
 ![Grid MUF](/img/extensions/materials/gridMUF.png)
 
- PG: <Playground id="#5S6MD#2" title="Grid Material" description="Example of using multi unit frequency" image=""/>
+ PG: <Playground id="#5S6MD#2" title="Grid Material" description="Example of using multi unit frequency"/>
 
 #### minorUnitVisibility
 
@@ -79,10 +79,10 @@ Setting it to 0.1 will then reinforce the effect of the main lines (by dropping 
 
 ![Grid MUV](/img/extensions/materials/gridMUV.png)
 
- PG: <Playground id="#5S6MD#3" title="Grid Material" description="Example of using minor unit visiblity" image=""/>
+ PG: <Playground id="#5S6MD#3" title="Grid Material" description="Example of using minor unit visiblity"/>
 
 #### gridOffset
 
 Note that the shift for each axys allows a loop: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result than `(1, 0, 0)`.
 
- PG: <Playground id="#URSDPL#1" title="Grid Material" description="Example of using grid offset" image=""/>
+ PG: <Playground id="#URSDPL#1" title="Grid Material" description="Example of using grid offset"/>

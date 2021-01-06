@@ -32,4 +32,4 @@ function showNormals(mesh, size, color, sc) {
 ```
 ## Playground
 
-<Playground id="#1ENDNT" title="Displaying Vertex Normals" description="" image=""/>
+<Playground id="#1ENDNT" title="Displaying Vertex Normals" description=""/>

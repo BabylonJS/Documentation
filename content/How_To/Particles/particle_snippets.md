@@ -22,7 +22,7 @@ BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7", scene, false).then(syste
 });
 ```
 
-live example: <Playground id="#76U9TK" title="Particle Snippet Server Example" description="Simple example of loading a particle system from the snippet server" image=""/>
+live example: <Playground id="#76U9TK" title="Particle Snippet Server Example" description="Simple example of loading a particle system from the snippet server"/>
 
 You can also specify "_BLANK" for the snippet Id, in this case the system will create an empty one for you to work on:
 

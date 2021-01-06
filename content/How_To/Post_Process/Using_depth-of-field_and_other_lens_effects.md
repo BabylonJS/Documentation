@@ -19,7 +19,7 @@ _An example of what can be achieved with this postprocess pipeline._
 
 You can see a live example of it here:
 
-<Playground id="#DX6AV#4" title="Depth of Field Example" description="Simple example showcasing depth of field." image=""/>
+<Playground id="#DX6AV#4" title="Depth of Field Example" description="Simple example showcasing depth of field."/>
 
 Three post-processes are used in the pipeline:
 

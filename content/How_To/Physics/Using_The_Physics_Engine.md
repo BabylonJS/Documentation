@@ -129,9 +129,9 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 
 #### Examples
 
-- Loading mesh and colliders from file: <Playground id="#66PS52" title="Loading A Mesh And Colliders From A File" description="Simple example of loading a mesh and colliders from a file." image=""/>
-- Loading and adding colliders manually in Babylon: <Playground id="#FD65RR" title="Loading And Adding Colliders Manually" description="Simple example of loading meshes but creating colliders manually." image=""/>
-- Loading and adding collider with joints and pointer interactions: <Playground id="#DGEP8N" title="Loading And Adding A Collider With Joints And Interactions" description="Simple example of loading and adding a collider with joints and pointer interactions." image=""/>
+- Loading mesh and colliders from file: <Playground id="#66PS52" title="Loading A Mesh And Colliders From A File" description="Simple example of loading a mesh and colliders from a file."/>
+- Loading and adding colliders manually in Babylon: <Playground id="#FD65RR" title="Loading And Adding Colliders Manually" description="Simple example of loading meshes but creating colliders manually."/>
+- Loading and adding collider with joints and pointer interactions: <Playground id="#DGEP8N" title="Loading And Adding A Collider With Joints And Interactions" description="Simple example of loading and adding a collider with joints and pointer interactions."/>
 - Custom engine with [`deterministicLockstep`](/divingDeeper/animation/advanced_animations#deterministic-lockstep): <Playground id="#3ZW889#11" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/> Takes a few moments to load, use Run, &#x25B7;, to clear any error message.
 
 ### Babylon's physics impostor
@@ -213,7 +213,7 @@ sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpo
 ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
 ```
 
-Playground example: <Playground id="#BEFOO" title="Basic Physics Scene" description="Simple example of a basic physics scene." image=""/>
+Playground example: <Playground id="#BEFOO" title="Basic Physics Scene" description="Simple example of a basic physics scene."/>
 
 ### Further functionality of the Impostor class
 
@@ -226,10 +226,10 @@ The physics impostor holds a set of functions that can be executed on the physic
 The physics impostor synchronizes the physics engine's body and the connected object with each frame.
 That means that changing the object's position or rotation in Babylon code will also move the impostor. The impostor is also the one updating the object's position after the physics engine is finished calculating the next step.
 
-Playground example (sphere rotation and position) -  <Playground id="#B5BDU" title="Rotating A Sphere's Physics Imposter" description="Simple example of rotating a sphere via its physics imposter." image=""/>
+Playground example (sphere rotation and position) -  <Playground id="#B5BDU" title="Rotating A Sphere's Physics Imposter" description="Simple example of rotating a sphere via its physics imposter."/>
 Notice how the sphere rotates (due to the rotate function), but this rotation is not being taken into account by the physics engine.
 
-Playground example (box rotation and position) - <Playground id="#2ADVLV" title="Rotating A Box's Physics Imposter" description="Simple example of rotating a box via its physics imposter." image=""/>
+Playground example (box rotation and position) - <Playground id="#2ADVLV" title="Rotating A Box's Physics Imposter" description="Simple example of rotating a box via its physics imposter."/>
 In this case, the rotation does influence the physics engine due to the geometric shape - a box standing on its edge will need to fall to either side, which influences its velocities.
 
 #### Linear velocity
@@ -247,7 +247,7 @@ To set the object's linear velocity use:
 impostor.setLinearVelocity(new BABYLON.Vector3(0,1,0));
 ```
 
-Playground example - <Playground id="#BXII" title="Linear Velocity Example" description="Simple example of physics linear velocity." image=""/>
+Playground example - <Playground id="#BXII" title="Linear Velocity Example" description="Simple example of physics linear velocity."/>
 
 The physics engine is in charge of calculating the body's velocity. Changing it will not make it fixed, but give it a "push". The physics engine will take the velocity into account and will modify it using gravity and collision interactions.
 
@@ -266,7 +266,7 @@ To set the object's angular velocity use:
 impostor.setAngularVelocity(new BABYLON.Quaternion(0,1,0,0));
 ```
 
-Playground example - <Playground id="#IGM3H" title="Angular Velocity Example" description="Simple example of physics angular velocity." image=""/>
+Playground example - <Playground id="#IGM3H" title="Angular Velocity Example" description="Simple example of physics angular velocity."/>
 
 Same as the linear velocity - setting this value will only cause the physics engine to recalculate the body dynamics. The value will not stay fixed.
 
@@ -285,8 +285,8 @@ impostor.applyImpulse(new BABYLON.Vector3(10, 10, 0), sphere.getAbsolutePosition
 
 The first variable is the direction and amount of impulse to apply. The second is where on the body itself the force will be applied. Using this in a game of pool - you can hit the ball at various contact point locations and the interaction will vary (sometimes called "using English"). This is the way to simulate that.
 
-Playground example - <Playground id="#26LQEZ" title="Impulse Example" description="Simple example of adding physics impulses." image=""/>
-Playground example with a different position of the impulse, giving the ball a "spin" - <Playground id="#26LQEZ#1" title="Different Impulse Positions" description="Simple example of spinning a ball with different impulse positions." image=""/>
+Playground example - <Playground id="#26LQEZ" title="Impulse Example" description="Simple example of adding physics impulses."/>
+Playground example with a different position of the impulse, giving the ball a "spin" - <Playground id="#26LQEZ#1" title="Different Impulse Positions" description="Simple example of spinning a ball with different impulse positions."/>
 
 #### Radial explosion impulse/force & gravitational fields
 
@@ -352,7 +352,7 @@ In case you want to do some debug, like visually show the sphere and/or rays, yo
 
 *For a more detailed explanation, please take a look at the playground example below.*
 
-Playground example - <Playground id="#UZHINX" title="Radial Explosion" description="Simple example of a radial explosion." image=""/>
+Playground example - <Playground id="#UZHINX" title="Radial Explosion" description="Simple example of a radial explosion."/>
 
 #### Collision callbacks
 
@@ -367,7 +367,7 @@ sphereImpostor.registerOnPhysicsCollide(groundImpostor, function(main, collided)
 
 Note that in this case, I assumed the impostor's body is a mesh with a material.
 
-Playground example - <Playground id="#1NASOD" title="Collision Callback Example" description="Simple example of leveraging collision callbacks." image=""/>
+Playground example - <Playground id="#1NASOD" title="Collision Callback Example" description="Simple example of leveraging collision callbacks."/>
 
 Notice that the callback will be executed each and every time both impostors collide, but will stop when they are touching (when the sphere no longer bounces).
 
@@ -416,8 +416,8 @@ Babylon has 3 help-classes to add joints:
 
 `BABYLON.DistanceJoint` , `BABYLON.HingeJoint`, `BABYLON.Hinge2Joint`.
 
-DistanceJoint playground - <Playground id="#26QVLZ" title="Adding A DistanceJoint" description="Simple example of adding a DistanceJoint." image=""/>
-SpringJoint example - <Playground id="#1BHF6C" title="Adding A SpringJoint" description="Simple example of adding a SpringJoint" image=""/>
+DistanceJoint playground - <Playground id="#26QVLZ" title="Adding A DistanceJoint" description="Simple example of adding a DistanceJoint."/>
+SpringJoint example - <Playground id="#1BHF6C" title="Adding A SpringJoint" description="Simple example of adding a SpringJoint"/>
 
 #### Setting the joint data
 
@@ -434,9 +434,9 @@ interface PhysicsJointData {
 }
 ```
 
-* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot." image=""/>
+* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot."/>
 * **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
-* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#5" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work." image=""/>
+* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#5" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work."/>
 * **connectedAxis**: the axis on the connected object on which the constraint will work.
 * **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
 * **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
@@ -453,17 +453,17 @@ The physics engine assumes a certain frame-rate to be taken into account when ca
 The time between each step can be changed to "accelerate" or "slow down" the physics interaction.
 Here is the same scene with different time steps - accelerating and slowing down:
 
-- Default time step: <Playground id="#2B84TV" title="Default Time Step Example" description="Simple example of the default time step." image=""/>
-- Slowing down: <Playground id="#2B84TV#1" title="Slowing Down Time" description="Simple example of slowing down physics time." image=""/>
-- Speeding up: <Playground id="#2B84TV#2" title="Speeding Up Time" description="Simple example of speeding up physics time." image=""/>
+- Default time step: <Playground id="#2B84TV" title="Default Time Step Example" description="Simple example of the default time step."/>
+- Slowing down: <Playground id="#2B84TV#1" title="Slowing Down Time" description="Simple example of slowing down physics time."/>
+- Speeding up: <Playground id="#2B84TV#2" title="Speeding Up Time" description="Simple example of speeding up physics time."/>
 
 #### Setting the scene's gravity
 
 You can change the scene's gravity using the physics engine's `setGravity(vector3)` function.
 This can be done in real time, even after setting the gravity:
 
-Playground demo (click to toggle positive/negative gravity) - <Playground id="#A2WGF" title="Playing With Gravity" description="Simple example of manipulating the gravity of a physics engine." image=""/>
+Playground demo (click to toggle positive/negative gravity) - <Playground id="#A2WGF" title="Playing With Gravity" description="Simple example of manipulating the gravity of a physics engine."/>
 
 #### See it all working together
 
-Marble Tower Playground - <Playground id="#3I55DK#0" title="Marble Tower Demo" description="Fun example showcasing what you can do with physics in your scene." image=""/>
+Marble Tower Playground - <Playground id="#3I55DK#0" title="Marble Tower Demo" description="Fun example showcasing what you can do with physics in your scene."/>

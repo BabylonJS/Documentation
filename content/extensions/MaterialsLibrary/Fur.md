@@ -14,7 +14,7 @@ Fur material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/ma
 
 ## Using the High Level mode
 
-A demo can be found at:   PG: <Playground id="#2322Y7#0" title="Fur Material" description="Example using high level mode" image=""/> 
+A demo can be found at:   PG: <Playground id="#2322Y7#0" title="Fur Material" description="Example using high level mode"/> 
 
 Fur materials have always been subjects of a lot of theories and conferences with multiple implementations thanks to multiple technologies.
 Here, with WebGL, we decided to choose one of these implementations, not hard to use and pretty smart (with performances) with simple models
@@ -79,8 +79,8 @@ furMaterial.highLevelFur = false;
 ![Fur material](/img/extensions/materials/fur.png)
 
 Demos can be found at:
-   PG: <Playground id="#EUCNP#6 " title="Fur Material" description="Example using low level mode" image=""/>  
-   PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap" image=""/>
+   PG: <Playground id="#EUCNP#6 " title="Fur Material" description="Example using low level mode"/>  
+   PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap"/>
 
 
 The fur material needs a high number of the triangular facets that make up a mesh to work well.
@@ -133,8 +133,8 @@ furMaterial.diffuseTexture = new BABYLON.Texture("leopard_fur.jpg", scene); // S
 ## Meshes where the number of facets is not user controlled on creation.
 
 Demos can be found at:
-   PG: <Playground id="#EUCNP#16" title="Fur Material" description="Leopard fur converted to smooth before increasing facets" image=""/>  
-   PG: <Playground id="#EUCNP#17" title="Fur Material" description="Leopard fur converted to smooth after increasing facets" image=""/>
+   PG: <Playground id="#EUCNP#16" title="Fur Material" description="Leopard fur converted to smooth before increasing facets"/>  
+   PG: <Playground id="#EUCNP#17" title="Fur Material" description="Leopard fur converted to smooth after increasing facets"/>
 
 Unlike the ground mesh where you can supply the number of subdivisions or the sphere mesh where you can supply the number of segments the majority of meshes are created using a minimum number of facets.
 To apply the fur material to these the number of facets per face of the mesh needs to be increased.

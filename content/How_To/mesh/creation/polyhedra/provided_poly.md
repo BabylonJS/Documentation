@@ -56,8 +56,8 @@ To understand how to set _faceUV_ or _faceColors_, please read about [Face Color
 
 ## Examples
 
-The full set of 15: <Playground id="#PBLS4Y " title="Full Set Of 15 Polyhedra" description="Playground example showing all 15 provided polyhedra." image=""/>
-Dodecahedron with FaceUVs: <Playground id="#PBLS4Y#1 " title="Dodecahedron with FaceUVs" description="Playground example of creating a dodecahedron with faceUVs." image=""/>
+The full set of 15: <Playground id="#PBLS4Y " title="Full Set Of 15 Polyhedra" description="Playground example showing all 15 provided polyhedra."/>
+Dodecahedron with FaceUVs: <Playground id="#PBLS4Y#1 " title="Dodecahedron with FaceUVs" description="Playground example of creating a dodecahedron with faceUVs."/>
 
 ## Mesh
 

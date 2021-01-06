@@ -70,5 +70,5 @@ Here are the helpful functions you can find on an octree:
 These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/blob/master/src/Misc/smartArray.ts) where duplicates are present or not according to ```allowDuplicate``` parameter/
 
 ## Demos
-* <Playground id="#3YFJ5R#0" title="Octree Demo" description="" image=""/>
-* <Playground id="#0K8EYN#0" title="Instances Demo" description="" image=""/>
+* <Playground id="#3YFJ5R#0" title="Octree Demo" description=""/>
+* <Playground id="#0K8EYN#0" title="Instances Demo" description=""/>

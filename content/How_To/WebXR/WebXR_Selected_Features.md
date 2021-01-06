@@ -94,7 +94,7 @@ And to remove simply use the `removeFloorMesh` function:
 teleportation.removeFloorMesh(ground2);
 ```
 
-A simple example for enabling floor meshes: <Playground id="#B8D5Z6" title="Enable Floor Meshes" description="Simple example of enabling floor meshes." image=""/>
+A simple example for enabling floor meshes: <Playground id="#B8D5Z6" title="Enable Floor Meshes" description="Simple example of enabling floor meshes."/>
 
 ### Direct and indirect landing zones
 
@@ -187,7 +187,7 @@ Which looks like this:
 
 ![WebXR Custom landing zone](/img/how_to/xr/xr-landing-zone-custom.png)
 
-The example can be found here: <Playground id="#B8D5Z6#9" title="Custom Landing Zone" description="Simple example of a custom landing zone." image=""/>
+The example can be found here: <Playground id="#B8D5Z6#9" title="Custom Landing Zone" description="Simple example of a custom landing zone."/>
 
 #### The ring's material
 

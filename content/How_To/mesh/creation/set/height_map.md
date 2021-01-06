@@ -117,5 +117,5 @@ scene.registerBeforeRender(camerasBorderFunction);
 
 You may be interested in visiting the playground demo that goes with this tutorial:
 
-<Playground id="#95PXRY" title="Height Map Example" description="Simple example of using a height map." image=""/>
+<Playground id="#95PXRY" title="Height Map Example" description="Simple example of using a height map."/>
 

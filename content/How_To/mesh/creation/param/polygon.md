@@ -33,7 +33,7 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an o
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order. You just list all the vertices of the polygon and *CreatePolygon* closes the shape.
 
 ### Example
-polygon with holes: <Playground id="#ZD60FU" title="Create a Polygon With Holes" description="Simple example of creating a polygon with holes." image=""/>
+polygon with holes: <Playground id="#ZD60FU" title="Create a Polygon With Holes" description="Simple example of creating a polygon with holes."/>
 
 
 ## Mesh

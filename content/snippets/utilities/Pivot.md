@@ -54,4 +54,4 @@ The parameters are the position of the pivot (centre of enlargemen) as a Vector3
 
 ## Playground
 
-<Playground id="#1MKHR9#2" title="Rotating and Enlarging Relative to a Centre" description="" image=""/>
+<Playground id="#1MKHR9#2" title="Rotating and Enlarging Relative to a Centre" description=""/>

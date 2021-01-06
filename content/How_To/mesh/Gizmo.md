@@ -69,7 +69,7 @@ gizmoManager.gizmos.positionGizmo.updateGizmoRotationToMatchAttachedMesh = false
 
 Note: This is not supported on the scale gizmo
 
-<Playground id="#4TBMBR#33" title="Gizmo Manager Example" description="Simple example of using the gizmo manager." image=""/>
+<Playground id="#4TBMBR#33" title="Gizmo Manager Example" description="Simple example of using the gizmo manager."/>
 
 ## Setup
 
@@ -96,15 +96,15 @@ gizmo.updateGizmoRotationToMatchAttachedMesh = false;
 gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 ```
 
-<Playground id="#8GY6J8#20" title="Gizmo .glTF Setup Example" description="Simple example of how to set up a gizmo for a .glTF File." image=""/>
+<Playground id="#8GY6J8#20" title="Gizmo .glTF Setup Example" description="Simple example of how to set up a gizmo for a .glTF File."/>
 
 ## Position, scale and rotation gizmos
 
 Default gizmos for position, rotation and scale on a single axis are supported
 
--   <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo." image=""/>
--   <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo." image=""/>
--   <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo." image=""/>
+-   <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo."/>
+-   <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo."/>
+-   <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo."/>
 
 Snapping can be enabled on any of the single axis gizmos
 
@@ -131,9 +131,9 @@ gizmo.dragBehavior.onDragObservable.add(()=>{
 
 Classes for 3 axis gizmos are also provided which contain 3 of the single axis gizmos within
 
--   <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo." image=""/>
--   <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo." image=""/>
--   <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo." image=""/>
+-   <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo."/>
+-   <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo."/>
+-   <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo."/>
 
 The single axis gizmos within these are exposed via the xGizmo, yGizmo and zGizmo properties. The scale gizmo also has a uniformScaleGizmo property which references center gizmo used to uniformly scale.
 
@@ -195,13 +195,13 @@ To only ignore certain children when computing the bounding box, the includeChil
 gizmo.includeChildPredicate = (m)=>{return m == sphere2};
 ```
 
-<Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo." image=""/>
+<Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo."/>
 
 UI can be attached to the bounding box using the [AttachToBoxBehavior](/divingDeeper/behaviors/meshBehaviors)
 
-<Playground id="#8GY6J8#20" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file." image=""/>
-<Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file." image=""/>
-<Playground id="#DEYAQ5#47" title="Bounding Box Gizmo Example" description="Simple example of how to use the Bounding Box Gizmo." image=""/>
+<Playground id="#8GY6J8#20" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file."/>
+<Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file."/>
+<Playground id="#DEYAQ5#47" title="Bounding Box Gizmo Example" description="Simple example of how to use the Bounding Box Gizmo."/>
 
 ## Gizmo customization
 
@@ -213,4 +213,4 @@ customMesh.material = material
 gizmo.setCustomMesh(customMesh)
 ```
 
-<Playground id="#7KX2R8#133" title="Gizmo Customization Example" description="Simple example of how to customize the gizmo." image=""/>
+<Playground id="#7KX2R8#133" title="Gizmo Customization Example" description="Simple example of how to customize the gizmo."/>

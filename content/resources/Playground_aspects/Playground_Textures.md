@@ -108,9 +108,9 @@ new BABYLON.PhotoDome("textureName", "textures/filename", { resolution: 32, size
 
 |                                 Overview                                  | Filename                              | Viewer                                                         | Size   |
 | :-----------------------------------------------------------------------: | ------------------------------------- | -------------------------------------------------------------- | ------ |
-|             ![](/img/resources/textures_thumbs/360photo.jpg)              | 360photo.jpg                          | <Playground id="#14KRGG#3" title="360 Photo" description="" image=""/>  | 2.5 MB |
-|          ![](/img/resources/textures_thumbs/equirectangular.jpg)          | equirectangular.jpg                   | <Playground id="#14KRGG#18" title="Equirectangular" description="" image=""/> | 279 KB |
-| ![](/img/resources/textures_thumbs/GatonaParkWalkway1_Panorama_4Kx2K.jpg) | GatonaParkWalkway1_Panorama_4Kx2K.jpg | <Playground id="#14KRGG#49" title="GatonaParkWalkway Panorama" description="" image=""/> | 5.5 MB |
+|             ![](/img/resources/textures_thumbs/360photo.jpg)              | 360photo.jpg                          | <Playground id="#14KRGG#3" title="360 Photo" description=""/>  | 2.5 MB |
+|          ![](/img/resources/textures_thumbs/equirectangular.jpg)          | equirectangular.jpg                   | <Playground id="#14KRGG#18" title="Equirectangular" description=""/> | 279 KB |
+| ![](/img/resources/textures_thumbs/GatonaParkWalkway1_Panorama_4Kx2K.jpg) | GatonaParkWalkway1_Panorama_4Kx2K.jpg | <Playground id="#14KRGG#49" title="GatonaParkWalkway Panorama" description=""/> | 5.5 MB |
 
 ## CubeTextures
 
@@ -127,12 +127,12 @@ new BABYLON.CubeTexture("textures/common part of filenames", scene);
 
 |                         Overview                         | Filename                                                                                                     | Viewer                                                         | Size       |
 | :------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---------- |
-|   ![](/img/resources/textures_thumbs/cubemapDebug.jpg)   | cubemapDebug/ <br/>[(ktx available)](/advanced_topics/mutliPlatTextures) | <Playground id="#UU7RQ#322" title="cubemapDebug" description="" image=""/> | 6 x 80 KB  |
-|      ![](/img/resources/textures_thumbs/skybox.jpg)      | skybox                                                                                                       | <Playground id="#UU7RQ#91" title="Skybox" description="" image=""/>  | 6 x 20 KB  |
-|     ![](/img/resources/textures_thumbs/skybox2.jpg)      | skybox2                                                                                                      | <Playground id="#UU7RQ#92" title="Skybox 2" description="" image=""/>  | 6 x 400 KB |
-|     ![](/img/resources/textures_thumbs/skybox3.jpg)      | skybox3                                                                                                      | <Playground id="#UU7RQ#93" title="Skybox 3" description="" image=""/>  | 6 x 150 KB |
-|     ![](/img/resources/textures_thumbs/skybox4.jpg)      | skybox4                                                                                                      | <Playground id="#UU7RQ#94" title="Skybox 4" description="" image=""/>  | 6 x 150 KB |
-|   ![](/img/resources/textures_thumbs/skyboxBlack.jpg)    | skyboxBlack                                                                                                  | <Playground id="#UU7RQ#344" title="Skybox Black" description="" image=""/> | 6 x 7 KB   |
+|   ![](/img/resources/textures_thumbs/cubemapDebug.jpg)   | cubemapDebug/ <br/>[(ktx available)](/advanced_topics/mutliPlatTextures) | <Playground id="#UU7RQ#322" title="cubemapDebug" description=""/> | 6 x 80 KB  |
+|      ![](/img/resources/textures_thumbs/skybox.jpg)      | skybox                                                                                                       | <Playground id="#UU7RQ#91" title="Skybox" description=""/>  | 6 x 20 KB  |
+|     ![](/img/resources/textures_thumbs/skybox2.jpg)      | skybox2                                                                                                      | <Playground id="#UU7RQ#92" title="Skybox 2" description=""/>  | 6 x 400 KB |
+|     ![](/img/resources/textures_thumbs/skybox3.jpg)      | skybox3                                                                                                      | <Playground id="#UU7RQ#93" title="Skybox 3" description=""/>  | 6 x 150 KB |
+|     ![](/img/resources/textures_thumbs/skybox4.jpg)      | skybox4                                                                                                      | <Playground id="#UU7RQ#94" title="Skybox 4" description=""/>  | 6 x 150 KB |
+|   ![](/img/resources/textures_thumbs/skyboxBlack.jpg)    | skyboxBlack                                                                                                  | <Playground id="#UU7RQ#344" title="Skybox Black" description=""/> | 6 x 7 KB   |
 |      ![](/img/resources/textures_thumbs/space.jpg)       | space                                                                                                        | [take a look](https://www.babylonjs-playground.com/#UU7RQ#245) | 6 x 200 KB |
 | ![](/img/resources/textures_thumbs/TropicalSunnyDay.jpg) | TropicalSunnyDay                                                                                             | [take a look](https://www.babylonjs-playground.com/#UU7RQ#95)  | 6 x 600 KB |
 

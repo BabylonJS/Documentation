@@ -75,5 +75,5 @@ utilLayer.onPointerOutObservable.add(function(pointerId){
 ```
 # Examples
 
- - <Playground id="#DEYAQ5#41" title="Overlay Scene Example" description="Simple example of an overlay," image=""/>
- - <Playground id="#31M2AP#9" title="Gizmo Example" description="Simple example of the gizmo," image=""/>
+ - <Playground id="#DEYAQ5#41" title="Overlay Scene Example" description="Simple example of an overlay,"/>
+ - <Playground id="#31M2AP#9" title="Gizmo Example" description="Simple example of the gizmo,"/>

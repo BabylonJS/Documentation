@@ -56,7 +56,7 @@ This will give you a snippet ID that we will use later to load the particle syst
 
 You can see my setup in this playground:
 
-<Playground id="#KST50Y" title="Particles Created In the Inspector" description="Simple example showing particles saved and loaded from the snippet server." image=""/>
+<Playground id="#KST50Y" title="Particles Created In the Inspector" description="Simple example showing particles saved and loaded from the snippet server."/>
 
 ## Working with the snippet server
 

@@ -77,11 +77,11 @@ Example 1 : to only update 10000 particles mesh every three frames
 
 In this playground change _invSpeed_ (line 29) to change speed.
 
--   <Playground id="#UI95UC#25" title="Start And End For Animation Speed" description="Simple example of setting a start and end to a system's animation speed." image=""/>
+-   <Playground id="#UI95UC#25" title="Start And End For Animation Speed" description="Simple example of setting a start and end to a system's animation speed."/>
 
 Example 2 : you could keep, say, the first 5000 particles as unused ones and compute the particle behavior only for the last 5000 in your global pool - `setParticles(5000, 9999, true)` computes everything for particles from 5000 to 9999 and updates the mesh.
 
--   <Playground id="#UI95UC#26" title="Start And End For Part Animation" description="Simple example of setting a start and end to a part's animation" image=""/>
+-   <Playground id="#UI95UC#26" title="Start And End For Part Animation" description="Simple example of setting a start and end to a part's animation"/>
 
 
 ## Hints and Tips

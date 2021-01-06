@@ -197,4 +197,4 @@ var addSphericalPanningCameraToScene = function (scene, canvas) {
 ```
 ## Playground
 
-<Playground id="#21UPR3#30" title="Spherical Panning Camera" description="" image=""/>
+<Playground id="#21UPR3#30" title="Spherical Panning Camera" description=""/>

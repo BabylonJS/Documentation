@@ -95,7 +95,7 @@ const sprite = new BABYLON.Sprite("sprite", mySpritePackedManager);
 sprite.cellRef = "spot.png";
 ```
 
-Multiple sprites from *pack1.json<Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file." image=""/>
+Multiple sprites from *pack1.json<Playground id="#YCY2IL#8" title="Multiple Sprites From 1 .json File" description="Simple example of loading multiple sprites from one .json file."/>
 
 The same as for the sprite manager you can apply the following properties,
 
@@ -111,5 +111,5 @@ sprite.invertV = true; //horizontal reflection
 
 You are able to animate using a packed spritesheet with *playAnimation*. You must ensure that the frames for the animation are consecutive and in the correct order in the JSON file.
 
-Slide show animation from JSON file: <Playground id="#YCY2IL#5" title="Slide Show From .json" description="Simple example of a slide show loaded from a .json file." image=""/>
-Slide show animation with in-line JSON to show order of slides: <Playground id="#YCY2IL#13" title="Slide Show Animation With In-Line .json" description="Simple example of a slide show animation with in-line .json." image=""/>
+Slide show animation from JSON file: <Playground id="#YCY2IL#5" title="Slide Show From .json" description="Simple example of a slide show loaded from a .json file."/>
+Slide show animation with in-line JSON to show order of slides: <Playground id="#YCY2IL#13" title="Slide Show Animation With In-Line .json" description="Simple example of a slide show animation with in-line .json."/>

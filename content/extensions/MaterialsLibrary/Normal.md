@@ -12,7 +12,7 @@ video-content:
 
 ## Playgound Example 
     
-PG: <Playground id="#22VQKB" title="Normal Material" description="Example of normal material" image=""/>
+PG: <Playground id="#22VQKB" title="Normal Material" description="Example of normal material"/>
 
 ## Using the normal material
 

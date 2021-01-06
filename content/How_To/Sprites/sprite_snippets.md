@@ -23,7 +23,7 @@ var spriteManagerPlayer = BABYLON.SpriteManager.CreateFromSnippetAsync(snippetID
  });
 ```
 
-Live example: <Playground id="#G9VPHQ" title="Sprite Snippet Server Example" description="Simple example of loading a sprite manager from the snippet server." image=""/>
+Live example: <Playground id="#G9VPHQ" title="Sprite Snippet Server Example" description="Simple example of loading a sprite manager from the snippet server."/>
 
 You can also specify "_BLANK" for the snippet Id, in this case the system will create an empty one for you to work on:
 

@@ -36,7 +36,7 @@ sps.buildMesh(); // updates the SPS mesh geometry from the last particle additio
 sps.setParticles();
 ```
 
-Example: <Playground id="#X1T859" title="Adding Particles To A Solid Particle System" description="Simple example of adding particles to a solid particle system." image=""/>
+Example: <Playground id="#X1T859" title="Adding Particles To A Solid Particle System" description="Simple example of adding particles to a solid particle system."/>
 Each mouse click adds 20 new depth sorted particles.
 
 ### Removing particles
@@ -56,7 +56,7 @@ sps.buildMesh(); // update the SPS mesh geometry from the last particle addition
 sps.setParticles();
 ```
 
-Example: <Playground id="#0MXVDK" title="Removing Particles From A Solid Particle System" description="Simple example of removing particles from a solid particle system" image=""/>
+Example: <Playground id="#0MXVDK" title="Removing Particles From A Solid Particle System" description="Simple example of removing particles from a solid particle system"/>
 Each click removes the 2 first and last 100 particles.  
 **Important note :** the SPS must contain at least one particle to work, so never empty it completely !
 
@@ -97,7 +97,7 @@ sps.setParticles();
 
 Each time that you call `insertParticlesFromArray()`, the stored particle objects aren't just referenced in the SPS, they are cloned and the clones are reindexed and given a new identifier.  
 This means that you can modify or get rid of the storage array or their contained particle objects with no effect and no risk for the SPS working.  
-Example: <Playground id="#HL9PPA" title="Storable Particles Example" description="Simple example of making particles storable." image=""/>
+Example: <Playground id="#HL9PPA" title="Storable Particles Example" description="Simple example of making particles storable."/>
 Each click removes 100 particles of a given shape and restore 100 particles of another shape in turn.  
 100 particles are stored aside at the SPS creation.
 

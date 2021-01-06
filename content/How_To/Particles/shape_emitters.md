@@ -41,7 +41,7 @@ pointEmitter.direction1 = new BABYLON.Vector3(-5, 2, 1);
 pointEmitter.direction2 = new BABYLON.Vector3(5, 2, 1);  
 ```
 
-<Playground id="#08YT34" title="Point Emitter" description="Simple example of a particle point emitter." image=""/>
+<Playground id="#08YT34" title="Point Emitter" description="Simple example of a particle point emitter."/>
 
 ## Box Emitter
 
@@ -66,7 +66,7 @@ boxEmitter.minEmitBox = new BABYLON.Vector3(-2, -3, -4);
 boxEmitter.maxEmitBox = new BABYLON.Vector3(2, 3, 4); 
 ```
 
-<Playground id="#MRRGXL#1" title="Box Emitter" description="Simple example of a particle box emitter." image=""/>
+<Playground id="#MRRGXL#1" title="Box Emitter" description="Simple example of a particle box emitter."/>
 
 ## Sphere Emitter
 
@@ -79,7 +79,7 @@ The returned `sphereEmitter` object can be used to change the value of the radiu
 
 The particles are emitted in the direction of the surface normals, ie the lines from the center of the sphere through a surface point.
 
-<Playground id="#MRRGXL#2" title="Sphere Emitter" description="Simple example of a particle sphere emitter." image=""/>
+<Playground id="#MRRGXL#2" title="Sphere Emitter" description="Simple example of a particle sphere emitter."/>
 
 With `sphereEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface while a value of 1 means all along the radius.
 
@@ -106,7 +106,7 @@ sphereEmitter.direction2 = new BABYLON.Vector3(5, 2, -1);
 
 The first parameter is the radius the second is direction1 and third is direction2. (The direction will be generated randomly between direction1 and direction2)
 
-<Playground id="#MRRGXL#3" title="Sphere Emitter With Directions" description="Simple example of a particle sphere emitter with directions." image=""/>
+<Playground id="#MRRGXL#3" title="Sphere Emitter With Directions" description="Simple example of a particle sphere emitter with directions."/>
 
 ## Hemispheric Emitter
 
@@ -119,7 +119,7 @@ The returned `hemisphericEmitter` object can be used to change the value of the 
 
 The particles are emitted in the direction of the surface normals, ie the lines from the center of the hemisphere through a surface point.
 
-<Playground id="#FHIQYC" title="Hemispheric Emitter" description="Simple example of a particle hemispheric emitter." image=""/>
+<Playground id="#FHIQYC" title="Hemispheric Emitter" description="Simple example of a particle hemispheric emitter."/>
 
 With `hemisphericEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface while a value of 1 means all along the radius.
 
@@ -134,7 +134,7 @@ The returned `cylinderEmitter` object can be used to change the value of the rad
 
 The particles are emitted in the direction of the surface normals, ie outward from the cylinder
 
-<Playground id="#UL4WC0" title="Cylinder Emitter" description="Simple example of a particle cylinder emitter." image=""/>
+<Playground id="#UL4WC0" title="Cylinder Emitter" description="Simple example of a particle cylinder emitter."/>
 
 With `cylinderEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface while a value of 1 means all along the radius.
 With `cylinderEmitter.directionRandomizer` can change how much to randomize the particles direction.
@@ -158,7 +158,7 @@ cylinderEmitter.direction2 = new BABYLON.Vector3(5, 2, -1);
 
 The first parameter is the radius the second is direction1 and third is direction2. (The direction will be generated randomly between direction1 and direction2)
 
-<Playground id="#UL4WC0#5" title="Cylinder Emitter With Directions" description="Simple example of a particle cylinder emitter with directions." image=""/>
+<Playground id="#UL4WC0#5" title="Cylinder Emitter With Directions" description="Simple example of a particle cylinder emitter with directions."/>
 
 ## Cone Emitter
 
@@ -179,7 +179,7 @@ With `coneEmitter.radiusRange` you can define where along the radius the particl
 
 The same applies to `coneEmitter.heightRange`: you can define where along the height the particles should be emitted. A value of 0 means only on the top surface while a value of 1 means all along the height.
 
-Here is an example of a particle system emitted only from the outside of a flat cone: <Playground id="#B9HKG0#1" title="Emitter From Outside A Cone" description="Simple example of a particle system emitting from outside of a flat cone." image=""/>
+Here is an example of a particle system emitted only from the outside of a flat cone: <Playground id="#B9HKG0#1" title="Emitter From Outside A Cone" description="Simple example of a particle system emitting from outside of a flat cone."/>
 
 The returned `coneEmitter` object can be used to change the values of these properties.
 
@@ -190,8 +190,8 @@ coneEmitter.angle = Math.PI / 2;
 
 With `coneEmitter.emitFromSpawnPointOnly = true` you can force the emitter to only emit particles from the spawn point (the start of the cone).
 
-<Playground id="#MRRGXL#4" title="Cone Emitter" description="Simple example of a particle cone emitter." image=""/>
-<Playground id="#MRRGXL#5" title="Cone Emitter Rotating" description="Simple example of a particle cone emitter rotating." image=""/>
+<Playground id="#MRRGXL#4" title="Cone Emitter" description="Simple example of a particle cone emitter."/>
+<Playground id="#MRRGXL#5" title="Cone Emitter Rotating" description="Simple example of a particle cone emitter rotating."/>
 
 
 # Mesh Emitter
@@ -212,7 +212,7 @@ meshEmitter.direction2 = new BABYLON.Vector3(0, -1, 0);
 
 **Please note that the MeshParticleEmitter is not supported by GPU Particle**
 
-Here is an example of a mesh particle emitter: <Playground id="#N775HF" title="Mesh Emitter" description="Simple example of a particle mesh emitter." image=""/>
+Here is an example of a mesh particle emitter: <Playground id="#N775HF" title="Mesh Emitter" description="Simple example of a particle mesh emitter."/>
 
 ## Custom Emitter
 
@@ -240,4 +240,4 @@ A custom emitter will let you define the position and the destination of each pa
 
 When used with a GPU Particle system the generators(`particlePositionGenerator` and `particleDestinationGenerator`) will provide a particle index whereas when used with a CPU Particle system they will provide the actual particle to update.
 
-Here is an example of a custom particle emitter: <Playground id="#77BKY4" title="Custom Emitter" description="Simple example of a particle custom emitter." image=""/>
+Here is an example of a custom particle emitter: <Playground id="#77BKY4" title="Custom Emitter" description="Simple example of a particle custom emitter."/>

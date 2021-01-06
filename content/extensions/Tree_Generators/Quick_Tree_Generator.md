@@ -12,7 +12,7 @@ video-content:
 
 The function QuickTreeGenerator uses a sphere with randomized vertices to generate a tree. 
 
-A demo can be found at: <Playground id="#LG3GS#107" title="Quick Tree Generator Example" description="Simple example of the quick tree generator." image=""/>
+A demo can be found at: <Playground id="#LG3GS#107" title="Quick Tree Generator Example" description="Simple example of the quick tree generator."/>
 
 ## How to use it.
 

@@ -61,4 +61,4 @@ function showAngleSector(origin, vector1, vector2, radius, sectorType) {
 ```
 ## Playground
 
-<Playground id="#FUK3S#8" title="Draw an Arc Between Two Vectors" description="" image=""/>
+<Playground id="#FUK3S#8" title="Draw an Arc Between Two Vectors" description=""/>

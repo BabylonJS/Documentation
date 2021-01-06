@@ -177,7 +177,7 @@ head.position = vrHelper.webVRCamera.devicePosition.clone();
 head.rotationQuaternion = vrHelper.webVRCamera.deviceRotationQuaternion.clone();
 ```
 
-See an Example here: <Playground id="#VIGXA3#7" title="Accessing VR Device position and rotation Example" description="A simple example of accessing a vr device's position and rotation." image=""/>
+See an Example here: <Playground id="#VIGXA3#7" title="Accessing VR Device position and rotation Example" description="A simple example of accessing a vr device's position and rotation."/>
 
 ## Gaze and interaction
 
