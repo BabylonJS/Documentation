@@ -215,6 +215,17 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
     await Promise.all(promises);
 
+    if(!metadata.imageUrl) {
+        // no image? check children.
+        const childrenKeys = Object.keys(childPages);
+        childrenKeys.some((childKey) => {
+            if(childPages[childKey].metadata && childPages[childKey].metadata.imageUrl) {
+                metadata.imageUrl = childPages[childKey].metadata.imageUrl;
+                return true;
+            }
+        })
+    }
+
     // Search index!
     if (fullPage) {
         const url = "/" + id.join("/");

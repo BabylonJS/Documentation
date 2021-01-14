@@ -213,7 +213,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <title>{title}</title>
                 {imageUrl && <meta property="og:image" content={baseDomain + imageUrl} />}
                 <meta name="og:title" content={title} />
-                <meta name="og:url" content={baseDomain + "/" + router.asPath} />
+                <meta name="og:url" content={baseDomain + router.asPath} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
