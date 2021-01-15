@@ -99,7 +99,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
                         </CardContent>
                     </div>
                     <div className={classes.imageContainer}>
-                        <Image src={imageUrl} layout="fill"></Image>
+                        <Image alt={title} src={imageUrl} layout="fill"></Image>
                     </div>
                 </Card>
             </div>
