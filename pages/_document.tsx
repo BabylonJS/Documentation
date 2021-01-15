@@ -25,8 +25,6 @@ export default class MyDocument extends Document {
                     <link rel="manifest" href="/manifest.json" />
                     <meta name="msapplication-TileColor" content="#ffffff" />
                     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-                    <link rel="stylesheet" href="//use.typekit.net/cta4xsb.css" />
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
                 </Head>
                 <body>
                     <Main />
