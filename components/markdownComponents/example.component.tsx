@@ -87,7 +87,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                             </Tooltip>
                             <span style={{ minWidth: 20 }}>
                                 <Link href={getExampleLink(example, false)}>
-                                    <a target="_blank">
+                                    <a rel="noopener" target="_blank">
                                         <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
                                             <ExternalLinkIcon></ExternalLinkIcon>
                                         </Tooltip>
