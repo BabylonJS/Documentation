@@ -14,7 +14,9 @@ video-content:
 
 ## Overview of a Parent
 
-Making mesh P a parent of mesh C changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
+Using a parent is an alternative method to using a Babylon.js [pivot](/divingDeeper/mesh/transforms/parent_pivot/pivots) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. To rotate or scale a mesh using a parent as a center of transformation you apply the rotation or scaling vectors to the parent. This is different to using a Babylon.js pivot to rotate or scale a mesh.
+
+Making mesh P a parent of mesh C, the child mesh, changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
 To parent mesh C to mesh P you use any of these three methods
 
