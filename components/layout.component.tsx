@@ -259,7 +259,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </form>
                     </div>
                     <Link href="https://github.com/BabylonJS/Babylon.js">
-                        <a target="_blank">
+                        <a rel="noopener" target="_blank">
                             <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
                                 <GithubIcon></GithubIcon>
                             </IconButton>

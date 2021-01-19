@@ -21,7 +21,7 @@ export const AnchorWrapper: FunctionComponent<IDocumentationLinkProps> = (props)
     const isInternal = !props.href.startsWith("http");
     const isPlayground = props.href.indexOf("babylonjs-playground.com") !== -1 || props.href.indexOf("playground.babylonjs") !== -1;
     if (!isInternal && !isPlayground) {
-        return <a {...props}></a>;
+        return <a rel="noopener" {...props}></a>;
     } else if (isPlayground) {
         return (
             <a title={props.title} className="playgroundLink" onClick={onClick}>
