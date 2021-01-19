@@ -84,8 +84,8 @@ The following image is used to show the results before and after flipping altern
 
 ![Single Tile Pattern](/img/how_to/Mesh/lavatile.jpg) 
 
-Before tiles flipped: <Playground id="#XR696D" title="Create a Tiled Plane With Before Tiles Flipped" description="Simple example of creating a tiled plane with before tiles flipped." image=""/> 
-After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With After Tiles Flipped" description="Simple example of creating a tiled plane with after tiles flipped." image=""/>
+Before tiles flipped: <Playground id="#XR696D" title="Create a Tiled Plane With Before Tiles Flipped" description="Simple example of creating a tiled plane with before tiles flipped."/> 
+After tiles flipped: <Playground id="#XR696D#1" title="Create a Tiled Plane With After Tiles Flipped" description="Simple example of creating a tiled plane with after tiles flipped."/>
 
 **Alternating Patterns**
 
@@ -93,13 +93,13 @@ This image
 ![Two Tile Pattern](/img/how_to/Mesh/tiles2.jpg)  
 is used to show different alternating patterns using tiles of width 2 and height 1 by flipping either every other row or tile
 
-Row flipped: <Playground id="#XR696D#3" title="Create a Tiled Plane With Row Flipped" description="Simple example of creating a tiled plane with row flipped." image=""/>
-Tile filed: <Playground id="#XR696D#4" title="Create a Tiled Plane With Tile Filed" description="Simple example of creating a tiled plane with tile filed." image=""/>
+Row flipped: <Playground id="#XR696D#3" title="Create a Tiled Plane With Row Flipped" description="Simple example of creating a tiled plane with row flipped."/>
+Tile filed: <Playground id="#XR696D#4" title="Create a Tiled Plane With Tile Filed" description="Simple example of creating a tiled plane with tile filed."/>
 
 and also how tiling can be different front and back.
 
-<Playground id="#XR696D#2" title="Create a Tiled Plane With Different Tiling Front And Back" description="Simple example of creating a tiled plane with different tiling front and back." image=""/>
+<Playground id="#XR696D#2" title="Create a Tiled Plane With Different Tiling Front And Back" description="Simple example of creating a tiled plane with different tiling front and back."/>
 
 
 The final example use the same image to show all 63 permutations. To see heading view the full playground.
-<Playground id="#XR696D#5" title="Create a Tiled Plane With 63 Different Permutations" description="Simple example of creating a tiled plane with 63 different permutations." image=""/>
+<Playground id="#XR696D#5" title="Create a Tiled Plane With 63 Different Permutations" description="Simple example of creating a tiled plane with 63 different permutations."/>

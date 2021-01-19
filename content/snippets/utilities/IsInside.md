@@ -129,4 +129,4 @@ BABYLON.Mesh.prototype.pointIsInside = function (point) {
 
 Generate random points in a volume around a twelve pointed star mesh. Place a sphere at each point and turn it red when inside the star.
 
-<Playground id="#XJEG9A#4" title="Twelve Pointed Star" description="Twelve Pointed Star" image=""/>
+<Playground id="#XJEG9A#4" title="Twelve Pointed Star" description="Twelve Pointed Star"/>

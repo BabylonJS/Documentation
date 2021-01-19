@@ -38,4 +38,4 @@ The gradient material can be configured with:
 
 ## Playground example
 
-You can find a live example here:  PG: <Playground id="#2IFRKC#63" title="Gradient Material" description="Example of gradient material" image=""/>
+You can find a live example here:  PG: <Playground id="#2IFRKC#63" title="Gradient Material" description="Example of gradient material"/>

@@ -33,11 +33,11 @@ scene.createDefaultCameraOrLight(true, true, true);
 scene.createDefaultEnvironment();
 ```
 
-<Playground id="#MJNICE" title="The Quickest Way To Build A World" description="Simple example of creating a world with createDefaultEnviornment." image=""/>
+<Playground id="#MJNICE" title="The Quickest Way To Build A World" description="Simple example of creating a world with createDefaultEnviornment."/>
 
 You can see how the camera automatically adjusts by adding a second box and re-positioning it
 
-<Playground id="#MJNICE#3" title="Fast Build With Camera Adjust" description="Simple example of building a world quickly and adjusting the camera." image=""/>
+<Playground id="#MJNICE#3" title="Fast Build With Camera Adjust" description="Simple example of building a world quickly and adjusting the camera."/>
 
 More information about these methods, including details about parameters, can be found in the individual sections below.
 
@@ -59,8 +59,8 @@ This code will create an arc rotate camera, replace any existing camera and atta
 scene.createDefaultCamera(true, true, true);
 ```
 
-<Playground id="#MJNICE#4" title="Camera Helper Example (no light)" description="Simple example of the camera helper with no light." image=""/>
-<Playground id="#MJNICE#5" title="Camera Helper Example" description="Simple example of the camera helper." image=""/>
+<Playground id="#MJNICE#4" title="Camera Helper Example (no light)" description="Simple example of the camera helper with no light."/>
+<Playground id="#MJNICE#5" title="Camera Helper Example" description="Simple example of the camera helper."/>
 
 For a free camera
 
@@ -68,11 +68,11 @@ For a free camera
 scene.createDefaultCamera(false, true, true);
 ```
 
-<Playground id="#MJNICE#6" title="Camera Helper Example (Free Camera)" description="Simple example of the camera helper with a free camera." image=""/>
+<Playground id="#MJNICE#6" title="Camera Helper Example (Free Camera)" description="Simple example of the camera helper with a free camera."/>
 
 The camera will adjust depending on the size and position of each mesh in the world.
 
-<Playground id="#MJNICE#7" title="Camera Helper Adjusting" description="Simple example of the camera helper and adjusting to a large box." image=""/>
+<Playground id="#MJNICE#7" title="Camera Helper Adjusting" description="Simple example of the camera helper and adjusting to a large box."/>
 
 ### Accessing the Camera
 
@@ -84,7 +84,7 @@ scene.createDefaultCamera(true, true, true);
 var helperCamera = scene.activeCamera;
 ```
 
-<Playground id="#MJNICE#11" title="Camera Helper With Active Camera Changes" description="Simple example of the camera helper and making changes to the active camera." image=""/>
+<Playground id="#MJNICE#11" title="Camera Helper With Active Camera Changes" description="Simple example of the camera helper and making changes to the active camera."/>
 
 An alternative way to access the helper created camera immediately after creating it is, since it will be the last one in the `scene.cameras` array, to use
 
@@ -99,7 +99,7 @@ var helperCamera = scene.cameras.pop();
 scene.cameras.push(helperCamera);
 ```
 
-<Playground id="#MJNICE#8" title="Camera Helper With Radius and Angle Changes" description="Simple example of the camera helper and making changes to the camera radius and angles." image=""/>
+<Playground id="#MJNICE#8" title="Camera Helper With Radius and Angle Changes" description="Simple example of the camera helper and making changes to the camera radius and angles."/>
 
 ## Create Default Light
 
@@ -130,7 +130,7 @@ var helperLight = scene.lights.pop();
 scene.lights.push(helperLight);
 ```
 
-<Playground id="#MJNICE#9" title="Light Helper With Direction and Color Change" description="Simple example of the light helper and changing the light's color and direction." image=""/>
+<Playground id="#MJNICE#9" title="Light Helper With Direction and Color Change" description="Simple example of the light helper and changing the light's color and direction."/>
 
 ## Create Default Environment
 
@@ -146,17 +146,17 @@ You will also find below a helper for [just a skybox](/divingDeeper/scene/fastBu
 
 When you look at the following playground
 
-<Playground id="#MJNICE" title="Playground Fast Build" description="Simple example of creating the default enviornment in the playground." image=""/>
+<Playground id="#MJNICE" title="Playground Fast Build" description="Simple example of creating the default enviornment in the playground."/>
 
 it is not obvious that a skybox and ground have been added. The defaults have been set so as to be really subtle and help give a grounding feeling to the objects
 
 Moving the camera further out shows that the skybox is constructed.
 
-<Playground id="#MJNICE#1" title="Skybox Example" description="Simple example showing how to create a skybox." image=""/>
+<Playground id="#MJNICE#1" title="Skybox Example" description="Simple example showing how to create a skybox."/>
 
 You can also see the skybox and ground by using the options parameter and setting different values for the skybox texture and the ground color.
 
-<Playground id="#MJNICE#10" title="Skybox and Ground Changes" description="Simple example of creating a skybox and ground and changing their properties." image=""/>
+<Playground id="#MJNICE#10" title="Skybox and Ground Changes" description="Simple example of creating a skybox and ground and changing their properties."/>
 
 ### Options Parameters
 
@@ -199,7 +199,7 @@ var helper = scene.createDefaultEnvironment();
 helper.setMainColor(BABYLON.Color3.Teal());
 ```
 
-<Playground id="#MJNICE#12" title="Changing The Main Color" description="Simple example of changing the scene's main color." image=""/>
+<Playground id="#MJNICE#12" title="Changing The Main Color" description="Simple example of changing the scene's main color."/>
 
 or for instance should you wish to dispose of the ground after creation of the environment use
 
@@ -218,7 +218,7 @@ var options = {
 helper.updateOptions(options);
 ```
 
-<Playground id="#MJNICE#13" title="Changing Scene Options" description="Simple example showcasing how to change options of the scene." image=""/>
+<Playground id="#MJNICE#13" title="Changing Scene Options" description="Simple example showcasing how to change options of the scene."/>
 
 ### Environmental Helper
 
@@ -239,13 +239,13 @@ In this case the first two parameters used give the texture for the skybox and s
 
 The third parameter defines the scale of your skybox (this value depends on the scale of your scene), the default value is _1000_.
 
-<Playground id="#MJNICE#14" title="Skybox Scale Example" description="Simple example showing how to scale a skybox in the playground." image=""/>
+<Playground id="#MJNICE#14" title="Skybox Scale Example" description="Simple example showing how to scale a skybox in the playground."/>
 
 ## Import and Fastest Build
 
 To import models and build a world very quickly just use `createDefaultCameraOrLight` along with `createDefaultEnvironment` as in this example
 
-<Playground id="#MJNICE#15" title="Importing Models and Quickly Building A World" description="Simple example showcasing how to import models and quickly build a world." image=""/>
+<Playground id="#MJNICE#15" title="Importing Models and Quickly Building A World" description="Simple example showcasing how to import models and quickly build a world."/>
 
 The camera adjusts its position automatically to make the world viewable depending on the scale and position of the models. More information on importing models with the scene helpers follows below.
 
@@ -272,5 +272,5 @@ All the helper methods described earlier on this page behave in exactly the same
 
 ### Import Playground Examples
 
-<Playground id="#10D6YT#33" title="Simple Import and Main Color Change" description="Simple example of importing a scene and changing the main color." image=""/>
-<Playground id="#10D6YT#35" title="Importing Blur, Reflections, and Shadow" description="Simple example showing how to import blur, reflections, and shadows." image=""/>
+<Playground id="#10D6YT#33" title="Simple Import and Main Color Change" description="Simple example of importing a scene and changing the main color."/>
+<Playground id="#10D6YT#35" title="Importing Blur, Reflections, and Shadow" description="Simple example showing how to import blur, reflections, and shadows."/>

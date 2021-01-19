@@ -50,7 +50,7 @@ for(var i = -20; i < 20; i++) {
 }
 var mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene, true, sideO);
 ```
-example : <Playground id="#1MSEBT" title="Dynamic Mesh Morph Example 1" description="Simple example of dynamically morphing a mesh." image=""/>   _(please rotate the cam to see it)_
+example : <Playground id="#1MSEBT" title="Dynamic Mesh Morph Example 1" description="Simple example of dynamically morphing a mesh."/>   _(please rotate the cam to see it)_
 
 The important key to notice is that we set the **_updatable_** parameter to **_true_** in the _CreateRibbon()_ method : the one just between the _scene_ and the _sideO_ parameters.   
 
@@ -84,7 +84,7 @@ You can also use the other call signature :
 mesh = BABYLON.MeshBuilder.CreateRibbon(null, {pathArray: pathArray, instance: mesh});
 ```
 
-example :  <Playground id="#1MSEBT#1" title="Dynamic Mesh Morph Example 2" description="Simple example of dynamically morphing a mesh." image=""/>
+example :  <Playground id="#1MSEBT#1" title="Dynamic Mesh Morph Example 2" description="Simple example of dynamically morphing a mesh."/>
 
 Well, we just updated our ribbon's shape once for now.   
 
@@ -120,7 +120,7 @@ scene.registerBeforeRender(function() {
 });
 ```
 
-example :  <Playground id="#1MSEBT#3" title="Dynamic Mesh Morph Example 3" description="Simple example of dynamically morphing a mesh." image=""/>
+example :  <Playground id="#1MSEBT#3" title="Dynamic Mesh Morph Example 3" description="Simple example of dynamically morphing a mesh."/>
 
 
 ## Lines and DashedLines
@@ -145,8 +145,8 @@ dashedlines = BABYLON.MeshBuilder.CreateDashedLines(null, {points: points2, inst
 ```
 We can, of course, set the update method within the render loop.
 
-example lines:  <Playground id="#24PQRQ" title="Lines Example" description="Simple example of dynamically morphing a mesh with lines." image=""/>
-dashed lines:  <Playground id="#XKYAE#3" title="Dashed Lines Example" description="Simple example of dynamically morphing a mesh with dashed lines." image=""/>
+example lines:  <Playground id="#24PQRQ" title="Lines Example" description="Simple example of dynamically morphing a mesh with lines."/>
+dashed lines:  <Playground id="#XKYAE#3" title="Dashed Lines Example" description="Simple example of dynamically morphing a mesh with dashed lines."/>
 
 ## Tube
 ### _tube updatable parameters : path, radius, radiusFunction_
@@ -174,7 +174,7 @@ tube = BABYLON.Mesh.CreateTube(null, path2, null, null, radiusFunction2, null, n
 tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radiusFunction: radiusFunction2, instance: tube});
 ```
 
-Example:  <Playground id="#ACKC2#1" title="Tube Example" description="Simple example of dynamically morphing a tube." image=""/>
+Example:  <Playground id="#ACKC2#1" title="Tube Example" description="Simple example of dynamically morphing a tube."/>
 
 As you can read at line 53, the _radiusFunction_ is redefined here at each iteration in the _registerBeforeRender_ loop because it uses the value of the incrementing parameter _k_ : the radius changes according to each path point position and according to k varying in the time.
 
@@ -227,7 +227,7 @@ var ext = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap
 ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2, null, null, null, null, null, null, ext);
 ```
 
-Example:  <Playground id="#20IBWW#14" title="Extruded Shape Example" description="Simple example of dynamically morphing an extruded shape." image=""/>
+Example:  <Playground id="#20IBWW#14" title="Extruded Shape Example" description="Simple example of dynamically morphing an extruded shape."/>
 
 
 ## Other shapes : updateMeshPositions
@@ -251,7 +251,7 @@ var positionFunction = function(positions) {
 };
 box.updateMeshPositions(positionFunction, true);
 ```
-Example: <Playground id="#1UZIZC#6" title="Custom Shape Example" description="Simple example of dynamically morphing a custom shape." image=""/>
+Example: <Playground id="#1UZIZC#6" title="Custom Shape Example" description="Simple example of dynamically morphing a custom shape."/>
 
 
 ## More speed : freezeNormals !

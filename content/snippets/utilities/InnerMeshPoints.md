@@ -196,9 +196,9 @@ BABYLON.Mesh.prototype.createInnerPoints = function(pointsNb) {
 }
 ```
 
-<Playground id="#2K3T61#8" title="Points Inside a Twelve Pointed Star" description="Points Inside a Twelve Pointed Star" image=""/>
+<Playground id="#2K3T61#8" title="Points Inside a Twelve Pointed Star" description="Points Inside a Twelve Pointed Star"/>
 
 ## Examples of Use 
 
-<Playground id="#2K3T61#2" title="Using SPS" description="Using SPS" image=""/>
-<Playground id="#2K3T61#7" title="Using Particles" description="Using Particles" image=""/>
+<Playground id="#2K3T61#2" title="Using SPS" description="Using SPS"/>
+<Playground id="#2K3T61#7" title="Using Particles" description="Using Particles"/>

@@ -37,7 +37,7 @@ BABYLON.ParticleHelper.CreateAsync("sun", scene, true).then((set) => {
 });
 ```
 
-You can find a demo here: <Playground id="#1VGT5D#2" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper." image=""/>
+You can find a demo here: <Playground id="#1VGT5D#2" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper."/>
 
 ## ParticleSystemSet
 
@@ -59,11 +59,11 @@ List of available effects:
 
 Effect name | Image | Playground  
 ---|---|---|---|--- 
-**sun** | ![sun](/img/how_to/particles/sun.jpg) | <Playground id="#1VGT5D#2" title="Particle Sun Demo" description="Particle Sun Demo." image=""/>
-**smoke** | ![smoke](/img/how_to/particles/smoke.jpg) | <Playground id="#HT18SF#0" title="Particle Smoke Demo" description="Particle Smoke Demo." image=""/>
-**rain** | ![rain](/img/how_to/particles/rain.jpg) | <Playground id="#XQ8H3C#0" title="Particle Rain Demo" description="Particle Rain Demo." image=""/>
-**fire** | ![fire](/img/how_to/particles/fire.jpg) | <Playground id="#7IM02G#0" title="Particle Fire Demo" description="Particle Fire Demo." image=""/> 
-**explosion** | ![explosion](/img/how_to/particles/explosion.jpg) | <Playground id="#X37LS1#3" title="Particle Explosion Demo" description="Particle Explosion Demo." image=""/>
+**sun** | ![sun](/img/how_to/particles/sun.jpg) | <Playground id="#1VGT5D#2" title="Particle Sun Demo" description="Particle Sun Demo."/>
+**smoke** | ![smoke](/img/how_to/particles/smoke.jpg) | <Playground id="#HT18SF#0" title="Particle Smoke Demo" description="Particle Smoke Demo."/>
+**rain** | ![rain](/img/how_to/particles/rain.jpg) | <Playground id="#XQ8H3C#0" title="Particle Rain Demo" description="Particle Rain Demo."/>
+**fire** | ![fire](/img/how_to/particles/fire.jpg) | <Playground id="#7IM02G#0" title="Particle Fire Demo" description="Particle Fire Demo."/> 
+**explosion** | ![explosion](/img/how_to/particles/explosion.jpg) | <Playground id="#X37LS1#3" title="Particle Explosion Demo" description="Particle Explosion Demo."/>
 
 ## Custom ParticleSets
 

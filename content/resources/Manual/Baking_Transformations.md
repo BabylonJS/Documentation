@@ -19,7 +19,7 @@ Usually, within Babylon.js, positioning, rotating and scaling a mesh changes its
 
 The most straight forward way is to apply a transformation to the mesh. For example take a box of side 1 and position it at (0, 3, 0). Its vertices are stored as (-0.5, -0.5, -0.5), (0.5, -0.5, -0.5), (0.5, 0.5, -0.5), (-0.5, 0.5, -0.5), (-0.5, -0.5, 0.5), (0.5, -0.5, 0.5), (0.5, 0.5, 0.5), (-0.5, 0.5, 0.5) with its local origin of (0, 3, 0) stored in the world matrix. When this current transformation is baked into its vertices, the vertices are now stored as (-0.5, 2.5, -0.5), (0.5, 2.5, -0.5), (0.5, 3.5, -0.5), (-0.5, 3.5, -0.5), (-0.5, 2.5, 0.5), (0.5, 2.5, 0.5), (0.5, 3.5, 0.5), (-0.5, 3.5, 0.5) with a local origin of (0, 0, 0) stored in the world matrix. Any rotation now takes place with the center of rotation 3 below the middle of the box.
 
-Baking a current transformation: <Playground id="#6AH5EL" title="Baking Current Transformation" description="Simple example of baking current transforms." image=""/>
+Baking a current transformation: <Playground id="#6AH5EL" title="Baking Current Transformation" description="Simple example of baking current transforms."/>
 
 When the current transformation is baked into the mesh the local origin of the mesh is also altered so that the location and orientation of the mesh within the seen is not changed.
 
@@ -31,7 +31,7 @@ usage:
 mesh.bakeTransformIntoVertices(matrix);
 ```
 
-Baking using matrices <Playground id="#6AH5EL#1" title="Baking Using Matrices" description="Simple example of baking using matrices." image=""/>
+Baking using matrices <Playground id="#6AH5EL#1" title="Baking Using Matrices" description="Simple example of baking using matrices."/>
 
 ## Use With Scaling
 

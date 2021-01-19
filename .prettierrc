@@ -1,5 +1,13 @@
 {
     "trailingComma": "all",
-    "tabWidth": 2,
-    "printWidth": 300
+    "tabWidth": 4,
+    "printWidth": 300,
+    "overrides": [
+        {
+            "files": "*.md",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

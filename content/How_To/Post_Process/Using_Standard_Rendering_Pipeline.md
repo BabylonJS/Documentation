@@ -22,8 +22,8 @@ This rendering pipeline tends to simulate a chain of famous post-process effects
 -   Motion Blur
 -   Volumetric Lights
 
-Simple playground : <Playground id="#FRUD8#2" title="Standard Rendering Pipeline Example" description="Simple example of the standard rendering pipeline." image=""/>
-Full playground: <Playground id="#X3XD2C#1" title="Standard Rendering Pipeline Example (full example)" description="Full example of the standard rendering pipeline." image=""/>
+Simple playground : <Playground id="#FRUD8#2" title="Standard Rendering Pipeline Example" description="Simple example of the standard rendering pipeline."/>
+Full playground: <Playground id="#X3XD2C#1" title="Standard Rendering Pipeline Example (full example)" description="Full example of the standard rendering pipeline."/>
 
 ## Creating the rendering pipeline
 
@@ -200,7 +200,7 @@ To manipulate depth of field, you can set the distance to blur by setting the ".
 pipeline.depthOfFieldDistance = 20;
 ```
 
-Playground example : <Playground id="#LB63T#1" title="Custom Depth of Field Example" description="Simple example of custom depth of field distance." image=""/>
+Playground example : <Playground id="#LB63T#1" title="Custom Depth of Field Example" description="Simple example of custom depth of field distance."/>
 
 **note: Activating the depth of field will activate the depth renderer of Babylon.js, which can have an impact on performances**
 

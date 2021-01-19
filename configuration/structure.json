@@ -560,7 +560,7 @@
                     "friendlyName": "WebXR",
                     "children": {
                         "introToWebXR": { "friendlyName": "Introduction To WebXR", "children": {}, "content": "How_To/WebXR/Introduction_To_WebXR" },
-                        "WebXRSelectedFeatures": { "friendlyName": "WebXR Selected Features", "children": {}, "content": "How_To/WebXR/WebXR_Selected_Features" },
+                        "WebXRSelectedFeatures": { "friendlyName": "WebXR (VR) Features", "children": {}, "content": "How_To/WebXR/WebXR_Selected_Features" },
                         "webXRExperienceHelpers": { "friendlyName": "The WebXR Experience Helpers", "children": {}, "content": "How_To/WebXR/WebXR_Experience_Helpers" },
                         "webXRSessionManagers": { "friendlyName": "The WebXR Session Managers", "children": {}, "content": "How_To/WebXR/WebXR_Session_Manager" },
                         "webXRCamera": { "friendlyName": "The WebXR Camera", "children": {}, "content": "How_To/WebXR/WebXR_Camera" },

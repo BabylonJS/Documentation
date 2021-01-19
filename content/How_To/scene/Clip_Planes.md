@@ -25,7 +25,7 @@ scene.clipPlane4 = new BABYLON.Plane(0, 1, 0, 0);
 
 The 3 first parameters of the Plane constructor defines the normal of the plane and the last one defines the distance from (0,0,0).
 
-You can find an interactive demo about clip planes here: <Playground id="#Y6W087" title="Clipping Planes Example 1" description="Simple example showing how to use clipping planes." image=""/>
+You can find an interactive demo about clip planes here: <Playground id="#Y6W087" title="Clipping Planes Example 1" description="Simple example showing how to use clipping planes."/>
 
 A maximum of 4 different clip planes can be used simultaneously for a specific rendering.
 
@@ -46,4 +46,4 @@ sphere.onAfterRenderObservable.add(function() {
 });    
 ```
 
-Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using 4 different clipping planes at the same time." image=""/>
+Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using 4 different clipping planes at the same time."/>

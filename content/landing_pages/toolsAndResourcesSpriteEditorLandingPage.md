@@ -14,7 +14,7 @@ Babylon.js has a sprite system with many features and components. Babylon.js 4.2
 
 <img src="/img/tools/spriteEditor.jpg" title="Babylon.js Sprite Editor"/>
 
-You can jump in and play around with it here: <Playground id="#G3Q7GR#1" title="Sprite Editor" description="Simple example of sprites using the sprite editor." image=""/>
+You can jump in and play around with it here: <Playground id="#G3Q7GR#1" title="Sprite Editor" description="Simple example of sprites using the sprite editor."/>
 
 For an introductory look at the Particle Editor, check out where it all started with these videos:
 

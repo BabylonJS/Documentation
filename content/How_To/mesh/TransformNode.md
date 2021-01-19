@@ -31,9 +31,9 @@ var CoT = new BABYLON.TransformNode("root");
 box.parent = CoT; //apply to Box
 ```
 
-<Playground id="#2JKA91" title="Center of Transform At Box Center" description="Simple example of the center of transform at a box center." image=""/>
-<Playground id="#2JKA91#1" title="Center of Transform Offset" description="Simple example of a center of transform offset." image=""/>
-<Playground id="#2JKA91#2" title="Box Rotating about its Local Axes" description="Simple example of a box rotating about its local axes." image=""/>
+<Playground id="#2JKA91" title="Center of Transform At Box Center" description="Simple example of the center of transform at a box center."/>
+<Playground id="#2JKA91#1" title="Center of Transform Offset" description="Simple example of a center of transform offset."/>
+<Playground id="#2JKA91#2" title="Box Rotating about its Local Axes" description="Simple example of a box rotating about its local axes."/>
 
 ### Camera
 
@@ -44,24 +44,24 @@ For those examples stating a dummy camera a black sphere is used to show the int
 ### Arc Rotate Camera
 
 The center of transformation is placed at the target position of the arc rotation camera.  
-<Playground id="#PP962K#1" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
-<Playground id="#2JKA91#4" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
+<Playground id="#PP962K#1" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
+<Playground id="#2JKA91#4" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
 Target position moved by moving center of tranformation.  
-<Playground id="#PP962K#2" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
-<Playground id="#2JKA91#5" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
+<Playground id="#PP962K#2" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
+<Playground id="#2JKA91#5" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
 Camera position moved relative to center of transformation just changes the distance between the camera and target.  
-<Playground id="#PP962K#3" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera." image=""/>
-<Playground id="#2JKA91#6" title="Rotating Arc Camera" description="Simple example of a rotating arc camera." image=""/>
+<Playground id="#PP962K#3" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
+<Playground id="#2JKA91#6" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
 ### Universal Camera
 
 The arrow keys will allow you to move camera position (reminder to click on canvas area before using keys).  
-<Playground id="#2JKA91#8" title="Rotating Universal Camera 1" description="Simple example of a rotating universal camera." image=""/>
+<Playground id="#2JKA91#8" title="Rotating Universal Camera 1" description="Simple example of a rotating universal camera."/>
 
 You can also have a universal camera rotating in orbit around a target and move it with keys.  
-<Playground id="#2JKA91#9" title="Rotating Universal Camera 2" description="Simple example of a rotating universal camera." image=""/>
+<Playground id="#2JKA91#9" title="Rotating Universal Camera 2" description="Simple example of a rotating universal camera."/>
 
 ## Lights
 
@@ -69,11 +69,11 @@ Those lights that have a position can use a TransformNode.
 
 ### Point Light
 
-<Playground id="#2JKA91#10" title="Rotating Point Light" description="Simple example of a rotating point light." image=""/>
+<Playground id="#2JKA91#10" title="Rotating Point Light" description="Simple example of a rotating point light."/>
 
 # Spot Light
 
-<Playground id="#2JKA91#11" title="Rotating Spot Light" description="Simple example of a rotating spot light." image=""/>
+<Playground id="#2JKA91#11" title="Rotating Spot Light" description="Simple example of a rotating spot light."/>
 
 ## As a Center of Translation or Position
 
@@ -89,7 +89,7 @@ box.position.x += 0.01;
 
 takes place along the rotating x axis of the center of transformation.
 
-<Playground id="#2JKA91#12" title="Box Translation" description="Simple example of a box translation." image=""/>
+<Playground id="#2JKA91#12" title="Box Translation" description="Simple example of a box translation."/>
 
 Moving cameras and lights work in the same way.
 
@@ -97,4 +97,4 @@ Moving cameras and lights work in the same way.
 
 Obviously scaling has no effect on lights or cameras. Scaling takes place relative to the frame of reference of the center of enlargement.
 
-<Playground id="#2JKA91#13" title="Box Scaling" description="Simple example of box scaling." image=""/>
+<Playground id="#2JKA91#13" title="Box Scaling" description="Simple example of box scaling."/>

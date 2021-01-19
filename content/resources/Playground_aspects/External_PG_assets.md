@@ -38,7 +38,7 @@ Doing this will lead to quicker answers as your question will be more understand
 BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/BabylonJS/MeshesLibrary/master/", "PBR_Spheres.glb", scene);
 ```
 
- <Playground id="#YIU90M" title="Using Assets From Github" description="Simple example of loading assets from github into the playground." image=""/>
+ <Playground id="#YIU90M" title="Using Assets From Github" description="Simple example of loading assets from github into the playground."/>
 
 ### using rawgit.com
  
@@ -83,7 +83,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://cdn.jsdelivr.net/gh/myGithubUserName
 
 From our MeshesLibrary repo, [using PBR_Spheres.glb](https://github.com/BabylonJS/MeshesLibrary/commit/fa494961cbe0b8d44854b3cf8aa8268ba211741a):
 
- <Playground id="#IX12S2" title="Loading Assets From The Babylon.js Meshes Library" description="Simple example showing how to load assets from the Babylon.js meshes library." image=""/>
+ <Playground id="#IX12S2" title="Loading Assets From The Babylon.js Meshes Library" description="Simple example showing how to load assets from the Babylon.js meshes library."/>
 
 ## From Gitlab.com
 
@@ -113,7 +113,7 @@ It can be used in this way:
 BABYLON.SceneLoader.ImportMesh("", "https://dl.dropbox.com/s/rANdoMGeneR4tedLink/", "my-file.glb", scene);
 ```
 
- <Playground id="#8LFTCH#14" title="Loading Assets From Dropbox" description="Simple example of loading assets from dropbox." image=""/>
+ <Playground id="#8LFTCH#14" title="Loading Assets From Dropbox" description="Simple example of loading assets from dropbox."/>
 
 ## From imgur.com
 
@@ -128,7 +128,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://dl.dropbox.com/s/rANdoMGeneR4tedLink
 var texture = new BABYLON.Texture("https://i.imgur.com/yn98ktz.png", scene);
 ```
 
- <Playground id="#UNEWTE" title="Loading Assets From Imgur" description="Simple example of loading assets from imgur." image=""/>
+ <Playground id="#UNEWTE" title="Loading Assets From Imgur" description="Simple example of loading assets from imgur."/>
 
 ## Embedded assets 
 
@@ -151,7 +151,7 @@ Note that you need to use `Append` so you can define the plugin to use as there 
     }, null, null, ".gltf");
 ```
 
- <Playground id="#KEY4S4" title="Loading Embedded Assest" description="Simple example showing how to load embedded assets." image=""/>
+ <Playground id="#KEY4S4" title="Loading Embedded Assest" description="Simple example showing how to load embedded assets."/>
 
 ## Javascript files
 
@@ -175,4 +175,4 @@ var createScene = function() {
 }
 ```
 
- <Playground id="#WF3VKZ" title="Loading Embeded Assets (javascript)" description="Another example of loading embedded assets." image=""/>
+ <Playground id="#WF3VKZ" title="Loading Embeded Assets (javascript)" description="Another example of loading embedded assets."/>

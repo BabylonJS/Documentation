@@ -727,8 +727,8 @@ var wall = buildFromPlan(walls, ply, height, {interior:true}, scene);
 You can add doors and windows (?hatches) to these walls as well.
 
 ## Playground Examples
-PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Example of a House Built from a FloorPlan." image=""/>  
-PG: <Playground id="#1Z71FW#103" title="Wall From Floorplan 1" description="Example of None Enclosing Wall." image=""/>  
-PG: <Playground id="#1Z71FW#102" title="Wall From Floorplan 2" description="Example of None Enclosing Wall with texture." image=""/>  
-PG: <Playground id="#1Z71FW#45" title="House and Interior Walls" description="Example of House with interior walls." image=""/>
+PG: <Playground id="#4GBWI5#265" title="House From Floorplan" description="Example of a House Built from a FloorPlan."/>  
+PG: <Playground id="#1Z71FW#103" title="Wall From Floorplan 1" description="Example of None Enclosing Wall."/>  
+PG: <Playground id="#1Z71FW#102" title="Wall From Floorplan 2" description="Example of None Enclosing Wall with texture."/>  
+PG: <Playground id="#1Z71FW#45" title="House and Interior Walls" description="Example of House with interior walls."/>
 

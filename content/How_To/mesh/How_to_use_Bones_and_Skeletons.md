@@ -77,7 +77,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 });
 ```
 
-A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." image=""/>
+A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones."/>
 
 ## Cloning bones
 
@@ -158,7 +158,7 @@ sword.attachToBone(skeleton.bones[34], character);
 ```
 
 Please note that you also need to specify on which mesh the bone is currently applied.
-You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone." image=""/>
+You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone."/>
 
 ## Rotating, Positioning, and Scaling bones
 
@@ -174,8 +174,8 @@ To rotate a bone around an axis, use the rotate function:
 bone.rotate(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
 
--   <Playground id="#D4ZZ8#2" title="Rotated World Space" description="Simple example of rotating bones in world space." image=""/>
--   <Playground id="#D4ZZ8#4" title="Rotated Local Space" description="Simple example of rotating bones in local space." image=""/>
+-   <Playground id="#D4ZZ8#2" title="Rotated World Space" description="Simple example of rotating bones in world space."/>
+-   <Playground id="#D4ZZ8#4" title="Rotated Local Space" description="Simple example of rotating bones in local space."/>
 
 setAxisAngle, setYawPitchRoll, setRotation, or setRotationMatrix are used to rotate a bone to a specific rotation.
 
@@ -183,34 +183,34 @@ setAxisAngle, setYawPitchRoll, setRotation, or setRotationMatrix are used to rot
 bone.setAxisAngle(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
 
--   setAxisAngle world space: <Playground id="#D4ZZ8#8" title="SetAxisAngle World Space Demo 1" description="Simple example of using the setAxisAngle property in world space." image=""/>
--   setAxisAngle world space: <Playground id="#D4ZZ8#9" title="SetAxisAngle World Space Demo 2" description="Simple example of using the setAxisAngle property in world space." image=""/>
--   setAxisAngle local space: <Playground id="#D4ZZ8#10" title="SetAxisAngle Local Space Demo 1" description="Simple example of using the setAxisAngle property in local space." image=""/>
--   setAxisAngle local space: <Playground id="#D4ZZ8#11" title="SetAxisAngle Local Space Demo 2" description="Simple example of using the setAxisAngle property in local space." image=""/>
+-   setAxisAngle world space: <Playground id="#D4ZZ8#8" title="SetAxisAngle World Space Demo 1" description="Simple example of using the setAxisAngle property in world space."/>
+-   setAxisAngle world space: <Playground id="#D4ZZ8#9" title="SetAxisAngle World Space Demo 2" description="Simple example of using the setAxisAngle property in world space."/>
+-   setAxisAngle local space: <Playground id="#D4ZZ8#10" title="SetAxisAngle Local Space Demo 1" description="Simple example of using the setAxisAngle property in local space."/>
+-   setAxisAngle local space: <Playground id="#D4ZZ8#11" title="SetAxisAngle Local Space Demo 2" description="Simple example of using the setAxisAngle property in local space."/>
 
 ```javascript
 bone.setYawPitchRoll(yaw, pitch, roll, BABYLON.Space.WORLD, mesh);
 ```
 
-<Playground id="#I6RJJ#56" title="Set Yaw Pitch Roll Example" description="Simple example of using the setYawPitchRoll method." image=""/>
+<Playground id="#I6RJJ#56" title="Set Yaw Pitch Roll Example" description="Simple example of using the setYawPitchRoll method."/>
 
 ```javascript
 bone.setRotation(rotation, BABYLON.Space.WORLD, mesh);
 ```
 
-<Playground id="#I6RJJ#60" title="setRotation Example" description="Simple example of using the setRotation method." image=""/>
+<Playground id="#I6RJJ#60" title="setRotation Example" description="Simple example of using the setRotation method."/>
 
 ```javascript
 bone.setRotationQuaternion(quat, BABYLON.Space.WORLD, mesh);
 ```
 
-<Playground id="#I6RJJ#61" title="setRotationQuaternion Example" description="Simple example of using the setRotationQuaternion method." image=""/>
+<Playground id="#I6RJJ#61" title="setRotationQuaternion Example" description="Simple example of using the setRotationQuaternion method."/>
 
 ```javascript
 bone.setRotationMatrix(rotMat, BABYLON.Space.WORLD, mesh);
 ```
 
-<Playground id="#I6RJJ#57" title="setRotationMatrix Example" description="Simple example of using the setRotationMatrix method." image=""/>
+<Playground id="#I6RJJ#57" title="setRotationMatrix Example" description="Simple example of using the setRotationMatrix method."/>
 
 Use getRotation or getRotationToRef to get the Vector3 rotation of a bone.
 
@@ -224,7 +224,7 @@ var rotation = BABYLON.Vector3.Zero();
 bone.getRotationToRef(BABYLON.Space.WORLD, mesh, rotation);
 ```
 
-<Playground id="#1EVNNB#12" title="getRotationToRef Example" description="Simple example of using the getRotationToRef method." image=""/>
+<Playground id="#1EVNNB#12" title="getRotationToRef Example" description="Simple example of using the getRotationToRef method."/>
 
 Use getRotationQuaternion or getRotationQuaternionToRef to get the Quaternion rotation of a bone.
 
@@ -238,7 +238,7 @@ var rotationQuaternion = BABYLON.Vector3.Zero();
 bone.getRotationQuaternionToRef(BABYLON.Space.WORLD, mesh, rotationQuaternion);
 ```
 
-<Playground id="#1EVNNB#11" title="getRotationQuaternionToRef Example" description="Simple example of using the getRotationQuaternionToRef method." image=""/>
+<Playground id="#1EVNNB#11" title="getRotationQuaternionToRef Example" description="Simple example of using the getRotationQuaternionToRef method."/>
 
 You can also use `bone.rotation` to set and get local space rotation quaternion.
 
@@ -252,7 +252,7 @@ One way to do this is by translating the bone from its current position.
 bone.translate(x, y, z, BABYLON.Space.WORLD, mesh);
 ```
 
-<Playground id="#1BZJVJ#32" title="translate Example" description="Simple example of using the translate method." image=""/>
+<Playground id="#1BZJVJ#32" title="translate Example" description="Simple example of using the translate method."/>
 
 If you need to set the bone to a specific location, use setPosition.
 
@@ -260,8 +260,8 @@ If you need to set the bone to a specific location, use setPosition.
 bone.setPosition(pos, BABYLON.Space.WORLD, mesh);
 ```
 
--   <Playground id="#1BZJVJ#33" title="setPosition Example 1" description="Simple example of using the setPosition method." image=""/>
--   <Playground id="#1BZJVJ#34" title="setPosition Example 2" description="Simple example of using the setPosition method." image=""/>
+-   <Playground id="#1BZJVJ#33" title="setPosition Example 1" description="Simple example of using the setPosition method."/>
+-   <Playground id="#1BZJVJ#34" title="setPosition Example 2" description="Simple example of using the setPosition method."/>
 
 To get the position of a bone, use getPosition or getPositionToRef.
 
@@ -275,7 +275,7 @@ var pos = BABYLON.Vector3.Zero();
 bone.getPositionToRef(BABYLON.Space.WORLD, mesh, pos);
 ```
 
-<Playground id="#1EVNNB#14" title="getPositionToRef Example" description="Simple example of using the getPositionToRef method." image=""/>
+<Playground id="#1EVNNB#14" title="getPositionToRef Example" description="Simple example of using the getPositionToRef method."/>
 
 You can also use `bone.position` to set and get local space position.
 
@@ -287,11 +287,11 @@ You can scale a bone on the local x, y, z axes of the bone (it is a cumulative e
 bone.scale(scaleX, scaleY, scaleZ);
 ```
 
-<Playground id="#1EVNNB#9" title="scale Example" description="Simple example of using the scale method." image=""/>
+<Playground id="#1EVNNB#9" title="scale Example" description="Simple example of using the scale method."/>
 
 The last parameter of scale is scaleChildren. Set scaleChildren to true if you want the scale to affect all the children / descendants of the bone. By default this parameter is off.
 
-<Playground id="#1BZJVJ#117" title="scale Children Example" description="Simple example of using the scale method." image=""/>
+<Playground id="#1BZJVJ#117" title="scale Children Example" description="Simple example of using the scale method."/>
 
 scale is called on every frame, because the character's animation resets the scale of the bones.
 
@@ -301,7 +301,7 @@ The setScale function can be used to directly set a bone to a certain scale vect
 bone.setScale(scaleVector);
 ```
 
-<Playground id="#D9U0UW#1" title="setScale Example" description="Simple example of using the setScale method." image=""/>
+<Playground id="#D9U0UW#1" title="setScale Example" description="Simple example of using the setScale method."/>
 
 Use getScale or getScaleToRef to get the current scale of a bone.
 
@@ -335,7 +335,7 @@ scene.registerBeforeRender(function () {
 });
 ```
 
-<Playground id="#1B1PUZ#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method." image=""/>
+<Playground id="#1B1PUZ#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method."/>
 
 ### BoneIKController
 
@@ -380,7 +380,7 @@ scene.registerBeforeRender(function () {
 });
 ```
 
-<Playground id="#1EVNNB#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method." image=""/>
+<Playground id="#1EVNNB#15" title="registerBeforeRender Example" description="Simple example of using the registerBeforeRender method."/>
 
 If you used a mesh for a target, you can hide it by setting enabled to false.
 
@@ -445,7 +445,7 @@ let displayModeOptions {
 };
 ```
 
-<Playground id="#BCU1XR#1616" title="New Viewer Example" description="Simple example of using the new viewer." image=""/>
+<Playground id="#BCU1XR#1616" title="New Viewer Example" description="Simple example of using the new viewer."/>
 
 #### Debug Shader Usage
 
@@ -478,7 +478,7 @@ let colorMapItem = {
 ```
 
 This array is expected to have the items arranged with their location value in ascending order.
-<Playground id="#BCU1XR#1618" title="Skeleteon Map Shader" description="Simple example of using the skeleton map shader." image=""/>
+<Playground id="#BCU1XR#1618" title="Skeleteon Map Shader" description="Simple example of using the skeleton map shader."/>
 
 ##### BoneWeight Shader
 
@@ -508,4 +508,4 @@ The bone that is to be displayed is controlled by setting a uniform on the shade
 boneWeightShader.setFloat(targetBoneIndex, index);
 ```
 
-<Playground id="#1BZJVJ#395" title="Bone Weight Shader" description="Simple example of using the bone weight shader." image=""/>
+<Playground id="#1BZJVJ#395" title="Bone Weight Shader" description="Simple example of using the bone weight shader."/>

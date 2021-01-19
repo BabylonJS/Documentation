@@ -51,4 +51,4 @@ function showWorldAxis(size) {
 
 ## Playground
 
-<Playground id="#2EYZPE" title="Displaying World Axes" description="" image=""/>
+<Playground id="#2EYZPE" title="Displaying World Axes" description=""/>

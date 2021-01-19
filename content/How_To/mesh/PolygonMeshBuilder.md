@@ -50,7 +50,7 @@ var polygon = polygon_triangulation.build(true, 1.4);
 ```
 ## Examples
 Each example contains polygons described with vector2s and with Path2
-Simple Polygons: <Playground id="#2NJYI5" title="Simple Polygons" description="Example of creating simple polygons with Mesh Builder." image=""/> 
-Simple Extruded Polygons: <Playground id="#2NJYI5#1" title="Simple Extruded Polygons" description="Example of simple extruded polygons with Mesh Builder." image=""/>
-Polygons with holes: <Playground id="#2NJYI5#2" title="Polygons With Holes" description="Example of creating polygons with holes." image=""/>
-Extruded Polygons with holes: <Playground id="#2NJYI5#3" title="Extruded Polygons With Holes" description="Example of extruding polygons with holes." image=""/>
+Simple Polygons: <Playground id="#2NJYI5" title="Simple Polygons" description="Example of creating simple polygons with Mesh Builder."/> 
+Simple Extruded Polygons: <Playground id="#2NJYI5#1" title="Simple Extruded Polygons" description="Example of simple extruded polygons with Mesh Builder."/>
+Polygons with holes: <Playground id="#2NJYI5#2" title="Polygons With Holes" description="Example of creating polygons with holes."/>
+Extruded Polygons with holes: <Playground id="#2NJYI5#3" title="Extruded Polygons With Holes" description="Example of extruding polygons with holes."/>

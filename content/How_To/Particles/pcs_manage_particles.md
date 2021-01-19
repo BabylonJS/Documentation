@@ -79,19 +79,19 @@ scene.registerBeforeRender(() => {
 
 The particle `pivot` vector is also in *local space* of the PCS mesh. By default rotations around a pivot are calculated by translating the particle to the pivot point, then rotating it and then the inverse translation applied. By setting the particle method `translateFromPivot` to `true` (default `false`) rotations will only be calculated using the initial translation followed by the rotation leaving the particle at the translated location.  
 
-<Playground id="#UI95UC#12" title="Simple Animation" description="Simple example of animating a point cloud system." image=""/>
+<Playground id="#UI95UC#12" title="Simple Animation" description="Simple example of animating a point cloud system."/>
 
 In the following playground the particle pivots in the top PCS are set relative to the particle position and in the lower one are set in the same place.
-<Playground id="#UI95UC#14" title="Pivot Animation Example 1" description="Simple example of animating the pivot point of a point cloud system." image=""/>
+<Playground id="#UI95UC#14" title="Pivot Animation Example 1" description="Simple example of animating the pivot point of a point cloud system."/>
 
 In this playground the only difference is that the lower PCS has `translateFromPivot` set to `true`.
-<Playground id="#UI95UC#15" title="Pivot Animation Example 2" description="Simple example of animating the pivot point of a point cloud system." image=""/>
+<Playground id="#UI95UC#15" title="Pivot Animation Example 2" description="Simple example of animating the pivot point of a point cloud system."/>
 
 This playground animates the mesh not the particles.
-<Playground id="#UI95UC#16" title="Immutable Animation" description="Simple example of point cloud system immutable animation." image=""/>
+<Playground id="#UI95UC#16" title="Immutable Animation" description="Simple example of point cloud system immutable animation."/>
 
 This playground loads meshes from a file, converts to particles and animates
-<Playground id="#UI95UC#17" title="Loaded Mesh Animation" description="Simple example of point cloud system animation based on loaded mesh animation." image=""/>
+<Playground id="#UI95UC#17" title="Loaded Mesh Animation" description="Simple example of point cloud system animation based on loaded mesh animation."/>
 
 ### UVs
 
@@ -123,8 +123,8 @@ var myfunc = function(particle) {
 
 It is possible to use a texture atlas but you need to customize and calculate the more complex relationship between positional and uv values.
 
-<Playground id="#UI95UC#23" title="UV With Added Points" description="Simple example of updating the UVs and adding points of a point cloud system." image=""/>
-<Playground id="#UI95UC#24" title="UV With Texture Atlas" description="Simple example of updating the UVs of a point cloud system with textured atlas." image=""/>
+<Playground id="#UI95UC#23" title="UV With Added Points" description="Simple example of updating the UVs and adding points of a point cloud system."/>
+<Playground id="#UI95UC#24" title="UV With Texture Atlas" description="Simple example of updating the UVs of a point cloud system with textured atlas."/>
 
 ### Recycling Particles
 
@@ -146,7 +146,7 @@ pcs.updateParticle = function(particle) {
 }
 ```
 
-<Playground id="#UI95UC#19" title="Recycling Animations" description="Simple example of recycling animations of a point cloud system." image=""/>
+<Playground id="#UI95UC#19" title="Recycling Animations" description="Simple example of recycling animations of a point cloud system."/>
 
 ### Particle Parenting  
 
@@ -170,7 +170,7 @@ if (particle.idx > 0) {
     particle.position.x = 1.0;
 }
 ```
- <Playground id="#UI95UC#18" title="Parent Animation" description="Simple example of animating a point cloud system parent." image=""/>
+ <Playground id="#UI95UC#18" title="Parent Animation" description="Simple example of animating a point cloud system parent."/>
 
 ### Particle Intersections
      
@@ -191,5 +191,5 @@ if (particle.intersectsMesh(mesh, true) {
 }; 
 ```
 
-<Playground id="#UI95UC#20" title="Recycling Particle Collisions" description="Simple example of recycling particle collisions of a point cloud system." image=""/>
-<Playground id="#UI95UC#21" title="Mesh Colliding With Point Cloud" description="Simple example of a mesh colliding with a point cloud." image=""/>
+<Playground id="#UI95UC#20" title="Recycling Particle Collisions" description="Simple example of recycling particle collisions of a point cloud system."/>
+<Playground id="#UI95UC#21" title="Mesh Colliding With Point Cloud" description="Simple example of a mesh colliding with a point cloud."/>

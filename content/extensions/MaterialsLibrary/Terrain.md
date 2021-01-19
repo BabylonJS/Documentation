@@ -12,7 +12,7 @@ video-content:
 
 ## Playground example
 
-PG: <Playground id="#E6OZX#7" title="Terrain Material" description="Example of terrain material" image=""/>
+PG: <Playground id="#E6OZX#7" title="Terrain Material" description="Example of terrain material"/>
 
 ## Using the terrain material
 

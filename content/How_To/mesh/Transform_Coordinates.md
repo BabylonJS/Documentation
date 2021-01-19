@@ -38,7 +38,7 @@ The following code gives the animation.
     })
 ```
 
-Small box travels from Large Box: <Playground id="#TRAIXW#2" title="Small Box Travels From Large Box" description="Simple example of a small box traveling from a large box." image=""/>
+Small box travels from Large Box: <Playground id="#TRAIXW#2" title="Small Box Travels From Large Box" description="Simple example of a small box traveling from a large box."/>
 
 ## Disc World
 
@@ -59,6 +59,6 @@ The building will be an array of boxes. Leaving the boxes as separate meshes wou
 
     });
 ```
-Disc World: <Playground id="#TRAIXW#5" title="Disc World" description="Simple example of a disc world with coordinate transformation." image=""/>
+Disc World: <Playground id="#TRAIXW#5" title="Disc World" description="Simple example of a disc world with coordinate transformation."/>
 
 One final step before considering using patents and pivots as a way of changing the center of transformation of a mesh is the more drastic step of changing the vertex data describing the mesh itself by baking a transformation into a mesh.

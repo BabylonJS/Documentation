@@ -101,7 +101,7 @@ The parameters are
 - _frameID_ - _(number)_ the index number in the frames array
 
 
-A 2 x 2 single layer sprite map, JSON loaded from file: <Playground id="#YCY2IL#14" title="Single Layer Sprite Map From A File" description="Simple example of a 2x2 single layer sprite map loaded from a .json file." image=""/>
+A 2 x 2 single layer sprite map, JSON loaded from file: <Playground id="#YCY2IL#14" title="Single Layer Sprite Map From A File" description="Simple example of a 2x2 single layer sprite map loaded from a .json file."/>
 
 Once created you can export the sprite map to save it and then load it into another sprite sheet of the same structure.
 

@@ -63,7 +63,7 @@ var createScene = async function () {
 };
 ```
 
-Playground for a simple immersive AR scene: <Playground id="#F41V6N#32" title="Simple Immersive AR Scene" description="Simple example of an immersive AR scene." image=""/>
+Playground for a simple immersive AR scene: <Playground id="#F41V6N#32" title="Simple Immersive AR Scene" description="Simple example of an immersive AR scene."/>
 
 Notice that no environment was created. As opposed to immersive VR sessions, AR doesn't require a skybox or ground. If you want to define ground and remove it when entering AR (for example if you develop an experience for both desktop and AR) you can use the background remover feature, defined later in this page.
 
@@ -171,7 +171,7 @@ hitTest.onHitTestResultObservable.add((results) => {
 
 This will show the dot only if hit-test worked, and will hide it if it didn't. The dot will be projected to the real world using the information provided by the system.
 
-A simple example for WebXR hit-test using Babylon.js: <Playground id="#XWBES1" title="WebXR Hit-Test Using Babylon.js" description="Simple example of WebXR hit testing." image=""/>. Open this with your AR device (probably your android smartphone) and point the device at a textured plane (like your floor or door). The marker will be shown at the right location if/when the system scanned the plane correctly. 
+A simple example for WebXR hit-test using Babylon.js: <Playground id="#XWBES1" title="WebXR Hit-Test Using Babylon.js" description="Simple example of WebXR hit testing."/>. Open this with your AR device (probably your android smartphone) and point the device at a textured plane (like your floor or door). The marker will be shown at the right location if/when the system scanned the plane correctly. 
 
 ### Anchors
 

@@ -176,4 +176,4 @@ When created in improvement mode (4th parameter of the constructor), the SceneOp
 Please note that when in improvement mode, the optimizations will adapt their behavior automatically (for instance, the ShadowsOptimization will turn shadows on instead of off).
 
 ## Demo
-A demo can be found here: <Playground id="#3Q8PCL" title="Scene Optimizer Example" description="Simple example of how to use the scene optimizer." image=""/>
+A demo can be found here: <Playground id="#3Q8PCL" title="Scene Optimizer Example" description="Simple example of how to use the scene optimizer."/>

@@ -48,10 +48,10 @@ dashSize = 876;
 gapSize = dashSize;
 ```
 ### Examples
-non updatable default dashed lines: <Playground id="#TYF5GH#1" title="Create Non Updatable Default Dashed Lines" description="Simple example of creating non updatable default dashed lines." image=""/> 
-non updatable dashed lines set options: <Playground id="#TYF5GH#2" title="Create Non Updatable Dashed Lines With Options" description="Simple example of creating non updatable dashed lines with options." image=""/>
-non updatable 'closed' dashed lines: <Playground id="#TYF5GH#3" title="Create Non Updatable Closed Dashed Lines" description="Simple example of creating non updatable closed dashed lines." image=""/>
-updatable example: <Playground id="#TYF5GH#4" title="Create Updatable Closed Dashed Lines" description="Simple example of creating updatable closed dashed lines." image=""/>
+non updatable default dashed lines: <Playground id="#TYF5GH#1" title="Create Non Updatable Default Dashed Lines" description="Simple example of creating non updatable default dashed lines."/> 
+non updatable dashed lines set options: <Playground id="#TYF5GH#2" title="Create Non Updatable Dashed Lines With Options" description="Simple example of creating non updatable dashed lines with options."/>
+non updatable 'closed' dashed lines: <Playground id="#TYF5GH#3" title="Create Non Updatable Closed Dashed Lines" description="Simple example of creating non updatable closed dashed lines."/>
+updatable example: <Playground id="#TYF5GH#4" title="Create Updatable Closed Dashed Lines" description="Simple example of creating updatable closed dashed lines."/>
 
 Dashed lines are colored with a color property rather than a material.
 
@@ -59,7 +59,7 @@ Dashed lines are colored with a color property rather than a material.
 dashedlines.color = new BABYLON.Color3(1, 0, 0);
 ```
 
-Colored Dashed Lines: <Playground id="#TYF5GH#5" title="Create Colored Dashed Lines" description="Simple example of creating colored dashed lines." image=""/>
+Colored Dashed Lines: <Playground id="#TYF5GH#5" title="Create Colored Dashed Lines" description="Simple example of creating colored dashed lines."/>
 
 ## Mesh
 Usage:

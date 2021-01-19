@@ -50,4 +50,4 @@ The following features are not supported by GPU particles due to their inner nat
 
 ## Example
 
-GPU Particles: <Playground id="#PU4WYI#4" title="GPU Particles Example" description="Simple example of a GPU particle systems." image=""/>
+GPU Particles: <Playground id="#PU4WYI#4" title="GPU Particles Example" description="Simple example of a GPU particle systems."/>

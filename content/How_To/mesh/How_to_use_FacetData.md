@@ -90,19 +90,19 @@ mesh.computeWorldMatrix(true);      // force the world matrix computation
 var norm = mesh.getFacetNormal(50); // returns the world normal of the mesh 50th facet
 ```
 #### Examples :  
-Displaying all the facet normals of an icosphere: <Playground id="#1YTZAC" title="Displaying Facet Data" description="Simple example of displaying all the facet normals of an icosphere." image=""/>
-Just change the mesh shape, torus knot : <Playground id="#1YTZAC#1" title="Displaying Facet Data - Torus Knot" description="Simple example of displaying all the facet normals of a torus knot." image=""/> 
-Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates: <Playground id="#1YTZAC#3" title="Displaying Facet Data" description="Simple example of displaying all the facet normals." image=""/> 
-Of course, you can add some translation to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals." image=""/>   
+Displaying all the facet normals of an icosphere: <Playground id="#1YTZAC" title="Displaying Facet Data" description="Simple example of displaying all the facet normals of an icosphere."/>
+Just change the mesh shape, torus knot : <Playground id="#1YTZAC#1" title="Displaying Facet Data - Torus Knot" description="Simple example of displaying all the facet normals of a torus knot."/> 
+Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates: <Playground id="#1YTZAC#3" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/> 
+Of course, you can add some translation to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>   
 
 Note also that the facet index is the same than the facet id `faceId` used by the pickingInfo object or the `faceId` used by the SPS when pickable.  
-Here is an example combining pickingInfo, pickable SPS and facetData facet index: <Playground id="#2FPT1A#119" title="Combining pickingInfo and facetData" description="Simple example combining pickingInfo, pickable SPS and facetData facet index." image=""/> 
+Here is an example combining pickingInfo, pickable SPS and facetData facet index: <Playground id="#2FPT1A#119" title="Combining pickingInfo and facetData" description="Simple example combining pickingInfo, pickable SPS and facetData facet index."/> 
 Just click and the ball is positionned at the clicked facet position, not a the clicked point.    
 
 ### Mesh partitioning
 The feature `facetData` provides also another tool called the mesh partitioning.  
 The mesh is logically divided in 3D blocks aligned with the X, Y and Z axis in its local space.  
-Here's an illustration about how this logical partitioning looks like (please wait until the skull is downloaded): <Playground id="#UZGNA#5" title="Mesh Partitioning" description="Simple example of mesh partitioning." image=""/> 
+Here's an illustration about how this logical partitioning looks like (please wait until the skull is downloaded): <Playground id="#UZGNA#5" title="Mesh Partitioning" description="Simple example of mesh partitioning."/> 
 In order to improve the visibility, the planes along the axis Z weren't displayed.  
 As you can see, there are by default 10 subdivisions on each axis.  
 When you call `updateFacetData()`, the indexes of the all the facets are sorted in the partioning array according to the facet belonging to each block.  
@@ -189,7 +189,7 @@ A rotating torus knot with facet data enabled and a Solid Particle System (SPS) 
 * get the torus closest facet to the particle,
 * if any, bounce back the particle.    
 
- <Playground id="#7ATLX" title="Rotating Torus Knot With Facet Data" description="Simple example of rotating torus knot with facet data." image=""/>
+ <Playground id="#7ATLX" title="Rotating Torus Knot With Facet Data" description="Simple example of rotating torus knot with facet data."/>
 
 ### Tweaking the partitioning
 By default, the partitioning is set to 10 subdivisions per axis. These subdivisions are applied to the mesh bounding box.  
@@ -216,8 +216,8 @@ mesh.updateFacetData();              // now the internal block area if 5% bigger
 ```
 
 In order to understand, here are two examples :   
-ratio = 1.20 (20% bigger) <Playground id="#UZGNA#6" title="Partitioning With a Larger Ratio" description="Simple example of partitioning with a larger ratio." image=""/>   
-ratio = 0.80  (20% smaller) <Playground id="#UZGNA#7" title="Partitioning With a Smaller Ratio" description="Simple example of partitioning with a smaller ratio." image=""/>    
+ratio = 1.20 (20% bigger) <Playground id="#UZGNA#6" title="Partitioning With a Larger Ratio" description="Simple example of partitioning with a larger ratio."/>   
+ratio = 0.80  (20% smaller) <Playground id="#UZGNA#7" title="Partitioning With a Smaller Ratio" description="Simple example of partitioning with a smaller ratio."/>    
 Those examples aren't pertinent, because the values are too big or too small : the block area is too far from the mesh or inside the mesh.  
 Right values should keep between 1.0 and 1.10.  
 
@@ -269,14 +269,14 @@ scene.registerBeforeRender(function() {
 });
 ```
 Example :   
-Custom simple physics on a dynamically morphed ribbon: <Playground id="#XVGK0#3" title="Physics On A Morphed Ribbon" description="Simple example of custom simple physics on a dynamically morphed ribbon." image=""/>
+Custom simple physics on a dynamically morphed ribbon: <Playground id="#XVGK0#3" title="Physics On A Morphed Ribbon" description="Simple example of custom simple physics on a dynamically morphed ribbon."/>
 
 
 ### Facet Depth Sort  
 
  As you may know, for performance reasons, the facets of a given mesh are always drawn in the same order. This comes to visual issues when the mesh is transparent, concave and is no longer oriented in the right place from the camera :
 
-<Playground id="#FWKUY0" title="Facet Depth Sort 1" description="Simple example of using facet depth sort." image=""/>
+<Playground id="#FWKUY0" title="Facet Depth Sort 1" description="Simple example of using facet depth sort."/>
 
 This new feature solves the self transparency issue by sorting the mesh facets from some location (the camera position by default) just before drawing them.  
 The mesh is **required** to be `updatable`.  
@@ -291,7 +291,7 @@ mesh.mustDepthSortFacets = true;             // enable the depth sort, can be di
 scene.registerBeforeRender(function() {
 mesh.updateFacetData();     // sort the facets each frame
 ```
-Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simple example of using facet depth sort." image=""/>
+Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simple example of using facet depth sort."/>
 
 Depth sorted on the left, standard on the right.  
 

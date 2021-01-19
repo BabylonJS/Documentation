@@ -35,8 +35,8 @@ sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order;
 
 ## Examples
-Extruded Polygon: <Playground id="#KIEYA6" title="Extruding Irregular Polygons" description="Simple example of extruding irregular polygons." image=""/>
-Extruded Polygons using faceUV, one with wrap, one without: <Playground id="#KIEYA6#1" title="Extruding Irregular Polygons Advanced" description="Simple example of extruding irregular polygons." image=""/>
+Extruded Polygon: <Playground id="#KIEYA6" title="Extruding Irregular Polygons" description="Simple example of extruding irregular polygons."/>
+Extruded Polygons using faceUV, one with wrap, one without: <Playground id="#KIEYA6#1" title="Extruding Irregular Polygons Advanced" description="Simple example of extruding irregular polygons."/>
 
 
 ## Mesh

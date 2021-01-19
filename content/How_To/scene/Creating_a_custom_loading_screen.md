@@ -81,7 +81,7 @@ engine.hideLoadingUI();
 
 Here a playground using a custom loading screen:
 
-<Playground id="#5Y2GIC#39" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen." image=""/>
+<Playground id="#5Y2GIC#39" title="Custom Loading Screen Example" description="Simple example showing how to create and use a custom loading screen."/>
 
 You might also be interested in a standalone html example:
 

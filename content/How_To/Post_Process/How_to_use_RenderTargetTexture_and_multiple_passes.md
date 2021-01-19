@@ -45,7 +45,7 @@ mat.diffuseTexture = renderTarget;
 
 In the example we only add half of the spheres to the RTT, showing how you can selectively pick the objects rendered there.
 
-Playground example: <Playground id="#69DRZ1" title="Render Target Texture" description="Simple example of using the render target texture." image=""/>
+Playground example: <Playground id="#69DRZ1" title="Render Target Texture" description="Simple example of using the render target texture."/>
 
 ## Making multiple passes and composing them
 
@@ -100,7 +100,7 @@ scene.postProcessRenderPipelineManager.addPipeline(pipeline);
 scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline('pipeline', camera);
 ```
 
-Playground example: <Playground id="#TG2B18" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture." image=""/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
+Playground example: <Playground id="#TG2B18" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture."/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
 
 ## Performance and tips
 
@@ -214,7 +214,7 @@ engine.runRenderLoop(() => {
 
 The example has the complete code, including animated objects and instances. You could freeze some meshes with `scene.freezeActiveMeshes()` to improve the performance even further.
 
-Playground example: <Playground id="#S1W87B#5" title="Performance Example" description="Example of managing performance when running multiple passes." image=""/>
+Playground example: <Playground id="#S1W87B#5" title="Performance Example" description="Example of managing performance when running multiple passes."/>
 
 ### Notes about your shader
 

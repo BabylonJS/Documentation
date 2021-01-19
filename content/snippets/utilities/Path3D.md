@@ -34,4 +34,4 @@ function showPath3D(path3d, size) {
 ```
 ## Playground
 
-<Playground id="#2IX4FB" title="Display Path3D Info" description="" image=""/>
+<Playground id="#2IX4FB" title="Display Path3D Info" description=""/>

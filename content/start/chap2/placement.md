@@ -63,7 +63,7 @@ Rotations are given in radians. If you prefer working in degrees Babylon.js prov
 
 ```javascript
 box.rotation.y = Math.PI / 4;
-box.rotation.y = BABYLON.Tools.toDegrees(45);
+box.rotation.y = BABYLON.Tools.ToRadians(45);
 ```
 
 <Playground id="#KBS9I5#69" title="Rotating Meshes" description="A playground demonstrating how to rotate a mesh in your scene." image="/img/playgroundsAndNMEs/gettingStartedRotatingMeshes.jpg"/>

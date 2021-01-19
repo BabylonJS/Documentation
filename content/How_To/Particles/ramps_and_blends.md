@@ -37,7 +37,7 @@ particleSystem.useRampGradients = true;
 
 By default the alpha value of the particle (built from `textureAlpha * particleColorAlpha`) is used to as the index get the ramp color from the ramp gradient using this formula: `finalColor = textureColor * particleColor * rampColor`.
 
-Ramp gradient: <Playground id="#0K3AQ2#42" title="Ramp Gradient Example" description="Simple example of using ramp gradients." image=""/>
+Ramp gradient: <Playground id="#0K3AQ2#42" title="Ramp Gradient Example" description="Simple example of using ramp gradients."/>
 
 To give you more control you can use a remap function to change the index over time with  
 ```javascript
@@ -56,7 +56,7 @@ particleSystem.addColorRemapGradient(1.0, 0.95, 1.0);
 
 The color remap gradients define a min and max that will vary over the particle lifetime.  The index is then remapped from [min, max] to [0, 1] with this formula: `finalIndex = clamp((index - min) / (max - min), 0.0, 1.0)`.
 
-With remap over lifetime of particle: <Playground id="#0K3AQ2#43" title="Ramp Gradient With Remap Over Liftetime" description="Simple example of using ramp gradients with a remap over the lifetime of the particle." image=""/>
+With remap over lifetime of particle: <Playground id="#0K3AQ2#43" title="Ramp Gradient With Remap Over Liftetime" description="Simple example of using ramp gradients with a remap over the lifetime of the particle."/>
 
 Ultimately you can also remap the alpha value generated per pixel with:
 ```
@@ -103,8 +103,8 @@ particleSystem.billboardMode = BABYLON.ParticleSystem.BILLBOARDMODE_STRETCHED;
 ```
 
 ## Examples
-Billboard mode Y - steam: <Playground id="#B9HKG0#0" title="Billboard Mode Y" description="Simple example of using billboard mode in Y." image=""/>
-Billboard false - spherical: <Playground id="#EV0SEQ" title="Billboard Mode False" description="Simple example of setting billboard mode to false." image=""/>
-Multiply blend mode - smoke pillar: <Playground id="#KUDH9F#1" title="Multiply Blend Mode" description="Simple example of setting particle blend mode to multiply." image=""/>
-Add blend mode and billboard mode stretched - sparks (select scene, press space): <Playground id="#5A4TP5" title="Add Blend Mode And Stretched Billboard Mode" description="Simple example of setting particle blend mode to add and billboard mode to stretched." image=""/>
-Ramp and blend - explosion (select scene, press space): <Playground id="#VS5XS7#0" title="Ramp and Blend" description="Simple example of a ramp and blend." image=""/>
+Billboard mode Y - steam: <Playground id="#B9HKG0#0" title="Billboard Mode Y" description="Simple example of using billboard mode in Y."/>
+Billboard false - spherical: <Playground id="#EV0SEQ" title="Billboard Mode False" description="Simple example of setting billboard mode to false."/>
+Multiply blend mode - smoke pillar: <Playground id="#KUDH9F#1" title="Multiply Blend Mode" description="Simple example of setting particle blend mode to multiply."/>
+Add blend mode and billboard mode stretched - sparks (select scene, press space): <Playground id="#5A4TP5" title="Add Blend Mode And Stretched Billboard Mode" description="Simple example of setting particle blend mode to add and billboard mode to stretched."/>
+Ramp and blend - explosion (select scene, press space): <Playground id="#VS5XS7#0" title="Ramp and Blend" description="Simple example of a ramp and blend."/>

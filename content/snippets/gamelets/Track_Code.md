@@ -249,5 +249,5 @@ var createTrack = function(points, sections) {
 ```
 ## Playground Example
 
-PG: <Playground id="#HSMDF2#10" title="Set Carriage Variables" description="Shows how the carriage behaves on varying its parameters." image=""/>
+PG: <Playground id="#HSMDF2#10" title="Set Carriage Variables" description="Shows how the carriage behaves on varying its parameters."/>
   

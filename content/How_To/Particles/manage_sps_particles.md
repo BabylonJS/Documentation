@@ -59,17 +59,17 @@ Setting the *pivot* vector value to a particle applies it as a translation to th
 
 In the simple case of 1 dimension let a particle be at positionX with a pivot at pivotX. The center of transformation depends whether *translateFromPivot* is true or not. When false it is at the point = positionX + pivotX, and when true it is the point = positionX. The distance of the point from the pivot is then  pivotX.
 
-Illustration of pivot particle, 1D pivot placement; change data on lines 23 - 25 to see effect: <Playground id="#GLZ1PX#11" title="Solid Particle Pivot Example" description="Simple example of adjusting the pivot of a solid particle" image=""/>
-Pivot particle set in 3D, rotation and scaling applied - 1000 tetrahedron satellites orbiting around 1000 rotating boxes. <Playground id="#LXXL6Y#1" title="Scaled Pivot Example" description="Simple example of scaling a pivot on a solid particle" image=""/>
+Illustration of pivot particle, 1D pivot placement; change data on lines 23 - 25 to see effect: <Playground id="#GLZ1PX#11" title="Solid Particle Pivot Example" description="Simple example of adjusting the pivot of a solid particle"/>
+Pivot particle set in 3D, rotation and scaling applied - 1000 tetrahedron satellites orbiting around 1000 rotating boxes. <Playground id="#LXXL6Y#1" title="Scaled Pivot Example" description="Simple example of scaling a pivot on a solid particle"/>
   
 
 ### Billboard
 When you set your SPS in billboard mode, you should only set a *rotation.z* value. Putting *SPS.billboard = true*  makes all the particles face the camera and their _x_ and _y_ rotation values will be ignored. This is rather useful if you display only plane particles. However, if you deal only with 2D particles you should consider to use the particle system or one of the various sprite managers which are more performant in 2D computation. In order to display the SPS in billboard mode, you need to call *SPS.setParticles()* within the scene render loop.
 
-Here is an example with plane particles in billboard mode: <Playground id="#WCDZS#7" title="Solid Particle Plane Billboard Mode" description="Simple example of solid plane particles in billboard mode." image=""/>
-The same but with plane particle rotations and no billboard mode: <Playground id="#WCDZS#1" title="Solid Plane Particles Rotating" description="Simple example of solid plane particles rotating" image=""/>
-The same with solid particles, boxes and tetrahedrons: <Playground id="#WCDZS#2" title="Solid Box and Tetrahedron Particles Rotating" description="Simple example of solid box and tetrahedron particles rotating" image=""/>
-Another one with colors and rotations: <Playground id="#2FPT1A#9" title="Solid Particles With Colors and Rotations" description="Simple example of solid particles with colors and rotations." image=""/>
+Here is an example with plane particles in billboard mode: <Playground id="#WCDZS#7" title="Solid Particle Plane Billboard Mode" description="Simple example of solid plane particles in billboard mode."/>
+The same but with plane particle rotations and no billboard mode: <Playground id="#WCDZS#1" title="Solid Plane Particles Rotating" description="Simple example of solid plane particles rotating"/>
+The same with solid particles, boxes and tetrahedrons: <Playground id="#WCDZS#2" title="Solid Box and Tetrahedron Particles Rotating" description="Simple example of solid box and tetrahedron particles rotating"/>
+Another one with colors and rotations: <Playground id="#2FPT1A#9" title="Solid Particles With Colors and Rotations" description="Simple example of solid particles with colors and rotations."/>
 
 ### Color
 When setting a particle color all vertices of the particle are set to that color and will blend nicely with any material colors if applied.   
@@ -117,8 +117,8 @@ Unlike for the colors, the model UVs are saved whatever the model had per face U
 This allows to use not only a texture atlas for the particles, but also a texture atlas for the model then inside the particle atlas because you use only one texture in final.
 
 
-Model is a box with per face material, particles are direct copies of the model: <Playground id="#GLZ1PX#12" title="Solid Particles With Material Per Face" description="Simple example of creating solid particle copies of a mesh with unique materials per face." image=""/>
-Model is a box with per face material, particles have uvs changed: <Playground id="#GLZ1PX#13" title="Solid Particles With Material Per Face With UVs Changed" description="Simple example of creating solid particle copies of a mesh with unique materials per face, but changed UVs." image=""/>
+Model is a box with per face material, particles are direct copies of the model: <Playground id="#GLZ1PX#12" title="Solid Particles With Material Per Face" description="Simple example of creating solid particle copies of a mesh with unique materials per face."/>
+Model is a box with per face material, particles have uvs changed: <Playground id="#GLZ1PX#13" title="Solid Particles With Material Per Face With UVs Changed" description="Simple example of creating solid particle copies of a mesh with unique materials per face, but changed UVs."/>
 
 
 Like for any other mesh, you can also enable the texture transparency with :
@@ -133,8 +133,8 @@ Or even use the alpha channel of the texture image :
 SPS.mesh.material.useAlphaFromDiffuseTexture = true;
 ```
 
-Color and UVs example: <Playground id="#WCDZS#8" title="Solid Particle Color and UVs Example" description="Simple example of adjusting the color and UVs of a solid particle system." image=""/>
-Texture with alpha: <Playground id="#GLZ1PX#14" title="Solid Particles With Textures and Alpha" description="Simple example of solid particles with textures and alpha." image=""/>
+Color and UVs example: <Playground id="#WCDZS#8" title="Solid Particle Color and UVs Example" description="Simple example of adjusting the color and UVs of a solid particle system."/>
+Texture with alpha: <Playground id="#GLZ1PX#14" title="Solid Particles With Textures and Alpha" description="Simple example of solid particles with textures and alpha."/>
 
 ### Parenting
 
@@ -157,10 +157,10 @@ if (particle.idx > 0) {
   particle.position.x = 1.0;
 }
 ```
-A bluish box rotating around its pivot parented to a sliding red box: <Playground id="#GLZ1PX#16" title="Box Rotating Around A Parent Box" description="Simple example of a bluish box rotating around its pivot parented to a sliding red box." image=""/>
-A third box added the last two rotating about the previous one: <Playground id="#GLZ1PX#15" title="Adding A Third Box" description="Simple example of a third box added to the last two, rotating about the previous one" image=""/>
-A chain of 7 boxes each parented to the previous one: <Playground id="#GLZ1PX#17" title="7 Box Parenting Chain" description="Simple example of a chain of 7 boxes each parented to the previous one." image=""/>
-2000 boxes parented per 20 segment stems: <Playground id="#V7V1RS" title="Parenting Craziness" description="Simple example of 2000 boxes parented per 20 segment stems." image=""/>
+A bluish box rotating around its pivot parented to a sliding red box: <Playground id="#GLZ1PX#16" title="Box Rotating Around A Parent Box" description="Simple example of a bluish box rotating around its pivot parented to a sliding red box."/>
+A third box added the last two rotating about the previous one: <Playground id="#GLZ1PX#15" title="Adding A Third Box" description="Simple example of a third box added to the last two, rotating about the previous one"/>
+A chain of 7 boxes each parented to the previous one: <Playground id="#GLZ1PX#17" title="7 Box Parenting Chain" description="Simple example of a chain of 7 boxes each parented to the previous one."/>
+2000 boxes parented per 20 segment stems: <Playground id="#V7V1RS" title="Parenting Craziness" description="Simple example of 2000 boxes parented per 20 segment stems."/>
 
 
 ### Custom Properties

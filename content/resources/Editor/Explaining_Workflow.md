@@ -385,7 +385,7 @@ The short version is, look in [this repo](https://github.com/BabylonJS/Exporters
 
 We have a space-scene, so let us add a space-dude. In order to do this, you will need the `.babylon` file, which is a JSON file describing the mesh as well as all the textures. Here is an example of this mesh in a Babylon playground.
 
--   PG: <Playground id="#NA2WKW" title="Head from the Playground" description="Example of asset" image=""/>
+-   PG: <Playground id="#NA2WKW" title="Head from the Playground" description="Example of asset"/>
 
 Here are all the assets you need, download them all somewhere.
 

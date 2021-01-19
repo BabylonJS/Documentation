@@ -243,7 +243,7 @@ mesh.actionManager
 In this case, the first click will hide the button, the following click will restore it, and so on...
 
 ## Sprites 
-Starting with Babylon.js 2.3, sprites can have an action manager: <Playground id="#9RUHH#5" title="Sprite Action Manager" description="Simple example of a sprite with an attached action manager." image=""/>
+Starting with Babylon.js 2.3, sprites can have an action manager: <Playground id="#9RUHH#5" title="Sprite Action Manager" description="Simple example of a sprite with an attached action manager."/>
 
 Please note that the SpriteManager must turn picking support on by using `spriteManager.isPickable = true`
 Sprites can also control picking with `sprite.isPickable = false / true` (False by default)

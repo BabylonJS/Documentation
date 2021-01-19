@@ -212,7 +212,7 @@ The EngineInstrumentation class allows you to get the following counters:
 * *shaderCompilationTimeCounter*: Time (in milliseconds) spent by the CPU to compile all shaders. Must be turned on with `instrumentation.captureShaderCompilationTime = true`.
 
 Here is an example of how to use engine instrumentation:
-<Playground id="#HH8T00#1" title="Engine Instrumentation Example" description="Simple example of using engine instrumentation." image=""/>
+<Playground id="#HH8T00#1" title="Engine Instrumentation Example" description="Simple example of using engine instrumentation."/>
 
 Please note that each counter is *PerfCounter* object which can provide multiple properties like average, total, min, max, count, etc.
 

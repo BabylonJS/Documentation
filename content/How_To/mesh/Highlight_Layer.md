@@ -42,7 +42,7 @@ hl.addMesh(sphere, BABYLON.Color3.Green());
 
 The highlight color is driven by the second parameter of the `addMesh` method:
 
-<Playground id="#1KUJ0A#305" title="Mesh Highlighting Example" description="Simple example of highlighting a mesh." image=""/>
+<Playground id="#1KUJ0A#305" title="Mesh Highlighting Example" description="Simple example of highlighting a mesh."/>
 
 ### Stop highlighting a Mesh
 
@@ -55,7 +55,7 @@ hl.addMesh(sphere, BABYLON.Color3.Green());
 hl.removeMesh(sphere);
 ```
 
-<Playground id="#1KUJ0A#102" title="Stop Mesh Highlighting" description="Simple example of stoping highlighting a mesh." image=""/>
+<Playground id="#1KUJ0A#102" title="Stop Mesh Highlighting" description="Simple example of stoping highlighting a mesh."/>
 
 ### Emissive Input
 
@@ -65,7 +65,7 @@ If you wish, you could also use the emissive texture as a source for the highlig
 hl1.addMesh(sphere, BABYLON.Color3.Black(), true);
 ```
 
-<Playground id="#1KUJ0A#57" title="Mesh Highlighting Emissive Input" description="Simple example of using the emissive input with mesh hilighting." image=""/>
+<Playground id="#1KUJ0A#57" title="Mesh Highlighting Emissive Input" description="Simple example of using the emissive input with mesh hilighting."/>
 
 You can notice here that one side of the sphere is glowing in yellow whereas the other one is grey. The color is not uniform.
 
@@ -82,7 +82,7 @@ hl.addMesh(sphere, BABYLON.Color3.Green());
 hl.addMesh(ground, BABYLON.Color3.Red());
 ```
 
-<Playground id="#1KUJ0A#1" title="Broken Overlapping Mesh Hilights" description="Simple example of broken overlapping mesh highlights." image=""/>
+<Playground id="#1KUJ0A#1" title="Broken Overlapping Mesh Hilights" description="Simple example of broken overlapping mesh highlights."/>
 
 This is the default behavior optimized for performances. If you are running your scenes on fast enough machine, you can create several highlight layers to workaround the issue:
 
@@ -94,7 +94,7 @@ var hl2 = new BABYLON.HighlightLayer("hl2", scene);
 hl2.addMesh(ground, BABYLON.Color3.Red());
 ```
 
-<Playground id="#1KUJ0A#2" title="Overlapping Mesh Hilights" description="Simple example of overlapping mesh highlights." image=""/>
+<Playground id="#1KUJ0A#2" title="Overlapping Mesh Hilights" description="Simple example of overlapping mesh highlights."/>
 
 ### Blur Size
 
@@ -114,7 +114,7 @@ scene.registerBeforeRender(() => {
 });
 ```
 
-<Playground id="#1KUJ0A#4" title="Blur Size Mesh Highlight" description="Simple example of blur size in the mesh highlight." image=""/>
+<Playground id="#1KUJ0A#4" title="Blur Size Mesh Highlight" description="Simple example of blur size in the mesh highlight."/>
 
 ### Inner vs Outer Glow 
 
@@ -131,7 +131,7 @@ hl2.addMesh(ground, BABYLON.Color3.Red());
 hl2.innerGlow = false;
 ```
 
-<Playground id="#1KUJ0A#3" title="Inner vs Outer Glow" description="Simple example of mesh highlighting with inner vs outer glow." image=""/>
+<Playground id="#1KUJ0A#3" title="Inner vs Outer Glow" description="Simple example of mesh highlighting with inner vs outer glow."/>
 
 You can notice on the previous scene the white glowing only inside of the sphere and the red only outside of the plane.
 
@@ -139,7 +139,7 @@ You can notice on the previous scene the white glowing only inside of the sphere
 
 Depending on your scene, transparent meshes may not render correctly with other highlighted meshes:
 
-<Playground id="#2FFOYQ#6" title="Broken Transparency Mesh Highlight" description="Simple example of broken transparency mesh highlighting." image=""/>
+<Playground id="#2FFOYQ#6" title="Broken Transparency Mesh Highlight" description="Simple example of broken transparency mesh highlighting."/>
 
 In that case, try to exclude them from the highlight generation process in order to fix this:
 
@@ -147,7 +147,7 @@ In that case, try to exclude them from the highlight generation process in order
 hl.addExcludedMesh(skybox1);
 ```
 
-<Playground id="#2FFOYQ#7" title="Fixed Transparency Mesh Highlight" description="Simple example of fixed transparency mesh highlighting." image=""/>
+<Playground id="#2FFOYQ#7" title="Fixed Transparency Mesh Highlight" description="Simple example of fixed transparency mesh highlighting."/>
 
 ### Multi Camera
 
@@ -160,7 +160,7 @@ var hl1 = new BABYLON.HighlightLayer("hl1", scene, {camera: camera});
 hl1.addMesh(sphere, BABYLON.Color3.Green());
 ```
 
-<Playground id="#CDHKK#7" title="Multi-Camera" description="Simple example of mesh highlight handling with multiple cameras." image=""/>
+<Playground id="#CDHKK#7" title="Multi-Camera" description="Simple example of mesh highlight handling with multiple cameras."/>
 
 ### Rendering Groups
 

@@ -26,7 +26,7 @@ sphere.showBoundingBox = true;
 ```
 Pretty simple right? 
 
-Here is a playground where you can see it working. <Playground id="#4F33I3" title="Drawing A Box Around A Single Object" description="Simple example of drawing a bounding box around a single object." image=""/>
+Here is a playground where you can see it working. <Playground id="#4F33I3" title="Drawing A Box Around A Single Object" description="Simple example of drawing a bounding box around a single object."/>
 
 # Drawing a bounding box around multiple objects
 
@@ -63,7 +63,7 @@ And finally, just like before, we then display the sphere's bounding box.
 sphere.showBoundingBox = true;
 ```
 
-TA DA!!! Here it is working in a playground: <Playground id="#4F33I3#1" title="Drawing A Box Around Multiple Objects" description="Simple example of drawing a bounding box around multiple objects." image=""/>
+TA DA!!! Here it is working in a playground: <Playground id="#4F33I3#1" title="Drawing A Box Around Multiple Objects" description="Simple example of drawing a bounding box around multiple objects."/>
 
 # A better approach
 
@@ -90,7 +90,7 @@ parent.setBoundingInfo(new BABYLON.BoundingInfo(newMin, newMax));
 parent.showBoundingBox = true;
 ```
 
-So here's what our playground looks like now. <Playground id="#4F33I3#2" title="A Better Approach For Bounding Boxes" description="Better example of drawing bounding boxes." image=""/>
+So here's what our playground looks like now. <Playground id="#4F33I3#2" title="A Better Approach For Bounding Boxes" description="Better example of drawing bounding boxes."/>
 
 Notice something wrong? Our bounding box doesn't line up with the bounds of our objects anymore does it? There's a very good reason for that. It's because up until this point we are using LOCAL coordinates instead of world coordinates! So technically the bounding box that we're seeing is the right size, but it's drawn around the parent mesh...which in this case has it's pivot at the origin. You can clearly see the problem when you comment out this line:
 
@@ -98,7 +98,7 @@ Notice something wrong? Our bounding box doesn't line up with the bounds of our 
 sphere.position.y = 1;
 ```
 
-See that here in this playground: <Playground id="#4F33I3#3" title="A Fixed Better Approach For Bounding Boxes" description="Better example of drawing bounding boxes fixed." image=""/>
+See that here in this playground: <Playground id="#4F33I3#3" title="A Fixed Better Approach For Bounding Boxes" description="Better example of drawing bounding boxes fixed."/>
 
 Make a bit more sense? But what about if you wanted to get the world bounds of the positioned objects? It's actually pretty easy to do. We'll make a couple of minor modifications to the sphereMin, sphereMax, groundMin, groundMax values like this:
 
@@ -112,7 +112,7 @@ let groundMax = ground.getBoundingInfo().boundingBox.maximumWorld;
 
 Nice! That looks more like what you were probably expecting doesn't it?
 
-Here's the updated playground to check out. <Playground id="#4F33I3#4" title="World Transform Bounding Boxes" description="Simple example of drawing bounding boxes in world space." image=""/>
+Here's the updated playground to check out. <Playground id="#4F33I3#4" title="World Transform Bounding Boxes" description="Simple example of drawing bounding boxes in world space."/>
 
 # One last trick
 
@@ -147,7 +147,7 @@ for(let i=0; i<childMeshes.length; i++){
     }
 ```
 
-SWEET! We did it! Nice job! Here's the playground result of those changes. <Playground id="#4F33I3#6" title="Loop Through Meshes to Draw Bounding Box" description="Simple example of looping through meshes to draw an overall bounding box." image=""/>
+SWEET! We did it! Nice job! Here's the playground result of those changes. <Playground id="#4F33I3#6" title="Loop Through Meshes to Draw Bounding Box" description="Simple example of looping through meshes to draw an overall bounding box."/>
 
 To dive even further into bounding boxes, make sure to check out the API as well
 

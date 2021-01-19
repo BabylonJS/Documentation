@@ -56,7 +56,7 @@ background.addAnimationToTile(24, 6, 31, eighth * 7, speed);
 background.addAnimationToTile(24, 7, 24, 1, 	 	 speed);
 ```
 
-Single tile animation: <Playground id="#YCY2IL#26" title="Single Tile Animation" description="Simple example of single tile animation." image=""/>
+Single tile animation: <Playground id="#YCY2IL#26" title="Single Tile Animation" description="Simple example of single tile animation."/>
 
 More generally to create an animation use
 ```javascript

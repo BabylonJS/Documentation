@@ -75,51 +75,68 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
+interface IBucketItem {
+    title: string;
+    imageUrl: string;
+    link: string;
+    description: string;
+}
+
+const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUrl, description }: IBucketItem) => {
     const classes = useStyles();
     return (
+        <Link key={link} href={link}>
+            <div className={classes.divRoot}>
+                <Card className={classes.root}>
+                    <div className={classes.details}>
+                        <CardContent className={classes.content}>
+                            <Typography component="h6" variant="h6">
+                                {title}
+                            </Typography>
+                            <Typography style={{}} variant="subtitle1" color="textSecondary">
+                                {description}
+                            </Typography>
+                        </CardContent>
+                    </div>
+                    <div className={classes.imageContainer}>
+                        <Image alt={title} src={imageUrl} layout="fill"></Image>
+                    </div>
+                </Card>
+            </div>
+        </Link>
+    );
+};
+
+export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
+    const classes = useStyles();
+    const bucketItems: IBucketItem[] = Object.keys(childPages || []).map((child) => {
+        const childData = childPages[child].metadata;
+        const title = (childData.title || child).replace(/_/g, " ");
+        const link = "/" + childPages[child].id.join("/");
+        const imageUrl = getImageUrl(childData.imageUrl);
+        return { title, link, imageUrl, description: childData.description };
+    });
+    return (
         <>
-            {childPages && !!Object.keys(childPages).length && (
+            {(!!bucketItems.length || (externalLinks && !!externalLinks.length)) && (
                 <>
                     <Typography className={classes.h2} component="h2" variant="h2">
                         {title}
                     </Typography>
-                    <div className={classes.container}>
-                        {Object.keys(childPages).map((child) => {
-                            const childData = childPages[child].metadata;
-                            const title = (childData.title || child).replace(/_/g, " ");
-                            const link = "/" + childPages[child].id.join("/");
-                            const imageUrl = getImageUrl(childData.imageUrl);
-                            return (
-                                <Link key={link} href={link}>
-                                    <div className={classes.divRoot}>
-                                        <Card className={classes.root}>
-                                            <div className={classes.details}>
-                                                <CardContent className={classes.content}>
-                                                    <Typography component="h6" variant="h6">
-                                                        {title}
-                                                    </Typography>
-                                                    <Typography style={{}} variant="subtitle1" color="textSecondary">
-                                                        {childData.description}
-                                                    </Typography>
-                                                </CardContent>
-                                            </div>
-                                            <div className={classes.imageContainer}>
-                                                <Image src={imageUrl} layout="fill"></Image>
-                                            </div>
-                                        </Card>
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
+                    {!!bucketItems.length && (
+                        <div className={classes.container}>
+                            {bucketItems.map((child, idx) => {
+                                return <SingleBucketItem key={idx} {...child} />;
+                            })}
+                        </div>
+                    )}
                     {externalLinks && (
                         <ul>
                             {externalLinks.map(({ url, title }) => {
                                 return (
                                     <li key={url}>
                                         <Link href={url}>
-                                            <a target="_blank">{title}</a>
+                                            <a rel="noopener" target="_blank">{title}</a>
                                         </Link>
                                     </li>
                                 );

@@ -1,6 +1,6 @@
 ---
 title: Merging Meshes
-image: 
+image:
 description: Learn how to merge meshes in Babylon.js.
 keywords: welcome, babylon.js, diving deeper, meshes, merge
 further-reading:
@@ -16,22 +16,22 @@ To easily merge a number of meshes to a single mesh use the static `MergeMeshes`
 var newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32BitsIndices, meshSubclass, subdivideWithSubMeshes, multiMultiMaterials);
 ```
 
-|variable| description|
-|----------|-----------|
-|arrayOfMeshes| An array of Meshes.  They should all be of the same material.|
-|disposeSource (optional)| When true (default), the source meshes will be disposed upon completion.|
-|allow32BitsIndices (optional)| When the sum of the vertices > 64k, this must be set to true.|
-|meshSubclass (optional)| When set, vertices inserted into this Mesh.  Meshes can then be merged into a Mesh sub-class.|
-|subdivideWithSubMeshes (optional) |When true (false default), subdivide mesh to his subMesh array with meshes source. |
-|multiMultiMaterials (optional)| When true (false default), subdivide mesh and accept multiple multi materials, ignores subdivideWithSubMeshes.|
+| variable                          | description                                                                                                    |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| arrayOfMeshes                     | An array of Meshes. They should all be of the same material.                                                   |
+| disposeSource (optional)          | When true (default), the source meshes will be disposed upon completion.                                       |
+| allow32BitsIndices (optional)     | When the sum of the vertices > 64k, this must be set to true.                                                  |
+| meshSubclass (optional)           | When set, vertices inserted into this Mesh. Meshes can then be merged into a Mesh sub-class.                   |
+| subdivideWithSubMeshes (optional) | When true (false default), subdivide mesh to his subMesh array with meshes source.                             |
+| multiMultiMaterials (optional)    | When true (false default), subdivide mesh and accept multiple multi materials, ignores subdivideWithSubMeshes. |
 
 Since `multiMultiMaterials` defaults to false, the resulting merged mesh will have only one material applied to it (taken from the first mesh):
 
-<Playground id="#INZ0Z0#5" title="Merged Meshes Example" description="Simple example of merging meshes together." image=""/>
+<Playground id="#INZ0Z0#5" title="Merged Meshes Example" description="Simple example of merging meshes together."/>
 
 Compare with the following example which sets `multiMultiMaterials` to true:
 
-<Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials." image=""/>
+<Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials."/>
 
 See [this page](/divingDeeper/materials/using/multiMaterials) for more details on usage of merged meshes.
 
@@ -41,97 +41,130 @@ If you want to merge meshes into a new one using a self implemented function, yo
 
 Note: Careful, when you merge cloned mesh, you need to update the world matrix of the mesh with computeWorldMatrix before calling the function.
 
-**Note: This article covers the internal merging process. You can also use ```BABYLON.VertexData``` object and its ```merge()``` function for a simpler solution.**
+**Note: This article covers the internal merging process. You can also use `BABYLON.VertexData` object and its `merge()` function for a simpler solution.**
 
 ```javascript
 var mergeMeshes = function (meshName, arrayObj, scene) {
-    var arrayPos = [];
-    var arrayNormal = [];
-    var arrayUv = [];
-    var arrayUv2 = [];
-    var arrayColor = [];
-    var arrayMatricesIndices = [];
-    var arrayMatricesWeights = [];
-    var arrayIndice = [];
-    var savedPosition = [];
-    var savedNormal = [];
-    var newMesh = new BABYLON.Mesh(meshName, scene);
-    var UVKind = true;
-    var UV2Kind = true;
-    var ColorKind = true;
-    var MatricesIndicesKind = true;
-    var MatricesWeightsKind = true;
+  var arrayPos = [];
+  var arrayNormal = [];
+  var arrayUv = [];
+  var arrayUv2 = [];
+  var arrayColor = [];
+  var arrayMatricesIndices = [];
+  var arrayMatricesWeights = [];
+  var arrayIndice = [];
+  var savedPosition = [];
+  var savedNormal = [];
+  var newMesh = new BABYLON.Mesh(meshName, scene);
+  var UVKind = true;
+  var UV2Kind = true;
+  var ColorKind = true;
+  var MatricesIndicesKind = true;
+  var MatricesWeightsKind = true;
 
-    for (var i = 0; i != arrayObj.length ; i++) {
-        if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UVKind]))
-            UVKind = false;
-        if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UV2Kind]))
-            UV2Kind = false;
-        if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.ColorKind]))
-            ColorKind = false;
-        if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesIndicesKind]))
-            MatricesIndicesKind = false;
-        if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesWeightsKind]))
-            MatricesWeightsKind = false;
-    }
+  for (var i = 0; i != arrayObj.length; i++) {
+    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UVKind])) UVKind = false;
+    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UV2Kind])) UV2Kind = false;
+    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.ColorKind])) ColorKind = false;
+    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesIndicesKind])) MatricesIndicesKind = false;
+    if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesWeightsKind])) MatricesWeightsKind = false;
+  }
 
-    for (i = 0; i != arrayObj.length ; i++) {
-        var ite = 0;
-        var iter = 0;
-        arrayPos[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.PositionKind);
-        arrayNormal[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.NormalKind);
-        if (UVKind)
-            arrayUv = arrayUv.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UVKind));
-        if (UV2Kind)
-            arrayUv2 = arrayUv2.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UV2Kind));
-        if (ColorKind)
-            arrayColor = arrayColor.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.ColorKind));
-        if (MatricesIndicesKind)
-            arrayMatricesIndices = arrayMatricesIndices.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind));
-        if (MatricesWeightsKind)
-            arrayMatricesWeights = arrayMatricesWeights.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind));
+  for (i = 0; i != arrayObj.length; i++) {
+    var ite = 0;
+    var iter = 0;
+    arrayPos[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.PositionKind);
+    arrayNormal[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.NormalKind);
+    if (UVKind) arrayUv = arrayUv.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UVKind));
+    if (UV2Kind) arrayUv2 = arrayUv2.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UV2Kind));
+    if (ColorKind) arrayColor = arrayColor.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.ColorKind));
+    if (MatricesIndicesKind) arrayMatricesIndices = arrayMatricesIndices.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind));
+    if (MatricesWeightsKind) arrayMatricesWeights = arrayMatricesWeights.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind));
 
-        var maxValue = savedPosition.length / 3;
+    var maxValue = savedPosition.length / 3;
 
-        arrayObj[i].computeWorldMatrix(true);
-        var worldMatrix = arrayObj[i].getWorldMatrix();
+    arrayObj[i].computeWorldMatrix(true);
+    var worldMatrix = arrayObj[i].getWorldMatrix();
 
-        for (var ite = 0 ; ite != arrayPos[i].length; ite += 3) {
-            var vertex = new BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
-            savedPosition.push(vertex.x);
-            savedPosition.push(vertex.y);
-            savedPosition.push(vertex.z);
-        }
+    for (var ite = 0; ite != arrayPos[i].length; ite += 3) {
+      var vertex = new BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
+      savedPosition.push(vertex.x);
+      savedPosition.push(vertex.y);
+      savedPosition.push(vertex.z);
+    }
 
-        for (var iter = 0 ; iter != arrayNormal[i].length; iter += 3) {
-            var vertex = new BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
-            savedNormal.push(vertex.x);
-            savedNormal.push(vertex.y);
-            savedNormal.push(vertex.z);
-        }
+    for (var iter = 0; iter != arrayNormal[i].length; iter += 3) {
+      var vertex = new BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
+      savedNormal.push(vertex.x);
+      savedNormal.push(vertex.y);
+      savedNormal.push(vertex.z);
+    }
 
-        var tmp = arrayObj[i].getIndices();
-        for (it = 0 ; it != tmp.length; it++) {
-            arrayIndice.push(tmp[it] + maxValue);
-        }
-        arrayIndice = arrayIndice.concat(tmp);
+    var tmp = arrayObj[i].getIndices();
+    for (it = 0; it != tmp.length; it++) {
+      arrayIndice.push(tmp[it] + maxValue);
+    }
+    arrayIndice = arrayIndice.concat(tmp);
 
-        arrayObj[i].dispose(false);
-    }
+    arrayObj[i].dispose(false);
+  }
 
-    newMesh.setVerticesData(BABYLON.VertexBuffer.PositionKind, savedPosition, false);
-    newMesh.setVerticesData(BABYLON.VertexBuffer.NormalKind, savedNormal, false);
-    if (arrayUv.length > 0)
-        newMesh.setVerticesData(BABYLON.VertexBuffer.UVKind, arrayUv, false);
-    if (arrayUv2.length > 0)
-        newMesh.setVerticesData(BABYLON.VertexBuffer.UV2Kind, arrayUv, false);
-    if (arrayColor.length > 0)
-        newMesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, arrayUv, false);
-    if (arrayMatricesIndices.length > 0)
-        newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, arrayUv, false);
-    if (arrayMatricesWeights.length > 0)
-        newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, arrayUv, false);
+  newMesh.setVerticesData(BABYLON.VertexBuffer.PositionKind, savedPosition, false);
+  newMesh.setVerticesData(BABYLON.VertexBuffer.NormalKind, savedNormal, false);
+  if (arrayUv.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.UVKind, arrayUv, false);
+  if (arrayUv2.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.UV2Kind, arrayUv, false);
+  if (arrayColor.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.ColorKind, arrayUv, false);
+  if (arrayMatricesIndices.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, arrayUv, false);
+  if (arrayMatricesWeights.length > 0) newMesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, arrayUv, false);
 
-    newMesh.setIndices(arrayIndice);
-    return newMesh;
+  newMesh.setIndices(arrayIndice);
+  return newMesh;
 };
+```
+
+## Merging Meshes with Constructive Solid Geometry
+
+You can also construct complex meshes by using `subtract`, `inverse`, `union`, and `intersect` methods of the [CSG](/typedoc/classes/babylon.csg) class.
+
+For example, let's say you want to create a "pipe" shape with an inner and outer diameter (_i.e._, not just a "tube" mesh, which is a curved plane with no "thickness"). This can be constructed by first creating a "cylinder" mesh, and then _subtracting_ a "tube" mesh from the inside of it.
+
+```typescript
+function createPipe(diamInner: number, diamOuter: number, length: number, scene: BABYLON.Scene): BABYLON.Mesh {
+  // Create the outer wall using a Cylinder mesh
+  const mOuter = BABYLON.MeshBuilder.CreateCylinder(
+    "mOuter",
+    {
+      diameter: diamOuter,
+      height: length,
+    },
+    scene,
+  );
+  // Create the inner wall using a Tube mesh
+  const mInner = BABYLON.MeshBuilder.CreateTube(
+    "mInner",
+    {
+      path: [new BABYLON.Vector3(0, -length / 2, 0), new BABYLON.Vector3(0, length / 2, 0)],
+      radius: diamInner / 2,
+      sideOrientation: BABYLON.Mesh.DOUBLESIDE,
+    },
+    scene,
+  );
+  // Create CSG objects from each mesh
+  const outerCSG = BABYLON.CSG.FromMesh(mOuter);
+  const innerCSG = BABYLON.CSG.FromMesh(mInner);
+  // Create a new CSG object by subtracting the inner tube from the outer cylinder
+  const pipeCSG = outerCSG.subtract(innerCSG);
+  // Create the resulting mesh from the new CSG object
+  const mPipe = pipeCSG.toMesh("mPipe", null, scene);
+  // Dispose of the meshes, no longer needed
+  mInner.dispose();
+  mOuter.dispose();
+  scene.removeMesh(mInner);
+  scene.removeMesh(mOuter);
+  // Return the result
+  return mPipe;
+}
+```
+
+Playground example:
+<Playground id="#61Q7UC#1" title="Pipe CSG Example" description="Creating a pipe from a cylinder and a tube using CSGs."/>

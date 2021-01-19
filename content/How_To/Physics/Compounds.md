@@ -25,7 +25,7 @@ video-content:
 ## The Skull as a Compound Body
 
 ![Skull](/img/how_to/physics/skull.jpg)
-The skull is an interesting shape to try to compound and you can see it in all its magnificence here: <Playground id="#UKNERM#0" title="Skull As A Compound Body" description="Simple example of the skull as a compound body." image=""/>
+The skull is an interesting shape to try to compound and you can see it in all its magnificence here: <Playground id="#UKNERM#0" title="Skull As A Compound Body" description="Simple example of the skull as a compound body."/>
 
 It is roughly composed of a sphere for most of it with a box around the jaw area, with a bit of work involved to position the sphere and box as best as possible. The skull is compounded to these two covering meshes.
 
@@ -44,7 +44,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 3 MUST come before step 4 and step 5 before step 6.
 
-<Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body."/>
 
 ## Compound Covering Meshes to The Complex Mesh 
 
@@ -56,7 +56,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Steps 2, 4 and 5 must be in that order.
 
-<Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body."/>
 
 
 ## Compound to One of the Covering Meshes
@@ -68,4 +68,4 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 **Note** Step 2 MUST come before step 4.
 
-<Playground id="#492ZK0#8" title="Skull As A Compound Body 3" description="Simple example of a skull as a compound body." image=""/>
+<Playground id="#492ZK0#8" title="Skull As A Compound Body 3" description="Simple example of a skull as a compound body."/>

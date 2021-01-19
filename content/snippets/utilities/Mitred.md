@@ -12,19 +12,19 @@ video-content:
 
 Neither [CreateTube](/divingDeeper/mesh/creation/param#tube) nor [ExtrudeShape](/divingDeeper/mesh/creation/param#extruded-shapes) were designed to handle sharp corners but to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following
 
-<Playground id="#PDRDFA" title="Bend In Tube" description="" image=""/>
-<Playground id="#PDRDFA#1" title="Bend In Extruded Tube" description="" image=""/>
-<Playground id="#PDRDFA#2" title="Bend in Extruded Shape" description="" image=""/>
+<Playground id="#PDRDFA" title="Bend In Tube" description=""/>
+<Playground id="#PDRDFA#1" title="Bend In Extruded Tube" description=""/>
+<Playground id="#PDRDFA#2" title="Bend in Extruded Shape" description=""/>
 
 Whereas they are very good for smooth curves giving a bend as you would get in a physically bent tube
 
-<Playground id="#PDRDFA#6" title="Slow Bend In Tube" description="" image=""/>
-<Playground id="#PDRDFA#2" title="Slow Bend In Extruded Shape" description="" image=""/>
+<Playground id="#PDRDFA#6" title="Slow Bend In Tube" description=""/>
+<Playground id="#PDRDFA#2" title="Slow Bend In Extruded Shape" description=""/>
 
 The function `mitredExtrude` allows an extrusion path with sharp corners such as you would get by cutting and forming a mitre join.
 
-<Playground id="#PDRDFA#4" title="Right Angle in Extruded Tube With Mitre" description="" image=""/>
-<Playground id="#PDRDFA#5" title="Right Angle in Extruded Shape" description="" image=""/>
+<Playground id="#PDRDFA#4" title="Right Angle in Extruded Tube With Mitre" description=""/>
+<Playground id="#PDRDFA#5" title="Right Angle in Extruded Shape" description=""/>
 
 ## Using Mitre Extrude
 
@@ -44,9 +44,9 @@ var extrude = mitredExtrude("name", options, scene);
 
 To form a mitre the bend must take place along a line that is in the plane of one of the extruded faces (ie one formed by the edges of the shape to be extruded) and that line must be perpendicular to the edges of that face. For a closed extrusion to have a proper mitre when joining the first and last point the path for the extrusion must have a series of turns that allows the bend line to meet this requirement. When the requirement is not met the final join will be twisted.
 
-<Playground id="#376T60#2" title="Open" description="" image=""/>
-<Playground id="#376T60#3" title="Closed With Twist" description="" image=""/>
-<Playground id="#376T60#4" title="Closed Meeting Requirements" description="\" image=""/>
+<Playground id="#376T60#2" title="Open" description=""/>
+<Playground id="#376T60#3" title="Closed With Twist" description=""/>
+<Playground id="#376T60#4" title="Closed Meeting Requirements" description="\"/>
 
 ## The Code
 

@@ -62,7 +62,7 @@ Chrome Canary does not support all WebGPU features yet, so here are some caveats
 * No 3D textures
 * Limited to 4 targets for MRTs
 * Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
-  * Try this PG for eg: <Playground id="#6X9UMD#13" title="Multiple dynamic GUIs + Video" description="Example showing the bad performance we currently have when using dynamic GUIs and videos" image=""/>
+  * Try this PG for eg: <Playground id="#6X9UMD#13" title="Multiple dynamic GUIs + Video" description="Example showing the bad performance we currently have when using dynamic GUIs and videos"/>
 * No WebGPU capabilities (caps) returned by the browser
   * For the time being, we have set some hard values for the caps (4 for MSAA max samples, for eg, as Chrome does not support more yet)
 * There's a bug with the WebGPU `writeTexture` method that will make some samples using very small skeletons (less than 4 bones) crash
