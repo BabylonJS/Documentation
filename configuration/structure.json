@@ -956,7 +956,8 @@
                     "friendlyName": "Crowd Navigation System",
                     "children": {
                         "createNavMesh": { "friendlyName": "Creating A Navigation Mesh", "children": {}, "content": "extensions/Navigation/NavigationMesh" },
-                        "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" }
+                        "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" },
+                        "obstacles": { "friendlyName": "Obstacles", "children": {}, "content": "extensions/Navigation/Obstacles" }
                     },
                     "content": "landing_pages/extensionsCrowdNavigationSystemLandingPage"
                 },
