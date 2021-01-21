@@ -530,7 +530,8 @@
                         "renderToPNG": { "friendlyName": "Render Scenes To .png Files", "children": {}, "content": "How_To/scene/Render_Scene_on_a_PNG" },
                         "renderToVideo": { "friendlyName": "Render Scenes To Video", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Video" },
                         "clipPlanes": { "friendlyName": "Using Clip Planes", "children": {}, "content": "How_To/scene/Clip_Planes" },
-                        "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Server" }
+                        "renderRemoteScreenshot": { "friendlyName": "Render Scenes And Take Screenshots On A Remote Server", "children": {}, "content": "How_To/scene/Render_Scene_on_a_Server" },
+                        "layermask": { "friendlyName": "In-Depth Layer Mask", "children": {}, "content": "How_To/scene/LayerMask_InDepth" }
                     },
                     "content": "landing_pages/divingDeeperSceneLandingPage"
                 },
@@ -956,7 +957,8 @@
                     "friendlyName": "Crowd Navigation System",
                     "children": {
                         "createNavMesh": { "friendlyName": "Creating A Navigation Mesh", "children": {}, "content": "extensions/Navigation/NavigationMesh" },
-                        "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" }
+                        "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" },
+                        "obstacles": { "friendlyName": "Obstacles", "children": {}, "content": "extensions/Navigation/Obstacles" }
                     },
                     "content": "landing_pages/extensionsCrowdNavigationSystemLandingPage"
                 },
