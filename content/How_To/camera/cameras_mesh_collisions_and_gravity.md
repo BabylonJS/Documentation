@@ -88,7 +88,7 @@ box.checkCollisions = true;
 
 That’s it! Easy!
 
-You can play with the scene used in this tutorial: <Playground id="#4HUQQ" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera." image="/img/playgroundsAndNMEs/divingDeeperCameraCollisions1.jpg"/>
+You can play with the scene used in this tutorial: <Playground id="#4HUQQ" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera."/>
 
 Now, your camera is going to fall on the y-axis until it collides with the ground. And, your camera will collide with the box when you move it too close to it.
 
