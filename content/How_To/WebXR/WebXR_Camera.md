@@ -1,14 +1,14 @@
 ---
 title: The WebXR Camera
 image: 
-description: Learn all about the WebXR camera in Babylon.js.
-keywords: babylon.js, diving deeper, WebXR, VR, AR, camera
+description: Learn all about the WebXR camera in Babylon.js, used for VR and AR sessions.
+keywords: VR, babylon.js, diving deeper, WebXR, AR, camera
 further-reading:
 video-overview:
 video-content:
 ---
 
-The WebXR Camera is an extension of the `FreeCamera` that includes an update loop from an XRFrame and the ability to create 1 or more rig cameras that will be used to render the XR session.
+The WebXR Camera is an extension of the `FreeCamera` that includes an update loop from an XRFrame and the ability to create 1 or more rig cameras that will be used to render the XR (both VR and AR) session.
 
 If you are not using the [XR Experience helper](/divingDeeper/webXR/webXRExperienceHelpers), you will need an [XR Session Manager](/divingDeeper/webXR/webXRSessionManagers) to construct a new WebXR Camera:
 

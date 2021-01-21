@@ -1,6 +1,6 @@
 ---
 title: WebVR Experience Helper
-image: 
+image:
 description: Set up a VR scene with one line of code.
 keywords: welcome, babylon.js, diving deeper, WebVR, WebVR Camera, VR
 further-reading:
@@ -12,7 +12,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR experience helper will continue to work, **it is strongly recommended that projects instead use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+While the WebVR experience helper will continue to work, **it is strongly recommended that new projects use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
@@ -53,9 +53,7 @@ vrHelper.onAfterEnteringVRObservable.add(() => {
         // Successfully received sensor input
       })
       .catch(() => {
-        alert(
-          "Device orientation camera is being used but no sensor is found, prompt user to enable in safari settings"
-        );
+        alert("Device orientation camera is being used but no sensor is found, prompt user to enable in safari settings");
       });
   }
 });
@@ -86,7 +84,7 @@ Teleportation has two observables you can subscribe to:
 onBeforeCameraTeleport: Observable raised when teleportation is requested, receiving target Vector3 position as parameter:
 
 ```javascript
-vrHelper.onBeforeCameraTeleport.add(targetPosition => {
+vrHelper.onBeforeCameraTeleport.add((targetPosition) => {
   //Raised before camera is teleported
 });
 ```
@@ -94,7 +92,7 @@ vrHelper.onBeforeCameraTeleport.add(targetPosition => {
 onAfterCameraTeleport: Observable raised when teleportation animation finishes, receiving target Vector3 position as parameter:
 
 ```javascript
-vrHelper.onAfterCameraTeleport.add(targetPosition => {
+vrHelper.onAfterCameraTeleport.add((targetPosition) => {
   //Raised after teleportation animation finishes
 });
 ```
@@ -121,12 +119,7 @@ vrHelper.teleportationEnabled = false;
 To customize the teleportation target mesh the following property can be set to the mesh you'd like to use:
 
 ```javascript
-vrHelper.teleportationTarget = BABYLON.Mesh.CreateSphere(
-  "sphere1",
-  4,
-  0.1,
-  scene
-);
+vrHelper.teleportationTarget = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
 ```
 
 ## Accessing cameras
@@ -147,7 +140,7 @@ vrHelper.currentVRCamera;
 The controllers can be accessed from the helper to handle any application specific logic.
 
 ```javascript
-vrHelper.onControllerMeshLoaded.add(webVRController => {
+vrHelper.onControllerMeshLoaded.add((webVRController) => {
   var controllerMesh = webVRController.mesh;
   webVRController.onTriggerStateChangedObservable.add(() => {
     // Trigger pressed event
@@ -194,7 +187,7 @@ Please note the gaze controllers will simulate pointer events so `scene.onPointe
 To filter which meshes the gaze can intersect with, the raySelectionPredicate can be used:
 
 ```javascript
-vrHelper.raySelectionPredicate = mesh => {
+vrHelper.raySelectionPredicate = (mesh) => {
   if (mesh.name.indexOf("Flags") !== -1) {
     return true;
   }
@@ -208,7 +201,7 @@ As the user moves between meshes with their gaze, the onNewMeshSelected event wi
 Note: This only works after interactions have been enabled.
 
 ```javascript
-vrHelper.onNewMeshSelected.add(mesh => {
+vrHelper.onNewMeshSelected.add((mesh) => {
   // Mesh has been selected
 });
 ```
@@ -218,7 +211,7 @@ This will return the single closest mesh that was selected.
 Prior to onNewMeshSelected an event called onNewMeshPicked is raised when a mesh is selected based on meshSelectionPredicate successful evaluation. This observable notifies a PickingInfo object to subscribers.
 
 ```javascript
-vrHelper.onNewMeshPicked.add(pickingInfo => {
+vrHelper.onNewMeshPicked.add((pickingInfo) => {
   //Callback receiving ray cast picking info
 });
 ```
@@ -226,7 +219,7 @@ vrHelper.onNewMeshPicked.add(pickingInfo => {
 As the user unselects a mesh with their gaze or controller, the onSelectedMeshUnselected event will occur.
 
 ```javascript
-vrHelper.onSelectedMeshUnselected.add(mesh => {
+vrHelper.onSelectedMeshUnselected.add((mesh) => {
   // Mesh has been unselected
 });
 ```
@@ -235,7 +228,7 @@ You can add your own filtering logic with meshSelectionPredicate.
 Note: This will be applied after the raySelectionPredicate.
 
 ```javascript
-vrHelper.meshSelectionPredicate = mesh => {
+vrHelper.meshSelectionPredicate = (mesh) => {
   if (mesh.name.indexOf("Flags01") !== -1) {
     return true;
   }
@@ -263,7 +256,7 @@ On specific devices like iOS (where fullscreen is not supported), you may want t
 By combining By combining WebVR controller method and add/removeChild method, you can grab objects by pressing trigger button.
 
 ```javascript
-webVRController.onTriggerStateChangedObservable.add(stateObject => {
+webVRController.onTriggerStateChangedObservable.add((stateObject) => {
   if (webVRController.hand == "left") {
     if (selectedMesh != null) {
       //grab
@@ -281,11 +274,11 @@ webVRController.onTriggerStateChangedObservable.add(stateObject => {
 Selected mesh is detected by onNewMeshSelected method.
 
 ```javascript
-VRHelper.onNewMeshSelected.add(function(mesh) {
+VRHelper.onNewMeshSelected.add(function (mesh) {
   selectedMesh = mesh;
 });
 
-VRHelper.onSelectedMeshUnselected.add(function() {
+VRHelper.onSelectedMeshUnselected.add(function () {
   selectedMesh = null;
 });
 ```
