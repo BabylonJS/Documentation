@@ -288,7 +288,7 @@ Default properties of a spatial sound are:
 
 - **distanceModel** (the attenuation) is using a “**linear**” equation by default. Other options are “_inverse_” or “_exponential_”.
 - **maxDistance** is set to **100**. This means that once the listener is farther than 100 units from the sound, the volume will be 0. You can’t hear the sound anymore
-- **panningModel** is set to “**HRTF**”. The specification says it’s: “_a higher quality spatialization algorithm using a convolution with measured impulse responses from human subjects. This panning method renders stereo output_”. This is the best algorithm when using a headphone. The other available option is “_equalpower_”.
+- **panningModel** is set to “_equalpower_”; the equal-power panning algorithm is generally regarded as simple and efficient.  The other available option is “**HRTF**”. The specification says it’s: “_a higher quality spatialization algorithm using a convolution with measured impulse responses from human subjects. This panning method renders stereo output_”. This is the best algorithm when using a headphone.
 
 **maxDistance** is only used when using the “_linear_” attenuation. Otherwise, you can tune the attenuation of the other models using the **rolloffFactor** and **refDistance** options. Both are set to 1 by default but you can change it of course.
 
