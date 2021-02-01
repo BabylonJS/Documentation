@@ -161,7 +161,7 @@ the final `<babylon>` tag will look like this:
 
 _Note that the html tag names are in kebab-case. The configuration (when in JSON format) uses camelCase_.
 
-### Handlebasrs expressions
+### Handlebars expressions
 
 Going back to the configuration from the last section, you can see that the HTML template of the loading screen is:
 
