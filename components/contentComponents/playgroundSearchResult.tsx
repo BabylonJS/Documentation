@@ -101,7 +101,6 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
             }
             if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
                 startingLine = Math.max(foundLine - 5, 0);
-                console.log(codeLines[foundLine], foundLine, startingLine);
                 break;
             }
         }

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: `${colorPalette.header}`,
             flex: "0 1",
             position: "relative",
-            display: 'block',
+            display: "block",
         },
         appBarToolbar: {
             backgroundColor: `${colorPalette.header}`,
@@ -205,6 +205,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
           };
 
     const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
+    const indexOfQuery = router.asPath.indexOf("?");
+    const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
+    console.log(url);
     return (
         <div className={classes.root}>
             <Head>
@@ -213,11 +216,12 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <title>{title}</title>
                 {imageUrl && <meta property="og:image" content={baseDomain + imageUrl} />}
                 <meta name="og:title" content={title} />
-                <meta name="og:url" content={baseDomain + router.asPath} />
+                <meta name="og:url" content={url} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
                 {!!next && <link rel="next" href={baseDomain + "/" + next.id.join("/")} />}
+                <link rel="canonical" href={url} />
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>

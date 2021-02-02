@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
-import { ComponentProps } from "rehype-react";
+import { ComponentPropsWithoutNode } from "rehype-react";
 
-export interface IDocumentationLinkProps extends ComponentProps {
+export interface IDocumentationLinkProps extends ComponentPropsWithoutNode {
     href: string;
     title?: string;
 }
