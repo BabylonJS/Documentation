@@ -38,7 +38,7 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, content, childPages, id, previous, next, relatedArticles, relatedExternalLinks }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -119,7 +119,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     const components = markdownComponents;
-    const renderedContent = hydrate(content, { components });
+    const renderedContent = hydrate(mdxContent, { components });
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
@@ -174,7 +174,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
-    props.content = await renderToString(props.content, {
+    props.mdxContent = await renderToString(props.content, {
         components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkSlug, remarkLint],

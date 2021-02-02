@@ -18,7 +18,7 @@ import { InlineExampleComponent } from "../components/contentComponents/inlineEx
 import Head from "next/head";
 import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
 
-export default function Home({ breadcrumbs, metadata, content, childPages, id, previous, next }) {
+export default function Home({ metadata, mdxContent, childPages, id }) {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -70,7 +70,7 @@ export default function Home({ breadcrumbs, metadata, content, childPages, id, p
     }, [id]);
 
     const components = markdownComponents;
-    const renderedContent = hydrate(content, { components });
+    const renderedContent = hydrate(mdxContent, { components });
     return (
         <Layout
             breadcrumbs={[]}
@@ -110,7 +110,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData([], true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
-    props.content = await renderToString(props.content, {
+    props.mdxContent = await renderToString(props.content, {
         components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkSlug, remarkLint],
