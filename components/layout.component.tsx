@@ -205,7 +205,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
           };
 
     const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
-    const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : router.pathname);
+    const indexOfQuery = router.asPath.indexOf("?");
+    const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
+    console.log(url);
     return (
         <div className={classes.root}>
             <Head>
