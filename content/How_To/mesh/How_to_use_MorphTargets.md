@@ -132,7 +132,11 @@ You can morph the following mesh attributes:
 - uvs (can be turned of by calling `manager.enableUVMorphing = false`)
 
 ## Limitations
+On WebGL2+ Babylon.js will use textures to store the targets so the only limit is the GPU memory. You can find an example of pretty large numbers of targets here: https://babylonjs-playground.com/#1PD3Q7#2
 
+On WebGL1, the system cannot store inside textures (it requires float textures) so as a fallback it will store the targets inside mesh vertices.
 * Please be aware that most of the browsers are limited to 16 attributes per mesh. Adding a single morph target to a mesh add up to 4 new attributes (position + normal + tangents + uvs). This could quickly go beyond the max attributes limitation.
 * All targets within a same manager must have the same vertices count
 * A mesh and its MorphTargetManager must have the same vertices count
+
+You can find a video explaining how morph targets work: https://www.youtube.com/watch?v=LBPRmGgU0PE&feature=emb_logo
