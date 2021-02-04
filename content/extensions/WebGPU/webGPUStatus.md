@@ -32,7 +32,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
   * Not implemented yet but Chrome does not allow to read the data of a WebGPU canvas yet so can't be implemented
 
 ### Features implemented but not working / fully working because not implemented / fully implemented by Chrome yet
-* [Anisotropic filtering](/typedoc/classes/babylon.texture#anisotropicfilteringlevel)
 * 3D textures
   * [Color grading textures](/typedoc/classes/babylon.colorgradingtexture) does not work because of this
 * Reading the canvas
@@ -42,23 +41,21 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 
 ## Make it fast: Optimizations
 We need to implement some specific mechanisms / features to get the most of our implementation:
-* Add a cache for the render pipelines
-* Add a cache for the binding groups
-* Add a cache for the vertex input bindings
+* ~~Add a cache for the render pipelines~~ Done
+* Add a cache for the binding groups: In progress
+* Use render bundles to improve performances
 * Use compute shaders
   * To perform some conversions when reading data from buffers
   * To replace the existing min/max computation code
   * To implement GPU particle systems
 * Use WGSL when back compat is not required
-* Use render bundles to improve performances
-* Use `CreateReadyPipeline` for asynchronous pipeline creations
+* Use `CreatePipelineAsync` for asynchronous pipeline creations
 * ...and lots of others!
 
 So, don't try to benchmark your code against WebGL just yet, it won't be representative of the real performances you will get once the steps outlined above are integrated (and notably the first 3 ones)!
 
 ## Browser Caveats
 Chrome Canary does not support all WebGPU features yet, so here are some caveats as of 2020/11/21:
-* No Anisotropic filtering
 * No 3D textures
 * Limited to 4 targets for MRTs
 * Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
