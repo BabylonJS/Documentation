@@ -65,7 +65,7 @@ clothFolds.glb | 2.21 MB | ![clothFolds](/img/resources/meshes/clothFolds.jpg) |
 CornellBox/cornellBox.babylon | 216 kB | ![cornellBox-babylon](/img/resources/meshes/cornellBox-babylon.jpg) | <Playground id="#4AJ16M#2" title="CornellBox-Babylon" description=""/>
 CornellBox/cornellBox.babylon lightmapped | 343 kB | ![cornellBox-babylon-lightmapped](/img/resources/meshes/cornellBox-babylon-lightmapped.jpg) | <Playground id="#4AJ16M#5" title="CornellBox Babylon Lightmapped" description=""/>
 CornellBox/cornellBox.glb | 162 kB | ![cornellBox-glb](/img/resources/meshes/cornellBox-glb.jpg) | <Playground id="#4AJ16M#3" title="cornellBox-glb" description=""/>
-CornellBox/cornellBox.glb lightmapped | 289 kB | ![cornellBox-glb-lightmapped](/img/resources/meshes/cornellBox-glb-lightmapped.jpg) | <Playground id="#4AJ16M#15" title="CornellBox glb lightmapped" description=""/>
+CornellBox/cornellBox.glb lightmapped | 289 kB | ![cornellBox-glb-lightmapped](/img/resources/meshes/cornellBox-glb-lightmapped.jpg) | <Playground id="#ADPQFC#9" title="CornellBox glb lightmapped" description=""/>
 Dude/dude.babylon | 3.46 MB | ![dude](/img/resources/meshes/dude.png) | <Playground id="#WLDCUC#3" title="Dude" description=""/>
 emoji_heart.glb | 1.08 MB | ![heart](/img/resources/meshes/heart.png) | <Playground id="#4AJ16M#1" title="Heart" description=""/>
 ExplodingBarrel.glb | 2.9 MB | ![ExplodingBarrel](/img/resources/meshes/ExplodingBarrel.jpg) | <Playground id="#4AJ16M#23" title="ExplodingBarrel" description=""/>
