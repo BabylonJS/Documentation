@@ -14,7 +14,7 @@
 <url><loc>https://doc.babylonjs.com/advanced_topics/serverSide</loc><lastmod>2021-01-04T20:22:18.668Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/webGL2</loc><lastmod>2021-01-14T14:32:32.787Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/webGPU/webGPUBreakingChanges</loc><lastmod>2021-01-14T14:32:32.785Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/advanced_topics/webGPU/webGPUStatus</loc><lastmod>2021-01-14T14:32:32.786Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/advanced_topics/webGPU/webGPUStatus</loc><lastmod>2021-02-05T15:39:49.520Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/webGPU</loc><lastmod>2021-01-04T20:25:43.855Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics</loc><lastmod>2021-01-04T20:22:18.669Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/advanced_animations</loc><lastmod>2021-01-14T14:32:32.672Z</lastmod></url>
@@ -187,7 +187,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/interactions</loc><lastmod>2021-01-04T20:22:18.676Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/mergeMeshes</loc><lastmod>2021-01-14T14:32:32.692Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/meshExploder</loc><lastmod>2021-01-04T20:22:18.601Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/mesh/morphTargets</loc><lastmod>2021-01-14T14:32:32.701Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/mesh/morphTargets</loc><lastmod>2021-02-05T15:39:49.518Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/path3D</loc><lastmod>2021-01-14T14:32:32.702Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/simplifyingMeshes</loc><lastmod>2021-01-14T14:32:32.705Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/mesh/trailMesh</loc><lastmod>2021-01-29T18:32:54.572Z</lastmod></url>
@@ -360,7 +360,7 @@
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer/configuringViewer</loc><lastmod>2021-01-04T20:22:18.661Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer/defaultViewerConfig</loc><lastmod>2021-01-04T20:22:18.661Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer/viewerExamples</loc><lastmod>2021-01-04T20:22:18.662Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/extensions/babylonViewer/viewerTemplatingSystem</loc><lastmod>2021-01-04T20:25:43.855Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/extensions/babylonViewer/viewerTemplatingSystem</loc><lastmod>2021-02-02T20:37:14.970Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/babylonViewer</loc><lastmod>2021-01-04T20:22:18.662Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/castorGUI/guiButton</loc><lastmod>2021-01-04T20:22:18.636Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/castorGUI/guiCheckbox</loc><lastmod>2021-01-04T20:22:18.636Z</lastmod></url>
@@ -495,7 +495,7 @@
 <url><loc>https://doc.babylonjs.com/start/chap8/vr</loc><lastmod>2021-01-04T20:22:18.750Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/start/chap8</loc><lastmod>2021-01-04T20:22:18.749Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/start</loc><lastmod>2021-01-04T20:22:18.750Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes</loc><lastmod>2021-01-14T14:32:32.808Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes</loc><lastmod>2021-02-05T15:39:49.522Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableTextures</loc><lastmod>2021-01-14T14:32:32.807Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat</loc><lastmod>2021-01-14T14:32:32.756Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/fireMat</loc><lastmod>2021-01-14T14:32:32.757Z</lastmod></url>
