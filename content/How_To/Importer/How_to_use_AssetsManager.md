@@ -174,7 +174,7 @@ The mesh asset task is used to load a model externally (a .babylon, .obj, .gltf 
 Constructor signature:
 
 ```javascript
-constructor(name: string, meshesNames: any, rootUrl: string, sceneFilename: string)
+constructor(name: string, meshesNames: any, rootUrl: string, sceneFilename: string | File)
 ```
 
 Extra properties:
