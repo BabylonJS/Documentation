@@ -103,7 +103,29 @@ engine.runRenderLoop(function() {
     pixiRenderer.render(stage);
 });
 ```
+## Spine animation with pixi.js
 
+![image info](https://raw.githubusercontent.com/pixijs/examples/gh-pages/examples/assets/pixi-spine/spineboy-pro.png)
+
+Running 2D spine animation is now easy using the pixi spine extension @https://github.com/pixijs/pixi-spine
+Here's a sample code of how to run a simple spineboy animation
+```
+ loader.add('spineboy','https://raw.githubusercontent.com/pixijs/examples/gh-pages/examples/assets/pixi-spine/spineboy-pro.json');
+
+        loader.load((loader, resources) =>{  
+            let spineboy = new PIXI.spine.Spine(resources.spineboy.spineData)
+            spineboy.scale.set(0.4);
+            spineboy.state.setAnimation(0,'portal', false);
+            spineboy.x = 1000;
+            spineboy.y = 650;
+            spineboy.state.getCurrent(0).onComplete = ()=>{
+                spineboy.state.setAnimation(0,'shoot', true);
+            }
+            pixi.stage.addChild(spineboy);
+            })
+```
+[Working playground with spine animation](https://www.babylonjs-playground.com/#DX6LWQ)
+For more api info as regards spine animation, visit [github](https://github.com/pixijs/pixi-spine)
 
 ## Pixi.js Versions
 
