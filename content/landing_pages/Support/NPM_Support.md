@@ -30,8 +30,8 @@ We offer babaylon.js' core and its modules as npm packages. The following are av
 * [babylonjs-post-process](https://www.npmjs.com/package/babylonjs-post-process) - Babylon's post processes.
 * [babylonjs-procedural-textures](https://www.npmjs.com/package/babylonjs-procedural-textures) - Officially supported procedural textures
 * [babylonjs-serializers](https://www.npmjs.com/package/babylonjs-serializers) - Scene / mesh serializers.
-* [babylonjs-gui](https://www.npmjs.com/package/babylonjs-gui) - BabylonJS GUI module.
-* [babylonjs-viewer](https://www.npmjs.com/package/babylonjs-viewer) - The stand-alone BabylonJS Viewer.
+* [babylonjs-gui](https://www.npmjs.com/package/babylonjs-gui) -Babylon.js GUI module.
+* [babylonjs-viewer](https://www.npmjs.com/package/babylonjs-viewer) - The stand-aloneBabylon.js Viewer.
 
 ## Basic usage
 
@@ -173,8 +173,8 @@ If you wish to benefit from tree shaking and other nitty gritties, you can now r
 * [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
 * [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
 * [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
-* [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - BabylonJS GUI module.
-* [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The BabylonJS Inspector for es 6.
+* [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
+* [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - TheBabylon.js Inspector for es 6.
 
 Please note that you can not mix ES6 and our legacy packages.
 
@@ -248,7 +248,7 @@ You can see an example of that in the Viewer directory of our main repository.
 
 ### Even though I use only a few classes from the BABYLON namespace, the entire Babylon module is included
 
-Due to the way BabylonJS is built, Tree-Shaking is currently not quite possible. Babylon's internal objects have deep connections with one another (for performance reasons). That means, that your built JS file will be at least Babylon.js' minified size.
+Due to the wayBabylon.js is built, Tree-Shaking is currently not quite possible. Babylon's internal objects have deep connections with one another (for performance reasons). That means, that your built JS file will be at least Babylon.js' minified size.
 
 You can still use custom builds to build you own minimal version: //doc.babylonjs.com/how_to/how_to_start#custom-builds
 

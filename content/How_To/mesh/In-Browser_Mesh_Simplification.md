@@ -12,7 +12,7 @@ video-content:
 
 ## About
 
-[Level of Details](https://en.wikipedia.org/wiki/Level_of_detail) is a powerful tool that was added to BabylonJS in version 2.0 . The concept is rather simple - When the camera is at a certain distance from the mesh, lowering the amount of faces displayed will increase performance without the user noticing the reduction.
+[Level of Details](https://en.wikipedia.org/wiki/Level_of_detail) is a powerful tool that was added toBabylon.js in version 2.0 . The concept is rather simple - When the camera is at a certain distance from the mesh, lowering the amount of faces displayed will increase performance without the user noticing the reduction.
 
 LOD requires the developer to add a few meshes to the original mesh. One of the ways to create those meshes is simplification. Many 3D tools offer various simplification algorithms. It is sometimes called Decimation.
 
@@ -124,7 +124,7 @@ An object like a Box (if built in an optimal way, like the BABYLON.Mesh.CreateBo
 -   Quadratic simplification can be calculated using many factors. Position, normals, colors, UV coordinates etc'. The more factors, the slower it will run (more calculations). The decision was made to stay with position only - this means that after simplification, the UV coordinates will sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
 -   Meshes might change their shape. Very noticeable with a small plane.
 -   Meshes might suddenly have "holes" in them. This can be avoided using the mesh optimization (starting 2.1, described further down)
--   Submeshes are supported starting with BabylonJS 2.1. Meshes with submeshes would not be decimated 100% correctly due to the lack of border detection (see next point). Give it a try and see if it fits your needs. Contact admin with questions.
+-   Submeshes are supported starting withBabylon.js 2.1. Meshes with submeshes would not be decimated 100% correctly due to the lack of border detection (see next point). Give it a try and see if it fits your needs. Contact admin with questions.
 -   Some triangles on the borders will be "deleted". The reason is usually the (lack of) border detection, which is a part of the original paper. The feature was not included in the implementation due to the amount of time needed to calculate that correctly. Maybe in the future!
 -   Objects that are initialized using an image (best example is a Height Map-based ground) will only decimate after the image is fully loaded. Height Map can be initialized using the callback that can be set as the last variable of the function:
 
@@ -135,7 +135,7 @@ var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "worldHeightMap.jp
 });
 ```
 
-## Mesh optimization (Starting BabylonJS 2.1)
+## Mesh optimization (StartingBabylon.js 2.1)
 
 Due to the nature of Babylon's file format, it is possible that many vertices will have the same positions, normals, but different color/uv information. This presents a problem to the decimation process, which relies on having all triangles with the same position altered.
 

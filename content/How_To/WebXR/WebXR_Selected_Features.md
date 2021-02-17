@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# BabylonJS WebXR features
+#Babylon.js WebXR features
 
 This contains the documentation of all features that are not AR-Exclusive. For AR Features, see the [BabylonJS WebXR AR Features](/divingDeeper/webXR/webXRARFeatures) page.
 

@@ -14,13 +14,13 @@ video-content:
 
 ## How to Create a Mesh from Scratch
 
-Each and every shape in BabylonJS is built from a mesh of triangles or facets as shown below:
+Each and every shape inBabylon.js is built from a mesh of triangles or facets as shown below:
 
 ![Custom Mesh](/img/features/scene/custom1.jpg)
 
 Every facet is made up of three vertices each of which is assigned data that not only affects the position of the facet but also 
 its colour, texture and how it is lit. The complex process of applying a shader to turn this data into a viewable mesh 
-is all carried out by BabylonJS.
+is all carried out byBabylon.js.
 
 ## Positions and Indices
 
@@ -160,7 +160,7 @@ Black facet cannot be seen.
 White facet not seen.
 
 Why is this? There are two faces to each facet; the face that the normal is pointing away from is the front face, the other is the backface. 
-By default BabylonJS does not render the back face.
+By defaultBabylon.js does not render the back face.
 
 Due to this, many meshes that draw solids will not have a visible back face for its facet.
 
@@ -178,7 +178,7 @@ Comment line 41 out in the following to see back face culling happening.
 
 ## Color
 
-The simplest way to assign a color to the custom mesh is by applying a standard material to the mesh and let BabylonJS do all the work. However 
+The simplest way to assign a color to the custom mesh is by applying a standard material to the mesh and letBabylon.js do all the work. However 
 color can be set for a facet within the vertex data. For information on how the arrangement of facets used in constructing a mesh can affect how colors are displayed see [Applying Materials to Facets](/divingDeeper/materials/using/texturePerBoxFace).
 
 Colors for each vertex are placed in an array as groups of four in the order red, green, blue and alpha for transparency. For the facet 0, 1, 2 to be colored red and the facet 3, 4, 5 to be colored green, each vertex 
@@ -238,7 +238,7 @@ Adding a light with direction the reverse of the current one will light both sid
 
 ## Texture
 
-The simplest method is to just use [materials](/divingDeeper/materials/using/materials_introduction) and let BabylonJS apply the given image as a texture. 
+The simplest method is to just use [materials](/divingDeeper/materials/using/materials_introduction) and letBabylon.js apply the given image as a texture. 
 However should you wish to have more control on how a texture is applied to a facet then you need to create and set the uv array.
 
 Think of any image to be applied as a texture as having a pair of axes set at the bottom and left-hand side of the image; the u axis and the v axis respectively. 

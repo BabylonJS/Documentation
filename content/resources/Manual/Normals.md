@@ -35,7 +35,7 @@ The box above has 8 vertices. If we want to keep the indices to the minimum they
 Facets 0, 3, 7 and 3, 7, 6 and 0, 3, 2 all have vertex 3 in common and vertex 3 can only have one
 entry in the normals array associated with it.
 
-How does BabylonJS calculate the `normal` for vertex 3?
+How doesBabylon.js calculate the `normal` for vertex 3?
 
 The diagram below shows that the average of the three mathematical normals at each vertex is used:
 
@@ -66,7 +66,7 @@ sharing a vertex indices. They will of course share vertex positions.
 
 ![Seperate Faces](/img/how_to/Mesh/box3.jpg)
 
-In BabylonJS this can be achieved using the `convertToFlatShadedMesh` function. The results are shown below:
+InBabylon.js this can be achieved using the `convertToFlatShadedMesh` function. The results are shown below:
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 

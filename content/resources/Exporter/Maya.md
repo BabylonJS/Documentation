@@ -1,6 +1,6 @@
 ---
 title: Install the Maya Plugin
-image: 
+image:
 description: How to install the Maya plug-in.
 keywords: babylon.js, exporter, export, extension, Maya, install
 further-reading:
@@ -11,6 +11,7 @@ video-content:
 ## Installer
 
 ### Installing the installer (so meta...)
+
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
 First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each releases:
@@ -28,6 +29,7 @@ You can nervertheless continue to download by pressing the little arrow and chos
 Once downloaded, you can extract the content of the zip in your favorite location.
 
 ### Using the installer
+
 Launch the executable file contained in the previous zip. On the first launch Windows like Chrome previously will emit a Smart Screen warning as the application has currently not being launched enough to be trusted.
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.png)
@@ -67,6 +69,7 @@ By default, Windows blocks all .dll files coming from the web, so we have to unb
 Then, extract the content of the zip file on your computer.
 
 Finally:
+
 - move all .dll files into a directory defined in Maya plug-in path (for example `C:/Program Files/Autodesk/Maya2018/bin/plug-ins`). More information on how to install a plug-in in Maya [here](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-FA51BD26-86F3-4F41-9486-2C3CF52B9E17-htm.html).
 - and move all template files to their respective folders AETemplates and NETemplates. Those files are used for the UI. While not mandatory they are always welcomed!
 
@@ -74,103 +77,113 @@ You should find the _Maya2Babylon.nll.dll_ in the plug-in Manager (_Windows > Se
 
 ![dll unblocking](/img/exporters/Maya/4_maya_plug_in_manager.jpg)
 
-Check _Loaded_ and _Auto load_, and a new tab should appear: 
+Check _Loaded_ and _Auto load_, and a new tab should appear:
 
 ![plug-in visible](/img/exporters/Maya/5_plugin_visible.jpg)
 
 Congratulations! You did it!
 
-## Dependencies #
+## Dependencies
+
 ## Visual Studio
+
 Visual Studio is required to build the Maya2Babylon project from source.
 
 ## .NET Framework
+
 The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers) needs to be installed in order to run the Maya2Babylon plugin properly.
-* Maya2Babylon 2017-2018
-   * Requires atleast .NET Framework 4.6.1
 
-* Maya2Babylon 2019
-   * Requires atleast .NET Framework 4.6.1
-   
-* Maya2Babylon 2020
-   * Requires atleast .NET Framework 4.6.1
-   
+- Maya2Babylon 2017-2018
+
+  - Requires atleast .NET Framework 4.6.1
+
+- Maya2Babylon 2019
+  - Requires atleast .NET Framework 4.6.1
+- Maya2Babylon 2020
+  - Requires atleast .NET Framework 4.6.1
+
 ## Other Dependencies
-* For Maya 2020
-   * Maya2Babylon 2020 requires Maya 2020.1 or newer.
 
-## Features  #
+- For Maya 2020
+  - Maya2Babylon 2020 requires Maya 2020.1 or newer.
+
+## Features
 
 ## Exported features
 
-* _Meshes_
-    * Visibility
-    * Position / rotation / scaling
-    * Geometry (position, normal, tangent, texture coordinates (2 channels))
-    * Skin
-    * Instances
-    * Morph targets (blend shapes)
-    * Animations: Position, scaling, rotation, bones, morph weights
-    * Custom attributes
+- _Meshes_
+      * Visibility
+      * Position / rotation / scaling
+      \* Geometry (position, normal, tangent, texture coordinates (2 channels))
 
-* _Materials_
-    * Standard materials (Lambert, Phong, PhongE and Blinn)
-        * Color
-        * Transparency
-        * Ambient color
-        * Bump mapping
-        * Specular color and power
-        * Reflected color
-    * PBR materials (Stingray PBS, AiStandardSurface)
-        * Base color & opacity
-        * Normal
-        * Metallic
-        * Roughness
-        * Emissive
-    * Multi-materials
-    * Double sided materials
-    * Unlit
-    * Backface culling
-    * Max Simultaneous Lights
-    * Opacity/Transparency mode
-    * Custom attributes
+  - Skin
+    _ Instances
+    _ Morph targets (blend shapes)
+    _ Animations: Position, scaling, rotation, bones, morph weights
+    _ Custom attributes
 
-* _Textures_
-    * UV offset / scaling / angle
-    * Level
-    * Coordinates mode (spherical, planar, explicit)
-    * Wrapping (clamp, mirror, wrap)
+- _Materials_
 
-* _Cameras_
-    * Fov
-    * MinZ
-    * MaxZ
-    * Position
-    * Target / Rotation
-    * Animations: Position, Target / Rotation
-    * Custom attributes
+  - Standard materials (Lambert, Phong, PhongE and Blinn)
+      - Color
+      - Transparency
 
-* _Lights_
-    * Point / spot / directional / ambient
-    * Inclusion / exclusion lists
-    * Position / direction
-    * Intensity
-    * Diffuse
-    * Specular
-    * Animations: Position, direction
-    * Custom attributes
+  - Ambient color
+    _ Bump mapping
+    _ Specular color and power
+    _ Reflected color
+    _ PBR materials (Stingray PBS, AiStandardSurface)
+    _ Base color & opacity
+    _ Normal
+    _ Metallic
+    _ Roughness
+    _ Emissive
+        _ Multi-materials
+    _ Double sided materials
+    _ Unlit
+    _ Backface culling
+    _ Max Simultaneous Lights
+    _ Opacity/Transparency mode
+    _ Custom attributes
 
-## The exporter window 
+- _Textures_
 
-When your scene is ready to be exported, click on the __Babylon__ tab on the top menu, and click on __Babylon File Exporter__ to display the exporter window. 
+  - UV offset / scaling / angle
+  - Level
+  - Coordinates mode (spherical, planar, explicit)
+  - Wrapping (clamp, mirror, wrap)
+
+- _Cameras_
+      * Fov
+      * MinZ
+      * MaxZ
+      * Position
+      \* Target / Rotation
+
+  - Animations: Position, Target / Rotation \* Custom attributes
+
+- _Lights_
+      \* Point / spot / directional / ambient
+  - Inclusion / exclusion lists
+        * Position / direction
+        * Intensity
+        * Diffuse
+        * Specular
+    _ Animations: Position, direction
+    _ Custom attributes
+
+## The exporter window
+
+When your scene is ready to be exported, click on the **Babylon** tab on the top menu, and click on **Babylon File Exporter** to display the exporter window.
 
 ![export window](/img/exporters/Maya/6_export_window.jpg)
 
 This window is composed of 3 panels:
-* A top panel with a file path and a button. With this panel, you choose where your Babylon file will be exported by clicking on the right button
-* Several options and two buttons Export and Export & Run
-* A log panel
- 
+
+- A top panel with a file path and a button. With this panel, you choose where your Babylon file will be exported by clicking on the right button
+- Several options and two buttons Export and Export & Run
+- A log panel
+
 The _Export_ button should be used to create the Babylon file representing your scene. The _Export & Run_ button will also create the Babylon file, but will also launch your default browser and run the newly made Babylon file. This button is very useful if you just want to test the render of your scene in Babylon.js.
 
 As babylon.js script is retrieved directly from the official website directly, you should have internet access in order to correctly use Export & Run.
@@ -197,7 +210,7 @@ If you have more than one camera, the first one will be set as activeCamera in B
 
 ## Light
 
-If you don’t have any lights in your scene, the exporter will add an ambient light by default. The log panel will display the warning “No light defined – A default ambient light was added for your convenience”. 
+If you don’t have any lights in your scene, the exporter will add an ambient light by default. The log panel will display the warning “No light defined – A default ambient light was added for your convenience”.
 
 ## Locator
 
@@ -212,6 +225,7 @@ A group node is exported as a dummy, a mesh without vertices, just like a locato
 Maya provides a large range of tools to manipulate connexions between textures and materials (like the Reverse node). For the most part, only a fileTexture is expected as input to a material.
 
 Currently the following intermediate nodes are supported by the exporter:
+
 - Projection node which is only considered for the reflected color texture of a standard material. You can choose the projection type between _Spherical_ or _Planar_. If no projection node is provided, the default projection type is _Spherical_ for the reflected color texture.
 - Bump2d node which is automatically created when assigning a file to a bump attribute.
 
@@ -241,7 +255,7 @@ Babylon engine supports only 2 UV sets. In Maya the first UV set, created by def
 
 Moreover, Babylon engine supports only 1 UV set per texture. If a single texture is linked to UV1 and any other UV set, the log panel will display the warning “Texture is linked to UV1 and UV2. Only one UV set per texture is supported.” and the texture will be linked to UV1 or UV2 but not both.
 
-Now that you know all about the exporter features, it’s time to use it! 
+Now that you know all about the exporter features, it’s time to use it!
 
 ## Double sided material
 
@@ -250,6 +264,7 @@ To create a double sided material there are different methods, but the only one 
 ![double sided hypershade](/img/exporters/Maya/8_hyperShade_double_sided.jpg)
 
 When exporting, the geometry of all meshes using a double sided material is duplicated:
+
 - the number of vertices and faces is doubled
 - faces, normals and tangents are inverted for the duplicated geometry
 
@@ -266,13 +281,14 @@ Here is an example for 3 different materials:
 ![Maya babylon material attributes details](/img/exporters/Maya/BabylonMaterialAttributes_AllNodes.jpg)
 
 Most Babylon attributes are common to all materials:
-* __Unlit__: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture.
-* __Backface Culling__: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces.
-* __Max Simultaneous Lights__: Number of Simultaneous lights allowed on the material.
-* __Opacity/Transparency Mode__: You can select how transparency is handled for this material among 3 choices:
-    * _Opaque_: The alpha color and texture are ignored during export process.
-    * _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
-    * _Blend_: This how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
+
+- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture.
+- **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces.
+- **Max Simultaneous Lights**: Number of Simultaneous lights allowed on the material.
+- **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
+  - _Opaque_: The alpha color and texture are ignored during export process.
+  - _Cutoff_: The alpha cutoff value is 0.5. Alpha values under this threshold are fully transparent. Alpha values above this threshold are fully opaque.
+  - _Blend_: This how Maya handles transparency when rendering. This is the default mode for any material with an alpha color or texture.
 
 ## Custom attributes
 
@@ -285,8 +301,9 @@ In babylon, the custom attributes are added as metadata.
 ![custom attributes as metadata](/img/exporters/Maya/CustomAttributes_Metadata.png)
 
 Following types have particularities you should know:
+
 - _bool_ : is equal to 0 or 1.
-- _enum_ : corresponds to the index of your Maya enum. 
+- _enum_ : corresponds to the index of your Maya enum.
 
 ## Exporter through MEL script
 

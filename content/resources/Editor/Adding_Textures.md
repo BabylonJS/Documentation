@@ -15,7 +15,7 @@ The editor provides a tool to preview, edit and add textures.
 This includes:
 * PNG and JPEG textures
 * DDS Cube textures
-* Procedural textures (all from the procedural textures library of BabylonJS)
+* Procedural textures (all from the procedural textures library ofBabylon.js)
 * Custom render targets
 * Mirror textures
 

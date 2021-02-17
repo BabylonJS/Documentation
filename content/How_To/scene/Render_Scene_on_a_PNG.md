@@ -12,7 +12,7 @@ video-content:
 
 First you may ask why is it better than "ctrl + prt scr" screenshot or the Snippet app?
 
-1. With a standard ctrl + print screen keypress, you can't create screenshots with higher resolutions than your screen resolution. With BabylonJS screenshot feature, you can. There is no problem with creating a 1920x1080 screenshot on a 800x600 screen (provided the graphics card is powerful enough to compute it). However as you will see in the examples later there is no increase in pixel density.
+1. With a standard ctrl + print screen keypress, you can't create screenshots with higher resolutions than your screen resolution. WithBabylon.js screenshot feature, you can. There is no problem with creating a 1920x1080 screenshot on a 800x600 screen (provided the graphics card is powerful enough to compute it). However as you will see in the examples later there is no increase in pixel density.
 2. The screenshot is of the rendered canvas only without further manipulation.
 3. A sequence of screenshots can be taken that can be turned into an animated gif.
 
@@ -46,7 +46,7 @@ However even this will not work if the scene is very complex and has not been re
 
 ## CreateScreenshot
 It's done by simply calling this method: `BABYLON.Tools.CreateScreenshot(engine, camera, size)`.
-You need to provide your BabylonJS engine, the camera you want to use for the rendering, and a size.
+You need to provide yourBabylon.js engine, the camera you want to use for the rendering, and a size.
 
 Please note that the engine must be created with `preserveDrawingBuffer` option:
 ```
@@ -85,7 +85,7 @@ Precision can be used as a multiplier of the screen resolution.
 
 ## CreateScreenshotUsingRenderTarget
 As for the other method it's done by simply calling this method: `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size)`.
-You need to provide your BabylonJS engine, the camera you want to use for the rendering, and a size.
+You need to provide yourBabylon.js engine, the camera you want to use for the rendering, and a size.
 
 Again the size parameter is very versatile and can be a simple number or an object. However you will see differences in the results using the same parameters as before.
 

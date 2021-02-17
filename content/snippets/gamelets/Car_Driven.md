@@ -38,7 +38,7 @@ of the to rear wheels it is A/2 + L/tan(theta).
 
 ## Mathematics of Rotation for Car
 
-When the BabylonJS engine is running at F frames per second the time for one frame is 1/F seconds.
+When theBabylon.js engine is running at F frames per second the time for one frame is 1/F seconds.
 
 When the speed of the car is D units per second the distance travelled by the car is D/F units. 
 

@@ -10,13 +10,13 @@ video-overview:
 video-content:
 ---
 
-This article has been written to help you understand how things are drawn on screen, and how transparency is handled in BabylonJS. Feel free to contribute in whatever way seems fit to you!
+This article has been written to help you understand how things are drawn on screen, and how transparency is handled inBabylon.js. Feel free to contribute in whatever way seems fit to you!
 
 ## General Considerations
 
 A general rule of thumb in real-time 3D rendering is that drawing several overlapping opaque objects is always easier than non-opaque ones. This is due to the fact that opaque objects are compatible with the use of a depth buffer, and thus no specific order is required when rendering them.
 
-A depth buffer is a surface using the same dimensions as the screen, and holding for every pixel the following information: how far from the camera was the last pixel drawn here. With this information, we can draw as many objects as we want and always be sure that we will never draw something that was supposed to be hidden by another object. BabylonJS offers access to this information with a special DepthRenderer object.
+A depth buffer is a surface using the same dimensions as the screen, and holding for every pixel the following information: how far from the camera was the last pixel drawn here. With this information, we can draw as many objects as we want and always be sure that we will never draw something that was supposed to be hidden by another object.Babylon.js offers access to this information with a special DepthRenderer object.
 
 Rendering objects without a depth buffer would require resorting to an old-school technique called [*Painter's Algorithm*](http://en.wikipedia.org/wiki/Painter's_algorithm), which is extremely simple: draw further objects first. Sky, then backdrop, etc. all the way to foreground objects. This is basically ordering objects by distance from camera (a.k.a. depth), and clearly not enough for most cases.
 
@@ -30,7 +30,7 @@ This is what a depth buffer looks like for a scene which contains only opaque me
 
 ## General Order
 
-Before actually drawing meshes on the screen, BabylonJS puts them in the following categories, which are presented in the order in which they are drawn:
+Before actually drawing meshes on the screen,Babylon.js puts them in the following categories, which are presented in the order in which they are drawn:
 1. **Depth pre-pass meshes**
 
 2. **Opaque meshes**
@@ -61,13 +61,13 @@ Meshes have another property that has an influence on the rendering order: `.alp
 
 By default, this property is set to `Number.MAX_VALUE`, which is the highest value that a numerical variable can hold (around 1.79E+308).
 
-Unlike opaque and alpha-tested meshes, the BabylonJS rendering engine sorts alpha-blended meshes by depth before drawing them on screen (see below). The `.alphaIndex` property allows you to override this sorting, as one mesh which has a lower alpha index than another will *always* be rendered before it, regardless of their respective depth.
+Unlike opaque and alpha-tested meshes, theBabylon.js rendering engine sorts alpha-blended meshes by depth before drawing them on screen (see below). The `.alphaIndex` property allows you to override this sorting, as one mesh which has a lower alpha index than another will *always* be rendered before it, regardless of their respective depth.
 
 To phrase it more simply: **alpha-blended are sorted *first* by alpha index, and *then* by depth (distance to camera).**
 
 Keep in mind that this property works only for alpha-blended mesh, and has absolutely no effect for opaque and alpha-tested ones.
 
-*Note: this property can be manually set on meshes in 3DS Max with the BabylonJS exporter plugin.*
+*Note: this property can be manually set on meshes in 3DS Max with theBabylon.js exporter plugin.*
 
 ## Opaque or Transparent?
 

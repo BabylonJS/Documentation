@@ -10,7 +10,7 @@ video-content:
 
 ## An Introduction to Animation
 
-However animation is achieved it has to take into account the action wanted, timing, the number of frames needed to produce the required fluidity and key points within the sequence. To help understand how BabylonJS goes about animation how animation is achieved.
+However animation is achieved it has to take into account the action wanted, timing, the number of frames needed to produce the required fluidity and key points within the sequence. To help understand howBabylon.js goes about animation how animation is achieved.
 
 Animations are produced by a sequence of images, _frames_, which are displayed one after the other. This sequence of _frames_ can be individual drawings or for, stop motion animation, photographs of models that are moved slightly frame by frame
 
@@ -21,7 +21,7 @@ Animations are produced by a sequence of images, _frames_, which are displayed o
 
 During the design stage the creator will need to consider how long a sequence should take and how smooth it needs to be. The smoother the movement the more frames are required. Once the number of frames is known then the animation frames per second can be found. Also knowing the object's start position and end position and how many frames are required will determine the object's movement per frame.
 
-In BabylonJS, as in stop motion animation, individual objects have to be moved one by. Whereas we might talk about the overall finished piece as an animation in Babylon.js an _Animation_ is also a specific object that details a transformation, timing and looping that can then be applied to any mesh, camera or light. To this data is added values at key frames from which Babylon.js calculates the transformations to take place for the in between frames.
+InBabylon.js, as in stop motion animation, individual objects have to be moved one by. Whereas we might talk about the overall finished piece as an animation in Babylon.js an _Animation_ is also a specific object that details a transformation, timing and looping that can then be applied to any mesh, camera or light. To this data is added values at key frames from which Babylon.js calculates the transformations to take place for the in between frames.
 
 ## Terminology Used in the Animation Documentation
 
@@ -41,7 +41,7 @@ The following terms will have the given meaning within the How_To about animatin
 
 -   _Scripted Performer_ - The performer plus all the animations to be undertaken by the performer.
 
--   _Performance_ - The scripted performer and the actions done by the performer following the script. In BabylonJS this is the _animatable_ object.
+-   _Performance_ - The scripted performer and the actions done by the performer following the script. InBabylon.js this is the _animatable_ object.
 
 -   _Clip_ - The viewable result of a performance. In practice there are two types of _clip_ a
     _game clip_ and a _movie clip_. In a _movie clip_ the user has no control over the camera and the _clip_ is viewed according to the _animation_ of the camera  as set by the creator of the _clip_. In a _game clip_ the user is able to move the camera as determined by the type of camera used in the scene. Unless it is likely to cause any confusion just the term _clip_ will be used throughout the documentation when writing about animating.

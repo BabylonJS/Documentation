@@ -1,6 +1,6 @@
 ---
 title: Export from Cheetah to Babylon.js
-image: 
+image:
 description: How to export from Cheetah to Babylon.js.
 keywords: babylon.js, exporter, export, extension, cheetah
 further-reading:
@@ -13,6 +13,7 @@ video-content:
 - mesh export with functional transform, naming and parenting
 - multicamera export (only perspective, no support for orthogonal right now)
 - light export with all babylon type managed :
+
   - Cheetah3D spot light is a babylon spot
   - Cheetah3D distant light is a babylon directional light
   - Cheetah3D ambiant light is a babylon hemispheric light
@@ -35,4 +36,3 @@ Put js script in this folder :
 ### Usage
 
 Just load your scene and go to Tools/Scripts/Macro/Babylon file export. Choose a destination, and load your scene inside Babylon.JS!
-

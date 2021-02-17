@@ -32,8 +32,8 @@ We offer babylon.js' core and its modules as npm packages. The following are ava
 -   [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
 -   [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
 -   [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
--   [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - BabylonJS GUI module.
--   [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone BabylonJS Viewer.
+-   [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
+-   [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Viewer.
 
 ## Basic Example
 

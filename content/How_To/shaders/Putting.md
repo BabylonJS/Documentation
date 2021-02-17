@@ -4,7 +4,7 @@ image:
 description: Dive deep into the inner workings of how Babylon.js handles shaders.
 keywords: babylon.js, advanced, shaders
 further-reading:
-    - title: Introduction To Shaders in BabylonJS
+    - title: Introduction To Shaders inBabylon.js
       url: /advanced_topics/introToShaders
     - title: ShaderMaterial Object
       url: /advanced_topics/introToShaders
@@ -12,17 +12,17 @@ video-overview:
 video-content:
 ---
 
-## Putting Shader Code in BabylonJS
+## Putting Shader Code inBabylon.js
 Here are four ways of putting shader code into your scene:
 
 1. Use [BabylonJS Create Your Own Shader (CYOS)](https://www.babylonjs.com/cyos/) and download a zip file; 
 2. Write the Vertex and Fragment Shader Code into &ltscript&gt tags
 3. Write, save and import a Vertex and Fragment Shader file of type .fx into your code; 
-4. Use the shaderBuilder extension of BabylonJS.
+4. Use the shaderBuilder extension ofBabylon.js.
 
 Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced_topics/introToShaders/shaderMaterial) to pass data to the shaders.
 
-## BabylonJS CYOS Download
+##Babylon.js CYOS Download
 
 This site allows you to write code for a Vertex Shader and a Fragment Shader and see the results on a variety of meshes. 
 Downloading a zip file produces a folder containing and index.html file and some image files for texture.
@@ -198,7 +198,7 @@ In the appropriate section of your shader code to have them injected into your s
 
 ## Shader Builder
 
-This is an extension to BabylonJS. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
+This is an extension toBabylon.js. Copy and save the [source code](https://github.com/BabylonJS/Extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
 
 ```javascript
 <script src="Babylonx.ShaderBuilder.js"></script>
@@ -209,7 +209,7 @@ The Shader Builder engine needs to be initialised
 BABYLONX.ShaderBuilder.InitializeEngine();
 ```
 
-The format for writing a ShaderBuilder is **fluent coding** and it deals with attributes and BabylonJS uniforms automatically.  
+The format for writing a ShaderBuilder is **fluent coding** and it deals with attributes andBabylon.js uniforms automatically.  
 An example for the shader code used in 1 to 3 above would be
 
 ```javascript

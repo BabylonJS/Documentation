@@ -77,7 +77,7 @@ The call to BABYLON.MeshWriter returns a constructor.  Call it "**Writer**".
 
 ## Constructor - new Writer()
 
-new Writer() is called with a string and an (optional) options parameter.&nbsp; The options object conforms to normal BabylonJS structures and terminology.
+new Writer() is called with a string and an (optional) options parameter.&nbsp; The options object conforms to normalBabylon.js structures and terminology.
 
 	      FIELD                 DEFAULT
 	    font-family             default-font
@@ -103,7 +103,7 @@ new Writer() is called with a string and an (optional) options parameter.&nbsp; 
 
 ## Instance
 
-Each **writer** instance has methods to allow one to retrieve the BabylonJS objects or to get/set attributes of the SPS.
+Each **writer** instance has methods to allow one to retrieve theBabylon.js objects or to get/set attributes of the SPS.
 
 	   getSPS
 	   getMesh

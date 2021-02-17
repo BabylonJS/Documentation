@@ -10,7 +10,7 @@ video-content:
 
 # PCS Management
 
-As you can see above the `setParticles()` function is used in the BabylonJS render loop to provide behavior to the PCS.
+As you can see above the `setParticles()` function is used in theBabylon.js render loop to provide behavior to the PCS.
 
 Available custom functions of PCS are:
 

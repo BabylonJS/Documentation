@@ -16,7 +16,7 @@ The dynamic terrain is basically a standard BJS mesh, actually a ribbon. It's li
 
 ## Installation
 
-Just download the javascript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from the BabylonJS [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist` :   https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist    
+Just download the javascript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from theBabylon.js [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist` :   https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist    
 
 Then in your code, declare this script in a html tag **after** the script tag declaring Babylon.js :
 ```html

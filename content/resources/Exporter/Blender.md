@@ -18,18 +18,18 @@ An extension named [Tower of Babel](https://github.com/BabylonJS/BlenderExporter
 
 This add-on use the standard Blender installation procedure:
 
--   Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (_Blender2Babylon-X.X.zip_, you don't need to unzip).
--   In Blender, go to `File` menu > `User Preferences`.
--   Switch to the `Add-ons` tab.
--   (optionnal) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos of BabylonJS add-on and click `Remove` button.
--   Click the `Install from File...` button at the bottom.
--   Select the zip file and click the `Install Add-on from File...` button.
--   Check the box to enable it.
--   Click `Save User Settings` to enable it at every Blender launch.
+- Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (_Blender2Babylon-X.X.zip_, you don't need to unzip).
+- In Blender, go to `File` menu > `User Preferences`.
+- Switch to the `Add-ons` tab.
+- (optionnal) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
+- Click the `Install from File...` button at the bottom.
+- Select the zip file and click the `Install Add-on from File...` button.
+- Check the box to enable it.
+- Click `Save User Settings` to enable it at every Blender launch.
 
 ![blender user preferences](/img/exporters/blender/Blender2BabylonJS-installation.png)
 
-## Features:
+## Features
 
 ### Scene
 
@@ -117,13 +117,13 @@ This add-on use the standard Blender installation procedure:
 
 #### General
 
--   as you can notice in BJS mesh panel, materials will be suffixed by _.babylon_ filename,
--   other options can be found on this mesh panel, like max simultaneous lights, texture size for baking, etc,
--   texture baking will be automatic when:
-    -   cycles render is the current render engine,
-    -   procedural textures are used.
+- as you can notice in BJS mesh panel, materials will be suffixed by _.babylon_ filename,
+- other options can be found on this mesh panel, like max simultaneous lights, texture size for baking, etc,
+- texture baking will be automatic when:
+  - cycles render is the current render engine,
+  - procedural textures are used.
 
-#### Blender Render
+#### Blender Render on Babylon.js
 
 | Blender                                                                         | [BJS equivalent](/typedoc/classes/babylon.standardmaterial)                                        |
 | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -135,7 +135,7 @@ This add-on use the standard Blender installation procedure:
 
 ##### Specials
 
--   you can temporary switch to Blender Game to gain access to some materials settings:
+- you can temporary switch to Blender Game to gain access to some materials settings:
 
 ![blender-game](/img/exporters/blender/materials/blender-game.png)
 
@@ -157,8 +157,8 @@ This add-on use the standard Blender installation procedure:
 
 #### General
 
--   Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
--   about automatic baking, see [Materials](/extensions/Exporters/Blender#materials).
+- Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
+- about automatic baking, see [Materials](/extensions/Exporters/Blender#materials).
 
 #### Blender Render
 
@@ -180,8 +180,8 @@ This add-on use the standard Blender installation procedure:
 
 ### Commons & Good practices
 
--   you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/extensions/Exporters/Blender_Tips#Animation) for a basic workflow.
--   be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
+- you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/extensions/Exporters/Blender_Tips#Animation) for a basic workflow.
+- be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
 
 ### Classic Animations
 
@@ -207,7 +207,7 @@ Now, you already have a basic scene with animations autoplaying in it.
 
 ### Armatures
 
--   you can use any Blender rotation mode you want, the animation will be kind of baked during the export
+- you can use any Blender rotation mode you want, the animation will be kind of baked during the export
 
 ---
 
@@ -215,10 +215,10 @@ Now, you already have a basic scene with animations autoplaying in it.
 
 Once your scene is exported, you have multiple solutions to test it:
 
--   quick check it into the [sandbox](https://sandbox.babylonjs.com/)
--   edit the file through the [editor](https://editor.babylonjs.com/)
--   use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
--   script your own app using the [loader](/divingDeeper/importers/loadingFileTypes)
+- quick check it into the [sandbox](https://sandbox.babylonjs.com/)
+- edit the file through the [editor](https://editor.babylonjs.com/)
+- use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
+- script your own app using the [loader](/divingDeeper/importers/loadingFileTypes)
 
 ### Example
 
@@ -226,70 +226,70 @@ Once your scene is exported, you have multiple solutions to test it:
 
 Let's say you have exported your first scene. In this example we will use [blend files of the BJS logo](https://github.com/BabylonJS/MeshesLibrary/tree/master/BabylonJS-logo/v3):
 
--   export the babylon into a folder
--   create a file named _index.html_, and copy the code above:
+- export the babylon into a folder
+- create a file named _index.html_, and copy the code above:
 
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Default .babylon loading scene</title>
-        <meta charset="UTF-8" />
-        <!-- this link to the preview online version of BJS -->
-        <script src="https://preview.babylonjs.com/babylon.js"></script>
-        <!-- this is needed for BJS to load scene files -->
-        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-        <style>
-            html,
-            body {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                color: white;
-            }
+  <head>
+    <title>Default .babylon loading scene</title>
+    <meta charset="UTF-8" />
+    <!-- this link to the preview online version of BJS -->
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <!-- this is needed for BJS to load scene files -->
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
 
-            #canvas {
-                width: 100%;
-                height: 100%;
-                touch-action: none;
-            }
-        </style>
-    </head>
+      #canvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+    </style>
+  </head>
 
-    <body>
-        <canvas id="canvas"></canvas>
-        <script type="text/javascript">
-            var canvas = document.getElementById("canvas");
-            var engine = new BABYLON.Engine(canvas, true);
+  <body>
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+      var canvas = document.getElementById("canvas");
+      var engine = new BABYLON.Engine(canvas, true);
 
-            // here the doc for Load function: //doc.babylonjs.com/typedoc/classes/babylon.sceneloader#load
-            BABYLON.SceneLoader.Load("", "babylonJS_logo_v3.babylon", engine, function (scene) {
-                //as this .babylon example hasn't camera in it, we have to create one
-                var camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
-                camera.attachControl(canvas, false);
+      // here the doc for Load function: //doc.babylonjs.com/typedoc/classes/babylon.sceneloader#load
+      BABYLON.SceneLoader.Load("", "babylonJS_logo_v3.babylon", engine, function (scene) {
+        //as this .babylon example hasn't camera in it, we have to create one
+        var camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
 
-                scene.clearColor = new BABYLON.Color3(1, 1, 1);
-                scene.ambientColor = new BABYLON.Color3.White();
+        scene.clearColor = new BABYLON.Color3(1, 1, 1);
+        scene.ambientColor = new BABYLON.Color3.White();
 
-                engine.runRenderLoop(function () {
-                    scene.render();
-                });
+        engine.runRenderLoop(function () {
+          scene.render();
+        });
 
-                window.addEventListener("resize", function () {
-                    engine.resize();
-                });
-            });
-        </script>
-    </body>
+        window.addEventListener("resize", function () {
+          engine.resize();
+        });
+      });
+    </script>
+  </body>
 </html>
 ```
 
 ![babylon default folder example](/img/exporters/blender/babylon/babylon-BJS-default-folder-structure.png)
 
--   double-click on the _index.html_ file... profit!
-    -   some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver (local or not), or try into another browser (e.g.: Firefox, Edge).
+- double-click on the _index.html_ file... profit!
+  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver (local or not), or try into another browser (e.g.: Firefox, Edge).
 
 ![blender babylon scene loaded in BJS](/img/exporters/blender/babylon/babylon-loaded.png)
 
