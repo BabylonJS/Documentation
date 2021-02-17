@@ -97,7 +97,7 @@ First, you need to choose the following settings in the main window (Adapt the s
 
 ![Main Window](/img/How_To/environment/Lys_DefaultSettings_Main.png)
 
-Once done, in the preferences tab, please set the legacy dds mode (Four CC is not supported by BabylonJS):
+Once done, in the preferences tab, please set the legacy dds mode (Four CC is not supported byBabylon.js):
 
 ![Preferences](/img/How_To/environment/Lys_DefaultSettings_Prefs.png)
 
@@ -112,7 +112,7 @@ Finally, you can export your texture through the main tab:
 You are all set and ready to use the exported texture in the ```CubeTexture.CreateFromPrefilteredData``` function.
 
 ## Creating a compressed environment texture
-As the generated DDS files can be relatively large (32Mb for a 512px wide file), we introduced in Babylon a special way to pack your texture. Here are the steps to follow to create the `.env` files used in BabylonJS:
+As the generated DDS files can be relatively large (32Mb for a 512px wide file), we introduced in Babylon a special way to pack your texture. Here are the steps to follow to create the `.env` files used inBabylon.js:
 
 - go to the [sandbox](https://sandbox.babylonjs.com/)
 - drag &amp; drop a PBR scene file ([example](https://models.babylonjs.com/PBR_Spheres.glb))

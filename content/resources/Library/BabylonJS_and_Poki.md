@@ -1,5 +1,5 @@
 ---
-title: BabylonJS and Poki
+title:Babylon.js and Poki
 image:
 description: Using babylon.js to create a game for Poki.
 keywords: babylon.js, extension, external libraries, external, Poki

@@ -67,7 +67,7 @@ Effect name | Image | Playground
 
 ## Custom ParticleSets
 
-It is reasonably simple to create your own custom particleSet.  Each of the particleSets listed above... is stored in a BabylonJS folder currently located [**here**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
+It is reasonably simple to create your own custom particleSet.  Each of the particleSets listed above... is stored in aBabylon.js folder currently located [**here**](https://github.com/BabylonJS/Assets/tree/master/particles/systems). For instance, when you use “sun” as the particleSet _type_, the particleHelper will pick [**this json**](https://github.com/BabylonJS/Assets/blob/master/particles/systems/sun.json) (which defines the 'sun' particleSet _type_).
 
 You may store these custom JSON particleSets anywhere you wish. You can set the base URL for the particleHelper with:  ```BABYLON.ParticleHelper.BaseAssetsUrl = “https://yourBaseUrl”;```
 

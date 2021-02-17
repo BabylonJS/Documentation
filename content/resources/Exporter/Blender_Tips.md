@@ -1,6 +1,6 @@
 ---
 title: Blender Tips
-image: 
+image:
 description: Tips on exporting from Blender.
 keywords: babylon.js, exporter, export, extension, blender
 further-reading:
@@ -19,11 +19,11 @@ If you export the default Blender scene to BJS, you'll shortly see that your cub
 ![smooth-shading-issue](/img/exporters/blender/smooth-shading-basic-issue.png)
 
 This is because a 3D modeler viewport don't act like a 3D realtime engine. By default, Blender always create object using flat shading mode.
-If you want to see your scene smoothed as in BJS, you have to select all your objects and click to  *Shading* > *Smooth* in 3D View Toolshelf.
+If you want to see your scene smoothed as in BJS, you have to select all your objects and click to _Shading_ > _Smooth_ in 3D View Toolshelf.
 
 ![blender-smooth-shading](/img/exporters/blender/blender-smooth-shading.png)
 
-Now, you're cube looks ugly. You have to set up its sharpness, by adding an *edge split* modifier, and play with edge angle and sharp edges. Job done!
+Now, you're cube looks ugly. You have to set up its sharpness, by adding an _edge split_ modifier, and play with edge angle and sharp edges. Job done!
 
 ![blender-sharp-edges](/img/exporters/blender/blender-smooth-shading-sharpness.png)
 
@@ -33,12 +33,12 @@ Now, you're cube looks ugly. You have to set up its sharpness, by adding an *edg
 
 ### ArcRotate
 
-When choosing arc rotate camera type, you have to add a target to your camera. 
+When choosing arc rotate camera type, you have to add a target to your camera.
 
 To do that:
 
-* first select your camera, then its target (object or empty for example),
-* press `Ctrl` + `T` > `Track To Constraint`.
+- first select your camera, then its target (object or empty for example),
+- press `Ctrl` + `T` > `Track To Constraint`.
 
 ---
 
@@ -46,7 +46,7 @@ To do that:
 
 ### Quickly Export
 
-If you go to *File* > *export* and right click on babylon, you can select *Create Shortcut*, and make a easy to use shortcut to export to babylon! For example, you can use *Ctrl-E*.
+If you go to _File_ > _export_ and right click on babylon, you can select _Create Shortcut_, and make a easy to use shortcut to export to babylon! For example, you can use _Ctrl-E_.
 
 ![quick-export-shortcut](/img/exporters/blender/quick-export-shortcut.png)
 
@@ -75,8 +75,8 @@ For armatures, it does not matter because the animation is kind of baked during 
 
 #### Maximum ## of influencers fix
 
-If you ever get the error ``` WARNING: Maximum ## of influencers exceeded for a vertex, extras ignored ```, never fear!
+If you ever get the error `WARNING: Maximum ## of influencers exceeded for a vertex, extras ignored`, never fear!
 
-In weight painting mode, click *weights* and then *limit total*. This will automatically limit the mesh's vertices to 4 influences.
+In weight painting mode, click _weights_ and then _limit total_. This will automatically limit the mesh's vertices to 4 influences.
 
 ![weight-limit](/img/exporters/blender/weight-limit.png)

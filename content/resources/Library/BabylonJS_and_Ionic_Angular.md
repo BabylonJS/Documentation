@@ -1,5 +1,5 @@
 ---
-title: BabylonJS and Ionic Angular
+title:Babylon.js and Ionic Angular
 image:
 description: How to integrate Babylon.js an Ionic/Cordova app.
 keywords: babylon.js, extension, external libraries, external, Ionic, angular, cordovee
@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-## A brief example showing how to use BabylonJS in an Ionic 2 application
+## A brief example showing how to useBabylon.js in an Ionic 2 application
 
-For anyone interested, it is possible to integrate BabylonJS in an Ionic/Cordova app in just a few easy steps. The following is just a narrative of how I did it, since it's been a trial and error thing probably there'll be a better way of doing it, when in doubt I've gone for simplicity rather than optimisation.
+For anyone interested, it is possible to integrateBabylon.js in an Ionic/Cordova app in just a few easy steps. The following is just a narrative of how I did it, since it's been a trial and error thing probably there'll be a better way of doing it, when in doubt I've gone for simplicity rather than optimisation.
 
 ## What you need
 
@@ -22,7 +22,7 @@ Second, and quite obviously, a working Ionic environment. How to do this is very
 
 1. Start a new Ionic project, I used the blank template, which provides a basic scaffolding, and removed all unnecessary stuff.
 
-2. Then, install BabylonJS within the project:
+2. Then, installBabylon.js within the project:
 
 ```bash
 npm install babylonjs@2.5.0 --save
@@ -48,12 +48,12 @@ export = BABYLON;
 > wherever you need to.
 
 4. Depending of what you intend to do in your app, other dependencies might be needed (e.g. cannon.js or hand.js)
-   You could install them the same way as BabylonJS, but I just downloaded the javascript files, saved them in the www folder and referenced using script tags in `index.html`. However, this has a downside, the www folder is generated after transpiling, so you will need to add those javascript files **manually**.
+   You could install them the same way asBabylon.js, but I just downloaded the javascript files, saved them in the www folder and referenced using script tags in `index.html`. However, this has a downside, the www folder is generated after transpiling, so you will need to add those javascript files **manually**.
 
-5. After this I generated an Angular [Provider](https://docs.angularjs.org/guide/providers), this is a singleton class that will wrap our BabylonJS Engine:
+5. After this I generated an Angular [Provider](https://docs.angularjs.org/guide/providers), this is a singleton class that will wrap ourBabylon.js Engine:
 
 ```bash
-ionic g provider BabylonJS
+ionic g providerBabylon.js
 ```
 
 > Besides holding our Engine instance, being in a provider allows for different pages to access the same Engine, e.g. you define different scenes in different pages and use the same Engine provider for all.
@@ -65,7 +65,7 @@ ionic g provider BabylonJS
 7. The very basic configuration interface is an Ionic page showing the available options. Note the header, a basic Ionic component that handles the back button automatically.  
    All the values are stored in the Config service, that makes them available to any page that declares a dependency to the Config provider.
 
-8. The Home page will contain the BabylonJS canvas. An Ionic page is basically an Angular component with some sugar added, mainly in the form of a few helpful life cycle hooks.  
+8. The Home page will contain theBabylon.js canvas. An Ionic page is basically an Angular component with some sugar added, mainly in the form of a few helpful life cycle hooks.  
    The whole scene is created here, note that we are using the two providers that were previously generated.  
    The ViewChild decorator is needed in order to have access to the canvas element, think of it as an Angular equivalent of good old 'document.getElementById' method.
 
@@ -80,8 +80,8 @@ The app itself is a very basic no frills dice roller, but there are a few things
 
 ## Conclusion
 
-Integrating BabylonJS in an Ionic application was easier than it seemed at first, once you get to know a couple of thing of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
-However, despite the improvements introduced to Angular, the overhead of having both Ionic and BabylonJS together might make performance a bit sluggish. Maybe it's not the best way of implementing a pure 3d action packed game.  
+IntegratingBabylon.js in an Ionic application was easier than it seemed at first, once you get to know a couple of thing of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
+However, despite the improvements introduced to Angular, the overhead of having both Ionic andBabylon.js together might make performance a bit sluggish. Maybe it's not the best way of implementing a pure 3d action packed game.  
 On the other hand, with Ionic you get things, like a very simple way of handling the user interface, navigation and storage out of the box, not to mention that, through Cordova, it's easy to build apps for any mobile platform, so it might be the way to go for less demanding apps.
 
 Finally, this is how the app looks running on an actual Android 6.0 device:

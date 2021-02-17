@@ -10,7 +10,7 @@ video-content:
 
 ## How to use the navigation mesh?
 
-There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases the BabylonJS users will find.
+There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases theBabylon.js users will find.
 
 First, create the navigation plugin
 ```

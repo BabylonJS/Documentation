@@ -510,7 +510,7 @@ A property is defined by the following JSON. A property value is always a string
 {
     "name": string, (name of the property)
     "value": string, (value of the property. For example: name = "target" and value = "Plane001")
-    "targetType": string (internal use for the BabylonJS Actions Builder, specifies where to find the properties for "propertyPath")
+    "targetType": string (internal use for theBabylon.js Actions Builder, specifies where to find the properties for "propertyPath")
 }
 ```
 

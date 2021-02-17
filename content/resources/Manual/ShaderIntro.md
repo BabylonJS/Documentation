@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## Introduction to Shaders in BabylonJS
+## Introduction to Shaders inBabylon.js
 
 A shader is a program processed by the Graphical Processing Unit (GPU) to produce a screen image by manipulating data to
 produce individual pixels. The GPU is optimised, through parallel processing, to deal with these thousand of operations
@@ -26,7 +26,7 @@ in an extremely fast way.
 
 ### Basic
 
-To produce a BabylonJS scene, code is written in Javascript which the BabylonJS Engine processes and displays the result on screen.
+To produce aBabylon.js scene, code is written in Javascript which theBabylon.js Engine processes and displays the result on screen.
 The scene can alter through changes to the meshes, the lights or camera position. To show possible changes in a timely way the screen
 display (frame) is re-drawn up to 60 frames per second.
 
@@ -36,7 +36,7 @@ Simplifying, the process is
 -   Virtual 3D Model is processed in the CPU by the BJS Engine Code to produce Shader GPU Code
 -   Shader GPU Code is processed by GPU to produce screen image.
 
-For example the BabylonJS Engine takes this code
+For example theBabylon.js Engine takes this code
 
 ```javascript
 var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
@@ -44,7 +44,7 @@ var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 
 and turns it into vertex data including positions, colors and normals.
 
-The BabylonJS Engine creates the shader code for this data and is passed to the GPU.
+TheBabylon.js Engine creates the shader code for this data and is passed to the GPU.
 
 ### Custom
 
@@ -73,7 +73,7 @@ The vertex data for position, normal and uv coordinates are passed to the Vertex
 User data can be passed to both the Vertex Shader and the Fragment Shader as variables of category uniform.
 Data can be passed from the Vertex Shader to the Fragment Shader with variables of category varying.
 
-A vital uniform variable to declare in the Vertex Shader is `worldViewProjection` as the BabylonJS Engine uses this to
+A vital uniform variable to declare in the Vertex Shader is `worldViewProjection` as theBabylon.js Engine uses this to
 pass scene 3D - 2D projection data to the Vertex Shader.
 
 ![Pass Variables](/img/how_to/Shaders/shade2.jpg)
@@ -160,14 +160,14 @@ void main(void) {
 
 ![Shader Code](/img/how_to/Shaders/shade3.jpg)
 
-## Putting Shader Code in BabylonJS
+## Putting Shader Code inBabylon.js
 
 Here are four ways of putting shader code into your scene:
 
 1. Use [BabylonJS Create Your Own Shader (CYOS)](https://www.babylonjs.com/cyos/) and download a zip file
 2. Write the Vertex and Fragment Shader Code into `<script>` tags
 3. Write, save and import a Vertex and Fragment Shader file of type _.fx_ into your code
-4. Use the [ShaderBuilder extension](https://github.com/BabylonJS/Extensions/tree/master/ShaderBuilder) of BabylonJS.
+4. Use the [ShaderBuilder extension](https://github.com/BabylonJS/Extensions/tree/master/ShaderBuilder) ofBabylon.js.
 
 More details on this can be found below.
 
@@ -175,5 +175,5 @@ More details on this can be found below.
 
 ## How To
 
--   [Putting Shader Code in BabylonJS](/advanced_topics/introToShaders/shaderCodeInBjs)
+-   [Putting Shader Code inBabylon.js](/advanced_topics/introToShaders/shaderCodeInBjs)
 -   [ShaderMaterial Object](/advanced_topics/introToShaders/shaderMaterial)

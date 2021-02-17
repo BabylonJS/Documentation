@@ -12,7 +12,7 @@ video-content:
 
 ### Concurrent
 
-Simply set up more animations and add to the BabylonJS object's animations array.
+Simply set up more animations and add to theBabylon.js object's animations array.
 
 For example adding a rotation animation to the very simple slide animtation to get:
 
@@ -132,7 +132,7 @@ In fact two new parameters are needed since the function to be called is the six
 
 scene.beginAnimation(target, start frame, end frame, loop, speed, on animation end);
 
-- _target_ - _BabylonJS Object_, the BabylonJS object to be animated
+- _target_ - _BabylonJS Object_, theBabylon.js object to be animated
 
 - _animations_ - _array_, of all the animations to apply to the target
 

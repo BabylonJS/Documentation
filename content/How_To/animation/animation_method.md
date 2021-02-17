@@ -60,7 +60,7 @@ and started with these required parameters
 scene.beginAnimation(target, from, to);
 ```
 
--   _target_ - _BabylonJS Object_, the BabylonJS object to be animated
+-   _target_ - _BabylonJS Object_, theBabylon.js object to be animated
 -   _from_ - _number_, the frame at which to start the animation
 -   _to_ - _number_, the frame at which to end the animation
 
@@ -79,7 +79,7 @@ You can apply several animations to a target using
 scene.beginDirectAnimation(target, animations, from, to, loop)
 ```
 
--   _target_ - _BabylonJS Object_, the BabylonJS object to be animated
+-   _target_ - _BabylonJS Object_, theBabylon.js object to be animated
 
 -   _animations_ - _array_, of all the animations to apply to the target
 

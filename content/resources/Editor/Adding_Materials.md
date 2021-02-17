@@ -14,7 +14,7 @@ The editor provides a tool to preview, edit and add materials.
 
 This includes:
 * Standard and PBR materials
-* All materials from the BabylonJS materials library
+* All materials from theBabylon.js materials library
 
 To access the tool, just click on the toolbar **View -> Materials Viewer...**.
 

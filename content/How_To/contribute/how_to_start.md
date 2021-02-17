@@ -338,7 +338,7 @@ and then push into your repository again.
 
 Once your `pull-request` has been issued then it needs to be checked, reviewed, approved and merged.
 
-Some checks are carried out automatically and this can be found in the main BabylonJS/Babylon.js repository
+Some checks are carried out automatically and this can be found in the mainBabylon.js/Babylon.js repository
 
 Find your pull-request from the list and open it.
 

@@ -32,7 +32,7 @@ Once done, try to quickly explain what your modification is for, and click on th
 
 ![propose file change](/img/contribute/documentation/easy-submit.png)
 
-For now, your modification isn't yet in the main files. You have to ask to BabylonJS core team to validate and merge your work.
+For now, your modification isn't yet in the main files. You have to ask toBabylon.js core team to validate and merge your work.
 
 Press _Create pull request_ button:
 
@@ -62,7 +62,7 @@ Requirements:
 
 ### Forking
 
-Start by going to the main BabylonJS [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
+Start by going to the mainBabylon.js [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
 
 ![fork](/img/contribute/documentation/further-fork-creation.png)
 

@@ -153,7 +153,7 @@ Some complex scenes will require a large amount of textures for just one materia
 ## Back-Face Culling
 
 This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object,
-as it will be hidden by the front face. In BabylonJS the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
+as it will be hidden by the front face. InBabylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
 
 Looking at the images below, when the material property _backFaceCulling_ is true you can see that the transparent areas around the
 dog are still transparent, you can see the background through them. However, you cannot see the images on the back faces as they have been culled (or removed).

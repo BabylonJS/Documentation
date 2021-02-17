@@ -239,4 +239,4 @@ Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](
 
 ## VR/XR scenarios
 
-When using BabylonJS with WebVR or WebXR, enabling [Multiview](/divingDeeper/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.
+When usingBabylon.js with WebVR or WebXR, enabling [Multiview](/divingDeeper/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.

@@ -1,14 +1,14 @@
 ---
 title: glTF Exporter
 image: 
-description: The glTF Exporter allows BabylonJS models to be exported to the [glTF 2.0 format]
+description: The glTF Exporter allowsBabylon.js models to be exported to the [glTF 2.0 format]
 keywords: welcome, babylon.js, gltf, exporter
 further-reading:
 video-overview:
 video-content:
 ---
 
-The glTF Exporter allows BabylonJS models to be exported to the [glTF 2.0 format](https://www.khronos.org/gltf/).
+The glTF Exporter allowsBabylon.js models to be exported to the [glTF 2.0 format](https://www.khronos.org/gltf/).
 
 ## Installation
 The glTF Exporter can be installed by using the `babylonjs-serializers` module
@@ -22,7 +22,7 @@ yarn add babylonjs babylonjs-serializers
 ```
 
 ### javascript
-To include the BabylonJS serializers in javascript,
+To include theBabylon.js serializers in javascript,
 include a script tag in the html `<head>` tag, referencing the non-minified or minified compiled javascript:
 ```html
 <!-- links to the latest version of the serializers -->
@@ -60,7 +60,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName").then((glb) => {
 glTF Exporter accepts an optional `options` parameter with certain functions and properties defined.
 
 ### Excluding geometry 
-Sometimes you may need to exclude geometry from export, such as the skybox. You can define a boolean callback called `shouldExportNode` which accepts a BabylonJS node as an argument and returns a boolean, specifying if the node should be exported or not:
+Sometimes you may need to exclude geometry from export, such as the skybox. You can define a boolean callback called `shouldExportNode` which accepts aBabylon.js node as an argument and returns a boolean, specifying if the node should be exported or not:
 
 ```javascript
 // Initializer code...
@@ -85,7 +85,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
     - Not all Babylon `PBRMaterial` features are supported in glTF.
   - `MetallicRoughnessMaterial`
   - `StandardMaterial` 
-    -  A conversion from `StandardMaterial` to `MetallicRoughness` has been implemented to try to match as close as visibly possible, though not all BabylonJS features are supported in glTF.
+    -  A conversion from `StandardMaterial` to `MetallicRoughness` has been implemented to try to match as close as visibly possible, though not allBabylon.js features are supported in glTF.
   - `SpecularGlossinessMaterial` 
     -  glTF Exporter converts `SpecularGlossiness` materials to `MetallicRoughness` to match core glTF 2.0 specification.
 - Node-based TRS animation

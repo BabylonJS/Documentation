@@ -1,5 +1,5 @@
 ---
-title: BabylonJS and Facebook Instant Games
+title:Babylon.js and Facebook Instant Games
 image:
 description: Using babylon.js to create a game for Facebook.
 keywords: babylon.js, extension, external libraries, external, facebook

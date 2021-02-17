@@ -95,7 +95,7 @@ var observer = scene.onBeforeRenderObservable.add(function () {
 
 ## Scene Observables
 
-The BabylonJS Scene Object has over 20 observables that 'fire' under various conditions. Most of them are checked EACH frame/render, and in a deterministic/predictable order or sequence. Below is a list of Scene observables checked during each renderLoop... in the order they are checked:
+TheBabylon.js Scene Object has over 20 observables that 'fire' under various conditions. Most of them are checked EACH frame/render, and in a deterministic/predictable order or sequence. Below is a list of Scene observables checked during each renderLoop... in the order they are checked:
 
 - [onBeforeAnimationsObservable](//doc.babylonjs.com/api/classes/babylon.scene#onbeforeanimationsobservable)
 - [onAfterAnimationsObservable](//doc.babylonjs.com/api/classes/babylon.scene#onafteranimationsobservable)

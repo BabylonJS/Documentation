@@ -1541,8 +1541,8 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Introduced `NullEngine` which can be used to use Babylon.js in headless mode. [Documentation](//doc.babylonjs.com/generals/nullengine) ([deltakosh](https://github.com/deltakosh))
 -   New instrumentations tools. [Documentation](//doc.babylonjs.com/how_to/optimizing_your_scene#instrumentation) ([deltakosh](https://github.com/deltakosh))
 -   Complete rework of Unity3D exporter. [Documentation](//doc.babylonjs.com/resources/intro) ([MackeyK24](https://github.com/MackeyK24))
--   Introducing the BabylonJS viewer, an HTML-based 3D/model viewer, with Babylon at its core. [Documentation](//doc.babylonjs.com/extensions/the_babylon_viewer) ([RaananW](https://github.com/RaananW))
--   Full NPM support for BabylonJS and its modules, based on UMD and including Typings. [BabylonJS on npm](https://www.npmjs.com/~babylonjs) ([RaananW](https://github.com/RaananW))
+-   Introducing theBabylon.js viewer, an HTML-based 3D/model viewer, with Babylon at its core. [Documentation](//doc.babylonjs.com/extensions/the_babylon_viewer) ([RaananW](https://github.com/RaananW))
+-   Full NPM support forBabylon.js and its modules, based on UMD and including Typings. [BabylonJS on npm](https://www.npmjs.com/~babylonjs) ([RaananW](https://github.com/RaananW))
 
 ### Updates
 

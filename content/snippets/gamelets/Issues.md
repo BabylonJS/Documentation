@@ -10,7 +10,7 @@ video-content:
 
 ## Checking for an Intersect
 
-One way to check in BabylonJS whether two meshes are colliding is to use the _intersectsMesh_ method. So for Fig 1 
+One way to check inBabylon.js whether two meshes are colliding is to use the _intersectsMesh_ method. So for Fig 1 
 
 ```javascript
 sphere.intersectsMesh(wall)

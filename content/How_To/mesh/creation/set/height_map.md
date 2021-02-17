@@ -88,7 +88,7 @@ Now we have a beautiful 3D view of the earth!
 
 In my example, I have added a skybox (like we have learned before [here](/divingDeeper/environment/environment_introduction)), and a spotlight to simulate sun activity.
 
-Here is another example showing what you can achieve with BabylonJS height maps:
+Here is another example showing what you can achieve withBabylon.js height maps:
 
 ![HeightMap5](/img/how_to/HeightMap/14-4.png)
 

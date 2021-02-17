@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-In this tutorial, we are going to learn how to create shadows in BabylonJS. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
+In this tutorial, we are going to learn how to create shadows inBabylon.js. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
 You might want to visit a playground example for this tutorial:
 
 <Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows1.jpg"/>
@@ -366,7 +366,7 @@ Unfortunately doing this introduces another side effect called peter panning whe
 
 ![PeterPanning](/img/how_to/shadows/peterpanning.jpg)
 
-This is where you can benefit from a BabylonJS 3.2 feature called normal bias.
+This is where you can benefit from aBabylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
