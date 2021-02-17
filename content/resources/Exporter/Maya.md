@@ -123,9 +123,10 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
     _ Custom attributes
 
 - _Materials_
-  _ Standard materials (Lambert, Phong, PhongE and Blinn)
-      _ Color
-      \* Transparency
+
+  - Standard materials (Lambert, Phong, PhongE and Blinn)
+      - Color
+      - Transparency
 
   - Ambient color
     _ Bump mapping
