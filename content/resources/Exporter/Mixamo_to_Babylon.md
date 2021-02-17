@@ -1,6 +1,6 @@
 ---
 title: Mixamo to Blender to Babylon.js
-image: 
+image:
 description: The workflow for exporting from Mixamo to Babylon.js via Blender.
 keywords: babylon.js, exporter, export, extension, workflow, Mixamo, Blender
 further-reading:
@@ -88,7 +88,7 @@ autoAnimate lets your model animate automatically when dragged into the Babylon.
 
 ![image12a](/img/exporters/mixamo/12a.png)
 
-So how do you trigger these animations in Babylon.js code? Check out PG: <Playground id="#BCU1XR#0" title="Animation Blending" description="Triggering Mixamo animations."/> 
+So how do you trigger these animations in Babylon.js code? Check out PG: <Playground id="#BCU1XR#0" title="Animation Blending" description="Triggering Mixamo animations."/>
 
 ![image12c](/img/exporters/mixamo/12c.png)
 
@@ -99,8 +99,3 @@ Click the image below to see the final result!
 Check out this Babylon.js Demo: [Dancers](https://www.babylonjs.com/demos/dancers/). In this demo, a .babylon model of the dancer is loaded just once! Its mesh and skeleton are cloned many times. The dance animation can be applied to each cloned skeleton separately whenever we choose!
 
 All .fbx, .blend, and .babylon files are included in files/.
-
-
-
-
-
