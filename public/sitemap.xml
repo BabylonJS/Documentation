@@ -303,9 +303,9 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/webXR/webXRSessionManagers</loc><lastmod>2021-01-04T20:22:18.562Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/webXR</loc><lastmod>2021-01-04T20:22:18.675Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper</loc><lastmod>2021-01-04T20:22:18.672Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Instant_Games</loc><lastmod>2021-01-04T20:25:43.864Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Instant_Games</loc><lastmod>2021-02-17T14:53:44.930Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Ionic_Angular</loc><lastmod>2021-01-04T20:22:18.699Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_PixiJS</loc><lastmod>2021-01-04T20:22:18.699Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_PixiJS</loc><lastmod>2021-02-17T14:45:35.438Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Poki</loc><lastmod>2021-01-04T20:25:43.865Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_ReactJS</loc><lastmod>2021-01-04T20:22:18.700Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_React_Native</loc><lastmod>2021-01-04T20:22:18.700Z</lastmod></url>
@@ -498,7 +498,7 @@
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableMeshes</loc><lastmod>2021-02-05T15:39:49.522Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/availableTextures</loc><lastmod>2021-01-14T14:32:32.807Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat</loc><lastmod>2021-01-14T14:32:32.756Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/fireMat</loc><lastmod>2021-01-14T14:32:32.757Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/fireMat</loc><lastmod>2021-02-09T15:22:01.890Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/furMat</loc><lastmod>2021-01-14T14:32:32.758Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gradientMat</loc><lastmod>2021-01-14T14:32:32.759Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gridMat</loc><lastmod>2021-01-14T14:32:32.760Z</lastmod></url>
@@ -962,6 +962,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.materialflags</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.materialhelper</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.matrix</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.matrixbuilderblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.maxblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.mergemeshesoptimization</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.mesh</loc></url>

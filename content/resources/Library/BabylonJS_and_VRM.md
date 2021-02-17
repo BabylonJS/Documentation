@@ -1,6 +1,6 @@
 ---
 title: Babylon.js and VRM
-image: 
+image:
 description: Using 3D humanoid avatar data for VR applications in Babylon.js.
 keywords: babylon.js, extension, external libraries, external, vrm, humanoid, vr
 further-reading:
@@ -13,7 +13,7 @@ video-content:
 ## What is VRM?
 
 > “VRM” is **a file format for handling 3D humanoid avatar (3D model) data for VR applications**. It is based on glTF2.0. Anyone is free to use it.
-> 
+>
 > In addition, a standard implementation ([UniVRM](https://github.com/vrm-c/UniVRM)) in c## that can import and export VRM file in [Unity](https://unity3d.com/) is released as open source.
 
 Additional information can be viewed at [vrm.dev](https://vrm.dev/en/).
@@ -36,36 +36,12 @@ For example, once write some animation code, all VRM models can animate it!
 
 ```javascript
 // example code
-vrmManager.humanoidBone.leftShoulder.rotationQuaternion = Quaternion.FromEulerAngles(
-    Math.sin(Math.PI / 4 * (elapsedTime / 200)),
-    0,
-    Math.PI / 3.5,
-);
-vrmManager.humanoidBone.rightShoulder.rotationQuaternion = Quaternion.FromEulerAngles(
-    Math.sin(Math.PI + (Math.PI / 4 * (elapsedTime / 200))),
-    0,
-    -Math.PI / 3.5,
-);
-vrmManager.humanoidBone.leftUpperLeg.rotationQuaternion = Quaternion.FromEulerAngles(
-    Math.sin(Math.PI / 4 * (elapsedTime / 200)),
-    0,
-    0,
-);
-vrmManager.humanoidBone.rightUpperLeg.rotationQuaternion = Quaternion.FromEulerAngles(
-    Math.sin(Math.PI + (Math.PI / 4 * (elapsedTime / 200))),
-    0,
-    0,
-);
-vrmManager.humanoidBone.leftLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(
-    -Math.PI / 6,
-    0,
-    0,
-);
-vrmManager.humanoidBone.rightLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(
-    -Math.PI / 6,
-    0,
-    0,
-);
+vrmManager.humanoidBone.leftShoulder.rotationQuaternion = Quaternion.FromEulerAngles(Math.sin((Math.PI / 4) * (elapsedTime / 200)), 0, Math.PI / 3.5);
+vrmManager.humanoidBone.rightShoulder.rotationQuaternion = Quaternion.FromEulerAngles(Math.sin(Math.PI + (Math.PI / 4) * (elapsedTime / 200)), 0, -Math.PI / 3.5);
+vrmManager.humanoidBone.leftUpperLeg.rotationQuaternion = Quaternion.FromEulerAngles(Math.sin((Math.PI / 4) * (elapsedTime / 200)), 0, 0);
+vrmManager.humanoidBone.rightUpperLeg.rotationQuaternion = Quaternion.FromEulerAngles(Math.sin(Math.PI + (Math.PI / 4) * (elapsedTime / 200)), 0, 0);
+vrmManager.humanoidBone.leftLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(-Math.PI / 6, 0, 0);
+vrmManager.humanoidBone.rightLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(-Math.PI / 6, 0, 0);
 ```
 
 BabylonJS [standard animation mechanism](/divingDeeper/animation/animation_introduction) also can be used.
@@ -89,19 +65,19 @@ $ yarn add @babylonjs/core @babylonjs/loaders babylon-vrm-loader
 ```
 
 ```javascript
-import * as BABYLON from '@babylonjs/core'
+import * as BABYLON from "@babylonjs/core";
 
 // has side-effect
 // ref. https://webpack.js.org/guides/tree-shaking#mark-the-file-as-side-effect-free
-import 'babylon-vrm-loader'
+import "babylon-vrm-loader";
 
 // vrmFile is File object retrieved by <input type="file">.
-const scene = await BABYLON.SceneLoader.LoadAsync('file:', vrmFile, engine);
+const scene = await BABYLON.SceneLoader.LoadAsync("file:", vrmFile, engine);
 const vrmManager = scene.metadata.vrmManagers[0];
 
 // Update secondary animation
 scene.onBeforeRenderObservable.add(() => {
-    vrmManager.update(scene.getEngine().getDeltaTime());
+  vrmManager.update(scene.getEngine().getDeltaTime());
 });
 
 // Model Transformation
@@ -111,12 +87,12 @@ vrmManager.rootMesh.translate(new BABYLON.Vector3(1, 0, 0), 1);
 vrmManager.humanoidBone.leftUpperArm.addRotation(0, 1, 0);
 
 // Work with BlendShape(MorphTarget)
-vrmManager.morphing('Joy', 1.0);
+vrmManager.morphing("Joy", 1.0);
 ```
 
 ## External
 
-* [vrm.dev](https://vrm.dev/en/)
-* [virtual-cast/babylon-vrm-loader: GitHub](https://github.com/virtual-cast/babylon-vrm-loader)
-* [vrm-c/UniVRM: GitHub](https://github.com/vrm-c/UniVRM)
-* [Loading VRM Humanoid-based model - Demos and projects - Babylon.js Forums](https://forum.babylonjs.com/t/loading-vrm-humanoid-based-model/4980/8)
+- [vrm.dev](https://vrm.dev/en/)
+- [virtual-cast/babylon-vrm-loader: GitHub](https://github.com/virtual-cast/babylon-vrm-loader)
+- [vrm-c/UniVRM: GitHub](https://github.com/vrm-c/UniVRM)
+- [Loading VRM Humanoid-based model - Demos and projects - Babylon.js Forums](https://forum.babylonjs.com/t/loading-vrm-humanoid-based-model/4980/8)
