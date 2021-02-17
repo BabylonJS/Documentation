@@ -1,5 +1,5 @@
 ---
-title:Babylon.js and React
+title: Babylon.js and React
 image:
 description: How to integrateBabylon.js into a React application.
 keywords: babylon.js, extension, external libraries, external

@@ -1,5 +1,5 @@
 ---
-title:Babylon.js and Ionic Angular
+title: Babylon.js and Ionic Angular
 image:
 description: How to integrate Babylon.js an Ionic/Cordova app.
 keywords: babylon.js, extension, external libraries, external, Ionic, angular, cordovee
