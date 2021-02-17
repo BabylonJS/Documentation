@@ -221,7 +221,7 @@ If you want to change the session mode or reference mode (for example to enter a
 ``` javascript
 var defaultXRExperience = await scene.createDefaultXRExperienceAsync({
     uiOptions: {
-        sessionMode: 'ar-immersive'
+        sessionMode: 'immersive-ar'
     }
 });
 ```
