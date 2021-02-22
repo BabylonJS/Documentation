@@ -23,6 +23,7 @@ export interface IPlaygroundSearchItem {
     keywords?: string[];
     documentationPage?: string;
     isMain?: boolean;
+    category?: string;
 }
 
 const API_KEY = process.env.SEARCH_API_KEY;

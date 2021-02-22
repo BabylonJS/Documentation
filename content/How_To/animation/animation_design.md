@@ -70,4 +70,4 @@ scene.beginAnimation(box, 0, 2 * frameRate, true);
 ```
 
 You can see the result here  
-<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain=true category="Animation"/>
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>

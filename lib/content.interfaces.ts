@@ -20,6 +20,7 @@ export interface IExampleLink {
     image?: string; // both are accepted. This one has priority
     imageUrl?: string; // both are accepted
     isMain?: boolean;
+    category?: string;
     documentationPage?: string; // optional, only for examples coming from search results!
 }
 
