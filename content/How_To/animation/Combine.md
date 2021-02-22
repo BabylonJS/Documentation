@@ -49,7 +49,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#12" title="Slide and Rotate Animation" description="The simple slide animation with rotation introduced." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg" isMain=true category="Animation"/>
+- <Playground id="#9WUJN#12" title="Slide and Rotate Animation" description="The simple slide animation with rotation introduced." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg" isMain={true} category="Animation"/>
 
 ### Slide and Faster Rotation Rate
 

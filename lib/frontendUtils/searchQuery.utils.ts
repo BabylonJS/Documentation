@@ -9,6 +9,7 @@ export interface IPlaygroundSearchResult extends ISearchResult {
     playgroundId: string;
     documentationPage?: string;
     isMain?: boolean;
+    category?: string;
 }
 
 export interface IDocumentSearchResult extends ISearchResult {
