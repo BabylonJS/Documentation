@@ -2,7 +2,7 @@
 title: Creating Dashed Lines
 image: 
 description: Learn how to create dashed lines in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, dashed lines
+keywords: diving deeper, meshes, parametric shapes, dashed lines
 further-reading:
 video-overview:
 video-content:

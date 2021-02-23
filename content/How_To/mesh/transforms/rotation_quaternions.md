@@ -2,7 +2,7 @@
 title: Rotation Quaternions
 image: 
 description: Learn about rotation quaternions in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, quaternion, rotation, rotation quaternion
+keywords: diving deeper, meshes, mesh transformation, transformation, quaternion, rotation, rotation quaternion
 further-reading:
 video-overview:
 video-content:

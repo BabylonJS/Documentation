@@ -2,7 +2,7 @@
 title: Morph Targets
 image: 
 description: Learn all about morph targets in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, morph targets, blend shapes
+keywords: diving deeper, meshes, morph targets, blend shapes
 further-reading:
 video-overview:
 video-content:

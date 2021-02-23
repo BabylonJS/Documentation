@@ -2,7 +2,7 @@
 title: Combining Animations
 image: 
 description: Learn how to combine animations together.
-keywords: welcome, babylon.js, diving deeper, animation, combine, combination
+keywords: diving deeper, animation, combine, combination
 further-reading:
 video-overview:
 video-content:

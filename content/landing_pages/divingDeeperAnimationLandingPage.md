@@ -2,7 +2,7 @@
 title: Animation
 image: 
 description: Deep dive into the wonderful world of Animation in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, animation
+keywords: diving deeper, animation
 further-reading:
 video-overview:
 video-content:

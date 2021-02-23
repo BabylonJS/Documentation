@@ -2,7 +2,7 @@
 title: Setting Up A State Machine
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, state, state machine
+keywords: guided learning, create a game, game, state, state machine
 further-reading:
 video-overview:
 video-content:

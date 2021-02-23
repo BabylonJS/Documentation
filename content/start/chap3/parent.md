@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - Mesh Parents
 image:
 description: Learn the basics of parenting objects in your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 3, parenting, parent
+keywords: getting started, start, chapter 3, parenting, parent
 further-reading:
     - title: More on Mesh Parenting
       url: /divingDeeper/mesh/transforms/parent_pivot

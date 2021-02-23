@@ -2,7 +2,7 @@
 title: Fur Material
 image: 
 description: The Babylon.js materials library fur effect.
-keywords: welcome, babylon.js, library, materials, materials library, fur, fur material
+keywords: library, materials, materials library, fur, fur material
 further-reading:
 video-overview:
 video-content:

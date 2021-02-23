@@ -2,7 +2,7 @@
 title: Adding Animations
 image: 
 description: Babylon.js Editor tool to create and edit simple animations.
-keywords: welcome, babylon.js, editor
+keywords: editor
 further-reading:
 video-overview:
 video-content:

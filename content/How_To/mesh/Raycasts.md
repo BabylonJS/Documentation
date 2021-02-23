@@ -2,7 +2,7 @@
 title: Mesh Picking
 image:
 description: Learn how to pick meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, interactions
+keywords: diving deeper, meshes, interactions
 further-reading:
     - title: Mesh Overview
       url: /divingDeeper/mesh/creation/set

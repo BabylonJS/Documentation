@@ -2,7 +2,7 @@
 title: Observables
 image: 
 description: Learn all about observables in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, observables
+keywords: diving deeper, observables
 further-reading:
 video-overview:
 video-content:

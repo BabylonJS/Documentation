@@ -2,7 +2,7 @@
 title: Behaviors
 image: 
 description: Dive into the rich world of behaviors in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, behaviors
+keywords: diving deeper, behaviors
 further-reading:
 video-overview:
 video-content:

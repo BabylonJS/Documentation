@@ -2,7 +2,7 @@
 title: Interactions
 image: 
 description: Learn how interactions work in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, interactions
+keywords: diving deeper, meshes, interactions
 further-reading:
 video-overview:
 video-content:

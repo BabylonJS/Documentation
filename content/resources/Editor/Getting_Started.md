@@ -2,7 +2,7 @@
 title: Getting Started with the Editor
 image: 
 description: Getting Started with the Babylon.js Editor, a community project maintained mostly by Julien Moreau.
-keywords: welcome, babylon.js, editor
+keywords: editor
 further-reading:
 video-overview:
 video-content:

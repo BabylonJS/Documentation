@@ -2,7 +2,7 @@
 title: Mastering PBR Materials
 image: 
 description: Dive further into learning about PBR materials in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
+keywords: diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Mesh Intersections
 image: 
 description: Learn all about mesh intersections in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, intersection
+keywords: diving deeper, meshes, intersection
 further-reading:
     - title: Cameras Overview
       url: /divingDeeper/cameras

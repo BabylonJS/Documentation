@@ -2,7 +2,7 @@
 title: Babylon.js Editor
 image: 
 description: The Babylon.js Editor is a community project maintained mostly by Julien Moreau.
-keywords: welcome, babylon.js, editor
+keywords: editor
 further-reading:
 video-overview:
 video-content:

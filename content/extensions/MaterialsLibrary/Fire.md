@@ -2,7 +2,7 @@
 title: Fire Material
 image: 
 description: The Babylon.js materials library fire effects.
-keywords: welcome, babylon.js, library, materials, materials library, fire, fire material
+keywords: library, materials, materials library, fire, fire material
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Workshops
 image: 
 description: A selection of experiments and partially finished projects
-keywords: welcome, babylon.js, workshop, experiments, ideas
+keywords: workshop, experiments, ideas
 further-reading:
 video-overview:
 video-content:

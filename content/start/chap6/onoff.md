@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 6 - The Switch On Event
 image: 
 description: Learn how to start/stop a particle system with a click.
-keywords: welcome, babylon.js, getting started, start, chapter 6, particles, input, interaction
+keywords: getting started, start, chapter 6, particles, input, interaction
 further-reading:
 video-overview:
 video-content:

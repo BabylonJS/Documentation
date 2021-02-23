@@ -2,7 +2,7 @@
 title: The WebXR Camera
 image: 
 description: Learn all about the WebXR camera in Babylon.js, used for VR and AR sessions.
-keywords: VR, babylon.js, diving deeper, WebXR, AR, camera
+keywords: VR, diving deeper, WebXR, AR, camera, WebVR
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Dynamic Terrain
 image: 
 description: The Dynamic Terrain is an extension that provides a way to display a large terrain dynamically morphed from a map of 3D data.
-keywords: welcome, babylon.js, dynamic terrain, terrain, dynamic
+keywords: dynamic terrain, terrain, dynamic
 further-reading:
 video-overview:
 video-content:

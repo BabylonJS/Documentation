@@ -2,7 +2,7 @@
 title: Device Source Manager
 image: 
 description: Learn about managing input devices with the Device Source Manager.
-keywords: welcome, babylon.js, diving deeper, input, manage, device manager
+keywords: diving deeper, input, manage, device manager
 further-reading:
 video-overview:
 video-content:

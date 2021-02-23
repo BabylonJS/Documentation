@@ -2,7 +2,7 @@
 title: Path3D
 image: 
 description: Learn how to use Path3D in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, path, path3D
+keywords: diving deeper, meshes, path, path3D
 further-reading:
     - title: How To Create Parametric Shapes
       url: /divingDeeper/mesh/creation/param

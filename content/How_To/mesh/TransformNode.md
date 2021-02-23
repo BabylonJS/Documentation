@@ -2,7 +2,7 @@
 title: Transform Node
 image:
 description: Learn about the transform node in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, parent, pivot, transform node
+keywords: diving deeper, meshes, mesh transformation, transformation, parent, pivot, transform node
 further-reading:
     - title: How To Rotate Around an Axis about a Point
       url: /divingDeeper/mesh/transforms/parent_pivot/pivot

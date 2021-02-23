@@ -2,7 +2,7 @@
 title: Create a Procedural Texture for the Procedural Textures Library
 image: 
 description: Learn how to add your own procedural texture to the Babylon.js procedural textures library.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, procedural textures library, procedural textures, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, procedural textures library, procedural textures, develope
 further-reading:
 video-overview:
 video-content:

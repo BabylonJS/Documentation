@@ -2,7 +2,7 @@
 title: Provided Polyhedra
 image:
 description: Learn the provided polyhedra in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes
+keywords: diving deeper, meshes, polyhedra shapes
 further-reading:
 video-overview:
 video-content:

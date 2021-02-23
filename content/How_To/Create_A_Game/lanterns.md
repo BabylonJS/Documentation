@@ -2,7 +2,7 @@
 title: Lanterns
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, light, multiple lights, texture, collisions
+keywords: guided learning, create a game, game, light, multiple lights, texture, collisions
 further-reading:
 video-overview:
 video-content:

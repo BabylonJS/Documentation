@@ -2,7 +2,7 @@
 title: Customizing Camera Inputs
 image:
 description: Learn how to customize input controls for Babylon.js cameras.
-keywords: welcome, babylon.js, diving deeper, cameras, input, camera input
+keywords: diving deeper, cameras, input, camera input
 further-reading:
 video-overview:
 video-content:

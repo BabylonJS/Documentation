@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 7 - Day to Night
 image: 
 description: Learn the basics the Babylon.js GUI system.
-keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, spotlight, gui
+keywords: getting started, start, chapter 7, lighting, lights, spotlight, gui
 further-reading:
 video-overview:
 video-content:

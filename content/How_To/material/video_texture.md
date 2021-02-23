@@ -2,7 +2,7 @@
 title: Video As A Texture
 image:
 description: Learn about how to use video as a texture in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, video texture
+keywords: diving deeper, materials, video texture
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Ground
 image: 
 description: Continue your Babylon.js learning by adding a ground plane to your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, ground, groundplane
+keywords: getting started, start, chapter 2, ground, groundplane
 further-reading: 
 video-overview:
 video-content:

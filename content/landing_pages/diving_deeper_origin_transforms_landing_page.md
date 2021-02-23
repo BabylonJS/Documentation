@@ -2,7 +2,7 @@
 title: Centered on Created Origin
 image: 
 description: Learn origins and pivots in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, origin, pivot
+keywords: diving deeper, meshes, mesh transformation, transformation, origin, pivot
 further-reading:
 video-overview:
 video-content:

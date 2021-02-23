@@ -2,7 +2,7 @@
 title: Selector
 image: 
 description: Learn about the selector in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, GUI, selector
+keywords: diving deeper, GUI, selector
 further-reading:
     - title: How To Use Babylon GUI
       url: /divingDeeper/gui/gui

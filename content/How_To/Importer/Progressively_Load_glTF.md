@@ -2,7 +2,7 @@
 title: Progressively Load .glTF Files
 image: 
 description: Learn about progressively loading .glTF files in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, progressive loading
+keywords: diving deeper, import, importing assets, asset, importing, progressive loading
 further-reading:
 video-overview:
 video-content:

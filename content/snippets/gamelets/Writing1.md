@@ -2,7 +2,7 @@
 title: Vertical Wave with Vertex Shader
 image: 
 description: A row of many boxes that move vertically in a wave motion
-keywords: welcome, babylon.js, shader, vertex, vertex shader
+keywords: shader, vertex, vertex shader
 further-reading:
 video-overview:
 video-content:

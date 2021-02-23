@@ -2,7 +2,7 @@
 title: Creating Procedural Textures
 image:
 description: Learn how to create your own procedural textures in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, textures, procedural, procedural textures
+keywords: diving deeper, materials, advanced, textures, procedural, procedural textures
 further-reading:
 video-overview:
 video-content:

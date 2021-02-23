@@ -2,7 +2,7 @@
 title: Actions
 image: 
 description: Learn how to use actions in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, actions
+keywords: diving deeper, actions
 further-reading:
 video-overview:
 video-content:

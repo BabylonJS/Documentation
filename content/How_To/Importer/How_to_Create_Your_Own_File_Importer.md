@@ -2,7 +2,7 @@
 title: Create Your Own File Importer
 image: 
 description: Learn how to create your own file importer for Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, custom importer
+keywords: diving deeper, import, importing assets, asset, importing, custom importer
 further-reading:
 video-overview:
 video-content:

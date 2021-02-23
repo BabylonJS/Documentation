@@ -2,7 +2,7 @@
 title: Input
 image: 
 description: Learn all about user input in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, input
+keywords: diving deeper, input
 further-reading:
 video-overview:
 video-content:

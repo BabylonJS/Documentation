@@ -2,7 +2,7 @@
 title: Introduction to Physically Based Rendering
 image: 
 description: Start learning about Physically Based Rendering in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, PBR, Physically Based Rendering
+keywords: diving deeper, materials, PBR, Physically Based Rendering
 further-reading:
 video-overview:
 video-content:

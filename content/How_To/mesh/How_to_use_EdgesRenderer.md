@@ -2,7 +2,7 @@
 title: Rendering Edges
 image: 
 description: Learn all about the edge renderer in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, edges, edge rendering
+keywords: diving deeper, meshes, edges, edge rendering
 further-reading:
 video-overview:
 video-content:

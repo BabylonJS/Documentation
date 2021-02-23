@@ -2,7 +2,7 @@
 title: Copies, Clones, and Instancing
 image: 
 description: Learn all about copies, clones, and instances in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, Instancing, Copies, clones
+keywords: diving deeper, meshes, mesh transformation, transformation, Instancing, Copies, clones
 further-reading:
 video-overview:
 video-content:

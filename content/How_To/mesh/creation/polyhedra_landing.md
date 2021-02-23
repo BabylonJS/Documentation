@@ -2,7 +2,7 @@
 title: Creating Polyhedra Shapes
 image: 
 description: Learn how to create polyhedra shapes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes
+keywords: diving deeper, meshes, polyhedra shapes
 further-reading:
 video-overview:
 video-content:

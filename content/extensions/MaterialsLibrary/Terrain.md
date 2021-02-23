@@ -2,7 +2,7 @@
 title: Terrain Material
 image: 
 description: The Babylon.js materials library terrain material displays upto 4 terrain textures.
-keywords: welcome, babylon.js, library, materials, materials library, terrain, terrain material
+keywords: library, materials, materials library, terrain, terrain material
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Making Copies
 image: 
 description: Continue your Babylon.js learning by making copies of meshes.
-keywords: welcome, babylon.js, getting started, start, chapter 2, copy, duplicate, copies
+keywords: getting started, start, chapter 2, copy, duplicate, copies
 further-reading:
 video-overview:
 video-content:

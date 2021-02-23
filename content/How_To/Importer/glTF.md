@@ -2,7 +2,7 @@
 title: .glTF File Loader Plugin
 image: 
 description: Learn about the .glTF File Loader Plugin available in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, .glTF, gltf
+keywords: diving deeper, import, importing assets, asset, importing, .glTF, gltf
 further-reading:
 video-overview:
 video-content:

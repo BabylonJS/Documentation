@@ -2,7 +2,7 @@
 title: Camera Introduction
 image:
 description: Introduction to the different camera types in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, cameras, intro
+keywords: diving deeper, cameras, intro
 further-reading:
   - title: Cameras Overview
     url: /divingDeeper/cameras

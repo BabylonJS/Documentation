@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Face Materials
 image: 
 description: Continue your Babylon.js learning by adding materials to individual faces of the meshes in your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, face material, face materials
+keywords: getting started, start, chapter 2, face material, face materials
 further-reading:
     - title: More on Per Face Material
       url: /divingDeeper/materials/using/texturePerBoxFace

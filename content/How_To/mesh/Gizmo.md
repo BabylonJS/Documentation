@@ -2,7 +2,7 @@
 title: Gizmos
 image:
 description: Learn about gizmos in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, gizmo, manipulator
+keywords: diving deeper, meshes, gizmo, manipulator
 further-reading:
 video-overview:
 video-content:

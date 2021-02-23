@@ -2,7 +2,7 @@
 title: Loading Any File Type
 image: 
 description: Learn how to import any file type in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing
+keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
     - title: How to get Babylon.js
       url: /divingDeeper/developWithBjs/frameworkVers

@@ -2,7 +2,7 @@
 title: Bones and Skeletons
 image:
 description: Learn all about bones and skeletons in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, bones, skeletons, rigging
+keywords: diving deeper, meshes, bones, skeletons, rigging
 further-reading:
 video-overview:
 video-content:

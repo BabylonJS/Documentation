@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - The Viewer
 image:
 description: Continue your Babylon.js learning by using the Babylon.js viewer to view a model.
-keywords: welcome, babylon.js, getting started, start, chapter 2, viewer
+keywords: getting started, start, chapter 2, viewer
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Meshes
 image: 
 description: Dive into the rich world of understanding meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes
+keywords: diving deeper, meshes
 further-reading:
 video-overview:
 video-content:

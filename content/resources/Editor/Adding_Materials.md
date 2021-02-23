@@ -2,7 +2,7 @@
 title: Adding Materials
 image: 
 description: Babylon.js Editor tool to preview, edit and add materials.
-keywords: welcome, babylon.js, editor, materials
+keywords: editor, materials
 further-reading:
 video-overview:
 video-content:

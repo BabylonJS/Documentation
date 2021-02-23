@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 1 - Working with Models
 image:
 description: Learn to load your first model into a Babylon.js scene.
-keywords: welcome, babylon.js, getting started, start, chapter 1, first model, import
+keywords: getting started, start, chapter 1, first model, import
 further-reading:
 video-overview:
 video-content:

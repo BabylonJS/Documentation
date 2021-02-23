@@ -2,7 +2,7 @@
 title: Water Material
 image: 
 description: The Babylon.js materials library water effect.
-keywords: welcome, babylon.js, library, materials, materials library
+keywords: library, materials, materials library
 further-reading:
 video-overview:
 video-content:

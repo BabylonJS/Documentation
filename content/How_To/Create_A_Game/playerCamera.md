@@ -2,7 +2,7 @@
 title: The Player Camera
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, player camera
+keywords: guided learning, create a game, game, player camera
 further-reading:
 video-overview:
 video-content:

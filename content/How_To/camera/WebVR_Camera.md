@@ -2,7 +2,7 @@
 title: WebVR Camera
 image:
 description: Learn how to create a VR scene with the WebVR Camera.
-keywords: welcome, babylon.js, diving deeper, WebVR, WebVR Camera, vr
+keywords: diving deeper, WebVR, WebVR Camera, vr
 further-reading:
 video-overview:
 video-content:

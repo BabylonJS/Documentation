@@ -2,7 +2,7 @@
 title: Cascaded Shadow Maps
 image: 
 description: Learn how to utilize Cascaded Shadow Maps in Babylon.js
-keywords: welcome, babylon.js, diving deeper, lights, lighting, shadows, cascaded shadows, csm
+keywords: diving deeper, lights, lighting, shadows, cascaded shadows, csm
 further-reading:
 video-overview:
 video-content:

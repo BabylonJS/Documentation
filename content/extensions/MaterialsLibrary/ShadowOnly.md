@@ -2,7 +2,7 @@
 title: ShadowOnly Material
 image: 
 description: The Babylon.js materials library ShadowOnlyMaterial displays only shadows casted by a light on a receiving object.
-keywords: welcome, babylon.js, library, materials, materials library, shadows, shadow material
+keywords: library, materials, materials library, shadows, shadow material
 further-reading:
 video-overview:
 video-content:

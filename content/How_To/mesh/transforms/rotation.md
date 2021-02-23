@@ -2,7 +2,7 @@
 title: Mesh Rotation
 image: 
 description: Learn how to properly rotate a mesh in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, rotate, rotation
+keywords: diving deeper, meshes, mesh transformation, transformation, rotate, rotation
 further-reading:
 video-overview:
 video-content:

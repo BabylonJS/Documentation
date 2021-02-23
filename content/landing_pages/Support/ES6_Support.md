@@ -2,7 +2,7 @@
 title: Babylon.js ES6 support with Tree Shaking
 image:
 description: Learn about tree shaking and package management in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
+keywords: diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
 further-reading:
     - title: How To Get Babylon.js
       url: /divingDeeper/developWithBjs/frameworkVers

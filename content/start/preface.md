@@ -2,7 +2,7 @@
 title: Welcome to Getting Started with Babylon.js
 image: 
 description: Welcome to Babylon.js. This getting started section is your first step into the wonderful, rich world of creating engaging immersive 3D web experiences.
-keywords: welcome, babylon.js, getting started, start
+keywords: getting started, start
 further-reading: 
 video-overview:
 video-content:

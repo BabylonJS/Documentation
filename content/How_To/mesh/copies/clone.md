@@ -2,7 +2,7 @@
 title: Clones
 image: 
 description: Learn clones and cloning in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, clones
+keywords: diving deeper, meshes, mesh transformation, transformation, clones
 further-reading:
 video-overview:
 video-content:

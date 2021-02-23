@@ -2,7 +2,7 @@
 title: Incremental Loading System
 image: 
 description: Learn about the incremental loading system in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, incremental load
+keywords: diving deeper, import, importing assets, asset, importing, incremental load
 further-reading:
 video-overview:
 video-content:

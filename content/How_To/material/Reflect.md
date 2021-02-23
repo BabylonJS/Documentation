@@ -2,7 +2,7 @@
 title: Reflections and Refractions
 image: 
 description: Learn all about reflection and refraction in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, refraction, reflection
+keywords: diving deeper, materials, refraction, reflection
 further-reading:
 video-overview:
 video-content:

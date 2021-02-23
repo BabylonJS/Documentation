@@ -2,7 +2,7 @@
 title: Importing Assets
 image: 
 description: Learn how to import assets to use in your Babylon.js scenes.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing
+keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
 video-overview:
 video-content:

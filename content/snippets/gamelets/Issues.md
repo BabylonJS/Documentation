@@ -2,7 +2,7 @@
 title: Issues Arising When Getting Particles To Collide
 image: 
 description: considering the issues involved in determining collisions of particles and their effect
-keywords: welcome, babylon.js, collisions, issues, particles, collisions
+keywords: collisions, issues, particles, collisions
 further-reading:
 video-overview:
 video-content:

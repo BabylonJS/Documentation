@@ -2,7 +2,7 @@
 title: Using the Particle System Editor
 image: 
 description: Babylon.js Editor tool to edit custom particle system sets
-keywords: welcome, babylon.js, editor, particle, particle system
+keywords: editor, particle, particle system
 further-reading:
 video-overview:
 video-content:

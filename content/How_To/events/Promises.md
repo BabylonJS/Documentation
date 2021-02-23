@@ -2,7 +2,7 @@
 title: Promises
 image:
 description: Learn all about the power of promises in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, events, promises
+keywords: diving deeper, events, promises
 further-reading:
 video-overview:
 video-content:

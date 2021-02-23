@@ -2,7 +2,7 @@
 title: Lights
 image: 
 description: Learn all about lights and shadows in Babylon.js
-keywords: welcome, babylon.js, diving deeper, lights, shadows, intro
+keywords: diving deeper, lights, shadows, intro
 further-reading:
 video-overview:
 video-content:

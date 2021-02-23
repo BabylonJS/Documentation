@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 8 - Going Virtual
 image: 
 description: Learn the simple process of setting a scene up for VR.
-keywords: welcome, babylon.js, getting started, start, chapter 8, VR, XR
+keywords: getting started, start, chapter 8, VR, XR
 further-reading:
 video-overview:
 video-content:

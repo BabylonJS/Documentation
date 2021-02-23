@@ -2,7 +2,7 @@
 title: Editing Prefabs
 image: 
 description: Babylon.js Editor having created a prefab source allows you edit a prefab object and its source.
-keywords: welcome, babylon.js, editor, prefabs, editing, editing prefabs
+keywords: editor, prefabs, editing, editing prefabs
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Materials and Vertices
 image: 
 description: Learn about the relationship between materials and vetices.
-keywords: welcome, babylon.js, diving deeper, materials, advanced
+keywords: diving deeper, materials, advanced
 further-reading:
     - title: Calculating UVs
       url: /divingDeeper/mesh/creation/custom/custom

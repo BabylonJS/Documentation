@@ -2,7 +2,7 @@
 title: Introduction To Blend Modes
 image: 
 description: Learn blend modes and blending pixels in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, blend modes
+keywords: diving deeper, materials, blend modes
 further-reading:
 video-overview:
 video-content:

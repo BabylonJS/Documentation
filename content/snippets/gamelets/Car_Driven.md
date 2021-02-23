@@ -2,7 +2,7 @@
 title: Making a Simple Driven Car
 image: 
 description: Design and construct a car driven by key presses
-keywords: welcome, babylon.js, workshop, simple car, design, translate, rotate, parent
+keywords: workshop, simple car, design, translate, rotate, parent
 further-reading:
 video-overview:
 video-content:

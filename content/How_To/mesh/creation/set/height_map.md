@@ -2,7 +2,7 @@
 title: More On Height Maps
 image: 
 description: Learn more about height maps in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, height maps
+keywords: diving deeper, meshes, set shapes, standard shapes, height maps
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Adding Objects to a Dynamic Terrain
 image: 
 description: Adding Solid Particle System (SPS) objects to the terrain
-keywords: welcome, babylon.js, dynamic terrain, terrain, dynamic, sps, objects
+keywords: dynamic terrain, terrain, dynamic, sps, objects
 further-reading:
 video-overview:
 video-content:

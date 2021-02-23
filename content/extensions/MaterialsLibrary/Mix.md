@@ -2,7 +2,7 @@
 title: Mix Material
 image: 
 description: The Babylon.js materials library mix map textures.
-keywords: welcome, babylon.js, library, materials, materials library, mix materil
+keywords: library, materials, materials library, mix materil
 further-reading:
 video-overview:
 video-content:

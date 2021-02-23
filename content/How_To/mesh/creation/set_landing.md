@@ -2,7 +2,7 @@
 title: Creating Set Shapes
 image: 
 description: Learn how to create standard set shapes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes
+keywords: diving deeper, meshes, set shapes, standard shapes
 further-reading:
 video-overview:
 video-content:

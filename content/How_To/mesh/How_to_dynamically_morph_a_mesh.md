@@ -2,7 +2,7 @@
 title: Dynamically Morph A Mesh
 image: 
 description: Learn how to dynamically morph a mesh in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, morph
+keywords: diving deeper, meshes, morph
 further-reading:
 video-overview:
 video-content:

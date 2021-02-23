@@ -2,7 +2,7 @@
 title: Volumetric Light Scattering Post Process
 image: 
 description: Learn how to utilize a Babylon.js post process to simulate light scattering.
-keywords: welcome, babylon.js, diving deeper, lights, lighting, light scattering, post process
+keywords: diving deeper, lights, lighting, light scattering, post process
 further-reading:
 video-overview:
 video-content:

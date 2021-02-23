@@ -2,7 +2,7 @@
 title: Using the graph Editor
 image: 
 description: Babylon.js Editor 'Graph Editor' is used to create custom behaviors for elements in the scene without having to know how to code..
-keywords: welcome, babylon.js, editor, graph, graph editor
+keywords: editor, graph, graph editor
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: XML Loader
 image: 
 description: Learn about the Babylon.js XML Loader.
-keywords: welcome, babylon.js, diving deeper, GUI, XML Loader
+keywords: diving deeper, GUI, XML Loader
 further-reading:
     - title: How To Use the Selection Panel Helper
       url: /divingDeeper/gui/selector

@@ -2,7 +2,7 @@
 title: Pivots
 image:
 description: Learn about pivots in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, pivots
+keywords: diving deeper, meshes, mesh transformation, transformation, pivots
 further-reading:
     - title: How To Rotate Around an Axis about a Point
       url: /divingDeeper/mesh/transforms/parent_pivot/pivot

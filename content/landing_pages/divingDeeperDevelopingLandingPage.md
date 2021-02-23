@@ -2,7 +2,7 @@
 title: Developing With and For Babylon.js
 image: 
 description: Dive into the amazing world of contributing to the Babylon platform.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss
+keywords: diving deeper, contribution, contribute, open-source, oss
 further-reading:
 video-overview:
 video-content:

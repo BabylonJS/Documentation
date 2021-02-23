@@ -2,7 +2,7 @@
 title: Skyboxes
 image: 
 description: Learn how to add a skybox to your Babylon.js scene.
-keywords: welcome, babylon.js, diving deeper, environment, skybox
+keywords: diving deeper, environment, skybox
 further-reading:
     - title: Reflections and Refractions
       url: /divingDeeper/materials/using/reflectionTexture

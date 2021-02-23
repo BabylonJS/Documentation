@@ -2,7 +2,7 @@
 title: Environment
 image: 
 description: Begin your learning about environments in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, environment, intro, introduction
+keywords: diving deeper, environment, intro, introduction
 further-reading:
 video-overview:
 video-content:

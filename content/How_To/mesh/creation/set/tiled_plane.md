@@ -2,7 +2,7 @@
 title: Creating A Tiled Plane
 image: 
 description: Learn how to create a tiled plane in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, tiled plane
+keywords: diving deeper, meshes, set shapes, standard shapes, tiled plane
 further-reading:
 video-overview:
 video-content:

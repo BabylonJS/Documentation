@@ -2,7 +2,7 @@
 title: Workloads (legacy)
 image:
 description: Learn about the legacy workload system in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, workloads
+keywords: diving deeper, contribution, contribute, open-source, oss, workloads
 further-reading:
     - title: How To Get Babylon.js
       url: /divingDeeper/developWithBjs/frameworkVers

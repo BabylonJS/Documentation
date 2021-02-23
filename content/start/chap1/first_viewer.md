@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 1 - Enhancing Your Website
 image: 
 description: Continue your first steps into Babylon.js by enhancing your first website.
-keywords: welcome, babylon.js, getting started, start, chapter 1, first site
+keywords: getting started, start, chapter 1, first site
 further-reading: 
 video-overview:
 video-content:

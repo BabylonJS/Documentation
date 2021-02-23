@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 7 - Adding Shadows
 image: 
 description: Learn how to add shadows to your Babylon.js scene.
-keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, shadows
+keywords: getting started, start, chapter 7, lighting, lights, shadows
 further-reading:
 video-overview:
 video-content:

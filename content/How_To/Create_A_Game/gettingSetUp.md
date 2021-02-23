@@ -2,7 +2,7 @@
 title: Getting Set Up
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, project creation, install, webpack, scene
+keywords: guided learning, create a game, game, project creation, install, webpack, scene
 further-reading:
     - title: Github Game Repository
       url: https://github.com/BabylonJS/SummerFestival

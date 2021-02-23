@@ -2,7 +2,7 @@
 title: Irregular Polygons
 image: 
 description: Learn about creating irregular polygons in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, irregular polygons
+keywords: diving deeper, meshes, parametric shapes, irregular polygons
 further-reading:
 video-overview:
 video-content:

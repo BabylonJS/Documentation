@@ -2,7 +2,7 @@
 title: Using Build a House from Plans
 image: 
 description: Starting with a 2D plan of the outline of a house use the functions to build a house
-keywords: welcome, babylon.js, house, outline, plan, build
+keywords: house, outline, plan, build
 further-reading:
 video-overview:
 video-content:

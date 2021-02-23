@@ -2,7 +2,7 @@
 title: WebXR
 image:
 description: Learn about creating immersive VR and AR web experiences with WebXR in Babylon.js.
-keywords: VR, babylon.js, diving deeper, WebXR, AR
+keywords: WebXR, VR, diving deeper, WebVR, AR, WebAR
 further-reading:
   - title: Demos and Examples
     url: /divingDeeper/webXR/webXRDemos

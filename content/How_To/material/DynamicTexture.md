@@ -2,7 +2,7 @@
 title: Dynamic Textures
 image: 
 description: Learn all about dynamic textures in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, dynamic textures, texxture
+keywords: diving deeper, materials, dynamic textures, texxture
 further-reading:
 video-overview:
 video-content:

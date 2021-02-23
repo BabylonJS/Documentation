@@ -2,7 +2,7 @@
 title: Music & Sound FX
 image: 
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, music, sounds
+keywords: guided learning, create a game, game, music, sounds
 further-reading:
 video-overview:
 video-content:

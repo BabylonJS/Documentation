@@ -2,7 +2,7 @@
 title: Building a Track for a Carriage to Follow
 image: 
 description: Study into how to form tracks for a carriage to follow
-keywords: welcome, babylon.js, track, carriage, follow
+keywords: track, carriage, follow
 further-reading:
 video-overview:
 video-content:

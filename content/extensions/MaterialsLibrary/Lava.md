@@ -2,7 +2,7 @@
 title: Lava Material
 image: 
 description: The Babylon.js materials library lava effect.
-keywords: welcome, babylon.js, library, materials, materials library, lava, lava material
+keywords: library, materials, materials library, lava, lava material
 further-reading:
 video-overview:
 video-content:

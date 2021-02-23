@@ -2,7 +2,7 @@
 title: Grid Material
 image: 
 description: The Babylon.js materials library displays a grid across the mesh.
-keywords: welcome, babylon.js, library, materials, materials library, grid material
+keywords: library, materials, materials library, grid material
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Create a Material For The Material Library
 image: 
 description: Learn how to add your own material to the Babylon.js material library.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, material library, material, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, material library, material, develope
 further-reading:
 video-overview:
 video-content:

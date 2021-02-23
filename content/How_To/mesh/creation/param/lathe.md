@@ -2,7 +2,7 @@
 title: Lathe
 image: 
 description: Learn how to use the lathe operation in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, lathe
+keywords: diving deeper, meshes, parametric shapes, lathe
 further-reading:
 video-overview:
 video-content:

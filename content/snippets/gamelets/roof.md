@@ -2,7 +2,7 @@
 title: Adding a Roof to a House Built from Plans
 image: 
 description: Using a 2D plan to describe a roof build it in 3D
-keywords: welcome, babylon.js, house, roof, plan
+keywords: house, roof, plan
 further-reading:
 video-overview:
 video-content:

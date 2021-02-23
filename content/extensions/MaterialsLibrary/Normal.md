@@ -2,7 +2,7 @@
 title: Normal Material
 image: 
 description: The Babylon.js materials library illustrates range of normals across the mesh.
-keywords: welcome, babylon.js, library, materials, materials library, normal material
+keywords: library, materials, materials library, normal material
 further-reading:
 video-overview:
 video-content:

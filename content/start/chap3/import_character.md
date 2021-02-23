@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - Character Animation
 image:
 description: Learn to load objects with animation, into your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 3, animation, animation basics, character animation, model loading
+keywords: getting started, start, chapter 3, animation, animation basics, character animation, model loading
 further-reading:
 video-overview:
 video-content:

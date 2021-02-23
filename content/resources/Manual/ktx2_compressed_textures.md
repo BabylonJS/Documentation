@@ -2,7 +2,7 @@
 title: KTX2 Compressed Textures
 image:
 description: Learn advanced texture compression with KTX2 support in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, texture, compression, ktx2
+keywords: diving deeper, materials, texture, compression, ktx2
 further-reading:
 video-overview:
 video-content:

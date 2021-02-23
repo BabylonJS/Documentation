@@ -2,7 +2,7 @@
 title: Camera Behaviors
 image:
 description: Everything you want to know about camera behaviors.
-keywords: welcome, babylon.js, diving deeper, behaviors, cameras, camera behaviors
+keywords: diving deeper, behaviors, cameras, camera behaviors
 further-reading:
 video-overview:
 video-content:

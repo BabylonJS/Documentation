@@ -2,7 +2,7 @@
 title: Using The Assets Panel
 image: 
 description: Babylon.js Editor asset management.
-keywords: welcome, babylon.js, editor, assets, panel, assets panel
+keywords: editor, assets, panel, assets panel
 further-reading:
 video-overview:
 video-content:

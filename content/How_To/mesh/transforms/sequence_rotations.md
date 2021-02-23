@@ -2,7 +2,7 @@
 title: Sequencing Rotations
 image: 
 description: Learn how to sequence rotations in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, sequence rotations
+keywords: diving deeper, meshes, mesh transformation, transformation, sequence rotations
 further-reading:
 video-overview:
 video-content:

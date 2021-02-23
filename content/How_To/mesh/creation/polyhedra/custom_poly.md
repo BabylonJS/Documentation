@@ -2,7 +2,7 @@
 title: Creating Custom Polyhedra
 image: 
 description: Learn how to create custom polyhedra in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes
+keywords: diving deeper, meshes, polyhedra shapes
 further-reading:
 video-overview:
 video-content:

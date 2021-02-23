@@ -2,7 +2,7 @@
 title: Creating Raw RBG Textures
 image: 
 description: Learn how to create raw rgb textures in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, texture, raw texture, raw
+keywords: diving deeper, materials, advanced, texture, raw texture, raw
 further-reading:
 video-overview:
 video-content:

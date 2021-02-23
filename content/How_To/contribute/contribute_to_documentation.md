@@ -2,7 +2,7 @@
 title: Contribute To The Documentation
 image:
 description: Learn how to contribute to the Babylon.js Documentation.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
+keywords: diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
   - title: Improve API Documentation
     url: /divingDeeper/developWithBjs/contributeToAPI

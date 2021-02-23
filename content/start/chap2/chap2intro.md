@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Build A Village
 image: 
 description: Continue your Babylon.js learning journey with Chapter 2, diving into materials, textures, sounds and more.
-keywords: welcome, babylon.js, getting started, start, chapter 2
+keywords: getting started, start, chapter 2
 further-reading: 
 video-overview:
 video-content:

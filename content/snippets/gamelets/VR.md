@@ -2,7 +2,7 @@
 title: Basic WebVR
 image:
 description: Show how to implement key VR features
-keywords: welcome, babylon.js, vr, visual reality
+keywords: vr, visual reality
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Interacting With Scenes
 image: 
 description: Begin learning about how to develop interactions for your Babylon.js scenes.
-keywords: welcome, babylon.js, diving deeper, events, interactions 
+keywords: diving deeper, events, interactions 
 further-reading:
     - title: Observables
       url: /divingDeeper/events/observables

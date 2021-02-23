@@ -2,7 +2,7 @@
 title: Shadows
 image: 
 description: Learn how to leverage shadows in Babylon.js
-keywords: welcome, babylon.js, diving deeper, lights, lighting, shadows
+keywords: diving deeper, lights, lighting, shadows
 further-reading:
 video-overview:
 video-content:

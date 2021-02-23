@@ -2,7 +2,7 @@
 title: Levels of Detail (LOD)
 image: 
 description: Learn the integrated LOD system in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, levels of detail, LOD
+keywords: diving deeper, meshes, levels of detail, LOD
 further-reading:
 video-overview:
 video-content:

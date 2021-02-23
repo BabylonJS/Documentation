@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 5 - A Better Environment
 image: 
 description: Learn to improve the look of your environment in Chapter 5.
-keywords: welcome, babylon.js, getting started, start, chapter 5, intro, environment
+keywords: getting started, start, chapter 5, intro, environment
 further-reading:
 video-overview:
 video-content:

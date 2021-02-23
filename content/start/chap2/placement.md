@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Mesh Placement
 image: 
 description: Continue your Babylon.js learning by placing and positioning meshes in your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, placement, position
+keywords: getting started, start, chapter 2, placement, position
 further-reading: 
     - title: More on Placement
       url: /divingDeeper/mesh/transforms/center_origin/position

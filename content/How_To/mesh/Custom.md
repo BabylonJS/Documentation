@@ -2,7 +2,7 @@
 title: Create Custom Meshes From Scratch
 image: 
 description: Learn how to create custom meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, custom meshes
+keywords: diving deeper, meshes, custom meshes
 further-reading:
     - title: How To Update Vertices
       url: /divingDeeper/mesh/creation/custom/updatingVertices

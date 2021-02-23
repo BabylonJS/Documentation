@@ -2,7 +2,7 @@
 title: Creating A Tiled Ground
 image: 
 description: Learn how to create a tiled ground in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, tiled ground
+keywords: diving deeper, meshes, set shapes, standard shapes, tiled ground
 further-reading:
 video-overview:
 video-content:

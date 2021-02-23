@@ -2,7 +2,7 @@
 title: Using Path Finder
 image: 
 description: Babylon.js Editor tool to help creating path finders
-keywords: welcome, babylon.js, editor, path finder
+keywords: editor, path finder
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Cloning With the Solid Particle System
 image: 
 description: Learn how to clone using the solid particle system in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, cloning, SPS
+keywords: diving deeper, meshes, mesh transformation, transformation, cloning, SPS
 further-reading:
 video-overview:
 video-content:

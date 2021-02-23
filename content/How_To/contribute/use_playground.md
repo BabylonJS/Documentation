@@ -2,7 +2,7 @@
 title: Using the Playground for Development in Babylon.js
 image: 
 description: Learn all about making your development process easier with the super handy playground.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, playground, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, playground, develope
 further-reading:
 video-overview:
 video-content:

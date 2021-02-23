@@ -2,7 +2,7 @@
 title: Babylon.js Editor Workflow Boilerplate
 image:
 description: A short guide to the recommended workflow for Babylon.js Editor.
-keywords: welcome, babylon.js, editor
+keywords: editor
 further-reading:
 video-overview:
 video-content:

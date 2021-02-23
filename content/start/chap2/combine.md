@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Combining Meshes
 image: 
 description: Continue your Babylon.js learning by combining meshes in your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, combine, combine meshes, merge
+keywords: getting started, start, chapter 2, combine, combine meshes, merge
 further-reading:
     - title: More on Merging Meshes
       url: /divingDeeper/mesh/mergeMeshes

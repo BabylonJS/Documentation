@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 7 - Light the Night
 image: 
 description: Learn the basics of lighting in Babylon.js in chapter 7.
-keywords: welcome, babylon.js, getting started, start, chapter 7, intro, lighting, lights
+keywords: getting started, start, chapter 7, intro, lighting, lights
 further-reading:
 video-overview:
 video-content:

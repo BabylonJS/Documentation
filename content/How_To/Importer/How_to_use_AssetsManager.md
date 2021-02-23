@@ -2,7 +2,7 @@
 title: Asset Manager
 image: 
 description: Learn the wonderful world of the Babylon.js asset manager.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, asset manager
+keywords: diving deeper, import, importing assets, asset, importing, asset manager
 further-reading:
 video-overview:
 video-content:

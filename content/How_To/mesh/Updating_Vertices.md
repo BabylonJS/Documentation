@@ -2,7 +2,7 @@
 title: Updating Vertices
 image: 
 description: Learn how to update vertices of a mesh in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, custom meshes, vertices, updating vertices
+keywords: diving deeper, meshes, custom meshes, vertices, updating vertices
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 7 - Light the Night
 image: 
 description: Learn the how to add spotlights to your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 7, lighting, lights, spotlight
+keywords: getting started, start, chapter 7, lighting, lights, spotlight
 further-reading:
 video-overview:
 video-content:

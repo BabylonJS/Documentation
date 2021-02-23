@@ -2,7 +2,7 @@
 title: Lens Flares
 image: 
 description: Learn how to use lens flares in your Babylon.js scene.
-keywords: welcome, babylon.js, diving deeper, environment, lens flare
+keywords: diving deeper, environment, lens flare
 further-reading:
 video-overview:
 video-content:
