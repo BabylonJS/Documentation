@@ -53,7 +53,7 @@ invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction ti
 
 ### Examples
 non updatable extrusion: <Playground id="#MR8LEL#2" title="Non Updatable Extrusion" description="Simple example of non updatable extrusions."/>
-update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions."/>
+update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions." isMain={true} category="Mesh"/>
 extrusion with open shape: <Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Simple example of extrusion with open shpaes."/>
 
 spiral extrusion with straight path and rotation set: <Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion."/>  

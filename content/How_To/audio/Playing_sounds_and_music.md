@@ -41,7 +41,7 @@ var music = new BABYLON.Sound("Music", "music.wav", scene, null, {
 - 5th parameter: a **JSON object** providing various options we’ll see in details. But you can already understand the goal of the 2 options provided.
 
 You can test this first sample in our music playground example here:
-<Playground id="#PCY1J" title="Simple Music Playback Example" description="A simple example of playing sounds or music in your scene."/>
+<Playground id="#PCY1J" title="Simple Music Playback Example" description="A simple example of playing sounds or music in your scene." isMain={true} category="Audio"/>
 
 ## Handling the 'ready to play' callback function
 
@@ -85,7 +85,7 @@ window.addEventListener("keydown", function(evt) {
 });
 ```
 
-Test it on this gunshot sound playground: <Playground id="#PCY1J#4" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction."/>
+Test it on this gunshot sound playground: <Playground id="#PCY1J#4" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction." isMain={true} category="Audio"/>
 
 ## Some basic properties
 
@@ -176,7 +176,7 @@ function soundReady() {
 }
 ```
 
-Test it in our playground here: <Playground id="#PCY1J#6" title="Playing Sounds Together" description="A simple example playing sounds together and synchronized."/>
+Test it in our playground here: <Playground id="#PCY1J#6" title="Playing Sounds Together" description="A simple example playing sounds together and synchronized." isMain={true} category="Audio"/>
 
 ## Loading a sound from an ArrayBuffer
 
@@ -310,7 +310,7 @@ Default position of sound in the 3D world is `(0,0,0)`. To change that, use the 
 music.setPosition(new BABYLON.Vector3(100, 0, 0));
 ```
 
-To have a better understanding, please have a look at this sample in our playground: <Playground id="#2AH4YH" title="3D Spatial Sound" description="A simple example of creating spatial sound in your scene."/>
+To have a better understanding, please have a look at this sample in our playground: <Playground id="#2AH4YH" title="3D Spatial Sound" description="A simple example of creating spatial sound in your scene." isMain={true} category="Audio"/>
 
 Move into the scene using keyboard & mouse. Each sound is represented by a purple sphere. When you’re entering a sphere, you’ll start hearing one the music. The sound is louder at the center of the sphere and fall down to 0 when leaving the sphere.
 
@@ -526,4 +526,4 @@ myAnalyser.drawDebugCanvas();
 
 You can also call yourself the analyser functions to create your own usage of it.
 
-Here is a full audio playground example to play with: <Playground id="#PTV7W#1" title="Full Audio Example" description="Full audio playground example."/>
+Here is a full audio playground example to play with: <Playground id="#PTV7W#1" title="Full Audio Example" description="Full audio playground example." isMain={true} category="Audio"/>

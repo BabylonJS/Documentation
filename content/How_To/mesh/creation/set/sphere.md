@@ -31,7 +31,7 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1) 
 
 ### Examples 
-<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.jpg"/>
+<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.jpg" isMain={true} category="Mesh"/>
 
 <Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.jpg"/>
 

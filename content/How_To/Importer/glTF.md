@@ -44,7 +44,7 @@ This loader supports only glTF 1.0 and will fail to load glTF 2.0.
 Use one of the static function on the `SceneLoader` to load a glTF asset.
 See [Load from any file type](/divingDeeper/importers/loadingFileTypes).
 
-See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg"/>
+See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
 
 ## API (Version 2)
 

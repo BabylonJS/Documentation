@@ -33,7 +33,7 @@ const xrHelper = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled."/>
+<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled." isMain={true} category="VR/AR"/>
 
 ### Adding a color picker to the basic scene
 
@@ -66,12 +66,12 @@ picker.onValueChangedObservable.add(function(value) {
 panel.addControl(picker);
 ```
 
-<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example."/>
+<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="VR/AR"/>
 
 ## Other demos
 
-<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training"/>
-<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground"/>
+<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="VR/AR"/>
+<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" isMain={true} category="VR/AR"/>
 
 ## Babylon.js scenes with XR support
 

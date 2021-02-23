@@ -32,7 +32,7 @@ var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 myMaterial.bumpTexture = new BABYLON.Texture("PATH TO NORMAL MAP", scene);
 ```
 
-<Playground id="#20OAV9#23" title="Using Bump Maps" description="Simple example of applying bump maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials1.jpg"/>
+<Playground id="#20OAV9#23" title="Using Bump Maps" description="Simple example of applying bump maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials1.jpg" isMain={true} category="Materials"/>
 
 ## Inverting Bumps and Dents
 Use _invertNormalMapX_ and/or _invertNormalMapY_ on the material.

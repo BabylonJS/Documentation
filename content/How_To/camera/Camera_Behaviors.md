@@ -27,7 +27,7 @@ To enable this behavior on an `ArcRotateCamera`:
 camera.useBouncingBehavior = true;
 ```
 
-You can find a live demo here: <Playground id="#6FBD14" title="Bouncing Behavior Example" description="A simple example of the camera bouncing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors1.jpg"/>
+You can find a live demo here: <Playground id="#6FBD14" title="Bouncing Behavior Example" description="A simple example of the camera bouncing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors1.jpg" isMain={true} category="Behaviors"/>
 
 ## AutoRotation Behavior
 
@@ -71,4 +71,4 @@ To enable this behavior on an `ArcRotateCamera`:
 camera.useFramingBehavior = true;
 ```
 
-You can find a live demo here: <Playground id="#6FBD14#2" title="Framing Behavior Example" description="A simple example of the camera Framing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors3.jpg"/>
+You can find a live demo here: <Playground id="#6FBD14#2" title="Framing Behavior Example" description="A simple example of the camera Framing behavior." image="/img/playgroundsAndNMEs/divingDeeperCameraBehaviors3.jpg" isMain={true} category="Behaviors"/>

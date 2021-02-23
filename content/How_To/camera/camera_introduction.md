@@ -64,7 +64,7 @@ camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#DWPQ9R#1" title="Universal Camera Example" description="A simple example of how to construct a universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg"/>
+<Playground id="#DWPQ9R#1" title="Universal Camera Example" description="A simple example of how to construct a universal camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
 
 ## Arc Rotate Camera
 
@@ -101,7 +101,7 @@ camera.setPosition(new BABYLON.Vector3(0, 0, 20));
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#SRZRWV#1" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg"/>
+<Playground id="#SRZRWV#1" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
 
 By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call :
 
@@ -159,7 +159,7 @@ camera.target = targetMesh; // version 2.4 and earlier
 camera.lockedTarget = targetMesh; //version 2.5 onwards
 ```
 
-<Playground id="#SRZRWV#6" title="Follow Camera Example" description="A simple example of how to construct a follow camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro3.jpg"/>
+<Playground id="#SRZRWV#6" title="Follow Camera Example" description="A simple example of how to construct a follow camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro3.jpg" isMain={true} category="Cameras"/>
 
 ## AnaglyphCameras
 
@@ -204,7 +204,7 @@ camera.moveSensibility = 10;
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#SRZRWV#3" title="Device Orientation Camera Example" description="A simple example of how to construct a Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro4.jpg"/>
+<Playground id="#SRZRWV#3" title="Device Orientation Camera Example" description="A simple example of how to construct a Device Orientation camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro4.jpg" isMain={true} category="Cameras"/>
 
 ## Virtual Joysticks Camera
 

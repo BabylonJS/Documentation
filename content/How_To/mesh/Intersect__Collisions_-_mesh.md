@@ -61,4 +61,4 @@ if (balloon3.intersectsPoint(pointToIntersect)){
 
 We defined a precise point in our scene, and if our balloon intersects this point, wherever on the balloon, then the event is raised and we change the color of the balloon.
 
-You can play with the code used in this tutorial... by visiting the playground here: <Playground id="#KQV9SA" title="Mesh Intersection Example" description="Simple example of mesh intersections."/>
+You can play with the code used in this tutorial... by visiting the playground here: <Playground id="#KQV9SA" title="Mesh Intersection Example" description="Simple example of mesh intersections." isMain={true} category="Mesh"/>

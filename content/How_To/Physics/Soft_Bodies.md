@@ -145,7 +145,7 @@ To see both sides of a cloth set `backFaceCulling = false` on the material to be
 
 <Playground id="#480ZBN#3" title="Cloth Over a Softbody" description="Simple example of a cloth over a softbody."/>
 <Playground id="#480ZBN#4" title="Cloth Over a Rigid Box" description="Simple example of a cloth over a rigid box."/>
-<Playground id="#480ZBN#5" title="Cloth Over Rigid Box With Fixed Corners" description="Simple example of a cloth over a rigid box with fixed corners."/>
+<Playground id="#480ZBN#5" title="Cloth Over Rigid Box With Fixed Corners" description="Simple example of a cloth over a rigid box with fixed corners." isMain={true} category="Physics"/>
 
 ### Fixed Points
 
