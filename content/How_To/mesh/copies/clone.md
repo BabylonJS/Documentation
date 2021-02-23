@@ -12,7 +12,7 @@ video-content:
 This simply creates a deep copy of the original mesh and saves memory by sharing the geometry. Each clone can have its own material and transformation.
 
 ## Examples
-<Playground id="#QMFPPE" title="Cloning Example 1" description="Simple example showing shared geometry by scaling one geometry by 2."/> Shows shared geometry by scaling one geometry by 2.  
+<Playground id="#QMFPPE" title="Cloning Example 1" description="Simple example showing shared geometry by scaling one geometry by 2." isMain={true} category="Mesh"/> Shows shared geometry by scaling one geometry by 2.  
 
 ``` ```
 <Playground id="#QMFPPE#1" title="Cloning Example 2" description="Simple example showing transformation by scaling of 2 only changes one mesh."/> Shows transformation by scaling of 2 only changes one mesh.  
