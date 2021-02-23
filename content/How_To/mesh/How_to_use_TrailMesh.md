@@ -2,7 +2,7 @@
 title: Trail Mesh
 image: 
 description: Learn how to draw a trail mesh in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, trail, trailmesh
+keywords: diving deeper, meshes, trail, trailmesh
 further-reading:
 video-overview:
 video-content:

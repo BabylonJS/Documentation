@@ -2,7 +2,7 @@
 title: Different Textures On The Front And Back Of A Mesh
 image: 
 description: Learn how to apply different textures to the front and back of a mesh.
-keywords: welcome, babylon.js, diving deeper, materials, face materials, front, back, UV, UVs
+keywords: diving deeper, materials, face materials, front, back, UV, UVs
 further-reading:
 video-overview:
 video-content:

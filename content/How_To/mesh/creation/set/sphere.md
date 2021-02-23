@@ -2,7 +2,7 @@
 title: Creating A Sphere
 image: 
 description: Learn how to create a sphere in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, sphere
+keywords: diving deeper, meshes, set shapes, standard shapes, sphere
 further-reading:
 video-overview:
 video-content:

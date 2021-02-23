@@ -2,7 +2,7 @@
 title: Drawing Bounding Boxes
 image: 
 description: Learn how to draw bounding boxes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, bounding boxes, bounds
+keywords: diving deeper, meshes, bounding boxes, bounds
 further-reading:
 video-overview:
 video-content:

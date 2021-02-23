@@ -2,7 +2,7 @@
 title: .obj File Loader Plugin
 image: 
 description: Learn about the .obj File Loader Plugin available in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, .obj, obj
+keywords: diving deeper, import, importing assets, asset, importing, .obj, obj
 further-reading:
 video-overview:
 video-content:

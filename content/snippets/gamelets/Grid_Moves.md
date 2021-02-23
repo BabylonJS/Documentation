@@ -2,7 +2,7 @@
 title: Simple Particle Collisions Using a Grid
 image: 
 description: Particles restricted to moving between grid coordinates
-keywords: welcome, babylon.js, particle, grid, collision
+keywords: particle, grid, collision
 further-reading:
 video-overview:
 video-content:

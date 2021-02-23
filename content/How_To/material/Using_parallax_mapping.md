@@ -2,7 +2,7 @@
 title: Parallax Mapping
 image: 
 description: Learn all about using parallax mapping in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, parallax
+keywords: diving deeper, materials, parallax
 further-reading:
 video-overview:
 video-content:

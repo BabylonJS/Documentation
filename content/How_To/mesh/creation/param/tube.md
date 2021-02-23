@@ -2,7 +2,7 @@
 title: Creating Tubes
 image: 
 description: Learn how to create tubes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, tubes
+keywords: diving deeper, meshes, parametric shapes, tubes
 further-reading:
 video-overview:
 video-content:

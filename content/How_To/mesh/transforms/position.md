@@ -2,7 +2,7 @@
 title: Position A Mesh
 image: 
 description: Learn about positioning meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, position
+keywords: diving deeper, meshes, mesh transformation, transformation, position
 further-reading:
 video-overview:
 video-content:

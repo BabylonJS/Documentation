@@ -2,7 +2,7 @@
 title: Rotation Conventions
 image: 
 description: Learn about rotation conventions in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, rotations, rotation conventions
+keywords: diving deeper, meshes, mesh transformation, transformation, rotations, rotation conventions
 further-reading:
 video-overview:
 video-content:

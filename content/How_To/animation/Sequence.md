@@ -2,7 +2,7 @@
 title: Sequencing Animations
 image: 
 description: Learn how to sequence animations one after another.
-keywords: welcome, babylon.js, diving deeper, animation, sequence, sequencing
+keywords: diving deeper, animation, sequence, sequencing
 further-reading:
 video-overview:
 video-content:

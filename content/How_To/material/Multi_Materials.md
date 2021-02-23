@@ -2,7 +2,7 @@
 title: Multi-Materials
 image: 
 description: Learn how to use Babylon.js Multi-Materials.
-keywords: welcome, babylon.js, diving deeper, materials, multi material
+keywords: diving deeper, materials, multi material
 further-reading:
 video-overview:
 video-content:

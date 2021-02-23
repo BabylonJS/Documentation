@@ -2,7 +2,7 @@
 title: Simple Game State
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, state machine, character controller, state
+keywords: guided learning, create a game, game, state machine, character controller, state
 further-reading:
 video-overview:
 video-content:

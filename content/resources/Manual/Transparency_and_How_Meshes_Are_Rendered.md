@@ -2,7 +2,7 @@
 title: Transparent Rendering
 image: 
 description: Learn all about how transparency is handled in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, transparency, transparent
+keywords: diving deeper, materials, transparency, transparent
 further-reading:
     - title: Use Facet Data
       url: /divingDeeper/mesh/facetData

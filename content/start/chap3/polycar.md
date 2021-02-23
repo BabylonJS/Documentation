@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - Extruding Polygons
 image:
 description: Learn to create your own meshes by extruding mesh faces.
-keywords: welcome, babylon.js, getting started, start, chapter 3, extrude
+keywords: getting started, start, chapter 3, extrude
 further-reading:
 video-overview:
 video-content:

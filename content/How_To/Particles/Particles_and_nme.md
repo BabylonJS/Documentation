@@ -2,7 +2,7 @@
 title: Node Material and Particles
 image: 
 description: Learn how to use the node material editor to create particle shaders.
-keywords: welcome, babylon.js, diving deeper, materials, node, node material, particle, shader, particles
+keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:
     - title: Particle 101
       url: /divingDeeper/particles

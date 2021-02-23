@@ -2,7 +2,7 @@
 title: Parents and Pivots
 image: 
 description: Learn all about parent relationships and pivots in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, parent, pivot
+keywords: diving deeper, meshes, mesh transformation, transformation, parent, pivot
 further-reading:
 video-overview:
 video-content:

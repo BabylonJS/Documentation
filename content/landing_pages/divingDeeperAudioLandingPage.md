@@ -2,7 +2,7 @@
 title: Audio
 image: 
 description: Dive into using the Babylon.js sound engine for simple to advanced audio.
-keywords: welcome, babylon.js, diving deeper, sound, audio, sound engine, audio engine
+keywords: diving deeper, sound, audio, sound engine, audio engine
 further-reading:
 video-overview:
 video-content:

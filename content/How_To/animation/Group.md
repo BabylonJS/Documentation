@@ -2,7 +2,7 @@
 title: Grouping Animations
 image: 
 description: Learn how to group animations together for easier management.
-keywords: welcome, babylon.js, diving deeper, animation, group, grouping
+keywords: diving deeper, animation, group, grouping
 further-reading:
 video-overview:
 video-content:

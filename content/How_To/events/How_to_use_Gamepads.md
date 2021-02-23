@@ -2,7 +2,7 @@
 title: Gamepads
 image: 
 description: Learn about gamepad input support in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, input, gamepad, controller
+keywords: diving deeper, input, gamepad, controller
 further-reading:
     - title: How to use virtual joysticks
       url: /divingDeeper/input/virtualJoysticks

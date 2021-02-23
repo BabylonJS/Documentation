@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - Village Animation
 image: 
 description: Continue your Babylon.js learning by diving into animation in Chapter 3.
-keywords: welcome, babylon.js, getting started, start, chapter 3, intro, animation
+keywords: getting started, start, chapter 3, intro, animation
 further-reading:
 video-overview:
 video-content:

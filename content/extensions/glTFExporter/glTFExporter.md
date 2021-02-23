@@ -2,7 +2,7 @@
 title: glTF Exporter
 image:
 description: The glTF Exporter allowsBabylon.js models to be exported to the [glTF 2.0 format]
-keywords: welcome, babylon.js, gltf, exporter
+keywords: gltf, exporter
 further-reading:
 video-overview:
 video-content:

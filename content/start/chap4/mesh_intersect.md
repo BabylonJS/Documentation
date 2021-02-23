@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 4 - Avoiding a Car Crash
 image: 
 description: Learn how to avoid collisions between your characters and cars in the village.
-keywords: welcome, babylon.js, getting started, start, chapter 4, collisions
+keywords: getting started, start, chapter 4, collisions
 further-reading:
 video-overview:
 video-content:

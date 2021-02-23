@@ -2,7 +2,7 @@
 title: Irregular Polygon Extrusion
 image: 
 description: Learn how extrude irregular polygons in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, irregular extrusion
+keywords: diving deeper, meshes, parametric shapes, irregular extrusion
 further-reading:
 video-overview:
 video-content:

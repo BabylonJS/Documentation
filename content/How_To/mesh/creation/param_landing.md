@@ -2,7 +2,7 @@
 title: Creating Parametric Meshes
 image: 
 description: Learn how to create parametric meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes
+keywords: diving deeper, meshes, parametric shapes
 further-reading:
 video-overview:
 video-content:

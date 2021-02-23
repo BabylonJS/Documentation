@@ -2,7 +2,7 @@
 title: Procedural Textures
 image:
 description: Learn fresnel parameters in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, procedural Texture, texture
+keywords: diving deeper, materials, procedural Texture, texture
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Writing Custom Scripts
 image: 
 description: Babylon.js Editor tool to write and attach custom scripts to objects in the scene.
-keywords: welcome, babylon.js, editor, custom, scripts, custom scripts
+keywords: editor, custom, scripts, custom scripts
 further-reading:
 video-overview:
 video-content:

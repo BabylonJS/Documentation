@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 8 - Have a Look Around
 image: 
 description: Learn the basics of the arcRotateCamera.
-keywords: welcome, babylon.js, getting started, start, chapter 8, cameras, camera, arcRotate
+keywords: getting started, start, chapter 8, cameras, camera, arcRotate
 further-reading:
 video-overview:
 video-content:

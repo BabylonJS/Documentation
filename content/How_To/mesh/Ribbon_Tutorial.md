@@ -2,7 +2,7 @@
 title: Ribbon In Detail
 image: 
 description: Dive into the details of ribbons in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, ribbons
+keywords: diving deeper, meshes, parametric shapes, ribbons
 further-reading:
 video-overview:
 video-content:

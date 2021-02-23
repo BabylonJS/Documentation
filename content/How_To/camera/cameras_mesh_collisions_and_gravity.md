@@ -2,7 +2,7 @@
 title: Camera Collisions
 image:
 description: Dive into understanding camera collisions, mesh collisions, and gravity.
-keywords: welcome, babylon.js, diving deeper, cameras, collisions, camera collisions, gravity, mesh collisions
+keywords: diving deeper, cameras, collisions, camera collisions, gravity, mesh collisions
 further-reading:
   - title: Cameras Overview
     url: /divingDeeper/cameras

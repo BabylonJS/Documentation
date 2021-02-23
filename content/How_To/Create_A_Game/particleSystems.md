@@ -2,7 +2,7 @@
 title: Particle Systems
 image: 
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, particles, particle system
+keywords: guided learning, create a game, game, particles, particle system
 further-reading:
 video-overview:
 video-content:

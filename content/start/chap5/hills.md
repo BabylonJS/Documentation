@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 5 - Distant Hills
 image: 
 description: Learn to add some distant hills to your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 5, environment
+keywords: getting started, start, chapter 5, environment
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Scroll Viewer
 image: 
 description: Learn about Scroll Viewer in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, GUI, Scroll Viewer
+keywords: diving deeper, GUI, Scroll Viewer
 further-reading:
     - title: How To Use the Selection Panel Helper
       url: /divingDeeper/gui/selector

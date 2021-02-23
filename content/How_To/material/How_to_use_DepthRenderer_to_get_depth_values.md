@@ -2,7 +2,7 @@
 title: Depth Renderer
 image: 
 description: Learn all about the depth renderer in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, depth renderer, depth rendering
+keywords: diving deeper, materials, advanced, depth renderer, depth rendering
 further-reading:
 video-overview:
 video-content:

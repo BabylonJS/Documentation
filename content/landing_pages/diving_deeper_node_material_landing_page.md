@@ -2,7 +2,7 @@
 title: Node Material
 image: 
 description: Learn all about the incredibly powerful Node Material in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, node, node material, shader
+keywords: diving deeper, materials, node, node material, shader
 further-reading:
 video-overview:
 video-content:

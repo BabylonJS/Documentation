@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 6 - Particle Spray
 image: 
 description: Learn how to create a basic particle system.
-keywords: welcome, babylon.js, getting started, start, chapter 6, particles
+keywords: getting started, start, chapter 6, particles
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Gradient material
 image: 
 description: The Babylon.js materials library gradient material creates a smooth gradient with two colors.
-keywords: welcome, babylon.js, library, materials, materials library, gradient, gradient material
+keywords: library, materials, materials library, gradient, gradient material
 further-reading:
 video-overview:
 video-content:

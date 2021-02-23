@@ -2,7 +2,7 @@
 title: WebVR Experience Helper
 image:
 description: Set up a VR scene with one line of code.
-keywords: welcome, babylon.js, diving deeper, WebVR, WebVR Camera, VR
+keywords: diving deeper, WebVR, WebVR Camera, VR
 further-reading:
 video-overview:
 video-content:

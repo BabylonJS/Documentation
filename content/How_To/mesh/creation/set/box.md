@@ -2,7 +2,7 @@
 title: Creating A Box
 image: 
 description: Learn how to create a box in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, box
+keywords: diving deeper, meshes, set shapes, standard shapes, box
 further-reading:
 video-overview:
 video-content:

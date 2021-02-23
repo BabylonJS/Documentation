@@ -2,7 +2,7 @@
 title: Normal Maps
 image: 
 description: Learn all about normal maps in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, normals, normal map
+keywords: diving deeper, materials, advanced, normals, normal map
 further-reading:
 video-overview:
 video-content:

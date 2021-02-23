@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - A Walk Around The Village
 image:
 description: Learn to move an animating object through your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 3, animation, animation basics, character animation, model loading, parenting
+keywords: getting started, start, chapter 3, animation, animation basics, character animation, model loading, parenting
 further-reading:
 video-overview:
 video-content:

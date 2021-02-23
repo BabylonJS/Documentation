@@ -2,7 +2,7 @@
 title: Creating A Tiled Box
 image: 
 description: Learn how to create a tiled box in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, box, tiled box
+keywords: diving deeper, meshes, set shapes, standard shapes, box, tiled box
 further-reading:
 video-overview:
 video-content:

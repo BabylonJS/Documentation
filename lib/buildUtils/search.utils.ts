@@ -67,6 +67,9 @@ export const addSearchItem = async (searchItem: ISearchIndexItem) => {
 };
 
 export const addPlaygroundItem = async (item: IPlaygroundSearchItem) => {
+    if(item.isMain) {
+        console.log(item);
+    }
     if (!process.env.SEARCH_API_KEY) {
         return;
     }

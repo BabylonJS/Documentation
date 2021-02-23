@@ -2,7 +2,7 @@
 title: Fireworks with Shaders
 image: 
 description: Using a shader to produce a firework that burst 
-keywords: welcome, babylon.js, shader, firework
+keywords: shader, firework
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Creating A Cylinder
 image: 
 description: Learn how to create a cylinder in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, cylinder
+keywords: diving deeper, meshes, set shapes, standard shapes, cylinder
 further-reading:
 video-overview:
 video-content:

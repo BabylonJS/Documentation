@@ -2,7 +2,7 @@
 title: Animation Using the Render Loop
 image: 
 description: Understand how to animate objects with the scene's render loop.
-keywords: welcome, babylon.js, diving deeper, animation, advanced, render loop
+keywords: diving deeper, animation, advanced, render loop
 further-reading:
 video-overview:
 video-content:

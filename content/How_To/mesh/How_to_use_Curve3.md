@@ -2,7 +2,7 @@
 title: Drawing Curves
 image: 
 description: Learn how to draw curves in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, curves
+keywords: diving deeper, meshes, curves
 further-reading:
     - title: How To Create Parametric Shapes
       url: /divingDeeper/mesh/creation/param

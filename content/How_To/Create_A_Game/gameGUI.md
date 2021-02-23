@@ -2,7 +2,7 @@
 title: Game GUI
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, gui, hud
+keywords: guided learning, create a game, game, gui, hud
 further-reading:
 video-overview:
 video-content:

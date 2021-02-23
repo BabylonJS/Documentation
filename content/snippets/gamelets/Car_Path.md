@@ -2,7 +2,7 @@
 title: Making a Simple Car
 image: 
 description: A Simple Car Demonstrating Rotate
-keywords: welcome, babylon.js, car, rotate
+keywords: car, rotate
 further-reading:
 video-overview:
 video-content:

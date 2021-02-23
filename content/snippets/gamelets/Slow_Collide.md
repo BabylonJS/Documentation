@@ -2,7 +2,7 @@
 title: Slow Moving Particle Collisions
 image: 
 description: Keeping the speed of particles below twice their radius per frame to simplify collisions
-keywords: welcome, babylon.js, slow, collisions, particles
+keywords: slow, collisions, particles
 further-reading:
 video-overview:
 video-content:

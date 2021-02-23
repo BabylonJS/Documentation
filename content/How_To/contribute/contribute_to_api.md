@@ -2,7 +2,7 @@
 title: Contribute To The API
 image: 
 description: Learn how to contribute to the Babylon.js API.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, API, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, API, develope
 further-reading:
 video-overview:
 video-content:

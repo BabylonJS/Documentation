@@ -2,7 +2,7 @@
 title: Polygon Mesh Builder
 image: 
 description: Learn how to create polygons with Mesh Builder in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, mesh builder, polygons
+keywords: diving deeper, meshes, parametric shapes, mesh builder, polygons
 further-reading:
 video-overview:
 video-content:

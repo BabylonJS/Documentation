@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 3 - Car Animation
 image:
 description: Continue learning about animations in Babylon.js.
-keywords: welcome, babylon.js, getting started, start, chapter 3, animation, animation basics
+keywords: getting started, start, chapter 3, animation, animation basics
 further-reading:
 video-overview:
 video-content:

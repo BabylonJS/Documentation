@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Web App Layout
 image: 
 description: Continue your Babylon.js learning by transforming your progress into a web app.
-keywords: welcome, babylon.js, getting started, start, chapter 2, web app, app
+keywords: getting started, start, chapter 2, web app, app
 further-reading:
 video-overview:
 video-content:

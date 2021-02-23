@@ -2,7 +2,7 @@
 title: MultiViews Part 1
 image:
 description: Learn how to leverage multi-views in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, multiview
+keywords: diving deeper, multiview
 further-reading:
 video-overview:
 video-content:

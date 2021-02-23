@@ -2,7 +2,7 @@
 title: Developing Build a House from Plans
 image: 
 description: Starting with a polygon as the footprint of a house develop the functions to build the house with doors and windows
-keywords: welcome, babylon.js, house, build, plans, design
+keywords: house, build, plans, design
 further-reading:
 video-overview:
 video-content:

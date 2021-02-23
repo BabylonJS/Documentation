@@ -2,7 +2,7 @@
 title: Start Contributing to Babylon.js
 image: 
 description: Learn how to start contributing to Babylon.js.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, develope
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Babylon 3D GUI
 image: 
 description: Learn all about the Babylon.js 3D GUI System.
-keywords: welcome, babylon.js, diving deeper, GUI, 3D GUI, 3D
+keywords: diving deeper, GUI, 3D GUI, 3D
 further-reading:
     - title: How To Use Babylon GUI
       url: /divingDeeper/gui/gui

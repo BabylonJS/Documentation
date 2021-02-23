@@ -2,7 +2,7 @@
 title: Creating A Texture Package
 image: 
 description: Learn how to create your own texture package in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, textures, package
+keywords: diving deeper, materials, advanced, textures, package
 further-reading:
 video-overview:
 video-content:

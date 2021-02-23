@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 8 - Follow That Character
 image: 
 description: Learn the basics of the FollowCamera.
-keywords: welcome, babylon.js, getting started, start, chapter 8, cameras, camera, FollowCamera
+keywords: getting started, start, chapter 8, cameras, camera, FollowCamera
 further-reading:
 video-overview:
 video-content:

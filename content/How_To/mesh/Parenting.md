@@ -2,7 +2,7 @@
 title: Parents and Children
 image:
 description: Learn about parents and children in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, parents, children
+keywords: diving deeper, meshes, mesh transformation, transformation, parents, children
 further-reading:
     - title: How To Transform Coordinates
       url: /divingDeeper/mesh/transforms/center_origin/ref_frame

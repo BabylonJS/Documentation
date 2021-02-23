@@ -2,7 +2,7 @@
 title: Diving Deeper
 image: 
 description: Go deeper with your learning of Babylon.js feature by feature.
-keywords: welcome, babylon.js, diving deeper, features
+keywords: diving deeper, features
 further-reading:
 video-overview:
 video-content:

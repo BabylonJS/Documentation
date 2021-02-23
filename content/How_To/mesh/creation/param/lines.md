@@ -2,7 +2,7 @@
 title: Creating Lines
 image: 
 description: Learn how to create lines in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, lines
+keywords: diving deeper, meshes, parametric shapes, lines
 further-reading:
 video-overview:
 video-content:

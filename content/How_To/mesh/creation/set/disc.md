@@ -2,7 +2,7 @@
 title: Creating A Disc
 image: 
 description: Learn how to create a disc in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, disc
+keywords: diving deeper, meshes, set shapes, standard shapes, disc
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 6 - A Lathe Turned Fountain
 image: 
 description: Learn how to create meshes with the createLathe method.
-keywords: welcome, babylon.js, getting started, start, chapter 6, lathe, meshes
+keywords: getting started, start, chapter 6, lathe, meshes
 further-reading:
 video-overview:
 video-content:

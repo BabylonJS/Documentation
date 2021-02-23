@@ -2,7 +2,7 @@
 title: RandomEffector
 image: 
 description: The RandomEffector can influence all transformation properties applied to a Cloner with repeatable random values.
-keywords: welcome, babylon.js, cloner system, RandomEffector
+keywords: cloner system, RandomEffector
 further-reading:
 video-overview:
 video-content:

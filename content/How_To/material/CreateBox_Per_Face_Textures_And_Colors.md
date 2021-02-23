@@ -2,7 +2,7 @@
 title: Map Materials to Individual Mesh Faces
 image: 
 description: Learn how to apply different materials to different faces of a mesh.
-keywords: welcome, babylon.js, diving deeper, materials, face materials
+keywords: diving deeper, materials, face materials
 further-reading:
 video-overview:
 video-content:

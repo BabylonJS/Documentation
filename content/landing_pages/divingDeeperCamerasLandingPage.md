@@ -2,7 +2,7 @@
 title: Cameras
 image: 
 description: Learn all about the different types of cameras available in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, cameras, intro
+keywords: diving deeper, cameras, intro
 further-reading:
 video-overview:
 video-content:

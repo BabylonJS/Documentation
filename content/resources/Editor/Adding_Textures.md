@@ -2,7 +2,7 @@
 title: Adding Textures
 image: 
 description: Babylon.js Editor tool to preview, edit and add textures.
-keywords: welcome, babylon.js, editor, textures
+keywords: editor, textures
 further-reading:
 video-overview:
 video-content:

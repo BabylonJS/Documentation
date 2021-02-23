@@ -2,7 +2,7 @@
 title: Fresnel Paramaters
 image: 
 description: Learn fresnel parameters in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, fresnel, fresnel parameters
+keywords: diving deeper, materials, fresnel, fresnel parameters
 further-reading:
 video-overview:
 video-content:

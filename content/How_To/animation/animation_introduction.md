@@ -2,7 +2,7 @@
 title: Introduction to Animations
 image: 
 description: A deeper overview of animation and how to leverage it in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, animation, introduction, intro
+keywords: diving deeper, animation, introduction, intro
 further-reading:
 video-overview:
 video-content:

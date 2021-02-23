@@ -2,7 +2,7 @@
 title: Design for Create Track
 image: 
 description: Explains the design behind the 'createTrack' function
-keywords: welcome, babylon.js, track, create, design
+keywords: track, create, design
 further-reading:
 video-overview:
 video-content:

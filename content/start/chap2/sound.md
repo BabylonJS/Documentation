@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Sound
 image: 
 description: Continue your Babylon.js learning by adding sound to your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, sound, audio
+keywords: getting started, start, chapter 2, sound, audio
 further-reading: 
 video-overview:
 video-content:

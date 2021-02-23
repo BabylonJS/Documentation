@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 2 - Texture
 image: 
 description: Continue your Babylon.js learning by adding materials to the objects in your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 2, material, materials
+keywords: getting started, start, chapter 2, material, materials
 further-reading:
     - title: More on Materials
       url: /divingDeeper/materials

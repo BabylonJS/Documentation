@@ -2,7 +2,7 @@
 title: Logarithmic Depth Buffer
 image: 
 description: Learn how to use the logarithmic depth buffer in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced, depth renderer, depth rendering, logarithmic
+keywords: diving deeper, materials, advanced, depth renderer, depth rendering, logarithmic
 further-reading:
 video-overview:
 video-content:

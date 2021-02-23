@@ -2,7 +2,7 @@
 title: Icospheres
 image: 
 description: Learn how to create icospheres in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, polyhedra shapes, icosphere
+keywords: diving deeper, meshes, polyhedra shapes, icosphere
 further-reading:
 video-overview:
 video-content:

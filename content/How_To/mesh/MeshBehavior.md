@@ -2,7 +2,7 @@
 title: Mesh Behaviors
 image: 
 description: Everything you want to know about mesh behaviors.
-keywords: welcome, babylon.js, diving deeper, behaviors, mesh behaviors
+keywords: diving deeper, behaviors, mesh behaviors
 further-reading:
 video-overview:
 video-content:

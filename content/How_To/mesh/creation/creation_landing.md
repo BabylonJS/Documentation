@@ -2,7 +2,7 @@
 title: Creating Meshes
 image: 
 description: Learn about the different processes of creating meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, meshes, creation, mesh creation
+keywords: diving deeper, materials, meshes, creation, mesh creation
 further-reading:
 video-overview:
 video-content:

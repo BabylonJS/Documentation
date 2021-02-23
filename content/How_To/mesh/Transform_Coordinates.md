@@ -2,7 +2,7 @@
 title: Coordinate Transformation Examples
 image: 
 description: Check out coordinate transformation examples in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, coordinate transform
+keywords: diving deeper, meshes, mesh transformation, transformation, coordinate transform
 further-reading:
 video-overview:
 video-content:

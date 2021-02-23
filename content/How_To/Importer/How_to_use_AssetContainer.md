@@ -2,7 +2,7 @@
 title: Asset Containers
 image: 
 description: Learn all about using asset containers in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, asset containers
+keywords: diving deeper, import, importing assets, asset, importing, asset containers
 further-reading:
 video-overview:
 video-content:

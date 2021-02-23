@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 1 - Firsts
 image: 
 description: Start your Babylon.js learning with Chapter 1. Here you will begin a journey of learning to build a simple world step by step.
-keywords: welcome, babylon.js, getting started, start, chapter 1
+keywords: getting started, start, chapter 1
 further-reading: 
 video-overview:
 video-content:

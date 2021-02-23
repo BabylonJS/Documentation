@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 1 - First Scene
 image: 
 description: Start your Babylon.js learning by creating your first scene and model.
-keywords: welcome, babylon.js, getting started, start, chapter 1, first scene
+keywords: getting started, start, chapter 1, first scene
 further-reading: 
 video-overview:
 video-content:

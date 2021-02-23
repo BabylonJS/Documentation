@@ -2,7 +2,7 @@
 title: The Animation Method
 image: 
 description: A description of the animation method and approach in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, animation, approach, method
+keywords: diving deeper, animation, approach, method
 further-reading:
 video-overview:
 video-content:

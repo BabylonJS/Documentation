@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 6 - Build a Particle Fountain
 image: 
 description: Learn the basics the basics of the Babylon.js particle system in chapter 6.
-keywords: welcome, babylon.js, getting started, start, chapter 6, intro, particles
+keywords: getting started, start, chapter 6, intro, particles
 further-reading:
 video-overview:
 video-content:

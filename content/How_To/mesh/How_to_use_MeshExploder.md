@@ -2,7 +2,7 @@
 title: Exploding Meshes
 image: 
 description: Learn how to explode meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, explode, mesh explode
+keywords: diving deeper, meshes, explode, mesh explode
 further-reading:
 video-overview:
 video-content:

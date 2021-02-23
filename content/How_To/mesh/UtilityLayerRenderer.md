@@ -2,7 +2,7 @@
 title: Rendering Utility Layers
 image: 
 description: Learn how to render utility layers in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, utility layer
+keywords: diving deeper, meshes, utility layer
 further-reading:
 video-overview:
 video-content:

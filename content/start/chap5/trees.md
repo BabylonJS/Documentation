@@ -2,7 +2,7 @@
 title: Getting Started - Chapter 5 - Sprite Trees
 image: 
 description: Learn to add a skybox to your scene.
-keywords: welcome, babylon.js, getting started, start, chapter 5, environment, skybox
+keywords: getting started, start, chapter 5, environment, skybox
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Using An HDR Environment For PBR
 image: 
 description: Learn about using an HDR Environment in your Babylon.js scene.
-keywords: welcome, babylon.js, diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
+keywords: diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
 further-reading:
 video-overview:
 video-content:

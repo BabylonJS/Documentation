@@ -2,7 +2,7 @@
 title: Baking Transformations
 image: 
 description: Learn about how to bake transformations in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, baking transforms
+keywords: diving deeper, meshes, mesh transformation, transformation, baking transforms
 further-reading:
 video-overview:
 video-content:

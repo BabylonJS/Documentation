@@ -2,7 +2,7 @@
 title: Environment
 image: 
 description: Learn all about creating beautiful environments in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, environment
+keywords: diving deeper, environment
 further-reading:
 video-overview:
 video-content:

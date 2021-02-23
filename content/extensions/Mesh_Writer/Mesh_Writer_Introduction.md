@@ -2,7 +2,7 @@
 title: Mesh Writer
 image: 
 description: The Mesh Writer allows you to write 3D text, as meshes, in various fonts.
-keywords: welcome, babylon.js, library, 3D text, font
+keywords: library, 3D text, font
 further-reading:
 video-overview:
 video-content:

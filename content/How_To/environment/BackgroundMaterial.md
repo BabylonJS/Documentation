@@ -2,7 +2,7 @@
 title: Background Material
 image:
 description: Learn how to add a background material to your Babylon.js scene.
-keywords: welcome, babylon.js, diving deeper, environment, background material
+keywords: diving deeper, environment, background material
 further-reading:
 video-overview:
 video-content:

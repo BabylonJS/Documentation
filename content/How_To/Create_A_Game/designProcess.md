@@ -2,7 +2,7 @@
 title: Design Process
 image: 
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, assets, design
+keywords: guided learning, create a game, game, assets, design
 further-reading:
 video-overview:
 video-content:

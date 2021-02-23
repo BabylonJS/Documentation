@@ -2,7 +2,7 @@
 title: Introduction To Lights
 image: 
 description: Learn the basics of lights in Babylon.js
-keywords: welcome, babylon.js, diving deeper, lights, lighting
+keywords: diving deeper, lights, lighting
 further-reading:
 video-overview:
 video-content:

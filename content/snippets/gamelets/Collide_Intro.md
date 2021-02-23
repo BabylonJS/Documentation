@@ -2,7 +2,7 @@
 title: Introduction to Developing a System For Collisions
 image: 
 description: A collision system built using justBabylon.js code with no physics engines
-keywords: welcome, babylon.js, collision, shapes
+keywords: collision, shapes
 further-reading:
 video-overview:
 video-content:

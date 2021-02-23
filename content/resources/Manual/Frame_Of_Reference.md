@@ -2,7 +2,7 @@
 title: Introduction To Coordinate Transformation
 image: 
 description: Learn all about coordinate transformation in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, coordinate transform
+keywords: diving deeper, meshes, mesh transformation, transformation, coordinate transform
 further-reading:
 video-overview:
 video-content:

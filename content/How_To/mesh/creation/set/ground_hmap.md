@@ -2,7 +2,7 @@
 title: Creating Ground From a Height Map
 image: 
 description: Learn how to create ground from a height map in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, ground, height map
+keywords: diving deeper, meshes, set shapes, standard shapes, ground, height map
 further-reading:
 video-overview:
 video-content:

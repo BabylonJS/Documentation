@@ -2,7 +2,7 @@
 title: Events
 image: 
 description: Learn all about events and event handling in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, events, event handling
+keywords: diving deeper, events, event handling
 further-reading:
 video-overview:
 video-content:

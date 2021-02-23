@@ -2,7 +2,7 @@
 title: Creating A Line System
 image: 
 description: Learn how to create line systems in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, line system
+keywords: diving deeper, meshes, parametric shapes, line system
 further-reading:
 video-overview:
 video-content:

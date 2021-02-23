@@ -2,7 +2,7 @@
 title: Facet Data
 image: 
 description: Learn all about facet data in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, facet data
+keywords: diving deeper, meshes, facet data
 further-reading:
 video-overview:
 video-content:

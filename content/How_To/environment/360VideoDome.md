@@ -2,7 +2,7 @@
 title: 360 Video Domes
 image: 
 description: Learn all about Babylon.js 360 video domes.
-keywords: welcome, babylon.js, diving deeper, environment, 360 video, dome, 360 video dome, video dome
+keywords: diving deeper, environment, 360 video, dome, 360 video dome, video dome
 further-reading:
     - title: VideoTexture
       url: /typedoc/classes/VideoTexture

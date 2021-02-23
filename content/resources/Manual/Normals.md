@@ -2,7 +2,7 @@
 title: Vertex Normals
 image:
 description: Learn all about vertex normals in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, vertex normals
+keywords: diving deeper, meshes, vertex normals
 further-reading:
     - title: Custom Meshes
       url: /divingDeeper/mesh/creation/custom

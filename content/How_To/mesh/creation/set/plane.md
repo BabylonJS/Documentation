@@ -2,7 +2,7 @@
 title: Creating A Plane
 image: 
 description: Learn how to create a plane in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, plane
+keywords: diving deeper, meshes, set shapes, standard shapes, plane
 further-reading:
 video-overview:
 video-content:

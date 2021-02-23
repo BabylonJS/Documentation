@@ -2,7 +2,7 @@
 title: NPM Support
 image: 
 description: Learn about Babylon.js's use of the NPM Package Manager.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, NPM
+keywords: diving deeper, contribution, contribute, open-source, oss, NPM
 further-reading:
     - title: How To Get Babylon.js
       url: /divingDeeper/developWithBjs/frameworkVers

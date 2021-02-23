@@ -2,7 +2,7 @@
 title: Layer Masks and Multi-Cam Textures
 image:
 description: Learn how to assign different objects to different layer masks.
-keywords: welcome, babylon.js, diving deeper, layer masks, multi-cam
+keywords: diving deeper, layer masks, multi-cam
 further-reading:
     - title: In-Depth layerMask
       url: /divingDeeper/scene/layermask

@@ -2,7 +2,7 @@
 title: Mesh Transformations
 image: 
 description: Learn all about mesh transformations in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation
+keywords: diving deeper, meshes, mesh transformation, transformation
 further-reading:
 video-overview:
 video-content:

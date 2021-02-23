@@ -2,7 +2,7 @@
 title: Free Particle Collisions
 image: 
 description: Particles that move with no restriction to their start position or velocity
-keywords: welcome, babylon.js, particle, collisions, free
+keywords: particle, collisions, free
 further-reading:
 video-overview:
 video-content:

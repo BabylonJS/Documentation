@@ -2,7 +2,7 @@
 title: Merging Meshes
 image:
 description: Learn how to merge meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, merge
+keywords: diving deeper, meshes, merge
 further-reading:
 video-overview:
 video-content:

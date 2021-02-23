@@ -2,7 +2,7 @@
 title: MatrixCloner
 image: 
 description: The MatrixCloner clones and distributes given meshes in 3D space.
-keywords: welcome, babylon.js, cloner system, matrixcloner
+keywords: cloner system, matrixcloner
 further-reading:
 video-overview:
 video-content:

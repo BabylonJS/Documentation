@@ -2,7 +2,7 @@
 title: Advanced Animation Methods
 image: 
 description: Dive into some deeper animation methods and techniques.
-keywords: welcome, babylon.js, diving deeper, animation, advanced
+keywords: diving deeper, animation, advanced
 further-reading:
 video-overview:
 video-content:

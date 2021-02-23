@@ -2,7 +2,7 @@
 title: Make the Best Use of the Forum
 image: 
 description: Learn about the best place to get help, the Babylon.js forum.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, forum
+keywords: diving deeper, contribution, contribute, open-source, oss, forum
 further-reading:
     - title: Linking external assets in the playground
       url: https://doc.babylonjs.com/resources/external_pg_assets

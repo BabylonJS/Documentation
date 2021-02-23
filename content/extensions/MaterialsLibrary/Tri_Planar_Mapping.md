@@ -2,7 +2,7 @@
 title: Tri-Planar Mapping Material
 image: 
 description: The Babylon.js materials library tri-planar mapping material provides an elegant technique to give realistic textures from any angle or on any complex shape.
-keywords: welcome, babylon.js, library, materials, materials library, tri-planar, tri-planar material
+keywords: library, materials, materials library, tri-planar, tri-planar material
 further-reading:
 video-overview:
 video-content:

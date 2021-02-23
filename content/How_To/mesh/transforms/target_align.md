@@ -2,7 +2,7 @@
 title: Target Axes Alignment
 image: 
 description: Learn about target axes alignment in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, mesh transformation, transformation, target axes
+keywords: diving deeper, meshes, mesh transformation, transformation, target axes
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Creating A Torus
 image: 
 description: Learn how to create a torus in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, torus
+keywords: diving deeper, meshes, set shapes, standard shapes, torus
 further-reading:
 video-overview:
 video-content:

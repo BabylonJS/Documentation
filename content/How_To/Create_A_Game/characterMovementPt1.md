@@ -2,7 +2,7 @@
 title: Character Movement Part 1
 image: 
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, character movement
+keywords: guided learning, create a game, game, character movement
 further-reading:
 video-overview:
 video-content:

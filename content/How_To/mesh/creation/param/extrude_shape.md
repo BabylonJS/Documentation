@@ -2,7 +2,7 @@
 title: Extruding Shapes
 image: 
 description: Learn how to extrude shapes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, extruding shapes
+keywords: diving deeper, meshes, parametric shapes, extruding shapes
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Ribbons With Math
 image: 
 description: Learn how to create ribbons with math in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, ribbons
+keywords: diving deeper, meshes, parametric shapes, ribbons
 further-reading:
 video-overview:
 video-content:

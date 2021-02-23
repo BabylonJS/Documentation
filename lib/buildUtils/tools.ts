@@ -257,15 +257,17 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         const matches = Array.from(content.matchAll(/(<(Playground|nme).*id="([A-Za-z0-9#]*)".*\/>)/g));
         for (const [_, full, type, exampleId] of matches) {
             const realType = type === "nme" ? "nme" : "pg";
-            const imageUrl = /image="(.*)"/.test(full) && /image="(.*)"/.exec(full)[1];
+            const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
             if (exampleId && exampleId !== "nmeId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);
             }
             if (realType === "pg") {
-                const title = (/title="(.*)"/.test(full) && /title="(.*)"/.exec(full)[1].split('"')[0]) || `Playground for ${metadata.title}`;
-                const description = (/description="(.*)"/.test(full) && /description="(.*)"/.exec(full)[1].split('"')[0]) || "";
+                const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;
+                const description = (/description="(.*?)"/.test(full) && /description="(.*?)"/.exec(full)[1]) || "";
                 const playgroundId = exampleId[0] === "#" ? exampleId.substr(1) : exampleId;
                 const buff = Buffer.from(playgroundId, "utf-8");
+                const isMain = (/isMain={true}/.test(full))
+                const category = (/category="(.*?)"/.test(full) && /category="(.*?)"/.exec(full)[1]) || "";
                 const searchId = buff.toString("base64");
                 if (searchId) {
                     try {
@@ -277,6 +279,8 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                             keywords: metadata.keywords.split(",").map((item) => item.trim()),
                             imageUrl: imageUrl || getExampleImageUrl({ type: realType, id: exampleId }),
                             documentationPage: url,
+                            isMain,
+                            category,
                         });
                     } catch (e) {
                         console.log("Error indexing playground. Probably an index error.");

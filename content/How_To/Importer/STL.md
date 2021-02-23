@@ -2,7 +2,7 @@
 title: .stl File Loader Plugin
 image: 
 description: Learn about the .stl File Loader Plugin available in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, import, importing assets, asset, importing, .stl, stl
+keywords: diving deeper, import, importing assets, asset, importing, .stl, stl
 further-reading:
 video-overview:
 video-content:

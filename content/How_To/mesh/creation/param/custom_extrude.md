@@ -2,7 +2,7 @@
 title: Custom Extrusion
 image:
 description: Learn how custom extrusion works in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, parametric shapes, custom extrusion
+keywords: diving deeper, meshes, parametric shapes, custom extrusion
 further-reading:
 video-overview:
 video-content:

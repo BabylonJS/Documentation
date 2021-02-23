@@ -2,7 +2,7 @@
 title: Introduction To Materials
 image:
 description: Jump into the exciting world of learning to use Babylon.js materials.
-keywords: welcome, babylon.js, diving deeper, materials
+keywords: diving deeper, materials
 further-reading:
 video-overview:
 video-content:

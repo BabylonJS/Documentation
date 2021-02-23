@@ -2,7 +2,7 @@
 title: Animating Characters
 image: 
 description: Learn how to animated Mixamo characters with input control.
-keywords: welcome, babylon.js, diving deeper, animation, characters, character animation, input
+keywords: diving deeper, animation, characters, character animation, input
 further-reading:
 video-overview:
 video-content:

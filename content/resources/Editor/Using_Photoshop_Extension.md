@@ -2,7 +2,7 @@
 title: using the Photoshop Extension
 image: 
 description: Babylon.js Editor extension to connect to the current Photoshop instance opened in our computer and send to the editor the file that is being edited in Photoshop.
-keywords: welcome, babylon.js, editor, photoshop
+keywords: editor, photoshop
 further-reading:
 video-overview:
 video-content:

@@ -11,7 +11,6 @@ import parse from "rehype-parse";
 
 // linting
 import { AnchorWrapper } from "../../components/wrappers/anchorWrapper.component";
-import { EMWrapper } from "../../components/wrappers/emWrapper.component";
 
 /**
  * This is an example of a simple unified plugin that can be used to make changes to the code.

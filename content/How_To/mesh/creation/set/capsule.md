@@ -2,7 +2,7 @@
 title: Creating A Capsule
 image: 
 description: Learn how to create a capsule in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, capsule
+keywords: diving deeper, meshes, set shapes, standard shapes, capsule
 further-reading:
 video-overview:
 video-content:

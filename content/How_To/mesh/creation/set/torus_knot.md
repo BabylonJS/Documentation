@@ -2,7 +2,7 @@
 title: Creating A Torus Knot
 image: 
 description: Learn how to create a torus knot in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, torus knot
+keywords: diving deeper, meshes, set shapes, standard shapes, torus knot
 further-reading:
 video-overview:
 video-content:

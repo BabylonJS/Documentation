@@ -2,7 +2,7 @@
 title: Dynamic Terrain Examples
 image: 
 description: Examples of how to use the dynamic terrain extension.
-keywords: welcome, babylon.js, dynamic terrain, terrain, dynamic
+keywords: dynamic terrain, terrain, dynamic
 further-reading:
 video-overview:
 video-content:

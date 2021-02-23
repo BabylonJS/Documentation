@@ -2,7 +2,7 @@
 title: How Babylon.js Materials Work
 image: 
 description: Learn about how materials in Babylon.js work under the hood.
-keywords: welcome, babylon.js, diving deeper, materials, advanced
+keywords: diving deeper, materials, advanced
 further-reading:
 video-overview:
 video-content:

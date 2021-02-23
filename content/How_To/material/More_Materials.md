@@ -2,7 +2,7 @@
 title: More Materials
 image: 
 description: Learn about applying bump, opacity, tiling, and detail maps in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, bump, opacity, tiling, detail
+keywords: diving deeper, materials, bump, opacity, tiling, detail
 further-reading:
 video-overview:
 video-content:

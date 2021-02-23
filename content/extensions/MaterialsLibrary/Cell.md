@@ -2,7 +2,7 @@
 title: Cell material
 image:
 description: The Babylon.js materials library cell material.
-keywords: welcome, babylon.js, library, materials, materials library, cell, cell material
+keywords: library, materials, materials library, cell, cell material
 further-reading:
 video-overview:
 video-content:

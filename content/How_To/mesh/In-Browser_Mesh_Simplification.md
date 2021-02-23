@@ -2,7 +2,7 @@
 title: Simplifying Meshes With Auto-LOD
 image:
 description: Learn how to use the Auto-LOD system in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, LOD, simplify
+keywords: diving deeper, meshes, LOD, simplify
 further-reading:
 video-overview:
 video-content:

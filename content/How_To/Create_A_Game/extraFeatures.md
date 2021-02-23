@@ -2,7 +2,7 @@
 title: Extra Features
 image:
 description: Dive into some deeper game creation methods and techniques.
-keywords: welcome, babylon.js, guided learning, create a game, game, lighting, lights, transitions, fonts
+keywords: guided learning, create a game, game, lighting, lights, transitions, fonts
 further-reading:
 video-overview:
 video-content:

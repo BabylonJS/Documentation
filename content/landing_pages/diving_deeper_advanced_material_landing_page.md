@@ -2,7 +2,7 @@
 title: Advanced Materials
 image: 
 description: Learn about more advanced materials and material creation in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, materials, advanced
+keywords: diving deeper, materials, advanced
 further-reading:
 video-overview:
 video-content:

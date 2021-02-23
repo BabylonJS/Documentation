@@ -2,7 +2,7 @@
 title: Create Custom Meshes
 image: 
 description: Learn how to create custom meshes in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, custom meshes
+keywords: diving deeper, meshes, custom meshes
 further-reading:
 video-overview:
 video-content:

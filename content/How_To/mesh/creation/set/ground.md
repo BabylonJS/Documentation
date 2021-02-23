@@ -2,7 +2,7 @@
 title: Creating A Ground
 image: 
 description: Learn how to create a ground in Babylon.js.
-keywords: welcome, babylon.js, diving deeper, meshes, set shapes, standard shapes, ground
+keywords: diving deeper, meshes, set shapes, standard shapes, ground
 further-reading:
 video-overview:
 video-content:

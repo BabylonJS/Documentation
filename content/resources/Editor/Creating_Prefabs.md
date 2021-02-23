@@ -2,7 +2,7 @@
 title: Creating Prefabs
 image: 
 description: Babylon.js Editor, in order to optimize and speed up design, allows you to create prefab.
-keywords: welcome, babylon.js, editor, prefabs, creating, creating prefabs
+keywords: editor, prefabs, creating, creating prefabs
 further-reading:
 video-overview:
 video-content:

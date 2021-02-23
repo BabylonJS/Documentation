@@ -2,7 +2,7 @@
 title: Sky Material
 image: 
 description: The Babylon.js materials library sky material allows the creation of dynamic and texture free effects for skyboxes.
-keywords: welcome, babylon.js, library, materials, materials library, sky, sky material
+keywords: library, materials, materials library, sky, sky material
 further-reading:
 video-overview:
 video-content:

@@ -2,7 +2,7 @@
 title: Using Visual Studio Code (VSCode)
 image: 
 description: Learn how to use the popular oss IDE VSCode for Babylon.js development.
-keywords: welcome, babylon.js, diving deeper, contribution, contribute, open-source, oss, vscode, ide, develope
+keywords: diving deeper, contribution, contribute, open-source, oss, vscode, ide, develope
 further-reading:
 video-overview:
 video-content:

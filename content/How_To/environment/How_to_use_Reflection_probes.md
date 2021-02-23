@@ -2,7 +2,7 @@
 title: Reflection Probes
 image: 
 description: Learn how to use reflection probes in your Babylon.js scene.
-keywords: welcome, babylon.js, diving deeper, environment, reflection probe
+keywords: diving deeper, environment, reflection probe
 further-reading:
 video-overview:
 video-content:
