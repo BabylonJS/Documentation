@@ -54,7 +54,7 @@ Here is the list of functions that you can change:
 * color3InterpolateFunction
 * matrixInterpolateFunction
 
-You can also query an animation to find the exact value of the animating property, at a specific time, using the evaluate method. This method takes in a specific "time" and will output the exact interpolated or keyed value at that moment of the animation. You can see an example of the method being used to log the value of a scale animation to the console, in this playground: <Playground id="#QYFDDP#606" title="Animation Evaluate Example" description="Example of the animation.evaluate() method being used."/>
+You can also query an animation to find the exact value of the animating property, at a specific time, using the [evaluate](/typedoc/classes/babylon.animation#evaluate) method. This method takes in a specific "time" and will output the exact interpolated or keyed value at that moment of the animation. You can see an example of the method being used to log the value of a scale animation to the console, in this playground: <Playground id="#QYFDDP#606" title="Animation Evaluate Example" description="Example of the animation.evaluate() method being used."/>
 
 ## Helper function
 
