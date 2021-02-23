@@ -47,7 +47,7 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
 );
 ```
 
-Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg"/>
+Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg" isMain={true} category="GUI"/>
 
 By default the ratio between rendering resolution and texture size is 1. But you can force it to different values with `advancedTexture.renderScale`. This could be useful if you want crisper texts for instance.
 
@@ -139,7 +139,7 @@ You can define the alignments used by your control with the following properties
 
 Values can be taken from `BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_*` and `BABYLON.GUI.Control.VERTICAL_ALIGNMENT_*`.
 
-Here is an example of how to use alignments: <Playground id="#XCPP9Y#13" title="Alignments Example" description="Simple example demonstrating how to use gui alignments." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI7.jpg"/>
+Here is an example of how to use alignments: <Playground id="#XCPP9Y#13" title="Alignments Example" description="Simple example demonstrating how to use gui alignments." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI7.jpg" isMain={true} category="GUI"/>
 
 ### Position and size
 
@@ -174,7 +174,7 @@ To set value as percentage, use this construct: `control.left = "50%"`
 
 You can also not define the unit (In this case the default unit will be used): `control.width = 0.5` (which is equivalent to `control.width = "50%"`)
 
-Here is an example of how to use positions and sizes: <Playground id="#XCPP9Y#14" title="Positions and Sizes Example" description="Simple example demonstrating gui positions and sizes." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI8.jpg"/>
+Here is an example of how to use positions and sizes: <Playground id="#XCPP9Y#14" title="Positions and Sizes Example" description="Simple example demonstrating gui positions and sizes." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI8.jpg" isMain={true} category="GUI"/>
 
 ### Tracking positions
 
@@ -208,7 +208,7 @@ In order to use both idealWidth and idealHeight, set both of them, and set `myAd
 When window width is smaller than window height - idealWidth will be used, otherwise - idealHeight will be used.
 This is a good solution for when your canvas can be resized to varying width : height ratios.
 
-Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.jpg"/>
+Here is an example of how to use horizontal adaptive scaling: <Playground id="#XCPP9Y#39" title="Horizontal Adaptive Scaling Example" description="Simple example of horizontal adaptive scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI11.jpg" isMain={true} category="GUI"/>
 
 ### Rotation and Scaling
 
@@ -224,7 +224,7 @@ Controls can be transformed with the following properties:
 
 **Please be aware that transformations are done at rendering level so after all computations.** This means that alignment or positioning will be done first without taking transform in account.
 
-Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.jpg"/>
+Here is an example of how to use rotation and scaling: <Playground id="#XCPP9Y#22" title="Rotation and Scaling Example" description="Simple example of rotation and scaling." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI12.jpg"  isMain={true} category="GUI"/>
 
 ### Optimization
 
@@ -275,7 +275,7 @@ You can also control the control visibility with `control.isVisible = false`. Wh
 
 ### TextBlock
 
-The TextBlock is a simple control used to display text: <Playground id="#XCPP9Y#2" title="Simple TextBlock Example" description="Simple example of adding a textBlock to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI15.jpg"/>
+The TextBlock is a simple control used to display text: <Playground id="#XCPP9Y#2" title="Simple TextBlock Example" description="Simple example of adding a textBlock to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI15.jpg" isMain={true} category="GUI"/>
 
 Here are the properties you can define:
 
@@ -417,7 +417,7 @@ var button = BABYLON.GUI.Button.CreateImageButton(
 );
 ```
 
-You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"/>
+You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"  isMain={true} category="GUI"/>
 
 - ImageWithCenterTextButton: An image button made with a image background and a centered text overlay.
 

@@ -37,7 +37,7 @@ BABYLON.ParticleHelper.CreateAsync("sun", scene, true).then((set) => {
 });
 ```
 
-You can find a demo here: <Playground id="#1VGT5D#2" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper."/>
+You can find a demo here: <Playground id="#1VGT5D#2" title="Particle Helper Example" description="Simple example of creating a particle system with the particle helper." isMain={true} category="Particles"/>
 
 ## ParticleSystemSet
 

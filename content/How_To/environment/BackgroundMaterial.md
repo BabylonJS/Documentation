@@ -71,7 +71,7 @@ backgroundMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/Tropica
 backgroundMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 ```
 
-You can see an example here:<Playground id="#G3HSAW#6" title="Background Material with Reflection Texture" description="Simple example of a background material with a reflection texture." image="/img/playgroundsAndNMEs/divingDeeperBackgroundMat6.jpg"/>
+You can see an example here:<Playground id="#G3HSAW#6" title="Background Material with Reflection Texture" description="Simple example of a background material with a reflection texture." image="/img/playgroundsAndNMEs/divingDeeperBackgroundMat6.jpg" isMain={true} category="Environment"/>
 
 ### Mirror
 

@@ -52,7 +52,7 @@ mesh.material = myMaterial;
 
 To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
 
-<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg"/>
+<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg" isMain={true} category="Materials"/>
 
 This reaction of
 
@@ -83,7 +83,7 @@ Transparency is achieved by setting a materials _alpha_ property from 0 (invisib
 myMaterial.alpha = 0.5;
 ```
 
-<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg"/>
+<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg" isMain={true} category="Materials"/>
 
 ## Texture
 
@@ -117,7 +117,7 @@ In this image all spheres are lit by the same hemispheric light, with _diffuse_ 
 
 ![Texture](/img/how_to/Materials/texture1.png)
 
-<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg"/>
+<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg" isMain={true} category="Materials"/>
 
 ## Transparent Texture Examples
 

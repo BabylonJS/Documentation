@@ -30,7 +30,7 @@ if (pickResult.hit) {
 }
 ```
 
-Pick and rotate selected sprite with sprite manager: <Playground id="#YCY2IL#9" title="Pick And Rotate A Selected Sprite" description="Simple example of picking a sprite and rotating it."/>
+Pick and rotate selected sprite with sprite manager: <Playground id="#YCY2IL#9" title="Pick And Rotate A Selected Sprite" description="Simple example of picking a sprite and rotating it." isMain={true} category="Sprites"/>
 Pick and rotate selected sprite with sprite packed manager: <Playground id="#YCY2IL#10" title="Pick and Rotate A Selected Sprite With Sprite Packed Manager" description="Simple example of selecting a sprite from a sprite packed manager and rotating it."/>
 
 For performance reasons the default is to indicate a hit if the sprite is picked within its bounding rectangle. When you do not want a hit inside a transparent region of the sprite you need to add the following

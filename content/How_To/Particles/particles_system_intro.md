@@ -37,13 +37,13 @@ While this stops the emission of new particles the ones already emitted will con
 myParticleSystem.stop();
 myParticleSystem.reset(); //Reset to empty system
 ```
-Minimal particle system <Playground id="#0K3AQ2#3" title="Minimal Particle System" description="Simple example of creating a minimal particle system."/>
+Minimal particle system <Playground id="#0K3AQ2#3" title="Minimal Particle System" description="Simple example of creating a minimal particle system." isMain={true} category="Particles"/>
 
 You can do this all in one line using the *ParticleHelper* to create a default configured particle system.
 
 Default particle system using the helper: <Playground id="#0K3AQ2#4" title="Default Particle System Using The Helper" description="Simple example of using the particle helper to create the default particle system."/>
 
-Emit particles from a box position: <Playground id="#0K3AQ2#5 " title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position."/>
+Emit particles from a box position: <Playground id="#0K3AQ2#5 " title="Emit Particles From a Box Position" description="Simple example showing how to set a particle emission point to a box's position." isMain={true} category="Particles"/>
 
 By fixing the size of the emission region you can constrain the emission region. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
 

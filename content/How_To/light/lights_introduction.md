@@ -64,13 +64,13 @@ There are three properties of lights that affect color. Two of these _diffuse_ a
 
 In these playgrounds see how the specular color (green) is combined with the diffuse color (red) to produce a yellow highlight.
 
-<Playground id="#20OAV9" title="Point Light Example" description="Simple Example of adding a Point Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro1.jpg"/>
+<Playground id="#20OAV9" title="Point Light Example" description="Simple Example of adding a Point Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro1.jpg" isMain={true} category="Lights"/>
 
-<Playground id="#20OAV9#1" title="Directional Light Example" description="Simple Example of adding a Directional Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro2.jpg"/>
+<Playground id="#20OAV9#1" title="Directional Light Example" description="Simple Example of adding a Directional Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro2.jpg" isMain={true} category="Lights"/>
 
-<Playground id="#20OAV9#3" title="Spot Light Example" description="Simple Example of adding a Spot Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro3.jpg"/>
+<Playground id="#20OAV9#3" title="Spot Light Example" description="Simple Example of adding a Spot Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro3.jpg" isMain={true} category="Lights"/>
 
-<Playground id="#20OAV9#5" title="Hemispheric Light Example" description="Simple Example of adding a Hemispheric Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro4.jpg"/>
+<Playground id="#20OAV9#5" title="Hemispheric Light Example" description="Simple Example of adding a Hemispheric Light to your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro4.jpg" isMain={true} category="Lights"/>
 
 For a hemispheric light the _groundColor_ is the light in the opposite direction to the one specified during creation.
 You can think of the _diffuse_ and _specular_ light as coming from the centre of the object in the given direction and the _groundColor_ light in the opposite direction.
@@ -119,7 +119,7 @@ light.range = 100;
 When a light is created all current meshes will be lit by it. There are two ways to exclude some meshes from being lit.
 A mesh can be added to the _excludedMeshes_ array or add the ones not to be excluded to the _includedOnlyMeshes_ array. The number of meshes to be excluded can be one factor in deciding which method to use. In the following example two meshes are to be excluded from _light0_ and twenty three from _light1_. Commenting out lines 26 and 27 in turn will show the individual effect.
 
-<Playground id="#20OAV9#8" title="Example of Excluding Meshes to Light" description="Simple Example of exluding meshes from being lit by a light." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro8.jpg"/>
+<Playground id="#20OAV9#8" title="Example of Excluding Meshes to Light" description="Simple Example of exluding meshes from being lit by a light." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro8.jpg" isMain={true} category="Lights"/>
 
 ## Lighting Normals
 How lights react to a mesh depend on values set for each mesh vertex termed _normals_, shown in the picture below as arrows giving the direction of the lighting normals. The picture shows two planes and two lights. One light is a spot light, the other is a point light. The front face of each plane is the one you see when the _normals_ are pointing towards you, the back face the opposite side.

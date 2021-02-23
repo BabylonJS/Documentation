@@ -27,7 +27,7 @@ tree.width = 1;
 tree.height = 2;
 ```
 
-single sprite image <Playground id="#YCY2IL" title="Single Sprite Image" description="Simple example of a single sprite image."/>
+single sprite image <Playground id="#YCY2IL" title="Single Sprite Image" description="Simple example of a single sprite image." isMain={true} category="Sprites"/>
 
 You can alter the cell width and height after creation using these properties *mySpriteManager.cellWidth* and *mySpriteManager.cellWidth*
 
@@ -61,7 +61,7 @@ player.cellIndex = 1;
 
 Since the cells are square the default values for player width and height are 1 and the ratio is correct they are not needed. However the if the sprite is to draw from a cell with index other than 0 it must be specified.
 
-Sprites from different cells: <Playground id="#YCY2IL#3" title="Sprites From Different Cells" description="Simple example of sprites from different cells"/>
+Sprites from different cells: <Playground id="#YCY2IL#3" title="Sprites From Different Cells" description="Simple example of sprites from different cells" isMain={true} category="Sprites"/>
 
 It is by changing of cell numbers that you produce a sprite animation.
 
@@ -71,4 +71,4 @@ mySprite.playAnimation(start cell, end cell, loop, delay);
 ```
 The sprite will be animated from the start cell to the end cell. when *loop* is set to true the animation will loop. The delay is the time delay between the frames of the animation (the smaller it is, the faster the animation). The cells must be in animation frame order.
 
-Sprite animation: <Playground id="#YCY2IL#4" title="Sprite Animation" description="Simple example of how to handle sprite animation."/>
+Sprite animation: <Playground id="#YCY2IL#4" title="Sprite Animation" description="Simple example of how to handle sprite animation." isMain={true} category="Sprites"/>

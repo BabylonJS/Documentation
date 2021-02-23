@@ -77,7 +77,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 });
 ```
 
-A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones."/>
+A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." isMain={true} category="Mesh"/>
 
 ## Cloning bones
 
