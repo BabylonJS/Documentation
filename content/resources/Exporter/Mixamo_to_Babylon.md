@@ -88,7 +88,7 @@ autoAnimate lets your model animate automatically when dragged into the Babylon.
 
 ![image12a](/img/exporters/mixamo/12a.png)
 
-So how do you trigger these animations in Babylon.js code? Check out PG: <Playground id="#BCU1XR#0" title="Animation Blending" description="Triggering Mixamo animations."/>
+So how do you trigger these animations in Babylon.js code? Check out PG: <Playground id="#BCU1XR#0" title="Animation Blending" description="Triggering Mixamo animations." isMain={true} category="Animation"/>
 
 ![image12c](/img/exporters/mixamo/12c.png)
 

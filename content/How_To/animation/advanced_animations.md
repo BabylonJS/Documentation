@@ -82,7 +82,7 @@ You can start an animation with *enableBlending* = true to enable blending mode.
 
 In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with it's current position" image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
 
-Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations with other animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation2.jpg"/>
+Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations with other animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation2.jpg" isMain={true} category="Animation"/>
 
 ## Animation weights
 
