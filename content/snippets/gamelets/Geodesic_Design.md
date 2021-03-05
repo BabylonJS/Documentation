@@ -38,5 +38,16 @@ Fig 4 Creating a GD(5, 2) on Isometric Grid
 ![primary 2](/img/snippets/geo6.png)  
 Fig 5 Primary Triangle Grid Rotation 5, 2
 
+There are three classes of these types of polyhedra
 
+* Class I GD(m, 0)  
+* Class II GD(m, m)  
+* Class III GD(m, n) m &ne; n
+
+For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n) and GP(n, m). We only consider Class III where GD(m, n) where m > n.
+
+## Geodesic Nets
+
+![net 1](/img/snippets/geo4.png)  
+Fig 6 Net of Icosahedron
 
