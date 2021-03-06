@@ -466,10 +466,33 @@ Exactly like in the previous paragraph, you can inject your ammo dependency into
 First, install ammo.js from its github build folder (in order to benefit from an up to date version):
 
 ```javascript
-npm install kripken / ammo.js
+npm install kripken/ammo.js
 ```
 
-Then in Webpack, you need to disable the fs dependency to generate a successful package (obviously if you are targeting web builds):
+Then in Webpack, you need to disable the node.js dependencies to generate a successful package (obviously if you are targeting web builds):
+
+```javascript
+module.exports = {
+  ...
+  resolve: {
+    fallback: {
+      'fs': false,
+      'path': false,
+    }
+  }
+}
+```
+
+Finally, in your code, you can setup the AmmoJSPlugin this way:
+
+```javascript
+import ammo from "ammo.js";
+const Ammo = await ammo();
+...
+const ammoPlugin = new AmmoJSPlugin(true, Ammo);
+```
+
+For Webpack versions before 5, you'll instead need:
 
 ```javascript
 module.exports = {
@@ -481,14 +504,11 @@ module.exports = {
 }
 ```
 
-Finally, in your code, you can setup the AmmoJSPlugin this way:
-
 ```javascript
 import * as ammo from "ammo.js";
-
 const Ammo = await ammo.default();
 ...
-var ammoPlugin = new AmmoJSPlugin(true, Ammo);
+const ammoPlugin = new AmmoJSPlugin(true, Ammo);
 ```
 
 ## Loaders
