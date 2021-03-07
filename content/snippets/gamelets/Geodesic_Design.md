@@ -44,10 +44,17 @@ There are three classes of these types of polyhedra
 * Class II GD(m, m)  
 * Class III GD(m, n) m &ne; n
 
-For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n) and GP(n, m). We only consider Class III where GD(m, n) where m > n.
+For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n) and GP(n, m). We only consider Class III GD(m, n) where m > n.
 
 ## Geodesic Nets
 
 ![net 1](/img/snippets/geo4.png)  
-Fig 6 Net of Icosahedron
+Fig 6 Net of Icosahedron for GD(5, 2)
+
+From the net we can see that while some of the triangular facets that will make up the mesh lie in the plane of a primary triangle others will lie across adjacent primary triangles
+
+![net 2](/img/snippets/geo7.png)  
+Fig 7 Vertices of some facets lie across adjacent primary triangles.
+
+When the icosahedron is formed from the net these facets will not lie on any the plane of any primary triangle.
 
