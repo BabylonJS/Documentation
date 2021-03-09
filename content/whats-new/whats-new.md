@@ -1613,7 +1613,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   WebGL2 context support. WebGL2 is now used instead of WebGL 1 when available. [More info here](//doc.babylonjs.com/features/webgl2) ([deltakosh](https://github.com/deltakosh))
 -   Complete WebVR 1.1 support including controllers for HTC Vive and Oculus. [More info here](//doc.babylonjs.com/how_to/webvr_camera) ([raanan](https://github.com/raananw) & [davrous](https://github.com/davrous))
 -   Complete rewrite of PBRMaterial. Introduced two new helper materials: `pbrMetallicRoughnessMaterial` and `pbrSpecularGlossinessMaterial`. [Demo](https://www.babylonjs.com/demos/pbrglossy/) - [More info here](//doc.babylonjs.com/divingDeeper/materials/using/introToPBR) ([Sebastien Vandenberghe](https://github.com/sebavan))
--   Support for Morph Targets. [More info here](//doc.babylonjs.com/How_To/how_to_use_morphtargets) ([deltakosh](https://github.com/deltakosh))
+-   Support for Morph Targets. [More info here](//doc.babylonjs.com/how_to/how_to_use_morphtargets) ([deltakosh](https://github.com/deltakosh))
 -   New Babylon.GUI to create user interface (compatible with WebVR). [More info here](//doc.babylonjs.com/features/Gui) ([deltakosh](https://github.com/deltakosh))
 -   Added support for Exponential Shadow maps to replace Variance Shadow maps. [more info here](https://www.babylonjs-playground.com/debug.html#1CXNXC#3) [Demo#1](https://www.babylonjs.com/Demos/AdvancedShadows/) [Demo#2](https://www.babylonjs-playground.com/#1CXNXC#4) ([deltakosh](https://github.com/deltakosh))
 -   Support for [Vertex Array Objects](https://www.opengl.org/registry/specs/ARB/vertex_array_object.txt) ([deltakosh](https://github.com/deltakosh))
@@ -1742,7 +1742,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   ActionManager:
     -   `LongPressDelay` and `DragMovementThreshold` are now respectively Scene.LongPressDelay and Scene.DragMovementThreshold
 -   HDRRenderingPipeline:
-    -   `HDRRenderingPipeline` has been removed because it is deprecated. It is now replaced by `StandardRenderingPipeline` which is more advanced. See [documentation](//doc.babylonjs.com/How_To/using_standard_rendering_pipeline)
+    -   `HDRRenderingPipeline` has been removed because it is deprecated. It is now replaced by `StandardRenderingPipeline` which is more advanced. See [documentation](//doc.babylonjs.com/how_to/using_standard_rendering_pipeline)
 -   PBRMaterial:
     -   Fixed several bugs which could lead to visual changes. [More info here](https://www.html5gamedevs.com/topic/30754-pbr-breaking-changes/)
     -   Removed all overloadedXXX properties
@@ -1834,10 +1834,10 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Support for shaders includes ([deltakosh](https://github.com/deltakosh))
 -   New mesh type : `LineSystem`. [Demo here](https://www.babylonjs-playground.com/#2K1IS4#5) ([jerome](https://github.com/jbousquie))
 -   SerializationHelper for complex classes using TypeScript decorators ([deltakosh](https://github.com/deltakosh))
--   StandardMaterial now supports Parallax and Parallax Occlusion Mapping ([tutorial](//doc.babylonjs.com/How_To/Using_parallax_mapping)) ([nockawa](https://github.com/nockawa))
+-   StandardMaterial now supports Parallax and Parallax Occlusion Mapping ([tutorial](//doc.babylonjs.com/how_to/Using_parallax_mapping)) ([nockawa](https://github.com/nockawa))
 -   Animations blending. See [demo here](https://www.babylonjs-playground.com/#2BLI9T#3). More [info here](//doc.babylonjs.com/divingDeeper/animation/animation_introduction#animation-blending) ([deltakosh](https://github.com/deltakosh))
 -   New debuger tool: SkeletonViewer. See [demo here](https://www.babylonjs-playground.com/#1BZJVJ#8) (Adam & [deltakosh](https://github.com/deltakosh))
--   Added Camera Inputs Manager to manage camera inputs (mouse, touch, keyboard, gamepad, ...) in a composable way, without relying on class inheritance. [Documentation here](//doc.babylonjs.com/How_To/Customizing_Camera_Inputs) ([gleborgne](https://github.com/gleborgne))
+-   Added Camera Inputs Manager to manage camera inputs (mouse, touch, keyboard, gamepad, ...) in a composable way, without relying on class inheritance. [Documentation here](//doc.babylonjs.com/how_to/Customizing_Camera_Inputs) ([gleborgne](https://github.com/gleborgne))
 -   Introduced new observable system to handle events. [Documentation here](/divingDeeper/events/observables) ([nockawa](https://github.com/nockawa), [deltakosh](https://github.com/deltakosh))
 -   Added a new VR camera : VRDeviceOrientationArcRotateCamera ([temechon](https://github.com/Temechon))
 -   Moved PBR Material to core ([deltakosh](https://github.com/deltakosh))
@@ -1947,7 +1947,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   New cache mechanism for StandardMaterial ([deltakosh](https://github.com/deltakosh))
 -   New Solid Particle System [Demo here](https://www.babylonjs.com/Demos/SPS/) ([jerome](https://github.com/jbousquie))
 -   New `StandardMaterial.lightmapTexture` which can be controlled with `StandardMaterial.useLightmapAsShadowMap` ([deltakosh](https://github.com/deltakosh))
--   Support for reflection probes. [See documentation here](//doc.babylonjs.com/How_To/How_to_use_Reflection_probes) ([deltakosh](https://github.com/deltakosh))
+-   Support for reflection probes. [See documentation here](//doc.babylonjs.com/how_to/How_to_use_Reflection_probes) ([deltakosh](https://github.com/deltakosh))
 -   New serializers [folder](https://github.com/BabylonJS/Babylon.js/serializers) to host .babylon serializers ([deltakosh](https://github.com/deltakosh))
     -   New .obj serializer ([BitOfGold](https://github.com/BitOfGold))
 -   Sprites now can be [picked](https://www.babylonjs-playground.com/#1XMVZW#4) and can use [actions](https://www.babylonjs-playground.com/#9RUHH#4) ([deltakosh](https://github.com/deltakosh))
@@ -2061,7 +2061,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 #### Major updates
 
 -   Blender can now bake Procedural textures & Cycles materials. Plus more. See [documentation here](https://github.com/BabylonJS/Babylon.js/tree/master/Exporters/Blender) ([Palmer-JC](https://github.com/Palmer-JC))
--   Meshes can now be attached to bones. See [documentation here](//doc.babylonjs.com/How_To/How_to_use_Bones_and_Skeletons) and [sample here](https://www.babylonjs-playground.com/#11BH6Z#18) ([deltakosh](https://github.com/deltakosh))
+-   Meshes can now be attached to bones. See [documentation here](//doc.babylonjs.com/how_to/How_to_use_Bones_and_Skeletons) and [sample here](https://www.babylonjs-playground.com/#11BH6Z#18) ([deltakosh](https://github.com/deltakosh))
 -   HDR Rendering pipeline. See [demo here](https://www.babylonjs-playground.com/#2EGN4U#2) ([julien-moreau](https://github.com/julien-moreau))
 -   New rewored StandardMaterial.isReady for better memory usage and performance ([deltakosh](https://github.com/deltakosh))
 -   Revamping of FBX exporter. Now supports animations and bones ([simonferquel](https://github.com/simonferquel), [deltakosh](https://github.com/deltakosh))

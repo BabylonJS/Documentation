@@ -37,13 +37,13 @@ First, open the [sandbox](https://sandbox.babylonjs.com/) and then follow the st
 - wait to see the live result (can take a bit of time)
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
-![inspector env texture tool](/img/How_To/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
 
 Tada !!! you now have your processed file.
 
 ## Directly use .hdr files
 
-In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded. 
+In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded.
 
 ```javascript
 var reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
@@ -119,7 +119,7 @@ As the generated DDS files can be relatively large (32Mb for a 512px wide file),
 - drag &amp; drop your dds environmentTexture file ([example](https://playground.babylonjs.com/textures/environment.dds))
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
-![inspector env texture tool](/img/How_To/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
 
 - you can now download and use your `.env` environment, using this bit of code:
 

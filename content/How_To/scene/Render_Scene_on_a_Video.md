@@ -17,7 +17,7 @@ Thanks to the Html5 standard being always in motion, we can now, in modern brows
 ## How to record with the inspector 
 A new action has been added to the Tools tab of the inspector. You can find a Start Recording Video button in compatible browsers.
 
-![InspectorTools](/img/How_To/scene/inspectorVideoRecorder.png)
+![InspectorTools](/img/how_to/scene/inspectorVideoRecorder.png)
 
 This will by default records 7 seconds of video. You can press the button again anytime during the recording session to stop it earlier.
 
