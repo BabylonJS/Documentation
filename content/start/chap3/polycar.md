@@ -48,13 +48,13 @@ wheelRB.position.z = -0.1;
 wheelRB.position.x = -0.2;
 wheelRB.position.y = 0.035;
 
-wheelRF = wheelRB.clone("wheelRF");
+const wheelRF = wheelRB.clone("wheelRF");
 wheelRF.position.x = 0.1;
 
-wheelLB = wheelRB.clone("wheelLB");
+const wheelLB = wheelRB.clone("wheelLB");
 wheelLB.position.y = -0.2 - 0.035;
 
-wheelLF = wheelRF.clone("wheelLF");
+const wheelLF = wheelRF.clone("wheelLF");
 wheelLF.position.y = -0.2 - 0.035;
 ```
 
