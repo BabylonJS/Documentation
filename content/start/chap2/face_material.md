@@ -16,7 +16,7 @@ video-content:
 
 In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
 
-In the *faceUV* array faces are numbered 0 for back, 1, front, 2 left, 3 right, 4 top and 5 bottom.
+In the *faceUV* array faces are numbered 0 for back, 1 front, 2 right, 3 left, 4 top and 5 bottom.
 
 ## Detached House Example
 We will start with this image
@@ -32,9 +32,9 @@ vector (lower left x, lower left y, upper right x, upper right y)
 
 Matching sides to part images gives  
 front, 1, (0.0, 0.0, 0.25, 1.0)  
-left, 2, (0.25, 0, 0.5, 1.0)  
+right, 2, (0.25, 0, 0.5, 1.0)  
 back, 0, (0.5, 0.0, 0.75, 1.0)  
-right, 3, (0.75, 0, 1.0, 1.0)  
+left, 3, (0.75, 0, 1.0, 1.0)  
 as the top and bottom are not seen we will just use the defaults.
 
 We set these using
