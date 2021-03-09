@@ -29,7 +29,7 @@ Setting up this scene is actually quite simple. We only need a scene, a camera, 
 ```
 var scene = new BABYLON.Scene(engine);
 
-var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, new BABYLON.Vector3.Zero(), scene);
+var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
 camera.attachControl(canvas, true);
 
 // Create a random emitter
@@ -69,7 +69,7 @@ var createScene = async function () {
 
     var scene = new BABYLON.Scene(engine);
 
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, new BABYLON.Vector3.Zero(), scene);
+    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
 
     // Create a random emitter
@@ -133,7 +133,7 @@ var createScene = async function () {
 
     var scene = new BABYLON.Scene(engine);
 
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, new BABYLON.Vector3.Zero(), scene);
+    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
 
     // Create a random emitter
