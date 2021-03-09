@@ -12,13 +12,13 @@ video-content:
 
 The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
-To load a HDR environment, you can use a [createDefaultEnvironment](/api/classes/babylon.scene#createdefaultenvironment):
+To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/typedoc/classes/babylon.scene#createdefaultenvironment):
 
 ```javascript
 scene.createDefaultEnvironment();
 ```
 
-This will load the file *environmentSpecular.env* from *assets.babylonjs.com*.
+This will load the file [*environmentSpecular.env*](https://assets.babylonjs.com/environments/environmentSpecular.env) from *assets.babylonjs.com*.
 
 To load a custom env texture, simply set the `scene.environmentTexture`:
 
@@ -27,19 +27,39 @@ var hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData("textures/env
 scene.environmentTexture = hdrTexture;
 ```
 
-We are detailing below the two supported ways of creating such files. As of 4.2 we now support prefiltering directly in the Sandbox !!! .hdr files are easy to find on the web so it looks like the most convenient input for filtering.
+You can also use an option in `createDefaultEnvironment()`:
+
+```javascript
+scene.createDefaultEnvironment({
+    environmentTexture: "texture-url.env"
+}););
+```
+
+We are detailing below the two supported ways of creating such files.
+
+As of 4.2 we now support prefiltering directly in the Sandbox!
+
+.hdr files are easy to find on the web so it looks like the most convenient input for filtering.
 
 ## Sandbox
 
 First, open the [sandbox](https://sandbox.babylonjs.com/) and then follow the steps:
 - drag &amp; drop a PBR scene file ([example](https://models.babylonjs.com/PBR_Spheres.glb))
-- drag &amp; drop your hdr environmentTexture file ([example](https://playground.babylonjs.com/textures/country.hdr))
+- drag &amp; drop your hdr environmentTexture file, as .dds ([example](https://playground.babylonjs.com/textures/environment.dds))
 - wait to see the live result (can take a bit of time)
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
 ![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
 
-Tada !!! you now have your processed file.
+Tada! You now have your processed file.
+
+## IBL Texture tool
+
+In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https://www.babylonjs.com/tools/ibl/) to convert it in an easy way to .env.
+
+Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you want.
+
+![ibl texture tool](/img/how_to/environment/ibl-texture-tool.png)
 
 ## Directly use .hdr files
 
