@@ -33,11 +33,21 @@ Its interface uses two panes:
 - The scene explorer pane
 - The inspector pane
 
+It can be called using:
 
+```javascript
+scene.debugLayer.show();
+```
 
 ![debug layer overview](/img/features/debuglayer/debuglayer.jpg)
 
-The two panes can also be opened in an embedded mode:
+The two panes can also be opened in an [embedded mode](/typedoc/interfaces/babylon.iinspectoroptions):
+
+```javascript
+scene.debugLayer.show({
+  embedMode: true,
+});
+```
 
 ![embed mode](/img/features/debuglayer/embedmode.jpg)
 

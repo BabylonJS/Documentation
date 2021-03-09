@@ -22,6 +22,6 @@ This short page is intended to help you get the best answer as quickly as possib
 ## What to do if you have a question for the forum
 
 The best way to get an answer quickly is to follow this 3 easy steps:
-- Search about your issue on the [documentation](). Maybe the problem you have is just a matter of understanding how the API works?
-- Search about your issue on the [forum](https://forum.babylonjs.com). Maybe someone else already had the same problem?
+- Search about your issue on the [documentation](https://doc.babylonjs.com/search). Maybe the problem you have is just a matter of understanding how the API works?
+- Search about your issue on the [forum](https://forum.babylonjs.com/search). Maybe someone else already had the same problem?
 - Provide a reproduction of your issue within the [playground](https://playground.babylonjs.com). Questions with a playground are likely to get a answer within the next two hours. It is really hard for the community to help without a repro because of the inner rich nature of JavaScript, WebGL and Babylon.js. Consider this step **mandatory**.
