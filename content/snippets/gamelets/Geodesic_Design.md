@@ -51,10 +51,62 @@ For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n
 ![net 1](/img/snippets/geo4.png)  
 Fig 6 Net of Icosahedron for GD(5, 2)
 
-From the net we can see that while some of the triangular facets that will make up the mesh lie in the plane of a primary triangle others will lie across adjacent primary triangles
+From the net we can see that while some of the triangular faces that will make up the Geodesic mesh lie in the plane of a primary triangle others will lie across adjacent primary triangles
 
 ![net 2](/img/snippets/geo7.png)  
-Fig 7 Vertices of some facets lie across adjacent primary triangles.
+Fig 7 Vertices of some triangular faces lie across adjacent primary triangles.
 
-When the icosahedron is formed from the net these facets will not lie on any the plane of any primary triangle.
+When the icosahedron is formed from the net these faces will not lie on any the plane of any primary triangle.
+
+## Building the Geodesic Polyhedron
+
+There are two main steps to this:
+
+1. Grouping the vertices into three to form each face of the Geodesic polyhedron;
+2. Positioning the vertices in 3D space.
+
+Part of the solution for 1 is dealing with transformations on an isomorphic grid.
+
+### Coordinates and Vectors on an Isomorphic Grid
+
+### Face Map
+
+![net 2](/img/snippets/geo9.png)  
+Fig 8 Labelled Net
+
+Edge	From Face	To Face	About Vertex	From Edge	To Edge
+0|1	0	1	B	AB	OB
+1|2	1	2	B	AB	OB
+2|3	2	3	B	AB	OB
+3|4	3	4	B	AB	OB
+0|4	4	0	B	AB	OB
+5|6	5	6	O	OB	OA
+6|7	6	7	A	AB	OA
+0|6	6	0	O	OB	OA
+7|8	7	8	O	OB	OA
+8|9	8	9	A	AB	OA
+1|8	8	1	O	OB	OA
+9|10	9	10	O	OB	OA
+10|11	10	11	A	AB	OA
+2|10	10	2	O	OB	OA
+11|12	11	12	O	OB	OA
+12|13	12	13	A	AB	OA
+3|12	12	3	O	OB	OA
+13|14	13	14	O	OB	OA
+5|14	14	5	A	AB	OA
+4|14	14	4	O	OB	OA
+15|19	15	19	B	AB	OB
+5|15	15	5	A	OA	AB
+15|16	16	15	B	AB	OB
+7|16	16	7	A	OA	AB
+16|17	17	16	B	AB	OB
+9|17	17	9	A	OA	AB
+17|18	18	17	B	AB	OB
+11|18	18	11	A	OA	AB
+18|19	19	18	B	AB	OB
+13|19	19	13	A	OA	AB
+
+
+
+
 
