@@ -74,37 +74,32 @@ Part of the solution for 1 is dealing with transformations on an isomorphic grid
 ![net 2](/img/snippets/geo9.png)  
 Fig 8 Labelled Net
 
-Edge	From Face	To Face	About Vertex	From Edge	To Edge
-0|1	0	1	B	AB	OB
-1|2	1	2	B	AB	OB
-2|3	2	3	B	AB	OB
-3|4	3	4	B	AB	OB
-0|4	4	0	B	AB	OB
-5|6	5	6	O	OB	OA
-6|7	6	7	A	AB	OA
-0|6	6	0	O	OB	OA
-7|8	7	8	O	OB	OA
-8|9	8	9	A	AB	OA
-1|8	8	1	O	OB	OA
-9|10	9	10	O	OB	OA
-10|11	10	11	A	AB	OA
-2|10	10	2	O	OB	OA
-11|12	11	12	O	OB	OA
-12|13	12	13	A	AB	OA
-3|12	12	3	O	OB	OA
-13|14	13	14	O	OB	OA
-5|14	14	5	A	AB	OA
-4|14	14	4	O	OB	OA
-15|19	15	19	B	AB	OB
-5|15	15	5	A	OA	AB
-15|16	16	15	B	AB	OB
-7|16	16	7	A	OA	AB
-16|17	17	16	B	AB	OB
-9|17	17	9	A	OA	AB
-17|18	18	17	B	AB	OB
-11|18	18	11	A	OA	AB
-18|19	19	18	B	AB	OB
-13|19	19	13	A	OA	AB
+| From Face	| To Face	| About |	From Edge |	To Edge | | From Face	| To Face	| About |	From Edge |	To Edge |
+| ----| ----	| ---- |	---- |	---- | ---- | ----| ----	| ---- |	---- |	---- |
+| 0 | 1 | B | AB | OB | | 12 | 13 | A | AB | OA |
+| 1 | 2 | B | AB | OB | | 12 | 3 | O | OB | OA |
+| 2 | 3 | B | AB | OB | | 13 | 14 | O | OB | OA |
+| 3 | 4 | B | AB | OB | | 14 | 5 | A | AB | OA |
+| 4 | 0 | B | AB | OB | | 14 | 4 | O | OB | OA |
+| 5 | 6 | O | OB | OA | | 15 | 19 | B | AB | OB |
+| 6 | 7 | A | AB | OA | | 15 | 5 | A | OA | AB |
+| 6 | 0 | O | OB | OA | | 16 | 15 | B | AB | OB |
+| 7 | 8 | O | OB | OA | | 16 | 7 | A | OA | AB |
+| 8 | 9 | A | AB | OA | | 17 | 16 | B | AB | OB |
+| 8 | 1 | O | OB | OA | | 17 | 9 | A | OA | AB |
+| 9 | 10 | O | OB | OA | | 18 | 17 | B | AB | OB |
+| 10 | 11 | A | AB | OA | | 18 | 11 | A | OA | AB |
+| 10 | 2 | O | OB | OA | | 19 | 18 | B | AB | OB |
+| 11 | 12 | O | OB | OA | | 19 | 13 | A | OA | AB |
+
+
+
+
+
+
+
+
+
 
 
 
