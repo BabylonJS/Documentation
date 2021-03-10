@@ -62,17 +62,33 @@ When the icosahedron is formed from the net these faces will not lie on any the 
 
 There are two main steps to this:
 
-1. Grouping the vertices into three to form each face of the Geodesic polyhedron;
-2. Positioning the vertices in 3D space.
+1. Grouping the vertices into three to form each face of the Geodesic polyhedron
+    * Map Vertices Across Edges of a Primary Face
+2. Positioning the vertices in 3D space
+    * transformations on an isomorphic grid
 
-Part of the solution for 1 is dealing with transformations on an isomorphic grid.
 
-### Coordinates and Vectors on an Isomorphic Grid
 
-### Face Map
+
+### Map Vertices Across Edges of a Primary Face
+
+A can be seen in Fig 8 every face F has three primary vertices, O, A and B, and is adjacent to three other faces F<sub>R</sub>, F<sub>L</sub>, F<sub>B</sub> where F can be mapped onto 
+* F<sub>R</sub> by a rotation of 60<sup>o</sup> counter clockwise about B
+* F<sub>L</sub> by a rotation of 60<sup>o</sup> clockwise about B
+* F<sub>B</sub> by a rotation of 60<sup>o</sup> clockwise about O
+
+You should also note that 
+* F<sub>L</sub> can be mapped onto F by a rotation of 60<sup>o</sup> counter clockwise about B
+* F<sub>B</sub> can be mapped onto F by a rotation of 60<sup>o</sup> counter clockwise about O
+
+
+![map 1](/img/snippets/geo10.png)  
+Fig 8 Face and Edge Relationships
+
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of F onto F<sub>R</sub>, F<sub>L</sub> onto F and F<sub>B</sub> onto F. Using the labelled net of an icosahedron in Fig 9 a table covering all 30 edges of the icosahedron can be built showing which face is needed to be mapped 60<sup>o</sup> counter clockwise about which primary vertex onto which other face to enable the GD(m, n) facets to be correctly built across the edges.
 
 ![net 2](/img/snippets/geo9.png)  
-Fig 8 Labelled Net
+Fig 9 Labelled Net
 
 | From Face	| To Face	| About |	From Edge |	To Edge | | From Face	| To Face	| About |	From Edge |	To Edge |
 | ----| ----	| ---- |	---- |	---- | ---- | ----| ----	| ---- |	---- |	---- |
@@ -93,7 +109,7 @@ Fig 8 Labelled Net
 | 11 | 12 | O | OB | OA | | 19 | 13 | A | OA | AB |
 
 
-
+### Transformations on an Isomorphic Grid
 
 
 
