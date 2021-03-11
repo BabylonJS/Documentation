@@ -164,7 +164,7 @@ var glass_worldMatrix = glass.getWorldMatrix();
 var glass_vertexData = glass.getVerticesData("normal");
 var glassNormal = new BABYLON.Vector3(glass_vertexData[0], glass_vertexData[1], glass_vertexData[2]);
 //Use worldMatrix to transform normal into its current world value
-glassNormal = new BABYLON.Vector3.TransformNormal(glassNormal, glass_worldMatrix)
+glassNormal = BABYLON.Vector3.TransformNormal(glassNormal, glass_worldMatrix)
 
 //Create reflector using the position and reflected normal of the flat surface
 var reflector = new BABYLON.Plane.FromPositionAndNormal(glass.position, glassNormal.scale(-1));

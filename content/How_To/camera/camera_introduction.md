@@ -176,7 +176,7 @@ var camera = new BABYLON.AnaglyphUniversalCamera("af_cam", new BABYLON.Vector3(0
 
 ```javascript
 // Parameters : name, alpha, beta, radius, target, eyeSpace, scene
-var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI / 2, Math.PI / 4, 20, new BABYLON.Vector3.Zero(), 0.033, scene);
+var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI / 2, Math.PI / 4, 20, BABYLON.Vector3.Zero(), 0.033, scene);
 ```
 
 The `eyeSpace` parameter sets the amount of shift between the left-eye view and the right-eye view. Once you are wearing your 3D glasses, you might want to experiment with this float value.
