@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2020/11/21).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/03/11).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -42,8 +42,8 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 ## Make it fast: Optimizations
 We need to implement some specific mechanisms / features to get the most of our implementation:
 * ~~Add a cache for the render pipelines~~ Done
-* Add a cache for the binding groups: In progress
-* Use render bundles to improve performances
+* ~~Add a cache for the binding groups~~ Done
+* Use render bundles to improve performances: In progress
 * Use compute shaders
   * To perform some conversions when reading data from buffers
   * To replace the existing min/max computation code
@@ -55,7 +55,7 @@ We need to implement some specific mechanisms / features to get the most of our 
 So, don't try to benchmark your code against WebGL just yet, it won't be representative of the real performances you will get once the steps outlined above are integrated (and notably the first 3 ones)!
 
 ## Browser Caveats
-Chrome Canary does not support all WebGPU features yet, so here are some caveats as of 2020/11/21:
+Chrome Canary does not support all WebGPU features yet, so here are some caveats as of 2021/03/11:
 * No 3D textures
 * Limited to 4 targets for MRTs
 * Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
@@ -63,3 +63,4 @@ Chrome Canary does not support all WebGPU features yet, so here are some caveats
 * No WebGPU capabilities (caps) returned by the browser
   * For the time being, we have set some hard values for the caps (4 for MSAA max samples, for eg, as Chrome does not support more yet)
 * There's a bug with the WebGPU `writeTexture` method that will make some samples using very small skeletons (less than 4 bones) crash
+  * Issue in Dawn repository: https://bugs.chromium.org/p/dawn/issues/detail?id=573#c1
