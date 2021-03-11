@@ -118,26 +118,46 @@ The *x* axis is horizontal and the angle between the *x* axis and the *y* axis i
 ![axis](/img/snippets/geo11.png)  
 Fig 10 Isometric Axis
 
-The unit vector along the *x* axis is i&#8407; and along the *y* axis is j&#8407;, the unit vector k&#8407; = -i&#8407; + j&#8407;which lies along the third line of an isometric grid is also useful.
+The unit vector along the *x* axis is *i*&#8407; and along the *y* axis is *j*&#8407;, the unit vector k&#8407; = -*i*&#8407; + *j*&#8407;which lies along the third line of an isometric grid is also useful.
 
 ![unit vectors](/img/snippets/geo12.png)  
 Fig 11 Unit Vectors
 
-Consider the position vector *x*i&#8407; + *y*j&#8407; its length |*x*i&#8407; + *y*j&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + *xy*);. This is the result of applying the cosine rule to the triangle in Fig 12 
+Consider the position vector *xi*&#8407; + *yj*&#8407; its length |*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + *xy*);. This is the result of applying the cosine rule to the triangle in Fig 12 
 
-|*x*i&#8407; + *y*j&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = 0.5
+|*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = 0.5
 
 ![length](/img/snippets/geo13.png)  
 Fig 12 Unit Vectors
 
-Vector additions still hold *x*i&#8407; + *y*j&#8407; + *a*i&#8407; + *b*j&#8407; = (*x* + *a*)i&#8407; + (*y* + *b*)j&#8407;
+Vector additions still hold *xi*&#8407; + *yj*&#8407; + *ai*&#8407; + *bj*&#8407; = (*x* + *a*)*i*&#8407; + (*y* + *b*)*j*&#8407;
 
-Luckily all our application needs are integer values for the vectors and rotations only multiples of 60<sup>o</sup>
+Luckily all our application needs only integer values for the vectors and rotations only multiples of 60<sup>o</sup>
 
-Consider the rotation of the position vector *x*i&#8407; + *y*j&#8407; 60<sup>o</sup> about the origin O, where x and y are integers. The rotation can be R<sup>+</sup> (counter clockwise purple to red) or R<sup>-</sup> (clockwise purple to blue) as in Fig 13
+Consider the rotation of the position vector *xi*&#8407; + *yj*&#8407; 60<sup>o</sup> about the origin O, where x and y are integers. The rotation about the origin can be R<sup>+</sup> (counter clockwise purple to red) or R<sup>-</sup> (clockwise purple to blue) as in Fig 13
 
 ![rotation](/img/snippets/geo14.png)  
 Fig 13 Rotation about the origin
+
+R<sup>+</sup>(*xi*&#8407; + *yj*&#8407;) = *yk*&#8407; + *xj*&#8407; = *y*(-*i*&#8407; + *j*&#8407;) + *xj*&#8407;  
+= -*yi*&#8407; + (*x* + *y*)*j*&#8407;
+
+R<sup>-</sup>(*xi*&#8407; + *yj*&#8407;) = *yi*&#8407; - *xk*&#8407; = *yi*&#8407; - *x*(-*i*&#8407; + *j*&#8407;);  
+= (*x* + *y*)*&#8407; - *xj*&#8407;
+
+Where S<sup>+</sup> and S<sup>-</sup> are respectively counter clockwise and clockwise rotations of *xi*&#8407; + *yj*&#8407;  60<sup>o</sup> about a point *ai*&#8407; + *bj*&#8407; 
+
+S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
+= R<sup>+</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;  
+= R<sup>+</sup>((*x* - *a*)*i*&#8407;) + (*y* - *b*)*j*&#8407;) + *ai*&#8407; + *bj*&#8407;   
+= -(*y* - *b*)*i*&#8407; + ((*x* - *a*) + (*y* - *b*))*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
+= (*a* + *b - *y)*i*&#8407; + (*x* + *y* - *a*)*j*&#8407;
+
+S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
+= R<sup>-</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;    
+= R<sup>-</sup>((*x* - *a*)*i*&#8407; + (*y* - *b*)*j*&#8407;) + *ai*&#8407; + *bj*&#8407;  
+= (*x* - *a* + *y* - *b*)*i*&#8407; - (*x* - *a*)*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
+= (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
 
 
 
