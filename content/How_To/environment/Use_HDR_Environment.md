@@ -141,6 +141,8 @@ You are all set and ready to use the exported texture in the ```CubeTexture.Crea
 
 ## Using a pure cube texture
 
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
+
 While using a .dds or .env cube texture is the best option, you may want to still rely on classic cube texture (mostly for size reason).
 So, you can still do this as well:
 

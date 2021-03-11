@@ -5,7 +5,7 @@
             "samples": [
                 {
                     "title": "Bones 101",
-                    "doc": "https://doc.babylonjs.com/how_to/How_to_use_Bones_and_Skeletons",
+                    "doc": "https://doc.babylonjs.com/How_To/How_to_use_Bones_and_Skeletons",
                     "icon": "icons/bones.jpg",
                     "description": "Create complex animations by using skeletons and bones",
                     "PGID": "#QY1WYT#0"
@@ -247,7 +247,7 @@
                 },
                 {
                     "title": "Assets manager",
-                    "doc": "https://doc.babylonjs.com/how_to/How_to_use_AssetsManager",
+                    "doc": "https://doc.babylonjs.com/How_To/How_to_use_AssetsManager",
                     "icon": "icons/assets_manager.jpg",
                     "description": "Use AssetsManager to load multiple assets in a centralized way",
                     "PGID": "#Y7XMAR#0"
@@ -541,7 +541,7 @@
                 },
                 {
                     "title": "Particles and node material",
-                    "doc": "https://doc.babylonjs.com/how_to/Particles_and_nme",
+                    "doc": "https://doc.babylonjs.com/How_To/Particles_and_nme",
                     "icon": "icons/particle_nme.jpg",
                     "description": "Updating default particle shader with NME",
                     "PGID": "#RA18GJ#0"

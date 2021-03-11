@@ -147,7 +147,7 @@ For example, let's say we want to add this page. We know that our new page will 
               "audio": {
                     "friendlyName": "Audio",
                     "children": {
-                        "playingSoundsMusic": { "friendlyName": "Playing Sounds and Music", "children": {}, "content": "how_to/audio/Playing_sounds_and_music" },
+                        "playingSoundsMusic": { "friendlyName": "Playing Sounds and Music", "children": {}, "content": "How_To/audio/Playing_sounds_and_music" },
                         // This is the place you will add your document
                     },
                     "content": "landing_pages/divingDeeperAudioLandingPage"
