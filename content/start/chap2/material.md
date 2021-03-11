@@ -45,7 +45,7 @@ Now some texture for the box and roof
 ```javascript
 const roofMat = new BABYLON.StandardMaterial("roofMat");
 roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg", scene);
-const boxMat = new BABYLON.StandardMaterial("roofMat");
+const boxMat = new BABYLON.StandardMaterial("boxMat");
 boxMat.diffuseTexture = new BABYLON.Texture("https://www.babylonjs-playground.com/textures/floor.png");
 ```
 The first parameter for a texture is a relative or absolute url to the image to be used. As usual the scene parameter is optional and will default to the current scene.
