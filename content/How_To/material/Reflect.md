@@ -201,13 +201,16 @@ _MirrorTexture_ can support blurred rendering with either:
 
 <Playground id="#LVTTQX#1" title="Reflection Blur" description="Simple example of using reflection blur in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/>
 
-# Refraction
+## Refraction
 In this case an object behind glass or under water for example can have its position and size changed by the refraction of light.
 
 <Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/>
 
 Refraction is also achieved by taking a flat surface such as a plane or disc and adding, this this case, a refraction material applied to a flat mesh. The difference is that the object
 that is to be refracted is placed behind the flat surface, that is the normals of the mesh all point away from the object and the refracted normals are in the same direction.
+
+Note that the local cubemap mode also exists for refraction cube textures and is enabled by setting a value to the `boundingBoxSize` property. You can also use the `boundingBoxPosition` property to set 
+the position of the cube.
 
 The method used above to obtain the _reflectionPlane_ could be used if necessary though in this case the normal of the flat surface is not reversed.
 
