@@ -120,9 +120,11 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 Consider a primary triangle OAB as in Fig 12
 
 ![primary triangle](/img/snippets/geo15.png)  
-Fig 12 Rotation about the origin
+Fig 12 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
 
-Take O as the origin of the isometric axes
+For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in the Fig 12 example, for GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some vertices.
+
+In order to form the triangular facets that overlap the edge 
 
 ### Map Vertices Across Edges of a Primary Face
 
