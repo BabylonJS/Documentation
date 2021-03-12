@@ -66,7 +66,6 @@ In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https
 
 Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you want.
 
-![ibl texture tool](/img/how_to/environment/ibl-texture-tool.png)
 
 ## Directly use .hdr files
 
