@@ -122,9 +122,9 @@ Consider a primary triangle OAB as in Fig 12
 ![primary triangle](/img/snippets/geo15.png)  
 Fig 12 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
 
-For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in the Fig 12 example, for GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some vertices.
+For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 12 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
 
-In order to form the triangular facets that overlap the edge 
+In order to form the triangular facets that overlap the edge for each row y where there is no overlap of maximum x (green) with rotated minimum x (orange) let *p* be the position vector of the rotated minimum. Then the required facet triangles are formed with from the points with position vectors *p*, *p* - *i*&#8407; *p* - *j*&#8407; and secondly from *p*, *p* - *j*&#8407; *p* + *i*&#8407; - *j*&#8407; 
 
 ### Map Vertices Across Edges of a Primary Face
 
