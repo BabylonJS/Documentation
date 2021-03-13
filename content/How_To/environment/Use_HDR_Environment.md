@@ -12,13 +12,13 @@ video-content:
 
 The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
-To load a HDR environment, you can use a [createDefaultEnvironment](/api/classes/babylon.scene#createdefaultenvironment):
+To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/typedoc/classes/babylon.scene#createdefaultenvironment):
 
 ```javascript
 scene.createDefaultEnvironment();
 ```
 
-This will load the file *environmentSpecular.env* from *assets.babylonjs.com*.
+This will load the file [*environmentSpecular.env*](https://assets.babylonjs.com/environments/environmentSpecular.env) from *assets.babylonjs.com*.
 
 To load a custom env texture, simply set the `scene.environmentTexture`:
 
@@ -27,23 +27,49 @@ var hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData("textures/env
 scene.environmentTexture = hdrTexture;
 ```
 
-We are detailing below the two supported ways of creating such files. As of 4.2 we now support prefiltering directly in the Sandbox !!! .hdr files are easy to find on the web so it looks like the most convenient input for filtering.
+You can also use an option in `createDefaultEnvironment()`:
 
-## Sandbox
+```javascript
+scene.createDefaultEnvironment({
+    environmentTexture: "texture-url.env"
+}););
+```
 
-First, open the [sandbox](https://sandbox.babylonjs.com/) and then follow the steps:
+We are detailing below the two supported ways of creating such files.
+
+As of 4.2 we now support prefiltering directly in the Sandbox!
+
+.hdr files are easy to find on the web so it looks like the most convenient input for filtering.
+
+## Creating a compressed environment texture using the Sandbox
+
+As the generated DDS files can be relatively large (32Mb for a 512px wide file), we introduced in Babylon a special way to pack your texture. Here are the steps to follow to create the `.env` files used in Babylon.js:
+
+- go to the [sandbox](https://sandbox.babylonjs.com/)
 - drag &amp; drop a PBR scene file ([example](https://models.babylonjs.com/PBR_Spheres.glb))
-- drag &amp; drop your hdr environmentTexture file ([example](https://playground.babylonjs.com/textures/country.hdr))
-- wait to see the live result (can take a bit of time)
+- drag &amp; drop your .dds environmentTexture file ([example](https://playground.babylonjs.com/textures/environment.dds))
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
-![inspector env texture tool](/img/How_To/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
 
-Tada !!! you now have your processed file.
+You can now download and use your `.env` environment, using this bit of code:
+
+```
+scene.environmentTexture = new BABYLON.CubeTexture("environment.env", scene);
+```
+
+See [What is a .env (Tech Deep Dive)](#what-is-a-env-tech-deep-dive) part at the bottom of this page to know more.
+
+## IBL Texture tool
+
+In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https://www.babylonjs.com/tools/ibl/) to convert it in an easy way to .env.
+
+Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you want.
+
 
 ## Directly use .hdr files
 
-In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded. 
+In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded.
 
 ```javascript
 var reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
@@ -111,21 +137,18 @@ Finally, you can export your texture through the main tab:
 
 You are all set and ready to use the exported texture in the ```CubeTexture.CreateFromPrefilteredData``` function.
 
-## Creating a compressed environment texture
-As the generated DDS files can be relatively large (32Mb for a 512px wide file), we introduced in Babylon a special way to pack your texture. Here are the steps to follow to create the `.env` files used inBabylon.js:
 
-- go to the [sandbox](https://sandbox.babylonjs.com/)
-- drag &amp; drop a PBR scene file ([example](https://models.babylonjs.com/PBR_Spheres.glb))
-- drag &amp; drop your dds environmentTexture file ([example](https://playground.babylonjs.com/textures/environment.dds))
-- open the Inspector, go to the Tools, and click on `Generate .env texture`
+## Using a pure cube texture
 
-![inspector env texture tool](/img/How_To/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
 
-- you can now download and use your `.env` environment, using this bit of code:
+While using a .dds or .env cube texture is the best option, you may want to still rely on classic cube texture (mostly for size reason).
+So, you can still do this as well:
 
+```javascript
+scene.environmentTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
 ```
-scene.environmentTexture = new BABYLON.CubeTexture("environment.env", scene);
-```
+In this case you won't be able to get HDR rendering and some visual artifacts may appear (mostly when using glossiness or roughness).
 
 ## What is a .env (Tech Deep Dive)
 
@@ -144,11 +167,3 @@ The file is also packing the polynomials harmonics vs sphericals to match what B
 As rendering to LOD or even copy to LOD of Half/Fulll float texture does not work consistently on WebGL1 based browser, we are unpacking in live the data in the fragment shader. As RGBD interpolation is not correct we ensured with different test cases that the generated visual artifacts were worth the transport gain. It looks ok in the sets of textures we have been testing.
 
 As an example of result, we can now rely on 512px cube sized texture with around 3Mb of data vs 32 Mb for the unpacked version without noticing any blocking quality drops. This also speed ups our time to first frame by not requiring the compute of the polynomials anymore.
-
-## Using a pure cube texture
-While using a dds cube texture is the best option, you may want to still rely on classic cube texture (mostly for size reason).
-So, you can still do this as well:
-```javascript
-scene.environmentTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
-```
-In this case you won't be able to get HDR rendering and some visual artifacts may appear (mostly when using glossiness or roughness).
