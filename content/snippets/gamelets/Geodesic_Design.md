@@ -109,7 +109,7 @@ S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 = R<sup>+</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;  
 = R<sup>+</sup>((*x* - *a*)*i*&#8407;) + (*y* - *b*)*j*&#8407;) + *ai*&#8407; + *bj*&#8407;   
 = -(*y* - *b*)*i*&#8407; + ((*x* - *a*) + (*y* - *b*))*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
-= (*a* + *b - *y)*i*&#8407; + (*x* + *y* - *a*)*j*&#8407;
+= (*a* + *b* - *y)*i*&#8407; + (*x* + *y* - *a*)*j*&#8407;
 
 S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
 = R<sup>-</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;    
@@ -117,18 +117,9 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 = (*x* - *a* + *y* - *b*)*i*&#8407; - (*x* - *a*)*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
 = (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
 
-Consider a primary triangle OAB as in Fig 12
+### Match Vertices Across Edges of a Primary Face
 
-![primary triangle](/img/snippets/geo15.png)  
-Fig 12 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
-
-For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 12 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
-
-In order to form the triangular facets that overlap the edge for each row y where there is no overlap of maximum x (green) with rotated minimum x (orange) let *p* be the position vector of the rotated minimum. Then the required facet triangles are formed with from the points with position vectors *p*, *p* - *i*&#8407; *p* - *j*&#8407; and secondly from *p*, *p* - *j*&#8407; *p* + *i*&#8407; - *j*&#8407; 
-
-### Map Vertices Across Edges of a Primary Face
-
-A can be seen in Fig 8 every face F has three primary vertices, O, A and B, and is adjacent to three other faces F<sub>R</sub>, F<sub>L</sub>, F<sub>B</sub> where F can be mapped onto 
+A can be seen in Fig 12 every face F has three primary vertices, O, A and B, and is adjacent to three other faces F<sub>R</sub>, F<sub>L</sub>, F<sub>B</sub> where F can be mapped onto 
 * F<sub>R</sub> by a rotation of 60<sup>o</sup> counter clockwise about B
 * F<sub>L</sub> by a rotation of 60<sup>o</sup> clockwise about B
 * F<sub>B</sub> by a rotation of 60<sup>o</sup> clockwise about O
@@ -139,12 +130,12 @@ You should also note that
 
 
 ![map 1](/img/snippets/geo10.png)  
-Fig 13 Face and Edge Relationships 
+Fig 12 Face and Edge Relationships 
 
-Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of F onto F<sub>R</sub>, F<sub>L</sub> onto F and F<sub>B</sub> onto F. Using the labelled net of an icosahedron in Fig 14 a table covering all 30 edges of the icosahedron can be built showing which face is needed to be mapped 60<sup>o</sup> counter clockwise about which primary vertex onto which other face to enable the GD(m, n) facets to be correctly built across the edges.
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of F onto F<sub>R</sub>, F<sub>L</sub> onto F and F<sub>B</sub> onto F. Using the labelled net of an icosahedron in Fig 13 a table covering all 30 edges of the icosahedron can be built showing which face is needed to be mapped 60<sup>o</sup> counter clockwise about which primary vertex onto which other face to enable the GD(m, n) facets to be correctly built across the edges.
 
 ![net 2](/img/snippets/geo9.png)  
-Fig 14 Labelled Net
+Fig 13 Labelled Net
 
 | From Face	| To Face	| About |	From Edge |	To Edge | | From Face	| To Face	| About |	From Edge |	To Edge |
 | ----| ----	| ---- |	---- |	---- | ---- | ----| ----	| ---- |	---- |	---- |
@@ -165,6 +156,35 @@ Fig 14 Labelled Net
 | 11 | 12 | O | OB | OA | | 19 | 13 | A | OA | AB |
 
 
+
+
+![primary triangle](/img/snippets/geo15.png)  
+Fig 14 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
+
+Consider a primary triangle OAB as in Fig 14. For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 14 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
+
+In order to form the triangular facets that overlap the edge for each row y where there is no overlap of maximum x (green) with rotated minimum x (orange) let *p* be the position vector of the rotated minimum. Then the required facet triangles are formed with from the points with position vectors *p*, *p* - *i*&#8407;, *p* - *j*&#8407; and from *p*, *p* - *j*&#8407;, *p* + *i*&#8407; - *j*&#8407; 
+
+ We can see that B = O + m*j*&#8407; + n*k*&#8407;)  
+ = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
+= -n*i*&#8407 + (m + n)*j*&#8407
+
+Taking any point on a row y, *xi*&#8407; + *yj*&#8407; and rotating about B 
+S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
+= (-n + m + n - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;
+= (m - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;  
+
+transforms to a point on row *x* + *y* + *n*
+
+For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the maximum x value and M<sup>N</sup>(*y*) the minimum x value for row *y*.
+
+For each y where M<sup>X</sup>(*x* + *y* + *n*) &ne; S<sup>+</sup>(M<sup>N</sup>(*y*), B) form the triangles with vertices  
+S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n*)), M<sup>X</sup>(*x* + *y* + *n* - 1)) and    
+S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n* - 1)), S<sup>+</sup>(M<sup>N</sup>(*y*), B) + *i*&#8407; - *j*&#8407;
+
+These points are all relative to the origin O. However we need to position vectors of these points to be relative to the origin of the local primary triangle the points lie in.
+
+First step 
 
 
 
