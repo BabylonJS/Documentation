@@ -117,6 +117,7 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 = (*x* - *a* + *y* - *b*)*i*&#8407; - (*x* - *a*)*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
 = (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
 
+
 ### Match Vertices Across Edges of a Primary Face
 
 A can be seen in Fig 12 every face F has three primary vertices, O, A and B, and is adjacent to three other faces F<sub>R</sub>, F<sub>L</sub>, F<sub>B</sub> where F can be mapped onto 
@@ -165,7 +166,7 @@ Consider a primary triangle OAB as in Fig 14. For triangle OAB take O as the ori
 
 In order to form the triangular facets that overlap the edge for each row y where there is no overlap of maximum x (green) with rotated minimum x (orange) let *p* be the position vector of the rotated minimum. Then the required facet triangles are formed with from the points with position vectors *p*, *p* - *i*&#8407;, *p* - *j*&#8407; and from *p*, *p* - *j*&#8407;, *p* + *i*&#8407; - *j*&#8407; 
 
- We can see that B = O + m*j*&#8407; + n*k*&#8407;)  
+ We can see that B = O + m*j*&#8407; + n*k*&#8407; 
  = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
 = -n*i*&#8407 + (m + n)*j*&#8407
 
@@ -182,9 +183,13 @@ For each y where M<sup>X</sup>(*x* + *y* + *n*) &ne; S<sup>+</sup>(M<sup>N</sup>
 S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n*)), M<sup>X</sup>(*x* + *y* + *n* - 1)) and    
 S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n* - 1)), S<sup>+</sup>(M<sup>N</sup>(*y*), B) + *i*&#8407; - *j*&#8407;
 
-These points are all relative to the origin O. However we need to position vectors of these points to be relative to the origin of the local primary triangle the points lie in.
+Considering Fig 14 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise.
 
-First step 
+Relative to the primary triangles for F and F<sub>R</sub> the vertex matching for the overlapping facets becomes  
+M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1))  
+M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1);
+
+
 
 
 
