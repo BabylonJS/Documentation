@@ -1,6 +1,6 @@
 ---
 title: Advanced Animation Methods
-image: 
+image:
 description: Dive into some deeper animation methods and techniques.
 keywords: diving deeper, animation, advanced
 further-reading:
@@ -9,9 +9,10 @@ video-content:
 ---
 
 ## Animations and promises
+
 Starting with Babylon.js v3.3, you can use promises to wait for an animatable to end:
 
-```
+```javascript
 var anim = scene.beginAnimation(box1, 0, 100, false);
 
 console.log("before");
@@ -19,11 +20,11 @@ await anim.waitAsync();
 console.log("after");
 ```
 
-You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>  
+You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
 
 ## Controlling animations
 
-Each Animation has a property called ```currentFrame``` that indicates the current animation key.
+Each Animation has a property called `currentFrame` that indicates the current animation key.
 
 For advanced keyframe animation, you can also define the functions used to interpolate (transition) between keys. By default these functions are the following:
 
@@ -43,16 +44,16 @@ BABYLON.Animation.prototype.vector3InterpolateFunction = function (startValue, e
 
 Here is the list of functions that you can change:
 
-* floatInterpolateFunction
-* quaternionInterpolateFunction
-* quaternionInterpolateFunctionWithTangents
-* vector3InterpolateFunction
-* vector3InterpolateFunctionWithTangents
-* vector2InterpolateFunction
-* vector2InterpolateFunctionWithTangents
-* sizeInterpolateFunction
-* color3InterpolateFunction
-* matrixInterpolateFunction
+- floatInterpolateFunction
+- quaternionInterpolateFunction
+- quaternionInterpolateFunctionWithTangents
+- vector3InterpolateFunction
+- vector3InterpolateFunctionWithTangents
+- vector2InterpolateFunction
+- vector2InterpolateFunctionWithTangents
+- sizeInterpolateFunction
+- color3InterpolateFunction
+- matrixInterpolateFunction
 
 You can also query an animation to find the exact value of the animating property, at a specific time, using the [evaluate](/typedoc/classes/babylon.animation#evaluate) method. This method takes in a specific "time" and will output the exact interpolated or keyed value at that moment of the animation. You can see an example of the method being used to log the value of a scale animation to the console, in this playground: <Playground id="#QYFDDP#606" title="Animation Evaluate Example" description="Example of the animation.evaluate() method being used."/>
 
@@ -65,6 +66,7 @@ Animation.CreateAndStartAnimation = function(name, mesh, targetProperty, framePe
 ```
 
 To be able to use this function, you need to know that :
+
 - Your animation will have predefined key frames (Only 2 keyframes are generated : **Start** and **End**)
 - The animation works only on **AbstractMesh** objects.
 - The animation is starting right after the method call.
@@ -72,17 +74,18 @@ To be able to use this function, you need to know that :
 Here is a straightforward sample using the **CreateAndStartAnimation()** function :
 
 ```javascript
-BABYLON.Animation.CreateAndStartAnimation('boxscale', box1, 'scaling.x', 30, 120, 1.0, 1.5);
+BABYLON.Animation.CreateAndStartAnimation("boxscale", box1, "scaling.x", 30, 120, 1.0, 1.5);
 ```
+
 Fast and easy. :)
 
 ## Animation blending
 
-You can start an animation with *enableBlending* = true to enable blending mode. This blended animation will interpolate FROM the current object's state. This would be handy for user-controlled walking characters, or reacting to value changes from an input device. 
+You can start an animation with _enableBlending_ = true to enable blending mode. This blended animation will interpolate FROM the current object's state. This would be handy for user-controlled walking characters, or reacting to value changes from an input device.
 
 In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with it's current position" image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
 
-Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations with other animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation2.jpg" isMain={true} category="Animation"/>
+Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations and animation weights" isMain={true} category="Animation"/>
 
 ## Animation weights
 
@@ -90,7 +93,7 @@ Starting with Babylon.js 3.2, you can start animations with a specific weight. T
 
 To start an animation with a weight, you can use the new `scene.beginWeightedAnimation` API:
 
-```
+```javascript
 // Will have a weight of 1.0
 var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
 // Will have a weight of 0
@@ -101,24 +104,23 @@ var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 
 This function accepts the following parameters:
 
-| Name | Type | Description | Optional |
-|---|---|---|---|
-| target | any | The target | No
-| from | number | The fps starting frame | No
-| to | number | The fps ending frame | No
-| weight | number | Weight of this animation. 1.0 by default | Yes
-| loop | boolean | If true, the animation will loop (dependent upon BABYLON.Animation.ANIMATIONLOOPMODE) | Yes
-| speedRatio | number | default : 1. The speed ratio of this animation | Yes
-| onAnimationEnd | () => void | The function triggered on the end of the animation, even if the animation is manually stopped (also dependent upon ANIMATIONLOOPMODE) | Yes
-| animatable | Animatable | An optional specific animation | Yes
+| Name           | Type       | Description                                                                                                                           | Optional |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| target         | any        | The target                                                                                                                            | No       |
+| from           | number     | The fps starting frame                                                                                                                | No       |
+| to             | number     | The fps ending frame                                                                                                                  | No       |
+| weight         | number     | Weight of this animation. 1.0 by default                                                                                              | Yes      |
+| loop           | boolean    | If true, the animation will loop (dependent upon BABYLON.Animation.ANIMATIONLOOPMODE)                                                 | Yes      |
+| speedRatio     | number     | default : 1. The speed ratio of this animation                                                                                        | Yes      |
+| onAnimationEnd | () => void | The function triggered on the end of the animation, even if the animation is manually stopped (also dependent upon ANIMATIONLOOPMODE) | Yes      |
+| animatable     | Animatable | An optional specific animation                                                                                                        | Yes      |
 
 Like `beginAnimation`, this function returns an animatable but this time with its `weight` property set to a value.
 
-You can also set the `weight` value of any Animatable at any time to switch to a weighted mode. This value has to be between 0 and 1. 
+You can also set the `weight` value of any Animatable at any time to switch to a weighted mode. This value has to be between 0 and 1.
 In a same way, you can set it to -1 to turn the weight mode off. If you set the weight to 0, the animation will be considered paused.
 
-
-```
+```javascript
 var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
 var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 
@@ -128,16 +130,17 @@ runAnim.weight = 0.5
 
 If your animations are not of the same size (same distance between from and to keys) then you will need to turn animation synchronization on with the following code:
 
-```
+```javascript
 // Synchronize animations
-idleAnim.syncWith(runAnim);		
+idleAnim.syncWith(runAnim);
 ```
 
 To disable animation synchronization, just call `animation.syncWith(null)`.
 
-A complete demo can be find here: <Playground id="#IQN716#9" title="Animation Weights Example" description="Simple example of animation weights."/>
+A complete demo can be find here: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations and animation weights" isMain={true} category="Animation"/>
 
 ## Additive animation blending
+
 So far the type of animation blending we've gone over has been override blending. This means that adding influence to an animation takes influence away from other animations that are playing. The result is always normalized, so the more animations playing at the same time, the smaller amount of influence each individual animation has over the final result. All of the keyframes in override animations are stored relative to the object's parent. Say for example you have an object with 2 override animations. The first animation has a translation value of [0, 0, 0] at frame 0, then it interpolates to [0, 2, 0] on frame 30, then back to [0, 0, 0] on frame 60. The second animation has a translation value of [0, 0, 0] at frame 0, interpolates to [0, 0, 2] on frame 30, and then back to [0, 0, 0] on frame 60. If you played these animations simultaneously at full weight, frame 30 would result in a translation value of [0, 1, 1]. Neither the Y or Z axes would ever be able to fully reach a value of 2 with both animations playing. This behavior works great for transitioning between animations, like blending from a walk to a run, but what if you want the motions to build on top of each other? This is where additive animation becomes useful.
 
 Additive animation is unique because it does not use that type of normalization logic. You can have N-number of additive animations playing simultaneously and each one will have the exact amount of influence specified. To accomplish this, additive animation values are relative to the current result of the override animations, not the parent. So if the second animation in the example above were to be played additively, frame 30 would result in a value of [0, 2, 2] because the second animation’s value adds on top of the first.
@@ -150,9 +153,10 @@ The following example demonstrates how to convert animations to additive and ble
 <Playground id="#6I67BL#2" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
 
 ## Overriding properties
+
 When you have a mesh with multiple animations or a skeleton (where all bones can be animated) you can use an animationPropertiesOverride to specify some general properties for all child animations. These properties will override local animation properties:
 
-```
+```javascript
 var overrides = new BABYLON.AnimationPropertiesOverride();
 
 overrides.enableBlending = true;
@@ -162,43 +166,46 @@ skeleton.animationPropertiesOverride = overrides;
 ```
 
 Here is the list of properties that can be overridden:
-* enableBlending
-* blendingSpeed
-* loopMode
+
+- enableBlending
+- blendingSpeed
+- loopMode
 
 Please note that the scene.animationPropertiesOverride will be used if animation target does not contain one.
 
 ## Easing functions
 
-You can add some behaviors to your animations, using easing functions. 
-If you want more information about easing functions, here are some useful links : 
+You can add some behaviors to your animations, using easing functions.
+If you want more information about easing functions, here are some useful links :
+
 - [MSDN Easing functions documentation](https://msdn.microsoft.com/en-us/library/ee308751.aspx)
 - [Easing functions cheat sheet](https://easings.net)
 
 All those easing functions are implemented in BABYLON, allowing you to apply custom mathematical formulas to your animations.
 
-Here are the predefined easing functions you can use : 
-- ```BABYLON.CircleEase()```
-- ```BABYLON.BackEase(amplitude)```
-- ```BABYLON.BounceEase(bounces, bounciness)```
-- ```BABYLON.CubicEase()```
-- ```BABYLON.ElasticEase(oscillations, springiness)```
-- ```BABYLON.ExponentialEase(exponent)```
-- ```BABYLON.PowerEase(power)```
-- ```BABYLON.QuadraticEase()```
-- ```BABYLON.QuarticEase()```
-- ```BABYLON.QuinticEase()```
-- ```BABYLON.SineEase()```
-- ```BABYLON.BezierCurveEase()```
+Here are the predefined easing functions you can use :
 
-You can use the **EasingMode** property to alter how the easing function behaves, that is, change how the animation interpolates. 
-There are three possible values you can give for EasingMode: 
+- `BABYLON.CircleEase()`
+- `BABYLON.BackEase(amplitude)`
+- `BABYLON.BounceEase(bounces, bounciness)`
+- `BABYLON.CubicEase()`
+- `BABYLON.ElasticEase(oscillations, springiness)`
+- `BABYLON.ExponentialEase(exponent)`
+- `BABYLON.PowerEase(power)`
+- `BABYLON.QuadraticEase()`
+- `BABYLON.QuarticEase()`
+- `BABYLON.QuinticEase()`
+- `BABYLON.SineEase()`
+- `BABYLON.BezierCurveEase()`
 
-- ```BABYLON.EasingFunction.EASINGMODE_EASEIN``` : Interpolation follows the mathematical formula associated with the easing function.
-- ```BABYLON.EasingFunction.EASINGMODE_EASEOUT``` : Interpolation follows 100% interpolation minus the output of the formula associated with the easing function.
-- ```BABYLON.EasingFunction.EASINGMODE_EASEINOUT``` : Interpolation uses EaseIn for the first half of the animation and EaseOut for the second half.
+You can use the **EasingMode** property to alter how the easing function behaves, that is, change how the animation interpolates.
+There are three possible values you can give for EasingMode:
 
-Here is a straightforward sample to animate a torus within a ```CircleEase``` easing function :
+- `BABYLON.EasingFunction.EASINGMODE_EASEIN` : Interpolation follows the mathematical formula associated with the easing function.
+- `BABYLON.EasingFunction.EASINGMODE_EASEOUT` : Interpolation follows 100% interpolation minus the output of the formula associated with the easing function.
+- `BABYLON.EasingFunction.EASINGMODE_EASEINOUT` : Interpolation uses EaseIn for the first half of the animation and EaseOut for the second half.
+
+Here is a straightforward sample to animate a torus within a `CircleEase` easing function :
 
 ```javascript
 //Create a Vector3 animation at 30 FPS
@@ -229,12 +236,12 @@ torus.animations.push(animationTorus);
 scene.beginAnimation(torus, 0, 120, true);
 ```
 
-You can play with bezier curve algorithm too, using the **BezierCurveEase(x1, y1, x2, y2)** function. 
+You can play with bezier curve algorithm too, using the **BezierCurveEase(x1, y1, x2, y2)** function.
 For purpose, here is a good reference to create your curve algorithm : [http://cubic-bezier.com](http://cubic-bezier.com)
 
 Here is a pretty cool implementation using the bezier curve algorithm :
 
-![](/img/how_to/Animations/bezier.jpg)
+![bezier curve algorithm](/img/how_to/Animations/bezier.jpg)
 
 ```javascript
 var bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
@@ -247,19 +254,17 @@ var FunnyEase = (function (_super) {
   __extends(FunnyEase, _super);
   function FunnyEase() {
     _super.apply(this, arguments);
-  ;}
+  }
   FunnyEase.prototype.easeInCore = function (gradient) {
     // Here is the core method you should change to make your own Easing Function
     // Gradient is the percent of value change
     return Math.pow(Math.pow(gradient, 4), gradient);
-
   };
   return FunnyEase;
 })(BABYLON.EasingFunction);
 ```
+
 You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.jpg"/>
-
-
 
 ## Attach events to animations
 
@@ -268,17 +273,25 @@ From Babylon.js version 2.3, you can attach [animation events](/typedoc/classes/
 An event is a function that will be called at a given frame.
 
 It's very simple to do this:
+
 ```javascript
 // 3 parameters to create an event:
 // - The frame at which the event will be triggered
 // - The action to execute
 // - A boolean if the event should execute only once (false by default)
-var event1 = new BABYLON.AnimationEvent(50, function() { console.log("Yeah!"); }, true);
+var event1 = new BABYLON.AnimationEvent(
+  50,
+  function () {
+    console.log("Yeah!");
+  },
+  true,
+);
 // Attach your event to your animation
 animation.addEvent(event1);
 ```
 
 ## Deterministic lockstep
+
 Sometimes it is important to make sure animations, physics and game logic code are in sync and decoupled by frame-rate variance. This might be useful to be able to replay how a scene evolved, given the same initial condition and inputs, or to minimize differences on multiple clients in a multi-user environment.
 
 The principle is to quantize the state execution time, by updating the state at a fixed frequency with discrete time steps, keeping an accumulator so to carry over exceeding time to the next frame update.
@@ -288,33 +301,36 @@ To achieve this, Babylon engine needs to be created passing the following two op
 ```javascript
 this.engine = new BABYLON.Engine(theCanvas, true, {
   deterministicLockstep: true,
-  lockstepMaxSteps: 4
+  lockstepMaxSteps: 4,
 });
 ```
+
 This way, the scene will render quantizing physics and animation steps by discrete chunks of the timeStep amount, as set in the physics engine. For example:
+
 ```javascript
 var physEngine = new BABYLON.CannonJSPlugin(false);
 newScene.enablePhysics(this.gravity, physEngine);
-physEngine.setTimeStep(1/60);
+physEngine.setTimeStep(1 / 60);
 ```
+
 With the code above, the engine will run discrete steps at 60Hz (0.01666667s) and, in case of a late frame render time, it will try to calculate a maximum of 4 steps (lockstepMaxSteps) to recover eventual accumulated delay, before rendering the frame.
 
-Note that when explicitly creating the CannonJSPlugin, it is important to pass false as _useDeltaForWorldStep parameter in its constructor, to disable CannonJS internal accumulator.
+Note that when explicitly creating the CannonJSPlugin, it is important to pass false as \_useDeltaForWorldStep parameter in its constructor, to disable CannonJS internal accumulator.
 
 To run logic code in sync with the steps, there are the two following observables on the scene:
 
 ```javascript
-newScene.onBeforeStepObservable.add(function(theScene){
-  console.log("Performing game logic, BEFORE animations and physics for stepId: "+theScene.getStepId());
+newScene.onBeforeStepObservable.add(function (theScene) {
+  console.log("Performing game logic, BEFORE animations and physics for stepId: " + theScene.getStepId());
 });
 
-newScene.onAfterStepObservable.add(function(theScene){
-  console.log("Performing game logic, AFTER animations and physics for stepId: "+theScene.getStepId());
+newScene.onAfterStepObservable.add(function (theScene) {
+  console.log("Performing game logic, AFTER animations and physics for stepId: " + theScene.getStepId());
 });
 ```
+
 Using them allows running arbitrary logic code before and after animations and physics are updated.
 
 In the following example, you can see in the console the stepId in which the sphere is considered at rest and the rotation value for the rotating box. Multiple runs will always result in the same values, whatever the frame-rate.
 
 <Playground id="#DU4FPJ#3" title="Logging stepId For Sphere at Rest" description="Console logging of the stepId in which a sphere is considered at rest and the rotation value for a rotating box." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation5.jpg"/>
-

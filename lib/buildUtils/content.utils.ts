@@ -60,7 +60,7 @@ export const getAvailableUrls = async (): Promise<{ params: { id: string[]; cont
         console.log("clearing search index");
         const existingDocs = array.map(({ params }) => `/${params.id.join("/")}`);
         await clearIndex(false, existingDocs);
-        await clearPlaygroundIndex();
+        // await clearPlaygroundIndex();
     }
 
     return array;
