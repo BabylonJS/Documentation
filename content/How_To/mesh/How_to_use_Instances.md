@@ -141,8 +141,6 @@ Using 3DS Max, you can create instances of a mesh by just creating a clone insta
 Here is an example where LODs reuse instances:
 <Playground id="#0720FC#10" title="Instances and LODs" description="Simple example of instancing and LODs."/>
 
-* If you want to create an instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
-
 * Instances with a world matrix where determinant is different than root mesh world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
 
 ## Demos

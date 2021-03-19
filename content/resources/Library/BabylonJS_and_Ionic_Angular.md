@@ -86,6 +86,6 @@ On the other hand, with Ionic you get things, like a very simple way of handling
 
 Finally, this is how the app looks running on an actual Android 6.0 device:
 
-![](/img/How_To/ionic-angular/screenshot1.jpg)
-![](/img/How_To/ionic-angular/screenshot2.jpg)
-![](/img/How_To/ionic-angular/screenshot3.jpg)
+![](/img/how_to/ionic-angular/screenshot1.jpg)
+![](/img/how_to/ionic-angular/screenshot2.jpg)
+![](/img/how_to/ionic-angular/screenshot3.jpg)

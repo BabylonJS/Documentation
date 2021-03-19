@@ -128,7 +128,7 @@ Here's an example of thin instances picking: <Playground id="#RC2IAH#1" title="T
 
 ## Limitations
 
-Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
+* Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
 For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
 
@@ -140,3 +140,5 @@ To correct the problem, create another mesh, add the green/blue instances to tha
 
 PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering."/>
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
+
+* If you want to create a thin instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().

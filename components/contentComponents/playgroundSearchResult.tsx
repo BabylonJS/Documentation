@@ -89,7 +89,14 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         }
     });
 
-    const { code } = JSON.parse(searchResult.jsonPayload);
+    let parsed: { code: string; };
+    try {
+        parsed = JSON.parse(searchResult.jsonPayload);
+    } catch (e) {
+        return null;
+    }
+
+    const { code } = parsed;
     const codeLines: Array<string> = (code || '').split("\n");
     let startingLine = 0;
     let foundLine = -1;
