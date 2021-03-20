@@ -173,74 +173,50 @@ In Fig 15 we can see that for some rotated minimum vertices, say type T, (e.g. 3
 
 For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the point with maximum x value and M<sup>N</sup>(*y*) the point with minimum x value for row *y*.
 
-Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum. 
+Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407;. 
 
-When *P* is of type T<sub>0</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
-
-When *P* is of type T<sub>1</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+When *P* is of type T, both  T<sub>0</sub> and T<sub>1</sub>, the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
 
 When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
 
 When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
 
-When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):
-* the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
-* the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
+When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):  
+ &nbsp;&nbsp;&nbsp;the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+ &nbsp;&nbsp;&nbsp;the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
 
 This range of vertex triples forms all the overlapping facets.
 
 Considering Fig 14 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise. This is because we want all the primary triangles to be based on that in Fig 4
 
 For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  
+
 For type T<sub>0</sub> it is clear that for some *y*  
 S<sup>-</sup>(*P*, B) = M<sup>N</sup>(*y*) and  
 S<sup>-</sup>(*P* + *i*&#8407; - *j*&#8407;, B) = M<sup>N</sup>(*y* - 1)
 
+For types W and T<sub>1</sub> it is clear that for some *y*  
+S<sup>-</sup>(T, B) = M<sup>N</sup>(*y*) and  
+S<sup>-</sup>(W, B) = M<sup>N</sup>(*y* + 1)
 
 Using Fig 4 as an example we can see that B = O + m*j*&#8407; + n*k*&#8407; 
  = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
 = -n*i*&#8407 + (m + n)*j*&#8407
 
-Taking any point on a row y, *xi*&#8407; + *yj*&#8407; and rotating about B 
+Taking any point on a row y, *xi*&#8407; + *yj*&#8407; and rotating about B to give *P*
 S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
 = (-n + m + n - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;
 = (m - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407; 
 
-If follows that taking *y* from 1 to m + n the overlapping facet vertex triples are given by
+and so *y<sub>p</sub>* = *x* + *y* + *n*
 
-SORT BY TYPE
+If follows that taking *y* from 1 to m + n and, excluding vertices where S<sup>+</sup>(M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*)) = M<sub>F</sub><sup>N</sup>(*y*), the overlapping facet vertex triples are given by
 
-It follows that relative to the primary triangles for F and F<sub>R</sub> the vertex matching for the overlapping facets becomes  
-M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1))  
-M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1);
-
-
-When *P* is of type T<sub>0</sub> the upright triangle (light grey) has vertices M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1);
-
-
-TO DO
-
-When *P* is of type T<sub>1</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
-
-When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
-
-When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
-
-When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):
-* the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
-* the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| *P* Type | Triangle | Vertex Triple |
+| ---- | ---- | ---- |
+| T<sub>0</sub>, T<sub>1</sub> | Upright | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1) |
+| W | Upright | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
+| T<sub>0</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
+| T<sub>1</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* + 1), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
+| W | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407; |
 
