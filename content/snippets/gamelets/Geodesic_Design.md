@@ -164,31 +164,71 @@ Fig 14 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6
 
 Consider a primary triangle OAB as in Fig 14. For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 14 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
 
-In order to form the triangular facets that overlap the edge for each row y where there is no overlap of maximum x (green) with rotated minimum x (orange) let *p* be the position vector of the rotated minimum. Then the required facet triangles are formed with from the points with position vectors *p*, *p* - *i*&#8407;, *p* - *j*&#8407; and from *p*, *p* - *j*&#8407;, *p* + *i*&#8407; - *j*&#8407; 
+We can also see that rows contain either one or two rotated minimums. 
 
- We can see that B = O + m*j*&#8407; + n*k*&#8407; 
+![overlaps](/img/snippets/geo16.png)  
+Fig 15 Facet Overlap Vertices
+
+In Fig 15 we can see that for some rotated minimum vertices, say type T, (e.g. 3, 2, 1) the previous vertex is on the row below and for some, say type W, (e.g. 4) the previous vertex is on the same row. When a type T vertex shares a row with a type W vertex we type it as T<sub>1</sub> and when on a row by itself a type T<sub>0</sub>
+
+For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the point with maximum x value and M<sup>N</sup>(*y*) the point with minimum x value for row *y*.
+
+Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum. 
+
+When *P* is of type T<sub>0</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
+
+When *P* is of type T<sub>1</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):
+* the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+* the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
+
+This range of vertex triples forms all the overlapping facets.
+
+Considering Fig 14 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise. This is because we want all the primary triangles to be based on that in Fig 4
+
+For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  
+For type T<sub>0</sub> it is clear that for some *y*  
+S<sup>-</sup>(*P*, B) = M<sup>N</sup>(*y*) and  
+S<sup>-</sup>(*P* + *i*&#8407; - *j*&#8407;, B) = M<sup>N</sup>(*y* - 1)
+
+
+Using Fig 4 as an example we can see that B = O + m*j*&#8407; + n*k*&#8407; 
  = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
 = -n*i*&#8407 + (m + n)*j*&#8407
 
 Taking any point on a row y, *xi*&#8407; + *yj*&#8407; and rotating about B 
 S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
 = (-n + m + n - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;
-= (m - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;  
+= (m - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407; 
 
-transforms to a point on row *x* + *y* + *n*
+If follows that taking *y* from 1 to m + n the overlapping facet vertex triples are given by
 
-For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the maximum x value and M<sup>N</sup>(*y*) the minimum x value for row *y*.
+SORT BY TYPE
 
-For each y where M<sup>X</sup>(*x* + *y* + *n*) &ne; S<sup>+</sup>(M<sup>N</sup>(*y*), B) form the triangles with vertices  
-S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n*)), M<sup>X</sup>(*x* + *y* + *n* - 1)) and    
-S<sup>+</sup>(M<sup>N</sup>(*y*), B), M<sup>X</sup>(*x* + *y* + *n* - 1)), S<sup>+</sup>(M<sup>N</sup>(*y*), B) + *i*&#8407; - *j*&#8407;
-
-Considering Fig 14 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise.
-
-Relative to the primary triangles for F and F<sub>R</sub> the vertex matching for the overlapping facets becomes  
+It follows that relative to the primary triangles for F and F<sub>R</sub> the vertex matching for the overlapping facets becomes  
 M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1))  
 M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1);
 
+
+When *P* is of type T<sub>0</sub> the upright triangle (light grey) has vertices M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1);
+
+
+TO DO
+
+When *P* is of type T<sub>1</sub> the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):
+* the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
+* the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
 
 
 
