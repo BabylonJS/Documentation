@@ -189,3 +189,46 @@ This tool (available in the property pane when you select a mesh) will render th
 This tool (available in the property pane when you select a material with textures in it) will render the texture directly as an emissive one:
 
 ![texture painter](/img/features/debuglayer/texturepainter.jpg)
+
+## Extensibility
+
+The inspector can be easily extended to allow manipulation of custom node properties. Simply define your custom properties in the node's `inspectableCustomProperties` array, and they will be available under the CUSTOM heading after selecting the node in the inspector.
+
+```javascript
+myNode.inspectableCustomProperties = [
+    {
+        label: "My boolean field",
+        propertyName: "myBooleanField",
+        type: BABYLON.InspectableType.Checkbox
+    },
+    {
+        label: "My color field",
+        propertyName: "myColor3Field",
+        type: BABYLON.InspectableType.Color3
+    },
+    {
+        label: "My quaternion field",
+        propertyName: "myQuaternionField",
+        type: BABYLON.InspectableType.Quaternion
+    },
+    {
+        label: "My numeric range field",
+        propertyName: "myRangeField",
+        type: BABYLON.InspectableType.Slider,
+        min: 0.5,
+        max: 5.0,
+        step: 0.1
+    },
+    {
+        label: "My string field",
+        propertyName: "myStringField",
+        type: BABYLON.InspectableType.String
+    },
+    {
+        label: "My vector field",
+        propertyName: "myVector3Field",
+        type: BABYLON.InspectableType.Vector3
+    }
+];
+```
+<Playground id="#LQF5QR#2" title="Inspector custom properties" description="An example of inspector custom properties" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />
