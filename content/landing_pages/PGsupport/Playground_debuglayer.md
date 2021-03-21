@@ -231,4 +231,4 @@ myNode.inspectableCustomProperties = [
     }
 ];
 ```
-<Playground id="#LQF5QR#2" title="Inspector custom properties" description="An example of inspector custom properties" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" isMain={true} category="Inspector"/>
+<Playground id="#LQF5QR#2" title="Inspector custom properties" description="An example of inspector custom properties" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />
