@@ -463,6 +463,34 @@ In this demo: <Playground id="#PNQRY1#10" title="Shadows with Various Materials"
 * the fire sphere is using a node material for its base material (thanks to @dannybucksch for this node material!)
 * the small floating sphere is using the same base material (a copy in fact) than the grounded cube and sphere but a specifically crafted `ShaderMaterial` for its shadow depth wrapper: see next section for more explanations
 
+Note:
+* if you use a `ShadowDepthWrapper` for a `ShaderMaterial`, you need to include in your shader code the mesh uniform buffer to access the `world` and `visibility` uniforms and the scene uniform buffer to access the scene matrices (`view`, `projection`, `viewProjection`). That means you shouldn't do that:
+```glsl
+uniform mat4 view;
+uniform mat4 projection;
+uniform mat4 world;
+
+[...]
+
+void main(void) {
+    p = world * p;
+    gl_Position = projection * view * p;
+    [...]
+```
+but instead:
+```glsl
+#include<__decl__sceneVertex>
+#include<__decl__meshVertex>
+
+[...]
+
+void main(void) {
+    p = world * p;
+    gl_Position = projection * view * p;
+    [...]
+```
+The `#include<__decl__sceneVertex>` include will make the scene uniform data available (either through a uniform buffer if supported by the GPU or through regular uniforms) and `#include<__decl__meshVertex>` will do the same thing for the mesh uniform data. If you need to access those data in the fragment shader, just replace `Vertex` by `Fragment` in the includes.
+
 ![Custom Shadows](/img/how_to/shadows/customshadowdepth3.jpg)
 
 For the node materials, you need to instruct the wrapper of the variable name that holds the final world position of the vertex, as it is needed for the shadow depth computation.
