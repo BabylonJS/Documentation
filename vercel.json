@@ -815,6 +815,7 @@
         { "source": "/How_To/Videos/Using_Babylon.js_for_Beginners", "destination": "/guidedLearning/videos/videoCourses" },
         { "source": "/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js", "destination": "/guidedLearning/videos/gamePipelineIntegration" },
         { "source": "/How_To/Videos/Babylon.js_Advanced_Features", "destination": "/guidedLearning/videos/bjsAdvancedFeatures" },
-        { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" }
+        { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" },
+        { "source": "/how_to/how_to_start", "destination": "/divingDeeper/developWithBjs/howToStart" }
     ]
 }
