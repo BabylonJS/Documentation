@@ -431,7 +431,7 @@ Also, you may want to implement custom ways for alpha rejection, and in this cas
 
 #### Basic usage
 
-Take a look at this example: <Playground id="#PNQRY1" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/divingDeeperShadows22.jpg"/>
+Take a look at this example: <Playground id="#PNQRY1#81" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/divingDeeperShadows22.jpg"/>
 
 ![Wrong shadows](/img/how_to/shadows/customshadowdepth1.jpg)
 
@@ -453,11 +453,11 @@ Then assign this wrapper to the corresponding `Material.shadowDepthWrapper` prop
 material.shadowDepthWrapper = shadowDepthWrapper;
 ```
 
-*Et voilà*! You now have proper shadows: <Playground id="#PNQRY1#1" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
+*Et voilà*! You now have proper shadows: <Playground id="#PNQRY1#80" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
 
 It works for any type of materials, being a `CustomMaterial`, `PBRCustomMaterial`, `ShaderMaterial` or `NodeMaterial` instances. There's no point of using this for `StandardMaterial` and `PBRMaterial` materials because the standard shadow map shader already handles the types of deformation / alpha rejection those materials can generate (namely morph targets / bones / alpha testing).
 
-In this demo: <Playground id="#PNQRY1#10" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/divingDeeperShadows24.jpg"/>
+In this demo: <Playground id="#PNQRY1#67" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/divingDeeperShadows24.jpg"/>
 * the floating cube is using a `ShaderMaterial` for its base material
 * the grounded cube and sphere are using a `CustomMaterial` for their base material: they are both using the same material (thanks to @Wigen for the dissolving effect!)
 * the fire sphere is using a node material for its base material (thanks to @dannybucksch for this node material!)
