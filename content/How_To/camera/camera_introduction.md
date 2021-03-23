@@ -14,7 +14,7 @@ video-content:
 
 Of the many cameras available in Babylon.js, the two most used are probably the [Universal Camera](/typedoc/classes/babylon.universalcamera), used for "first-person" movement, [ArcRotateCamera](/typedoc/classes/babylon.arcrotatecamera), an orbital camera, and [WebXRCamera](/typedoc/classes/babylon.webxrcamera), used for modern virtual reality experiences.
 
-For allow user input, a camera must be attached to the canvas using:
+To allow user input, a camera must be attached to the canvas using:
 
 ```javascript
 camera.attachControl(canvas, true);
@@ -88,6 +88,20 @@ The position of the camera can also be set from a vector, which will override an
 
 Whether using the keyboard, mouse, or touch swipes, left/right directions change `alpha`, and up/down directions change `beta`.
 
+The following optional `ArcRotateCamera` properties can also be handy:
+
+- **zoomToMouseLocation** - if set to `true` will cause mouse wheel to zoom in or out centered on
+  current mouse location instead of the center of the target object.  This makes it easy  to explore
+  all corners of a large scene rather than just the center of it.  Setting this has the side effect
+  of taking over camera.target during mouse wheel zooming.  Note that zoom to the mouse location means
+  the camera is both zooming and doing a small amount of panning at the same time to keep that mouse
+  location centered.
+
+- **wheelDeltaPercentage** - if set to non-zero value will cause the zooming amount to be set to a
+  percentage of the camera radius.  This means the zoom slows down as you get closer to the target
+  object which is nice because it means you can be more precise about camera placement while you
+  explore the object up close.
+
 ### Constructing an Arc Rotate Camera
 
 ```javascript
@@ -112,7 +126,7 @@ camera.attachControl(canvas, noPreventDefault, useCtrlForPanning);
 If required, you can also totally deactivate panning by setting :
 
 ```javascript
-scene.activeCamera.panningSensibility = 0;
+camera.panningSensibility = 0;
 ```
 
 ## FollowCamera
