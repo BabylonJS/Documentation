@@ -80,7 +80,7 @@ This is a helper observable and is the same as `xrController.motionController.on
 // async, async, async
 xrInput.onControllerAddedObservable.add((inputSource) => {
   inputSource.onMotionControllerInitObservable.add((motionController) => {
-    motionController.onModelLoadedObservable.add((model) => {});
+    motionController.onMeshLoadedObservable.add((model) => {});
   });
 });
 
