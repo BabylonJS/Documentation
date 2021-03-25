@@ -149,6 +149,11 @@ Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any mat
 |9|13|A||18|8|A|
 |10|0|O||19|18|B|
 |11|1|O||19|9|A|
+Table 1  
+
+&nbsp  
+&nbsp;  
+
 
 We now consider obtaining the three vertices for the edge overlapping facets in more detail. We start with a rotation about B
 
@@ -213,4 +218,21 @@ If follows that taking *y* from 1 to m + n and, excluding vertices where S<sup>+
 | T<sub>0</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
 | T<sub>1</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* + 1), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
 | W | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407; |
+Table 2
+
+*nbsp;  
+
+We also need to consider rotations about O and about A.
+
+A rotation about is as in Fig 16
+
+![overlaps](/img/snippets/geo17.png)  
+Fig 16 Rotation OAB 60<sup>o</sup> about O
+
+This can also be achieved by rotating the diagrams in Fig 14 120<sup>o</sup> counter clockwise as in Fig 17
+
+![overlaps](/img/snippets/geo18.png)  
+Fig 16 Rotation Fig 14 120<sup>o</sup> about O
+
+Hence applying a rotation of 120<sup>o</sup> to the values in Table 2 will produce the correct vertex positions for the overlapping facets of edges OA and OB
 
