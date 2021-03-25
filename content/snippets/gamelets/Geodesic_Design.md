@@ -120,43 +120,37 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 
 ### Match Vertices Across Edges of a Primary Face
 
-A can be seen in Fig 12 every face F has three primary vertices, O, A and B, and is adjacent to three other faces F<sub>R</sub>, F<sub>L</sub>, F<sub>B</sub> where F can be mapped onto 
-* F<sub>R</sub> by a rotation of 60<sup>o</sup> counter clockwise about B
-* F<sub>L</sub> by a rotation of 60<sup>o</sup> clockwise about B
-* F<sub>B</sub> by a rotation of 60<sup>o</sup> clockwise about O
-
-You should also note that 
-* F<sub>L</sub> can be mapped onto F by a rotation of 60<sup>o</sup> counter clockwise about B
-* F<sub>B</sub> can be mapped onto F by a rotation of 60<sup>o</sup> counter clockwise about O
-
-
-![map 1](/img/snippets/geo10.png)  
-Fig 12 Face and Edge Relationships 
-
-Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of F onto F<sub>R</sub>, F<sub>L</sub> onto F and F<sub>B</sub> onto F. Using the labelled net of an icosahedron in Fig 13 a table covering all 30 edges of the icosahedron can be built showing which face is needed to be mapped 60<sup>o</sup> counter clockwise about which primary vertex onto which other face to enable the GD(m, n) facets to be correctly built across the edges.
+We can label the face and vertices for each primary triangle as shown in the net for Fig 12. Taking OA as the base, OB as the left edge and AB as the right edge of each face; every face has a face on its left, F<sub>L</sub>, right, F<sub>R</sub>, and base F<sub>B</sub>
 
 ![net 2](/img/snippets/geo9.png)  
-Fig 13 Labelled Net
+Fig 12 Labelled Net
 
-| From Face	| To Face	| About |	From Edge |	To Edge | | From Face	| To Face	| About |	From Edge |	To Edge |
-| ----| ----	| ---- |	---- |	---- | ---- | ----| ----	| ---- |	---- |	---- |
-| 0 | 1 | B | AB | OB | | 12 | 13 | A | AB | OA |
-| 1 | 2 | B | AB | OB | | 12 | 3 | O | OB | OA |
-| 2 | 3 | B | AB | OB | | 13 | 14 | O | OB | OA |
-| 3 | 4 | B | AB | OB | | 14 | 5 | A | AB | OA |
-| 4 | 0 | B | AB | OB | | 14 | 4 | O | OB | OA |
-| 5 | 6 | O | OB | OA | | 15 | 19 | B | AB | OB |
-| 6 | 7 | A | AB | OA | | 15 | 5 | A | OA | AB |
-| 6 | 0 | O | OB | OA | | 16 | 15 | B | AB | OB |
-| 7 | 8 | O | OB | OA | | 16 | 7 | A | OA | AB |
-| 8 | 9 | A | AB | OA | | 17 | 16 | B | AB | OB |
-| 8 | 1 | O | OB | OA | | 17 | 9 | A | OA | AB |
-| 9 | 10 | O | OB | OA | | 18 | 17 | B | AB | OB |
-| 10 | 11 | A | AB | OA | | 18 | 11 | A | OA | AB |
-| 10 | 2 | O | OB | OA | | 19 | 18 | B | AB | OB |
-| 11 | 12 | O | OB | OA | | 19 | 13 | A | OA | AB |
+Depending on the position of the face the vertex alignment differs as can be seen in Fig 13.
 
+![map 1](/img/snippets/geo10.png)  
+Fig 13 Face and Edge Relationships 
 
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 13. The 15 possible edges are all covered by the table below.
+
+|From Face|To Face|About||From Face|To Face|About|
+|----|----|----|----|----|----|----|
+|0|1|B||11|6|A|
+|1|2|B||12|2|O|
+|2|3|B||13|3|O|
+|3|4|B||13|8|A|
+|4|0|B||14|4|O|
+|5|10|O||15|19|B|
+|5|14|A||15|5|A|
+|6|11|O||16|15|B|
+|7|12|O||16|6|A|
+|7|11|A||17|16|B|
+|8|13|O||17|7|A|
+|9|14|O||18|17|B|
+|9|13|A||18|8|A|
+|10|0|O||19|18|B|
+|11|1|O||19|9|A|
+
+We now consider obtaining the three vertices for the edge overlapping facets in more detail. We start with a rotation about B
 
 
 ![primary triangle](/img/snippets/geo15.png)  
