@@ -118,11 +118,11 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 = (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
 
 ![rotation center](/img/snippets/geo22.png)  
-Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, 240<sup>o</sup>
+Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, -120<sup>o</sup>
 
-We also need to consider rotations 120<sup>o</sup> and 240<sup>o</sup> about the center of the triangle OAB.
+We also need to consider rotations 120<sup>o</sup> and -120<sup>o</sup> about the center of the triangle OAB.
 
-Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sup>/</sup> and after a rotation of 240<sup>o</sup> maps to P<sup>//</sup>
+Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sup>/</sup> and after a rotation of -120<sup>o</sup> maps to P<sup>//</sup>
 
 P<sup>/</sup> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
 = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; - *xi*&#8407; + *xj*&#8407;  
@@ -131,6 +131,11 @@ P<sup>/</sup> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;
 P<sup>//</sup> =  -n*i*&#8407; + (m + n)*j*&#8407; - *yk*&#8407; - *xj*&#8407;  
 = -n*i*&#8407; + (m + n)*j*&#8407; + *yi*&#8407; - *yj*&#8407; - *xj*&#8407;  
 = (*y* - n)*i*&#8407; + (m + n - *x* - *y*)*j*&#8407;
+
+Where R<sup>C+</sup> is a rotation of 120<sup>o</sup> and R<sup>C-</sup> is a rotation of -120<sup>o</sup> about the center of OAB
+
+R<sup>C+</sup>(*xi*&#8407; + *yj*&#8407;) = (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407;  
+R<sup>C-</sup>(*xi*&#8407; + *yj*&#8407;) = (*y* - n)*i*&#8407; + (m + n - *x* - *y*)j*&#8407;
 
 ### Match Vertices Across Edges of a Primary Face
 
@@ -269,7 +274,10 @@ For each facet vertex that lies on on within the primary triangle we determine t
 ![facet vertices](/img/snippets/geo21.png)  
 Fig 21 Internal Facet Vertices
 
-The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). Therefore there are n vertices on the y axis lower than C and so, by rotational symmetry, there are n vertices to the right of D and the iso-coordinates of D are (m - n, n) and those of E are (0, m)
+The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). Therefore by rotational symmetry 
+
+D = R<sup>C+</sup>(0, n) = (m - n, n) and   
+E = R<sup>C-</sup>(0, n) = (0, m)
 
 
 
