@@ -851,7 +851,7 @@
                 "workshop": {
                     "friendlyName": "Workshop",
                     "children": {
-                        "Geodesic_Design": { "friendlyName": "Geodesic and Goldberg Polyhedra Coding", "children": {}, "content": "snippets/gamelets/Geodesic_Design" },
+                        "Geodesic_Math": { "friendlyName": "Geodesic and Goldberg Polyhedra Math", "children": {}, "content": "snippets/gamelets/Geodesic_Math" },
                         "Car_Path": { "friendlyName": "Simple Path Following", "children": {}, "content": "snippets/gamelets/Car_Path" },
                         "Car_Driven": { "friendlyName": "A Simple Driven Car", "children": {}, "content": "snippets/gamelets/Car_Driven" },
                         "House": { "friendlyName": "House Creation Design", "children": {}, "content": "snippets/gamelets/House" },

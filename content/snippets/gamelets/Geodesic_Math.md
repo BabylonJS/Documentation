@@ -1,7 +1,7 @@
 ---
-title: Geodesic and Goldberg Polyhedra Code Design
+title: Geodesic and Goldberg Polyhedra Mathematics
 image: 
-description: Creating the code to build Geodesic and Goldberg Polyhedra
+description: The Math used to build Geodesic and Goldberg Polyhedra
 keywords: geodesic, goldberg, icosphere, polyhedron, polyhedra, dome
 further-reading:
   - title: Icosphere
@@ -30,7 +30,7 @@ More complex classes are formed by rotating, with restrictions, the isometric gr
 
 An icosahedron is formed from 20 primary isosceles triangles. Rather than rotating the underlying grid we demonstrate the classes by rotating a primary triangle on a fixed isometric grid.
 
-Rotations are formed by applying two positive integers *m* and *n*. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an isosceles triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual the Goldberg polyhedron as GP(m, n);
+Rotations are formed by applying two positive integers m and n. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an isosceles triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual the Goldberg polyhedron as GP(m, n);
 
 ![primary 1](/img/snippets/geo5.png)  
 Fig 4 Creating a GD(5, 2) on Isometric Grid
@@ -117,20 +117,34 @@ S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)
 = (*x* - *a* + *y* - *b*)*i*&#8407; - (*x* - *a*)*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
 = (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
 
+![rotation center](/img/snippets/geo22.png)  
+Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, 240<sup>o</sup>
+
+We also need to consider rotations 120<sup>o</sup> and 240<sup>o</sup> about the center of the triangle OAB.
+
+Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sup>/</sup> and after a rotation of 240<sup>o</sup> maps to P<sup>//</sup>
+
+P<sup>/</sup> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
+= m*i*&#8407; + n*j*&#8407; - *yi*&#8407; - *xi*&#8407; + *xj*&#8407;  
+= (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407; 
+
+P<sup>//</sup> =  -n*i*&#8407; + (m + n)*j*&#8407; - *yk*&#8407; - *xj*&#8407;  
+= -n*i*&#8407; + (m + n)*j*&#8407; + *yi*&#8407; - *yj*&#8407; - *xj*&#8407;  
+= (*y* - n)*i*&#8407; + (m + n - *x* - *y*)*j*&#8407;
 
 ### Match Vertices Across Edges of a Primary Face
 
-We can label the face and vertices for each primary triangle as shown in the net for Fig 12. Taking OA as the base, OB as the left edge and AB as the right edge of each face; every face has a face on its left, F<sub>L</sub>, right, F<sub>R</sub>, and base F<sub>B</sub>
+We can label the face and vertices for each primary triangle as shown in the net for Fig 13. Taking OA as the base, OB as the left edge and AB as the right edge of each face; every face has a face on its left, F<sub>L</sub>, right, F<sub>R</sub>, and base F<sub>B</sub>
 
 ![net 2](/img/snippets/geo9.png)  
-Fig 12 Labelled Net
+Fig 13 Labelled Net
 
-Depending on the position of the face the vertex alignment differs as can be seen in Fig 13.
+Depending on the position of the face the vertex alignment differs as can be seen in Fig 14.
 
 ![map 1](/img/snippets/geo10.png)  
-Fig 13 Face and Edge Relationships 
+Fig 14 Face and Edge Relationships 
 
-Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 13. The 15 possible edges are all covered by the table below.
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 14. The 15 possible edges are all covered by the table below.
 
 |From Face|To Face|About||From Face|To Face|About|
 |----|----|----|----|----|----|----|
@@ -159,16 +173,16 @@ We now consider obtaining the three vertices for the edge overlapping facets in 
 
 
 ![primary triangle](/img/snippets/geo15.png)  
-Fig 14 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
+Fig 15 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
 
-Consider a primary triangle OAB as in Fig 14. For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 14 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
+Consider a primary triangle OAB as in Fig 15. For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 15 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
 
 We can also see that rows contain either one or two rotated minimums. 
 
 ![overlaps](/img/snippets/geo16.png)  
-Fig 15 Facet Overlap Vertices
+Fig 16 Facet Overlap Vertices
 
-In Fig 15 we can see that for some rotated minimum vertices, say type T, (e.g. 3, 2, 1) the previous vertex is on the row below and for some, say type W, (e.g. 4) the previous vertex is on the same row. When a type T vertex shares a row with a type W vertex we type it as T<sub>1</sub> and when on a row by itself a type T<sub>0</sub>
+In Fig 16 we can see that for some rotated minimum vertices, say type T, (e.g. 3, 2, 1) the previous vertex is on the row below and for some, say type W, (e.g. 4) the previous vertex is on the same row. When a type T vertex shares a row with a type W vertex we type it as T<sub>1</sub> and when on a row by itself a type T<sub>0</sub>
 
 For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the point with maximum x value and M<sup>N</sup>(*y*) the point with minimum x value for row *y*.
 
@@ -186,7 +200,7 @@ When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):
 
 This range of vertex triples forms all the overlapping facets.
 
-Considering Fig 14 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise. This is because we want all the primary triangles to be based on that in Fig 4
+Considering Fig 15 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise. This is because we want all the primary triangles to be based on that in Fig 4
 
 For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  
 
@@ -224,15 +238,38 @@ Table 2
 
 We also need to consider rotations about O and about A.
 
-A rotation about is as in Fig 16
+A rotation about O is as in Fig 17
 
-![overlaps](/img/snippets/geo17.png)  
-Fig 16 Rotation OAB 60<sup>o</sup> about O
+![rotation O](/img/snippets/geo17.png)  
+Fig 17 Rotation OAB 60<sup>o</sup> about O
 
-This can also be achieved by rotating the diagrams in Fig 14 120<sup>o</sup> counter clockwise as in Fig 17
+This can also be achieved by rotating the diagrams in Fig 15 120<sup>o</sup> counter clockwise as in Fig 18
 
-![overlaps](/img/snippets/geo18.png)  
-Fig 16 Rotation Fig 14 120<sup>o</sup> about O
+![rotation A](/img/snippets/geo18.png)  
+Fig 18 Rotation Fig 15 120<sup>o</sup> about O
 
-Hence applying a rotation of 120<sup>o</sup> to the values in Table 2 will produce the correct vertex positions for the overlapping facets of edges OA and OB
+Hence applying a rotation of 120<sup>o</sup> to the values in Table 2 will produce the correct vertex isometric positions for the overlapping facets of edges OA and OB
+
+A rotation about A is as in Fig 19
+
+![rotation O](/img/snippets/geo19.png)  
+Fig 19 Rotation OAB 60<sup>o</sup> about A and translation
+
+This can also be achieved by rotating the diagrams in Fig 15 240<sup>o</sup> counter clockwise and translating -m*i*&#8407 - n*j*&#8407 as in Fig 20
+
+![rotation A](/img/snippets/geo20.png)  
+Fig 20 Rotation Fig 15 240<sup>o</sup> about A and translation
+
+Hence applying a rotation of 240<sup>o</sup> about A to the values in Table 2 followed by a translation of -m*i*&#8407 - n*j*&#8407 will produce the correct vertex isometric positions for the overlapping facets of edges OA and AB.
+
+### Facet Isometric Coordinates
+
+For each facet vertex that lies on on within the primary triangle we determine the isometric coordinates (x, y). When constructing the primary triangle for GD(m, n) O is (0, 0), A is (m, n) and B is (-n, m + n) these are the white vertices in Fig 21
+
+![facet vertices](/img/snippets/geo21.png)  
+Fig 21 Internal Facet Vertices
+
+The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). Therefore there are n vertices on the y axis lower than C and so, by rotational symmetry, there are n vertices to the right of D and the iso-coordinates of D are (m - n, n) and those of E are (0, m)
+
+
 
