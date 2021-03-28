@@ -13,9 +13,6 @@ video-content:
 ## Overview
 In this design we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of isosceles triangles. A Goldberg polyhedron is the dual of a Geodesic one and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
 
-![Dual](/img/snippets/geo1.png)  
-Fig 1 Icosahedron and its Dual
-
 The simplest class of Geodesic polyhedra splits each face of an icosahedron into isosceles triangles.
 
 ![Geodesic](/img/snippets/geo2.png)  
@@ -260,12 +257,12 @@ A rotation about A is as in Fig 19
 ![rotation O](/img/snippets/geo19.png)  
 Fig 19 Rotation OAB 60<sup>o</sup> about A and translation
 
-This can also be achieved by rotating the diagrams in Fig 15 240<sup>o</sup> counter clockwise and translating -m*i*&#8407 - n*j*&#8407 as in Fig 20
+This can also be achieved by rotating the diagrams in Fig 15 -120<sup>o</sup> counter clockwise and translating -m*i*&#8407 - n*j*&#8407 as in Fig 20
 
 ![rotation A](/img/snippets/geo20.png)  
-Fig 20 Rotation Fig 15 240<sup>o</sup> about A and translation
+Fig 20 Rotation Fig 15 -120<sup>o</sup> about A and translation
 
-Hence applying a rotation of 240<sup>o</sup> about A to the values in Table 2 followed by a translation of -m*i*&#8407 - n*j*&#8407 will produce the correct vertex isometric positions for the overlapping facets of edges OA and AB.
+Hence applying a rotation of -120<sup>o</sup> about A to the values in Table 2 followed by a translation of -m*i*&#8407 - n*j*&#8407 will produce the correct vertex isometric positions for the overlapping facets of edges OA and AB.
 
 ### Facet Isometric Coordinates
 
@@ -274,10 +271,44 @@ For each facet vertex that lies on on within the primary triangle we determine t
 ![facet vertices](/img/snippets/geo21.png)  
 Fig 21 Internal Facet Vertices
 
-The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). Therefore by rotational symmetry 
+The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). 
+
+![Rotational Symmetry](/img/snippets/geo22.png)  
+Fig 22 Rotating (x, y) 0, 120<sup>o</sup>, -120<sup>o</sup>
+
+Therefore by rotational symmetry 
 
 D = R<sup>C+</sup>(0, n) = (m - n, n) and   
 E = R<sup>C-</sup>(0, n) = (0, m)
+
+Now consider the green vertices, they all lie on triangles similar to OCA as in Fig 23 and note that OA = n and CA = m
+
+![Green Vertices](/img/snippets/geo23.png)  
+Fig 23 Green Vertices
+
+Let F be the point (0, y) with y &lt; n and G the point (x, y). Let H be the point where the extended line through FG meets OA. It follows that x &le; FH. Note that 
+
+![Similar Triangles](/img/snippets/geo24.png)  
+Fig 24 Similar Triangles
+
+Triangles OCA and OFH are similar and so
+
+<ins>FH</ins> = <ins>OF</ins>     
+
+CA &nbsp; OC
+
+and so
+
+FH = y * (n / m)  and since x &le; FH  
+x &le; y * (n / m);
+
+The green vertices all lie on the iso-grid and so are all points (x, y) with integer values for x and y where
+
+0 &lt; y &lt n and 0 &le; x &le; y * (n / m);
+Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
+
+
+
 
 
 
