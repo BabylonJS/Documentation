@@ -6,6 +6,8 @@ keywords: diving deeper, cameras, intro
 further-reading:
   - title: Cameras Overview
     url: /divingDeeper/cameras
+  - title: Cameras - Is what you see, what you get?
+    url: https://babylonjs.medium.com/cameras-is-what-you-see-what-you-get-c2c4d6a28207
 video-overview:
 video-content:
 ---
