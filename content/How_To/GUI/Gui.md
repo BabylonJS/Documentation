@@ -92,6 +92,10 @@ var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
 
 Once you have an AdvancedDynamicTexture object, you can start adding controls.
 
+## Loading from Snippet Server
+
+Here is an example of loading an AdvancedDynamicTexture from the Snippet Server: <Playground id="#AJA7KA#8" title="Loading GUI from Snippet Server" description="Simple demo of loading a texture from the Snippet Server and accessing the controls." image="/img/playgroundsAndNMEs/pg-AJA7KA-8.png"/>
+
 ## Debugging
 
 Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/tools/inspector)
