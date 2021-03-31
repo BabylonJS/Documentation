@@ -108,7 +108,50 @@ PG: <Playground id="#GLLBLZ#3" title="IsoVector Test 2" description="Rotations o
 
 ## The Primary Triangle
 
-This is the code needed to produce the vertices of the primary triangle
+This is the code needed to produce the vertices of the primary triangle and to arrange them ordered by x for each row.
 
 ![facet vertices](/img/snippets/geo21.png)  
 Fig 1 Internal Facet Vertices
+
+```javascript
+function CreatePrimaryVertices(m, n) {
+    this.m = m;
+    this.n = n;
+    this.vertices = [];
+
+    this.O = new IsoVector(0, 0);
+    this.A = new IsoVector(m, n);
+    this.B = new IsoVector(-n, m + n);
+    this.vertices.push(this.O, this.A, this.B);
+
+    //max internal isoceles triangle vertices
+    for (let y = n; y < m + 1; y++) {
+        //console.log("Y", y);
+        for (let x = 0; x < m + 1 - y; x++ ) {
+            this.vertices.push(new IsoVector(x, y));
+        }
+    }
+
+    //lower rows vertices and their rotations
+    const ratio = m / n;
+    for (let y = 0; y < n; y++) {
+        for (x = 0; x < y * ratio; x++) {
+            this.vertices.push(new IsoVector(x, y));
+            this.vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
+            this.vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
+        }
+    }
+
+    //order vertices by y and x
+    this.vertices.sort((a, b) => {
+        return a.x - b.x
+    });
+
+    this.vertices.sort((a, b) => {
+        return a.y - b.y
+    });
+
+}
+```
+
+PG: <Playground id="#GLLBLZ#5" title="Primary Triangle Test 1" description="Internal Vertices Created and Ordered"/> 
