@@ -1304,6 +1304,10 @@ You can also use a standalone version of the editor here: <nme id="" title="Node
 
 ### Custom Frames
 
+<Youtube id="_bxAQM0pnzs"/>
+
+<Youtube id="9wL777qGpiI"/>
+
 ![NME](/img/how_to/Materials/custom_frames_1.jpg)
 
 When using the node material editor we can create frames by holding shift and dragging the mouse across nodes within the graph.
