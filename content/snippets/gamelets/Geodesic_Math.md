@@ -4,6 +4,8 @@ image:
 description: The Math used to build Geodesic and Goldberg Polyhedra
 keywords: geodesic, goldberg, icosphere, polyhedron, polyhedra, dome
 further-reading:
+  - title: Geodesic and Goldberg Polyhedra Code Design
+    url: /guidedLearning/workshop/Geodesic_Code
   - title: Icosphere
     url: /divingDeeper/mesh/creation/polyhedra/icosphere
 video-overview:
@@ -11,7 +13,11 @@ video-content:
 ---
 
 ## Overview
+
 In this design we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of isosceles triangles. A Goldberg polyhedron is the dual of a Geodesic one and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
+
+![Dual](/img/snippets/geo1.png)  
+Fig 1 Icosahedron and its Dual
 
 The simplest class of Geodesic polyhedra splits each face of an icosahedron into isosceles triangles.
 
@@ -299,12 +305,12 @@ CA &nbsp; OC
 
 and so
 
-FH = y * (n / m)  and since x &le; FH  
-x &le; y * (n / m);
+FH = y * (m / n)  and since x &le; FH  
+x &le; y * (m / n);
 
 The green vertices all lie on the iso-grid and so are all points (x, y) with integer values for x and y where
 
-0 &lt; y &lt n and 0 &le; x &le; y * (n / m);
+0 &lt; y &lt n and 0 &le; x &le; y * (m / n);
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
 
 
