@@ -114,44 +114,146 @@ This is the code needed to produce the vertices of the primary triangle and to a
 Fig 1 Internal Facet Vertices
 
 ```javascript
+function IsoVector(x, y) { //x, y integers
+    this.x = x;
+    this.y = y;
+};
+
+IsoVector.prototype.length = function() {
+    return Math.sqrt(this.x * this.x + this.y * this.y + this.x * this.y);
+};
+
+IsoVector.prototype.clone = function() {
+    return new IsoVector(this.x, this.y);
+};
+
+IsoVector.prototype.add = function(other) { //other isovec
+    return new IsoVector(this.x + other.x, this.y + other.y);
+};
+
+IsoVector.prototype.addInPlace = function(other) { //other isovec
+    this.x += other.x;
+    this.y += other.y;
+    return this;
+};
+
+IsoVector.prototype.addToRef = function(other, result) { //other and result isovecs
+    result.x = this.x + other.x;
+    result.y = this.y + other.y;
+    return result;
+};
+
+IsoVector.prototype.subtract = function(other) { //other isovec
+    return new IsoVector(this.x - other.x, this.y - other.y);
+};
+
+IsoVector.prototype.subtractInPlace = function(other) { //other isovec
+    this.x -= other.x;
+    this.y -= other.y;
+    return this;
+};
+
+IsoVector.prototype.subtractToRef = function(other, result) { //other and result isovecs
+    result.x = this.x - other.x;
+    result.y = this.y - other.y;
+    return result;
+};
+
+IsoVector.prototype.rotate60About = function(other) { //other isovec
+    let x = this.x;
+    this.x = other.x + other.y - this.y;
+    this.y = x + this.y - other.x;
+    return this;
+}
+
+IsoVector.prototype.rotateNeg60About = function(other) { //other isovec
+    let x = this.x;
+    this.x = x + this.y - other.y;
+    this.y = other.x + other.y - x;
+    return this;
+};
+
+IsoVector.prototype.rotate120Sides = function(m, n) { //m, n integers
+    let x = this.x;
+    this.x = m - x - this.y;
+    this.y = n + x;
+    return this;
+}
+
+IsoVector.prototype.rotateNeg120Sides = function(m, n) { //m, n integers
+    let x = this.x
+    this.x = this.y - n;
+    this.y = m + n - x - this.y;
+    return this;
+};
+
+IsoVector.prototype.toCartesianOrigin = function(origin) { // origin Vector3, size real
+    const point = BABYLON.Vector3.Zero();
+    point.x = origin.x + 2 * this.x * gridSize + this.y * gridSize;
+    point.y = origin.y + 3 * thrdR3 * this.y * gridSize;
+    return point;
+};
+
+/******Primary Triangle*********/
 function CreatePrimaryVertices(m, n) {
     this.m = m;
     this.n = n;
-    this.vertices = [];
+    const vertices = [];
 
     this.O = new IsoVector(0, 0);
     this.A = new IsoVector(m, n);
     this.B = new IsoVector(-n, m + n);
-    this.vertices.push(this.O, this.A, this.B);
+    vertices.push(this.O, this.A, this.B);
 
     //max internal isoceles triangle vertices
     for (let y = n; y < m + 1; y++) {
         //console.log("Y", y);
         for (let x = 0; x < m + 1 - y; x++ ) {
-            this.vertices.push(new IsoVector(x, y));
+            vertices.push(new IsoVector(x, y));
         }
     }
 
     //lower rows vertices and their rotations
     const ratio = m / n;
     for (let y = 0; y < n; y++) {
-        for (x = 0; x < y * ratio; x++) {
-            this.vertices.push(new IsoVector(x, y));
-            this.vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
-            this.vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
+        for (let x = 0; x < y * ratio; x++) {
+            vertices.push(new IsoVector(x, y));
+            vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
+            vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
         }
     }
 
     //order vertices by y and x
-    this.vertices.sort((a, b) => {
+    vertices.sort((a, b) => {
         return a.x - b.x
     });
 
-    this.vertices.sort((a, b) => {
+    vertices.sort((a, b) => {
         return a.y - b.y
     });
 
+    let min = new Array(m + n + 1);
+    let max = new Array(m + n + 1);
+    min.fill(Infinity);
+    max.fill(-Infinity);
+
+    let y = 0;
+    let x = 0;
+
+    let len = vertices.length;
+    
+    for (i = 0; i < len; i++) {
+        x = vertices[i].x;
+        y = vertices[i].y
+        min[y] = Math.min(x, min[y]);
+        max[y] = Math.max(x, max[y]);
+    };
+
+    this.min = min;
+    this.max = max;
+
+    this.vertices = vertices;
 }
 ```
 
-PG: <Playground id="#GLLBLZ#5" title="Primary Triangle Test 1" description="Internal Vertices Created and Ordered"/> 
+PG: <Playground id="#GLLBLZ#6" title="Primary Triangle Test 1" description="Internal Vertices Created and Ordered"/> 
