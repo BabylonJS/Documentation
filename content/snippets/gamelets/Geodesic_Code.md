@@ -108,9 +108,9 @@ PG: <Playground id="#GLLBLZ#3" title="IsoVector Test 2" description="Rotations o
 
 ## The Primary Triangle
 
-This is the code needed to produce the vertices of the primary triangle and to arrange them ordered by x for each row.
+This is the code needed to produce the vertices of the primary triangle (Fig 1) and to arrange them ordered by x for each row.
 
-![facet vertices](/img/snippets/geo21.png)  
+![facet vertices](/img/snippets/geo25.png)  
 Fig 1 Internal Facet Vertices
 
 ```javascript
@@ -257,3 +257,18 @@ function CreatePrimaryVertices(m, n) {
 ```
 
 PG: <Playground id="#GLLBLZ#6" title="Primary Triangle Test 1" description="Internal Vertices Created and Ordered"/> 
+
+### Creating the Icosahedron Base
+
+We have based the facet triangles on the net of Fig 2 now with added vertex labels.
+
+![facet vertices labelled](/img/snippets/geo26.png)  
+Fig 1 Icosahedron Net with Vertex Labels.
+
+Where each side is of length 2, and with origin at the center of the icosahedron Table 1 gives the (x, y, z) position of each of the twelve vertices where &phi; = (1 + &Sqrt;5) / 2
+
+| vertex Index | Position|
+|----|----|
+| 0 | () |
+
+
