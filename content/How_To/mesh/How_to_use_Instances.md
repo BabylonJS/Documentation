@@ -121,6 +121,10 @@ You can find a complete example here: <Playground id="#HJGC2G" title="Instancing
 
 Instances are supported for collisions, picking, rendering and shadows. Even if the current hardware does not support hardware accelerated instances, babylon.js will be able to optimize rendering to take instances into account.
 
+Starting from 5.0, instances that have a transparent material applied can be sorted from back to front to remove/limit rendering artifacts. This mode is enabled by setting `BABYLON.Mesh.INSTANCEDMESH_SORT_TRANSPARENT = true`.
+
+Note that for performance sake the master mesh (the mesh from which instances are created by calling `masterMesh.createInstance`) is not taken into account in the sorting process. So, to avoid rendering artifacts between this mesh and its instances, this mesh should be disabled (`masterMesh.setEnabled(false)`).
+
 ## Using 3D modeler to create instances
 
 ## Blender
