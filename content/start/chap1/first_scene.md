@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 1 - First Scene
-image: 
+image: /img/getstarted/wireframe.png
 description: Start your Babylon.js learning by creating your first scene and model.
 keywords: getting started, start, chapter 1, first scene
 further-reading: 
@@ -13,10 +13,13 @@ video-content:
 ## First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene](/divingDeeper/scene) to contain the world or model, a [camera](/divingDeeper/cameras) to view it, a [light](/divingDeeper/lights) to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh](/divingDeeper/mesh) of triangles or facets.
 
+
 ![wireframe](/img/getstarted/wireframe.png)  
 Wireframe View Showing Mesh Triangles
 
 A large number of meshes can be created directly within Babylon.js using code, or, as you will shortly see, imported as models from meshes created with other software. Let us start simply with a box.
+
+Examples on these pages can be viewed in the playground, the place to try out Babylon.js live on the web, by clicking on their titles. To edit the code open them with ![open pg](/img/getstarted/openpg.png)
 
 ## Say Hello to Your First World
 
