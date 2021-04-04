@@ -267,8 +267,13 @@ Fig 1 Icosahedron Net with Vertex Labels.
 
 Where each side is of length 2, and with origin at the center of the icosahedron Table 1 gives the (x, y, z) position of each of the twelve vertices where &phi; = (1 + &Sqrt;5) / 2
 
-| vertex Index | Position|
-|----|----|
-| 0 | () |
+| Vertex Index | Position| | Vertex Index | Position| | Vertex Index | Position|
+|----|----|----|----|----|----|----|----|----|
+| 0 | (0, 1, -&phi;) | | 4 | (1, &phi;, 0) | | 8 | (0, -1, -&phi;) |
+| 1 | (-1, &phi;, 0) | | 5 | (0, 1, &phi;)  | | 9 | (1, -&phi;, 0) | 
+| 2 | (-&phi;, 0, -1) | | 6 | (-&phi;, 0, 1) | |10 | (&phi;, 0, 1) |
+| 3 | (&phi;, 0, -1) | | 7 | (-1, -&phi;, 0) | | 11 | (0, 1, &phi;) |
+
+
 
 
