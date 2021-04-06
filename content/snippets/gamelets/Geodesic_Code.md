@@ -263,17 +263,21 @@ PG: <Playground id="#GLLBLZ#6" title="Primary Triangle Test 1" description="Inte
 We have based the facet triangles on the net of Fig 2 now with added vertex labels.
 
 ![facet vertices labelled](/img/snippets/geo26.png)  
-Fig 1 Icosahedron Net with Vertex Labels.
+Fig 2 Icosahedron Net with Vertex Labels.
 
 Where each side is of length 2, and with origin at the center of the icosahedron Table 1 gives the (x, y, z) position of each of the twelve vertices where &phi; = (1 + &Sqrt;5) / 2
 
 | Vertex Index | Position| | Vertex Index | Position| | Vertex Index | Position|
 |----|----|----|----|----|----|----|----|----|
-| 0 | (0, 1, -&phi;) | | 4 | (1, &phi;, 0) | | 8 | (0, -1, -&phi;) |
-| 1 | (-1, &phi;, 0) | | 5 | (0, 1, &phi;)  | | 9 | (1, -&phi;, 0) | 
-| 2 | (-&phi;, 0, -1) | | 6 | (-&phi;, 0, 1) | |10 | (&phi;, 0, 1) |
-| 3 | (&phi;, 0, -1) | | 7 | (-1, -&phi;, 0) | | 11 | (0, 1, &phi;) |
+| 0 | (0, &phi;, -1) | | 4 |  (&phi;, 1, 0) | | 8 |  (0, -&phi;, -1) |
+| 1 |  (-&phi;, 1, 0) | | 5 |  (0, &phi;, 1) | | 9 |  (&phi;, -1, 0) |
+| 2 |  (-1, 0, -&phi;) | | 6 |  (-1, 0, &phi;) | | 10 |  (1, 0, &phi;) |
+| 3 |  (1, 0, -&phi;) | | 7 |  (-&phi;, -1, 0) | | 11 |  (0, -&phi;, 1) |
+&nbsp; 
+Table 1 
 
+PG: <Playground id="#GLLBLZ#7" title="Icosahedron Test 1" description="Draw Icosahedron"/> 
 
+### Mapping the Primary Triangle onto Icosahedron Faces
 
-
+After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron.

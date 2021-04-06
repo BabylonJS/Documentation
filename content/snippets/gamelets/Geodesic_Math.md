@@ -14,12 +14,12 @@ video-content:
 
 ## Overview
 
-In this design we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of isosceles triangles. A Goldberg polyhedron is the dual of a Geodesic one and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
+In this design we restrict both polyhedra to ones built from an icosahedron base. A Geodesic polyhedron is built from a number of equilateral triangles. A Goldberg polyhedron is the dual of a Geodesic one and vice versa. A dual of a polyhedron swaps faces for vertices and vertices for faces.
 
 ![Dual](/img/snippets/geo1.png)  
 Fig 1 Icosahedron and its Dual
 
-The simplest class of Geodesic polyhedra splits each face of an icosahedron into isosceles triangles.
+The simplest class of Geodesic polyhedra splits each face of an icosahedron into equilateral triangles.
 
 ![Geodesic](/img/snippets/geo2.png)  
 Fig 2 Geodesic Polyhedron
@@ -27,13 +27,13 @@ Fig 2 Geodesic Polyhedron
 ![Geodesic Sphere](/img/snippets/geo3.png)  
 Fig 3 Geodesic Polyhedron mapped to Sphere
 
-More complex classes are formed by rotating, with restrictions, the isometric grid formed by the isosceles triangles that split each face.
+More complex classes are formed by rotating, with restrictions, the isometric grid formed by the equilateral triangles that split each face.
 
 ## Geodesic Classes
 
-An icosahedron is formed from 20 primary isosceles triangles. Rather than rotating the underlying grid we demonstrate the classes by rotating a primary triangle on a fixed isometric grid.
+A regular icosahedron is formed from 20 primary equilateral triangles. Rather than rotating the underlying grid we demonstrate the classes by rotating a primary triangle on a fixed isometric grid.
 
-Rotations are formed by applying two positive integers m and n. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an isosceles triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual the Goldberg polyhedron as GP(m, n);
+Rotations are formed by applying two positive integers m and n. From a fixed point O (0, 0) on the isometric grid form a point A (m, n) which is m horizontal units from O and n units along the positive gradient line. The primary triangle is formed with a point B such that OAB is an equilateral triangle. The Geodesic polyhedron so formed will be noted as GD(m, n) and its dual the Goldberg polyhedron as GP(m, n);
 
 ![primary 1](/img/snippets/geo5.png)  
 Fig 4 Creating a GD(5, 2) on Isometric Grid
@@ -312,6 +312,20 @@ The green vertices all lie on the iso-grid and so are all points (x, y) with int
 
 0 &lt; y &lt n and 0 &le; x &le; y * (m / n);
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
+
+### Cartesian Coordinates
+
+![Carteian](/img/snippets/geo27.png)  
+Fig 25 Cartesian Coordinates
+
+Fig 25 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407; has cartesian coordinates (*x* + 0.5*y*, 0.5&sqrt(3)y)
+
+### Mapping Primary Triangle to Icosahedron Face
+
+![Primary Map](/img/snippets/geo28.png)  
+Fig 26 Primary Triangle Mapping to Icosahedron Face
+
+Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively. O<sup>/</sup>A<sup>/</sup>B<sup>/</sup> and the frame of reference *X<sup>/</sup>Y<sup>/</sup>* are formed by some rotation of OAB and *XY* in 3D space.
 
 
 
