@@ -319,7 +319,7 @@ Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and
 Fig 25 Cartesian Coordinates
 
 Fig 25 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407;  
-has cartesian coordinates (*x* + 0.5*y*, 0.5&sqrt;(3)y)
+has cartesian coordinates (*x* + 0.5*y*, 0.5&radic;3y)
 
 ### Mapping Primary Triangle to Icosahedron Face
 
@@ -332,19 +332,19 @@ Let P be any point with cartesian position vector *xu*&#8407; + *yv*&#8407;.  Le
 
 In iso_vectors OA = m*i*&#8407; + n*j*&#8407; and OB = -n*i*&#8407; + (m + n)*j*&#8407; and so in Cartesian vectors
 
-OA = (m + 0.5n)*u*&#8407; + 0.5&sqrt;(3)n*v*&#8407; and 
+OA = (m + 0.5n)*u*&#8407; + 0.5&radic;3n*v*&#8407; and 
 
-OB = (0.5(m + n) - n)*u*&#8407; + 0.5&sqrt;(3)(m + n)*v*&#8407; = 0.5(m - n)*u*&#8407; + 0.5&sqrt;(3)(m + n)*v*&#8407;
+OB = (0.5(m + n) - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407; = 0.5(m - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407;
 
-(m + 0.5n)OB = (m + 0.5n)(0.5(m - n))*u*&#8407; + 0.5&sqrt;(3)(m + n)(m + 0.5n)*uv&#8407;
+(m + 0.5n)OB = (m + 0.5n)(0.5(m - n))*u*&#8407; + 0.5&radic;3(m + n)(m + 0.5n)*uv&#8407;
 
-(0.5(m - n))OA = (m + 0.5)(0.5(m - n))*u*&#8407; + 0.5&sqrt;(3)n(0.5(m - n))*v*&#8407;
+(0.5(m - n))OA = (m + 0.5)(0.5(m - n))*u*&#8407; + 0.5&radic;3n(0.5(m - n))*v*&#8407;
 
-(m + 0.5n)OB - (0.5(m + n) - n)OA = 0.5&sqrt;(3)((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
+(m + 0.5n)OB - (0.5(m + n) - n)OA = 0.5&radic;3((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
 
-(2m + n)OB - (m + n)OA = &sqrt;(3)(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
+(2m + n)OB - (m + n)OA = &radic;3(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
 
-(2m + n)OB - (m + n)OA = &sqrt;(3)(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
+(2m + n)OB - (m + n)OA = &radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
 
 from which we can find *v*&#8407; and then *u*&#8407; in terms of OA and OB. 
 
