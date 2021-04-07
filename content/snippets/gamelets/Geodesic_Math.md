@@ -125,9 +125,9 @@ Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, -120<sup>o</sup>
 
 We also need to consider rotations 120<sup>o</sup> and -120<sup>o</sup> about the center of the triangle OAB.
 
-Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sup>/</sup> and after a rotation of -120<sup>o</sup> maps to P<sup>//</sup>
+Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sub>1</sub> and after a rotation of -120<sup>o</sup> maps to P<sup>//</sup>
 
-P<sup>/</sup> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
+P<sub>1</sub> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
 = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; - *xi*&#8407; + *xj*&#8407;  
 = (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407; 
 
@@ -318,14 +318,46 @@ Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and
 ![Carteian](/img/snippets/geo27.png)  
 Fig 25 Cartesian Coordinates
 
-Fig 25 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407; has cartesian coordinates (*x* + 0.5*y*, 0.5&sqrt(3)y)
+Fig 25 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407;  
+has cartesian coordinates (*x* + 0.5*y*, 0.5&sqrt;(3)y)
 
 ### Mapping Primary Triangle to Icosahedron Face
 
 ![Primary Map](/img/snippets/geo28.png)  
 Fig 26 Primary Triangle Mapping to Icosahedron Face
 
-Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively. O<sup>/</sup>A<sup>/</sup>B<sup>/</sup> and the frame of reference *X<sup>/</sup>Y<sup>/</sup>* are formed by some rotation of OAB and *XY* in 3D space.
+Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively and *i*&#8407; and *j*&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference *X<sub>1</sub>Y<sub>1</sub>* are formed by a rotation and scaling of OAB and *XY* in 3D space with *u<sub>1</sub>*&#8407 and *v<sub>1</sub>*&#8407 and *i<sub>1</sub>*&#8407; and *j<sub>1</sub>*&#8407; the corresponding Cartesian and iso Vectors.
+
+Let P be any point with cartesian position vector *xu*&#8407; + *yv*&#8407;.  Let *d* be the scaling of O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> to OAB. The corresponding point P<sub>1</sub> to P with have position vector *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub>. 
+
+In iso_vectors OA = m*i*&#8407; + n*j*&#8407; and OB = -n*i*&#8407; + (m + n)*j*&#8407; and so in Cartesian vectors
+
+OA = (m + 0.5n)*u*&#8407; + 0.5&sqrt;(3)n*v*&#8407; and 
+
+OB = (0.5(m + n) - n)*u*&#8407; + 0.5&sqrt;(3)(m + n)*v*&#8407; = 0.5(m - n)*u*&#8407; + 0.5&sqrt;(3)(m + n)*v*&#8407;
+
+(m + 0.5n)OB = (m + 0.5n)(0.5(m - n))*u*&#8407; + 0.5&sqrt;(3)(m + n)(m + 0.5n)*uv&#8407;
+
+(0.5(m - n))OA = (m + 0.5)(0.5(m - n))*u*&#8407; + 0.5&sqrt;(3)n(0.5(m - n))*v*&#8407;
+
+(m + 0.5n)OB - (0.5(m + n) - n)OA = 0.5&sqrt;(3)((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
+
+(2m + n)OB - (m + n)OA = &sqrt;(3)(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
+
+(2m + n)OB - (m + n)OA = &sqrt;(3)(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
+
+from which we can find *v*&#8407; and then *u*&#8407; in terms of OA and OB. 
+
+Since O<sub>1</sub>A<sub>1</sub> = md*i<sub>1</sub>*&#8407; + nd*j<sub>1</sub>*&#8407; and   
+OB = -nd*i<sub>1</sub>*&#8407; + (m + n)d*j<sub>1</sub>*&#8407;
+
+we can use this method to find *v<sub>1</sub>*&#8407; and then *u<sub>1</sub>*&#8407; in terms of O<sub>1</sub>A<sub>1</sub> and O<sub>1</sub>B<sub>1</sub> so that we can determine P<sub>1</sub>. 
+
+
+
+
+
+
 
 
 
