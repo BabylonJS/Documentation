@@ -108,102 +108,30 @@ PG: <Playground id="#GLLBLZ#3" title="IsoVector Test 2" description="Rotations o
 
 ## The Primary Triangle
 
-This is the code needed to produce the vertices of the primary triangle (Fig 1) and to arrange them ordered by x for each row.
+This is the code needed to produce the primary triangle (Fig 1) with Iso and Cartesian vertices ordered by x for each row.
 
 ![facet vertices](/img/snippets/geo25.png)  
 Fig 1 Internal Facet Vertices
 
 ```javascript
-function IsoVector(x, y) { //x, y integers
-    this.x = x;
-    this.y = y;
-};
-
-IsoVector.prototype.length = function() {
-    return Math.sqrt(this.x * this.x + this.y * this.y + this.x * this.y);
-};
-
-IsoVector.prototype.clone = function() {
-    return new IsoVector(this.x, this.y);
-};
-
-IsoVector.prototype.add = function(other) { //other isovec
-    return new IsoVector(this.x + other.x, this.y + other.y);
-};
-
-IsoVector.prototype.addInPlace = function(other) { //other isovec
-    this.x += other.x;
-    this.y += other.y;
-    return this;
-};
-
-IsoVector.prototype.addToRef = function(other, result) { //other and result isovecs
-    result.x = this.x + other.x;
-    result.y = this.y + other.y;
-    return result;
-};
-
-IsoVector.prototype.subtract = function(other) { //other isovec
-    return new IsoVector(this.x - other.x, this.y - other.y);
-};
-
-IsoVector.prototype.subtractInPlace = function(other) { //other isovec
-    this.x -= other.x;
-    this.y -= other.y;
-    return this;
-};
-
-IsoVector.prototype.subtractToRef = function(other, result) { //other and result isovecs
-    result.x = this.x - other.x;
-    result.y = this.y - other.y;
-    return result;
-};
-
-IsoVector.prototype.rotate60About = function(other) { //other isovec
-    let x = this.x;
-    this.x = other.x + other.y - this.y;
-    this.y = x + this.y - other.x;
-    return this;
-}
-
-IsoVector.prototype.rotateNeg60About = function(other) { //other isovec
-    let x = this.x;
-    this.x = x + this.y - other.y;
-    this.y = other.x + other.y - x;
-    return this;
-};
-
-IsoVector.prototype.rotate120Sides = function(m, n) { //m, n integers
-    let x = this.x;
-    this.x = m - x - this.y;
-    this.y = n + x;
-    return this;
-}
-
-IsoVector.prototype.rotateNeg120Sides = function(m, n) { //m, n integers
-    let x = this.x
-    this.x = this.y - n;
-    this.y = m + n - x - this.y;
-    return this;
-};
-
-IsoVector.prototype.toCartesianOrigin = function(origin) { // origin Vector3, size real
-    const point = BABYLON.Vector3.Zero();
-    point.x = origin.x + 2 * this.x * gridSize + this.y * gridSize;
-    point.y = origin.y + 3 * thrdR3 * this.y * gridSize;
-    return point;
-};
-
-/******Primary Triangle*********/
-function CreatePrimaryVertices(m, n) {
+function Primary(m, n) {
     this.m = m;
     this.n = n;
+
+    this.cartesian = [];
+    this.vertices = [];
+    this.max = [];
+    this.min = [];
+
+};   
+
+function CreatePrimary(m, n) {
     const vertices = [];
 
-    this.O = new IsoVector(0, 0);
-    this.A = new IsoVector(m, n);
-    this.B = new IsoVector(-n, m + n);
-    vertices.push(this.O, this.A, this.B);
+    O = new IsoVector(0, 0);
+    A = new IsoVector(m, n);
+    B = new IsoVector(-n, m + n);
+    vertices.push(O, A, B);
 
     //max internal isoceles triangle vertices
     for (let y = n; y < m + 1; y++) {
@@ -232,8 +160,8 @@ function CreatePrimaryVertices(m, n) {
         return a.y - b.y
     });
 
-    let min = new Array(m + n + 1);
-    let max = new Array(m + n + 1);
+    const min = new Array(m + n + 1);
+    const max = new Array(m + n + 1);
     min.fill(Infinity);
     max.fill(-Infinity);
 
@@ -249,16 +177,25 @@ function CreatePrimaryVertices(m, n) {
         max[y] = Math.max(x, max[y]);
     };
 
-    this.min = min;
-    this.max = max;
+    const cartesian = [];
+    for (let i = 0; i < vertices.length; i++) {
+        cartesian[i] = vertices[i].toCartesianOrigin(new IsoVector(0, 0))
+    };
 
-    this.vertices = vertices;
+    const P = new Primary(m, n);
+
+    P.vertices = vertices;
+    P.cartesian = cartesian;
+    P.min = min;
+    P.max = max;
+
+    return P;
 }
 ```
 
-PG: <Playground id="#GLLBLZ#6" title="Primary Triangle Test 1" description="Internal Vertices Created and Ordered"/> 
+PG: <Playground id="#GLLBLZ#9" title="Primary Triangle Test 1" description="Primary Triangle Created"/> 
 
-### Creating the Icosahedron Base
+## Creating the Icosahedron Base
 
 We have based the facet triangles on the net of Fig 2 now with added vertex labels.
 
@@ -278,6 +215,8 @@ Table 1
 
 PG: <Playground id="#GLLBLZ#7" title="Icosahedron Test 1" description="Draw Icosahedron"/> 
 
-### Mapping the Primary Triangle onto Icosahedron Faces
+## Mapping the Primary Triangle onto Icosahedron Faces
 
 After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron.
+
+PG: <Playground id="#GLLBLZ#11" title="Icosahedron Test 2" description="Map GD(m, n) Vertices"/> 

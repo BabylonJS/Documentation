@@ -340,11 +340,11 @@ OB = (0.5(m + n) - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407; = 0.5(m - n)*u*&#
 
 (0.5(m - n))OA = (m + 0.5)(0.5(m - n))*u*&#8407; + 0.5&radic;3n(0.5(m - n))*v*&#8407;
 
-(m + 0.5n)OB - (0.5(m + n) - n)OA = 0.5&radic;3((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
+(m + 0.5n)OB - (0.5(m - n))OA = 0.5&radic;3((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
 
-(2m + n)OB - (m + n)OA = &radic;3(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
+(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
 
-(2m + n)OB - (m + n)OA = &radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
+(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
 
 from which we can find *v*&#8407; and then *u*&#8407; in terms of OA and OB. 
 
