@@ -349,17 +349,31 @@ OB = (0.5(m + n) - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407; = 0.5(m - n)*u*&#
 from which we can find *v*&#8407; and then *u*&#8407; in terms of OA and OB. 
 
 Since O<sub>1</sub>A<sub>1</sub> = md*i<sub>1</sub>*&#8407; + nd*j<sub>1</sub>*&#8407; and   
-OB = -nd*i<sub>1</sub>*&#8407; + (m + n)d*j<sub>1</sub>*&#8407;
+O<sub>1</sub>B<sub>1</sub> = -nd*i<sub>1</sub>*&#8407; + (m + n)d*j<sub>1</sub>*&#8407;
 
 we can use this method to find *v<sub>1</sub>*&#8407; and then *u<sub>1</sub>*&#8407; in terms of O<sub>1</sub>A<sub>1</sub> and O<sub>1</sub>B<sub>1</sub> so that we can determine P<sub>1</sub>. 
 
+For example when finding *v<sub>1</sub>*&#8407; the coefficient of O<sub>1</sub>B<sub>1</sub> will be 
 
+<ins>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d(m + n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ins>  
+&nbsp;  
 
+d<sup>2</sup>&radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)
 
+=
 
+<ins>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(m + n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ins>  
+&nbsp;  
 
+d&radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)
 
+We also note that m<sup>2</sup> + n<sup>2</sup> + mn = l<sup>2</sup>, where l is the length of OA. 
 
+Doing the calculations for *v<sub>1</sub>*&#8407; and for *u<sub>1</sub>*&#8407; the coefficients of O<sub>1</sub>A<sub>1</sub> and of  O<sub>1</sub>B<sub>1</sub> all contain the common multiplier 1 / dl<sup>2</sup>.
+
+Since *xu*&#8407; + *yv*&#8407; in OAB maps to  *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub> in O<sub>1</sub>A<sub>1</sub>O<sub>1</sub>B<sub>1</sub> and d / dl<sup>2</sup> = 1 / l<sup>2</sup> when it comes to coding we can calculate constant coefficients just once and rather than calculating *u*&#8407; and *v*&#8407; as unit vectors calculate them as vectors scaled by d, for example
+
+*v*&#8407; = ((2m + n)O<sub>1</sub>B<sub>1</sub> - (m - n)O<sub>1</sub>A<sub>1</sub>) / l<sup>2</sup>&radic;3
 
 
 

@@ -217,6 +217,72 @@ PG: <Playground id="#GLLBLZ#7" title="Icosahedron Test 1" description="Draw Icos
 
 ## Mapping the Primary Triangle onto Icosahedron Faces
 
-After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron.
+After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron. We use the mathematics from the this section in the Geodesic math page.
+
+```
+/******Primary Triangle*********/
+function Primary(m, n) {
+    this.m = m;
+    this.n = n;
+
+    this.cartesian = [];
+    this.vertices = [];
+    this.mapped = [];
+    this.max = [];
+    this.min = [];
+
+    this.coau = 0;
+    this.cobu = 0;
+    this.coav = 0;
+    this.cobv = 0;
+
+    this.u = BABYLON.Vector3.Zero();
+    this.v = BABYLON.Vector3.Zero();
+
+};
+
+Primary.prototype.CalcCoeffs = function() {
+    const m = this.m;
+    const n = this.n;
+
+    const LSQD = m * m + n * n + m * n;
+
+    this.coau = (m + n) / LSQD;
+    this.cobu = -n / LSQD;
+    this.coav = -THRDR3 * (m - n) / LSQD;
+    this.cobv = THRDR3 * (2* m + n) / LSQD;
+}
+
+Primary.prototype.MapToFace = function (faceNb) {
+    const F = IDATA.face[faceNb];
+    const Oidx = F[2];
+    const Aidx = F[1];
+    const Bidx = F[0];
+
+    const O = BABYLON.Vector3.FromArray(IDATA.vertex[Oidx]);
+    const A = BABYLON.Vector3.FromArray(IDATA.vertex[Aidx]);
+    const B = BABYLON.Vector3.FromArray(IDATA.vertex[Bidx]);
+
+    const OA = A.subtract(O);
+    const OB = B.subtract(O);
+
+    this.u = OA.scale(this.coau).add(OB.scale(this.cobu));
+    this.v = OA.scale(this.coav).add(OB.scale(this.cobv));
+    
+    const mapped = [];
+    let tempVec = BABYLON.Vector3.Zero();
+    for (var i = 0; i < this.cartesian.length; i++) {
+        tempVec = this.u.scale(this.cartesian[i].x).add(this.v.scale(this.cartesian[i].y)).add(O);
+        mapped[i] = [tempVec.x, tempVec.y, tempVec.z];
+    }
+
+    this.mapped.push(mapped);
+    this.face = faceNb;
+}
+```
 
 PG: <Playground id="#GLLBLZ#11" title="Icosahedron Test 2" description="Map GD(m, n) Vertices"/> 
+
+### Forming the Facet Triangles for the Geodesic Mesh GD(m, n)
+
+
