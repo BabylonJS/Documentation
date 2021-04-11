@@ -8,12 +8,12 @@ video-overview:
 video-content:
 ---
 
-Using reflection textures can simulate mirror like material and refraction textures can simulate looking through glass or water.
+Reflection textures can simulate mirror-like materials; refraction textures can simulate looking through glass or water.
 
 ## Reflection
-Reflections are created using the _relectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/divingDeeper/environment/skybox)
+Reflections are created using the _reflectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/divingDeeper/environment/skybox)
 
-This sets the _relectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of the _relectionTexture_ to SKYBOX_Mode as in
+This sets the _reflectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of the _reflectionTexture_ to SKYBOX\_MODE as in
 
 ```javascript
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);

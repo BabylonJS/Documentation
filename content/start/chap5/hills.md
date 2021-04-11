@@ -73,4 +73,3 @@ Then we can add back the car but this time passing through the village.
 <Playground id="#KBS9I5#87" title="Adding The Car" description="Add the animating car back into the village scene." image="/img/playgroundsAndNMEs/gettingStartedDistantHills5.jpg"/>
 
 Let's now further improve the environment by adding a sky.
-

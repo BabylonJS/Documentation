@@ -10,29 +10,44 @@ video-overview:
 video-content:
 ---
 
-## How To Use a Skybox
-A simulated sky can be added to a scene using a skybox. This is created using a large standard box, special reflective textures and a group of six images, one for each face of the cube.
+## About Skyboxes
+A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). This is created using a large standard box, special textures and a group of six images, one for each face of the cube. Skyboxes are easier and faster than rendering sky and distant scenery as 3D objects.
 
-## Sky Images
-Six jpeg images are necessary to create a skybox, all of them should be square and of the same size which is best as a power of 2, eg 1024px x 1024px.
-The name for each image should have a common part followed by a position given by _px, _nx, _py, _ny, _pz or _nz corresponding whether 
-it is on the positive (p) or negative (n) x, y or z axis.
+## Creating a Cube Texture
+Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). CubeTexture's constructor takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
 
-Example Images:
+![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
 
-![Skybox](/img/how_to/skybox.png)
+## Making or Finding Skybox Images
+These are some example skybox images:
+
+<table><tbody><tr>
+<td><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="skybox_px.jpg" alt="some clouds"/></td>
+<td><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" caption="skybox_nx.jpg" alt="more clouds"/></td>
+<td><img src="/img/getstarted/skybox_py.jpg" width="100" height="100" caption="skybox_py.jpg" alt="the sun overhead"/></td>
+<td><img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" caption="skybox_ny.jpg" alt="solid gray"/></td>
+<td><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" caption="skybox_pz.jpg" alt="more clouds"/></td>
+<td><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="skybox_nz.jpg" alt="more clouds"/></td>
+</tr></tbody></table><p/>
 
 Notice that the images match seamlessly at the edges of the box:
 
-![Seamless Skybox](/img/how_to/skybox1.png)
+<table style={{width: 0}}><tbody><tr>
+<td style={{padding: 0}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="skybox_nz.jpg" alt="some clouds"/></td>
+<td style={{padding: 0}}><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" caption="skybox_nx.jpg" alt="adjacent clouds"/></td>
+<td style={{padding: 0}}><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" caption="skybox_pz.jpg" alt="adjacent clouds"/></td>
+<td style={{padding: 0}}><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="skybox_px.jpg" alt="adjacent clouds"/></td>
+<td style={{padding: 0}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="skybox_nz.jpg" alt="wrapping around to the original clouds"/></td>
+</tr></tbody></table><p/>
 
-Skybox images can be found on the web by searching for skybox images. Generally, these are single images in the form of a net of a box and you will 
-need to separate them into individual images and save each.
+You can search the web for "skybox images" and find many examples. These are often a single image of an unfolded cube, which you would need to slice into the six separate images for CubeTexture to load.
 
-You can also use [library textures in the playground](/toolsAndResources/assetLibraries/availableTextures#cubetextures).
+The [cube textures in the playground library](/toolsAndResources/assetLibraries/availableTextures#cubetextures) may also be useful, and they are already in the appropriate format.
 
-## Skybox Code 
-Within the playground you can copy and paste the following into your scene.
+## Making the Skybox
+Cube textures must be applied using [reflectionTexture](/divingDeeper/materials/using/reflectionTexture) even though skyboxes are not reflection maps. Setting [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX\_MODE paints the texture directly on the cube rather than simulating reflections.
+
+Within the playground you can copy and paste the following into your scene:
 
 ```javascript
 var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, scene);
@@ -45,7 +60,7 @@ skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 skybox.material = skyboxMaterial;
 ```
 
-More generally the images are referenced in the following way
+More generally, skybox images may be referenced in the following way:
 
 ```javascript
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);

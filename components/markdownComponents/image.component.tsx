@@ -22,13 +22,12 @@ const styles = makeStyles((theme: Theme) =>
         caption: {
             fontSize: 12,
             display: "block",
-            marginBottom: theme.spacing(2)
         },
     }),
 );
 
 /**
- * Replaces <a> element, mainly for local linking and playground links
+ * Replaces the <img> element, using the nextjs Image component.
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
@@ -106,8 +105,8 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         <>
             <div ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
+                {props.caption && <div className={classes.caption}>{props.caption}</div>}
             </div>
-            {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </>
     );
 };

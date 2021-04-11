@@ -55,7 +55,7 @@
                     "friendlyName": "Chapter 5 - A Better Environment",
                     "children": {
                         "hills": { "friendlyName": "Distant Hills", "children": {}, "content": "start/chap5/hills" },
-                        "sky": { "friendlyName": "Skys Above", "children": {}, "content": "start/chap5/sky" },
+                        "sky": { "friendlyName": "Skies Above", "children": {}, "content": "start/chap5/sky" },
                         "trees": { "friendlyName": "Sprite Trees", "children": {}, "content": "start/chap5/trees" }
                     },
                     "content": "start/chap5/chap5intro"
