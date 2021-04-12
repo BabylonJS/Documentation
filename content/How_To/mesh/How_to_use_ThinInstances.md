@@ -8,6 +8,8 @@ further-reading:
       url: /divingDeeper/mesh/copies/instances
 video-overview:
 video-content:
+    - title: A Pirate Playset Part 1 - Thin Instances
+      url: https://youtu.be/0DaSvI_n7Us
 ---
 
 ## How to use Thin Instances
@@ -26,6 +28,8 @@ Thin instances don't create new objects so you don't incur any penalty on the ja
 Thin instances should be used when you need a lot of static instances that you know won't change often / at all. Think of the seats of a stadium, for eg.
 
 So, regular instances may still be the way to go, depending on your scene: if you have a lot of objects scattered and only a few are visible in a frame, or if you must add/remove instances continuously, it may be better to use instances than thin instances.
+
+<Youtube id="0DaSvI_n7Us"/>
 
 ## Creating thin instances
 A thin instance is represented by a position/rotation/scaling data packed into a matrix.
