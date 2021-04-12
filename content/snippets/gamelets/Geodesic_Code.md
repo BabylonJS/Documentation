@@ -213,6 +213,22 @@ Where each side is of length 2, and with origin at the center of the icosahedron
 &nbsp; 
 Table 1 
 
+From this and Fig 2 we can build the IDATA to construct the icosahedron.
+
+```javascript
+const IDATA = { 
+    "name":"icosahedron", 
+    "category":["Regular"], 
+    "vertex":[ [0, PHI, -1], [-PHI, 1, 0], [-1, 0, -PHI], [1, 0, -PHI], [PHI, 1, 0], [0, PHI, 1], [-1, 0, PHI], [-PHI, -1, 0], [0, -PHI, -1], [PHI, -1, 0], [1, 0, PHI], [0, -PHI, 1] ..........],
+    "face":[
+        [ 0, 2, 1 ], [ 0, 3, 2 ], [ 0, 4, 3 ], [ 0, 5, 4 ], [ 0, 1, 5 ],
+        [ 7, 6, 1 ],[ 8, 7, 2 ], [ 9, 8, 3 ], [ 10, 9, 4 ], [ 6, 10, 5 ],
+        [ 2, 7, 1 ], [ 3, 8, 2 ],[ 4, 9, 3 ], [ 5, 10, 4 ], [ 1, 6, 5 ],
+        [ 11, 6, 7 ], [ 11, 7, 8 ], [ 11, 8, 9 ], [ 11, 9, 10 ], [ 11, 10, 6 ]
+    ]
+};
+```
+
 PG: <Playground id="#GLLBLZ#7" title="Icosahedron Test 1" description="Draw Icosahedron"/> 
 
 ## Mapping the Primary Triangle onto Icosahedron Faces
@@ -292,8 +308,18 @@ const GDmnDATA = {
     "name":"Geodesic_m_n", 
     "category":["Geodesic"], 
     "vertex": //Array of each facet vertex positions in form [x, y, z],
-    "face":[ //Array of vertex indices in form [B, A, O)]
+    "face":[ //Array of vertex indices in form [index0, index1, index2]
 };
 ```
-So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These are those of the original icosahedron vertices and any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex.
+So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These are those of the original icosahedron vertices and any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex. For the original icosahedron vertices we add the positions from its IDATA.
 
+We need to know using Fig 2 above and Table 1 for the Geodesic Math page which icosahedron faces are adjacent and which rotations between faces give the shared GD(m, n) facet vertices. We therefore add to the GDmnDATA object.
+
+```javascript
+const GDmnDATA = { 
+    "name":"Geodesic_m_n", 
+    "category":["Geodesic"],
+    "match": [ [[1, "B"]], [[2, "B"]], [[3, "B"]], [[4, "B"]], [[0, "B"]], [[10, "O"], [14, "A"]], [[11, "O"]], [[12, "O"], [11, "A"]], [[13, "O"]], [[14, "O"], [13, "A"]], [[0, "O"]], [[1, "O"], [6, "A"]], [[2, "O"]], [[3, "O"], [8, "A"]], [[4, "O"]], [[19, "B"], [5, "A"]], [[15, "B"], [6, "A"]], [[16, "B"], [7, "A"]], [[17, "B"], [8, "A"]], [[18, "B"], [9, "A"]] ],
+    "vertex": [ [0, PHI, -1], [-PHI, 1, 0], [-1, 0, -PHI], [1, 0, -PHI], [PHI, 1, 0], [0, PHI, 1], [-1, 0, PHI], [-PHI, -1, 0], [0, -PHI, -1], [PHI, -1, 0], [1, 0, PHI], [0, -PHI, 1] ..........],
+    "face":[ //Array of vertex indices in form [index0, index1, index2]
+};

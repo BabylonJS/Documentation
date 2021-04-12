@@ -314,9 +314,12 @@ The green vertices all lie on the iso-grid and so are all points (x, y) with int
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
 
 ![Along edge](/img/snippets/geo29.png)  
-Fig 25 Facet vertices along edges when m and n have factors in common and when n = 0
+Fig 25 Facet vertices along edges when m and n &ne; 0 have factors in common and when n = 0
 
-When m and n have factors in common then some of the facet vertices will lie along the edges of OAB. When n = 0 all the outer facet vertices will lie along the edges.
+When m and n &ne; 0 have factors in common then some of the facet vertices will lie along the edges of OAB. When n = 0 all the outer facet vertices will lie along the edges.
+
+Let m and n &ne; 0 have a highest common factor f with m = fm<sub>1</sub> and n = fn<sub>1</sub> then the number of edge points between the primary triangle vertices will be floor((n - 1) / n<sub>1</sub>).
+
 
 ### Cartesian Coordinates
 
