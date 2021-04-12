@@ -313,18 +313,23 @@ The green vertices all lie on the iso-grid and so are all points (x, y) with int
 0 &lt; y &lt n and 0 &le; x &le; y * (m / n);
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
 
+![Along edge](/img/snippets/geo29.png)  
+Fig 25 Facet vertices along edges when m and n have factors in common and when n = 0
+
+When m and n have factors in common then some of the facet vertices will lie along the edges of OAB. When n = 0 all the outer facet vertices will lie along the edges.
+
 ### Cartesian Coordinates
 
 ![Carteian](/img/snippets/geo27.png)  
-Fig 25 Cartesian Coordinates
+Fig 26 Cartesian Coordinates
 
-Fig 25 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407;  
+Fig 26 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407;  
 has cartesian coordinates (*x* + 0.5*y*, 0.5&radic;3y)
 
 ### Mapping Primary Triangle to Icosahedron Face
 
 ![Primary Map](/img/snippets/geo28.png)  
-Fig 26 Primary Triangle Mapping to Icosahedron Face
+Fig 27 Primary Triangle Mapping to Icosahedron Face
 
 Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively and *i*&#8407; and *j*&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference *X<sub>1</sub>Y<sub>1</sub>* are formed by a rotation and scaling of OAB and *XY* in 3D space with *u<sub>1</sub>*&#8407 and *v<sub>1</sub>*&#8407 and *i<sub>1</sub>*&#8407; and *j<sub>1</sub>*&#8407; the corresponding Cartesian and iso Vectors.
 

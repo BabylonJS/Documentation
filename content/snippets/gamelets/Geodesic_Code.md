@@ -144,7 +144,7 @@ function CreatePrimary(m, n) {
     //lower rows vertices and their rotations
     const ratio = m / n;
     for (let y = 0; y < n; y++) {
-        for (let x = 0; x < y * ratio; x++) {
+        for (let x = 0; x <= y * ratio; x++) {
             vertices.push(new IsoVector(x, y));
             vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
             vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
@@ -193,7 +193,7 @@ function CreatePrimary(m, n) {
 }
 ```
 
-PG: <Playground id="#GLLBLZ#9" title="Primary Triangle Test 1" description="Primary Triangle Created"/> 
+PG: <Playground id="#GLLBLZ#12" title="Primary Triangle Test 1" description="Primary Triangle Created"/> 
 
 ## Creating the Icosahedron Base
 
@@ -281,8 +281,19 @@ Primary.prototype.MapToFace = function (faceNb) {
 }
 ```
 
-PG: <Playground id="#GLLBLZ#11" title="Icosahedron Test 2" description="Map GD(m, n) Vertices"/> 
+PG: <Playground id="#GLLBLZ#13" title="Icosahedron Test 2" description="Map GD(m, n) Vertices"/> 
 
 ### Forming the Facet Triangles for the Geodesic Mesh GD(m, n)
 
+The intention is to create a GDmnDATA object with the form
+
+```javascript
+const GDmnDATA = { 
+    "name":"Geodesic_m_n", 
+    "category":["Geodesic"], 
+    "vertex": //Array of each facet vertex positions in form [x, y, z],
+    "face":[ //Array of vertex indices in form [B, A, O)]
+};
+```
+So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These are those of the original icosahedron vertices and any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex.
 
