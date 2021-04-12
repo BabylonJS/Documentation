@@ -8,7 +8,9 @@ video-overview:
 video-content:
 ---
 
-Reflection textures can simulate mirror-like materials; refraction textures can simulate looking through glass or water.
+Babylon.js can use _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki/Reflection_mapping)) to simulate reflection (mirror-like materials) and refraction (the effect of looking through glass or water).
+
+An environment map is an image of the world "as seen from" the vantage point of an object (or close enough). This image is pasted on the object with distortions to resemble reflection or refraction, based on the object's geometry and the camera position.
 
 ## Reflection
 Reflections are created using the _reflectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/divingDeeper/environment/skybox)
@@ -19,6 +21,7 @@ This sets the _reflectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ o
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 ```
+
 ## CubeTexture
 By default six jpeg images are passed to a _CubeTexture_. The images are named in this form, commonPart\_px.jpg, commonPart\_nx.jpg,
 commonPart\_py.jpg, commonPart\_ny.jpg, commonPart\_pz.jpg, commonPart\_nz.jpg corresponding to the positions shown below.
