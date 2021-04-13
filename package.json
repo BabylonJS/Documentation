@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "watch": "next-remote-watch content"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -33,6 +34,7 @@
     "gray-matter": "^4.0.2",
     "html-to-text": "^6.0.0",
     "next-plugin-transpile-modules": "^2.0.0",
+    "next-remote-watch": "^1.0.0",
     "node-sass": "^4.14.1",
     "puppeteer": "^5.4.1",
     "rehype-highlight": "^4.0.0",

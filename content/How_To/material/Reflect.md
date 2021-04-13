@@ -4,13 +4,65 @@ image:
 description: Learn all about reflection and refraction in Babylon.js.
 keywords: diving deeper, materials, refraction, reflection
 further-reading:
+    - title: Reflection Probes
+      url: /divingDeeper/environment/reflectionProbes
+    - title: Skyboxes
+      url: /divingDeeper/environment/skybox
 video-overview:
 video-content:
 ---
 
-Babylon.js can use _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki/Reflection_mapping)) to simulate reflection (mirror-like materials) and refraction (the effect of looking through glass or water).
+## Environment maps
+Babylon.js can use _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki/Reflection_mapping)) to simulate reflection (mirror-like materials) and refraction (glass-like materials).
 
-An environment map is an image of the world "as seen from" the vantage point of an object (or close enough). This image is pasted on the object with distortions to resemble reflection or refraction, based on the object's geometry and the camera position.
+An environment map is an image of the world "as seen from" the vantage point of an object (or close enough). This image is pasted on the object with distortions to simulate reflection or refraction, based on object shape and camera position.
+
+Babylon.js can use (ordinary) [Texture](#texture), [CubeTexture](#cubetexture) (and subclasses), and [MirrorTexture](#mirrortexture) to hold environment maps for reflection and refraction.
+
+### CubeTexture environment maps
+[CubeTexture](/typedoc/classes/babylon.cubetexture) uses six images to make a wraparound environment map. CubeTexture's [constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
+
+![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
+
+(Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture), NOT other material properties like _diffuseTexture_.)
+
+#### Using skybox cube maps
+[Skybox images](/divingDeeper/environment/skybox) may be reused for reflection/refraction mapping; conveniently, skyboxes also use CubeTexture. Doing so, only the skybox will be reflected/refracted -- other objects in the scene won't show up in the reflection/refraction -- but this may be sufficient for simple scenes or small objects.
+
+([See below](#coordinatemodes) for discussion of the different coordinate modes.)
+
+<Playground id="#UU7RQ#3" title="Box and CUBIC_MODE skybox reflection" description="Simple example of a box and CUBIC_MODE reflection of skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
+<Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE skybox reflection" description="Simple example of a ground and PLANAR_MODE reflection of skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
+<Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE skybox reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
+
+#### EquiRectangularCubeTexture
+Equirectangular panoramic images ([see panotools](https://wiki.panotools.org/Equirectangular_Projection)) squish a spherical panorama into one image (unlike the six sides needed for CubeTexture).
+
+![Equirectangular panorama of docked boats](https://playground.babylonjs.com/textures/equirectangular.jpg)
+
+[EquiRectangularCubeTexture](/typedoc/classes/babylon.equirectangularcubetexture) can load such an image for use anywhere a CubeTexture can be used.
+
+<Playground id="#6YN2X1" title="Equirectangular Skybox" description="An equirectangular image used as a skybox" image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction7.jpg"/>
+<Playground id="#32H1D4" title="Equirectangular Image On Spheres" description="An equirectangular image reflected on some spheres." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction8.jpg"/>
+<Playground id="#RY8LDL" title="Equirectangular Skybox and Spheres" description="An equirectangular image used as a skybox and also reflected in some spheres." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
+
+### HDRCubeTexture
+[HDRCubeTexture](/typedoc/classes/babylon.hdrcubetexture) loads High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range_imaging)) equirectangular panorama images in Radiance RGBE format ([wikipedia](https://en.wikipedia.org/wiki/RGBE_image_format)) for use anywhere a CubeTexture can be used.
+
+Below is an HDR image of a room
+
+![Room](/img/how_to/Materials/room.png)
+
+Replace the following line
+```javascript
+skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
+```
+with
+```javascript
+skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
+```
+
+<Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
 ## Reflection
 Reflections are created using the _reflectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/divingDeeper/environment/skybox)
@@ -21,12 +73,6 @@ This sets the _reflectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ o
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 ```
-
-## CubeTexture
-By default six jpeg images are passed to a _CubeTexture_. The images are named in this form, commonPart\_px.jpg, commonPart\_nx.jpg,
-commonPart\_py.jpg, commonPart\_ny.jpg, commonPart\_pz.jpg, commonPart\_nz.jpg corresponding to the positions shown below.
-
-![CubeTexture Positions](/img/how_to/Materials/cubetexture1.png)
 
 When doing this for a skybox the box created is given a large size (1000 in the skybox example above) but _CubeTexture_ can be used with any size box and is one
 way of applying different textures to each side of a cube. Notice that as we are dealing with a small box and we are viewing it from the outside _backFaceCulling_ can be set to _true_. This is not
@@ -48,13 +94,6 @@ box.material = boxMaterial;
 
 From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
 
-### Reflecting on Skybox and a shape
-Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
-
-<Playground id="#UU7RQ#3" title="Box and CUBIC_MODE Reflection" description="Simple example of a box and CUBIC_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
-<Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE Reflection" description="Simple example of a ground and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
-<Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE Reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
-
 ### Using local cubemap mode
 
 Starting with Babylon.js v3.2, you can now use local cubemap mode when using cubemaps (with CUBIC_MODE).
@@ -70,24 +109,6 @@ material.reflectionTexture.boundingBoxSize = new BABYLON.Vector3(100, 100, 100);
 You can also specify a property named `boundingBoxPosition` if you want to define the center of the bounding box used for the cubemap (The place where the camera was set when generating the cubemap).
 
 You can find an demo of local cubemaps here: <Playground id="#RNASML#37" title="Local Cubemap Example" description="Simple example of using local cubemaps in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/>
-
-## HDRCubeTexture
-High Dynamic Range (HDR) images are panoramic images that cover an entire field of vision.
-
-Below is an HDR image of a room
-
-![Room](/img/how_to/Materials/room.png)
-
-Replace the following line
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
-```
-with
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
-```
-
-<Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
 ## EquiRectangularCubeTexture
 Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).

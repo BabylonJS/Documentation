@@ -11,12 +11,14 @@ video-content:
 ---
 
 ## About Skyboxes
-A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). This is created using a large standard box, special textures and a group of six images, one for each face of the cube. Skyboxes are easier and faster than rendering sky and distant scenery as 3D objects.
+A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. Using a skybox is easier and faster than building a full 3D model of the sky and distant scenery.
 
 ## Creating a Cube Texture
-Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). CubeTexture's constructor takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
+Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). Its [constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
 
 ![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
+
+(Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for how to make this work for a skybox.)
 
 ## Making or Finding Skybox Images
 These are some example skybox images:
