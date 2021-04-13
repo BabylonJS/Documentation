@@ -95,7 +95,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
 - ✔️ Node Export
 - ⚠️ Camera Export
     - Cameras are currently exported as an empty nodes.
-    
+
 - ✔️ Mesh Export
   - ✔️ Multiple UV sets
   - ✔️ Morph Targets
@@ -107,7 +107,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
   - ✔️ Metal Roughness Materials [pbrMetallicRoughness](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#metallic-roughness-material)
     - A conversion from `StandardMaterial` to `MetallicRoughness` has been implemented to try to match as close as visibly possible, though not all Babylon.js features are supported in glTF.
   - ❌ Specular Glossiness Materials Extension [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness)
-    - SpecularGlossiness has been superseeded by KHR_materials_specular. PBRSpecularGlossiness will not be supported.
+    - `SpecularGlossiness` has been superseeded by KHR_materials_specular. PBRSpecularGlossiness will not be supported.
   - ❌ Specular Materials Extension [KHR_materials_specular](https://github.com/KhronosGroup/glTF/pull/1719/files?short_path=3757306#diff-3757306b203ae39ab0610702c04a45d4d598b904fe8ba4961ebc1c0409730b45)
   - ❌ Material Index of Refraction Extension [KHR_materials_ior](https://github.com/KhronosGroup/glTF/pull/1718/files?short_path=4698aba#diff-4698abaf20aa5bce525ce57cf0def8a07a476cd9dbc961226bef22e04a6a1591)
   - ❌ Material Translucency Extension [KHR_materials_Translucency](https://github.com/KhronosGroup/glTF/pull/1825)
@@ -117,16 +117,16 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
   - ✔️ Double sided materials
   - ❌ Material variants [KHR_materials_variants](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_variants)
 
-    
+
 - ✔️ Animation
-  - ✔️ Node Translate, Rotate, Scaling animation 
+  - ✔️ Node Translate, Rotate, Scaling animation
   - ✔️ Skeletal Animation
     - As skeletons in glTF are represented as collections of nodes in the scene, skeletal animation is exported as TRS animation
   - ✔️ Morph Target Weight Animation
   - ✔️ Multiple animations
     - In scene, AnimationGroups will be exported as a single glTF Animation.
     - In scene, Animations not associated with an AnimationGroup will be exported as a single glTF animation.
-   
+
 - ✔️ Buffer View and Accessor Reuse
 - ✔️ Extras Data
 - ❌ XMP Metadata [KHR_XMP](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_xmp)
@@ -138,7 +138,6 @@ Key:
     ✔️ Full support
     ⚠️ Partial Support
     ❌ No Support
-    ❔ Needs Data
 
 
 ## Coming soon
