@@ -256,7 +256,7 @@
                                 "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
                                 "HDREnvironment": { "friendlyName": "HDR Enivornment for PBR", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
                                 "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
-                                "reflectionTexture": { "friendlyName": "Reflection Textures", "children": {}, "content": "How_To/material/Reflect" },
+                                "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
                                 "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
                                 "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
                                 "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" }
