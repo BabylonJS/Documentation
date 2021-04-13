@@ -107,7 +107,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
   - ✔️ Metal Roughness Materials [pbrMetallicRoughness](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#metallic-roughness-material)
     - A conversion from `StandardMaterial` to `MetallicRoughness` has been implemented to try to match as close as visibly possible, though not all Babylon.js features are supported in glTF.
   - ❌ Specular Glossiness Materials Extension [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness)
-    - `SpecularGlossiness` has been superseeded by KHR_materials_specular. PBRSpecularGlossiness will not be supported.
+    - `SpecularGlossiness` has been superseeded by KHR_materials_specular. `KHR_materials_pbrSpecularGlossiness` will not be supported.
   - ❌ Specular Materials Extension [KHR_materials_specular](https://github.com/KhronosGroup/glTF/pull/1719/files?short_path=3757306#diff-3757306b203ae39ab0610702c04a45d4d598b904fe8ba4961ebc1c0409730b45)
   - ❌ Material Index of Refraction Extension [KHR_materials_ior](https://github.com/KhronosGroup/glTF/pull/1718/files?short_path=4698aba#diff-4698abaf20aa5bce525ce57cf0def8a07a476cd9dbc961226bef22e04a6a1591)
   - ❌ Material Translucency Extension [KHR_materials_Translucency](https://github.com/KhronosGroup/glTF/pull/1825)
@@ -150,3 +150,4 @@ Key:
   - IOR [KHR_Materials_IOR](https://github.com/KhronosGroup/glTF/pull/1718) is still in draft
   - Translucency [KHR_Materials_Translucency](https://github.com/KhronosGroup/glTF/pull/1825) is still in draft
 - Camera Serialization [Babylon.js #9146](https://github.com/BabylonJS/Babylon.js/issues/9146)
+- Mesh Instancing Extension [Babylon.js #7522](https://github.com/BabylonJS/Babylon.js/issues/7522)
