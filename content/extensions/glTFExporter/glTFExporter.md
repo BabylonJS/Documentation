@@ -115,7 +115,8 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
   - ✔️ Occlusion, Roughness, Emissive (ORM) map
   - ✔️ Material Alpha Coverage modes
   - ✔️ Double sided materials
-  - Material variants [KHR_materials_variants]()
+  - ❌ Material variants [KHR_materials_variants](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_variants)
+
     
 - ✔️ Animation
   - ✔️ Node Translate, Rotate, Scaling animation 
