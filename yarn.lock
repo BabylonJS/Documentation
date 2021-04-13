@@ -4701,7 +4701,7 @@ next-plugin-transpile-modules@^2.0.0:
   resolved "https://registry.yarnpkg.com/next-plugin-transpile-modules/-/next-plugin-transpile-modules-2.0.0.tgz#8632683f0f04fbc776ce80c6cc62bb5c6694661d"
   integrity sha512-9vI7/OvBlu6f/cwzNdBDKxmY2Zc4Jr8hRy59exkXWwF22LUIZrEa0D7qhqWahAhbMibMGMMsX9GeUuOXKcG9/Q==
 
-next@10.0.x:
+next@10.0.9:
   version "10.0.9"
   resolved "https://registry.yarnpkg.com/next/-/next-10.0.9.tgz#ad5d8e0368fee8363cdfd64d22dfbf71f683ae66"
   integrity sha512-HyoVjYydcM6LaFAUOHSxVQCcKOsIimVO/IKXCuWUu1rr6DDgXbWNg/8ckH084qD46MOYlLzjViiZ3KCmNQL4Cw==
