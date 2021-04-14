@@ -110,7 +110,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
     - `SpecularGlossiness` has been superseeded by KHR_materials_specular. `KHR_materials_pbrSpecularGlossiness` will not be supported.
   - ❌ Specular Materials Extension [KHR_materials_specular](https://github.com/KhronosGroup/glTF/pull/1719/files?short_path=3757306#diff-3757306b203ae39ab0610702c04a45d4d598b904fe8ba4961ebc1c0409730b45)
   - ❌ Material Index of Refraction Extension [KHR_materials_ior](https://github.com/KhronosGroup/glTF/pull/1718/files?short_path=4698aba#diff-4698abaf20aa5bce525ce57cf0def8a07a476cd9dbc961226bef22e04a6a1591)
-  - ❌ Material Translucency Extension [KHR_materials_Translucency](https://github.com/KhronosGroup/glTF/pull/1825)
+  - ❌ Material Volume Extension [KHR_materials_volume](https://github.com/KhronosGroup/glTF/pull/1726)
   - ✔️ Unlit Materials Extension [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit)
   - ✔️ Occlusion, Roughness, Emissive (ORM) map
   - ✔️ Material Alpha Coverage modes
