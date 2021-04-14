@@ -254,7 +254,7 @@
                                 "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
                                 "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
                                 "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
-                                "HDREnvironment": { "friendlyName": "HDR Enivornment for PBR", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
+                                "HDREnvironment": { "friendlyName": "HDR Environment for PBR", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
                                 "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
                                 "reflectionTexture": { "friendlyName": "Reflection Textures", "children": {}, "content": "How_To/material/Reflect" },
                                 "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
