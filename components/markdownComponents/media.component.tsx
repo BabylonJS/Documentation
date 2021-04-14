@@ -26,7 +26,7 @@ const styles = makeStyles((theme: Theme) =>
 );
 
 /**
- * Replaces <a> element, mainly for local linking and playground links
+ * Shared implementation of YoutubeComponent and MediaFileComponent (below).
  */
 export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) => {
     const classes = styles();
@@ -43,10 +43,16 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
     );
 };
 
+/**
+ * Handles <Youtube> links in markdown content.
+ */
 export const YoutubeComponent: FunctionComponent<IMediaEmbed> = (props) => {
     return <MediaMarkdownComponent url={props.id} type="youtube"></MediaMarkdownComponent>;
 };
 
+/**
+ * Handles <Media> links in markdown content.
+ */
 export const MediaFileComponent: FunctionComponent<IMediaEmbed> = (props) => {
     return <MediaMarkdownComponent {...props} type="file"></MediaMarkdownComponent>;
 };
