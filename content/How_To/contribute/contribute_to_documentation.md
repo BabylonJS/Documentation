@@ -279,6 +279,8 @@ but you can also use the more advanced `<img/>` tag, that has more control over 
 <img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image" />
 ```
 
+Since an HTML tag is not markdown per se, if you want an `<img>` to be its own paragraph, you should wrap it in `<p>` ... `</p>` tags.
+
 ### Sending pull request
 
 A Pull Request (PR) has to be made to integrate your modifications into the documentation.

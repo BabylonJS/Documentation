@@ -31,27 +31,13 @@ export interface IMediaEmbed {
     noControls?: boolean;
 }
 
-export interface IFullImage {
+export interface IImageEmbed {
     src: string;
     alt: string;
-    width: never;
-    height: never;
-    layout: "fill";
-    unsized: true;
     caption?: string;
+    width?: ReactText;
+    height?: ReactText;
 }
-
-export interface ISizedImageEmbed {
-    src: string;
-    alt: string;
-    width: ReactText;
-    height: ReactText;
-    layout: "fixed" | "intrinsic" | "responsive";
-    unsized: true;
-    caption?: string;
-}
-
-export type IImageEmbed = IFullImage | ISizedImageEmbed;
 
 export interface ITableOfContentsItem {
     level: number;

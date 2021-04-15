@@ -75,30 +75,37 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
                 metadata[correctKey] = matterResult.data[key];
             });
 
-            // find the first image in the document (if not already set)
+            // Try to fill in imageUrl from the alternate "image" field.
             if (!metadata.imageUrl) {
-                const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
-                if (imageUrl) {
-                    metadata.imageUrl = imageUrl;
-                } else {
-                    // find a playground
-                    const playgrounds = fileContents.match(/<Playground (.*)\/>/gm) || [];
-                    if (playgrounds[1]) {
-                        // take the playground image
-                        const pg = playgrounds[1];
-                        const imagePosition = pg.indexOf('image="');
-                        if (imagePosition !== -1 && pg.substr(imagePosition + 7).split('"')[0]) {
-                            // find the image url
-                            // pos + 'image="'.length
-                            metadata.imageUrl = pg.substr(imagePosition + 7).split('"')[0];
-                        } else {
-                            const idPos = pg.indexOf('id="');
-                            const imgId = pg.substr(idPos + 4).split('"')[0];
-                            metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.png`;
-                        }
+                metadata.imageUrl = metadata.image || null;
+            }
+
+            // Try to fill in imageUrl from the first image in the document.
+            if (!metadata.imageUrl) {
+                const imageUrl = (fileContents.match(/(\(|src=")(\/img\/[^)"]+)(\)|")/) || [])[2];
+                metadata.imageUrl = imageUrl || null;
+            }
+
+            // Try to fill in imageUrl from the first playground in the document.
+            if (!metadata.imageUrl) {
+                // find a playground
+                const playgrounds = fileContents.match(/<Playground (.*)\/>/gm) || [];
+                if (playgrounds[1]) {
+                    // take the playground image
+                    const pg = playgrounds[1];
+                    const imagePosition = pg.indexOf('image="');
+                    if (imagePosition !== -1 && pg.substr(imagePosition + 7).split('"')[0]) {
+                        // find the image url
+                        // pos + 'image="'.length
+                        metadata.imageUrl = pg.substr(imagePosition + 7).split('"')[0];
+                    } else {
+                        const idPos = pg.indexOf('id="');
+                        const imgId = pg.substr(idPos + 4).split('"')[0];
+                        metadata.imageUrl = `/img/playgroundsAndNMEs/pg${imgId.replace(/#/g, "-")}.png`;
                     }
                 }
             }
+
             return {
                 content: matterResult.content,
                 metadata,
