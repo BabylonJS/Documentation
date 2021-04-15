@@ -147,6 +147,18 @@ Here is an example where LODs reuse instances:
 
 * Instances with a world matrix where determinant is different than root mesh world matrix will be rendered separately (like a regular mesh). This mostly happens when the sign of the scaling vector is different between an instance and the root mesh.
 
+* When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is taken care of internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you update your world matrix buffer manually (using `mesh.manualUpdateOfWorldMatrixInstancedBuffer = true;`). In that case, to also update previous world matrices, you must enable the corresponding flag : 
+```javascript
+mesh.manualUpdateOfPreviousWorldMatrixInstancedBuffer = true;
+```
+
+And similarly to world matrices, update the previous world matrices :
+```javascript
+mesh.previousWorldMatrixInstancedBuffer.set(previousMat, offset);
+```
+Here is an example of manual update of world matrices along with previous world matrices, to use motion blur correctly with instances :
+<Playground id="#HJGC2G#58" title="Instances previous matrices motion blur" description="Updating manually previous world matrices for instances to work with motion blur"/>
+
 ## Demos
 - Trees: <Playground id="#YB006J#75" title="Instancing Trees Example" description="Simple example of instancing with trees."/>
 - 10,000 Icospheres: <Playground id="#c2ynt9#12" title="10,000 Icospheres" description="Simple example of instancing with 10,000 icospheres."/>

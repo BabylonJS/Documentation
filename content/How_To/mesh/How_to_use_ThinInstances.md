@@ -146,3 +146,12 @@ PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" descript
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
 
 * If you want to create a thin instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
+
+* When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is taken care of internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you decide to change the world matrix buffer layout, like changing the number of matrices it contains, or using a different order. In that case, you will have to keep a second buffer, storing previous world matrices, and updating it by writing :
+
+```javascript
+mesh.thinInstanceSetBuffer("previousMatrix", instancedPreviousBuffer, 16);
+```
+
+Here is an example of reordering world matrices inside the buffer in each frame, using a different start offset. Previous world matrices are stored and updated, to use motion blur correctly :
+<Playground id="#HJGC2G#59" title="Thin instances previous matrices motion blur" description="Updating manually previous world matrices for thin instances to work with motion blur"/>
