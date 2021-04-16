@@ -45,6 +45,6 @@ const pointerDown = (mesh) => {
 
 Now we add this into the village world.
 
-<Playground id="#KBS9I5#93" title="Add Interaction" description="Add the interaction to the fountain in the village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.jpg"/>
+<Playground id="#KBS9I5#93" title="Add The Fountain To The Village" description="Add the fountain to the village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.jpg"/>
 
 So far all the actions have been in daylight and now time moves to the night where we will need street lights.
