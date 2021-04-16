@@ -16,7 +16,7 @@ import { MediaMarkdownComponent } from "../components/markdownComponents/media.c
 import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import { VideoCollection } from "../components/videoCollection.component";
-import "./documentationPage.style.scss";
+import styles from "./documentationPage.module.scss";
 
 // testing lib instead of src (documentation states to use the src)
 
@@ -123,13 +123,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
-                <div className="documentation-container">
-                    <div className="markdown-and-playground">
+                <div className={styles["documentation-container"]}>
+                    <div className={styles["markdown-and-playground"]}>
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={markdownRef} className="markdown-container">
+                        <div ref={markdownRef} className={styles["markdown-container"]}>
                             <h1>{metadata.title}</h1>
                             {tocLinks.length > 1 && !!tocLevel && (
-                                <div className="toc-container">
+                                <div className={styles["toc-container"]}>
                                     <TableOfContent tocItems={tocLinks} levels={tocLevel}></TableOfContent>
                                 </div>
                             )}
@@ -154,7 +154,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
-                        <div className="examples-container">
+                        <div className={styles["examples-container"]}>
                             <ExamplesComponent examples={exampleLinks}></ExamplesComponent>
                         </div>
                     )}

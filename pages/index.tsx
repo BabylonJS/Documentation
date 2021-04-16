@@ -6,7 +6,7 @@ import Layout from "../components/layout.component";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 
-import "./documentationPage.style.scss";
+import styles from "./documentationPage.module.scss";
 
 import { markdownComponents } from "../components/markdownComponents/markdownComponents";
 
@@ -91,10 +91,10 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
                 ></script>
             </Head>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
-                <div className="documentation-container">
-                    <div className="markdown-and-playground">
+                <div className={styles['documentation-container']}>
+                    <div className={styles["markdown-and-playground"]}>
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={markdownRef} className="markdown-container">
+                        <div ref={markdownRef} className={styles["markdown-container"]}>
                             <h1>{metadata.title}</h1>
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>
