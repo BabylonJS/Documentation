@@ -79,6 +79,8 @@ var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
 
 Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
 
+Here is the same example but now using “billboardMode = all” the GUI will always face the camera: <Playground id="#ZI9AK7#1214" title="Texture Mode With Camera Facing GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene with camera facing." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
+
 Please note that handling pointer move events could be costly on complex meshes, so you can turn off supporting pointer move events with a fourth parameter:
 
 ```javascript
