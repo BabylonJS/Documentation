@@ -21,7 +21,7 @@ Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cub
 (Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for how to make this work for a skybox.)
 
 ## Making or Finding Skybox Images
-These are some example skybox images:
+This is an example set of skybox images:
 
 <table><tbody><tr>
 <td><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="skybox_px.jpg" alt="some clouds"/></td>
