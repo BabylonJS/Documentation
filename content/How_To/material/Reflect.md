@@ -164,4 +164,6 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 | Diffuse Texture | SPHERICAL_MODE |
 | PLANAR\_MODE | PROJECTION\_MODE |
 
+<Playground id="#20OAV9#4238" title="Coordinate Modes"/>
+
 <Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
