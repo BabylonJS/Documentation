@@ -18,11 +18,11 @@ For beginners to Babylon.js these two sections [Fastest Build](/divingDeeper/sce
 
 The following is a list of the methods of the `scene` object that help in fast building a world, with a link to their API description:
 
--   [createDefaultCameraOrLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcameraorlight);
--   [createDefaultCamera](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultcamera);
--   [createDefaultLight](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultlight);
--   [createDefaultEnvironment](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultenvironment);
--   [createDefaultSkybox](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox);
+-   [createDefaultCameraOrLight](/typedoc/classes/babylon.scene#createdefaultcameraorlight);
+-   [createDefaultCamera](/typedoc/classes/babylon.scene#createdefaultcamera);
+-   [createDefaultLight](/typedoc/classes/babylon.scene#createdefaultlight);
+-   [createDefaultEnvironment](/typedoc/classes/babylon.scene#createdefaultenvironment);
+-   [createDefaultSkybox](/typedoc/classes/babylon.scene#createdefaultskybox);
 
 ## Fastest Build
 
@@ -140,7 +140,7 @@ The simple code
 scene.createDefaultEnvironment();
 ```
 
-adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](//doc.babylonjs.com/api/classes/babylon.environmenthelper) to the scene.
+adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](/typedoc/classes/babylon.environmenthelper) to the scene.
 
 You will also find below a helper for [just a skybox](/divingDeeper/scene/fastBuildWorld#create-default-skybox).
 
@@ -160,7 +160,7 @@ You can also see the skybox and ground by using the options parameter and settin
 
 ### Options Parameters
 
-As you can see in the above playground the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper options properties are available from the [API](//doc.babylonjs.com/api/interfaces/babylon.ienvironmenthelperoptions)
+As you can see in the above playground the `createDefaultEnvironment` method takes an options parameter. The full range of environmental helper options properties are available from the [API](/typedoc/interfaces/babylon.ienvironmenthelperoptions)
 
 So, for example
 
@@ -190,7 +190,7 @@ var helper = scene.createDefaultEnvironment({
 
 ### Applicable Methods
 
-Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](//doc.babylonjs.com/api/classes/babylon.environmenthelper)) are available.
+Since the `createDefaultEnvironment` method returns an `environmentalHelper` object then all the properties and methods of this object (as in the [API](/typedoc/classes/babylon.environmenthelper)) are available.
 
 So, for example if the environment color is not your favorite choice you can modify it after creation
 
@@ -226,7 +226,7 @@ NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/div
 
 ## Create Default Skybox
 
-The `createDefaultSkybox` method can be used when you do not want to create a full environment. The [parameters](//doc.babylonjs.com/api/classes/babylon.scene#createdefaultskybox) used determine how the skybox is created.
+The `createDefaultSkybox` method can be used when you do not want to create a full environment. The [parameters](/typedoc/classes/babylon.scene#createdefaultskybox) used determine how the skybox is created.
 
 for example
 

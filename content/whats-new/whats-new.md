@@ -804,7 +804,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
     -   Added new [ScrollViewer](/divingDeeper/gui/scrollViewer) with mouse wheel scrolling for larger containers to be viewed using Sliders ([JohnK](https://github.com/BabylonJSGuide/) and [Deltakosh](https://github.com/deltakosh))
     -   Moved to a measure/draw mechanism ([Deltakosh](https://github.com/deltakosh))
     -   Added support for [nine patch stretch](https://www.babylonjs-playground.com/#G5H9IN#2) mode for images. ([Deltakosh](https://github.com/deltakosh))
-    -   Added invalidateRect to [AdvancedDynamicTexture](/api/classes/babylon.gui.advanceddynamictexture) to improve perf for heavily populated GUIs, works with shadows ([TrevorDev](https://github.com/TrevorDev))
+    -   Added invalidateRect to [AdvancedDynamicTexture](/typedoc/classes/babylon.gui.advanceddynamictexture) to improve perf for heavily populated GUIs, works with shadows ([TrevorDev](https://github.com/TrevorDev))
 -   Migrated the code to modules and deploy [ES6 npm packages](/divingDeeper/developWithBjs/treeShaking) ([Sebavan](https://github.com/Sebavan))
 -   Added [TrailMesh](/divingDeeper/mesh/trailMesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
 -   Support rendering to a multiview outputRenderTargetTexture with multiview engine component to improve performance for XR scenarios ([TrevorDev](https://github.com/TrevorDev))
@@ -1106,7 +1106,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 -   Documentation
-    -   Entire codebase is now documented. [API documentation](//doc.babylonjs.com/api/)
+    -   Entire codebase is now documented. [API documentation](/typedoc/)
 -   GUI
     -   New GUI 3D controls toolset. [Complete doc + demos](//doc.babylonjs.com/how_to/gui3d) ([Deltakosh](https://github.com/deltakosh))
     -   New GUI control: [Grid](//doc.babylonjs.com/how_to/gui#grid) ([Deltakosh](https://github.com/deltakosh))
@@ -2211,7 +2211,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 #### Major updates
 
--   Support for WebAudio. More info [here](//doc.babylonjs.com/api/classes/babylon.audioengine) ([davrous](https://github.com/davrous))
+-   Support for WebAudio. More info [here](/typedoc/classes/babylon.audioengine) ([davrous](https://github.com/davrous))
 -   Support for Procedural Texture with standard usable samples and custom support. More info [here](//doc.babylonjs.com/how_to/dynamictexture) ([meulta](https://github.com/meulta))
 -   Support for OES_element_index_uint extension in order to support 32 bits indices and then meshes with more than 65536 vertices ([deltakosh](https://github.com/deltakosh))
 -   Support for levels of detail (LOD) for meshes. More info [here](//doc.babylonjs.com/how_to/how_to_use_lod) ([deltakosh](https://github.com/deltakosh))
