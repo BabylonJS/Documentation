@@ -12,6 +12,8 @@ const styles = makeStyles((theme: Theme) =>
         },
         button: {
             transform: "translate(4px, -2px)",
+            padding: 1,
+            marginLeft: 8
         },
     }),
 );
@@ -24,6 +26,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
     const classes = styles();
 
     const [hovered, setHovered] = useState<boolean>(false);
+    const [copyText, setCopyText] = useState<string>('Copy link');
 
     useEffect(() => {
         context.addTOCItem({ ...item, title: item.children as string });
@@ -48,7 +51,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                         {item.children}
                         {hovered && (
                             <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
-                                <Tooltip title={`Copy link`}>
+                                <Tooltip title={copyText}>
                                     <LinkIcon></LinkIcon>
                                 </Tooltip>
                             </IconButton>
@@ -61,7 +64,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                         {item.children}
                         {hovered && (
                             <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
-                                <Tooltip title={`Copy link`}>
+                                <Tooltip title={copyText}>
                                     <LinkIcon></LinkIcon>
                                 </Tooltip>
                             </IconButton>
@@ -85,6 +88,11 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             function () {},
             function (err) {},
         );
+        setCopyText('Link copied');
+
+        setTimeout(() => {
+            setCopyText('Copy link');
+        }, 2000)
     };
 
     return <>{getItem()}</>;
