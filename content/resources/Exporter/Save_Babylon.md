@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Any scene or mesh can be downloaded as a file to you computer. This is achieved with the [scene serializer](//doc.babylonjs.com/api/classes/babylon.sceneserializer)
+Any scene or mesh can be downloaded as a file to you computer. This is achieved with the [scene serializer](/typedoc/classes/babylon.sceneserializer)
 
 ## Scene
 

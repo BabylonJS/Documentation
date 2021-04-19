@@ -11,6 +11,8 @@ import { InlineExampleComponent } from "../../components/contentComponents/inlin
 import { ExamplesComponent } from "../../components/contentComponents/example.component";
 import { IExampleLink } from "../../lib/content.interfaces";
 
+import styles from "../documentationPage.module.scss";
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         searchContainer: {
@@ -178,7 +180,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                             </div>
                         </div>
                         {pgResults.length !== 0 && (
-                            <div className="examples-container">
+                            <div className={styles["examples-container"]}>
                                 TEST
                                 <ExamplesComponent onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
                             </div>

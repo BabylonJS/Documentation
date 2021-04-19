@@ -77,7 +77,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
 
             // find the first image in the document (if not already set)
             if (!metadata.imageUrl) {
-                const imageUrl = (fileContents.match(/\((\/img\/.+)\)/) || [])[1];
+                const imageUrl = (fileContents.match(/\((\/img\/.+?)\)/) || [])[1];
                 if (imageUrl) {
                     metadata.imageUrl = imageUrl;
                 } else {

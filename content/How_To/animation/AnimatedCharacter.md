@@ -67,7 +67,7 @@ The result is exported as a .GLB file and the animation information can be seen 
 
 ### Import the model and play animation
 
-The model can be loaded using the [**ImportMesh**](/api/classes/babylon.sceneloader#importmesh) method of the SceneLoader class and making sure to add the animationGroups parameter as it is used to get and play the animations.
+The model can be loaded using the [**ImportMesh**](/typedoc/classes/babylon.sceneloader#importmesh) method of the SceneLoader class and making sure to add the animationGroups parameter as it is used to get and play the animations.
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("", "https://assets.babylonjs.com/meshes/", "HVGirl.glb", scene, function (newMeshes, particleSystems, skeletons, animationGroups) {
