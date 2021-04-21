@@ -311,7 +311,7 @@ const GDmnDATA = {
     "face":[ //Array of vertex indices in form [index0, index1, index2]
 };
 ```
-So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These are those of the original icosahedron vertices and any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex. For the original icosahedron vertices we add the positions from its IDATA.
+So far when mapping the primary triangle to each icosahedron face some vertex positions are repeated. These the original icosahedron vertices plus any that lie along the edges of the icosahedron. We need to ensure there are no repeats in  GDmnDATA.vertex. For the original icosahedron vertices we add the positions from its IDATA.
 
 We need to know using Fig 2 above and Table 1 for the Geodesic Math page which icosahedron faces are adjacent and which rotations between faces give the shared GD(m, n) facet vertices. We therefore add to the IDATA and GDmnDATA objects.
 
@@ -319,7 +319,7 @@ We need to know using Fig 2 above and Table 1 for the Geodesic Math page which i
 const IDATA = { 
     "name":"icosahedron", 
     "category":["Regular"], 
-    "edgematch": [ [1, B], [2, B], [3, B], [4, B], [0, B], [10, O, 14, A], [11, O, 10, A], [12, O, 11, A], [13, O, 12, A], [14, O, 13, A], [0, O], [1, O], [2, O], [3, O], [4, O], [19, B, 5, A], [15, B, 6, A], [16, B, 7, A], [17, B, 8, A], [18, B, 9, A] ],
+    "edgematch": [ [1, "B"], [2, "B"], [3, "B"], [4, "B"], [0, "B"], [10, "O", 14, "A"], [11, "O", 10, "A"], [12, "O", 11, "A"], [13, "O", 12, "A"], [14, "O", 13, "A"], [0, "O"], [1, "O"], [2, "O"], [3, "O"], [4, "O"], [19, "B", 5, "A"], [15, "B", 6, "A"], [16, "B", 7, "A"], [17, "B", 8, "A"], [18, "B", 9, "A"] ],
     "vertex":[ [0, PHI, -1], [-PHI, 1, 0], [-1, 0, -PHI], [1, 0, -PHI], [PHI, 1, 0], [0, PHI, 1], [-1, 0, PHI], [-PHI, -1, 0], [0, -PHI, -1], [PHI, -1, 0], [1, 0, PHI], [0, -PHI, 1]],
     "face":[
         [ 0, 2, 1 ], [ 0, 3, 2 ], [ 0, 4, 3 ], [ 0, 5, 4 ], [ 0, 1, 5 ],
@@ -337,3 +337,118 @@ const GDmnDATA = {
     "vertex": [ [0, PHI, -1], [-PHI, 1, 0], [-1, 0, -PHI], [1, 0, -PHI], [PHI, 1, 0], [0, PHI, 1], [-1, 0, PHI], [-PHI, -1, 0], [0, -PHI, -1], [PHI, -1, 0], [1, 0, PHI], [0, -PHI, 1] ..........],
     "face":[ //Array of vertex indices in form [index0, index1, index2]
 };
+```
+For the primary triangle OAB we know
+
+O is at the iso grid origin  
+A is at m*i*&#8407; + nj*&#8407;
+B is at -n*i*&#8407; + (m + n)j*&#8407;
+
+Where O<sub>O</sub>A<sub>O</sub>B<sub>O</sub>, O<sub>A</sub>A<sub>A</sub>B<sub>A</sub>, O<sub>B</sub>A<sub>B</sub>B<sub>B</sub> are the triangle formed when rotating OAB about O, A and B respectively then shared positions along shared edges are
+
+O<sub>O</sub> = O, B<sub>O</sub> = A  
+A<sub>A</sub> = A, O<sub>A</sub> = B  
+B<sub>B</sub> = B, O<sub>B</sub> = A
+
+For each face we need to map the iso-vector for each facet point in the primary triangle to a unique index. The following is part of the function that does this. It shows the mapping for the rotation about B only.
+
+```javascript
+Primary.prototype.SetIndices = function() {
+    let indexCount = 12; // 12 verticess already assigned
+    const vecToIdx = {}; //maps iso-vectors to indexCount;
+    const m = this.m;
+    const n = this.n;
+    let g = m; // hcf of m, n when n = 0
+    let m1 = m;
+    let n1 = 0;
+    if (n !== 0) {
+        g = HCF(m, n);
+        m1 = m / g;
+        n1 = n / g;
+    };
+
+    let fr = 0; //face to the right of current face
+    let O = 0;
+    let A = 0;
+    let B = 0;
+    let OR = 0;
+    let AR = 0;
+    let BR = 0;
+    const Ovec = new IsoVector(0, 0);
+    const Avec = new IsoVector(m, n);
+    const Bvec = new IsoVector(-n, m + n);
+    let ORvec = new IsoVector(0, 0);
+    let ARvec = new IsoVector(0, 0);
+    let BRvec = new IsoVector(0, 0);
+    let temp = 0;
+    let tempR = 0;
+    let verts = [];
+    let idx = "";
+    let idxR = "";
+
+
+    /***edges AB to OB***** rotation about B*/
+    for (let f = 0; f < 10; f++) { //f current face
+        let face = f;
+        if (f > 4) {
+            face += 10;
+        }
+        verts = IDATA.face[face];
+        O = verts[2];
+        A = verts[1];
+        B = verts[0];
+        fr = IDATA.edgematch[face][0];
+        verts = IDATA.face[fr];
+        OR = verts[2];
+        AR = verts[1];
+        BR = verts[0];
+        BRvec = Bvec;
+        ORvec.x = Avec.x;
+        ORvec.y = Avec.y;
+        idx = face +"|"+ Avec.x + "|" + Avec.y;
+        vecToIdx[idx] = A;
+        idx = face +"|"+ Bvec.x + "|" + Bvec.y;
+        vecToIdx[idx] = B;
+        idx = fr +"|"+ ORvec.x + "|" + ORvec.y;
+        vecToIdx[idx] = OR;
+        idx = fr +"|"+ BRvec.x + "|" + BRvec.y;
+        vecToIdx[idx] = BR;
+        for (let i = 1; i < g; i++) {
+            temp = n + i * m1;
+            idx = face + "|" + this.max[temp] + "|" + temp;
+            tempR = i * (m1 + n1);
+            idxR = fr + "|" + this.min[tempR] + "|" + tempR;
+            if (!(idx in vecToIdx || idxR in vecToIdx )) {
+                vecToIdx[idx] = indexCount;
+                vecToIdx[idxR] = indexCount;
+                indexCount++
+            }
+            else if (idx in vecToIdx) {
+                vecToIdx[idxR] = vecToIdx[idx];
+            }
+            else {
+                vecToIdx[idx] = vecToIdx[idxR];
+            }
+        }
+    };
+
+    /***edges OB to OA***** rotation about O* goes here/
+
+    /***edges AO to AB***** rotation about A goes here*/
+
+    for (let f = 0; f < 20; f++) {
+        for (let i = 0; i < this.vertices.length; i++) {
+            idx = f + "|" + this.vertices[i].x + "|" + this.vertices[i].y;            if (!(idx in vecToIdx)) {
+                vecToIdx[idx] = indexCount++;
+            }
+        } 
+    };
+    this.vecToIdx = vecToIdx;
+}
+```
+
+The following playground both generates grey spheres for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
+
+PG: <Playground id="#GLLBLZ#17" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
+
+Now having the unique vertices we need to join them up correctly into the facet triangles to form the GDmn mesh.

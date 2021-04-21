@@ -125,13 +125,13 @@ Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, -120<sup>o</sup>
 
 We also need to consider rotations 120<sup>o</sup> and -120<sup>o</sup> about the center of the triangle OAB.
 
-Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sub>1</sub> and after a rotation of -120<sup>o</sup> maps to P<sup>//</sup>
+Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sub>1</sub> and after a rotation of -120<sup>o</sup> maps to P<sup>2</sup>
 
 P<sub>1</sub> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
 = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; - *xi*&#8407; + *xj*&#8407;  
 = (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407; 
 
-P<sup>//</sup> =  -n*i*&#8407; + (m + n)*j*&#8407; - *yk*&#8407; - *xj*&#8407;  
+P<sup>2</sup> =  -n*i*&#8407; + (m + n)*j*&#8407; - *yk*&#8407; - *xj*&#8407;  
 = -n*i*&#8407; + (m + n)*j*&#8407; + *yi*&#8407; - *yj*&#8407; - *xj*&#8407;  
 = (*y* - n)*i*&#8407; + (m + n - *x* - *y*)*j*&#8407;
 
@@ -152,7 +152,7 @@ Depending on the position of the face the vertex alignment differs as can be see
 ![map 1](/img/snippets/geo10.png)  
 Fig 14 Face and Edge Relationships 
 
-Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 14. The 15 possible edges are all covered by the table below.
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 14. The 30 possible edges are all covered by the table below.
 
 |From Face|To Face|About||From Face|To Face|About|
 |----|----|----|----|----|----|----|
@@ -177,6 +177,7 @@ Table 1
 &nbsp  
 &nbsp;  
 
+We can see that a rotation about B aligns edge AB and OB, about O aligns edge OB and OA and about A aligns OA and BA. 
 
 We now consider obtaining the three vertices for the edge overlapping facets in more detail. We start with a rotation about B
 
@@ -193,19 +194,19 @@ Fig 16 Facet Overlap Vertices
 
 In Fig 16 we can see that for some rotated minimum vertices, say type T, (e.g. 3, 2, 1) the previous vertex is on the row below and for some, say type W, (e.g. 4) the previous vertex is on the same row. When a type T vertex shares a row with a type W vertex we type it as T<sub>1</sub> and when on a row by itself a type T<sub>0</sub>
 
-For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>X</sup>(*y*) be the point with maximum x value and M<sup>N</sup>(*y*) the point with minimum x value for row *y*.
+For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(*y*) be the point with maximum x value and M<sup>min</sup>(*y*) the point with minimum x value for row *y*.
 
 Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407;. 
 
-When *P* is of type T, both  T<sub>0</sub> and T<sub>1</sub>, the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
+When *P* is of type T, both  T<sub>0</sub> and T<sub>1</sub>, the upright triangle (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
 
-When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
 
-When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1)
+When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
 
-When *P* is of type W and *P* &ne; M<sup>X</sup>(*y<sub>p</sub>*):  
- &nbsp;&nbsp;&nbsp;the upright triangle (light grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>X</sup>(*y<sub>p</sub>* - 1)
- &nbsp;&nbsp;&nbsp;the down triangle (dark grey) has vertices *P*, M<sup>X</sup>(*y<sub>p</sub>*), M<sup>X</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
+When *P* is of type W and *P* &ne; M<sup>max</sup>(*y<sub>p</sub>*):  
+ &nbsp;&nbsp;&nbsp;the upright triangle (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
+ &nbsp;&nbsp;&nbsp;the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
 
 This range of vertex triples forms all the overlapping facets.
 
@@ -214,12 +215,12 @@ Considering Fig 15 these position vectors are all relative to the origin O of pr
 For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  
 
 For type T<sub>0</sub> it is clear that for some *y*  
-S<sup>-</sup>(*P*, B) = M<sup>N</sup>(*y*) and  
-S<sup>-</sup>(*P* + *i*&#8407; - *j*&#8407;, B) = M<sup>N</sup>(*y* - 1)
+S<sup>-</sup>(*P*, B) = M<sup>min</sup>(*y*) and  
+S<sup>-</sup>(*P* + *i*&#8407; - *j*&#8407;, B) = M<sup>min</sup>(*y* - 1)
 
 For types W and T<sub>1</sub> it is clear that for some *y*  
-S<sup>-</sup>(T, B) = M<sup>N</sup>(*y*) and  
-S<sup>-</sup>(W, B) = M<sup>N</sup>(*y* + 1)
+S<sup>-</sup>(T, B) = M<sup>min</sup>(*y*) and  
+S<sup>-</sup>(W, B) = M<sup>min</sup>(*y* + 1)
 
 Using Fig 4 as an example we can see that B = O + m*j*&#8407; + n*k*&#8407; 
  = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
@@ -232,21 +233,20 @@ S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)
 
 and so *y<sub>p</sub>* = *x* + *y* + *n*
 
-If follows that taking *y* from 1 to m + n and, excluding vertices where S<sup>+</sup>(M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*)) = M<sub>F</sub><sup>N</sup>(*y*), the overlapping facet vertex triples are given by
+If follows that taking *y* from 1 to m + n and, excluding vertices where S<sup>+</sup>(M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*)) = M<sub>F</sub><sup>min</sup>(*y*), the overlapping facet vertex triples are given by
 
 | *P* Type | Triangle | Vertex Triple |
 | ---- | ---- | ---- |
-| T<sub>0</sub>, T<sub>1</sub> | Upright | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* - 1) |
-| W | Upright | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
-| T<sub>0</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
-| T<sub>1</sub> | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>N</sup>(*y* + 1), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) |
-| W | Down | M<sub>F<sub>R</sub></sub><sup>N</sup>(*y*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>X</sup>(*x* + *y* + *n* - 1) - *i*&#8407; |
+| T<sub>0</sub>, T<sub>1</sub> | Upright | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* - 1) |
+| W | Upright | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
+| T<sub>0</sub> | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
+| T<sub>1</sub> | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* + 1), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
+| W | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407; |
 Table 2
 
-*nbsp;  
+&nbsp;  
 
-We also need to consider rotations about O and about A.
-
+  
 A rotation about O is as in Fig 17
 
 ![rotation O](/img/snippets/geo17.png)  
@@ -315,11 +315,19 @@ The green vertices all lie on the iso-grid and so are all points (x, y) with int
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
 
 ![Along edge](/img/snippets/geo29.png)  
-Fig 25 Facet vertices along edges when m and n &ne; 0 have factors in common and when n = 0
+Fig 25 Facet vertices along edges when m and n &ne; 0 have factors in common and n &ne; 0
 
-When m and n &ne; 0 have factors in common then some of the facet vertices will lie along the edges of OAB. When n = 0 all the outer facet vertices will lie along the edges.
+Any facet vertices lying on an edge of a primary triangle will have the same position as that on a matched edge.
 
-Let m and n &ne; 0 have a highest common factor f with m = fm<sub>1</sub> and n = fn<sub>1</sub> then the number of edge points between the primary triangle vertices will be floor((n - 1) / n<sub>1</sub>).
+When n = 0, there is no rotation and there are m - 1 shared positions along each edge between the vertices.
+
+When n &ne; 0, let g be the HCF (highest common factor) of m and n. When n = 1 there are no shared positions along each edge between vertices. When n &gt; 1 let m<sub>1</sub> and n<sub>1</sub> be such that m = gm<sub>1</sub> and n = gn<sub>1</sub> then the number of shared positions between the vertices along one edge is g - 1.
+ 
+Along OA they occur at  m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;, 2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407;, ......, (g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;.
+
+Along AB at R<sup>C+</sup>(m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C+</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C+</sup>((g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;).
+
+Along BO at R<sup>C-</sup>(m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C-</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C-</sup>((g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;).
 
 
 ### Cartesian Coordinates
