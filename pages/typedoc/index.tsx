@@ -6,7 +6,7 @@ import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
 import Head from "next/head";
 
-import "./apiPage.style.scss";
+// import styles from "./apiPage.module.scss";
 
 export const ApiPage: FunctionComponent<{
     id: string[];

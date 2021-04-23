@@ -66,8 +66,8 @@ To easily see your animated element inside the master scene, open your master sc
 
 By default, Blender use the `XYZ Euler` rotation mode, which is fine for most of cases, but you have to know that `Quaternion` (which avoid gimbal lock issue) is also supported.
 
-- `XYZ Euler` will be stored in the [mesh.rotation](//doc.babylonjs.com/api/classes/babylon.mesh#rotation) property
-- `Quaternion` will be stored in the [mesh.rotationQuaternion](//doc.babylonjs.com/api/classes/babylon.mesh#rotationquaternion) property
+- `XYZ Euler` will be stored in the [mesh.rotation](/typedoc/classes/babylon.mesh#rotation) property
+- `Quaternion` will be stored in the [mesh.rotationQuaternion](/typedoc/classes/babylon.mesh#rotationquaternion) property
 
 For armatures, it does not matter because the animation is kind of baked during export.
 
