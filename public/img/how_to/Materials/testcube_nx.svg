@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="10in"
+   height="10in"
+   viewBox="0 0 254 254.00001"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="testcube_nx.svg"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   inkscape:export-filename="/home/egnor/source/BabylonJSDoc/public/img/how_to/Materials/testcube_nx.png"
+   inkscape:export-xdpi="101.89055"
+   inkscape:export-ydpi="101.89055">
+  <defs
+     id="defs2">
+    <rect
+       x="0"
+       y="0"
+       width="254.00001"
+       height="254.00001"
+       id="rect837" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.84991708"
+     inkscape:cx="383.99109"
+     inkscape:cy="480"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     units="in"
+     inkscape:snap-text-baseline="true"
+     inkscape:window-width="1828"
+     inkscape:window-height="1125"
+     inkscape:window-x="1518"
+     inkscape:window-y="287"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid833"
+       units="in"
+       spacingx="2.5400001"
+       spacingy="2.5400001" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       inkscape:label="GridCartesian:X10:Y10"
+       id="g1580"
+       style="stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5;fill:#ffffff">
+      <rect
+         x="0"
+         y="0"
+         width="254"
+         height="254"
+         style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+         inkscape:label="Border"
+         id="rect1578" />
+      <g
+         inkscape:label="MajorXGridlines"
+         id="g1556"
+         style="stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5;fill:#ffffff">
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 50.8,0 V 254"
+           inkscape:label="MajorXDiv2"
+           id="path1540" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 101.6,0 V 254"
+           inkscape:label="MajorXDiv4"
+           id="path1544" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 152.4,0 V 254"
+           inkscape:label="MajorXDiv6"
+           id="path1548" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 203.2,0 V 254"
+           inkscape:label="MajorXDiv8"
+           id="path1552" />
+      </g>
+      <g
+         inkscape:label="MajorYGridlines"
+         id="g1576"
+         style="stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5;fill:#ffffff">
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 0,50.8 H 254"
+           inkscape:label="MajorYDiv2"
+           id="path1560" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 0,101.6 H 254"
+           inkscape:label="MajorYDiv4"
+           id="path1564" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 0,152.4 H 254"
+           inkscape:label="MajorYDiv6"
+           id="path1568" />
+        <path
+           style="fill:#ffffff;stroke:#00ffff;stroke-width:1.27;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.5"
+           d="M 0,203.2 H 254"
+           inkscape:label="MajorYDiv8"
+           id="path1572" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:141.111px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:0.4;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="126.86219"
+       y="178.36638"
+       id="text3264"><tspan
+         sodipodi:role="line"
+         id="tspan3262"
+         x="126.86219"
+         y="178.36638"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:141.111px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#000000;fill-opacity:0.4;stroke:none;stroke-width:0.264583px">LFT</tspan></text>
+    <g
+       id="g3667"
+       style="fill:#00cccc;fill-opacity:0.5">
+      <g
+         id="g3610"
+         style="fill:#00cccc;fill-opacity:0.5">
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="25.399994"
+           y="248.92001"
+           id="text3534"><tspan
+             sodipodi:role="line"
+             id="tspan3532"
+             x="25.399994"
+             y="248.92001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">U</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="76.200005"
+           y="248.92001"
+           id="text3538"><tspan
+             sodipodi:role="line"
+             id="tspan3536"
+             x="76.200005"
+             y="248.92001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">V</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="127.00001"
+           y="248.92001"
+           id="text3542"><tspan
+             sodipodi:role="line"
+             id="tspan3540"
+             x="127.00001"
+             y="248.92001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">W</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="177.8"
+           y="248.92001"
+           id="text3546"><tspan
+             sodipodi:role="line"
+             id="tspan3544"
+             x="177.8"
+             y="248.92001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">X</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="228.60001"
+           y="248.92001"
+           id="text3550"><tspan
+             sodipodi:role="line"
+             id="tspan3548"
+             x="228.60001"
+             y="248.92001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">Y</tspan></text>
+      </g>
+      <g
+         id="g3586"
+         style="fill:#00cccc;fill-opacity:0.5">
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="25.399996"
+           y="198.12001"
+           id="text3514"><tspan
+             sodipodi:role="line"
+             id="tspan3512"
+             x="25.399996"
+             y="198.12001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">P</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="76.200005"
+           y="198.12001"
+           id="text3518"><tspan
+             sodipodi:role="line"
+             id="tspan3516"
+             x="76.200005"
+             y="198.12001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">Q</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="127.00001"
+           y="198.12001"
+           id="text3522"><tspan
+             sodipodi:role="line"
+             id="tspan3520"
+             x="127.00001"
+             y="198.12001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">R</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="177.8"
+           y="198.12001"
+           id="text3526"><tspan
+             sodipodi:role="line"
+             id="tspan3524"
+             x="177.8"
+             y="198.12001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">S</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="228.60001"
+           y="198.12001"
+           id="text3530"><tspan
+             sodipodi:role="line"
+             id="tspan3528"
+             x="228.60001"
+             y="198.12001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">T</tspan></text>
+      </g>
+      <g
+         id="g3598"
+         style="fill:#00cccc;fill-opacity:0.5">
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="25.399998"
+           y="147.32001"
+           id="text3494"><tspan
+             sodipodi:role="line"
+             id="tspan3492"
+             x="25.399998"
+             y="147.32001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">K</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="76.200005"
+           y="147.32001"
+           id="text3498"><tspan
+             sodipodi:role="line"
+             id="tspan3496"
+             x="76.200005"
+             y="147.32001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">L</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="127.00001"
+           y="147.32001"
+           id="text3502"><tspan
+             sodipodi:role="line"
+             id="tspan3500"
+             x="127.00001"
+             y="147.32001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">M</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="177.8"
+           y="147.32001"
+           id="text3506"><tspan
+             sodipodi:role="line"
+             id="tspan3504"
+             x="177.8"
+             y="147.32001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">N</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="228.60001"
+           y="147.32001"
+           id="text3510"><tspan
+             sodipodi:role="line"
+             id="tspan3508"
+             x="228.60001"
+             y="147.32001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">O</tspan></text>
+      </g>
+      <g
+         id="g3574"
+         style="fill:#00cccc;fill-opacity:0.5">
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="25.4"
+           y="96.520004"
+           id="text3454"><tspan
+             sodipodi:role="line"
+             id="tspan3452"
+             x="25.4"
+             y="96.520004"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">F</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="76.200005"
+           y="96.520004"
+           id="text3458"><tspan
+             sodipodi:role="line"
+             id="tspan3456"
+             x="76.200005"
+             y="96.520004"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">G</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="127.00001"
+           y="96.520004"
+           id="text3462"><tspan
+             sodipodi:role="line"
+             id="tspan3460"
+             x="127.00001"
+             y="96.520004"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">H</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="177.8"
+           y="96.520004"
+           id="text3466"><tspan
+             sodipodi:role="line"
+             id="tspan3464"
+             x="177.8"
+             y="96.520004"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">I</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="228.60001"
+           y="96.520004"
+           id="text3470"><tspan
+             sodipodi:role="line"
+             id="tspan3468"
+             x="228.60001"
+             y="96.520004"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">J</tspan></text>
+      </g>
+      <g
+         id="g3562"
+         style="fill:#00cccc;fill-opacity:0.5">
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="25.400002"
+           y="45.720001"
+           id="text3264-2"><tspan
+             sodipodi:role="line"
+             id="tspan3262-8"
+             x="25.400002"
+             y="45.720001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">A</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="76.200005"
+           y="45.720001"
+           id="text3264-2-4"><tspan
+             sodipodi:role="line"
+             id="tspan3262-8-7"
+             x="76.200005"
+             y="45.720001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">B</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="127.00001"
+           y="45.720001"
+           id="text3264-2-4-2"><tspan
+             sodipodi:role="line"
+             id="tspan3262-8-7-4"
+             x="127.00001"
+             y="45.720001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">C</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="177.8"
+           y="45.720001"
+           id="text3446"><tspan
+             sodipodi:role="line"
+             id="tspan3444"
+             x="177.8"
+             y="45.720001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">D</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:56.4444px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cccc;fill-opacity:0.5;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="228.60001"
+           y="45.720001"
+           id="text3450"><tspan
+             sodipodi:role="line"
+             id="tspan3448"
+             x="228.60001"
+             y="45.720001"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56.4444px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#00cccc;fill-opacity:0.5;stroke:none;stroke-width:0.264583px">E</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="128.01974"
+       y="35.560001"
+       id="text3264-0-4"><tspan
+         sodipodi:role="line"
+         id="tspan3262-6-6"
+         x="128.01974"
+         y="35.560001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">TOP of RGT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="127.00001"
+       y="238.76001"
+       id="text3264-0-4-2"><tspan
+         sodipodi:role="line"
+         id="tspan3262-6-6-5"
+         x="127.00001"
+         y="238.76001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BOT of RGT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-127"
+       y="238.76001"
+       id="text3264-0-4-2-8"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan3262-6-6-5-6"
+         x="-127"
+         y="238.76001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">FRT of LFT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="127.00001"
+       y="-15.240001"
+       id="text3370"
+       transform="rotate(90)"><tspan
+         sodipodi:role="line"
+         id="tspan3368"
+         x="127.00001"
+         y="-15.240001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BCK of LFT</tspan></text>
+  </g>
+</svg>

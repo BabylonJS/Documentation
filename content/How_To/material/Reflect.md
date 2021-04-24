@@ -19,7 +19,7 @@ Babylon.js uses _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki
 
 An environment map is a picture of the world as seen from a particular place; this picture is transformed and applied to a mesh to simulate reflection or refraction. The picture may be one image, or a panorama made by several images; it may be static, or dynamically updated to track changes in the scene.
 
-To create a reflective or refractive material, set [StandardMaterial](/typedoc/classes/babylon.standardmaterial)'s [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) to an environment map that more-or-less captures the scene being reflected or refracted; see below for details and examples.
+To create a reflective or refractive material, set [StandardMaterial](/typedoc/classes/babylon.standardmaterial)'s [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) to an environment map that more-or-less captures the scene being reflected or refracted, as described in the sections below.
 
 For even more sophisticated variations on reflection and refraction, look into [Physically Based Rendering](/divingDeeper/materials/using/introToPBR).
 
@@ -61,7 +61,7 @@ To fix that, you can carefully add the scene contents to your cubemap images, or
 ### Local cubemaps
 Environment maps (static or dynamic) are flat images with no depth; by default, they are treated as infinitely far. This works for distant environments (like skyboxes) or small surfaces, but can cause parallax errors in other cases.
 
-As an alterative, CubeTexture (and cube-mode [RenderTargetTexture](#dynamic-environment-maps-using-rendertargettexture) can be configured as an axis-aligned box of specific size. To create a "local cubemap", set the CubeTexture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
+As an alterative, CubeTexture (and cube-mode RenderTargetTexture, [see below](#dynamic-environment-maps-rendertargettexture-and-friends)) can be configured as an axis-aligned box of specific size. To create a "local cubemap", set the CubeTexture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
 
 <p><Playground id="#RNASML#37" title="Local cubemap demo" description="Demonstraction of the effect of local cubemap projection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/></p>
 
@@ -88,7 +88,7 @@ High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range
 <Playground id="#114YPX#5" title="HDR Skybox" description="An HDR equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
 ## Dynamic environment maps (RenderTargetTexture and friends)
-[RenderTargetTexture](/typedoc/classes/babylon.rendertargettexture) instances hold environment map images regularly updated from actual scene rendering, allowing reflections and refractions to track the scene in real time (unlike [CubeTexture and friends](#static-environment-maps-cubetexture-and-friends), which use static images).
+[RenderTargetTexture](/typedoc/classes/babylon.rendertargettexture) instances hold environment map images regularly updated from actual scene rendering, allowing reflections and refractions to track the scene in real time (unlike CubeTexture and friends, [see above](#static-environment-maps-cubetexture-and-friends)).
 
 RenderTargetTexture instances are usually created through classes like ReflectionProbe or MirrorTexture, which manage the periodic re-rendering.
 
