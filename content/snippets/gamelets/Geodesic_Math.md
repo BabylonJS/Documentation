@@ -192,56 +192,61 @@ We can also see that rows contain either one or two rotated minimums.
 ![overlaps](/img/snippets/geo16.png)  
 Fig 16 Facet Overlap Vertices
 
-In Fig 16 we can see that for some rotated minimum vertices, say type T, (e.g. 3, 2, 1) the previous vertex is on the row below and for some, say type W, (e.g. 4) the previous vertex is on the same row. When a type T vertex shares a row with a type W vertex we type it as T<sub>1</sub> and when on a row by itself a type T<sub>0</sub>
+In Fig 16 we can see that there are three types of rotated minimum vertices 0, 1, 2 that produce facets that overlap the edge. Each of these points can be associated with two facet triangle, one that is up (light grey) and one down (dark grey).
 
 For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(*y*) be the point with maximum x value and M<sup>min</sup>(*y*) the point with minimum x value for row *y*.
 
 Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407;. 
 
-When *P* is of type T, both  T<sub>0</sub> and T<sub>1</sub>, the upright triangle (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
+When *P* = M<sup>max</sup>(*y<sub>p</sub>*) the up and down facets lie inside the primary triangle are are thus ignored in creating ovelapping facets.
 
-When *P* is of type T<sub>0</sub> the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
+For an up facet
+When *P* is of type 0 and 1 the facet (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
 
-When *P* is of type T<sub>1</sub> the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
+When *P* is of type 2 the facet (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
 
-When *P* is of type W and *P* &ne; M<sup>max</sup>(*y<sub>p</sub>*):  
- &nbsp;&nbsp;&nbsp;the upright triangle (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
- &nbsp;&nbsp;&nbsp;the down triangle (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
+For a down facet
+When *P* is of type 0 the facet (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type 1 the facet (dark grey) has vertices *P*, *P* - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
+
+When *P* is of type 2 the facet (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
 
 This range of vertex triples forms all the overlapping facets.
 
-Considering Fig 15 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub> when F<sub>R</sub> is rotated 60<sup>o</sup> clockwise. This is because we want all the primary triangles to be based on that in Fig 4
+Considering Fig 15 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub>. Rotating F<sub>R</sub> 60<sup>o</sup> clockwise will return F<sub>R</sub> to the primary triangles position as in Fig 4
 
-For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  
+For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  Since S<sup>-</sup>(S<sup>+</sup>) is the identity S<sup>-</sup>(*P*, B) = *xi*&#8407; + *yj*&#8407;
 
-For type T<sub>0</sub> it is clear that for some *y*  
-S<sup>-</sup>(*P*, B) = M<sup>min</sup>(*y*) and  
-S<sup>-</sup>(*P* + *i*&#8407; - *j*&#8407;, B) = M<sup>min</sup>(*y* - 1)
+For *xi*&#8407; + *yj*&#8407;   
+Type 1 occurs when *P*.*j*&#8407 = S<sup>+</sup>(*xi*&#8407; + (*y* + 1)*j*&#8407;, B).*j*&#8407  
+Type 2 occurs when *P* - *j*&#8407; &ne;  M<sup>max</sup>(*y<sub>p</sub>* - 1) 
+Otherwise *P* is of type 0.
 
-For types W and T<sub>1</sub> it is clear that for some *y*  
-S<sup>-</sup>(T, B) = M<sup>min</sup>(*y*) and  
-S<sup>-</sup>(W, B) = M<sup>min</sup>(*y* + 1)
+*P* = S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, B)    
+= S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
+= (-n + m + n - *y*)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;  
+= (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407;  
 
-Using Fig 4 as an example we can see that B = O + m*j*&#8407; + n*k*&#8407; 
- = m*j*&#8407 + n(*-i*&#8407; + j*&#8407;)    
-= -n*i*&#8407 + (m + n)*j*&#8407
+*P* + *i*&#8407; - *j*&#8407; = (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407; + *i*&#8407; - *j*&#8407;  
+= (m - (*y* - 1))*i*&#8407; + (*x* + (*y* - 1) + n)*j*&#8407;
+= S<sup>+</sup>(*xi*&#8407; + (*y* - 1)j*&#8407;, B);
 
-Taking any point on a row y, *xi*&#8407; + *yj*&#8407; and rotating about B to give *P*
-S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
-= (-n + m + n - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;
-= (m - *y)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407; 
+*P* - *i*&#8407; = (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407; - *i*&#8407;  
+= (m - (*y* + 1))*i*&#8407; + (*x* - 1 + (*y* + 1) + n)*j*&#8407;
+= S<sup>+</sup>((*x* - 1)i*&#8407; + (*y* + 1)j*&#8407;, B);
 
-and so *y<sub>p</sub>* = *x* + *y* + *n*
 
-If follows that taking *y* from 1 to m + n and, excluding vertices where S<sup>+</sup>(M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*)) = M<sub>F</sub><sup>min</sup>(*y*), the overlapping facet vertex triples are given by
+If follows that the overlapping facet vertex triples are given by
 
 | *P* Type | Triangle | Vertex Triple |
 | ---- | ---- | ---- |
-| T<sub>0</sub>, T<sub>1</sub> | Upright | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* - 1) |
-| W | Upright | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407;, M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
-| T<sub>0</sub> | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
-| T<sub>1</sub> | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* + 1), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) |
-| W | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n*), M<sub>F</sub><sup>max</sup>(*x* + *y* + *n* - 1) - *i*&#8407; |
+| 0, 1 | Up | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* - 1)|
+| 2 | Up | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) |
+| 0 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) |
+| 1 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* + 1), M<sup>max</sup>(*y<sub>p</sub>* - 1) |
+| 2 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407; |
+
 Table 2
 
 &nbsp;  
