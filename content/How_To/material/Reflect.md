@@ -159,14 +159,23 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 
 ## Coordinate Modes
 
-<table><tbody><tr>
-<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" caption="testcube_px.png" alt="some clouds"/></td>
-<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" caption="testcube_nx.png" alt="more clouds"/></td>
-<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" caption="testcube_py.png" alt="the sun overhead"/></td>
-<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" caption="testcube_ny.png" alt="solid gray"/></td>
-<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" caption="testcube_pz.png" alt="more clouds"/></td>
-<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" caption="testcube_nz.jpg" alt="more clouds"/></td>
-</tr></tbody></table><p/>
+[default.fragment.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/default.fragment.fx)
+
+[defaultFragmentDeclaration.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/defaultFragmentDeclaration.fx)
+
+[reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/reflectionFunction.fx)
+
+<p><img src="/img/how_to/Materials/letter_grid.png" caption="test pattern"/></p>
 
 <Playground id="#20OAV9#4307" title="Reflection Texture Coordinate modes"/>
+
+<table><tbody><tr>
+<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" caption="testcube_px.png" alt="RGT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" caption="testcube_nx.png" alt="LFT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" caption="testcube_py.png" alt="TOP test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" caption="testcube_ny.png" alt="BOT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" caption="testcube_pz.png" alt="BCK test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" caption="testcube_nz.jpg" alt="FRT test pattern"/></td>
+</tr></tbody></table><p/>
+
 <Playground id="#20OAV9#4308" title="Reflection CubeTexture Coordinate Modes"/>
