@@ -34,7 +34,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.84991708"
-     inkscape:cx="480"
+     inkscape:cx="191.73658"
      inkscape:cy="480"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -44,8 +44,8 @@
      inkscape:snap-text-baseline="true"
      inkscape:window-width="1444"
      inkscape:window-height="1125"
-     inkscape:window-x="2124"
-     inkscape:window-y="176"
+     inkscape:window-x="476"
+     inkscape:window-y="38"
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
     <rdf:RDF>

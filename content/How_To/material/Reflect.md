@@ -157,14 +157,16 @@ Not only can a cube texture can be applied to a sphere so can a plane single ima
 
 The above image was applied to each of four spheres, one as a diffuse texture and the other three with _reflectionTexture_ but different _coordinatesMode_. The resuls are below.
 
-![Reflection on Spheres](/img/how_to/Materials/modes.png)
+## Coordinate Modes
 
-|   |   |
-|-----|-----|
-| Diffuse Texture | SPHERICAL_MODE |
-| PLANAR\_MODE | PROJECTION\_MODE |
+<table><tbody><tr>
+<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" caption="testcube_px.png" alt="some clouds"/></td>
+<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" caption="testcube_nx.png" alt="more clouds"/></td>
+<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" caption="testcube_py.png" alt="the sun overhead"/></td>
+<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" caption="testcube_ny.png" alt="solid gray"/></td>
+<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" caption="testcube_pz.png" alt="more clouds"/></td>
+<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" caption="testcube_nz.jpg" alt="more clouds"/></td>
+</tr></tbody></table><p/>
 
-<Playground id="#20OAV9#4239" title="Coordinate Modes"/>
-<Playground id="#20OAV9#4305" title="CubeTexture Coordinate Modes"/>
-
-<Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
+<Playground id="#20OAV9#4307" title="Reflection Texture Coordinate modes"/>
+<Playground id="#20OAV9#4308" title="Reflection CubeTexture Coordinate Modes"/>
