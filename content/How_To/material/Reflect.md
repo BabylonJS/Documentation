@@ -76,7 +76,7 @@ Equirectangular panoramic images ([see panotools](https://wiki.panotools.org/Equ
 
 [EquiRectangularCubeTexture](/typedoc/classes/babylon.equirectangularcubetexture) instances load an equirectangular panorama image into a CubeTexture-compatible environment map.
 
-<Playground id="#RY8LDL" title="Spheres Reflecting Equirectangular Skybox" description="Spheres reflecting an equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
+<Playground id="#RY8LDL" title="Spheres Reflecting Equirectangular Skybox" description="Reflections of an equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
 
 ### HDRCubeTexture
 High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range_imaging)) images capture brighter and dimmer colors than a typical monitor can display. This can be useful for environment mapping even if the final output uses standard dynamic range.
@@ -137,7 +137,7 @@ RefractionTexture acts as a dynamically rendered single-image environment map fo
 
 Note, RefractionTexture (and Babylon.js refraction in general) simulates fixed-thickness plates of refractive material, and does not support lenses or shapes "bent" by immersion.
 
-<p><Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/></p>
+<p><Playground id="#22KZUW#15" title="Refraction" description="A refractive disc in a simple scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/></p>
 
 As with MirrorTexture, you must set each RefractionTexture's [.renderList](/typedoc/classes/babylon.refractiontexture#renderlist) to an explicit list of meshes to show in the refraction, keeping efficiency in mind.
 
@@ -165,5 +165,6 @@ The above image was applied to each of four spheres, one as a diffuse texture an
 | PLANAR\_MODE | PROJECTION\_MODE |
 
 <Playground id="#20OAV9#4239" title="Coordinate Modes"/>
+<Playground id="#20OAV9#4305" title="CubeTexture Coordinate Modes"/>
 
 <Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>

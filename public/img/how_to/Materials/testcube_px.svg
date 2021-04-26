@@ -34,8 +34,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.84991708"
-     inkscape:cx="389.31933"
-     inkscape:cy="478.39254"
+     inkscape:cx="396.17116"
+     inkscape:cy="461.37471"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -44,8 +44,8 @@
      inkscape:snap-text-baseline="true"
      inkscape:window-width="1828"
      inkscape:window-height="1125"
-     inkscape:window-x="1525"
-     inkscape:window-y="654"
+     inkscape:window-x="1858"
+     inkscape:window-y="356"
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
@@ -477,12 +477,14 @@
        x="-127"
        y="238.76001"
        id="text3264-0-4-2-8"
-       transform="rotate(-90)"><tspan
+       transform="rotate(-90)"
+       inkscape:export-xdpi="101.89055"
+       inkscape:export-ydpi="101.89055"><tspan
          sodipodi:role="line"
          id="tspan3262-6-6-5-6"
          x="-127"
          y="238.76001"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BCK of RGT</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">FRT of RGT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -494,6 +496,6 @@
          id="tspan3368"
          x="127.00001"
          y="-15.240001"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">FRT of RGT</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BCK of RGT</tspan></text>
   </g>
 </svg>

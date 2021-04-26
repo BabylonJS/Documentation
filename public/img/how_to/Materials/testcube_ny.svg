@@ -34,8 +34,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.84991708"
-     inkscape:cx="219.38634"
-     inkscape:cy="480"
+     inkscape:cx="420.51953"
+     inkscape:cy="463.73621"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -44,8 +44,8 @@
      inkscape:snap-text-baseline="true"
      inkscape:window-width="1444"
      inkscape:window-height="1125"
-     inkscape:window-x="1238"
-     inkscape:window-y="724"
+     inkscape:window-x="2022"
+     inkscape:window-y="407"
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
@@ -459,7 +459,7 @@
          id="tspan3262-6-6"
          x="127"
          y="35.560001"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">FRT of BOT</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BCK of BOT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -471,7 +471,7 @@
          id="tspan3262-6-6-5"
          x="-128.01974"
          y="-217.71738"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">BCK of BOT</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px">FRT of BOT</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:28.2222px;line-height:125%;font-family:'Stone Handwriting Pro';-inkscape-font-specification:'Stone Handwriting Pro';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00cc00;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -490,7 +490,9 @@
        x="-129.31511"
        y="36.282627"
        id="text3370"
-       transform="rotate(-90)"><tspan
+       transform="rotate(-90)"
+       inkscape:export-xdpi="102.4"
+       inkscape:export-ydpi="102.4"><tspan
          sodipodi:role="line"
          id="tspan3368"
          x="-129.31511"
