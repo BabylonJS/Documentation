@@ -33,18 +33,18 @@ Despite the "Texture" name, CubeTexture can _only_ be used with the [.reflection
 ### Skybox cubemaps
 [Skybox images](/divingDeeper/environment/skybox) may be used directly as environment maps. (Skyboxes also typically use CubeTexture.) In this case only the skybox will show up in the reflection/refraction, but that may suffice for simple scenes or small surfaces.
 
-This is an example set of skybox images:
+This is the classic cloudy-sky skybox:
 
 <table><tbody><tr>
-<td><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="skybox_px.jpg" alt="some clouds"/></td>
-<td><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" caption="skybox_nx.jpg" alt="more clouds"/></td>
-<td><img src="/img/getstarted/skybox_py.jpg" width="100" height="100" caption="skybox_py.jpg" alt="the sun overhead"/></td>
-<td><img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" caption="skybox_ny.jpg" alt="solid gray"/></td>
-<td><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" caption="skybox_pz.jpg" alt="more clouds"/></td>
-<td><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="skybox_nz.jpg" alt="more clouds"/></td>
+<td><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="+x (right)" alt="Some clouds"/></td>
+<td><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" caption="-x (left)" alt="More clouds"/></td>
+<td><img src="/img/getstarted/skybox_py.jpg" width="100" height="100" caption="-y (up)" alt="The sun overhead"/></td>
+<td><img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" caption="-y (down)" alt="Solid gray"/></td>
+<td><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" caption="+z (back)" alt="More clouds"/></td>
+<td><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="-z (front)" alt="More clouds"/></td>
 </tr></tbody></table><p/>
 
-These examples with only one shape in the scene look perfectly great:
+These examples have one shape reflecting the cloudy sky:
 
 <p><Playground id="#UU7RQ#3" title="Cube Reflecting Skybox" description="A cube reflecting skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
 <Playground id="#UU7RQ#5" title="Ground Reflecting Skybox" description="A ground plane reflecting skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
@@ -59,7 +59,7 @@ This "vampire effect" can be fixed by carefully adding scene contents to cubemap
 ### Local cubemaps
 Environment maps (static or dynamic) are flat images with no depth. By default, they are treated as infinitely far away. This works for distant environments (like skyboxes) or small surfaces, but can cause parallax errors in other cases.
 
-As an alterative, cubemaps can be treated as axis-aligned boxes of specific size and location by setting the cubemap instance's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
+As an alterative, cubemaps can be treated as axis-aligned boxes of specific size and location by setting the cubemap texture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
 
 <p><Playground id="#RNASML#37" title="Local cubemap demo" description="Demonstraction of the effect of local cubemap projection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/></p>
 
@@ -68,7 +68,7 @@ As an alterative, cubemaps can be treated as axis-aligned boxes of specific size
 Of course, an axis-aligned box is still an approximation of true reflected/refracted scene geometry, but it may be a useful approximation. See "[Reflections Based on Local Cubemaps](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity)" (from the ARM Developer's Graphics and Gaming Blog) for a good write-up of the concept as used in Unity (Babylon.js's implementation is similar).
 
 ### EquiRectangularCubeTexture
-Equirectangular panoramic images ([panotools wiki](https://wiki.panotools.org/Equirectangular_Projection)) squish a spherical panorama into one image (unlike the six sides needed for ordinary CubeTexture).
+Equirectangular panoramic images ([panotools wiki](https://wiki.panotools.org/Equirectangular_Projection)) squish a spherical panorama into one image (unlike the six sides needed for ordinary CubeTexture) using equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)).
 
 <p><img caption="An equirectangular panorama image, flattened out" alt="A warped view of a dock with boats" src="https://playground.babylonjs.com/textures/equirectangular.jpg"/></p>
 
@@ -89,11 +89,9 @@ High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range
 
 Wraparound cubemaps work well for environment mapping, but ordinary flat Texture instances can be used for [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) and [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) as well. The texture's .coordinatesMode must be set to define how the flat image should be "wrapped around" as an environment ([see "Coordinate Modes"](#coordinate-modes)).
 
-<p><img src="/img/how_to/Materials/mona_lisa_head.jpg" width="200" height="200" caption="A reference texture image" alt="Mona Lisa's head"/></p>
+<p><img src="/img/how_to/Materials/mona_lisa_head.jpg" width="200" height="200" caption="The Mona Lisa (example flat texture)" alt="Mona Lisa's head"/></p>
 
-This example shows Mona Lisa reflected in a sphere, using PLANAR\_MODE:
-
-<p><Playground id="#UU7RQ#1629" title="Mona Lisa in SPAAAACE" description="A sphere reflecting a flat Mona Lisa texture." image="/img/playgroundsAndNMEs/pg-UU7RQ-1627.png"/></p>
+<p><Playground id="#UU7RQ#1629" title="Mona Lisa in SPAAAACE, reflected using PLANAR_MODE" description="A sphere reflecting a flat Mona Lisa texture." image="/img/playgroundsAndNMEs/pg-UU7RQ-1627.png"/></p>
 
 (Note, cubemaps are normally preferred for environment mapping instead of flat textures.)
 
@@ -103,7 +101,7 @@ This example shows Mona Lisa reflected in a sphere, using PLANAR\_MODE:
 RenderTargetTexture instances are usually created through classes like ReflectionProbe or MirrorTexture, which manage the dynamic update process.
 
 ### ReflectionProbe
-Each [ReflectionProbe](/typedoc/classes/babylon.reflectionprobe) instance provides a cubemap (in [.cubeTexture](/typedoc/classes/babylon.reflectionprobe#cubetexture)) that is dynamically rendered from a specified point in the scene, typically at or near a reflective object that will use the cubemap.
+Each [ReflectionProbe](/typedoc/classes/babylon.reflectionprobe) instance provides a cubemap (in [.cubeTexture](/typedoc/classes/babylon.reflectionprobe#cubetexture)) that is dynamically rendered from a specified point in the scene, typically at or near an object that will use the cubemap.
 
 <p><Playground id="#KA93U#243" title="Reflection Probes" description="Moving shapes reflecting each other and the ground using reflection probes." image="/img/playgroundsAndNMEs/divingDeeperReflectionProbes1.jpg"/></p>
 
@@ -158,27 +156,46 @@ Finally, you must set each RefractionTexture's [.indexOfRefraction](/typedoc/cla
 <Playground id="#1YAIO7#20" title="Changing Refraction Depth" description="A plate with varying refraction depth." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
 </p>
 
-## Coordinate Modes
+## Coordinate modes
 
-By default, cubemaps (static and dynamic) simulate the physical laws of reflection ([wikipedia](https://en.wikipedia.org/wiki/Reflection_(physics)#Laws\_of\_reflection)), which produces realistic shiny materials. However, sometimes other reflection effects are desired. 
+By default, cubemap textures (static and dynamic) simulate the physical Laws of Reflection ([wikipedia](https://en.wikipedia.org/wiki/Reflection_(physics)#Laws\_of\_reflection)), to create realistic shiny surfaces. However, you may set a texture's [.coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to select different reflection behavior, and [flat (non-cubemap) textures](#flat-textures-as-environment-maps) always require you to set .coordinatesMode. (Refraction does not use coordinate modes.)
 
-[default.fragment.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/default.fragment.fx)
+See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/reflectionFunction.fx), called by [default.fragment.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/default.fragment.fx)) for the mathematical definition of each mode.
 
-[defaultFragmentDeclaration.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/defaultFragmentDeclaration.fx)
+| texture.coordinatesMode | Description |
+| --- | --- |
+| CUBIC\_MODE | The default mode for cubemaps. Works best with cubemaps, but will project flat textures onto the X/Y axes of an environment sphere as 4 upside-down copies. |
+| INVCUBIC\_MODE | Like CUBIC\_MODE, but inverts texture Y, so flat texture images are right side up. |
+| PLANAR\_MODE | Like CUBIC\_MODE, but handles flat texture scaling and translation slightly better. (Despite the name, PLANAR\_MODE is not otherwise plane-oriented.) |
+| SKYBOX\_MODE | Rather than reflecting, applies texture images directly to the object surface. Mostly used to make [skyboxes](/divingDeeper/environment/skybox). Works best for cubemaps, but will project flat textures onto the X/Y axes of the object. |
+| EQUIRECTANGULAR<wbr/>\_MODE | Wraps flat textures into an environment map with equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)). Not recommended for cubemaps. |
+| FIXED<wbr/>\_EQUIRECTANGULAR<wbr/>\_MODE | Like SKYBOX\_MODE, but wraps flat textures around the object with equirectangular projection. Does not support [reflection matrix](#the-reflection-matrix) transforms. Not recommended for cubemaps. |
+| FIXED<wbr/>\_EQUIRECTANGULAR<wbr/>\_MIRRORED\_MODE | Like FIXED\_EQUIRECTANGULAR\_MODE, but inverts texture X so images look "correct" on the outside of an object. |
+| PROJECTION\_MODE | Scales flat textures to the _screen size_ and shows them wherever the material is visible, as if projecting from the camera onto the scene. Mostly used for special effects. Not recommended for cubemaps. |
+| SPHERICAL\_MODE | Performs reflection in _screen coordinates_ rather than world coordinates. Not useful in most cases. |
+| EXPLICIT\_MODE | Uses only one point of the texture. Not useful in most cases. |
 
-[reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/reflectionFunction.fx)
+<p/>
 
-<p><img src="/img/how_to/Materials/letter_grid.png" width="200" height="200" caption="test pattern"/></p>
-
-<Playground id="#20OAV9#4307" title="Reflection Texture Coordinate modes"/>
+<p><Playground id="#20OAV9#4308" title="PLANAR, (INV)CUBIC, SKYBOX, and PROJECTION Modes with Test Cubemap" description="Various coordinate modes for cubemap reflection"/></p>
 
 <table><tbody><tr>
-<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" caption="testcube_px.png" alt="RGT test pattern"/></td>
-<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" caption="testcube_nx.png" alt="LFT test pattern"/></td>
-<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" caption="testcube_py.png" alt="TOP test pattern"/></td>
-<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" caption="testcube_ny.png" alt="BOT test pattern"/></td>
-<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" caption="testcube_pz.png" alt="BCK test pattern"/></td>
-<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" caption="testcube_nz.jpg" alt="FRT test pattern"/></td>
-</tr></tbody></table><p/>
+<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" alt="RGT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" alt="LFT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" alt="TOP test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" alt="BOT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" alt="BCK test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" alt="FRT test pattern"/></td>
+</tr></tbody></table>
+<p>Test cubemap images used in the examples</p>
 
-<Playground id="#20OAV9#4308" title="Reflection CubeTexture Coordinate Modes"/>
+<p><Playground id="#20OAV9#4307" title="PLANAR, EQUIRECTANGULAR, PROJECTION, and SPHERICAL Modes with Test Flat Texture" description="Various coordinate modes for flat texture reflection"/></p>
+
+<img src="/img/how_to/Materials/letter_grid.png" width="200" height="200" alt="Letters A-Y in a grid"/>
+<p>Test flat texture used in the examples</p>
+
+### The reflection matrix
+
+In addition to selecting the overall coordinate mode, a texture's reflection matrix ([.getReflectionTextureMatrix()](/typedoc/classes/babylon.texture#getreflectiontexturematrix)) may be adjusted to transform the environment map, either to match scene changes or for special effects.
+
+<p><Playground id="#UU7RQ#1631" title="Sphere Reflecting Rotating Skybox" description="A sphere reflecting spinning skybox images"/></p>
