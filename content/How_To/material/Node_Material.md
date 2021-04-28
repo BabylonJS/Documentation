@@ -1182,7 +1182,7 @@ By default, the node material provides the following blocks:
         -   Output:
             -   output: Color3
 
-    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
+    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
 
         -   Input:
             -   color: Color4
@@ -1448,6 +1448,8 @@ As for the standard `PBRMaterial`, if no texture is provided for the **Reflectio
 By default, if something is connected to the `a` input of the `FragmentOutput` block, alpha blending is enabled. If you don't need alpha blending, don't connect this input.
 
 Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
+
+A note about image processing and manual compositing: Note that the composited `lighting` output of the `PBRMetallicRoughness` block also adds image processing from the scene. If you desire to to add additional components to the standard lighting setup, you will want to do the compositing yourself, using the separated components. The outputs of the separated components are in Linear color space. This is important because if you desire to calculate scene image processing in your manual composite, you'll need the `ImageProcessing` block. This block assumes input values in gamma color space by default and runs an internal conversation to a linear color space output. You will need to turn this conversion off in the `ImageProcessing` block properties to pass linear through without a conversion. 
 
 <Youtube id="CRg8P1Af1M0"/>
 
