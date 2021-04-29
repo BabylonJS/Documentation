@@ -42,14 +42,14 @@ Finally, I would recommend adding a few shortcuts to your environment. Follow th
 
 This will make the main commands quicker to access. Do not hesitate to adapt the bindings to your preferences.
 
-![keybindings](/public/img/how_to/howToStart/keybindings.png)
+![keybindings](/img/how_to/howToStart/keybindings.png)
 
 ## Debugging code
 
 Also, in VSCode there is a `Debug` tab on the menu. To use it with Babylon.js you need to install an extension, find out more from [Debugger for Chrome](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code).
 
 With the test task running from the VSCode debug tab, chose the section you want to debug and launch the debugger.
-![debug](/public/img/how_to/howToStart/debug.png)
+![debug](/img/how_to/howToStart/debug.png)
 
 Debug session will debug all the Typescript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, procceduralTexturesLibrary, postprocessLibrary, etc.
 
