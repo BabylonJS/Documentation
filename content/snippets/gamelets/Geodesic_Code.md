@@ -344,13 +344,7 @@ O is at the iso grid origin
 A is at m*i*&#8407; + nj*&#8407;
 B is at -n*i*&#8407; + (m + n)j*&#8407;
 
-Where O<sub>O</sub>A<sub>O</sub>B<sub>O</sub>, O<sub>A</sub>A<sub>A</sub>B<sub>A</sub>, O<sub>B</sub>A<sub>B</sub>B<sub>B</sub> are the triangle formed when rotating OAB about O, A and B respectively then shared positions along shared edges are
-
-O<sub>O</sub> = O, B<sub>O</sub> = A  
-A<sub>A</sub> = A, O<sub>A</sub> = B  
-B<sub>B</sub> = B, O<sub>B</sub> = A
-
-For each face we need to map the iso-vector for each facet point in the primary triangle to a unique index. The following is part of the function that does this. It shows the mapping for the rotation about B only.
+For each face we need to map the iso-vector for each facet point in the primary triangle to a unique index. The following is the function that does this.
 
 ```javascript
 Primary.prototype.SetIndices = function() {
@@ -368,18 +362,13 @@ Primary.prototype.SetIndices = function() {
     };
 
     let fr = 0; //face to the right of current face
+    let rot = ""; //rotation about which vertes for fr
     let O = 0;
     let A = 0;
     let B = 0;
-    let OR = 0;
-    let AR = 0;
-    let BR = 0;
     const Ovec = new IsoVector(0, 0);
     const Avec = new IsoVector(m, n);
     const Bvec = new IsoVector(-n, m + n);
-    let ORvec = new IsoVector(0, 0);
-    let ARvec = new IsoVector(0, 0);
-    let BRvec = new IsoVector(0, 0);
     let temp = 0;
     let tempR = 0;
     let verts = [];
@@ -388,58 +377,97 @@ Primary.prototype.SetIndices = function() {
 
 
     /***edges AB to OB***** rotation about B*/
-    for (let f = 0; f < 10; f++) { //f current face
-        let face = f;
-        if (f > 4) {
-            face += 10;
-        }
-        verts = IDATA.face[face];
+    for (let f = 0; f < 20; f++) { //f current face
+
+        verts = IDATA.face[f];
         O = verts[2];
         A = verts[1];
         B = verts[0];
-        fr = IDATA.edgematch[face][0];
-        verts = IDATA.face[fr];
-        OR = verts[2];
-        AR = verts[1];
-        BR = verts[0];
-        BRvec = Bvec;
-        ORvec.x = Avec.x;
-        ORvec.y = Avec.y;
-        idx = face +"|"+ Avec.x + "|" + Avec.y;
-        vecToIdx[idx] = A;
-        idx = face +"|"+ Bvec.x + "|" + Bvec.y;
-        vecToIdx[idx] = B;
-        idx = fr +"|"+ ORvec.x + "|" + ORvec.y;
-        vecToIdx[idx] = OR;
-        idx = fr +"|"+ BRvec.x + "|" + BRvec.y;
-        vecToIdx[idx] = BR;
-        for (let i = 1; i < g; i++) {
-            temp = n + i * m1;
-            idx = face + "|" + this.max[temp] + "|" + temp;
-            tempR = i * (m1 + n1);
-            idxR = fr + "|" + this.min[tempR] + "|" + tempR;
-            if (!(idx in vecToIdx || idxR in vecToIdx )) {
-                vecToIdx[idx] = indexCount;
-                vecToIdx[idxR] = indexCount;
-                indexCount++
-            }
-            else if (idx in vecToIdx) {
-                vecToIdx[idxR] = vecToIdx[idx];
-            }
-            else {
-                vecToIdx[idx] = vecToIdx[idxR];
-            }
+
+        idx = f +"|"+ Ovec.x + "|" + Ovec.y;
+        if (!(O in vecToIdx)) {
+            vecToIdx[idx] = O;
         }
-    };
+        idx = f +"|"+ Avec.x + "|" + Avec.y;
+        if (!(A in vecToIdx)) {
+            vecToIdx[idx] = A;
+        }
+        idx = f +"|"+ Bvec.x + "|" + Bvec.y;
+        if (!(B in vecToIdx)) {
+            vecToIdx[idx] = B;
+        }
 
-    /***edges OB to OA***** rotation about O* goes here/
+        fr = IDATA.edgematch[f][0];
+        rot = IDATA.edgematch[f][1];
 
-    /***edges AO to AB***** rotation about A goes here*/
+        if (rot === "B") {
+            for (let i = 1; i < g; i++) {
+                temp = n + i * m1;
+                idx = f + "|" + this.max[temp] + "|" + temp;
+                tempR = i * (m1 + n1);
+                idxR = fr + "|" + this.min[tempR] + "|" + tempR;
+                if (!(idx in vecToIdx || idxR in vecToIdx )) {
+                    vecToIdx[idx] = indexCount;
+                    vecToIdx[idxR] = indexCount;
+                    indexCount++
+                }
+                else if (idx in vecToIdx) {
+                    vecToIdx[idxR] = vecToIdx[idx];
+                }
+                else {
+                    vecToIdx[idx] = vecToIdx[idxR];
+                }
+            }
+        };
 
-    for (let f = 0; f < 20; f++) {
+       if (rot === "O") {
+            for (let i = 1; i < g; i++) {
+                temp = i * (m1 + n1);
+                idx = f + "|" + this.min[temp] + "|" + temp;
+                tempR = i * n1;
+                idxR = fr + "|" + this.max[tempR] + "|" + tempR;
+                if (!(idx in vecToIdx || idxR in vecToIdx )) {
+                    vecToIdx[idx] = indexCount;
+                    vecToIdx[idxR] = indexCount;
+                    indexCount++
+                }
+                else if (idx in vecToIdx) {
+                    vecToIdx[idxR] = vecToIdx[idx];
+                }
+                else {
+                    vecToIdx[idx] = vecToIdx[idxR];
+                }
+            }
+        };
+
+        fr = IDATA.edgematch[f][2];
+        rot = IDATA.edgematch[f][3];
+       
+      if (rot && rot === "A") {
+            for (let i = 1; i < g; i++) {
+                temp = (g - i) * n1;
+                idx = f + "|" + this.max[temp] + "|" + temp;
+                tempR = n + i * m1;
+                idxR = fr + "|" + this.max[tempR] + "|" + tempR;
+                if (!(idx in vecToIdx || idxR in vecToIdx )) {
+                    vecToIdx[idx] = indexCount;
+                    vecToIdx[idxR] = indexCount;
+                    indexCount++
+                }
+                else if (idx in vecToIdx) {
+                    vecToIdx[idxR] = vecToIdx[idx];
+                }
+                else {
+                    vecToIdx[idx] = vecToIdx[idxR];
+                }
+            }
+        };
+
         for (let i = 0; i < this.vertices.length; i++) {
             idx = f + "|" + this.vertices[i].x + "|" + this.vertices[i].y;            if (!(idx in vecToIdx)) {
-                vecToIdx[idx] = indexCount++;
+                if (!(idx in vecToIdx)) {
+                    vecToIdx[idx] = indexCount++;
+                }
             }
         } 
     };
@@ -449,6 +477,6 @@ Primary.prototype.SetIndices = function() {
 
 The following playground both generates grey spheres for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
 
-PG: <Playground id="#GLLBLZ#17" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
+PG: <Playground id="#GLLBLZ#18" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
 
 Now having the unique vertices we need to join them up correctly into the facet triangles to form the GDmn mesh.

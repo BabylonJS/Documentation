@@ -196,7 +196,7 @@ In Fig 16 we can see that there are three types of rotated minimum vertices 0, 1
 
 For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(*y*) be the point with maximum x value and M<sup>min</sup>(*y*) the point with minimum x value for row *y*.
 
-Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407;. 
+Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407; =  M<sup>min</sup>(*y*). 
 
 When *P* = M<sup>max</sup>(*y<sub>p</sub>*) the up and down facets lie inside the primary triangle are are thus ignored in creating ovelapping facets.
 
@@ -219,8 +219,8 @@ Considering Fig 15 these position vectors are all relative to the origin O of pr
 For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  Since S<sup>-</sup>(S<sup>+</sup>) is the identity S<sup>-</sup>(*P*, B) = *xi*&#8407; + *yj*&#8407;
 
 For *xi*&#8407; + *yj*&#8407;   
-Type 1 occurs when *P*.*j*&#8407 = S<sup>+</sup>(*xi*&#8407; + (*y* + 1)*j*&#8407;, B).*j*&#8407  
-Type 2 occurs when *P* - *j*&#8407; &ne;  M<sup>max</sup>(*y<sub>p</sub>* - 1) 
+Type 1 occurs when *P*.*j*&#8407 = S<sup>+</sup>(M<sup>min</sup>(*y* + 1);, B).*j*&#8407  
+Type 2 occurs when *P* - *j*&#8407; &ne;  M<sup>max</sup>(*y<sub>p</sub>* - 1)  
 Otherwise *P* is of type 0.
 
 *P* = S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, B)    
