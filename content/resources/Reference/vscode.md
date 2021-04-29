@@ -27,7 +27,7 @@ Once installed, a few plugins will help you have the best experience. You can se
 Finally, I would recommend adding a few shortcuts to your environment. Follow the [guide](https://code.visualstudio.com/docs/getstarted/keybindings#_custom-keybindings-for-refactorings):
 
 1.  To configure keyboard shortcuts the way you want, go to the menu under File > Preferences > Keyboard Shortcuts. (Code > Preferences > Keyboard Shortcuts on Mac)
-2.  On the left side, add:
+2.  Click ```Open Keyboard Shortcuts (JSON)``` on the right side and add:
 
 ```
 // Place your key bindings in this file to overwrite the defaults
