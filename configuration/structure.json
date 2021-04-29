@@ -154,7 +154,7 @@
                         "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                         "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                        "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" },
+                        "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
                         "howToStart": { 
                             "friendlyName": "Start Contributing to Babylon.js",
                             "children": {
