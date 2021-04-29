@@ -640,8 +640,7 @@
                         "inspector": {
                             "friendlyName": "Inspector",
                             "children": {
-                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
-                                "customizingInspector": { "friendlyName": "Customizing the Inspector", "children": {}, "content": "How_To/PGsupport/Customize_debug_layer" }
+                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" }
                             },
                             "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
