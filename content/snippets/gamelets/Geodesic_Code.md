@@ -679,3 +679,82 @@ PT = CreatePrimary(m, n);
 
 PG: <Playground id="#GLLBLZ#20" title="Icosahedron Test 4" description="GD(m, n) Mesh Mapped to Icosahedron"/>   
 PG: <Playground id="#GLLBLZ#22" title="Icosahedron Test 5" description="GD(m, n) Mesh Mapped to Sphere"/> 
+
+## Forming the Goldberg Polyhedron from the Geodesic Polyhedron.
+
+Since each is the dual of the other we need to form the data for the Goldberg polyhedra from the Geodesic data.
+
+```javascript
+//Puts vertices of a face for GP in correct order for mesh construction
+ const setOrder = (m, faces, data) => {
+     const dualFaces = [];
+     let face = faces.pop();
+     dualFaces.push(face);
+     let index = data.face[face].indexOf(m);
+     index = (index + 2) % 3; //index to vertex included in adjacent face
+     let v = data.face[face][index];
+     let f = 0;
+     let vIndex = 0;
+     while (faces.length > 0) {
+         face = faces[f]
+         if (data.face[face].indexOf(v) > -1) { // v is a vertex of face f
+             index = (data.face[face].indexOf(v) + 1) % 3;
+             v = data.face[face][index];
+             dualFaces.push(face);
+             faces.splice(f, 1);
+             f = 0;
+         }
+         else {
+             f++
+         }
+     }
+     return dualFaces; 
+ }
+
+ //convert geodesic to Goldberg by forming the dual
+ const GDtoGP = function(GDdata) {
+     const GPdata = {};
+     GPdata.name = "GD dual";
+     GPdata.category = ["Goldberg"];
+     GPdata.vertex = [];
+     GPdata.face = [];
+     verticesNb = GDdata.vertex.length;
+     const map = new Array(verticesNb);
+     for (let v = 0; v < verticesNb; v++) {
+         map[v] = new Set();
+     }
+     for (let f = 0; f < GDdata.face.length; f++) {
+         for (let i = 0; i < 3; i++) {
+             map[GDdata.face[f][i]].add(f);
+         }
+     }
+     let cx = 0;
+     let cy = 0;
+     let cz = 0;
+     let face = [];
+     let vertex = [];
+     for(let m = 0; m < map.length; m++) {
+         GPdata.face[m] = setOrder(m, Array.from(map[m]), GDdata);
+         map[m].forEach((el) => {
+             cx = 0;
+             cy = 0;
+             cz = 0;
+             face = GDdata.face[el];
+             for(let i = 0; i < 3; i++) {
+                 vertex = GDdata.vertex[face[i]];
+                 cx += vertex[0];
+                 cy += vertex[1];
+                 cz += vertex[2];
+             }
+             GPdata.vertex[el] = [cx / 3, cy / 3, cz / 3];  
+         });
+     }
+     return GPdata;
+ };
+```
+
+This gives us a final test before creating a more user friendly example.
+
+PG: <Playground id="#GLLBLZ#26" title="Goldberg Test 1" description="Goldberg(m, n) Mesh Mapped to Sphere"/> 
+
+For different m and n change their values on lines 53 and 54, **note** m must be greater than n. 
