@@ -475,8 +475,207 @@ Primary.prototype.SetIndices = function() {
 }
 ```
 
-The following playground both generates grey spheres for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
+The following playground both generates grey spheres, which have repeats, for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
 
 PG: <Playground id="#GLLBLZ#18" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
 
 Now having the unique vertices we need to join them up correctly into the facet triangles to form the GDmn mesh.
+
+The first step is to generate the facet triple vertex indices for all the facets that lie wholly inside the primary triangle. This is relatively straight forward.
+
+```javascript
+Primary.prototype.InnerFacets = function() {
+    const m = this.m;
+    const n = this.n;
+    for (let y = 0; y < n + m + 1; y++) {
+        for (x = this.min[y]; x < this.max[y] + 1; x++) {
+            if (x < this.max[y] && x < this.max[y + 1] + 1) {
+                this.innerFacets.push(["|" + x + "|" + y, "|" + x + "|" + (y + 1), "|" + (x + 1) + "|" + y]);
+            }
+            if ( y > 0 && x < this.max[y - 1] && x + 1 < this.max[y] + 1) {
+                this.innerFacets.push(["|" + x + "|" + y, "|" + (x + 1) + "|" + y, "|" + (x + 1) + "|" + (y - 1)]);
+            }
+        }    
+    }
+}
+
+Primary.prototype.InnerToGDmnData = function(face) {
+    for (i = 0; i < this.innerFacets.length; i++) {
+        GDmnDATA.face.push(this.innerFacets[i].map((el) => this.vecToIdx[face + el]));
+    }
+}
+```
+
+Next we deal with overlapping facets between edges AB and OB where the primary triangle is rotated right about B
+
+```javascript
+Primary.prototype.EdgeVecsABOB = function() {
+    let m = this.m;
+    let n = this.n;
+
+    const B = new IsoVector(-n, m + n)
+
+    for (let y = 1; y < m + n; y++) {
+        const point = new IsoVector(this.min[y], y);
+        const prev = new IsoVector(this.min[y - 1], y - 1);
+        const next = new IsoVector(this.min[y + 1], y + 1);
+        const pointR = point.clone();
+        const prevR = prev.clone();
+        const nextR = next.clone();
+        
+        pointR.rotate60About(B);
+        prevR.rotate60About(B);
+        nextR.rotate60About(B);
+
+        const maxPoint = new IsoVector(this.max[pointR.y], pointR.y);
+        const maxPrev = new IsoVector(this.max[pointR.y - 1], pointR.y - 1);
+        const maxLeftPrev = new IsoVector( this.max[pointR.y - 1] - 1, pointR.y - 1);
+
+        if ((pointR.x !== maxPoint.x) || (pointR.y !== maxPoint.y)) {
+            if (pointR.x !== maxPrev.x) { // type2
+                //up
+                this.vertexTypes.push([1, 0, 0]);
+                this.isoVecsABOB.push([point, maxPrev, maxLeftPrev]);
+                //down
+                this.vertexTypes.push([1, 0, 0]);
+                this.isoVecsABOB.push([point, maxLeftPrev, maxPoint]);
+            }
+            else if (pointR.y === nextR.y) { // type1
+                //up
+                this.vertexTypes.push([1, 1, 0]);
+                this.isoVecsABOB.push([point, prev, maxPrev]);
+                //down
+                this.vertexTypes.push([1, 0, 1]);
+                this.isoVecsABOB.push([point, maxPrev, next]);
+            }
+            else { // type 0
+                //up
+                this.vertexTypes.push([1, 1, 0]);
+                this.isoVecsABOB.push([point, prev, maxPrev])
+                //down
+                this.vertexTypes.push([1, 0, 0]);
+                this.isoVecsABOB.push([point, maxPrev, maxPoint]);
+            }
+        };
+    };
+};
+
+Primary.prototype.ABOBtoGDmnDATA = function (faceNb) {
+    const fr = IDATA.edgematch[faceNb][0];
+    for (let i = 0; i < this.isoVecsABOB.length; i++) {
+        const temp = [];
+        for (let j = 0; j < 3; j++) {
+            if (this.vertexTypes[i][j] === 0) {
+                temp.push(faceNb + "|" + this.isoVecsABOB[i][j].x + "|" + this.isoVecsABOB[i][j].y);
+            }
+            else {
+                temp.push(fr + "|" + this.isoVecsABOB[i][j].x + "|" + this.isoVecsABOB[i][j].y);
+            }
+        }
+        GDmnDATA.face.push([this.vecToIdx[temp[0]], this.vecToIdx[temp[1]], this.vecToIdx[temp[2]]]);
+    }
+};
+```
+
+We store the iso-vector data for the facets to obtain the other overlap facet data using rotation.
+
+Overlapping facets between edges OB and OA where the primary triangle is rotated right about O
+
+```javascript
+Primary.prototype.ABOBtoOBOA = function() {
+    let point = new IsoVector(0, 0);
+    for (let i = 0; i < this.isoVecsABOB.length; i++) {
+        const temp = [];
+        for (let j = 0; j < 3; j++) {
+            point.x = this.isoVecsABOB[i][j].x;
+            point.y = this.isoVecsABOB[i][j].y;
+            if (this.vertexTypes[i][j] === 0) {
+                point.rotateNeg120Sides(this.m, this.n);
+            }
+            temp.push(point.clone());
+        }
+        this.isoVecsOBOA.push(temp);
+    }
+};
+
+Primary.prototype.OBOAtoGDmnDATA = function (faceNb) {
+    const fr = IDATA.edgematch[faceNb][0];
+    for (let i = 0; i < this.isoVecsOBOA.length; i++) {
+        const temp = [];
+        for (let j = 0; j < 3; j++) {
+            if (this.vertexTypes[i][j] === 1) {
+                temp.push(faceNb + "|" + this.isoVecsOBOA[i][j].x + "|" + this.isoVecsOBOA[i][j].y);
+            }
+            else {
+                temp.push(fr + "|" + this.isoVecsOBOA[i][j].x + "|" + this.isoVecsOBOA[i][j].y);
+            }
+        }
+        GDmnDATA.face.push([this.vecToIdx[temp[0]], this.vecToIdx[temp[1]], this.vecToIdx[temp[2]]]);
+    }
+};
+```
+
+Finally Overlapping facets between edges BA and OA where the primary triangle is rotated right about A
+
+```javascript
+Primary.prototype.ABOBtoBAOA = function() {
+    let point = new IsoVector(0, 0);
+    for (let i = 0; i < this.isoVecsABOB.length; i++) {
+        const temp = [];
+        for (let j = 0; j < 3; j++) {
+            point.x = this.isoVecsABOB[i][j].x;
+            point.y = this.isoVecsABOB[i][j].y;
+            if (this.vertexTypes[i][j] === 1) {
+                point.rotate120Sides(this.m, this.n);
+            }
+            temp.push(point.clone());
+        }
+        this.isoVecsBAOA.push(temp);
+    }
+    
+};
+
+Primary.prototype.BAOAtoGDmnDATA = function (faceNb) {
+    const fr = IDATA.edgematch[faceNb][2];
+    for (let i = 0; i < this.isoVecsBAOA.length; i++) {
+        const temp = [];
+        for (let j = 0; j < 3; j++) {
+            if (this.vertexTypes[i][j] === 1) {
+                temp.push(faceNb + "|" + this.isoVecsBAOA[i][j].x + "|" + this.isoVecsBAOA[i][j].y);
+            }
+            else {
+                temp.push(fr + "|" + this.isoVecsBAOA[i][j].x + "|" + this.isoVecsBAOA[i][j].y);
+            }
+        }
+        GDmnDATA.face.push([this.vecToIdx[temp[0]], this.vecToIdx[temp[1]], this.vecToIdx[temp[2]]]);
+    }
+};
+```
+
+These methods are called for each appropriate face
+
+```javascript
+PT = CreatePrimary(m, n);
+   PT.SetIndices();
+   PT.CalcCoeffs();
+   PT.InnerFacets();
+   PT.EdgeVecsABOB();
+   PT.ABOBtoOBOA();
+   PT.ABOBtoBAOA();
+   for (f = 0; f < IDATA.face.length; f++) {
+       PT.MapToFace(f);
+       PT.InnerToGDmnData(f);
+       if(IDATA.edgematch[f][1] === "B") {
+            PT.ABOBtoGDmnDATA(f);
+       };
+       if(IDATA.edgematch[f][1] === "O") {
+            PT.OBOAtoGDmnDATA(f);
+       };
+       if(IDATA.edgematch[f][3] === "A") {
+            PT.BAOAtoGDmnDATA(f);
+       };
+   };
+```
+
+PG: <Playground id="#GLLBLZ#20" title="Icosahedron Test 4" description="GD(m, n) Mesh Mapped to Icosahedron"/>   
+PG: <Playground id="#GLLBLZ#22" title="Icosahedron Test 5" description="GD(m, n) Mesh Mapped to Sphere"/> 
