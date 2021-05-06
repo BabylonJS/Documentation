@@ -1,246 +1,201 @@
 ---
 title: Reflections and Refractions
-image: 
+image: /img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg
 description: Learn all about reflection and refraction in Babylon.js.
 keywords: diving deeper, materials, refraction, reflection
 further-reading:
+    - title: Skyboxes
+      url: /divingDeeper/environment/skybox
+    - title: Reflection Probes
+      url: /divingDeeper/environment/reflectionProbes
+    - title: Introduction to Physically Based Rendering 
+      url: /divingDeeper/materials/using/introToPBR
 video-overview:
 video-content:
 ---
 
-Using reflection textures can simulate mirror like material and refraction textures can simulate looking through glass or water.
+## About environment mapping
+Babylon.js uses _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki/Reflection_mapping)) to simulate reflection (mirror-like materials) and refraction (glass-like materials).
 
-## Reflection
-Reflections are created using the _relectionTexture_ property  of a material. A first use is in creating a sky using a [skybox](/divingDeeper/environment/skybox)
+Environment maps are pictures of the world (as seen from some vantage point) which are transformed and applied to meshes to simulate reflection or refraction. These pictures may be single images or composite panoramas, and may be static snapshots or dynamically updated to track scene changes.
 
-This sets the _relectionTexture_ to a _CubeTexture_ and the _coordinatesMode_ of the _relectionTexture_ to SKYBOX_Mode as in
+Once created (as described below), environment maps may be used in [StandardMaterial](/typedoc/classes/babylon.standardmaterial)'s [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture); environment maps are also used in [Physically Based Rendering](/divingDeeper/materials/using/introToPBR) for sophisticated material surfaces.
 
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
-skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-```
-## CubeTexture
-By default six jpeg images are passed to a _CubeTexture_. The images are named in this form, commonPart\_px.jpg, commonPart\_nx.jpg,
-commonPart\_py.jpg, commonPart\_ny.jpg, commonPart\_pz.jpg, commonPart\_nz.jpg corresponding to the positions shown below.
+## Static environment maps (CubeTexture and friends)
+[CubeTexture](/typedoc/classes/babylon.cubetexture) instances use six images to make a static wraparound environment map (or "cubemap"). [The CubeMap constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load +x, -x, +y, -y, +z, and -z facing sides of the cube.
 
-![CubeTexture Positions](/img/how_to/Materials/cubetexture1.png)
+![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
 
-When doing this for a skybox the box created is given a large size (1000 in the skybox example above) but _CubeTexture_ can be used with any size box and is one
-way of applying different textures to each side of a cube. Notice that as we are dealing with a small box and we are viewing it from the outside _backFaceCulling_ can be set to _true_. This is not
-possible when the camera is inside the large skybox since in terms of rendering the sky at the back will be still behind the fron portion and will
-not be rendered should _backFaceCulling = true_. However we still need to use _reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX\_MODE_.
+([Use the _extensions_ argument](/typedoc/classes/babylon.cubetexture#constructor) to customize these suffixes, e.g. to load .png instead of .jpg images.)
 
-```javascript
-var box = BABYLON.MeshBuilder.CreateBox("Box", {}, scene);
-var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
-boxMaterial.backFaceCulling = true;
-boxMaterial.reflectionTexture = new BABYLON.CubeTexture("https://babylonjsguide.github.io/img/cubeSide", scene);
-boxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-boxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-box.material = boxMaterial;
-```
+Despite the "Texture" name, CubeTexture can _only_ be used with the [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) properties of [StandardMaterial](/typedoc/classes/babylon.standardmaterial), _not_ other properties like [.diffuseTexture](/typedoc/classes/babylon.standardmaterial#diffusetexture).
 
-<Playground id="#UU7RQ#2" title="Different Reflections On Each Face" description="Simple example of different reflections on each face of a mesh." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction1.jpg"/>
+### Skybox cubemaps
+[Skybox images](/divingDeeper/environment/skybox) may be used directly as environment maps. (Skyboxes also typically use CubeTexture.) In this case only the skybox will show up in the reflection/refraction, but that may suffice for simple scenes or small surfaces.
 
-From Babylon.js v2.4 it is also possible to use High Dynamic Range Cube Textures
+This is the classic cloudy-sky skybox:
 
-### Reflecting on Skybox and a shape
-Using different _coordinatesMode_ with different shapes will reflect the skybox in the shape
+<table><tbody><tr>
+<td><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" caption="+x (right)" alt="Some clouds"/></td>
+<td><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" caption="-x (left)" alt="More clouds"/></td>
+<td><img src="/img/getstarted/skybox_py.jpg" width="100" height="100" caption="-y (up)" alt="The sun overhead"/></td>
+<td><img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" caption="-y (down)" alt="Solid gray"/></td>
+<td><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" caption="+z (back)" alt="More clouds"/></td>
+<td><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" caption="-z (front)" alt="More clouds"/></td>
+</tr></tbody></table><p/>
 
-<Playground id="#UU7RQ#3" title="Box and CUBIC_MODE Reflection" description="Simple example of a box and CUBIC_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
-<Playground id="#UU7RQ#5" title="Ground and PLANAR_MODE Reflection" description="Simple example of a ground and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
-<Playground id="#UU7RQ#4" title="Sphere and PLANAR_MODE Reflection" description="Simple example of a sphere and PLANAR_MODE Reflection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/>
+These examples have one shape reflecting the cloudy sky:
 
-### Using local cubemap mode
+<p><Playground id="#UU7RQ#3" title="Cube Reflecting Skybox" description="A cube reflecting skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction2.jpg"/>
+<Playground id="#UU7RQ#5" title="Ground Reflecting Skybox" description="A ground plane reflecting skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction3.jpg"/>
+<Playground id="#UU7RQ#4" title="Sphere Reflecting Skybox" description="A sphere reflecting skybox images." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction4.jpg"/></p>
 
-Starting with Babylon.js v3.2, you can now use local cubemap mode when using cubemaps (with CUBIC_MODE).
-Please read [this article](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity), to get a precise understanding of what local cubemaps are.
+After adding another shape, it becomes clear that only the skybox is reflected:
 
-CubeTexture and RenderTargetTexture (when in cube mode, like when used with [probes](/divingDeeper/environment/reflectionProbes) for instance) can be switched to local mode by setting  property named `boundingBoxSize` (by default cubemaps are in infinite mode):
+<p><Playground id="#UU7RQ#1590" title="Vampire Cube Isn't Reflected" description="A cube reflecting skybox images but not reflecting a nearby red cube."/></p>
 
-```
-material.reflectionTexture = new BABYLON.CubeTexture("/textures/TropicalSunnyDay", scene);
-material.reflectionTexture.boundingBoxSize = new BABYLON.Vector3(100, 100, 100);
-```
+This "vampire effect" can be fixed by carefully adding scene contents to cubemap images, or by using [dynamic maps](#dynamic-environment-maps-rendertargettexture-and-friends).
 
-You can also specify a property named `boundingBoxPosition` if you want to define the center of the bounding box used for the cubemap (The place where the camera was set when generating the cubemap).
+### Local cubemaps
+Environment maps (static or dynamic) are flat images with no depth. By default, they are treated as infinitely far away. This works for distant environments (like skyboxes) or small surfaces, but can cause parallax errors in other cases.
 
-You can find an demo of local cubemaps here: <Playground id="#RNASML#37" title="Local Cubemap Example" description="Simple example of using local cubemaps in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/>
+As an alterative, cubemaps can be treated as axis-aligned boxes of specific size and location by setting the cubemap texture's [.boundingBoxSize](/typedoc/classes/babylon.cubetexture#boundingboxsize) and [.boundingBoxPosition](/typedoc/classes/babylon.cubetexture#boundingboxposition) to the desired box size and position (as [Vector3](/typedoc/classes/babylon.vector3)).
 
-## HDRCubeTexture
-High Dynamic Range (HDR) images are panoramic images that cover an entire field of vision.
+<p><Playground id="#RNASML#37" title="Local cubemap demo" description="Demonstraction of the effect of local cubemap projection." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction5.jpg"/></p>
 
-Below is an HDR image of a room
+(Local cubemaps must use the default CUBIC\_MODE [coordinate mode](#coordinate-modes).)
 
-![Room](/img/how_to/Materials/room.png)
+Of course, an axis-aligned box is still an approximation of true reflected/refracted scene geometry, but it may be a useful approximation. See "[Reflections Based on Local Cubemaps](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity)" (from the ARM Developer's Graphics and Gaming Blog) for a good write-up of the concept as used in Unity (Babylon.js's implementation is similar).
 
-Replace the following line
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
-```
-with
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
-```
+### EquiRectangularCubeTexture
+Equirectangular panoramic images ([panotools wiki](https://wiki.panotools.org/Equirectangular_Projection)) squish a spherical panorama into one image (unlike the six sides needed for ordinary CubeTexture) using equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)).
 
-<Playground id="#114YPX#5" title="HDR Skybox" description="Simple example of an HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
+<p><img caption="An equirectangular panorama image, flattened out" alt="A warped view of a dock with boats" src="https://playground.babylonjs.com/textures/equirectangular.jpg"/></p>
 
-## EquiRectangularCubeTexture
-Equirectangular images are browser-canvas supported images like jpeg, png, and many more. A list of image support on browsers can be found [here](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support).
+[EquiRectangularCubeTexture](/typedoc/classes/babylon.equirectangularcubetexture) instances load an equirectangular panorama image into a CubeTexture-compatible environment map.
 
-Below is an equirectangular image of a shop
+<Playground id="#RY8LDL" title="Spheres Reflecting Equirectangular Skybox" description="Reflections and refractions of an equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
 
-![Shop](/img/resources/textures_thumbs/360photo.jpg)
+### HDRCubeTexture
+High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range_imaging)) images capture brighter and dimmer colors than a typical monitor can display. This can be useful for environment mapping even if the final output uses standard dynamic range.
 
-Replace any of the following lines
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
-skyboxMaterial.reflectionTexture = new BABYLON.HDRCubeTexture("PATH TO HDR IMAGE", scene);
-```
-with
-```javascript
-cubemapDesiredSize = 512; // The cubemap desired size (the more it increases the longer the generation will be)
-skyboxMaterial.reflectionTexture = new BABYLON.EquiRectangularCubeTexture("PATH TO EQUIRECTANGULAR IMAGE", scene, cubemapDesiredSize);
-```
+<p><img caption="A panoramic HDR image, flattened and reduced to SDR" alt="A warped view of a room with lamps" src="/img/how_to/Materials/room.jpg"/></p>
 
-<Playground id="#6YN2X1" title="Equirectangular Skybox" description="Simple example of an equirectangular HDR Skybox in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction7.jpg"/>
-<Playground id="#32H1D4" title="Equirectangular Image On A Sphere" description="Simple example of an equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction8.jpg"/>
-<Playground id="#RY8LDL" title="Both Combined" description="Simple example of an equirectangular skybox and equirectangular image on a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
+[HDRCubeTexture](/typedoc/classes/babylon.hdrcubetexture) instances (Babylon.js v3.2+) loads a Radiance RGBE format ([wikipedia](https://en.wikipedia.org/wiki/RGBE_image_format)) HDR equirectangular panorama image into a CubeTexture-compatible environment map.
 
-## Spherical Reflection Texture
-Not only can a cube texture can be applied to a sphere so can a plane single image.
+<Playground id="#114YPX#5" title="HDR Skybox" description="An HDR equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction6.jpg"/>
 
-![Squares](/img/how_to/Materials/reflectest.png)
+### Flat textures as environment maps
 
-The above image was applied to each of four spheres, one as a diffuse texture and the other three with _reflectionTexture_ but different _coordinatesMode_. The resuls are below.
+Wraparound cubemaps work well for environment mapping, but ordinary flat Texture instances can be used for [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) and [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) as well. The texture's .coordinatesMode must be set to define how the flat image should be "wrapped around" as an environment ([see "Coordinate Modes"](#coordinate-modes)).
 
-![Reflection on Spheres](/img/how_to/Materials/modes.png)
+<p><img src="/img/how_to/Materials/mona_lisa_head.jpg" width="200" height="200" caption="The Mona Lisa (example flat texture)" alt="Mona Lisa's head"/></p>
 
-|   |   |
-|-----|-----|
-| Diffuse Texture | SPHERICAL_MODE |
-| PLANAR\_MODE | PROJECTION\_MODE |
+<p><Playground id="#UU7RQ#1629" title="Mona Lisa in SPAAAACE, reflected using PLANAR_MODE" description="A sphere reflecting a flat Mona Lisa texture." image="/img/playgroundsAndNMEs/pg-UU7RQ-1627.png"/></p>
 
-<Playground id="#20OAV9#26" title="Coordinate Modes Example" description="Simple example of coordinate modes." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction10.jpg"/>
+(Note, cubemaps are normally preferred for environment mapping instead of flat textures.)
 
-## Mirrors
-So far reflections have been of images, using _MirrorTexture_ obects within the scene can be reflected as in a mirror. This is simulated by
-by setting the _reflectionTexture_ to a _MirrorTexture_ and applying it to a flat surface.
+## Dynamic environment maps (RenderTargetTexture and friends)
+[RenderTargetTexture](/typedoc/classes/babylon.rendertargettexture) instances hold environment maps updated during scene rendering, allowing reflections and refractions to track the scene in real time (unlike the [static maps](#static-environment-maps-cubetexture-and-friends) described above).
 
-<Playground id="#1YAIO7#5" title="Mirrors" description="Simple example of using mirrors in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction11.jpg"/>
+RenderTargetTexture instances are usually created through classes like ReflectionProbe or MirrorTexture, which manage the dynamic update process.
 
-A real mirror is made of two parts glass and a reflected surface applied to the glass and a mirror simulated within
-BJS also contains to parts; a flat surface and a reflector. (For a reflective surface such as metal or still water - think metal plus shine and water plus air boundary).
+### ReflectionProbe
+Each [ReflectionProbe](/typedoc/classes/babylon.reflectionprobe) instance provides a cubemap (in [.cubeTexture](/typedoc/classes/babylon.reflectionprobe#cubetexture)) that is dynamically rendered from a specified point in the scene, typically at or near an object that will use the cubemap.
 
-In BJS the flat surface is a ground mesh or a plane mesh and the reflector is a Mathematical Plane which is infinite and
-lies on top of the flat mesh and reflects where the two overlap.
+<p><Playground id="#KA93U#243" title="Reflection Probes" description="Moving shapes reflecting each other and the ground using reflection probes." image="/img/playgroundsAndNMEs/divingDeeperReflectionProbes1.jpg"/></p>
 
-With a real mirror it is easy to tell if you are standing in front of it or behind it. For a BJS mirror an object is
-in front of the mirror if the normals of the flat surface point towards the object.
+You must set each ReflectionProbe's [.renderList](/typedoc/classes/babylon.reflectionprobe#renderlist) to an explicit list of meshes to render. Be mindful of efficiency as each probe renders six times (once for each cube face) for every update. See the [Reflection Probes main page](/divingDeeper/environment/reflectionProbes) for more details.
 
-### Constructing the Mirror Reflector
-The flat surface should be constructed first from a ground or plane mesh. BJS can then construct the reflector using the position and normal of the flat surface. Since the
-reflection is on the opposite side of the mirror to the object being reflected the normal for reflection is in the opposite direction to that
-of the flat surface. For example a mesh of a plane created in BJS has a normal vector (0, 0, -1) at the time of creation and so the reflected normal will be (0, 0, 1).
+### MirrorTexture
+[MirrorTexture](/typedoc/classes/babylon.mirrortexture) (a RenderTargetTexture subclass) acts as a dynamically rendered environment map for flat mirrors.
 
-The next thing to note is that renderings of meshes take place by applying transformations, the worldMatrix, to the original mesh values. It is
-therefore necessary the get this worldMatrix and apply it to the data from the flat surface in order to obtain the current and actual 3D data in world space.
+<p><Playground id="#1YAIO7#5" title="Mirrors" description="Several mirrors surrounding a sphere." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction11.jpg"/></p>
 
-An example of creating a 'glass' flat surface and obtaining the reflector is
+As with reflection probes, you must set each MirrorTexture's [.renderList](/typedoc/classes/babylon.mirrortexture#renderlist) to an explicit list of meshes to show in the mirror, keeping efficiency in mind. You must also set each MirrorTexture's [.mirrorPlane](/typedoc/classes/babylon.mirrortexture#mirrorplane) to the [Plane](/typedoc/classes/babylon.plane) of reflection, with the plane's normal pointing _into_ the mirror (away from the viewer).
+
+You may set Plane coordinates directly, but it can be convenient to build the Plane from mesh geometry:
 
 ```javascript
-var glass = BABYLON.MeshBuilder.CreatePlane("glass", {width: 5, height: 5}, scene);
+// Create, position, and rotate a flat mesh surface.
+const mesh = BABYLON.MeshBuilder.CreatePlane("mirrorMesh", {width: 5, height: 5}, scene);
+mesh.position = new BABYLON.Vector3(0, 0, 4);
+mesh.rotation = new BABYLON.Vector3(Math.PI/4, Math.PI/6, Math.PI/8);
 
-//Position and Rotate flat surface
-glass.position = new BABYLON.Vector3(0, 0, 4);
-glass.rotation = new BABYLON.Vector3(Math.PI/4, Math.PI/6, Math.PI/8);
+// Create the reflective material for the mesh.
+mesh.material = new BABYLON.StandardMaterial("mirrorMaterial", scene);
+mesh.material.reflectionTexture = new BABYLON.MirrorTexture("mirrorTexture", 512, scene, true);
 
-//Ensure working with new values for flat surface by computing and obtaining its worldMatrix
-glass.computeWorldMatrix(true);
-var glass_worldMatrix = glass.getWorldMatrix();
-
-//Obtain normals for plane and assign one of them as the normal
-var glass_vertexData = glass.getVerticesData("normal");
-var glassNormal = new BABYLON.Vector3(glass_vertexData[0], glass_vertexData[1], glass_vertexData[2]);
-//Use worldMatrix to transform normal into its current world value
-glassNormal = BABYLON.Vector3.TransformNormal(glassNormal, glass_worldMatrix)
-
-//Create reflector using the position and reflected normal of the flat surface
-var reflector = new BABYLON.Plane.FromPositionAndNormal(glass.position, glassNormal.scale(-1));
+// Get a normal vector from the mesh and invert it to create the mirror plane.
+mesh.material.reflectionTexture.mirrorPlane = BABYLON.Plane.FromPositionAndNormal(
+    mesh.position, mesh.getFacetNormal(0).scale(-1));
+mesh.material.reflectionTexture.renderList = [... list of meshes ...];
 ```
 
-### Constructing the Mirror
-Once the reflector is obtained a _MirrorTexture_ is made that can be applied to the flat surface.
+<p/>
 
-```javascript
-var mirrorMaterial = new BABYLON.StandardMaterial("MirrorMat", scene);
-mirrorMaterial.reflectionTexture = new BABYLON.MirrorTexture("mirror", 512, scene, true);
-mirrorMaterial.reflectionTexture.mirrorPlane = reflector;
-mirrorMaterial.reflectionTexture.renderList = [sphere1, sphere2];
-```
-A _MirrorTexture_ has four parameters: name, size of the rendering buffer (should be a power of 2, the larger the number the better image quality but performance deteriorates); scene and
-and optional parameter, default value false, that will generate a MIP map when set to true. This increases quality durinng scaling.
+To create a blurred reflection, set MirrorTexture's [.blurKernel](/typedoc/classes/babylon.mirrortexture#blurkernel) to the blur kernel size (higher is blurrier) relative to the render texture size (set when MirrorTexture is created). Use [.adaptiveBlurKernel](/typedoc/classes/babylon.mirrortexture#blurkernel) instead to scale the blur value by the ratio of the render texture size and viewport size.
 
-The _mirrorPlane_ is set to the constructed reflector. It is possible to directly set the _mirrorPlane_ by directly using a BABYLON.Plane(a, b, c, d) where a, b and c give the plane normal vector (a, b, c) and
-d is a scalar displacement from the _mirrorPlane_ to the origin. However in all but the very simplest of situations it is more straight forward to use the method above.
+<p><Playground id="#LVTTQX#1" title="Reflection Blur" description="A shape reflected in a surface with blurring." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/></p>
 
-The _renderList_ is an array of the meshes to be reflected in the mirror.
+### RefractionTexture
+[RefractionTexture](/typedoc/classes/babylon.refractiontexture) (also a RenderTargetTexture subclass) is similar to MirrorTexture, but designed for refraction instead of reflection.
 
-Finally the mirrorMaterial can be applied to the glass.
+RefractionTexture acts as a dynamically rendered single-image environment map for flat _refractors_ (materials like glass or water that bend light). You can use RefractionTexture instances directly in [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture). (Note, RefractionTexture simulates fixed-thickness plates of refractive material, and does not support lenses or shapes "bent" by immersion.)
 
-```javascript
-glass.material = mirrorMaterial;
-```
+<p><Playground id="#22KZUW#15" title="Refraction" description="A refractive disc in a simple scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/></p>
 
-### Blurring the Reflection
-_MirrorTexture_ can support blurred rendering with either:
+As with MirrorTexture, you must set each RefractionTexture's [.renderList](/typedoc/classes/babylon.refractiontexture#renderlist) to an explicit list of meshes to show in the refraction, keeping efficiency in mind.
 
-* adaptiveBlurKernel: setting this value to something other than 0 will blur the texture with a specified kernel (the bigger the blurrier). The value will be adapted to the viewport size.
-* blurKernel: same as adaptiveBlurKernel property but the value is not adapted to viewport size.
+You must also set each RefractionTexture's [.refractionPlane](/typedoc/classes/babylon.refractiontexture#refractionplane) to the [Plane](/typedoc/classes/babylon.plane) of refraction, with the plane's normal pointing _out of_ the refractor (_toward_ the viewer). You may set Plane coordinates directly, but it can be convenient to build the Plane from mesh geometry as described above for MirrorTexture (but without the `.scale(-1)` call).
 
-<Playground id="#LVTTQX#1" title="Reflection Blur" description="Simple example of using reflection blur in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/>
+Finally, you must set each RefractionTexture's [.indexOfRefraction](/typedoc/classes/babylon.refractiontexture#indexofrefraction) and [.depth](/typedoc/classes/babylon.refractiontexture#depth) to the index of refraction ([wikipedia](https://en.wikipedia.org/wiki/Refractive_index)) and thickness of the refractive plate to simulate.
 
-## Refraction
-In this case an object behind glass or under water for example can have its position and size changed by the refraction of light.
+<p>
+<Playground id="#1YAIO7#19" title="Changing Index Of Refraction" description="A plate with varying index of refraction." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction15.jpg"/>
+<Playground id="#1YAIO7#20" title="Changing Refraction Depth" description="A plate with varying refraction depth." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
+</p>
 
-<Playground id="#22KZUW#15" title="Refraction" description="Simple example of using refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction13.jpg"/>
+## Coordinate modes
 
-Refraction is also achieved by taking a flat surface such as a plane or disc and adding, this this case, a refraction material applied to a flat mesh. The difference is that the object
-that is to be refracted is placed behind the flat surface, that is the normals of the mesh all point away from the object and the refracted normals are in the same direction.
+By default, cubemap textures (static and dynamic) simulate the physical Laws of Reflection ([wikipedia](https://en.wikipedia.org/wiki/Reflection_(physics)#Laws\_of\_reflection)), to create realistic shiny surfaces. However, you may set a texture's [.coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to select different reflection behavior, and [flat (non-cubemap) textures](#flat-textures-as-environment-maps) always require you to set .coordinatesMode. (Refraction does not use coordinate modes.)
 
-Note that the local cubemap mode also exists for refraction cube textures and is enabled by setting a value to the `boundingBoxSize` property. You can also use the `boundingBoxPosition` property to set 
-the position of the cube.
+See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/reflectionFunction.fx), called by [default.fragment.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/default.fragment.fx)) for the mathematical definition of each mode.
 
-The method used above to obtain the _reflectionPlane_ could be used if necessary though in this case the normal of the flat surface is not reversed.
+| texture.coordinatesMode | Description |
+| --- | --- |
+| CUBIC\_MODE | The default mode for cubemaps. Works best with cubemaps, but will project flat textures onto the X/Y axes of an environment sphere as 4 upside-down copies. |
+| INVCUBIC\_MODE | Like CUBIC\_MODE, but inverts texture Y, so flat texture images are right side up. |
+| PLANAR\_MODE | Like CUBIC\_MODE, but handles flat texture scaling and translation slightly better. (Despite the name, PLANAR\_MODE is not otherwise plane-oriented.) |
+| SKYBOX\_MODE | Rather than reflecting, applies texture images directly to the object surface. Mostly used to make [skyboxes](/divingDeeper/environment/skybox). Works best for cubemaps, but will project flat textures onto the X/Y axes of the object. |
+| EQUIRECTANGULAR<wbr/>\_MODE | Wraps flat textures into an environment map with equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)). Not recommended for cubemaps. |
+| FIXED<wbr/>\_EQUIRECTANGULAR<wbr/>\_MODE | Like SKYBOX\_MODE, but wraps flat textures around the object with equirectangular projection. Does not support [reflection matrix](#the-reflection-matrix) transforms. Not recommended for cubemaps. |
+| FIXED<wbr/>\_EQUIRECTANGULAR<wbr/>\_MIRRORED\_MODE | Like FIXED\_EQUIRECTANGULAR\_MODE, but inverts texture X so images look "correct" on the outside of an object. |
+| PROJECTION\_MODE | Scales flat textures to the _screen size_ and shows them wherever the material is visible, as if projecting from the camera onto the scene. Mostly used for special effects. Not recommended for cubemaps. |
+| SPHERICAL\_MODE | Performs reflection in _screen coordinates_ rather than world coordinates. Not useful in most cases. |
+| EXPLICIT\_MODE | Uses only one point of the texture. Not useful in most cases. |
 
-```javascript
-var refractor = new BABYLON.Plane.FromPositionAndNormal(glass.position, glassNormal);
-```
+<p/>
 
-The following example, however, uses a vertical plane for the mesh at the origin and so it is straight forward to obtain the normal (0, 0, -1) and displacement, 0, for the refractor plane.
+<p><Playground id="#20OAV9#4308" title="PLANAR, (INV)CUBIC, SKYBOX, and PROJECTION Modes with Test Cubemap" description="Various coordinate modes for cubemap reflection"/></p>
 
-```javascript
-    //Create flat surface
-	var surface = BABYLON.MeshBuilder.CreatePlane("surface", {width: 15, height: 15}, scene);
+<table><tbody><tr>
+<td><img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" alt="RGT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" alt="LFT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" alt="TOP test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" alt="BOT test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" alt="BCK test pattern"/></td>
+<td><img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" alt="FRT test pattern"/></td>
+</tr></tbody></table>
+<p>Test cubemap images used in the examples</p>
 
-	//Create the refraction material
-	var refractionMaterial = new BABYLON.StandardMaterial("refraction", scene);
-	refractionMaterial.diffuseColor = new BABYLON.Color3(1, 1, 1);
-	refractionMaterial.refractionTexture = new BABYLON.RefractionTexture("refraction", 1024, scene, true);
-	refractionMaterial.refractionTexture.refractionPlane = new BABYLON.Plane(0, 0, -1, 0);
-	refractionMaterial.refractionTexture.renderList = [sphere];
-	refractionMaterial.refractionTexture.depth = 5;
-	refractionMaterial.indexOfRefraction = 0.5;
-	surface.material = refractionMaterial;
-```
+<p><Playground id="#20OAV9#4307" title="PLANAR, EQUIRECTANGULAR, PROJECTION, and SPHERICAL Modes with Test Flat Texture" description="Various coordinate modes for flat texture reflection"/></p>
 
-Two new parameters are apparent _depth_ a property of the refractionTexture and _indexOfRefraction_ a property of the refraction material/
+<img src="/img/how_to/Materials/letter_grid.png" width="200" height="200" alt="Letters A-Y in a grid"/>
+<p>Test flat texture used in the examples</p>
 
-The two examples below show the effect of changing these.
+### The reflection matrix
 
-*Note* in both examples the surfaces are transparent so that the actual position of the sphere can be identified. It is the refracted
-sphere that changes psoition as the parameters are changed.
+In addition to selecting the overall coordinate mode, a texture's reflection matrix ([.getReflectionTextureMatrix()](/typedoc/classes/babylon.texture#getreflectiontexturematrix)) may be adjusted to transform the environment map, either to match scene changes or for special effects.
 
-<Playground id="#1YAIO7#20" title="Refraction Depth" description="Simple example of using refraction depth in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction14.jpg"/>
-<Playground id="#1YAIO7#19" title="Index Of Refraction" description="Simple example of changing the index of refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction15.jpg"/>
+<p><Playground id="#UU7RQ#1631" title="Sphere Reflecting Rotating Skybox" description="A sphere reflecting spinning skybox images"/></p>
