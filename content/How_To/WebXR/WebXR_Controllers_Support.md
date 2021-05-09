@@ -237,7 +237,7 @@ component.onAxisValueChangedObservable.add((values) => {
 ```
 
 Here is a simple example of controllers input.  
-With using Oculus Quest2 controllers, component ids and controller buttons are mapped as follows.  
+By using Oculus Quest2 controllers, component ids and controller buttons are mapped as follows.  
 
 On Oculus Quest2 controllers:  
 
@@ -247,7 +247,7 @@ On the Playground sample:
 
 ![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.jpg)  
 
-The simple example changes scaling of each 3DCG objects when each buttons are pressed.  
+The simple example, changes the scaling of each 3DCG object when each button is pressed.  
 
 ```javascript
 const xr_ids = motionController.getComponentIds();
