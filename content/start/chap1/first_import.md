@@ -50,7 +50,7 @@ This playground imports all the models and their positions are changed.
 
 ## Moving On
 
-Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
+Having a working scene in the playground is one thing but you will want your game or app to work on your own website. So we will give you an HTML template to do just this.
 
 ## Warning
 
