@@ -108,10 +108,10 @@ As the storage buffers we use to compute the particle positions and velocities w
 
 ### Hydraulic erosion
 
-<Playground id="#NMKI2L#49" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
+<Playground id="#C90R62" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
 
 This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLague/Hydraulic-Erosion): all credits to sebastlague@gmail.com!
 
 The generation of the terrain and the simulation of the erosion is done by using two different compute shaders.
 
-Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too much **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion process are handled on the CPU side!
+Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too much **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion processes are handled on the CPU side!
