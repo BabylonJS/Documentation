@@ -179,7 +179,7 @@ You can also decide to instantiate your own configuration and affect it to your 
 
 *Troubleshoot*
 If you use post-processes with built-in image processing features, you might run into brighter color issues.  
-Read [this](/advanced_topics/introToShaders/image_processing#tonemapping) if you want to know how to fix it.
+Read [this](/advanced_topics/shaders/image_processing#tonemapping) if you want to know how to fix it.
 
 #### Default rendering pipeline
 

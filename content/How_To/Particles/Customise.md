@@ -16,9 +16,9 @@ As you will have seen there are many properties of the particle system that can 
 
 There are three methods you can customize:
 
--   startDirectionFunction: specifies the direction for each new particle;
--   startPositionFunction: specifies the start position for each new particle;
--   updateFunction: provides an update to each particle each frame and can effect position, color, age, size etc. Try to keep it simple and fast.
+- startDirectionFunction: specifies the direction for each new particle;
+- startPositionFunction: specifies the start position for each new particle;
+- updateFunction: provides an update to each particle each frame and can effect position, color, age, size etc. Try to keep it simple and fast.
 
 You can directly attach all these functions to the particleSystem.
 
@@ -42,11 +42,11 @@ The start position function has the default form
 
 ```javascript
 particleSystem.startPositionFunction = (worldMatrix: Matrix, positionToUpdate: Vector3, particle: Particle, isLocal: boolean): void => {
-    var randX = randomNumber(this.minEmitBox.x, this.maxEmitBox.x);
-    var randY = randomNumber(this.minEmitBox.y, this.maxEmitBox.y);
-    var randZ = randomNumber(this.minEmitBox.z, this.maxEmitBox.z);
+  var randX = randomNumber(this.minEmitBox.x, this.maxEmitBox.x);
+  var randY = randomNumber(this.minEmitBox.y, this.maxEmitBox.y);
+  var randZ = randomNumber(this.minEmitBox.z, this.maxEmitBox.z);
 
-    Vector3.TransformCoordinatesFromFloatsToRef(randX, randY, randZ, worldMatrix, positionToUpdate);
+  Vector3.TransformCoordinatesFromFloatsToRef(randX, randY, randZ, worldMatrix, positionToUpdate);
 };
 ```
 
@@ -54,31 +54,31 @@ The update function has the default form
 
 ```javascript
 updateFunction = function (particles) {
-    for (var index = 0; index < particles.length; index++) {
-        var particle = particles[index];
-        particle.age += this._scaledUpdateSpeed;
+  for (var index = 0; index < particles.length; index++) {
+    var particle = particles[index];
+    particle.age += this._scaledUpdateSpeed;
 
-        if (particle.age >= particle.lifeTime) {
-            // Recycle
-            particles.splice(index, 1);
-            this._stockParticles.push(particle);
-            index--;
-            continue;
-        } else {
-            particle.colorStep.scaleToRef(this._scaledUpdateSpeed, this._scaledColorStep);
-            particle.color.addInPlace(this._scaledColorStep);
+    if (particle.age >= particle.lifeTime) {
+      // Recycle
+      particles.splice(index, 1);
+      this._stockParticles.push(particle);
+      index--;
+      continue;
+    } else {
+      particle.colorStep.scaleToRef(this._scaledUpdateSpeed, this._scaledColorStep);
+      particle.color.addInPlace(this._scaledColorStep);
 
-            if (particle.color.a < 0) particle.color.a = 0;
+      if (particle.color.a < 0) particle.color.a = 0;
 
-            particle.angle += particle.angularSpeed * this._scaledUpdateSpeed;
+      particle.angle += particle.angularSpeed * this._scaledUpdateSpeed;
 
-            particle.direction.scaleToRef(this._scaledUpdateSpeed, this._scaledDirection);
-            particle.position.addInPlace(this._scaledDirection);
+      particle.direction.scaleToRef(this._scaledUpdateSpeed, this._scaledDirection);
+      particle.position.addInPlace(this._scaledDirection);
 
-            this.gravity.scaleToRef(this._scaledUpdateSpeed, this._scaledGravity);
-            particle.direction.addInPlace(this._scaledGravity);
-        }
+      this.gravity.scaleToRef(this._scaledUpdateSpeed, this._scaledGravity);
+      particle.direction.addInPlace(this._scaledGravity);
     }
+  }
 };
 ```
 
@@ -111,7 +111,7 @@ And the in the `else` section, to get the particle to final size by 35% of life 
 
 ```javascript
 if (particle.age < particle.lifeTime * 0.35) {
-    particle.size = (particleSystem.finalSize * particle.age) / (particle.lifeTime * 0.35);
+  particle.size = (particleSystem.finalSize * particle.age) / (particle.lifeTime * 0.35);
 }
 ```
 
@@ -141,15 +141,15 @@ The `createSprayEmitter` method sets the radius and height of the cylinder, crea
 
 ```javascript
 BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) {
-    if (radius === void 0) {
-        radius = 0.5;
-    }
-    if (height === void 0) {
-        height = 1;
-    }
-    var particleEmitter = new BABYLON.SprayParticleEmitter(radius, height);
-    this.particleEmitterType = particleEmitter;
-    return particleEmitter;
+  if (radius === void 0) {
+    radius = 0.5;
+  }
+  if (height === void 0) {
+    height = 1;
+  }
+  var particleEmitter = new BABYLON.SprayParticleEmitter(radius, height);
+  this.particleEmitterType = particleEmitter;
+  return particleEmitter;
 };
 ```
 
@@ -157,49 +157,49 @@ The `SprayParticleEmitter` class is formed with two methods `startDirectionFunct
 
 ```javascript
 var SprayParticleEmitter = (function () {
-    function SprayParticleEmitter(radius, height, directionRandomizer) {
-        if (radius === void 0) {
-            radius = 0.5;
-        }
-        if (height === void 0) {
-            height = 1;
-        }
-        if (directionRandomizer === void 0) {
-            directionRandomizer = 0;
-        }
-        this.height = height;
-        this.directionRandomizer = directionRandomizer;
-        this.radius = radius;
+  function SprayParticleEmitter(radius, height, directionRandomizer) {
+    if (radius === void 0) {
+      radius = 0.5;
     }
+    if (height === void 0) {
+      height = 1;
+    }
+    if (directionRandomizer === void 0) {
+      directionRandomizer = 0;
+    }
+    this.height = height;
+    this.directionRandomizer = directionRandomizer;
+    this.radius = radius;
+  }
 
-    SprayParticleEmitter.prototype.startDirectionFunction = function (worldMatrix, directionToUpdate, particle) {
-        var direction = particle.position.subtract(worldMatrix.getTranslation()).normalize();
-        var randX = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
-        var randY = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
-        var randZ = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
-        if (direction.x * direction.x + direction.z * direction.z > 0.1 * this.radius && Math.abs(direction.y) > (0.1 * this.height) / 2) {
-            direction.x += randX;
-            direction.y = randY;
-            direction.z += randZ;
-        } else {
-            direction.x += randX;
-            direction.y += randY;
-            direction.z += randZ;
-        }
-        direction.normalize();
-        BABYLON.Vector3.TransformNormalFromFloatsToRef(direction.x, direction.y, direction.z, worldMatrix, directionToUpdate);
-    };
+  SprayParticleEmitter.prototype.startDirectionFunction = function (worldMatrix, directionToUpdate, particle) {
+    var direction = particle.position.subtract(worldMatrix.getTranslation()).normalize();
+    var randX = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
+    var randY = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
+    var randZ = BABYLON.Scalar.RandomRange(0, this.directionRandomizer);
+    if (direction.x * direction.x + direction.z * direction.z > 0.1 * this.radius && Math.abs(direction.y) > (0.1 * this.height) / 2) {
+      direction.x += randX;
+      direction.y = randY;
+      direction.z += randZ;
+    } else {
+      direction.x += randX;
+      direction.y += randY;
+      direction.z += randZ;
+    }
+    direction.normalize();
+    BABYLON.Vector3.TransformNormalFromFloatsToRef(direction.x, direction.y, direction.z, worldMatrix, directionToUpdate);
+  };
 
-    SprayParticleEmitter.prototype.startPositionFunction = function (worldMatrix, positionToUpdate, particle) {
-        var s = BABYLON.Scalar.RandomRange(0, Math.PI * 2);
-        var h = BABYLON.Scalar.RandomRange(-0.5, 0.5);
-        var radius = BABYLON.Scalar.RandomRange(0, this.radius);
-        var randX = radius * Math.sin(s);
-        var randZ = radius * Math.cos(s);
-        var randY = h * this.height;
-        BABYLON.Vector3.TransformCoordinatesFromFloatsToRef(randX, randY, randZ, worldMatrix, positionToUpdate);
-    };
-    return SprayParticleEmitter;
+  SprayParticleEmitter.prototype.startPositionFunction = function (worldMatrix, positionToUpdate, particle) {
+    var s = BABYLON.Scalar.RandomRange(0, Math.PI * 2);
+    var h = BABYLON.Scalar.RandomRange(-0.5, 0.5);
+    var radius = BABYLON.Scalar.RandomRange(0, this.radius);
+    var randX = radius * Math.sin(s);
+    var randZ = radius * Math.cos(s);
+    var randY = h * this.height;
+    BABYLON.Vector3.TransformCoordinatesFromFloatsToRef(randX, randY, randZ, worldMatrix, positionToUpdate);
+  };
+  return SprayParticleEmitter;
 })();
 BABYLON.SprayParticleEmitter = SprayParticleEmitter;
 ```
@@ -223,9 +223,9 @@ This method takes three parameters
 var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers);
 ```
 
--   fragment: string, the name of the fragment shader which can be in the [shaders store](/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/advanced_topics/introToShaders/shaderCodeInBjs#shader-code-in-script-tags);
--   uniforms: [strings], array of uniforms used in the shader;
--   samplers: [strings], array of names of samplers for additional textures!
+- fragment: string, the name of the fragment shader which can be in the [shaders store](/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/advanced_topics/shaders/shaderCodeInBjs#shader-code-in-script-tags);
+- uniforms: [strings], array of uniforms used in the shader;
+- samplers: [strings], array of names of samplers for additional textures!
 
 ### Fragment Shader Assignment
 
@@ -256,13 +256,13 @@ var time = 0;
 var order = 0.1;
 
 customEffect.onBind = function () {
-    customEffect.setFloat("time", time);
+  customEffect.setFloat("time", time);
 
-    time += order;
+  time += order;
 
-    if (time > 100 || time < 0) {
-        order *= -1;
-    }
+  if (time > 100 || time < 0) {
+    order *= -1;
+  }
 };
 ```
 
