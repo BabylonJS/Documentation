@@ -134,23 +134,39 @@ function CreatePrimary(m, n) {
     vertices.push(O, A, B);
 
     //max internal isoceles triangle vertices
-    for (let y = n; y < m + 1; y++) {
-        //console.log("Y", y);
+    for (let y = n; y < m + 1 ; y++) {
         for (let x = 0; x < m + 1 - y; x++ ) {
             vertices.push(new IsoVector(x, y));
         }
     }
 
-    //lower rows vertices and their rotations
-    const ratio = m / n;
-    for (let y = 0; y < n; y++) {
-        for (let x = 0; x <= y * ratio; x++) {
-            vertices.push(new IsoVector(x, y));
-            vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
-            vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
+    //shared vertices along edges when needed
+    if (n > 0) {
+        let g = m; // hcf of m, n when n != 0
+        let m1 = 1;
+        let n1 = 0;
+        if (n !== 0) {
+            g = HCF(m, n);
+        };
+        m1 = m / g;
+        n1 = n / g; 
+
+        for (let i = 1; i < g; i++) {
+            vertices.push(new IsoVector(i * m1, i * n1)); //OA
+            vertices.push(new IsoVector(-i * n1, i * (m1 + n1)));  //OB
+            vertices.push(new IsoVector(m - i * (m1 + n1), n + i * m1)); // AB
+        }; 
+
+        //lower rows vertices and their rotations
+        const ratio = m / n;
+        for (let y = 1; y < n; y++) {
+            for (let x = 0; x < y * ratio; x++) {
+                vertices.push(new IsoVector(x, y));
+                vertices.push(new IsoVector(x, y).rotate120Sides(m , n));
+                vertices.push(new IsoVector(x, y).rotateNeg120Sides(m , n));
+            }
         }
     }
-
     //order vertices by y and x
     vertices.sort((a, b) => {
         return a.x - b.x
@@ -168,22 +184,19 @@ function CreatePrimary(m, n) {
     let y = 0;
     let x = 0;
 
-    let len = vertices.length;
-    
+    let len = vertices.length;   
     for (i = 0; i < len; i++) {
         x = vertices[i].x;
         y = vertices[i].y
         min[y] = Math.min(x, min[y]);
         max[y] = Math.max(x, max[y]);
     };
-
     const cartesian = [];
     for (let i = 0; i < vertices.length; i++) {
         cartesian[i] = vertices[i].toCartesianOrigin(new IsoVector(0, 0))
     };
 
     const P = new Primary(m, n);
-
     P.vertices = vertices;
     P.cartesian = cartesian;
     P.min = min;
@@ -348,27 +361,33 @@ For each face we need to map the iso-vector for each facet point in the primary 
 
 ```javascript
 Primary.prototype.SetIndices = function() {
-    let indexCount = 12; // 12 verticess already assigned
+    let indexCount = 12; // 12 vertices already assigned
     const vecToIdx = {}; //maps iso-vectors to indexCount;
     const m = this.m;
     const n = this.n;
-    let g = m; // hcf of m, n when n = 0
-    let m1 = m;
+    let g = m; // hcf of m, n when n != 0
+    let m1 = 1;
     let n1 = 0;
     if (n !== 0) {
         g = HCF(m, n);
-        m1 = m / g;
-        n1 = n / g;
     };
+    m1 = m / g;
+    n1 = n / g;
 
     let fr = 0; //face to the right of current face
     let rot = ""; //rotation about which vertes for fr
     let O = 0;
     let A = 0;
     let B = 0;
+    let OR = 0;
+    let AR = 0;
+    let BR = 0;
     const Ovec = new IsoVector(0, 0);
     const Avec = new IsoVector(m, n);
     const Bvec = new IsoVector(-n, m + n);
+    let OAvec = new IsoVector(0, 0);
+    let ABvec = new IsoVector(0, 0);
+    let OBvec = new IsoVector(0, 0);
     let temp = 0;
     let tempR = 0;
     let verts = [];
@@ -385,99 +404,87 @@ Primary.prototype.SetIndices = function() {
         B = verts[0];
 
         idx = f +"|"+ Ovec.x + "|" + Ovec.y;
-        if (!(O in vecToIdx)) {
+        if (!(idx in vecToIdx)) {
             vecToIdx[idx] = O;
         }
+        
         idx = f +"|"+ Avec.x + "|" + Avec.y;
-        if (!(A in vecToIdx)) {
+        if (!(idx in vecToIdx)) {
             vecToIdx[idx] = A;
         }
         idx = f +"|"+ Bvec.x + "|" + Bvec.y;
-        if (!(B in vecToIdx)) {
+        if (!(idx in vecToIdx)) {
             vecToIdx[idx] = B;
         }
-
         fr = IDATA.edgematch[f][0];
         rot = IDATA.edgematch[f][1];
-
         if (rot === "B") {
-            for (let i = 1; i < g; i++) {
-                temp = n + i * m1;
-                idx = f + "|" + this.max[temp] + "|" + temp;
-                tempR = i * (m1 + n1);
-                idxR = fr + "|" + this.min[tempR] + "|" + tempR;
-                if (!(idx in vecToIdx || idxR in vecToIdx )) {
-                    vecToIdx[idx] = indexCount;
-                    vecToIdx[idxR] = indexCount;
-                    indexCount++
+                for (let i = 1; i < g; i++) {
+                    ABvec.x = m - i * (m1 + n1);
+                    ABvec.y = n + i * m1;
+                    OBvec.x = -i * n1;
+                    OBvec.y = i * (m1 + n1);
+                    idx = f +"|"+ ABvec.x + "|" + ABvec.y;
+                    idxR = fr +"|"+ OBvec.x + "|" + OBvec.y;
+                    matchIdx(idx, idxR, "B");
                 }
-                else if (idx in vecToIdx) {
-                    vecToIdx[idxR] = vecToIdx[idx];
-                }
-                else {
-                    vecToIdx[idx] = vecToIdx[idxR];
-                }
-            }
         };
 
        if (rot === "O") {
-            for (let i = 1; i < g; i++) {
-                temp = i * (m1 + n1);
-                idx = f + "|" + this.min[temp] + "|" + temp;
-                tempR = i * n1;
-                idxR = fr + "|" + this.max[tempR] + "|" + tempR;
-                if (!(idx in vecToIdx || idxR in vecToIdx )) {
-                    vecToIdx[idx] = indexCount;
-                    vecToIdx[idxR] = indexCount;
-                    indexCount++
+                for (let i = 1; i < g; i++) {
+                    OBvec.x = -i * n1;
+                    OBvec.y = i * (m1 + n1);
+                    OAvec.x = i * m1;
+                    OAvec.y = i * n1;
+                    idx = f +"|"+ OBvec.x + "|" + OBvec.y;
+                    idxR = fr +"|"+ OAvec.x + "|" + OAvec.y;
+                    matchIdx(idx, idxR, "O");
                 }
-                else if (idx in vecToIdx) {
-                    vecToIdx[idxR] = vecToIdx[idx];
-                }
-                else {
-                    vecToIdx[idx] = vecToIdx[idxR];
-                }
-            }
         };
 
         fr = IDATA.edgematch[f][2];
-        rot = IDATA.edgematch[f][3];
-       
+        rot = IDATA.edgematch[f][3];       
       if (rot && rot === "A") {
-            for (let i = 1; i < g; i++) {
-                temp = (g - i) * n1;
-                idx = f + "|" + this.max[temp] + "|" + temp;
-                tempR = n + i * m1;
-                idxR = fr + "|" + this.max[tempR] + "|" + tempR;
-                if (!(idx in vecToIdx || idxR in vecToIdx )) {
-                    vecToIdx[idx] = indexCount;
-                    vecToIdx[idxR] = indexCount;
-                    indexCount++
+                for (let i = 1; i < g; i++) {
+                    OAvec.x = i * m1;
+                    OAvec.y = i * n1;
+                    ABvec.x = m - (g - i) * (m1 + n1);;  //reversed for BA
+                    ABvec.y = n + (g - i) * m1; //reversed for BA
+                    idx = f +"|"+ OAvec.x + "|" + OAvec.y;
+                    idxR = fr +"|"+ ABvec.x + "|" + ABvec.y;
+                    matchIdx(idx, idxR, "A");
                 }
-                else if (idx in vecToIdx) {
-                    vecToIdx[idxR] = vecToIdx[idx];
-                }
-                else {
-                    vecToIdx[idx] = vecToIdx[idxR];
-                }
-            }
         };
 
         for (let i = 0; i < this.vertices.length; i++) {
-            idx = f + "|" + this.vertices[i].x + "|" + this.vertices[i].y;            if (!(idx in vecToIdx)) {
-                if (!(idx in vecToIdx)) {
-                    vecToIdx[idx] = indexCount++;
-                }
+            idx = f + "|" + this.vertices[i].x + "|" + this.vertices[i].y;
+            if (!(idx in vecToIdx)) {
+                vecToIdx[idx] = indexCount++;
             }
         } 
     };
+
+    function matchIdx(idx, idxR, v) {
+        if (!(idx in vecToIdx || idxR in vecToIdx )) {
+            vecToIdx[idx] = indexCount;
+            vecToIdx[idxR] = indexCount;
+            indexCount++;
+        }
+        else if ((idx in vecToIdx) && !(idxR in vecToIdx)) {
+            vecToIdx[idxR] = vecToIdx[idx];
+        }
+        else if ((idxR in vecToIdx) && !(idx in vecToIdx)) {
+            vecToIdx[idx] = vecToIdx[idxR];
+        }
+    };
+    
     this.vecToIdx = vecToIdx;
 }
 ```
 
 The following playground both generates grey spheres, which have repeats, for all the facet vertex positions with repeats as in *_Icosahedron_* Test 2 above and red spheres showing all the facet vector positions uniquely.
 
-PG: <Playground id="#GLLBLZ#18" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
+PG: <Playground id="#GLLBLZ#30" title="Icosahedron Test 3" description="Map GD(m, n) Unique Vertices"/> 
 
 Now having the unique vertices we need to join them up correctly into the facet triangles to form the GDmn mesh.
 
@@ -677,8 +684,8 @@ PT = CreatePrimary(m, n);
    };
 ```
 
-PG: <Playground id="#GLLBLZ#20" title="Icosahedron Test 4" description="GD(m, n) Mesh Mapped to Icosahedron"/>   
-PG: <Playground id="#GLLBLZ#22" title="Icosahedron Test 5" description="GD(m, n) Mesh Mapped to Sphere"/> 
+PG: <Playground id="#GLLBLZ#31" title="Icosahedron Test 4" description="GD(m, n) Mesh Mapped to Icosahedron"/>   
+PG: <Playground id="#GLLBLZ#32" title="Icosahedron Test 5" description="GD(m, n) Mesh Mapped to Sphere"/> 
 
 ## Forming the Goldberg Polyhedron from the Geodesic Polyhedron.
 
@@ -755,6 +762,6 @@ Since each is the dual of the other we need to form the data for the Goldberg po
 
 This gives us a final test before creating a more user friendly example.
 
-PG: <Playground id="#GLLBLZ#26" title="Goldberg Test 1" description="Goldberg(m, n) Mesh Mapped to Sphere"/> 
+PG: <Playground id="#GLLBLZ#27" title="Goldberg Test 1" description="Goldberg(m, n) Mesh Mapped to Sphere"/> 
 
 For different m and n change their values on lines 53 and 54, **note** m must be greater than n. 
