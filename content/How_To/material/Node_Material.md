@@ -218,7 +218,7 @@ let block = nodeMaterial.getInputBlockByPredicate((b) => b.name === "foo");
 block.value = 10;
 ```
 
-Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example texture blocks would have block.texture instead of block.value. Be sure to check the [API documentation](/api/classes/babylon.nodematerial) for detail.
+Note that while this API generically works for all input blocks, not all input blocks have a "value" attribute. For example texture blocks would have block.texture instead of block.value. Be sure to check the [API documentation](/typedoc/classes/babylon.nodematerial) for detail.
 
 You can access the list of InputBlocks with:
 
@@ -232,7 +232,7 @@ Or you can get all blocks registered with a node material with:
 nodeMaterial.attachedBlocks
 ```
 
-Be sure to also check out the full [API documentation.](/api/classes/babylon.nodematerial)
+Be sure to also check out the full [API documentation.](/typedoc/classes/babylon.nodematerial)
 
 ### List of available blocks
 
@@ -1182,7 +1182,7 @@ By default, the node material provides the following blocks:
         -   Output:
             -   output: Color3
 
-    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
+    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
 
         -   Input:
             -   color: Color4
@@ -1431,7 +1431,7 @@ You can use those playgrounds and materials as starting points for your own expe
     -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.jpg"/>
     -   Material: <nme id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.jpg"/>
 
-The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](/api/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
+The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](/typedoc/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
 
 Some of the parameters are available as properties when clicking on the block in the NME.
 
@@ -1448,6 +1448,8 @@ As for the standard `PBRMaterial`, if no texture is provided for the **Reflectio
 By default, if something is connected to the `a` input of the `FragmentOutput` block, alpha blending is enabled. If you don't need alpha blending, don't connect this input.
 
 Regarding the `PBRMetallicRoughness` block, you have access to each output component separately (`ambient`, `diffuse`, `specular`, ...) if you want or you can directly use `lighting` to get the composite output. In the names of the separate outputs, `dir` means `direct` (component from direct lights) and `Ind` means `Indirect` (component from indirect lighting, meaning the environment).
+
+A note about image processing and manual compositing: Note that the composited `lighting` output of the `PBRMetallicRoughness` block also adds image processing from the scene. If you desire to to add additional components to the standard lighting setup, you will want to do the compositing yourself, using the separated components. The outputs of the separated components are in Linear color space. This is important because if you desire to calculate scene image processing in your manual composite, you'll need the `ImageProcessing` block. This block assumes input values in gamma color space by default and runs an internal conversation to a linear color space output. You will need to turn this conversion off in the `ImageProcessing` block properties to pass linear through without a conversion. 
 
 <Youtube id="CRg8P1Af1M0"/>
 

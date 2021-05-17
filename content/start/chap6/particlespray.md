@@ -77,10 +77,6 @@ particleSystem.start();
 
 Here is an example of our fountain:
 
-<Playground id="#TC31NV#4" title="A Basic Particle Fountain" description="Create a basic particle system as water spray." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.jpg"/>
-
-The fountain in place
-
-<Playground id="#TC31NV#4" title="Add the Spray" description="Add the particle spray to our village." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray2.jpg"/>
+<Playground id="#TC31NV#4" title="Add the Spray" description="Create a basic particle system as water spray." image="/img/playgroundsAndNMEs/gettingStartedParticleSpray1.jpg"/>
 
 Let's now provide an on-off click event.

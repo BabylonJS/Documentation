@@ -39,7 +39,7 @@ To then act on the result we follow the Promise with the _then_ method to call a
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((result) => {
     result.meshes[1].position.x = 20;
-    const myMesh_1 = scene.getMeshByName("myMesh_1");
+    const myMesh1 = scene.getMeshByName("myMesh_1");
     myMesh1.rotation.y = Math.PI / 2;
 });
 ```
@@ -50,7 +50,7 @@ This playground imports all the models and their positions are changed.
 
 ## Moving On
 
-Having a working scene in the playground is one thing but you will want your game or app to work on your own website. No we will give you an HTML template to do just this.
+Having a working scene in the playground is one thing but you will want your game or app to work on your own website. So we will give you an HTML template to do just this.
 
 ## Warning
 

@@ -50,7 +50,7 @@ As the generated DDS files can be relatively large (32Mb for a 512px wide file),
 - drag &amp; drop your .dds environmentTexture file ([example](https://playground.babylonjs.com/textures/environment.dds))
 - open the Inspector, go to the Tools, and click on `Generate .env texture`
 
-![inspector env texture tool](/img/how_to/environment/inspector-generate-env-texture.png)
+![inspector env texture tool](/img/how_to/Environment/inspector-generate-env-texture.png)
 
 You can now download and use your `.env` environment, using this bit of code:
 

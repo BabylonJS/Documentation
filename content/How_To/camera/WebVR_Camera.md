@@ -1,5 +1,5 @@
 ---
-title: WebVR Camera
+title: WebVR Camera (Deprecated)
 image:
 description: Learn how to create a VR scene with the WebVR Camera.
 keywords: diving deeper, WebVR, WebVR Camera, vr

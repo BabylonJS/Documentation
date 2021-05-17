@@ -47,7 +47,7 @@ We need to implement some specific mechanisms / features to get the most of our 
 * Use render bundles to improve performances:
   * Done through `engine.compatibilityMode = false` but needs more work to support more features of the engine
   * Also added `engine.snapshotRendering` and `engine.snapshotRenderingMode` to improve performances in some specific cases (when scene is mostly static)
-* Use compute shaders
+* Use compute shaders -> the `ComputeShader` class is now in
   * To perform some conversions when reading data from buffers
   * To replace the existing min/max computation code
   * To implement GPU particle systems

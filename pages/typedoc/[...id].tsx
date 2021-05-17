@@ -6,7 +6,7 @@ import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
 import Head from "next/head";
 
-import "./apiPage.style.scss";
+// import "./apiPage.module.scss";
 import { ParsedUrlQuery } from "querystring";
 
 export const ApiPage: FunctionComponent<{

@@ -236,15 +236,45 @@ component.onAxisValueChangedObservable.add((values) => {
 });
 ```
 
+Here is a simple example of controllers input.  
+By using Oculus Quest2 controllers, component ids and controller buttons are mapped as follows.  
+
+On Oculus Quest2 controllers:  
+
+![Quest2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)  
+
+On the Playground sample:  
+
+![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.jpg)  
+
+The simple example, changes the scaling of each 3DCG object when each button is pressed.  
+
+```javascript
+const xr_ids = motionController.getComponentIds();
+let triggerComponent = motionController.getComponent(xr_ids[0]);//xr-standard-trigger
+triggerComponent.onButtonStateChangedObservable.add(() => {
+    if (triggerComponent.pressed) {
+        Box_Right_Trigger.scaling= new BABYLON.Vector3(1.2,1.2,1.2);
+    }else{
+        Box_Right_Trigger.scaling= new BABYLON.Vector3(1,1,1);
+    }
+});
+```
+
+Playground for a simple VR controllers input: <Playground id="#28EKWI#37" title="WebXR_motion controller input" description="Simple code for motion controller input on WebXR."/>
+
+
 ### How to get a model
 
 #### The input-profile online repository
 
-As part of the (successful!) attempt at forcing standards to WebXR, the guys at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) github repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.
+As part of the (successful!) attempt at forcing standards to WebXR, the guys at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) github repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.  
+
+The repository provides an useful tool as [WebXR Input Profile Viewer](https://immersive-web.github.io/webxr-input-profiles/packages/viewer/dist/index.html). You can easily check each id, state, button, and axis of XR controllers.   
 
 Babylon.js natively supports this repository and currently uses it as the default model delivery method for XR controllers.
 
-There is little to no action required on your end - this is automated when not changing the configuration.
+There is little to no action required on your end - this is automated when not changing the configuration.  
 
 #### Babylon local controller definitions
 

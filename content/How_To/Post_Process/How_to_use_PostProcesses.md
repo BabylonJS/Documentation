@@ -142,7 +142,7 @@ var postProcess = new BABYLON.ImageProcessingPostProcess("processing", 1.0, came
 
 You have several options available:
 * colorGradingTexture: Used to provide a color grading texture applied on your scene. You can use:
-    * a [colorGradingTexture](//doc.babylonjs.com/api/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process."/>
+    * a [colorGradingTexture](/typedoc/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process."/>
     * a standard texture (using .png for example) but with _invertY_ set to _true_, wrap mode as clamp and _imageProcessingConfiguration.colorGradingWithGreenDepth_ set to _false_. Demo: <Playground id="#17VHYI#9" title="ColorGrading Texture Post Process Green Depth" description="Simple example of a colorgrading texture post process."/>
 * colorCurves: Used to provide several properties to change colors. More [details here](/divingDeeper/materials/using/masterPBR). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process."/>
 * contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#9" title="colorCurves Post Process (Contrast)" description="Simple example of changing the the contrast of a colorCurves Post Process."/>

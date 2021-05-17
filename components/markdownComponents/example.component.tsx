@@ -17,6 +17,7 @@ const styles = makeStyles((theme: Theme) =>
             display: "inline-flex",
             marginRight: theme.spacing(0.5),
             marginTop: theme.spacing(0.5),
+            marginBottom: theme.spacing(0.5),
             justifyContent: "space-between",
             alignItems: "center",
             width: "auto",

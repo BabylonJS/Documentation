@@ -154,7 +154,7 @@
                         "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                         "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                        "vsCode": { "friendlyName": "Using VS Code", "children": {}, "content": "resources/Reference/vscode" },
+                        "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
                         "howToStart": { 
                             "friendlyName": "Start Contributing to Babylon.js",
                             "children": {
@@ -582,15 +582,17 @@
                     "children": {},
                     "content": "resources/Reference/File_Format_Map_(.babylon)"
                 },
-                "introToShaders": {
-                    "friendlyName": "Introduction to Shaders",
+                "shaders": {
+                    "friendlyName": "Shaders",
                     "children": {
+                        "introToShaders": { "friendlyName": "Introduction to Shaders", "children": {}, "content": "resources/Manual/ShaderIntro" },
                         "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
                         "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
                         "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
-                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" }
+                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" },
+                        "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" }
                     },
-                    "content": "resources/Manual/ShaderIntro"
+                    "content": "How_To/shaders/shaders"
                 },
                 "minifiedVer": {
                     "friendlyName": "Creating the Mini-fied Version",
@@ -640,8 +642,7 @@
                         "inspector": {
                             "friendlyName": "Inspector",
                             "children": {
-                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
-                                "customizingInspector": { "friendlyName": "Customizing the Inspector", "children": {}, "content": "How_To/PGsupport/Customize_debug_layer" }
+                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" }
                             },
                             "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
@@ -851,6 +852,8 @@
                 "workshop": {
                     "friendlyName": "Workshop",
                     "children": {
+                        "Geodesic_Math": { "friendlyName": "Geodesic and Goldberg Polyhedra Math", "children": {}, "content": "snippets/gamelets/Geodesic_Math" },
+                        "Geodesic_Code": { "friendlyName": "Geodesic and Goldberg Polyhedra Code Design", "children": {}, "content": "snippets/gamelets/Geodesic_Code" },
                         "Car_Path": { "friendlyName": "Simple Path Following", "children": {}, "content": "snippets/gamelets/Car_Path" },
                         "Car_Driven": { "friendlyName": "A Simple Driven Car", "children": {}, "content": "snippets/gamelets/Car_Driven" },
                         "House": { "friendlyName": "House Creation Design", "children": {}, "content": "snippets/gamelets/House" },

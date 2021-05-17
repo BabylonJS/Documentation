@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 import '../styles/globals.scss';
+import './typedoc/apiPage.global.scss';
 import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
