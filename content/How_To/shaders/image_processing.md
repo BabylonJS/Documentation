@@ -45,7 +45,7 @@ And now, whether you have the post-process active or not, the color should be si
 
 You may have a similar problem if you want to use fog on your scene, with a custom shader material.
 
-[Here](/advanced_topics/introToShaders/Fog+ShaderMat) is an helpful page to get your shaders to be fog-ready.
+[Here](/advanced_topics/shaders/Fog+ShaderMat) is an helpful page to get your shaders to be fog-ready.
 
 ## Tonemapping
 

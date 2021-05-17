@@ -16,11 +16,11 @@ in an extremely fast way.
 
 ## Suggested Pre-Reading
 
--   How To:
-    -   [Custom Meshes](/divingDeeper/mesh/creation/custom/custom)
-    -   [Updating Vertices](/divingDeeper/mesh/creation/custom/updatingVertices)
--   Resources:
-    -   [Normals in BJS](/divingDeeper/mesh/creation/custom/vertexNormals)
+- How To:
+  - [Custom Meshes](/divingDeeper/mesh/creation/custom/custom)
+  - [Updating Vertices](/divingDeeper/mesh/creation/custom/updatingVertices)
+- Resources:
+  - [Normals in BJS](/divingDeeper/mesh/creation/custom/vertexNormals)
 
 ## An Overview
 
@@ -32,9 +32,9 @@ display (frame) is re-drawn up to 60 frames per second.
 
 Simplifying, the process is
 
--   Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
--   Virtual 3D Model is processed in the CPU by the BJS Engine Code to produce Shader GPU Code
--   Shader GPU Code is processed by GPU to produce screen image.
+- Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
+- Virtual 3D Model is processed in the CPU by the BJS Engine Code to produce Shader GPU Code
+- Shader GPU Code is processed by GPU to produce screen image.
 
 For example theBabylon.js Engine takes this code
 
@@ -51,9 +51,9 @@ TheBabylon.js Engine creates the shader code for this data and is passed to the 
 Much more than this as well as Scene Code you can write your own user Shader Code so that
 the process becomes:
 
--   Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
--   Virtual 3D Model and User Shader Code is processed in the CPU by the BJS Engine Code to produce the Shader GPU Code
--   Shader GPU Code is processed by GPU to produce the screen image.
+- Scene Code is processed in the CPU by the BJS Engine Code to produce a Virtual 3D Model
+- Virtual 3D Model and User Shader Code is processed in the CPU by the BJS Engine Code to produce the Shader GPU Code
+- Shader GPU Code is processed by GPU to produce the screen image.
 
 ## Types of Shader
 
@@ -97,10 +97,10 @@ float r = 2;
 
 Some examples of types are
 
--   `vec2`: a two dimensional vector of floating-point numbers
--   `vec3`: a three dimensional vector of floating-point numbers
--   `mat4`: a matrix with 4 columns and 4 rows floating-point numbers
--   `sampler2D`: a 2D texture image
+- `vec2`: a two dimensional vector of floating-point numbers
+- `vec3`: a three dimensional vector of floating-point numbers
+- `mat4`: a matrix with 4 columns and 4 rows floating-point numbers
+- `sampler2D`: a 2D texture image
 
 Since vertex positions need to be as accurate as possible all floating-point numbers should be set as having high precision.
 This is done at the start of the code for each shader using:
@@ -175,5 +175,5 @@ More details on this can be found below.
 
 ## How To
 
--   [Putting Shader Code inBabylon.js](/advanced_topics/introToShaders/shaderCodeInBjs)
--   [ShaderMaterial Object](/advanced_topics/introToShaders/shaderMaterial)
+- [Putting Shader Code inBabylon.js](/advanced_topics/shaders/shaderCodeInBjs)
+- [ShaderMaterial Object](/advanced_topics/shaders/shaderMaterial)

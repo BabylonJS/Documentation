@@ -5,9 +5,9 @@ description: Learn about the shader material in Babylon.js.
 keywords: babylon.js, advanced, shader material
 further-reading:
     - title: Introduction To Shaders inBabylon.js
-      url: /advanced_topics/introToShaders
+      url: /advanced_topics/shaders/introToShaders
     - title: How To Put Shader Code inBabylon.js
-      url: /advanced_topics/introToShaders/shaderCodeInBjs
+      url: /advanced_topics/shaders/shaderCodeInBjs
 video-overview:
 video-content:
 ---
@@ -78,4 +78,4 @@ the set method depending on the type passed.
 
 In some specific cases when you use post-processes, you might notice a slightly brighter color output than what you implemented in your shader.
 
-Read [this](/advanced_topics/introToShaders/image_processing) if you want to know how to fix it.
+Read [this](/advanced_topics/shaders/image_processing) if you want to know how to fix it.

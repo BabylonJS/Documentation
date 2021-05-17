@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from "react";
+import { FunctionComponent, useRef } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";

@@ -1,7 +1,7 @@
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import hydrate from "next-mdx-remote/hydrate";
 import Layout from "../components/layout.component";
-import renderToString from "next-mdx-remote/render-to-string";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from 'next-mdx-remote'
 import { BucketContent } from "../components/bucketContent.component";
 import { getAvailableUrls, validateContent } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
@@ -119,7 +119,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     const components = markdownComponents;
-    const renderedContent = hydrate(mdxContent, { components });
+    const renderedContent = <MDXRemote {...mdxContent} components={components} />
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
@@ -174,8 +174,8 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
-    props.mdxContent = await renderToString(props.content, {
-        components: markdownComponents,
+    props.mdxContent = await serialize(props.content, {
+        // components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkSlug, remarkLint],
         },
@@ -190,8 +190,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = await getAvailableUrls();
     // ONLY when building
     if (process.env.PRODUCTION) {
-        validateContent(paths,
-            getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")));
+        validateContent(
+            paths,
+            getAllFiles(markdownDirectory).map((path) => path.replace(/\\/g, "/").replace("content/", "")),
+        );
     }
     // TODO solve this more elegantly.
     // This is done since index is not a part of this dynamic url mapping (next.js issue)
