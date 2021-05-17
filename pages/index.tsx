@@ -3,8 +3,8 @@ import { createRef, useEffect, useState } from "react";
 
 import Layout from "../components/layout.component";
 
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
+import {serialize} from "next-mdx-remote/serialize";
+import { MDXRemote } from 'next-mdx-remote'
 
 import "./documentationPage.style.scss";
 
@@ -70,7 +70,7 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
     }, [id]);
 
     const components = markdownComponents;
-    const renderedContent = hydrate(mdxContent, { components });
+    const renderedContent = <MDXRemote {...mdxContent} components={components} />
     return (
         <Layout
             breadcrumbs={[]}
@@ -110,8 +110,8 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData([], true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
-    props.mdxContent = await renderToString(props.content, {
-        components: markdownComponents,
+    props.mdxContent = await serialize(props.content, {
+        // components: markdownComponents,
         mdxOptions: {
             remarkPlugins: [remarkSlug, remarkLint],
         },

@@ -1,6 +1,6 @@
 import { ReactText } from "react";
 import { MarkdownMetadata } from "./interfaces";
-import { MdxRemote } from "next-mdx-remote/types";
+import { MDXRemoteSerializeResult  } from "next-mdx-remote";
 
 export interface IMenuItem {
     name: string;
@@ -73,7 +73,7 @@ export interface IPageProps {
 }
 export interface IDocumentationPageProps extends IPageProps {
     content?: string;
-    mdxContent?: MdxRemote.Source;
+    mdxContent?: MDXRemoteSerializeResult;
     // this interface should actually contain a lot more than a single string
     childPages?: {
         [key: string]: IDocumentationPageProps;

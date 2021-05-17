@@ -4,11 +4,22 @@ import { getAllFiles } from "./tools";
 
 const tmpPath = join(process.cwd(), `.${sep}.temp`);
 const basePath = join(process.cwd(), `.${sep}public`);
-const tmpFile = resolve(tmpPath, `${process.pid}.xml`);
+const tmpFile = resolve(tmpPath, `${process.pid}${Math.random()}.xml`);
 const sitemapFile = resolve(basePath, `sitemap.xml`);
 
 const cache = [];
 let timeout: NodeJS.Timeout;
+
+const debounceEvent = (callback, time) => {
+    let interval;
+    return (...args) => {
+      clearTimeout(interval);
+      interval = setTimeout(() => {
+        interval = null;
+        callback(...args);
+      }, time);
+    };
+  };
 
 export const addToSitemap = (name: string, url: string, lastModified?: string) => {
     // only in local production mode!
@@ -25,6 +36,8 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         clearTimeout(timeout);
     }
 
+    console.log(cache.length, process.pid);
+
     timeout = setTimeout(() => {
         const endOfFile = [];
         cache.forEach((c) => {
@@ -36,7 +49,7 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
     }, 10);
 };
 
-export const writeAllToSitemap = () => {
+export const writeAllToSitemap = debounceEvent(() => {
     const filenames = getAllFiles(tmpPath, [], ".xml");
     const results = filenames.map((fn) => readFileSync(fn).toString());
     const start = `<?xml version="1.0" encoding="UTF-8"?>
@@ -56,4 +69,4 @@ export const writeAllToSitemap = () => {
     } catch(e) {
         // no-op
     }
-};
+}, 100);
