@@ -36,8 +36,6 @@ export const addToSitemap = (name: string, url: string, lastModified?: string) =
         clearTimeout(timeout);
     }
 
-    console.log(cache.length, process.pid);
-
     timeout = setTimeout(() => {
         const endOfFile = [];
         cache.forEach((c) => {
