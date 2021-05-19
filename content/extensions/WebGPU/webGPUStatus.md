@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/04/01).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/05/19).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -18,10 +18,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
   * WebGPU does not support a point size different from 1, so setting a value different from 1 for the point size won't be taken into account
 
 ### Features not working because not implemented yet
-* [GPU particle systems](/typedoc/classes/babylon.gpuparticlesystem)
-  * The current implementation is using a specific feature of WebGL2 (feedback buffers), we need to use compute shaders to implement this in WebGPU
-* Reporting the GPU frame time
-  * ~~Needs to implement the [timestamp-query](https://gpuweb.github.io/gpuweb/#timestamp-query) extension~~ **Implemented**!
 * Support for triangle fan / line loop drawing mode
   * WebGPU does not support those modes, we will need to emulate them with triangle strip and line strip
 * [Occlusion Queries](/divingDeeper/occlusionQueries)
@@ -50,7 +46,7 @@ We need to implement some specific mechanisms / features to get the most of our 
 * Use compute shaders -> the `ComputeShader` class is now in
   * To perform some conversions when reading data from buffers
   * To replace the existing min/max computation code
-  * To implement GPU particle systems
+  * To implement GPU particle systems -> **Done**!
 * Use WGSL when back compat is not required
 * Use `CreatePipelineAsync` for asynchronous pipeline creations
 * ...and lots of others!

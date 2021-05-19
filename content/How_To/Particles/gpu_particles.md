@@ -38,10 +38,15 @@ When calling `system.stop()` on a `GPUParticleSystem` object, you will force the
 
 To completely stop a `GPUParticleSystem`, you have to call `dispose()` on it.
 
+## Using custom effects to render the particle system
+
+New since 5.0, you can now use a custom effects with GPU particles!
+
+GPU Particles with custom effect: <Playground id="#1ASENS#68" title="GPU Particles with custom effect" description="Simple example of a GPU particle system using a custom effect for display."/>
+
 ## Unsupported Features
 The following features are not supported by GPU particles due to their inner nature:
 - ManualEmitCount
-- Custom effects
 - disposeOnStop
 - Dual values per gradient (only one value is supported)
 - Emit rate gradients are not supported
