@@ -341,6 +341,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             </div>
         </div>
     );
-};
+}
 
 export default Layout;
