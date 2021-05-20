@@ -104,7 +104,7 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
             </DocumentationContext.Provider>
         </Layout>
     );
-}
+};
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
     const props = await getPageData([], true);
