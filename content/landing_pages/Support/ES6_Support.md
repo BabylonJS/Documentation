@@ -401,6 +401,7 @@ This will be the case for all the methods defined by module augmentation. This m
 -   KTX Loader support can be installed from the `Materials/Textures/Loaders/ktxTextureLoader` .
 -   TGA Loader support can be installed from the `Materials/Textures/Loaders/tgaTextureLoader` .
 -   Particle support can be found in the `Particles/particleSystemComponent` .
+  - For GPUParticleSystem, WebGL2 support can be found in `Particles/webgl2ParticleSystem` and WebGPU support in `Particles/computeShaderParticleSystem`
 -   Physics Engine support can be found in the `Physics/physicsEngineComponent` .
 -   .babylon file support can be found in the `Loading/Plugins/babylonFileLoader` .
 -   shadowGenerator support can be found in the `Lights/Shadows/shadowGeneratorSceneComponent` .
