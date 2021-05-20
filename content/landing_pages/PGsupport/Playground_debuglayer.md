@@ -2,7 +2,7 @@
 title: The Inspector
 image: 
 description: Learn all about the incredibly powerful debug layer called "The Inspector" in Babylon.js.
-keywords: babylon.js, tools, resources, inpsector, debug layer
+keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: Introduction to the Inspector - video series
       url: /toolsAndResources/tools/inspector/inspectorVideoOverview

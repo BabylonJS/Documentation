@@ -2,7 +2,7 @@
 title: Intro to The Inspector Video Series
 image: 
 description: Dive into a video series overview of The Inspector in Babylon.js.
-keywords: babylon.js, tools, resources, inpsector, debug layer
+keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
     - title: The Inspector overview
       url: /toolsAndResources/tools/inspector
