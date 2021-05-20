@@ -642,7 +642,8 @@
                         "inspector": {
                             "friendlyName": "Inspector",
                             "children": {
-                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" }
+                                "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
+                                "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
                             },
                             "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
