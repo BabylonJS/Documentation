@@ -20,8 +20,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 ### Features not working because not implemented yet
 * Support for triangle fan / line loop drawing mode
   * WebGPU does not support those modes, we will need to emulate them with triangle strip and line strip
-* [Occlusion Queries](/divingDeeper/occlusionQueries)
-  * Not implemented yet but not supported by Chrome neither
 * [Multiview / WebXR](/divingDeeper/cameras/multiViewsPart1)
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
 * [Multi views (multi canvas)](/divingDeeper/scene/multiCanvas)
