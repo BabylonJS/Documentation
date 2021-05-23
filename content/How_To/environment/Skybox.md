@@ -13,8 +13,12 @@ video-content:
 ## About Skyboxes
 A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 
-## Creating a Cube Texture
-Skybox images are typically loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). The [constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
+In Babylon.js, skyboxes typically use [CubeTexture](/typedoc/classes/babylon.cubetexture) as a [pseudo-reflection texture](#making-the-skybox) on a large cube.
+
+## Creating a CubeTexture
+The [CubeTexture constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube. (These suffixes may be customized if needed.)
+
+CubeTexture images need to be .jpg format (unless the suffixes are customized) and square. For efficiency, use a power of 2 size, like 1024x1024.
 
 ![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
 
@@ -67,10 +71,10 @@ skybox.material = skyboxMaterial;
 ```
 <br/>
 
-More generally, skybox images may be referenced in the following way:
+To use your own skybox images, make them web-accessible (a localhost server is okay), and change the `BABYLON.CubeTexture` call:
 
 ```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("PATH TO IMAGES FOLDER/COMMON PART OF NAMES", scene);
+skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("URL TO IMAGE DIRECTORY/COMMON PART OF IMAGE FILENAMES", scene);
 ```
 <br/>
 
