@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-#Babylon.js WebXR features
+# Babylon.js WebXR features
 
 This contains the documentation of all features that are not AR-Exclusive. For AR Features, see the [BabylonJS WebXR AR Features](/divingDeeper/webXR/webXRARFeatures) page.
 
@@ -657,3 +657,48 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
 <Playground id="#X7Y4H8#16" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+
+## DOM Overlay Module
+
+The dom-overlay can be added to your scene using the WebXRDomOverlay feature.
+
+### Enabling DOM Overlay
+
+The DOM overlay requires an `immersive-ar` session.  You can query if `immersive-ar` is supported before creating a session:
+```javascript
+const supported = await BABYLON.WebXRSessionManager.IsSessionSupportedAsync("immersive-ar"));
+
+const xr = await scene.createDefaultXRExperienceAsync({
+    uiOptions: {
+        sessionMode: 'immersive-ar'
+    },
+    ...
+});
+```
+The dom-overlay module is not turned on by default when using the [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper).
+
+When enabling this feature `element` is the only required option and can be either a DOM element or a string (using first element returned when passed to document.querySelector).
+
+The final parameter of `enableFeature` may be important for you and can set this feature as optional.
+
+```javascript
+const featuresManager = xr.baseExperience.featuresManager;
+const domOverlayFeature = featuresManager.enableFeature(BABYLON.WebXRDomOverlay.Name, 1, {
+    element: '.dom-overlay-container'
+}, undefined, false);
+
+// domOverlayType will be null when not supported or otherwise is a property on the feature.
+xr.baseExperience.onStateChangedObservable.add((webXRState) => {
+    switch(webXRState) {
+        case BABYLON.WebXRState.ENTERING_XR:
+        case BABYLON.WebXRState.IN_XR:
+            console.log('DOM overlay type:', domOverlayFeature.domOverlayType);
+            break;
+    }
+});
+
+```
+
+Once you have entered XR you can check the feature for the DOM overlay type; `domOverlayType` will be non-null if the feature is supported in the browser.
+
+The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRDOMOverlay.ts#L10).
