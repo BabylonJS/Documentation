@@ -429,7 +429,7 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 
 ### DOM Overlay
 
-When in AR mode you may want to have a DOM element shown    .
+When in AR mode you may want to have a DOM element shown.
 
 When enabling the DOM overlay feature `element` is the only required option and can be either a DOM element or a string (using first element returned when passed to document.querySelector).
 
