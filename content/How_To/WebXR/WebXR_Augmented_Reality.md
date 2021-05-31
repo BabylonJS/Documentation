@@ -426,3 +426,37 @@ const xrBackgroundRemover = featuresManager.enableFeature(BABYLON.WebXRBackgroun
 
 <Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 <Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/vrglasses.png"/>
+
+### DOM Overlay
+
+When in AR mode you may want to have a DOM element shown.
+
+When enabling the DOM overlay feature `element` is the only required option and can be either a DOM element or a string (using first element returned when passed to document.querySelector).
+
+The final parameter of `enableFeature` may be important for you and can set this feature as optional.
+
+```javascript
+const featuresManager = xr.baseExperience.featuresManager;
+const domOverlayFeature = featuresManager.enableFeature(
+  BABYLON.WebXRDomOverlay,
+  "latest",
+  { element: '.dom-overlay-container' },
+  undefined,
+  false
+);
+
+xr.baseExperience.onStateChangedObservable.add((webXRState) => {
+  switch(webXRState) {
+    case BABYLON.WebXRState.ENTERING_XR:
+    case BABYLON.WebXRState.IN_XR:
+      // domOverlayType will be null when not supported.
+      console.log('overlay type:', domOverlayFeature.domOverlayType);
+      break;
+  }
+});
+
+```
+
+Once you have entered AR you can check the feature for the DOM overlay type; `domOverlayType` will be non-null if the feature is supported in the browser.
+
+The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRDOMOverlay.ts#L10).
