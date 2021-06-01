@@ -220,7 +220,7 @@ And it is the same as the example above.
 
 ### Configuring using external JSON
 
-As previously explained, the viewer configuration has a `configurarion` member, that can contain an external JSON file that will be loaded and merged with the selected configuration.
+As previously explained, the viewer configuration has a `configuration` member, that can contain an external JSON file that will be loaded and merged with the selected configuration.
 
 If the following is defined:
 
