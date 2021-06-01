@@ -228,7 +228,7 @@ If the following is defined:
 <babylon scene.debug="true" camera.behaviors.auto-rotate="0" model.url="https://playground.babylonjs.com/scenes/Rabbit.babylon" configuration="http://example.com/viewerConfig.json"></babylon>
 ```
 
-the file <http://example.com/viewerConfig.json> will be loaded into the configuration object. This is a great way of creating a general / global configuration  for a website, while providing the details model data using HTML.
+the file `http://example.com/viewerConfig.json` will be loaded into the configuration object. This is a great way of creating a general / global configuration  for a website, while providing the details model data using HTML.
 
 ### Configuring using JavaScript
 
