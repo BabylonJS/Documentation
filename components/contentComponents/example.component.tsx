@@ -85,7 +85,6 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
     const { title, description, image, imageUrl, type = "pg" } = example;
     const classes = exampleStyles();
     const link = getExampleLink(example, false);
-    // just as a test
 
     const onPlaygroundPressed = () => {
         context.setActiveExample(example);
@@ -146,7 +145,6 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
 
 export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[]; onExamplePressed?: (example: IExampleLink) => void; title?: string }> = ({ examples, onExamplePressed, title = "Examples" }) => {
     const classes = examplesStyles();
-    // just as a test
     return (
         <>
             <Toolbar className={classes.header}>
@@ -154,8 +152,8 @@ export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[]; on
                     {title}
                 </Typography>
             </Toolbar>
-            {examples.map((link) => (
-                <ExampleComponent key={link.id} example={link} onExamplePressed={onExamplePressed} />
+            {examples.map((link, idx) => (
+                <ExampleComponent key={`link-${idx}`} example={link} onExamplePressed={onExamplePressed} />
             ))}
         </>
     );

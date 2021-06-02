@@ -53,21 +53,17 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const tmpTOCCache = [];
 
     const addExampleLink = (link: IExampleLink) => {
-        // first make sure we don't have it yet!
-        if (tmpExamplesCache.find((item) => item.id === link.id) || exampleLinks.find((item) => item.id === link.id)) {
-            return;
-        }
-        tmpExamplesCache.push(link);
-        setExampleLinks([...exampleLinks, ...tmpExamplesCache]);
+        setExampleLinks(prevState => {
+            console.log('example', prevState);
+            return [...prevState, link];
+        })
     };
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
-        // first make sure we don't have it yet!
-        if (tocItem.level < 1 || tmpTOCCache.find((item) => item.id === tocItem.id) || tocLinks.find((item) => item.id === tocItem.id)) {
-            return;
-        }
-        tmpTOCCache.push(tocItem);
-        setTocLinks([...tocLinks, ...tmpTOCCache]);
+        setTocLinks(prevState => {
+            console.log('toc', prevState);
+            return [...prevState, tocItem];
+        });
     };
 
     const clearExampleLinks = () => {
@@ -81,10 +77,16 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
+        console.log('examples', exampleLinks);
+    }, [exampleLinks])
+
+    useEffect(() => {
         if (!window.location.hash) {
             markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
         }
         return () => {
+            // TODO since the last update of next, this code is not executed correctly.
+            console.log('clearing');
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
