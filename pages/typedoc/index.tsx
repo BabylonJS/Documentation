@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
+import { GetStaticProps } from "next";
+import { getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
