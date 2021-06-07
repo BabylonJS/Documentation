@@ -53,7 +53,7 @@ As the ES6 version is composed of many separated files the usual way to consume 
 6. Create **index.html** file in **MyAwesomeApp** as described in `First App Section` below
 7. Create Folder **src** in **MyAwesomeApp**
 8. Create **index.js** file in **src** as described in `First App Section` below
-9. npx webpack-dev-server _to check result in_ `http://localhost:8080/`
+9. npx webpack serve _to check result in_ `http://localhost:8080/`
 10. npx webpack \_to create dist folder
 
 Read all the following sections for full description.
@@ -218,7 +218,7 @@ engine.runRenderLoop(() => {
 });
 ```
 
-Finally you can run the local dev environment through the command `npx webpack-dev-server` .
+Finally you can run the local dev environment through the command `npx webpack serve` .
 
 Open the browser and navigate to the url `http://localhost:8080/` . You should see a sphere and a plane using the Grid Material.
 
@@ -339,7 +339,7 @@ We also need to configure typescript in the application folder. The simplest is 
 
 This will ensure our babylonjs module can be loaded and used in your application.
 
-It is time to run again with the command `npx webpack-dev-server` and open your browser on `http://localhost:8080/` . You should see a sphere and a plane using the Grid Material exactly like in javascript. You are now fully ready to use the Babylon.js ES6 packages in Typescript.
+It is time to run again with the command `npx webpack serve` and open your browser on `http://localhost:8080/` . You should see a sphere and a plane using the Grid Material exactly like in javascript. You are now fully ready to use the Babylon.js ES6 packages in Typescript.
 
 ## Tree Shaking
 
