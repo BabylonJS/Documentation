@@ -657,3 +657,76 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
 <Playground id="#X7Y4H8#16" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+
+## Movement Module
+
+The movement feature allows movement in the scene with the controllers. It is separate from the teleportation module and designed to not be used at the same time.
+
+In order to enable this feature you must first ensure that teleportation is not switched on.
+
+Teleportation can be disabled in the default XR experience:
+```javascript
+const xr = await scene.createDefaultXRExperienceAsync({
+    disableTeleportation: true
+});
+```
+
+You can also disable teleportation manually before enabling the movement feature.
+```javascript
+const featureManager = xrHelper.baseExperience.featuresManager;
+featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
+```
+
+The movement feature enables the camera's position to be changed with the controllers.
+Default configuration (can be changed in options below):
+1. Left Controller - Rotation counter + clockwise
+2. Right Controller - Move forward/backwards/left/right
+
+```javascript
+const featureManager = xrHelper.baseExperience.featuresManager;
+
+featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
+  xrInput: xrHelper.input,
+});
+```
+
+<Playground id="#AZML8U" title="Movement with controllers" description="A simple example of controller movement with collisions and gravity" image="/img/how_to/xr/xr-movement-playground.png"/>
+
+### Configuration Options
+
+The current options for the plugin can always be found at the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRControllerMovement.ts#L20). Most of them will be explained here.
+
+One important option is `movementOrientationFollowsViewerPose`, which defaults to `true`.  When configured to `false` the forward direction will not adjust with the viewer pose, but only to the controller rotation.  This can be useful for some experiences where the viewer pose should not affect movement direction.  ie: If you are moving forward and look left that you should not drift left, but continue straight.  You can try out in the above playground by changing the option.
+
+The controllers themselves can be configured differently.  If you want to swap which hand controls rotation vs. movement, for example, then override the option `customRegistrationConfigurations` array. The movement state rotation and movement is handled automatically by the feature and ignored accordingly if rotation (`rotationEnabled`) or movement (`movementEnabled`) are not enabled and will automatically be adjusted to speed (`rotationSpeed` & `movementSpeed`).
+
+This would swap handedness of the default configuration and maintain feature sensitivity thresholds:
+```javascript
+const swappedHandednessConfiguration = [
+    {
+        allowedComponentTypes: [BABYLON.WebXRControllerComponent.THUMBSTICK_TYPE, BABYLON.WebXRControllerComponent.TOUCHPAD_TYPE],
+        forceHandedness: "right",
+        axisChangedHandler: (axes, movementState, featureContext, xrInput) => {
+            movementState.rotateX = Math.abs(axes.x) > featureContext.rotationThreshold ? axes.x : 0;
+            movementState.rotateY = Math.abs(axes.y) > featureContext.rotationThreshold ? axes.y : 0;
+        },
+    },
+    {
+        allowedComponentTypes: [WebXRControllerComponent.THUMBSTICK_TYPE, WebXRControllerComponent.TOUCHPAD_TYPE],
+        forceHandedness: "left",
+        axisChangedHandler: (axes, movementState, featureContext, xrInput) => {
+            movementState.moveX = Math.abs(axes.x) > featureContext.movementThreshold ? axes.x : 0;
+            movementState.moveY = Math.abs(axes.y) > featureContext.movementThreshold ? axes.y : 0;
+        },
+    },
+];
+
+const featureManager = xrHelper.baseExperience.featuresManager;
+
+featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
+  xrInput: xrHelper.input,
+  customRegistrationConfigurations: swappedHandednessConfiguration
+});
+```
+
+Other useful options are to change movement and rotation speed and to enable/disable movement (`movementEnabled`) and rotation (`rotationEnabled`), but these ones are also available on the feature itself to change at runtime.  The threshold options determine the sensitivity when the input is accepted - the default is 0.25, which prevents accidental movements and jittering.
