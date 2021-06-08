@@ -11,16 +11,12 @@ video-content:
 
 # Getting Started - Going Virtual
 
-## See Our Virtual Village World in VR
+## See Our Virtual Village World in XR
 
 It could not be simpler - we remove the current camera and replace it with
 
 ```javascript
-scene.createDefaultVRExperience();
+const xr = scene.createDefaultXRExperienceAsync();
 ```
 
-and click on the goggles
-
-<Playground id="#KBS9I5#99" title="Setting Up VR" description="Set your scene up for VR with one line of code." image="/img/playgroundsAndNMEs/gettingStartedVR.jpg"/>
-
-Our simple world is completed and we hope you have discovered plenty of new things and want to move on from these basics to explore Babylon.js further. 
+This will enable WebXR **in VR immersive mode**, including session init, input sources, the camera, teleportation and scene interactions. All using our [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper).
