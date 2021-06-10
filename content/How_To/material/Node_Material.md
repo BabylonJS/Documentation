@@ -395,6 +395,13 @@ By default, the node material provides the following blocks:
             -   g: Float
             -   b: Float
 
+    -   `SceneDepth`: The scene depth buffer
+
+        -   Input:
+            -   uv: Vector2
+        -   Output:
+            -   depth: Float
+
     -   `ScreenSize`: The size of the screen window
 
         -   Output:
