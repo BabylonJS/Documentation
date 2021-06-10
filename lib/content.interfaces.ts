@@ -22,6 +22,7 @@ export interface IExampleLink {
     isMain?: boolean;
     category?: string;
     documentationPage?: string; // optional, only for examples coming from search results!
+    engine?: "webgpu" | "webgl2" | "webgl1";
 }
 
 export interface IMediaEmbed {
