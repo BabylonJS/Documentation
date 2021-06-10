@@ -108,3 +108,47 @@ This can be used to attach an app bar to a mesh
 ![](/img/how_to/gui/appBar.png)
 
 * Playground Example: <Playground id="#X6MQ1L" title="AttachToBoxBehavior Example" description="A simple example of AttachToBoxBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
+
+## FollowBehavior
+This is used to make a mesh follow the camera.
+
+```
+var followBehavior = new BABYLON.FollowBehavior();
+followBehavior.attach(mesh);
+```
+
+The position/rotation of the mesh will be updated in 3 cases :
++ Either the mesh goes outside the bounds of the field of view. Use `maxViewVerticalDegrees` and `maxViewHorizontalDegrees` to tweak these bounds.
++ Either the mesh goes too close or too far from the camera. Use `defaultDistance`, `minimumDistance` and `maximumDistance` to tweak these distances.
++ Either the mesh is facing away from the camera. Use `orientToCameraDeadzoneDegrees` to delimit the maximum angle that the mesh can be facing away.
+
+In XR experiences, it can be useful to not consider the user's complete head rotation. Use the property `ignoreCameraPitchAndRoll` to only consider the yaw (rotation around Y) of the head. In this mode, you can use `pitchOffset`, to slightly put the mesh under or over the field of view.
+
+## SurfaceMagnetismBehavior
+This is used to make a mesh stick to another mesh, and be oriented along its normal.
+
+The property `meshes` is the list of meshes that can be sticked to.
+
+```
+var surfaceMagnetismBehavior = new BABYLON.SurfaceMagnetismBehavior();
+surfaceMagnetismBehavior.attach(mesh);
+surfaceMagnetismBehavior.meshes = meshes;
+```
+
+## HandConstraintBehavior
+This is used to make a mesh follow the hand of the user. It should always be linked to a [`WebXRDefaultExperience`] to retieve the position of the hand.
+The XR experience should also enable the [HandTracking] feature :
+
+```
+xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
+    xrInput: xr.input
+});
+```
+
+And then instanciate the behavior, attach it to a mesh, and link it to the XR experience :
+
+```
+var handConstraintBehavior = new BABYLON.HandConstraintBehavior();
+handConstraintBehavior.attach(mesh);
+handConstraintBehavior.linkToXRExperience(xr);
+```

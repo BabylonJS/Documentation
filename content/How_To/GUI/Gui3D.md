@@ -250,6 +250,27 @@ You can use the following properties to change the texture resolution:
 
 See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI6.jpg"/>
 
+### MeshButton3D
+
+This class is used to to create an interactable object which will use a mesh coming from the current scene to render.
+
+```javascript
+var pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");
+```
+
+Once created, you can use the new MeshButton3D to add animations:
+
+```javascript
+pushButton.pointerEnterAnimation = () => {
+  mesh.material.albedoColor = hoverColor;
+};
+pushButton.pointerOutAnimation = () => {
+  mesh.material.albedoColor = new BABYLON.Color3(0.5, 0.19, 0);
+};
+```
+
+See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
+
 ### HolographicButton
 
 The `HolographicButton` is a specialized button that mimics the Mixed Reality Toolkit holographic button.
@@ -277,26 +298,84 @@ text1.fontSize = 48;
 button.content = text1;
 ```
 
-### MeshButton3D
+### TouchHolographicButton
 
-This class is used to to create an interactable object which will use a mesh coming from the current scene to render.
-
-```javascript
-var pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");
-```
-
-Once created, you can use the new MeshButton3D to add animations:
+The `TouchHolographicButton` is a newer version `HolographicButton` that is more suited for Hololens 2 volume interactions.  
+It has the same use as `HolographicButton` :
 
 ```javascript
-pushButton.pointerEnterAnimation = () => {
-  mesh.material.albedoColor = hoverColor;
-};
-pushButton.pointerOutAnimation = () => {
-  mesh.material.albedoColor = new BABYLON.Color3(0.5, 0.19, 0);
-};
+var button = new BABYLON.GUI.TouchHolographicButton("reset");
+panel.addControl(button);
+
+// Must be done AFTER addControl in order to overwrite the default content
+var text1 = new BABYLON.GUI.TextBlock();
+text1.text = "Reset";
+text1.color = "Red";
+text1.fontSize = 48;
+button.content = text1;
 ```
 
-See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
+### HolographicSlate
+
+The `HolographicSlate` is the go-to 3D widget to display content. It can be dragged around, rotated and scaled. With 1 pointer you have to use the handles to rotate and scale the slate, with 2 pointers you can pinch and twist the title bar to rotate and scale.
+
+As in the `TouchHolographicButton`, use the `imageUrl` property to change the content of the slate.
+
+```javascript
+// Create the 3D UI manager
+var manager = new BABYLON.GUI.GUI3DManager(scene);
+
+// Let's add a slate
+var slate = new BABYLON.GUI.HolographicSlate("down");
+manager.addControl(slate);
+slate.imageUrl = "./textures/Checker_Albedo.png";
+```
+
+Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
+
+The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior] for the slate, and the rightmost destroys the slate.
+
+### Near Menu
+
+The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior]. It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
+
+Below, an exemple of a horizontal 3-button near menu.
+
+```javascript
+// Create the 3D UI manager
+var manager = new BABYLON.GUI.GUI3DManager(scene);
+
+// Let's add a slate
+var near = new BABYLON.GUI.NearMenu("near");
+manager.addControl(near);
+
+var button0 = new BABYLON.GUI.TouchHolographicButton("button0");
+button0.imageUrl = "./textures/IconFollowMe.png";
+button0.text = "Button 0";
+near.addButton(button0);
+
+var button1 = new BABYLON.GUI.TouchHolographicButton("button1");
+button1.imageUrl = "./textures/IconClose.png";
+button1.text = "Button 1";
+near.addButton(button1);
+
+var button2 = new BABYLON.GUI.TouchHolographicButton("button2");
+button2.imageUrl = "./textures/IconFollowMe.png";
+button2.text = "Button 2";
+near.addButton(button2);
+```
+
+As `NearMenu` is a child class of `VolumeBasedPanel`, the direction of the layout can be changed by tweaking the parameters `rows` and `columns`.  
+
+For example, to make a near menu with `n` buttons vertical, use :
+
+```javascript
+near.rows = n;
+```
+
+### Hand Menu
+
+The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior]. It is useful for XR experiences to always have a quick to use 3D control.
 
 ### Custom controls
 
