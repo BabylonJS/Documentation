@@ -3,7 +3,9 @@ import { IExampleLink } from "../content.interfaces";
 export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = true) => {
     const idToUse = example.playgroundId || example.id;
     const id = idToUse ? (idToUse[0] === "#" ? idToUse : `#${idToUse}`) : "";
-    return (example.type === "nme" ? "https://nme.babylonjs.com/" : "https://playground.babylonjs.com/" + (full ? "full.html" : "")) + id;
+    // webgpu parameter. Stay safe and validate
+    const params = (example.engine && example.engine==='webgpu') ? `?${example.engine}` : '';
+    return (example.type === "nme" ? "https://nme.babylonjs.com/" : "https://playground.babylonjs.com/" + (full ? "full.html" : "")) + id + params;
 };
 
 export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
