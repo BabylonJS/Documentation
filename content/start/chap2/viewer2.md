@@ -62,4 +62,4 @@ The following code sets the camera radius (and in this case its angle of depress
 
 [Example Viewer - Village](/webpages/page4.html) adjusting the camera
 
-When you are when developing a web game or app you probably want more flexibility than the Viewer can give. Let's take another look at using the HTML template.
+When you are developing a web game or app you probably want more flexibility than the Viewer can give. Let's take another look at using the HTML template.
