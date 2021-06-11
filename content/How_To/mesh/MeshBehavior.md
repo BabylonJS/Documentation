@@ -122,12 +122,14 @@ The position/rotation of the mesh will be updated in 3 cases :
 + Either the mesh goes too close or too far from the camera. Use `defaultDistance`, `minimumDistance` and `maximumDistance` to tweak these distances.
 + Either the mesh is facing away from the camera. Use `orientToCameraDeadzoneDegrees` to delimit the maximum angle that the mesh can be facing away.
 
-In XR experiences, it can be useful to not consider the user's complete head rotation. Use the property `ignoreCameraPitchAndRoll` to only consider the yaw (rotation around Y) of the head. In this mode, you can use `pitchOffset`, to slightly put the mesh under or over the field of view.
+In XR experiences, it can be useful not to consider the user's complete head rotation. Use the property `ignoreCameraPitchAndRoll` to only consider the yaw (rotation around the Y axis) of the head. In this mode, you can use `pitchOffset`, to slightly put the mesh under or over the horizontal plane.
+
+Like `SixDofDragBehavior`, every transformation of the mesh is interpolated to avoid jitter. Use `lerpTime` to adjust the length of the interpolation (the higher the slower).
 
 ## SurfaceMagnetismBehavior
-This is used to make a mesh stick to another mesh, and be oriented along its normal.
+This is used to make a mesh stick to another mesh, and be oriented along its normal. It can for instance be used in XR experiences to make UI controls stick to walls.
 
-The property `meshes` is the list of meshes that can be sticked to.
+The property `meshes` is the list of meshes that we should consider as intersectors.
 
 ```
 var surfaceMagnetismBehavior = new BABYLON.SurfaceMagnetismBehavior();
@@ -135,9 +137,11 @@ surfaceMagnetismBehavior.attach(mesh);
 surfaceMagnetismBehavior.meshes = meshes;
 ```
 
+By default, it will intersect `meshes` everytime the pointer moves, and position will be updated accordingly (with interpolation, like with `FollowBehavior`). Use the flag `enabled` to control whether this behavior should get into play.
+
 ## HandConstraintBehavior
-This is used to make a mesh follow the hand of the user. It should always be linked to a [`WebXRDefaultExperience`] to retieve the position of the hand.
-The XR experience should also enable the [HandTracking] feature :
+This is used to make a mesh follow the hand of the user. It should always be linked to a [WebXRDefaultExperience](/divingDeeper/webXR/webXRExperienceHelpers#the-webxr-default-experience) to retieve the position of the hand.
+The XR experience should also enable the [HandTracking](/divingDeeper/webXR/WebXRSelectedFeatures#hand-tracking) feature like this :
 
 ```
 xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
@@ -145,10 +149,12 @@ xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TR
 });
 ```
 
-And then instanciate the behavior, attach it to a mesh, and link it to the XR experience :
+And then you can instanciate the behavior, attach it to a mesh, and link it to the XR experience :
 
 ```
 var handConstraintBehavior = new BABYLON.HandConstraintBehavior();
 handConstraintBehavior.attach(mesh);
 handConstraintBehavior.linkToXRExperience(xr);
 ```
+
+You can change the hand it should follow with the property `handedness`.

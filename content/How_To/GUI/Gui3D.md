@@ -333,11 +333,11 @@ slate.imageUrl = "./textures/Checker_Albedo.png";
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
-The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior] for the slate, and the rightmost destroys the slate.
+The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
 ### Near Menu
 
-The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior]. It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
+The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
 
 Below, an exemple of a horizontal 3-button near menu.
 
@@ -375,7 +375,7 @@ near.rows = n;
 
 ### Hand Menu
 
-The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior]. It is useful for XR experiences to always have a quick to use 3D control.
+The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/divingDeeper/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
 
 ### Custom controls
 
