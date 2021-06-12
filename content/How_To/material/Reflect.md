@@ -126,8 +126,6 @@ mesh.material.reflectionTexture.mirrorPlane = BABYLON.Plane.FromPositionAndNorma
 mesh.material.reflectionTexture.renderList = [... list of meshes ...];
 ```
 
-<p/>
-
 To create a blurred reflection, set MirrorTexture's [.blurKernel](/typedoc/classes/babylon.mirrortexture#blurkernel) to the blur kernel size (higher is blurrier) relative to the render texture size (set when MirrorTexture is created). Use [.adaptiveBlurKernel](/typedoc/classes/babylon.mirrortexture#blurkernel) instead to scale the blur value by the ratio of the render texture size and viewport size.
 
 <p><Playground id="#LVTTQX#1" title="Reflection Blur" description="A shape reflected in a surface with blurring." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction12.jpg"/></p>
