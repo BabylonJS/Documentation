@@ -69,13 +69,11 @@ skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
 skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 skybox.material = skyboxMaterial;
 ```
-<br/>
 
 To use your own skybox images, make them web-accessible (a localhost server is okay), and change the `BABYLON.CubeTexture` call:
 
 ```javascript
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("URL TO IMAGE DIRECTORY/COMMON PART OF IMAGE FILENAMES", scene);
 ```
-<br/>
 
 <Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.jpg"/>

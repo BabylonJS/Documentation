@@ -33,14 +33,12 @@ skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
 skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 skybox.material = skyboxMaterial;
 ```
-<br/>
 
 We also restrict the camera so that it cannot move below ground level.
 
 ```javascript
 camera.upperBetaLimit = Math.PI / 2.2;
 ```
-<br/>
 
 <Playground id="#KBS9I5#88" title="Adding a Skybox" description="Add a skybox to your scene." image="/img/playgroundsAndNMEs/gettingStartedSkyBox.jpg"/><br/>
 <br/>
