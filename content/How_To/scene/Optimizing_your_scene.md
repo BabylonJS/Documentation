@@ -182,7 +182,7 @@ The culling is the process to select whether a mesh must be passed to the GPU to
 If a mesh intersects the camera frustum in some way then it's passed to the GPU.  
 Depending on its accuracy (checking mesh bouding boxes or bouding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.   
 In the other hand, reducing this process accuracy to make it faster can lead to some false positives : some meshes are passed to the GPU, are computed there and won't be finally visible in the viewport.   
-By default, BABYLON applies the most accurate test to check if a mesh is in the camera frustum.  
+By default, BABYLON applies "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.  
 You can change this behaviour for any mesh of your scene at any time (and change it back then, if needed) this the property `mesh.cullingStrategy`.  
 ```javascript 
 /**
