@@ -599,6 +599,11 @@
                     "children": {},
                     "content": "resources/Reference/Creating_the_Mini-fied_Version"
                 },
+                "mathShadows": {
+                    "friendlyName": "Depth metric when rendering shadows",
+                    "children": {},
+                    "content": "resources/Manual/Math_shadows"
+                },
                 "mutliPlatTextures": {
                     "friendlyName": "Multi-Platform Compressed Textures",
                     "children": {},
