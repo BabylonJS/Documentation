@@ -1,37 +1,46 @@
 ---
-title: Getting Started - Chapter 5 - Skys Above
+title: Getting Started - Chapter 5 - Skies Above
 image: 
 description: Learn to add a skybox to your scene.
 keywords: getting started, start, chapter 5, environment, skybox
 further-reading:
+    - title: Skyboxes
+      url: /divingDeeper/environment/skybox
 video-overview:
 video-content:
 ---
 
-# Getting Started - Working With Code
+# Getting Started - Skies Above
 
-## Sky
-We can simulate the appearance of a sky by applying six suitable images to the insides of a large box. Each image should have a common name  followed by one of _px, _nx, _py, _ny, _pz or _nz, these indicate which face the image is for; the positive (p) or negative (n) x, y or z axis. For example skybox_px.jpg, skybox_nx.jpg, skybox_py.jpg, skybox_ny.jpg, skybox_pz.jpg, skybox_nz.jpg. These are applied to the box as a *cubeTexture*. The first parameter of a *cubeTexture* is the url to the skybox and only the common name is added.  
+We can simulate the appearance of a sky by applying six suitable images to the insides of a large [skybox](/divingDeeper/environment/skybox) cube. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 
+Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). CubeTexture's constructor takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg", and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube.
 
-![Skybox](/img/how_to/skybox.png)
+|<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/>|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|skybox\_px.jpg|skybox\_nx.jpg|skybox\_py.jpg|skybox\_nx.jpg|skybox\_pz.jpg|skybox\_nx.jpg|
+<br/>
 
-Copy the code below and link to you own skybox.
+Cube textures must be applied using [reflectionTexture](/divingDeeper/materials/using/reflectionTexture) even though the skybox is not a reflection map. Setting [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX\_MODE paints the texture directly on the cube rather than simulating reflections.
+
 ```javascript
 const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:150}, scene);
 const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
 skyboxMaterial.backFaceCulling = false;
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("url path/skybox", scene);
+skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
 skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 skybox.material = skyboxMaterial;
 ```
-In our developing world we will also add a restriction to the camera so that it cannot display anything below ground level.
+
+We also restrict the camera so that it cannot move below ground level.
 
 ```javascript
 camera.upperBetaLimit = Math.PI / 2.2;
 ```
-<Playground id="#KBS9I5#88" title="Adding a Skybox" description="Add a skybox to your scene." image="/img/playgroundsAndNMEs/gettingStartedSkyBox.jpg"/>
 
-Next environmental improvement is to grow some trees.
+<Playground id="#KBS9I5#88" title="Adding a Skybox" description="Add a skybox to your scene." image="/img/playgroundsAndNMEs/gettingStartedSkyBox.jpg"/><br/>
+<br/>
+
+After making a sky, the next environmental improvement is to [grow some trees](/start/chap5/trees).
