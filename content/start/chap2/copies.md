@@ -30,7 +30,7 @@ Before we do that we combine the building functions to produce a house of width 
 <Playground id="#KBS9I5#77" title="Expanding the House Building Function" description="A playground expanding the house building function to accept a width of 1 or 2 for a detached or semi-detached house." image="/img/playgroundsAndNMEs/gettingStartedCopies1.jpg"/>
 
 We now enlarge the ground and increase the camera radius a little to fit several house on and be able to view them.
-To begin with we build one house of each type position them. After we will create instances of these for the remaining houses. After deciding on the type, position and orientation for the other houses we will use a loop to create the them.
+To begin we build one house of each type and position them. Afterwards we will create instances of these for the remaining houses. After deciding on the type, position and orientation for the other houses we will use a loop to create the them.
 
 ```javascript
 const houses = [];
