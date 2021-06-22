@@ -13,16 +13,16 @@ const styles = makeStyles((theme: Theme) =>
             maxWidth: 800,
             height: "auto",
             margin: theme.spacing(2, 0),
-            display: 'inline-block'
+            display: "inline-block",
         },
         image: {
             flex: 1,
-            width: '100%'
+            width: "100%",
         },
         caption: {
             fontSize: 12,
             display: "block",
-            marginBottom: theme.spacing(2)
+            marginBottom: theme.spacing(2),
         },
     }),
 );
@@ -31,6 +31,9 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
+    const [src, imgProps] = props.src.split("=");
+    const preW = imgProps && decodeURI(imgProps).split("x")[0];
+    const preH = imgProps && decodeURI(imgProps).split("x")[1];
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const [intrinsic, setIntrinsic] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const classes = styles();
@@ -42,7 +45,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         let { h, w } = intrinsic;
         const markdownContainer = document.querySelector(".markdown-container") as HTMLDivElement;
         let containerWidth = markdownContainer.clientWidth - 32;
-        if(containerWidth > 760) {
+        if (containerWidth > 760) {
             containerWidth = 760;
         }
         if (w > containerWidth) {
@@ -62,11 +65,11 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         };
     }, [intrinsic]);
     const getImage = () => {
-        if (props.src.startsWith("http") || props.src.startsWith("//") || props.src.indexOf(".gif") !== -1) {
-            return <img className={classes.image} {...props} />;
+        if (src.startsWith("http") || src.startsWith("//") || src.indexOf(".gif") !== -1) {
+            return <img className={classes.image} {...props} src={src} />;
         }
         const properties: IImageEmbed = { ...props };
-        if (!props.width || !props.height) {
+        if (!properties.width || !properties.height) {
             properties.layout = "fill";
         }
         try {
@@ -79,8 +82,17 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 let h = imgTag.naturalHeight;
                                 let w = imgTag.naturalWidth;
                                 // avoid using the loading gif to calculate size
-                                if(imgTag.src.startsWith('data:image/gif;base64')) { return; }
-                                if (imgTag.naturalWidth > imgTag.clientWidth) {
+                                if (imgTag.src.startsWith("data:image/gif;base64")) {
+                                    return;
+                                }
+                                if (preW) {
+                                    w = +preW;
+                                    if (!preH) {
+                                        h = ((h * imgTag.clientWidth) / imgTag.naturalWidth) * (w / imgTag.clientWidth);
+                                    } else {
+                                        h = +preH;
+                                    }
+                                } else if (imgTag.naturalWidth > imgTag.clientWidth) {
                                     h = (h * imgTag.clientWidth) / w;
                                     w = imgTag.clientWidth;
                                 }
@@ -95,10 +107,11 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     }}
                     className={classes.image}
                     {...properties}
+                    src={src}
                 ></Image>
             );
         } catch (e) {
-            return <img className={classes.image} {...props} />;
+            return <img className={classes.image} {...props} src={src} />;
         }
     };
 
