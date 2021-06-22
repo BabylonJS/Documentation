@@ -94,7 +94,7 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
                 <div className={styles['documentation-container']}>
                     <div className={styles["markdown-and-playground"]}>
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={markdownRef} className={styles["markdown-container"]}>
+                        <div ref={markdownRef} className={styles["markdown-container"]} id="markdown-container">
                             <h1>{metadata.title}</h1>
                             {renderedContent}
                             <BucketContent childPages={childPages}></BucketContent>

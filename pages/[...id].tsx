@@ -128,7 +128,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                 <div className={styles["documentation-container"]}>
                     <div className={styles["markdown-and-playground"]}>
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={markdownRef} className={styles["markdown-container"]}>
+                        <div ref={markdownRef} className={styles["markdown-container"]} id="markdown-container">
                             <h1>{metadata.title}</h1>
                             {tocLinks.length > 1 && !!tocLevel && (
                                 <div className={styles["toc-container"]}>
