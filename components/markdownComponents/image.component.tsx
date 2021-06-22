@@ -43,7 +43,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return;
         }
         let { h, w } = intrinsic;
-        const markdownContainer = document.querySelector(".markdown-container") as HTMLDivElement;
+        const markdownContainer = document.querySelector("#markdown-container") as HTMLDivElement;
         let containerWidth = markdownContainer.clientWidth - 32;
         if (containerWidth > 760) {
             containerWidth = 760;
@@ -88,7 +88,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                 if (preW) {
                                     w = +preW;
                                     if (!preH) {
-                                        h = ((h * imgTag.clientWidth) / imgTag.naturalWidth) * (w / imgTag.clientWidth);
+                                        h = ((h * w) / imgTag.naturalWidth);
                                     } else {
                                         h = +preH;
                                     }
