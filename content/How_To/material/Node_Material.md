@@ -1343,7 +1343,7 @@ As a training exercise and to show what is possible to do with the Node Material
 
 -   <nme id="#AT7YY5#6" title="Full Standard Material NME" description="A Node Material Editor setup of the full standard material." image="/img/playgroundsAndNMEs/NMEfullStandardMaterial.jpg"/>
 -   <nme id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.jpg"/>
--   <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.jpg"/>
+-   <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.jpg" isMain={true} category="Node Material"/>
 
 Note that the only difference between the full material and the material without alpha support is that nothing is wire to the `fragmentOutput.a` input. If you don't need alpha support, you should use the "non alpha" node material as alpha-based materials have some constraints:
 
@@ -1426,7 +1426,7 @@ You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Dis
 You can use those playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
 -   Full use of all PBR blocks:
--   PG: <Playground id="#D8AK3Z#16" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg"/>
+-   PG: <Playground id="#D8AK3Z#16" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg" isMain={true} category="Node Material"/>
 -   Material: <nme id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.jpg"/>
 -   PBR material with sheen only:
     -   PG: <Playground id="#MUX769#4" title="PBR Blocks Sheen Only Playground" description="Playground of PBR blocks in NME using sheen only." image="/img/playgroundsAndNMEs/PGPBRSheenNME.jpg"/>
@@ -1486,7 +1486,7 @@ const myPostProcess = new BABYLON.PostProcess(...);
 nodeMaterial.createEffectForPostProcess(myPostProcess);
 ```
 
-PG: <Playground id="#WB27SW#1" title="NME Post Process Playground Example" description="Playground example of using the Node Material Editor to create a Post Process effect." image="/img/playgroundsAndNMEs/PGNMEPostProcess.jpg"/>
+PG: <Playground id="#WB27SW#1" title="NME Post Process Playground Example" description="Playground example of using the Node Material Editor to create a Post Process effect." image="/img/playgroundsAndNMEs/PGNMEPostProcess.jpg" isMain={true} category="Node Material"/>
 
 As for regular node materials, you can access the blocks programmatically and change their values:
 
@@ -1524,7 +1524,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 });
 ```
 
-Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg"/>
+Playground: <Playground id="#8S19ZC#1" title="NME Procedural Texture Example" description="Playground example of using the Node Material Editor to create a Procedural Texture." image="/img/playgroundsAndNMEs/PGNMEProceduralTexture.jpg" isMain={true} category="Node Material"/>
 
 You can check out this video for more information:
 <Youtube id="qqMuuSM7GvI"/>
@@ -1554,7 +1554,7 @@ When you have created your particle shader in the NME, you can link the material
 nodeMaterial.createEffectForParticles(particleSystem);
 ```
 
-PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg"/>
+PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg" isMain={true} category="Node Material"/>
 
 The full fragment shader used by default by the particle system can be recreated in the NME: <nme id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/>
 
@@ -1612,7 +1612,7 @@ And then from there you could have used the Inspector to edit it (The inspector 
 
 Here are some node material examples that you can use "as is" or extend with the NME:
 
--   <Playground id="#9B0DNU#36" title="Incredible NME Ocean Shader" description="Incredible NME Ocean Shader."/>
+-   <Playground id="#9B0DNU#36" title="Incredible NME Ocean Shader" description="Incredible NME Ocean Shader." isMain={true} category="Node Material"/>
 -   <nme id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg" isMain={true} category="Materials"/>
 -   <nme id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
 -   <nme id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
