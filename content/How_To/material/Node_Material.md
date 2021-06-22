@@ -288,7 +288,7 @@ By default, the node material provides the following blocks:
         -   Outputs:
             -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
-    -   `ReplaceColor`: Replaces a reference color in value with the color in replacement blended by distance.
+    -   `ReplaceColor`: Outputs the replacement color if the distance between value and reference is less than distance, else outputs the value color.
         -   Inputs:
             -   value: Vector2, Vector3, Vector4, Color3, or Color4.
             -   reference: Vector2, Vector3, Vector4, Color3, or Color4.
