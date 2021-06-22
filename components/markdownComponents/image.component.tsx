@@ -86,7 +86,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                     return;
                                 }
                                 if (preW) {
-                                    w = Math.min(+preW, 800);
+                                    w = Math.min(+preW, 760);
                                     if (!preH) {
                                         h = ((h * w) / imgTag.naturalWidth);
                                     } else {
