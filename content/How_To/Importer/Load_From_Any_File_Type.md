@@ -79,7 +79,7 @@ See an example here: <Playground id="#88CB6A#1" title="Append Assets From A Stri
 You can also load a .glb binary file from a data string as long as the binary data is base64 encoded:
 
 ```javascript
-var base64_model_content = "data:base64,BASE 64 ENCODED DATA...";
+var base64_model_content = "data:;base64,BASE 64 ENCODED DATA...";
 BABYLON.SceneLoader.Append("", base64_model_content, scene, function (scene) { 
     // do something with the scene
 });
@@ -91,7 +91,7 @@ var base64_model_content = "data:application/octet-stream;base64,-BASE 64 ENCODE
 var base64_model_content = "data:model/gltf-binary;base64,-BASE 64 ENCODED DATA-";
 ```
 
-See an example here: <Playground id="#7F6S08#15" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
+See an example here: <Playground id="#7F6S08#55" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
 
 ## SceneLoader.Load
 
@@ -185,3 +185,17 @@ var loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene
 
 For assistance when load multiple assets the AssetsManager class can be used.
 See [Load Files with Assets Manager](/divingDeeper/importers/assetManager)
+
+## Direct loading base64 encoded models
+
+Babylon.JS supports directly loading models from base64 encoded [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) without
+needing to create an object URL or download the file. When loading from a base64 data url the plugin is not automatically detected (with the exception of some
+glb formats). The `pluginExtension` parameter should be set when using base64 data urls in order to ensure the correct plugin is used to load the model.
+
+The format for a minimum base64 encoded model file is:
+```
+data:;base64,<base64_encoded_file_contents>
+```
+
+The **;** before **base64** and the **,** following it are both required. See here for an example of loading an obj file in base64 encoding: 
+<Playground id="#58T0JY" title="Load base64 model" description="Example showing how to load a base64 encoded model using the data url syntax" image="/img/playgroundsAndNMEs/pg-58T0JY.png" />
