@@ -31,7 +31,14 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
-    const [src, imgProps] = props.src.split("=");
+    const eidx = props.src.lastIndexOf("!");
+    let [src, imgProps] = eidx < 0 ? [props.src, undefined] : [props.src.substring(0, eidx), props.src.substring(eidx + 1)];
+    if (imgProps) {
+        if (!imgProps.match(/^\d+(x\d+)?$/)) {
+            src = props.src;
+            imgProps = undefined;
+        }
+    }
     const preW = imgProps && decodeURI(imgProps).split("x")[0];
     const preH = imgProps && decodeURI(imgProps).split("x")[1];
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
@@ -66,7 +73,14 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     }, [intrinsic]);
     const getImage = () => {
         if (src.startsWith("http") || src.startsWith("//") || src.indexOf(".gif") !== -1) {
-            return <img className={classes.image} {...props} src={src} />;
+            let style: { width?: string, height?: string } = {};
+            if (preW) {
+                style.width = `${Math.min(+preW, 760)}px`;
+                if (preH) {
+                    style.height = `${+preH}px`;
+                }
+            }
+            return <img className={classes.image} {...props} src={src} style={style}/>;
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
