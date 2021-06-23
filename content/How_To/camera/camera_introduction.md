@@ -373,3 +373,14 @@ Just a friendly warning, setting the far clipping plane to infinity can reduce d
 The cameras rely upon user inputs to move the camera. If you are happy with the camera presets Babylon.js is giving you, just stick with it.
 
 If you want to change user inputs based upon user preferences, customize one of the existing presets, or use custom input mechanisms. Those cameras have an input manager that is designed for those advanced scenarios. Read [customizing camera inputs](/divingDeeper/cameras/customizingCameraInputs) to learn more about tweaking inputs on your cameras.
+
+## Correcting perspective projection
+
+If you are doing applications like architectural rendering, you may encounter the need to compensate for perspective tilting of vertical lines.
+Let's consider this case : you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge towards a vanishing point, like on [this playground](https://playground.babylonjs.com/#L20FJ4#15) : ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.jpg).
+
+While this is realistic, it may be visually inappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.jpg).
+
+And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
+See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
+
