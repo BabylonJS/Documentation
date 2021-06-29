@@ -160,6 +160,10 @@ sword.attachToBone(skeleton.bones[34], character);
 Please note that you also need to specify on which mesh the bone is currently applied.
 You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone."/>
 
+When you attach a mesh to a bone in a skeleton, the mesh will be scaled by the same scaling factor as the parent mesh of the skeleton. This may not always be what you want. You may want to preserve the size of the of the mesh before and after attaching to a bone. To achieve this, scale the mesh appropriately before attaching it to the bone so that the net effect is to keep the size of the mesh intact before and after attachment. For example, if the parent mesh of the skeleton has a scaling factor (2, 2, 3) you have to scale the attached mesh by a factor (1/2, 1/2, 1/3) or (0.5, 0.5, 0.333 ).
+
+The current position of the mesh in the world coordinates determines how far away the mesh will appear from the bone. If the mesh is far from the origin of the world, then it will appear far from the bone as well which, again, may not be what you want. So before attaching a mesh to a bone set its position to (0, 0, 0) or to a position close to world origin so that the mesh appears close to the bone and appears attached. The position of the mesh in this case simply acts as its offset from the bone.
+
 ## Rotating, Positioning, and Scaling bones
 
 Starting with babylon.js v2.5, you can easily position, rotate, and scale bones.
