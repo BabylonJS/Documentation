@@ -114,7 +114,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         setType(queryType);
         setLoading(true);
         setActiveExample(null);
-        console.log(`${baseQueryURL}/${queryType}/`);
+        // console.log(`${baseQueryURL}/${queryType}/`);
         fetch(`${baseQueryURL}/${queryType}/`, {
             method: "POST",
             headers: {
@@ -125,7 +125,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             .then((result) => {
                 result.json().then((json) => {
                     if (json.length === 0) {
-                        console.log("no results");
+                        // console.log("no results");
                         setNoResults(true);
                     }
                     setResults(json);
@@ -157,7 +157,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             return;
         }
         setLoading(true);
-        console.log("fetching");
+        // console.log("fetching");
         fetch(`${baseQueryURL}/${type}/`, {
             method: "POST",
             headers: {
@@ -172,7 +172,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                 });
             })
             .catch((e) => {
-                console.log("error", e);
+                // console.log("error", e);
                 setLoading(false);
             });
     }, [page]);
