@@ -91,7 +91,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
             });
         queryIndex<IPlaygroundSearchResult>(query, "playgrounds")
             .then((results) => {
-                console.log('results');
+                // console.log('results');
                 setPGResults(results);
                 setLoading(false);
             })

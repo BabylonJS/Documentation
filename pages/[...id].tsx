@@ -54,14 +54,12 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     const addExampleLink = (link: IExampleLink) => {
         setExampleLinks(prevState => {
-            console.log('example', prevState);
             return [...prevState, link];
         })
     };
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
         setTocLinks(prevState => {
-            console.log('toc', prevState);
             return [...prevState, tocItem];
         });
     };
@@ -77,7 +75,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
 
     useEffect(() => {
-        console.log('examples', exampleLinks);
+        // console.log('examples', exampleLinks);
     }, [exampleLinks])
 
     useEffect(() => {
@@ -86,7 +84,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
         }
         return () => {
             // TODO since the last update of next, this code is not executed correctly.
-            console.log('clearing');
+            // console.log('clearing');
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
