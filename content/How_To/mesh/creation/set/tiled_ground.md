@@ -44,12 +44,7 @@ updatable|_(boolean)_ true if the mesh is updatable|false
     let base = 0;
     for (let row = 0; row < grid.h; row++) {
         for (let col = 0; col < grid.w; col++) {
-            tiledGround.subMeshes.push(new BABYLON.SubMesh(
-                row % 2 ^ col % 2, 
-                0, verticesCount, 
-                base , 
-                tileIndicesLength, 
-                tiledGround));
+            new BABYLON.SubMesh(row % 2 ^ col % 2, 0, verticesCount, base, tileIndicesLength, tiledGround);
             base += tileIndicesLength;
         }
     }
