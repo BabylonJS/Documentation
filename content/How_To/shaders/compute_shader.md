@@ -79,7 +79,7 @@ Note that for a (sampled) texture variable as `src` in the example above:
 
 ### Simple compute shaders
 
-<Playground id="#3URR7V#107" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders"/>
+<Playground id="#3URR7V#110" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders"/>
 
 This PG creates 3 compute shaders:
 * the first one is loading a texture and copying it into another texture by means of a compute shader. This texture is then applied on the ground. **Warning**: it is for demonstration purpose only, don't use this compute shader in real code, a simple copy buffer would be enough to achieve the same thing!
@@ -88,7 +88,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#109" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
+<Playground id="#3URR7V#112" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
@@ -96,7 +96,7 @@ Note that in the sample we are calling `dispatchWhenReady()` for the first compu
 
 ### Compute Boids
 
-<Playground id="#3URR7V#108" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds"/>
+<Playground id="#3URR7V#114" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds"/>
 
 This is a direct port of the WebGPU sample [computeBoids](http://austin-eng.com/webgpu-samples/samples/computeBoids).
 
@@ -108,7 +108,7 @@ As the storage buffers we use to compute the particle positions and velocities w
 
 ### Hydraulic erosion
 
-<Playground id="#C90R62" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
+<Playground id="#C90R62#1" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
 
 This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLague/Hydraulic-Erosion): all credits to sebastlague@gmail.com!
 
@@ -118,7 +118,7 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 ### Slime simulation
 
-<Playground id="#GXJ3FZ#35" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
+<Playground id="#GXJ3FZ#37" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
