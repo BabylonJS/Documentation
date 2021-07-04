@@ -157,6 +157,7 @@ label {
 ```
 
 That's all, we can run our example by issuing the `npm run serve` command in the terminal. You should see this image. FPS should be displayed in the left upper corner.
+
 ![Running the FPS by callback example](/img/resources/vue/bjs-vue-doc-2.png)
 
 ## Passing data from BabylonJS to Vue using an exposed Engine object
@@ -222,7 +223,7 @@ return { engine, scene };
 
 at the end of the `createScene` method. If you are getting lost, please have a look at the code in the repository.
 
-Now it's time to run our app as usuall and the result must be the same as with the callbacks.
+Now it's time to run our app as usual and the result must be the same as with the callbacks.
 
 ## Sending data from Vue to BabylonJS with loose coupling and without exposing the BabylonJS objects to Vue
 
@@ -240,7 +241,7 @@ const myScene = {
     const engine = new Engine(canvas);
 ```
 
-At the end add a method as follows. This method can be called by any caller, thus including our Vue component and it simply repositions a mesh identified by the name parameter `name`.
+At the end add a method as follows. This method can be called by any caller, including our Vue component and it simply repositions a mesh identified by the name parameter `name`.
 
 ```jsx
   setPosition: function(name, x, y, z) {
@@ -524,11 +525,11 @@ mounted() {
 
 ## Other methods of data passing
 
-There are much more methods to pass data between Vue and BabylonJS, generally in Javascript as well. We have demonstrated onlu a few techniques.
+There are much more methods to pass data between Vue and BabylonJS, generally in Javascript as well. We have demonstrated only a few techniques. If you are interested in `WebWorkers` and want to use the offline canvas rendering capability of BabylonJS, you have to choose data communication using a message bus.
 
 ## Conclusion
 
-As you can see, it's up to the programmer to choose the right approach. There is a safe, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue quite dangerous. You can end up with multiple canvas redraws in one tick.
+As you can see, it's up to the programmer to choose the right approach. There is a safer, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue is quite dangerous. You can end up with multiple canvas redraws in one tick.
 
 ## Where to go next?
 
