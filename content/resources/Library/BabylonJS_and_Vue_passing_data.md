@@ -10,27 +10,29 @@ video-content:
 
 ## Prerequisites
 
-You have to follow and finish the [How to use BabylonJS with Vue](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue_1 "How to use BabylonJS with Vue") tutorial first.
+You have to follow and finish the [How to use BabylonJS with Vue](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1 "How to use BabylonJS with Vue") tutorial first.
 
-[Passing of variables by Value and by Reference in Javascript](https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/ "Passing of variables by Value and by Reference in Javascript").
+These principles have to be clear for you: [Passing of variables by Value and by Reference in Javascript](https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/ "Passing of variables by Value and by Reference in Javascript").
 
 Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue2 Components Basic page](https://vuejs.org/v2/guide/components.html "Vue2 Components Basics") and on [The official Vue3 Components Basic page](https://v3.vuejs.org/guide/component-basics.html "Vue3 Components Basic").
 
-Cloned repository from TODO
+Cloned repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1 so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
 
 The goal of this tutorial is to show how to connect the two frameworks together and not to show how to use these frameworks alone. You need to be familiar at basic level with both frameworks to get started.
 
-This example uses Vue2. All the techniques are the same for Vue3, you just have to modify the Vue part of the code to make it working in Vue3.
+This example uses Vue2. All the techniques are the same for Vue3, you just have to modify the Vue part of the code to make it working in Vue3. Basically instead of `data()` you have to declare your variables in the `setup` method and the `mounted` hook is replaced by `onMounted`.
+
+## The Example
 
 We will create an FPS counter which will be displayed by Vue, but the data will be provided by the BabylonJS scene.
 
 1. The first approach will use callbacks to send data from the BabylonJS scene to the Vue component and this component will `emit` the data to it's parent component, where the FPS finally gets displayed. The BabylonJS scene is not exposing any of it's objects to the Vue component.
 1. The second approach will expose the BabylonJS `Engine` and `Scene` object to the Vue component and we will get the required data in the Vue component from the exposed `Engine` object.
 
-After finishing this part we will learn how to pass data from the Vue component to the BabylonJS scene a we will make some cubes move.
+After finishing this part we will learn how to pass data from the Vue component to the BabylonJS scene and we will make some cubes move.
 
-1. The first approach will not expose any BabylonJS objects to the Vue component and the BabylonJS scene will be controlled via methods.
-1. The second approach will expose only the required `Vector3` BabylonJS object with the position of the cube, so we can move our cube by directly modifiying this object's properties.
+1. The first approach will not expose any BabylonJS objects to the Vue component and the BabylonJS scene will be controlled via custom methods exposed by the scene.
+1. The second approach will expose only the absolitelly required `Vector3` BabylonJS object with the position of the cube, so we can move our cube by directly modifiying this object's properties. We will read from a `Vector3` object in our component in real-time as well.
 1. The final, third approach will expose the `Engine` and `Scene` object and the Vue component will manipulate the scene by using these objects.
 
 ## Passing data from BabylonJS to Vue using callbacks
@@ -529,13 +531,19 @@ There are much more methods to pass data between Vue and BabylonJS, generally in
 
 ## Conclusion
 
-As you can see, it's up to the programmer to choose the right approach. There is a safer, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue is quite dangerous. You can end up with multiple canvas redraws in one tick.
+As you can see, it's up to the programmer to choose the right approach. There is a safer, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue is quite dangerous. You can. end up with multiple canvas redraws in one tick.
+
+Now the we've learned how to control the scene from Vue, it can be very tempting to overuse this technique. Keep your data flow between Vue and BabylonJS at minimum and for example do not animate an object on the scene by setting it's properties from Vue every frame, create a method on the scene instead, let's call it `animateMeshVisibility(name, from, to, duration)` and call this method from Vue once to start the animation.
 
 ## Where to go next?
 
-Visit our great [Getting started](/start "Getting started") page.
+Visit our great [Getting started](/start "Getting started") page or if you are interested in more advanced Vue stuff, jump to [part three of this tutorial](/content/resources/library/BabylonJS_and_Vue_3 "BabylonJS and Vue - async scene methods").
 
 ## Links
+
+[Part 1](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue") of this tutorial
+
+[Part 3](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/branches/all
 

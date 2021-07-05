@@ -242,9 +242,13 @@ It is very easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that
 
 ## Where to go next?
 
-If you don't want to pass value from Vue to BabylonJS and vice versa, you stop here and for example visit our great [Getting started](/start "Getting started") page otherwise jump to [part two of this tutorial](/content/resources/library/BabylonJS_and_Vue_reflectivity "BabylonJS and Vue reflectivity").
+If you don't want to pass value from Vue to BabylonJS and vice versa, you stop here and for example visit our great [Getting started](/start "Getting started") page otherwise jump to [part two of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
 
 ## Links
+
+[Part 2](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "How to pass data between BabylonJS and Vue") of this tutorial
+
+[Part 3](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 
