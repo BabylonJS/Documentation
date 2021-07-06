@@ -582,18 +582,6 @@
                     "children": {},
                     "content": "resources/Reference/File_Format_Map_(.babylon)"
                 },
-                "shaders": {
-                    "friendlyName": "Shaders",
-                    "children": {
-                        "introToShaders": { "friendlyName": "Introduction to Shaders", "children": {}, "content": "resources/Manual/ShaderIntro" },
-                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
-                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
-                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
-                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" },
-                        "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" }
-                    },
-                    "content": "How_To/shaders/shaders"
-                },
                 "minifiedVer": {
                     "friendlyName": "Creating the Mini-fied Version",
                     "children": {},
@@ -608,6 +596,18 @@
                     "friendlyName": "Multi-Platform Compressed Textures",
                     "children": {},
                     "content": "resources/Manual/Multi-Platform_Compressed_Textures"
+                },
+                "shaders": {
+                    "friendlyName": "Shaders",
+                    "children": {
+                        "introToShaders": { "friendlyName": "Introduction to Shaders", "children": {}, "content": "resources/Manual/ShaderIntro" },
+                        "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
+                        "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
+                        "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
+                        "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" },
+                        "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" }
+                    },
+                    "content": "How_To/shaders/shaders"
                 },
                 "webGL2": {
                     "friendlyName": "WebGL2",
