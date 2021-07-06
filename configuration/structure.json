@@ -155,7 +155,7 @@
                         "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                         "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                         "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
-                        "howToStart": { 
+                        "howToStart": {
                             "friendlyName": "Start Contributing to Babylon.js",
                             "children": {
                                 "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests" }
@@ -905,8 +905,7 @@
                     "children": {
                         "wordPress": {
                             "friendlyName": "Babylon.js WordPress Integration",
-                            "children": {
-                            },
+                            "children": {},
                             "content": "landing_pages/extensions_wordpress"
                         }
                     },
@@ -1031,6 +1030,14 @@
                         "BabylonJS_and_ReactJS": { "friendlyName": "BabylonJS and ReactJS", "children": {}, "content": "resources/Library/BabylonJS_and_ReactJS" },
                         "BabylonJS_and_React_Native": { "friendlyName": "BabylonJS and React Native", "children": {}, "content": "resources/Library/BabylonJS_and_React_Native" },
                         "BabylonJS_and_VRM": { "friendlyName": "BabylonJS and VRM", "children": {}, "content": "resources/Library/BabylonJS_and_VRM" },
+                        "BabylonJS_and_Vue": {
+                            "friendlyName": "BabylonJS and Vue",
+                            "children": {
+                                "BabylonJS_and_Vue_1": { "friendlyName": "BabylonJS and Vue - basics", "children": {}, "content": "resources/Library/BabylonJS_and_Vue" },
+                                "BabylonJS_and_Vue_2": { "friendlyName": "BabylonJS and Vue - passing data", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_passing_data" },
+                                "BabylonJS_and_Vue_3": { "friendlyName": "BabylonJS and Vue - async scene methods", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_async" }
+                            }
+                        },
                         "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" }
                     },
                     "content": "landing_pages/extensionsExternalLibrariesLandingPage"
