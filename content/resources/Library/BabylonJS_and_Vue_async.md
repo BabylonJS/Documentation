@@ -8,13 +8,13 @@ video-overview:
 video-content:
 ---
 
-Sometimes you will need to issue a command from your Vue component to the BabylonJS scene, maybe it will be an animation and you need to know, when the required operation, let's it be our animation, finishes.
+Sometimes you will need to issue a command from your Vue component to the BabylonJS scene, maybe it will be an animation and you need to know, when the required operation, let it be our animation, finishes.
 
 ## Prerequisites
 
-The goal of this tutorial is to show how to connect the two frameworks together and not to show how to use these frameworks alone. You need to be familiar at basic level with both frameworks to get started.
+The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
-Cloned repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1 so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/async-scene-methods.
+You need to cloned the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1 so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/async-scene-methods.
 
 ## The Example
 
@@ -57,7 +57,7 @@ async animateMeshVisibility(name, from, to, speed) {
   },
 ```
 
-In the file `src/components/BabylonScene.vue` make the following changes. We have added a button to trigger the animation. Our `hide` function must be `async` so we can `await` the asynchronous method defined in the scene code. When the animation ends, an alert is displayed.
+In the file `src/components/BabylonScene.vue` make the following changes. We have added a button to trigger the animation. Our `hide` function must be `async` so we can `await` the asynchronous method defined in the scene code. When the animation ends an alert is displayed.
 
 ```jsx
 <template>
