@@ -20,7 +20,7 @@ https://vuejs.org/v2/guide/installation.html for Vue2
 
 Please make sure, that your Vue app was correctly installed and it can be run without errors. If you've created the Vue app using the Vue CLI, you can start your app by running a `npm run serve` in your Vue app directory.
 
-The goal of this tutorial is to show how to connect the two frameworks together and not to show how to use these frameworks alone. You need to be familiar at basic level with both frameworks to get started.
+The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
 After installing and testing your Vue app you should end up with a very similar directory structure for Vue2 and Vue3 also:
 ![New Vue prjoect directory structure](/img/resources/vue/bjs-vue-doc-1.png)
@@ -110,11 +110,11 @@ export default {
 </script>
 ```
 
-You can access the canvas by the `this.$refs` object in the `mounted()` callback.
+You can access the canvas by the `this.$refs` object in the `mounted()` callback. Vue3 explained below.
 
 In Vue2 the `template` must have only one root, so it is a good idea to wrap our `canvas` into a `div` element, so we can add new elements into our `template` without breaking the original root element.
 
-Create a directory called `scenes` in `src`. Create a file called `MyFirstScene.js` in `src/scenes` and copy the following code into the new created file:
+Create a directory called `scenes` in `src`. Create a file called `MyFirstScene.js` in `src/scenes` and copy the following code into the newly created file:
 
 ```jsx
 import { Engine, Scene, FreeCamera, Vector3, MeshBuilder, StandardMaterial, Color3, HemisphericLight } from "@babylonjs/core";
@@ -143,7 +143,7 @@ export { createScene };
 
 We put the BabylonJS code to a separate file, so we can use it anywhere.
 
-Open `src/App.vue` and get completelly rid of the `HelloWorld` component and add the `BabylonScene` component or just replace the content of the file with the following code:
+Open `src/App.vue` and get completely rid of the `HelloWorld.vue` component and add the `BabylonScene.vue` component or just replace the content of the file with the following code and rename it:
 
 ```jsx
 <template>
@@ -230,7 +230,7 @@ const createScene = (canvas: Scene) => {
 
 ## CSS triggers
 
-If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention to browser reflows and repaints. Especially aninamted alpha transparent divs can degrade performance. You can read more about the topic in general [here](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser") and have this cheat-sheet always prepared [CSS Triggers](https://csstriggers.com/).
+If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention to browser reflows and repaints. Especially aninmated alpha transparent `div`s can degrade performance. You can read more about the topic in general [here](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser") and have this cheat-sheet always prepared: [CSS Triggers](https://csstriggers.com/).
 
 ## Vue reflectivity, friend or foe?
 
@@ -238,11 +238,11 @@ If you want to expose scene information to Vue, keep in mind, that exposing the 
 
 ## Conclusion
 
-It is very easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the golden rule aplies here too. Building, changing and testing smaller blocks of your application at once will help you to avoid many problems when using these two awesome frameworks together.
+It is easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the golden rule aplies here too. Building, changing and testing smaller blocks of your application at once will help you avoid many problems when using these two awesome frameworks together.
 
 ## Where to go next?
 
-If you don't want to pass value from Vue to BabylonJS and vice versa, you stop here and for example visit our great [Getting started](/start "Getting started") page otherwise jump to [part two of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
+If you don't want to pass data from Vue to BabylonJS and vice versa, you can stop here and for example visit our great [Getting started](/start "Getting started") page otherwise jump to [part two of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
 
 ## Links
 
