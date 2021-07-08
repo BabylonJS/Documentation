@@ -70,8 +70,10 @@ https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 
-## Typescript, Vue2, Composition API, Quasar
-
-https://github.com/RolandCsibrei/babylonjs-real-sun-moon
+### Typescript, Vue2, Composition API, Quasar
 
 https://github.com/RolandCsibrei/babylonjs-quasar-vue2-composition-api-typescript
+
+### A real app using Typescript, Vue 2 with Composition API, mobile friendly Quasar based GUI
+
+https://github.com/RolandCsibrei/babylonjs-real-sun-moon
