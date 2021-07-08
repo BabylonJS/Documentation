@@ -16,6 +16,10 @@ video-content:
 
 [Part 3: BabylonJS and Vue - async scene methods](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods")
 
+## A real app using Typescript, Vue 2 with Composition API, mobile friendly Quasar based GUI
+
+https://github.com/RolandCsibrei/babylonjs-real-sun-moon
+
 ## BabylonJS official documentation
 
 [Getting started with BabylonJS](/start "Getting started")
@@ -48,7 +52,7 @@ video-content:
 
 ## GitHub
 
-### Vue 2 related
+## Vue 2 related
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup
 
@@ -64,16 +68,12 @@ https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/vue-
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/vue-to-bjs-exposed-engine
 
-### Vue 3 related
+## Vue 3 related
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 
-### Typescript, Vue2, Composition API, Quasar
+## Typescript, Vue2, Composition API, Quasar
 
 https://github.com/RolandCsibrei/babylonjs-quasar-vue2-composition-api-typescript
-
-### A real app using Typescript, Vue 2 with Composition API, mobile friendly Quasar based GUI
-
-https://github.com/RolandCsibrei/babylonjs-real-sun-moon
