@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/06/27).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/07/15).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -24,8 +24,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
 
 ### Features implemented but not working or fully working because not implemented/fully implemented by Chrome yet
-* 3D textures
-  * [Color grading textures](/typedoc/classes/babylon.colorgradingtexture) does not work because of this
 * [Multiple Render Targets (MRT)](/typedoc/classes/babylon.multirendertarget)
   * Chrome does not currently support more than 4 targets, so your code will crash if it is using more. In Babylon.js, MRTs are used in the geometry renderer and the pre-pass renderer
 * MSAA can only be 1 or 4 in Chrome as of this writing
@@ -48,8 +46,7 @@ We need to implement some specific mechanisms / features to get the most of our 
 So, don't try to benchmark your code against WebGL just yet, it won't be representative of the real performances you will get once the steps outlined above are integrated (and notably the 3rd one)!
 
 ## Browser Caveats
-Chrome Canary does not support all WebGPU features yet, so here are some caveats as of 2021/06/27:
-* No 3D textures
+Chrome Canary does not support all WebGPU features yet, so here are some caveats as of 2021/07/15:
 * Limited to 4 targets for MRTs
 * MSAA limited to values 1 or 4
 * Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
