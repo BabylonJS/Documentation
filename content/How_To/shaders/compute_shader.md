@@ -79,7 +79,7 @@ Note that for a (sampled) texture variable as `src` in the example above:
 
 ### Simple compute shaders
 
-<Playground id="#3URR7V#110" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders"/>
+<Playground id="#3URR7V#115" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders"/>
 
 This PG creates 3 compute shaders:
 * the first one is loading a texture and copying it into another texture by means of a compute shader. This texture is then applied on the ground. **Warning**: it is for demonstration purpose only, don't use this compute shader in real code, a simple copy buffer would be enough to achieve the same thing!
