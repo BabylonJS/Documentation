@@ -130,3 +130,32 @@ To restore an UInt8Array to a navigation mesh:
 ```
 navigationPlugin.buildFromNavmeshData(uint8array);
 ```
+
+## Web Worker
+
+Building a navigation mesh can be time and resource heavy. For many use cases, it can be necessary to delegate navmesh computation to a webworker. Work will be done in parallel, letting the engine display the content without slow downs.
+
+To enable web worker, specify a web worker .js script URL to use:
+
+```
+let navigationPlugin = new BABYLON.RecastJSPlugin();
+navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
+```
+
+A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/blob/master/Playground/workers/navMeshWorker.js
+
+Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
+
+```
+navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
+{
+    console.log("got worker data", navmeshData);
+    navigationPlugin.buildFromNavmeshData(navmeshData);
+    ...
+```
+
+`navMeshData` is a binary version, ready to serialize, of the the navmesh. It can be saved, streamed. User has to call `buildFromNavmeshData` to deserialize datas. Once the navmesh is fully loaded, it's possible to create crowd, query the navmesh,...
+
+Performance note: The navmesh is constructed from geometry datas. If multiple meshes are needed, their geometry will be merged before passing the geometry positions and indices to Recast. This part of the code can be CPU intensive and cannot be done in a worker because of dependencies, copies, memory footprint.
+
+An example of use with web worker : <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
