@@ -1,6 +1,6 @@
 ---
 title: Start Contributing to Babylon.js
-image: 
+image:
 description: Learn how to start contributing to Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, develope
 further-reading:
@@ -231,6 +231,15 @@ git update-index --assume-unchanged "dist/preview release/typedocValidationBasel
 git update-index --assume-unchanged "dist/preview release/viewer/babylon.viewer.js"
 git update-index --assume-unchanged "dist/preview release/viewer/babylon.viewer.max.js"
 ```
+
+If you get an error
+
+```jsx
+fatal: Unable to mark file Tools/Gulp/dist/preview release/viewer/babylon.viewer.js
+fatal: Unable to mark file Tools/Gulp/dist/preview release/viewer/babylon.viewer.max.js
+```
+
+that's because you didn't build the project yet. Reissue the last two git commands after you've succesfully built the project or run the whole batch after the build.
 
 ### Test and Debug
 
