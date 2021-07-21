@@ -92,7 +92,7 @@ Sometimes you want a very specific input mechanism. The best approach in such ca
 ```javascript
 var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.clear();
-camera.inputs.addPointers();
+camera.inputs.addMouse();
 ```
 
 You can also remove a single input from your input manager. You can remove them by instance, or by Type name
