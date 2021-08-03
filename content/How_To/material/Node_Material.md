@@ -1174,6 +1174,11 @@ By default, the node material provides the following blocks:
         -   Output:
             -   output: Vector3
 
+     -   `CameraParameters`: Outputs a Vector4 containing parameters associated with the camera (x: -1 for webGL and 1 for webGPU, y: minZ, z: maxZ, w: 1 / maxZ).
+     
+         -   Output:
+             -   output: Vector4
+
     -   `Fog`: Applies fog to the scene with an increasing opacity based on distance from the camera.
 
         -   Input:
