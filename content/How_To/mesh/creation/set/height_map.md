@@ -25,8 +25,7 @@ Understanding height maps is the main objective of this tutorial. A height map i
 
 ![HeightMap3](/img/how_to/HeightMap/worldHeightMap.jpg)
 
-> To help you generate height-map textures (like the one above), you can use software such as “Terragen”, or ”Picogen”.
->
+> To help you generate height-map textures (like the one above), you can use software such as [Terragen](https://planetside.co.uk/free-downloads/terragen-4-free-download/), or [Picogen ](https://picogen.org/downloads.php.html)(free).
 
 ### Javascript code
 
