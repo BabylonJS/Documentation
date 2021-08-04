@@ -115,4 +115,4 @@ ground.material = material;
 ground.parent = root_node;
 ```
 ## Example
-An example can be found here: [cesium-babylonjs](https://https://github.com/Hypnosss/cesium-babylonjs).
+An example can be found here: [cesium-babylonjs](https://github.com/Hypnosss/cesium-babylonjs).
