@@ -16,7 +16,7 @@ You can also check the application running at https://babylonjs.nascor.tech/scen
 
 ## The problem
 
-If you are exposing BabylonJS objects and you are manipulating the directly with Vue, you will sooner or later end up with very low FPS caused by multiple redraws of the scene. The reason is that you mess up something with Vue's reflectivity and something is being called recurrently.
+If you are exposing BabylonJS objects and you are manipulating them directly with Vue, you will sooner or later end up with very low FPS caused by multiple redraws of the scene. The reason is that you mess up something with Vue's reflectivity and things are being called recurrently.
 
 ## The solution
 
@@ -34,7 +34,7 @@ We don't want our Vue code to know about BabylonJS implementation details, we wa
 
 ## The Marble example
 
-This examples uses Mitt bus (https://github.com/developit/mitt), but you can you any messaging bus. In Vue2 you can use `new Vue()` to create a bus.
+This examples uses Mitt bus (https://github.com/developit/mitt), but you can use any messaging bus. In Vue2 you can use `new Vue()` to create a bus.
 
 ![](/img/resources/vue/vue-messages-01.png)
 
@@ -47,13 +47,13 @@ This examples uses Mitt bus (https://github.com/developit/mitt), but you can you
 
 ## The Bus
 
-Now that we can use messaging to communicate between Vue and BabylonJS, how about to have this communication `async` so for example the method called by Vue can `await` a method, which runs on BabylonJS code, so simply we create an async wrapper around the synchronous bus.
+Now that we can use messaging to communicate between Vue and BabylonJS, how about to have this communication `async`, so for example the method called by Vue can `await` a method, which runs on BabylonJS code. We can simply create an async wrapper around the synchronous bus.
 
 Let's introduce an interface for our message bus. I will show you only the `AsyncBus` implementation. The synchronous bus is pretty much the same. This interface must be implemented by our bus.
 
 ![](/img/resources/vue/vue-messages-02.png)
 
-as seen in `AsyncBus.ts`
+as seen in `AsyncBus.ts` it implements this interace.
 
 ![](/img/resources/vue/vue-messages-03.png)
 
@@ -61,7 +61,7 @@ as seen in `AsyncBus.ts`
 
 ## The Scene Director
 
-The Scene Director is a simple method-call-to-message converter, so your Vue code calls code on the `SceneDirector` which creates message(s) and sends it(them) using our `AsyncBus` and as far as our BabylonJS scene is interested in a message, (it is subscribed to process a particular message, basically at low level this is calling `Mitt.$on(messageType, callback)`, it gets executed. When the execution finished the BabylonJS scene have to notiy the Scene Director, that it has finished execution. The Scene Director `awaits` for a specific message type `SceneDirectorEventBusMessages.SceneDirectorCommandFinished` with some information about the executed command. Don't worry there are helpers methods and the usage is very easy.
+The Scene Director is a simple method-call-to-message converter, so your Vue code calls code on the `SceneDirector` which creates message(s) and sends it(them) using our `AsyncBus` and as far as our BabylonJS scene is interested in a message, (it is subscribed to process a particular message, basically at low level this is calling `Mitt.$on(messageType, callback)`, it gets executed. When the execution finishes, the BabylonJS scene have to notiy the Scene Director, that it has finished execution. The Scene Director `awaits` for every send messagwe with a response message with the specific message type of `SceneDirectorEventBusMessages.SceneDirectorCommandFinished` with additional information about the executed command, including the return value in `payload`. Don't worry there are helpers methods and the usage is very easy.
 
 Let's jump to Vue!
 
