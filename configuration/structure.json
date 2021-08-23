@@ -676,6 +676,11 @@
                             "friendlyName": "Skeleton Viewer",
                             "children": {},
                             "content": "landing_pages/toolsAndResourcesSkeletonViewerLandingPage"
+                        },
+                        "performanceProfiler": {
+                            "friendlyName": "Performance Profiler",
+                            "children": {},
+                            "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
                         }
                     },
                     "content": "landing_pages/toolsAndResourcesToolsLandingPage"
