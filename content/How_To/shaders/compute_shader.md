@@ -88,7 +88,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#112" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
+<Playground id="#3URR7V#125" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
@@ -118,7 +118,7 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 ### Slime simulation
 
-<Playground id="#GXJ3FZ#37" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
+<Playground id="#GXJ3FZ#40" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
