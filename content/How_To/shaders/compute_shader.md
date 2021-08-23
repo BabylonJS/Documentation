@@ -108,7 +108,7 @@ As the storage buffers we use to compute the particle positions and velocities w
 
 ### Hydraulic erosion
 
-<Playground id="#C90R62#1" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
+<Playground id="#C90R62#5" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
 
 This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLague/Hydraulic-Erosion): all credits to sebastlague@gmail.com!
 
