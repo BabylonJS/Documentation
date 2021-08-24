@@ -10,13 +10,13 @@ video-content:
 
 ## What is it?
 
-The Performance Profiler is a new tool added to the statistics tab of the inspector. 
+Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this new tool can help you easily identify performance issues and hiccups in your scene. added to the statistics tab of the inspector. 
 
 <img src="/img/tools/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
 
-It allows you to view the data in the statistics tab over time rather than seeing the latest number at the moment (which was the experience before this tool).
+Available in the statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment.
 
-The Performance Profiler can collect all the data under the statistics tab, user-defined data, and user-defined events through code.
+The Performance Profiler can collect and display 3 types of data: 1) all the data under the statistics tab, 2) user-defined data, and 3) user-defined events through code.
 
 It has two modes for recording data:
  - Real-time graph mode.
@@ -46,34 +46,33 @@ The left sidebar in the popout holds the activated collection types. It allows t
 
 The right sidebar contains tickers showing the current value followed by "(min in view, max in view)." The tickers let you know what the topmost value and the bottom-most value mean. 
 
-The center contains the graph, and the user can hover at a particular timestamp to view all data values at the timestamp. 
+The center contains the graph, and you can hover at a particular timestamp to view all data values at the timestamp. 
 <img src="/img/tools/performanceViewerTooltip.png" title="Babylon.js Performance Viewer Tooltip"/>
 
 
-The user can zoom in and out using the mouse wheel. 
+You can zoom in and out using the mouse wheel. 
 
-The user can pan the graph by dragging while clicking, taking the user out of the live data stream. 
+You can pan the graph by dragging while clicking, taking the graph out of the live data stream. 
 
-The user can hover over a single line outside the live data stream to focus on it, fading out the other lines. 
+You can hover over a single line outside the live data stream to focus on it, fading out the other lines. 
 
 A horizontal line shows where that point is relative to every other point on the focused line.
 <img src="/img/tools/performanceViewerLineFocus.png" title="Babylon.js Performance Viewer Line Focus"/>
 
-To return to the live data stream, the user can either catch up to the live data stream or conveniently click the "Return" button.
+To return to the live data stream, you can either catch up to the live data stream or conveniently click the "Return" button.
 
 **NOTE**: The information on the right sidebar may move to the left sidebar.
 
 "Begin Recording" will only begin recording in headless recording mode. This button also will allow you to stop recording when it changes the text to "Stop recording."
 
-"Export Perf to CSV" allows the user to export their performance recording to a CSV. The CSV export provides for sharing of performance data and also importing at a later time.
+"Export Perf to CSV" allows you to export the performance recording to a CSV. The CSV export provides for sharing of performance data and also importing at a later time.
 
-"Begin Recording" and "Export Perf to CSV" are helpful for the mobile experience, as the popout will not work as intended in real-time graph mode while on mobile. One will have to export the recording
-and import it on a PC. However, these can also be used on the PC outright.
+"Begin Recording" and "Export Perf to CSV" are helpful for the mobile experience, as the popout will not work as intended in real-time graph mode while on mobile. You will have to export the recording and import it on a PC. However, these can also be used on the PC outright.
 
 ## Headless recording mode vs. Real-time graph mode.
 Real-time graph mode opens up a popout and begins recording, while headless recording mode begins recording without the popout.
 
-Therefore, real-time graph mode will allow a user to see a graph updating once a frame with performance data.
+Therefore, real-time graph mode will allow you to see a graph updating once per frame with performance data.
 
 Headless recording mode will have a lower performance impact and not rely on the popout, useful for mobile.
 
@@ -109,7 +108,7 @@ We currently support these out of the box:
 - CpuStrategy
 
 The CPU strategy is more experimental as it uses the experimental computer pressure API. This strategy may not work as intended for all users.
-You might have to enable experimental web features in chrome settings to enable this. This strategy allows the user to know the utilization percentage of the CPU.
+You might have to enable experimental web features in chrome settings to enable this. This strategy allows you to know the utilization percentage of the CPU.
 
 We only collect a few data sources by default, but you can add more of these predefined data sources.
 Let's say we want to add the TotalLightsStrategy. To do this, we would do the following:
@@ -126,9 +125,9 @@ perfCollector.addCollectionStrategies(BABYLON.PerfCollectionStrategy.TotalLights
 
 ## Adding a custom collection strategy
 
-You may have custom data that you want to track that we do not support outside of the box.
+You may have custom data that you want to track that we do not support outside of the box. Don't worry, we've made this very easy to do.
 
-To do this, a user must define a function that returns an object like so:
+To start, you must define a function that returns an object like so:
 ```javascript
 // This variable would be updated somewhere else.
 var someVariableToTrack;
@@ -159,7 +158,7 @@ The id parameter is the name of the strategy. Make sure to have a unique id, or 
 The getData function in the object must return a number that cannot be NaN. It is called once per frame.
 The dispose function in the object should do any clean-up of resources created in the initialization part of the function.
 
-here is an example of how we keep track of draw calls in the PerfCollectionStrategy class:
+Here is an example of how we keep track of draw calls in the PerfCollectionStrategy class:
 ```typescript
 public static DrawCallsStrategy(): PerfStrategyInitialization {
     return (scene) => {
@@ -198,7 +197,7 @@ perfCollector.addCollectionStrategies(someStrategy);
 ```
 
 ## Registering a custom event.
-An event is a particular type of strategy that can measure the number of times it was called in a frame or track a named custom value (related to an event usually) once a frame.
+An event is a particular type of strategy that can measure the number of times it was called in a frame or track a named custom value (related to an event usually) once per frame.
 To register an event you would do the following:
 ```javascript
 const perfCollector = scene.getPerfCollector();
@@ -219,7 +218,7 @@ If you want to count the number of times an event was called, you would want the
 perfCollector.sendEvent(event);
 ```
 
-If you want to track a custom value once a frame related to an event:
+If you want to track a custom value once per frame related to an event, try this:
 ```javascript
 // somewhere in the code you want this
 event.value = someValue;
@@ -228,4 +227,4 @@ event.value = someValue;
 perfCollector.sendEvent(event);
 ```
 
-**Note**: The user shouldn't set the value property to undefined after selecting a value for it. Doing so may result in unexpected behavior (this will switch between counting the number of occurrences and tracking a custom value related to an event).
+**Note**: You shouldn't set the value property to undefined after selecting a value for it. Doing so may result in unexpected behavior (this will switch between counting the number of occurrences and tracking a custom value related to an event).
