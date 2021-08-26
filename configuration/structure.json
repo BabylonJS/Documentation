@@ -189,7 +189,8 @@
                     "children": {
                         "actions": { "friendlyName": "Actions", "children": {}, "content": "How_To/events/How_to_use_Actions" },
                         "observables": { "friendlyName": "Observables", "children": {}, "content": "How_To/events/Observables" },
-                        "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" }
+                        "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" },
+                        "coroutines": { "friendlyName": "Coroutines", "children": {}, "content": "How_To/events/Coroutines" }
                     },
                     "content": "landing_pages/divingDeeperEventsLandingPage"
                 },
