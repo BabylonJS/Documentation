@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/08/14).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/08/30).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -40,11 +40,14 @@ We need to implement some specific mechanisms / features to get the most of our 
 So, don't try to benchmark your code against WebGL just yet, it won't be representative of the real performances you will get once the steps outlined above are integrated (and notably the first one)!
 
 ## Browser Caveats
-Chrome Canary does not support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats as of 2021/08/14:
+Chrome Canary does not support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats:
 * MSAA limited to values 1 or 4
 * Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
   * Try this PG for eg: <Playground id="#6X9UMD#13" title="Multiple dynamic GUIs + Video" description="Example showing the bad performance we currently have when using dynamic GUIs and videos"/>
+  * Note: there are now some ways to make this faster but not implemented in Babylon.js yet
 * No WebGPU capabilities (caps) returned by the browser
   * For the time being, we have set some hard values for the caps (4 for MSAA max samples, for eg, as Chrome does not support more yet)
 * **error X3511: unable to unroll loop, loop does not appear to terminate in a timely manner (XXX iterations) or unrolled loop is too large, use the [unroll(n)] attribute to force an exact higher number**
   * You can sometimes get this error when using SSAO / Geometry Buffer renderer / Pre-Pass rendering... It's a known problem with the FXC compiler used by Chrome
+  * See https://bugs.chromium.org/p/tint/issues/detail?id=1112
+* GPU timing in the Inspector does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--disable-dawn-features=disallow_unsafe_apis` flag if you want to enable them.

@@ -22,14 +22,36 @@ Probably the biggest change between WebGPU and WebGL is that reading from a text
 
 To match how WebGL works there is a [flushFramebuffer](/typedoc/classes/babylon.thinengine#flushframebuffer) call that is automatically performed before reading a texture to be sure you get up to date data. However, if you know your texture is up to date when you call a **readPixels** method, you can avoid this flush (save some tiny bit of perf) by passing the appropriate parameter to the function call (*flushRenderer* = *false*, see docs). Note that if you are doing the read in **engine.onEndFrameObservable** you don't need to flush, as this observer triggers after the flushing for the current frame has been done.
 
-Note also that currently **readPixels** is slow if `width` is not divisible by 64! Also, it is very slow when reading data from half float textures: use full float textures instead. Speeding those things up is on our roadmap.
+Note also that currently **readPixels** is slow if `width` is not divisible by 64! Also, it is very slow when reading data from half float textures: use full float textures instead if possible. Speeding those things up is on our roadmap.
+
+## Creation of the WebGPU engine is asynchronous
+Creating the engine is also asynchronous in WebGPU. You can do something like this to create a WebGPU engine if supported by the browser, or else a WebGL engine:
+```javascript
+async function createEngine() {
+    const webGPUSupported = await BABYLON.WebGPUEngine.IsSupportedAsync;
+    if (webGPUSupported) {
+        const engine = new BABYLON.WebGPUEngine(document.getElementById("renderCanvas"), {
+            forceCopyForInvertYFinalFramebuffer : true
+        });
+        await engine.initAsync();
+        return engine;
+    }
+    return new BABYLON.Engine(document.getElementById("renderCanvas"), true);
+}
+```
+Or using the `EngineFactory` helper (it will try first to create a WebGPU engine if supported, then a WebGL engine then a null engine):
+```javascript
+async function createEngine() {
+    return BABYLON.EngineFactory.CreateAsync(document.getElementById("renderCanvas"), {
+        forceCopyForInvertYFinalFramebuffer : true
+    });
+}
+```
 
 ## Shader code differences
 
 ### Array of textures
 Array of textures in shader code can't be accessed with a varying index, it must be an immediate value. For eg, `myTextures[0]` / `myTextures[1]` does work but not `myTextures[i]` (i being a variable loop for instance).
-
-This limitation will be lifted once we switch to [WGSL](https://gpuweb.github.io/gpuweb/wgsl.html), the new shader language for WebGPU, which won't happen before a number of months, though.
 
 ### Passing samplers to functions
 In shaders, you can't pass samplers to functions:
@@ -55,6 +77,17 @@ WebGPU is less forgiving than WebGL, all sampler variables declared in a shader 
 If using a custom attribute in a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) (or [CustomMaterial](/typedoc/classes/babylon.custommaterial) / [PBRCustomMaterial](/typedoc/classes/babylon.pbrcustommaterial)), it must be declared in the list of attributes used by that shader. For eg, for [ShaderMaterial](/typedoc/classes/babylon.shadermaterial), you must pass its name in the *attributes* array of the options passed to the constructor. In WebGL you can omit this declaration and it will still work (but as a side-effect, it is not really supported).
 
 In WebGL you could list several times the same attribute when creating a [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) and it would work (it was as if you gave this attribute a single time), but in WebGPU it will fail.
+
+### Sampling a depth texture
+It is not possible to sample a depth texture from a GLSL shader when using the WebGPU engine because of the special type of a depth texture. **Note that it does work when using a comparison sampler: only non-comparison sampling does not work!**
+
+If you want to sample a depth texture in WebGPU when using a non-comparison sampler, you will need to use a `ShaderMaterial` and write the shader in `WGSL`.
+
+Here's how you can do it so that it works both in WebGL and WebGPU:
+
+<Playground id="#8RU8Q3#38" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU"/>
+
+This playground creates a render target texture (RTT) and enables the depth/stencil texture. The RTT itself is displayed on the leftmost plane and the depth texture corresponding to this RTT is displayed on the rightmost plane. In WebGL, we are using a standard material and the emissive texture to display the depth texture whereas in WebGPU we are using a custom `ShaderMaterial` written in `WGSL`.
 
 ## Miscellaneous
 The viewport can't spread outside the framebuffer/texture, contrary to WebGL. So, if you call something like:

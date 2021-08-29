@@ -46,20 +46,20 @@ A compute shader can be executed by calling one of the `dispatch()` or `dispatch
 
 ## Types of variables passed to compute shaders
 Variables you pass to a compute shader can be of the following types:
-* (sampled) **texture**. Use `ComputeShader.setTexture()` to pass a regular texture to the shader.
-* **storage texture**. A storage texture is a texture you can write to from your compute shader. It can't be sampled (only fetched), so if you are using such a texture for reading purpose, you must use `textureLoad` and not `textureSampleLevel` in the shader code. In Babylon.js, storage textures are created as regular textures but pass a special flag for the `creationFlag` parameter: `BABYLON.Constants.TEXTURE_CREATIONFLAG_STORAGE`. There are also two helper methods that you can use to create storage textures: `BABYLON.RawTexture.CreateRGBAStorageTexture()` and `BABYLON.RawTexture.CreateRStorageTexture()`. Use `ComputeShader.setStorageTexture()` to pass a storage texture to the shader.
+* **texture**. Use `ComputeShader.setTexture()` to pass a regular texture to the shader.
+* **storage texture**. A storage texture is a texture you can write to from your compute shader. Note that you can't read from a storage texture, only write to it. If you wrote something in a storage texture and need to read from it in a shader, simply pass it as a regular texture. In Babylon.js, storage textures are created as regular textures but pass a special flag for the `creationFlag` parameter: `BABYLON.Constants.TEXTURE_CREATIONFLAG_STORAGE`. There are also two helper methods that you can use to create storage textures: `BABYLON.RawTexture.CreateRGBAStorageTexture()` and `BABYLON.RawTexture.CreateRStorageTexture()`. Use `ComputeShader.setStorageTexture()` to pass a storage texture to the shader.
 * **uniform buffer**. It's a buffer you can create by instantiating the `UniformBuffer` class and that can be used to pass some constant values to the shader side (values that still can be updated in the course of your program - they are constants inside the shader). Note that you need to first create the layout of this buffer by calling the `addUniform` method **in the order the properties appear in the buffer in the shader code**! The last point is important as the layout you create must match the layout of the buffer as used in the shader code. Once you have created the layout, you can set some values through calls to the `updateXXX()` methods. Once you are ready to update the buffer on the GPU side, call `update()`. Use `ComputeShader.setUniformBuffer()` to pass a uniform buffer to the shader.
 * **storage buffer**. This is an arbitrary buffer that you can use to read or write values. Use the `StorageBuffer` class to create such buffers. Use `ComputeShader.setStorageBuffer()` to pass a storage buffer to the shader.
 
 ## Shader language and input bindings
 The compute shader must be written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/), which is the shader language used by [WebGPU](/advanced_topics/webGPU).
 
-As GLSL shaders, WGSL shaders can be stored in the `StoresShader` and you can pass the name of the key used to store the shader in this object to the `ComputeShader` constructor. You can also directly pass the shader code to the constructor (as done in the example above).
+As GLSL shaders can be stored in `ShaderStore.ShadersStore`, WGSL shaders can be stored in `ShaderStore.ShadersStoreWGSL` and you can pass the name of the key used to store the shader in this object to the `ComputeShader` constructor. You can also directly pass the shader code to the constructor (as done in the example above).
 
 Browsers do not currently support reflection for WGSL shaders, meaning we are not able to automatically retrieve the binding and group values of the input variables, as seen here:
 ```wgsl
-[[group(0), binding(0)]] var dest : [[access(write)]] texture_storage_2d<rgba8unorm>;
-[[group(0), binding(1)]] var samplerSrc : sampler;
+[[group(0), binding(0)]] var dest : texture_storage_2d<rgba8unorm, write>;
+[[group(0), binding(1)]] var srcSampler : sampler;
 [[group(0), binding(2)]] var src : texture_2d<f32>;
 ```
 That's why you need to provide those bindings yourself when creating a new `ComputeShader` instance:
@@ -72,8 +72,10 @@ const cs1 = new BABYLON.ComputeShader("myCompute", engine, { computeSource: copy
 });
 ```
 Note that for a (sampled) texture variable as `src` in the example above:
-* you must define a corresponding sampler (`samplerSrc` in the example above) with a binding value equal to the binding value of the texture minus 1. In Babylon.js we don't have a separate sampler object from the texture itself that you could bind separately, so when you bind a texture to your shader we automatically bind a sampler object to the binding just before.
-* you must not add this sampler in the `bindingsMapping`
+* you must define a corresponding sampler (`srcSampler` in the example above) with a binding value equal to the binding value of the texture minus 1. In Babylon.js we don't have a separate sampler object from the texture itself that you could bind separately, so when you bind a texture to your shader we automatically bind a sampler object to the binding just before (if you don't pass `false` as the 3rd parameter to `setTexture()`, see below)
+* you must **not** add this sampler in the `bindingsMapping` object
+
+If you don't need to bind the sampler corresponding to a texture (because you are going to use `textureLoad` (which does not need a sampler) or a sampler coming from another texture declaration for eg), you can instruct the system not to bind the sampler by passing `false` as the 3rd parameter to `ComputeShader.setTexture()`.
 
 ## Examples
 
@@ -123,3 +125,11 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
 The implentation in WGSL is a little less pretty than the HLSL one because at the time of this writing WebGPU does not support read/write textures, so we had to use a storage buffer for the `TrailMap` texture. That means we need some copy buffer to texture and texture to buffer functions and we have to do 4 reads from `TrailMap` instead of a single one when we need to get a `vec4` (see the code), which is likely less performant than its HLSL counterpart.
+
+### Ocean demo
+
+<Playground id="#YX6IB8#28" engine="webgpu" title="Ocean demo" description="Ocean simulation"/>
+
+This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
+
+This sample uses a lot of compute shader runs: there are around 200-250 compute shaders running each frame! Use F8 to show/hide the GUI (after you click anywhere in the rendering area to give focus to the canvas) and WASD to move.
