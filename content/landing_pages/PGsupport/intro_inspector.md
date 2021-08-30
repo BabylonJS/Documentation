@@ -8,8 +8,6 @@ further-reading:
       url: /toolsAndResources/tools/inspector
     - title: How To Use The Inspector in Projects
       url: /toolsAndResources/tools/inspector
-    - title: How To Customize the Inspector
-      url: /toolsAndResources/tools/inspector/customizingInspector
     - title: Dev blog about the inspector
       url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
     - title: Using the Texture Inspector
