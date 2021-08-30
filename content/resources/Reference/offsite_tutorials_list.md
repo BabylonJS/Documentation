@@ -185,7 +185,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 | Title                                                                                          |           Keywords           | Description                                                                                                                                                                                                                      |
 | :--------------------------------------------------------------------------------------------- | :--------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**From Blender toBabylon.js**](https://nothing-is-3d.com/article27/from-blender-to-babylonjs) |  Lightmap, Blender, Export   | Help users to use their precomputed lighting from Blender toBabylon.js ([FR version](https://www.nothing-is-3d.com/article25/de-blender-vers-babylonjs) available).                                                              |
+| [**From Blender to Babylon.js**](https://nothing-is-3d.com/article27/from-blender-to-babylonjs) |  Lightmap, Blender, Export   | Help users to use their precomputed lighting from Blender toBabylon.js ([FR version](https://www.nothing-is-3d.com/article25/de-blender-vers-babylonjs) available).                                                              |
 | [**Use a local webserver**](https://www.nothing-is-3d.com/article28/use-a-local-webserver)     | development, testing, server | Help users uncomfortable with web dev environment to quickly be able to launch a local webserver instead of using an online FTP ([FR version](https://www.nothing-is-3d.com/article26/utiliser-un-serveur-web-local) available). |
 
 ## Andrija Perusic
@@ -197,7 +197,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 | Title                                                                                                                                     |                            Keywords                            | Description                                                                                                                                                                                                  |
 | :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [ **Realtime multiplayer game with NullEngine starter project** ](https://github.com/creationspirit/multiplayer-browser-game-boilerplate) | React, Colyseus, Typescript, NullEngine, boilerplate, tutorial | Simple starter project for a multiplayer game using authoritative server arhitecture made with Colyseus andBabylon.js NullEngine. Starter includes a simple scene where players can move freely and a lobby. |
+| [ **Realtime multiplayer game with NullEngine starter project** ](https://github.com/creationspirit/multiplayer-browser-game-boilerplate) | React, Colyseus, Typescript, NullEngine, boilerplate, tutorial | Simple starter project for a multiplayer game using authoritative server arhitecture made with Colyseus and Babylon.js NullEngine. Starter includes a simple scene where players can move freely and a lobby. |
 
 ## gryff
 
@@ -208,3 +208,13 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | Title                                                                                                                                |          Keywords          | Description                                                                                                                                                  |
 | :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [**Populate a terrain with custom trees**](https://forum.babylonjs.com/t/realistic-real-time-performant-trees-and-vegetation/6133/9) | terrain, trees, vegetation | Quick & efficient tutorial about populate terrain with custom trees and vegetation, using Blender particle system (logic remains the same between softwares) |
+
+## Symbitic
+
+-   social networks: [GitHub](https://github.com/Symbitic)
+
+<div class='beforeWideTable'></div>
+
+| Title                                                                                                                                |          Keywords          | Description                                                                                                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [**Awesome Babylon.js**](https://github.com/Symbitic/awesome-babylonjs/blob/main/README.md) | TypeScript, Babylon, Physics, WebXR, Playground | A list of all the best Babylon.js tutorials, articles, playgrounds, projects, and open-source games. New submissions welcome. |
