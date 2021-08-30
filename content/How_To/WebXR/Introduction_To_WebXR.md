@@ -42,8 +42,6 @@ Chrome 79 on windows officially supports WebXR with all [Microsoft Mixed Reality
 
 ### Mobile and Quest
 
-WebXR is supported on Google Daydream using Chrome.
-
 WebXR AR features on Android's Chrome Browser (Stable and Canary) can be enabled behind a flag at [chrome://flags](chrome://flags), including AR features such as plane detection, hit-tests and anchors. Note that the AR features' architecture is constantly changing, so expect different results from version to version.
 
 Oculus Quest supports WebXR (in VR mode) in the latest oculus browser. Babylon's specs implementation works well with the quest.
@@ -60,13 +58,22 @@ To use the polyfill in the playground, please add the following to your playgrou
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
-  if (navigator.xr) {
-    return resolve();
-  }
-  define("polyfill", ["https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js"], (polyfill) => {
-    new polyfill();
-    resolve();
-  });
+    if (navigator.xr) {
+        return resolve();
+    }
+    if (window.WebXRPolyfill) {
+        new WebXRPolyfill();
+        return resolve();
+    } else {
+        const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
+        const s = document.createElement("script");
+        s.src = url;
+        document.head.appendChild(s);
+        s.onload = () => {
+            new WebXRPolyfill();
+            resolve();
+        };
+    }
 });
 ```
 
@@ -74,13 +81,22 @@ afterwards, make sure to `await` it before initializing WebXR:
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
-  if (navigator.xr) {
-    return resolve();
-  }
-  define("polyfill", ["https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js"], (polyfill) => {
-    new polyfill();
-    resolve();
-  });
+    if (navigator.xr) {
+        return resolve();
+    }
+    if (window.WebXRPolyfill) {
+        new WebXRPolyfill();
+        return resolve();
+    } else {
+        const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
+        const s = document.createElement("script");
+        s.src = url;
+        document.head.appendChild(s);
+        s.onload = () => {
+            new WebXRPolyfill();
+            resolve();
+        };
+    }
 });
 
 var createScene = async function () {

@@ -8,21 +8,21 @@ video-overview:
 video-content:
 ---
 
-It's really easy to use BabylonJS with Vue. This page will help you to setup a minimalistic BabylonJS scene with Vue. We will cover both Vue2 and Vue3 using javascript.
+It's really easy to use BabylonJS with Vue. This page will help you to setup a minimalistic BabylonJS scene with Vue. We will cover both Vue 2 and Vue 2 using javascript.
 
 ## Prerequisites
 
 If you haven't created your Vue project yet, visit the official Vue documentation on how to setup a Vue project.
 
-https://v3.vuejs.org/guide/installation.html for Vue3
+https://v3.vuejs.org/guide/installation.html for Vue 2
 
-https://vuejs.org/v2/guide/installation.html for Vue2
+https://vuejs.org/v2/guide/installation.html for Vue 2
 
 Please make sure, that your Vue app was correctly installed and it can be run without errors. If you've created the Vue app using the Vue CLI, you can start your app by running a `npm run serve` in your Vue app directory.
 
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
-After installing and testing your Vue app you should end up with a very similar directory structure for Vue2 and Vue3 also:
+After installing and testing your Vue app you should end up with a very similar directory structure for Vue 2 and Vue 2 also:
 ![New Vue prjoect directory structure](/img/resources/vue/bjs-vue-doc-1.png)
 
 ## Installing BabylonJS
@@ -35,7 +35,7 @@ In your Vue app directory install the BabylonJS dependencies:
 npm install @babylonjs/core
 ```
 
-If you want to use the [BabylonJS GUI](/divingDeeper/gui/gui "BabylonJS GUI"), you need to install:
+If you want to use the [BabylonJS GUI](/divingDeeper/gui "BabylonJS GUI"), you need to install:
 
 ```bash
 npm install babylonjs-gui
@@ -55,7 +55,7 @@ We are going to build a reusable Vue component which can be used to display a Ba
 
 Create a file called `BabylonScene.vue` in `src/components` and add this:
 
-#### Vue 3
+### Vue 3
 
 ```jsx
 <template>
@@ -85,7 +85,7 @@ export default {
 </script>
 ```
 
-#### Vue2
+### Vue 2
 
 ```jsx
 <template>
@@ -110,9 +110,9 @@ export default {
 </script>
 ```
 
-You can access the canvas by the `this.$refs` object in the `mounted()` callback. Vue3 explained below.
+You can access the canvas by the `this.$refs` object in the `mounted()` callback. Vue 2 explained below.
 
-In Vue2 the `template` must have only one root, so it is a good idea to wrap our `canvas` into a `div` element, so we can add new elements into our `template` without breaking the original root element.
+In Vue 2 the `template` must have only one root, so it is a good idea to wrap our `canvas` into a `div` element, so we can add new elements into our `template` without breaking the original root element.
 
 Create a directory called `scenes` in `src`. Create a file called `MyFirstScene.js` in `src/scenes` and copy the following code into the newly created file:
 
@@ -177,7 +177,7 @@ The `ref` value of the `<canvas>` element in the `<template>` must match the var
 
 Do not forget to access the `HTMLCanvasElement` using the `value` property of the `ref` variable (Vue standard). That's why we use `bjsCanvas.value`.
 
-The DOM is accessible only after the Vue component has been mounted. This is why we need to init our scene in the `onMounted` callback in Vue3 or in the `mounted` callback in Vue2.
+The DOM is accessible only after the Vue component has been mounted. This is why we need to init our scene in the `onMounted` callback in Vue 2 or in the `mounted` callback in Vue 2.
 
 Now you can get rid of the example component and delete the file located at `src/components/HelloWorld.vue`.
 
@@ -187,7 +187,7 @@ The application is ready to be tested. Run your app using `npm run serve` and yo
 
 Sooner or later you will need to create a scene which will use asynchronous functionality. It is very easy to setup such a scene with Vue. Just make the callback functions `async` and use any awaitable logic inside.
 
-#### Vue3
+### Vue 2
 
 ```jsx
 onMounted(async () => {
@@ -197,7 +197,7 @@ onMounted(async () => {
 });
 ```
 
-#### Vue 2
+### Vue 2
 
 ```jsx
 async mounted() {
@@ -210,13 +210,13 @@ async mounted() {
 
 ## Typescript
 
-Define the `canvas` reference like this for Vue3:
+Define the `canvas` reference like this for Vue 2:
 
 ```typescript
 const bjsCanvas = ref<HTMLCanvasElement | null>(null);
 ```
 
-or for Vue2:
+or for Vue 2:
 
 ```typescript
 const bjsCanvas = <HTMLCanvasElement>this.$refs.bjsCanvas;
@@ -246,15 +246,19 @@ If you don't want to pass data from Vue to BabylonJS and vice versa, you can sto
 
 ## Links
 
+[All links from this tutorial at one place](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0/ "All links from this tutorial at one place")
+
 [Part 2](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "How to pass data between BabylonJS and Vue") of this tutorial
 
 [Part 3](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
+
+[Part 4](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup
 
-A bit diffeernt approach with a window resize listener:
+A bit different approach with a window resize listener:
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript
 

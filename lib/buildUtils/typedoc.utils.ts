@@ -49,7 +49,7 @@ export const generateTypeDoc = async () => {
             exclude: ["node_modules/**"],
             baseUrl: basePathResolved,
             hideGenerator: true,
-        });
+        } as any);
         const outputDir = `${basePathResolved}${sep}files`;
 
         // Rendered docs

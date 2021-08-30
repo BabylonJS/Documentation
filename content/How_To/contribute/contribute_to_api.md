@@ -10,7 +10,7 @@ video-content:
 
 ## Need for Contribution
 
-Many people have asked for the API documentation to be improved. This is a major task with lots of files needing comments added. Comments are very useful for future development and maintenance of the code but now they are even more useful since in the correct format they are can be read by “TYPEDOC” and produce the API documentation for the classes, properties and methods used by Babylon.js. The core team has worked to make this happen as you can see by the new API documentation. Volunteers are needed to add comments so even if you only have time to do a couple of files then please do volunteer.
+Many people have asked for the API documentation to be improved. This is a major task with lots of files needing comments added. Comments are very useful for future development and maintenance of the code but now they are even more useful since in the correct format they can be read by “TYPEDOC” and produce the API documentation for the classes, properties and methods used by Babylon.js. The core team has worked to make this happen as you can see by the new API documentation. Volunteers are needed to add comments so even if you only have time to do a couple of files then please do volunteer.
 
 ## How to Contribute
 

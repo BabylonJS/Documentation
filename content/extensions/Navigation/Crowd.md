@@ -92,3 +92,16 @@ if (velocity.length() > 0.2)
 In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting."/>
 
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.
+
+## Agent reaching target Observer
+
+An observable automaticaly fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number propery in the `IAgentParameters` object.
+If there are too many agents in the crowd trying to reach the same destination, a bottleneck can happen and few agents will reach destination. Be sure to properly set those values.
+To add an observable, simply add your function:
+```
+var crowd = navigationPlugin.createCrowd(10, 0.1, scene);
+...
+crowd.onReachTargetObservable.add((agentInfos) => {
+    console.log("agent reach destination: ", agentInfos.agentIndex);
+});
+```

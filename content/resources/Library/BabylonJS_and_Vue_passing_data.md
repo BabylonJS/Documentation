@@ -14,13 +14,13 @@ You have to follow and finish the [How to use BabylonJS with Vue](/extensions/Ba
 
 These principles have to be clear for you: [Passing of variables by Value and by Reference in Javascript](https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/ "Passing of variables by Value and by Reference in Javascript").
 
-Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue2 Components Basic page](https://vuejs.org/v2/guide/components.html "Vue2 Components Basics") and on [The official Vue3 Components Basic page](https://v3.vuejs.org/guide/component-basics.html "Vue3 Components Basic").
+Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue 2 Components Basic page](https://vuejs.org/v2/guide/components.html "Vue 2 Components Basics") and on [The official Vue 3 Components Basic page](https://v3.vuejs.org/guide/component-basics.html "Vue 3 Components Basic").
 
 You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1, so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
 
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
-This example uses Vue2. All the techniques are the same for Vue3, you just have to modify the Vue part of the code to make it working in Vue3. Basically instead of `data()` you have to declare your variables in the `setup` method and the `mounted` hook is replaced by `onMounted`.
+This example uses Vue 2. All the techniques are the same for Vue 3, you just have to modify the Vue part of the code to make it working in Vue 3. Basically instead of `data()` you have to declare your variables in the `setup` method and the `mounted` hook is replaced by `onMounted`.
 
 ## The Example
 
@@ -542,9 +542,13 @@ Visit our great [Getting started](/start "Getting started") page or if you are i
 
 ## Links
 
+[All links from this tutorial at one place](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0/ "All links from this tutorial at one place")
+
 [Part 1](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue") of this tutorial
 
 [Part 3](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
+
+[Part 4](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/branches/all
 
