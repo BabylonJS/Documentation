@@ -9,7 +9,7 @@
 <url><loc>https://doc.babylonjs.com/advanced_topics/mutliPlatTextures</loc><lastmod>2021-01-14T14:32:32.804Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/serverSide</loc><lastmod>2021-01-04T20:22:18.668Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/shaders/Fog+ShaderMat</loc><lastmod>2021-01-14T14:32:32.678Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/advanced_topics/shaders/computeShader</loc><lastmod>2021-07-26T11:01:56.177Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/advanced_topics/shaders/computeShader</loc><lastmod>2021-08-30T11:04:02.601Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/shaders/image_processing</loc><lastmod>2021-05-17T09:53:06.229Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/shaders/introToShaders</loc><lastmod>2021-05-17T09:53:06.235Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics/shaders/shaderCodeInBjs</loc><lastmod>2021-05-17T09:53:06.226Z</lastmod></url>
@@ -69,9 +69,10 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/environment/environment_introduction</loc><lastmod>2021-03-12T10:14:35.219Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/environment/lenseFlare</loc><lastmod>2021-03-12T10:14:35.216Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/environment/reflectionProbes</loc><lastmod>2021-05-17T09:53:06.216Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/environment/skybox</loc><lastmod>2021-06-29T11:30:45.471Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/environment/skybox</loc><lastmod>2021-08-30T11:15:59.739Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/environment</loc><lastmod>2021-03-12T10:14:35.347Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/events/actions</loc><lastmod>2021-03-12T10:14:35.220Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/events/coroutines</loc><lastmod>2021-08-30T11:04:02.581Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/events/observables</loc><lastmod>2021-05-17T09:53:06.218Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/events/promises</loc><lastmod>2021-03-12T10:14:35.223Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/events</loc><lastmod>2021-03-12T10:14:35.348Z</lastmod></url>
@@ -267,7 +268,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/postProcesses</loc><lastmod>2021-01-04T20:22:18.674Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/clipPlanes</loc><lastmod>2021-01-14T14:32:32.745Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/customLoadingScreen</loc><lastmod>2021-05-17T09:53:06.224Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/scene/deltaFiles</loc><lastmod>2021-08-18T17:33:01.598Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/scene/deltaFiles</loc><lastmod>2021-08-30T11:04:02.597Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/fastBuildWorld</loc><lastmod>2021-05-17T09:53:06.225Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/interactWithScenes</loc><lastmod>2021-03-12T10:14:35.319Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/scene/layermask</loc><lastmod>2021-01-21T19:46:09.749Z</lastmod></url>
@@ -315,7 +316,7 @@
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_React_Native</loc><lastmod>2021-02-22T10:36:51.304Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_VRM</loc><lastmod>2021-02-22T10:36:51.305Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0</loc><lastmod>2021-08-18T17:29:39.801Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1</loc><lastmod>2021-08-18T17:29:39.798Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1</loc><lastmod>2021-08-30T11:26:01.729Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2</loc><lastmod>2021-08-18T17:29:39.803Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3</loc><lastmod>2021-08-18T17:29:39.799Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4</loc><lastmod>2021-08-18T17:29:39.802Z</lastmod></url>
@@ -535,14 +536,15 @@
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary</loc><lastmod>2021-01-04T20:22:18.685Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/assetLibraries</loc><lastmod>2021-01-04T20:22:18.683Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/offsite</loc><lastmod>2021-02-22T10:36:51.317Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/inspector/inspectorVideoOverview</loc><lastmod>2021-06-02T08:50:54.254Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/inspector/inspectorVideoOverview</loc><lastmod>2021-08-30T11:16:48.369Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/inspector/reflector</loc><lastmod>2021-06-02T08:50:54.256Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/inspector</loc><lastmod>2021-06-02T08:50:54.253Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/inspector</loc><lastmod>2021-08-30T11:16:46.367Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/nme</loc><lastmod>2021-01-14T14:32:32.790Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/particleEditor</loc><lastmod>2021-01-14T14:32:32.791Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/performanceProfiler</loc><lastmod>2021-08-30T11:04:02.605Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/playground/externalPGAssets</loc><lastmod>2021-01-14T14:32:32.806Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/playground/pgTemplates</loc><lastmod>2021-01-04T20:22:18.709Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/playground</loc><lastmod>2021-01-04T20:22:18.665Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/toolsAndResources/tools/playground</loc><lastmod>2021-08-30T11:37:13.251Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/skeletonViewer</loc><lastmod>2021-01-14T14:32:32.792Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/spriteEditor</loc><lastmod>2021-01-14T14:32:32.793Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/toolsAndResources/tools/textureInspector</loc><lastmod>2021-01-04T20:22:18.666Z</lastmod></url>
@@ -1744,5 +1746,5 @@
 <url><loc>https://doc.babylonjs.com/typedoc/modules/babylon.gltf2</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/modules/babylon.gui</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc</loc></url>
-<url><loc>https://doc.babylonjs.com/whats-new</loc><lastmod>2021-05-17T09:53:06.246Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/whats-new</loc><lastmod>2021-08-30T11:37:36.337Z</lastmod></url>
 </urlset>
