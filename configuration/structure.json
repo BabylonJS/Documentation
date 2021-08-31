@@ -1044,7 +1044,8 @@
                                 "BabylonJS_and_Vue_3": { "friendlyName": "BabylonJS and Vue - async scene methods", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_async" },
                                 "BabylonJS_and_Vue_4": { "friendlyName": "BabylonJS and Vue - messages driven scene", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_messages_driven_scene" },
                                 "BabylonJS_and_Vue_0": { "friendlyName": "BabylonJS and Vue - tutorial links", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_links" }
-                            }
+                            },
+                            "content": "landing_pages/extensionsExternalLibrariesVueLandingPage"
                         },
                         "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
                         "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" }
