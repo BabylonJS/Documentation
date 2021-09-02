@@ -5,7 +5,7 @@ import Link from "next/link";
 import MenuIcon from "@material-ui/icons/Menu";
 import RightArrowIcon from "@material-ui/icons/LastPage";
 import SearchIcon from "@material-ui/icons/Search";
-import { AppBar, createStyles, Drawer, fade, Hidden, IconButton, InputBase, makeStyles, Theme, Toolbar, Tooltip, Typography } from "@material-ui/core";
+import { AppBar, createStyles, Drawer, alpha, Hidden, IconButton, InputBase, makeStyles, Theme, Toolbar, Tooltip, Typography } from "@material-ui/core";
 import { colorPalette, theme } from "../styles/theme";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme: Theme) =>
         search: {
             position: "relative",
             borderRadius: theme.shape.borderRadius,
-            backgroundColor: fade(theme.palette.common.white, 0.15),
+            backgroundColor: alpha(theme.palette.common.white, 0.15),
             "&:hover": {
-                backgroundColor: fade(theme.palette.common.white, 0.25),
+                backgroundColor: alpha(theme.palette.common.white, 0.25),
             },
             marginLeft: 0,
             width: "100%",

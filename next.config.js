@@ -6,8 +6,9 @@ module.exports = withMDX(
         sassOptions: {
             includePaths: ["./styles"],
         },
-        future: {
-            webpack5: true,
+        webpack5: true,
+        experimental: {
+            pageDataCollectionTimeout: 120
         },
     },
     // withSass({
