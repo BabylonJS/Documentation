@@ -4,6 +4,8 @@ image:
 description: Learn how to customize input controls for Babylon.js cameras.
 keywords: diving deeper, cameras, input, camera input
 further-reading:
+  - title: Looking at Custom Camera Inputs
+    url: https://babylonjs.medium.com/looking-at-custom-camera-inputs-becb492f09fc
 video-overview:
 video-content:
 ---
