@@ -8,7 +8,8 @@ module.exports = withMDX(
         },
         webpack5: true,
         experimental: {
-            pageDataCollectionTimeout: 180
+            pageDataCollectionTimeout: 120,
+            staticPageGenerationTimeout: 120,
         },
     },
     // withSass({
