@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef } from "react";
+import { FunctionComponent, useRef, useEffect } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
@@ -29,6 +29,18 @@ export const ApiPage: FunctionComponent<{
         children = html.props.children[0].props.children[2].props.children;
     } catch (e) {
     }
+
+    useEffect(() => {
+        window.onhashchange = () => {
+            if(location.hash === '') {
+                document.querySelector('.col-content')?.scrollTo({  behavior: "auto", top: 0, left: 0 });
+            }
+        }
+        return () => {
+            window.onhashchange = undefined;
+        };
+
+    }, [id]);
 
     return (
         <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
