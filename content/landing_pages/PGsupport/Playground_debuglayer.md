@@ -232,6 +232,32 @@ myNode.inspectableCustomProperties = [
     propertyName: "myVector3Field",
     type: BABYLON.InspectableType.Vector3,
   },
+  {
+    label: "My tab field",
+    type: BABYLON.InspectableType.Tab,
+  },
+  {
+      label: "My options field",
+      propertyName: "myOptionsField",
+      options: [{
+      { label: "options1", value: 1 },
+      { label: "options2", value: 2 }
+      }],
+      callback: (option)=>{
+      
+      },
+      type: BABYLON.InspectableType.Options,
+
+  },
+  {
+      label: "My button field",
+      propertyName: "myButtonField",
+      callback: ()=>{
+      
+      },
+      type: BABYLON.InspectableType.Button,
+
+  }
 ];
 ```
 
