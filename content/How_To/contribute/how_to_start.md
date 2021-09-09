@@ -173,13 +173,15 @@ In order to carry out the testing the distribution Javascript files have to be c
 
 Node.js and npm can be installed from the [Node.js home page](https://nodejs.org/en/).
 
-The package manager npm is updated regularly and often to test Babylon.js you will need the latest version. To update to the latest version in you CLI
+The package manager npm is updated regularly and often to test Babylon.js you will need the latest v6 version. To update to the latest v6 version in you CLI
 
 ```bash
-npm install -g npm@latest
+npm install -g npm@6.x
 ```
 
 the `g` installs npm globally so you can use it in any folder
+
+Note that we currently don't support npm v7.x
 
 ### Install Typescript and Gulp
 

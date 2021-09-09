@@ -35,7 +35,7 @@ In your Vue app directory install the BabylonJS dependencies:
 npm install @babylonjs/core
 ```
 
-If you want to use the [BabylonJS GUI](/divingDeeper/gui/gui "BabylonJS GUI"), you need to install:
+If you want to use the [BabylonJS GUI](/divingDeeper/gui "BabylonJS GUI"), you need to install:
 
 ```bash
 npm install babylonjs-gui
@@ -55,7 +55,7 @@ We are going to build a reusable Vue component which can be used to display a Ba
 
 Create a file called `BabylonScene.vue` in `src/components` and add this:
 
-#### Vue 3
+### Vue 3
 
 ```jsx
 <template>
@@ -85,7 +85,7 @@ export default {
 </script>
 ```
 
-#### Vue 2
+### Vue 2
 
 ```jsx
 <template>
@@ -187,7 +187,7 @@ The application is ready to be tested. Run your app using `npm run serve` and yo
 
 Sooner or later you will need to create a scene which will use asynchronous functionality. It is very easy to setup such a scene with Vue. Just make the callback functions `async` and use any awaitable logic inside.
 
-#### Vue 2
+### Vue 2
 
 ```jsx
 onMounted(async () => {
@@ -197,7 +197,7 @@ onMounted(async () => {
 });
 ```
 
-#### Vue 2
+### Vue 2
 
 ```jsx
 async mounted() {
@@ -246,11 +246,13 @@ If you don't want to pass data from Vue to BabylonJS and vice versa, you can sto
 
 ## Links
 
-[All links from this tutorial at one place](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4 "All links from this tutorial at one place")
+[All links from this tutorial at one place](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0/ "All links from this tutorial at one place")
 
 [Part 2](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "How to pass data between BabylonJS and Vue") of this tutorial
 
 [Part 3](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
+
+[Part 4](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue3-javascript-basic-setup
 

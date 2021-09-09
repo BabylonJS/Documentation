@@ -1,19 +1,17 @@
 ---
 title: The Inspector
-image: 
+image:
 description: Learn all about the incredibly powerful debug layer called "The Inspector" in Babylon.js.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
-    - title: Introduction to the Inspector - video series
-      url: /toolsAndResources/tools/inspector/inspectorVideoOverview
-    - title: How To Use The Inspector in Projects
-      url: /toolsAndResources/tools/inspector
-    - title: How To Customize the Inspector
-      url: /toolsAndResources/tools/inspector/customizingInspector
-    - title: Dev blog about the inspector
-      url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
-    - title: Using the Texture Inspector
-      url: /toolsAndResources/tools/textureInspector
+  - title: Introduction to the Inspector - video series
+    url: /toolsAndResources/tools/inspector/inspectorVideoOverview
+  - title: How To Use The Inspector in Projects
+    url: /toolsAndResources/tools/inspector
+  - title: Dev blog about the inspector
+    url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
+  - title: Using the Texture Inspector
+    url: /toolsAndResources/tools/textureInspector
 video-overview:
 video-content:
 ---
@@ -25,11 +23,13 @@ Babylon.js inspector is a visual debugging tool created to help pinpoint issues 
 For a video overview of the inspector, check out [Introduction to the inspector - video series](/toolsAndResources/tools/inspector/inspectorVideoOverview).
 
 The inspector offers multiple tools like:
+
 - A hierarchical view of your scene
 - Multiple property grids to let you dynamically change object properties
 - Specific helpers like the skeleton viewer, etc.
 
 Its interface uses two panes:
+
 - The scene explorer pane
 - The inspector pane
 
@@ -66,6 +66,7 @@ Some entities offer shortcuts to contextual actions.
 ![scene actions](/img/features/debuglayer/sceneactions.jpg)
 
 The scene shortcuts are the following:
+
 - The first 3 actions will turn on a specific gizmo mode (translation, rotation, scaling). When you click on one of them you can then click on a node in the Scene explorer or directly in your scene and it will be controllable with a gizmo:
 
 ![gizmo](/img/features/debuglayer/gizmo.jpg)
@@ -74,9 +75,11 @@ The scene shortcuts are the following:
 - The last one will force the scene explorer to update. For performance reasons, the scene explorer is not listening to all changes that can happen on the scene so you may end up needing to refresh it manually.
 
 ## Mesh actions
+
 ![mesh actions](/img/features/debuglayer/meshactions.jpg)
 
 The mesh shortcuts are the following:
+
 - The first action will enable the bounding box gizmo:
 
 ![bounding box gizmo](/img/features/debuglayer/boundingboxgizmo.jpg)
@@ -100,6 +103,7 @@ You can use the camera action to switch the active camera (when they are multipl
 ![gui control actions](/img/features/debuglayer/controlactions.jpg)
 
 You can use the GUI control actions to:
+
 - Display outline of a control
 - Show / hide a specific control
 
@@ -108,7 +112,6 @@ You can use the GUI control actions to:
 ![Rendering pipeline actions](/img/features/debuglayer/renderpipelineactions.jpg)
 
 When your scene does not contain a default rendering pipeline, you can right-click on the rendering pipelines node to get a context menu letting you create a new default rendering pipeline.
-
 
 ## Inspector pane
 
@@ -196,39 +199,66 @@ The inspector can be easily extended to allow manipulation of custom node proper
 
 ```javascript
 myNode.inspectableCustomProperties = [
-    {
-        label: "My boolean field",
-        propertyName: "myBooleanField",
-        type: BABYLON.InspectableType.Checkbox
-    },
-    {
-        label: "My color field",
-        propertyName: "myColor3Field",
-        type: BABYLON.InspectableType.Color3
-    },
-    {
-        label: "My quaternion field",
-        propertyName: "myQuaternionField",
-        type: BABYLON.InspectableType.Quaternion
-    },
-    {
-        label: "My numeric range field",
-        propertyName: "myRangeField",
-        type: BABYLON.InspectableType.Slider,
-        min: 0.5,
-        max: 5.0,
-        step: 0.1
-    },
-    {
-        label: "My string field",
-        propertyName: "myStringField",
-        type: BABYLON.InspectableType.String
-    },
-    {
-        label: "My vector field",
-        propertyName: "myVector3Field",
-        type: BABYLON.InspectableType.Vector3
-    }
+  {
+    label: "My boolean field",
+    propertyName: "myBooleanField",
+    type: BABYLON.InspectableType.Checkbox,
+  },
+  {
+    label: "My color field",
+    propertyName: "myColor3Field",
+    type: BABYLON.InspectableType.Color3,
+  },
+  {
+    label: "My quaternion field",
+    propertyName: "myQuaternionField",
+    type: BABYLON.InspectableType.Quaternion,
+  },
+  {
+    label: "My numeric range field",
+    propertyName: "myRangeField",
+    type: BABYLON.InspectableType.Slider,
+    min: 0.5,
+    max: 5.0,
+    step: 0.1,
+  },
+  {
+    label: "My string field",
+    propertyName: "myStringField",
+    type: BABYLON.InspectableType.String,
+  },
+  {
+    label: "My vector field",
+    propertyName: "myVector3Field",
+    type: BABYLON.InspectableType.Vector3,
+  },
+  {
+    label: "My tab field",
+    type: BABYLON.InspectableType.Tab,
+  },
+  {
+      label: "My options field",
+      propertyName: "myOptionsField",
+      options: [{
+      { label: "options1", value: 1 },
+      { label: "options2", value: 2 }
+      }],
+      callback: (option)=>{
+      
+      },
+      type: BABYLON.InspectableType.Options,
+
+  },
+  {
+      label: "My button field",
+      propertyName: "myButtonField",
+      callback: ()=>{
+      
+      },
+      type: BABYLON.InspectableType.Button,
+
+  }
 ];
 ```
+
 <Playground id="#LQF5QR#2" title="Inspector custom properties" description="An example of inspector custom properties" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />

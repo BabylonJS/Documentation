@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 
 export const colorPalette = {
     footer: "#151221",
@@ -15,7 +15,7 @@ export const colorPalette = {
     text: "#D5D2CA",
     sidebarBackground: "#E0DED8",
 };
-export const theme = createMuiTheme({
+export const theme = createTheme({
     palette: {
         primary: {
             main: colorPalette.menuHover1,

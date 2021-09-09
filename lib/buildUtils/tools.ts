@@ -198,7 +198,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                         (data) => {
                             return (relatedArticles[lastId] = data);
                         },
-                        () => {
+                        (e) => {
                             console.log("Error - url not found:", url);
                         },
                     ),
@@ -294,7 +294,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
             // stay safe, catch all errors here.
             const internalLinks = Array.from(content.matchAll(/]\(\/(.*?)\)/g))
                 .map((res) => {
-                    return res[1].replace(/\)/g, "").split("#")[0];
+                    return res[1].replace(/\)/g, "").split("#")[0].split(" ")[0];
                 })
                 .filter((link) => link.indexOf(".") === -1 && link.indexOf("/typedoc") === -1);
 

@@ -80,22 +80,29 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     useEffect(() => {
         if (!window.location.hash) {
-            markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+            scrollToTop();
+        }
+        window.onhashchange = () => {
+            if(location.hash === '') {
+                scrollToTop();
+            }
         }
         return () => {
+            window.onhashchange = undefined;
             // TODO since the last update of next, this code is not executed correctly.
             // console.log('clearing');
             clearExampleLinks();
             setActiveExample(null);
             clearTOCItems();
         };
+
     }, [id]);
 
     useEffect(() => {
         // since toc changes the page's height, if there is an anchor, correct to it.
         if (window.location.hash) {
             const hash = window.location.hash;
-            window.location.hash = "";
+            window.location.hash = "#tmp";
             window.location.hash = hash;
         }
     }, [tocLinks]);
@@ -115,7 +122,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     }, [activeExample]);
 
     const scrollToTop = () => {
-        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+        markdownRef?.current?.scrollTo({  behavior: "auto", top: 0, left: 0 });
     };
 
     const components = markdownComponents;

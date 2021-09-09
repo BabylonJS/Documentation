@@ -1,6 +1,6 @@
 ---
 title: Applying Delta Changes To A Scene
-image: 
+image:
 description: Learn about using the delta system in Babylon.js to save and reload changes made to your scenes.
 keywords: diving deeper, scene, delta system
 further-reading:
@@ -17,7 +17,7 @@ This is particularly useful when you load a scene from a .babylon or a .gltf fil
 
 To record changes done to a scene, you simply have to create a new `SceneRecorder` and call its `track()` function:
 
-```
+```javascript
 var recorder = new BABYLON.SceneRecorder();
 
 recorder.track(scene);
@@ -29,7 +29,7 @@ This will mark the origin of the changes eg. the original state of your scene. E
 
 Once you're done with the changes you want to record, you can get the delta file with this call:
 
-```
+```javascript
 var delta = recorder.getDelta();
 ```
 
@@ -37,20 +37,21 @@ The returned value is a JSON object that you can download or reuse later.
 
 To donwload it, you can leverage the Tools class:
 
-```
+```javascript
 BABYLON.Tools.Download(JSON.stringify(delta), "delta.json");
 ```
 
 If you want to apply it to your scene, you can call that static function:
 
-```
+```javascript
 BABYLON.SceneRecorder.ApplyDelta(delta, scene);
 ```
 
 ## Example
 
 Let's have a look at an example to see it in action:
-```
+
+```javascript
 var scene = new BABYLON.Scene(engine);
 var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 camera.setTarget(BABYLON.Vector3.Zero());
@@ -59,10 +60,10 @@ camera.attachControl(canvas, true);
 var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 light.intensity = 0.7;
 
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 sphere.position.y = 1;
 
-var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
 // Instantiate the recorder
 var recorder = new BABYLON.SceneRecorder();
@@ -83,7 +84,7 @@ ground.dispose();
 let delta = recorder.getDelta();
 
 // Just to see the changes, we are updating the value so we can see what the delta is doing
-ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 light2.dispose();
 sphere.position.y = 2;
 scene.clearColor.r = 0;
@@ -110,6 +111,7 @@ This will download the file locally.
 ## Limitations
 
 The recorder has some limitations listed here:
+
 - It will only record simple values (array, colors, vectors, boolean, number)
 - It will not record large state changes like:
   - Updating the material property of a mesh

@@ -254,7 +254,7 @@ Here `shadowMinZ = 0.5`. As you can see, a part of the sphere is now outside of 
 
 You can play in the inspector by changing the position/direction of the light as well as the `shadowMinZ` / `shadowMaxZ` values of the shadow generator to better see how it works.
 
-By default, the x and y extents of the light frustum (the position of the left/right/top/bottom planes of the frustum) are automatically computed by Babylon because `light.autoUpdateExtends = true`. You can set this property to `false`, but there's currently no clean way to update the ortho left/right/top/bottom values manually because those properties are private (probably something to work on). So, if you want to set a fixed frustum, use the `shadowFrustumSize` property instead.
+By default, the x and y extents of the light frustum (the position of the left/right/top/bottom planes of the frustum) are automatically computed by Babylon because `light.autoUpdateExtends = true`. You can set this property to `false` and set the frustum sizes manually by updating the `orthoLeft`, `orthoRight`, `orthoTop` and `orthoBottom` properties. You can use the `shadowFrustumSize` property instead if you want to set the frustum with a fixed size in all dimensions.
 
 The values for the near/far planes are stored in `shadowMinZ` and `shadowMaxZ`, properties that you can change (as in the PG). You can also let Babylon compute them automatically by setting `light.autoCalcShadowZBounds = true` (`false` by default). Note that when Babylon computes the bounds automatically, it does so by taking into account only the objects that are shadow casters! That's why if you activate it in the PG, you will see that the light frustum does not encompass the ground, which is not a shadow caster but only a receiver.
 

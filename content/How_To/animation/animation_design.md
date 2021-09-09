@@ -71,3 +71,38 @@ scene.beginAnimation(box, 0, 2 * frameRate, true);
 
 You can see the result here  
 <Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
+
+## Reversing an Animation
+
+Fun tip, the second and third arguments for the beginAnimation method are a starting frame and ending frame from your keyFrames list. If you reverse those two values, the animation will play in reverse!
+
+```javascript
+const startFrame = 0;
+const endFrame = 10;
+const frameRate = 10;
+
+const xSlide = new BABYLON.Animation("xSlide", "position.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+
+const keyFrames = []; 
+
+keyFrames.push({
+    frame: startFrame,
+    value: 2
+});
+
+keyFrames.push({
+    frame: endFrame,
+    value: -2
+});
+
+
+xSlide.setKeys(keyFrames);
+
+box.animations.push(xSlide);
+
+//backwards animation
+scene.beginAnimation(box, endFrame, startFrame, false);
+```
+
+Check it out here: 
+<Playground id="#7V0Y1I#940" title="Playing an Animation in Reverse" description="An example of playing an animation forwards and backwards."/>

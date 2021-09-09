@@ -189,7 +189,8 @@
                     "children": {
                         "actions": { "friendlyName": "Actions", "children": {}, "content": "How_To/events/How_to_use_Actions" },
                         "observables": { "friendlyName": "Observables", "children": {}, "content": "How_To/events/Observables" },
-                        "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" }
+                        "promises": { "friendlyName": "Promises", "children": {}, "content": "How_To/events/Promises" },
+                        "coroutines": { "friendlyName": "Coroutines", "children": {}, "content": "How_To/events/Coroutines" }
                     },
                     "content": "landing_pages/divingDeeperEventsLandingPage"
                 },
@@ -676,6 +677,11 @@
                             "friendlyName": "Skeleton Viewer",
                             "children": {},
                             "content": "landing_pages/toolsAndResourcesSkeletonViewerLandingPage"
+                        },
+                        "performanceProfiler": {
+                            "friendlyName": "Performance Profiler",
+                            "children": {},
+                            "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
                         }
                     },
                     "content": "landing_pages/toolsAndResourcesToolsLandingPage"
@@ -1036,10 +1042,13 @@
                                 "BabylonJS_and_Vue_1": { "friendlyName": "BabylonJS and Vue - basics", "children": {}, "content": "resources/Library/BabylonJS_and_Vue" },
                                 "BabylonJS_and_Vue_2": { "friendlyName": "BabylonJS and Vue - passing data", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_passing_data" },
                                 "BabylonJS_and_Vue_3": { "friendlyName": "BabylonJS and Vue - async scene methods", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_async" },
-                                "BabylonJS_and_Vue_4": { "friendlyName": "BabylonJS and Vue - tutorial links", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_links" }
-                            }
+                                "BabylonJS_and_Vue_4": { "friendlyName": "BabylonJS and Vue - messages driven scene", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_messages_driven_scene" },
+                                "BabylonJS_and_Vue_0": { "friendlyName": "BabylonJS and Vue - tutorial links", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_links" }
+                            },
+                            "content": "landing_pages/extensionsExternalLibrariesVueLandingPage"
                         },
-                        "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" }
+                        "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
+                        "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" }
                     },
                     "content": "landing_pages/extensionsExternalLibrariesLandingPage"
                 },

@@ -1106,7 +1106,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 -   Documentation
-    -   Entire codebase is now documented. [API documentation](/typedoc/)
+    -   Entire codebase is now documented. [API documentation](/typedoc)
 -   GUI
     -   New GUI 3D controls toolset. [Complete doc + demos](//doc.babylonjs.com/how_to/gui3d) ([Deltakosh](https://github.com/deltakosh))
     -   New GUI control: [Grid](//doc.babylonjs.com/how_to/gui#grid) ([Deltakosh](https://github.com/deltakosh))

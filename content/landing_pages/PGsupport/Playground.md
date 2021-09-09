@@ -14,8 +14,6 @@ further-reading:
       url: /toolsAndResources/tools/inspector
     - title: How to Use The Inspector in Projects
       url: /toolsAndResources/tools/inspector
-    - title: How To Customize the Inspector
-      url: /toolsAndResources/tools/inspector/customizingInspector
 video-overview:
 video-content:
 ---

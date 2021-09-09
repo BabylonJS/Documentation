@@ -4,10 +4,10 @@ image:
 description: Learn about tree shaking and package management in Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
 further-reading:
-    - title: How To Get Babylon.js
-      url: /divingDeeper/developWithBjs/frameworkVers
-    - title: NPM Support
-      url: /divingDeeper/developWithBjs/npmSupport
+  - title: How To Get Babylon.js
+    url: /divingDeeper/developWithBjs/frameworkVers
+  - title: NPM Support
+    url: /divingDeeper/developWithBjs/npmSupport
 video-overview:
 video-content:
 ---
@@ -26,14 +26,14 @@ All the babylon es6 packages are available within the npm scope @babylonjs.
 
 We offer babylon.js' core and its modules as npm packages. The following are available:
 
--   [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
--   [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
--   [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
--   [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
--   [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
--   [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
--   [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
--   [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Viewer.
+- [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
+- [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
+- [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
+- [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
+- [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
+- [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
+- [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
+- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Viewer.
 
 ## Basic Example
 
@@ -121,35 +121,35 @@ Now we have all the dependencies created, create an index.html file in the `MyAw
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Local Development</title>
+  <head>
+    <title>Local Development</title>
 
-        <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
 
-        <style>
-            html,
-            body {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-                overflow: hidden;
-            }
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
 
-            #renderCanvas {
-                width: 100%;
-                height: 100%;
-                display: block;
-                font-size: 0;
-            }
-        </style>
-    </head>
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        font-size: 0;
+      }
+    </style>
+  </head>
 
-    <body>
-        <canvas id="renderCanvas" touch-action="none"></canvas>
+  <body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
 
-        <script src="main.js"></script>
-    </body>
+    <script src="main.js"></script>
+  </body>
 </html>
 ```
 
@@ -214,7 +214,7 @@ ground.material = material;
 
 // Render every frame
 engine.runRenderLoop(() => {
-    scene.render();
+  scene.render();
 });
 ```
 
@@ -311,17 +311,17 @@ With that done we need to configure Webpack to allow the use of Typescript. Add 
 
 ```javascript
 module.exports = {
-    resolve: {
-        extensions: [".ts", ".js"],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                loader: "ts-loader",
-            },
-        ],
-    },
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+      },
+    ],
+  },
 };
 ```
 
@@ -386,28 +386,28 @@ _The intellisense does not propose the method I normally use in the bundled vers
 
 This will be the case for all the methods defined by module augmentation. This means that as long as you are not importing the parent modules, the methods will not even be discoverable. This is the case for all our scene components. For enabling physics on the scene you need `import "@babylonjs\core\Physics\physicsEngineComponent"` to populate the `scene.enablePhysics` function. Please find below the list of those components for their augmented methods:
 
--   scene."animationRelatedMethods like beginAnimation and so on... " are available in the `Animations/animatable` module.
--   scene."audioRelatedMethods" are available in the `Audio/audioSceneComponent` and `Audio/audioEngine` module.
--   Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
--   Ray and Picking functions can be found in the `Culling/ray` module.
--   Debug Layer functions can be found in the `Debug/debugLayer` module.
--   Occlusion Queries can be found in the `Engines/Extensions/engine.occlusionQuery` module.
--   Transform Feedback can be found in the `Engines/Extensions/engine.transformFeedback` module.
--   Gamepad support can be found in the `Gamepad/gamepadSceneComponent` module.
--   Scene Helpers like createDefaultCamera, createDefaultXXX can be found in the `Helpers/sceneHelpers` module.
--   Mesh Simplification functions can be found in the `Meshes/meshSimplicationSceneComponent` .
--   DDS Loader support can be installed from the `Materials/Textures/Loaders/ddsTextureLoader` and you will also need `core/Misc/dds` module.
--   Env Loader support can be installed from the `Materials/Textures/Loaders/envTextureLoader` .
--   KTX Loader support can be installed from the `Materials/Textures/Loaders/ktxTextureLoader` .
--   TGA Loader support can be installed from the `Materials/Textures/Loaders/tgaTextureLoader` .
--   Particle support can be found in the `Particles/particleSystemComponent` .
-  - For GPUParticleSystem, WebGL2 support can be found in `Particles/webgl2ParticleSystem` and WebGPU support in `Particles/computeShaderParticleSystem`
--   Physics Engine support can be found in the `Physics/physicsEngineComponent` .
--   .babylon file support can be found in the `Loading/Plugins/babylonFileLoader` .
--   shadowGenerator support can be found in the `Lights/Shadows/shadowGeneratorSceneComponent` .
--   depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
--   screenshot support can be found in the `Misc/screenshotTools` .
--   boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
+- scene."animationRelatedMethods like beginAnimation and so on... " are available in the `Animations/animatable` module.
+- scene."audioRelatedMethods" are available in the `Audio/audioSceneComponent` and `Audio/audioEngine` module.
+- Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
+- Ray and Picking functions can be found in the `Culling/ray` module.
+- Debug Layer functions can be found in the `Debug/debugLayer` module.
+- Occlusion Queries can be found in the `Engines/Extensions/engine.occlusionQuery` module.
+- Transform Feedback can be found in the `Engines/Extensions/engine.transformFeedback` module.
+- Gamepad support can be found in the `Gamepad/gamepadSceneComponent` module.
+- Scene Helpers like createDefaultCamera, createDefaultXXX can be found in the `Helpers/sceneHelpers` module.
+- Mesh Simplification functions can be found in the `Meshes/meshSimplicationSceneComponent` .
+- DDS Loader support can be installed from the `Materials/Textures/Loaders/ddsTextureLoader` and you will also need `core/Misc/dds` module.
+- Env Loader support can be installed from the `Materials/Textures/Loaders/envTextureLoader` .
+- KTX Loader support can be installed from the `Materials/Textures/Loaders/ktxTextureLoader` .
+- TGA Loader support can be installed from the `Materials/Textures/Loaders/tgaTextureLoader` .
+- Particle support can be found in the `Particles/particleSystemComponent` .
+- For GPUParticleSystem, WebGL2 support can be found in `Particles/webgl2ParticleSystem` and WebGPU support in `Particles/computeShaderParticleSystem`
+- Physics Engine support can be found in the `Physics/physicsEngineComponent` .
+- .babylon file support can be found in the `Loading/Plugins/babylonFileLoader` .
+- shadowGenerator support can be found in the `Lights/Shadows/shadowGeneratorSceneComponent` .
+- depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
+- screenshot support can be found in the `Misc/screenshotTools` .
+- boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
 
 _Why do I have an error in the console inviting me to import some other modules?_
 
@@ -511,6 +511,29 @@ const Ammo = await ammo.default();
 ...
 const ammoPlugin = new AmmoJSPlugin(true, Ammo);
 ```
+
+## Ammo with types enabled
+
+Follow the instructions at https://github.com/giniedp/ammojs-typed
+
+Import the dependencies
+
+```
+import { AmmoJSPlugin } from '@babylonjs/core/Physics/Plugins/ammoJSPlugin';
+import Ammo from 'ammojs-typed';
+```
+
+and in your code
+
+```
+const ammo = await Ammo();
+scene.enablePhysics(
+    new Vector3(0, -9.81, 0),
+    new AmmoJSPlugin(true, ammo)
+);
+```
+
+![](/img/resources/ammo-es6/ammo-es6-typed.png)
 
 ## Loaders
 

@@ -16,6 +16,12 @@ video-content:
 
 [Part 3: BabylonJS and Vue - async scene methods](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods")
 
+[Part 4: BabylonJS and Vue - messages driven scene](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene")
+
+You can find a quick prototype of the mentioned solution running here https://babylonjs.nascor.tech/scene-director/
+
+And the source repository can be found at https://github.com/RolandCsibrei/babylonjs-vue-messages-driven-scene
+
 ## A real app using Typescript, Vue 2 with Composition API, mobile friendly Quasar based GUI
 
 https://github.com/RolandCsibrei/babylonjs-real-sun-moon
