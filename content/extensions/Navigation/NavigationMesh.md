@@ -159,3 +159,11 @@ navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
 Performance note: The navmesh is constructed from geometry datas. If multiple meshes are needed, their geometry will be merged before passing the geometry positions and indices to Recast. This part of the code can be CPU intensive and cannot be done in a worker because of dependencies, copies, memory footprint.
 
 An example of use with web worker : <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
+
+## NPM 
+
+Loading Recast-Detour NPM module is different between version 1.3.0 and 1.4.0+ as later version is asynchronous. User has to use `await` like this:
+
+```
+const recast = await Recast();
+```
