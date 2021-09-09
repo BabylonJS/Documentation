@@ -741,11 +741,14 @@ Other useful options are to change movement and rotation speed and to enable/dis
 enables users to traverse VR spaces by "walking in place."
 
 ```
-// TODO: Code sample here.
+scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
+    const xrRoot = new BABYLON.TransformNode("xrRoot", scene);
+    xr.baseExperience.camera.parent = xrRoot;
+    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xrRoot });
+});
 ```
 
-[TODO: Insert Playground example here as soon as the feature's live in the 
-Playground.]
+<Playground id="#HE33TR#0" title="Walking Locomotion Demo" description="Basic demo of walking locomotion"/>
 
 While it is highly recommended to articulate the `WebXRCamera`'s parent 
 node in order to avoid conflating virtual positional data with XR
@@ -753,10 +756,12 @@ sensory readings, it is also possible to articulate the `WebXRCamera`
 itself.
 
 ```
-// TODO: Code sample here.
+scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
+    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xr.baseExperience.camera.parent });
+});
 ```
 
-[TODO: Insert another Playground example.]
+<Playground id="#HE33TR#2" title="WebXRCamera Walking Locomotion" description="Walking locomotion operating on the WebXRCamera directly"/>
 
 To move, simply face in the direction you want to go and "walk in place,"
 lifting and replacing each foot in turn much as you would if you were 
