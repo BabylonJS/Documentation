@@ -130,3 +130,11 @@ To restore an UInt8Array to a navigation mesh:
 ```
 navigationPlugin.buildFromNavmeshData(uint8array);
 ```
+
+## NPM 
+
+Loading Recast-Detour NPM module is different between version 1.3.0 and 1.4.0+ as later version is asynchronous. User has to use `await` like this:
+
+```
+const recast = await Recast();
+```
