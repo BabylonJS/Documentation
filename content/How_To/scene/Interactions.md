@@ -83,5 +83,6 @@ scene.onPointerObservable.add((pointerInfo) => {
 <Playground id="#0XYMA9#1" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
 <Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/divingDeeperInteractions2.jpg" isMain={true} category="Scene"/>
 <Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.jpg" isMain={true} category="Scene"/>
+<Playground id="#2SA7J8#6" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Scene"/>
 
 Remember to click in scene (to set focus) before using keyboard
