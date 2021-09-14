@@ -1,11 +1,11 @@
 ---
 title: Interacting With Scenes
-image: 
+image:
 description: Begin learning about how to develop interactions for your Babylon.js scenes.
-keywords: diving deeper, events, interactions 
+keywords: diving deeper, events, interactions
 further-reading:
-    - title: Observables
-      url: /divingDeeper/events/observables
+  - title: Observables
+    url: /divingDeeper/events/observables
 video-overview:
 video-content:
 ---
@@ -20,14 +20,14 @@ By customizing the following code template you can control reactions within your
 
 ```javascript
 scene.onKeyboardObservable.add((kbInfo) => {
-	switch (kbInfo.type) {
-		case BABYLON.KeyboardEventTypes.KEYDOWN:
-			console.log("KEY DOWN: ", kbInfo.event.key);
-			break;
-		case BABYLON.KeyboardEventTypes.KEYUP:
-			console.log("KEY UP: ", kbInfo.event.keyCode);
-			break;
-	}
+  switch (kbInfo.type) {
+    case BABYLON.KeyboardEventTypes.KEYDOWN:
+      console.log("KEY DOWN: ", kbInfo.event.key);
+      break;
+    case BABYLON.KeyboardEventTypes.KEYUP:
+      console.log("KEY UP: ", kbInfo.event.keyCode);
+      break;
+  }
 });
 ```
 
@@ -41,40 +41,39 @@ First of all a reminder that for **touch** events in Babylon.js [PEP](https://gi
 <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
 ```
 
-2. stop the default touch-action within the rendering canvas 
+2. stop the default touch-action within the rendering canvas
 
 ```javascript
 <canvas id="renderCanvas" touch-action="none"></canvas>
 ```
 
-
 Whether your pointer is an icon or a finger by customizing the following code template you will enable your project to react to a range of pointer events;
 
 ```javascript
 scene.onPointerObservable.add((pointerInfo) => {
-	switch (pointerInfo.type) {
-		case BABYLON.PointerEventTypes.POINTERDOWN:
-			console.log("POINTER DOWN");
-			break;
-		case BABYLON.PointerEventTypes.POINTERUP:
-			console.log("POINTER UP");
-			break;
-		case BABYLON.PointerEventTypes.POINTERMOVE:
-			console.log("POINTER MOVE");
-			break;
-		case BABYLON.PointerEventTypes.POINTERWHEEL:
-			console.log("POINTER WHEEL");
-			break;
-		case BABYLON.PointerEventTypes.POINTERPICK:
-			console.log("POINTER PICK");
-			break;
-		case BABYLON.PointerEventTypes.POINTERTAP:
-			console.log("POINTER TAP");
-			break;
-		case BABYLON.PointerEventTypes.POINTERDOUBLETAP:
-			console.log("POINTER DOUBLE-TAP");
-			break;
-    }
+  switch (pointerInfo.type) {
+    case BABYLON.PointerEventTypes.POINTERDOWN:
+      console.log("POINTER DOWN");
+      break;
+    case BABYLON.PointerEventTypes.POINTERUP:
+      console.log("POINTER UP");
+      break;
+    case BABYLON.PointerEventTypes.POINTERMOVE:
+      console.log("POINTER MOVE");
+      break;
+    case BABYLON.PointerEventTypes.POINTERWHEEL:
+      console.log("POINTER WHEEL");
+      break;
+    case BABYLON.PointerEventTypes.POINTERPICK:
+      console.log("POINTER PICK");
+      break;
+    case BABYLON.PointerEventTypes.POINTERTAP:
+      console.log("POINTER TAP");
+      break;
+    case BABYLON.PointerEventTypes.POINTERDOUBLETAP:
+      console.log("POINTER DOUBLE-TAP");
+      break;
+  }
 });
 ```
 
@@ -83,6 +82,6 @@ scene.onPointerObservable.add((pointerInfo) => {
 <Playground id="#0XYMA9#1" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
 <Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/divingDeeperInteractions2.jpg" isMain={true} category="Scene"/>
 <Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.jpg" isMain={true} category="Scene"/>
-<Playground id="#2SA7J8#6" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Scene"/>
+<Playground id="#2SA7J8#7" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Scene"/>
 
 Remember to click in scene (to set focus) before using keyboard
