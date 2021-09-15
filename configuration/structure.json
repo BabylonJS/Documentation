@@ -619,7 +619,8 @@
                     "friendlyName": "WebGPU",
                     "children": {
                         "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
-                        "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" }
+                        "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
+                        "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" }
                     },
                     "content": "extensions/WebGPU/webGPU"
                 },
