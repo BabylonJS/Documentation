@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/08/30).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/09/15).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -33,7 +33,6 @@ We need to implement some specific mechanisms / features to get the most of our 
   * Also added `engine.snapshotRendering` and `engine.snapshotRenderingMode` to improve performances in some specific cases (when scene is mostly static)
 * Use compute shaders -> the `ComputeShader` class is now in
   * To perform some conversions when reading data from buffers
-* Use WGSL when back compat is not required
 * Use `CreatePipelineAsync` for asynchronous pipeline creations
 * ...and lots of others!
 
@@ -42,12 +41,12 @@ So, don't try to benchmark your code against WebGL just yet, it won't be represe
 ## Browser Caveats
 Chrome Canary does not support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats:
 * MSAA limited to values 1 or 4
-* Updating GPU textures with canvas / videos is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or video elements.
+* Updating GPU textures with canvas / ~~videos~~ is slow. It means you will see really bad performance if you use dynamic GUIs (GUI that have elements which are updated on each frame) or ~~video~~ elements.
   * Try this PG for eg: <Playground id="#6X9UMD#13" title="Multiple dynamic GUIs + Video" description="Example showing the bad performance we currently have when using dynamic GUIs and videos"/>
-  * Note: there are now some ways to make this faster but not implemented in Babylon.js yet
+  * Regarding videos, we now support writing WGSL code in the `ShaderMaterial` class, so you can use the `texture_external` type object for fast video playing! See the [video example](/advanced_topics/webGPU/webGPUWGSL#examples) in WGSL
 * No WebGPU capabilities (caps) returned by the browser
   * For the time being, we have set some hard values for the caps (4 for MSAA max samples, for eg, as Chrome does not support more yet)
 * **error X3511: unable to unroll loop, loop does not appear to terminate in a timely manner (XXX iterations) or unrolled loop is too large, use the [unroll(n)] attribute to force an exact higher number**
   * You can sometimes get this error when using SSAO / Geometry Buffer renderer / Pre-Pass rendering... It's a known problem with the FXC compiler used by Chrome
   * See https://bugs.chromium.org/p/tint/issues/detail?id=1112
-* GPU timing in the Inspector does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--disable-dawn-features=disallow_unsafe_apis` flag if you want to enable them.
+* GPU timing in the **Inspector** does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--disable-dawn-features=disallow_unsafe_apis` flag if you want to enable them.
