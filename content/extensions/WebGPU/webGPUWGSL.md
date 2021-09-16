@@ -115,6 +115,7 @@ uniform varName : varType;
 Notes:
 * When using the `uniform varName : varType` syntax, you access the variable by doing `uniforms.varName`, not simply `varName`. The variables declared that way can be set from the javascript code by using the regular methods of the `ShaderMaterial` class (`setFloat`, `setInt`, etc) as with GLSL
 * `varType` must use a WGSL syntax, not GLSL! For eg: `varying vUV : vec2<f32>;`
+* you must **NOT** add the `[[group(X), binding(Y)]]` decoration! The system will add them automatically
 
 You can also use some built-ins that have the same names than in GLSL:
 * in vertex shaders: `gl_VertexID`, `gl_InstanceID`, `gl_Position`
