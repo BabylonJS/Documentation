@@ -71,11 +71,23 @@ const cs1 = new BABYLON.ComputeShader("myCompute", engine, { computeSource: copy
     }
 });
 ```
-Note that for a (sampled) texture variable as `src` in the example above:
-* you must define a corresponding sampler (`srcSampler` in the example above) with a binding value equal to the binding value of the texture minus 1. In Babylon.js we don't have a separate sampler object from the texture itself that you could bind separately, so when you bind a texture to your shader we automatically bind a sampler object to the binding just before (if you don't pass `false` as the 3rd parameter to `setTexture()`, see below)
-* you must **not** add this sampler in the `bindingsMapping` object
+Note that for a (sampled) texture variable as `src` in the example above, you can instruct the system to automatically bind the sampler corresponding to the texture. To do that, you must declare the sampler with a binding value equal to the binding value of the texture minus 1 and you should pass `true` as the 3rd parameter of the `setTexture()` call (or don't pass anything, as `true` is the default value). In this case, you must **not** add this sampler in the `bindingsMapping` object.
 
-If you don't need to bind the sampler corresponding to a texture (because you are going to use `textureLoad` (which does not need a sampler) or a sampler coming from another texture declaration for eg), you can instruct the system not to bind the sampler by passing `false` as the 3rd parameter to `ComputeShader.setTexture()`.
+If you don't need/want to auto-bind the sampler corresponding to a texture, you can instruct the system not to bind the sampler by passing `false` as the 3rd parameter to `ComputeShader.setTexture()`.
+
+You can also bind your own sampler by creating one (see the [Sampler class](/typedoc/classes/babylon.sampler)) and use the `ComputeShader.setSampler()` method:
+```javascript
+const cs1 = new BABYLON.ComputeShader("myCompute", engine, { computeSource: copyTextureComputeShader }, { bindingsMapping:
+    {
+        "dest": { group: 0, binding: 0 },
+        "srcSampler": { group: 0, binding: 1 },
+        "src": { group: 0, binding: 2 }
+    }
+});
+const sampler = new BABYLON.Sampler().setParameters();
+cs1.setSampler("samplerSrc", sampler);
+```
+In that case, you must add this sampler in the `bindingsMapping` object.
 
 ## Examples
 
