@@ -50,6 +50,7 @@ Variables you pass to a compute shader can be of the following types:
 * **storage texture**. A storage texture is a texture you can write to from your compute shader. Note that you can't read from a storage texture, only write to it. If you wrote something in a storage texture and need to read from it in a shader, simply pass it as a regular texture. In Babylon.js, storage textures are created as regular textures but pass a special flag for the `creationFlag` parameter: `BABYLON.Constants.TEXTURE_CREATIONFLAG_STORAGE`. There are also two helper methods that you can use to create storage textures: `BABYLON.RawTexture.CreateRGBAStorageTexture()` and `BABYLON.RawTexture.CreateRStorageTexture()`. Use `ComputeShader.setStorageTexture()` to pass a storage texture to the shader.
 * **uniform buffer**. It's a buffer you can create by instantiating the `UniformBuffer` class and that can be used to pass some constant values to the shader side (values that still can be updated in the course of your program - they are constants inside the shader). Note that you need to first create the layout of this buffer by calling the `addUniform` method **in the order the properties appear in the buffer in the shader code**! The last point is important as the layout you create must match the layout of the buffer as used in the shader code. Once you have created the layout, you can set some values through calls to the `updateXXX()` methods. Once you are ready to update the buffer on the GPU side, call `update()`. Use `ComputeShader.setUniformBuffer()` to pass a uniform buffer to the shader.
 * **storage buffer**. This is an arbitrary buffer that you can use to read or write values. Use the `StorageBuffer` class to create such buffers. Use `ComputeShader.setStorageBuffer()` to pass a storage buffer to the shader.
+* **sampler**. This is a custom texture sampler object that you can use to sample a texture. Use the `TextureSampler` class to create one and `ComputeShader.setTexturesSampler()` to pass a texture sampler to the shader. See the next section for more explanations about texture samplers.
 
 ## Shader language and input bindings
 The compute shader must be written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/), which is the shader language used by [WebGPU](/advanced_topics/webGPU).
@@ -75,7 +76,7 @@ Note that for a (sampled) texture variable as `src` in the example above, you ca
 
 If you don't need/want to auto-bind the sampler corresponding to a texture, you can instruct the system not to bind the sampler by passing `false` as the 3rd parameter to `ComputeShader.setTexture()`.
 
-You can also bind your own sampler by creating one (see the [Sampler class](/typedoc/classes/babylon.sampler)) and use the `ComputeShader.setSampler()` method:
+You can also bind your own sampler by creating one (see the [TextureSampler class](/typedoc/classes/babylon.texturesampler)) and use the `ComputeShader.setTextureSampler()` method:
 ```javascript
 const cs1 = new BABYLON.ComputeShader("myCompute", engine, { computeSource: copyTextureComputeShader }, { bindingsMapping:
     {
@@ -84,8 +85,8 @@ const cs1 = new BABYLON.ComputeShader("myCompute", engine, { computeSource: copy
         "src": { group: 0, binding: 2 }
     }
 });
-const sampler = new BABYLON.Sampler().setParameters();
-cs1.setSampler("samplerSrc", sampler);
+const sampler = new BABYLON.TextureSampler().setParameters();
+cs1.setTextureSampler("samplerSrc", sampler);
 ```
 In that case, you must add this sampler in the `bindingsMapping` object.
 
