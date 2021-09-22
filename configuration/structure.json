@@ -341,7 +341,8 @@
                                         "polyhedra_by_numbers": { "friendlyName": "Provided Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/provided_poly" },
                                         "custom_poly": { "friendlyName": "Custom Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/custom_poly" },
                                         "icosphere": { "friendlyName": "Icosphere", "children": {}, "content": "How_To/mesh/creation/polyhedra/icosphere" },
-                                        "geodesic_poly": { "friendlyName": "Geodesic Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/geodesic" }
+                                        "geodesic_poly": { "friendlyName": "Geodesic Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/geodesic" },
+                                        "goldberg_poly": { "friendlyName": "Goldberg Polyhedra", "children": {}, "content": "How_To/mesh/creation/polyhedra/goldberg" }
                                     },
                                     "content": "How_To/mesh/creation/polyhedra_landing"
                                 },

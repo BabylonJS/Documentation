@@ -21,7 +21,7 @@ Within Babylon.js a geodesic polyhedron (GDP) is formed for an icosahedron base 
 
 On this page we explain how to create a GDP directly. More information about [GDP Mathematics](/guidedLearning/workshop/Geodesic_Math) and [an outline of coding a GDP](/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
 
-The format for creating a GDP very much matches that of ```CreatePolyhedron```.
+The format for creating a GDP very much matches that of ```CreatePolyhedron```. A GDP can only be created with ```MeshBuilder```.
 
 ## MeshBuilder
 
@@ -53,13 +53,3 @@ To be COMPLETED
 
 The full set of 15: <Playground id="#PBLS4Y " title="Full Set Of 15 Polyhedra" description="Playground example showing all 15 provided polyhedra."/>
 Dodecahedron with FaceUVs: <Playground id="#PBLS4Y#1 " title="Dodecahedron with FaceUVs" description="Playground example of creating a dodecahedron with faceUVs."/>
-
-## Mesh
-
-usage :
-
-```javascript
-const polyhedron = BABYLON.Mesh.CreateGeodesic("oct", options, scene); //scene is optional and defaults to the current scene
-```
-
-This is the same format as that for _MeshBuilder_
