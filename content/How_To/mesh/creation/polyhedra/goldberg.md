@@ -96,6 +96,8 @@ const colorArray = [
 ]
 ```
 
+PG: <Playground id="#A8VZGP#1" title="Color Faces" description="Coloring individual faces"/> 
+
 #### Textures
 Groups of faces can have their texture changed by using
 
@@ -122,6 +124,13 @@ For the poles pentagons are used to match the uvs.
 Fig 3 - Areas of Image to Use as Face Textures
 
 #### Placing Meshes
+A mesh can be placed on a face using
+
+```javascript
+goldbergMesh.placeOnFaceAt(mesh, face, position); //position is a Vector3
+```
+
+The position is relative to the center of the face and the axes, facefaceXaxis and faceYaxis
 
 
 
