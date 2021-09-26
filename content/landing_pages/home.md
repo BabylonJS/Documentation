@@ -26,6 +26,8 @@ This documentation is designed to take you on a step by step journey of masterin
 
 ## How To Use The Documentation
 
+Babylon.js is a rich API designed to make it as easy as possible to leverage the power of the GPU for your web experience. You can leverage this powerful API by writing Babylon.js scene code in either javascript or typescript. For the purposes of consistency and maximizing accessibility of the documentation, all example code found in these pages will be provided in javascript.
+
 The documentation page layout has several features that you'll want to know about in order to get the most out of your learning journey.
 
 To start, the left most panel is the navigation pane. This pane is how you navigate to where you'd like to go.
