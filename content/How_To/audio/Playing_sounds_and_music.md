@@ -135,7 +135,9 @@ var soundSprite = new BABYLON.Sound(
 );
 ```
 
-You can find an example here: <Playground id="#6LXPBX" title="Playing Sound Sprites" description="A simple example playing sound sprites."/>
+You can find examples here: <Playground id="#6LXPBX" title="Playing Sound Sprites 1" description="A simple example of playing a portion of a sound file using sound sprites."/>
+
+and here: <Playground id="#PCY1J#190" title="Playing Sound Sprites 2" description="A simple example of playing a portion of a sound file using sound sprites."/>
 
 ## Playing several sounds simultaneously and synchronized
 
