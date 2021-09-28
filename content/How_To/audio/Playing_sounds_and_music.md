@@ -131,11 +131,11 @@ var soundSprite = new BABYLON.Sound(
   "/sounds/6sounds.mp3",
   scene,
   null,
-  { loop: true, autoplay: true, length: 9200, offset: 14000 }
+  { loop: true, autoplay: true, length: 9.200, offset: 14.000 }
 );
 ```
 
-You can find examples here: <Playground id="#6LXPBX" title="Playing Sound Sprites 1" description="A simple example of playing a portion of a sound file using sound sprites."/>
+You can find examples here: <Playground id="#6LXPBX#12" title="Playing Sound Sprites 1" description="A simple example of playing a portion of a sound file using sound sprites."/>
 
 and here: <Playground id="#PCY1J#190" title="Playing Sound Sprites 2" description="A simple example of playing a portion of a sound file using sound sprites."/>
 
