@@ -69,11 +69,11 @@ All the additional properties are read only.
 | nbSharedFaces       | _(number)_ Total number of faces equidistant to two poles                   |
 | adjacentFaces       | _(number[][])_ Array of the faces adjacent to a particular face             |
 | faceCenters         | _(Vector3[])_ Array of centers of each face                                 |
-| faceZaxis           | _(Vector3[])_ Array of normals of each face                                 |
+| faceYaxis           | _(Vector3[])_ Array of normals of each face                                 |
 | faceXaxis           | _(Vector3[])_ Array of vectors perpendicular to normal for each face        |
-| faceYaxis           | _(Vector3[])_ Array of vectors perpendicular to normal for each face        |
+| faceZaxis           | _(Vector3[])_ Array of vectors perpendicular to normal for each face        |
 
-The vectors faceCenters[face], and faceZaxis[face], faceXaxis[face] and faceYaxis[face] can be used as a frame of reference to place meshes on the given face.
+The vectors faceCenters[face], and faceXaxis[face], faceYaxis[face] and faceZaxis[face] can be used as a frame of reference to place meshes on the given face.
 
 ### Methods
 
@@ -96,7 +96,11 @@ const colorArray = [
 ]
 ```
 
-PG: <Playground id="#A8VZGP#1" title="Color Faces" description="Coloring individual faces"/> 
+PG: <Playground id="#A8VZGP#9" title="Color Faces" description="Coloring individual faces"/>
+
+PG: <Playground id="#A8VZGP#4" title="Adjacent Faces" description="Faces immediately adjacent"/>
+
+PG: <Playground id="#A8VZGP#5" title="Random Adjacent Faces" description="Moving from face to adjacent face"/>
 
 #### Textures
 Groups of faces can have their texture changed by using
@@ -123,6 +127,18 @@ For the poles pentagons are used to match the uvs.
 ![Face Texture](/img/snippets/geo33.png)  
 Fig 3 - Areas of Image to Use as Face Textures
 
+![Texture map](https://assets.babylonjs.com/environments/hexworld.jpg)  
+Fig 4 - Texture Map to Apply to Different Faces
+In the following playground different areas of the texture map from Fig 4 are applied to the 12 polar regions and to the shared faces
+
+PG: <Playground id="#A8VZGP#10" title="Different Textures" description="The poles and their close neighbours share textures"/>
+
+![Texture](https://assets.babylonjs.com/environments/redarrow.jpg)  
+Fig 5 - Same Texture for the Hexagonal Faces
+In the following playground the same area is applied to all the hexagonal faces and a blank area to the poles.
+
+PG: <Playground id="#A8VZGP#12" title="Angling Textures" description="Changing the angle of a texture area"/>
+
 #### Placing Meshes
 A mesh can be placed on a face using
 
@@ -130,8 +146,19 @@ A mesh can be placed on a face using
 goldbergMesh.placeOnFaceAt(mesh, face, position); //position is a Vector3
 ```
 
-The position is relative to the center of the face and the axes, facefaceXaxis and faceYaxis
+The position is relative to the center of the face and the axes, faceXaxis, faceYaxis and faceZaxis
 
+For example
+placing a box mesh on face 32
+```javascript
+const height = 2;
+const width = 0.1;
+const depth = 0.08;
+const box = BABYLON.MeshBuilder.CreateBox("box", {width: width, depth: depth, height: height});
+const position = new BABYLON.Vector3(0.53, height / 2, 0.34);
+goldberg.placeOnFaceAt(box, 32, position);
+```
+Meshes should be sized accoring to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face * &radic;3
 
 
 ## Importing An Exported Goldberg Mesh
