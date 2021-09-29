@@ -47,7 +47,7 @@ const geodesic = BABYLON.MeshBuilder.CreateGeodesic("geodesic", options, scene);
 | option          | value                                                                                              | default value                    |
 | --------------- | -------------------------------------------------------------------------------------------------- | -------------------------------- |
 | m               | _(number)_ an integer > 0                                                                          | 1                                |
-| n               | _(number)_ a positive or zero integer <= n                                                         | 0                                |
+| n               | _(number)_ a positive or zero integer <= m                                                         | 0                                |
 | size            | _(number)_ polyhedron size                                                                         | 1                                |
 | sizeX           | _(number)_ X polyhedron size, overwrites the _size_ property                                       | 1                                |
 | sizeY           | _(number)_ Y polyhedron size, overwrites the _size_ property                                       | 1                                |
@@ -129,11 +129,12 @@ Fig 3 - Areas of Image to Use as Face Textures
 
 ![Texture map](https://assets.babylonjs.com/environments/hexworld.jpg)  
 Fig 4 - Texture Map to Apply to Different Faces
+
 In the following playground different areas of the texture map from Fig 4 are applied to the 12 polar regions and to the shared faces
 
 PG: <Playground id="#A8VZGP#10" title="Different Textures" description="The poles and their close neighbours share textures"/>
 
-![Texture](https://assets.babylonjs.com/environments/redarrow.jpg)  
+![Texture](https://assets.babylonjs.com/environments/redarrow.jpg)
 Fig 5 - Same Texture for the Hexagonal Faces
 In the following playground the same area is applied to all the hexagonal faces and a blank area to the poles.
 
@@ -160,10 +161,25 @@ goldberg.placeOnFaceAt(box, 32, position);
 ```
 Meshes should be sized accoring to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face * &radic;3
 
+PG: <Playground id="#A8VZGP#8" title="Placing Meshes" description="Land masses with buildings"/>
 
 ## Importing An Exported Goldberg Mesh
 
-## Examples
+As a Goldberg mesh is a very specialized mesh there is no provision within Babylon.js to serialize the additional properties and methods. When exported it is exported as a standard mesh with any additional data stored in its metadata. Any saved file containing a Goldberg mesh will import the Goldberg mesh as a standard mesh. To restore the additional properties and methods use ```BABYLON.Mesh.ExtendToGoldberg(mesh)```. This can only be applied to imports of a previously exported Goldberg mesh.
 
-To be COMPLETED
+## Example
 
+A Goldberg mesh is exported to file.babylon.
+
+```javascript
+BABYLON.SceneLoader.ImportMeshAsync("", "PATH TO FOLDER", "file.babylon").then((result) => {
+		const baseMesh = result.meshes[0];	
+		const goldbergMesh = BABYLON.Mesh.ExtendToGoldberg(baseMesh);
+})
+```
+
+All standard mesh properties and methods can be used with baseMesh.
+
+PG: <Playground id="#A8VZGP#17" title="Import as a Mesh" description="Standard properties and methods can be applied"/>
+
+PG: <Playground id="#A8VZGP#16" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>

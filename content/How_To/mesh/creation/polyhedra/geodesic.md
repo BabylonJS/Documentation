@@ -34,7 +34,7 @@ const geodesic = BABYLON.MeshBuilder.CreateGeodesic("geodesic", options, scene);
 | option          | value                                                                                              | default value                    |
 | --------------- | -------------------------------------------------------------------------------------------------- | -------------------------------- |
 | m               | _(number)_ an integer > 0                                                                          | 1                                |
-| n               | _(number)_ a positive or zero integer <= n                                                         | 0                                |
+| n               | _(number)_ a positive or zero integer <= m                                                         | 0                                |
 | size            | _(number)_ polyhedron size                                                                         | 1                                |
 | sizeX           | _(number)_ X polyhedron size, overwrites the _size_ property                                       | 1                                |
 | sizeY           | _(number)_ Y polyhedron size, overwrites the _size_ property                                       | 1                                |
@@ -45,11 +45,8 @@ const geodesic = BABYLON.MeshBuilder.CreateGeodesic("geodesic", options, scene);
 | updatable       | _(boolean)_ true if the mesh is updatable                                                          | false                            |
 | sideOrientation | _(number)_ side orientation                                                                        | DEFAULTSIDE                      |
 
-To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/divingDeeper/materials/using/texturePerBoxFace) taking into account the right number of faces of your polyhedron, instead of only 6 for a box.
+To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/divingDeeper/materials/using/texturePerBoxFace) taking into account the right number of faces of your polyhedron.
 
 ## Examples
 
-To be COMPLETED
-
-The full set of 15: <Playground id="#PBLS4Y " title="Full Set Of 15 Polyhedra" description="Playground example showing all 15 provided polyhedra."/>
-Dodecahedron with FaceUVs: <Playground id="#PBLS4Y#1 " title="Dodecahedron with FaceUVs" description="Playground example of creating a dodecahedron with faceUVs."/>
+PG: <Playground id="#I8IENW" title="Geodesic Polyhedron" description="Vary shape with m and n"/>
