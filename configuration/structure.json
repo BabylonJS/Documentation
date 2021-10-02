@@ -655,6 +655,11 @@
                             },
                             "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
+                        "guiEditor": {
+                            "friendlyName": "Gui Editor",
+                            "children": {},
+                            "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
+                        },
                         "nme": {
                             "friendlyName": "Node Material Editor",
                             "children": {},
