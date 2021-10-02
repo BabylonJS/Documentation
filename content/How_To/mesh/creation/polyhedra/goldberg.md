@@ -15,7 +15,7 @@ video-content:
 ---
 
 ## Goldberg Polyhedron
-Within Babylon.js a Goldberg polyhedron (GBP) is formed a a dual of an icosahedron based geodesic polyhedron and its vertices mapped onto a sphere. The two parameters m and n used in forming the geodesic base also determine the arrangement of faces for the GBP.
+Within Babylon.js a Goldberg polyhedron (GBP) is formed as a dual of an icosahedron based geodesic polyhedron and its vertices mapped onto a sphere. The two parameters m and n used in forming the geodesic base also determine the arrangement of faces for the GBP.
 
 ![Dual](/img/snippets/geo31.png)  
 Fig 1 - The red grid is the dual of the green grid and vice-versa.
@@ -97,6 +97,8 @@ const colorArray = [
 ```
 
 PG: <Playground id="#A8VZGP#9" title="Color Faces" description="Coloring individual faces"/>
+
+PG: <Playground id="#A8VZGP#18" title="Pick and Color" description="Pick a face and color red"/>
 
 PG: <Playground id="#A8VZGP#4" title="Adjacent Faces" description="Faces immediately adjacent"/>
 
