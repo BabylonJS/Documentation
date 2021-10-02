@@ -39,7 +39,8 @@ To begin with Babylon.GUI, you first need an AdvancedDynamicTexture object.
 
 Babylon.GUI has two modes:
 
-- Fullscreen mode: In this mode, Babylon.GUI will cover the entire screen and will rescale to always adapt to your rendering resolution. It will also intercept clicks (including touches). To create an AdvancedDynamicTexture in fullscreen mode, just run this code:
+### Fullscreen mode 
+In this mode, Babylon.GUI will cover the entire screen and will rescale to always adapt to your rendering resolution. It will also intercept clicks (including touches). To create an AdvancedDynamicTexture in fullscreen mode, just run this code:
 
 ```javascript
 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
@@ -67,7 +68,8 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myU
 
 The fullscreen mode is not intended to be used with WebVR as it is a pure 2d rendering. For WebVR scenario you will have to use the texture mode below.
 
-- Texture mode: In this mode, BABYLON.GUI will be used as a texture for a given mesh. You will have to define the resolution of your texture. To create an AdvancedDynamicTexture in texture mode, just run this code:
+### Texture mode
+In this mode, BABYLON.GUI will be used as a texture for a given mesh. You will have to define the resolution of your texture. To create an AdvancedDynamicTexture in texture mode, just run this code:
 
 ```javascript
 var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
