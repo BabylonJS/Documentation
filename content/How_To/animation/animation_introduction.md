@@ -13,7 +13,7 @@ Animations are produced by a sequence of images, _frames_, which are displayed o
 
 ![Horse - Frames](/img/features/animation/horse_frames.jpg)
 
-<img src="/img/resources/gpu_compressed_textures/breeze.gif" title="Horse Animation" caption="from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Horse_gif_slow.gif)"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Horse_gif_slow.gif" title="Horse Animation" caption="from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Horse_gif_slow.gif)"/>
 
 During the design stage the creator will need to consider how long a sequence should take and how smooth it needs to be. The smoother the movement the more frames are required. Once the number of frames is known then the animation frames per second can be found. Also knowing the object's start position and end position and how many frames are required will determine the object's movement per frame.
 
