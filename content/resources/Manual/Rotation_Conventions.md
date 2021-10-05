@@ -64,7 +64,7 @@ mesh.rotate(BABYLON.Axis.Y, beta, BABYLON.Space.WORLD);
 produces the same orientation as 
 
 ```javascript
-mesh.rotation = new BABYLON.Vector(alpha, beta, gamma);
+mesh.rotation = new BABYLON.Vector3(alpha, beta, gamma);
 ```
 
 which will produce this orientation whatever the orientation of the mesh prior to its application. The playground below demonstrates this by randomly generating angles and then applying these two methods to two different boxes which remain in alignment.
