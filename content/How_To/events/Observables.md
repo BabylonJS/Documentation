@@ -10,7 +10,7 @@ video-content:
 
 ## How To Use Observables
 
-For many of you creating Babylon.js projects only [GUI](/divingDeeper/gui), and [scene](/divingDeeper/events/observables#scene-observables) Observables will be needed, particularly [scene.onPointerObservable](/divingDeeper/scene/interactWithScenes).
+For many of you creating Babylon.js projects only [GUI](/divingDeeper/gui) and [scene](/divingDeeper/events/observables#scene-observables) Observables will be needed, particularly [scene.onPointerObservable](/divingDeeper/scene/interactWithScenes).
 
 ## Introduction
 
@@ -22,7 +22,7 @@ Users that want to have their own piece of code running in response to such even
 
 The implementer uses an Observable to create a property which will trigger all the registered observers. The Generic type T is used to communicate a given data type from the Observable to the Observer.
 
-While it is possible to create your own Observable (a simple example of which is below) for most users it will be a case of adding their own Observers to the Observables that Babylon.js provides. For those who want to delve deeper there is more detail in the [API](/typedoc/classes/babylon.observable)
+Most users will simply be adding their own Observers to the Observables that Babylon.js provides. But it is also possible to create your own Observables (a simple example of which is below). For those who want to delve deeper please see the [API](/typedoc/classes/babylon.observable).
 
 - <Playground id="#6IGFM2" title="Simple Custom Observable Example" description="Simple example of using an observable in a scene." image="/img/playgroundsAndNMEs/divingDeeperObservable1.jpg"/>
   An Observable - onXChange- is added to the master sphere. The two minion spheres and the actions they have to undertake form the two Observers which react when a change in the x position of the master is observed.
@@ -42,7 +42,44 @@ The following are available:
 - [clear](/typedoc/classes/babylon.observable#clear)() to remove all Observers
 - [clone](/typedoc/classes/babylon.observable#clone)() to simply clone the object but not the registered Observers.
 
+The following static methods are available:
+
+- [FromPromise](/typedoc/classes/babylon.observable#fromPromise)(): to create an Observable from a Promise.
+
 Many Babylon.js objects have a range of available Observables. Here is an [unordered list](//doc.babylonjs.com/search/?bjsq=observable) from the search facility of the Documentation with links to the API.
+
+## Creating An Observable
+
+It is not necessary to create a new Observable in order to add an Observer to an Observable that Babylon.js provides, but you may wish to create your own Observables. In particular, Observables can be very useful for connecting external libraries to Babylon.js:
+
+```javascript
+import { io } from "socket.io-client";
+
+const socket = io("/admin");
+
+const onConnectObservable = new Observable();
+const text1 = new BABYLON.GUI.TextBlock;
+
+socket.on("connect", () => {
+  onConnectObservable.notifyObservers();
+});
+
+onConnectObservable.add(() => {
+  text1.text = "Connected";
+});
+```
+
+There is also a utility method `Observable.FromPromise` to create an Observable from a Promise:
+
+```javascript
+const onStatusObservable = Observable.FromPromise(axios("/ping").then(response => response.statusText));
+
+onStatusObservable.add((statusText) => {
+  text1.text = "Server status: " + statusText;
+});
+```
+
+Creating your own Observables can be help reduce coupling between different components. Instead of a hierarchy of components depending on each other, you can create multiple independent components and then simply connect them using a single parent component.
 
 ## Add An Observer
 
