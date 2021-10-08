@@ -691,6 +691,11 @@
                             "friendlyName": "Performance Profiler",
                             "children": {},
                             "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
+                        },
+                        "templateRepositories": {
+                            "friendlyName": "Template Repositories",
+                            "children": {},
+                            "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage"
                         }
                     },
                     "content": "landing_pages/toolsAndResourcesToolsLandingPage"
