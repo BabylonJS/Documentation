@@ -44,7 +44,7 @@ The select button allows you to select different GUI controls within your scene.
 
 <img src="/img/tools/guiEditor/move.jpg" title="GUI Editor Move"/>
 
-The select button allows you to move a currently selected GUI with the mouse.
+The move button allows you to move a currently selected GUI with the mouse.
 
 #### Pan
 
