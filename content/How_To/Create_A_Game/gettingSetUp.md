@@ -12,7 +12,9 @@ video-content:
 
 ## Introduction
 
-This setup process is based off of the [NPM-support](/divingDeeper/developWithBjs/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications. The setup of the project will probably be the hardest part!
+The game will be developed using Typescript and requires some setting up using NPM. The setup of the project will probably be the hardest part! For a simpler introduction to the features of Babylon.js and a basic HTML and JavaScript template read the [Getting Started](/start) section first. 
+
+The setup process for this game example is based off of the [NPM-support](/divingDeeper/developWithBjs/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications. 
 
 ## First Steps
 
