@@ -155,7 +155,7 @@ You can then add them to the grid through parenting in the layers panel. Once pa
 
 <img src="/img/tools/guiEditor/cell.jpg" title="GUI Editor Changing Control's Grid Cell"/>
 
-Note: zOrder for each GUI will be reflected in the layers panel and can be reorder with normal dragging regardless of grid cell. 
+Note: zOrder for each GUI will be reflected in the layers panel and can be reordered with normal dragging regardless of the grid cell. 
 
 ### Saving GUIs Out Of the Editor
 
