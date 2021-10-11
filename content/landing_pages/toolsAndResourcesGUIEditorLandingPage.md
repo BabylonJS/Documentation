@@ -146,8 +146,8 @@ The Properties Panel is also where you'll find buttons to copy and delete button
 
 ### Special Properties for Grid Control
 
-One of the most common controls used in creating GUI layouts is Grid. Grid's are helpful for setting up the foundation of your deisgn. Just like in code you can define your Grid row and column definitions like so.
-You can add and remove rows and columns. You can also modify the sizes using pixels and percent.
+One of the most common controls used in creating GUI layouts is Grid. Grids are helpful for setting up the foundation of your deisgn. Just like in code you can define your Grid row and column definitions.
+You can add and remove rows and columns, as well as modify the sizes using either pixels or percent.
 
 <img src="/img/tools/guiEditor/grid.jpg" title="GUI Editor Grid Properties"/>
 
