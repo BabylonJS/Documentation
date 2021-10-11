@@ -126,7 +126,7 @@ ALT + Click and drag to zoom out
 <img src="/img/tools/guiEditor/generalPropertiesPanel.jpg" title="GUI Editor General Properties Panel"/>
 
 The Properties Panel controls different properties for controls and the editor. For example you can change your canvas size here as well as toggle between responsive and non-responsive mode.
-"Responsive" is typically desired for fullscreen GUI layouts that will be used in multiple screen sizes. In this mode mouse movement and sizes will be defaulted to "%" unless manually specified otherwise. 
+"Responsive" is typically desired for fullscreen GUI layouts that will be used in multiple screen sizes. In this mode mouse movement and sizes will default to "%" unless manually specified otherwise. 
 
 ### Control Properties Panel
 
