@@ -163,7 +163,7 @@ You can save your GUI creations from the Editor in two different ways, locally o
 
 #### Saving Locally
 
-Saving locally will download a .JSON object of your GUI, locally. This can then be either loaded back into the editor later for future use, OR can be hosted somewhere of your choosing and then loaded directly into your Babylon scene. [See Loading GUIs Into The Playground](#loading-guis-into-the-playground)
+Saving locally will download a .JSON object of your GUI, locally. This can then be either loaded back into the editor later for future use, OR can be hosted somewhere of your choosing and then loaded directly into your Babylon scene. [See Loading GUIs Into The Playground](#loading-locally)
 
 You can save locally by selecting the 'save' button in the hamburger menu:
 <img src="/img/tools/guiEditor/saveLocal1.jpg" title="GUI Editor Save Local 1"/>
@@ -173,7 +173,7 @@ Or by selecting the 'save' button in the Properties Panel when nothing is select
 
 #### Saving To The Snippet Server
 
-Just like all Babylon tools, you have the option of saving your GUI creation directly to the Babylon.js snippet server. Saving in this manner saves the .json object to a Babylon.js server and provides a simple url hash back for you to reference in the future. You can then load your GUI back into the editor by using this unique hash, OR you can use the hash to load your GUI directly into the Babylon scene. [See Loading GUIs Into The Playground](#loading-guis-into-the-playground)
+Just like all Babylon tools, you have the option of saving your GUI creation directly to the Babylon.js snippet server. Saving in this manner saves the .json object to a Babylon.js server and provides a simple url hash back for you to reference in the future. You can then load your GUI back into the editor by using this unique hash, OR you can use the hash to load your GUI directly into the Babylon scene. [See Loading GUIs Into The Playground](#load-from-snippet-server)
 
 You can save to the snippet server by selecting the 'save to snippet' button in the hamburger menu:
 <img src="/img/tools/guiEditor/saveSnippet1.jpg" title="GUI Editor Save Snippet 1"/>
