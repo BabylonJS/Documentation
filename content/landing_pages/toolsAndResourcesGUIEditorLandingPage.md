@@ -12,7 +12,7 @@ video-content:
 
 ## Creating GUIs With Ease
 
-Introduced in Babylon.js 5.0, the Gui Editor is an incredibly handy tool that helps you create complex and beautiful graphical user interfaces with a simple, user-friendly tool. The Gui Editor was created with one simple goal in mind, to make it faster and easier to create fantastic GUIs for your Babylon.js experiences.
+Introduced in Babylon.js 5.0, the GUI Editor is an incredibly handy tool that helps you create complex and beautiful graphical user interfaces with a simple, user-friendly tool. The GUI Editor was created with one simple goal in mind, to make it faster and easier to create fantastic GUIs for your Babylon.js experiences.
 
 You can access the GUI Editor here: https://gui.babylonjs.com/
 
@@ -39,6 +39,12 @@ The hamburger menu provies some basic helpful scene management options, includin
 <img src="/img/tools/guiEditor/select.jpg" title="GUI Editor Select"/>
 
 The select button allows you to select different GUI controls within your scene.
+
+#### Move
+
+<img src="/img/tools/guiEditor/move.jpg" title="GUI Editor Move"/>
+
+The move button allows you to move a currently selected GUI with the mouse.
 
 #### Pan
 
@@ -72,6 +78,8 @@ The Toggle Guides button will display boundary lines for all of the GUI elements
 
 The Layers Panel is an organized list of all of the GUI controls that you've added to the canvas. You can select controls from this list as well as click and drag to parent and unparent them.
 
+<img src="/img/tools/guiEditor/parenting.jpg" title="GUI Editor Parenting"/>
+
 The order of controls listed in the Layers Panel reflects the z-order of the scene with the elments at the top of the list having a z-order that will render them on top of elements towards the bottom of the list.
 
 The 'eye' icon will show/hide controls on the canvas.
@@ -92,30 +100,18 @@ If you'd like to see a full list of supported GUI controls in the editor, [click
 
 The Canvas is the main play area of the tool. The canvas contains artboards where you can add gui controls, select controls, and click and drag controls to move them around. This panel represents a WYSIWYG (what you see is what you get) experience to how GUIs will show up in Babylon Scenes.
 
-### Properties Panel
-
-<img src="/img/tools/guiEditor/propertiesPanel.jpg" title="GUI Editor Properties Panel"/>
-
-The Properties Panel is where you'll find all of the properties for a selected GUI Control. This is where you can fully customize each individual element of your overall GUI.
-
-Note: While using the GUI Editor to create a GUI and modify its properties, these properties can later be changed in the Babylon.js scene code. So you have full control over all of the GUI Control properties at creation time as well as runtime!
-
-The Properties Panel is also where you'll find buttons to copy and delete buttons for selected controls.
-
-<img src="/img/tools/guiEditor/copyDelete.jpg" title="GUI Editor Copy Delete"/>
-
 ### Handy Keyboard Keys
 
-Here are a few handy keyboard keys and shortcuts that you can utilize in the Gui Editor.
+Here are a few handy keyboard keys and shortcuts that you can utilize in the GUI Editor.
 
 #### General Navigation:
-Q = Select Mode
-W = Pan Mode
-E = Zoom Mode
-ALT + 0 = Fit to Window
-R = Toggle Outlines
-CTRL + A = Select All
-ALT + Click and drag to pan (except when in zoom mode)
+S = Select Mode
+M = Move Mode
+P = Pan Mode
+Z = Zoom Mode
+F = Fit to Window
+G = Toggle Outlines
+CTRL+A = Select All
 
 #### With a GUI Control Selected:
 CTRL+C = Copy
@@ -124,6 +120,42 @@ Delete = Delete
 
 #### When in Zoom Mode:
 ALT + Click and drag to zoom out
+
+### General Property Panel
+
+<img src="/img/tools/guiEditor/generalPropertiesPanel.jpg" title="GUI Editor General Properties Panel"/>
+
+The Properties Panel controls different properties for controls and the editor. For example you can change your canvas size here as well as toggle between responsive and non-responsive mode.
+"Responsive" is typically desired for fullscreen GUI layouts that will be used in multiple screen sizes. In this mode mouse movement and sizes will default to "%" unless manually specified otherwise. 
+
+### Control Properties Panel
+
+<img src="/img/tools/guiEditor/propertiesPanel.jpg" title="GUI Editor Properties Panel"/>
+
+The Properties Panel will change when a control is selected. This is where you'll find all of the properties and can fully customize each individual element of your overall GUI.
+
+For example here is how to change the name of a GUI.
+
+<img src="/img/tools/guiEditor/changeName.jpg" title="GUI Editor Change Name"/>
+
+Note: While using the GUI Editor to create a GUI and modify its properties, these properties can later be changed in the Babylon.js scene code. So you have full control over all of the GUI Control properties at creation time as well as runtime!
+
+The Properties Panel is also where you'll find buttons to copy and delete buttons for selected controls.
+
+<img src="/img/tools/guiEditor/copyDelete.jpg" title="GUI Editor Copy Delete"/>
+
+### Special Properties for Grid Control
+
+One of the most common controls used in creating GUI layouts is Grid. Grids are helpful for setting up the foundation of your deisgn. Just like in code you can define your Grid row and column definitions.
+You can add and remove rows and columns, as well as modify the sizes using either pixels or percent.
+
+<img src="/img/tools/guiEditor/grid.jpg" title="GUI Editor Grid Properties"/>
+
+You can then add them to the grid through parenting in the layers panel. Once parented, you can modify a control's grid cell by selecting the control and editing the newly added propety at the bottom of the Properties Panel.
+
+<img src="/img/tools/guiEditor/cell.jpg" title="GUI Editor Changing Control's Grid Cell"/>
+
+Note: zOrder for each GUI will be reflected in the layers panel and can be reordered with normal dragging regardless of the grid cell. 
 
 ### Saving GUIs Out Of the Editor
 
