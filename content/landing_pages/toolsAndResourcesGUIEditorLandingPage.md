@@ -291,11 +291,9 @@ Icon | Control Name | Further Information
 ![slider](/img/tools/guiEditor/sliderIcon.jpg) | Slider | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)
 ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard)
 ![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)
-<<<<<<< HEAD
+
 
 #### Demos
 Check out additional demos here:
-
 <Playground id="#5JEP1H" title="Full Color Picker Demo" description="More advance example that shows how to load a GUI and modify GUI controls."/>
-=======
->>>>>>> 4c2b72364c301d90163bcff2c83d2617c99dff59
+
