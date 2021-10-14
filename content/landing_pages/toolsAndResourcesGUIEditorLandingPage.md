@@ -4,7 +4,7 @@ image:
 description: Learn all about the simple and easy GUI Editor in Babylon.js.
 keywords: babylon.js, tools, resources, gui, gui editor
 further-reading:
-video-overview:
+video-overview: 
 video-content:
 ---
 
@@ -17,6 +17,8 @@ Introduced in Babylon.js 5.0, the GUI Editor is an incredibly handy tool that he
 You can access the GUI Editor here: https://gui.babylonjs.com/
 
 This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/divingDeeper/gui/gui)
+
+<Youtube id="9VXgZ_af-nE"/>
 
 ## Getting Familiar With The Layout
 
@@ -262,7 +264,7 @@ let backgroundBox = advancedTexture.getControlByName("BackgroundBox");
 backgroundBox.background = "blue";
 ```
 
-<Playground id="#BIIUR1" title="Load a GUI And Modify GUI Control Properties" description="Simple example that shows how to load a GUI and modify GUI controls."/>
+<Playground id="#JSF3QM" title="Load a GUI And Modify GUI Control Properties" description="Simple example that shows how to load a GUI and modify GUI controls."/>
 
 #### Playground Templates
 You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/tools/playground/pgTemplates)
@@ -289,3 +291,9 @@ Icon | Control Name | Further Information
 ![slider](/img/tools/guiEditor/sliderIcon.jpg) | Slider | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)
 ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard)
 ![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)
+
+
+#### Demos
+Check out additional demos here:
+<Playground id="#5JEP1H" title="Full Color Picker Demo" description="More advance example that shows how to load a GUI and modify GUI controls."/>
+
