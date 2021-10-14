@@ -5,8 +5,6 @@ description: Learn all about the simple and easy GUI Editor in Babylon.js.
 keywords: babylon.js, tools, resources, gui, gui editor
 further-reading:
 video-overview: 
-    - title: Welcome to the GUI Editor
-    url: https://youtu.be/9VXgZ_af-nE
 video-content:
 ---
 
@@ -19,6 +17,8 @@ Introduced in Babylon.js 5.0, the GUI Editor is an incredibly handy tool that he
 You can access the GUI Editor here: https://gui.babylonjs.com/
 
 This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/divingDeeper/gui/gui)
+
+<Youtube id="9VXgZ_af-nE"/>
 
 ## Getting Familiar With The Layout
 
