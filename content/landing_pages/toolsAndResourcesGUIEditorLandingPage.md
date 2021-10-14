@@ -293,7 +293,7 @@ Icon | Control Name | Further Information
 ![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)
 
 
-#### Demos
+### Demos
 Check out additional demos here:
 <Playground id="#5JEP1H" title="Full Color Picker Demo" description="More advance example that shows how to load a GUI and modify GUI controls."/>
 
