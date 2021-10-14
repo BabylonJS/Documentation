@@ -30,8 +30,7 @@ First you'll need to set up where you want the project to be located.
     - src
 4. Main files
     - Go into your src folder and create an app.ts file
-    - Go into your public folder and create an index.html file
-    - Your html file should look something like:
+    - Go into your public folder and create an index.html file with the following contents:
 
 ```javascript
 <!DOCTYPE html>
@@ -102,7 +101,7 @@ Now that we have our package.json generated, we need to install the dev dependen
 npm install --save-dev typescript webpack ts-loader webpack-cli
 ```
 
-(if this line doesn't work the first time, try one more time)
+**NOTE** if this line doesn't work the first time, try one more time  
 ** Configure Webpack **  
 Now we will need to configure webpack to know what to do. Create a webpack.config.js file within your root directory. This is an example of what my configuration looks like:
 
@@ -134,6 +133,8 @@ module.exports = {
 
 ** Plugins **  
 Additionally, we will install some plugins that will help with updating when running locally, and cleaning our bundle.
+
+**NOTE** Make sure that the file *webpack.config.js* is closed before installing the plugins.
 
 ```javascript
 npm install --save-dev html-webpack-plugin

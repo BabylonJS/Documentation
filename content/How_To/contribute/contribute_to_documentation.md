@@ -344,4 +344,4 @@ For example, use `[Load Files with Assets Manager](/divingDeeper/developWithBjs/
 
 ## Further Reading
 
-Any articles, URLs, documents, and links that you'd like the reader to have as a reference on the page should go into the "further reading" metadata section at the top of the page.
+Any articles, URLs, documents, and links that you'd like the reader to have as a reference on the page should go into the "further reading" metadata section at the top of the page. See [Page Metadata](#page-metadata) for more detail.
