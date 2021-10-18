@@ -620,6 +620,7 @@
                     "children": {
                         "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
                         "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
+                        "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
                         "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/webGPUSnapshotRendering" },
                         "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" }
                     },
