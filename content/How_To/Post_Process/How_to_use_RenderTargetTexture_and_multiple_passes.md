@@ -51,27 +51,29 @@ Playground example: <Playground id="#69DRZ1" title="Render Target Texture" descr
 
 Another possibility, as mentioned, is making multiple render passes of the main camera and compose them. Let's do that, adding a simple effect on all meshes and compose it with the original material. One interesting effect to simulate with this technique is water caustics. We can render the scene applying a material that simulates caustics with a wave generator and mix it with the base texture.
 
-The trick is to change the texture on the RTT to use our caustic material on all meshes instead of their own material:
+Since v5.0 it's very easy to use a different material than the regular material (`mesh.material`) when a mesh is rendered into a render target texture: simply use `RenderTargetTexture.setMaterialForRendering(meshOrMeshes, material)`.
 
-```
-renderTarget.onBeforeRender = (e) => {
-    // Apply the shader on all meshes
-    for (const i in renderTarget.renderList) {
-        renderTarget.renderList[i]._saved = renderTarget.renderList[i].material;
-        renderTarget.renderList[i].material = causticMaterial;
+```javascript
+const causticMaterial = new BABYLON.ShaderMaterial(
+    'caustic shader material', // human name
+    scene,
+    'caustic', // shader path
+    {
+        attributes: ['position', 'normal', 'uv'],
+        uniforms: ['world', 'worldView', 'worldViewProjection', 'view', 'projection', 'time', 'direction']
     }
-};
-renderTarget.onAfterRender = () => {
-    // Remove the shader on all meshes
-    for (const i in renderTarget.renderList) {
-        renderTarget.renderList[i].material = renderTarget.renderList[i]._saved;
-    }
-};
+);
+
+// the render texture. We'll render the scene with caustic shader to this texture.
+const renderTarget = new BABYLON.RenderTargetTexture('caustic texture', 512, scene);
+scene.customRenderTargets.push(renderTarget);
+
+renderTarget.setMaterialForRendering(ground, causticMaterial);
 ```
 
 For the final pass we'll create a shader to merge the base render (which will be provided in the GLSL as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
 
-```
+```javascript
 // create the final pass composer
 var finalPass = new BABYLON.PostProcess(
     'Final compose shader', 
@@ -79,7 +81,7 @@ var finalPass = new BABYLON.PostProcess(
     null, // attributes
     [ 'causticTexture' ], // textures
     1.0,  // options
-    null, // camera
+    camera,
     BABYLON.Texture.BILINEAR_SAMPLINGMODE, // sampling
     engine // engine
 );
@@ -88,19 +90,7 @@ finalPass.onApply = (effect) => {
 };
 ```
 
-We now can [use a pipeline](/divingDeeper/postProcesses/postProcessRenderPipeline) that performs a base render and uses the `finalPass` to compose it with the caustics.
-
-```
-// the render pipeline
-var pipeline = new BABYLON.PostProcessRenderPipeline(engine, 'pipeline');
-var renderPasses = new BABYLON.PostProcessRenderEffect(
-    engine, 'renderPasses', function() { return [imagePass, finalPass]; });
-pipeline.addEffect(renderPasses);
-scene.postProcessRenderPipelineManager.addPipeline(pipeline);
-scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline('pipeline', camera);
-```
-
-Playground example: <Playground id="#TG2B18" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture."/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
+Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture."/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
 
 ## Performance and tips
 
@@ -112,15 +102,17 @@ Remember that you'll be rendering your scene multiple times, one for each pass. 
 - prefer simpler meshes.
 - use instances. If you have a large amount of copies of the same object, instances are a good optimization. You only change the material of the base mesh.
 
-Replacing materials is an expensive operation on Babylon, as it requires a resync from the CPU. If your meshes use materials, such as ShaderMaterial or a PBRMaterial, this might impact significantly on the FPS rate. The example above is simple to follow and understand the concept, but there's a way to achieve much better performance,by freezing materials before swapping them. Here's how to do it.
+Replacing materials is an expensive operation on Babylon, as it requires a resync from the CPU. If your meshes use materials, such as `ShaderMaterial` or a `PBRMaterial`, this might impact significantly on the FPS rate. The example above is simple to follow and understand the concept, but there's a way to achieve much better performance, by freezing materials. Here's how to do it.
+
+Note that since v5.0 you don't need to add some complicated code in the `RTT.onBeforeRender` / `RTT.onAfterRender` observers to save/replace the effects manually, you just have to freeze the materials you know that they won't change and you are good to go!
 
 First, create objects that will be in the RTT with a clone of the RTT shader material.
 
-```
+```javascript
 // helper function to create clones of the caustic material
 // we need that because we'll have different transforms on the shaders
 let rttMaterials = [];
-const getRTTMaterial = () => {
+const getCausticMaterial = () => {
     let c = rttMaterial.clone();
     c.freeze(); // freeze because we'll only update uniforms
     rttMaterials.push(c);
@@ -130,97 +122,34 @@ const getRTTMaterial = () => {
 // some material for the ground.
 var grass0 = new BABYLON.StandardMaterial("grass0", scene);
 grass0.diffuseTexture = new BABYLON.Texture("textures/grass.png", scene);
-    
+grass0.freeze();
+
 // Our built-in 'ground' shape.
 var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 ground.material = grass0;
 // add caustics
-ground.rttMaterial = getRTTMaterial();
+renderTarget.setMaterialForRendering(ground, getCausticMaterial());
 renderTarget.renderList.push(ground);
-```
-
-Swap materials on the RTT before/after callbacks.
-
-```
- // before we render the target, swap materials.
-renderTarget.onBeforeRender = (e) => {
-    // Apply the shader on all meshes
-    renderTarget.renderList.forEach((mesh) => {
-        // skip InstancedMesh, we'll handle the original mesh
-        if (mesh.getClassName() === 'InstancedMesh') {
-            return;
-        }
-        // the PBR material takes some time to be loaded, it's possible that in the first few frames mesh.material is null...
-        if (mesh.material && !mesh.isFrozen && ('isReady' in mesh) && mesh.isReady(true)) { 
-            // backup effects
-            const _orig_subMeshEffects = [];
-            mesh.subMeshes.forEach((submesh) => {
-                _orig_subMeshEffects.push([submesh.effect, submesh.materialDefines]);
-            });
-            mesh.isFrozen = true;
-            mesh.material.freeze(); // freeze material so it won't be recomputed onAfter
-            // store old material/effects
-            mesh._saved_orig_material = mesh.material;
-            mesh._orig_subMeshEffects = _orig_subMeshEffects;
-        }
-        if (!mesh._orig_subMeshEffects) {
-            return;
-        }
-        // swap the material
-        mesh.material = mesh.rttMaterial;
-        // and swap the effects
-        if (mesh._rtt_subMeshEffects) {
-            for (let s = 0; s < mesh.subMeshes.length; ++s) {
-                mesh.subMeshes[s].setEffect(...mesh._rtt_subMeshEffects[s]);
-            }
-        }
-    });
-};
-renderTarget.onAfterRender = () => {
-    // Set the original shader on all meshes
-    renderTarget.renderList.forEach((mesh) => {
-        // skip InstancedMesh, we'll handle the original mesh
-        if (mesh.getClassName() === 'InstancedMesh') {
-            return;
-        }
-        // nothing to do, early bail
-        if (!mesh._orig_subMeshEffects) {
-            return;
-        }
-        // backup sub effects on the rtt shader
-        if (!mesh._rtt_subMeshEffects) {
-            mesh._rtt_subMeshEffects = [];
-            mesh.subMeshes.forEach((submesh) => {
-                mesh._rtt_subMeshEffects.push([submesh.effect, submesh.materialDefines]);
-            });
-        }
-        // swap back to original material
-        mesh.material = mesh._saved_orig_material;
-        for (let s = 0; s < mesh.subMeshes.length; ++s) {
-            mesh.subMeshes[s].setEffect(...mesh._orig_subMeshEffects[s]);
-        }
-    });
-};
 ```
 
 Apply any uniforms on all material clones:
 
-```
-engine.runRenderLoop(() => {
+```javascript
+scene.onBeforeRenderObservable.add(() => {
     // ... 
-    rttMaterials.forEach((c) => {c.setFloat('time', timeDiff)});
+    rttMaterials.forEach((c) => c.setFloat('time', timeDiff));
 });
 ```
 
 The example has the complete code, including animated objects and instances. You could freeze some meshes with `scene.freezeActiveMeshes()` to improve the performance even further.
 
-Playground example: <Playground id="#S1W87B#5" title="Performance Example" description="Example of managing performance when running multiple passes."/>
+Playground example: <Playground id="#S1W87B#20" title="Performance Example" description="Example of managing performance when running multiple passes."/>
 
 ### Notes about your shader
 
-Note that since you replace the material with a shader from the scratch for mesh instances, you need to handle effects such as animation or the instance transformation,and this will affect your vertex shader (and possibly your fragment shader as well). There are [https://github.com/BabylonJS/Babylon.js/tree/master/src/Shaders/ShadersInclude](several includes in Babylon) that help with that. Here's a sample vertex shader with support for bone animations and instances:
+Note that since you replace the material with a shader from the scratch for mesh instances, you need to handle effects such as animation or the instance transformation,and this will affect your vertex shader (and possibly your fragment shader as well). There are [several includes in Babylon](https://github.com/BabylonJS/Babylon.js/tree/master/src/Shaders/ShadersInclude) that help with that. Here's a sample vertex shader with support for bone animations and instances:
 
-```
+```glsl
 precision highp float;
 
 attribute vec3 position;
