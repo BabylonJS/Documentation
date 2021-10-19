@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { ComponentPropsWithoutNode } from "rehype-react";
+import { ComponentsWithoutNodeOptions } from "rehype-react/lib/complex-types";
 
-export interface IEMLinkProps extends ComponentPropsWithoutNode {}
+export interface IEMLinkProps extends ComponentsWithoutNodeOptions {}
 
 export enum ColorType {
     INFO = "info",

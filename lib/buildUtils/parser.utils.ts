@@ -4,7 +4,7 @@ import { Node } from "unist";
 
 import { createElement } from "react";
 // import ReactDOM from "react-dom";
-import unified from "unified";
+import { unified } from "unified";
 import highlight from "rehype-highlight";
 import rehype2react from "rehype-react";
 import parse from "rehype-parse";
@@ -33,12 +33,12 @@ export const addPlaygroundSearch: Plugin<[any?] | [Processor?, any?]> = (options
     const visitor: visit.Visitor<Node> = (node: any /*, index, parent*/) => {
         var props = node.properties as { [key: string]: any };
         const classes = (props.className || []) as string[];
-        if (node.tagName === "section" && (classes.indexOf('tsd-kind-method') !== -1 || classes.indexOf('tsd-kind-property')!== -1)) {
+        if (node.tagName === "section" && (classes.indexOf('tsd-kind-method') !== -1 || classes.indexOf('tsd-kind-property') !== -1)) {
             let methodName = '';
-            (node.children as any[]).forEach(child=> {
-                if(child.tagName === 'h3') {
+            (node.children as any[]).forEach(child => {
+                if (child.tagName === 'h3') {
                     (child.children as any[]).forEach((h3Child) => {
-                        if(h3Child.type === 'text') {
+                        if (h3Child.type === 'text') {
                             methodName += h3Child.value;
                         }
                     });

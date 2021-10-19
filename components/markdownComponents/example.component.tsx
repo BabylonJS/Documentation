@@ -69,7 +69,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
         context.setActiveExample(example);
         handleClick();
     };
-    // just as a test
+
     return (
         <DocumentationContext.Consumer>
             {(context) => (
