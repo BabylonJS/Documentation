@@ -1,7 +1,7 @@
-import { FunctionComponent, useState } from "react";
-import { ComponentPropsWithoutNode } from "rehype-react";
+import { FunctionComponent } from "react";
+import { ComponentsWithoutNodeOptions } from "rehype-react/lib/complex-types";
 
-export interface IDocumentationLinkProps extends ComponentPropsWithoutNode {
+export interface IDocumentationLinkProps extends ComponentsWithoutNodeOptions {
     href: string;
     title?: string;
 }
@@ -10,26 +10,13 @@ export interface IDocumentationLinkProps extends ComponentPropsWithoutNode {
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const AnchorWrapper: FunctionComponent<IDocumentationLinkProps> = (props) => {
-    // just as a test
-    const [counter, setCounter] = useState<number>(0);
-    const onClick = () => {
-        setCounter(counter + 1);
-    };
     if (!props.href) {
         return <a {...props}></a>;
     }
-    const isInternal = !props.href.startsWith("http");
-    const isPlayground = props.href.indexOf("babylonjs-playground.com") !== -1 || props.href.indexOf("playground.babylonjs") !== -1;
-    if (!isInternal && !isPlayground) {
-        return <a rel="noopener" {...props}></a>;
-    } else if (isPlayground) {
-        return (
-            <a title={props.title} className="playgroundLink" onClick={onClick}>
-                {/* <span>{counter}</span> */}
-                {props.children}
-            </a>
-        );
-    } else if(isInternal) {
+    const isInternal = !props.href.startsWith("http") || props.href.indexOf("//doc.babylonjs.com") !== -1;
+    if (!isInternal) {
+        return <a rel="noopener" target="_blank" {...props}></a>;
+    } else {
         const href = props.href.replace('.html', '').replace('globals', '');
         return <a {...props} href={href}></a>;
     }
