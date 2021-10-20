@@ -8,6 +8,9 @@ video-overview:
 video-content:
 ---
 
+NOTE: This documentation and the features it describes are under active
+development.
+
 ## Quick Start Guide
 
 1. Follow the 
@@ -25,8 +28,8 @@ experience itself.
 package in order to integrate it with the experience in which it will ship.
 
 For a detailed example showing how to use the template repositories to 
-create a real experience, see [this tutorial that doesn't exist because I 
-haven't written it yet]().
+create a real experience, see [this tutorial]() (NOTE: not a real link;
+tutorial coming soon).
 
 ## The Template Repository Workflow
 
