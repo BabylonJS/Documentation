@@ -779,6 +779,11 @@
                     "friendlyName": "Offsite Tutorials",
                     "children": {},
                     "content": "resources/Reference/offsite_tutorials_list"
+                },
+                "templateRepositories": {
+                    "friendlyName": "Template Repositories",
+                    "children": {},
+                    "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage"
                 }
             },
             "content": "landing_pages/toolsAndResourcesLandingPage"
