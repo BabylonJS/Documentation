@@ -207,3 +207,19 @@ Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" titl
 At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/divingDeeper/mesh/facetData#facet-depth-sort).
 
 Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>
+
+## (BETA) Order independant transparency
+
+As of 5.0.0, we introduced a new feature on the scene that allows for correct transparency, without any of the considerations above. You don't need to sort your meshes, or use alpha test, OIT handles everything in the rendering process !
+You can just add this simple line : 
+```
+scene.useOrderIndependentTransparency = true;
+```
+<Playground id="#WGZLGJ#3348" title="Order independant transparency" description="Simple example of order independant transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
+
+Of course, the tradeoff is that, under the hood, the engine will render transparent meshes many more times, consuming effectively more CPU (and GPU to a lesser extent).
+Also make sure that your transparent meshes have `backFaceCulling` set to `true`, otherwise it may make the rendering process throw errors.
+
+**Important notice** : As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independant transparency with post processes, or custom materials. Try it out and see if it works for your case ! If it doesn't, don't worry, as we are currently working on extending the support of this feature.
+
+This effect is only compatible with WebGL 2.
