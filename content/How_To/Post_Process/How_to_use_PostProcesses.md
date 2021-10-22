@@ -21,26 +21,26 @@ We will get back to _fragmentUrl_, _parameters_ and _samplers_ parameters.
 
 The _ratio_ is used to define the size of the postprocess (0.5 means that your postprocess will have a width = canvas.width * 0.5 and a height = canvas.height * 0.5).
 
-The _camera_ parameter specifies which camera to attach to. If creating a post process to be managed by a render pipeline this should be set to null. See [Post Process Pipeline](/divingDeeper/postProcesses/postProcessRenderPipeline)
+The _camera_ parameter specifies which camera to attach to. If you're creating a post process that will be managed by a render pipeline, this should be set to null. See [Post Process Pipeline](/divingDeeper/postProcesses/postProcessRenderPipeline)
 
 The _samplingMode_ can be one of the following:
 * BABYLON.Texture.NEAREST_SAMPLINGMODE
 * BABYLON.Texture.BILINEAR_SAMPLINGMODE (**default**)
 * BABYLON.Texture.TRILINEAR_SAMPLINGMODE
 
-Please note that postprocess with trilinear sampling will be force to have a power of two size (256, 512, 1024, etc.)
+Please note that postprocesses with trilinear sampling will be forced to have a power of two size (256, 512, 1024, etc.)
 
 The _engine_ parameter is the engine where you want to attach your postprocess.
 
-The _reusable_ paameter indicates if your postprocess can be reused multiple times on the same camera (default is false).
+The _reusable_ parameter indicates if your postprocess can be reused multiple times on the same camera (default is false).
 
 ## Additional parameters
-By default (and if you are not using trilinear sampling) the postprocesses used the size of the screen scaled by the ratio you provide. But you can decide to force them to be rescaled to a power of two size in order to be more efficient. To enable this, just call `mypostprocess.alwaysForcePOT = true`.
+By default (and if you are not using trilinear sampling) postprocesses use the size of the screen scaled by the ratio you provide. But you can decide to force them to be rescaled to a power of two size in order to be more efficient. To enable this, just call `mypostprocess.alwaysForcePOT = true`.
 
 You can also control how the size is chosen by setting `mypostprocess.scaleMode` to one of these values:
-* BABYLON.Engine.SCALEMODE_FLOOR: Will fint the next lowest power of two.
-* BABYLON.Engine.SCALEMODE_NEAREST: Will fint the nearest power of two.
-* BABYLON.Engine.SCALEMODE_CEILING: Will fint the next highest power of two.
+* BABYLON.Engine.SCALEMODE_FLOOR: Will find the next lowest power of two.
+* BABYLON.Engine.SCALEMODE_NEAREST: Will find the nearest power of two.
+* BABYLON.Engine.SCALEMODE_CEILING: Will find the next highest power of two.
 
 You can also control if the postprocess is cleared upon rendering with `mypostprocess.autoClear = true`. This is the default behavior.
 
@@ -111,7 +111,7 @@ var postProcess = new BABYLON.FxaaPostProcess("fxaa", 1.0, camera);
 ```
 
 ### Highlights
-Apply a full screen highlight filter which will increment the luminosity of highlihts in your scene:
+Apply a full screen highlight filter which will increment the luminosity of highlights in your scene:
 
 ```javascript
 var postProcess = new BABYLON.HighlightsPostProcess("highlights", 1.0, camera);
@@ -121,15 +121,15 @@ var postProcess = new BABYLON.HighlightsPostProcess("highlights", 1.0, camera);
 Apply a full screen tone mapping filter:
 
 ```javascript
-var postProcess = new BABYLON.TonemapPostProcess("tonemap", BABYLON.TonemappingOperator.Hable, 0.8, 1.0, camera);
+var postProcess = new BABYLON.TonemapPostProcess("tonemap", BABYLON.TonemappingOperator.Hable, 1.0, camera);
 ```
-The second parameter helps defining which operator will be used among the following ones:
+The second parameter defines which operator will be used among the following ones:
 * BABYLON.TonemappingOperator.Hable
 * BABYLON.TonemappingOperator.Reinhard
 * BABYLON.TonemappingOperator.HejiDawson
 * BABYLON.TonemappingOperator.Photographic
 
-The third parameter define the exposure adjustement.
+The third parameter defines the exposure adjustment.
 
 You can find a demo here: <Playground id="#J9H084#8" title="Tonemap Post Process" description="Simple Example of a tonemap post process."/>
 
@@ -166,12 +166,12 @@ All features can be turned on and off with the following booleans:
 
 #### Configuration
 
-Image postprocessing can be done with the ImageProcessingPostProcess but you can also use StandardMaterial and PBRMaterial built-in image processing features. To simplify the overall configuration of your image processing setup, you can define the properties you want on `scene.imageProcessingConfiguration`.
+Image postprocessing can be done with the ImageProcessingPostProcess, but you can also use the built-in image processing features in StandardMaterial and PBRMaterial. To simplify the overall configuration of your image processing setup, you can define the properties you want on `scene.imageProcessingConfiguration`.
 This object hosts the same properties as the ImageProcessingPostProcess.
 
 By default, ImageProcessingPostProcess, StandardMaterial and PBRMaterial share the same configuration object (The one from the scene). This means that if you change a value on `scene.imageProcessingConfiguration` or directly on ImageProcessingPostProcess, StandardMaterial or PBRMaterial, this will affect all entities sharing the same configuration.
 
-Here is an example of a global configuration: <Playground id="#J9H084#13" title="Post Process Global Configuration" description="Simple example of a post process globbal configuration."/>
+Here is an example of a global configuration: <Playground id="#J9H084#13" title="Post Process Global Configuration" description="Simple example of a post process global configuration."/>
 
 Furthermore, as they share the same configuration, you can just dispose a postprocess you were using and automatically the image processing will be done at materials level. So here is an example of a configuration done at scene level, but with no postprocess to use it: <Playground id="#J9H084#14" title="Configuration At The Scene Level" description="Simple example of a scene level configuration."/> (As you can see the processing is then done by the material itself).
 
