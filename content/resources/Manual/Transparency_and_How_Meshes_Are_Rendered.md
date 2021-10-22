@@ -215,9 +215,10 @@ You can just add this simple line :
 ```
 scene.useOrderIndependentTransparency = true;
 ```
-<Playground id="#1PLV5Z#16" title="Order independant transparency" description="Simple example of order independant transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
+<Playground id="#WGZLGJ#3348" title="Order independant transparency" description="Simple example of order independant transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
 
 Of course, the tradeoff is that, under the hood, the engine will render transparent meshes many more times, consuming effectively more CPU (and GPU to a lesser extent).
+Also make sure that your transparent meshes have `backFaceCulling` set to `true`, otherwise it may make the rendering process throw errors.
 
 **Important notice** : As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independant transparency with post processes, or custom materials. Try it out and see if it works for your case ! If it doesn't, don't worry, as we are currently working on extending the support of this feature.
 
