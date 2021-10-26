@@ -1,13 +1,13 @@
 ---
 title: Highlighting Meshes
-image: 
+image:
 description: Learn how to highlight meshes in Babylon.js.
 keywords: diving deeper, meshes, highlight
 further-reading:
-    - title: How To Make a Mesh Glow
-      url: /divingDeeper/mesh/glowLayer
-    - title: HighlightLayer API
-      url: /typedoc/classes/babylon.highlightlayer
+  - title: How To Make a Mesh Glow
+    url: /divingDeeper/mesh/glowLayer
+  - title: HighlightLayer API
+    url: /typedoc/classes/babylon.highlightlayer
 video-overview:
 video-content:
 ---
@@ -22,7 +22,7 @@ If you ever needed it, this tutorial is made for you.
 
 ## How to use?
 
-Before anything else, you must ensure that your engine was created with stencil on: 
+Before anything else, you must ensure that your engine was created with stencil on:
 
 ```javascript
 var engine = new BABYLON.Engine(canvas, true, { stencil: true });
@@ -107,16 +107,16 @@ hl2.addMesh(ground, BABYLON.Color3.Red());
 
 var alpha = 0;
 scene.registerBeforeRender(() => {
-    alpha += 0.06;
-    
-    hl2.blurHorizontalSize = 0.3 + Math.cos(alpha) * 0.6 + 0.6;		
-    hl2.blurVerticalSize = 0.3 + Math.sin(alpha / 3) * 0.6 + 0.6;
+  alpha += 0.06;
+
+  hl2.blurHorizontalSize = 0.3 + Math.cos(alpha) * 0.6 + 0.6;
+  hl2.blurVerticalSize = 0.3 + Math.sin(alpha / 3) * 0.6 + 0.6;
 });
 ```
 
 <Playground id="#1KUJ0A#4" title="Blur Size Mesh Highlight" description="Simple example of blur size in the mesh highlight."/>
 
-### Inner vs Outer Glow 
+### Inner vs Outer Glow
 
 Finally, you can easily enable/disable inner and outer glow on the highlight layer.
 
@@ -156,7 +156,7 @@ By default, the highlight layer will apply on all active cameras but it creates 
 A chance you can easily specify what camera your highlights are related too in the options:
 
 ```javascript
-var hl1 = new BABYLON.HighlightLayer("hl1", scene, {camera: camera});
+var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: camera });
 hl1.addMesh(sphere, BABYLON.Color3.Green());
 ```
 
@@ -166,7 +166,7 @@ hl1.addMesh(sphere, BABYLON.Color3.Green());
 
 If you rely on rendering groups in your application, be mindful that the highlights requires stencil and depth info of your scene to work accurately.
 
-So you could disable the clear between rendering groups with the command: ```scene.setRenderingAutoClearDepthStencil(1, false, false)``` where the first parameter is the rendering group id, the second to prevent automatically clearing depth between groups and the last to preven automatically clearing stencil information between groups.
+So you could disable the clear between rendering groups with the command: `scene.setRenderingAutoClearDepthStencil(1, false, false)` where the first parameter is the rendering group id, the second to prevent automatically clearing depth between groups and the last to preven automatically clearing stencil information between groups.
 
 ## Options
 
@@ -184,3 +184,4 @@ You can pass them during the construction of the highlight layer:
 
 ```javascript
 var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: myCamera });
+```
