@@ -916,6 +916,17 @@ By default, the node material provides the following blocks:
 
 -   Noises:
 
+    -   `Cloud`: Creates a random pattern resembling clouds.
+
+        -   Inputs:
+            -   seed: Vector2 or Vector3
+            -   chaos: Normalized Vector3
+            -   offsetX: Float
+            -   offsetY: Float
+            -   offsetZ: Float
+        -   Output:
+            -   output: Float
+
     -   `RandomNumber`: Provides a random number based on an input seed.
 
         -   Inputs:
