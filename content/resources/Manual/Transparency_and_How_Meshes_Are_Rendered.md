@@ -208,18 +208,35 @@ At last, if you accept to spend some CPU cycles to get a correct self transparen
 
 Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>
 
-## (BETA) Order independant transparency
+## Order Independent Transparency
+
+### Generality
 
 As of 5.0.0, we introduced a new feature on the scene that allows for correct transparency, without any of the considerations above. You don't need to sort your meshes, or use alpha test, OIT handles everything in the rendering process !
 You can just add this simple line : 
-```
+```javascript
 scene.useOrderIndependentTransparency = true;
 ```
-<Playground id="#WGZLGJ#3348" title="Order independant transparency" description="Simple example of order independant transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
+<Playground id="#WGZLGJ#3348" title="Order independent transparency" description="Simple example of order independent transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
 
 Of course, the tradeoff is that, under the hood, the engine will render transparent meshes many more times, consuming effectively more CPU (and GPU to a lesser extent).
-Also make sure that your transparent meshes have `backFaceCulling` set to `true`, otherwise it may make the rendering process throw errors.
 
-**Important notice** : As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independant transparency with post processes, or custom materials. Try it out and see if it works for your case ! If it doesn't, don't worry, as we are currently working on extending the support of this feature.
+This is using the dual depth peeling method and the renderer can be accessed by `scene.depthPeelingRenderer`.
 
-This effect is only compatible with WebGL 2.
+To avoid some internal state switching, you can set `backFaceCulling = false` on the materials used by the transparent meshes, which may save some tiny bits of performance.
+
+You can change the number of passes that the depth peeling renderer is doing by updating `scene.depthPeelingRenderer.passCount` which is 5 by default, meaning that at most 10 layers of transparency are displayed. If your scene has a lot of transparency layers, meaning a lot of transparent objects one over the other, you may have to raise this value if you want the scene to be rendered correctly. However, at some point, you won't see the difference when stacking a lot of layers so caping the value to a small value will save you some performances.
+
+**Important notice** : As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independent transparency with post processes, or custom materials. Try it out and see if it works for your case! If it doesn't, report to the forum and we will see what can be done about it.
+
+This effect is only compatible with WebGL 2 and WebGPU.
+
+### Support in WebGPU
+
+Regarding WebGPU, as of this writing (2021/10/26), the `RG32Float` format is not blendable, meaning we can't use it for our depth buffers. So, we must use `RG16Float` instead which has less precision which in turn leads to some visual artefacts: try to browse the PG given above in WebGPU, you will see some artefacts in the whole rendering.
+
+Fortunately, enabling the reverse depth buffer feature will get rid of those artefacts: just set `engine.useReverseDepthBuffer = true;` at scene creation time.
+
+In WebGPU, you can get better performances by setting `scene.depthPeelingRenderer.useRenderPasses = true` and `engine.compatibilityMode = false`: see the doc page for the `compatibilityMode` property for more information.
+
+<Playground id="#WGZLGJ#3764" title="Order independent transparency in WebGPU" description="Simple example of order independent transparency in WebGPU" image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
