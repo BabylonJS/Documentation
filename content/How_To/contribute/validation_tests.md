@@ -70,12 +70,35 @@ The reference pictures used by the validation tests of the list must be located 
 
 The url to use to start the tests from a validation list is [http://localhost:1338/tests/validation](http://localhost:1338/tests/validation): it will run the tests from the default list (`config.json`).
 
-The full format for this url is: http://localhost:1338/tests/validation/?list=**LIST**&engine=**ENGINE**&test=**TITLE**&fromtest=**TITLE**
+The full format for this url is:
+
+http://localhost:1338/tests/validation/?list=**LIST**&engine=**ENGINE**&test=**TITLE**&fromtest=**TITLE**&useReverseDepthBuffer=**[0|1]**&useNonCompatibilityMode=**[0|1]**&checkresourcecreation=**[0|1]**
+
 * **LIST**: name of the list, without the `.json` part. If not provided, the default value is `config`
 * **ENGINE**: name of the engine to run the list with. If not provided, the default value is `webgl2`. The allowed values are: `webgl1`, `webgl2` and `webgpu`
 * test=**TITLE**: if provided, run only the test named **TITLE**
 * fromtest=**TITLE**: if provided, run the test named **TITLE** and all the tests that follow it in the .json file
+* useReverseDepthBuffer=**[0|1]**: if provided and set to `1`, all the tests will be run with `engine.useReverseDepthBuffer = true`
+* useNonCompatibilityMode=**[0|1]**: if provided and set to `1`, all the tests will be run with `engine.compatibilityMode = false` (no effect in WebGL)
+* checkresourcecreation=**[0|1]**: see explanations below
 
 Note that the old syntax **http://localhost:1338/tests/validation/?TITLE** still works if you want to run a single test named **TITLE** from the default `config.json` list.
 
 When running a list of tests, you will see a **Show only failed test** button in the upper right corner of the browser page: use this button to only show tests that failed. Note however that it hides the succeeded tests at the time you hit the button. If new tests succeed, you will see them. Click the button at the end of the run if you want an up to date list (or reclick it several times during the run).
+
+## Check Resource Creation - WebGPU only
+
+When adding `checkresourcecreation=1` to the test url, three specific checks are performed for each validation test (WebGPU only):
+1. that the `engine.countersLastFrame.numEnableEffects` counter value is 0 for the last frame displayed
+1. that the number of bind groups created during the last frame is 0 (`BABYLON.WebGPUCacheBindGroups.NumBindGroupsCreatedLastFrame`)
+1. that there's no bundle created during the last frame (when in **non compatibility mode**) - `engine.countersLastFrame.numBundleCreationNonCompatMode` counter value is 0
+
+When at least one of these checks is false an error is logged in the browser console.
+
+Regarding *1/* it's a bug to call `engine.enableEffect` with an `Effect` instead of a `DrawWrapper` in WebGPU so you should fix the problem if a test fails because of that.
+
+Regarding *2/* and *3/*, those are not errors per see, but when a rendering has been stabilized (there's no creation of new objects, effects, etc. each frame) you should not experience creation of new bind groups (they should be retrieved from the cache) and when in **non compatibility mode** (`engine.compatibilityMode = false`) no bundles should be created but reused instead. However, it's still possible to have *2/* or *3/* greater than zero for some validation tests. In that case, you should check if it's expected given the code of the PG or if it could be a problem on `Babylon.js` implementation side.
+
+In order to reach a *stabilized state* for a PG, the `renderCount` value is set to 50 for all PGs before running them (and the check is performed for the very last frame displayed). That means that the picture comparison would fail for a number of tests, so this comparison is disabled when in `checkresourcecreation=1` mode: if a validation test fails (you get a red cross icon for it instead of a green tick) it means at least one of the 3 checks described above failed (look at the console log for details).
+
+As `engine.countersLastFrame.numBundleCreationNonCompatMode` has meaning on the **non compatibility mode** only, you will always want to also add `useNonCompatibilityMode=1` in the url when setting `checkresourcecreation=1` to check the creation of bundles.
