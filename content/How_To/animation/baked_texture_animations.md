@@ -20,49 +20,48 @@ The `VertexAnimationBaker` class generates a texture for you given the animation
 
 ```js
 let baker = null, mesh = null;
+const animationRanges = [{from: 1, to: 20, name: "My animation"}];
 BABYLON.SceneLoader.ImportMeshAsync(
-    "",
-    "https://raw.githubusercontent.com/RaggarDK/Baby/baby/",
-    "arr.babylon",
-    scene,
-    undefined
+  "",
+  "https://raw.githubusercontent.com/RaggarDK/Baby/baby/",
+  "arr.babylon",
+  scene,
+  undefined
 ).then((importResult) => {
-    mesh = importResult.meshes[0];
-    baker = new BABYLON.VertexAnimationBaker(scene, mesh);
-    // you can slice the animation here with several animation ranges.
-    return baker.bakeVertexData([{from: 1, to: 20, name: "My animation"}]);
+  mesh = importResult.meshes[0];
+  // create the baker helper, so we can generate the texture
+  baker = new BABYLON.VertexAnimationBaker(scene, mesh);
+  // you can slice the animation here with several animation ranges.
+  return baker.bakeVertexData(ranges);
 }).then((vertexData) => {
-    const vertexTexture = baker.textureFromBakedVertexData(vertexData);
-    // your texture is ready to use, see below
-});
-``` 
+  // we got the vertex data. create the texture from it:
+  const vertexTexture = baker.textureFromBakedVertexData(vertexData);
+  // create a manager to store it.
+  const manager = new BABYLON.BakedVertexAnimationManager(scene);
+  // store the texture
+  manager.texture = vertexTexture;
 
-## Applying a baked animation to a mesh
-
-Once you got your texture, you can apply it to a mesh and it'll be animated on the GPU. This is easy to do, updating the `bakedVertexAnimationMap` settings on the material:
-
-```js
-  // enable the vertex animation map
-  mesh.material.bakedVertexAnimationMap.isEnabled = true;
-  // set the texture, which comes from baker.textureFromBakedVertexData():
-  mesh.material.bakedVertexAnimationMap.texture = vertexTexture;
-  // set animation parameters
-  mesh.material.bakedVertexAnimationMap.setAnimationParameters(
-      0, // initial frame
-      19, // last frame
-      0, // offset for the initial frame 
+  // set the animation parameters. You can change this at any time.
+  manager.setAnimationParameters(
+      animationRanges[0].from, // initial frame
+      animationRanges[0].to, // last frame
+      0, // offset
       30 // frames per second
   );
 
+  // associate the manager with the mesh
+  mesh.bakedVertexAnimationManager = manager;
+
+  // update the time to play the animation
   scene.registerBeforeRender(() => {
-    // update the animation
-    mesh.material.bakedVertexAnimationMap.time += engine.getDeltaTime / 1000.0;
+      manager.time += engine.getDeltaTime() / 1000.0;
   });
-```
+});
+``` 
 
 Here's an example for a single mesh:
 
-<Playground id="#CP2RN9#12" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
+<Playground id="#CP2RN9#16" title="Vertex Texture Animations" description="An example of playing a vertex texture animation."/>
 
 
 ## VATs for instances
@@ -82,7 +81,7 @@ VATs can also be used with [thin instances](/divingDeeper/mesh/copies/thinInstan
   mesh.instancedBuffers.bakedVertexAnimationSettingsInstanced = new BABYLON.Vector4(0, 0, 0, 0);
 ```
 
-Then you set the parameters for the thin instances as a
+Then you set the parameters for the thin instances:
 
 ```js
   // allocate the parameters
@@ -102,9 +101,9 @@ Then you set the parameters for the thin instances as a
   mesh.thinInstanceSetBuffer("bakedVertexAnimationSettingsInstanced", animParameters, 4);
 ```
 
-Here's an example.
+Here's an example:
 
-<Playground id="#CP2RN9#14" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
+<Playground id="#CP2RN9#18" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
 ## VATs with SPS
 
@@ -112,4 +111,66 @@ TODO
 
 ## Serializing and loading VATs
 
-TODO
+Baking the texture can be a slow process, and will play the entire animation visibly. In order to avoid this during run-time, it's better to bake the texture data at build time, and just load it at run-time. Here's a sample script to bake the vertex data and get the JSON file to save locally:
+
+```js
+let baker = null, mesh = null;
+const animationRanges = [{from: 1, to: 20, name: "My animation"}];
+BABYLON.SceneLoader.ImportMeshAsync(
+  "",
+  "http://example.com",
+  "arr.babylon",
+  scene,
+  undefined
+).then((importResult) => {
+  mesh = importResult.meshes[0];
+  // create the baker helper, so we can generate the texture
+  baker = new BABYLON.VertexAnimationBaker(scene, mesh);
+  // you can slice the animation here with several animation ranges.
+  return baker.bakeVertexData(ranges);
+}).then((vertexData) => {
+  // we got the vertex data. let's serialize it:
+  const vertexDataJSON = baker.serializeBakedVertexDataToJSON(vertexData);
+  // and save it to a local JSON file
+  let a = document.createElement('a');
+  a.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(vertexDataJSON));
+  a.setAttribute("download", "vertexData.json");
+  a.click();
+});
+```
+
+At your actual application you can now easily load the JSON file. Here's a simple example:
+
+```js
+let baker = null, mesh = null;
+const animationRanges = [{from: 1, to: 20, name: "My animation"}];
+
+// read your mesh like always
+BABYLON.SceneLoader.ImportMeshAsync(
+  "",
+  "http://example.com",
+  "arr.babylon",
+  scene,
+  undefined
+).then((importResult) => {
+  mesh = importResult.meshes[0];
+  // read the vertex data file.
+  return fetch('/vertexData.json');
+})
+.then(response => {
+  if (!response.ok) {
+      throw new Error("HTTP error " + response.status);
+  }
+  // convert to json
+  return response.json();
+})
+.then(json => {
+  // create the baker helper, so we can generate the texture
+  baker = new BABYLON.VertexAnimationBaker(scene, mesh);
+  const vertexData = baker.loadBakedVertexDataFromJSON(json);
+  // we got the vertex data. create the texture from it:
+  const vertexTexture = baker.textureFromBakedVertexData(vertexData);
+
+  // .... and now the same code as above
+});
+```
