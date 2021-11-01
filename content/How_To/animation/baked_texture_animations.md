@@ -103,7 +103,7 @@ Then you set the parameters for the thin instances:
 
 Here's an example:
 
-<Playground id="#CP2RN9#18" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
+<Playground id="#CP2RN9#20" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
 ## VATs with SPS
 
