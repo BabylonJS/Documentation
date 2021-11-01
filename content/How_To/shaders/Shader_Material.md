@@ -39,6 +39,7 @@ var myShaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAM
     {
         attributes: ["position", "normal", "uv"],
         uniforms: ["world", "worldView", "worldViewProjection", "view", "projection", "time", "direction" ],
+        samplers: ["textureSampler"],
         defines: ["MyDefine"]
         needAlphaBlending: true,
         needAlphaTesting: true
@@ -54,7 +55,7 @@ Attributes and uniforms named in the arrays and not used in the shader code are 
 
 if your shader code contains #define values, you can specify the ones you want to activate in the `defines` array.
 
-Uniforms assigned to textures in the shader code need not appear in the uniforms array, all other uniforms must be present.
+Uniforms assigned to textures in the shader code must be present in the samplers array, all other uniforms must be present in the uniforms array.
 
 Textures are passed, for example, as 
 
