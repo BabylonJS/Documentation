@@ -136,6 +136,42 @@ detachControl(element);
 checkInputs();
 ```
 
+## HammerJS Input
+
+If the builtin touch controls for the ArcRotateCamera are not enough for you, you can implement your own camera input using the well-known touch gestures library HammerJS. https://hammerjs.github.io/
+
+We have an example of how to use HammerJS to simulate something similar to Google Earth controls. We use BabylonJS's ArcRotateCamera for this purpose. The camera is locked on the Y axis and horizontal pan moves the camera along the X axis and the vertical pan moves it along the Z axis. The `alpha` angle of the camera is taken into account when panning. By pinching you can change the `radius` of the camera so you can zoom in and out. You can change the `alpha` angle of the camera by a two finger rotate gesture so basically you can rotate around the cameras target.
+
+Example app:
+https://demos.babylonjs.xyz/hammerjs-example/#/
+
+GitHub repo:
+https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera
+
+The example contains `utils\ArcRotateCameraHammerJsInput.ts` which implements `ICameraInput<ArcRotateCamera>`. There are multiple parameters for the input and are pretty self explanatory. Please refer to the source code of the input and set the sensitivity and treshold values which fits your needs. First you need to install HammerJS, please refer to https://hammerjs.github.io/getting-started/ and import it
+
+```javascript
+import "hammerjs";
+```
+
+To use the new input you add it to your `camera.inputs` after you have create the camera. To avoid one input fighting the other remove the `ArcRotateCameraPointersInput` from `camera.inputs`. After you've created your Input you can set it's parameters. The default ones (please refer to https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera/blob/680cf12155924a818faac5ff9d7f0a0271bb632b/src/utils/ArcRotateCameraHammerJsInput.ts#L21) are good for a general touch screen monitor so you may have to set them according to your needs.
+
+```javascript
+
+    // remove mouse input
+    camera.inputs.removeByType('ArcRotateCameraPointersInput')
+
+    // add hammer js input
+    const hammerJsInput = new ArcRotateCameraHammerJsInput()
+    // now you can set the parameters you like
+    // let's double the zoomSensitivity (default is 1)
+    hammerJsInput.zoomSensitivity = 2
+    // add the input to the camera
+    camera.inputs.add(hammerJsInput)
+```
+
+Feel free to use this Input class as a starter for your own HammerJS based input.
+
 ## With Javascript
 
 This changes the normal key mappings for moving the camera left, right, forward, and back, and rotating at its current position.
