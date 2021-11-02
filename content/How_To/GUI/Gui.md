@@ -208,7 +208,7 @@ To define this resolution, just set `myAdvancedDynamicTexture.idealWidth = 600` 
 
 If both are set, the idealWidth will be used.
 
-If neither is set, you will be responsible for resizing the UI controls yourself (this can useful if you need greater control over the resizing strategy used).
+If neither is set, you will be responsible for resizing the UI controls yourself. This can useful if you need greater control over the resizing strategy used.
 
 When ideal resolution is set, all values expressed **in pixels** are considered relatively to this resolution and scaled accordingly to match the current resolution.
 
