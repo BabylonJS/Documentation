@@ -268,6 +268,8 @@ All controls share the following properties:
 | shadowColor (#000)       | string  | the color of the shadow                                                                                                                                |
 | isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                             |
 | hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.jpg"/>|
+| overlapGroup             | number  | The overlapGroup which the control belongs to or undefined to exclude from moving the control to a non overlapping poisition.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />|
+| overlapDeltaMultiplier   | number  | The speed of the movement of the control when used with `AdvancedDynamicTexture`'s `moveToNonOverlappedPosition` method. See the playground above.
 
 Controls can be added directly to the AdvancedDynamicTexture or to a container with:
 
