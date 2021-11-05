@@ -104,7 +104,8 @@
                         "combineAnimations": { "friendlyName": "Combining Animations", "children": {}, "content": "How_To/animation/Combine" },
                         "animatedCharacter": { "friendlyName": "Animating Characters", "children": {}, "content": "How_To/animation/AnimatedCharacter" },
                         "advanced_animations": { "friendlyName": "Advanced Animating Methods", "children": {}, "content": "How_To/animation/advanced_animations" },
-                        "render_frame_animation": { "friendlyName": "Animation Using the Render Loop", "children": {}, "content": "How_To/animation/render_frame_animation" }
+                        "render_frame_animation": { "friendlyName": "Animation Using the Render Loop", "children": {}, "content": "How_To/animation/render_frame_animation" },
+                        "baked_texture_animations": { "friendlyName": "Baked Texture Animations", "children": {}, "content": "How_To/animation/baked_texture_animations" }
                     },
                     "content": "landing_pages/divingDeeperAnimationLandingPage"
                 },

@@ -80,7 +80,6 @@ export const checkUnusedFiles = (contentArray: { params: { id: string[]; content
         allMarkdownFiles.forEach((file) => {
             console.log("Missing in structure.json: ", file);
         });
-        throw new Error("Orphan markdown files detected");
     }
 };
 
