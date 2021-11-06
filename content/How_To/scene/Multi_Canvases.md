@@ -68,6 +68,16 @@ engine.inputElement = myNewElement;
 scene.attachControl();
 ```
 
+## Performance
+
+To ensure optimal performance, **multiple canvases on the same page should have the same size**, otherwise it forces a resize of the master canvas for each view, which is detrimental to performance.
+
+From Babylon.js v5 views can also be disabled, for instance to improve performance when one or more canvases are offscreen.
+
+```
+view.enabled = false;
+```
+
 ## Demo
 You can see a live demo here: https://www.babylonjs.com/Demos/Views
 
