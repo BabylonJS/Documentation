@@ -91,3 +91,7 @@ scene.registerAfterRender(function () {
 ```
 
 <Playground id="#XQI4UY#3" title="Disc World" description="Simple example of parenting in the disc world."/>
+
+## Negative scaling and local transformation
+
+When parenting a node with negative values for the scaling, some axis might change sign. When computing child local transform, all axis are assumed to be positive. This is the default behavior for legacy reason. It's however possible to keep the scaling axis sign. When calling `addChild` and `removeChild`, a second optional boolean parameter will keep sign when set to true. Both function recompute scaling value. So, set parameter to true when add or removing child.
