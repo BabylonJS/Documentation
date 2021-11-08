@@ -62,13 +62,15 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
         ...props,
     } as IExampleLink;
     useEffect(() => {
-        context.addExampleLink(example);
+        context.addExampleLink(props);
     }, []);
 
     const onExamplePressed = () => {
-        context.setActiveExample(example);
+        context.setActiveExample(props);
         handleClick();
     };
+
+    const hrefOut = getExampleLink(props, false);
 
     return (
         <DocumentationContext.Consumer>
@@ -87,13 +89,11 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                 </span>
                             </Tooltip>
                             <span style={{ minWidth: 20 }}>
-                                <Link href={getExampleLink(example, false)}>
-                                    <a rel="noopener" target="_blank">
-                                        <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
-                                            <ExternalLinkIcon></ExternalLinkIcon>
-                                        </Tooltip>
-                                    </a>
-                                </Link>
+                                <a title={`Open ${props.type} ${props.title} in a new tab}`} href={hrefOut} rel="noopener" target="_blank">
+                                    <Tooltip title={`Open ${props.type} ${props.title} in a new tab`}>
+                                        <ExternalLinkIcon></ExternalLinkIcon>
+                                    </Tooltip>
+                                </a>
                             </span>
                         </span>
                         <Hidden smUp>
