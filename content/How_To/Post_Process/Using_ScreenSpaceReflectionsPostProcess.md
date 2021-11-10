@@ -23,7 +23,9 @@ As an example, with SSR enabled (look at the water-tank):
 With SSR disabled:
 ![with_ssr](/img/how_to/screenSpaceReflectionsPostProcess/without_ssr.png)
 
-You can find a simple example of the SSR post-process in our playground: <Playground id="#PIZ1GK" title="SSR Post Process Example" description="Simple example of the screen space reflection Post Process."/>
+You can find a simple example of the SSR post-process in our playground: 
+- <Playground id="#PIZ1GK" title="SSR Post Process Example - Standard material" description="Simple example of the screen space reflection Post Process, with Standard material"/>
+- <Playground id="#PIZ1GK#303" title="SSR Post Process Example - PBR material" description="Simple example of the screen space reflection Post Process, with PBR material"/>
 
 ## Prerequisite
 To render reflections using the SSR post-process, the device must support WebGL 2 or at least the multiple render targets extension for WebGL 1. If not supported, the post-process will just work as a pass-through.
