@@ -32,7 +32,7 @@ To render reflections using the SSR post-process, the device must support WebGL 
 
 To any reflecting geometry in your scene, the post-process must know what are its "reflectivity" properties. To provide these informations, your reflecting meshes must contain for:
 * a **Standard Material**: a specular texture. The specular texture will be used to know how much the object reflects for each pixel.
-* a **PBR Material**: a reflectivy texture. The post-process doesn't still support the roughness/metallic properties for instance and will be available in future. That means the post-process takes the reflectivity texture as-is and doesn't compute any metallic/roughness workflow.
+* a **PBR Material**: a reflectivity texture. The post-process doesn't still support the roughness/metallic properties for instance and will be available in future. That means the post-process takes the reflectivity texture as-is and doesn't compute any metallic/roughness workflow.
 
 In other words, don't forget to assign a specular texture or a reflectivity texture to you material if you want the reflections enabled on it.
 
@@ -62,7 +62,7 @@ var ssr = new BABYLON.ScreenSpaceReflectionPostProcess(
 ## Customizing
 
 ## Strength
-The strength is applied on the overall specular/reflectivy informations in the scene and can be customized. The default value for the strength is 1.0 and should be used only if you are looking for a particular result (means that the result will not be realistic).
+The strength is applied on the overall specular/reflectivity informations in the scene and can be customized. The default value for the strength is 1.0 and should be used only if you are looking for a particular result (means that the result will not be realistic).
 
 ```javascript
 // Double specular/reflectivity strength.
@@ -93,6 +93,6 @@ The quality is defined as:
 
 According to the nature of the scene, the post-process quality can be not necessary perceptible between the medium and high qualities as the ray-tracing algorithm stops once it finds the reflection color. In other words, the high quality will be not be always needed.
 
-High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections."/>
-Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections."/>
-Low quality playground: <Playground id="#PIZ1GK#6" title="Low Quality SSR Example" description="Example of low quality screen space reflections."/>
+- High quality playground: <Playground id="#PIZ1GK#7" title="High Quality SSR Example" description="Example of high quality screen space reflections."/>
+- Medium quality playground: <Playground id="#PIZ1GK#5" title="Medium Quality SSR Example" description="Example of medium quality screen space reflections."/>
+- Low quality playground: <Playground id="#PIZ1GK#6" title="Low Quality SSR Example" description="Example of low quality screen space reflections."/>
