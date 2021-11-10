@@ -3,7 +3,7 @@ title: Screen Space Reflections (SSR) Post Process
 image: 
 description: Learn about the screen space reflection post process in Babylon.js.
 keywords: diving deeper, post processes, post process, screen space reflection, reflection, SSR
-further-reading:
+further-reading: ["https://doc.babylonjs.com/typedoc/classes/babylon.screenspacereflectionpostprocess"]
 video-overview:
 video-content:
 ---
