@@ -74,7 +74,7 @@ To ensure optimal performance, **multiple canvases on the same page should have 
 
 From Babylon.js v5 views can also be disabled, for instance to improve performance when one or more canvases are offscreen.
 
-```
+```javascript
 view.enabled = false;
 ```
 
