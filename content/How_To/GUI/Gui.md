@@ -814,6 +814,17 @@ You can decide to have your containers to adapt their size to their children by 
 If you set one of these properties to true, the associated dimension (width, height or both) will be computed based on direct children size as long as it is defined in pixel (size cannot be defined in percentage because this will generate an infinite loop as the child will need the parent size and the parent will need the child size)
 You can find a demo here: <Playground id="#GL5SIM" title="Adaptative size Example" description="Simple example showing how to use adaptative sizing in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI41.jpg"/>
 
+### Make your controls non-overlapping
+
+If you link your control with a mesh, the control will follow the mesh and the position of the control will be automatically changed relative to the position of the linked mesh. Sometimes your controls will be overlapped by each other.
+
+To solve this problem you can use the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class.
+First you need to set a value for the `overlapGroup` property on your control. If you leave it `undefined` the control will be not touched during the execution of the `moveToNoveOverlappedPosition` method. Second you need to call the `moveToNonOverlappedPosition` method of the `AdvancedDynamicTexture` class manually each frame, for example in the render loop or using an observer. The `onBeginRenderObservable` of the `AdvancedDynamicTexture` is a good place.
+
+Please refer to this playground with detailed comments in the code on how to use this functionality: <Playground id="#BMW0VQ#3" title="Non-overlapping controls Example" description="Simple example showing how to make your mesh linked controls non-overlapping." />
+
+Forum: https://forum.babylonjs.com/t/non-overlapping-gui-linked-controls/24610
+
 ### Clipping
 
 By default containers will clip their children to their bounds. You can disable this option by calling this code:
