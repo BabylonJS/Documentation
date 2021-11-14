@@ -52,7 +52,7 @@ var available = ['-astc.ktx', '-dxt.ktx', '-pvrtc.ktx', '-etc2.ktx', '-etc1.ktx'
 var formatUsed = engine.setTextureFormatToUse(available);
 ```
 
-## Generation using [PVRTexTool](https://community.imgtec.com/developers/powervr/tools/pvrtextool/)
+## Generation using [PVRTexTool](https://developer.imaginationtech.com/pvrtextool/)
 The are multiple encoder programs for .KTX files (see .KTX link above).  Most also provide for batch processing, since many formats are very CPU intense.  PVRTexTool has been narrowed down for providing additional support.  It has a lot going for it, including both a GUI & command line interface for Windows, OSX, and Linux.  It is also the only encoder which does PVRTC format, which is needed on iOS.
 
 If you are going to do the encoding on your own in the PVRTexTool GUI tool, there are a few things to keep in mind:
