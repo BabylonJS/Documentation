@@ -216,7 +216,7 @@ Here is an example of how to use engine instrumentation:
 
 Please note that each counter is *PerfCounter* object which can provide multiple properties like average, total, min, max, count, etc.
 
-GPU timer require a special extension (EXT_DISJOINT_TIMER_QUERY) in order to work. This extension has been disabled due to Spectre and Meltdown on all major browsers. This is still possible to use by enabling the flag gfx.webrender.debug.gpu-time-queries on firefox at the moment. This should be re-enabled soon in the browsers.
+The GPU timer requires a special extension (EXT_DISJOINT_TIMER_QUERY - also sometimes reported with the \_webgl2 prefix in WebGL2 context) in order to work. This extension had been disabled due to Spectre and Meltdown on all major browsers, but some have added it back, like Chrome and Edge. You can check if your browser supports this extension on the [Khronos SDK test page](https://www.khronos.org/registry/webgl/sdk/tests/conformance/extensions/ext-disjoint-timer-query.html) or on [WebGL report](https://webglreport.com/?v=2).  
 
 ### SceneInstrumentation
 The SceneInstrumentation class allows you to get the following counters (per scene):
