@@ -12,7 +12,7 @@ video-content:
 
 Animations are computed by the CPU, applying the bone effects to the mesh. This is reasonably slow and for several animated objects can be a bottleneck. One way to optimize this is pre-computing (or baking) the animations, storing them into a texture (usually called Vertex Animation Textures, or VAT) and using it on the vertex shaders . This frees the CPU, with the trade-off that you need to perform this initial baking step (which can be done at development time), add a new texture file to your downloads and consume more GPU memory. This trade-off is usually quite good, since the CPU tends to be the bottleneck.
 
-A limitation of the current VAT implementation is that you cannot [blend animations to play simultaneously](./advanced_animations#animation-blending).
+A limitation of the current VAT implementation is that you cannot [blend animations to play simultaneously](./advanced_animations#animation-blending). Also, the animations may not be as smooth as when not using BVA because there is no interpolation between frames. The "smoothness" will depend on the number of frames of the animation.
 
 ## Baking Vertex Texture Animations
 
@@ -66,13 +66,7 @@ Here's an example for a single mesh:
 
 ## VATs for instances
 
-As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently.
-
-<Playground id="#CP2RN9#13" title="Vertex Texture Animations on instances" description="An example of playing VATs on instances."/>
-
-## VATs for thin instances
-
-VATs can also be used with [thin instances](/divingDeeper/mesh/copies/thinInstances). In this case you need to register a buffer to set the animation parameters for each instance.
+As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently. In this case you need to register a buffer to set the animation parameters for each instance.
 
 ```js
   // create the instanced buffer
@@ -81,7 +75,11 @@ VATs can also be used with [thin instances](/divingDeeper/mesh/copies/thinInstan
   mesh.instancedBuffers.bakedVertexAnimationSettingsInstanced = new BABYLON.Vector4(0, 0, 0, 0);
 ```
 
-Then you set the parameters for the thin instances:
+<Playground id="#CP2RN9#18" title="Vertex Texture Animations on instances" description="An example of playing VATs on instances."/>
+
+## VATs for thin instances
+
+VATs can also be used with [thin instances](/divingDeeper/mesh/copies/thinInstances). Then you set the parameters for the thin instances:
 
 ```js
   // allocate the parameters
