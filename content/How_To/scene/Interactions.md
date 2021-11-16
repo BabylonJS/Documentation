@@ -16,7 +16,7 @@ There are three main ways for a user to interact with a scene, the keyboard, the
 
 ## Keyboard Interactions
 
-By customizing the following code template you can control reactions within your scene to different keys. Both the `ascii` code for the key and the key itself are available to you.
+This is a code template to control reactions to different keys. Both the `ascii` code for the key and the key itself are available to you.
 
 ```javascript
 scene.onKeyboardObservable.add((kbInfo) => {
@@ -25,7 +25,7 @@ scene.onKeyboardObservable.add((kbInfo) => {
       console.log("KEY DOWN: ", kbInfo.event.key);
       break;
     case BABYLON.KeyboardEventTypes.KEYUP:
-      console.log("KEY UP: ", kbInfo.event.keyCode);
+      console.log("KEY UP: ", kbInfo.event.code);
       break;
   }
 });
@@ -33,21 +33,7 @@ scene.onKeyboardObservable.add((kbInfo) => {
 
 ## Pointer Interactions
 
-First of all a reminder that for **touch** events in Babylon.js [PEP](https://github.com/jquery/PEP) is required. To use PEP all that is necessary is to
-
-1. install PEP
-
-```javascript
-<script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
-```
-
-2. stop the default touch-action within the rendering canvas
-
-```javascript
-<canvas id="renderCanvas" touch-action="none"></canvas>
-```
-
-Whether your pointer is an icon or a finger by customizing the following code template you will enable your project to react to a range of pointer events;
+This is a code template for reacting to pointer events:
 
 ```javascript
 scene.onPointerObservable.add((pointerInfo) => {
@@ -77,9 +63,23 @@ scene.onPointerObservable.add((pointerInfo) => {
 });
 ```
 
+[PEP](https://github.com/jquery/PEP) is an option for supporting **touch** events in older browsers (ones that don't natively support [pointer events](https://caniuse.com/pointer)). To use PEP all that is necessary is to:
+
+1. Install PEP
+
+```javascript
+<script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+```
+
+2. Stop the default touch-action within the rendering canvas
+
+```javascript
+<canvas id="renderCanvas" touch-action="none"></canvas>
+```
+
 ## Playground Examples
 
-<Playground id="#0XYMA9#1" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
+<Playground id="#0XYMA9#107" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
 <Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/divingDeeperInteractions2.jpg" isMain={true} category="Scene"/>
 <Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.jpg" isMain={true} category="Scene"/>
 <Playground id="#2SA7J8#7" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Scene"/>
