@@ -50,6 +50,22 @@ Lastly, if you select any one of the examples in the examples pane, it will load
 
 ![Examples Pane](/img/home/home5.jpg)
 
+
+## A note on versioning
+
+The Babylon.js Documentation is written with the latest major version of Babylon.js in mind. [The API docs](https://doc.babylonjs.com/typedoc) are generated against the latest nightly build.
+
+**The latest major version is v5. This is not the default version you will get from npm.**
+
+If you want to install Babylon.js locally using the latest version, please pick the latest release [from the npm page](https://www.npmjs.com/package/@babylonjs/core), and then run:
+
+```shellscript
+ npm i @babylonjs/core@5.0.0-alpha.61 # put in latest version here
+```
+
+Don't be scared about the `alpha` version. If you're just getting started, this will be stable enough, and v5 will soon be ready for production use.
+
+
 ## Getting Started
 
 The best place to get started is...well you guessed it, right at our [Getting Started](start/) section. If you're the type of learner that does better exploring on your own, then the [Diving Deeper](landing_pages/divingDeeperLandingPage) section is for you. If you are already in love with Babylon.js and want to start contributing to its success, then the [Develop With Babylon.js](landing_pages/divingDeeperDevelopingLandingPage) section is the place for you.
