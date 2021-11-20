@@ -60,7 +60,7 @@ The Babylon.js Documentation is written with the latest major version of Babylon
 If you want to install Babylon.js locally using the latest version, please pick the latest release [from the npm page](https://www.npmjs.com/package/@babylonjs/core), and then run:
 
 ```shellscript
- npm i @babylonjs/core@5.0.0-alpha.61 # put in latest version here
+ npm i @babylonjs/core@preview
 ```
 
 Don't be scared about the `alpha` version. If you're just getting started, this will be stable enough, and v5 will soon be ready for production use.
