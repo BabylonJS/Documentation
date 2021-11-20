@@ -63,7 +63,7 @@ If you want to install Babylon.js locally using the latest version, please pick 
  npm i @babylonjs/core@preview
 ```
 
-Don't be scared about the `alpha` version. If you're just getting started, this will be stable enough, and v5 will soon be ready for production use.
+Don't be scared about the `alpha` version. Babylon's npm releases are considered stable and are fully tested by the team.
 
 
 ## Getting Started
