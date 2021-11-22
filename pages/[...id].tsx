@@ -10,7 +10,7 @@ import { createContext, FunctionComponent, useEffect, useRef, useState } from "r
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { IconButton, Tooltip, Button } from "@material-ui/core";
+import { IconButton, Tooltip } from "@material-ui/core";
 import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { markdownComponents } from "../components/markdownComponents/markdownComponents";
