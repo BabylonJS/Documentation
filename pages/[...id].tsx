@@ -1,5 +1,7 @@
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Layout from "../components/layout.component";
+import GithubIcon from "@material-ui/icons/GitHub";
+
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from 'next-mdx-remote'
 import { BucketContent } from "../components/bucketContent.component";
@@ -8,7 +10,7 @@ import { createContext, FunctionComponent, useEffect, useRef, useState } from "r
 import { ExamplesComponent } from "../components/contentComponents/example.component";
 import { getAllFiles, getPageData, markdownDirectory } from "../lib/buildUtils/tools";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { IconButton, Tooltip } from "@material-ui/core";
+import { IconButton, Tooltip, Button } from "@material-ui/core";
 import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import { markdownComponents } from "../components/markdownComponents/markdownComponents";
@@ -38,7 +40,7 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -125,6 +127,10 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
         markdownRef?.current?.scrollTo({  behavior: "auto", top: 0, left: 0 });
     };
 
+    const editOnGitHub =() => { 
+        window.open(gitHubUrl, "_blank");
+    }
+
     const components = markdownComponents;
     const renderedContent = <MDXRemote {...mdxContent} components={components} />
     return (
@@ -143,7 +149,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             {metadata.videoOverview && (
                                 <>
                                     <h2>Video Overview</h2>
-                                    {/* Assuming video overview is always youtube! Can be changed */}
+                                    {/* Assuming video overview sis always youtube! Can be changed */}
                                     <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent>
                                 </>
                             )}
@@ -156,6 +162,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             <Tooltip title={`Scroll to top`} aria-label="Scroll to top">
                                 <IconButton size="medium" onClick={scrollToTop}>
                                     <ExpandLessIcon></ExpandLessIcon>
+                                </IconButton>
+                            </Tooltip>
+                        </div>
+                        <div id="edit-on-github">
+                            <Tooltip title={`Edit on GitHub`} aria-label="Edit on GitHub">
+                                <IconButton  size="small" onClick={editOnGitHub}>
+                                    <GithubIcon></GithubIcon>
                                 </IconButton>
                             </Tooltip>
                         </div>

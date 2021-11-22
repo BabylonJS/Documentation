@@ -613,6 +613,14 @@ th {
     right: 20px;
 }
 
+#edit-on-github {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+    height: 32px;
+    width: 32px;
+}
+
 pre.prism-code {
     .token-line {
         word-wrap: break-word;
