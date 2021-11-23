@@ -148,7 +148,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             {metadata.videoOverview && (
                                 <>
                                     <h2>Video Overview</h2>
-                                    {/* Assuming video overview sis always youtube! Can be changed */}
+                                    {/* Assuming video overview is always youtube! Can be changed */}
                                     <MediaMarkdownComponent url={metadata.videoOverview} type="youtube"></MediaMarkdownComponent>
                                 </>
                             )}
@@ -157,7 +157,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             <BucketContent title="Further reading" childPages={relatedArticles} externalLinks={relatedExternalLinks}></BucketContent>
                             <BucketContent childPages={childPages}></BucketContent>
                             <div id="edit-on-github">
-                                <Tooltip title={`Edit on GitHub`} aria-label="Edit on GitHub">
+                                <Tooltip title={`Edit this page on GitHub`} aria-label="Edit this page on GitHub">
                                     <IconButton size="small" onClick={editOnGitHub}>
                                         <GithubIcon></GithubIcon>
                                     </IconButton>
