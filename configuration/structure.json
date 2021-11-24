@@ -90,6 +90,17 @@
             },
             "content": "start/preface"
         },
+        "devVignettes": {
+            "friendlyName": "Dev Vignettes",
+            "children": {
+                "fruitFalling": {
+                    "friendlyName": "Playground to Production: Fruit Fallin'",
+                    "children": {},
+                    "content": "dev_vignettes/playground_to_production_fruit_falling"
+                }
+            },
+            "content": "dev_vignettes/playground_to_production_fruit_falling"
+        },
         "divingDeeper": {
             "friendlyName": "Diving Deeper",
             "children": {
