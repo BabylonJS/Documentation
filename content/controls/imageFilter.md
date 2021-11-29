@@ -1,6 +1,6 @@
 ---
 title: Image Filter Control
-image: /img/pageImages/imageFilterControl.jpg
+image-url: /img/defaultImage.png
 description: The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
 keywords: web controls, hardware accelerated, 2D, filter, images
 further-reading:
