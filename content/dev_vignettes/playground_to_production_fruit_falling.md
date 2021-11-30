@@ -6,7 +6,7 @@ of this, but I don't want it to live in the Playground
 forever. **How do I take my Playground prototype and turn it into 
 independent production software?**"
 
-![Playground to Web? Android? iOS?](/img/devVignettes/fruitFalling/placeholder.png)
+![Playground to Web? Android? iOS?](/img/devVignettes/fruitFalling/question.jpg)
 
 So I went to the Babylon.js docs site and read through an article titled, 
 "Playground to Production: *Fruit Fallin'*." After reading that article, I 
@@ -45,13 +45,13 @@ tell it where to display in the app. **Half an hour later, my code was
 built into a native app, ready to be shipped for mobile devices or as a 
 PWA.**
 
-![The Path: Playground to GitHub to NPM to Ionic](/img/devVignettes/fruitFalling/placeholder.png)
+![The Path: Playground to GitHub to NPM to Ionic](/img/devVignettes/fruitFalling/answer.jpg)
 
 And that is how I created *Fruit Fallin'*, a Babylon.js app inspired by 
 browser games from the heyday of Flash. While I happened to be making a 
 simple game, this same process can be used for more complex experiences, 
-commercial scenarios. At a high level, the procedure described above can be 
-used to take any Babylon.js idea from Playground to production using the 
+commercial scenarios... At a high level, the procedure described above can 
+be used to take any Babylon.js idea from Playground to production using the 
 Babylon.js Template Repositories, NPM, and Ionic.
 
 For a less high-level look, let's take a more step-by-step journey through 
@@ -68,21 +68,21 @@ Babylon.js Typescript Playground, so I decided to use that.
 
 1.  I logged into my GitHub account.
 
-    ![GitHub login](/img/devVignettes/fruitFalling/placeholder.png)
+    ![GitHub login](/img/devVignettes/fruitFalling/00_log_in_to_github.jpg)
 1.  On the page for the Babylon.js 
     [NPM Package Template](https://github.com/BabylonJS/npm-package-template), 
     I clicked the "Use this template" button to start a new repo.
 
-    !["Use this template" button](/img/devVignettes/fruitFalling/placeholder.png)
+    !["Use this template" button](/img/devVignettes/fruitFalling/01_use_package_template.jpg)
 1.  I picked my repo name, choose to make it public (for non-open source, 
     I would have chosen private), then created the repository.
 
-    ![Picking repo options](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Picking repo options](/img/devVignettes/fruitFalling/02_choose_options.jpg)
 1.  In a Git-enabled terminal (in my case, Git Bash on Windows), I 
     navigated to where I wanted my new repo to be and created my local 
     clone.
 
-    ![cd and git clone](/img/devVignettes/fruitFalling/placeholder.png)
+    ![cd and git clone](/img/devVignettes/fruitFalling/03_clone.jpg)
 1.  In an NPM-enabled terminal, I navigated into my new repo and ran
     
     ```
@@ -91,7 +91,7 @@ Babylon.js Typescript Playground, so I decided to use that.
 
     This installed all the NPM dependencies for all packages in my repo.
 
-    ![PowerShell NPM install](/img/devVignettes/fruitFalling/placeholder.png)
+    ![PowerShell NPM install](/img/devVignettes/fruitFalling/04_npm_install.jpg)
 1.  Still in the root directory in my NPM-enabled terminal, I ran
 
     ```
@@ -103,36 +103,58 @@ Babylon.js Typescript Playground, so I decided to use that.
     launched in a new browser tab at http://127.0.0.1:8080, confirming I was
     on the right track.
 
-    ![Browser default Playground](/img/devVignettes/fruitFalling/placeholder.png)
-1.  I then went back to the Babylon.js Typescript Playground I'd been 
-    prototyping in and copied all the code.
+    ![Browser default test app](/img/devVignettes/fruitFalling/05_default_test_app.jpg)
+1.  I then went back to the 
+    [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM) 
+    and copied all the code.
 
-    ![Copying my Playground](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Copying my Playground](/img/devVignettes/fruitFalling/06_sprites_orthographic_falling.jpg)
 1.  In Visual Studio Code (my preferred code editor), I opened up my new
     repo's root directory, then opened the file 
-    `app_package/src/Playground/playground.ts`.
+    `app_package/src/Playground/playground.ts` and replaced the `Playground`
+    class with the one I'd copied the Web.
 
-    ![Playground.ts](/img/devVignettes/fruitFalling/placeholder.png)
-1.  I deleted the default `Playground` class and replaced it with my 
-    prototype code I'd copied from my Playground. In my case, this pasted 
-    code went in with no errors, which should usually be the case. 
-    Occasionally it requires a little tweaking when I'm using advanced
-    features, but (1) we're working to eliminate that and (2), if it ever
-    becomes an tricky, I can always find help on the
-    [forum](https://forum.babylonjs.com/).
+    ![Playground.ts](/img/devVignettes/fruitFalling/07_paste_playground.jpg)
+1.  While the NPM Package Template is designed to make it as easy as
+    possible to copy-paste code from the Web Playground and have it work
+    immediately, sometimes a little tweaking is needed. In my case, I
+    was using coroutine features that were only available in the preview
+    branch, so I had to update the version of Babylon that my 
+    `app_package/package.json` was depending on.
 
-    ![Playground.ts pasted in](/img/devVignettes/fruitFalling/placeholder.png)
-1.  Since my code needed no tweaking, all I had to do was save the file
+    ![Playground.ts pasted in](/img/devVignettes/fruitFalling/08_update_babylon.jpg)
+1.  After making that change and running
+
+    ```
+    npm update
+    ```
+
+    I was able to get my first glimpse of my code running locally.
+
+    ![New browser Playground](/img/devVignettes/fruitFalling/09_playground_test_app.jpg)
+1.  One more change required! Since my code had been hosted on the 
+    Playground, it was using the Playground-relative `"textures/player.jpg"` 
+    URL; however, once that code was running locally, it was unable to 
+    build a full URL with which to find that asset. Switching over to my 
+    own asset hosting was a later step, so I didn't really *need* to 
+    solve this; however, since getting it working could be done by just 
+    switching to a 
+    [RawGit](https://stackoverflow.com/questions/39065921/what-do-raw-githubusercontent-com-urls-represent) 
+    URL for `player.jpg` (which still works, for the moment), I decided 
+    to fix it anyway.
+
+    ![Raw sprite location](/img/devVignettes/fruitFalling/10_raw_sprite_location.jpg)
+
+1.  After saving that change, all I had to do was save the file
     and wait for the test app in my browser to auto-refresh.
 
-    ![New browser Playground](/img/devVignettes/fruitFalling/placeholder.png)
+    ![It's working!](/img/devVignettes/fruitFalling/11_playground_test_app.jpg)
 
 And, just like that, I'd moved my prototype code from the Playground to 
-an independent repository in which to continue development. However, the
-assets I was using were still being pulled from their original locations 
-on the Internet, where it would be difficult for me to control them and
-iterate on them. Time to bring those into a more development-friendly
-environment too!
+an independent repository in which to continue development. However, I 
+was still pulling assets from the Internet, which would be difficult to
+control and update as I continued developing my app. Time to create a 
+more development-friendly environment for assets too!
 
 ### Creating an Asset Host Repo
 
@@ -157,50 +179,46 @@ to asset hosting for development.
     server to serve assets in my repo's `docs` folder at 
     http://127.0.0.1:8181 by default.
 
-    ![Asset server](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Asset server](/img/devVignettes/fruitFalling/12_asset_host_terminal.jpg)
 1.  To double-check that my server was working, I opened 
     http://127.0.0.1:8181/example.txt and saw the text
 
-    ```
-    This is an example asset. Delete this and replace it with real assets.
-    ```
-
-    ![Browser screenshot](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Browser screenshot](/img/devVignettes/fruitFalling/13_example_txt.jpg)
 1.  Next, I downloaded a copy of 
-    [player.png](https://github.com/BabylonJS/Babylon.js/blob/master/Playground/textures/player.png)
+    [player.jpg](https://github.com/BabylonJS/Babylon.js/blob/master/Playground/textures/player.jpg)
     and placed it in the `docs` folder. Again, I used the browser to test
     that this worked by checking that I could see the image at
-    http://127.0.0.1:8181/player.png. The dev server that comes with the 
+    http://127.0.0.1:8181/player.jpg. The dev server that comes with the 
     Asset Host Template automatically serves new files dropped in the 
     `docs` folder, so there was no need to restart the server.
 
-    ![Player.png in the docs folder](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Player.jpg in the docs folder](/img/devVignettes/fruitFalling/14_assets_docs_folder.jpg)
 1.  Going back over to Playground.ts in my source repository, all that
     remained to consume the sprite from my own asset host was to change
     this line
 
     ```ts
-    new BABYLON.Texture("textures/player.png", scene);
+    new BABYLON.Texture("textures/player.jpg", scene);
     ```
 
     into this line
 
     ```ts
-    new BABYLON.Texture("http://127.0.0.1:8181/player.png", scene);
+    new BABYLON.Texture("http://127.0.0.1:8181/player.jpg", scene);
     ```
 
     save the file, then wait for the test app to reload.
 1.  Of course, once that reload happened, I realized I wouldn't be able
     to see the results because the sprite from my asset host looked 
     identical to the one pulled from the Internet. To make extra sure, 
-    then, I changed `player.png` to `player_2.png` in my asset host,
+    then, I changed `player.jpg` to `player_2.jpg` in my asset host,
     then cleared my brower's file cache (so it wouldn't load a cached
-    version of `player.png`) and refreshed the test app. After confirming
-    that the test app couldn't find `player.png`, I changed the code again
-    to look for `player_2.png` and saved the file. When the app 
+    version of `player.jpg`) and refreshed the test app. After confirming
+    that the test app couldn't find `player.jpg`, I changed the code again
+    to look for `player_2.jpg` and saved the file. When the app 
     auto-reloaded, it had found the sprite again.
 
-    ![Test app without and with correct sprite name](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Test app without and with correct sprite name](/img/devVignettes/fruitFalling/15_wrong_name_right_name.jpg)
 
 And with that, my entire prototype, both code and assets, was running 
 locally from my own repos where I could iterate fast and commit often
@@ -225,7 +243,7 @@ work the way I wanted it.
     development, kitchen-sink dependency inclusion, and the `BABYLON` 
     import are prominent examples of this.
 
-    ![The BABYLON import](/img/devVignettes/fruitFalling/placeholder.png)
+    ![The BABYLON import](/img/devVignettes/fruitFalling/16_babylon_import.jpg)
 
     In its initial state, the NPM Package Template repo emulates these 
     patterns intentionally in `playground.ts` to make it as easy as 
@@ -254,7 +272,7 @@ work the way I wanted it.
     the references to any NPM packages I wasn't using--which, in this case,
     was most of them.
 
-    ![Excess NPM package deletion](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Excess NPM package deletion](/img/devVignettes/fruitFalling/17_npm_package_deletion.jpg)
 1.  To make sure I was rendering under the intended circumstances, I 
     customized `index.js` in the `test_package`.
 
@@ -269,10 +287,10 @@ work the way I wanted it.
     ratio that more closely resembled what the game was ultimately supposed
     to run in.
 
-    ![index.js in test_package](/img/devVignettes/fruitFalling/placeholder.png)
+    ![index.js in test_package](/img/devVignettes/fruitFalling/18_index_js_in_test_package.jpg)
 1.  I used `Scene`s as a unit of organization for my game logic. 
 
-    ![Scenes used in runtime.ts](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Scenes used in runtime.ts](/img/devVignettes/fruitFalling/19_scenes_in_runtime_ts.jpg)
 
     Most interactive apps have multiple "modes" of operation, and *Fruit 
     Fallin'* in particular has two: the game and the 
@@ -307,7 +325,7 @@ work the way I wanted it.
     was *frame*-dependent without it becoming vulnerably 
     frame*rate*-dependent.
 
-    ![Frame-dependent game logic](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Frame-dependent game logic](/img/devVignettes/fruitFalling/20_frame_dependent_logic.jpg)
 
     Having this ability to reliably use frame-based logic allowed me to use
     coroutines for all sorts of things, from game flow to procedural 
@@ -333,7 +351,7 @@ work the way I wanted it.
     experience has to do to integrate it is just tell `app_package`
     the correct URLs to use.
     
-    ![index.js asset location code](/img/devVignettes/fruitFalling/placeholder.png)
+    ![index.js asset location code](/img/devVignettes/fruitFalling/21_asset_location_code.jpg)
 
 I should also briefly mention how I created the assets for the game. 
 Again, this is not an implementation overview; but for those who are 
@@ -380,16 +398,16 @@ hosting service that the template repositories make very easy to use.
     pushed my changes up to my GitHub repository, then opened that repo
     in a browser.
 
-    ![Asset Host web view](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Asset Host web view](/img/devVignettes/fruitFalling/22_asset_host_repo.jpg)
 1.  On that repo's browser site, I opened up the Settings tab, then 
     scrolled down and clicked on Pages.
 
-    ![Settings -> Pages](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Settings -> Pages](/img/devVignettes/fruitFalling/23_settings_pages.jpg)
 1.  I chose the main branch as my source, then selected `docs` as the
     folder to serve. With that done, because my assets were already in the
     `docs` folder, I immediately had a public Web host for my assets.
 
-    ![Assets in the browser](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Assets in the browser](/img/devVignettes/fruitFalling/24_pages_main_docs.jpg)
 1.  Next, I wanted to make the test app change its behavior depending on 
     whether it was hosted in the local dev server or on GitHub Pages.
     If it was local, I wanted it to still pull assets from my local asset
@@ -399,7 +417,7 @@ hosting service that the template repositories make very easy to use.
     this pretty easily; all I had to do was check the `DEV_BUILD` variable
     and change the URL prefix based on that.
     
-    ![Checking the DEV_BUILD variable](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Checking the DEV_BUILD variable](/img/devVignettes/fruitFalling/25_checking_dev_variable.jpg)
 1.  The way the NPM Package Template is set up, `DEV_BUILD` will be true
     whenever running locally using
 
@@ -419,13 +437,13 @@ hosting service that the template repositories make very easy to use.
 1.  I next ran `git status` just to confirm that the files in the `docs`
     folder really had changed.
     
-    ![They had](/img/devVignettes/fruitFalling/placeholder.png)
+    ![They had](/img/devVignettes/fruitFalling/26_npm_run_build_status.jpg)
 
 1.  With that done, all that was left was to commit the built site, push
     it to GitHub, then turn on GitHub pages the same way I did for the
     asset host site.
     
-    ![GitHub Pages again](/img/devVignettes/fruitFalling/placeholder.png)
+    ![GitHub Pages again](/img/devVignettes/fruitFalling/27_source_repo_github_pages.jpg)
 
 A few seconds later, my site was live and GitHub gave me a link I could
 use to share the first Web-accessible version of *Fruit Fallin'*!
@@ -457,7 +475,7 @@ easily integrated into a huge variety of different shipping solutions.
     in `app_package` to ensure it contained the correct information for
     my new NPM package--most importantly the package name.
     
-    ![app_package/package.json](/img/devVignettes/fruitFalling/placeholder.png)
+    ![app_package/package.json](/img/devVignettes/fruitFalling/28_app_package_json.jpg)
 
 3.  ```
     cd app_package
@@ -494,7 +512,7 @@ Web and Android using Ionic and developing on Windows.
 1.  I declined to use the App Creation Wizard, selected a React frontend,
     named my project, and chose a blank app template.
     
-    ![Ionic options](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Ionic options](/img/devVignettes/fruitFalling/29_ionic_start.jpg)
 1.  To check that everything was in order so far, I ran the following 
     command to view the default Ionic Web app:
 
@@ -526,13 +544,13 @@ Web and Android using Ionic and developing on Windows.
     bird, so I usually prefer to use it directly by opening that folder
     as a project in Android Studio.
     
-    ![Opening in Android Studio](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Opening in Android Studio](/img/devVignettes/fruitFalling/30_opening_android.jpg)
 
 1.  Using Android Studio is beyond the scope of this article, but once 
     opened the project can built and run on a real or virtual device just
     like any other project.
     
-    ![The default app on an AVD](/img/devVignettes/fruitFalling/placeholder.png)
+    ![The default app on an AVD](/img/devVignettes/fruitFalling/31_default_ionic_avd.jpg)
 1.  With that done, it was time to change the content of the app to use
     my NPM package. In an NPM-capable terminal in the root directory, I
     added the dependency.
@@ -546,7 +564,7 @@ Web and Android using Ionic and developing on Windows.
     location, but because I wanted the app to be self-contained, I instead
     just dropped my assets in a new folder in the `public/assets` directory.
     
-    ![The new assets folder](/img/devVignettes/fruitFalling/placeholder.png)
+    ![The new assets folder](/img/devVignettes/fruitFalling/32_new_assets_folder.jpg)
 1.  Now all I had to do was actually invoke the NPM dependency I'd pulled 
     in and tell it where to find the assets I'd just added. I am not a
     React.js expert and this is not a React.js tutorial, but with a bit of
@@ -554,8 +572,59 @@ Web and Android using Ionic and developing on Windows.
     of `Home.tsx` that displayed a full-screen canvas and passed it as an
     argument to my *Fruit Fallin'* initialization code.
 
-    ```TypeScript
-    // TODO: Insert Home.tsx code here.
+    ```
+    import { IonContent, IonPage } from '@ionic/react';
+    import { Component, createRef, RefObject } from 'react';
+    import { initializeBabylonApp } from 'fruit-fallin';
+    import './Home.css';
+
+    class BabylonGame extends Component {
+      private _canvas: RefObject<HTMLCanvasElement>;
+
+      constructor (props: any) {
+        super(props);
+        this._canvas = createRef();
+      }
+
+      public componentDidMount() {
+        // Crude workaround for a loading timing issue
+        setTimeout(() => {
+          const babylonOptions = {
+            canvas: this._canvas.current!,
+            backgroundTitleUrl: "assets/game/background_title.jpg",
+            backgroundGameUrl: "assets/game/background_game.jpg",
+            buttonPlankUrl: "assets/game/button_plank.jpg",
+            imageGameOverUrl: "assets/game/image_game_over.jpg",
+            spritesheetButtonFrameUrl: "assets/game/spritesheet_button_frame.jpg",
+            spritesheetFruitUrl: "assets/game/spritesheet_fruit.jpg",
+            spritesheetMouthUrl: "assets/game/spritesheet_mouth.jpg",
+            soundMusicUrl: "assets/game/sound_music.mp3",
+            soundChompUrl: "assets/game/sound_chomp.mp3",
+            soundChompYumUrl: "assets/game/sound_chomp_yum.mp3",
+            soundChompYuckUrl: "assets/game/sound_chomp_yuck.mp3",
+            soundCountdownUrl: "assets/game/sound_countdown.mp3",
+            soundGoUrl: "assets/game/sound_go.mp3",
+            soundClickUrl: "assets/game/sound_click.mp3",
+          };
+        }, 200);
+      }
+
+      public render() {
+          return <canvas id="babylonCanvas" width={window.innerWidth} height={window.innerHeight} style={{width: "100%", height: "100%"}} className="center" ref={this._canvas}><canvas>;
+      }
+    }
+
+    const Home: React.FC = () => {
+      return (
+        <IonPage>
+          <IonContent>
+            <BabylonGame></BabylonGame>
+          </IonContent>
+        </IonPage>
+      );
+    };
+
+    export default Home;
     ```
 1.  To test that this worked, I first tested in browser again:
 
@@ -563,7 +632,7 @@ Web and Android using Ionic and developing on Windows.
     npm run serve
     ```
     
-    ![Fruit Fallin' Ionic](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Fruit Fallin' Ionic](/img/devVignettes/fruitFalling/33_ionic_fruit_fallin_browser.jpg)
     
     This would be very close to the end state if I were targeting Web or WPA
     using Ionic. However, since I wanted to go to Android, there were a few
@@ -581,7 +650,7 @@ Web and Android using Ionic and developing on Windows.
 1.  Finally, I once again opened the `android` folder in Android Studio, 
     built the project, and deployed it to my Android virtual device.
     
-    ![Fruit Fallin' on AVD](/img/devVignettes/fruitFalling/placeholder.png)
+    ![Fruit Fallin' on AVD](/img/devVignettes/fruitFalling/34_ionic_fruit_fallin_avd.jpg)
 
 And that was it! That was all I needed. My Babylon experience could now be 
 deployed to Web, PWA, Android, and iOS all from the same codebase; and 
@@ -591,8 +660,8 @@ path.
 
 What should I make next?
 
-What should *you* make next?
+What will *you* make next?
 
-![What next?](/img/devVignettes/fruitFalling/placeholder.png)
+![What next?](/img/devVignettes/fruitFalling/check_plus.png)
 
 -syntheticmagus
