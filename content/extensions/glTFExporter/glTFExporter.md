@@ -62,7 +62,7 @@ To download to glb format, simply replace the `GLTFAsync` static function with `
 ```javascript
 BABYLON.GLTF2Export.GLBAsync(scene, "fileName").then((glb) => {
     glb.downloadFiles();
-};
+});
 ```
 
 ## Export options

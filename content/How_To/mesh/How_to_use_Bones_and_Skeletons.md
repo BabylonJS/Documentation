@@ -397,6 +397,8 @@ poleTarget.setEnabled(false);
 
 Bones are computed using shaders by default. This allows better performance. But on low end devices, shaders could be limited and not able to process bones. You can in this case ask Babylon.js to compute bones using CPU by setting `mesh.computeBonesUsingShaders = false`.
 
+**Warning**: `mesh.computeBonesUsingShaders = false` is incompatible with morph targets! If you have to use morph targets, you must set `mesh.computeBonesUsingShaders` to `true`!
+
 ## Debugging
 
 Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/tools/inspector#bones-viewer) on and off.

@@ -119,3 +119,11 @@ gl.addIncludedOnlyMesh(mesh)
 Using the function will automatically switch mode and only render the included meshes.
 
 <Playground id="#LRFB2D#30" title="Including Specific Meshes In The Glow Layer" description="Simple example of including specific meshes in the glow layer."/>
+
+### Using Glow with Node Materials
+
+The Glow layer can also be combined with a [Node Material](/divingDeeper/materials/node_material/nodeMaterial) for endless possibilities. You can achieve this by utilizing masking in the node material, separating the emission texture from the base color texture, and then recompositing them together using the mesh's glow layer. Check out the following playground and video for a deeper explanation.
+
+<Playground id="#7QCYPB" title="Using Glow Layer with Node Materials" description="Simple example of using a mesh's glow layer with a node material."/>
+
+<Youtube id="5ZuM-WLqEPQ"/>

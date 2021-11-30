@@ -1,6 +1,6 @@
 import { ReactText } from "react";
 import { MarkdownMetadata } from "./interfaces";
-import { MDXRemoteSerializeResult  } from "next-mdx-remote";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface IMenuItem {
     name: string;
@@ -71,6 +71,7 @@ export interface IPageProps {
     next?: IPageProps;
     previous?: IPageProps;
     lastModified?: string;
+    gitHubUrl?: string;
 }
 export interface IDocumentationPageProps extends IPageProps {
     content?: string;

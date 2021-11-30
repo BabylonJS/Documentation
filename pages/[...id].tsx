@@ -1,7 +1,9 @@
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Layout from "../components/layout.component";
+import GithubIcon from "@material-ui/icons/GitHub";
+
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote } from "next-mdx-remote";
 import { BucketContent } from "../components/bucketContent.component";
 import { getAvailableUrls, validateContent } from "../lib/buildUtils/content.utils";
 import { createContext, FunctionComponent, useEffect, useRef, useState } from "react";
@@ -38,7 +40,7 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -53,13 +55,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const tmpTOCCache = [];
 
     const addExampleLink = (link: IExampleLink) => {
-        setExampleLinks(prevState => {
+        setExampleLinks((prevState) => {
             return [...prevState, link];
-        })
+        });
     };
 
     const addTOCItem = (tocItem: ITableOfContentsItem) => {
-        setTocLinks(prevState => {
+        setTocLinks((prevState) => {
             return [...prevState, tocItem];
         });
     };
@@ -76,17 +78,17 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
 
     useEffect(() => {
         // console.log('examples', exampleLinks);
-    }, [exampleLinks])
+    }, [exampleLinks]);
 
     useEffect(() => {
         if (!window.location.hash) {
             scrollToTop();
         }
         window.onhashchange = () => {
-            if(location.hash === '') {
+            if (location.hash === "") {
                 scrollToTop();
             }
-        }
+        };
         return () => {
             window.onhashchange = undefined;
             // TODO since the last update of next, this code is not executed correctly.
@@ -95,7 +97,6 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
             setActiveExample(null);
             clearTOCItems();
         };
-
     }, [id]);
 
     useEffect(() => {
@@ -122,11 +123,15 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     }, [activeExample]);
 
     const scrollToTop = () => {
-        markdownRef?.current?.scrollTo({  behavior: "auto", top: 0, left: 0 });
+        markdownRef?.current?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+    };
+
+    const editOnGitHub = () => {
+        window.open(gitHubUrl, "_blank");
     };
 
     const components = markdownComponents;
-    const renderedContent = <MDXRemote {...mdxContent} components={components} />
+    const renderedContent = <MDXRemote {...mdxContent} components={components} />;
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
@@ -151,6 +156,13 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                             {metadata.videoContent && <VideoCollection videoLinks={metadata.videoContent}></VideoCollection>}
                             <BucketContent title="Further reading" childPages={relatedArticles} externalLinks={relatedExternalLinks}></BucketContent>
                             <BucketContent childPages={childPages}></BucketContent>
+                            <div id="edit-on-github">
+                                <Tooltip title={`Edit this page on GitHub`} aria-label="Edit this page on GitHub">
+                                    <IconButton size="small" onClick={editOnGitHub}>
+                                        <GithubIcon></GithubIcon>
+                                    </IconButton>
+                                </Tooltip>
+                            </div>
                         </div>
                         <div id="scroll-to-top">
                             <Tooltip title={`Scroll to top`} aria-label="Scroll to top">
