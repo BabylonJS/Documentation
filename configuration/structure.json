@@ -269,6 +269,11 @@
                             "friendlyName": "Node Materials",
                             "children": {
                                 "nodeMaterial": { "friendlyName": "Node Materials", "children": {}, "content": "How_To/material/Node_Material" },
+                                "NMEPBR": { "friendlyName": "Node Material and PBR", "children": {}, "content": "How_To/material/NME_PBR" },
+                                "NMEPostProcesses": { "friendlyName": "Node Material Post Processes", "children": {}, "content": "How_To/material/NME_Post_processes" },
+                                "NMEProceduralTexture": { "friendlyName": "Node Material Procedural Textures", "children": {}, "content": "How_To/material/NME_Procedural_Textures" },
+                                "NMEParticleShaders": { "friendlyName": "Node Material Particle Shaders", "children": {}, "content": "How_To/material/NME_Particle_Shaders" },
+                                "availableNodeBlocks": { "friendlyName": "Available Nodes (blocks)", "children": {}, "content": "How_To/material/Available_nodes" },
                                 "particles_and_nme": { "friendlyName": "Using Node Material with Particles", "children": {}, "content": "How_To/Particles/Particles_and_nme" }
                             },
                             "content": "landing_pages/diving_deeper_node_material_landing_page"
@@ -666,7 +671,10 @@
                         },
                         "nme": {
                             "friendlyName": "Node Material Editor",
-                            "children": {},
+                            "children": {
+                                "customFrames": { "friendlyName": "Custom Frames", "children": {}, "content": "How_To/material/NMECustom_Frames" },
+                                "customBlocks": { "friendlyName": "Custom Blocks", "children": {}, "content": "How_To/material/NMECustom_Blocks" }
+                            },
                             "content": "landing_pages/toolsAndResourcesNMELandingPage"
                         },
                         "particleEditor": {
