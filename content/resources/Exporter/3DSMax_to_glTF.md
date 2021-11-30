@@ -252,7 +252,7 @@ glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/Khron
 
 To enjoy PBR material rendering, you should have an environmnent texture in your scene. The plugin exports the environment map if any is provided in 3DS MAX.
 
-However, glTF format does not support this feature and the environment map needs to be added manually in client implementations. The Babylon Sandbox, see bellow, provides such feature.
+However, glTF format does not support this feature and the environment map needs to be added manually in client implementations. The Babylon Sandbox, see below, provides such feature.
 
 ## Double sided material
 
