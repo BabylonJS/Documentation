@@ -1,3 +1,13 @@
+---
+title: Playground to Production - Fruit Fallin'
+image:
+description: A dev story about how to transform Playground demos into production software.
+keywords: playground, production, ionic, template workflow, android, ios
+further-reading:
+video-overview:
+video-content:
+---
+
 ## High Level Overview
 
 Once upon a time, I was fiddling with an idea in the Babylon.js Playground, 
@@ -10,49 +20,53 @@ independent production software?**"
 
 So I went to the Babylon.js docs site and read through an article titled, 
 "Playground to Production: *Fruit Fallin'*." After reading that article, I 
-knew exactly what to do and how long I could expect it to take:
+knew exactly what to do, 
+[what workflow to use](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+and about how long I could expect it take.
 
 1.	On my GitHub account, I created a new repository from the 
 [Babylon.js NPM Package Template](https://github.com/BabylonJS/npm-package-template), 
 moved my Playground code into that repo, and confirmed it worked. **Within 
 half an hour, I had my Playground code running in my own repo.**
-2.	I then created a new repo from the Babylon.js 
+1.	I then created a new repo from the Babylon.js 
 [Asset Host Template](https://github.com/BabylonJS/asset-host-template), 
 put the assets I'd been prototyping with in there, then changed the links 
 in my prototype code to point to my local asset host. **Fifteen minutes 
 later, my entire prototype—source code and assets—was running from my own 
 repositories.**
-3.	Now with complete control of the app, I spent as long as I wanted 
+1.	Now with complete control of the app, I spent as long as I wanted 
 transforming my hacky prototype code and dev art into a well-structured 
 codebase and cohesive media assets. **I refactored, added new features, 
 brought in new NPM dependencies, and refined and polished until my Babylon.
 js experience was exactly the way I wanted it.**
-4.	Once I was happy with my local experience, I wanted to host it using 
+1.	Once I was happy with my local experience, I wanted to host it using 
 [GitHub Pages](https://pages.github.com/) so I could get feedback from 
 friends and colleagues. Because the Babylon.js Template Repositories are 
 set up to make this easy, **it took me five minutes, if that, to publish my 
 experience to a GitHub-hosted site I could share.**
-5.	Next, I uploaded my game code as an 
+1.	Next, I uploaded my game code as an 
 [NPM package](https://www.npmjs.com/) so that I could easily re-add it to 
 other projects (websites, NPM apps, etc.) just by pulling down a package. 
 Again, the Babylon.js Template repositories are set up to make this easy: 
-**within five minutes, I had my new NPM package.**
-6.	I wanted to publish my app as a mobile game and get it listed on Google 
+**within ten minutes, I had my new NPM package.**
+1.	I wanted to publish my app as a mobile game and get it listed on Google 
 Play and the App Store, so I decided to use 
 [Ionic](https://ionicframework.com/). All I had to do was create a new 
 Ionic app, add my new NPM package as a dependency, then invoke my code and 
-tell it where to display in the app. **Half an hour later, my code was 
+tell it where to display in the app. **About an hour later, my code was 
 built into a native app, ready to be shipped for mobile devices or as a 
 PWA.**
 
 ![The Path: Playground to GitHub to NPM to Ionic](/img/devVignettes/fruitFalling/answer.jpg)
 
-And that is how I created *Fruit Fallin'*, a Babylon.js app inspired by 
-browser games from the heyday of Flash. While I happened to be making a 
-simple game, this same process can be used for more complex experiences, 
-commercial scenarios... At a high level, the procedure described above can 
-be used to take any Babylon.js idea from Playground to production using the 
-Babylon.js Template Repositories, NPM, and Ionic.
+And that is how I created 
+[_Fruit Fallin'_](https://syntheticmagus.github.io/fruit-falling-source/), 
+a Babylon.js app inspired by browser games from the heyday of Flash. While 
+I happened to be making a simple game, this same process can be used for 
+more complex experiences, commercial scenarios... At a high level, the 
+procedure described above can be used to take any Babylon.js idea from 
+Playground to production using the Babylon.js Template Repositories, NPM, 
+and Ionic.
 
 For a less high-level look, let's take a more step-by-step journey through 
 the process.
@@ -302,7 +316,8 @@ work the way I wanted it.
     disposing one kind of scene and creating a new instance of the other, 
     thus keeping the logic and resources clean and separated.
 1.  I wrote a fixed framerate observable to simplify having 
-    coroutine-driven animation and game logic without being vulnerable
+    [coroutine](https://doc.babylonjs.com/divingDeeper/events/coroutines)-driven 
+    animation and game logic without being vulnerable
     to framerate changes.
 
     Framerate-dependent logic is dangerous because you can't rely on 
