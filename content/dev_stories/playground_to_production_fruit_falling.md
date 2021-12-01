@@ -34,16 +34,17 @@ put the assets I'd been prototyping with in there, then changed the links
 in my prototype code to point to my local asset host. **Fifteen minutes 
 later, my entire prototype—source code and assets—was running from my own 
 repositories.**
-1.	Now with complete control of the app, I spent as long as I wanted 
-transforming my hacky prototype code and dev art into a well-structured 
-codebase and cohesive media assets. **I refactored, added new features, 
-brought in new NPM dependencies, and refined and polished until my Babylon.
-js experience was exactly the way I wanted it.**
-1.	Once I was happy with my local experience, I wanted to host it using 
+1.	Now with everything moved into dev infrastructure, I set about turning
+my prototype into real production code and assets. **I refactored and
+revised to get rid of Playground-specific practices and transform my
+repos into efficient development environments where I could add features,
+take dependencies, experiment, collaborate, and iterate throughout the
+whole development process.**
+1.	Once I had something I was ready to share, I wanted to host it using 
 [GitHub Pages](https://pages.github.com/) so I could get feedback from 
 friends and colleagues. Because the Babylon.js Template Repositories are 
 set up to make this easy, **it took me five minutes, if that, to publish my 
-experience to a GitHub-hosted site I could share.**
+experience to a GitHub-hosted site I could link to.**
 1.	Next, I uploaded my game code as an 
 [NPM package](https://www.npmjs.com/) so that I could easily re-add it to 
 other projects (websites, NPM apps, etc.) just by pulling down a package. 
