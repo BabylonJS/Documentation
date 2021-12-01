@@ -86,7 +86,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
     const classes = useStyles();
     return (
         <Link key={link} href={link}>
-            <div className={classes.divRoot}>
+            <a className={classes.divRoot}>
                 <Card className={classes.root}>
                     <div className={classes.details}>
                         <CardContent className={classes.content}>
@@ -102,7 +102,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
                         <Image alt={title} src={imageUrl} layout="fill"></Image>
                     </div>
                 </Card>
-            </div>
+            </a>
         </Link>
     );
 };
@@ -136,7 +136,9 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                                 return (
                                     <li key={url}>
                                         <Link href={url}>
-                                            <a rel="noopener" target="_blank">{title}</a>
+                                            <a rel="noopener" target="_blank">
+                                                {title}
+                                            </a>
                                         </Link>
                                     </li>
                                 );

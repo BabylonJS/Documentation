@@ -78,6 +78,12 @@ In conjonction with `mesh.alwaysSelectAsActiveMesh` you can also decide to turn 
 mesh.doNotSyncBoundingInfo = true;
 ```
 
+## Not picking the scene on pointer move
+On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised. 
+To avoid this process, you can set `scene.skipPointerMovePicking = true`.
+
+Please note that by doing it, you will have no event over any mesh when the pointer will move (And `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`.
+
 ## Reducing draw calls
 As soon as you can please use [instances](/divingDeeper/mesh/copies/instances) as they are drawn with one single draw call.
 
