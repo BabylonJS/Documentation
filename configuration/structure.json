@@ -6,7 +6,7 @@
             "friendlyName": "Getting Started",
             "children": {
                 "chap1": {
-                    "friendlyName": "Chapter 1 - Firsts",
+                    "friendlyName": "Firsts",
                     "children": {
                         "first_scene": { "friendlyName": "First Scene and Model", "children": {}, "content": "start/chap1/first_scene" },
                         "first_viewer": { "friendlyName": "First Model on a Web Page", "children": {}, "content": "start/chap1/first_viewer" },
@@ -16,7 +16,7 @@
                     "content": "start/chap1/chap1intro"
                 },
                 "chap2": {
-                    "friendlyName": "Chapter 2 - Build A Village",
+                    "friendlyName": "Build A Village",
                     "children": {
                         "ground": { "friendlyName": "Grounding the World", "children": {}, "content": "start/chap2/ground" },
                         "sound": { "friendlyName": "Adding Sound", "children": {}, "content": "start/chap2/sound" },
@@ -32,7 +32,7 @@
                     "content": "start/chap2/chap2intro"
                 },
                 "chap3": {
-                    "friendlyName": "Chapter 3 - Village Animation",
+                    "friendlyName": "Village Animation",
                     "children": {
                         "parent": { "friendlyName": "Mesh Parents", "children": {}, "content": "start/chap3/parent" },
                         "polycar": { "friendlyName": "Building the Car", "children": {}, "content": "start/chap3/polycar" },
@@ -45,14 +45,14 @@
                     "content": "start/chap3/chap3intro"
                 },
                 "chap4": {
-                    "friendlyName": "Chapter 4 - Avoiding Collisions",
+                    "friendlyName": "Avoiding Collisions",
                     "children": {
                         "mesh_intersect": { "friendlyName": "Avoiding a Car Crash", "children": {}, "content": "start/chap4/mesh_intersect" }
                     },
                     "content": "start/chap4/chap4intro"
                 },
                 "chap5": {
-                    "friendlyName": "Chapter 5 - A Better Environment",
+                    "friendlyName": "A Better Environment",
                     "children": {
                         "hills": { "friendlyName": "Distant Hills", "children": {}, "content": "start/chap5/hills" },
                         "sky": { "friendlyName": "Skies Above", "children": {}, "content": "start/chap5/sky" },
@@ -61,7 +61,7 @@
                     "content": "start/chap5/chap5intro"
                 },
                 "chap6": {
-                    "friendlyName": "Chapter 6 - Build a Particle Fountain",
+                    "friendlyName": "Build a Particle Fountain",
                     "children": {
                         "fountain": { "friendlyName": "A Lathe Turned Fountain", "children": {}, "content": "start/chap6/fountain" },
                         "particlespray": { "friendlyName": "Particle Spray", "children": {}, "content": "start/chap6/particlespray" },
@@ -70,7 +70,7 @@
                     "content": "start/chap6/chap6intro"
                 },
                 "chap7": {
-                    "friendlyName": "Chapter 7 - Light the Night",
+                    "friendlyName": "Light the Night",
                     "children": {
                         "lights": { "friendlyName": "Street Lights", "children": {}, "content": "start/chap7/lights" },
                         "light_gui": { "friendlyName": "Day to Night", "children": {}, "content": "start/chap7/light_gui" },
@@ -79,7 +79,7 @@
                     "content": "start/chap7/chap7intro"
                 },
                 "chap8": {
-                    "friendlyName": "Chapter 8 - Ways to See The World",
+                    "friendlyName": "Ways to See The World",
                     "children": {
                         "camera": { "friendlyName": "Have a Look Around", "children": {}, "content": "start/chap8/camera" },
                         "follow": { "friendlyName": "Follow That Character", "children": {}, "content": "start/chap8/follow" },

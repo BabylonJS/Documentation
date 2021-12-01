@@ -1,6 +1,6 @@
 ---
 title: Controls
-image: /img/pageImages/controls.jpg
+image-url: /img/defaultImage.png
 description: Babylon.js Controls are a set of regular web controls that are super-charged with hardware accelerated rendering through Babylon.js to provide blazing fast dedicated controls.
 keywords: web controls, hardware accelerated, 2D
 further-reading:

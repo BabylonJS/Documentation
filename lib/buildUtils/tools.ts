@@ -215,15 +215,15 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
 
     await Promise.all(promises);
 
-    if(!metadata.imageUrl) {
+    if (!metadata.imageUrl) {
         // no image? check children.
         const childrenKeys = Object.keys(childPages);
         childrenKeys.some((childKey) => {
-            if(childPages[childKey].metadata && childPages[childKey].metadata.imageUrl) {
+            if (childPages[childKey].metadata && childPages[childKey].metadata.imageUrl) {
                 metadata.imageUrl = childPages[childKey].metadata.imageUrl;
                 return true;
             }
-        })
+        });
     }
 
     // Search index!
@@ -266,7 +266,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                 const description = (/description="(.*?)"/.test(full) && /description="(.*?)"/.exec(full)[1]) || "";
                 const playgroundId = exampleId[0] === "#" ? exampleId.substr(1) : exampleId;
                 const buff = Buffer.from(playgroundId, "utf-8");
-                const isMain = (/isMain={true}/.test(full))
+                const isMain = /isMain={true}/.test(full);
                 const category = (/category="(.*?)"/.test(full) && /category="(.*?)"/.exec(full)[1]) || "";
                 const searchId = buff.toString("base64");
                 if (searchId) {
@@ -319,6 +319,8 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         }
     }
 
+    const gitHubUrl = `https://github.com/BabylonJS/Documentation/blob/master/content/${docItem.content}.md`;
+
     const pageProps = {
         id,
         breadcrumbs,
@@ -330,6 +332,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         relatedArticles,
         relatedExternalLinks,
         lastModified: lastModified ? lastModified.toUTCString() : "",
+        gitHubUrl,
     } as IDocumentationPageProps;
 
     if (!fullPage) {
