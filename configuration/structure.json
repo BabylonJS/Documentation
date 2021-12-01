@@ -1014,22 +1014,67 @@
                     },
                     "content": "landing_pages/extensionsTreeGeneratorsLandingPage"
                 },
-                "Editor": {
+                "editor": {
                     "friendlyName": "Editor",
                     "children": {
-                        "Getting_Started": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Editor/Getting_Started" },
-                        "Explaining_Workflow": { "friendlyName": "Explaining Workflow", "children": {}, "content": "resources/Editor/Explaining_Workflow" },
-                        "Adding_Textures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Adding_Textures" },
-                        "Adding_Materials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Adding_Materials" },
-                        "Using_Assets_Panel": { "friendlyName": "Using Assets Panel", "children": {}, "content": "resources/Editor/Using_Assets_Panel" },
-                        "Custom_Scripts": { "friendlyName": "Custom Scripts", "children": {}, "content": "resources/Editor/Custom_Scripts" },
-                        "Adding_Animations": { "friendlyName": "Adding Animations", "children": {}, "content": "resources/Editor/Adding_Animations" },
-                        "Using_PathFinder": { "friendlyName": "Using PathFinder", "children": {}, "content": "resources/Editor/Using_PathFinder" },
-                        "Creating_Prefabs": { "friendlyName": "Creating Prefabs", "children": {}, "content": "resources/Editor/Creating_Prefabs" },
-                        "Editing_Prefabs": { "friendlyName": "Editing Prefabs", "children": {}, "content": "resources/Editor/Editing_Prefabs" },
-                        "Using_ParticleSystemEditor": { "friendlyName": "Using Particle System Editor", "children": {}, "content": "resources/Editor/Using_ParticleSystemEditor" },
-                        "Using_GraphEditor": { "friendlyName": "Using GraphEditor", "children": {}, "content": "resources/Editor/Using_GraphEditor" },
-                        "Using_Photoshop_Extension": { "friendlyName": "Using Photoshop Extension", "children": {}, "content": "resources/Editor/Using_Photoshop_Extension" }
+                        "gettingStarted": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Editor/Getting_Started" },
+                        "workspace": {
+                            "friendlyName": "Workspaces",
+                            "children": {
+                                "creatingWorkspace": { "friendlyName": "Creating a Workspace", "children": {}, "content": "resources/Editor/Workspace/Creating_Workspace" },
+                                "creatingProject": { "friendlyName": "Creating a Project", "children": {}, "content": "resources/Editor/Workspace/Creating_Project" },
+                                "renamingProject": { "friendlyName": "Renaming a Project", "children": {}, "content": "resources/Editor/Workspace/Renaming_Project" }
+                            },
+                            "content": "landing_pages/extensionsEditorWorkspaceLandingPage"
+                        },
+                        "running": {
+                            "friendlyName": "Running",
+                            "children": {
+                                "runningWorkspace": { "friendlyName": "Running a Workspace", "children": {}, "content": "resources/Editor/Running/Running_Workspace" },
+                                "runningProject": { "friendlyName": "Running a Project", "children": {}, "content": "resources/Editor/Running/Running_Project" }
+                            },
+                            "content": "landing_pages/extensionsEditorRunningLandingPage"
+                        },
+                        "assets": {
+                            "friendlyName": "Assets",
+                            "children": {
+                                "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
+                                "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
+                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
+                                "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                            },
+                            "content": "landing_pages/extensionsEditorAssetsLandingPage"
+                        },
+                        "scripting": {
+                            "friendlyName": "Scripting",
+                            "children": {
+                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                            },
+                            "content": "landing_pages/extensionsEditorPhysicsLandingPage"
+                        },
+                        "physics": {
+                            "friendlyName": "Physics",
+                            "children": {
+                                "usingPhysics": { "friendlyName": "Using Physics", "children": {}, "content": "resources/Editor/Physics/Using_Physics" }
+                            },
+                            "content": "landing_pages/extensionsEditorScriptingLandingPage"
+                        },
+                        "collisions": {
+                            "friendlyName": "Collisions",
+                            "children": {
+                                "basicCollisions": { "friendlyName": "Basic Collisions", "children": {}, "content": "resources/Editor/Collisions/Basic_Collisions" },
+                                "advancedCollisions": { "friendlyName": "Advanced Collisions", "children": {}, "content": "resources/Editor/Collisions/Advanced_Collisions" }
+                            },
+                            "content": "landing_pages/extensionsEditorCollisionsLandingPage"
+                        },
+                        "troubleshooting": {
+                            "friendlyName": "Troubleshooting",
+                            "children": {
+                                "basicCollisions": { "friendlyName": "Blurred UI", "children": {}, "content": "resources/Editor/Troubleshooting/Blurred_UI" },
+                                "startup": { "friendlyName": "Startup", "children": {}, "content": "resources/Editor/Troubleshooting/Startup" }
+                            },
+                            "content": "landing_pages/extensionsEditorTroubleshootingLandingPage"
+                        }
                     },
                     "content": "landing_pages/extensionsEditorLandingPage"
                 },
