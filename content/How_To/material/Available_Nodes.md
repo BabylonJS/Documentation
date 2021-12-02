@@ -71,6 +71,8 @@ Here is the default list of Node Material Blocks available to use.
         -   Outputs:
             -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
+    Example: <nme id="#98NGSE" title="Replace Color Block Example" description="Simple Replace Color block example."/>
+
 -   Conversion:
 
     -   `ColorMerger`: Combines float input channels into a color.
