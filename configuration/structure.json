@@ -578,17 +578,6 @@
             },
             "content": "landing_pages/divingDeeperLandingPage"
         },
-        "devStories": {
-            "friendlyName": "Dev Stories",
-            "children": {
-                "fruitFalling": {
-                    "friendlyName": "Playground to Production: Fruit Fallin'",
-                    "children": {},
-                    "content": "dev_stories/playground_to_production_fruit_falling"
-                }
-            },
-            "content": "landing_pages/dev_stories_landing_page"
-        },
         "advanced_topics": {
             "friendlyName": "Advanced Topics",
             "children": {
@@ -803,6 +792,17 @@
         "guidedLearning": {
             "friendlyName": "Guided Learning",
             "children": {
+                "devStories": {
+                    "friendlyName": "Dev Stories",
+                    "children": {
+                        "fruitFalling": {
+                            "friendlyName": "Playground to Production: Fruit Fallin'",
+                            "children": {},
+                            "content": "dev_stories/playground_to_production_fruit_falling"
+                        }
+                    },
+                    "content": "landing_pages/dev_stories_landing_page"
+                },
                 "createAGame": {
                     "friendlyName": "Create A Game Tutorial Series",
                     "children": {

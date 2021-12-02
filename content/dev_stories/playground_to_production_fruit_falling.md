@@ -19,10 +19,9 @@ independent production software?**"
 ![Playground to Web? Android? iOS?](/img/devVignettes/fruitFalling/question.jpg!400)
 
 So I went to the Babylon.js docs site and read through an article titled, 
-"Playground to Production: *Fruit Fallin'*." After reading that article, I 
-knew exactly what to do, 
-[what workflow to use](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
-and about how long I could expect it take.
+"Playground to Production: *Fruit Fallin'*." After reading that article 
+(and asking any questions I had on the [forum](https://forum.babylonjs.com)), 
+I knew exactly what to do and about how long I could expect it take.
 
 1.	On my GitHub account, I created a new repository from the 
 [Babylon.js NPM Package Template](https://github.com/BabylonJS/npm-package-template), 
@@ -77,11 +76,14 @@ the process.
 ### Moving Playground Code into a Development Repo
 
 The first step toward developing production code was to move development 
-into a dedicated repository. The Babylon.js NPM Package Template is 
-designed with this in mind, particularly when migrating code from the 
-Babylon.js Typescript Playground, so I decided to use that.
+from [my Playground](https://playground.babylonjs.com/#G4VPXM) into a 
+dedicated repository. The Babylon.js NPM Package Template, a component 
+of the
+[Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+is designed with this in mind, particularly when migrating code from 
+the Babylon.js Typescript Playground, so I decided to use that.
 
-1.  I logged into my GitHub account.
+1.  I logged into my [GitHub](https://github.com/) account.
 
     ![GitHub login](/img/devVignettes/fruitFalling/00_log_in_to_github.jpg!250)
 1.  On the page for the Babylon.js 
@@ -93,9 +95,9 @@ Babylon.js Typescript Playground, so I decided to use that.
     I would have chosen private), then created the repository.
 
     ![Picking repo options](/img/devVignettes/fruitFalling/02_choose_options.jpg!500)
-1.  In a Git-enabled terminal (in my case, Git Bash on Windows), I 
-    navigated to where I wanted my new repo to be and created my local 
-    clone.
+1.  In a [Git](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)-enabled 
+    terminal (in my case, Git Bash on Windows), I navigated to where 
+    I wanted my new repo to be and created my local clone.
 
     ![cd and git clone](/img/devVignettes/fruitFalling/03_clone.jpg!500)
 1.  In an NPM-enabled terminal, I navigated into my new repo and ran
@@ -182,7 +184,7 @@ to asset hosting for development.
     [prior section](#creating-an-asset-host-repo) 
     for creating a new repository from a template, I made a new asset host 
     from the 
-    [Asset Host Template](https://github.com/BabylonJS/npm-package-template),
+    [Asset Host Template](https://github.com/BabylonJS/asset-host-template),
     cloned it down, and installed the NPM dependencies.
 1.  As before, I ran
     
@@ -306,8 +308,12 @@ work the way I wanted it.
     title/menu/options/credits. While there's no real rule for how best
     to separate the concerns of the different modes, I found it useful to 
     have them as separate Babylon `Scene` objects. Specifically, I made new
-    `Scene` subclasses with the behavior I wanted for the different "modes";
-    that made it easy for me to transition between modes by simply 
+    `Scene` subclasses with the behavior I wanted for the different "modes,"
+    such as the
+    [title screen](https://github.com/syntheticmagus/fruit-falling-source/blob/278fe61755d7f16b1d5f0726f1e72c670883df06/app_package/src/titleScene.ts)
+    and
+    [gameplay](https://github.com/syntheticmagus/fruit-falling-source/blob/278fe61755d7f16b1d5f0726f1e72c670883df06/app_package/src/gameScene.ts).
+    That made it easy for me to transition between modes by simply 
     disposing one kind of scene and creating a new instance of the other, 
     thus keeping the logic and resources clean and separated.
 1.  I wrote a fixed framerate observable to simplify having 
@@ -325,14 +331,15 @@ work the way I wanted it.
     advantage of this natural synergy, but I didn't want my logic to be
     vulnerable to variations in framerate; so, borrowing from physics 
     simulation practices, my solution was to make a simple
-    [fixed framerate observable](https://github.com/syntheticmagus/fruit-falling-source/blob/main/app_package/src/fixedFramerateObservable.ts)
+    [fixed framerate observable](https://github.com/syntheticmagus/fruit-falling-source/blob/278fe61755d7f16b1d5f0726f1e72c670883df06/app_package/src/fixedFramerateObservable.ts)
     which drives a guaranteed number of "updates" per second. If the device
     is rendering faster than the desired framerate, this observable will
     "skip" frames until enough time has elapsed; and if the device is 
     rendering slower than the desired framerate, this observable will 
     "double up" on what frames it has so that the same number of "updates"
-    per time are always called. This trick allowed me to write logic that
-    was *frame*-dependent without it becoming vulnerably 
+    per time are always called. This trick allowed me to write 
+    [logic](https://github.com/syntheticmagus/fruit-falling-source/blob/278fe61755d7f16b1d5f0726f1e72c670883df06/app_package/src/drop.ts#L89-L94) 
+    that was *frame*-dependent without it becoming vulnerably 
     frame*rate*-dependent.
 
     ![Frame-dependent game logic](/img/devVignettes/fruitFalling/20_frame_dependent_logic.jpg!500)
