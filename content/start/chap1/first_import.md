@@ -60,14 +60,14 @@ A less obvious statement - different file types may be changed when importing in
 
 You need to be aware of how the type you are using affects the outcome. It is not appropriate at this stage to go into detail but the following examples indicate why this is important.
 
-1. Some software saves all meshes with a rotationQuaternion set and you cannot then use the _rotation_ method unless you first add
+1. Some software saves all meshes with a rotationQuaternion set and you cannot then use the _rotation_ methods unless you first add
 
 ```javascript
 myMesh.rotationQuaternion = null; //Any version of Babylon.js
 ```
 
 ```javascript
-myMesh.rotation = BABYLON.Vector3(); //babylon.js versions > 4.00
+myMesh.rotation = BABYLON.Vector3.Zero(); //babylon.js versions > 4.00
 ```
 
 2. The following two types were exported from exactly the same scene and imported into Babylon.js.

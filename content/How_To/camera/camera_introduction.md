@@ -131,6 +131,10 @@ If required, you can also totally deactivate panning by setting :
 camera.panningSensibility = 0;
 ```
 
+Here's a demo demonstrating some of these things, along with other features of the ArcRotateCamera:
+
+<Playground id="#3B5W22#29" title="ArcRotateCamera Offset Demo" description="A demonstration of setting targetScreenOffset" image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro6.jpg" isMain={true} category="Cameras"/>
+
 ## FollowCamera
 
 The [FollowCamera](/typedoc/classes/babylon.followcamera) does what it says on the tin. Give it a mesh as a target, and from whatever position it is currently at it will move to a goal position from which to view the target. When the target moves, so will the Follow Camera.
