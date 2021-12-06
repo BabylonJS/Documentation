@@ -48,7 +48,7 @@ The WebXR camera can provide you with the height of the current user, unrelated 
 To query the user's height from the real ground use the `realWorldHeight` of the camera:
 
 ```javascript
-const userHeight = xrCamera.realWorldHeight();
+const userHeight = xrCamera.realWorldHeight;
 ```
 
 This function will return the height of the user or 0 if not available.
