@@ -82,9 +82,9 @@ hl.addMesh(sphere, BABYLON.Color3.Green());
 hl.addMesh(ground, BABYLON.Color3.Red());
 ```
 
-<Playground id="#1KUJ0A#1" title="Broken Overlapping Mesh Hilights" description="Simple example of broken overlapping mesh highlights."/>
+<Playground id="#1KUJ0A#1" title="Broken Overlapping Mesh Highlights" description="Simple example of broken overlapping mesh highlights."/>
 
-This is the default behavior optimized for performances. If you are running your scenes on fast enough machine, you can create several highlight layers to workaround the issue:
+This is the default behavior optimized for performance. If you are running your scenes on a fast enough machine, you can create several highlight layers to work around the issue:
 
 ```javascript
 // Add the highlight layer.
@@ -94,11 +94,11 @@ var hl2 = new BABYLON.HighlightLayer("hl2", scene);
 hl2.addMesh(ground, BABYLON.Color3.Red());
 ```
 
-<Playground id="#1KUJ0A#2" title="Overlapping Mesh Hilights" description="Simple example of overlapping mesh highlights."/>
+<Playground id="#1KUJ0A#2" title="Overlapping Mesh Highlights" description="Simple example of overlapping mesh highlights."/>
 
 ### Blur Size
 
-The second ask you will probably have is the ability to animate the blur size of the highlight. You can dynamically change it at run time through the blur size property of the layer:
+The second question you will probably have is the ability to animate the blur size of the highlight. You can dynamically change it at run time through the blur size property of the layer:
 
 ```javascript
 // Add the highlight layer.
@@ -151,9 +151,9 @@ hl.addExcludedMesh(skybox1);
 
 ### Multi Camera
 
-By default, the highlight layer will apply on all active cameras but it creates extra processing on the camera it is not needed.
+By default, the highlight layer will apply on all active cameras but it creates extra processing on the camera where it is not needed.
 
-A chance you can easily specify what camera your highlights are related too in the options:
+You can easily specify what camera your highlights are related to in the options:
 
 ```javascript
 var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: camera });
