@@ -128,9 +128,17 @@ the Babylon.js Typescript Playground, so I decided to use that.
     ![Browser default test app](/img/devVignettes/fruitFalling/05_default_test_app.jpg!700)
 1.  I then went back to the 
     [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM) 
-    and copied all the code.
+    and copied all the code. 
 
     ![Copying my Playground](/img/devVignettes/fruitFalling/06_sprites_orthographic_falling.jpg!500)
+
+    Note: this "copying" process does expect the original code to be in the 
+    *TypeScript* Playground. Code from a *JavaScript* Playground will need
+    to be ported to TypeScript (usually not very difficult) before continuing
+    into the Template Repository Workflow. That kind of code migration isn't
+    a part of this Dev Story, but it should be fairly straightforward, and
+    help is always available on 
+    [the forum](https://forum.babylonjs.com/c/questions).
 1.  In Visual Studio Code (my preferred code editor), I opened up my new
     repo's root directory, then opened the file 
     `app_package/src/Playground/playground.ts` and replaced the `Playground`
