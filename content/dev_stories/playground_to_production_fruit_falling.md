@@ -8,6 +8,11 @@ video-overview:
 video-content:
 ---
 
+Related links: 
+[source](https://github.com/syntheticmagus/fruit-falling-source),
+[assets](https://github.com/syntheticmagus/fruit-falling-assets),
+[demo](https://syntheticmagus.github.io/fruit-falling-source/).
+
 ## High Level Overview
 
 Once upon a time, I was fiddling with an idea in the Babylon.js Playground, 
