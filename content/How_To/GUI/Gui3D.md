@@ -303,7 +303,7 @@ button.content = text1;
 ### TouchHolographicButton
 
 The `TouchHolographicButton` is a newer version `HolographicButton` that is more suited for Hololens 2 volume interactions.  
-It has the same use as `HolographicButton` :
+It has the same use as `HolographicButton`:
 
 ```javascript
 var button = new BABYLON.GUI.TouchHolographicButton("reset");
@@ -317,7 +317,7 @@ text1.fontSize = 48;
 button.content = text1;
 ```
 
-The main functional difference between the `TouchHolographicButton` and `HolographicButton`  is that the `TouchHolographicButton` supports near interactions (such as touching the button directly with hand tracking).
+The main functional difference between the `TouchHolographicButton` and `HolographicButton` is that the `TouchHolographicButton` supports near interactions (such as touching the button directly with hand tracking).
 
 ### HolographicSlate
 
