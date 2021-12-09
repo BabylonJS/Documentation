@@ -47,6 +47,8 @@ Please also note that the following functions are available:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list.
 - `removeControl()`: Removes a control from the root child list.
 
+The manager also supports a scaling option, `manager.useRealisticScaling`, that scales all added controls to a size more comfortable for XR interactions. Alternatively, a custom scaling can be applied to all controls by setting the value of `manager.controlScaling`. Scaling effects done in these ways can be overridden by updating the control's scale normally. Setting either of these values will apply the change to all existing and future controls the manager owns. 
+
 ## Containers
 
 A container is used to organize controls in the scene. The base class for all containers is the `Container3D` class. The `manager.rootContainer` is a `Container3D` object.
@@ -301,7 +303,7 @@ button.content = text1;
 ### TouchHolographicButton
 
 The `TouchHolographicButton` is a newer version `HolographicButton` that is more suited for Hololens 2 volume interactions.  
-It has the same use as `HolographicButton` :
+It has the same use as `HolographicButton`:
 
 ```javascript
 var button = new BABYLON.GUI.TouchHolographicButton("reset");
@@ -314,6 +316,8 @@ text1.color = "Red";
 text1.fontSize = 48;
 button.content = text1;
 ```
+
+The main functional difference between the `TouchHolographicButton` and `HolographicButton` is that the `TouchHolographicButton` supports near interactions (such as touching the button directly with hand tracking).
 
 ### HolographicSlate
 
@@ -376,6 +380,8 @@ near.rows = n;
 ### Hand Menu
 
 The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/divingDeeper/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
+
+By default, the `HandMenu` positions itself on the outer side of the users left hand, and only activates when the user both has their palm facing them and is looking at (facing) their hand. These defaults can be changed by modifying the properties on the `HandConstraintBehavior` attached to the `HandMenu`.
 
 ### Custom controls
 
