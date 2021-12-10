@@ -252,3 +252,22 @@ scene.beginAnimation(sphere, 0, 100, true);
 
 ### The Magic Loop
 As with all Babylon tools, if you've loaded an animation from the snippet server into your scene and then use the GUI Editor to edit that animation. Once you save a new version of that animation, the tool will automatically change the snippet server load line to use your newly created Snippet ID! If you haven't tried this out, you need to, it's awesome!
+
+## Creating Animations With ACE
+
+Now that you've learned all about ACE, let's take a quick minute to go over the most common flow of how to use this awesome tool to create animations for an object in your Babylon.js scene.
+
+Let's start with the basic [playground.](https://playground.babylonjs.com/)
+
+Step 1 - Open the Inspector
+Step 2 - Select an object in the Inspector that you'd like to animate. Let's use the sphere for this example.
+Step 3 - Scroll down in the properties window of the Inspector until you find the Animation group. Click the `Edit` button.
+Step 4 - With ACE loaded, press the `Add New Animation` button.
+Step 5 - Fill out the Display Name and choose what property you'd like to animate. Set the loop mode to your preference.
+Step 6 - Make an animation.
+Step 7 - Save your animation to the Snippet Server.
+Step 8 - Copy your snippet ID number.
+Step 9 - Go back to the playground and write the code to [load your snippet-saved animation](#load-from-the-snippet-server) when the scene starts.
+Step 10 - Select the sphere from the Inspector, open your animation in ACE, edit or change your animation, save to the snippet server. The line of code that loads the animation is automatically updated for you!
+
+So there you have it, the 10 quick steps for the common way to animate an object in Babylon.js using ACE. One final important note: the Animation system in Babylon.js is very advanced. An animation can exist attached to an object, attached to an animation group, or just exist by itself. If you want to create a new animation using ACE, you have to create an animation that is attached to an object. In other words, you cannot create a standalone animation, or an animation attached to an animation group through ACE.
