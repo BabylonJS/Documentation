@@ -235,7 +235,7 @@ scene.beginAnimation(sphere, 0, 100, true);
 <Playground id="#YAWBMY" title="Loaded Animation From Snippet" description="Simple example of loading an animation from the snippet server."/>
 
 ### Load From .JSON Object
-You can load a GUI into your Babylon scene from a saved .JSON object like this:
+You can load an Animation into your Babylon scene from a saved .JSON object like this:
 
 ```javascript
 let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
