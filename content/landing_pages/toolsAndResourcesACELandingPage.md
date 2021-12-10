@@ -16,7 +16,13 @@ Introduced in Babylon.js 5.0, the Animation Curve Editor (ACE for short) is a po
 
 This document will walk you through the editor and all of its capabilities. If you're not already familiar with the Animation system in Babylon.js, you might want to brush up on it here: [Babylon Animation Documentation](/divingDeeper/animation)
 
-You can access ACE in 2 ways:
+To start, check out this awesome video overview of ACE.
+
+<Youtube id="IRP5PVMxth0"/>
+
+## How to access ACE
+
+You can access ACE in 2 different ways:
 
 The first method is to select an existing object in the inspector, find the 'Animations' portion of the properties window, and select the 'Edit' button.
 
@@ -29,8 +35,6 @@ The second method can happen if an animation exists in the scene separate from a
 In this method you select an individual animation in the Inspector and then hit the 'Edit' Button in the properties window for that animation.
 
 <img src="/img/tools/ACE/animation.jpg" title="Loading animation from an existing animation."/>
-
-<Youtube id="IRP5PVMxth0"/>
 
 ## Getting Familiar With The Layout
 
