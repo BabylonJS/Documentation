@@ -664,6 +664,11 @@
                             },
                             "content": "landing_pages/PGsupport/Playground_debuglayer"
                         },
+                        "animationCurveEditor": {
+                            "friendlyName": "Animation Curve Editor",
+                            "children": {},
+                            "content": "landing_pages/toolsAndResourcesACELandingPage"
+                        },
                         "guiEditor": {
                             "friendlyName": "Gui Editor",
                             "children": {},

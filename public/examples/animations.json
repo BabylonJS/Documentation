@@ -1,0 +1,1 @@
+{"animations":[{"name":"move","property":"position","framePerSecond":60,"dataType":1,"loopBehavior":1,"blendingSpeed":0.01,"keys":[{"frame":0,"values":[0,1,0,null,[0,0,0]]},{"frame":50.46360142014612,"values":[0,3.1891140937805176,0,[0,0,0],[0,0,0]]},{"frame":100,"values":[0,1,0,[0,0,0]]}],"ranges":[]}]}
