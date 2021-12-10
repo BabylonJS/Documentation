@@ -114,8 +114,30 @@ BABYLON.SceneLoader.ImportMesh(["myMesh1", "myMesh2"], "./", "duck.gltf", scene,
     // particleSystems are always null for glTF assets
 });
 ```
-
 See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+
+### SceneLoader.ImportMeshAsync
+
+[Asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) version of the ImportMesh function. The result can be obtained by calling on the returned [Promise](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises) or by using the [await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) keyword (note: to be able to use the await keyword in the `createScene` function, it has to be marked as async in its definition). 
+
+```javascript
+// The first parameter can be set to null to load all meshes and skeletons
+const importPromise = BABYLON.SceneLoader.ImportMeshAsync(["myMesh1", "myMesh2"], "./", "duck.gltf", scene);
+importPromise.then((result) => {
+    //// Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
+})
+```
+See an example here: <Playground id="#TVHK90" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+
+or 
+
+```javascript
+// The first parameter can be set to null to load all meshes and skeletons
+const result = await BABYLON.SceneLoader.ImportMeshAsync(["myMesh1", "myMesh2"], "./", "duck.gltf", scene);
+// Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
+```
+
+See an example here: <Playground id="#YAL1RN" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
 ## SceneLoader.LoadAssetContainer
 
