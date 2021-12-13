@@ -106,3 +106,12 @@ scene.beginAnimation(box, endFrame, startFrame, false);
 
 Check it out here: 
 <Playground id="#7V0Y1I#940" title="Playing an Animation in Reverse" description="An example of playing an animation forwards and backwards."/>
+
+
+## The Animation Curve Editor (ACE)
+
+Now that you're starting to understand the basics of animations in Babylon and how to create them, you'll also want to consider taking a look at the Animation Curve Editor (ACE). This super easy-to-use tool allows you to create full animations in a matter of seconds without writing any code!
+
+[Check it out!](/toolsAndResources/tools/animationCurveEditor)
+
+<img src="/img/tools/ACE/overview.jpg" title="Babylon.js Animation Curve Editor"/>
