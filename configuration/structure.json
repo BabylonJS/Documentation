@@ -843,51 +843,6 @@
                 "videos": {
                     "friendlyName": "Video Tutorials",
                     "children": {
-                        "3DWebBasics": {
-                            "friendlyName": "Understanding the Basics of 3D on the Web",
-                            "children": {},
-                            "content": "How_To/Videos/3D_on_the_Web_Understanding_the_Basics"
-                        },
-                        "WebGLBasics": {
-                            "friendlyName": "Understanding the Basics of WebGL",
-                            "children": {},
-                            "content": "How_To/Videos/WebGL_Basics"
-                        },
-                        "bjsBeginners": {
-                            "friendlyName": "Using Babylon.js for Beginners",
-                            "children": {},
-                            "content": "How_To/Videos/Using_Babylon.js_for_Beginners"
-                        },
-                        "materialsInputs": {
-                            "friendlyName": "Understanding Materials and Inputs",
-                            "children": {},
-                            "content": "How_To/Videos/Understanding_Materials_and_Inputs"
-                        },
-                        "gamePipelineIntegration": {
-                            "friendlyName": "Game Pipeline Integration with Babylon.js",
-                            "children": {},
-                            "content": "How_To/Videos/Game_Pipeline_Integration_with_Babylon.js"
-                        },
-                        "loadingAssets": {
-                            "friendlyName": "Loading Assets",
-                            "children": {},
-                            "content": "How_To/Videos/Loading_Assets"
-                        },
-                        "bjsAdvancedFeatures": {
-                            "friendlyName": "Advanced Babylon.js Features",
-                            "children": {},
-                            "content": "How_To/Videos/Babylon.js_Advanced_Features"
-                        },
-                        "specialEffects": {
-                            "friendlyName": "Special Effects",
-                            "children": {},
-                            "content": "How_To/Videos/Special_Effects"
-                        },
-                        "videoCourses": {
-                            "friendlyName": "Video Courses",
-                            "children": {},
-                            "content": "How_To/Videos/Video_courses"
-                        },
                         "3DProgrammingBeginners": {
                             "friendlyName": "3D Programming with WebGL and Babylon.js for Beginners",
                             "children": {},
