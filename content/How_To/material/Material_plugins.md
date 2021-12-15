@@ -27,6 +27,15 @@ class BlackAndWhitePluginMaterial extends BABYLON.MaterialPluginBase {
 
         // we need to mark the material 
         this.markAllAsDirty = material._dirtyCallbacks[BABYLON.Constants.MATERIAL_AllDirtyFlag];
+
+        // let's enable it by default
+        this._enable(true);
+    }
+
+    // Also, you should always associate a define with your plugin because the list of defines (and their values) 
+    // is what triggers a recompilation of the shader: a shader is recompiled only if a value of a define changes.
+    prepareDefines(defines, scene, mesh) {
+        defines["BLACKANDWHITE"] = true;
     }
 
     getClassName() {
@@ -58,7 +67,7 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#1" title="Basic material plugin example" />
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#2" title="Basic material plugin example" />
 
 
 ## More complex plugins
@@ -163,6 +172,7 @@ const myPlugin = new BlackAndWhitePluginMaterial(material);
 
 This is also useful for dynamic loading of plugins.
 
+<Playground id="#22HT5Z#4" title="Material plugin applied to a single material"/>
 
 ## Caveats
 
@@ -170,4 +180,4 @@ This is also useful for dynamic loading of plugins.
 `CUSTOM_VERTEX_DEFINITIONS`, `CUSTOM_VERTEX_MAIN_BEGIN` and `CUSTOM_VERTEX_MAIN_END` in vertex shaders, and `CUSTOM_FRAGMENT_DEFINITIONS`, `CUSTOM_FRAGMENT_MAIN_BEGIN` and `CUSTOM_FRAGMENT_MAIN_END` in fragment shaders. But other `#defines` might not be present.
 - There's no guarantee that using the shader point names / the regular expressions to update code / the variable names with a material plugin will work across Babylon.js versions. We reserve the possibility to update our shader code in a way that would break backward compatibility with those features if we have to. In particular, the color variable name for `standard.fragment.fx` is `color`, while for `pbrMaterial.fragment.fx` it's `finalColor`. If you are writing a plugin targeting multiple materials take care in your code to use different variable names according to the plugin and keep track of Babylon potentially changing (and breaking!) things.
 - `RegisterMaterialPlugin` only adds the plugin to material instantiated AFTER the registration. So it must be run before you add any meshes or create your materials or they won't have the plugin.
-- You can register multiple plugins to the same material. The `priority` field controls the order the plugins will be executed.
+- You can register multiple plugins to the same material (or the entire scene). The `priority` field controls the order the plugins will be executed if they are all enabled.
