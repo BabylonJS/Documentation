@@ -12,8 +12,6 @@ The Blender export plugin can be found on [github repository](https://github.co
 
 Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or below can be found in the `deprecated` folder.
 
-An extension named [Tower of Babel](https://github.com/BabylonJS/BlenderExporter) can also be used as exporter. It exports JavaScript modules with in-line geometry and simplifies the loading process. See its readme or that of the [QueuedInterpolation](https://github.com/BabylonJS/BlenderExporter) extension, which it is part of, to know more about its functionalities, and access its proper documentation.
-
 ## Installation
 
 This add-on use the standard Blender installation procedure:
