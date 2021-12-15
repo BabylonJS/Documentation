@@ -1,3 +1,13 @@
+---
+title: Material Plugins
+image:
+description: Create plugins to customize shaders of existing materials
+keywords: diving deeper, materials, plugins, shader
+further-reading:
+video-overview:
+video-content:
+---
+
 # Material
 
 As of v5.0 Babylon includes a Material Plugin system, which allows customization of an existing material with custom shader code. This adds a lot of flexibility, since one can easily modify the behavior of existing materials with special effects without having to rewrite the entire shader code, in a simple and reusable way.
