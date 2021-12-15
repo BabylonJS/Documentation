@@ -103,7 +103,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#125" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
+<Playground id="#3URR7V#129" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
@@ -111,7 +111,7 @@ Note that in the sample we are calling `dispatchWhenReady()` for the first compu
 
 ### Compute Boids
 
-<Playground id="#3URR7V#114" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds"/>
+<Playground id="#3URR7V#130" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds"/>
 
 This is a direct port of the WebGPU sample [computeBoids](http://austin-eng.com/webgpu-samples/samples/computeBoids).
 
@@ -123,7 +123,7 @@ As the storage buffers we use to compute the particle positions and velocities w
 
 ### Hydraulic erosion
 
-<Playground id="#C90R62#5" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
+<Playground id="#C90R62#9" engine="webgpu" title="Hydraulic erosion" description="Simulate erosion to make terrains look more natural"/>
 
 This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLague/Hydraulic-Erosion): all credits to sebastlague@gmail.com!
 
@@ -133,7 +133,7 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 ### Slime simulation
 
-<Playground id="#GXJ3FZ#40" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
+<Playground id="#GXJ3FZ#43" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
@@ -141,7 +141,7 @@ The implentation in WGSL is a little less pretty than the HLSL one because at th
 
 ### Ocean demo
 
-<Playground id="#YX6IB8#28" engine="webgpu" title="Ocean demo" description="Ocean simulation"/>
+<Playground id="#YX6IB8#36" engine="webgpu" title="Ocean demo" description="Ocean simulation"/>
 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 
