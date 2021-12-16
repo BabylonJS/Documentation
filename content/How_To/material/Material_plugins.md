@@ -14,7 +14,7 @@ As of v5.0 Babylon includes a Material Plugin system, which allows customization
 
 This is incredibly useful and powerful, since materials can be changed at runtime and have effects that were previously only possible with complex multi-pass renderings or postprocessing. 
 
-Let's start with an example: suppose you want an object to be rendered in black and white. All you want it to change the end of its shader, converting the final fragment color to grayscale. To do that you create a material plugin modifying that part of the shader code.
+Let's start with an example: suppose you want an object to be rendered in black and white. All you want is to change the end of its shader, converting the final fragment color to grayscale. To do that you create a material plugin modifying that part of the shader code.
 
 ```js
 /**
@@ -22,8 +22,10 @@ Let's start with an example: suppose you want an object to be rendered in black 
  */
 class BlackAndWhitePluginMaterial extends BABYLON.MaterialPluginBase {
     constructor(material) {
-        // last parameter is a priority, which lets you define the order multiple plugins are run.
-        super(material, "BlackAndWhite", 200);
+        // the second parameter is the name of this plugin.
+        // the third one is a priority, which lets you define the order multiple plugins are run. Lower numbers run first.
+        // the fourth one is a list of defines used in the shader code.
+        super(material, "BlackAndWhite", 200, { "BLACKANDWHITE": false });
 
         // we need to mark the material 
         this.markAllAsDirty = material._dirtyCallbacks[BABYLON.Constants.MATERIAL_AllDirtyFlag];
@@ -67,12 +69,14 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#2" title="Basic material plugin example" />
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#3" title="Basic material plugin example" />
 
 
 ## More complex plugins
 
-Sometimes your plugins will need to get uniforms. This is also possible with the plugins, which can register defines and uniforms. Let's take a look at a more involved example
+Sometimes your plugins will need to get uniforms. This is also possible with the plugins, which can register defines and uniforms. 
+
+Let's take a look at a more involved example, which is not enabled by default but has proper enable/disable controls as well.
 
 ```js
 class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
@@ -94,7 +98,7 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
         this._enable(this._isEnabled);
     }
 
-    _isEnabled = true;
+    _isEnabled = false;
 
     constructor(material) {
         // the fourth parameter is a list of #defines in the GLSL code
@@ -181,3 +185,13 @@ This is also useful for dynamic loading of plugins.
 - There's no guarantee that using the shader point names / the regular expressions to update code / the variable names with a material plugin will work across Babylon.js versions. We reserve the possibility to update our shader code in a way that would break backward compatibility with those features if we have to. In particular, the color variable name for `standard.fragment.fx` is `color`, while for `pbrMaterial.fragment.fx` it's `finalColor`. If you are writing a plugin targeting multiple materials take care in your code to use different variable names according to the plugin and keep track of Babylon potentially changing (and breaking!) things.
 - `RegisterMaterialPlugin` only adds the plugin to material instantiated AFTER the registration. So it must be run before you add any meshes or create your materials or they won't have the plugin.
 - You can register multiple plugins to the same material (or the entire scene). The `priority` field controls the order the plugins will be executed if they are all enabled.
+
+## Material Plugin Examples
+
+Here are some other examples of plugins:
+
+<Playground id="#HCLC5W#1" title="Using a class variable to animate a parameter for all instances"/>
+<Playground id="#SYQW69#947" title="Power plant with volumetric fog"/>
+<Playground id="#IQPBS4#46" title="Grain (solves banding issues)"/>
+
+You can also take a look at Babylon's source code. The PBR material includes several complex plugins, such as the [Anisotropic plugin](https://github.com/BabylonJS/Babylon.js/blob/master/src/Materials/PBR/pbrAnisotropicConfiguration.ts), [sheen](https://github.com/BabylonJS/Babylon.js/blob/master/src/Materials/PBR/pbrSheenConfiguration.ts) and [subsurface](https://github.com/BabylonJS/Babylon.js/blob/master/src/Materials/PBR/pbrSubSurfaceConfiguration.ts), and the [detail map plugin applies to PBR and Standard materials](https://github.com/BabylonJS/Babylon.js/blob/master/src/Materials/material.detailMapConfiguration.ts).
