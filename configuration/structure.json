@@ -261,7 +261,8 @@
                                 "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
                                 "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
                                 "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
-                                "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" }
+                                "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
+                                "materialPlugins": { "friendlyName": "Material Plugins", "children": {}, "content": "resources/Manual/Material_plugins" }
                             },
                             "content": "landing_pages/diving_deeper_use_material_landing_page"
                         },
