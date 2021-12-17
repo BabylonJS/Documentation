@@ -39,7 +39,7 @@ There are two different modes available when SR is enabled:
 
 Whatever the mode, as the draw calls of a given frame are recorded and replayed for all subsequent frames, adding or removing meshes won't work. You will need to disable the SR mode if you want to add/remove meshes and re-enable it afterwards.
 
-## Caveasts
+## Caveats
 
 ### Always set `alwaysSelectAsActiveMesh` to `true`
 Given how SR works, you will probably always want to set `alwaysSelectAsActiveMesh = true` to all your meshes because if this property is `false` (default value) and the mesh is not displayed when recording the snapshot, no draw calls will be recorded for this mesh, meaning that if you move the camera later on that should make this mesh visible, it still won't be visible.
@@ -52,8 +52,11 @@ It's hard to list everything that will work/won't work depending on the mode, so
 
 eCommerce sites may greatly benefit from this feature as the scene is normally quite small with everything visible on screen. Also, there's generally not a lot dynamicity and when something needs to be updated it's a "one shot" update, so either calling `snapshotRenderingReset` or disabling temporarily the feature should work.
 
+### Enable the snapshot rendering mode at the right time
+Make sure everything is ready in your scene to be rendered the next frame after you set `engine.snapshotRendering = true`! Indeed, once you set the `snapshotRendering` to `true`, the next frame is recorded and replayed afterwards. If some textures (for eg) were not ready at that time, the mesh won't be rendered in the frame that is recorded and so won't never be visible. You should probably always set `engine.snapshotRendering = true` inside a `scene.executeWhenReady(...)` callback.
+
 ## Examples
-Here's a PG that demonstrates using the snapshot rendering feature: <Playground id="#SYQW69#915" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
+Here's a PG that demonstrates using the snapshot rendering feature: <Playground id="#SYQW69#951" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
 
 You can choose to disable or enable standard / fast SR mode. Depending on the mode, you will see the javascript time it takes to render a frame (**Frame total**) and the virtual fps (the fps you would have if there was no GPU rendering / the fps was not capped by the browser - it is simply `1000/Frame total`).
 
@@ -61,14 +64,32 @@ In fast mode, animating light / updating the bias would not work for the reasons
 * the **bias**, the PG calls `engine.snapshotRenderingReset()` so that the bias is taken into account for the next frame and the snapshot is recreated at that time too
 * the **Animate light** checkbox, the PG switches to standard SR mode until you uncheck the box. It happens moving the light does work in standard SR mode: had it not work, we would have switched to SR disabled mode instead.
 
-Note also that in the fast SR mode you must handle the update of the position of the sky yourselves because the uniform buffers are not updated by the system (except for the scene buffer). It is done like this:
-```javascript
-const world = sky.computeWorldMatrix();
-
-sky.getMeshUniformBuffer().bindToEffect(sky.material.getEffect(), "Mesh");
-sky.transferToEffect(world);
-```
+Note also that in the fast SR mode you must handle the update of the position of the sky yourselves because the uniform buffers are not updated by the system (except for the scene buffer). See the **Advanced usages for the fast mode** section for more detail.
 
 Here's another PG using the glow layer: <Playground id="#LRFB2D#182" engine="webgpu" title="Snapshot rendering with glow layer" description="Demonstrate how to use the snapshot rendering standard mode with glow layer"/>
 
-This PG is using the standard SR mode because the fast mode does not work (try to set the fast mode and see for yourself). Also, when a resize kicks in, we need to disable the SR mode and re-enable it only when the glow layer had time to recreate its internal texture with the new size. That's why we use a `setTimeout(..., 1)` to re-enable the SR mode.
+This PG is using the standard SR mode because the fast mode does not work (try to set the fast mode and see for yourself - however, see next section for a way to make it work). Also, when a resize kicks in, we need to disable the SR mode and re-enable it only when the glow layer had time to recreate its internal texture with the new size. That's why we use a `setTimeout(..., 1)` to re-enable the SR mode.
+
+## Advanced usages for the fast SR mode
+The fast SR mode is the most interesting mode as your scene can be handled several order of magnitude faster than with SR disabled (or even using the standard SR mode).
+
+Here are a number of ways to overcome some of its limitations.
+
+### Updating position of meshes
+The world matrix and the `visibility` property of a mesh is stored in a specific `Mesh` uniform buffer. In the fast SR mode, this uniform buffer is not updated automatically, so if you update the `position`/`rotation`/`scaling` or the `visibility` property it won't have any effect on the screen.
+
+You should call `mesh.transferToEffect(world)` to update the uniform buffer.
+
+Here's an example: <Playground id="#7YW416#3" engine="webgpu" title="Update mesh matrix in fast SR mode" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode"/>
+
+### Using the glow layer
+As demonstrated in the **Examples** section above the glow layer does not work out of the box in the fast SR mode. With a bit of manual work it can be made to work, though:
+
+<Playground id="#LRFB2D#218" engine="webgpu" title="Use glow layer in fast SR mode" description="Demonstrates how to make the glow layer work in fast snapshot rendering mode"/>
+
+You will need to call the `updateEffectLayer` method each time the camera or the meshes of the glow layer move/rotate. If only a subset of the meshes are in the glow layer, you can change the method to loop through this reduced list instead of looping over all the meshes of the scene.
+
+### Animating bones
+To make skeleton animations work in the fast SR mode, you simply need to call the `prepare` method on the skeletons you want to animate:
+
+<Playground id="#WGZLGJ#4072" engine="webgpu" title="Use bones in fast SR mode" description="Demonstrates how to make bones work in fast snapshot rendering mode"/>
