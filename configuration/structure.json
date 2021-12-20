@@ -607,6 +607,11 @@
                     "children": {},
                     "content": "resources/Manual/Multi-Platform_Compressed_Textures"
                 },
+                "renderPasses": {
+                    "friendlyName": "Render pass ids",
+                    "children": {},
+                    "content": "resources/Manual/Render_pass_ids"
+                },
                 "shaders": {
                     "friendlyName": "Shaders",
                     "children": {
