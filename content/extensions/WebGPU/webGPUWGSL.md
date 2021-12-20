@@ -125,7 +125,7 @@ You can also use some built-ins that have the same names than in GLSL:
 You can use the standard WGSL syntax to declare:
 * custom uniform buffers:
 ```wgsl
-[[block]] struct MyUBO {
+struct MyUBO {
     scale: f32;
 };
 
@@ -137,7 +137,7 @@ var storageTexture : texture_storage_2d<rgba8unorm,write>;
 ```
 * storage buffers:
 ```wgsl
-[[block]] struct Buffer {
+struct Buffer {
     items: array<f32>;
 };
 var<storage,read_write> storageBuffer : Buffer;
