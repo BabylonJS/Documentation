@@ -30,9 +30,7 @@ Creating the engine is also asynchronous in WebGPU. You can do something like th
 async function createEngine() {
     const webGPUSupported = await BABYLON.WebGPUEngine.IsSupportedAsync;
     if (webGPUSupported) {
-        const engine = new BABYLON.WebGPUEngine(document.getElementById("renderCanvas"), {
-            forceCopyForInvertYFinalFramebuffer : true
-        });
+        const engine = new BABYLON.WebGPUEngine(document.getElementById("renderCanvas"));
         await engine.initAsync();
         return engine;
     }
@@ -42,9 +40,7 @@ async function createEngine() {
 Or using the `EngineFactory` helper (it will try first to create a WebGPU engine if supported, then a WebGL engine then a null engine):
 ```javascript
 async function createEngine() {
-    return BABYLON.EngineFactory.CreateAsync(document.getElementById("renderCanvas"), {
-        forceCopyForInvertYFinalFramebuffer : true
-    });
+    return BABYLON.EngineFactory.CreateAsync(document.getElementById("renderCanvas"));
 }
 ```
 
