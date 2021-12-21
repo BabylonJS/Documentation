@@ -635,8 +635,15 @@
                         "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
                         "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
                         "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
-                        "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/webGPUSnapshotRendering" },
-                        "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" }
+                        "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" },
+                        "webGPUOptimization": {
+                            "friendlyName": "Optimizations",
+                            "children": {
+                                "webGPUNonCompatibilityMode": { "friendlyName": "Non Compatibility Mode", "children": {}, "content": "extensions/WebGPU/webGPUNonCompatibilityMode" },
+                                "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/webGPUSnapshotRendering" }
+                            },
+                            "content": "extensions/WebGPU/webGPUOptimizations"
+                        }
                     },
                     "content": "extensions/WebGPU/webGPU"
                 },
