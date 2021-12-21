@@ -84,7 +84,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#13" title="Slide with Faster Rotatation" description="The simple slide animation with faster rotation." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
+- <Playground id="#9WUJN#13" title="Slide with Faster Rotation" description="The simple slide animation with faster rotation." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
 
 ### Slide and Varying Rotation Rate
 
@@ -119,7 +119,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#14" title="Slide with Varying Rotatation Rate" description="The simple slide animation with varying rotation rates." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
+- <Playground id="#9WUJN#14" title="Slide with Varying Rotation Rate" description="The simple slide animation with varying rotation rates." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
 
 ## Consecutive Animations
 
