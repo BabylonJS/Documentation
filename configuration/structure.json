@@ -643,6 +643,13 @@
                                 "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/webGPUSnapshotRendering" }
                             },
                             "content": "extensions/WebGPU/webGPUOptimizations"
+                        },
+                        "webGPUInternals": {
+                            "friendlyName": "Internals",
+                            "children": {
+                                "webGPUOverview": { "friendlyName": "Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" }
+                            },
+                            "content": "extensions/WebGPU/webGPUInternals"
                         }
                     },
                     "content": "extensions/WebGPU/webGPU"
