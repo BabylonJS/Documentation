@@ -19,7 +19,7 @@ This add-on use the standard Blender installation procedure:
 - Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (_Blender2Babylon-X.X.zip_, you don't need to unzip).
 - In Blender, go to `File` menu > `User Preferences`.
 - Switch to the `Add-ons` tab.
-- (optionnal) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
+- (optional) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
 - Click the `Install from File...` button at the bottom.
 - Select the zip file and click the `Install Add-on from File...` button.
 - Check the box to enable it.
