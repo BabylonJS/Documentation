@@ -23,7 +23,7 @@ This will load the file [*environmentSpecular.env*](https://assets.babylonjs.com
 To load a custom env texture, simply set the `scene.environmentTexture`:
 
 ```javascript
-var hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment.env", scene);
+var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment.env", scene);
 scene.environmentTexture = hdrTexture;
 ```
 
