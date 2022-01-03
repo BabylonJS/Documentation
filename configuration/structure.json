@@ -925,6 +925,11 @@
                     },
                     "content": "landing_pages/extensions_CMS_landingpage"
                 },
+                "bufferedInterpolation": {
+                    "friendlyName": "Buffered Interpolation",
+                    "children": {},
+                    "content": "extensions/bufferedInterpolation"
+                },
                 "castorGUI": {
                     "friendlyName": "Castor GUI",
                     "children": {
