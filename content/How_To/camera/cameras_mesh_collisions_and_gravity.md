@@ -51,7 +51,7 @@ Since this is computed once per frame, the camera isn't actually "moving," it is
 If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/divingDeeper/physics/usingPhysicsEngine), or [add your own](/divingDeeper/physics/addPhysicsEngine).
 
 #### A Warning
-Mixing mesh collisions and the physics engine will lead to unexpected behavior.
+Adding both physics impostors and setting collision enabled to the same object might lead to unexpected behavior.
 
 ### 2. Define an ellipsoid
 
