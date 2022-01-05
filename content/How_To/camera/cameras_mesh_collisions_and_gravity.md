@@ -48,7 +48,10 @@ scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0)
 
 Since this is computed once per frame, the camera isn't actually "moving," it is making tiny "hops" along the direction of the gravity vector. This may be important if you are relying on collision detection to determine if the camera (or, rather, a mesh attached to it for that purpose) has "entered" or "exited" some other mesh (for example, a plane under your "ground" layer to sense a falling character and reset the game play). Depending on your chosen gravity, the starting elevation, and the position and height of the "trigger" mesh, the camera may jump _right through_ the trigger mesh without ever "intersecting" it. Be sure to check the math to ensure that at least one multiple of `scene.gravity` added to the starting elevation will intersect your trigger mesh.
 
-If you need a more accurate representation of gravitational (or other) forces, you can add your own physics engine. See [Add Your Own Physics Engine](/divingDeeper/physics/addPhysicsEngine).
+If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/divingDeeper/physics/usingPhysicsEngine), or [add your own](/divingDeeper/physics/addPhysicsEngine).
+
+#### A Warning
+Mixing mesh collisions and the physics engine will lead to unexpected behavior.
 
 ### 2. Define an ellipsoid
 
