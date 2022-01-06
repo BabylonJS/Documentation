@@ -44,6 +44,8 @@ path|_(Vector3[])_  array of Vector3, the extrusion axis **REQUIRED** |
 scale|_(number)_  the value to scale the shape|1
 rotation|_(number)_  the value to rotate the shape each step along the path|0
 cap|_(number)_ extrusion cap : NO_CAP, CAP_START, CAP_END, CAP_ALL|NO_CAP
+closeShape|_(boolean)_ closes the shape, no need to push shape[0] to shape array|false
+closePath|_(boolean)_ closes the path, no need to push path[0] to path array|false
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option** | Vector4(0,0, 1,1) 
@@ -52,14 +54,33 @@ instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
 
 ### Examples
-non updatable extrusion: <Playground id="#MR8LEL#2" title="Non Updatable Extrusion" description="Simple example of non updatable extrusions."/>
-update of extrusion including, shape, path, scale and rotation: <Playground id="#MR8LEL#3" title="Updatable Extrusion" description="Simple example of updatable extrusions." isMain={true} category="Mesh"/>
-extrusion with open shape: <Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Simple example of extrusion with open shpaes."/>
+ <Playground id="#MR8LEL#2" title="Close Shape by Push" description="Closed shape extrusion."/>  
 
-spiral extrusion with straight path and rotation set: <Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion."/>  
+ closed using shape.push(shape[0])  
 
-capped extrusion: <Playground id="#MR8LEL#6" title="Capped Extrusion" description="Simple example of capped extrusion."/>
-profile that does not cap correctly: <Playground id="#MR8LEL#7" title="Incorrectly Capped Extrusion" description="Simple example of inocrrectly capped extrusion."/>
+<Playground id="#MR8LEL#738" title="CloseShape is True" description="Closed shape extrusion."/>  
+
+closed using closeShape: true  
+
+<Playground id="#MR8LEL#739" title="Updatable Extrusion" description="Updatable extrusion." isMain={true} category="Mesh"/>  
+
+update of extrusion including, shape, path, scale and rotation  
+  
+<Playground id="#MR8LEL#4" title="Extrusion With Open Shape" description="Open shape extrusion."/>  
+
+extrusion with open shape  
+  
+<Playground id="#MR8LEL#5" title="Spiral Extrusion" description="Simple example of spiral extrusion."/>  
+
+spiral extrusion with straight path and rotation set:    
+
+<Playground id="#MR8LEL#740" title="Capped Extrusion" description="Capped extrusion."/>  
+
+capped extrusion   
+
+ <Playground id="#MR8LEL#741" title="Incorrectly Capped Extrusion" description="Incorrectly capped extrusion."/>  
+
+ shape profile that does not cap correctly  
 
 
 ## Mesh
