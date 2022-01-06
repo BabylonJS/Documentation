@@ -146,7 +146,7 @@ const someStrategyCallback = (scene) => {
 When added to the performance collector, the collector passes the scene object as a parameter to the function (you can omit the scene parameter if you would like).
 The function allows for any initialization of observers and other resources.
 
-The id parameter is the name of the strategy. Make sure to have a unique id, or else there may be unintended side effects. The left sidebar will display the id defined.
+The id parameter is the name of the strategy. Make sure to have a unique id, or else there may be unintended side effects. Also, if your id contains the character "@", the character will be removed, since it is already used when exporting data. The left sidebar will display the id defined.
 The getData function in the object must return a number that cannot be NaN. It is called once per frame.
 The dispose function in the object should do any clean-up of resources created in the initialization part of the function.
 
