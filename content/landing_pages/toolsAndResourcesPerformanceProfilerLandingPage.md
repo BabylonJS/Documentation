@@ -10,11 +10,13 @@ video-content:
 
 ## What is it?
 
-Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this new tool can help you easily identify performance issues and hiccups in your scene. added to the statistics tab of the inspector. 
+Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual performance debugging tool. As you develop your Babylon experience, this new tool can help you easily identify performance issues and hiccups in your scene.
 
-<img src="/img/tools/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
+<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
 
-Available in the statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment.
+Available in the Statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment. The data is normalized on the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position. This means values that don't change during the visualized range appear as a straight line on the top of the graph.
+
+<img src="/img/tools/PerfViewer/PerfProfilerLine.png" title="Example of a value that does not change (Draw calls) on the visualized range"/>
 
 The Performance Profiler can collect and display 3 types of data: 1) all the data under the statistics tab, 2) user-defined data, and 3) user-defined events through code.
 
@@ -25,11 +27,11 @@ It has two modes for recording data:
 ## Use Case
 
 You would want to use this to debug any performance issues in your scene and figure out a potential cause. 
-For example, you may notice that fps drops whenever you do a specific action in the scene, and that draws increase simultaneously. 
+For example, you may notice that FPS drops whenever you do a specific action in the scene, and that draws increase simultaneously.
 
 ## How to use it
 
-<img src="/img/tools/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
+<img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
 
 There are four buttons to choose from on this screen:
  - Open Realtime Perf Viewer
@@ -40,15 +42,13 @@ There are four buttons to choose from on this screen:
 "Open Realtime Perf Viewer" will open the performance viewer popout in real-time graph mode. 
 While "Load Perf viewer using CSV" will open the performance viewer popout in a view-only mode. 
 
-<img src="/img/tools/performanceViewerPopout.png" title="Babylon.js Performance Viewer Popout"/>
+<img src="/img/tools/PerfViewer/PerformanceViewerPopout.png" title="Babylon.js Performance Viewer Popout"/>
 
-The left sidebar in the popout holds the activated collection types. It allows the user to toggle visibility and change color through the checkbox and color picker, respectively. 
-
-The right sidebar contains tickers showing the current value followed by "(min in view, max in view)." The tickers let you know what the topmost value and the bottom-most value mean. 
+The left sidebar in the popout holds the activated collection types. It allows the user to toggle visibility and change color through the checkbox and color picker, respectively.
+<img src="/img/tools/PerfViewer/PerfProfilerColor.png" title="Changing the color of a collection type through the color picker"/>
 
 The center contains the graph, and you can hover at a particular timestamp to view all data values at the timestamp. 
-<img src="/img/tools/performanceViewerTooltip.png" title="Babylon.js Performance Viewer Tooltip"/>
-
+<img src="/img/tools/PerfViewer/PerfProfilerHover.png" title="Popout"/>
 
 You can zoom in and out using the mouse wheel. 
 
@@ -57,13 +57,14 @@ You can pan the graph by dragging while clicking, taking the graph out of the li
 You can hover over a single line outside the live data stream to focus on it, fading out the other lines. 
 
 A horizontal line shows where that point is relative to every other point on the focused line.
-<img src="/img/tools/performanceViewerLineFocus.png" title="Babylon.js Performance Viewer Line Focus"/>
+
+<img src="/img/tools/PerfViewer/PerformanceViewerFocus.png" title="Babylon.js Performance Viewer Line Focus"/>
 
 To return to the live data stream, you can either catch up to the live data stream or conveniently click the "Return" button.
 
-**NOTE**: The information on the right sidebar may move to the left sidebar.
-
 "Begin Recording" will only begin recording in headless recording mode. This button also will allow you to stop recording when it changes the text to "Stop recording."
+
+<img src="/img/tools/PerfViewer/PerfProfilerStopRecording.png" title="Babylon.js Performance Viewer Line Focus"/>
 
 "Export Perf to CSV" allows you to export the performance recording to a CSV. The CSV export provides for sharing of performance data and also importing at a later time.
 
@@ -77,51 +78,42 @@ Therefore, real-time graph mode will allow you to see a graph updating once per 
 Headless recording mode will have a lower performance impact and not rely on the popout, useful for mobile.
 
 ## Collection Strategies
-A collections strategy is just a strategy defining how to collect the data and do clean up appropriately.
+A collection strategy is just a strategy defining how to collect the data and do clean up appropriately.
 
 There are many collection strategies already defined for you in the PerfCollectionStrategy class.
 
 We currently support these out of the box:
-- FpsStrategy
-- TotalMeshesStrategy
-- ActiveMeshesStrategy
-- ActiveIndiciesStrategy
-- ActiveFacesStrategy
-- ActiveBonesStrategy
-- ActiveParticlesStrategy
-- DrawCallsStrategy
-- TotalLightsStrategy
-- TotalVerticesStrategy
-- TotalMaterialsStrategy
-- TotalTexturesStrategy
-- AbsoluteFpsStrategy
-- MeshesSelectionStrategy
-- RenderTargetsStrategy
-- ParticlesStrategy
-- SpritesStrategy
-- AnimationsStrategy
-- PhysicsStrategy
-- RenderStrategy
-- FrameTotalStrategy
-- InterFrameStrategy
-- GpuFrameTimeStrategy
-- CpuStrategy
+
+| Id | Strategy |
+| -- | -------- |
+| FPS | FpsStrategy |
+| Total Meshes | TotalMeshesStrategy |
+| Active Meshes | ActiveMeshesStrategy |
+| Active Indices | ActiveIndicesStrategy |
+| Active Faces | ActiveFacesStrategy |
+| [Active Bones](/divingDeeper/mesh/bonesSkeletons) | ActiveBonesStrategy |
+| [Active Particles](/divingDeeper/particles) | ActiveParticlesStrategy |
+| Draw Calls | DrawCallsStrategy |
+| [Total Lights](https://doc.babylonjs.com/divingDeeper/lights) | TotalLightsStrategy |
+| Total Vertices | TotalVerticesStrategy |
+| [Total Materials](https://doc.babylonjs.com/divingDeeper/materials) | TotalMaterialsStrategy |
+| Total Textures | TotalTexturesStrategy |
+| Absolute FPS | AbsoluteFpsStrategy |
+| [Meshes Selection](/divingDeeper/scene/optimizeOctrees#optimizing-meshes-selection-for-rendering) | MeshesSelectionStrategy |
+| Render Targets | RenderTargetsStrategy |
+| Particles | ParticlesStrategy |
+| [Sprites](/divingDeeper/sprites) | SpritesStrategy |
+| Animations | AnimationsStrategy |
+| [Physics](/divingDeeper/physics) | PhysicsStrategy |
+| Render | RenderStrategy |
+| Frame Total | FrameTotalStrategy |
+| Inter Frame | InterFrameStrategy |
+| GPU Frame Time | GpuFrameTimeStrategy |
+| [CPU Utilization](https://web.dev/compute-pressure/) | CpuStrategy |
+
 
 The CPU strategy is more experimental as it uses the experimental computer pressure API. This strategy may not work as intended for all users.
 You might have to enable experimental web features in chrome settings to enable this. This strategy allows you to know the utilization percentage of the CPU.
-
-We only collect a few data sources by default, but you can add more of these predefined data sources.
-Let's say we want to add the TotalLightsStrategy. To do this, we would do the following:
-
-First, get the performance collector like so:
-```javascript
-const perfCollector = scene.getPerfCollector();
-```
-
-Then add the total lights strategy:
-```javascript
-perfCollector.addCollectionStrategies(BABYLON.PerfCollectionStrategy.TotalLightsStrategy);
-```
 
 ## Adding a custom collection strategy
 
@@ -132,7 +124,7 @@ To start, you must define a function that returns an object like so:
 // This variable would be updated somewhere else.
 var someVariableToTrack;
 
-const someStrategy = (scene) => {
+const someStrategyCallback = (scene) => {
     return {
         /**
         * The id of the strategy.
@@ -186,15 +178,26 @@ In the function, we create two observers and update the value of draw calls in t
 We return the value of draw calls in getData.
 We remove all observers inside the dispose function.
 
-Now that you have a collection strategy, you have to add it to the performance collector.
+Now that you have a collection strategy, you have to add it to the performance collector. To do so, you also have to specify a category for your strategy to be displayed in the left bar (you can leave it empty to display on top), and if that strategy is hidden or visible by default.
+
 First, get the performance collector like so:
 ```javascript
 const perfCollector = scene.getPerfCollector();
 ```
 Then add the strategy we defined earlier to the performance collector:
 ```javascript
+const someStrategy = {
+    strategyCallback: someStrategyCallback,
+    category: "My custom category",
+    hidden: false
+}
 perfCollector.addCollectionStrategies(someStrategy);
 ```
+
+<img src="/img/tools/PerfViewer/PerfViewerCustom.png" title="Custom strategies and categories"/>
+
+
+<Playground id="#VK7KBX" title="Custom Performance Profiler strategies" description="Example of defining and visualizing your own custom profiler strategies"/>
 
 ## Registering a custom event.
 An event is a particular type of strategy that can measure the number of times it was called in a frame or track a named custom value (related to an event usually) once per frame.
@@ -218,6 +221,8 @@ If you want to count the number of times an event was called, you would want the
 perfCollector.sendEvent(event);
 ```
 
+<Playground id="#WSVER7" title="Custom Performance Profiler event" description="Example of defining and visualizing your own custom profiler events"/>
+
 If you want to track a custom value once per frame related to an event, try this:
 ```javascript
 // somewhere in the code you want this
@@ -228,3 +233,5 @@ perfCollector.sendEvent(event);
 ```
 
 **Note**: You shouldn't set the value property to undefined after selecting a value for it. Doing so may result in unexpected behavior (this will switch between counting the number of occurrences and tracking a custom value related to an event).
+
+<Playground id="#SGLKK6" title="Custom Performance Profiler event with value" description="Example of defining and visualizing your own custom profiler events with values"/>
