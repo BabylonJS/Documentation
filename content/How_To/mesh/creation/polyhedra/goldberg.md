@@ -105,13 +105,13 @@ const colorArray = [
 ]
 ```
 
-PG: <Playground id="#A8VZGP#9" title="Color Faces" description="Coloring individual faces"/>
+PG: <Playground id="#A8VZGP#34" title="Color Faces" description="Coloring individual faces"/>
 
-PG: <Playground id="#A8VZGP#18" title="Pick and Color" description="Pick a face and color red"/>
+PG: <Playground id="#A8VZGP#35" title="Pick and Color" description="Pick a face and color red"/>
 
-PG: <Playground id="#A8VZGP#4" title="Adjacent Faces" description="Faces immediately adjacent"/>
+PG: <Playground id="#A8VZGP#36" title="Adjacent Faces" description="Faces immediately adjacent"/>
 
-PG: <Playground id="#A8VZGP#5" title="Random Adjacent Faces" description="Moving from face to adjacent face"/>
+PG: <Playground id="#A8VZGP#37" title="Random Adjacent Faces" description="Moving from face to adjacent face"/>
 
 #### Textures
 Groups of faces can have their texture changed by using
@@ -143,13 +143,13 @@ Fig 4 - Texture Map to Apply to Different Faces
 
 In the following playground different areas of the texture map from Fig 4 are applied to the 12 polar regions and to the shared faces
 
-PG: <Playground id="#A8VZGP#10" title="Different Textures" description="The poles and their close neighbours share textures"/>
+PG: <Playground id="#A8VZGP#38" title="Different Textures" description="The poles and their close neighbours share textures"/>
 
 ![Texture](https://assets.babylonjs.com/environments/redarrow.jpg)
 Fig 5 - Same Texture for the Hexagonal Faces
 In the following playground the same area is applied to all the hexagonal faces and a blank area to the poles.
 
-PG: <Playground id="#A8VZGP#12" title="Angling Textures" description="Changing the angle of a texture area"/>
+PG: <Playground id="#A8VZGP#39" title="Angling Textures" description="Changing the angle of a texture area"/>
 
 #### Placing Meshes
 A mesh can be placed on a face using
@@ -172,7 +172,7 @@ goldbergPoly.placeOnGoldbergFaceAt(box, 32, position);
 ```
 Meshes should be sized accoring to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face * &radic;3
 
-PG: <Playground id="#A8VZGP#8" title="Placing Meshes" description="Land masses with buildings"/>
+PG: <Playground id="#A8VZGP#40" title="Placing Meshes" description="Land masses with buildings"/>
 
 ### Faces Related to a Pole
 
@@ -206,4 +206,4 @@ BABYLON.SceneLoader.ImportMeshAsync("", "PATH TO FOLDER", "file.babylon").then((
 })
 ```
 
-PG: <Playground id="#A8VZGP#16" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>
+PG: <Playground id="#A8VZGP#41" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>
