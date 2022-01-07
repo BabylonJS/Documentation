@@ -37,17 +37,18 @@ mesh.position.y += 3; //(1, 2 + 3, 1) = (1, 5, 1)
 mesh.position.z += 4; //(1, 5, 1 + 4) = (1, 5, 5)
 ```
 
-The following depend on the orientation of the mesh, so that it is not possible to give a resulting location.
+Using the following methods the resulting position depends on the orientation of the mesh. It is not possible to give a resulting position without knowing the rotation of the mesh.
 
 ```javascript
 mesh.translate(new BABYLON.Vector3(2, 3, 4), 1, BABYLON.Space.LOCAL);
 mesh.setPositionWithLocalVector(new BABYLON.Vector3(2, 3, 4));
 mesh.locallyTranslate(new BABYLON.Vector3(2, 3. 4));
 ```
-The vectors for *position* and *setPositionWithLocalVector* are position vectors. Those for *translate*, *locallyTranslate* and *addInPlace* are direction vectors.
 
-These images show how, using the last three methods in local space, the orientation of the mesh affects its final position in world space.
+The image below shows how, using the last three methods above, how the orientation of the mesh affects its final position. The white grid lines lie in the current frame of reference, for the local space of the box mesh, which rotates with the mesh. The given vector (2, 3, 4) is applied in this frame of reference
 
-![no rotation](/img/getstarted/translate1.png)&nbsp;&nbsp;&nbsp;![with rotation](/img/getstarted/translate2.png)
+![with rotation](/img/getstarted/translate2.png)
 
-The given vectors are applied in the local space of the mesh, the axes of which rotate with the mesh.
+**Note:** The vectors for *position* and *setPositionWithLocalVector* are position vectors. Those for *translate*, *locallyTranslate* and *addInPlace* are direction vectors.
+
+
