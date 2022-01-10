@@ -2,13 +2,20 @@
 title: Target Axes Alignment
 image: 
 description: Learn about target axes alignment in Babylon.js.
-keywords: diving deeper, meshes, mesh transformation, transformation, target axes
+keywords: diving deeper, meshes, mesh transformation, transformation, target axes, align axes, align rotations; rotationfromaxis, RotationQuaternionFromAxis
 further-reading:
+    - title: RotationFromAxis API
+      url: https://doc.babylonjs.com/typedoc/classes/babylon.vector3#rotationfromaxis
+    - title: Path3D
+      url: /divingDeeper/mesh/path3D
+    - title: How to Create a Track with Custom Alignments
+      url: /guidedLearning/workshop/Track
 video-overview:
 video-content:
 ---
 
 ## Transformations
+
 ## Target Axes Alignment
 When you want to rotate a mesh (or a camera) so that it lines up with a set of given axes you can use the *RotationFromAxis* method as follows
 
@@ -29,6 +36,24 @@ At any point along curve in 3D space the tangent, normal and binormal form a set
 All six ways are used in the playground below. The top one [0] has the plane tangential to the curve and the fourth one down [3] is perpendicular to the curve. Others can twist the plane at certain points. 
 
 <Playground id="#1PX9G0" title="Aligning a Plane To a Curve" description="Simple example of aligning a plane to a curve."/>
+
+## Refining Alignment
+
+To help undertand which of the 6 possible arrangements it is useful to show the axes of the mesh that you want to follow the line and the tangents, normals and binormals of the path.
+
+For example, we want a cone to follow along a path point first and with the height axes of the cone tangental to the path.
+
+Below is an image showing the cone axes and the path tangents, normals and binormals at the start of the path before any alignment with the path takes place
+
+![Align Axes](/img/how_to/Mesh/alignaxes.png)
+
+Our example requires the y axis of the cone to lie along the tangents of the path. Placing the x axis of the cone along the normals of the path would leave the z axis pointing in the opposite direction to the path binormals. This gives us the the y axis along the tangents, the x axis along the binormals and the z axis along the normals. This is option 4
+
+```javascript
+new BABYLON.Vector3.RotationFromAxis(binormals[p], tangents[p], normals[p]);
+```
+
+<Playground id="#LHX6CI" title="Aligning a Cone To a Curve" description="Cone axis aligned to curve tangents"/>
 
 ## Align Camera
 Given two spheres draw a plane between them that always faces the camera. We are going to set up red and green spheres, world axes, show as red, green and blue lines, and a purple plane in the xz plane. Joining the red and green spheres is a plane with a blue arrow on it pointing from the green to the red sphere.

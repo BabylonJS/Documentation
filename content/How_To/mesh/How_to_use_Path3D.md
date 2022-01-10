@@ -2,12 +2,16 @@
 title: Path3D
 image: 
 description: Learn how to use Path3D in Babylon.js.
-keywords: diving deeper, meshes, path, path3D
+keywords: diving deeper, meshes, path, path3D, follow path, trace path, track path
 further-reading:
-    - title: How To Create Parametric Shapes
-      url: /divingDeeper/mesh/creation/param
+    - title: Path3D API
+      url: https://doc.babylonjs.com/typedoc/classes/babylon.path3d
+    - title: Align Object With Path3D
+      url: /divingDeeper/mesh/transforms/center_origin/target_align
     - title: How To Draw Curves
       url: /divingDeeper/mesh/drawCurves
+    - title: How to Create a Track with Custom Alignments
+      url: /guidedLearning/workshop/Track
 video-overview:
 video-content:
 ---
