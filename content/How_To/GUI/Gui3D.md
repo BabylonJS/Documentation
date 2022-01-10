@@ -340,6 +340,8 @@ Content inside the slate can also be scrolled in X or Y directions. Use the `con
 
 The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
+<Playground id="#SYD2M2#6" title="HolographicSlate" description="Simple Holographic Slate example"/>
+
 ### Near Menu
 
 The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
