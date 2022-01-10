@@ -104,7 +104,7 @@ animationGroup1.onAnimationLoopObservable.add(function(targetAnimation) {
 });
 ```
 
-There is also an **onAnimationGroupLoop** observable that can be used to trigger a function when all the animation of the group ahve looped:
+There is also an **onAnimationGroupLoop** observable that can be used to trigger a function when all the animation of the group have looped:
 
 ```javascript
 animationGroup1.onAnimationGroupLoopObservable.add(function(group) {
