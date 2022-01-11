@@ -109,7 +109,7 @@ gunshot.onended = function() {
     gunshot.setVolume(volume);
   }
   playbackRate += 0.1;
-  gunshot.playbackRate = playbackRate;
+  gunshot.setPlaybackRate(playbackRate);
 };
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Node Material and Particles
-image: 
+image: /img/defaultImage.png
 description: Learn how to use the node material editor to create particle shaders.
 keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:

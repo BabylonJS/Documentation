@@ -321,7 +321,7 @@ The main functional difference between the `TouchHolographicButton` and `Hologra
 
 ### HolographicSlate
 
-The `HolographicSlate` is the go-to 3D widget to display content. It can be dragged around, rotated and scaled. With 1 pointer you have to use the handles to rotate and scale the slate, with 2 pointers you can pinch and twist the title bar to rotate and scale.
+The `HolographicSlate` is used to display content. It can be dragged around, rotated and scaled. With 1 pointer you have to use the handles to rotate and scale the slate, with 2 pointers you can pinch and twist the title bar to rotate and scale.
 
 As in the `TouchHolographicButton`, use the `imageUrl` property to change the content of the slate.
 
@@ -332,12 +332,15 @@ var manager = new BABYLON.GUI.GUI3DManager(scene);
 // Let's add a slate
 var slate = new BABYLON.GUI.HolographicSlate("down");
 manager.addControl(slate);
+// Must be done AFTER addControl in order to overwrite the default content
 slate.imageUrl = "./textures/Checker_Albedo.png";
 ```
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
 The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
+
+<Playground id="#SYD2M2#6" title="HolographicSlate" description="Simple Holographic Slate example"/>
 
 ### Near Menu
 
