@@ -647,7 +647,9 @@
                         "webGPUInternals": {
                             "friendlyName": "Internals",
                             "children": {
-                                "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" }
+                                "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" },
+                                "webGPUCacheBindGroup": { "friendlyName": "Cache Bind Groups", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheBindGroup" },
+                                "webGPUCacheRenderPipeline": { "friendlyName": "Cache Render Pipelines", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheRenderPipeline" }
                             },
                             "content": "extensions/WebGPU/webGPUInternals"
                         }
