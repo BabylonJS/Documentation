@@ -168,3 +168,6 @@ function createPipe(diamInner: number, diamOuter: number, length: number, scene:
 
 Playground example:
 <Playground id="#L5T0DK" title="Pipe CSG Example" description="Creating a pipe from a cylinder and a tube using CSGs."/>
+
+Subtract example:
+<Playground id="#VYZEEQ#4" title="CSG Subtract Example" description="Simple example of using a CSG subtract operation."/>
