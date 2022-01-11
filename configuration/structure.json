@@ -262,7 +262,7 @@
                                 "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
                                 "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
                                 "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
-                                "materialPlugins": { "friendlyName": "Material Plugins", "children": {}, "content": "resources/Manual/Material_plugins" }
+                                "materialPlugins": { "friendlyName": "Material Plugins", "children": {}, "content": "How_To/material/Material_plugins" }
                             },
                             "content": "landing_pages/diving_deeper_use_material_landing_page"
                         },
@@ -807,7 +807,7 @@
                         "Sector": { "friendlyName": "Draws a Sector of a Circle", "children": {}, "content": "snippets/utilities/Sector" },
                         "SphericalPanning": { "friendlyName": "Spherical Panning Camera", "children": {}, "content": "snippets/utilities/SphericalPanning" },
                         "SurfaceMeshPoints": { "friendlyName": "Draw Points on a Mesh Surface", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
-                        "World_Axes": { "friendlyName": "Display World Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
+                        "World_Axes": { "friendlyName": "Display Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
                     },
                     "content": "landing_pages/utilities_landing_page"
                 },
@@ -933,6 +933,11 @@
                         }
                     },
                     "content": "landing_pages/extensions_CMS_landingpage"
+                },
+                "bufferedInterpolation": {
+                    "friendlyName": "Buffered Interpolation",
+                    "children": {},
+                    "content": "extensions/bufferedInterpolation"
                 },
                 "castorGUI": {
                     "friendlyName": "Castor GUI",

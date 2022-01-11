@@ -414,10 +414,12 @@ You can directly setup a Node Material from a file saved from the Node Material 
 Here is the code to use:
 
 ```
-nodeMaterial.loadAsync("file-url.json").then(() => {
-    nodeMaterial.build(true);
-});
+let nodeMaterial = await BABYLON.NodeMaterial.ParseFromFileAsync("Name For Your Shader", "URL To Your Saved Shader", scene);
 ```
+
+Here's an example of how to load a saved shader file and apply it to a mesh.
+
+<Playground id="#APVSUF" title="Load a Saved Shader File" description="Load a saved shader file and apply it to the material of a mesh."/>
 
 ### Sharing unique URLs
 
