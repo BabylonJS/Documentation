@@ -206,4 +206,4 @@ BABYLON.SceneLoader.ImportMeshAsync("", "PATH TO FOLDER", "file.babylon").then((
 })
 ```
 
-PG: <Playground id="#A8VZGP#41" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>
+PG: <Playground id="#A8VZGP#43" title="Import as a Goldberg Mesh" description="Additional properties and methods can also be applied"/>
