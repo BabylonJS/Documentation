@@ -647,7 +647,7 @@
                         "webGPUInternals": {
                             "friendlyName": "Internals",
                             "children": {
-                                "webGPUOverview": { "friendlyName": "Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" }
+                                "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" }
                             },
                             "content": "extensions/WebGPU/webGPUInternals"
                         }
