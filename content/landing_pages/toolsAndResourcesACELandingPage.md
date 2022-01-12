@@ -243,7 +243,7 @@ You can load an Animation into your Babylon scene from a saved .JSON object like
 
 ```javascript
 let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
-let animations = await BABYLON.Animation.ParseFromFileAsync(null, "https://doc.babylonjs.com/examples/animations.json")
+let animations = await BABYLON.Animation.ParseFromFileAsync(null, "https://doc.babylonjs.com/examples/animations.json");
 sphere.animations = animations;
 scene.beginAnimation(sphere, 0, 100, true);
 ```
