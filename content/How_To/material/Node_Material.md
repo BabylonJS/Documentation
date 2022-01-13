@@ -302,6 +302,9 @@ var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitCommen
 nodeMaterial.setToDefault();
 ```
 
+Here's an advanced and fantastic example of creating an impressive Node Material manually.
+<Playground id="#GETMGI#2" title="Advanced Dissolve Node Material" description="Advanced Node Material shader created manually."/>
+
 ### Using the Node Material Editor
 
 Now that you've learned how the system works and understand how you can use it to create complex shaders more quickly than learning a new shader language, you should probably know that it can actually get even easier! 
