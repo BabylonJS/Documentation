@@ -823,6 +823,7 @@
         { "source": "/How_To/Videos/Babylon.js_Advanced_Features", "destination": "/guidedLearning/videos/bjsAdvancedFeatures" },
         { "source": "/resources/ktx2_compressed_textures", "destination": "/divingDeeper/materials/using/ktx2Compression" },
         { "source": "/how_to/how_to_start", "destination": "/divingDeeper/developWithBjs/howToStart" },
+        { "source": "/babylon101/animations#easing-functions", "destination": "/divingDeeper/animation/advanced_animations#easing-functions" },
         { "source": "/advanced_topics/introToShaders", "destination": "/advanced_topics/shaders/introToShaders" }
     ]
 }
