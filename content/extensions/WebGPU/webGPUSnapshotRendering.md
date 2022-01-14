@@ -1,6 +1,6 @@
 ---
 title: WebGPU Snapshot Rendering
-image: 
+image-url: /img/defaultImage.png
 description: Learn how to use snapshot rendering for faster scene display
 keywords: babylon.js, WebGPU, snapshot, rendering
 further-reading:
@@ -21,7 +21,7 @@ The perf improvements can be quite large, especially when using the fast SR mode
 
 | SR disabled | Standard mode | Fast mode | 
 |-------------|---------------|-----------|
-| ![SR disabled](/img/resources/snapshot_rendering/sr_disabled.png!246x244) | ![SR disabled](/img/resources/snapshot_rendering/sr_standard.png!241x247) | ![SR disabled](/img/resources/snapshot_rendering/sr_fast.png!245x243) |
+| ![SR disabled](/img/resources/snapshot_rendering/sr_disabled.png) | ![SR disabled](/img/resources/snapshot_rendering/sr_standard.png!241x247) | ![SR disabled](/img/resources/snapshot_rendering/sr_fast.png!245x243) |
 
 ## Enabling snapshot rendering mode
 The snapshot rendering mode is enabled by setting:
