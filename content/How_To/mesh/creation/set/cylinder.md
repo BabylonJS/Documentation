@@ -27,6 +27,8 @@ subdivisions|_(number)_ number of rings|1
 faceColors|_(Color4[])_ array of 3 _Color4_, 0 : bottom cap, 1 : cylinder tube, 2 : top cap|Color4(1, 1, 1, 1) for each face
 faceUV|_(Vector4[])_ array of 3 _Vector4_, 0 : bottom cap, 1 : cylinder tube, 2 : top cap| UVs(0, 0, 1, 1) for each face
 arc|_(number)_ ratio of the circumference between 0 and 1|1
+hasRings|_(boolean)_ makes the subdivisions independent from each other, so they become different faces|false
+enclose|_(boolean)_ adds two extra faces per subdivision to a sliced cylinder to close it around its height axis|false
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0,0, 1,1) 
@@ -34,9 +36,14 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** |
 
 ### Examples
 Cylinder: <Playground id="#QANVC6" title="Create a Cylinder" description="Simple example of creating a cylinder."/>
+
 Cone: <Playground id="#QANVC6#1" title="Create a Cone" description="Simple example of creating a cone."/>
+
 Triangular Prism: <Playground id="#QANVC6#2" title="Create a Triangular Prism" description="Simple example of creating a triangular prism."/>
+
 Arc <Playground id="#QANVC6#3" title="Create an Arc" description="Simple example of creating an arc."/>
+
+Cake Slice: <Playground id="#QANVC6#2240" title="Create a Cake Slice" description="Simple example of creating a cake slice."/>
 
 ![can label and top](/img/how_to/apply-material-to-faces/logo_label.jpg)
 
