@@ -14,9 +14,7 @@ Introduced in Babylon.js 5.0, The Performance Profiler is a fantastic visual per
 
 <img src="/img/tools/PerfViewer/performanceViewerStatisticsTab.png" title="Babylon.js Performance Viewer Statistics Tab"/>
 
-Available in the Statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment. The data is normalized on the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position. This means values that don't change during the visualized range appear as a straight line on the top of the graph.
-
-<img src="/img/tools/PerfViewer/PerfProfilerLine.png" title="Example of a value that does not change (Draw calls) on the visualized range"/>
+Available in the Statistics tab of the inspector, it allows you to visually see data charted over time rather than seeing the latest number at any one moment. The data is normalized on the displayed range, meaning the smallest value corresponds to the bottom y-position on the graph, while the highest value corresponds to the top y-position. 
 
 The Performance Profiler can collect and display 3 types of data: 1) all the data under the statistics tab, 2) user-defined data, and 3) user-defined events through code.
 

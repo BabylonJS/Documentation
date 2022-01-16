@@ -243,12 +243,12 @@ You can load an Animation into your Babylon scene from a saved .JSON object like
 
 ```javascript
 let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
-let animations = await BABYLON.Animation.ParseFromFileAsync("https://doc.babylonjs.com/examples/animations.json")
+let animations = await BABYLON.Animation.ParseFromFileAsync(null, "https://doc.babylonjs.com/examples/animations.json");
 sphere.animations = animations;
 scene.beginAnimation(sphere, 0, 100, true);
 ```
 
-<Playground id="#YAWBMY#1" title="Loaded Animation From .JSON" description="Simple example of loading an animation from a saved .JSON object."/>
+<Playground id="#YAWBMY#7" title="Loaded Animation From .JSON" description="Simple example of loading an animation from a saved .JSON object."/>
 
 ### The Magic Loop
 As with all Babylon tools, if you've loaded an animation from the snippet server into your scene and then use the GUI Editor to edit that animation. Once you save a new version of that animation, the tool will automatically change the snippet server load line to use your newly created Snippet ID! If you haven't tried this out, you need to, it's awesome!
