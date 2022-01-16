@@ -35,9 +35,19 @@ See last section of this page for things to watch for that could lead to bundle 
 ## Caveats
 When in NCM mode, theoritically it *may* be possible that some things don't work as expected (for eg. that changing a material would not work), in which case calling `scene.resetDrawCache()` would fix the problem (or `mesh.resetDrawCache()` if the problem only impacts a single mesh).
 
-However, this should not happen in practice: if it does, please report to the forum so we can analyze the case and see if it can be made to work automatically without having to call `resetDrawCache`.
+However, this should happen only very infrequently (see next section) in practice: if it does, please report to the forum so we can analyze the case and see if it can be made to work automatically without having to call `resetDrawCache`.
 
 Also, even if you are able to achieve low (or even 0) bundle recreations each frame you may not see a performance improvement over the **compatibility mode**. It will depend on your scene and you should do some benchmarking to see if NCM improves things for you.
+
+## Do/Don't in non compatibility mode (NCM)
+* if two or more cameras are rendering into the same RTT (using the `Camera.outputRenderTarget` property), set `rtt.renderPassId = undefined` so that `camera.renderPassId` is used for each camera instead of `rtt.renderPassId` for both cameras, leading to bundles recreation.
+* if you are using skeletons, make sure a material won't be linked to several different skeletons, meaning a material won't be used by several meshes which are not all using the same skeleton. In that case, clone the material as many times as necessary. Same thing with morph targets.
+* `Material.needDepthPrePass` does work in NCM but will always create new bundles each frame.
+* If you update one of these material properties after you switched to the NCM you must reset the draw cache for these changes to take effect (either by calling `mesh.resetDrawCache()` or `scene.resetDrawCache()`): `sideOrientation`, `disableDepthWrite`, `forceDepthWrite`, `depthFunction`, `disableColorWrite`, `zOffset`, `stencil`
+* If you update the `samples` property of a post process/RTT, you must call `scene.resetDrawCache()` afterwards to avoid a rendering with the new value (but the old bundles created with the old `samples` value), else you will get an error like `Attachment state of renderBundles[0] ([RenderBundle]) is not compatible with attachment state of [RenderPassEncoder].`.
+* Not working in NCM (meaning: don't switch to NCM if you want to use them else your program won't work as expected):
+  * Occlusion queries. They don't work because the order of the draws and the queries must be preserved, something not possible in NCM because all draws are postponed to the end of the frame when calling `executeBundles()` whereas queries are executed at the point they are called.
+  * `Material.separateCullingPass = true` does not work because of the way it is currently implemented.
 
 ## Case analysis
 Below is a list of all the playgrounds from our validation test suite that recreated one or more bundles each frame when we first tested them in the **non compatibility mode**. We explain why they were creating bundles and how we fixed them (when that was possible). You can see the fixed code by appending the PG number (given inside the parenthesis after the PG name) to the Playground url (https://playground.babylonjs.com/).
