@@ -636,11 +636,13 @@
                         "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
                         "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
                         "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" },
+                        "webGPULimitations": { "friendlyName": "Limitations", "children": {}, "content": "extensions/WebGPU/webGPULimitations" },
                         "webGPUOptimization": {
                             "friendlyName": "Optimizations",
                             "children": {
-                                "webGPUNonCompatibilityMode": { "friendlyName": "Non Compatibility Mode", "children": {}, "content": "extensions/WebGPU/webGPUNonCompatibilityMode" },
-                                "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/webGPUSnapshotRendering" }
+                                "webGPUNonCompatibilityMode": { "friendlyName": "Non Compatibility Mode", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUNonCompatibilityMode" },
+                                "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUSnapshotRendering" },
+                                "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUMiscellaneous" }
                             },
                             "content": "extensions/WebGPU/webGPUOptimizations"
                         },
@@ -649,7 +651,8 @@
                             "children": {
                                 "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" },
                                 "webGPUCacheBindGroup": { "friendlyName": "Cache Bind Groups", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheBindGroup" },
-                                "webGPUCacheRenderPipeline": { "friendlyName": "Cache Render Pipelines", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheRenderPipeline" }
+                                "webGPUCacheRenderPipeline": { "friendlyName": "Cache Render Pipelines", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheRenderPipeline" },
+                                "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Internals/webGPUMiscellaneous" }
                             },
                             "content": "extensions/WebGPU/webGPUInternals"
                         }

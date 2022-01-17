@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2021/12/20).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2022/01/16).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -27,12 +27,9 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
 
 ## Make it fast: Optimizations
-We need to implement some specific mechanisms / features to get the most of our implementation:
-* Use render bundles to improve performances:
-  * Done through `engine.compatibilityMode = false`
-  * Also added `engine.snapshotRendering` and `engine.snapshotRenderingMode` to improve performances in some specific cases. See [Snapshot rendering](/advanced_topics/webGPU/webGPUSnapshotRendering)
-* Use compute shaders -> the [ComputeShader](/advanced_topics/shaders/computeShader) class is now in
-  * To perform some conversions when reading data from buffers
+The most important optimizations have now been done (see [Optimizations](/advanced_topics/webGPU/webGPUOptimization)), others could be considered:
+* Use compute shaders to perform some conversions when reading data from buffers
+* Use compute shaders to generate mipmaps
 
 ## Other "nice-to-have" features 
 * Use `CreatePipelineAsync` for asynchronous pipeline creations
