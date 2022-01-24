@@ -56,7 +56,7 @@ You must also declare the entry point for the vertex and fragment shader in a sp
 
 Vertex:
 ```wgsl
-[[stage(vertex)]]
+@stage(vertex)
 fn main(input : VertexInputs) -> FragmentInputs {
     ...
 }
@@ -64,7 +64,7 @@ fn main(input : VertexInputs) -> FragmentInputs {
 ```
 Fragment:
 ```wgsl
-[[stage(fragment)]]
+@stage(fragment)
 fn main(input : FragmentInputs) -> FragmentOutputs {
     ...
 }
@@ -92,7 +92,7 @@ const mat = new BABYLON.ShaderMaterial("shader", scene, {
 
 In the WGSL code, you access a uniform by prefixing its name by `scene.` or `mesh.` for the scene or mesh uniforms, respectively:
 ```wgsl
-[[stage(vertex)]]
+@stage(vertex)
 fn main(input : VertexInputs) -> FragmentInputs {
     gl_Position = scene.viewProjection * mesh.world * vec4<f32>(position, 1.0);
 }    
@@ -115,7 +115,7 @@ uniform varName : varType;
 Notes:
 * When using the `uniform varName : varType` syntax, you access the variable by doing `uniforms.varName`, not simply `varName`. The variables declared that way can be set from the javascript code by using the regular methods of the `ShaderMaterial` class (`setFloat`, `setInt`, etc) as with GLSL
 * `varType` must use a WGSL syntax, not GLSL! For eg: `varying vUV : vec2<f32>;`
-* you must **NOT** add the `[[group(X), binding(Y)]]` decoration! The system will add them automatically
+* you must **NOT** add the `@group(X) @binding(Y)` decoration! The system will add them automatically
 
 You can also use some built-ins that have the same names than in GLSL:
 * in vertex shaders: `gl_VertexID`, `gl_InstanceID`, `gl_Position`
@@ -154,12 +154,12 @@ On the javascript side, you have the corresponding methods to set a value to the
 * external texture: `setExternalTexture(name, buffer)`
 
 ## Examples
-This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#129" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
+This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#162" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
-As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#68" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
+As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#105" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
 
-You can also use the new in 5.0 baked vertex animation feature as well as clip planes. See: <Playground id="#8RU8Q3#98" engine="webgpu" title="Using BVA and clip planes in WGSL" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support baked vertex animations and clip planes"/>
+You can also use the new in 5.0 baked vertex animation feature as well as clip planes. See: <Playground id="#8RU8Q3#106" engine="webgpu" title="Using BVA and clip planes in WGSL" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support baked vertex animations and clip planes"/>
 
-Playing videos with the regular [VideoTexture](/typedoc/classes/babylon.videotexture) is slow in WebGPU because there are a lot of texture copies that occur behind the scene in the browser. The `texture_external` type object is meant for fast video playing in WebGPU. This playground shows how to use the `ShaderMaterial` class to implement video playing with `texture_external`: <Playground id="#6GFJNR#130" engine="webgpu" title="Video playing with the ShaderMaterial class" description="Demonstrate how to play videos using external texture in WGSL"/>
+Playing videos with the regular [VideoTexture](/typedoc/classes/babylon.videotexture) is slow in WebGPU because there are a lot of texture copies that occur behind the scene in the browser. The `texture_external` type object is meant for fast video playing in WebGPU. This playground shows how to use the `ShaderMaterial` class to implement video playing with `texture_external`: <Playground id="#6GFJNR#163" engine="webgpu" title="Video playing with the ShaderMaterial class" description="Demonstrate how to play videos using external texture in WGSL"/>
 
 Sampling a depth texture is not always possible, see [Sampling a depth texture](/advanced_topics/webGPU/webGPUBreakingChanges#sampling-a-depth-texture) for more details. This playground will let you sample a depth texture both in WebGL and WebGPU: <Playground id="#8RU8Q3#67" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU"/>
