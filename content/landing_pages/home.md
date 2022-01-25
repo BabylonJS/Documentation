@@ -68,6 +68,6 @@ Don't be scared about the `alpha` version. Babylon's npm releases are considered
 
 ## Getting Started
 
-The best place to get started is...well you guessed it, right at our [Getting Started](start/) section. If you're the type of learner that does better exploring on your own, then the [Diving Deeper](landing_pages/divingDeeperLandingPage) section is for you. If you are already in love with Babylon.js and want to start contributing to its success, then the [Develop With Babylon.js](landing_pages/divingDeeperDevelopingLandingPage) section is the place for you.
+The best place to get started is...well you guessed it, right at our [Getting Started](/start) section. If you're the type of learner that does better exploring on your own, then the [Diving Deeper](/divingDeeper) section is for you. If you are already in love with Babylon.js and want to start contributing to its success, then the [Develop With Babylon.js](/divingDeeper/developWithBjs) section is the place for you.
 
 Well, that's it. Hopefully that's enough to get you started. Oh, and as we like to say, welcome to the Babylon family. Enjoy your journey!
