@@ -2,6 +2,14 @@
     "friendlyName": "Home Page",
     "content": "landing_pages/home",
     "children": {
+        "quickstart": {
+            "friendlyName": "Quick Start Templates",
+            "children": {
+                "js_playground": { "friendlyName": "Playground - JS", "children": {}, "content": "quickstart/js_playground" },
+                "js_jtml": { "friendlyName": "HTML Page - JS", "children": {}, "content": "quickstart/js_html" }
+            },
+            "content": "quickstart/landing"
+        },
         "start": {
             "friendlyName": "Getting Started",
             "children": {
