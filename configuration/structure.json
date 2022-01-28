@@ -6,7 +6,8 @@
             "friendlyName": "Quick Start Templates",
             "children": {
                 "js_playground": { "friendlyName": "Playground - JS", "children": {}, "content": "quickstart/js_playground" },
-                "js_jtml": { "friendlyName": "HTML Page - JS", "children": {}, "content": "quickstart/js_html" }
+                "js_html": { "friendlyName": "HTML Page - JS", "children": {}, "content": "quickstart/js_html" },
+                "js_base_project": { "friendlyName": "Basic Web Project - JS", "children": {}, "content": "quickstart/js_proj" }
             },
             "content": "quickstart/landing"
         },

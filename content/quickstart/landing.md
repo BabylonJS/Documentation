@@ -5,7 +5,7 @@ description: A range of templates for using Babylon.js on the web
 keywords: 3D, 3Dweb, 3D web, web, games, 3DGames, 3D games, Babylon.js, templates, template
 further-reading: 
   - title: Getting Started
-    url: /divingDeeper/developWithBjs/npmSupport
+    url: /start
   - title: A First Web Page
     url: /start/chap1/first_app#code-a-model-setup
 video-overview:
@@ -53,31 +53,31 @@ Read more about a [basic HTML template](/start/chap1/first_app#code-a-model-setu
         const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
         const createScene = function () {
-            // This creates a basic Babylon Scene object (non-mesh)
+            // Creates a basic Babylon Scene object
             const scene = new BABYLON.Scene(engine);
 
-            // This creates and positions a free camera (non-mesh)
+            // Creates and positions a free camera
             const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-            // This targets the camera to scene origin
+            // Targets the camera to scene origin
             camera.setTarget(BABYLON.Vector3.Zero());
 
             // This attaches the camera to the canvas
             camera.attachControl(canvas, true);
 
-            // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+            // Creates a light, aiming 0,1,0 - to the sky
             const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-            // Default intensity is 1. Let's dim the light a small amount
+            // Dim the light a small amount - 0 to 1
             light.intensity = 0.7;
 
-            // Our built-in 'sphere' shape.
+            // Built-in 'sphere' shape.
             const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
 
             // Move the sphere upward 1/2 its height
             sphere.position.y = 1;
 
-            // Our built-in 'ground' shape.
+            // Built-in 'ground' shape.
             const ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 
             return scene;
@@ -108,9 +108,9 @@ The **CreateScene** function above, and in all the templates, is where you custo
 |Required Knowledge|Apps to Install|Template Information|Access|Outcome|
 |----|----|----|----|----|
 |JavaScript|None|[Playground](/quickstart/js_playground)|Browser|Editable basic scene with camera, lights and models|
-|HTML, JavaScript|Text Editor|HTML Basic Page|Download|Single File, uses Babylon.js from cloud|
-|HTML, JavaScript|Text Editor|HTML Basic Page|Download|Single Zipped File, includes local version of Babylon.js|
-|Git, Github, HTML, JavaScript|Node, Git Client, VSCode|HTML Basic Project Environment|Fork and Clone|Folder structure, local Babylon.js, npm webserver|
+|HTML, JavaScript|Text Editor|[HTML Basic Page](/quickstart/js_html)|Download|Single File, uses Babylon.js from cloud|
+|HTML, JavaScript|Text Editor|[HTML Basic Page](/quickstart/js_html)|Download|Single Zipped File, includes local version of Babylon.js|
+|Git, Github, HTML, JavaScript|Git, Node, VSCode|Basic Web Environment|Fork and Clone|Folder structure, local Babylon.js, npm webserver|
 
 ## Typescript Templates Ordered by Pre - requists
 

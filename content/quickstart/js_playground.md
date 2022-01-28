@@ -4,10 +4,10 @@ image:
 description: A simple playground template
 keywords: templates, template, playground
 further-reading: 
-  - title: Setup with NPM
-    url: /divingDeeper/developWithBjs/npmSupport
-  - title: Setup with Tree Shaking
-    url: /divingDeeper/developWithBjs/treeShaking
+  - title: Getting Started
+    url: /start
+  - title: Playground
+    url: /toolsAndResources/tools/playground
 video-overview:
 video-content:
 ---

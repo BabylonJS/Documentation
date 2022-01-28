@@ -3,10 +3,10 @@ title: HTML Template
 description: A basic HTML template
 keywords: templates, template, playground
 further-reading: 
-  - title: Setup with NPM
-    url: /divingDeeper/developWithBjs/npmSupport
-  - title: Setup with Tree Shaking
-    url: /divingDeeper/developWithBjs/treeShaking
+  - title: Getting Started
+    url: /start
+  - title: A First Web Page
+    url: /start/chap1/first_app
 video-overview:
 video-content:
 ---
@@ -21,3 +21,5 @@ Read the [template](/quickstart#minimal-html-javascript-template) as text
 
 ### Description
 
+![Basic Webpage](/img/quickstart/htmlbjs.png)
+![Webpage Key](/img/quickstart/htmlkey.png)

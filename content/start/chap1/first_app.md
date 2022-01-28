@@ -3,7 +3,9 @@ title: Getting Started - Chapter 1 - Setup Your First Web App
 image: 
 description: HTML Templates to load your first model or code into a Babylon.js scene.
 keywords: getting started, start, chapter 1, first model, import
-further-reading: 
+further-reading:
+  - title: Minimal template for sphere and ground
+    url: /quickstart/js_html#html-basic-page-templates
   - title: Setup with NPM
     url: /divingDeeper/developWithBjs/npmSupport
   - title: Setup with Tree Shaking
@@ -179,7 +181,7 @@ Example setup for a loaded model
 ### Code a Model Setup
 The following creates a box model in an app.
 
-[First Coded App](/webpages/app2.html)
+[First Coded App](/webpages/app2.html). A template creating a sphere and ground is downloadable from the [basic template page](/quickstart/js_html#html-basic-page-templates)
 
 Example setup for a coded model
 
