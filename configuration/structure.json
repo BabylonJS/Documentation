@@ -602,6 +602,11 @@
                     "children": {},
                     "content": "resources/Manual/Math_shadows"
                 },
+                "loadFromMemory": {
+                    "friendlyName": "Loading Assets From Memory",
+                    "children": {},
+                    "content": "resources/Reference/Loading_From_Memory"
+                },
                 "mutliPlatTextures": {
                     "friendlyName": "Multi-Platform Compressed Textures",
                     "children": {},
