@@ -116,7 +116,7 @@ The **CreateScene** function above, and in all the templates, is where you custo
 
 |Required Knowledge|Apps to Install|Template Information|Access|Outcome|
 |----|----|----|----|----|
-|Typescript|None|Playground|Browser|Editable basic scene with camera, lights and models|
+|Typescript|None|[Playground](/quickstart.ts_playground)|Browser|Editable basic scene with camera, lights and models|
 |Git, Github, HTML, JavaScript|Node, Git Client, VSCode|HTML Basic Project Environment|Fork and Clone|Folder structure, local Babylon.js, npm webserver|
 
 ## Glossary of Terms
