@@ -52,7 +52,7 @@ The _beginFrame_ number must be less than or equal to the smallest begin frame o
 The _endFrame_ number must be greater than or equal to the largest end frame of all animations, for the above examples not less than 100.
 
 - <Playground id="#CBGEQX#1" title="Animation Group Example 1" description="First Example of Animation Groups."/>
-- <Playground id="#CBGEQX#2" title="Animation Group Example 2" description="Second Example of Animation Groups.", isMain={true} category="Animation"/>
+- <Playground id="#CBGEQX#2" title="Animation Group Example 2" description="Second Example of Animation Groups." isMain={true} category="Animation"/>
 - <Playground id="#CBGEQX#3" title="Animation Group Example 3" description="Third Example of Animation Groups."/>
 
 ## Speed Ratio for the Group
