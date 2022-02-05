@@ -51,9 +51,9 @@ In general the parameters for **normalize** are the numbers _beginFrame_ and _en
 The _beginFrame_ number must be less than or equal to the smallest begin frame of all animations, for the above examples not greater than 0.  
 The _endFrame_ number must be greater than or equal to the largest end frame of all animations, for the above examples not less than 100.
 
-- <Playground id="#CBGEQX#1" title="Animation Group Example 1" description="First Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
-- <Playground id="#CBGEQX#2" title="Animation Group Example 2" description="Second Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg" isMain={true} category="Animation"/>
-- <Playground id="#CBGEQX#3" title="Animation Group Example 3" description="Third Example of Animation Groups." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
+- <Playground id="#CBGEQX#1" title="Animation Group Example 1" description="First Example of Animation Groups."/>
+- <Playground id="#CBGEQX#2" title="Animation Group Example 2" description="Second Example of Animation Groups." isMain={true} category="Animation"/>
+- <Playground id="#CBGEQX#3" title="Animation Group Example 3" description="Third Example of Animation Groups."/>
 
 ## Speed Ratio for the Group
 
@@ -66,7 +66,7 @@ animationGroup2.speedRatio = 3;
 
 speeding up or slowing down the animation.
 
-- <Playground id="#CBGEQX#5" title="Animation Group Speed Ratio" description="Example of adjust an animation group's speed ratio." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup2.jpg"/>
+- <Playground id="#CBGEQX#5" title="Animation Group Speed Ratio" description="Example of adjust an animation group's speed ratio."/>
 
 ## Creating a group from existing animatables
 
@@ -80,7 +80,7 @@ for (anim of idleAnim.getAnimations()) {
 }
 ```
 
-Example: - <Playground id="#CBGEQX#5" title="Create AnimationGroup From Animatable" description="Example of creating an animationGroup by enumerating through the animations contained in an animatable." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup3.jpg"/>
+Example: - <Playground id="#CBGEQX#5" title="Create AnimationGroup From Animatable" description="Example of creating an animationGroup by enumerating through the animations contained in an animatable."/>
 
 ## On Group Animation End
 
@@ -92,7 +92,7 @@ animationGroup1.onAnimationEndObservable.add(function() {
 });
 ```
 
-- <Playground id="#CBGEQX#4" title="On Animation Group End" description="Example of executing code after all animations in an animationGroup finish." image="/img/playgroundsAndNMEs/divingDeeperAnimationGroup1.jpg"/>
+- <Playground id="#CBGEQX#4" title="On Animation Group End" description="Example of executing code after all animations in an animationGroup finish."/>
 
 ## On Group Animation Loop
 
