@@ -87,7 +87,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://assets.babylonjs.com/meshes/", "HVGi
 
 });
 ```
-<Playground id="#Z6SWJU#5" title="Load Model and Play Animation Group" description="Simple example of loading an object and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg"/>
+<Playground id="#Z6SWJU#5" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
 
 
 The names of the AnimationGroups can be found in the Sandbox via the Inspector, by loading the model and selecting the Animation Group in the Scene Explorer.
