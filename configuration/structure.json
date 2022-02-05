@@ -2,15 +2,6 @@
     "friendlyName": "Home Page",
     "content": "landing_pages/home",
     "children": {
-        "quickstart": {
-            "friendlyName": "Quick Start Templates",
-            "children": {
-                "js_playground": { "friendlyName": "Playground - JS", "children": {}, "content": "quickstart/js_playground" },
-                "js_html": { "friendlyName": "HTML Page - JS", "children": {}, "content": "quickstart/js_html" },
-                "js_base_project": { "friendlyName": "Basic Web Project - JS", "children": {}, "content": "quickstart/js_proj" }
-            },
-            "content": "quickstart/landing"
-        },
         "start": {
             "friendlyName": "Getting Started",
             "children": {
