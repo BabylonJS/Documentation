@@ -14,7 +14,7 @@ It's really easy to use BabylonJS with Vue. This page will help you to setup a m
 
 If you haven't created your Vue project yet, visit the official Vue documentation on how to setup a Vue project.
 
-https://v3.vuejs.org/guide/installation.html for Vue 2
+https://v3.vuejs.org/guide/installation.html for Vue 3
 
 https://vuejs.org/v2/guide/installation.html for Vue 2
 
@@ -187,7 +187,7 @@ The application is ready to be tested. Run your app using `npm run serve` and yo
 
 Sooner or later you will need to create a scene which will use asynchronous functionality. It is very easy to setup such a scene with Vue. Just make the callback functions `async` and use any awaitable logic inside.
 
-### Vue 2
+### Vue 3
 
 ```jsx
 onMounted(async () => {
@@ -210,7 +210,7 @@ async mounted() {
 
 ## Typescript
 
-Define the `canvas` reference like this for Vue 2:
+Define the `canvas` reference like this for Vue 3:
 
 ```typescript
 const bjsCanvas = ref<HTMLCanvasElement | null>(null);
@@ -232,7 +232,7 @@ const createScene = (canvas: Scene) => {
 
 If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention to browser reflows and repaints. Especially aninmated alpha transparent `div`s can degrade performance. You can read more about the topic in general [here](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser") and have this cheat-sheet always prepared: [CSS Triggers](https://csstriggers.com/).
 
-## Vue reflectivity, friend or foe?
+## Vue reactivity, friend or foe?
 
 If you want to expose scene information to Vue, keep in mind, that exposing the 'wrong' objects may put Vue and BabylonJS in a recursive redraw loop and it will dramatically degrade performance. As a thumb of rule never make the BabylonJS `Engine` or `Scene` object reactive. If you suspect such behaviour, test your scene without Vue.
 
