@@ -39,7 +39,7 @@ This loader supports only glTF 2.0 and will fail to load glTF 1.0.
 <script src="babylon.glTF2FileLoader.js"></script>
 ```
 
-See [glTF Skinning]() for details on how skinning is implementated in Babylon.js for glTF 2.0.
+See [Skinning](/divingDeeper/importers/glTF/glTFSkinning) for details on how skinning is implementated in Babylon.js for glTF 2.0.
 
 ## Version 1 Only
 
