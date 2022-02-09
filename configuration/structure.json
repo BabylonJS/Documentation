@@ -226,7 +226,8 @@
                         "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
                         "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
                         "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
-                        "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                        "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" },
+                        "glTFSkinning": { "friendlyName": "glTF 2.0 Skinning", "children": {}, "content": "How_To/Importer/glTF_Skinning" }
                     },
                     "content": "landing_pages/divingDeeperImportersLandingPage"
                 },
