@@ -55,6 +55,7 @@
         { "source": "/babylon101/shadows_csm", "destination": "/divingDeeper/lights/shadows_csm" },
         { "source": "/babylon101/Sprites", "destination": "/divingDeeper/sprites" },
         { "source": "/babylon101/sprites", "destination": "/divingDeeper/sprites" },
+        { "source": "/divingDeeper/importers/progressiveglTFLoad", "destination": "/divingDeeper/importers/glTF/progressiveglTFLoad" },
         { "source": "/extensions/Amp360Video", "destination": "/extensions/amp360Video" },
         { "source": "/extensions/amp360video", "destination": "/extensions/amp360Video" },
         { "source": "/extensions/CastorGUI", "destination": "/extensions/castorGUI" },
