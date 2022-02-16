@@ -107,7 +107,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
     );
 };
 
-export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "Coming next", externalLinks }) => {
+export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPages, title = "In This Category", externalLinks }) => {
     const classes = useStyles();
     const bucketItems: IBucketItem[] = Object.keys(childPages || []).map((child) => {
         const childData = childPages[child].metadata;
