@@ -164,6 +164,33 @@ And that's it!
 
 Make sure to read more on the [WebXR Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers) for further tips and tricks, and take a look at our [Demos and examples](/divingDeeper/webXR/webXRDemos) page.
 
+### ES6 support with Tree Shaking
+
+When using [Babylon.js ES6 support with tree shaking](divingDeeper/developWithBjs/treeShaking), import WebXR modules from:
+
+ *  `@babylonjs/core/XR/*`
+
+And import loaders and side-effects for loading default controller models from the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) github repository.
+
+For example:
+
+```javascript
+import { WebXRDefaultExperience } from '@babylonjs/core/XR/webXRDefaultExperience.js'
+
+// Enable GLTF/GLB loader for loading controller models from WebXR Input registry
+import '@babylonjs/loaders/glTF'
+
+// Without this next import, an error message like this occurs loading controller models:
+//  Build of NodeMaterial failed" error when loading controller model
+//  Uncaught (in promise) Build of NodeMaterial failed: input rgba from block
+//  FragmentOutput[FragmentOutputBlock] is not connected and is not optional.
+import '@babylonjs/core/Materials/Node/Blocks'
+
+```
+See also:
+ * [WebXR Controllers Support](/divingDeeper/webXR/webXRInputControllerSupport)
+ * [WebXR with Vite](/divingDeeper/webXR/webXRDemos#webxr-with-vite)
+
 ## Migrating from WebVR
 
 WebVR is deprecated and will soon end its life in most if not all browsers. It is highly recommended to port all WebVR implementations to WebXR.
