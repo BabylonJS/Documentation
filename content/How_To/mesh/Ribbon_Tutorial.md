@@ -17,6 +17,10 @@ Below shows the construction of a ribbon using two paths A and B each having fiv
 
 ![Ribbon](/img/how_to/ribbon/ribbon.png)
 
+Here's a simple example:
+
+<Playground id="#MZ7QRG#1194" title="Simple Ribbon Example" description="Simple ribbon example."/>
+
 You can have as many paths as you wish, including just one, you can close all the paths and/or close the paths array itself. Imagine a long ribbon of narrow width in the real world with wire running down its length. Closing the paths forms a loop of ribbon while closing the array would form a tube.
 
 ## Single Path Ribbon
