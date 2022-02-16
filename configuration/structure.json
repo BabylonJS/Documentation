@@ -219,14 +219,16 @@
                     "friendlyName": "Importing Assets",
                     "children": {
                         "loadingFileTypes": { "friendlyName": "Loading Any File Type", "children": {}, "content": "How_To/Importer/Load_From_Any_File_Type" },
-                        "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {}, "content": "How_To/Importer/glTF" },
+                        "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {
+                            "glTFSkinning": { "friendlyName": "Skinning", "children": {}, "content": "How_To/Importer/glTF_Skinning" },
+                            "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                        }, "content": "How_To/Importer/glTF" },
                         "stl": { "friendlyName": ".stl File Loader Plugin", "children": {}, "content": "How_To/Importer/STL" },
                         "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
                         "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
                         "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
                         "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
-                        "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
-                        "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                        "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" }
                     },
                     "content": "landing_pages/divingDeeperImportersLandingPage"
                 },
