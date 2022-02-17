@@ -1174,14 +1174,14 @@
                             "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
                         },
                         "content": "landing_pages/PGsupport/playground-tools"
-                    },
-                    "playground": {
-                        "friendlyName": "Playground search",
-                        "children": {},
-                        "content": ""
                     }
                 },
                 "content": "landing_pages/PGsupport/Playground"
+            },
+            "playground": {
+                "friendlyName": "Playground search",
+                "children": {},
+                "content": ""
             },
             "contribute": {
                 "friendlyName": "Contribute",
