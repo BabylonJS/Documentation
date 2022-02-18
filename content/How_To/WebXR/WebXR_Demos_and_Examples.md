@@ -121,18 +121,19 @@ Modify `main.ts`:
 import './style.css'
 
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera.js'
-import { Color3 } from "@babylonjs/core/Maths/math.color.js"
+import { Color3 } from '@babylonjs/core/Maths/math.color.js'
 import { Engine } from '@babylonjs/core/Engines/engine.js'
+import { EnvironmentHelper } from '@babylonjs/core/Helpers/environmentHelper.js'
 import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight.js'
-import { Mesh } from "@babylonjs/core/Meshes/mesh"
-import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder.js"
+import { Mesh } from '@babylonjs/core/Meshes/mesh'
+import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder.js'
 import { Scene } from '@babylonjs/core/scene.js'
-import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial.js"
+import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial.js'
 import { Vector3 } from '@babylonjs/core/Maths/math.vector.js'
 import { WebXRDefaultExperience } from '@babylonjs/core/XR/webXRDefaultExperience.js'
 
-// Used for the scene.createDefaultEnvironment
-import "@babylonjs/core/Helpers/sceneHelpers"
+// Required for EnvironmentHelper
+import '@babylonjs/core/Materials/Textures/Loaders'
 
 // Enable GLTF/GLB loader for loading controller models from WebXR Input registry
 import '@babylonjs/loaders/glTF'
@@ -156,10 +157,10 @@ const scene = new Scene(babylonEngine)
 new HemisphericLight('light1', new Vector3(0, 2, 0), scene)
 
 // Create a default environment (skybox, ground mesh, etc)
-const envHelper = scene.createDefaultEnvironment({
+const envHelper = new EnvironmentHelper({
   skyboxSize: 30,
   groundColor: new Color3(0.5, 0.5, 0.5),
-})
+}, scene)
 
 // Add a camera for the non-VR view in browser
 const camera = new ArcRotateCamera("Camera", -(Math.PI / 4) * 3, Math.PI / 4, 10, new Vector3(0, 0, 0), scene);
@@ -207,7 +208,5 @@ To check TypeScript types and build:
 ```bash
 npm run build
 ```
-Using the setup above, vite reports a vendor.js size of ~2.4MB (536k gzipped) as of babylon-5.0.0-beta.8.
-
-
+Using the setup above, vite reports a vendor.js size of ~2.4MB (520k gzipped) as of babylon-5.0.0-beta.8.
 
