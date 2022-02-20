@@ -44,7 +44,7 @@ Once you are happy the code works and you have copied it to your local repositor
 [Start Contibuting](how to start contributing)  
 [Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)  
 [Code Guidelines](/workflow/wfDeeper/developWithBjs/approvedNamingConventions)  
-[Comments in the API](/workflow/wfDeeper/developWithBjs/contributeToAPI)
+[Comments in the API](/contributeToAPI)
 
 On the other hand there is always the possibility that someone in the core team likes your idea and its execution so much they might just copy and add it to Babylon.js directly.
 

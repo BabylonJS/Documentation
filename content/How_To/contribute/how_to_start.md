@@ -118,7 +118,7 @@ Before embarking on editing or adding to Babylon.js please make sure you are fam
 
 Please note that some of these are checked on submission automatically by software, including
 
-- The addition of comments to your code as described [here](/workflow/wfDeeper/developWithBjs/contributeToAPI);
+- The addition of comments to your code as described [here](/contributeToAPI);
 - Adding a statement about the change in the **dist/preview release/what's new.md** page
 
 ## Editing with Visual Studio Code
@@ -365,7 +365,7 @@ Scroll down to the Stage 1 section
 
 ![check 2](/img/contribute/pr5.jpg)
 
-In the above image you can see that this pull-request failed in `WhatsNewUpdate`. Probably because no entry was made in **dist/preview release/what's new.md**. It has passed the `DocumentationCheck` since all the comments have been entered as describe in [the formatting of comments for the API](/workflow/wfDeeper/developWithBjs/contributeToAPI#format-of-comments).
+In the above image you can see that this pull-request failed in `WhatsNewUpdate`. Probably because no entry was made in **dist/preview release/what's new.md**. It has passed the `DocumentationCheck` since all the comments have been entered as describe in [the formatting of comments for the API](/contributeToAPI#format-of-comments).
 
 For any failures re-edit your local files, commit and push to your repository. The alterations will automatically added to your pull-request and it will be re-checked.
 
