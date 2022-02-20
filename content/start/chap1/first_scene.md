@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 1 - First Scene
+title: Introduction - Chapter 1 - First Scene
 image: /img/getstarted/wireframe.png
 description: Start your Babylon.js learning by creating your first scene and model.
 keywords: getting started, start, chapter 1, first scene
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Chapter 1 - First Scene
+# Introduction - Chapter 1 - First Scene
 
 ## First Scene and Model
 Whether you are creating a whole world or just placing one model into a web page you need a [scene](/divingDeeper/scene) to contain the world or model, a [camera](/divingDeeper/cameras) to view it, a [light](/divingDeeper/lights) to illuminate it and, of course, at least one viewable object as a model. All models, whether just a box or a complex character, are made from a [mesh](/divingDeeper/mesh) of triangles or facets.
@@ -61,7 +61,7 @@ const createScene =  () => {
 
 Since at this point there is only one scene you may notice that this parameter can be dropped from the camera, light and box as the default is for them to be placed in the current scene.
 
-<Playground id="#KBS9I5" title="Getting Started First Scene Playground" description="Getting Started First Scene Playground." image="/img/playgroundsAndNMEs/gettingStartedFirstScene.jpg"/>
+<Playground id="#KBS9I5" title="Introduction First Scene Playground" description="Introduction First Scene Playground." image="/img/playgroundsAndNMEs/gettingStartedFirstScene.jpg"/>
 
 ![box](/img/getstarted/house0.png)
 

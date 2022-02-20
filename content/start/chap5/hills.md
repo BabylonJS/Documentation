@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 5 - Distant Hills
+title: Introduction - Chapter 5 - Distant Hills
 image: 
 description: Learn to add some distant hills to your scene.
 keywords: getting started, start, chapter 5, environment
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Distant Hills
+# Introduction - Distant Hills
 
 ## Distant Hills
 We want to set the village in a valley. It would be possible to create hills from meshes, however there is another way to add vertical height to a ground mesh. This is achieved using a height map which uses shades of gray to determine the height of the ground. White areas are the highest parts and black the lowest.

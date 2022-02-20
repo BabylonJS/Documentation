@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 6 - A Lathe Turned Fountain
+title: Introduction - Chapter 6 - A Lathe Turned Fountain
 image: 
 description: Learn how to create meshes with the createLathe method.
 keywords: getting started, start, chapter 6, lathe, meshes
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - A Lathe Turned Fountain
+# Introduction - A Lathe Turned Fountain
 
 ## A Lathe Turned Fountain
 

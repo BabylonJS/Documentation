@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 6 - Particle Spray
+title: Introduction - Chapter 6 - Particle Spray
 image: 
 description: Learn how to create a basic particle system.
 keywords: getting started, start, chapter 6, particles
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working With Code
+# Introduction - Working With Code
 
 ## Particle Spray
 In this case particles are small sprites emitted in a cluster, or cloud,  to simulate used to simulate fire, smoke, water, or even faery dust.

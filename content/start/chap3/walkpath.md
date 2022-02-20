@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - A Walk Around The Village
+title: Introduction - Chapter 3 - A Walk Around The Village
 image:
 description: Learn to move an animating object through your scene.
 keywords: getting started, start, chapter 3, animation, animation basics, character animation, model loading, parenting
@@ -9,7 +9,7 @@ video-content:
 ---
 
 
-# Getting Started - Working With Code
+# Introduction - Working With Code
 
 ## A Walk Around The Village
 

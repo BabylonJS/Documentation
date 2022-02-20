@@ -1,8 +1,8 @@
 ---
 title: Contribute 
 image: 
-description: HTML Templates to load your first model or code into a Babylon.js scene.
-keywords: getting started, start, chapter 1, first model, import
+description: Describes how you can contibute to the development of Babylon.js
+keywords: contributing, babylon.js
 further-reading:
   - title: Minimal template for sphere and ground
     url: /quickstart/js_html#html-basic-page-templates

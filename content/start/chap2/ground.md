@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Ground
+title: Introduction - Chapter 2 - Ground
 image: 
 description: Continue your Babylon.js learning by adding a ground plane to your scene.
 keywords: getting started, start, chapter 2, ground, groundplane
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Ground
+# Introduction - Ground
 
 ## Grounding the World
 At the moment we have a box floating in space. To make the scene more world like let's add ground and think of our box as a building set on the ground.

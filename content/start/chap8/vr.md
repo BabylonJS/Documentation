@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 8 - Going Virtual
+title: Introduction - Chapter 8 - Going Virtual
 image: 
 description: Learn the simple process of setting a scene up for VR.
 keywords: getting started, start, chapter 8, VR, XR
@@ -9,7 +9,7 @@ video-content:
 ---
 
 
-# Getting Started - Going Virtual
+# Introduction - Going Virtual
 
 ## See Our Virtual Village World in XR
 

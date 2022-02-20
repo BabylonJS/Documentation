@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - Wheel Animation
+title: Introduction - Chapter 3 - Wheel Animation
 image:
 description: Learn to the basics of animations in Babylon.js.
 keywords: getting started, start, chapter 3, animation, animation basics
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Wheel Animation
+# Introduction - Wheel Animation
 
 ## Foundation of Animation
 

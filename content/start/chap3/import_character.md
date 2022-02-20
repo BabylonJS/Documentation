@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - Character Animation
+title: Introduction - Chapter 3 - Character Animation
 image:
 description: Learn to load objects with animation, into your scene.
 keywords: getting started, start, chapter 3, animation, animation basics, character animation, model loading
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Character Animation
+# Introduction - Character Animation
 
 ## A Walking Figure
 Sometimes the easiest way to add a model to a scene is to obtain one from elsewhere. This could be one you have created in your favorite model building software or one your have purchased.

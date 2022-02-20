@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 4 - Avoiding a Car Crash
+title: Introduction - Chapter 4 - Avoiding a Car Crash
 image:
 description: Learn how to avoid collisions between your characters and cars in the village.
 keywords: getting started, start, chapter 4, collisions
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Avoiding a Car Crash
+# Introduction - Avoiding a Car Crash
 
 ## Avoiding a Car Crash
 

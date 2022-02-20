@@ -12,9 +12,10 @@
 
                 margin: 0;
                 padding: 0;
-                background-image: url("https://i.imgur.com/g0HPM5S.png");
+                background-image: url("/img/home/home_background.png");
                 background-repeat:repeat-y;
-                background-position: center; 
+                background-position: center;
+                background-size: 100%;;
             }
 
             div {
@@ -31,9 +32,27 @@
             .halfSmall {
                 width:50%;
                 float: left;
-                font-size: 1.25em;
+                font-size: 1.55em;
                 text-align: center;
                 padding-bottom: 1%;
+            }
+
+            .halfSmallLeft {
+                width:48%;
+                float: left;
+                font-size: 1.25em;
+                text-align: center;
+                padding-left: 1%;
+                padding-right: 1%;
+            }
+
+            .halfSmallRight {
+                width:48%;
+                float: left;
+                font-size: 1.25em;
+                text-align: center;
+                padding-left: 1%;
+                padding-right: 1%;
             }
 
             .wordlink {
@@ -73,11 +92,14 @@
    <body>
     <div id = "header">Learn Babylon.js</div>
     <div class = "half">Features</div><div class = "half">Workflow</div>
-    <div class = "wordlink">for</div>
     <div class = "halfSmall">Scene Creation</div><div class = "halfSmall">Project Development</div>
-    <img id = "pgimg" src = "https://i.imgur.com/AC6eau5.png", width = 75%>
-    <div class = "wordlink">From Playground --> to Webpage&nbsp;&nbsp;&nbsp;&nbsp;</div>
-    <div class = "halfSmall">From getting started with draw simple shapes to realistic settings</div><div class = "halfSmall">From simple websites to complete applications using IDEs and developmental fameworks</div>
+    <div class = "halfSmallLeft">Get started and draw simple 3D shapes in the Playground;</div>
+    <div class = "halfSmallRight">Get started and download a simple 3D website from the playground;</div>
+    <div class = "halfSmallLeft">advance to realistic 3D settings and environments.</div>
+    <div class = "halfSmallRight">advance to 3D apps with IDEs and fameworks.</div>
+    
+    <img id = "pgimg" src = "/img/home/home_jigsaw.png", width = 50%>
+    
 
    </body>
 

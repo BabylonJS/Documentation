@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 7 - Day to Night
+title: Introduction - Chapter 7 - Day to Night
 image: 
 description: Learn the basics the Babylon.js GUI system.
 keywords: getting started, start, chapter 7, lighting, lights, spotlight, gui
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Day to Night
+# Introduction - Day to Night
 
 ## Day to Night
 One useful way to add a graphical user interface to a scene is the Babylon.js GUI. When working in virtual reality this GUI is necessary as it is designed to be within and part of the Babylon.js scene canvas rather than the HTML document. This GUI is pre-loaded into the playground but is an additional script to load in your own projects with

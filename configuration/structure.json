@@ -36,7 +36,7 @@
                 "content": "landing_pages/features",
                 "children": {
                     "start": {
-                        "friendlyName": "Getting Started",
+                        "friendlyName": "Introduction",
                         "children": {
                             "chap1": {
                                 "friendlyName": "Firsts",

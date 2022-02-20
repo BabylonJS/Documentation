@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - Extruding Polygons
+title: Introduction - Chapter 3 - Extruding Polygons
 image:
 description: Learn to create your own meshes by extruding mesh faces.
 keywords: getting started, start, chapter 3, extrude
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Extruding Polygons
+# Introduction - Extruding Polygons
 
 ## Building the Car
 The car is going to be a very simple one. The body will be built using the *extrudePolygon* method. This is another shape that can be built using *MeshBuilder*. The outline of the shape is drawn in the XZ plane, with points in counter-clockwise order and the extrusion is in the Y direction. The origin for the polygon is the zero point on the bottom plane.

@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 7 - Adding Shadows
+title: Introduction - Chapter 7 - Adding Shadows
 image: 
 description: Learn how to add shadows to your Babylon.js scene.
 keywords: getting started, start, chapter 7, lighting, lights, shadows
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Adding Shadows
+# Introduction - Adding Shadows
 
 ## Adding Shadows
 The light we have been using so far, the *HemisphericLight* gives an ambient background light and is not suitable for producing shadows. We could use the lamp spot lights however the shadows they produce can be faint and so we will introduce a directional light.

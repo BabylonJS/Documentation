@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 4 - Avoiding Collisions
+title: Introduction - Chapter 4 - Avoiding Collisions
 image:
 description: Continue your Babylon.js learning with understanding collisions in Chapter 4.
 keywords: getting started, start, chapter 4, intro, collisions

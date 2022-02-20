@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - Mesh Parents
+title: Introduction - Chapter 3 - Mesh Parents
 image:
 description: Learn the basics of parenting objects in your scene.
 keywords: getting started, start, chapter 3, parenting, parent
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Mesh Parents
+# Introduction - Mesh Parents
 
 ## Parents and Children
 

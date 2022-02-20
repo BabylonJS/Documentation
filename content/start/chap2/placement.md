@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Mesh Placement
+title: Introduction - Chapter 2 - Mesh Placement
 image: 
 description: Continue your Babylon.js learning by placing and positioning meshes in your scene.
 keywords: getting started, start, chapter 2, placement, position
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Mesh Placement
+# Introduction - Mesh Placement
 
 ## Place and Scale a Mesh
 

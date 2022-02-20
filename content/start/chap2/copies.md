@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Making Copies
+title: Introduction - Chapter 2 - Making Copies
 image: 
 description: Continue your Babylon.js learning by making copies of meshes.
 keywords: getting started, start, chapter 2, copy, duplicate, copies
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Making Copies
+# Introduction - Making Copies
 
 ## Copying Meshes
 The two main ways to copy a mesh is to clone it or create an instance of it. Cloning gives you an independent copy of a mesh whereas an instance is still linked to the original for its material. You cannot change the material of an instance of a mesh. There are also advanced ways of creating copies which are available in the *Mesh Chapter*

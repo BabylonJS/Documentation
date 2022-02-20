@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Texture
+title: Introduction - Chapter 2 - Texture
 image: 
 description: Continue your Babylon.js learning by adding materials to the objects in your scene.
 keywords: getting started, start, chapter 2, material, materials
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Texture
+# Introduction - Texture
 
 ## Add Texture
 In order to add color and texture to our meshes we apply a material to them. The basic material is the standard material created like this

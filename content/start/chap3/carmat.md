@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 3 - Car Materials
+title: Introduction - Chapter 3 - Car Materials
 image:
 description: Learn to add materials to extruded meshes.
 keywords: getting started, start, chapter 3, materials, extrude
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Car Materials
+# Introduction - Car Materials
 
 ## Car Material
 

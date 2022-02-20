@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 6 - The Switch On Event
+title: Introduction - Chapter 6 - The Switch On Event
 image: 
 description: Learn how to start/stop a particle system with a click.
 keywords: getting started, start, chapter 6, particles, input, interaction
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - The Switch On Event
+# Introduction - The Switch On Event
 
 ## The Switch On Event
 When we click the screen pointer on the fountain we want it to start. We do this by adding a function to an *onPointerObservable* to deal with a pointer down event that switches the particle system between stop and start.

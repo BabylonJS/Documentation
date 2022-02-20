@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 5 - Skies Above
+title: Introduction - Chapter 5 - Skies Above
 image: 
 description: Learn to add a skybox to your scene.
 keywords: getting started, start, chapter 5, environment, skybox
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Skies Above
+# Introduction - Skies Above
 
 We can simulate the appearance of a sky by applying six suitable images to the insides of a large [skybox](/divingDeeper/environment/skybox) cube. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 

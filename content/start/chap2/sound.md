@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Sound
+title: Introduction - Chapter 2 - Sound
 image: 
 description: Continue your Babylon.js learning by adding sound to your scene.
 keywords: getting started, start, chapter 2, sound, audio
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Sound
+# Introduction - Sound
 
 ## Adding Sound
 
@@ -35,6 +35,6 @@ To account for loading time, in the example below *setInterval* is used to play 
 
 <Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a soundn every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
-Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Getting Started that load sounds. 
+Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Introduction that load sounds. 
 
 Now back to making our world and the developing our buildings. Buildings come in varied sizes, positions and orientations and this will be true for the world we are creating.

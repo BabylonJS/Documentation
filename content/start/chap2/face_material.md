@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 2 - Face Materials
+title: Introduction - Chapter 2 - Face Materials
 image: 
 description: Continue your Babylon.js learning by adding materials to individual faces of the meshes in your scene.
 keywords: getting started, start, chapter 2, face material, face materials
@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Face Materials
+# Introduction - Face Materials
 
 ## Material For Each House Side
 

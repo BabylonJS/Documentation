@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 5 - Sprite Trees
+title: Introduction - Chapter 5 - Sprite Trees
 image: 
 description: Learn to add a skybox to your scene.
 keywords: getting started, start, chapter 5, environment, skybox
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working With Code
+# Introduction - Working With Code
 
 ## Sprite Trees
 We are going to plant a couple of woods in our world each containing 500 trees. To maintain rendering speed we are going to use sprites. These are two dimensional images that will always face the camera.

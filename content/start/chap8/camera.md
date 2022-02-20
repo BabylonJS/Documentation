@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 8 - Have a Look Around
+title: Introduction - Chapter 8 - Have a Look Around
 image: 
 description: Learn the basics of the arcRotateCamera.
 keywords: getting started, start, chapter 8, cameras, camera, arcRotate
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Have a Look Around
+# Introduction - Have a Look Around
 
 ## Have a Look Around
 Currently we are using the *ArcRotateCamera* which has us orbiting the village world from a distance. How about a view from inside the village? Let's parent the camera to the character walking around the village and with a few adjustments to values look around from over his shoulder. The creation of the *ArcRotateCamera* has this form,

@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 5 - A Better Environment
+title: Introduction - Chapter 5 - A Better Environment
 image: 
 description: Learn to improve the look of your environment in Chapter 5.
 keywords: getting started, start, chapter 5, intro, environment

@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 1 - Working with Models
+title: Introduction - Chapter 1 - Working with Models
 image:
 description: Learn to load your first model into a Babylon.js scene.
 keywords: getting started, start, chapter 1, first model, import
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Getting Started - Working with Models
+# Introduction - Working with Models
 
 The playgrounds on this page contain models (in this example, houses) which can be positioned, rotated and scaled. Once the basics (such as importing a model and putting your project on a web page) have been introduced, we will give you details on how to accomplish this with Babylon.js.
 

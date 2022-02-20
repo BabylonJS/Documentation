@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Chapter 8 - Follow That Character
+title: Introduction - Chapter 8 - Follow That Character
 image: 
 description: Learn the basics of the FollowCamera.
 keywords: getting started, start, chapter 8, cameras, camera, FollowCamera
@@ -9,7 +9,7 @@ video-content:
 ---
 
 
-# Getting Started - Follow That Character
+# Introduction - Follow That Character
 
 ## Follow That Character
 
