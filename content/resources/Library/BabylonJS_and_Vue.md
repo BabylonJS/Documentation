@@ -47,7 +47,7 @@ If you want to use the BabylonJS [Inspector](/features/toolsAndResources/tools/i
 npm install @babylonjs/inspector
 ```
 
-You can find more on installing BabylonJS [here](/features/divingDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial").
+You can find more on installing BabylonJS [here](/workflow/wfDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial").
 
 ## The Vue component
 

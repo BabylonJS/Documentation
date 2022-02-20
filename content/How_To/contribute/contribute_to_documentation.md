@@ -5,7 +5,7 @@ description: Learn how to contribute to the Babylon.js Documentation.
 keywords: diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
   - title: Improve API Documentation
-    url: /features/divingDeeper/developWithBjs/contributeToAPI
+    url: /workflow/wfDeeper/developWithBjs/contributeToAPI
   - title: Mastering Markdown
     url: https://guides.github.com/features/mastering-markdown/
 video-overview:
@@ -46,7 +46,7 @@ Congratulations, your modifications are now waiting to be validated and merged i
 
 ![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
 
-Do not hesitate to read the [Good Practice](/features/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
+Do not hesitate to read the [Good Practice](/workflow/wfDeeper/developWithBjs/contributeToDocs#good-practices) section.
 
 ## Deeper Changes
 
@@ -305,7 +305,7 @@ Click the _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 
-If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/features/divingDeeper/developWithBjs/contributeToDocs#the-easy-way) section.
+If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/workflow/wfDeeper/developWithBjs/contributeToDocs#the-easy-way) section.
 
 Congratulation again, you're now a documentation master!
 
@@ -324,7 +324,7 @@ Congratulation again, you're now a documentation master!
 
 ### Images
 
-- use and store images from the documentation FTP as much as possible, read [Adding new images](/features/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
+- use and store images from the documentation FTP as much as possible, read [Adding new images](/workflow/wfDeeper/developWithBjs/contributeToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code
@@ -340,7 +340,7 @@ Congratulation again, you're now a documentation master!
 
 For links to other parts of the Babylon.js documentation and API, use relative links.
 
-For example, use `[Load Files with Assets Manager](/features/divingDeeper/developWithBjs/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/features/divingDeeper/developWithBjs/contributeToDocs)`
+For example, use `[Load Files with Assets Manager](/workflow/wfDeeper/developWithBjs/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/workflow/wfDeeper/developWithBjs/contributeToDocs)`
 
 ## Further Reading
 

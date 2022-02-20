@@ -24,7 +24,7 @@ If you are using ES6 imports via NPM, you need to reference with side-effects:
 import 'babylonjs-loaders'
 ```
 
-You can read more about [NPM support](/features/divingDeeper/developWithBjs/npmSupport)
+You can read more about [NPM support](/workflow/wfDeeper/developWithBjs/npmSupport)
 
 ### Load
 See [how to load from any file type](/features/divingDeeper/importers/loadingFileTypes)

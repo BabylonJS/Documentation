@@ -5,9 +5,9 @@ description: Learn about tree shaking and package management in Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
 further-reading:
   - title: How To Get Babylon.js
-    url: /features/divingDeeper/developWithBjs/frameworkVers
+    url: /workflow/wfDeeper/developWithBjs/frameworkVers
   - title: NPM Support
-    url: /features/divingDeeper/developWithBjs/npmSupport
+    url: /workflow/wfDeeper/developWithBjs/npmSupport
 video-overview:
 video-content:
 ---
