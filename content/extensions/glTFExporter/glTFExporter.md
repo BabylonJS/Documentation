@@ -100,22 +100,22 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
   - ✔️ Multiple UV sets
   - ✔️ Morph Targets
   - ✔️ Skinned Meshes
-  - ❌ Mesh Instancing Extension [EXT_mesh_gpu_instancing](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing)
-  - ❌ Draco Mesh Compression Extension [KHR_draco_mesh_compression](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_draco_mesh_compression)
+  - ❌ Mesh Instancing Extension [EXT_mesh_gpu_instancing](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Vendor/EXT_mesh_gpu_instancing)
+  - ❌ Draco Mesh Compression Extension [KHR_draco_mesh_compression](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_draco_mesh_compression)
 
 - ⚠️ Material Export
   - ✔️ Metal Roughness Materials [pbrMetallicRoughness](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#metallic-roughness-material)
     - A conversion from `StandardMaterial` to `MetallicRoughness` has been implemented to try to match as close as visibly possible, though not all Babylon.js features are supported in glTF.
-  - ❌ Specular Glossiness Materials Extension [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness)
+  - ❌ Specular Glossiness Materials Extension [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness)
     - `SpecularGlossiness` has been superseeded by KHR_materials_specular. `KHR_materials_pbrSpecularGlossiness` will not be supported.
   - ❌ Specular Materials Extension [KHR_materials_specular](https://github.com/KhronosGroup/glTF/pull/1719/files?short_path=3757306#diff-3757306b203ae39ab0610702c04a45d4d598b904fe8ba4961ebc1c0409730b45)
   - ❌ Material Index of Refraction Extension [KHR_materials_ior](https://github.com/KhronosGroup/glTF/pull/1718/files?short_path=4698aba#diff-4698abaf20aa5bce525ce57cf0def8a07a476cd9dbc961226bef22e04a6a1591)
   - ❌ Material Volume Extension [KHR_materials_volume](https://github.com/KhronosGroup/glTF/pull/1726)
-  - ✔️ Unlit Materials Extension [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit)
+  - ✔️ Unlit Materials Extension [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_materials_unlit)
   - ✔️ Occlusion, Roughness, Emissive (ORM) map
   - ✔️ Material Alpha Coverage modes
   - ✔️ Double sided materials
-  - ❌ Material variants [KHR_materials_variants](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_variants)
+  - ❌ Material variants [KHR_materials_variants](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_materials_variants)
 
 
 - ✔️ Animation
@@ -129,7 +129,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
 
 - ✔️ Buffer View and Accessor Reuse
 - ✔️ Extras Data
-- ❌ XMP Metadata [KHR_XMP](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_xmp)
+- ❌ XMP Metadata [KHR_XMP](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_xmp)
 - ⚠️ Asset Info
     - Copyright field specification not supported.
 

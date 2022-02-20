@@ -22,7 +22,7 @@ There are three methods you can customize:
 
 You can directly attach all these functions to the particleSystem.
 
-Since Babylon.js V3.2 you can use the first two, `startDirectionFunction` and `startPositionFunction`, in creating a new particle emitter type as was done with the [createBoxEmitter, createSphereEmitter and createConeEmitter](/divingDeeper/particles/particle_system/shape_emitters).
+Since Babylon.js V3.2 you can use the first two, `startDirectionFunction` and `startPositionFunction`, in creating a new particle emitter type as was done with the [createBoxEmitter, createSphereEmitter and createConeEmitter](/features/divingDeeper/particles/particle_system/shape_emitters).
 
 ### Direct
 
@@ -119,7 +119,7 @@ if (particle.age < particle.lifeTime * 0.35) {
 
 ### Particle Emitter Type
 
-Starting from Babylon.js V3.2 you can create a new object of type `IParticleEmitterType` into the particle system. [Examples](/divingDeeper/particles/particle_system/shape_emitters) of this type of object are `sphereParticleEmitter` and `coneParticleEmitter` which are produced by using createSphereEmitter and createConeEmitter.
+Starting from Babylon.js V3.2 you can create a new object of type `IParticleEmitterType` into the particle system. [Examples](/features/divingDeeper/particles/particle_system/shape_emitters) of this type of object are `sphereParticleEmitter` and `coneParticleEmitter` which are produced by using createSphereEmitter and createConeEmitter.
 
 These objects are assigned to a new property `particleEmitterType` of the particleSystem.
 
@@ -223,7 +223,7 @@ This method takes three parameters
 var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers);
 ```
 
-- fragment: string, the name of the fragment shader which can be in the [shaders store](/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/advanced_topics/shaders/shaderCodeInBjs#shader-code-in-script-tags);
+- fragment: string, the name of the fragment shader which can be in the [shaders store](/features/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/features/advanced_topics/shaders/shaderCodeInBjs#shader-code-in-script-tags);
 - uniforms: [strings], array of uniforms used in the shader;
 - samplers: [strings], array of names of samplers for additional textures!
 

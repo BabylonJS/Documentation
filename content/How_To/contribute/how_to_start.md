@@ -118,7 +118,7 @@ Before embarking on editing or adding to Babylon.js please make sure you are fam
 
 Please note that some of these are checked on submission automatically by software, including
 
-- The addition of comments to your code as described [here](/divingDeeper/developWithBjs/contributeToAPI);
+- The addition of comments to your code as described [here](/features/divingDeeper/developWithBjs/contributeToAPI);
 - Adding a statement about the change in the **dist/preview release/what's new.md** page
 
 ## Editing with Visual Studio Code
@@ -129,7 +129,7 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 Once you are sure you have met the guidelines and have thoroughly tested all your changes you need to commit your changes.
 
-[More on using VSCode with babylon.js](/divingDeeper/developWithBjs/vsCode)
+[More on using VSCode with babylon.js](/features/divingDeeper/developWithBjs/vsCode)
 
 ## Adding files
 
@@ -307,7 +307,7 @@ This should help playing and debugging locally.
 As part of your testing process, it is highly recommended to launch the build validator: [http://localhost:1338/tests/validation/index.html](http://localhost:1338/tests/validation/index.html).
 It will run several scenes against a reference image to detect any visual changes.
 
-There's an [advanced page](/divingDeeper/developWithBjs/howToStart/validationTests) for validation tests, but you should not need it, simply launching [http://localhost:1338/tests/validation/index.html](http://localhost:1338/tests/validation/index.html) and making sure all tests are ok should be enough.
+There's an [advanced page](/features/divingDeeper/developWithBjs/howToStart/validationTests) for validation tests, but you should not need it, simply launching [http://localhost:1338/tests/validation/index.html](http://localhost:1338/tests/validation/index.html) and making sure all tests are ok should be enough.
 
 ### Guidelines
 
@@ -365,7 +365,7 @@ Scroll down to the Stage 1 section
 
 ![check 2](/img/contribute/pr5.jpg)
 
-In the above image you can see that this pull-request failed in `WhatsNewUpdate`. Probably because no entry was made in **dist/preview release/what's new.md**. It has passed the `DocumentationCheck` since all the comments have been entered as describe in [the formatting of comments for the API](/divingDeeper/developWithBjs/contributeToAPI#format-of-comments).
+In the above image you can see that this pull-request failed in `WhatsNewUpdate`. Probably because no entry was made in **dist/preview release/what's new.md**. It has passed the `DocumentationCheck` since all the comments have been entered as describe in [the formatting of comments for the API](/features/divingDeeper/developWithBjs/contributeToAPI#format-of-comments).
 
 For any failures re-edit your local files, commit and push to your repository. The alterations will automatically added to your pull-request and it will be re-checked.
 

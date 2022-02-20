@@ -10,7 +10,7 @@ video-content:
 
 The goal of this article is to clearly explain what is happening with normal textures with some samples to hopefully clear up any confusion about what is happening.
 
-To do so we are going to use this playground as an example: <Playground id="#YCCU8U" title="Normal Texture Example" description="Simple example of using a normal texture in your scene." image="/img/playgroundsAndNMEs/divingDeeperNormalMaps1.jpg"/>
+To do so we are going to use this playground as an example: <Playground id="#YCCU8U" title="Normal Texture Example" description="Simple example of using a normal texture in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperNormalMaps1.jpg"/>
 
 What the normal map formats are and what they look like?
 

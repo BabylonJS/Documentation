@@ -33,7 +33,7 @@ Let's take a look at a simple example, Seting up a shadow generator.
 ```json
 {
     "label" : "Setup a shadow generator",
-    "documentation" : "https://doc.babylonjs.com/divingDeeper/lights/shadows",
+    "documentation" : "https://doc.babylonjs.com/features/divingDeeper/lights/shadows",
     "insertText" : "var shadowGenerator = new BABYLON.ShadowGenerator(${1:size}, ${2:the_light_source});\nshadowGenerator.getShadowMap().renderList.push(${3:the_mesh_that_casts_a_shadow});\n${4:mesh_that_receives_the_shadow}.receiveShadows = true;"    
 },
 ```

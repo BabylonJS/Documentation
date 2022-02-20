@@ -38,4 +38,4 @@ BABYLON.Viewport = function (x, y, width, height);
 
 where x, y, are the lower lefthand corner of the viewport followed by its width and height. Values for x, y, width, and height are numbers between 0 and 1 representing the fraction of the screen width and height, respectively.
 
-<Playground id="#4JXV32" title="Viewport Example" description="A simple example of constructing a viewport." image="/img/playgroundsAndNMEs/divingDeeperMultiviews3.jpg"/>
+<Playground id="#4JXV32" title="Viewport Example" description="A simple example of constructing a viewport." image="/img/playgroundsAndNMEs/features/divingDeeperMultiviews3.jpg"/>

@@ -5,15 +5,15 @@ description: Modifying the Babylon.js viewer using HTML.
 keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
     - title: Babylon.js Viewer
-      url: /extensions/babylonViewer
+      url: /features/extensions/babylonViewer
     - title: Configuring the viewer
-      url: /extensions/babylonViewer/configuringViewer
+      url: /features/extensions/babylonViewer/configuringViewer
     - title: The templating system
-      url: /extensions/babylonViewer/viewerTemplatingSystem
+      url: /features/extensions/babylonViewer/viewerTemplatingSystem
     - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
+      url: /features/extensions/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /extensions/babylonViewer/viewerExamples
+      url: /features/extensions/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -172,7 +172,7 @@ The camera configuration is added afterwards, using the camera HTML tag:
 </babylon>
 ```
 
-The camera configuration includes camera behaviors' configuration, which are a native Babylon.js feature. You can read about it in [Camera behaviors](/extensions/babylonViewer/configuringViewer)
+The camera configuration includes camera behaviors' configuration, which are a native Babylon.js feature. You can read about it in [Camera behaviors](/features/extensions/babylonViewer/configuringViewer)
 
 ## Adding environment
 
@@ -215,7 +215,7 @@ The reasons I choose the 2nd way are:
 
 ## Templates - Main template
 
-An important part of the viewer is the templating system - it takes predefined HTML elements, adds them where needed and attaches Babylon to the created canvas element and the buttons in the navigation bar. To read about it, visit [The templating system](/extensions/babylonViewer/viewerTemplatingSystem).
+An important part of the viewer is the templating system - it takes predefined HTML elements, adds them where needed and attaches Babylon to the created canvas element and the buttons in the navigation bar. To read about it, visit [The templating system](/features/extensions/babylonViewer/viewerTemplatingSystem).
 
 The default viewer, which is the viewer we are using when using the `<babylon>` tag, expects certain templates to have specific elements (like a full screen button in the navigation bar, or a loading screen). If specific templates aren't included, the viewer will fail silently and will continue rendering the 3D element. The only obligatory template is the main template. Without a main template (which can be a single canvas and that's it) the viewer will fail.
 

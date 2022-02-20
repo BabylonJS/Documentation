@@ -5,14 +5,14 @@ description: Begin learning about how to develop interactions for your Babylon.j
 keywords: diving deeper, events, interactions
 further-reading:
   - title: Observables
-    url: /divingDeeper/events/observables
+    url: /features/divingDeeper/events/observables
 video-overview:
 video-content:
 ---
 
 ## How to Interact with A Scene
 
-There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/divingDeeper/gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
+There are three main ways for a user to interact with a scene, the keyboard, the [GUI](/features/divingDeeper/gui) and directly with a mouse, touch or gamepad. The use of keyboard and pointer interactions are described on this page.
 
 ## Keyboard Interactions
 
@@ -79,9 +79,9 @@ scene.onPointerObservable.add((pointerInfo) => {
 
 ## Playground Examples
 
-<Playground id="#0XYMA9#107" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
-<Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/divingDeeperInteractions2.jpg" isMain={true} category="Scene"/>
-<Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/divingDeeperInteractions3.jpg" isMain={true} category="Scene"/>
+<Playground id="#0XYMA9#107" title="Scene Observables Template" description="Simple scene observables template." image="/img/playgroundsAndNMEs/features/divingDeeperInteractions1.jpg" isMain={true} category="Scene"/>
+<Playground id="#7CBW04" title="Simple Drag Example" description="Simple example of a drag behavior." image="/img/playgroundsAndNMEs/features/divingDeeperInteractions2.jpg" isMain={true} category="Scene"/>
+<Playground id="#XZ0TH6" title="Simple Keyboard Input Example" description="Simple example of keyboard input." image="/img/playgroundsAndNMEs/features/divingDeeperInteractions3.jpg" isMain={true} category="Scene"/>
 <Playground id="#2SA7J8#7" title="Click+Drag to Multi Select" description="Simple example of how to multi-select objects in a scene using rectangular selection." isMain={true} category="Scene"/>
 
 Remember to click in scene (to set focus) before using keyboard

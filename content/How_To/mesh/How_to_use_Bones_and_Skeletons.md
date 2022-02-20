@@ -401,7 +401,7 @@ Bones are computed using shaders by default. This allows better performance. But
 
 ## Debugging
 
-Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/tools/inspector#bones-viewer) on and off.
+Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/features/toolsAndResources/tools/inspector#bones-viewer) on and off.
 
 ### Debugging Extras
 

@@ -174,7 +174,7 @@ if(this._started) { //if it's started, rocket flies up to height & then explodes
     //use its delay to know when to shoot the firework
     if(this._delay <= 0){
         this._started = true;
-        //start particle system
+        //features/start particle system
         this._rocket.start();
     } else {
         this._delay--;

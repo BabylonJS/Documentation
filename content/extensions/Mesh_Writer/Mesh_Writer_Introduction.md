@@ -29,7 +29,7 @@ PG: <Playground id="#PL752W#150" title="Mesh Writer Example 1" description=""/>
 
 ## Getting the code
 
-Copy https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/Extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
+Copy https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
 
 ## If you prefer npm 
 

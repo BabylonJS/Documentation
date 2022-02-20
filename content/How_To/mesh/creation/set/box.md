@@ -35,8 +35,8 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** |
 
 
 ### Examples
-Cuboid: <Playground id="#6XIT28#4" title="Create a Cuboid" description="Simple example of creating a cuboid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes1.jpg"/> 
-Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title="Create a Box With Face Numbers" description="Simple example of creating a box with face numbers." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes2.jpg"/>
+Cuboid: <Playground id="#6XIT28#4" title="Create a Cuboid" description="Simple example of creating a cuboid." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes1.jpg"/> 
+Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title="Create a Box With Face Numbers" description="Simple example of creating a box with face numbers." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes2.jpg"/>
 
 ## Mesh.
 Usage

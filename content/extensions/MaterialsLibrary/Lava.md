@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Screenshot](/img/extensions/materials/lava.jpg)
+![Screenshot](/img/features/extensions/materials/lava.jpg)
 
 PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
 

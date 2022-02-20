@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![idpic1](/img/extensions/clonerSystem/matrixcloner.jpg "MatrixCloner")
+![idpic1](/img/features/extensions/clonerSystem/matrixcloner.jpg "MatrixCloner")
 
 The MatrixCloner clones and distributes given meshes in 3D space. If more than one mesh is provided, then the corresponding clones will be placed subsequently one after another starting in the x direction followed by y and z direction.  
 The MatrixCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones, its position is the middle position of all generated clones. Transforming this **root** affects all underlying clones (childs) at once. The given input meshes will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  

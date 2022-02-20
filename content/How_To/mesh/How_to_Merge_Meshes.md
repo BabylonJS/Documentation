@@ -33,7 +33,7 @@ Compare with the following example which sets `multiMultiMaterials` to true:
 
 <Playground id="#INZ0Z0#59" title="Merging Meshes With Multiple Materials" description="Simple example of merging meshes together with multiple materials."/>
 
-See [this page](/divingDeeper/materials/using/multiMaterials) for more details on usage of merged meshes.
+See [this page](/features/divingDeeper/materials/using/multiMaterials) for more details on usage of merged meshes.
 
 ## Use your own merge function
 

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![idpic1](/img/extensions/clonerSystem/radialCloner.jpg "RadialCloner's from left to right: aligned, unaligned, aligned clones")
+![idpic1](/img/features/extensions/clonerSystem/radialCloner.jpg "RadialCloner's from left to right: aligned, unaligned, aligned clones")
 
 The RadialCloner distributes given meshes in a radial manner. If more than one meshes are provided, then the clones will be placed alternatively. Several parameters controls the position, angle, type and orientation of the clones. The RadialCloner returns an object with one important property: **root**. It is an invisible mesh, it's the anchor, center and parent of all generated clones. Transforming this **root** (position/scale/rotation) affects all underlying clones (childs) at once. Most of the input parameters are also available as properties and they are very suitable for animation (tweening). The given input meshes will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 *Note:* Input meshes can be BABYLON meshes but other Cloners as well!

@@ -84,7 +84,7 @@ if (this.inputMap["Shift"] || this._mobileDash) {
 }
 ```
 
-We have our character moving! But wait, the running animations don't work? If we return to the [\_animatePlayer](/guidedLearning/createAGame/animations#animate-player) function from the Animation tutorial, you'll see that we were looking at our inputMap for movement detection. We just need to add our mobile inputs to this as well.
+We have our character moving! But wait, the running animations don't work? If we return to the [\_animatePlayer](/features/guidedLearning/createAGame/animations#animate-player) function from the Animation tutorial, you'll see that we were looking at our inputMap for movement detection. We just need to add our mobile inputs to this as well.
 
 ![mobile gameplay](/img/how_to/create-a-game/mobilegameplay.gif)
 

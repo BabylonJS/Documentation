@@ -12,13 +12,13 @@ video-content:
 
 Downloading large assets is often slow even with a decent internet connection. Progressively loading discrete levels of detail (LODs) is one technique to combat this. The idea is to store multiple LODs in the asset and progressively load them from low to high quality. This method improves the time to first render since the lowest quality LOD is often dramatically smaller than the highest quality LOD.
 
-<Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/divingDeeperProgressivelyLoading1.jpg"/>
+<Playground id="#ARN6TJ#5" title="Progressive Loading With LODs" description="Simple Example of progressively loading assets with levels of detail." image="/img/playgroundsAndNMEs/features/divingDeeperProgressivelyLoading1.jpg"/>
 
 This demo playground loads a glTF binary (a.k.a. GLB) asset which is a single file store on the server. It uses HTTP range requests to partially download parts of the GLB. The glTF loader minimizes the amount of HTTP requests sent to the server for optimal efficiency. It also shows progress of each stage of the download. Console logging is enabled to show what the glTF loader is doing.
 
 ## About MSFT_lod
 
-[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js supports progressively loading these LODs, for the purpose of reducing the time to first render, as well as selecting LODs based on screen coverage.  
+[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js supports progressively loading these LODs, for the purpose of reducing the time to first render, as well as selecting LODs based on screen coverage.  
 You can use the property `MSFT_screencoverage` in the gltf file to indicate to Babylon.js which LOD level to select. Screen coverage is calculated as a ratio between the screen surface the mesh occupies, and the total screen surface.
 
 [This playground](https://playground.babylonjs.com/#2YZFA0#228) demonstrates loading a simple gltf file that contains 3 LOD levels. You can retrieve the file [here](https://playground.babylonjs.com/scenes/msft-lod.gltf) if you want to inspect it.
@@ -118,7 +118,7 @@ BJS - [16:31:29]:         /nodes/5 car_lores_gt_lores_lowdetails group1
 BJS - [16:31:29]:           /meshes/0 car_lores_gt_lores_lowdetails group1
 BJS - [16:31:29]:             /meshes/0/primitives/0
 BJS - [16:31:29]:               deferred
-BJS - [16:31:30]:               /materials/12/extensions/MSFT_lod
+BJS - [16:31:30]:               /materials/12/features/extensions/MSFT_lod
 BJS - [16:31:30]:                 /materials/0 details_lod2
 BJS - [16:31:30]:                   /materials/0/normalTexture
 BJS - [16:31:30]:                     /textures/2 tmp_image_pie_10f1_2c55_943e

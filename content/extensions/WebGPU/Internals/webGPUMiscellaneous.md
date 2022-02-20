@@ -17,7 +17,7 @@ When the features are implemented, the corresponding validation tests should be 
 
 The **Self shadowing** validation test generates rendering errors (but is still ok because there are less than 2.5% errors) because it uses exponential shadow map whose parameters (`depthScale` especially) depend on the precision of the depth map. In WebGL we are using a 32 bits float texture but in WebGPU it's only a half-float texture because linear filtering of 32 bits float textures are not supported (for the time being at least):
 
-![WebGPU chart](/img/extensions/webgpu/webgpuValidationTestSelfShadowing.jpg)
+![WebGPU chart](/img/features/extensions/webgpu/webgpuValidationTestSelfShadowing.jpg)
 
 **Note to core developers: YOU SHOULD RUN THE VALIDATION TESTS LOCALLY OFTEN BECAUSE THEY ARE NOT RUN ON THE AZURE SERVERS!**
 
@@ -26,7 +26,7 @@ Run both the:
 * Standard tests: http://localhost:1338/tests/validation/?list=config&engine=webgpu
 
 You should also run them in the "check resource creation" mode: see [Check Resource Creation - WebGPU only
-](/divingDeeper/developWithBjs/howToStart/validationTests#check-resource-creation---webgpu-only).
+](/features/divingDeeper/developWithBjs/howToStart/validationTests#check-resource-creation---webgpu-only).
 
 ## TintWASM
 You should update the **TWGSL** (Tint WASM) module regularly so that it stays in sync with the **Tint** source code.

@@ -10,7 +10,7 @@ video-content:
 
 # Fire Procedural texture
 
-![Fire Procedural texture](/img/extensions/proceduraltextures/firept.png)
+![Fire Procedural texture](/img/features/extensions/proceduraltextures/firept.png)
 
 ## Using the Fire procedural texture
 

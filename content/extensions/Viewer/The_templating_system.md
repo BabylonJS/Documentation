@@ -5,15 +5,15 @@ description: Using and extending the viewer's simple integrated templating syste
 keywords: extensions, babylon.js, viewer, template, templating system, templating
 further-reading:
     - title: Babylon.js Viewer
-      url: /extensions/babylonViewer
+      url: /features/extensions/babylonViewer
     - title: Configuring the viewer
-      url: /extensions/babylonViewer/configuringViewer
+      url: /features/extensions/babylonViewer/configuringViewer
     - title: Recreating the default configuration for the viewer
-      url: /extensions/babylonViewer/defaultViewerConfig
+      url: /features/extensions/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
+      url: /features/extensions/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /extensions/babylonViewer/viewerExamples
+      url: /features/extensions/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -222,7 +222,7 @@ export interface EventCallback {
 To register for event listening, load the template using the template manager and add an observer to the `onEventTriggered` observable:
 
 ```javascript
-// viewer is a viewer instance. See Advanced usage (//doc.babylonjs.com/extensions/Advanced_usage) for further details on how to get it.
+// viewer is a viewer instance. See Advanced usage (//doc.babylonjs.com/features/extensions/Advanced_usage) for further details on how to get it.
 let navbar = viewer.templateManager.getTemplate("navBar");
 // let's be safe!
 if (!navbar) return;

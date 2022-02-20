@@ -35,7 +35,7 @@ In case the stairs 3d model is too complex, and in order to save performances, t
 (or generate on the fly) a lower detailed 3d model for the stair.
 
 The method would consis on creating a lower level of details object of the source mesh (instead of a cube or sphere) made by an
-artist or using the [Auto-LOD Simplification Tool of Babylon.JS](/divingDeeper/mesh/simplifyingMeshes)
+artist or using the [Auto-LOD Simplification Tool of Babylon.JS](/features/divingDeeper/mesh/simplifyingMeshes)
 and perform the same next steps for `Basic Collisions`.
 
 The problem here is that generating a lower level of details has a cost in time and simplifying a mesh using the simplification method
@@ -49,7 +49,7 @@ To edit the advanced collisions, select a mesh in the graph, scroll in the inspe
 and click the button `Edit Advanced Collisions...`. On clicked, a new tool is opened over the inspector showing the current
 state of the collisions of the object.
 
-![AdvancedCollisions](/img/extensions/Editor/AdvancedCollisions/advanced_collisions.png)
+![AdvancedCollisions](/img/features/extensions/Editor/AdvancedCollisions/advanced_collisions.png)
 
 ## Understanding The Tool
 Once opened, the tool shows the current stage of the collisions of the object (here `None`). To selected a collider type,
@@ -62,11 +62,11 @@ component.*
 ### Cube Collider
 The `Cube` collider is the most performant collider that allows to check collisions only on the bounding box of the mesh.
 
-![CubeColliderTool](/img/extensions/Editor/AdvancedCollisions/cube_collider_tool.png)
+![CubeColliderTool](/img/features/extensions/Editor/AdvancedCollisions/cube_collider_tool.png)
 
 In other words, just imagine that the following model will have collisions check like it was a cube instead of a complex mesh:
 
-![CubeCollider](/img/extensions/Editor/AdvancedCollisions/cube_collider.png)
+![CubeCollider](/img/features/extensions/Editor/AdvancedCollisions/cube_collider.png)
 
 ### Sphere Collider
 As well as the `Cube` collider, the `Sphere` collider will allow to check the collisions on the bounding sphere of the mesh
@@ -78,9 +78,9 @@ It uses the `QuadraticErrorSimplification` implementation in Babylon.JS and allo
 that will be saved as well as the rest of the scene. In other words, no extra work is needed.
 
 To understand the properties, check the
-[following documentation](/divingDeeper/mesh/simplifyingMeshes#mesh-optimization-startingbabylonjs-21)
+[following documentation](/features/divingDeeper/mesh/simplifyingMeshes#mesh-optimization-startingbabylonjs-21)
 for the `Optimize Mesh` property and the
-[following documentation](/divingDeeper/mesh/simplifyingMeshes#usage---simplifying-a-mesh)
+[following documentation](/features/divingDeeper/mesh/simplifyingMeshes#usage---simplifying-a-mesh)
 for the quality property.
 
 As informations, the tool shows the base vertices count vs. the LOD vertices count. This can help to understand how much the mesh
@@ -89,10 +89,10 @@ the stairs.
 
 In most cases, setting the quality as "0.01" works where the vertices count can change from `77 424` to `882`.
 
-![LODColliderTool](/img/extensions/Editor/AdvancedCollisions/lod_collider_tool.png)
+![LODColliderTool](/img/features/extensions/Editor/AdvancedCollisions/lod_collider_tool.png)
 
 Once properties are set, just click the `Compute...` button to generate the LOD and an overlay will appear to notify that the
 algoritm is working. Once done, the `Infos` section is updated to show the new vertices count value and the collider mesh in the preview
 is updated as well:
 
-![LODCollider](/img/extensions/Editor/AdvancedCollisions/lod_collider.png)
+![LODCollider](/img/features/extensions/Editor/AdvancedCollisions/lod_collider.png)

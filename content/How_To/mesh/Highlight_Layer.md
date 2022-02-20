@@ -5,7 +5,7 @@ description: Learn how to highlight meshes in Babylon.js.
 keywords: diving deeper, meshes, highlight
 further-reading:
   - title: How To Make a Mesh Glow
-    url: /divingDeeper/mesh/glowLayer
+    url: /features/divingDeeper/mesh/glowLayer
   - title: HighlightLayer API
     url: /typedoc/classes/babylon.highlightlayer
 video-overview:

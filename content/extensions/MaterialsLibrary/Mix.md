@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Mix Material](/img/extensions/materials/mixResult.png)
+![Mix Material](/img/features/extensions/materials/mixResult.png)
 
 ## Playground example
 
@@ -58,11 +58,11 @@ That's all!
 ## Result with only the mix texture 1
 With ```mix.mixTexture2``` undefined or null, the material will only apply the mix texture 1:
 
-![Mix Texture 1](/img/extensions/materials/mixMap.png)
-![Mix Material 1](/img/extensions/materials/terrainMixtexture1.png)
+![Mix Texture 1](/img/features/extensions/materials/mixMap.png)
+![Mix Material 1](/img/features/extensions/materials/terrainMixtexture1.png)
 
 ## Result with both mix textures 1 & 2
 With ```mix.mixTexture2 = new BABYLON.Texture("/playground/textures/mixMap_2.png", scene)``` the material will continue mixing the mix texture 1 with the mix texture2. Then, you are able to mix up to 8 diffuse textures:
 
-![Mix Texture 2](/img/extensions/materials/mixMap_2.png)
-![Mix Material 2](/img/extensions/materials/mixResult.png)
+![Mix Texture 2](/img/features/extensions/materials/mixMap_2.png)
+![Mix Material 2](/img/features/extensions/materials/mixResult.png)

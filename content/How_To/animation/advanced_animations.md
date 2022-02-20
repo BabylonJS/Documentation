@@ -20,7 +20,7 @@ await anim.waitAsync();
 console.log("after");
 ```
 
-You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
+You can find an example here: <Playground id="#HZBCXR" title="Animation End Promise Example" description="An example of waiting for the animation end with promises." image="/img/playgroundsAndNMEs/features/divingDeeperAdvancedAnimation1.jpg"/>
 
 ## Controlling animations
 
@@ -83,7 +83,7 @@ Fast and easy. :)
 
 You can start an animation with _enableBlending_ = true to enable blending mode. This blended animation will interpolate FROM the current object's state. This would be handy for user-controlled walking characters, or reacting to value changes from an input device.
 
-In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with it's current position" image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation1.jpg"/>
+In the playground demo below, every time you click on the FPS marker, the new animation is blended with the box's current position: <Playground id="#2BLI9T#368" title="Click to Blend" description="Click on a box to blend a new animation with it's current position" image="/img/playgroundsAndNMEs/features/divingDeeperAdvancedAnimation1.jpg"/>
 
 Although this playground is blending the same animation into itself, more often, a different animation will be blended-into the original, such as when a walking character changes to running: <Playground id="#IQN716#9" title="Blending Animations Together" description="Example of blending animations and animation weights" isMain={true} category="Animation"/>
 
@@ -150,7 +150,7 @@ There are a few ways you can specify that you want an animation to be evaluated 
 One issue with additive animations is the problem of authoring for hierarchies. Because additive animations are evaluated relative to the result of other animations rather than the object's parent, it is not very intuitive to create them directly. To ease this burden, static `MakeAnimationAdditive` methods have been added to the [AnimationGroup](/typedoc/classes/babylon.animationgroup#makeanimationadditive), [Skeleton](/typedoc/classes/babylon.skeleton#makeanimationadditive) and [Animation](/typedoc/classes/babylon.animation#makeanimationadditive) classes. These methods allow you to specify a frame in an existing animation and subtract it out of the rest of the keyframes in the animation to make them all relative to that specific pose.
 
 The following example demonstrates how to convert animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
-<Playground id="#6I67BL#2" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
+<Playground id="#6I67BL#2" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/features/divingDeeperAdvancedAnimation3.jpg"/>
 
 ## Overriding properties
 
@@ -264,7 +264,7 @@ var FunnyEase = (function (_super) {
 })(BABYLON.EasingFunction);
 ```
 
-You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.jpg"/>
+You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/features/divingDeeperAdvancedAnimation4.jpg"/>
 
 ## Attach events to animations
 
@@ -333,4 +333,4 @@ Using them allows running arbitrary logic code before and after animations and p
 
 In the following example, you can see in the console the stepId in which the sphere is considered at rest and the rotation value for the rotating box. Multiple runs will always result in the same values, whatever the frame-rate.
 
-<Playground id="#DU4FPJ#3" title="Logging stepId For Sphere at Rest" description="Console logging of the stepId in which a sphere is considered at rest and the rotation value for a rotating box." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation5.jpg"/>
+<Playground id="#DU4FPJ#3" title="Logging stepId For Sphere at Rest" description="Console logging of the stepId in which a sphere is considered at rest and the rotation value for a rotating box." image="/img/playgroundsAndNMEs/features/divingDeeperAdvancedAnimation5.jpg"/>

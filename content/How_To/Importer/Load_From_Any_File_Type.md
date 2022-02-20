@@ -5,19 +5,19 @@ description: Learn how to import any file type in Babylon.js.
 keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
     - title: How to get Babylon.js
-      url: /divingDeeper/developWithBjs/frameworkVers
+      url: /features/divingDeeper/developWithBjs/frameworkVers
     - title: Use the glTF File Loader Plugin
-      url: /divingDeeper/importers/glTF
+      url: /features/divingDeeper/importers/glTF
     - title: Use the OBJ File Loader Plugin
-      url: /divingDeeper/importers/oBJ
+      url: /features/divingDeeper/importers/oBJ
     - title: Use the STL File Loader Plugin
-      url: /divingDeeper/importers/stl
+      url: /features/divingDeeper/importers/stl
     - title: Load Files with Assets Manager
-      url: /divingDeeper/importers/assetManager
+      url: /features/divingDeeper/importers/assetManager
     - title: Available Meshes for Importing into Playground
-      url: /toolsAndResources/assetLibraries/availableMeshes
+      url: /features/toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /toolsAndResources/tools/playground/externalPGAssets
+      url: /features/toolsAndResources/tools/playground/externalPGAssets
     - title: SceneLoader
       url: /typedoc/classes/babylon.sceneloader
 video-overview:
@@ -31,9 +31,9 @@ video-content:
 To load a file of a given type, Babylon must first have a reference to the plugin for that file type.
 
 Currently plugins can be found for:
- - [.glTF also use for binary version .glb](/divingDeeper/importers/glTF)
- - [.obj](/divingDeeper/importers/oBJ)
- - [.stl](/divingDeeper/importers/stl)
+ - [.glTF also use for binary version .glb](/features/divingDeeper/importers/glTF)
+ - [.obj](/features/divingDeeper/importers/oBJ)
+ - [.stl](/features/divingDeeper/importers/stl)
 
 To quickly add support for all loaders the following script can be added to your page:
 
@@ -64,7 +64,7 @@ BABYLON.SceneLoader.Append("./", "duck.gltf", scene, function (scene) {
 });
 ```
 
-See an example here: <Playground id="#WGZLGJ" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ" title="Append An Object" description="Simple example showing how append an object to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport1.jpg" isMain={true} category="Import"/>
 
 Loads all babylon assets from a string and appends them to the scene
 
@@ -74,7 +74,7 @@ BABYLON.SceneLoader.Append("", "data:" + gltfString, scene, function (scene) {
 });
 ```
 
-See an example here: <Playground id="#88CB6A#1" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/divingDeeperFileImport2.jpg"/>
+See an example here: <Playground id="#88CB6A#1" title="Append Assets From A String" description="Simple example showing how append objects from a string." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport2.jpg"/>
 
 You can also load a .glb binary file from a data string as long as the binary data is base64 encoded:
 
@@ -91,7 +91,7 @@ var base64_model_content = "data:application/octet-stream;base64,-BASE 64 ENCODE
 var base64_model_content = "data:model/gltf-binary;base64,-BASE 64 ENCODED DATA-";
 ```
 
-See an example here: <Playground id="#7F6S08#55" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/divingDeeperFileImport3.jpg"/>
+See an example here: <Playground id="#7F6S08#55" title="Load .glb From Binary Data" description="Simple example showing how to load an object from a data string that is base64 encoded." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport3.jpg"/>
 
 ## SceneLoader.Load
 
@@ -114,7 +114,7 @@ BABYLON.SceneLoader.ImportMesh(["myMesh1", "myMesh2"], "./", "duck.gltf", scene,
     // particleSystems are always null for glTF assets
 });
 ```
-See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#JUKXQD" title="Import Mesh" description="Simple example showing how to import an object into your scene." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
 ### SceneLoader.ImportMeshAsync
 
@@ -127,7 +127,7 @@ importPromise.then((result) => {
     //// Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 })
 ```
-See an example here: <Playground id="#TVHK90" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#TVHK90" title="Import Mesh Async with Promises" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/features/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
 or 
 
@@ -137,7 +137,7 @@ const result = await BABYLON.SceneLoader.ImportMeshAsync(["myMesh1", "myMesh2"],
 // Result has meshes, particleSystems, skeletons, animationGroups and transformNodes
 ```
 
-See an example here: <Playground id="#YAL1RN" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#YAL1RN" title="Import Mesh Async with await" description="Importing an object in your scene with async/await paradigm" image="/img/playgroundsAndNMEs/features/divingDeeperFileImport4.jpg" isMain={true} category="Import"/>
 
 ## SceneLoader.LoadAssetContainer
 
@@ -154,7 +154,7 @@ BABYLON.SceneLoader.LoadAssetContainer("./", "duck.gltf", scene, function (conta
 });
 ```
 
-See an example here: <Playground id="#JA1ND3#48" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#JA1ND3#48" title="Asset Container Load Example" description="Simple example showing how to load assets into asset containers." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport5.jpg" isMain={true} category="Import"/>
 
 ## SceneLoader.ImportAnimations
 
@@ -163,7 +163,7 @@ You can customize the import process using options and callbacks
 ```javascript
 BABYLON.SceneLoader.ImportAnimations("./", "Elf_run.gltf", scene);
 ```
-See an example here: <Playground id="#UGD0Q0#62" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/divingDeeperFileImport6.jpg"/>
+See an example here: <Playground id="#UGD0Q0#62" title="Importing Animations" description="Simple example showing how to import animations into your scene." image="/img/playgroundsAndNMEs/features/divingDeeperFileImport6.jpg"/>
 
 ## SceneLoader.AppendAsync
 
@@ -175,7 +175,7 @@ BABYLON.SceneLoader.AppendAsync("./", "duck.gltf", scene).then(function (scene) 
 });
 ```
 
-See [How to Use Promises](/divingDeeper/events/promises) to learn more about using promises.
+See [How to Use Promises](/features/divingDeeper/events/promises) to learn more about using promises.
 
 ## Advanced Usage
 
@@ -206,7 +206,7 @@ var loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene
 ## Loading multiple assets
 
 For assistance when load multiple assets the AssetsManager class can be used.
-See [Load Files with Assets Manager](/divingDeeper/importers/assetManager)
+See [Load Files with Assets Manager](/features/divingDeeper/importers/assetManager)
 
 ## Direct loading base64 encoded models
 

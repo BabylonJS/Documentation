@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Sky Material](/img/extensions/materials/sky.png)
+![Sky Material](/img/features/extensions/materials/sky.png)
 
 ## Introduction
 
@@ -57,14 +57,14 @@ The aspect of the sky can be customized, including the day/night time. The prope
 skyMaterial.turbidity = 1; // Represents the amount (scattering) of haze as opposed to molecules in atmosphere
 ```
 
-![skyTurbidity](/img/extensions/materials/skyTurbidity.png)
+![skyTurbidity](/img/features/extensions/materials/skyTurbidity.png)
 
 
 ```
 skyMaterial.luminance = 1; // Controls the overall luminance of sky in interval ]0, 1,190[
 ```
 
-![skyLuminance](/img/extensions/materials/skyLuminance.png)
+![skyLuminance](/img/features/extensions/materials/skyLuminance.png)
 
 
 ```
@@ -81,14 +81,14 @@ skyMaterial.useSunPosition = true; // Do not set sun position from azimuth and i
 skyMaterial.sunPosition = new BABYLON.Vector3(0, 100, 0);
 ```
 
-![skyAzimuthInclination](/img/extensions/materials/skyAzimuthInclination.png)
+![skyAzimuthInclination](/img/features/extensions/materials/skyAzimuthInclination.png)
 
 
 ```
 skyMaterial.rayleigh = 2; // Represents the sky appearance (globally)
 ```
 
-![skyRayleigh](/img/extensions/materials/skyRayleigh.png)
+![skyRayleigh](/img/features/extensions/materials/skyRayleigh.png)
 
 
 ```
@@ -101,7 +101,7 @@ skyMaterial.mieDirectionalG = 0.8;
 skyMaterial.mieCoefficient = 0.005; // The mieCoefficient in interval [0, 0.1], affects the property skyMaterial.mieDirectionalG
 ```
 
-![skyMie](/img/extensions/materials/skyMie.png)
+![skyMie](/img/features/extensions/materials/skyMie.png)
 
 ## Keeping the horizon relative to the camera elevation
 In some cases, you would like to keep the horizon's "position" relative to the camera's position (typically a game where you can flight very high).

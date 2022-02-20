@@ -5,15 +5,15 @@ description: Learn about the incredibly powerful playground, the online Babylon.
 keywords: babylon.js, tools, resources, playground
 further-reading:
     - title: Textures Directly Available to the Playground
-      url: /toolsAndResources/assetLibraries/availableTextures
+      url: /features/toolsAndResources/assetLibraries/availableTextures
     - title: Meshes Available to Import into the Playground
-      url: /toolsAndResources/assetLibraries/availableMeshes
+      url: /features/toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /toolsAndResources/tools/playground/externalPGAssets
+      url: /features/toolsAndResources/tools/playground/externalPGAssets
     - title: How to Use The Inspector in Projects
-      url: /toolsAndResources/tools/inspector
+      url: /features/toolsAndResources/tools/inspector
     - title: How to Use The Inspector in Projects
-      url: /toolsAndResources/tools/inspector
+      url: /features/toolsAndResources/tools/inspector
 video-overview:
 video-content:
 ---

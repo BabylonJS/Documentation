@@ -50,14 +50,14 @@
             "name": "Getting started guide",
             "short_name": "Getting started",
             "description": "This getting started section is your first step into the wonderful, rich world of creating engaging immersive 3D web experiences.",
-            "url": "/start?source=pwa",
+            "url": "/features/start?source=pwa",
             "icons": [{ "src": "/android-icon-192x192.png", "sizes": "192x192" }]
         },
         {
             "name": "Diving Deeper",
             "short_name": "Diving Deeper",
             "description": "Go deeper with your learning of Babylon.js feature by feature.",
-            "url": "/divingDeeper?source=pwa",
+            "url": "/features/divingDeeper?source=pwa",
             "icons": [{ "src": "/android-icon-192x192.png", "sizes": "192x192" }]
         },
         {

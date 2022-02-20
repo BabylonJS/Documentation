@@ -10,13 +10,13 @@ video-content:
 
 The Dynamic Terrain is an extension that provides a way to display a large terrain dynamically morphed from a map of 3D data.  
 
-![dynamicTerrain](/img/extensions/dynamicTexture.jpg)  
+![dynamicTerrain](/img/features/extensions/dynamicTexture.jpg)  
 
 The dynamic terrain is basically a standard BJS mesh, actually a ribbon. It's linked to a camera and moves with it along the World X and Z axes. It's passed a set of geographic data what are each simply 3D coordinates _(x, y, z)_ in the World. This set of data is called the map. According to the current camera position in the World, the dynamic terrain morphs to depict the map at this location. 
 
 ## Installation
 
-Just download the javascript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from theBabylon.js [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist` :   https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist    
+Just download the javascript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from theBabylon.js [extension repository](https://github.com/BabylonJS/features/extensions) folder `DynamicTerrain/dist` :   https://github.com/BabylonJS/features/extensions/tree/master/DynamicTerrain/dist    
 
 Then in your code, declare this script in a html tag **after** the script tag declaring Babylon.js :
 ```html
@@ -48,7 +48,7 @@ terrainMesh.diffuseTexture = myNiceTexture;
 ```
 
 Some documented examples are here :   
-https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/documentation/dynamicTerrainExamples.md  
+https://github.com/BabylonJS/features/extensions/tree/master/DynamicTerrain/documentation/dynamicTerrainExamples.md  
 
 ## Getting Started
 

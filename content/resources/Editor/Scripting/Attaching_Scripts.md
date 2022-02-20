@@ -36,14 +36,14 @@ In the asset's panel, just click `Add Script...` and give it a name. Once done, 
 
 **Note: when no extension provided, the `.ts` extension is automatically added.**
 
-![AddingScript](/img/extensions/Editor/AttachingScripts/addingscript.gif)
+![AddingScript](/img/features/extensions/Editor/AttachingScripts/addingscript.gif)
 
 ## Attaching a script
 We named our script `cube.ts` and it'll be attached to the cube in our scene for this tutorial. To attach a script, just select the cube and go to the `Script` section in the Editor's inspector. We can now select the script to attach, let's select `cube.ts`:
 
 **Note: only one script can be attached to an object but one script can be attached to multiple objects in the scene.**
 
-![AttachingScript](/img/extensions/Editor/AttachingScripts/attachingscript.gif)
+![AttachingScript](/img/features/extensions/Editor/AttachingScripts/attachingscript.gif)
 
 ## Opening the project in VSCode and focus on the script
 To help locating the project and scripts in our workspace, we can open `Visual Studio Code` directly from the Editor. Also, the Editor can open scripts directly.
@@ -51,7 +51,7 @@ To help locating the project and scripts in our workspace, we can open `Visual S
 * To open `Visual Studio Code`, just select `File -> Open Visual Studio Code` in the toolbar.
 * To open a script, simply `double click` the desired script in the asset's panel
 
-![OpeningVSCodeAndScripts](/img/extensions/Editor/AttachingScripts/openingvscodeandscript.gif)
+![OpeningVSCodeAndScripts](/img/features/extensions/Editor/AttachingScripts/openingvscodeandscript.gif)
 
 ## Understanding scripts
 Scripts are used to specialize an object. That means it'll be attached to an existing object in the scene (for example a mesh here). Each script will be notified:
@@ -60,7 +60,7 @@ Scripts are used to specialize an object. That means it'll be attached to an exi
 
 By default, a script is named `MyScript` and it can be renamed. Also, a script extends, by default, the class `Node` of Babylon.JS. Here, we attached the script to a cube, which is a mesh. Let's extend `Mesh` instead of `Node` so we'll have auto-completion for `Mesh` when typing `this`:
 
-![RenamingAndExtend](/img/extensions/Editor/AttachingScripts/renamingandextend.gif)
+![RenamingAndExtend](/img/features/extensions/Editor/AttachingScripts/renamingandextend.gif)
 
 ## Customizing scripts in editor
 Scripts can be customized directly in the editor by setting custom properties. Available property types are:
@@ -81,7 +81,7 @@ The `@visibleInInspector` decorator has the given arguments:
 
 On the property is decorated and the script saved, we can refresh the `Script` section in the Editor to see the effect. To refresh the section, just click the button `Refresh...` in the Editor's inspector, having the cube selected:
 
-![UsingDecorators](/img/extensions/Editor/AttachingScripts/decorators.gif)
+![UsingDecorators](/img/features/extensions/Editor/AttachingScripts/decorators.gif)
 
 ## Rotating the cube using the attached script
 All TypeScript files are packed using, by default, WebPack, including the scripts that are attached to objects. That means we have to watch (or build) the project to see the effect when running the game.
@@ -99,11 +99,11 @@ This will watch ALL the TypeScript files and repack the dist files.
 
 Using the editor, simply open the preferences and enable the automatic watch (if not enabled):
 
-![WatchingWebPack](/img/extensions/Editor/AttachingScripts/watchingwebpack.gif)
+![WatchingWebPack](/img/features/extensions/Editor/AttachingScripts/watchingwebpack.gif)
 
 Now, let's rotate the cube using our customized property `_speed` and run the game. In this tutorial, the `onStart` function is not used. When one of these functions is not used, it can be removed.
 
-![RotatingCube](/img/extensions/Editor/AttachingScripts/rotatingcube.gif)
+![RotatingCube](/img/features/extensions/Editor/AttachingScripts/rotatingcube.gif)
 
 ## Managing scripts
 Scritps can be managed in the editor as the asset's panel for scripts is just a file explorer. That means you can create, remove move scripts and create folders.
@@ -114,4 +114,4 @@ Doing this in the Editor allows to automatically re-configure objects that have 
 
 **Note: once a script has been moved, don't forget to update relative imports in the script to suppress compilation errors.**
 
-![ManagingScripts](/img/extensions/Editor/AttachingScripts/managingscripts.gif)
+![ManagingScripts](/img/features/extensions/Editor/AttachingScripts/managingscripts.gif)

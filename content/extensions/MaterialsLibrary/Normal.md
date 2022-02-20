@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Screenshot](/img/extensions/materials/normal.jpg)
+![Screenshot](/img/features/extensions/materials/normal.jpg)
 
 ## Playgound Example 
     

@@ -10,7 +10,7 @@ video-content:
 
 The WebXR Camera is an extension of the `FreeCamera` that includes an update loop from an XRFrame and the ability to create 1 or more rig cameras that will be used to render the XR (both VR and AR) session.
 
-If you are not using the [XR Experience helper](/divingDeeper/webXR/webXRExperienceHelpers), you will need an [XR Session Manager](/divingDeeper/webXR/webXRSessionManagers) to construct a new WebXR Camera:
+If you are not using the [XR Experience helper](/features/divingDeeper/webXR/webXRExperienceHelpers), you will need an [XR Session Manager](/features/divingDeeper/webXR/webXRSessionManagers) to construct a new WebXR Camera:
 
 ``` javascript
 const xrCamera = new WebXRCamera("nameOfCamera", scene, xrSessionManager);
@@ -20,7 +20,7 @@ Notice that as opposed to the free and target cameras, the constructor does not 
 
 ## How positioning works
 
-Just like any Babylon camera, the WebXR camera is an object with its own position and rotation that can be updated between frames. The WebXR camera's transformation is the current position of the device rendering the XR session (such as the HUD or the phone rendering the session) relative to the reference space currently used in the [Session Manager](/divingDeeper/webXR/webXRSessionManagers).
+Just like any Babylon camera, the WebXR camera is an object with its own position and rotation that can be updated between frames. The WebXR camera's transformation is the current position of the device rendering the XR session (such as the HUD or the phone rendering the session) relative to the reference space currently used in the [Session Manager](/features/divingDeeper/webXR/webXRSessionManagers).
 
 The camera's position will update every frame from the information sent to it by the XRFrame. The XRFrame contains a general position of the device, and, if available, the poses for each screen (or eye) that are used to update the position of the rig cameras (which are the ones actually rendering the scene).
 
@@ -53,7 +53,7 @@ const userHeight = xrCamera.realWorldHeight;
 
 This function will return the height of the user or 0 if not available.
 
-Note that the user height depends on the type of reference space you chose to your experience. Reference space type `local-floor` will deliver the user's height, but `viewer` (for example) will deliver what you defined as a height compensation in the [XR Session Manager](/divingDeeper/webXR/webXRSessionManagers).
+Note that the user height depends on the type of reference space you chose to your experience. Reference space type `local-floor` will deliver the user's height, but `viewer` (for example) will deliver what you defined as a height compensation in the [XR Session Manager](/features/divingDeeper/webXR/webXRSessionManagers).
 
 ## Updating from a Non-VR Camera
 

@@ -103,7 +103,7 @@ skybox.renderingGroupId = 0;
 myMesh.renderingGroupId = 1;
 ```
 
-More info about rendering groups and rendering order can be found [here](/divingDeeper/materials/advanced/transparent_rendering).
+More info about rendering groups and rendering order can be found [here](/features/divingDeeper/materials/advanced/transparent_rendering).
 
 #### Automatic creation
 Now that we understand how a skybox can be created let's move to a simpler way:
@@ -113,9 +113,9 @@ var envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", sce
 scene.createDefaultSkybox(envTexture, true, 1000);
 ```
 
-<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg" isMain={true} category="Environment"/>
+<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/features/divingDeeperEnvironmentIntro1.jpg" isMain={true} category="Environment"/>
 
-Check out [scene helpers](/divingDeeper/scene/fastBuildWorld#environmental-helper) for more information on this and other helpers.
+Check out [scene helpers](/features/divingDeeper/scene/fastBuildWorld#environmental-helper) for more information on this and other helpers.
 
 ### Fog
 
@@ -147,6 +147,6 @@ scene.fogColor = new BABYLON.Color3(0.9, 0.9, 0.85);
 ```
 See, we told you it was easy.
 
-If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.jpg" isMain={true} category="Environment"/>
+If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperEnvironmentIntro2.jpg" isMain={true} category="Environment"/>
 
 

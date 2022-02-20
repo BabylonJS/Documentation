@@ -12,7 +12,7 @@ video-content:
 
 Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
 
-Recall that we loaded the assets in the [load](/guidedLearning/createAGame/importMeshes#load) function. We then looped through the resulting meshes and allowed them to receive shadows and check collisions. Well, in this same forEach loop, this is where we want to specify our meshes that will be acting as collision boxes, the meshes that use those collision boxes, and the meshes that are trigger volumes.
+Recall that we loaded the assets in the [load](/features/guidedLearning/createAGame/importMeshes#load) function. We then looped through the resulting meshes and allowed them to receive shadows and check collisions. Well, in this same forEach loop, this is where we want to specify our meshes that will be acting as collision boxes, the meshes that use those collision boxes, and the meshes that are trigger volumes.
 
 ```javascript
 if (m.name == "ground") {

@@ -10,7 +10,7 @@ video-content:
 
 # Wood Procedural texture
 
-![Wood Procedural texture](/img/extensions/proceduraltextures/woodpt.png)
+![Wood Procedural texture](/img/features/extensions/proceduraltextures/woodpt.png)
 
 ## Using the Wood procedural texture
 

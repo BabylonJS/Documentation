@@ -84,7 +84,7 @@ The first step toward developing production code was to move development
 from [my Playground](https://playground.babylonjs.com/#G4VPXM) into a 
 dedicated repository. The Babylon.js NPM Package Template, a component 
 of the
-[Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+[Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow), 
 is designed with this in mind, particularly when migrating code from 
 the Babylon.js Typescript Playground, so I decided to use that.
 
@@ -330,7 +330,7 @@ work the way I wanted it.
     disposing one kind of scene and creating a new instance of the other, 
     thus keeping the logic and resources clean and separated.
 1.  I wrote a fixed framerate observable to simplify having 
-    [coroutine](https://doc.babylonjs.com/divingDeeper/events/coroutines)-driven 
+    [coroutine](https://doc.babylonjs.com/features/divingDeeper/events/coroutines)-driven 
     animation and game logic without being vulnerable
     to framerate changes.
 
@@ -367,7 +367,7 @@ work the way I wanted it.
     specifying the locations of all the assets used by the game.
 
     As discussed in the Babylon docs on the 
-    [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow),
+    [Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow),
     one of the most varied challenges in deploying Babylon experiences is
     distributing assets. It's best to keep this problem completely separate
     from actually *using* the assets within the code, thus allowing the 
@@ -406,7 +406,7 @@ curious, here are the various tools I used to make *Fruit Fallin'*.
     Audacity.
 1.  **Other:** The few remaining elements such as text are all
     generated using 
-    [Babylon's built-in GUI](https://doc.babylonjs.com/divingDeeper/gui/gui). 
+    [Babylon's built-in GUI](https://doc.babylonjs.com/features/divingDeeper/gui/gui). 
     The only exception to this is the colors of the animated buttons, which
     are done using Babylon-generated plane geometry and an unlit PBR 
     material.
@@ -484,7 +484,7 @@ The speed and convenience of GitHub Pages was great, but it wasn't the end
 goal. Once I had gotten some feedback and was ready to move forward, I 
 next needed to bring my `app_package` code into a real shipping vehicle.
 Continuing with the 
-[Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+[Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow), 
 I decided to upload my `app_package` as an NPM package so that it could be
 easily integrated into a huge variety of different shipping solutions.
 

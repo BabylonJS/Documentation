@@ -28,24 +28,24 @@ In both ways, take care to select/drag'n'drop all needed files for the meshes.
 ### Browsing for files
 Simply go to the "Assets" panel of the Editor and click "Add...". A dialog opens to select the files:
 
-![Browse](/img/extensions/Editor/AddingMeshes/browse.gif)
+![Browse](/img/features/extensions/Editor/AddingMeshes/browse.gif)
 
 ### Drag'n'dropping files
 
-![DragAndDrop](/img/extensions/Editor/AddingMeshes/draganddrop.gif)
+![DragAndDrop](/img/features/extensions/Editor/AddingMeshes/draganddrop.gif)
 
 ## Examining the asset
 Once the asset has been added to the project, we can examine the asset's file by `double clicking` on it. This will open a new window and open the `Inspector` of Babylon.JS with the asset rendered.
 
-You can refer to [the inspector documentation](/toolsAndResources/tools/inspector) to understand how to use the Babylon.JS Inspector.
+You can refer to [the inspector documentation](/features/toolsAndResources/tools/inspector) to understand how to use the Babylon.JS Inspector.
 
-![Examining](/img/extensions/Editor/AddingMeshes/examining.gif)
+![Examining](/img/features/extensions/Editor/AddingMeshes/examining.gif)
 
 ## Adding meshes to the scene
 To add meshes to the scene, simply drag'n'drop the asset to the preview of the Editor. This will add the meshes contained in the asset with their materials/textures to the scene.
 Once added, you can select elements in the graph and edit them using the Inspector of the Editor.
 
-![AddingToScene](/img/extensions/Editor/AddingMeshes/addingtoscene.gif)
+![AddingToScene](/img/features/extensions/Editor/AddingMeshes/addingtoscene.gif)
 
 ## Updating instantiated meshes
 Once meshes have be added the the scene (instantiated), there are 2 ways to upate them:
@@ -68,12 +68,12 @@ To force updating all instantiated meshes, just `right-click` on the desired mes
 
 In the following example, the Babylon.JS logo has a custom PBR material but we'd like to update its material from the source file:
 
-![ForceUpdate](/img/extensions/Editor/AddingMeshes/force_update.gif)
+![ForceUpdate](/img/features/extensions/Editor/AddingMeshes/force_update.gif)
 
 ### Letting the user updating the meshes
 As for the forced mode, just `right-click` on the desired asset in the `assets panel` and select `"Update Instantiated Meshes..."`. Once applied, the graph will be updated with a `"..."` icon telling the user that the object is waiting for an update:
 
-![UpdateNotification](/img/extensions/Editor/AddingMeshes/update_notification.png)
+![UpdateNotification](/img/features/extensions/Editor/AddingMeshes/update_notification.png)
 
 Clikcing on the update icon will show a context menu of all available updates:
 - Update Geometry
@@ -82,7 +82,7 @@ Clikcing on the update icon will show a context menu of all available updates:
 
 It is now free to update all components or only the wanted components. For example, it can be useful to update only geometry and keep the material created in the Editor:
 
-![UserUpdate](/img/extensions/Editor/AddingMeshes/user_update.gif)
+![UserUpdate](/img/features/extensions/Editor/AddingMeshes/user_update.gif)
 
 ### Cleaning assets
 In order to let the user managing its own assets, the Editor will never remove useless assets until it is asked by the user. That means, when updating meshes, that old materials and texture will still be availalbe in the assets panel. Don't forget to clear unused assets (for example unused materials then unused textures) to keep the project clear if you are sure that old materials, for example, are not needed anymore.

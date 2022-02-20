@@ -13,7 +13,7 @@ video-content:
 In this tutorial, we are going to learn how to create shadows inBabylon.js. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
 You might want to visit a playground example for this tutorial:
 
-<Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows1.jpg" isMain={true} category="Shadows"/>
+<Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows1.jpg" isMain={true} category="Shadows"/>
 
 ## How can I do this?
 
@@ -69,7 +69,7 @@ The quality of the blur is defined by the following properties:
 * `shadowGenerator.blurBoxOffset`: Define the offset of the box's edge used to apply the blur. By default, the value is 1 (Meaning the box will go from -1 to 1 in both directions resulting in 9 values read by the blur postprocess).
 * `shadowGenerator.useKernelBlur`: You can decide to use kernel blur instead of box blur. While a bit more expensive, the quality of the shadow is far better with kernel blur. You can control the kernel size with `shadowGenerator.blurKernel`, which default value is 1.
 
-Here is an example of blurred shadows: <Playground id="#IIZ9UU" title="Blurred Shadow Example" description="Simple Example of adding blurred shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows2.jpg" isMain={true} category="Shadows"/>
+Here is an example of blurred shadows: <Playground id="#IIZ9UU" title="Blurred Shadow Example" description="Simple Example of adding blurred shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows2.jpg" isMain={true} category="Shadows"/>
 
 ### Close exponential shadow map
 Starting with Babylon.js 3.0, we introduced a new way of doing exponential shadow map to deal with self-shadowing issues: The Close Exponential Shadow Map (CESM).
@@ -87,7 +87,7 @@ or if you want blurred shadows:
 shadowGenerator.useBlurCloseExponentialShadowMap = true;
 ```
 
-Here is an example of how CESM works: <Playground id="#0TG0TB" title="CESM Shadow Example" description="Simple Example of adding close exponential shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows3.jpg"/>
+Here is an example of how CESM works: <Playground id="#0TG0TB" title="CESM Shadow Example" description="Simple Example of adding close exponential shadow maps to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows3.jpg"/>
 
 ### Percentage Closer Filtering (Webgl2 only)
 Starting with Babylon.js 3.2, a new way of dealing with shadow maps was introduced. This greatly improves the performance and setup of shadows.
@@ -99,7 +99,7 @@ You can enable PCF with:
 shadowGenerator.usePercentageCloserFiltering = true;
 ```
 
-Here is an example of how PCF works: <Playground id="#B48X7G#1" title="PCF Shadow Example" description="Simple Example of adding percentage closer filtering shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows4.jpg"/>
+Here is an example of how PCF works: <Playground id="#B48X7G#1" title="PCF Shadow Example" description="Simple Example of adding percentage closer filtering shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows4.jpg"/>
 
 As PCF requires more resources than can be available on small platforms, you can use the ```filteringQuality``` property to choose the best tradeoff between quality and performance depending on your experience (the lower the quality the better the performance).
 
@@ -125,7 +125,7 @@ You can enable PCSS with:
 shadowGenerator.useContactHardeningShadow = true;
 ```
 
-Here is an example of how PCSS works: <Playground id="#B48X7G#2" title="PCSS Shadow Example" description="Simple Example of adding Contact Hardening shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows5.jpg"/>
+Here is an example of how PCSS works: <Playground id="#B48X7G#2" title="PCSS Shadow Example" description="Simple Example of adding Contact Hardening shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows5.jpg"/>
 
 As PCSS requires more resources than can be available on small platform, you can use the ```filteringQuality``` property to choose the best tradeoff between quality and performances depending on your experience. (the lower the quality the better the performances).
 
@@ -133,7 +133,7 @@ As PCSS requires more resources than can be available on small platform, you can
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
-The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#2" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
+The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#2" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/features/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
 
 Only Point and Directional lights are currently supported by PCSS.
 
@@ -143,13 +143,13 @@ For transparent objects to cast shadows, you must set the `transparencyShadow` p
 
 ![Transparent objects cast shadows](/img/how_to/shadows/transparencyShadow.jpg)
 
-<Playground id="#6PITC0" title="Transparent Shadows Example" description="Simple Example of adding transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows7.jpg"/>
+<Playground id="#6PITC0" title="Transparent Shadows Example" description="Simple Example of adding transparent shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows7.jpg"/>
 
 Starting with Babylonjs v4.2, you can simulate soft transparent shadows for transparent objects. To do this, you need to set the `enableSoftTransparentShadow` property to `true` on the shadow generator:
 
 ![Transparent objects cast soft transparent shadows](/img/how_to/shadows/softTransparentShadows.jpg)
 
-<Playground id="#LKA8VM" title="Soft Transparent Shadows Example" description="Simple Example of adding soft transparent shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows8.jpg" isMain={true} category="Shadows"/>
+<Playground id="#LKA8VM" title="Soft Transparent Shadows Example" description="Simple Example of adding soft transparent shadows to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows8.jpg" isMain={true} category="Shadows"/>
 
 It works by generating some dithering patterns in the shadow map, based on the alpha value of the fragment. This pattern can be visible, depending on your objects (being zoomed or not) and/or on the filtering method used.
 
@@ -211,7 +211,7 @@ Only point, directional and spot lights can cast shadows.
 
 ### Point lights
 Point lights use cubemaps rendering so please be cautious when enabling them as this could lead to some performance issues.
-You can also visit the [point light shadow map playground scene]( <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows9.jpg"/>
+You can also visit the [point light shadow map playground scene]( <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows9.jpg"/>
 
 Furthermore, `BlurExponentialShadowMap` and `CloseBlurExponentialShadowMap` are not supported by point lights (mostly because blurring the six faces of the cubemap would be too expensive).
 
@@ -226,11 +226,11 @@ You can control also the size of the projection window by modifying one of those
 * `light.shadowOrthoScale`: 0.1 by default which means that the projection window is increase by 10% from the optimal size.
 * `light.shadowFrustumSize`: Off by default with a value of 0. You can specify a value which will be used to define the square size of the frustum to use.
 
-The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example:  <Playground id="#R1EVD0#3" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg" isMain={true} category="Shadows"/>
+The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example:  <Playground id="#R1EVD0#3" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/features/divingDeeperShadows10.jpg" isMain={true} category="Shadows"/>
 
 You can also set `light.autoCalcShadowZBounds = true` to compute automatically the best `light.shadowMinZ` and `light.shadowMaxZ` values for each frame. Tightening those values to best fit your scene improve the precision of the depth map, and consequently the shadow rendering. Be warned, however, that when using this parameter with PCF and PCSS you may miss some shadows because of the way those filtering technics are implemented (if all your meshes are both shadow casters and receivers, you won't have any problems with PCF / PCSS, though). Note that `light.autoUpdateExtends` must be set to `true` for `light.autoCalcShadowZBounds` to work.
 
-Starting with Babylon.js 4.1, Cascaded Shadow Maps are now available for directional lights. Check the [dedicated page](/divingDeeper/lights/shadows_csm) for details.
+Starting with Babylon.js 4.1, Cascaded Shadow Maps are now available for directional lights. Check the [dedicated page](/features/divingDeeper/lights/shadows_csm) for details.
 
 #### In-depth analyzing of Directional light position
 
@@ -242,7 +242,7 @@ Even if using an orthographic projection in the end (as you do for directional l
 
 Often you can read explanations about directional lights that says you don't need a position, but if you look at their code, you can see they use a `(0,0,0)` position to build their view matrix... Or in some others they don't explicitly put values in the translation part of the matrix, but it's still 0 values you get there by default.
 
-This position defines where the light frustum is positionned in the world. See the following example: <Playground id="#2898XM#3" title="Analyzing Directional Light Position" description="Simple Example of analyzing directional light position." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg"/>
+This position defines where the light frustum is positionned in the world. See the following example: <Playground id="#2898XM#3" title="Analyzing Directional Light Position" description="Simple Example of analyzing directional light position." image="/img/playgroundsAndNMEs/features/divingDeeperShadows10.jpg"/>
 
 ![Light frustum](/img/how_to/shadows/directional1.png)
 The colored box is the light frustum and you can see the light gizmo representing the light position and direction. Everything in this box (and only things in this box) will be rendered in the shadow map.
@@ -318,7 +318,7 @@ Depending on how you setup your shadow generator, you could face weird falloff w
  shadowGenerator.frustumEdgeFalloff = 1.0;
 ```
 
-You can find an example here: <Playground id="#Y5IZCF" title="Frustum Edge Falloff Example" description="Simple Example of frustum edge falloff in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows12.jpg"/>
+You can find an example here: <Playground id="#Y5IZCF" title="Frustum Edge Falloff Example" description="Simple Example of frustum edge falloff in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows12.jpg"/>
 
 This property controls the extent to which the shadows fade out at the edge of the frustum. It is used only by directional and spot lights. By default, the value is set to 0 (no falloff) and 1.0 (complete falloff).
 
@@ -350,9 +350,9 @@ BABYLON.SceneLoader.CleanBoneMatrixWeights = true;
 
 ### Self Shadow
 
-It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#1" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows13.jpg"/>
+It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#1" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows13.jpg"/>
 
-The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts):  <Playground id="#FH3FM2#4" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows14.jpg"/>
+The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts):  <Playground id="#FH3FM2#4" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows14.jpg"/>
 
 As you can notice there are weird patterns appearing everywhere on the surface of the self-shadowed objects. This is called shadow acnea ([more information](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne)).
 
@@ -360,7 +360,7 @@ Fortunately, in Babylon we do have a way to solve the issue.
 
 #### Bias
 
-As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#5" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows15.jpg"/>
+As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#5" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows15.jpg"/>
 
 Unfortunately doing this introduces another side effect called peter panning where the shadows are not attached to their objects anymore.
 
@@ -370,25 +370,25 @@ This is where you can benefit from aBabylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
-First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#6" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows16.jpg"/>
+First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#6" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows16.jpg"/>
 
 As you notice, there is now a bit of acnea appearing on the object where the surface is parallel to the light direction:
 
 ![ParallelAcnea](/img/how_to/shadows/paralellacnea.jpg)
 
-This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#7" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows17.jpg"/>
+This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#7" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows17.jpg"/>
 
 All the artifacts are now gone and it is time to make our shadows look awesome.
 
 #### Soft Shadows
 
-Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#8" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/divingDeeperShadows18.jpg"/>
+Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#8" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/features/divingDeeperShadows18.jpg"/>
 
-At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#10" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/divingDeeperShadows19.jpg"/>
+At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#10" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/features/divingDeeperShadows19.jpg"/>
 
 Now the contact hardening effect is present but the acnea is even stronger. Unfortunately, the bias is applied on the normalized coordinates depth (0-1) so changing the near and far value of the light impacts how big the bias should be.
 
-So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#11" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/divingDeeperShadows20.jpg"/>
+So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#11" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/features/divingDeeperShadows20.jpg"/>
 
 Your shadows are now soft without acnea or peter panning.
 
@@ -417,7 +417,7 @@ The shadow map generation is a complex task and requires to take in account seve
 
 In order to update your own uniforms, you can rely on `shadowGenerator.onBeforeShadowMapRenderObservable` observable. This will be called for you everytime the shadow map will be rendered and it will give you the current compiled effect.
 
-You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
+You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperShadows21.jpg"/>
 
 Note that this shader will be used to render all the shadow caster objects pertaining to the shadow generator. If you need more fine-grained control, see next section.
 
@@ -431,7 +431,7 @@ Also, you may want to implement custom ways for alpha rejection, and in this cas
 
 #### Basic usage
 
-Take a look at this example: <Playground id="#PNQRY1#81" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/divingDeeperShadows22.jpg"/>
+Take a look at this example: <Playground id="#PNQRY1#81" title="Incorrect Shadows" description="Simple example of shadows not matching mesh changes." image="/img/playgroundsAndNMEs/features/divingDeeperShadows22.jpg"/>
 
 ![Wrong shadows](/img/how_to/shadows/customshadowdepth1.jpg)
 
@@ -453,11 +453,11 @@ Then assign this wrapper to the corresponding `Material.shadowDepthWrapper` prop
 material.shadowDepthWrapper = shadowDepthWrapper;
 ```
 
-*Et voilà*! You now have proper shadows: <Playground id="#PNQRY1#80" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/divingDeeperShadows23.jpg"/>
+*Et voilà*! You now have proper shadows: <Playground id="#PNQRY1#80" title="Fixed Shadows" description="Fixing previously incorrect shadows." image="/img/playgroundsAndNMEs/features/divingDeeperShadows23.jpg"/>
 
 It works for any type of materials, being a `CustomMaterial`, `PBRCustomMaterial`, `ShaderMaterial` or `NodeMaterial` instances. There's no point of using this for `StandardMaterial` and `PBRMaterial` materials because the standard shadow map shader already handles the types of deformation / alpha rejection those materials can generate (namely morph targets / bones / alpha testing).
 
-In this demo: <Playground id="#PNQRY1#67" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/divingDeeperShadows24.jpg"/>
+In this demo: <Playground id="#PNQRY1#67" title="Shadows with Various Materials" description="Simple example of shadows working wtih different materials." image="/img/playgroundsAndNMEs/features/divingDeeperShadows24.jpg"/>
 * the floating cube is using a `ShaderMaterial` for its base material
 * the grounded cube and sphere are using a `CustomMaterial` for their base material: they are both using the same material (thanks to @Wigen for the dissolving effect!)
 * the fire sphere is using a node material for its base material (thanks to @dannybucksch for this node material!)

@@ -72,7 +72,7 @@ The following are options, third parameter, used to construct the height-mapped 
 
 ![HeightMap4](/img/how_to/HeightMap/14-3.png)
 
-Another example showing basic lighting, height-maps and a [skybox](/divingDeeper/environment/environment_introduction) in use!
+Another example showing basic lighting, height-maps and a [skybox](/features/divingDeeper/environment/environment_introduction) in use!
 
 ![HeightMap5](/img/how_to/HeightMap/14-4.png)
 

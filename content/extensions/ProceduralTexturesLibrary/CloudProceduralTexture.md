@@ -10,7 +10,7 @@ video-content:
 
 # Cloud Procedural texture
 
-![Cloud Procedural texture](/img/extensions/proceduraltextures/cloudpt.png)
+![Cloud Procedural texture](/img/features/extensions/proceduraltextures/cloudpt.png)
 
 ## Using the cloud procedural texture
 

@@ -5,13 +5,13 @@ description: Learn all about the Babylon.js 3D GUI System.
 keywords: diving deeper, GUI, 3D GUI, 3D
 further-reading:
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/divingDeeper/gui/gui
     - title: How To Use Babylon GUI Scroll Viewer
-      url: /divingDeeper/gui/scrollViewer
+      url: /features/divingDeeper/gui/scrollViewer
     - title: How To Use Babylon GUI Xml Loader
-      url: /divingDeeper/gui/xmlLoader
+      url: /features/divingDeeper/gui/xmlLoader
     - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
+      url: /features/divingDeeper/gui/selector
 video-overview:
 video-content:
 ---
@@ -89,7 +89,7 @@ The panel will automatically arrange its content every time you add a new contro
 
 You can specify the distance between elements with `panel.margin = 0.02`.
 
-See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" description="Simple example showing how to add a 3D GUI StackPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI1.jpg"/>
+See it in action here: <Playground id="#HJZBRG#0" title="3D GUI StackPanel" description="Simple example showing how to add a 3D GUI StackPanel to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI1.jpg"/>
 
 ### VolumeBasedPanel
 
@@ -134,7 +134,7 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting sphere.
 
-See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" description="Simple example showing how to add a 3D GUI SpherePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI2.jpg"/>
+See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" description="Simple example showing how to add a 3D GUI SpherePanel to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI2.jpg"/>
 
 ![SpherePanel](/img/how_to/gui/SpherePanel.jpg)
 
@@ -149,7 +149,7 @@ panel.radius = 5;
 
 The radius property is used to define the radius of the hosting cylinder.
 
-See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" description="Simple example showing how to add a 3D GUI CylinderPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI3.jpg"/>
+See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" description="Simple example showing how to add a 3D GUI CylinderPanel to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI3.jpg"/>
 
 ![CylinderPanel](/img/how_to/gui/CylinderPanel.jpg)
 
@@ -161,7 +161,7 @@ The `PlanePanel` container can be used to dispatch item on the surface of a plan
 var panel = new BABYLON.GUI.PlanePanel();
 ```
 
-See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI4.jpg"/>
+See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI4.jpg"/>
 
 ![PlanePanel](/img/how_to/gui/PlanePanel.jpg)
 
@@ -178,7 +178,7 @@ The iterations property is used to define the number of iteration to use to scat
 
 ![ScatterPanel](/img/how_to/gui/ScatterPanel.jpg)
 
-See it in action here: <Playground id="#HB4C01#6" title="3D GUI ScatterPanel" description="Simple example showing how to add a 3D GUI ScatterPanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI5.jpg"/>
+See it in action here: <Playground id="#HB4C01#6" title="3D GUI ScatterPanel" description="Simple example showing how to add a 3D GUI ScatterPanel to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI5.jpg"/>
 
 ## Controls
 
@@ -209,7 +209,7 @@ Some observables are also available to help tracking control state:
 - `onPointerClickObservable`: An event triggered when a control is clicked on (with a mouse)
 - `onPointerMoveObservable`: An event triggered when the pointer move over the control
 
-All controls can also be the target of [behaviors](/divingDeeper/behaviors) so they expose the associated properties and functions:
+All controls can also be the target of [behaviors](/features/divingDeeper/behaviors) so they expose the associated properties and functions:
 
 - `behaviors`: Gets the list of attached behaviors
 - `addBehavior()`: Attach a behavior to the control
@@ -232,7 +232,7 @@ All these callbacks are empty by default and will be implemented by specialized 
 A button is a control with default animations for enter/out/down and up events.
 It is based on a 2D GUI content.
 
-You can specify the content through the `content` property and set it to any regular [2D GUI content](/divingDeeper/gui):
+You can specify the content through the `content` property and set it to any regular [2D GUI content](/features/divingDeeper/gui):
 
 ```javascript
 var button = new BABYLON.GUI.Button3D("reset");
@@ -250,7 +250,7 @@ You can use the following properties to change the texture resolution:
 - `contentResolution`: Gets or sets the texture resolution used to render content (512 by default)
 - `contentScaleRatio`: Gets or sets the texture scale ratio used to render content (2 by default)
 
-See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI6.jpg"/>
+See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control" description="Simple example showing how to add a 3D GUI Button3D to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI6.jpg"/>
 
 ### MeshButton3D
 
@@ -271,7 +271,7 @@ pushButton.pointerOutAnimation = () => {
 };
 ```
 
-See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
+See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI8.jpg"/>
 
 ### HolographicButton
 
@@ -284,7 +284,7 @@ An `HolographicButton` can be defined with two properties:
 
 ![Babylon.GUI](/img/how_to/gui/MRTK_HolographicButton.jpg)
 
-See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButton Control" description="Simple example showing how to add a 3D GUI HolographicButton to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI7.jpg"/>
+See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButton Control" description="Simple example showing how to add a 3D GUI HolographicButton to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI7.jpg"/>
 
 Please note that you can overwrite the default content but you need to do it after the call to addControl:
 
@@ -338,13 +338,13 @@ slate.imageUrl = "./textures/Checker_Albedo.png";
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
-The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
+The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/features/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
 <Playground id="#SYD2M2#6" title="HolographicSlate" description="Simple Holographic Slate example"/>
 
 ### Near Menu
 
-The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
+The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/features/divingDeeper/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
 
 Below, an exemple of a horizontal 3-button near menu.
 
@@ -382,7 +382,7 @@ near.rows = n;
 
 ### Hand Menu
 
-The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/divingDeeper/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
+The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/features/divingDeeper/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
 
 By default, the `HandMenu` positions itself on the outer side of the users left hand, and only activates when the user both has their palm facing them and is looking at (facing) their hand. These defaults can be changed by modifying the properties on the `HandConstraintBehavior` attached to the `HandMenu`.
 

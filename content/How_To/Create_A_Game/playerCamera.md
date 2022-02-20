@@ -14,7 +14,7 @@ For this game, I wanted to create a third person camera that would follow the ch
 
 ## Camera Hierarchy
 
-Previously, in [Simple Game State](/guidedLearning/createAGame/simpleGameState#character-controller) we made a \_setupPlayerCamera. Here is where we'll be creating our camera hierarchy.
+Previously, in [Simple Game State](/features/guidedLearning/createAGame/simpleGameState#character-controller) we made a \_setupPlayerCamera. Here is where we'll be creating our camera hierarchy.
 
 ```javascript
 private _setupPlayerCamera(): UniversalCamera {

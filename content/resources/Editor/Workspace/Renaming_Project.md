@@ -12,7 +12,7 @@ video-content:
 
 To rename a project, just go to the `File` menu in the toolbar, select `Rename Project...` and provide the new name of the project:
 
-![RenameProjectToolbar](/img/extensions/Editor/RenamingProject/toolbar.png)
+![RenameProjectToolbar](/img/features/extensions/Editor/RenamingProject/toolbar.png)
 
 Once accepted, the following folders will be renamed:
 - *`workspacePath`/projects/`oldname`* ->  *`workspacePath`/projects/`newname`* 

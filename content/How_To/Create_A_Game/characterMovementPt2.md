@@ -13,7 +13,7 @@ Now that we have our character moving around, let's give them the ab
 ## Input Controller
 
 First we'll start by adding in inputs for our jumping and dashing to [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)!
-Inside of [updateFromKeyboard](/guidedLearning/createAGame/characterMovePt1#input-controller) we just need to add:
+Inside of [updateFromKeyboard](/features/guidedLearning/createAGame/characterMovePt1#input-controller) we just need to add:
 
 ```javascript
 //dash
@@ -35,7 +35,7 @@ _this.dashing_ and _this.jumpKeyDown_ will be used to control the actions based 
 
 ## Jumping
 
-Here we'll be focusing on [\_updateFromGroundDetection](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L355). We'll be adding and updating what we wrote in [part 1's gravity](/guidedLearning/createAGame/characterMovePt1#raycasts).
+Here we'll be focusing on [\_updateFromGroundDetection](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/characterController.ts#L355). We'll be adding and updating what we wrote in [part 1's gravity](/features/guidedLearning/createAGame/characterMovePt1#raycasts).
 
 ### Input
 
@@ -129,7 +129,7 @@ For the dashing implementation, we return to [\_updateFromControls](https://gith
 ```javascript
 if (this._input.dashing && !this._dashPressed && this._canDash && !this._grounded) {
     this._canDash = false; //we've started a dash, do not allow another
-    this._dashPressed = true; //start the dash sequence
+    this._dashPressed = true; //features/start the dash sequence
 }
 ```
 

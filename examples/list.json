@@ -73,7 +73,7 @@
                 },
                 {
                     "title": "Picture in Picture Visual Camera",
-                    "doc": "https://doc.babylonjs.com/divingDeeper/cameras/layerMasksAndMultiCam",
+                    "doc": "https://doc.babylonjs.com/features/divingDeeper/cameras/layerMasksAndMultiCam",
                     "icon": "icons/pipcamera.png",
                     "description": "Using layer masks and viewports, show a visual representation of camera movement",
                     "PGID": "#L92PHY#36"
@@ -308,35 +308,35 @@
                 },
                 {
                     "title": "Cell Shading",
-                    "doc": "https://doc.babylonjs.com/extensions/cell",
+                    "doc": "https://doc.babylonjs.com/features/extensions/cell",
                     "icon": "icons/cell_shading.jpg",
                     "description": "Cell shading material",
                     "PGID": "#0ZB1A3#1"
                 },
                 {
                     "title": "Fur",
-                    "doc": "https://doc.babylonjs.com/extensions/fur",
+                    "doc": "https://doc.babylonjs.com/features/extensions/fur",
                     "icon": "icons/fur.jpg",
                     "description": "Fur material",
                     "PGID": "#VABI8A#0"
                 },
                 {
                     "title": "Fire",
-                    "doc": "https://doc.babylonjs.com/extensions/Fire",
+                    "doc": "https://doc.babylonjs.com/features/extensions/Fire",
                     "icon": "icons/fire.jpg",
                     "description": "Fire material",
                     "PGID": "#LR4YHT#0"
                 },
                 {
                     "title": "Water",
-                    "doc": "https://doc.babylonjs.com/extensions/water",
+                    "doc": "https://doc.babylonjs.com/features/extensions/water",
                     "icon": "icons/water.jpg",
                     "description": "Water material",
                     "PGID": "#L76FB1#0"
                 },
                 {
                     "title": "Float on Water",
-                    "doc": "https://doc.babylonjs.com/extensions/water",
+                    "doc": "https://doc.babylonjs.com/features/extensions/water",
                     "icon": "icons/FloatWater.jpg",
                     "description": "Float on Water material",
                     "PGID": "#L76FB1#49"

@@ -10,7 +10,7 @@ video-content:
 
 # Grass Procedural texture
 
-![Grass Procedural texture](/img/extensions/proceduraltextures/grasspt.png)
+![Grass Procedural texture](/img/features/extensions/proceduraltextures/grasspt.png)
 
 ## Using the Grass procedural texture
 

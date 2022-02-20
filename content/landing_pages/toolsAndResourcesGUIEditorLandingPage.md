@@ -16,7 +16,7 @@ Introduced in Babylon.js 5.0, the GUI Editor is an incredibly handy tool that he
 
 You can access the GUI Editor here: https://gui.babylonjs.com/
 
-This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/divingDeeper/gui/gui)
+This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/features/divingDeeper/gui/gui)
 
 <Youtube id="9VXgZ_af-nE"/>
 
@@ -240,7 +240,7 @@ let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 
 <Playground id="#4RTUCB#1" title="Load a GUI Into Fullscreen Mode" description="Simple example that shows how to load a GUI into fullscreen mode."/>
 
-Further Information about fullscreen GUIs can be found here: [Fullscreen GUIs](/divingDeeper/gui/gui#fullscreen-mode)
+Further Information about fullscreen GUIs can be found here: [Fullscreen GUIs](/features/divingDeeper/gui/gui#fullscreen-mode)
 
 #### Load in Texture Mode
 You can also load a saved GUI as a texture that can be used like any other texture in your scene. Here's an example of using a loaded GUI as a texture for the material of a mesh:
@@ -252,7 +252,7 @@ screenUI.parseFromSnippetAsync("#WFL50L");
 
 <Playground id="#H896c7#13" title="Load a GUI Into Texture Mode" description="Simple example that shows how to load a GUI into texture mode and project it onto a mesh."/>
 
-Further Information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/divingDeeper/gui/gui#texture-mode)
+Further Information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/features/divingDeeper/gui/gui#texture-mode)
 
 #### Changing GUI Control Properties In Your Scene
 After loading a saved GUI into your scene, you can easily access the properties of your GUI Controls.
@@ -267,30 +267,30 @@ backgroundBox.background = "blue";
 <Playground id="#JSF3QM" title="Load a GUI And Modify GUI Control Properties" description="Simple example that shows how to load a GUI and modify GUI controls."/>
 
 #### Playground Templates
-You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/tools/playground/pgTemplates)
+You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/features/toolsAndResources/tools/playground/pgTemplates)
 
 ### Supported Controls
 Here is a list of supported GUI controls available in the GUI Editor:
 
 Icon | Control Name | Further Information
 ---|---|---|
-![rectangle](/img/tools/guiEditor/rectangleIcon.jpg) | Rectangle | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)
-![ellipse](/img/tools/guiEditor/ellipseIcon.jpg) | Ellipse | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)
-![stackpanel](/img/tools/guiEditor/stackPanelIcon.jpg) | Stack Panel | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)
-![grid](/img/tools/guiEditor/gridIcon.jpg) | Grid | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)
-![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.jpg) | Scroll Viewer | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)
-![line](/img/tools/guiEditor/lineIcon.jpg) | Line | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)
-![textblock](/img/tools/guiEditor/textIcon.jpg) | Text Block | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)
-![inputText](/img/tools/guiEditor/inputTextIcon.jpg) | Input Text | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)
-![inputPassword](/img/tools/guiEditor/inputPasswordIcon.jpg) | Input Password | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)
-![image](/img/tools/guiEditor/imageIcon.jpg) | Image | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)
-![displayGrid](/img/tools/guiEditor/displayGridIcon.jpg) | Display Grid | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)
-![textButton](/img/tools/guiEditor/textButtonIcon.jpg) | Text Button | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)
-![checkbox](/img/tools/guiEditor/checkBoxIcon.jpg) | Checkbox | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)
-![radioButton](/img/tools/guiEditor/radioIcon.jpg) | Radio Button | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)
-![slider](/img/tools/guiEditor/sliderIcon.jpg) | Slider | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)
-![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard)
-![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)
+![rectangle](/img/tools/guiEditor/rectangleIcon.jpg) | Rectangle | [Rectangle Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#rectangle)
+![ellipse](/img/tools/guiEditor/ellipseIcon.jpg) | Ellipse | [Ellipse Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#ellipse)
+![stackpanel](/img/tools/guiEditor/stackPanelIcon.jpg) | Stack Panel | [Stack Panel Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#stackpanel)
+![grid](/img/tools/guiEditor/gridIcon.jpg) | Grid | [Grid Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#grid)
+![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.jpg) | Scroll Viewer | [Scroll Viewer Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#scrollviewer)
+![line](/img/tools/guiEditor/lineIcon.jpg) | Line | [Line Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#line)
+![textblock](/img/tools/guiEditor/textIcon.jpg) | Text Block | [Text Block Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#textblock)
+![inputText](/img/tools/guiEditor/inputTextIcon.jpg) | Input Text | [Input Text Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#inputtext)
+![inputPassword](/img/tools/guiEditor/inputPasswordIcon.jpg) | Input Password | [Input Password Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#inputpassword)
+![image](/img/tools/guiEditor/imageIcon.jpg) | Image | [Image Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#image)
+![displayGrid](/img/tools/guiEditor/displayGridIcon.jpg) | Display Grid | [Display Grid Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#displaygrid)
+![textButton](/img/tools/guiEditor/textButtonIcon.jpg) | Text Button | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/features/divingDeeper/gui/gui#button)
+![checkbox](/img/tools/guiEditor/checkBoxIcon.jpg) | Checkbox | [Checkbox Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#checkbox)
+![radioButton](/img/tools/guiEditor/radioIcon.jpg) | Radio Button | [Radio Button Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#radiobutton)
+![slider](/img/tools/guiEditor/sliderIcon.jpg) | Slider | [Slider Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#slider)
+![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/features/divingDeeper/gui/gui#virtualkeyboard)
+![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/features/divingDeeper/gui/gui#colorpicker)
 
 
 ### Demos

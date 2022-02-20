@@ -12,7 +12,7 @@ video-content:
 
 There are a number of helpers that, once you to have put models into a scene, add cameras, light and environment that adjust to the models automatically allowing you to quickly view them. You can then make adjustments as you need.
 
-For beginners to Babylon.js these two sections [Fastest Build](/divingDeeper/scene/fastBuildWorld#fastest-build) and [Import and Fastest Build](/divingDeeper/scene/fastBuildWorld#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
+For beginners to Babylon.js these two sections [Fastest Build](/features/divingDeeper/scene/fastBuildWorld#fastest-build) and [Import and Fastest Build](/features/divingDeeper/scene/fastBuildWorld#import-and-fastest-build) will quickly give you a viewable world and are a good way of getting a look at models. As such they are level 1 material. It is worth considering working through Babylon101 and parts of the level 1 material in order to make the other information and details on this page more understandable.
 
 ## Helpers
 
@@ -142,7 +142,7 @@ scene.createDefaultEnvironment();
 
 adds a skybox and ground to the scene, sets a wide range of environmental parameters and returns an [environmental helper](/typedoc/classes/babylon.environmenthelper) to the scene.
 
-You will also find below a helper for [just a skybox](/divingDeeper/scene/fastBuildWorld#create-default-skybox).
+You will also find below a helper for [just a skybox](/features/divingDeeper/scene/fastBuildWorld#create-default-skybox).
 
 When you look at the following playground
 
@@ -222,7 +222,7 @@ helper.updateOptions(options);
 
 ### Environmental Helper
 
-NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/divingDeeper/environment/backgroundMaterial) to be as efficient as possible.
+NOTE: The environment helper relies exclusively on the [BackgroundMaterial](/features/divingDeeper/environment/backgroundMaterial) to be as efficient as possible.
 
 ## Create Default Skybox
 
@@ -235,7 +235,7 @@ var texture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene)
 scene.createDefaultSkybox(texture, true, 100);
 ```
 
-In this case the first two parameters used give the texture for the skybox and specify that [a PBRMaterial](/divingDeeper/materials/using/introToPBR) is to be used (second parameter, _true_) as opposed to a standard material (second parameter, _false_ - default value).
+In this case the first two parameters used give the texture for the skybox and specify that [a PBRMaterial](/features/divingDeeper/materials/using/introToPBR) is to be used (second parameter, _true_) as opposed to a standard material (second parameter, _false_ - default value).
 
 The third parameter defines the scale of your skybox (this value depends on the scale of your scene), the default value is _1000_.
 
@@ -264,7 +264,7 @@ There is then a problem. When creating a scene Babylon.js checks for a camera. W
 
 The solution is to replace the `createScene` function with the `delayCreateScene` function. Whether in a playground or in your own project this is a direct replacement.
 
-**NOTE:** Other [scene loader](/divingDeeper/importers/loadingFileTypes) methods are available.
+**NOTE:** Other [scene loader](/features/divingDeeper/importers/loadingFileTypes) methods are available.
 
 ### Using Scene Helpers with Import
 

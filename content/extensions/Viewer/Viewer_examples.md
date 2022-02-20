@@ -5,15 +5,15 @@ description: Examples of using the viewer
 keywords: extensions, babylon.js, viewer, examples
 further-reading:
     - title: Babylon.js Viewer
-      url: /extensions/babylonViewer
+      url: /features/extensions/babylonViewer
     - title: Configuring the viewer
-      url: /extensions/babylonViewer/configuringViewer
+      url: /features/extensions/babylonViewer/configuringViewer
     - title: The templating system
-      url: /extensions/babylonViewer/viewerTemplatingSystem
+      url: /features/extensions/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /extensions/babylonViewer/defaultViewerConfig
+      url: /features/extensions/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
+      url: /features/extensions/babylonViewer/advancedViewerUsage
 video-overview:
 video-content:
 ---

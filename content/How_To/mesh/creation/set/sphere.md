@@ -31,13 +31,13 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** | Vector4(0, 0, 1,1) 
 
 ### Examples 
-<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes6.jpg" isMain={true} category="Mesh"/>
+<Playground id="#WIR77Z" title="Create a Sphere" description="Simple example of creating a sphere." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes6.jpg" isMain={true} category="Mesh"/>
 
-<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes7.jpg"/>
+<Playground id="#WIR77Z#1" title="Create a Ellipsoid" description="Simple example of creating a ellipsoid." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes7.jpg"/>
 
-<Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes8.jpg"/>
+<Playground id="#WIR77Z#2" title="Create an Arc" description="Simple example of creating an arc." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes8.jpg"/>
 
-<Playground id="#WIR77Z#3" title="Create an Arc and Slice" description="Simple example of creating an arc and slice." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes9.jpg"/>
+<Playground id="#WIR77Z#3" title="Create an Arc and Slice" description="Simple example of creating an arc and slice." image="/img/playgroundsAndNMEs/features/divingDeeperMeshSetShapes9.jpg"/>
 
 ## Mesh
 Usage :

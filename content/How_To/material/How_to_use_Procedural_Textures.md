@@ -89,7 +89,7 @@ The NoiseProceduralTexture exposes the following properties:
 - persistence: Defines the level of persistence (0.8 by default)
 - animationSpeedFactor: Gets or sets animation speed factor (default is 1)
 
-<Playground id="#K9GLE6#49" title="Experiment With Noise Properties" description="Simple example for you to experiment with noise properties." image="/img/playgroundsAndNMEs/divingDeeperProceduralTexture1.jpg"/>
+<Playground id="#K9GLE6#49" title="Experiment With Noise Properties" description="Simple example for you to experiment with noise properties." image="/img/playgroundsAndNMEs/features/divingDeeperProceduralTexture1.jpg"/>
 
 ## Using Standard Procedural Textures
 
@@ -102,10 +102,10 @@ You can use them in your project:
 
 All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
 
-- **WoodProceduralTexture**: //doc.babylonjs.com/extensions/woodproceduraltexture
-- **MarbleProceduralTexture**: //doc.babylonjs.com/extensions/marbleproceduraltexture
-- **BrickProceduralTexture**: //doc.babylonjs.com/extensions/brickproceduraltexture
-- **FireProceduralTexture**: //doc.babylonjs.com/extensions/fireproceduraltexture
-- **GrassProceduralTexture**: //doc.babylonjs.com/extensions/grassproceduraltexture
-- **RoadProceduralTexture**: //doc.babylonjs.com/extensions/roadproceduraltexture
-- **CloudProceduralTexture**: //doc.babylonjs.com/extensions/cloudproceduraltexture
+- **WoodProceduralTexture**: //doc.babylonjs.com/features/extensions/woodproceduraltexture
+- **MarbleProceduralTexture**: //doc.babylonjs.com/features/extensions/marbleproceduraltexture
+- **BrickProceduralTexture**: //doc.babylonjs.com/features/extensions/brickproceduraltexture
+- **FireProceduralTexture**: //doc.babylonjs.com/features/extensions/fireproceduraltexture
+- **GrassProceduralTexture**: //doc.babylonjs.com/features/extensions/grassproceduraltexture
+- **RoadProceduralTexture**: //doc.babylonjs.com/features/extensions/roadproceduraltexture
+- **CloudProceduralTexture**: //doc.babylonjs.com/features/extensions/cloudproceduraltexture

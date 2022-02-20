@@ -17,11 +17,11 @@ Using the inspector, collisions properties can be customized per object:
 ## Enabling Collisions In Scene
 To enable collisions in the scene, simply select the `Scene` in the graph:
 
-![SceneGraph](/img/extensions/Editor/BasicCollisions/scene_graph.png)
+![SceneGraph](/img/features/extensions/Editor/BasicCollisions/scene_graph.png)
 
 And scroll in the inspector to find the section named `Collisions`:
 
-![SceneGraph](/img/extensions/Editor/BasicCollisions/scene_collisions.png)
+![SceneGraph](/img/features/extensions/Editor/BasicCollisions/scene_collisions.png)
 
 To enable collisions, simply check the `Enabled` checkbox and provide the gravity values desired for the current scene.
 
@@ -35,21 +35,21 @@ for `Arc Rotate Camera` as it makes no sense.*
 ### Free Camera
 The cameras of type `FreeCamera` are the most common types of camera in projects. To enable collisions, simply check the
 `Check Collisions` checkbox and configure the ellipsoid values. For ellipsoids, check the
-[following documentation](/divingDeeper/cameras/camera_collisions#2-define-an-ellipsoid) in order to understand
+[following documentation](/features/divingDeeper/cameras/camera_collisions#2-define-an-ellipsoid) in order to understand
 and setup the desired values according the nature of the current scene being edited in the Editor.
 
 The property `Apply Gravity`, if enabled, will apply the gravity previously set in the scene and can be disabled only by unchecking the
 property.
 
-![SceneGraph](/img/extensions/Editor/BasicCollisions/free_camera.png)
+![SceneGraph](/img/features/extensions/Editor/BasicCollisions/free_camera.png)
 
 ### Arc Rotate Camera
 As for the `FreeCamera`, the arc rotate cameras can have their collisions enabled using the checkbox `Enabled`.
 Opposed to the free camera, the ellipsoid property is replaced by `Collisions Radius` property. Check the
-[following documentation](/divingDeeper/cameras/camera_collisions#arcrotatecamera) in order to understand and setup
+[following documentation](/features/divingDeeper/cameras/camera_collisions#arcrotatecamera) in order to understand and setup
 the desired value for the collisions radius.
 
-![SceneGraph](/img/extensions/Editor/BasicCollisions/arc_rotate_camera.png)
+![SceneGraph](/img/features/extensions/Editor/BasicCollisions/arc_rotate_camera.png)
 
 ## Enabling Collisions For Meshes
 Once scene and camera(s) have been configured, the last step is to configure which mesh(es) will have collisions enabled in order
@@ -57,10 +57,10 @@ to block the camera.
 
 To enable collisions, simply check the `Check Collisions` checkbox and configure its optional `Ellipsoid` and `Ellipsoid Offset` properties.
 Don't hesitate to check as well the
-[following documentation](/divingDeeper/cameras/camera_collisions#4-object-vs-object-collision) to
+[following documentation](/features/divingDeeper/cameras/camera_collisions#4-object-vs-object-collision) to
 understand ellipsoid and ellipsoid offset properties on meshes.
 
-![SceneGraph](/img/extensions/Editor/BasicCollisions/mesh.png)
+![SceneGraph](/img/features/extensions/Editor/BasicCollisions/mesh.png)
 
 ## Using The ".moveWithCollisions" Method In Code
 The Babylon.JS API provides a method named `.moveWithCollisions` on `Mesh` class. This method will work like for cameras without any,

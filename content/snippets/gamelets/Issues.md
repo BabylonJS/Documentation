@@ -96,8 +96,8 @@ Given a multitude of equally sized spheres, all initially inside a box and given
 
 Both hypotheses turn out to be false. This can be seen by reading the following
 
-1. [Simple Particle Collisions on a Grid](/guidedLearning/workshop/Grid_Moves)  
-2. [Slow Particles](/guidedLearning/workshop/Slow_Collide)
+1. [Simple Particle Collisions on a Grid](/features/guidedLearning/workshop/Grid_Moves)  
+2. [Slow Particles](/features/guidedLearning/workshop/Slow_Collide)
 
 This being the case we turn to issues arising when the speed of a sphere is greater than twice the radius.
 

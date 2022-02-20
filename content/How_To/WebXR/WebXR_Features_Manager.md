@@ -14,13 +14,13 @@ The Features manager, our XR plugin system, was born out of a simple need - stay
 
 Since APIs like [hit test](https://github.com/immersive-web/hit-test) and [anchors](https://github.com/immersive-web/anchors) are constantly changing, and currently still have different support in different browser versions, there was a need for "versioning" of the current development to keep up with API modifications over time.
 
-If you are a bit impatient you can check the [selected WebXR features](/divingDeeper/webXR/WebXRSelectedFeatures) section, but it is recommended to at least read this section quickly.
+If you are a bit impatient you can check the [selected WebXR features](/features/divingDeeper/webXR/WebXRSelectedFeatures) section, but it is recommended to at least read this section quickly.
 
 ## How to use
 
 ### Construct a new features manager
 
-If you are using the [base WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers) a features manager will be created for you and will be available in `xrBaseHelper.featuresManager` . If not, you only need to provide an XR session manager object to initialize a new one:
+If you are using the [base WebXR experience helper](/features/divingDeeper/webXR/webXRExperienceHelpers) a features manager will be created for you and will be available in `xrBaseHelper.featuresManager` . If not, you only need to provide an XR session manager object to initialize a new one:
 
 ``` javascript
 const fm = new FeaturesManager(xrSessionManager);

@@ -14,7 +14,7 @@ The meshes for the environment and player will be linked below. We'll make a new
 
 ## Environment Mesh
 
-Previously, we created an [Environment class](/guidedLearning/createAGame/simpleGameState#environment). In order to import our meshes, we'll neeed to add a [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) function.
+Previously, we created an [Environment class](/features/guidedLearning/createAGame/simpleGameState#environment). In order to import our meshes, we'll neeed to add a [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L100) function.
 
 ### \_loadAsset
 
@@ -51,7 +51,7 @@ assets.allMeshes.forEach((m) => {
 
 We loop through all of the meshes and do have to manually set the flag to check for collisions as well as whether they can receive shadows. The only mesh in this game that actually casts a shadow is the player (for performance reasons). At this point this is all we really need to do with our assets.
 
-If we go back to [\_setUpGame](/guidedLearning/createAGame/simpleGameState#environment), this is where we loaded our environment assets.
+If we go back to [\_setUpGame](/features/guidedLearning/createAGame/simpleGameState#environment), this is where we loaded our environment assets.
 
 ```javascript
 //--LOAD ASSETS--
@@ -65,7 +65,7 @@ Notice how we are using _await_ here. This is because we want to wait for the en
 
 Loading the character assets should also begin inside of \_setUpGame. We want to make sure that we start loading our meshes before we actually go to the game state.
 
-Recall, we loaded our character assets in [\_setUpGame](/guidedLearning/createAGame/simpleGameState#character-controller).
+Recall, we loaded our character assets in [\_setUpGame](/features/guidedLearning/createAGame/simpleGameState#character-controller).
 
 ```javascript
 //...loaded envrionment assets
@@ -74,7 +74,7 @@ await this._loadCharacterAssets(scene);
 
 Again, here we are awaiting in order to ensure that the asset is fully imported and set up. This is **SUPER** important because our player constructor actually depends on some of the environment assets being loaded.
 
-Previously in [\_loadCharacterAssets](/guidedLearning/createAGame/simpleGameState#loading-assets), we set up the character mesh system.
+Previously in [\_loadCharacterAssets](/features/guidedLearning/createAGame/simpleGameState#loading-assets), we set up the character mesh system.
 The function's purpose is to call loadCharacter(), store our assets, and then return the results to signify that it's complete.
 
 In order to load our assets, we just need to modify the body portion of our character assets. Instead of having primitives for our body, we'll be using the imported mesh.

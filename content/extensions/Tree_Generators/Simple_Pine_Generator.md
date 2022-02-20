@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Generated Tree ](/img/extensions/trees/pine1.png)
+![Generated Tree ](/img/features/extensions/trees/pine1.png)
 
 The function simplePineGenerator uses a tube to generate a tree. 
 
@@ -18,7 +18,7 @@ A demo can be found at: <Playground id="#LG3GS#106" title="Simple Pine Tree Gene
 
 ## How to use it.
 
-Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeGenerators/SimplePineGenerator
+Clone or copy the file https://github.com/BabylonJS/features/extensions/tree/master/TreeGenerators/SimplePineGenerator
 
 call the function
 

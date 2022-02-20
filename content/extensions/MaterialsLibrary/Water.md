@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Water material](/img/extensions/materials/water.jpg)
+![Water material](/img/features/extensions/materials/water.jpg)
 
 # Using the water material
 

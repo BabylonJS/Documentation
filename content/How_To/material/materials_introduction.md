@@ -19,7 +19,7 @@ There are four possible ways that a material can react to light.
 3. Emissive - the color or texture of the material as if self lit;
 4. Ambient - the color or texture of the material lit by the environmental background lighting.
 
-Diffuse and Specular material require a [light source](/divingDeeper/lights/lights_introduction) to be created.  
+Diffuse and Specular material require a [light source](/features/divingDeeper/lights/lights_introduction) to be created.  
 Ambient color requires the ambient color of the scene to be set, giving the environmental background lighting.
 
 ```javascript
@@ -52,7 +52,7 @@ mesh.material = myMaterial;
 
 To give an idea on how the material diffuse color reacts to the diffuse light color the following playground example shows how different color materials react to white, red, green and blue diffuse spot lights.
 
-<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro1.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#325" title="Material Color Reaction to Light Color" description="Simple example of material color reacting to light color." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro1.jpg" isMain={true} category="Materials"/>
 
 This reaction of
 
@@ -73,7 +73,7 @@ When a scene ambient color component is set to 0, for example red, then whatever
 
 ![Ambient](/img/how_to/Materials/ambient1.png)
 
-<Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro2.jpg"/>
+<Playground id="#20OAV9#14" title="Use of Ambient Color" description="Simple example of using ambient color in your scene materials." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro2.jpg"/>
 
 ## Transparent Color Example
 
@@ -83,7 +83,7 @@ Transparency is achieved by setting a materials _alpha_ property from 0 (invisib
 myMaterial.alpha = 0.5;
 ```
 
-<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro3.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#16" title="Material Transparency" description="Simple example of using transparency in your scene materials." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro3.jpg" isMain={true} category="Materials"/>
 
 ## Texture
 
@@ -117,7 +117,7 @@ In this image all spheres are lit by the same hemispheric light, with _diffuse_ 
 
 ![Texture](/img/how_to/Materials/texture1.png)
 
-<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro4.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#15" title="Material with Diffuse, Emissive, and Ambient Textures" description="Simple example of using diffuse, emissive, and ambient textures in your scene materials." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro4.jpg" isMain={true} category="Materials"/>
 
 ## Transparent Texture Examples
 
@@ -127,7 +127,7 @@ For colors, the transparency is achieved by setting a materials _alpha_ property
 myMaterial.alpha = 0.5;
 ```
 
-<Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro5.jpg"/>
+<Playground id="#20OAV9#17" title="Transparent Texture Example" description="Simple example of transparent textures in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro5.jpg"/>
 
 In addition, the image used for the texture might already have a transparency setting, such as this picture of a dog from wikimedia commons,
 which has a transparent background;
@@ -140,7 +140,7 @@ In this case we set the _hasAlpha_ property of the **texture** to true.
 myMaterial.diffuseTexture.hasAlpha = true;
 ```
 
-<Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro6.jpg"/>
+<Playground id="#YDO1F#18" title="Transparent Background Example" description="Simple example of a transparent background in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro6.jpg"/>
 
 For the back faces of the cube to be visible through the transparent areas of the front faces we have to deal with back-face culling.
 
@@ -148,7 +148,7 @@ For the back faces of the cube to be visible through the transparent areas of th
 
 Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
 
-[More on creating a texture package](/divingDeeper/materials/advanced/texturePackage)
+[More on creating a texture package](/features/divingDeeper/materials/advanced/texturePackage)
 
 ## Back-Face Culling
 
@@ -163,7 +163,7 @@ When _backFaceCulling_ is false the back faces are not removed during rendering 
 | ------------------------------------------- | -------------------------------------------- |
 | ![BFC True](/img/how_to/Materials/bfc2.png) | ![BFC False](/img/how_to/Materials/bfc1.png) |
 
-<Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/divingDeeperMaterialsIntro7.jpg"/>
+<Playground id="#YDO1F#20" title="Backface Culling Example" description="Simple example of using backface culling." image="/img/playgroundsAndNMEs/features/divingDeeperMaterialsIntro7.jpg"/>
 
 ## WireFrame
 

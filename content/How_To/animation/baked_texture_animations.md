@@ -66,7 +66,7 @@ Here's an example for a single mesh:
 
 ## VATs for instances
 
-As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently. In this case you need to register a buffer to set the animation parameters for each instance.
+As explained in [How To Use Instances](/features/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes. VATs can be used further to handle the animations efficiently. In this case you need to register a buffer to set the animation parameters for each instance.
 
 ```js
   // create the instanced buffer
@@ -79,7 +79,7 @@ As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), ins
 
 ## VATs for thin instances
 
-VATs can also be used with [thin instances](/divingDeeper/mesh/copies/thinInstances). Then you set the parameters for the thin instances:
+VATs can also be used with [thin instances](/features/divingDeeper/mesh/copies/thinInstances). Then you set the parameters for the thin instances:
 
 ```js
   // allocate the parameters

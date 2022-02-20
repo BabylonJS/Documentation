@@ -70,7 +70,7 @@ When you want the animation to loop you and true as the fourth parameter
 scene.beginAnimation(target, from, to, true)
 ```
 
-<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationDesign1.jpg"/>
 
 The are a number of further optional parameters than you can find in the *scene* API
 
@@ -91,7 +91,7 @@ scene.beginDirectAnimation(target, animations, from, to, loop)
 
 Further optional parameters are available and can be found at the *scene* API
 
-<Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/> 
+<Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/> 
 
 ## Animatable
 
@@ -108,4 +108,4 @@ which supports the following methods
 - _stop()_
 - _reset()_
 
-<Playground id="#7V0Y1I#2" title="Box animation stop after 5 secs" description="An example of stopping an animation after specific amount of time." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>  
+<Playground id="#7V0Y1I#2" title="Box animation stop after 5 secs" description="An example of stopping an animation after specific amount of time." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>  

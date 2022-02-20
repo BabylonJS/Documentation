@@ -18,7 +18,7 @@ Hello everyone, this is capucat, I'm an intern on the team! My project for this 
 
 The game I created is Hanabi, or Summer's Festival. It's a short 3D platformer based on the summer festivals and papern lantern lighting. The story is about this cat whose family works on crafting all lanterns and fireworks for the village. Every year there's a special summer festival where they have a firework show to start it off. The goal is to navigate through the village, lighting all of the lanterns before delivering the fireworks to the top mountain shrine. You have only 1 hour (4 minutes real-time) and 1 sparkler (20 second lifetime).
 
-![illustration](/img/how_to/create-a-game/startscreen.png)
+![illustration](/img/how_to/create-a-game/features/startscreen.png)
 
 I was a complete beginner when it came to working with Babylon.js, so this was a great learning experience. I'm really excited to be sharing this process with everyone because the community makes a lot of amazing things. I hope that this series inspires people to start using Babylon.js for their own game development or just start exploring the things you can do with Babylon.js!
 

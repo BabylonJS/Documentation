@@ -18,7 +18,7 @@ A newly created project is always empty and ready to receive new assets etc.
 ## Creating A New Project
 To create a new project in the workspace, just go to the `File` menu in the toolbar and select `Add New Project...`.
 
-![CreateNewProjectToolbar](/img/extensions/Editor/CreatingProject/create-new-project.png)
+![CreateNewProjectToolbar](/img/features/extensions/Editor/CreatingProject/create-new-project.png)
 
 Once clicked, a popin appears to ask for the name of the project. Once the button `Finish` is clicked,
 the new project is being created on the file system. Then, the Editor will ask to load continue working

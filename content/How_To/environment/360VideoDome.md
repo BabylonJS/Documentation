@@ -18,7 +18,7 @@ Note that the video dome also supports 180 degrees video. Read below for further
 
 ## VideoDome
 
-VideoDomes rely heavily on the [VideoTexture](/divingDeeper/materials/using/videoTexture) class, check out it's documentation so that some parameters make more sense.
+VideoDomes rely heavily on the [VideoTexture](/features/divingDeeper/materials/using/videoTexture) class, check out it's documentation so that some parameters make more sense.
 The source video itself should be "Equirectangular", without an equirectangular source the class won't function correctly.
 
 ## VideoDome Code
@@ -43,7 +43,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 * useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
 * halfDomeMode = false: Enable the support for 180 videos instead of 360.
 
-<Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoDome1.jpg"/>
+<Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperVideoDome1.jpg"/>
 
 As iOS disable autoplay, you should call video play on user interaction, using `videoDome.videoTexture.video.play();` .
 

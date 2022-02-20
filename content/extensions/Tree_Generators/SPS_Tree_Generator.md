@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Generated Tree ](/img/extensions/trees/genTree.png)
+![Generated Tree ](/img/features/extensions/trees/genTree.png)
 
 The function createTree uses the solid particle system to generate a tree. 
 A base tree is created consisting of a trunk which forks into branches, which then themselves may fork or not.
@@ -16,13 +16,13 @@ This base tree is used in two different ways.
     1. as the trunk and parent branches for the whole tree.
     2. with leaves added as a mini-tree that is added a number of times to the base trunk and parent branches to form the whole tree.
     
-  ![Base Tree to Full Tree Sequence ](/img/extensions/trees/baseToFull.png)  
+  ![Base Tree to Full Tree Sequence ](/img/features/extensions/trees/baseToFull.png)  
   
   A demo can be found at: <Playground id="#1LXNS9#4" title="SPS Tree Generator Example" description="Simple example of the sps tree generator."/>
 
 ## How to use it.
 
-Clone or copy the file https://github.com/BabylonJS/Extensions/blob/master/TreeGenerators/SPSTreeGenerator/TreeGenerator.js
+Clone or copy the file https://github.com/BabylonJS/features/extensions/blob/master/TreeGenerators/SPSTreeGenerator/TreeGenerator.js
 
 call the function
 
@@ -51,10 +51,10 @@ scene - BABYLON scene.
 
 ## Examples of Results for some Parameters
 
-![Forks and Boughs ](/img/extensions/trees/forks.png)
+![Forks and Boughs ](/img/features/extensions/trees/forks.png)
 
-![Fork Angles ](/img/extensions/trees/forkAngle.png)
+![Fork Angles ](/img/features/extensions/trees/forkAngle.png)
 
-![Bows and Slices ](/img/extensions/trees/bows.png)
+![Bows and Slices ](/img/features/extensions/trees/bows.png)
 
-![Leaf Ratio ](/img/extensions/trees/leafRatio.png)
+![Leaf Ratio ](/img/features/extensions/trees/leafRatio.png)

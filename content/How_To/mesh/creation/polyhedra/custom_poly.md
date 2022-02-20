@@ -15,7 +15,7 @@ These are a further range of polyhedra that you can create although they need mo
 1.  Visit <Playground id="#WL3U6F" title="Custom Polyhedra" description="Simple example of custom polyhedra in Babylon.js."/> and minimize the code editor by unchecking the box by Editor under the Gear icon &#9881; (Options) and note the polyhedron names under the mouse pointer.  
 ![Select a Polyhedron](/img/how_to/Mesh/polyhedra1.jpg);
 
-2. From the polyhedra.js file at https://github.com/BabylonJS/Extensions/tree/master/Polyhedron find the required name
+2. From the polyhedra.js file at https://github.com/BabylonJS/features/extensions/tree/master/Polyhedron find the required name
 ```javascript
 HeptagonalPrism : {
 "name":"Heptagonal Prism",

@@ -239,17 +239,17 @@ To change the size of a particle on emission over the duration of the particle s
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addStartSizeGradient(0, 0.25); //start size at start of particle sysstem
-particleSystem.addStartSizeGradient(1, 1.5); //start size at end of particle system
+particleSystem.addStartSizeGradient(0, 0.25); //features/start size at start of particle sysstem
+particleSystem.addStartSizeGradient(1, 1.5); //features/start size at end of particle system
 ```
 
 Setting a range of start sizes
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addStartSizeGradient(0, 0.5, 0.75); //start size range at start of particle sysstem
-particleSystem.addStartSizeGradient(0.4, 0.25, 0.5); //start size range at 2/5 of duration of particle sysstem
-particleSystem.addStartSizeGradient(1, 0, 0.1); //start size range at end of particle sysstem
+particleSystem.addStartSizeGradient(0, 0.5, 0.75); //features/start size range at start of particle sysstem
+particleSystem.addStartSizeGradient(0.4, 0.25, 0.5); //features/start size range at 2/5 of duration of particle sysstem
+particleSystem.addStartSizeGradient(1, 0, 0.1); //features/start size range at end of particle sysstem
 ```
 
 remove gradient at 0.4

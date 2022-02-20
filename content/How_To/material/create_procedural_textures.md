@@ -157,12 +157,12 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMateria
 });
 ```
 
-Example: <Playground id="#8S19ZC#49" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture1.jpg"/>
+Example: <Playground id="#8S19ZC#49" title="Node Material Procedural Texture Example 1" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/features/divingDeeperCreateProceduralTexture1.jpg"/>
 
-More here: [Creating Procedural Textures](/divingDeeper/materials/node_material/nodeMaterial#creating-procedural-textures)
+More here: [Creating Procedural Textures](/features/divingDeeper/materials/node_material/nodeMaterial#creating-procedural-textures)
 
 <Youtube id="qqMuuSM7GvI"/>
 
 **Note :** when using ShaderStore or DOM Element shader for custom procedural textures : the config.json file is not needed anymore and you can just use setFloat or setVector3 (and so on), and setTexture on the CustomProceduralTexture will give values and Sampler2D to the shader code.
 
-Feel free to play with this scene here: <Playground id="#24C4KC#17" title="Node Material Procedural Texture Example 2" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture2.jpg"/>
+Feel free to play with this scene here: <Playground id="#24C4KC#17" title="Node Material Procedural Texture Example 2" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/features/divingDeeperCreateProceduralTexture2.jpg"/>

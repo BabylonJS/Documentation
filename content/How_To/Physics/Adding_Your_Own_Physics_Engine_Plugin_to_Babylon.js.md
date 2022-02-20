@@ -5,19 +5,19 @@ description: Learn how to add your own physics engine to Babylon.js.
 keywords: diving deeper, phyiscs, advanced physics, physics engine
 further-reading:
     - title: How To Use The Physics Engines
-      url: /divingDeeper/physics/usingPhysicsEngine
+      url: /features/divingDeeper/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/divingDeeper/physics/forces
     - title: How To Use Joints
-      url: /divingDeeper/physics/joints
+      url: /features/divingDeeper/physics/joints
     - title: How To Use Pivots and Axes
-      url: /divingDeeper/physics/pivotsAxes
+      url: /features/divingDeeper/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /divingDeeper/physics/softBodies
+      url: /features/divingDeeper/physics/softBodies
     - title: How To Use Advanced Features
-      url: /divingDeeper/physics/advancedPhysicsFeatures
+      url: /features/divingDeeper/physics/advancedPhysicsFeatures
 video-overview:
 video-content:
 ---

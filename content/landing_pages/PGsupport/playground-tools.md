@@ -7,9 +7,9 @@ further-reading:
   - title: Minimal template for sphere and ground
     url: /quickstart/js_html#html-basic-page-templates
   - title: Setup with NPM
-    url: /divingDeeper/developWithBjs/npmSupport
+    url: /features/divingDeeper/developWithBjs/npmSupport
   - title: Setup with Tree Shaking
-    url: /divingDeeper/developWithBjs/treeShaking
+    url: /features/divingDeeper/developWithBjs/treeShaking
 video-overview:
 video-content:
 ---

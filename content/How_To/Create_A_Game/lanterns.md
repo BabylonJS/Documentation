@@ -23,7 +23,7 @@ In [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/master/src/env
 const res = await SceneLoader.ImportMeshAsync("", "./models/", "lantern.glb", this._scene);
 ```
 
-Then, we extract the mesh from the root, and remove the root. [The coordinate system guide for 3DMax](/extensions/Exporters/3DSMax_to_glTF#left-to-right-handed-coordinate-system) explains why we have this root node when we import the glTF. Since we want to clone just the mesh, we'll need to remove the root.
+Then, we extract the mesh from the root, and remove the root. [The coordinate system guide for 3DMax](/features/extensions/Exporters/3DSMax_to_glTF#left-to-right-handed-coordinate-system) explains why we have this root node when we import the glTF. Since we want to clone just the mesh, we'll need to remove the root.
 
 ```javascript
 //extract the actual lantern mesh from the root of the mesh that's imported, dispose of the root
@@ -241,7 +241,7 @@ This goes through the entire scene, looks for what the lightSphere intersects wi
 
 PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights."/>
 
-**Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/guidedLearning/createAGame/performance#lights) section.**
+**Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/features/guidedLearning/createAGame/performance#lights) section.**
 
 Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one since that one is pre-lit)!
 

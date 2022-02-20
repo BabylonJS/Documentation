@@ -16,7 +16,7 @@ Simply set up more animations and add to theBabylon.js object's animations array
 
 For example adding a rotation animation to the very simple slide animtation to get:
 
-<Playground id="#9WUJN#11" title="Simple Slide Animation" description="The simple slide animation example." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
+<Playground id="#9WUJN#11" title="Simple Slide Animation" description="The simple slide animation example." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationDesign1.jpg"/>
 
 ### Slide and Rotate
 
@@ -49,7 +49,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#12" title="Slide and Rotate Animation" description="The simple slide animation with rotation introduced." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg" isMain={true} category="Animation"/>
+- <Playground id="#9WUJN#12" title="Slide and Rotate Animation" description="The simple slide animation with rotation introduced." image="/img/playgroundsAndNMEs/features/divingDeeperCombineAnimations1.jpg" isMain={true} category="Animation"/>
 
 ### Slide and Faster Rotation Rate
 
@@ -84,7 +84,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#13" title="Slide with Faster Rotation" description="The simple slide animation with faster rotation." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
+- <Playground id="#9WUJN#13" title="Slide with Faster Rotation" description="The simple slide animation with faster rotation." image="/img/playgroundsAndNMEs/features/divingDeeperCombineAnimations1.jpg"/>
 
 ### Slide and Varying Rotation Rate
 
@@ -119,7 +119,7 @@ keyFramesR.push({
 yRot.setKeys(keyFramesR);
 ```
 
-- <Playground id="#9WUJN#14" title="Slide with Varying Rotation Rate" description="The simple slide animation with varying rotation rates." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations1.jpg"/>
+- <Playground id="#9WUJN#14" title="Slide with Varying Rotation Rate" description="The simple slide animation with varying rotation rates." image="/img/playgroundsAndNMEs/features/divingDeeperCombineAnimations1.jpg"/>
 
 ## Consecutive Animations
 
@@ -174,7 +174,7 @@ var nextAnimation = function() {
 };
 ```
 
-- <Playground id="#9WUJN#15" title="Rotate Then Slide" description="The simple slide animation with rotation happening first, then sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.jpg"/>
+- <Playground id="#9WUJN#15" title="Rotate Then Slide" description="The simple slide animation with rotation happening first, then sliding." image="/img/playgroundsAndNMEs/features/divingDeeperCombineAnimations2.jpg"/>
 
 In the second example the rotation is continued as the box goes into a looped slide.
 
@@ -184,6 +184,6 @@ var nextAnimation = function() {
 };
 ```
 
-- <Playground id="#9WUJN#16" title="Rotate Then Rotate and Slide" description="The simple slide animation with rotation happening first, then rotation and sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.jpg"/>
+- <Playground id="#9WUJN#16" title="Rotate Then Rotate and Slide" description="The simple slide animation with rotation happening first, then rotation and sliding." image="/img/playgroundsAndNMEs/features/divingDeeperCombineAnimations2.jpg"/>
 
 

@@ -10,7 +10,7 @@ video-content:
 
 ## TextureCanvas
 
-![Fur material high](/img/extensions/texturecanvas.jpg)
+![Fur material high](/img/features/extensions/texturecanvas.jpg)
 
 ## About
 

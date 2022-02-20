@@ -223,4 +223,4 @@ scene.beginDirectAnimation(
 );
 ```
 
-<Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/divingDeeperAnimationSequence.jpg"/>
+<Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationSequence.jpg"/>

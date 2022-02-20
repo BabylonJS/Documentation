@@ -5,7 +5,7 @@ description: Dive into understanding camera collisions, mesh collisions, and gra
 keywords: diving deeper, cameras, collisions, camera collisions, gravity, mesh collisions
 further-reading:
   - title: Cameras Overview
-    url: /divingDeeper/cameras
+    url: /features/divingDeeper/cameras
 video-overview:
 video-content:
 ---
@@ -48,7 +48,7 @@ scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0)
 
 Since this is computed once per frame, the camera isn't actually "moving," it is making tiny "hops" along the direction of the gravity vector. This may be important if you are relying on collision detection to determine if the camera (or, rather, a mesh attached to it for that purpose) has "entered" or "exited" some other mesh (for example, a plane under your "ground" layer to sense a falling character and reset the game play). Depending on your chosen gravity, the starting elevation, and the position and height of the "trigger" mesh, the camera may jump _right through_ the trigger mesh without ever "intersecting" it. Be sure to check the math to ensure that at least one multiple of `scene.gravity` added to the starting elevation will intersect your trigger mesh.
 
-If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/divingDeeper/physics/usingPhysicsEngine), or [add your own](/divingDeeper/physics/addPhysicsEngine).
+If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/features/divingDeeper/physics/usingPhysicsEngine), or [add your own](/features/divingDeeper/physics/addPhysicsEngine).
 
 #### A Warning
 Adding both physics impostors and setting collision enabled to the same object might lead to unexpected behavior.
@@ -129,4 +129,4 @@ camera.collisionRadius = new BABYLON.Vector3(0.5, 0.5, 0.5);
 
 ## Other types of collisions
 
-Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? If that interests you, you can head on over here: [Mesh Collisions](/divingDeeper/mesh/interactions/mesh_intersect).
+Great, now you can develop a real FPS game! But maybe you would like to know when a mesh is in collision with another mesh? If that interests you, you can head on over here: [Mesh Collisions](/features/divingDeeper/mesh/interactions/mesh_intersect).

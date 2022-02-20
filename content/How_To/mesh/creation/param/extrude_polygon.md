@@ -13,7 +13,7 @@ video-content:
 
 On creation the local origin of the extruded polygon is coincident with the world origin. It is not possible to give a position relative to the extruded polygon as this depends on the data sets used.
 
-*ExtrudePolygon* calls [PolygonMeshBuilder](/divingDeeper/mesh/creation/param/polyMeshBuilder). There is no *instance* option. You must set at least the _shape_ and _depth_ options. 
+*ExtrudePolygon* calls [PolygonMeshBuilder](/features/divingDeeper/mesh/creation/param/polyMeshBuilder). There is no *instance* option. You must set at least the _shape_ and _depth_ options. 
 
 ## MeshBuilder
 Usage :

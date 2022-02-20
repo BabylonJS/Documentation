@@ -23,7 +23,7 @@ The function set by ```registerBeforeRender()``` is run before every frame (usua
 properties very quickly.
 
 A simple demonstration of complex animation can be found in the playground here:
-<Playground id="#YJVTI6" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.jpg"/>
+<Playground id="#YJVTI6" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/features/divingDeeperRenderLoopAnimation1.jpg"/>
 
 This function can be very useful for complex animation like games, where characters have to move depending on many parameters.
 

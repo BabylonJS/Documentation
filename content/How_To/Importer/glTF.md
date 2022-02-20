@@ -39,7 +39,7 @@ This loader supports only glTF 2.0 and will fail to load glTF 1.0.
 <script src="babylon.glTF2FileLoader.js"></script>
 ```
 
-See [Skinning](/divingDeeper/importers/glTF/glTFSkinning) for details on how skinning is implementated in Babylon.js for glTF 2.0.
+See [Skinning](/features/divingDeeper/importers/glTF/glTFSkinning) for details on how skinning is implementated in Babylon.js for glTF 2.0.
 
 ## Version 1 Only
 
@@ -53,9 +53,9 @@ This loader supports only glTF 1.0 and will fail to load glTF 2.0.
 ## Loading the Scene
 
 Use one of the static function on the `SceneLoader` to load a glTF asset.
-See [Load from any file type](/divingDeeper/importers/loadingFileTypes).
+See [Load from any file type](/features/divingDeeper/importers/loadingFileTypes).
 
-See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
+See an example here: <Playground id="#WGZLGJ" title="Load a glTF Asset" description="Simple example showing how load a .glTF asset into your scene." image="/img/playgroundsAndNMEs/features/divingDeeperglTF1.jpg" isMain={true} category="Import"/>
 
 ## API (Version 2)
 
@@ -89,5 +89,5 @@ BABYLON.GLTFFileLoader.HomogeneousCoordinates = true;
 
 ## Extensions
 
-[KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_binary_glTF)  
-[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_materials_common)  
+[KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/1.0/Khronos/KHR_binary_glTF)  
+[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/1.0/Khronos/KHR_materials_common)  

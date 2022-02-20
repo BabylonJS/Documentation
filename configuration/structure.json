@@ -6,29 +6,51 @@
                 "friendlyName": "Workflow",
                 "content": "landing_pages/workflow",
                 "children": {
-                    "developWithBjs": {
-                        "friendlyName": "Develop With Babylon.js",
+                    "wfintro" : {
+                        "friendlyName": "Introduction",
+                        "content": "workflow/introduction/intro",
                         "children": {
-                            "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
-                            "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
-                            "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
-                            "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
-                            "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
-                            "howToStart": {
-                                "friendlyName": "Start Contributing to Babylon.js",
+                            "chap1" : {
+                                "friendlyName" : "Editing",
+                                "content": "workflow/introduction/chap1/chap1_landing",
                                 "children": {
-                                    "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests" }
+                                    "page1": {
+                                        "friendlyName": "First Editing Page",
+                                        "content": "workflow/introduction/chap1/page1"
+                                     }
+                                }  
+                            }
+                        }                        
+                    },
+                    "wfDeeper": {
+                        "friendlyName": "Workflow Diving Deeper",
+                        "content": "workflow/divingDeeper/landing_wfdeeper",
+                        "children": {
+                            "developWithBjs": {
+                                "friendlyName": "Develop With Babylon.js",
+                                "children": {
+                                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
+                                    "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
+                                    "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
+                                    "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
+                                    "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
+                                    "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
+                                    "howToStart": {
+                                        "friendlyName": "Start Contributing to Babylon.js",
+                                        "children": {
+                                            "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests" }
+                                        },
+                                        "content": "How_To/contribute/how_to_start"
+                                    },
+                                    "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
+                                    "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
+                                    "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
+                                    "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
                                 },
-                                "content": "How_To/contribute/how_to_start"
-                            },
-                            "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
-                            "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
-                            "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
-                            "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
-                        },
-                        "content": "landing_pages/divingDeeperDevelopingLandingPage"
-                    }
+                                "content": "landing_pages/divingDeeperDevelopingLandingPage"
+                            }
+                        }
+                    }                    
                 }
             },
             "features": {

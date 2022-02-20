@@ -12,7 +12,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR experience helper will continue to work, **it is strongly recommended that new projects use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+While the WebVR experience helper will continue to work, **it is strongly recommended that new projects use the [WebXR experience helper](/features/divingDeeper/webXR/webXRExperienceHelpers)**. For more information, check out our [introduction to WebXR](/features/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
@@ -59,7 +59,7 @@ vrHelper.onAfterEnteringVRObservable.add(() => {
 });
 ```
 
-See it in action here: <Playground id="#TAFSN0#230" title="Fallback Orientation Camera Example" description="A simple example of detecting if a fallback orienation camera is supported." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper1.jpg"/>
+See it in action here: <Playground id="#TAFSN0#230" title="Fallback Orientation Camera Example" description="A simple example of detecting if a fallback orienation camera is supported." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper1.jpg"/>
 
 ## Teleportation and Rotation
 
@@ -148,7 +148,7 @@ vrHelper.onControllerMeshLoaded.add((webVRController) => {
 });
 ```
 
-Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](/divingDeeper/importers/glTF).
+Please note that the microsoft controllers are using the GLB file format and require the [GLTF Loader](/features/divingDeeper/importers/glTF).
 
 ## Accessing vr device position and rotation
 
@@ -174,7 +174,7 @@ See an Example here: <Playground id="#VIGXA3#7" title="Accessing VR Device posit
 
 ## Gaze and interaction
 
-Gaze and interactions can be enabled through the enableInteractions method. See Example: <Playground id="#JA1ND3#40" title="Gaze and Interactions Example" description="A simple example of handling VR Gaze and Interaction." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper2.jpg"/>
+Gaze and interactions can be enabled through the enableInteractions method. See Example: <Playground id="#JA1ND3#40" title="Gaze and Interactions Example" description="A simple example of handling VR Gaze and Interaction." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper2.jpg"/>
 
 ```javascript
 vrHelper.enableInteractions();
@@ -285,21 +285,21 @@ VRHelper.onSelectedMeshUnselected.add(function () {
 
 See the example.
 
-- <Playground id="#B4C2AH" title="Grabbing Objects Example" description="A simple example of how to grab objects using the WebVRController." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper3.jpg"/>
+- <Playground id="#B4C2AH" title="Grabbing Objects Example" description="A simple example of how to grab objects using the WebVRController." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper3.jpg"/>
 
 ## Multiview
 
-To improve rendering performance by up to 2x, try using [Multiview](/divingDeeper/cameras/multiViewsPart1) which will render both eyes in a single render pass
+To improve rendering performance by up to 2x, try using [Multiview](/features/divingDeeper/cameras/multiViewsPart1) which will render both eyes in a single render pass
 
 ## Examples
 
 Scenes:
 
-- <Playground id="#JA1ND3#6" title="Sponza" description="Sponza scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper4.jpg"/>
-- <Playground id="#JA1ND3#15" title="Mansion" description="Mansion scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper5.jpg"/>
-- <Playground id="#JA1ND3#18" title="Hill Valley" description="Hill Valley scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper6.jpg"/>
+- <Playground id="#JA1ND3#6" title="Sponza" description="Sponza scene." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper4.jpg"/>
+- <Playground id="#JA1ND3#15" title="Mansion" description="Mansion scene." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper5.jpg"/>
+- <Playground id="#JA1ND3#18" title="Hill Valley" description="Hill Valley scene." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper6.jpg"/>
 
 Games:
 
-- <Playground id="#32DWVS#4" title="Minecraft JMJ" description="Minecraft JMJ Game." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper7.jpg"/>
-- <Playground id="#FAXLY2" title="Fruit Ninja" description="Fruit Ninja Game." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper8.jpg"/>
+- <Playground id="#32DWVS#4" title="Minecraft JMJ" description="Minecraft JMJ Game." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper7.jpg"/>
+- <Playground id="#FAXLY2" title="Fruit Ninja" description="Fruit Ninja Game." image="/img/playgroundsAndNMEs/features/divingDeeperWebVRExperienceHelper8.jpg"/>

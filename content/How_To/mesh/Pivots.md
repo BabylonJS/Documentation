@@ -5,14 +5,14 @@ description: Learn about pivots in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, pivots
 further-reading:
     - title: How To Rotate Around an Axis about a Point
-      url: /divingDeeper/mesh/transforms/parent_pivot/pivot
+      url: /features/divingDeeper/mesh/transforms/parent_pivot/pivot
 video-overview:
 video-content:
 ---
 
 ## A Pivot
 
-A pivot in Babylon.js is an alternative method to using a [parent](/divingDeeper/mesh/transforms/parent_pivot/parent) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. Using _setPivotPoint_ produces different behavior than setting a pivot point in tools such as 3DS Max and Maya and a parent should be used instead to produce a closer match to the behavior of these applications. 
+A pivot in Babylon.js is an alternative method to using a [parent](/features/divingDeeper/mesh/transforms/parent_pivot/parent) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. Using _setPivotPoint_ produces different behavior than setting a pivot point in tools such as 3DS Max and Maya and a parent should be used instead to produce a closer match to the behavior of these applications. 
 
 On this page the demonstration mesh is a cube with side length 1. When a mesh is created the pivot (red sphere) is always at the _local origin_ (yellow sphere); the _local origin_ and _created origin_ are at the world space origin of (0, 0, 0). When the pivot and _local origin_ are coincident they are shown as a red and yellow striped sphere, as in Fig 1.
 
@@ -21,7 +21,7 @@ On this page the demonstration mesh is a cube with side length 1. When a mesh is
 
 To rotate or scale a mesh about a pivot point you apply the rotation or scaling vectors to the mesh. This is different to using a parent to rotate or scale a mesh.
 
-The most straightforward way to set a pivot is to do it directly with the [_setPivotPoint_](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-and-get-a-pivot-point) method. A pivot can also be set with a [translation matrix](/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-the-pivot-matrix).
+The most straightforward way to set a pivot is to do it directly with the [_setPivotPoint_](/features/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-and-get-a-pivot-point) method. A pivot can also be set with a [translation matrix](/features/divingDeeper/mesh/transforms/parent_pivot/pivots#how-to-set-the-pivot-matrix).
 
 ## Set and Get a Pivot Point Directly
 

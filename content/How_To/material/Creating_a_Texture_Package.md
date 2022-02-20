@@ -16,9 +16,9 @@ Create a TexturePacker series by calling:
 let pack = new BABYLON.TexturePacker(name, targetMeshes, options, scene);
 ```
 
-There are some limitations that you should consider. These include texture size limits, transparencies, and refection/refraction materials. You can find more information here: <Playground id="#TQ408M" title="Creating A Texture Package" description="Simple example of creating a texture package." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage1.jpg"/>
+There are some limitations that you should consider. These include texture size limits, transparencies, and refection/refraction materials. You can find more information here: <Playground id="#TQ408M" title="Creating A Texture Package" description="Simple example of creating a texture package." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage1.jpg"/>
 
--   <Playground id="#TQ408M" title="Texture Packer Example 1" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
+-   <Playground id="#TQ408M" title="Texture Packer Example 1" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage2.jpg"/>
 
 Create a TexturePacker by calling:
 
@@ -58,7 +58,7 @@ pack.processAsync().then(success).catch(error);
 
 Having all interactions with your pack happening in the success callback on the returned promise. See the below playgrounds for examples.
 
--   <Playground id="#TQ408M#6" title="Texture Packer Example 2" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
+-   <Playground id="#TQ408M#6" title="Texture Packer Example 2" description="Simple example of using a texture packer in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage2.jpg"/>
 
 Downloading the pack is simple! When initializing the package through both a JSON load or naturally like in the above mentioned constructor, a Promise Object is created.
 In order to assure that the textures are all packed and ready to go we call any interactions with the texture pack inside the success callback of the `then` method.
@@ -75,7 +75,7 @@ pack.processAsync().then(
 
 You can tell the downloaded to change between jpeg and png image types depending on if you need an alpha channel. Due to the fact that the images are stored as base64 you should avoid using png unless absolutely necessary. You can always download both types and then manually mix and match inside the JSON file.
 
--   <Playground id="#TQ408M#7" title="Texture Packer Download Example" description="Simple example of changing between jpeg and png depending on alpha channel." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
+-   <Playground id="#TQ408M#7" title="Texture Packer Download Example" description="Simple example of changing between jpeg and png depending on alpha channel." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage2.jpg"/>
 
 ## Loading From JSON
 
@@ -91,5 +91,5 @@ Then simply call the loadFromJSON method, with JSON file as a string and then th
 pack.updateFromJSON(jsonString).then(success).catch(error);
 ```
 
--   <Playground id="#TQ408M#9" title="Texture Packer Load Example" description="Simple example of using the texture packer loader in your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage3.jpg"/>
--   <Playground id="#96CDLA" title="PBR Texture Packer Load Example" description="Simple example of loading a PBR packed texture into your scene." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage4.jpg"/>
+-   <Playground id="#TQ408M#9" title="Texture Packer Load Example" description="Simple example of using the texture packer loader in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage3.jpg"/>
+-   <Playground id="#96CDLA" title="PBR Texture Packer Load Example" description="Simple example of loading a PBR packed texture into your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage4.jpg"/>

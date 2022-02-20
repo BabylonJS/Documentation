@@ -18,7 +18,7 @@ For developers, running the game in the default browser of the user will allow t
 
 By default, the Editor will open the integrated browser. To have options drawn in the Editor, simply `right-click` the `Play` button in the toolbar and select `Play in my browser`:
 
-![PlayApplicationOrGame](/img/extensions/Editor/RunningWorkspace/run.gif)
+![PlayApplicationOrGame](/img/features/extensions/Editor/RunningWorkspace/run.gif)
 
 # Using custom webserver
 In case of a custom webserver (for example using the dev server of Webpack or a completely handled webserver with custom APIs etc.), we'll have to manually open the browser pointing to the desired Url.

@@ -5,22 +5,22 @@ description: Learn how to use the node material editor to create particle shader
 keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:
     - title: Particle 101
-      url: /divingDeeper/particles
+      url: /features/divingDeeper/particles
     - title: Node Material
-      url: /divingDeeper/materials/node_material/particles_and_nme
+      url: /features/divingDeeper/materials/node_material/particles_and_nme
 video-overview:
 video-content:
 ---
 
 ## How To use the Node Material with Particles
 
-The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/divingDeeper/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/divingDeeper/materials/node_material/nodeMaterial#creating-post-processes).
+The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/features/divingDeeper/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/features/divingDeeper/materials/node_material/nodeMaterial#creating-post-processes).
 
 This article will help you set up a simple scene that will contain only a few lines of code, because all of the work will be done using our editors.
 
 You can see the final result here: 
 
-<Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.jpg"/>
+<Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/features/divingDeeperNodeMaterialParticle1.jpg"/>
 
 ## Setting up the scene
 
@@ -103,7 +103,7 @@ The NME can be used for materials, particles and postprocesses. We'll switch to 
 
 ![Particle mode in NME](/img/how_to/Particles/nme_particle.jpg)
 
-For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the the shader I ended up with: <nme id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.jpg"/>
+For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the the shader I ended up with: <nme id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/features/divingDeeperNodeMaterialParticle2.jpg"/>
 
 ![Demo shader](/img/how_to/Particles/demo_shader.jpg)
 

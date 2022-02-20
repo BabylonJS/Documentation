@@ -87,7 +87,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://assets.babylonjs.com/meshes/", "HVGi
 
 });
 ```
-<Playground id="#Z6SWJU#5" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
+<Playground id="#Z6SWJU#5" title="Load Model and Play Animation Group" description="Simple example of loading a gltf/glb asset and playing the animation groups tha come with it." image="/img/playgroundsAndNMEs/features/divingDeeperAnimatedCharacter1.jpg" isMain={true} category="Animation"/>
 
 
 The names of the AnimationGroups can be found in the Sandbox via the Inspector, by loading the model and selecting the Animation Group in the Scene Explorer.
@@ -102,7 +102,7 @@ animationGroups[0].stop();
 
 ### Control animations via keyboard
 
-The [**Action Manager**](/divingDeeper/events/actions) can be used to capture the keys pressed on the keyboard:
+The [**Action Manager**](/features/divingDeeper/events/actions) can be used to capture the keys pressed on the keyboard:
 
 ```javascript
 var inputMap = {};
@@ -162,9 +162,9 @@ if (keydown) {
 }
 ```
 
-<Playground id="#AHQEIB#17" title="Load a Character with Keyboard Control" description="Load a character and control it's animations with the keyboard." image="/img/playgroundsAndNMEs/divingDeeperAnimatedCharacter2.jpg"/>
+<Playground id="#AHQEIB#17" title="Load a Character with Keyboard Control" description="Load a character and control it's animations with the keyboard." image="/img/playgroundsAndNMEs/features/divingDeeperAnimatedCharacter2.jpg"/>
 
 This simple example can be enhanced:
 - By adding a more robust logic to manage the details of selecting multiple keys and combining them
-- By using the [**Device Source Manager**](/divingDeeper/input/deviceSourceManager) instead of the Action Manager for key presses
-- With [**animation blending**](/divingDeeper/animation/advanced_animations#animation-blending) to ensure much more natural transitions between animations
+- By using the [**Device Source Manager**](/features/divingDeeper/input/deviceSourceManager) instead of the Action Manager for key presses
+- With [**animation blending**](/features/divingDeeper/animation/advanced_animations#animation-blending) to ensure much more natural transitions between animations

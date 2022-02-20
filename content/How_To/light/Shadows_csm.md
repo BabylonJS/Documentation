@@ -14,15 +14,15 @@ Cascaded Shadow Maps (CSM) can greatly enhance the shadows in your scene, but it
 
 This page will explain everything you need to know in order to setup this shadow rendering technique and get the best out of your shadows!
 
-This is a shadow map technique, so a lot of what is said in [Shadows](/start/chap7/shadows) does apply, so don't hesitate to read this page first.
+This is a shadow map technique, so a lot of what is said in [Shadows](/features/start/chap7/shadows) does apply, so don't hesitate to read this page first.
 
 Note that CSM requires WebGL 2+.
 
-Here's a Playground demonstrating the CSM technique and the existing `ShadowGenerator`: <Playground id="#IIZ9UU#40" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM1.jpg"/>
+Here's a Playground demonstrating the CSM technique and the existing `ShadowGenerator`: <Playground id="#IIZ9UU#40" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCSM1.jpg"/>
 
 ## Technical overview
 
-A quick survey of the technique will help to understand the different properties of the `CascadedShadowGenerator` class. You can also have a look at the [references](/divingDeeper/lights/shadows_csm#references) provided at the end of this page for further details.
+A quick survey of the technique will help to understand the different properties of the `CascadedShadowGenerator` class. You can also have a look at the [references](/features/divingDeeper/lights/shadows_csm#references) provided at the end of this page for further details.
 
 ## Subdividing the frustum
 
@@ -202,7 +202,7 @@ Note that you can also call `setMinMaxDistance()` yourself (values between 0 and
 
 ### Filtering
 
-The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/start/chap7/shadows).
+The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/features/start/chap7/shadows).
 
 ### penumbraDarkness (default: 1)
 
@@ -247,7 +247,7 @@ In the Playground samples, the camera `maxZ` value is generally not explicitly s
 **Figure 12. Standard shadows and CSM shadows on PG example**
 ![CSM and bad camera range](/img/babylon101/csm/bad-camera-maxz.jpg)
 
-It's the very first sample linked in the [Shadow](/start/chap7/shadows) page (left part of the picture) where `ShadowGenerator` has simply been changed to `CascadedShadowGenerator` (right part of the picture). As you can see, the shadows on the right are very bad because the `camera.maxZ` value is not set and so is equal to `10000`.
+It's the very first sample linked in the [Shadow](/features/start/chap7/shadows) page (left part of the picture) where `ShadowGenerator` has simply been changed to `CascadedShadowGenerator` (right part of the picture). As you can see, the shadows on the right are very bad because the `camera.maxZ` value is not set and so is equal to `10000`.
 
 Now, if we set `camera.maxZ` to `200`:
 
@@ -256,7 +256,7 @@ Now, if we set `camera.maxZ` to `200`:
 
 Much better!
 
-Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Example 2" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM2.jpg"/>
+Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Example 2" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperCSM2.jpg"/>
 
 ## Changing the camera near / far planes
 
@@ -269,13 +269,13 @@ Here's what happens if you change `camera.maxZ` after the generator is created w
 **Figure 14. Failing calling `splitFrustum`**
 ![Fail calling splitFrustum](/img/babylon101/csm/splitfrustum_nok.jpg)
 
-PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM3.jpg"/>
+PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/features/divingDeeperCSM3.jpg"/>
 
 
 **Figure 15. `splitFrustum` called**
 ![splitFrustum called](/img/babylon101/csm/splitfrustum_ok.jpg)
 
-PG: <Playground id="#IIZ9UU#37" title="Calling SplitFrustum" description="Successfully calling splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM4.jpg"/>
+PG: <Playground id="#IIZ9UU#37" title="Calling SplitFrustum" description="Successfully calling splitFrustum." image="/img/playgroundsAndNMEs/features/divingDeeperCSM4.jpg"/>
 
 ## Optimizing for speed
 

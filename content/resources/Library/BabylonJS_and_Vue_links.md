@@ -10,13 +10,13 @@ video-content:
 
 ## This tutorial
 
-[Part 1: How to use BabylonJS with Vue](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue")
+[Part 1: How to use BabylonJS with Vue](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue")
 
-[Part 2: How to pass data between BabylonJS and Vue"](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "How to pass data between BabylonJS and Vue")
+[Part 2: How to pass data between BabylonJS and Vue"](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "How to pass data between BabylonJS and Vue")
 
-[Part 3: BabylonJS and Vue - async scene methods](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods")
+[Part 3: BabylonJS and Vue - async scene methods](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods")
 
-[Part 4: BabylonJS and Vue - messages driven scene](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene")
+[Part 4: BabylonJS and Vue - messages driven scene](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene")
 
 You can find a quick prototype of the mentioned solution running here https://babylonjs.nascor.tech/scene-director/
 
@@ -28,13 +28,13 @@ https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
 ## BabylonJS official documentation
 
-[Getting started with BabylonJS](/start "Getting started")
+[Getting started with BabylonJS](/features/start "Getting started")
 
-[The BabylonJS GUI](/divingDeeper/gui/gui "BabylonJS GUI")
+[The BabylonJS GUI](/features/divingDeeper/gui/gui "BabylonJS GUI")
 
-[The BabylonJS Inspector not just for debugging](/toolsAndResources/tools/inspector "BabylonJS Inspector")
+[The BabylonJS Inspector not just for debugging](/features/toolsAndResources/tools/inspector "BabylonJS Inspector")
 
-[Installing BabylonJS - ES6 tutorial](/divingDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial")
+[Installing BabylonJS - ES6 tutorial](/features/divingDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial")
 
 ## Abstract
 

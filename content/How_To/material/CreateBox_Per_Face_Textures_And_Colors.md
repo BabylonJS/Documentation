@@ -29,7 +29,7 @@ The playground below shows that face numbering using `MeshBuilder.CreateBox` is 
 * side 4 faces the positive y direction
 * side 5 faces the negative y direction
 
-<Playground id="#ICLXQ8#1" title="Individual Face Numbers Example" description="Simple example of applying individual face numbers to a cube." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials1.jpg"/>
+<Playground id="#ICLXQ8#1" title="Individual Face Numbers Example" description="Simple example of applying individual face numbers to a cube." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials1.jpg"/>
 
 ## Texture Atlas
 
@@ -121,7 +121,7 @@ mat.diffuseTexture = texture;
 box.material = mat;
 ```
 
-<Playground id="#ICZEXW" title="FaceUVs Example" description="Simple example of using FaceUVs to create a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials2.jpg"/>
+<Playground id="#ICZEXW" title="FaceUVs Example" description="Simple example of using FaceUVs to create a box." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials2.jpg"/>
 
 You do not have to map all the faces. When you just want one face with an image then just map that one face.
 
@@ -135,7 +135,7 @@ Take the alien sprite on row 0 and column 3 and just map this sprite to face 1.
 
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
-<Playground id="#ICZEXW#1" title="Specific Sprite to Single Face" description="Simple example a single sprite on a single face of a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials3.jpg"/>
+<Playground id="#ICZEXW#1" title="Specific Sprite to Single Face" description="Simple example a single sprite on a single face of a box." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials3.jpg"/>
 
 As you view the box in the above playground from different angles you will notice that the whole texture atlas is applied to all the other faces, that is the default value `(0, 0, 1, 1)`. When you want to display just the one sprite on the one face and leave the others blank then you need to set all the other faceUV values to `(0, 0, 0, 0)`.
 
@@ -154,18 +154,18 @@ As you view the box in the above playground from different angles you will notic
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
   
-<Playground id="#ICZEXW#2" title="Sprite On Face With Other Blank Faces" description="Simple Example of applying a sprite to the side of a box with the other box faces blank." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials4.jpg"/>
+<Playground id="#ICZEXW#2" title="Sprite On Face With Other Blank Faces" description="Simple Example of applying a sprite to the side of a box with the other box faces blank." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials4.jpg"/>
 
 Of course you can do this with one, two, three, four, or five the box faces.
 
 
 Want add some all over color to the box then just add in a_diffuseColor_ to your material.
 
-<Playground id="#ICZEXW#3" title="Sprite on Box Face With Material Color" description="Simple Example of applying a sprite to the side of a box with applied material color." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials5.jpg"/>
+<Playground id="#ICZEXW#3" title="Sprite on Box Face With Material Color" description="Simple Example of applying a sprite to the side of a box with applied material color." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials5.jpg"/>
 
 You can also use one texture atlas to apply two different images from the same sheet onto two different meshes.  
 
-<Playground id="#ICZEXW#7" title="Sprites Sheet On Faces of 2 Meshes" description="Simple Example of applying a sprite sheet to the faces of different meshes." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials6.jpg"/>
+<Playground id="#ICZEXW#7" title="Sprites Sheet On Faces of 2 Meshes" description="Simple Example of applying a sprite sheet to the faces of different meshes." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials6.jpg"/>
 
 Looking closer at the face images around the sides you will see some images are at 90 degrees to others. Unfortunately should you want to have all images around the side to have the same orientation this is not possible by only adjusting UV coordinates. What can be done by swapping coordinates is considered next, followed by a method using an adjustment to the texture atlas to orientate images on the sides.
 
@@ -202,7 +202,7 @@ faceUV = new BABYLON.Vector4(Utop_right, Vtop_right, Ubottom_left, Vbottom_left)
 
 You can use the images on the other faces in the following playground to check the change on orientation of the alien sprite in all the reflections.
 
-<Playground id="#ICZEXW#4" title="Understanding Face Orientation Wtih Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.jpg"/>
+<Playground id="#ICZEXW#4" title="Understanding Face Orientation Wtih Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials7.jpg"/>
 
 Since a Vector4 has the properties x, y, z, w, (in that order) setting 
 
@@ -236,12 +236,12 @@ Three new optional parameters were added to `CreateBox` in the V4.0 update, thes
 
 In the following playground the two boxes at the top do not use the wrap parameter and the result is backwards compatible with earlier versions of Babylon.js. The lower boxes are with wrap set to true.
 
-<Playground id="#ICZEXW#4" title="Wrap Sprite Orientation" description="Simple Example of a wrap to orient a sprite on a mesh face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials8.jpg"/>
+<Playground id="#ICZEXW#4" title="Wrap Sprite Orientation" description="Simple Example of a wrap to orient a sprite on a mesh face." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials8.jpg"/>
 
 The next playground shows the use of non-default values for topBaseAt and bottomBaseAt
 
-<Playground id="#ICLXQ8#4" title="Wrap Top and Bottom Rotate" description="Simple Example of a wrap with top and bottom sprites rotated." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials9.jpg"/>
-<Playground id="#ICLXQ8" title="Wrap Cartoon Head" description="Simple Example of a wrap to produce a box with a cartoon head." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials10.jpg"/>
+<Playground id="#ICLXQ8#4" title="Wrap Top and Bottom Rotate" description="Simple Example of a wrap with top and bottom sprites rotated." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials9.jpg"/>
+<Playground id="#ICLXQ8" title="Wrap Cartoon Head" description="Simple Example of a wrap to produce a box with a cartoon head." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials10.jpg"/>
 
 ### How To Orientate a Sprite on a Face with the Texture Atlas Before Version 4.0
 
@@ -253,7 +253,7 @@ Take the following texture atlas
 
 and apply it to a cube to give the playground below
 
-<Playground id="#ICZEXW#8" title="Default Image Rotation" description="Simple Example of the default image rotation on faces." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials11.jpg"/>
+<Playground id="#ICZEXW#8" title="Default Image Rotation" description="Simple Example of the default image rotation on faces." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials11.jpg"/>
 
 Looking at the playground tells you two things
 
@@ -268,7 +268,7 @@ A is rotated 180 degrees and C and D are rotated 90 degrees counter clockwise. T
 
 resulting in the following playground
 
-<Playground id="#ICZEXW#9" title="Aligning Images on Faces" description="Simple Example of aligning images by altering the sprite sheet." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials12.jpg"/>
+<Playground id="#ICZEXW#9" title="Aligning Images on Faces" description="Simple Example of aligning images by altering the sprite sheet." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials12.jpg"/>
 
 ## Box - faceColors
 
@@ -296,18 +296,18 @@ Then pass this array to the _MeshBuilder.CreateBox()_ method with the new _faceC
   var box = BABYLON.MeshBuilder.CreateBox('box', options, scene);
 ```
 
-<Playground id="#ICZEXW#5" title="Different Colors on 2 Faces" description="Simple Example of applying different colors to 2 faces." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials13.jpg"/>
+<Playground id="#ICZEXW#5" title="Different Colors on 2 Faces" description="Simple Example of applying different colors to 2 faces." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials13.jpg"/>
 
 These colors are BJS Color4-class values. The Color4 alpha values become active if you set `hasVertexAlpha = true` for the box. 
 
-<Playground id="#ICZEXW#6" title="Different Transparent Colors on 2 Faces" description="Simple Example of applying different transparent colors to 2 faces." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials14.jpg"/>
+<Playground id="#ICZEXW#6" title="Different Transparent Colors on 2 Faces" description="Simple Example of applying different transparent colors to 2 faces." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials14.jpg"/>
 
 
 ## Box - Mix Face Textures and Colors
 
 Finally you can also mix per-face colors with per-face textures, and/or mix either with the material's standard colors.  
 
-<Playground id="#ICZEXW#10" title="Mixed Textures and Colors Per Face" description="Simple Example of applying different textures and colors per face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials15.jpg"/>
+<Playground id="#ICZEXW#10" title="Mixed Textures and Colors Per Face" description="Simple Example of applying different textures and colors per face." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials15.jpg"/>
 
 ## Cylinder
 
@@ -329,24 +329,24 @@ So make h = &pi; * 319/866 = 1.16 to 2 decimal places.
 
 Also note that because of how a cylinder's mesh is constructed the horizontal coordinates (U) are swapped in faceUV[1] for the wrapped around image to correct the reflection of the image.
 
-<Playground id="#VA2AC#3" title="Different Texture on Cylinder and Its Top" description="Simple Example of applying different textures to a cylinder's side and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials16.jpg"/>
+<Playground id="#VA2AC#3" title="Different Texture on Cylinder and Its Top" description="Simple Example of applying different textures to a cylinder's side and top." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials16.jpg"/>
 
 ## Extruded Polygon
 
 An extruded polygon has three surfaces top, bottom and extruded sides, face 0 is the top, face 1 the extruded sides and face 2 the bottom.
 
-<Playground id="#RNCYVM#2" title="Extruded Polygon with Different Textures on Sides and Top" description="Simple Example of applying different textures to an extruded polygon's sides and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials17.jpg"/>
+<Playground id="#RNCYVM#2" title="Extruded Polygon with Different Textures on Sides and Top" description="Simple Example of applying different textures to an extruded polygon's sides and top." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials17.jpg"/>
 
 ## Polyhedra
 
 You can use a texture atlas with all the polyhedra however without very careful consideration of the nature of the texture atlas the results can be a little random looking.
 
-<Playground id="#21QRSK#16" title="Polyhedra with Different Characters Per Face" description="Simple Example of applying different characters to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials18.jpg"/>
+<Playground id="#21QRSK#16" title="Polyhedra with Different Characters Per Face" description="Simple Example of applying different characters to faces of a Polyhedra." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials18.jpg"/>
 
 Having each sprite as a texture rather than a picture makes more sense.
 
-<Playground id="#21QRSK#18" title="Polyhedra with Different Textures Per Face" description="Simple Example of applying different textures to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials19.jpg"/>
+<Playground id="#21QRSK#18" title="Polyhedra with Different Textures Per Face" description="Simple Example of applying different textures to faces of a Polyhedra." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials19.jpg"/>
 
 Just colors works well.
 
-<Playground id="#21QRSK#17" title="Polyhedra with Different Colors Per Face" description="Simple Example of applying different colors to faces of a Polyhedra." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials20.jpg"/>
+<Playground id="#21QRSK#17" title="Polyhedra with Different Colors Per Face" description="Simple Example of applying different colors to faces of a Polyhedra." image="/img/playgroundsAndNMEs/features/divingDeeperFaceMaterials20.jpg"/>

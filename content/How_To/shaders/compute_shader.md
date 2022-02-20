@@ -17,7 +17,7 @@ video-content:
 Here's what [Wikipedia](https://en.wikipedia.org/wiki/Compute_kernel) has to say about compute shaders:
 > In computing, a compute kernel is a routine compiled for high throughput accelerators (such as graphics processing units (GPUs), digital signal processors (DSPs) or field-programmable gate arrays (FPGAs)), separate from but used by a main program (typically running on a central processing unit). They are sometimes called compute shaders, sharing execution units with vertex shaders and pixel shaders on GPUs, but are not limited to execution on one class of device, or graphics APIs.
 
-Note that in Babylon.js this is a [WebGPU](/advanced_topics/webGPU) feature only (starting at v5.0), WebGL does not support compute shaders.
+Note that in Babylon.js this is a [WebGPU](/features/advanced_topics/webGPU) feature only (starting at v5.0), WebGL does not support compute shaders.
 
 You can query the engine for compute shader support by doing:
 ```javascript
@@ -53,7 +53,7 @@ Variables you pass to a compute shader can be of the following types:
 * **sampler**. This is a custom texture sampler object that you can use to sample a texture. Use the `TextureSampler` class to create one and `ComputeShader.setTexturesSampler()` to pass a texture sampler to the shader. See the next section for more explanations about texture samplers.
 
 ## Shader language and input bindings
-The compute shader must be written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/), which is the shader language used by [WebGPU](/advanced_topics/webGPU).
+The compute shader must be written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/), which is the shader language used by [WebGPU](/features/advanced_topics/webGPU).
 
 As GLSL shaders can be stored in `ShaderStore.ShadersStore`, WGSL shaders can be stored in `ShaderStore.ShadersStoreWGSL` and you can pass the name of the key used to store the shader in this object to the `ComputeShader` constructor. You can also directly pass the shader code to the constructor (as done in the example above).
 

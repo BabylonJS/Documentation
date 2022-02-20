@@ -10,7 +10,7 @@ video-content:
 
 # How to export Maya scene as glTF
 
-If you have not already installed the babylon plugin for Maya, you can find all instructions [here](/extensions/Exporters/Maya) as well as general information about the plugin.
+If you have not already installed the babylon plugin for Maya, you can find all instructions [here](/features/extensions/Exporters/Maya) as well as general information about the plugin.
 
 With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
@@ -27,7 +27,7 @@ To export to a single .glb file, choose **glb** as **Output format**.
 
 ## Exported features
 
-Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/extensions/Exporters/Maya#features).
+Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/features/extensions/Exporters/Maya#features).
 
 - _Cameras_
 
@@ -153,7 +153,7 @@ You can also merge your metallic and roughness maps and use this file for both p
 
 In that way the exporter wont merge the metallic and roughness map and the export duration is going to be faster.
 
-You can see how to get [a merged MR texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged MR texture here](/features/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 ## Metallic, Roughness & Occlusion
 
@@ -169,7 +169,7 @@ You can merge the metallic, roughness and occlusion maps in order to use only on
 
 In that way the result is going to be lighter than with an Ambiant Occlusion map and a Metallic Roughness.
 
-You can see how to get [a merged ORM texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/features/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 ## Emission
 
@@ -271,7 +271,7 @@ Such texture defines:
 
 The exporter does not merge textures for you, but instead assumes the texture provided is already merged.
 
-You can see how to get [a merged ORM texture here](/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/features/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 ## Emission
 
@@ -325,7 +325,7 @@ Once they are installed, check the _Use Draco compression_ option and the compre
 
 ## Double sided material
 
-The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/extensions/Exporters/Maya#double-sided-material).
+The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/features/extensions/Exporters/Maya#double-sided-material).
 
 ## Babylon material attributes
 
@@ -339,7 +339,7 @@ Here is an example for 3 different materials:
 
 Most Babylon attributes are common to all materials:
 
-- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture. Additionally in gltf, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
+- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture. Additionally in gltf, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
 - **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces.
 - **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
   - _Opaque_: The alpha color and texture are ignored during export process.
@@ -385,4 +385,4 @@ When updating an input field, changes are highlighted in red. Press the _Confirm
 
 ## Try it out
 
-Export your own scene from Maya to glTF format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [Babylon loader](/divingDeeper/importers/glTF).
+Export your own scene from Maya to glTF format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [Babylon loader](/features/divingDeeper/importers/glTF).

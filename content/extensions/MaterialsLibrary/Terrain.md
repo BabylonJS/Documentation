@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Terrain Material](/img/extensions/materials/terrain.jpg)
+![Terrain Material](/img/features/extensions/materials/terrain.jpg)
 
 ## Playground example
 
@@ -23,7 +23,7 @@ The terrain material works with at least 4 textures:
 
 In other words, the Mixmap texture mixes the 3 diffuse textures thanks to the color channels RGB.
 A Mixmap texture looks like (result on the screenshot above):
-![](/img/extensions/materials/terrainMixMap.png)
+![](/img/features/extensions/materials/terrainMixMap.png)
 
 The method applied by the terrain material is also called "texture splatting".
 

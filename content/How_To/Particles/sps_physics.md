@@ -44,7 +44,7 @@ if (someMesh.intersectsMesh(p)) { // change p velocity vector }
 ```
 
 Under the hood, when creating a SPS with `particleIntersection`, a bounding box and a bouding sphere are given to each solid particle.  
-For performance reasons, the particle intersections are always computed the fastest way, it is to say with Axis Aligned Bounding Boxes (AABB). [More Details on Intersection Collisions](/divingDeeper/mesh/interactions/mesh_intersect)
+For performance reasons, the particle intersections are always computed the fastest way, it is to say with Axis Aligned Bounding Boxes (AABB). [More Details on Intersection Collisions](/features/divingDeeper/mesh/interactions/mesh_intersect)
 
 If you use the `AbstractMesh` `intersectsMesh()` method, what allows to force OBB computation (precise mode), only the mesh bounding box will be rotated, not the particle one, so the intersection detection will be just a bit better than in AABB mode.  
 The precise mode has a CPU significant cost, so it's not recommended to use it with solid particles.

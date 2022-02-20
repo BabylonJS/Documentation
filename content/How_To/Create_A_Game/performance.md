@@ -5,7 +5,7 @@ description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, performance, merge, post process, optimization
 further-reading:
     - title: Bonus Page About The Design Process, 3D Modeling and Art Assets
-      url: /guidedLearning/createAGame/designArt
+      url: /features/guidedLearning/createAGame/designArt
 video-overview:
 video-content:
 ---
@@ -32,7 +32,7 @@ The environment consisted of a lot of separate & duplicated meshes since it was 
 
 ## Glow Layer
 
-The glow layer really only needed to be used with the lanterns to give that extra glowy feel, so limiting what meshes are affected by the glow layer will reduce the amount of draw calls being made since it's only rendering the included meshes. I just added this to when I was [setting up my glow layer](/guidedLearning/createAGame/extraFeatures#glow-layer).
+The glow layer really only needed to be used with the lanterns to give that extra glowy feel, so limiting what meshes are affected by the glow layer will reduce the amount of draw calls being made since it's only rendering the included meshes. I just added this to when I was [setting up my glow layer](/features/guidedLearning/createAGame/extraFeatures#glow-layer).
 
 ```javascript
 this._environment._lanternObjs.forEach((lantern) => {
@@ -103,9 +103,9 @@ This became a little tricky in the festival area because there were 2 lanterns o
 
 ## Further Reading
 
-**Previous:** [Cross Platform - Mobile](/guidedLearning/createAGame/crossPlatform)  
-**Next:** [Outro](/guidedLearning/createAGame/closing)  
-**(BONUS):** [Design Process & 3D Modeling](/guidedLearning/createAGame/designArt)
+**Previous:** [Cross Platform - Mobile](/features/guidedLearning/createAGame/crossPlatform)  
+**Next:** [Outro](/features/guidedLearning/createAGame/closing)  
+**(BONUS):** [Design Process & 3D Modeling](/features/guidedLearning/createAGame/designArt)
 
 ## Resources
 

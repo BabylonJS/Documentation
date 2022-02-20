@@ -10,7 +10,7 @@ video-content:
 
 ## General
 
-![Screenshot](/img/extensions/materials/shadowOnly.jpg)
+![Screenshot](/img/features/extensions/materials/shadowOnly.jpg)
 
 The goal of the ShadowOnlyMaterial is to display only shadows casted by a light on a receiving object. It is mostly useful when you want to display shadow on a transparent canvas (on top of your existing DOM).
 

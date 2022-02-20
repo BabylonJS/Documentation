@@ -102,5 +102,5 @@ material.opacityFresnelParameters.leftColor = BABYLON.Color3.White();
 material.opacityFresnelParameters.rightColor = BABYLON.Color3.Black();
 ```
 
-<Playground id="#22KZUW#6" title="Fresnel Refraction" description="Simple example of using fresnel refraction in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel1.jpg"/>
-<Playground id="#AQZJ4C#0" title="Fresnel Parameters" description="Simple example for you to explore fresnel parameters in your scene." image="/img/playgroundsAndNMEs/divingDeeperFresnel2.jpg"/>
+<Playground id="#22KZUW#6" title="Fresnel Refraction" description="Simple example of using fresnel refraction in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperFresnel1.jpg"/>
+<Playground id="#AQZJ4C#0" title="Fresnel Parameters" description="Simple example for you to explore fresnel parameters in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperFresnel2.jpg"/>

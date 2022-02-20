@@ -24,7 +24,7 @@ myParticleSystem.particleTexture = new BABYLON.Texture("path to texture");
 myParticleSystem.emitter = mesh;
 myParticleSystem.emitter = point; //a Vector3
 
-myParticleSystem.start(); //Starts the emission of particles
+myParticleSystem.start(); //features/starts the emission of particles
 ```
 
 To stop the emission use

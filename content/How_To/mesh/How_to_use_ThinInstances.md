@@ -5,7 +5,7 @@ description: Learn how to leverage thin instances in your Babylon.js scenes.
 keywords: diving deeper, meshes, mesh transformation, instances, thin instances
 further-reading:
     - title: How To Use Instances
-      url: /divingDeeper/mesh/copies/instances
+      url: /features/divingDeeper/mesh/copies/instances
 video-overview:
 video-content:
     - title: A Pirate Playset Part 1 - Thin Instances
@@ -17,7 +17,7 @@ Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
 
 PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances."/>
 
-As explained in [How To Use Instances](/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
+As explained in [How To Use Instances](/features/divingDeeper/mesh/copies/instances), instances are an excellent way to use hardware accelerated rendering to draw a huge number of identical meshes.
 
 However, regular instances still have a performance penalty on the javascript side because each instance is its own object (`InstancedMesh`): if you have 10000 instances in your scene, the engine must loop over all those objects to make a number of processing (visibility check, etc).
 

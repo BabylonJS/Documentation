@@ -7,9 +7,9 @@ further-reading:
     - title: RotationFromAxis API
       url: https://doc.babylonjs.com/typedoc/classes/babylon.vector3#rotationfromaxis
     - title: Path3D
-      url: /divingDeeper/mesh/path3D
+      url: /features/divingDeeper/mesh/path3D
     - title: How to Create a Track with Custom Alignments
-      url: /guidedLearning/workshop/Track
+      url: /features/guidedLearning/workshop/Track
 video-overview:
 video-content:
 ---
@@ -31,7 +31,7 @@ where _axis1_, _axis2_ and _axis3_ are three left-handed orthogonal vectors and 
 
 
 ## Align Plane to Curve
-At any point along curve in 3D space the tangent, normal and binormal form a set of orthogonal axes, call these the point axes. A plane created in Babylon.js has a normal along the z axis with the x and y axes lying in the plane. We can draw a curve in space using an array of position vectors. By creating a [3D path](/divingDeeper/mesh/path3D) from this curve we can obtain the normal, tangent and binormal of the curve at each of the positions that define it. Using the *RotationFromAxis* we can align the x, y and z axes of the plane with the point axes of the curve. There are 6 ways to order a group of three axes and so 6 ways to align the plane axes to the curve point axes.
+At any point along curve in 3D space the tangent, normal and binormal form a set of orthogonal axes, call these the point axes. A plane created in Babylon.js has a normal along the z axis with the x and y axes lying in the plane. We can draw a curve in space using an array of position vectors. By creating a [3D path](/features/divingDeeper/mesh/path3D) from this curve we can obtain the normal, tangent and binormal of the curve at each of the positions that define it. Using the *RotationFromAxis* we can align the x, y and z axes of the plane with the point axes of the curve. There are 6 ways to order a group of three axes and so 6 ways to align the plane axes to the curve point axes.
 
 All six ways are used in the playground below. The top one [0] has the plane tangential to the curve and the fourth one down [3] is perpendicular to the curve. Others can twist the plane at certain points. 
 

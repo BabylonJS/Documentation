@@ -17,7 +17,7 @@ When you want a GUI that works in VR or within the 3D space it's the only option
 
 It is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
 
-<Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI1.jpg"/>
+<Playground id="#NGS9AU" title="Simple GUI Slider Example" description="Simple example of adding a GUI slider to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperGUI1.jpg"/>
 
 Other possible GUIs are:
 1. CastorGUI, a Babylon.js community extension which overlays the scene
@@ -27,23 +27,23 @@ Other possible GUIs are:
 
 ## CastorGUI
 
-An alternative 2D GUI is the extension [CastorGUI](/extensions/castorGUI). It has to be loaded both for the playground and for your own projects.
+An alternative 2D GUI is the extension [CastorGUI](/features/extensions/castorGUI). It has to be loaded both for the playground and for your own projects.
 
 It can be found on [Github](https://github.com/dad72/CastorGUI).
 
-<Playground id="#S34THY#14" title="CastorGUI Example" description="Simple example of using the CastorGUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI2.jpg"/>
+<Playground id="#S34THY#14" title="CastorGUI Example" description="Simple example of using the CastorGUI system in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperGUI2.jpg"/>
 
 ## Dat.GUI
 
 The external [dat.GUI](https://github.com/dataarts/dat.gui) is integrated within the playground. For your own projects it has to be loaded as well as Babylon.js.
 
-<Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI3.jpg"/>
+<Playground id="#NGS9AU#1" title="dat.GUI Example" description="Simple example of using the dat.GUI system in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperGUI3.jpg"/>
 
 ## HTML GUI
 
 Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay the Babylon.js scene.
 
-<Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.jpg"/>
+<Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperGUI4.jpg"/>
 
 ## Comparison of GUI Options
 
@@ -75,7 +75,7 @@ The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
 
 #### Pros
 
-* There’s now an awesome [GUI Editor](/toolsAndResources/tools/guiEditor) to make interface creation easier!
+* There’s now an awesome [GUI Editor](/features/toolsAndResources/tools/guiEditor) to make interface creation easier!
 * Tight integration with 3D scene
 * Ability to optionally apply scene post processing effects to GUI as well
 * Ability to apply/link GUI elements and meshes

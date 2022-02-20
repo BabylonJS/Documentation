@@ -38,7 +38,7 @@ export class Environment {
 
 This is a stripped down version of the Environment class. Right now we're just focusing on creating a simple ground mesh. This starting structure is important as it makes importing our final assets much easier.
 
-We'll want to create our environment in [\_setUpGame](/guidedLearning/createAGame/stateMachine#setupgame), so now it should look something like:
+We'll want to create our environment in [\_setUpGame](/features/guidedLearning/createAGame/stateMachine#setupgame), so now it should look something like:
 
 ```javascript
 //--CREATE SCENE--
@@ -87,7 +87,7 @@ export class Player extends TransformNode {
 }
 ```
 
-Now, we're going to replace the camera we had in [state machine](/guidedLearning/createAGame/stateMachine#scene-setup) with the camera made in the **\_setupPlayerCamera** function.
+Now, we're going to replace the camera we had in [state machine](/features/guidedLearning/createAGame/stateMachine#scene-setup) with the camera made in the **\_setupPlayerCamera** function.
 
 ```javascript
 private _setupPlayerCamera() {

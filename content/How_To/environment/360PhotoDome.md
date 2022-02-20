@@ -5,7 +5,7 @@ description: Learn all about Babylon.js 360 photo domes.
 keywords: diving deeper, environment, 360 photo, dome, 360 photo dome, photo dome
 further-reading:
     - title: Action Manager
-      url: https://doc.babylonjs.com/divingDeeper/events/actions
+      url: https://doc.babylonjs.com/features/divingDeeper/events/actions
 video-overview:
 video-content:
 ---
@@ -33,7 +33,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 * size = 1000: Physical radius to create the dome at, defaults to approximately half the far clip plane
 * useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
 
-<Playground id="#14KRGG#3" title="PhotoDome Example" description="Simple example of how to use a PhotoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome1.jpg"/>
+<Playground id="#14KRGG#3" title="PhotoDome Example" description="Simple example of how to use a PhotoDome in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperPhotoDome1.jpg"/>
 
 ## FOV adjustment
 Sometimes 360 photo can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
@@ -47,7 +47,7 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the photo dome help reduce, but not eliminate, this.
 
-<Playground id="#14KRGG#4" title="PhotoDome using fovMultiplier" description="Simple example of how to use a PhotoDome with fovMultiplier." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome2.jpg"/>
+<Playground id="#14KRGG#4" title="PhotoDome using fovMultiplier" description="Simple example of how to use a PhotoDome with fovMultiplier." image="/img/playgroundsAndNMEs/features/divingDeeperPhotoDome2.jpg"/>
 
 ## Image Types
 Several types of 360 image exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
@@ -66,8 +66,8 @@ photoDome.imageMode = BABYLON.PhotoDome.MODE_TOPBOTTOM;
 
 Examples:
 
-- Side by side: <Playground id="#WP9WDU" title="Steroscopic SidexSide Panoramic" description="Simple example of using a photoDome with a stereoscopic side by side panoramic source." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome3.jpg"/>
-- Top bottom: <Playground id="#SM3YHE" title="Top Bottom Panoramic" description="Simple example of using a photoDome with a top bottom panoramic source." image="/img/playgroundsAndNMEs/divingDeeperPhotoDome2.jpg"/>
+- Side by side: <Playground id="#WP9WDU" title="Steroscopic SidexSide Panoramic" description="Simple example of using a photoDome with a stereoscopic side by side panoramic source." image="/img/playgroundsAndNMEs/features/divingDeeperPhotoDome3.jpg"/>
+- Top bottom: <Playground id="#SM3YHE" title="Top Bottom Panoramic" description="Simple example of using a photoDome with a top bottom panoramic source." image="/img/playgroundsAndNMEs/features/divingDeeperPhotoDome2.jpg"/>
 
 
 ## How To 360 Photo with WebVR

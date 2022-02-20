@@ -5,19 +5,19 @@ description: Learn all about using joints in physics engines within Babylon.js.
 keywords: diving deeper, phyiscs, joints
 further-reading:
     - title: How To Use The Physics Engines
-      url: /divingDeeper/physics/usingPhysicsEngine
+      url: /features/divingDeeper/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/divingDeeper/physics/forces
     - title: How To Use Pivots and Axes
-      url: /divingDeeper/physics/pivotsAxes
+      url: /features/divingDeeper/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /divingDeeper/physics/softBodies
+      url: /features/divingDeeper/physics/softBodies
     - title: How To Use Advanced Features
-      url: /divingDeeper/physics/advancedPhysicsFeatures
+      url: /features/divingDeeper/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /divingDeeper/physics/addPhysicsEngine
+      url: /features/divingDeeper/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -28,7 +28,7 @@ A joint in a physics engine is a constraining feature between two bodies. This a
 
 Playgrounds are available to check out the coding. In the playgrounds the physics' engine used can be changed by selecting which ones to comment out.
 
-See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/features/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 ## Physical Joint Types
 

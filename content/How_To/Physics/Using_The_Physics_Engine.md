@@ -5,19 +5,19 @@ description: Learn how to use one of the available physics engines in Babylon.js
 keywords: diving deeper, phyiscs
 further-reading:
     - title: How To Use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/divingDeeper/physics/forces
     - title: How to use Joints
-      url: /divingDeeper/physics/joints
+      url: /features/divingDeeper/physics/joints
     - title: How To Use Pivots and Axes
-      url: /divingDeeper/physics/pivotsAxes
+      url: /features/divingDeeper/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/divingDeeper/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /divingDeeper/physics/softBodies
+      url: /features/divingDeeper/physics/softBodies
     - title: How To Use Advanced Features
-      url: /divingDeeper/physics/advancedPhysicsFeatures
+      url: /features/divingDeeper/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /divingDeeper/physics/addPhysicsEngine
+      url: /features/divingDeeper/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -132,7 +132,7 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 - Loading mesh and colliders from file: <Playground id="#66PS52" title="Loading A Mesh And Colliders From A File" description="Simple example of loading a mesh and colliders from a file."/>
 - Loading and adding colliders manually in Babylon: <Playground id="#FD65RR" title="Loading And Adding Colliders Manually" description="Simple example of loading meshes but creating colliders manually."/>
 - Loading and adding collider with joints and pointer interactions: <Playground id="#DGEP8N" title="Loading And Adding A Collider With Joints And Interactions" description="Simple example of loading and adding a collider with joints and pointer interactions."/>
-- Custom engine with [`deterministicLockstep`](/divingDeeper/animation/advanced_animations#deterministic-lockstep): <Playground id="#3ZW889#11" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/> Takes a few moments to load, use Run, &#x25B7;, to clear any error message.
+- Custom engine with [`deterministicLockstep`](/features/divingDeeper/animation/advanced_animations#deterministic-lockstep): <Playground id="#3ZW889#11" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/> Takes a few moments to load, use Run, &#x25B7;, to clear any error message.
 
 ### Babylon's physics impostor
 

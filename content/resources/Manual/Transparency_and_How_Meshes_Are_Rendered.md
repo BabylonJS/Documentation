@@ -5,7 +5,7 @@ description: Learn all about how transparency is handled in Babylon.js.
 keywords: diving deeper, materials, transparency, transparent
 further-reading:
     - title: Use Facet Data
-      url: /divingDeeper/mesh/facetData
+      url: /features/divingDeeper/mesh/facetData
 video-overview:
 video-content:
 ---
@@ -101,7 +101,7 @@ This is what a depth buffer looks like for a scene that contains each of those t
 
 ## Categorizing meshes
 
-The following list will help you understand which categories your meshes will be put into. For more information on each of the properties mentioned here, take a look at the [Materials tutorial](/start/chap2/face_material).
+The following list will help you understand which categories your meshes will be put into. For more information on each of the properties mentioned here, take a look at the [Materials tutorial](/features/start/chap2/face_material).
 
 **Alpha blended meshes:**
 
@@ -143,7 +143,7 @@ Notes:
 
 Occasionally, you may have some of your meshes falling into the wrong category, e.g. an alpha tested mesh unnecessarily marked as alpha blended, or a mesh staying opaque when it shouldn't. This will give you weird glitches, which can sometimes be very annoying. You should refer to this article to check how your meshes and materials properties are set.
 
-You're welcome to use this example to experiment on the different things explained here: <Playground id="#1PHYB0#81" title="Transparency Rendering Example" description="Simple example to experiment and understand how transparency is handled." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering1.jpg"/> Pressing F9 will switch between normal render and depth buffer render.
+You're welcome to use this example to experiment on the different things explained here: <Playground id="#1PHYB0#81" title="Transparency Rendering Example" description="Simple example to experiment and understand how transparency is handled." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering1.jpg"/> Pressing F9 will switch between normal render and depth buffer render.
 
 It's important to note that these categories are evaluated from top to bottom, so if a mesh is considered as an alpha blended mesh, it can't be alpha tested at the same time, which is something you may need/want to do nonetheless! Enter the `transparencyMode` property.
 
@@ -170,14 +170,14 @@ If `transparencyMode` equals:
 * Material.MATERIAL_ALPHATESTANDBLEND. Mesh will be both alpha tested and alpha blended
   * a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
 
-You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering2.jpg"/>
+You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering2.jpg"/>
 
 ## Things To Do And Not To Do
 
 - Make sure your alpha blended meshes do not intersect, as this will inevitably lead to render glitches.
 - Avoid having heavily-stretched alpha blended meshes (i.e. large planes); since the center of its bounding sphere is used for depth sorting, doing this may result in a mesh being sorted as far away from the camera but actually closer to many other meshes.
 - Use alpha test as much as possible; this may look perfect for a pixel art style, or if the transparent parts boundaries are straight horizontal or vertical lines.
-- To get rid of jagged edges on your alpha tested meshes, use anti-aliasing for your scene ([FxaaPostProcess](/divingDeeper/postProcesses/usePostProcesses#fxaa)); when using anti-aliasing, you can even disable the built-in smoothing of WebGL when creating the engine object:
+- To get rid of jagged edges on your alpha tested meshes, use anti-aliasing for your scene ([FxaaPostProcess](/features/divingDeeper/postProcesses/usePostProcesses#fxaa)); when using anti-aliasing, you can even disable the built-in smoothing of WebGL when creating the engine object:
 
 ```javascript
 engine = new BABYLON.Engine(canvas, false); // built-in smoothing will be disabled
@@ -195,18 +195,18 @@ This may help you with visible seams between meshes and other similar issues.
 
 ## Concave meshes and transparency
 
-The transparent concave meshes render obviously with the same rules than explained before: <Playground id="#1PLV5Z" title="Concave Meshes And Transparency Example 1" description="Simple example of transparency and concave meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering3.jpg"/>
+The transparent concave meshes render obviously with the same rules than explained before: <Playground id="#1PLV5Z" title="Concave Meshes And Transparency Example 1" description="Simple example of transparency and concave meshes." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering3.jpg"/>
 
-For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh : <Playground id="#1PLV5Z#1" title="Concave Meshes And Transparency Example 2" description="Simple example of transparency and concave meshes with removed backface culling." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering4.jpg"/>
+For some reasons (example : camera flying from outside to inside a sphere), you may want to remove the backface culling in order to also render the back side of the mesh : <Playground id="#1PLV5Z#1" title="Concave Meshes And Transparency Example 2" description="Simple example of transparency and concave meshes with removed backface culling." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering4.jpg"/>
 
 As you can notice, the transparency rendering rules may lead to some weird things making some parts of the mesh geometries visible.  
-In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`: <Playground id="#1PLV5Z#2" title="Concave Meshes And Transparency Example 3" description="Simple example of transparency and concave meshes with double sided meshes." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering5.jpg"/>
+In this very case, an acceptable workaround would then be to enable the backface culling but to build the meshes as double sided with the parameter `sideOrientation` set to `BABYLON.Mesh.DOUBLESIDE`: <Playground id="#1PLV5Z#2" title="Concave Meshes And Transparency Example 3" description="Simple example of transparency and concave meshes with double sided meshes." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering5.jpg"/>
 
-Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering6.jpg"/>
+Other option will be to rely on depth pre-pass: <Playground id="#1PLV5Z#16" title="Concave Meshes And Transparency Example 4" description="Simple example of transparency and concave meshes with depth pre-pass." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering6.jpg"/>
 
-At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/divingDeeper/mesh/facetData#facet-depth-sort).
+At last, if you accept to spend some CPU cycles to get a correct self transparency, you can use the FacetData feature and enable the [facet depth sort](/features/divingDeeper/mesh/facetData#facet-depth-sort).
 
-Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering7.jpg"/>
+Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY0#1" title="Concave Meshes And Transparency Example 5" description="Simple example of transparency and concave meshes with facet depth sort." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering7.jpg"/>
 
 ## Order Independent Transparency
 
@@ -217,7 +217,7 @@ You can just add this simple line :
 ```javascript
 scene.useOrderIndependentTransparency = true;
 ```
-<Playground id="#WGZLGJ#3348" title="Order independent transparency" description="Simple example of order independent transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
+<Playground id="#WGZLGJ#3348" title="Order independent transparency" description="Simple example of order independent transparency." image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering8.jpg"/>
 
 Of course, the tradeoff is that, under the hood, the engine will render transparent meshes many more times, consuming effectively more CPU (and GPU to a lesser extent).
 
@@ -239,4 +239,4 @@ Fortunately, enabling the reverse depth buffer feature will get rid of those art
 
 In WebGPU, you can get better performances by setting `scene.depthPeelingRenderer.useRenderPasses = true` and `engine.compatibilityMode = false`: see the doc page for the `compatibilityMode` property for more information.
 
-<Playground id="#WGZLGJ#3764" title="Order independent transparency in WebGPU" description="Simple example of order independent transparency in WebGPU" image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
+<Playground id="#WGZLGJ#3764" title="Order independent transparency in WebGPU" description="Simple example of order independent transparency in WebGPU" image="/img/playgroundsAndNMEs/features/divingDeeperTransparencyRendering8.jpg"/>

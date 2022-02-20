@@ -5,7 +5,7 @@ description: Learn all about the instancing system in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, instancing
 further-reading:
     - title: How To Use Thin Instances
-      url: /divingDeeper/mesh/copies/thinInstances
+      url: /features/divingDeeper/mesh/copies/thinInstances
 video-overview:
 video-content:
     - title: Fun with Instance Buffers
@@ -43,7 +43,7 @@ Each instance has the same material as the root mesh. They can vary on the follo
 * ```setPivotMatrix```
 * ```scaling```
 
-Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/divingDeeper/mesh/copies/thinInstances) for further information.
+Note: related are **thin instances**, if you want yet more performances but with less control on each instance. See the [dedicated page](/features/divingDeeper/mesh/copies/thinInstances) for further information.
 
 ## Instancing a glTF object
 

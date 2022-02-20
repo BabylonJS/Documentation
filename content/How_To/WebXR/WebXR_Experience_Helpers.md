@@ -114,9 +114,9 @@ xrBasicHelper.onInitialXRPoseSetObservable.add((xrCamera) => {
 
 The basic XR experience helper offers direct access to the following:
 
-* An initialized [Session Manager](/divingDeeper/webXR/webXRSessionManagers)
-* A configured [XR Camera](/divingDeeper/webXR/webXRCamera) that will have the non-VR camera's position when entering XR
-* Initialized [Features Manager](/divingDeeper/webXR/webXRFeaturesManager)
+* An initialized [Session Manager](/features/divingDeeper/webXR/webXRSessionManagers)
+* A configured [XR Camera](/features/divingDeeper/webXR/webXRCamera) that will have the non-VR camera's position when entering XR
+* Initialized [Features Manager](/features/divingDeeper/webXR/webXRFeaturesManager)
 
 # The WebXR Default Experience
 
@@ -196,7 +196,7 @@ Check the code documentation for further details.
 
 The default experience initializes both pointer selection (laser pointer and interaction with the meshes in the scene) and teleportation features automatically. If floor meshes are provided in the options, the teleportation will include it when created. If not you can add meshes later or disable it.
 
-To read more about both features, check the [Features Manager](/divingDeeper/webXR/webXRFeaturesManager)
+To read more about both features, check the [Features Manager](/features/divingDeeper/webXR/webXRFeaturesManager)
 
 To enable / disable the teleport and pointer selection:
 

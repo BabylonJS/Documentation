@@ -15,7 +15,7 @@ As you might be aware, the next gen Web 3D is starting to rise.
 
 Following the specification from the [W3C group](https://github.com/gpuweb/gpuweb), we have started our journey to support this new tech. Our plan is to deliver a support with WebGL feature parity and  the new WebGPU specifics in 5.0.
 
-![Inspector](/img/extensions/WebGPU.png)
+![Inspector](/img/features/extensions/WebGPU.png)
 
 ## Why ?
 The promise behind WebGPU is an awesomely faster API providing lower level control to the graphic resources from Javascript. We hope to bring those extra performances to you in order to create even bigger Web 3D experiences through an API you are already familiar with: Babylon.js.
@@ -24,7 +24,7 @@ Also this is brigging new cool toys to the table like Compute Shaders and more t
 
 ## Where are we ?
 
-See [the dedicated page](/advanced_topics/webGPU/webGPUStatus).
+See [the dedicated page](/features/advanced_topics/webGPU/webGPUStatus).
 
 You can also follow our progress on out [Github dedicated issue](https://github.com/BabylonJS/Babylon.js/issues/6443).
 
@@ -54,7 +54,7 @@ You can refer [to this page](https://github.com/gpuweb/gpuweb/wiki/Implementatio
 
 Assuming you're using a browser that supports WebGPU, you can try it out yourself in the The [Playground](https://playground.babylonjs.com/) 
 
-![WebGPU](/img/extensions/webGPUPlayground.jpg)
+![WebGPU](/img/features/extensions/webGPUPlayground.jpg)
 
 You can follow the status from the dedicated [Chrome Status Platform Page](https://www.chromestatus.com/feature/6213121689518080).
 

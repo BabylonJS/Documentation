@@ -17,11 +17,11 @@ At the middle of the tools toolbar, there are 2 buttons:
 - Play / Stop (on the left) that generates the scene and plays the scene in the Editor's preview panel.
 - Restart (on the right) that simply reloads the scene to be played.
 
-![PlayStopButtons](/img/extensions/Editor/RunningProject/play-stop-buttons.png)
+![PlayStopButtons](/img/features/extensions/Editor/RunningProject/play-stop-buttons.png)
 
 Once the play button is clicked, the scene being edited in the preview panel disappears to let the test scene being visible. Once the scene to test is loader, you can play the scene and see if all scripts are working as intented.
 
-![PlayScene](/img/extensions/Editor/RunningProject/playing_scene.gif)
+![PlayScene](/img/features/extensions/Editor/RunningProject/playing_scene.gif)
 
 ## Debugging the scene
 All templates in the Editor offer the way to debug TypeScript code directly in VSCode. Just type F5 and place break points or "debugger;" in your code.
@@ -30,4 +30,4 @@ All templates in the Editor offer the way to debug TypeScript code directly in V
 
 Once VScode is attached to the Editor, let's run the scene and debug your code using your favorite shortcuts and debugging tools:
 
-![DebugScene](/img/extensions/Editor/RunningProject/debugging.gif)
+![DebugScene](/img/features/extensions/Editor/RunningProject/debugging.gif)

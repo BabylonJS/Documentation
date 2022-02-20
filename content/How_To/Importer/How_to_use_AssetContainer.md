@@ -16,7 +16,7 @@ It can be created manually
 ```javascript
 var container = new BABYLON.AssetContainer(scene);
 ```
-Or by loading from a file. See [loading from files](/divingDeeper/importers/loadingFileTypes)
+Or by loading from a file. See [loading from files](/features/divingDeeper/importers/loadingFileTypes)
 
 ## Adding or removing assets to the scene
 
@@ -29,9 +29,9 @@ container.addAllToScene()
 container.removeAllFromScene()
 ```
 
-<Playground id="#5NFRVE#1" title="Asset Container Adding and Removing Assets" description="Simple Example of adding and removing asset container assets into your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer1.jpg"/>
+<Playground id="#5NFRVE#1" title="Asset Container Adding and Removing Assets" description="Simple Example of adding and removing asset container assets into your scene." image="/img/playgroundsAndNMEs/features/divingDeeperAssetContainer1.jpg"/>
 
-This can be used to add/remove all objects in a scene without the need to exit WebVR. <Playground id="#JA1ND3#48" title="Asset Container Adding and Removing Assets in WebVR" description="Simple Example of adding and removing asset container assets into your WebVR scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer2.jpg"/>
+This can be used to add/remove all objects in a scene without the need to exit WebVR. <Playground id="#JA1ND3#48" title="Asset Container Adding and Removing Assets in WebVR" description="Simple Example of adding and removing asset container assets into your WebVR scene." image="/img/playgroundsAndNMEs/features/divingDeeperAssetContainer2.jpg"/>
 
 When creating assets manually the moveAllFromScene method can be used to move all assets currently in a scene into an AssetContainer and remove them from the scene for later use. 
 ```javascript
@@ -54,7 +54,7 @@ The return entries object will contain:
 - skeletons: A list of all the skeletons created by the duplication process
 - animationGroups: A list of all the animation groups created by the duplication process
 
-<Playground id="#S7E00P" title="Instantiating Asset Container Assets" description="Simple Example of using asset containers as templates to dupliate assets in a scene." image="/img/playgroundsAndNMEs/divingDeeperAssetContainer3.jpg"/>
+<Playground id="#S7E00P" title="Instantiating Asset Container Assets" description="Simple Example of using asset containers as templates to dupliate assets in a scene." image="/img/playgroundsAndNMEs/features/divingDeeperAssetContainer3.jpg"/>
 
 You can also set two parameters to the call to `instantiateModelsToScene`:
 - nameFunction: This will let you decide what will be the name of the cloned entities (instead of "Clone of...")

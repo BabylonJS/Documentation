@@ -28,7 +28,7 @@ BABYLON.SceneLoader.LoadAssetContainerAsync("https://playground.babylonjs.com/sc
 });
 ```
 
-<Playground id="#JA1ND3#63" title="Simple Promise Example" description="Simple example loading an asset into a scene after the file has been loaded." image="/img/playgroundsAndNMEs/divingDeeperPromises1.jpg"/>
+<Playground id="#JA1ND3#63" title="Simple Promise Example" description="Simple example loading an asset into a scene after the file has been loaded." image="/img/playgroundsAndNMEs/features/divingDeeperPromises1.jpg"/>
 
 ### Chaining multiple promises together
 
@@ -80,4 +80,4 @@ Promise.all([
 });
 ```
 
-<Playground id="#U2KKMK#1" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/divingDeeperPromises2.jpg"/>
+<Playground id="#U2KKMK#1" title="Load 2 Asset At Once" description="Simple example of loading 2 assets at once inside of a promise." image="/img/playgroundsAndNMEs/features/divingDeeperPromises2.jpg"/>

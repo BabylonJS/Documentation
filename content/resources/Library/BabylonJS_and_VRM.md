@@ -44,7 +44,7 @@ vrmManager.humanoidBone.leftLowerLeg.rotationQuaternion = Quaternion.FromEulerAn
 vrmManager.humanoidBone.rightLowerLeg.rotationQuaternion = Quaternion.FromEulerAngles(-Math.PI / 6, 0, 0);
 ```
 
-BabylonJS [standard animation mechanism](/divingDeeper/animation/animation_introduction) also can be used.
+BabylonJS [standard animation mechanism](/features/divingDeeper/animation/animation_introduction) also can be used.
 
 For instance, you can make pose to any VRM.
 

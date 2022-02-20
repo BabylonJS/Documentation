@@ -65,7 +65,7 @@ over multiple frames!
 
 Babylon.js coroutines combine 
 [JavaScript generators](https://javascript.info/generators) with 
-[`Observable`s](https://doc.babylonjs.com/divingDeeper/events/observables)
+[`Observable`s](https://doc.babylonjs.com/features/divingDeeper/events/observables)
 to make it as easy as possible to spread logic across multiple frames.
 At a high level, generator functions (an ES6 feature characterized by the
 `function*` syntax) don't return a simple return value object like 

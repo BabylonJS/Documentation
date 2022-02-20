@@ -21,20 +21,20 @@ Sounds can be added by browsing files and drag'n'dopping files. In the assets pa
 ### Browsing for files
 Simply go to the "Assets" panel of the Editor and click "Add...". A dialog opens to select the files:
 
-![Browse](/img/extensions/Editor/AddingSounds/browse.gif)
+![Browse](/img/features/extensions/Editor/AddingSounds/browse.gif)
 
 ### Drag'n'dropping files
 
-![DragAndDrop](/img/extensions/Editor/AddingSounds/draganddrop.gif)
+![DragAndDrop](/img/features/extensions/Editor/AddingSounds/draganddrop.gif)
 
 ## Editing a sound
 To edit a sound, just go to the assets panel of the Editor and select the sound to edit. The inspector of the editor will be updated showing the sound's properties.
 
-![Edit](/img/extensions/Editor/AddingSounds/edit.gif)
+![Edit](/img/features/extensions/Editor/AddingSounds/edit.gif)
 
 ## Adding a spatialized sound
 By default, all sounds added to the scene are not spatialized. To set a sound spatialized, just drag'n'drop the sound asset on a node in the scene. Once done, the sound is now attached to the node (Mesh or Transform Node).
 
 The inspector of the editor contains a new section which is focusing on the spatialized properties.
 
-![Spatialized](/img/extensions/Editor/AddingSounds/spatialized.gif)
+![Spatialized](/img/features/extensions/Editor/AddingSounds/spatialized.gif)

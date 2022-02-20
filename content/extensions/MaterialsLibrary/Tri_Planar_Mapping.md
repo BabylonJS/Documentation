@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Tri-Planar Mapping Material](/img/extensions/materials/triPlanar.jpg)
+![Tri-Planar Mapping Material](/img/features/extensions/materials/triPlanar.jpg)
 
 # Playground Example
 
@@ -24,11 +24,11 @@ One of the most tricky tasks should be to generate the UV coordinates properly w
 
 For example, an abrupt change can cause this kind of glitches:
 
-![Tri-Planar Mapping Material Problem](/img/extensions/materials/triPlanarProblem.jpg)
+![Tri-Planar Mapping Material Problem](/img/features/extensions/materials/triPlanarProblem.jpg)
 
 That should look like:
 
-![Tri-Planar Mapping Material Resolved](/img/extensions/materials/triPlanarResolved.jpg)
+![Tri-Planar Mapping Material Resolved](/img/features/extensions/materials/triPlanarResolved.jpg)
 
 The tri-planar mapping material tends to resolve this kind of problem, but above all, allows to completely eliminate the UV calculations: no UV needed.
 

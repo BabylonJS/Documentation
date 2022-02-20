@@ -5,7 +5,7 @@ description: Learn how to contribute to the Babylon.js Documentation.
 keywords: diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
   - title: Improve API Documentation
-    url: /divingDeeper/developWithBjs/contributeToAPI
+    url: /features/divingDeeper/developWithBjs/contributeToAPI
   - title: Mastering Markdown
     url: https://guides.github.com/features/mastering-markdown/
 video-overview:
@@ -46,7 +46,7 @@ Congratulations, your modifications are now waiting to be validated and merged i
 
 ![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
 
-Do not hesitate to read the [Good Practice](/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
+Do not hesitate to read the [Good Practice](/features/divingDeeper/developWithBjs/contributeToDocs#good-practices) section.
 
 ## Deeper Changes
 
@@ -110,14 +110,14 @@ In case you have to create new illustrations, you need to send them on the Githu
 
 So on your local fork, go to this `img` folder. You can see there are already a lot of folders, so try to use existing folders to put your new images if possible.
 
-Let says you just create a new page, linked on `https://doc.babylonjs.com/divingDeeper/my_very_great_page`.
+Let says you just create a new page, linked on `https://doc.babylonjs.com/features/divingDeeper/my_very_great_page`.
 
-Here, you can create a `my_very_great_page` folder into the `/img/divingDeeper/` one, and put `my-wonderful-image.jpg` into it.
+Here, you can create a `my_very_great_page` folder into the `/img/features/divingDeeper/` one, and put `my-wonderful-image.jpg` into it.
 
 Then, on your markdown page, use this link pattern:
 
 ```markdown
-![quick description (for accessibility)](/img/divingDeeper/my_very_great_page/my-wonderful-image.jpg)
+![quick description (for accessibility)](/img/features/divingDeeper/my_very_great_page/my-wonderful-image.jpg)
 ```
 
 Of course, try to keep the image size as small as you can (while keeping a good visual quality). Our build system will do its best to optimize the image nonetheless.
@@ -150,7 +150,7 @@ For example, let's say we want to add this page. We know that our new page will 
                         "playingSoundsMusic": { "friendlyName": "Playing Sounds and Music", "children": {}, "content": "How_To/audio/Playing_sounds_and_music" },
                         // This is the place you will add your document
                     },
-                    "content": "landing_pages/divingDeeperAudioLandingPage"
+                    "content": "landing_pages/features/divingDeeperAudioLandingPage"
                 },
             }
     }
@@ -234,7 +234,7 @@ The image provided will be used when sharing this link on sites supporting open 
 To link to an internal document, use its path from the root without adding the domain. For example:
 
 ```markdown
-[Post Processes](/divingDeeper/postProcesses/usePostProcesses)
+[Post Processes](/features/divingDeeper/postProcesses/usePostProcesses)
 ```
 
 ### Adding examples
@@ -305,7 +305,7 @@ Click the _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 
-If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/divingDeeper/developWithBjs/contributeToDocs#the-easy-way) section.
+If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/features/divingDeeper/developWithBjs/contributeToDocs#the-easy-way) section.
 
 Congratulation again, you're now a documentation master!
 
@@ -324,7 +324,7 @@ Congratulation again, you're now a documentation master!
 
 ### Images
 
-- use and store images from the documentation FTP as much as possible, read [Adding new images](/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
+- use and store images from the documentation FTP as much as possible, read [Adding new images](/features/divingDeeper/developWithBjs/contributeToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code
@@ -340,7 +340,7 @@ Congratulation again, you're now a documentation master!
 
 For links to other parts of the Babylon.js documentation and API, use relative links.
 
-For example, use `[Load Files with Assets Manager](/divingDeeper/developWithBjs/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs)`
+For example, use `[Load Files with Assets Manager](/features/divingDeeper/developWithBjs/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/features/divingDeeper/developWithBjs/contributeToDocs)`
 
 ## Further Reading
 

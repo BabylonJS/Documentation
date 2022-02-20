@@ -12,7 +12,7 @@ It's definitely possible to use a single scene for the entire application, but f
 
 ## App.ts
 
-Recall from the [Create a Scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene) section of the getting set up tutorial that we made an app.ts file. This is going to be our main file that handles our scene creations and rendering. Starting with the constructor, we're going to break up our scene creation and rendering loop call into separate functions.
+Recall from the [Create a Scene](/features/guidedLearning/createAGame/gettingSetUp#creating-a-scene) section of the getting set up tutorial that we made an app.ts file. This is going to be our main file that handles our scene creations and rendering. Starting with the constructor, we're going to break up our scene creation and rendering loop call into separate functions.
 
 ## States
 
@@ -299,7 +299,7 @@ Now that we have our scenes set up, how do we actually render and switch between
 
 ### Main
 
-The main function is where we'll be setting up our state machine. This will replace our current `this._engine.runRenderLoop` that we set up when we first [created the scene](/guidedLearning/createAGame/gettingSetUp#creating-a-scene)
+The main function is where we'll be setting up our state machine. This will replace our current `this._engine.runRenderLoop` that we set up when we first [created the scene](/features/guidedLearning/createAGame/gettingSetUp#creating-a-scene)
 
 ```javascript
 private async _main(): Promise<void> {

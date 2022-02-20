@@ -168,7 +168,7 @@ There is a boilerplate using above component with ES6 NPM `@babylonjs/core` here
 
 ## Adding otherBabylon.js NPMs
 
-If you start with the `@babylonjs` [ES6 NPMs](/divingDeeper/developWithBjs/treeShaking) (as we have done) then add those ones only.
+If you start with the `@babylonjs` [ES6 NPMs](/features/divingDeeper/developWithBjs/treeShaking) (as we have done) then add those ones only.
 
 > For GUI use `@babylonjs/gui` instead of the NPMs that don't start with `@`.
 

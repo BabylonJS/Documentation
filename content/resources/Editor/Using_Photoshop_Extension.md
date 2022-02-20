@@ -20,13 +20,13 @@ A simple demo video is available here:
 ## Enabling Extensions
 
 First, we have to enable Generators Plug-ins in Photoshop. To enable, just go in preferences -> plug-ins to open the plug-ins options.
-![OpeningPreferences](/img/extensions/Editor/PhotoshopExtension/photoshop_setup.png)
+![OpeningPreferences](/img/features/extensions/Editor/PhotoshopExtension/photoshop_setup.png)
 
 The first options are based on Photoshop Generators. We'll have to enable:
 * Generator
 * Remote connections (required as the plug-in is not installed in the Photoshop directory but is embeded by the editor)
 * A password (default is "password")
-![Generators](/img/extensions/Editor/PhotoshopExtension/generators.png)
+![Generators](/img/features/extensions/Editor/PhotoshopExtension/generators.png)
 
 Once done, click "Ok" and Generator Plug-ins are enabled!
 
@@ -34,17 +34,17 @@ Once done, click "Ok" and Generator Plug-ins are enabled!
 
 The last step is to connect to Photoshop. In the editor, in the main toolbar, a Photoshop icon is available and can be clicked.
 
-![EditorConnect](/img/extensions/Editor/PhotoshopExtension/editor_connect.png)
+![EditorConnect](/img/features/extensions/Editor/PhotoshopExtension/editor_connect.png)
 
 This will ask you a password: this is the password you chose for remote connections in the plug-ins preferences. Type your password and then the editor connects to Photoshop:
 
-![EditorPassword](/img/extensions/Editor/PhotoshopExtension/editor_password.png)
+![EditorPassword](/img/features/extensions/Editor/PhotoshopExtension/editor_password.png)
 
 ## Viewing Textures
 
 Once connected, to view textures, just open the Textures Viewer and assign to our meshes we want to live-texture.
 
-![EditorPassword](/img/extensions/Editor/PhotoshopExtension/editor_textures_viewer.png)
+![EditorPassword](/img/features/extensions/Editor/PhotoshopExtension/editor_textures_viewer.png)
 
 That's all!
 Now, once a photoshop file changes (painting, new text, etc.) then the texture will be sent to the Editor and will be updated in the Babylon.JS Scene in real-time.

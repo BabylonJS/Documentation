@@ -55,4 +55,4 @@ Here is a screenshot showing the previously mentioned blend modes:
 
 ![Available Blend Modes](/img/how_to/blend-modes/blend-modes.jpg)
 
-This playground showcases the available blend modes in action: <Playground id="#1MSIXB#4" title="Blend Modes Example" description="Simple example of blend modes in Babylon.js." image="/img/playgroundsAndNMEs/divingDeeperBlendModes1.jpg"/>
+This playground showcases the available blend modes in action: <Playground id="#1MSIXB#4" title="Blend Modes Example" description="Simple example of blend modes in Babylon.js." image="/img/playgroundsAndNMEs/features/divingDeeperBlendModes1.jpg"/>

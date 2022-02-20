@@ -5,21 +5,21 @@ description: Learn about creating immersive VR and AR web experiences with WebXR
 keywords: WebXR, VR, diving deeper, WebVR, AR, WebAR
 further-reading:
   - title: Demos and Examples
-    url: /divingDeeper/webXR/webXRDemos
+    url: /features/divingDeeper/webXR/webXRDemos
   - title: The WebXR Experience Helper
-    url: /divingDeeper/webXR/webXRExperienceHelpers
+    url: /features/divingDeeper/webXR/webXRExperienceHelpers
   - title: The Session Manager
-    url: /divingDeeper/webXR/webXRSessionManagers
+    url: /features/divingDeeper/webXR/webXRSessionManagers
   - title: The WebXR Camera
-    url: /divingDeeper/webXR/webXRCamera
+    url: /features/divingDeeper/webXR/webXRCamera
   - title: WebXR Input Sources and Controller Support
-    url: /divingDeeper/webXR/webXRInputControllerSupport
+    url: /features/divingDeeper/webXR/webXRInputControllerSupport
   - title: Features Manager and Available Features
-    url: /divingDeeper/webXR/webXRFeaturesManager
+    url: /features/divingDeeper/webXR/webXRFeaturesManager
   - title: Selected WebXR Features
-    url: /divingDeeper/webXR/WebXRSelectedFeatures
+    url: /features/divingDeeper/webXR/WebXRSelectedFeatures
   - title: Augmented Reality
-    url: /divingDeeper/webXR/webXRARFeatures
+    url: /features/divingDeeper/webXR/webXRARFeatures
 video-overview:
 video-content:
 ---
@@ -30,7 +30,7 @@ video-content:
 
 The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in its draft phase. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) to know about others browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. One of its goal is deprecating WebVR and other AR implementation and provide a single VR and AR API.
 
-As the API continuously changes, it is difficult to keep up with feature changes. The latest chrome canary is notably the most XR-feature-complete browser and Google continuously updates the browser with new features. This is the main reason we introduced the [Features Manager](/divingDeeper/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backwards compatibility.
+As the API continuously changes, it is difficult to keep up with feature changes. The latest chrome canary is notably the most XR-feature-complete browser and Google continuously updates the browser with new features. This is the main reason we introduced the [Features Manager](/features/divingDeeper/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backwards compatibility.
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
@@ -132,7 +132,7 @@ The simplest way to get started is using a WebXR-enabled browser and add a singl
 const xr = scene.createDefaultXRExperienceAsync();
 ```
 
-This will enable WebXR **in VR immersive mode**, including session init, input sources, the camera, teleportation and scene interactions. All using our [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper).
+This will enable WebXR **in VR immersive mode**, including session init, input sources, the camera, teleportation and scene interactions. All using our [WebXR Default Experience Helper](/features/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper).
 
 Note that the `xr` variable is a Promise. Using the async/await pattern will be simpler and more intuitive. It will also make sense to define floor meshes so we can define our ground and move on it. Here is a sphere in XR:
 
@@ -162,7 +162,7 @@ var createScene = async function () {
 
 And that's it!
 
-Make sure to read more on the [WebXR Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers) for further tips and tricks, and take a look at our [Demos and examples](/divingDeeper/webXR/webXRDemos) page.
+Make sure to read more on the [WebXR Experience Helper](/features/divingDeeper/webXR/webXRExperienceHelpers) for further tips and tricks, and take a look at our [Demos and examples](/features/divingDeeper/webXR/webXRDemos) page.
 
 ### ES6 support with Tree Shaking
 
@@ -188,8 +188,8 @@ import '@babylonjs/core/Materials/Node/Blocks'
 
 ```
 See also:
- * [WebXR Controllers Support](/divingDeeper/webXR/webXRInputControllerSupport)
- * [WebXR with Vite](/divingDeeper/webXR/webXRDemos#webxr-with-vite)
+ * [WebXR Controllers Support](/features/divingDeeper/webXR/webXRInputControllerSupport)
+ * [WebXR with Vite](/features/divingDeeper/webXR/webXRDemos#webxr-with-vite)
 
 ## Migrating from WebVR
 
@@ -197,7 +197,7 @@ WebVR is deprecated and will soon end its life in most if not all browsers. It i
 
 ### Migrating from the VR Experience helper
 
-If you used our [VR experience helper](/divingDeeper/cameras/webVRHelper) remove the VR initializer and add the XR experience helper. So this:
+If you used our [VR experience helper](/features/divingDeeper/cameras/webVRHelper) remove the VR initializer and add the XR experience helper. So this:
 
 ```javascript
 var scene = new BABYLON.Scene(engine);
@@ -211,13 +211,13 @@ var scene = new BABYLON.Scene(engine);
 var xrHelper = scene.createDefaultXRExperienceAsync();
 ```
 
-The XR helper has full controller support per default, including interactions with the scene meshes, pointer events and more. Read more about the [XR Experience helper](/divingDeeper/webXR/webXRExperienceHelpers).
+The XR helper has full controller support per default, including interactions with the scene meshes, pointer events and more. Read more about the [XR Experience helper](/features/divingDeeper/webXR/webXRExperienceHelpers).
 
 ### Migrating controller support
 
 Since WebXR controllers are no longer considered to be Gamepads the architecture is a bit different.
 
-The most important feature that was added is the full pointer events support for the controllers. The controllers support all pointer events, so you can use [Pointer interactions](/divingDeeper/scene/interactWithScenes#pointer-interactions) just like you use to controller mouse interactions in your scene.
+The most important feature that was added is the full pointer events support for the controllers. The controllers support all pointer events, so you can use [Pointer interactions](/features/divingDeeper/scene/interactWithScenes#pointer-interactions) just like you use to controller mouse interactions in your scene.
 
 It is also important to note that it is now possible to query what features the controller has and act accordingly.
 
@@ -310,7 +310,7 @@ if (touchpad) {
 }
 ```
 
-Read more about the [XR Controllers system](/divingDeeper/webXR/webXRInputControllerSupport).
+Read more about the [XR Controllers system](/features/divingDeeper/webXR/webXRInputControllerSupport).
 
 ### Legacy support
 

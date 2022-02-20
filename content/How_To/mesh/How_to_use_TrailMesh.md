@@ -15,7 +15,7 @@ video-content:
 ```javascript
 var newTrail = new BABYLON.TrailMesh(name, generator, scene, diameter, length, autoStart);
 
-newTrail.start();       //Starts the trailing mesh.
+newTrail.start();       //features/starts the trailing mesh.
 newTrail.stop();        //Stops the trailing mesh.
 ```
 

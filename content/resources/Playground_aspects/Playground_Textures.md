@@ -5,9 +5,9 @@ description: Learn about the free available textures in the Babylon.js texture l
 keywords: babylon.js, tools, resources, assets, library, textures
 further-reading:
     - title: Meshes Available to Import into the Playground
-      url: /toolsAndResources/assetLibraries/availableMeshes
+      url: /features/toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /toolsAndResources/tools/playground/externalPGAssets
+      url: /features/toolsAndResources/tools/playground/externalPGAssets
 video-overview:
 video-content:
 ---
@@ -28,9 +28,9 @@ new BABYLON.Texture("textures/filename", scene);
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | -------------------------------------------------------------------------------------------------------------- | ------ |
 |                                                                 ![](/img/resources/textures_thumbs/albedo.png.jpg)                                                                  | albedo.png                                                                                                     | 590 KB |
 |                                           <img src='https://www.babylonjs-playground.com/textures/amiga.jpg' width='64' height='64'/>                                            | amiga.jpg                                                                                                      | 2 KB   |
-| <img src='https://www.babylonjs-playground.com/textures/BJS-logo_v3.png' width='64' height='64'  style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | BJS-logo_v3.png <br/>[(ktx available)](/advanced_topics/mutliPlatTextures) | 39 KB  |
+| <img src='https://www.babylonjs-playground.com/textures/BJS-logo_v3.png' width='64' height='64'  style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | BJS-logo_v3.png <br/>[(ktx available)](/features/advanced_topics/mutliPlatTextures) | 39 KB  |
 |                                           <img src='https://www.babylonjs-playground.com/textures/bloc.jpg' width='64' height='64'/>                                           | bloc.jpg                                                                                                       | 3 KB   |
-|                                        <img src='https://www.babylonjs-playground.com/textures/checkerBJS.png' width='64' height='64'/>                                        | checkerBJS.png <br/>[(ktx available)](/advanced_topics/mutliPlatTextures)  | 38 KB  |
+|                                        <img src='https://www.babylonjs-playground.com/textures/checkerBJS.png' width='64' height='64'/>                                        | checkerBJS.png <br/>[(ktx available)](/features/advanced_topics/mutliPlatTextures)  | 38 KB  |
 |    <img src='https://www.babylonjs-playground.com/textures/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>    | cloud.png                                                                                                      | 58 KB  |
 | <img src='https://www.babylonjs-playground.com/textures/lava/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | lava/cloud.png                                                                                                 | 81 KB  |
 |                                            <img src='https://www.babylonjs-playground.com/textures/co.png' width='64' height='64'/>                                            | co.png                                                                                                         | 2 KB   |
@@ -127,7 +127,7 @@ new BABYLON.CubeTexture("textures/common part of filenames", scene);
 
 |                         Overview                         | Filename                                                                                                     | Viewer                                                         | Size       |
 | :------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---------- |
-|   ![](/img/resources/textures_thumbs/cubemapDebug.jpg)   | cubemapDebug/ <br/>[(ktx available)](/advanced_topics/mutliPlatTextures) | <Playground id="#UU7RQ#322" title="cubemapDebug" description=""/> | 6 x 80 KB  |
+|   ![](/img/resources/textures_thumbs/cubemapDebug.jpg)   | cubemapDebug/ <br/>[(ktx available)](/features/advanced_topics/mutliPlatTextures) | <Playground id="#UU7RQ#322" title="cubemapDebug" description=""/> | 6 x 80 KB  |
 |      ![](/img/resources/textures_thumbs/skybox.jpg)      | skybox                                                                                                       | <Playground id="#UU7RQ#91" title="Skybox" description=""/>  | 6 x 20 KB  |
 |     ![](/img/resources/textures_thumbs/skybox2.jpg)      | skybox2                                                                                                      | <Playground id="#UU7RQ#92" title="Skybox 2" description=""/>  | 6 x 400 KB |
 |     ![](/img/resources/textures_thumbs/skybox3.jpg)      | skybox3                                                                                                      | <Playground id="#UU7RQ#93" title="Skybox 3" description=""/>  | 6 x 150 KB |

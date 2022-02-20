@@ -5,13 +5,13 @@ description: Learn about Scroll Viewer in Babylon.js.
 keywords: diving deeper, GUI, Scroll Viewer
 further-reading:
     - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
+      url: /features/divingDeeper/gui/selector
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/divingDeeper/gui/gui
     - title: How To Use Babylon GUI Xml Loader
-      url: /divingDeeper/gui/xmlLoader
+      url: /features/divingDeeper/gui/xmlLoader
     - title: How To Use Babylon GUI3D
-      url: /divingDeeper/gui/gui3D
+      url: /features/divingDeeper/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -52,7 +52,7 @@ You can then create your control or container of controls to add to the scroll v
 myScrollViewer.addControl(myControl);
 ```
 
-- <Playground id="#13CF95#1" title="Scroll Viewer Example" description="Simple example showing how to add a Scroll Viewer to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer1.jpg"/>
+- <Playground id="#13CF95#1" title="Scroll Viewer Example" description="Simple example showing how to add a Scroll Viewer to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer1.jpg"/>
 
 The default setting for width and depth of the scroll viewer is 100% of the parent control.
 
@@ -67,8 +67,8 @@ The following table shows the additional properties of a scroll viewer.
 
 **NOTE** All the padding values for the scroll viewer are set as 0. Any padding should be set on the control added to the scroll viewer.
 
-- <Playground id="#C3RDBS#3" title="Scroll Viewer of Fixed Size" description="Simple example showing how to add a Scroll Viewer of fixed size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer2.jpg"/>
-- <Playground id="#C3RDBS#2" title="Scroll Viewer of Relative Size" description="Simple example showing how to add a Scroll Viewer of relative size to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer3.jpg"/>
+- <Playground id="#C3RDBS#3" title="Scroll Viewer of Fixed Size" description="Simple example showing how to add a Scroll Viewer of fixed size to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer2.jpg"/>
+- <Playground id="#C3RDBS#2" title="Scroll Viewer of Relative Size" description="Simple example showing how to add a Scroll Viewer of relative size to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer3.jpg"/>
 
 ## Scrollbars
 
@@ -103,8 +103,8 @@ The images for the vertical bar and thumb are by default rotated copies of those
 
 You can also choose to have different images for the vertical and horizontal bar / thumb. In that case, use `horizontalThumbImage` / `verticalThumbImage` instead of `thumbImage` and `horizontalBarImage` / `verticalBarImage` instead of `barImage`.
 
-- <Playground id="#4ZC0G4#2" title="Image Scroll Bars" description="Simple example showing how to add Image Scroll Bars to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer4.jpg"/>
-- <Playground id="#4ZC0G4#1" title="Image Scroll Bars in a Grid" description="Simple example showing how to add Image Scroll Bars in a grid to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer5.jpg"/>
+- <Playground id="#4ZC0G4#2" title="Image Scroll Bars" description="Simple example showing how to add Image Scroll Bars to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer4.jpg"/>
+- <Playground id="#4ZC0G4#1" title="Image Scroll Bars in a Grid" description="Simple example showing how to add Image Scroll Bars in a grid to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer5.jpg"/>
 
 ## Adding an Adjustable TextBlock Window
 
@@ -112,7 +112,7 @@ When you add a TextBlock of a given size to a scroll viewer both horizontal and 
 
 ![Contained TextBlock](/img/gui/scroll3.jpg)
 
-- <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.jpg"/>
+- <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer6.jpg"/>
 
 However quite often you need to present text fitting the width of the viewing window and scrolling for the height. This is achieved by setting the `textWrapping` and `reSizeToFit` as follows
 
@@ -123,7 +123,7 @@ myTextBlock.resizeToFit = true;
 
 ![Adjusting TextBlock](/img/gui/scroll2.jpg)
 
-- <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer7.jpg"/>
+- <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer7.jpg"/>
 
 ## Live-Updating and Child Containers
 
@@ -151,4 +151,4 @@ You can also use the `ScrollViewer.forceHorizontalBar` and `ScrollViewer.forceVe
 
 When set to true, they force the display of the corresponding bars. When you know your scroll viewer will end up with visible bars, you can set those properties to true to save some initialization time, as if it is the scroll viewer control that makes a bar visible in the course of the initialization, it will trigger a children layout rebuild, adding more time to the initialization process.
 
-<Playground id="#KPLW9F" title="Rendering Optimization" description="Simple example showing how to optimize rendering in your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer8.jpg"/>
+<Playground id="#KPLW9F" title="Rendering Optimization" description="Simple example showing how to optimize rendering in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperScrollViewer8.jpg"/>

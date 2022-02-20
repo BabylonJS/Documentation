@@ -106,9 +106,9 @@ vls.mesh.material.diffuseTexture= new BABYLON.Texture(...);
 
 Feel free to tour some examples of Volumetric LightScattering in the playground :
 
-- <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP1.jpg"/>
-- <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP2.jpg"/>
-- <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/divingDeeperVolumetricLightScatterPP3.jpg"/>
+- <Playground id="#AU5641" title="Basic Example" description="Simple example of adding a basic light scattering post process to your scene." image="/img/playgroundsAndNMEs/features/divingDeeperVolumetricLightScatterPP1.jpg"/>
+- <Playground id="#HYFQJ" title="Spherical Harmonics as Source" description="Simple example of adding a light scattering post process with spherical harmonics as a source." image="/img/playgroundsAndNMEs/features/divingDeeperVolumetricLightScatterPP2.jpg"/>
+- <Playground id="#UUXLX#37" title="VLS through CSG-created slots" description="Simple example of adding a light scattering post process through CSG-created slots." image="/img/playgroundsAndNMEs/features/divingDeeperVolumetricLightScatterPP3.jpg"/>
 
 <!-- 
 - [Colorful experiment]( https://www.babylonjs-playground.com/#1XOMH0)

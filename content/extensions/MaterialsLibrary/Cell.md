@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-![Toon material](/img/extensions/materials/toon.png)
+![Toon material](/img/features/extensions/materials/toon.png)
 
 # Using the cell material
 

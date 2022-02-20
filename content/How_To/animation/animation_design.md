@@ -70,7 +70,7 @@ scene.beginAnimation(box, 0, 2 * frameRate, true);
 ```
 
 You can see the result here  
-<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
+<Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/features/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
 
 ## Reversing an Animation
 
@@ -112,6 +112,6 @@ Check it out here:
 
 Now that you're starting to understand the basics of animations in Babylon and how to create them, you'll also want to consider taking a look at the Animation Curve Editor (ACE). This super easy-to-use tool allows you to create full animations in a matter of seconds without writing any code!
 
-[Check it out!](/toolsAndResources/tools/animationCurveEditor)
+[Check it out!](/features/toolsAndResources/tools/animationCurveEditor)
 
 <img src="/img/tools/ACE/overview.jpg" title="Babylon.js Animation Curve Editor"/>

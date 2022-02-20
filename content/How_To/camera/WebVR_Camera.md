@@ -10,7 +10,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR camera will continue to be supported, **it is strongly recommended that new projects use the [WebXR camera](/divingDeeper/webXR/webXRCamera)**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+While the WebVR camera will continue to be supported, **it is strongly recommended that new projects use the [WebXR camera](/features/divingDeeper/webXR/webXRCamera)**. For more information, check out our [introduction to WebXR](/features/divingDeeper/webXR/introToWebXR).
 
 ## Introduction
 
@@ -22,7 +22,7 @@ The WebVR camera is Babylon's simple interface to interaction with Windows Mixed
 
 Babylon.js also supports the VR devices' controllers - The Windows Mixed Reality controllers, HTC Vive's controllers, the Oculus Touch, GearVR controller, and Daydream controller - using the gamepad extension. Further details below.
 
-To quickly get started creating a WebVR scene, the [WebVR Experience Helper](/divingDeeper/cameras/webVRHelper) class can be used to automatically setup the WebVR camera and enable other features such as teleportation out of the box.
+To quickly get started creating a WebVR scene, the [WebVR Experience Helper](/features/divingDeeper/cameras/webVRHelper) class can be used to automatically setup the WebVR camera and enable other features such as teleportation out of the box.
 
 ## Browser support
 
@@ -32,7 +32,7 @@ WebVR 1.1 is enabled in specific versions of Microsoft Edge, Chrome, and Firefox
 
 ### WebVR controllers
 
-The WebVR controllers are offered in browsers that support the WebVR gamepad extensions - https://w3c.github.io/gamepad/extensions.html .
+The WebVR controllers are offered in browsers that support the WebVR gamepad extensions - https://w3c.github.io/gamepad/features/extensions.html .
 
 ## The WebVRFreeCamera class
 
