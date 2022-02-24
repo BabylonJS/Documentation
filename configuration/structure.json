@@ -35,13 +35,6 @@
                                     "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                                     "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                                     "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
-                                    "howToStart": {
-                                        "friendlyName": "Start Contributing to Babylon.js",
-                                        "children": {
-                                            "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests" }
-                                        },
-                                        "content": "How_To/contribute/how_to_start"
-                                    },
                                     "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
                                     "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
                                     "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
@@ -1207,11 +1200,45 @@
             },
             "contribute": {
                 "friendlyName": "Contribute",
+                "content": "landing_pages/contribute",
                 "children": {
-                    "contributeToAPI": { "friendlyName": "Contribute To The API", "children": {}, "content": "How_To/contribute/contribute_to_api" },
-                    "contributeToDocs": { "friendlyName": "Contribute To The Documentation", "children": {}, "content": "How_To/contribute/contribute_to_documentation" }        
-                },
-                "content": "landing_pages/contribute"
+                    "howToStart": {
+                        "friendlyName": "To Babylon.js",
+                        "content": "How_To/contribute/how_to_contribute",
+                        "children": {
+                            "Prerequisits": { 
+                                "friendlyName": "Prerequisits for Contributing", 
+                                "content": "How_To/contribute/prerequisits"
+                            },
+                            "HowToContribute": { 
+                                "friendlyName": "How To Contribute", 
+                                "content": "How_To/contribute/how_to_start"
+                            },
+                            "validationTests": { 
+                                "friendlyName": "Validation Tests", 
+                                "content": "How_To/contribute/validation_tests"
+                            },
+                            "contributeToAPI": { 
+                                "friendlyName": "Contribute To The API",
+                                "content":  "How_To/contribute/contribute_to_api"
+                            }
+                        }
+                    },
+                    "contributeToDocs": { 
+                        "friendlyName": "To The Documentation",
+                        "content": "How_To/contribute/contribute_to_documentation", 
+                        "children": {
+                            "easydoc": {
+                                "friendlyName": "Small Edit",
+                                "content": "How_to/contribute/easydoc"
+                            },
+                            "addToDocs": {
+                                "friendlyName": "Major Additions",
+                                "content": "How_to/contribute/add_to_docs"
+                            }
+                        }
+                    }     
+                }          
             },
             "whats-new": {
                 "friendlyName": "What's New",
