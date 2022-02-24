@@ -13,7 +13,7 @@ video-content:
 
 This guide you will show you how you can build a multiplayer experience with Colyseus Multiplayer Framework and Babylon.js.
 
-<iframe height="70%" width="70%" src="https://colyseus-babylon-demo.herokuapp.com/index.html" />
+<iframe height="70%" width="70%" src="https://tutorial-babylonjs-server.glitch.me" />
 
 **By the end of this guide, you will:**
 
@@ -282,7 +282,7 @@ colyseusSDK.joinOrCreate("my_room").then(function(room) {
 // (...)
 ```
 
-<Playground id="#W613VP#1" title="Adding players Example" description="This example connects into a room, and display the players who joined the room" image="/img/resources/networking/colyseus/playground-onadd.png"/>
+<Playground id="#W613VP#2" title="Adding players Example" description="This example connects into a room, and display the players who joined the room" image="/img/resources/networking/colyseus/playground-onadd.png"/>
 
 ### The "Current Player"
 
@@ -327,7 +327,7 @@ room.state.players.onRemove(function (player, sessionId) {
 // ...
 ```
 
-<Playground id="#CB3LF6" title="Current player color Example" description="This example connects into a room, and set different color for current player." image="/img/resources/networking/colyseus/playground-onadd-onremove.png" />
+<Playground id="#CB3LF6#1" title="Current player color Example" description="This example connects into a room, and set different color for current player." image="/img/resources/networking/colyseus/playground-onadd-onremove.png" />
 
 ## Moving the players
 
@@ -407,7 +407,7 @@ room.state.players.onAdd(function (player, sessionId) {
 
 > Read [more about Schema callbacks](https://docs.colyseus.io/colyseus/state/schema/#client-side)
 
-<Playground id="#JMA5FE" title="Updating player's position Example" description="This example update players positions without interpolation" image="/img/resources/networking/colyseus/playground.png"/>
+<Playground id="#JMA5FE#2" title="Updating player's position Example" description="This example update players positions without interpolation" image="/img/resources/networking/colyseus/playground.png"/>
 
 ### Interpolating the player's position
 
@@ -442,7 +442,7 @@ scene.registerBeforeRender(() => {
 });
 ```
 
-<Playground id="#RAG7FE#26" title="Full example with player interpolation" description="Full example with player position interpolation" image="/img/resources/networking/colyseus/playground.png"/>
+<Playground id="#RAG7FE#27" title="Full example with player interpolation" description="Full example with player position interpolation" image="/img/resources/networking/colyseus/playground.png"/>
 
 ## Extra: Monitoring Rooms and Connections
 
