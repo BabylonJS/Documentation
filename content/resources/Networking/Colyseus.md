@@ -313,7 +313,7 @@ When a player is removed from the state (upon `onLeave()` in the server-side), w
 ```javascript
 // ...
 room.state.players.onRemove(function (player, sessionId) {
-    playerEntities[sessionId].entity.dispose();
+    playerEntities[sessionId].dispose();
     delete playerEntities[sessionId];
 });
 // ...
