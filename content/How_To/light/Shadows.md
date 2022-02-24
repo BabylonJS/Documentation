@@ -417,7 +417,7 @@ The shadow map generation is a complex task and requires to take in account seve
 
 In order to update your own uniforms, you can rely on `shadowGenerator.onBeforeShadowMapRenderObservable` observable. This will be called for you everytime the shadow map will be rendered and it will give you the current compiled effect.
 
-You can find a complete example here: <Playground id="#IJH4VG#2" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
+You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
 
 Note that this shader will be used to render all the shadow caster objects pertaining to the shadow generator. If you need more fine-grained control, see next section.
 
