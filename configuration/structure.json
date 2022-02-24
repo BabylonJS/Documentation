@@ -1117,7 +1117,6 @@
                 "Babylon.js+ExternalLibraries": {
                     "friendlyName": "Babylon.js + External Libraries",
                     "children": {
-                        "BabylonJS_and_Colyseus": { "friendlyName": "BabylonJS and Colyseus", "children": {}, "content": "resources/Library/BabylonJS_and_Colyseus"},
                         "BabylonJS_and_Instant_Games": { "friendlyName": "BabylonJS and Instant Games", "children": {}, "content": "resources/Library/BabylonJS_and_Instant_Games" },
                         "BabylonJS_and_Ionic_Angular": { "friendlyName": "BabylonJS and Ionic Angular", "children": {}, "content": "resources/Library/BabylonJS_and_Ionic_Angular" },
                         "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
