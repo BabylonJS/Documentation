@@ -25,7 +25,7 @@ This guide you will show you how you can build a multiplayer experience with Col
 ## Full source code
 
 * [Babylon.js Project (Client-side)][1]
-* [Colyseus Node.js/TypeScrippt Project (Server-side)](https://github.com/lpsandaruwan/colyseus-babylon-demo-server)
+* [Colyseus Node.js/TypeScrippt Project (Server-side)](https://github.com/colyseus/tutorial-babylonjs-server/)
 
 ## Before you start
 
@@ -462,4 +462,4 @@ You can see and interact with all spawned rooms and active client connections th
 We hope you found this tutorial useful, if you'd like to learn more about Colyseus please have a look at the [Colyseus documentation](https://docs.colyseus.io/), and join the [Colyseus Discord community](https://discord.gg/RY8rRS7).
 
 
-[1]: https://github.com/lpsandaruwan/colyseus-baylon-demo
+[1]: https://github.com/colyseus/tutorial-babylonjs-client/
