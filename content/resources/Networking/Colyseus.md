@@ -29,8 +29,6 @@ This guide you will show you how you can build a multiplayer experience with Col
 
 ## Before you start
 
-What is Colyseus? Colyseus is an open-source Node.js Framework for making multiplayer experiences.
-
 ### Prior Knowledge Expected
 
 - Basic Babylon.js knowledge ([See Getting Started with Babylon.js](https://doc.babylonjs.com/start))
