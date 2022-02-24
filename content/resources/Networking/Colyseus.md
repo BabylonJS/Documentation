@@ -298,7 +298,15 @@ room.state.players.onAdd((player, sessionId) => {
 
   // set material to differentiate CURRENT player and OTHER players
   sphere.material = new BABYLON.StandardMaterial(`player-material-${sessionId}`);
-  sphere.material.emissiveColor = (isCurrentPlayer) ? BABYLON.Color3.FromHexString("#ff9900") : BABYLON.Color3.Gray();
+
+  if (isCurrentPlayer) {
+    // highlight current player
+    sphere.material.emissiveColor = BABYLON.Color3.FromHexString("#ff9900");
+
+  } else {
+    // other players are gray colored
+    sphere.material.emissiveColor = BABYLON.Color3.Gray();
+  }
 
   // (...)
 });
@@ -401,17 +409,46 @@ room.state.players.onAdd(function (player, sessionId) {
 
 <Playground id="#JMA5FE" title="Updating player's position Example" description="This example update players positions without interpolation" image="/img/resources/networking/colyseus/playground.png"/>
 
-### Interpolating the player's position instead of a "sudden" position change.
+### Interpolating the player's position
 
-> TODO:
+To enable position interpolation, we're going to use the [Render Loop](/divingDeeper/animation/render_frame_animation) and the [`Scalar.Lerp()`](/typedoc/classes/babylon.scalar#lerp) method.
 
-<Playground id="#RAG7FE#26" title="Full example with player interpolation" description="Full example with player position position interpolation" image="/img/resources/networking/colyseus/playground.png"/>
+Instead of updating the player position directly (as in [previous section](#updating-players-visual-representation)), we are going to cache the next position, and constantly interpolate each player position during the Render Loop:
+
+```typescript
+// (...)
+var playerNextPosition = {};
+
+room.state.players.onAdd(function (player, sessionId) {
+    // (...)
+    playerNextPosition[sessionId] = sphere.position.clone();
+
+    player.onChange(function () {
+        playerNextPosition[sessionId].set(player.x, player.y, player.z);
+    });
+});
+// (...)
+```
+
+And finally, the Render Loop:
+
+```typescript
+scene.registerBeforeRender(() => {
+    for (let sessionId in playerEntities) {
+        var entity = playerEntities[sessionId];
+        var targetPosition = playerNextPosition[sessionId];
+        entity.position = BABYLON.Vector3.Lerp(entity.position, targetPosition, 0.05);
+    }
+});
+```
+
+<Playground id="#RAG7FE#26" title="Full example with player interpolation" description="Full example with player position interpolation" image="/img/resources/networking/colyseus/playground.png"/>
 
 ## Extra: Monitoring Rooms and Connections
 
 Colyseus comes with an optional monitoring panel that can be helpful during the development of your game.
 
-To view the monitor panel from your local server, go to http://localhost:2567/colyseus.
+To view the monitor panel from your local server, go to [http://localhost:2567/colyseus](http://localhost:2567/colyseus).
 
 ![monitor](/img/resources/networking/colyseus/monitor.png)
 
