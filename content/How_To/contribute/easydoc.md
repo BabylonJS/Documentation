@@ -1,11 +1,11 @@
 ---
-title: Small Edits To The Documentation
+title: Minor Edits To The Documentation
 image:
 description: Learn how to contribute to the Babylon.js Documentation.
 keywords: diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
   - title: Improve API Documentation
-    url: /contributeToAPI
+    url: /contribute/contributeToAPI
   - title: Mastering Markdown
     url: https://guides.github.com/features/mastering-markdown/
 video-overview:
@@ -18,7 +18,7 @@ Requirements: you just need a [Github](https://github.com) account and a Fork of
 
 At the bottom of each Documentation page you will see the github icon
 
-![Github](/img/GitHub-Mark.png)
+<img src = "/img/contribute/GitHub-Mark.png"  alt = "github" width = "50"/>
 
 Select this and it will take you to the correct Github page from where you select the edit button:
 

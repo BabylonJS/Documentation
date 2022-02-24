@@ -1229,7 +1229,7 @@
                         "content": "How_To/contribute/contribute_to_documentation", 
                         "children": {
                             "easydoc": {
-                                "friendlyName": "Small Edit",
+                                "friendlyName": "Minor Edits",
                                 "content": "How_to/contribute/easydoc"
                             },
                             "addToDocs": {

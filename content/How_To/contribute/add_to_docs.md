@@ -5,7 +5,7 @@ description: Learn how to contribute to the Babylon.js Documentation.
 keywords: diving deeper, contribution, contribute, open-source, oss, Documentation, docs, develop
 further-reading:
   - title: Improve API Documentation
-    url: /contributeToAPI
+    url: /contribute/contributeToAPI
   - title: Mastering Markdown
     url: https://guides.github.com/features/mastering-markdown/
 video-overview:
