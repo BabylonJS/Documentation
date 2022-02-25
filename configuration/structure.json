@@ -138,6 +138,11 @@
                     },
                     "content": "landing_pages/divingDeeperCamerasLandingPage"
                 },
+                "3D_commerce_certif": {
+                    "friendlyName": "3D Commerce Certification",
+                    "children": {},
+                    "content": "How_To/3D_commerce_certif/3D_commerce_certif"
+                },
                 "controls": {
                     "friendlyName": "2D Controls",
                     "children": {
