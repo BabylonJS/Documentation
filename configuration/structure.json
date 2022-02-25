@@ -742,6 +742,11 @@
                     },
                     "content": "landing_pages/toolsAndResourcesToolsLandingPage"
                 },
+                "assetLibrarian": {
+                    "friendlyName": "Asset Librarian",
+                    "children": {},
+                    "content": "resources/Playground_aspects/assetLibrarian"
+                },
                 "assetLibraries": {
                     "friendlyName": "Available Asset Libraries",
                     "children": {
