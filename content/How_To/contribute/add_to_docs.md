@@ -247,7 +247,7 @@ Click the _New pull request_ button:
 
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 
-If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contributeToDocs#the-easy-way) section.
+If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contribute/contributeToDocs/easydoc) section.
 
 Congratulation again, you're now a documentation master!
 
@@ -266,7 +266,7 @@ Congratulation again, you're now a documentation master!
 
 ### Images
 
-- use and store images from the documentation FTP as much as possible, read [Adding new images](/contributeToDocs#adding-new-images)
+- use and store images from the documentation FTP as much as possible, read [Adding new images](/contribute/contributeToDocs/addToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
 
 ### Code
@@ -282,7 +282,7 @@ Congratulation again, you're now a documentation master!
 
 For links to other parts of the Babylon.js documentation and API, use relative links.
 
-For example, use `[Load Files with Assets Manager](/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/contributeToDocs)`
+For example, use `[Load Files with Assets Manager](/contribute/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/contribute/contributeToDocs)`
 
 ## Further Reading
 

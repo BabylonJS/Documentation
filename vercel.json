@@ -793,7 +793,7 @@
         { "source": "/features/es6_support", "destination": "/workflow/wfDeeper/developWithBjs/treeShaking" },
         { "source": "/how_to/approved_naming_conventions", "destination": "/workflow/wfDeeper/developWithBjs/approvedNamingConventions" },
         { "source": "/how_to/contribute_to_api", "destination": "/contributeToAPI" },
-        { "source": "/how_to/contribute_to_documentation", "destination": "/contributeToDocs" },
+        { "source": "/how_to/contribute_to_documentation", "destination": "/contribute/contributeToDocs" },
         { "source": "/babylon101/animations", "destination": "/features/divingDeeper/animation" },
         { "source": "/how_to/gui3d", "destination": "/features/divingDeeper/gui/gui3D" },
         { "source": "/features/playground_debuglayer", "destination": "/features/toolsAndResources/tools/inspector" },
@@ -823,7 +823,7 @@
         { "source": "/How_To/Videos/Game_Pipeline_Integration_with_Babylon.js", "destination": "/features/guidedLearning/videos/gamePipelineIntegration" },
         { "source": "/How_To/Videos/Babylon.js_Advanced_Features", "destination": "/features/guidedLearning/videos/bjsAdvancedFeatures" },
         { "source": "/resources/ktx2_compressed_textures", "destination": "/features/divingDeeper/materials/using/ktx2Compression" },
-        { "source": "/how_to/how_to_start", "destination": "/workflow/wfDeeper/developWithBjs/howToStart" },
+        { "source": "/how_to/how_to_start", "destination": "/contribute/howToStart" },
         { "source": "/babylon101/animations#easing-functions", "destination": "/features/divingDeeper/animation/advanced_animations#easing-functions" },
         { "source": "/features/advanced_topics/introToShaders", "destination": "/features/advanced_topics/shaders/introToShaders" }
     ]
