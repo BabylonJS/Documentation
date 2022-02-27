@@ -18,7 +18,7 @@ Requirements: you just need a [Github](https://github.com) account and a Fork of
 
 At the bottom of each Documentation page you will see the github icon
 
-<img src = "/img/contribute/GitHub-Mark.png"  alt = "github" width = "50"/>
+![Github](/img/contribute/GitHub-Mark.png)
 
 Select this and it will take you to the correct Github page from where you select the edit button:
 
