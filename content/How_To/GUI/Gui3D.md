@@ -271,7 +271,7 @@ pushButton.pointerOutAnimation = () => {
 };
 ```
 
-See a complete GUI3D Demo here: <Playground id="#8Y780Y#20" title="Full GUI3D Demo" description="Full demo of the Babylon 3D GUI system." image="/img/playgroundsAndNMEs/features/divingDeeperBabylon3DGUI8.jpg"/>
+See it in action here: <Playground id="#8Y780Y#20" title="MeshButton3D Demo" description="Demo of the MeshButton3D control." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI8.jpg"/>
 
 ### HolographicButton
 
@@ -323,7 +323,9 @@ The main functional difference between the `TouchHolographicButton` and `Hologra
 
 The `HolographicSlate` is used to display content. It can be dragged around, rotated and scaled. With 1 pointer you have to use the handles to rotate and scale the slate, with 2 pointers you can pinch and twist the title bar to rotate and scale.
 
-As in the `TouchHolographicButton`, use the `imageUrl` property to change the content of the slate.
+The `HolographicSlate` hosts an `AdvancedDynamicTexture` to display content, simply set the `content` property to a `Control` or collection of `Control`s to adjust what is displayed. It also has an adjustable title bar at the top that can display a title by setting the `title` property.
+
+The dimensions can be manually set at any time, but are also updated when the user adjusts the slate using the handles around the outside of the slate. The dimensions will never go below the minimum dimensions in either direction, but the minimum dimensions can be set separately. If using the slate handles to resize, the aspect ratio will be maintained even when trying to resize smaller than the minimum.
 
 ```javascript
 // Create the 3D UI manager
@@ -331,16 +333,20 @@ var manager = new BABYLON.GUI.GUI3DManager(scene);
 
 // Let's add a slate
 var slate = new BABYLON.GUI.HolographicSlate("down");
+slate.title = "Checkers";
+slate.minDimensions = new BABYLON.Vector(5, 5);
+slate.dimensions = new BABYLON.Vector2(10, 10);
+slate.titleBarHeight = 1.5;
 manager.addControl(slate);
 // Must be done AFTER addControl in order to overwrite the default content
-slate.imageUrl = "./textures/Checker_Albedo.png";
+slate.content = new BABYLON.GUI.Image("checkers", "./textures/Checker_Albedo.png");
 ```
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
 The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/features/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
-<Playground id="#SYD2M2#6" title="HolographicSlate" description="Simple Holographic Slate example"/>
+<Playground id="#SYD2M2#10" title="HolographicSlate" description="Simple Holographic Slate example"/>
 
 ### Near Menu
 
