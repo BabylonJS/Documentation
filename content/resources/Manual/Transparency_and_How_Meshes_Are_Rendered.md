@@ -82,7 +82,7 @@ The goal is either to optimize the scene by rendering meshes to the depth buffer
 
 These will be the easiest to render: their polygons are fully drawn on screen with their colors and textures. A depth buffer will be used to make sure nothing is drawn over something that is closer to the camera.
 
-# Alpha Tested Meshes
+## Alpha Tested Meshes
 
 Same as opaque meshes, except that some parts of these meshes can be defined as completely transparent. Alpha test means that each pixel of the mesh can be either opaque (and then drawn on screen and in the depth buffer) or transparent, which means the pixel is completely discarded. Although very efficient, this type of render usually produces aliased borders and does not allow for smooth transparency effects.
 

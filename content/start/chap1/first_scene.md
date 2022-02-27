@@ -45,7 +45,7 @@ Like most meshes created with MeshBuilder the box is created positioned with its
 To be usable in a playground we need to place these within a function called **createScene** which has to return a scene. The playground app takes care of the rest.
 
 ```javascript
-const createScene =  () => {
+const createScene = () => {
     const scene = new BABYLON.Scene(engine);
 
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
