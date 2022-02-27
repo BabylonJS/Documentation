@@ -23,7 +23,7 @@
                         }                        
                     },
                     "wfDeeper": {
-                        "friendlyName": "Workflow Diving Deeper",
+                        "friendlyName": "Diving Deeper",
                         "content": "workflow/divingDeeper/landing_wfdeeper",
                         "children": {
                             "developWithBjs": {
