@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Documentation
+title:
 image:
 description: Welcome to the Babylon.js Documentation.
 keywords: welcome, babylon.js
