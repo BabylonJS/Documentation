@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-This page explains what is the 3D Commerce Viewer Certification Program and how to get a certified viewer version based on the Babylon.js engine.
+This page will walk you through the 3D Commerce Viewer Certification Program, what it is, and how to get a certified viewer version based on the Babylon.js engine.
 
 ## 3D Commerce Viewer Certification Program
 
@@ -18,7 +18,7 @@ The Viewer Certification Program enables 3D viewers across the industry to demon
 
 ![3D Viewer Certification Program Overview (source: Khronos Web site)](/img/how_to/3D-commerce-certif/2021-3dcommerce-certification-overview.jpg)
 
-It is still the early days of this program and as a member of this working group, the Babylon.js Team is fully engaged to develop and support its adoption. More info on the [**3D Commerce Web site**](https://www.khronos.org/3dcommerce/).
+This program is still in its early days and as a member of this working group, the Babylon.js Team is fully engaged in helping to develop and support its adoption. More info on the [**3D Commerce Web site**](https://www.khronos.org/3dcommerce/).
 
 ## Babylon.js Sandbox - certified version
 
