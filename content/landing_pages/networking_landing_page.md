@@ -10,4 +10,4 @@ video-content:
 
 ## Networking
 
-Learn how to make a networked Babylon.js experience.
+In this section, you can learn how to create networked Babylon.js experiences such as multiplayer games or remote multi-user interactions.
