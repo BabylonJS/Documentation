@@ -29,10 +29,12 @@ The raw files for the assets available through the Asset Librarian can be found 
 
 This library of assets is free, open-source, and available for anyone to use under the [Creative Commons 0](https://creativecommons.org/share-your-work/public-domain/cc0/) license.
 
-If you would like to contribute your own assets to the asset repository, you are ABSOLUTELY encouraged to do so. This is the spirit of Open Source Software. However, by doing so, please be aware that the Babylon Development Team reserves the right to accept or decline ANY asset being contributed to this library. 
+If you would like to contribute your own assets to the asset repository, you are ABSOLUTELY encouraged to do so. This is the spirit of Open Source Software. 
 
 We will gladly accept assets that:
 1) Are family-friendly, safe, and welcoming to everyone.
 2) Can be useful to anyone (no custom airplane turbine mounting bracket CAD files please)
+
+Please be aware that the Babylon Development Team reserves the right to accept, decline, or remove ANY asset being contributed to this library for any reason, including: overusing hosting resources, content that is not family-friendly, safe, or welcoming of everyone, content that does not benefit the greater community.
 
 Also please understand that by contributing your assets to the asset repository, you are offering your assets freely under the [Creative Commons 0](https://creativecommons.org/share-your-work/public-domain/cc0/) license. Only assets that are given freely to the public domain will be accepted.
