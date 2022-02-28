@@ -888,6 +888,17 @@
                     },
                     "content": "landing_pages/video_landing_page"
                 },
+                "multiplayer": {
+                    "friendlyName": "Networking",
+                    "children": {
+                        "Colyseus": {
+                            "friendlyName": "Real-time Multiplayer with Colyseus",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus"
+                        }
+                    },
+                    "content": "landing_pages/networking_landing_page"
+                },
                 "workshop": {
                     "friendlyName": "Workshop",
                     "children": {
