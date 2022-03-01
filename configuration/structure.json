@@ -24,24 +24,17 @@
                     },
                     "wfDeeper": {
                         "friendlyName": "Diving Deeper",
-                        "content": "workflow/divingDeeper/landing_wfdeeper",
+                        "content": "landing_pages/divingDeeperDevelopingLandingPage",
                         "children": {
-                            "developWithBjs": {
-                                "friendlyName": "Develop With Babylon.js",
-                                "children": {
-                                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
-                                    "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
-                                    "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
-                                    "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
-                                    "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                                    "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
-                                    "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
-                                    "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" },
-                                    "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
-                                    "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
-                                },
-                                "content": "landing_pages/divingDeeperDevelopingLandingPage"
-                            }
+                            "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
+                            "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
+                            "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
+                            "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
+                            "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
+                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
+                            "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
+                            "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
+                            "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
                         }
                     }                    
                 }
@@ -1217,6 +1210,10 @@
                             "validationTests": { 
                                 "friendlyName": "Validation Tests", 
                                 "content": "How_To/contribute/validation_tests"
+                            },
+                            "usingThePlaygroundForBJSDev": { 
+                                "friendlyName": "From Playground to Contribution",
+                                "content": "How_To/contribute/use_playground" 
                             },
                             "contributeToAPI": { 
                                 "friendlyName": "Contribute To The API",

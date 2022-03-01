@@ -1,5 +1,5 @@
 ---
-title: Using the Playground for Development in Babylon.js
+title: From Playground to Contribution
 image: 
 description: Learn all about making your development process easier with the super handy playground.
 keywords: diving deeper, contribution, contribute, open-source, oss, playground, develope
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-# Using the Playground in Development of BJS
+## Using the TypeScript Playground in the Development of BJS
 
 During the early stages of developing code to contribute to Babylon.js it can be useful to try out that code in the Playground. Just ensure that the Playground is in Typescript mode by using the link https://www.babylonjs-playground.com/ts.html# . The `New` button will then give you the starting code. 
 
@@ -41,7 +41,7 @@ export class BezierSurface {
 
 Once you are happy the code works and you have copied it to your local repository then before submitting your PR please make sure you have read the following to ensure a smooth positive result.
 
-[Start Contibuting](how to start contributing)  
+[Start Contibuting](/contribute/howToStart)  
 [Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)  
 [Code Guidelines](/workflow/wfDeeper/developWithBjs/approvedNamingConventions)  
 [Comments in the API](/contributeToAPI)
