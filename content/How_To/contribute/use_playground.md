@@ -18,7 +18,7 @@ Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS
 
 The first step is to produce code that works. You can of course immediately follow the steps in [how to start contributing](/contribute/howToStart) and of course before submitting a PR there will have to be working code submitted as described on this page. However you might not yet be confident with the whole approach of forking the code, using git, setting up an IDE and pull requests but are familiar with using Typescript.
 
-So an alternative is to try out the code in the playground. The following playground shows the Typescript code for a bezier surface which is in development with the playground.
+An alternative is to try out the code in the playground. The following playground shows the Typescript code for a bezier surface which is in development with the playground.
 
 <Playground id="H3AF26#1" title="Playground Code Example - Bezier Surface" description="Simple playground example of a Bezier Surface." image="/img/playgroundsAndNMEs/features/divingDeeperUsingPlaygrounds1.jpg"/>
 
