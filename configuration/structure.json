@@ -138,6 +138,11 @@
                     },
                     "content": "landing_pages/divingDeeperCamerasLandingPage"
                 },
+                "3D_commerce_certif": {
+                    "friendlyName": "3D Commerce Certification",
+                    "children": {},
+                    "content": "How_To/3D_commerce_certif/3D_commerce_certif"
+                },
                 "controls": {
                     "friendlyName": "2D Controls",
                     "children": {
@@ -887,6 +892,17 @@
                         }
                     },
                     "content": "landing_pages/video_landing_page"
+                },
+                "multiplayer": {
+                    "friendlyName": "Networking",
+                    "children": {
+                        "Colyseus": {
+                            "friendlyName": "Real-time Multiplayer with Colyseus",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus"
+                        }
+                    },
+                    "content": "landing_pages/networking_landing_page"
                 },
                 "workshop": {
                     "friendlyName": "Workshop",
