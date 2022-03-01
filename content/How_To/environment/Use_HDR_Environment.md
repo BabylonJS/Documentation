@@ -113,7 +113,7 @@ Once you are satisfied with the overall result, just click on `save environment`
 **Please do not forget to write full name with extension in order to make the save works correctly**.
 
 ### Creating a dds environment file from LYS
-[Lys](https://www.knaldtech.com/lys/) can be find on the [knaldtech](https://www.knaldtech.com/lys/) website.
+[Lys](https://www.knaldtech.com/lys/) can be found on the [knaldtech](https://www.knaldtech.com/lys/) website.
 
 Using Lys, the output quality of the generated mipmaps will be a higher standard really close in roughness response to the Unity standard materials. You could generate with Lys: 128, 256 or 512 px wide dds cube texture.
 
