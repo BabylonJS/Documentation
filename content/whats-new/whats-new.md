@@ -952,7 +952,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 #### Post-Processes Library
 
--   Added the [Ocean](/features/toolsAndResources/assetLibraries/materialsLibrary/waterMat) post-process ([julien-moreau](https://github.com/julien-moreau))
+-   Added the [Ocean](/features/divingDeeper/materials/using/materialsLibrary/waterMat) post-process ([julien-moreau](https://github.com/julien-moreau))
 
 #### Materials Library
 
@@ -1937,7 +1937,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   New UniversalCamera which support keyboard, mouse, touch and gamepad ([davrous](https://github.com/davrous))
 -   Point lights shadow mapping. [Demo here](https://www.babylonjs-playground.com/#XDNVAY#0) ([deltakosh](https://github.com/deltakosh))
 -   Introducing [Materials Library](https://github.com/BabylonJS/Babylon.js/tree/master/materialsLibrary) ([deltakosh](https://github.com/deltakosh))
-    -   Water material: //doc.babylonjs.com/features/toolsAndResources/assetLibraries/materialsLibrary/waterMat. [Demo here](https://www.babylonjs.com/Demos/WaterMaterial/) ([julien-moreau](https://github.com/julien-moreau))
+    -   Water material: //doc.babylonjs.com/features/divingDeeper/materials/using/materialsLibrary/waterMat. [Demo here](https://www.babylonjs.com/Demos/WaterMaterial/) ([julien-moreau](https://github.com/julien-moreau))
     -   Fire material: //doc.babylonjs.com/features/extensions/fire. [Demo here](https://www.babylonjs.com/Demos/FireMaterial/) ([julien-moreau](https://github.com/julien-moreau))
     -   Normal material: //doc.babylonjs.com/features/extensions/normal ([temechon](https://github.com/temechon))
     -   Lava Material: //doc.babylonjs.com/features/extensions/lava ([temechon](https://github.com/temechon))

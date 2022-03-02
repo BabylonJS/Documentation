@@ -266,6 +266,25 @@
                                             "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
                                             "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
                                             "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
+                                            "materialsLibrary": {
+                                                "friendlyName": "The Materials Library",
+                                                "children": {
+                                                    "fireMat": { "friendlyName": "Fire", "children": {}, "content": "extensions/MaterialsLibrary/Fire" },
+                                                    "waterMat": { "friendlyName": "Water", "children": {}, "content": "extensions/MaterialsLibrary/Water" },
+                                                    "lavaMat": { "friendlyName": "Lava", "children": {}, "content": "extensions/MaterialsLibrary/Lava" },
+                                                    "furMat": { "friendlyName": "Fur", "children": {}, "content": "extensions/MaterialsLibrary/Fur" },
+                                                    "normalMat": { "friendlyName": "Normal", "children": {}, "content": "extensions/MaterialsLibrary/Normal" },
+                                                    "terrainMat": { "friendlyName": "Terrain", "children": {}, "content": "extensions/MaterialsLibrary/Terrain" },
+                                                    "triPlanarMat": { "friendlyName": "Tri-Planar", "children": {}, "content": "extensions/MaterialsLibrary/Tri_Planar_Mapping" },
+                                                    "gradientMat": { "friendlyName": "Gradient", "children": {}, "content": "extensions/MaterialsLibrary/Gradient" },
+                                                    "skyMat": { "friendlyName": "Sky", "children": {}, "content": "extensions/MaterialsLibrary/Sky" },
+                                                    "gridMat": { "friendlyName": "Grid", "children": {}, "content": "extensions/MaterialsLibrary/Grid" },
+                                                    "shadowOnlyMat": { "friendlyName": "Shadow Only", "children": {}, "content": "extensions/MaterialsLibrary/ShadowOnly" },
+                                                    "cellShadingMat": { "friendlyName": "Cell Shading", "children": {}, "content": "extensions/MaterialsLibrary/Cell" },
+                                                    "mixMat": { "friendlyName": "Mix", "children": {}, "content": "extensions/MaterialsLibrary/Mix" }
+                                                },
+                                                "content": "landing_pages/toolsAndResourcesMatLibraryLandingPage"
+                                            },
                                             "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
                                             "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
                                             "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
@@ -278,6 +297,19 @@
                                             "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
                                             "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
                                             "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
+                                            "proceduralTexturesLibrary": {
+                                                "friendlyName": "The Procedural Textures Library",
+                                                "children": {
+                                                    "brick": { "friendlyName": "Brick", "children": {}, "content": "extensions/ProceduralTexturesLibrary/BrickProceduralTexture" },
+                                                    "cloud": { "friendlyName": "Cloud", "children": {}, "content": "extensions/ProceduralTexturesLibrary/CloudProceduralTexture" },
+                                                    "fire": { "friendlyName": "Fire", "children": {}, "content": "extensions/ProceduralTexturesLibrary/FireProceduralTexture" },
+                                                    "grass": { "friendlyName": "Grass", "children": {}, "content": "extensions/ProceduralTexturesLibrary/GrassProceduralTexture" },
+                                                    "marble": { "friendlyName": "Marble", "children": {}, "content": "extensions/ProceduralTexturesLibrary/MarbleProceduralTexture" },
+                                                    "road": { "friendlyName": "Road", "children": {}, "content": "extensions/ProceduralTexturesLibrary/RoadProceduralTexture" },
+                                                    "wood": { "friendlyName": "Wood", "children": {}, "content": "extensions/ProceduralTexturesLibrary/WoodProceduralTexture" }
+                                                },
+                                                "content": "landing_pages/toolsAndResourcesProceduralTexturesLibraryLandingPage"
+                                            },
                                             "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
                                             "materialPlugins": { "friendlyName": "Material Plugins", "children": {}, "content": "How_To/material/Material_plugins" }
                                         },
@@ -535,7 +567,15 @@
                                     "dofLenseEffects": { "friendlyName": "Depth of Field and Other Lens Effects", "children": {}, "content": "How_To/Post_Process/Using_depth-of-field_and_other_lens_effects" },
                                     "motionBlurPostProcess": { "friendlyName": "Motion Blur Post Process", "children": {}, "content": "How_To/Post_Process/Using_MotionBlurPostProcess" },
                                     "screenSpaceReflectionsPostProcess": { "friendlyName": "Screen Space Reflections (SSR) Post Process", "children": {}, "content": "How_To/Post_Process/Using_ScreenSpaceReflectionsPostProcess" },
-                                    "renderTargetTextureMultiPass": { "friendlyName": "Using RenderTargetTexture and Multiple Passes", "children": {}, "content": "How_To/Post_Process/How_to_use_RenderTargetTexture_and_multiple_passes" }
+                                    "renderTargetTextureMultiPass": { "friendlyName": "Using RenderTargetTexture and Multiple Passes", "children": {}, "content": "How_To/Post_Process/How_to_use_RenderTargetTexture_and_multiple_passes" },
+                                    "postProcessLibrary": {
+                                        "friendlyName": "The Post Process Library",
+                                        "children": {
+                                            "asciiArtPP": { "friendlyName": "Ascii Art", "children": {}, "content": "extensions/PostProcessLibrary/AsciiArtPostProcess" },
+                                            "digitalRainPP": { "friendlyName": "Digital Rain", "children": {}, "content": "extensions/PostProcessLibrary/DigitalRainPostProcess" }
+                                        },
+                                        "content": "landing_pages/toolsAndResourcesPostProcessLibraryLandingPage"
+                                    }
                                 },
                                 "content": "landing_pages/divingDeeperPostProcessesLandingPage"
                             },
@@ -692,34 +732,14 @@
                     "toolsAndResources": {
                         "friendlyName": "Tools and Resources",
                         "children": {
-                            "tools": {
-                                "friendlyName": "Tools",
+                            "inspector": {
+                                "friendlyName": "Inspector",
                                 "children": {
-                                    "inspector": {
-                                        "friendlyName": "Inspector",
-                                        "children": {
-                                            "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
-                                            "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
-                                        },
-                                        "content": "landing_pages/PGsupport/Playground_debuglayer"
-                                    },
+                                    "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
                                     "animationCurveEditor": {
                                         "friendlyName": "Animation Curve Editor",
                                         "children": {},
                                         "content": "landing_pages/toolsAndResourcesACELandingPage"
-                                    },
-                                    "guiEditor": {
-                                        "friendlyName": "Gui Editor",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
-                                    },
-                                    "nme": {
-                                        "friendlyName": "Node Material Editor",
-                                        "children": {
-                                            "customFrames": { "friendlyName": "Custom Frames", "children": {}, "content": "How_To/material/NMECustom_Frames" },
-                                            "customBlocks": { "friendlyName": "Custom Blocks", "children": {}, "content": "How_To/material/NMECustom_Blocks" }
-                                        },
-                                        "content": "landing_pages/toolsAndResourcesNMELandingPage"
                                     },
                                     "particleEditor": {
                                         "friendlyName": "Particle Editor",
@@ -745,55 +765,23 @@
                                         "friendlyName": "Performance Profiler",
                                         "children": {},
                                         "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
-                                    }
+                                    },
+                                    "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
                                 },
-                                "content": "landing_pages/toolsAndResourcesToolsLandingPage"
+                                "content": "landing_pages/PGsupport/Playground_debuglayer"
                             },
-                            "assetLibraries": {
-                                "friendlyName": "Available Asset Libraries",
+                            "guiEditor": {
+                                "friendlyName": "Gui Editor",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
+                            },
+                            "nme": {
+                                "friendlyName": "Node Material Editor",
                                 "children": {
-                                    "materialsLibrary": {
-                                        "friendlyName": "The Materials Library",
-                                        "children": {
-                                            "fireMat": { "friendlyName": "Fire", "children": {}, "content": "extensions/MaterialsLibrary/Fire" },
-                                            "waterMat": { "friendlyName": "Water", "children": {}, "content": "extensions/MaterialsLibrary/Water" },
-                                            "lavaMat": { "friendlyName": "Lava", "children": {}, "content": "extensions/MaterialsLibrary/Lava" },
-                                            "furMat": { "friendlyName": "Fur", "children": {}, "content": "extensions/MaterialsLibrary/Fur" },
-                                            "normalMat": { "friendlyName": "Normal", "children": {}, "content": "extensions/MaterialsLibrary/Normal" },
-                                            "terrainMat": { "friendlyName": "Terrain", "children": {}, "content": "extensions/MaterialsLibrary/Terrain" },
-                                            "triPlanarMat": { "friendlyName": "Tri-Planar", "children": {}, "content": "extensions/MaterialsLibrary/Tri_Planar_Mapping" },
-                                            "gradientMat": { "friendlyName": "Gradient", "children": {}, "content": "extensions/MaterialsLibrary/Gradient" },
-                                            "skyMat": { "friendlyName": "Sky", "children": {}, "content": "extensions/MaterialsLibrary/Sky" },
-                                            "gridMat": { "friendlyName": "Grid", "children": {}, "content": "extensions/MaterialsLibrary/Grid" },
-                                            "shadowOnlyMat": { "friendlyName": "Shadow Only", "children": {}, "content": "extensions/MaterialsLibrary/ShadowOnly" },
-                                            "cellShadingMat": { "friendlyName": "Cell Shading", "children": {}, "content": "extensions/MaterialsLibrary/Cell" },
-                                            "mixMat": { "friendlyName": "Mix", "children": {}, "content": "extensions/MaterialsLibrary/Mix" }
-                                        },
-                                        "content": "landing_pages/toolsAndResourcesMatLibraryLandingPage"
-                                    },
-                                    "postProcessLibrary": {
-                                        "friendlyName": "The Post Process Library",
-                                        "children": {
-                                            "asciiArtPP": { "friendlyName": "Ascii Art", "children": {}, "content": "extensions/PostProcessLibrary/AsciiArtPostProcess" },
-                                            "digitalRainPP": { "friendlyName": "Digital Rain", "children": {}, "content": "extensions/PostProcessLibrary/DigitalRainPostProcess" }
-                                        },
-                                        "content": "landing_pages/toolsAndResourcesPostProcessLibraryLandingPage"
-                                    },
-                                    "proceduralTexturesLibrary": {
-                                        "friendlyName": "The Procedural Textures Library",
-                                        "children": {
-                                            "brick": { "friendlyName": "Brick", "children": {}, "content": "extensions/ProceduralTexturesLibrary/BrickProceduralTexture" },
-                                            "cloud": { "friendlyName": "Cloud", "children": {}, "content": "extensions/ProceduralTexturesLibrary/CloudProceduralTexture" },
-                                            "fire": { "friendlyName": "Fire", "children": {}, "content": "extensions/ProceduralTexturesLibrary/FireProceduralTexture" },
-                                            "grass": { "friendlyName": "Grass", "children": {}, "content": "extensions/ProceduralTexturesLibrary/GrassProceduralTexture" },
-                                            "marble": { "friendlyName": "Marble", "children": {}, "content": "extensions/ProceduralTexturesLibrary/MarbleProceduralTexture" },
-                                            "road": { "friendlyName": "Road", "children": {}, "content": "extensions/ProceduralTexturesLibrary/RoadProceduralTexture" },
-                                            "wood": { "friendlyName": "Wood", "children": {}, "content": "extensions/ProceduralTexturesLibrary/WoodProceduralTexture" }
-                                        },
-                                        "content": "landing_pages/toolsAndResourcesProceduralTexturesLibraryLandingPage"
-                                    }
+                                    "customFrames": { "friendlyName": "Custom Frames", "children": {}, "content": "How_To/material/NMECustom_Frames" },
+                                    "customBlocks": { "friendlyName": "Custom Blocks", "children": {}, "content": "How_To/material/NMECustom_Blocks" }
                                 },
-                                "content": "landing_pages/toolsAndResourcesAssetLibrariesLandingPage"
+                                "content": "landing_pages/toolsAndResourcesNMELandingPage"
                             },
                             "utilities": {
                                 "friendlyName": "Utility Functions",
