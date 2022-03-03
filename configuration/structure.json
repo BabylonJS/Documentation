@@ -31,10 +31,7 @@
                             "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
                             "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                             "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
-                            "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
-                            "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
-                            "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
+                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" }
                         }
                     }                    
                 }
@@ -1206,7 +1203,10 @@
                             "contributeToAPI": { 
                                 "friendlyName": "Contribute To The API",
                                 "content":  "How_To/contribute/contribute_to_api"
-                            }
+                            },
+                            "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
+                            "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
+                            "proceduralTextureForTexLibrary": { "friendlyName": "Create a Procedural Texture for the Procedural Textures Library", "children": {}, "content": "How_To/contribute/How_to_create_a_proceduralTexture_for_procedutalTexturesLibrary" }
                         }
                     },
                     "contributeToDocs": { 
