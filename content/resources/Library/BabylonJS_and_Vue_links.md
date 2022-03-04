@@ -32,7 +32,7 @@ https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
 [The BabylonJS GUI](/features/divingDeeper/gui/gui "BabylonJS GUI")
 
-[The BabylonJS Inspector not just for debugging](/features/toolsAndResources/tools/inspector "BabylonJS Inspector")
+[The BabylonJS Inspector not just for debugging](/toolsAndResources/tools/inspector "BabylonJS Inspector")
 
 [Installing BabylonJS - ES6 tutorial](/workflow/wfDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial")
 

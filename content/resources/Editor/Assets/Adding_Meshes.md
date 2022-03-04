@@ -37,7 +37,7 @@ Simply go to the "Assets" panel of the Editor and click "Add...". A dialog opens
 ## Examining the asset
 Once the asset has been added to the project, we can examine the asset's file by `double clicking` on it. This will open a new window and open the `Inspector` of Babylon.JS with the asset rendered.
 
-You can refer to [the inspector documentation](/features/toolsAndResources/tools/inspector) to understand how to use the Babylon.JS Inspector.
+You can refer to [the inspector documentation](/toolsAndResources/tools/inspector) to understand how to use the Babylon.JS Inspector.
 
 ![Examining](/img/features/extensions/Editor/AddingMeshes/examining.gif)
 

@@ -241,7 +241,7 @@ This goes through the entire scene, looks for what the lightSphere intersects wi
 
 PG: <Playground id="#WJWSNL" title="Lanterns Playground" description="Playground Creation and Positioning of Multiple Lights."/>
 
-**Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/features/guidedLearning/createAGame/performance#lights) section.**
+**Note: the implementation for the lights here is what I had before making adjustments during the performance phase. If you'd like to see the final version, take a look at the [performance](/guidedLearning/createAGame/performance#lights) section.**
 
 Now, when you run the game and collide with the lanterns, you should see their materials change (except the first one since that one is pre-lit)!
 

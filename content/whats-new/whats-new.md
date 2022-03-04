@@ -781,7 +781,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 -   New [fancy forum](https://forum.babylonjs.com)! ([Deltakosh](https://github.com/deltakosh))
--   [Inspector v2.0](/features/toolsAndResources/tools/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
+-   [Inspector v2.0](/toolsAndResources/tools/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
 -   Added support for [parallel shader compilation](https://www.khronos.org/registry/webgl/features/extensions/KHR_parallel_shader_compile/) ([Deltakosh](https://github.com/deltakosh))
 -   Added [Object Based Motion Blur](http://doc.babylonjs.com/how_to/using_motionblurpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
 -   Added [support for ammo.js](/features/divingDeeper/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
@@ -2219,7 +2219,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Support for [user marks](http://blogs.msdn.com/b/eternalcoding/archive/2015/02/02/using-user-mark-to-analyze-performance-of-your-javascript-code.aspx) ([deltakosh](https://github.com/deltakosh))
 -   Using High Resolution Time for performance and FPS measurement ([deltakosh](https://github.com/deltakosh))
 -   Easing functions for animations. More info [here](//doc.babylonjs.com//features/divingDeeper/animation/animation_introduction#easing-functions) ([mimetis](https://github.com/mimetis))
--   New debug layer than can be used to display debug informations. More info [here](//doc.babylonjs.com/features/toolsAndResources/tools/inspector) ([deltakosh](https://github.com/deltakosh))
+-   New debug layer than can be used to display debug informations. More info [here](//doc.babylonjs.com/toolsAndResources/tools/inspector) ([deltakosh](https://github.com/deltakosh))
 -   New `PolygonMeshBuilder` object used to create mesh from [polygons](https://www.babylonjs-playground.com/#10IOII%231) ([ElemarJR](https://github.com/ElemarJR))
 -   New `Mesh.simplify()` function to automatically simplify meshes. More info [here](//doc.babylonjs.com/how_to/in-browser_mesh_simplification) ([raananw](https://github.com/raananw))
 -   New `scene.enableDepthRenderer()` to register depth texture rendering. More info [here](//doc.babylonjs.com/how_to/how_to_use_depthrenderer_to_get_depth_values) ([deltakosh](https://github.com/deltakosh))

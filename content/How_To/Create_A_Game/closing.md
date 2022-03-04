@@ -5,7 +5,7 @@ description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, feedback
 further-reading:
     - title: Bonus Page About The Design Process, 3D Modeling and Art Assets
-      url: /features/guidedLearning/createAGame/designArt
+      url: /guidedLearning/createAGame/designArt
 video-overview:
 video-content:
 ---

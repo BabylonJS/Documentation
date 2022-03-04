@@ -17,7 +17,7 @@ var house buildFromPlan(walls, ply, height, options, scene);
 ```
 which requires an additional prototype to `PolygonMeshBuilder`.
 
-The code for both of these is given below and can be copied and used in your own projects. Further details can be found by reading the [development of this code](/features/guidedLearning/workshop/House). 
+The code for both of these is given below and can be copied and used in your own projects. Further details can be found by reading the [development of this code](/guidedLearning/workshop/House). 
 
 The parameters are
 

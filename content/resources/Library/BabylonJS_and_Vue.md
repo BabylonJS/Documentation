@@ -41,7 +41,7 @@ If you want to use the [BabylonJS GUI](/features/divingDeeper/gui "BabylonJS GUI
 npm install babylonjs-gui
 ```
 
-If you want to use the BabylonJS [Inspector](/features/toolsAndResources/tools/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
+If you want to use the BabylonJS [Inspector](/toolsAndResources/tools/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
 
 ```bash
 npm install @babylonjs/inspector

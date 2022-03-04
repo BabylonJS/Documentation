@@ -5,9 +5,9 @@ description: How to Create Goldberg Polyhedra
 keywords: goldberg, polyhedron, polyhedra, dome
 further-reading:
   - title: Geodesic and Goldberg Polyhedra Code Design
-    url: /features/guidedLearning/workshop/Geodesic_Code
+    url: /guidedLearning/workshop/Geodesic_Code
   - title: Geodesic and Goldberg Polyhedra Mathematics
-    url: /features/guidedLearning/workshop/Geodesic_Math
+    url: /guidedLearning/workshop/Geodesic_Math
   - title: Icosphere
     url: /features/divingDeeper/mesh/creation/polyhedra/icosphere
 video-overview:
@@ -20,7 +20,7 @@ Within Babylon.js a Goldberg polyhedron (GBP) is formed as a dual of an icosahed
 ![Dual](/img/snippets/geo31.png)  
 Fig 1 - The red grid is the dual of the blue grid and vice-versa.
 
-On this page we explain how to create a GBP directly. More information about [GBP Mathematics](/features/guidedLearning/workshop/Geodesic_Math) and the [first development stage of coding a GBP](/features/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
+On this page we explain how to create a GBP directly. More information about [GBP Mathematics](/guidedLearning/workshop/Geodesic_Math) and the [first development stage of coding a GBP](/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
 
 A GBP can only be created using ```MeshBuilder```
 

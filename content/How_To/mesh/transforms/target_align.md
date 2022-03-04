@@ -9,7 +9,7 @@ further-reading:
     - title: Path3D
       url: /features/divingDeeper/mesh/path3D
     - title: How to Create a Track with Custom Alignments
-      url: /features/guidedLearning/workshop/Track
+      url: /guidedLearning/workshop/Track
 video-overview:
 video-content:
 ---

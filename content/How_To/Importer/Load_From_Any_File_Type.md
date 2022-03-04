@@ -15,9 +15,9 @@ further-reading:
     - title: Load Files with Assets Manager
       url: /features/divingDeeper/importers/assetManager
     - title: Available Meshes for Importing into Playground
-      url: /features/toolsAndResources/assetLibraries/availableMeshes
+      url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /features/toolsAndResources/tools/playground/externalPGAssets
+      url: /toolsAndResources/tools/playground/externalPGAssets
     - title: SceneLoader
       url: /typedoc/classes/babylon.sceneloader
 video-overview:

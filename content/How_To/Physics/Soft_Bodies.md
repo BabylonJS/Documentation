@@ -80,13 +80,13 @@ You may have to do a trial and error on the above parameters to get the effect y
 
 ## The Softbody Soft Body
 
-A softbody is a 3D soft body. To ensure that the body is not pulled apart the mesh used has to have [shared vertices](/features/toolsAndResources/utilities/Minimise_Vertices). This is achieved using
+A softbody is a 3D soft body. To ensure that the body is not pulled apart the mesh used has to have [shared vertices](/toolsAndResources/utilities/Minimise_Vertices). This is achieved using
 
 ```javascript
 mesh.forceSharedVertices()
 ```
 
-It also has to have sufficient vertices to simulate the body. Where the mesh used cannot [increase the number of vertices](/features/toolsAndResources/utilities/Increasing_Facets) in its construction, a box for example, you use 
+It also has to have sufficient vertices to simulate the body. Where the mesh used cannot [increase the number of vertices](/toolsAndResources/utilities/Increasing_Facets) in its construction, a box for example, you use 
 
 ```javascript
 mesh.increaseVertices(n);

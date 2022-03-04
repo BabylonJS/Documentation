@@ -5,9 +5,9 @@ description: Learn about the free available textures in the Babylon.js texture l
 keywords: babylon.js, tools, resources, assets, library, textures
 further-reading:
     - title: Meshes Available to Import into the Playground
-      url: /features/toolsAndResources/assetLibraries/availableMeshes
+      url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /features/toolsAndResources/tools/playground/externalPGAssets
+      url: /toolsAndResources/tools/playground/externalPGAssets
 video-overview:
 video-content:
 ---

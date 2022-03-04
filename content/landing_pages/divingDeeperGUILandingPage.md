@@ -75,7 +75,7 @@ The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
 
 #### Pros
 
-* There’s now an awesome [GUI Editor](/features/toolsAndResources/tools/guiEditor) to make interface creation easier!
+* There’s now an awesome [GUI Editor](/toolsAndResources/tools/guiEditor) to make interface creation easier!
 * Tight integration with 3D scene
 * Ability to optionally apply scene post processing effects to GUI as well
 * Ability to apply/link GUI elements and meshes

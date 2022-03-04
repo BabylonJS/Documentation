@@ -5,9 +5,9 @@ description: How to Create Geodesic Polyhedra
 keywords: geodesic, polyhedron, polyhedra, dome
 further-reading:
   - title: Geodesic and Goldberg Polyhedra Code Design
-    url: /features/guidedLearning/workshop/Geodesic_Code
+    url: /guidedLearning/workshop/Geodesic_Code
   - title: Geodesic and Goldberg Polyhedra Mathematics
-    url: /features/guidedLearning/workshop/Geodesic_Math
+    url: /guidedLearning/workshop/Geodesic_Math
   - title: Icosphere
     url: /features/divingDeeper/mesh/creation/polyhedra/icosphere
   - title: Creating Polyhedra
@@ -19,7 +19,7 @@ video-content:
 ## Geodesic Polyhedron
 Within Babylon.js a geodesic polyhedron (GDP) is formed for an icosahedron base and its vertices mapped onto a sphere. An icosahedron made 20 faces each a primary equilateral triangles. To form a GDP each face is split into further equilateral triangles forming an isometric grid. Before creating the GDP this grid can be rotated by an angle determined by the values of two parameters m and n both integers. When n is 0 no rotation of the grid takes place and the resulting GDP is an icosphere.
 
-On this page we explain how to create a GDP directly. More information about [GDP Mathematics](/features/guidedLearning/workshop/Geodesic_Math) and [an outline of coding a GDP](/features/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
+On this page we explain how to create a GDP directly. More information about [GDP Mathematics](/guidedLearning/workshop/Geodesic_Math) and [an outline of coding a GDP](/guidedLearning/workshop/Geodesic_Code) are available in the documentation workshop.
 
 The format for creating a GDP very much matches that of ```CreatePolyhedron```. A GDP can only be created with ```MeshBuilder```.
 

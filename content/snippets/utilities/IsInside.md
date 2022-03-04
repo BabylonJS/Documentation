@@ -5,9 +5,9 @@ description: Helpful code snippet for checking when a point is inside of a mesh 
 keywords: babylon.js, tools, resources, utilities, inside
 further-reading:
     - title: How To Create Points on a Mesh Surface
-      url: /features/toolsAndResources/utilities/SurfaceMeshPoints
+      url: /toolsAndResources/utilities/SurfaceMeshPoints
     - title: How To Create Points Inside a Mesh
-      url: /features/toolsAndResources/utilities/InnerMeshPoints
+      url: /toolsAndResources/utilities/InnerMeshPoints
 video-overview:
 video-content:
 ---

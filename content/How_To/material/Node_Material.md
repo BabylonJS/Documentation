@@ -14,7 +14,7 @@ further-reading:
       url: https://babylonjs.medium.com/fighting-self-doubt-with-water-3b1509218009
     - title: Creating the Babylon.js Node Material
       url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
-    - /features/toolsAndResources/tools/nme
+    - /toolsAndResources/tools/nme
 video-overview:
 video-content:
     - title: PBR Nodes in Nodes Materials Part 1
@@ -309,7 +309,7 @@ Here's an advanced and fantastic example of creating an impressive Node Material
 
 Now that you've learned how the system works and understand how you can use it to create complex shaders more quickly than learning a new shader language, you should probably know that it can actually get even easier! 
 
-The [Node Material Editor](/features/toolsAndResources/tools/nme) is an incredibly powerful tool that allows you to create and connect blocks in a simple visual editor.
+The [Node Material Editor](/toolsAndResources/tools/nme) is an incredibly powerful tool that allows you to create and connect blocks in a simple visual editor.
 
 ![NME](/img/how_to/Materials/nme.jpg)
 
@@ -324,7 +324,7 @@ When selected in the Inspector, you can find an edit button in the Node Material
 
 You can also use a standalone version of the editor here: <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>
 
-Learn more about the [Node Material Editor here](/features/toolsAndResources/tools/nme).
+Learn more about the [Node Material Editor here](/toolsAndResources/tools/nme).
 
 ### Recreating the StandardMaterial
 

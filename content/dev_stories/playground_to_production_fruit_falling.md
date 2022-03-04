@@ -84,7 +84,7 @@ The first step toward developing production code was to move development
 from [my Playground](https://playground.babylonjs.com/#G4VPXM) into a 
 dedicated repository. The Babylon.js NPM Package Template, a component 
 of the
-[Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+[Template Repository Workflow](/workflow/templates/repos/templateRepositories#the-code-assets-delivery-template-repository-workflow), 
 is designed with this in mind, particularly when migrating code from 
 the Babylon.js Typescript Playground, so I decided to use that.
 
@@ -367,7 +367,7 @@ work the way I wanted it.
     specifying the locations of all the assets used by the game.
 
     As discussed in the Babylon docs on the 
-    [Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow),
+    [Template Repository Workflow](/workflow/templates/repos/templateRepositories#the-code-assets-delivery-template-repository-workflow),
     one of the most varied challenges in deploying Babylon experiences is
     distributing assets. It's best to keep this problem completely separate
     from actually *using* the assets within the code, thus allowing the 
@@ -484,7 +484,7 @@ The speed and convenience of GitHub Pages was great, but it wasn't the end
 goal. Once I had gotten some feedback and was ready to move forward, I 
 next needed to bring my `app_package` code into a real shipping vehicle.
 Continuing with the 
-[Template Repository Workflow](https://doc.babylonjs.com/features/toolsAndResources/templateRepositories#the-template-repository-workflow), 
+[Template Repository Workflow](/workflow/templates/repos/templateRepositories#the-code-assets-delivery-template-repository-workflow), 
 I decided to upload my `app_package` as an NPM package so that it could be
 easily integrated into a huge variety of different shipping solutions.
 

@@ -5,13 +5,13 @@ description: Learn all about the incredibly powerful debug layer called "The Ins
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
   - title: Introduction to the Inspector - video series
-    url: /features/toolsAndResources/tools/inspector/inspectorVideoOverview
+    url: /toolsAndResources/tools/inspector/inspectorVideoOverview
   - title: How To Use The Inspector in Projects
-    url: /features/toolsAndResources/tools/inspector
+    url: /toolsAndResources/tools/inspector
   - title: Dev blog about the inspector
     url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
   - title: Using the Texture Inspector
-    url: /features/toolsAndResources/inspector/textureInspector
+    url: /toolsAndResources/inspector/textureInspector
 video-overview:
 video-content:
 ---
@@ -20,7 +20,7 @@ video-content:
 
 Babylon.js inspector is a visual debugging tool created to help pinpoint issues you may have with a scene.
 
-For a video overview of the inspector, check out [Introduction to the inspector - video series](/features/toolsAndResources/tools/inspector/inspectorVideoOverview).
+For a video overview of the inspector, check out [Introduction to the inspector - video series](/toolsAndResources/tools/inspector/inspectorVideoOverview).
 
 The inspector offers multiple tools like:
 

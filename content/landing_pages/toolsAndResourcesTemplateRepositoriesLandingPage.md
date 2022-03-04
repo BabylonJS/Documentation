@@ -31,7 +31,7 @@ For a detailed example showing how to use the template repositories to
 create a real experience, see [this tutorial]() (NOTE: not a real link;
 tutorial coming soon).
 
-## The Code/Assets/Delivery Template Repository Workflow
+## The Code Assets Delivery Template Repository Workflow
 
 The primary purpose of the template repositories is to suggest and bootstrap
 a workflow for taking Babylon.js 3D experiences from Exploration to 

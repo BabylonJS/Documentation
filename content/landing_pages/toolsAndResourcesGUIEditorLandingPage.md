@@ -267,7 +267,7 @@ backgroundBox.background = "blue";
 <Playground id="#JSF3QM" title="Load a GUI And Modify GUI Control Properties" description="Simple example that shows how to load a GUI and modify GUI controls."/>
 
 #### Playground Templates
-You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/features/toolsAndResources/tools/playground/pgTemplates)
+You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/tools/playground/pgTemplates)
 
 ### Supported Controls
 Here is a list of supported GUI controls available in the GUI Editor:

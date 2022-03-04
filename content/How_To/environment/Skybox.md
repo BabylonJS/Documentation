@@ -56,7 +56,7 @@ Notice that the images match seamlessly at the edges of the box:
 </tr>
 </tbody></table><p/>
 
-You can search the web for "skybox images" to find many examples. These are often a single image of an unfolded cube, which you would need to slice into the six separate images for CubeTexture to load. The [cube textures in the playground library](/features/toolsAndResources/assetLibraries/availableTextures#cubetextures) may also be useful, and they are already in the appropriate format.
+You can search the web for "skybox images" to find many examples. These are often a single image of an unfolded cube, which you would need to slice into the six separate images for CubeTexture to load. The [cube textures in the playground library](/toolsAndResources/assetLibraries/availableTextures#cubetextures) may also be useful, and they are already in the appropriate format.
 
 ## Making the Skybox
 

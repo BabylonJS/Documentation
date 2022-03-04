@@ -7,9 +7,9 @@ further-reading:
     - title: Load from any file type - glTF, OBJ, STL, etc.
       url: /features/divingDeeper/importers/loadingFileTypes
     - title: Textures Available in the Playground
-      url: /features/toolsAndResources/assetLibraries/availableTextures
+      url: /toolsAndResources/assetLibraries/availableTextures
     - title: Using External Assets in the Playground
-      url: /features/toolsAndResources/tools/playground/externalPGAssets
+      url: /toolsAndResources/tools/playground/externalPGAssets
 video-overview:
 video-content:
 ---
@@ -17,7 +17,7 @@ video-content:
 
 ## Available Meshes for Importing into Playground
 
-All the playground examples are loaded using the default environment and default camera methods. All the meshes are different sizes and using the default methods places the camera at a distance where the whole image can be seen clearly. In order to find [values for other cameras](/features/toolsAndResources/assetLibraries/availableMeshes#finding-camera-values) you can use the playground scene inspector.
+All the playground examples are loaded using the default environment and default camera methods. All the meshes are different sizes and using the default methods places the camera at a distance where the whole image can be seen clearly. In order to find [values for other cameras](/toolsAndResources/assetLibraries/availableMeshes#finding-camera-values) you can use the playground scene inspector.
 
 Meshes with a large file size can take some time to load, please be patient.
 
@@ -92,6 +92,6 @@ ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | <Playground id="#058SE
 
 ## Finding Camera Values
 
-To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/features/toolsAndResources/tools/inspector) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
+To check the distance of the camera from the displayed mesh find the radius value by accessing the camera menu from the [playground scene inspector](/toolsAndResources/tools/inspector) tool bar. Other useful values are angles, position and minZ and maxZ ranges.
 
 ![values](/img/resources/meshes/values.png)

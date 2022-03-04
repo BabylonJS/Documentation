@@ -5,7 +5,7 @@ description: The Math used to build Geodesic and Goldberg Polyhedra
 keywords: geodesic, goldberg, icosphere, polyhedron, polyhedra, dome
 further-reading:
   - title: Geodesic and Goldberg Polyhedra Mathematics
-    url: /features/guidedLearning/workshop/Geodesic_Math
+    url: /guidedLearning/workshop/Geodesic_Math
   - title: Icosphere
     url: /features/divingDeeper/mesh/creation/polyhedra/icosphere
 video-overview:
@@ -14,7 +14,7 @@ video-content:
 
 ## Overview
 
-Using the [geodesic mathematics](/features/guidedLearning/workshop/Geodesic_Math) already described the code needed to produce Geodesic and Goldberg polyhedra is developed and tested.
+Using the [geodesic mathematics](/guidedLearning/workshop/Geodesic_Math) already described the code needed to produce Geodesic and Goldberg polyhedra is developed and tested.
 
 ## Isometric Vectors
 

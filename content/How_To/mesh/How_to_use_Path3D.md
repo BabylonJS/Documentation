@@ -11,7 +11,7 @@ further-reading:
     - title: How To Draw Curves
       url: /features/divingDeeper/mesh/drawCurves
     - title: How to Create a Track with Custom Alignments
-      url: /features/guidedLearning/workshop/Track
+      url: /guidedLearning/workshop/Track
 video-overview:
 video-content:
 ---

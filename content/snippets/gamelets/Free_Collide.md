@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-After considering the [issues](/features/guidedLearning/workshop/Issues) involved and slow [slow particles](/features/guidedLearning/workshop/Slow_Collide) we are now ready to consider **free particles**, ones that move with no restriction to their start position or velocity.
+After considering the [issues](/guidedLearning/workshop/Issues) involved and slow [slow particles](/guidedLearning/workshop/Slow_Collide) we are now ready to consider **free particles**, ones that move with no restriction to their start position or velocity.
 
 The velocity of a particle is its displacement per frame.
 
@@ -172,5 +172,5 @@ Maximum speeds, for both,  can be changed on lines 21 to 23.
 
 ## Further Reading
 
-[Slow Particles](/features/guidedLearning/workshop/Slow_Collide)  
+[Slow Particles](/guidedLearning/workshop/Slow_Collide)  
 

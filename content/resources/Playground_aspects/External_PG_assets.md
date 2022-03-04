@@ -5,9 +5,9 @@ description: Learn how to use external assets in the playground in Babylon.js.
 keywords: babylon.js, tools, resources, playground
 further-reading:
     - title: Textures Directly Available to the Playground
-      url: /features/toolsAndResources/assetLibraries/availableTextures
+      url: /toolsAndResources/assetLibraries/availableTextures
     - title: Meshes Available to Import into the Playground
-      url: /features/toolsAndResources/assetLibraries/availableMeshes
+      url: /toolsAndResources/assetLibraries/availableMeshes
 video-overview:
 video-content:
     - title: Using External Assets In the Playground
@@ -18,7 +18,7 @@ video-content:
 
 Sometimes you might want to load you own assets into the playground. Should the reason for doing so be to get help with a feature please think carefully before doing so.
 
-It is very likely that the issue you are struggling with can be isolated and presented in a simplified and more focused form using basic meshes and existing [textures](/features/toolsAndResources/assetLibraries/availableTextures) and [models](/features/toolsAndResources/assetLibraries/availableMeshes).
+It is very likely that the issue you are struggling with can be isolated and presented in a simplified and more focused form using basic meshes and existing [textures](/toolsAndResources/assetLibraries/availableTextures) and [models](/toolsAndResources/assetLibraries/availableMeshes).
 
 Doing this will lead to quicker answers as your question will be more understandable, since few people want to work through long sections of code.  Using the existing assets will also ensure that they remain reachable and the playgrounds you create will still be a useful resource in the future.  However should you still wish to use your own assets then this page describes ways of doing so.
 

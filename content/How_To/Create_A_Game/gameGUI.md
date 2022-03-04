@@ -22,7 +22,7 @@ The most important use of the GUI for my game had to be the [Hud class](https://
 
 ### HUD
 
-The ui.ts file contains everything necessary for the game state's UI. Just like how we set up an AdvancedDynamicTexture in goToGame for our [state machine setup](/features/guidedLearning/createAGame/stateMachine#gotogame), we want to start with this as the foundation of our Hud class.
+The ui.ts file contains everything necessary for the game state's UI. Just like how we set up an AdvancedDynamicTexture in goToGame for our [state machine setup](/guidedLearning/createAGame/stateMachine#gotogame), we want to start with this as the foundation of our Hud class.
 
 In goToGame:
 
@@ -134,7 +134,7 @@ if (this._ui.time >= 240 && !this._player.win) {
 }
 ```
 
-We can go ahead and remove the [temporary button](/features/guidedLearning/createAGame/stateMachine#gotogame) we had that went to the lose state since now we have an actual condition that takes us there.
+We can go ahead and remove the [temporary button](/guidedLearning/createAGame/stateMachine#gotogame) we had that went to the lose state since now we have an actual condition that takes us there.
 
 Now we have a complete game timer! Once the game starts, the timer will begin and update until 4 minutes have passed, then it will take the player to the lose state.
 
@@ -239,7 +239,7 @@ else if (this._ui.stopSpark && this._player.sparkLit) {
 }
 ```
 
-Recall that we set **sparkReset** and **sparkLit** to true on [collision with a lantern](/features/guidedLearning/createAGame/lanterns#collisions).
+Recall that we set **sparkReset** and **sparkLit** to true on [collision with a lantern](/guidedLearning/createAGame/lanterns#collisions).
 
 ## Cutscene Animation
 
