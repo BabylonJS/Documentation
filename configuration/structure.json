@@ -26,14 +26,39 @@
                         "friendlyName": "Diving Deeper",
                         "content": "landing_pages/divingDeeperDevelopingLandingPage",
                         "children": {
-                            "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
                             "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
                             "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
                             "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                             "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                             "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" }
                         }
-                    }                    
+                    },
+                    "templates": {
+                        "friendlyName": "Templates",
+                        "content": "landing_pages/templates",
+                        "children": {
+                            "files" : {
+                                "friendlyName": "Basic Text Only",
+                                "content": "templates/file_landing",
+                                "children": {
+                                    "basic_JS_pg": { "friendlyName": "Basic JS Playground", "children": {}, "content": "templates/files/basic_pg" },
+                                    "basic_TS_pg": { "friendlyName": "Basic TS Playground", "children": {}, "content": "templates/files/basic_typescript_pg" },
+                                    "basic_html": { "friendlyName": "Basic HTML for BJS", "children": {}, "content": "templates/files/basic_html" }
+                                }
+                            },
+                            "repos": {
+                                "friendlyName": "Repositories",
+                                "content": "templates/repos_landing",
+                                "children": {
+                                    "templateRepositories": {
+                                        "friendlyName": "Code/Assets/Delivery",
+                                        "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage",
+                                        "children": {}
+                                    }
+                                }
+                            }
+                        }
+                    }                   
                 }
             },
             "features": {
@@ -726,176 +751,6 @@
                         },
                         "content": "landing_pages/advanced_topics_landing_page"
                     },
-                    "toolsAndResources": {
-                        "friendlyName": "Tools and Resources",
-                        "children": {
-                            "inspector": {
-                                "friendlyName": "Inspector",
-                                "children": {
-                                    "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
-                                    "animationCurveEditor": {
-                                        "friendlyName": "Animation Curve Editor",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesACELandingPage"
-                                    },
-                                    "particleEditor": {
-                                        "friendlyName": "Particle Editor",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesPELandingPage"
-                                    },
-                                    "spriteEditor": {
-                                        "friendlyName": "Sprite Editor",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesSpriteEditorLandingPage"
-                                    },
-                                    "textureInspector": {
-                                        "friendlyName": "Texture Inspector",
-                                        "children": {},
-                                        "content": "landing_pages/PGsupport/texture_inspector"
-                                    },
-                                    "skeletonViewer": {
-                                        "friendlyName": "Skeleton Viewer",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesSkeletonViewerLandingPage"
-                                    },
-                                    "performanceProfiler": {
-                                        "friendlyName": "Performance Profiler",
-                                        "children": {},
-                                        "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
-                                    },
-                                    "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
-                                },
-                                "content": "landing_pages/PGsupport/Playground_debuglayer"
-                            },
-                            "guiEditor": {
-                                "friendlyName": "Gui Editor",
-                                "children": {},
-                                "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
-                            },
-                            "nme": {
-                                "friendlyName": "Node Material Editor",
-                                "children": {
-                                    "customFrames": { "friendlyName": "Custom Frames", "children": {}, "content": "How_To/material/NMECustom_Frames" },
-                                    "customBlocks": { "friendlyName": "Custom Blocks", "children": {}, "content": "How_To/material/NMECustom_Blocks" }
-                                },
-                                "content": "landing_pages/toolsAndResourcesNMELandingPage"
-                            },
-                            "utilities": {
-                                "friendlyName": "Utility Functions",
-                                "children": {
-                                    "area": { "friendlyName": "Mesh Surface Area", "children": {}, "content": "snippets/utilities/area" },
-                                    "Deconstruct_Mesh": { "friendlyName": "Extract Submeshes as Meshes", "children": {}, "content": "snippets/utilities/Deconstruct_Mesh" },
-                                    "Frame": { "friendlyName": "Picture Frame", "children": {}, "content": "snippets/utilities/Frame" },
-                                    "Increasing_Facets": { "friendlyName": "Increase Facets", "children": {}, "content": "snippets/utilities/Increasing_Facets" },
-                                    "InnerMeshPoints": { "friendlyName": "Create Points Inside a Mesh", "children": {}, "content": "snippets/utilities/InnerMeshPoints" },
-                                    "IsInside": { "friendlyName": "Checks When a Point is Inside a Mesh", "children": {}, "content": "snippets/utilities/IsInside" },
-                                    "Line2D": { "friendlyName": "Draws A Line with a Set Width", "children": {}, "content": "snippets/utilities/Line2D" },
-                                    "Minimise_Vertices": { "friendlyName": "Force Shared Vertices", "children": {}, "content": "snippets/utilities/Minimise_Vertices" },
-                                    "Mitred": { "friendlyName": "Extrusion With Sharp Corners", "children": {}, "content": "snippets/utilities/Mitred" },
-                                    "Normals": { "friendlyName": "Display Vertex Normals", "children": {}, "content": "snippets/utilities/Normals" },
-                                    "OpenUrl": { "friendlyName": "Open a URL on an Event", "children": {}, "content": "snippets/utilities/OpenUrl" },
-                                    "Path3D": { "friendlyName": "Displays Tangent, Normal and Binormal of a Path3D", "children": {}, "content": "snippets/utilities/Path3D" },
-                                    "Pivot": { "friendlyName": "Rotate and Scale about a Point", "children": {}, "content": "snippets/utilities/Pivot" },
-                                    "Sector": { "friendlyName": "Draws a Sector of a Circle", "children": {}, "content": "snippets/utilities/Sector" },
-                                    "SphericalPanning": { "friendlyName": "Spherical Panning Camera", "children": {}, "content": "snippets/utilities/SphericalPanning" },
-                                    "SurfaceMeshPoints": { "friendlyName": "Draw Points on a Mesh Surface", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
-                                    "World_Axes": { "friendlyName": "Display Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
-                                },
-                                "content": "landing_pages/utilities_landing_page"
-                            },
-                            "offsite": {
-                                "friendlyName": "Offsite Tutorials",
-                                "children": {},
-                                "content": "resources/Reference/offsite_tutorials_list"
-                            },
-                            "templateRepositories": {
-                                "friendlyName": "Template Repositories",
-                                "children": {},
-                                "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage"
-                            }
-                        },
-                        "content": "landing_pages/toolsAndResourcesLandingPage"
-                    },
-                    "guidedLearning": {
-                        "friendlyName": "Guided Learning",
-                        "children": {
-                            "devStories": {
-                                "friendlyName": "Dev Stories",
-                                "children": {
-                                    "fruitFalling": {
-                                        "friendlyName": "Playground to Production: Fruit Fallin'",
-                                        "children": {},
-                                        "content": "dev_stories/playground_to_production_fruit_falling"
-                                    }
-                                },
-                                "content": "landing_pages/dev_stories_landing_page"
-                            },
-                            "createAGame": {
-                                "friendlyName": "Create A Game Tutorial Series",
-                                "children": {
-                                    "gettingSetUp": { "friendlyName": "Getting Set Up", "children": {}, "content": "How_To/Create_A_Game/gettingSetUp" },
-                                    "stateMachine": { "friendlyName": "Setting Up A State Machine", "children": {}, "content": "How_To/Create_A_Game/stateMachine" },
-                                    "simpleGameState": { "friendlyName": "Simple Game State", "children": {}, "content": "How_To/Create_A_Game/simpleGameState" },
-                                    "playerCamera": { "friendlyName": "The Player Camera", "children": {}, "content": "How_To/Create_A_Game/playerCamera" },
-                                    "characterMovePt1": { "friendlyName": "Character Movement Part 1", "children": {}, "content": "How_To/Create_A_Game/characterMovementPt1" },
-                                    "characterMovePt2": { "friendlyName": "Character Movement Part 2", "children": {}, "content": "How_To/Create_A_Game/characterMovementPt2" },
-                                    "importMeshes": { "friendlyName": "Importing Meshes", "children": {}, "content": "How_To/Create_A_Game/importMeshes" },
-                                    "lanterns": { "friendlyName": "Lanterns", "children": {}, "content": "How_To/Create_A_Game/lanterns" },
-                                    "collisionsTriggers": { "friendlyName": "Collisions & Triggers", "children": {}, "content": "How_To/Create_A_Game/collisionsAndTriggers" },
-                                    "gameGUI": { "friendlyName": "Game GUI", "children": {}, "content": "How_To/Create_A_Game/gameGUI" },
-                                    "animations": { "friendlyName": "Animations", "children": {}, "content": "How_To/Create_A_Game/animations" },
-                                    "particleSystems": { "friendlyName": "Particle Systems", "children": {}, "content": "How_To/Create_A_Game/particleSystems" },
-                                    "musicSFX": { "friendlyName": "Music & Sound FX", "children": {}, "content": "How_To/Create_A_Game/musicSFX" },
-                                    "extraFeatures": { "friendlyName": "Extra Features", "children": {}, "content": "How_To/Create_A_Game/extraFeatures" },
-                                    "crossPlatform": { "friendlyName": "Going Cross-Platform", "children": {}, "content": "How_To/Create_A_Game/crossPlatform" },
-                                    "performance": { "friendlyName": "Performance", "children": {}, "content": "How_To/Create_A_Game/performance" },
-                                    "closing": { "friendlyName": "In Closing", "children": {}, "content": "How_To/Create_A_Game/closing" },
-                                    "designArt": { "friendlyName": "Design Process", "children": {}, "content": "How_To/Create_A_Game/designProcess" }
-                                },
-                                "content": "How_To/Create_A_Game/introToCreatingGames"
-                            },
-                            "videos": {
-                                "friendlyName": "Video Tutorials",
-                                "children": {
-                                    "3DProgrammingBeginners": {
-                                        "friendlyName": "3D Programming with WebGL and Babylon.js for Beginners",
-                                        "children": {},
-                                        "content": "How_To/Videos/Zenva_course"
-                                    },
-                                    "RTSGameDev": {
-                                        "friendlyName": "Realtime RTS Game Development Series",
-                                        "children": {},
-                                        "content": "How_To/Videos/RTS_game_development_series"
-                                    }
-                                },
-                                "content": "landing_pages/video_landing_page"
-                            },
-                            "workshop": {
-                                "friendlyName": "Workshop",
-                                "children": {
-                                    "Geodesic_Math": { "friendlyName": "Geodesic and Goldberg Polyhedra Math", "children": {}, "content": "snippets/gamelets/Geodesic_Math" },
-                                    "Geodesic_Code": { "friendlyName": "Geodesic and Goldberg Polyhedra Code Design", "children": {}, "content": "snippets/gamelets/Geodesic_Code" },
-                                    "Car_Path": { "friendlyName": "Simple Path Following", "children": {}, "content": "snippets/gamelets/Car_Path" },
-                                    "Car_Driven": { "friendlyName": "A Simple Driven Car", "children": {}, "content": "snippets/gamelets/Car_Driven" },
-                                    "House": { "friendlyName": "House Creation Design", "children": {}, "content": "snippets/gamelets/House" },
-                                    "House_Use": { "friendlyName": "House Creation Use", "children": {}, "content": "snippets/gamelets/House_Use" },
-                                    "roof": { "friendlyName": "Adding a Roof", "children": {}, "content": "snippets/gamelets/roof" },
-                                    "Track": { "friendlyName": "Following a Complex Track", "children": {}, "content": "snippets/gamelets/Track" },
-                                    "Track_Code": { "friendlyName": "Code for Complex Track", "children": {}, "content": "snippets/gamelets/Track_Code" },
-                                    "Collide_Intro": { "friendlyName": "Thoughts on Non Physics Collisions", "children": {}, "content": "snippets/gamelets/Collide_Intro" },
-                                    "Issues": { "friendlyName": "Issues with Collisions", "children": {}, "content": "snippets/gamelets/Issues" },
-                                    "Grid_Moves": { "friendlyName": "Collisions Within a Grid", "children": {}, "content": "snippets/gamelets/Grid_Moves" },
-                                    "Slow_Collide": { "friendlyName": "Slow Particle Collisions", "children": {}, "content": "snippets/gamelets/Slow_Collide" },
-                                    "Free_Collide": { "friendlyName": "Freely Moving Particle Collisions", "children": {}, "content": "snippets/gamelets/Free_Collide" },
-                                    "vr_game": { "friendlyName": "Simple VR Game", "children": {}, "content": "snippets/gamelets/VR" },
-                                    "Writing1": { "friendlyName": "Shader Wave Pattern", "children": {}, "content": "snippets/gamelets/Writing1" },
-                                    "Writing2": { "friendlyName": "Shader Fireworks", "children": {}, "content": "snippets/gamelets/Writing2" }
-                                },
-                                "content": "landing_pages/workshop_landing_page"
-                            }
-                        },
-                        "content": "landing_pages/GuidedLearningLandingPage"
-                    },
                     "extensions": {
                         "friendlyName": "Extensions",
                         "children": {
@@ -1140,6 +995,172 @@
                         "content": "landing_pages/extensionsLandingPage"
                     }
                 }
+            },
+            "toolsAndResources": {
+                "friendlyName": "Tools and Resources",
+                "children": {
+                    "inspector": {
+                        "friendlyName": "Inspector",
+                        "children": {
+                            "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
+                            "animationCurveEditor": {
+                                "friendlyName": "Animation Curve Editor",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesACELandingPage"
+                            },
+                            "particleEditor": {
+                                "friendlyName": "Particle Editor",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesPELandingPage"
+                            },
+                            "spriteEditor": {
+                                "friendlyName": "Sprite Editor",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesSpriteEditorLandingPage"
+                            },
+                            "textureInspector": {
+                                "friendlyName": "Texture Inspector",
+                                "children": {},
+                                "content": "landing_pages/PGsupport/texture_inspector"
+                            },
+                            "skeletonViewer": {
+                                "friendlyName": "Skeleton Viewer",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesSkeletonViewerLandingPage"
+                            },
+                            "performanceProfiler": {
+                                "friendlyName": "Performance Profiler",
+                                "children": {},
+                                "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
+                            },
+                            "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
+                        },
+                        "content": "landing_pages/PGsupport/Playground_debuglayer"
+                    },
+                    "guiEditor": {
+                        "friendlyName": "Gui Editor",
+                        "children": {},
+                        "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
+                    },
+                    "nme": {
+                        "friendlyName": "Node Material Editor",
+                        "children": {
+                            "customFrames": { "friendlyName": "Custom Frames", "children": {}, "content": "How_To/material/NMECustom_Frames" },
+                            "customBlocks": { "friendlyName": "Custom Blocks", "children": {}, "content": "How_To/material/NMECustom_Blocks" }
+                        },
+                        "content": "landing_pages/toolsAndResourcesNMELandingPage"
+                    },
+                    "utilities": {
+                        "friendlyName": "Utility Functions",
+                        "children": {
+                            "area": { "friendlyName": "Mesh Surface Area", "children": {}, "content": "snippets/utilities/area" },
+                            "Deconstruct_Mesh": { "friendlyName": "Extract Submeshes as Meshes", "children": {}, "content": "snippets/utilities/Deconstruct_Mesh" },
+                            "Frame": { "friendlyName": "Picture Frame", "children": {}, "content": "snippets/utilities/Frame" },
+                            "Increasing_Facets": { "friendlyName": "Increase Facets", "children": {}, "content": "snippets/utilities/Increasing_Facets" },
+                            "InnerMeshPoints": { "friendlyName": "Create Points Inside a Mesh", "children": {}, "content": "snippets/utilities/InnerMeshPoints" },
+                            "IsInside": { "friendlyName": "Checks When a Point is Inside a Mesh", "children": {}, "content": "snippets/utilities/IsInside" },
+                            "Line2D": { "friendlyName": "Draws A Line with a Set Width", "children": {}, "content": "snippets/utilities/Line2D" },
+                            "Minimise_Vertices": { "friendlyName": "Force Shared Vertices", "children": {}, "content": "snippets/utilities/Minimise_Vertices" },
+                            "Mitred": { "friendlyName": "Extrusion With Sharp Corners", "children": {}, "content": "snippets/utilities/Mitred" },
+                            "Normals": { "friendlyName": "Display Vertex Normals", "children": {}, "content": "snippets/utilities/Normals" },
+                            "OpenUrl": { "friendlyName": "Open a URL on an Event", "children": {}, "content": "snippets/utilities/OpenUrl" },
+                            "Path3D": { "friendlyName": "Displays Tangent, Normal and Binormal of a Path3D", "children": {}, "content": "snippets/utilities/Path3D" },
+                            "Pivot": { "friendlyName": "Rotate and Scale about a Point", "children": {}, "content": "snippets/utilities/Pivot" },
+                            "Sector": { "friendlyName": "Draws a Sector of a Circle", "children": {}, "content": "snippets/utilities/Sector" },
+                            "SphericalPanning": { "friendlyName": "Spherical Panning Camera", "children": {}, "content": "snippets/utilities/SphericalPanning" },
+                            "SurfaceMeshPoints": { "friendlyName": "Draw Points on a Mesh Surface", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
+                            "World_Axes": { "friendlyName": "Display Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
+                        },
+                        "content": "landing_pages/utilities_landing_page"
+                    },
+                    "offsite": {
+                        "friendlyName": "Offsite Tutorials",
+                        "children": {},
+                        "content": "resources/Reference/offsite_tutorials_list"
+                    },
+                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" }
+                },
+                "content": "landing_pages/toolsAndResourcesLandingPage"
+            },
+            "guidedLearning": {
+                "friendlyName": "Guided Learning",
+                "children": {
+                    "devStories": {
+                        "friendlyName": "Dev Stories",
+                        "children": {
+                            "fruitFalling": {
+                                "friendlyName": "Playground to Production: Fruit Fallin'",
+                                "children": {},
+                                "content": "dev_stories/playground_to_production_fruit_falling"
+                            }
+                        },
+                        "content": "landing_pages/dev_stories_landing_page"
+                    },
+                    "createAGame": {
+                        "friendlyName": "Create A Game Tutorial Series",
+                        "children": {
+                            "gettingSetUp": { "friendlyName": "Getting Set Up", "children": {}, "content": "How_To/Create_A_Game/gettingSetUp" },
+                            "stateMachine": { "friendlyName": "Setting Up A State Machine", "children": {}, "content": "How_To/Create_A_Game/stateMachine" },
+                            "simpleGameState": { "friendlyName": "Simple Game State", "children": {}, "content": "How_To/Create_A_Game/simpleGameState" },
+                            "playerCamera": { "friendlyName": "The Player Camera", "children": {}, "content": "How_To/Create_A_Game/playerCamera" },
+                            "characterMovePt1": { "friendlyName": "Character Movement Part 1", "children": {}, "content": "How_To/Create_A_Game/characterMovementPt1" },
+                            "characterMovePt2": { "friendlyName": "Character Movement Part 2", "children": {}, "content": "How_To/Create_A_Game/characterMovementPt2" },
+                            "importMeshes": { "friendlyName": "Importing Meshes", "children": {}, "content": "How_To/Create_A_Game/importMeshes" },
+                            "lanterns": { "friendlyName": "Lanterns", "children": {}, "content": "How_To/Create_A_Game/lanterns" },
+                            "collisionsTriggers": { "friendlyName": "Collisions & Triggers", "children": {}, "content": "How_To/Create_A_Game/collisionsAndTriggers" },
+                            "gameGUI": { "friendlyName": "Game GUI", "children": {}, "content": "How_To/Create_A_Game/gameGUI" },
+                            "animations": { "friendlyName": "Animations", "children": {}, "content": "How_To/Create_A_Game/animations" },
+                            "particleSystems": { "friendlyName": "Particle Systems", "children": {}, "content": "How_To/Create_A_Game/particleSystems" },
+                            "musicSFX": { "friendlyName": "Music & Sound FX", "children": {}, "content": "How_To/Create_A_Game/musicSFX" },
+                            "extraFeatures": { "friendlyName": "Extra Features", "children": {}, "content": "How_To/Create_A_Game/extraFeatures" },
+                            "crossPlatform": { "friendlyName": "Going Cross-Platform", "children": {}, "content": "How_To/Create_A_Game/crossPlatform" },
+                            "performance": { "friendlyName": "Performance", "children": {}, "content": "How_To/Create_A_Game/performance" },
+                            "closing": { "friendlyName": "In Closing", "children": {}, "content": "How_To/Create_A_Game/closing" },
+                            "designArt": { "friendlyName": "Design Process", "children": {}, "content": "How_To/Create_A_Game/designProcess" }
+                        },
+                        "content": "How_To/Create_A_Game/introToCreatingGames"
+                    },
+                    "videos": {
+                        "friendlyName": "Video Tutorials",
+                        "children": {
+                            "3DProgrammingBeginners": {
+                                "friendlyName": "3D Programming with WebGL and Babylon.js for Beginners",
+                                "children": {},
+                                "content": "How_To/Videos/Zenva_course"
+                            },
+                            "RTSGameDev": {
+                                "friendlyName": "Realtime RTS Game Development Series",
+                                "children": {},
+                                "content": "How_To/Videos/RTS_game_development_series"
+                            }
+                        },
+                        "content": "landing_pages/video_landing_page"
+                    },
+                    "workshop": {
+                        "friendlyName": "Workshop",
+                        "children": {
+                            "Geodesic_Math": { "friendlyName": "Geodesic and Goldberg Polyhedra Math", "children": {}, "content": "snippets/gamelets/Geodesic_Math" },
+                            "Geodesic_Code": { "friendlyName": "Geodesic and Goldberg Polyhedra Code Design", "children": {}, "content": "snippets/gamelets/Geodesic_Code" },
+                            "Car_Path": { "friendlyName": "Simple Path Following", "children": {}, "content": "snippets/gamelets/Car_Path" },
+                            "Car_Driven": { "friendlyName": "A Simple Driven Car", "children": {}, "content": "snippets/gamelets/Car_Driven" },
+                            "House": { "friendlyName": "House Creation Design", "children": {}, "content": "snippets/gamelets/House" },
+                            "House_Use": { "friendlyName": "House Creation Use", "children": {}, "content": "snippets/gamelets/House_Use" },
+                            "roof": { "friendlyName": "Adding a Roof", "children": {}, "content": "snippets/gamelets/roof" },
+                            "Track": { "friendlyName": "Following a Complex Track", "children": {}, "content": "snippets/gamelets/Track" },
+                            "Track_Code": { "friendlyName": "Code for Complex Track", "children": {}, "content": "snippets/gamelets/Track_Code" },
+                            "Collide_Intro": { "friendlyName": "Thoughts on Non Physics Collisions", "children": {}, "content": "snippets/gamelets/Collide_Intro" },
+                            "Issues": { "friendlyName": "Issues with Collisions", "children": {}, "content": "snippets/gamelets/Issues" },
+                            "Grid_Moves": { "friendlyName": "Collisions Within a Grid", "children": {}, "content": "snippets/gamelets/Grid_Moves" },
+                            "Slow_Collide": { "friendlyName": "Slow Particle Collisions", "children": {}, "content": "snippets/gamelets/Slow_Collide" },
+                            "Free_Collide": { "friendlyName": "Freely Moving Particle Collisions", "children": {}, "content": "snippets/gamelets/Free_Collide" },
+                            "vr_game": { "friendlyName": "Simple VR Game", "children": {}, "content": "snippets/gamelets/VR" },
+                            "Writing1": { "friendlyName": "Shader Wave Pattern", "children": {}, "content": "snippets/gamelets/Writing1" },
+                            "Writing2": { "friendlyName": "Shader Fireworks", "children": {}, "content": "snippets/gamelets/Writing2" }
+                        },
+                        "content": "landing_pages/workshop_landing_page"
+                    }
+                },
+                "content": "landing_pages/GuidedLearningLandingPage"
             },
             "about-playground": {
                 "friendlyName": "Playground",

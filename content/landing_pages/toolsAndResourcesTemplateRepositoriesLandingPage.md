@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Template Repositories
+title: Babylon.js Code/Assets/Delivery Template Repositories
 image: 
 description: Rapidly bootstrap new 3D experiences with the Babylon.js template repositories.
 keywords: babylon.js, tools, resources, template, template repositories
@@ -14,10 +14,10 @@ development.
 ## Quick Start Guide
 
 1. Follow the 
-[Quick Start Guide for the NPM Package Template repository](https://github.com/BabylonJS/npm-package-template#quick-start-guide)
+[Quick Start Guide for the NPM Package Code/Assets/Delivery Template repository](https://github.com/BabylonJS/npm-package-template#quick-start-guide)
 to create your new code repository `your-new-repo`.
 2. Follow the 
-[Quick Start Guide for the Asset Host Template repository](https://github.com/BabylonJS/asset-host-template#quick-start-guide)
+[Quick Start Guide for the Asset Host Code/Assets/Delivery Template repository](https://github.com/BabylonJS/asset-host-template#quick-start-guide)
 to create your new asset host repository `your-asset-repo`.
 3. Develop your experience in your two repos, adding code and business 
 logic to `your-new-repo` and assets (images, 3D models, sounds, etc.) to 
@@ -31,7 +31,7 @@ For a detailed example showing how to use the template repositories to
 create a real experience, see [this tutorial]() (NOTE: not a real link;
 tutorial coming soon).
 
-## The Template Repository Workflow
+## The Code/Assets/Delivery Template Repository Workflow
 
 The primary purpose of the template repositories is to suggest and bootstrap
 a workflow for taking Babylon.js 3D experiences from Exploration to 
