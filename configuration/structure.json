@@ -28,6 +28,7 @@
                         "children": {
                             "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
                             "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
+                            "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
                             "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                             "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                             "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" }
@@ -58,7 +59,32 @@
                                 }
                             }
                         }
-                    }                   
+                    },
+                    "Babylon.js+ExternalLibraries": {
+                        "friendlyName": "Babylon.js + External Libraries",
+                        "children": {
+                            "BabylonJS_and_Instant_Games": { "friendlyName": "BabylonJS and Instant Games", "children": {}, "content": "resources/Library/BabylonJS_and_Instant_Games" },
+                            "BabylonJS_and_Ionic_Angular": { "friendlyName": "BabylonJS and Ionic Angular", "children": {}, "content": "resources/Library/BabylonJS_and_Ionic_Angular" },
+                            "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
+                            "BabylonJS_and_Poki": { "friendlyName": "BabylonJS and Poki", "children": {}, "content": "resources/Library/BabylonJS_and_Poki" },
+                            "BabylonJS_and_ReactJS": { "friendlyName": "BabylonJS and ReactJS", "children": {}, "content": "resources/Library/BabylonJS_and_ReactJS" },
+                            "BabylonJS_and_React_Native": { "friendlyName": "BabylonJS and React Native", "children": {}, "content": "resources/Library/BabylonJS_and_React_Native" },
+                            "BabylonJS_and_VRM": { "friendlyName": "BabylonJS and VRM", "children": {}, "content": "resources/Library/BabylonJS_and_VRM" },
+                            "BabylonJS_and_Vue": {
+                                "friendlyName": "BabylonJS and Vue",
+                                "children": {
+                                    "BabylonJS_and_Vue_1": { "friendlyName": "BabylonJS and Vue - basics", "children": {}, "content": "resources/Library/BabylonJS_and_Vue" },
+                                    "BabylonJS_and_Vue_2": { "friendlyName": "BabylonJS and Vue - passing data", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_passing_data" },
+                                    "BabylonJS_and_Vue_3": { "friendlyName": "BabylonJS and Vue - async scene methods", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_async" },
+                                    "BabylonJS_and_Vue_4": { "friendlyName": "BabylonJS and Vue - messages driven scene", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_messages_driven_scene" },
+                                    "BabylonJS_and_Vue_0": { "friendlyName": "BabylonJS and Vue - tutorial links", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_links" }
+                                },
+                                "content": "landing_pages/extensionsExternalLibrariesVueLandingPage"
+                            },
+                            "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" }
+                        },
+                        "content": "landing_pages/extensionsExternalLibrariesLandingPage"
+                    }                
                 }
             },
             "features": {
@@ -939,32 +965,6 @@
                                     "Save_Babylon": { "friendlyName": "Save Babylon", "children": {}, "content": "resources/Exporter/Save_Babylon" }
                                 },
                                 "content": "landing_pages/extensionsExportersLandingPage"
-                            },
-                            "Babylon.js+ExternalLibraries": {
-                                "friendlyName": "Babylon.js + External Libraries",
-                                "children": {
-                                    "BabylonJS_and_Instant_Games": { "friendlyName": "BabylonJS and Instant Games", "children": {}, "content": "resources/Library/BabylonJS_and_Instant_Games" },
-                                    "BabylonJS_and_Ionic_Angular": { "friendlyName": "BabylonJS and Ionic Angular", "children": {}, "content": "resources/Library/BabylonJS_and_Ionic_Angular" },
-                                    "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
-                                    "BabylonJS_and_Poki": { "friendlyName": "BabylonJS and Poki", "children": {}, "content": "resources/Library/BabylonJS_and_Poki" },
-                                    "BabylonJS_and_ReactJS": { "friendlyName": "BabylonJS and ReactJS", "children": {}, "content": "resources/Library/BabylonJS_and_ReactJS" },
-                                    "BabylonJS_and_React_Native": { "friendlyName": "BabylonJS and React Native", "children": {}, "content": "resources/Library/BabylonJS_and_React_Native" },
-                                    "BabylonJS_and_VRM": { "friendlyName": "BabylonJS and VRM", "children": {}, "content": "resources/Library/BabylonJS_and_VRM" },
-                                    "BabylonJS_and_Vue": {
-                                        "friendlyName": "BabylonJS and Vue",
-                                        "children": {
-                                            "BabylonJS_and_Vue_1": { "friendlyName": "BabylonJS and Vue - basics", "children": {}, "content": "resources/Library/BabylonJS_and_Vue" },
-                                            "BabylonJS_and_Vue_2": { "friendlyName": "BabylonJS and Vue - passing data", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_passing_data" },
-                                            "BabylonJS_and_Vue_3": { "friendlyName": "BabylonJS and Vue - async scene methods", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_async" },
-                                            "BabylonJS_and_Vue_4": { "friendlyName": "BabylonJS and Vue - messages driven scene", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_messages_driven_scene" },
-                                            "BabylonJS_and_Vue_0": { "friendlyName": "BabylonJS and Vue - tutorial links", "children": {}, "content": "resources/Library/BabylonJS_and_Vue_links" }
-                                        },
-                                        "content": "landing_pages/extensionsExternalLibrariesVueLandingPage"
-                                    },
-                                    "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
-                                    "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" }
-                                },
-                                "content": "landing_pages/extensionsExternalLibrariesLandingPage"
                             },
                             "Unity": {
                                 "friendlyName": "Unity",

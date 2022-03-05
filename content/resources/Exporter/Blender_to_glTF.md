@@ -104,7 +104,7 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
 
 - double-click on the _index.html_ file
 
-  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver ([local](/features/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs) or not), or try into another browser (e.g.: Firefox, Edge)
+  - some browsers may not want loading the scene, for some security issues (e.g.: Chrome). In this case, you have to open the html file through a webserver ([local](/workflow/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs) or not), or try into another browser (e.g.: Firefox, Edge)
 
 - ... profit!
 

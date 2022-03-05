@@ -10,7 +10,7 @@ video-content:
 
 ## Prerequisites
 
-You have to follow and finish the [How to use BabylonJS with Vue](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1 "How to use BabylonJS with Vue") tutorial first.
+You have to follow and finish the [How to use BabylonJS with Vue](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1 "How to use BabylonJS with Vue") tutorial first.
 
 These principles have to be clear for you: [Passing of variables by Value and by Reference in Javascript](https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/ "Passing of variables by Value and by Reference in Javascript").
 
@@ -538,17 +538,17 @@ Now the we've learned how to control the scene from Vue, it can be very tempting
 
 ## Where to go next?
 
-Visit our great [Getting started](/features/start "Getting started") page or if you are interested in more advanced Vue stuff, jump to [part three of this tutorial](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3 "BabylonJS and Vue - async scene methods").
+Visit our great [Getting started](/features/start "Getting started") page or if you are interested in more advanced Vue stuff, jump to [part three of this tutorial](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3 "BabylonJS and Vue - async scene methods").
 
 ## Links
 
-[All links from this tutorial at one place](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0/ "All links from this tutorial at one place")
+[All links from this tutorial at one place](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0/ "All links from this tutorial at one place")
 
-[Part 1](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue") of this tutorial
+[Part 1](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1/ "How to use BabylonJS with Vue") of this tutorial
 
-[Part 3](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
+[Part 3](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3/ "BabylonJS and Vue - async scene methods") of this tutorial
 
-[Part 4](/features/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene") of this tutorial
+[Part 4](/workflow/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4/ "BabylonJS and Vue - messages driven scene") of this tutorial
 
 https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/branches/all
 
