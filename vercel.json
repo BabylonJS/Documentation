@@ -1125,6 +1125,7 @@
         { "source": "/extensions/Unity/Projects", "destination": "/features/extensions/Unity/Projects" },
         { "source": "/start", "destination": "/features/start" },
         { "source": "/start/chap1/first_app", "destination": "/features/start/chap1/first_app" },
+        { "source": "/toolsAndResources/assetLibrarian", "destination": "/about-playground/playground-tools" },
         { "source": "/toolsAndResources/assetLibraries/availableMeshes", "destination": "/toolsAndResources/assetLibraries/availableMeshes" },
         { "source": "/toolsAndResources/assetLibraries/availableTextures", "destination": "/toolsAndResources/assetLibraries/availableTextures" },
         { "source": "/toolsAndResources/assetLibraries/postProcessLibrary/asciiArtPP", "destination": "/toolsAndResources/assetLibraries/postProcessLibrary/asciiArtPP" },

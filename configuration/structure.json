@@ -1182,8 +1182,13 @@
                         "content": "landing_pages/PGsupport/playground-libraries"
                     },
                     "playground-tools": {
-                        "friendlyName": "Playground Tools",
+                        "friendlyName": "Playground Resources",
                         "children": {
+                            "assetLibrarian": {
+                                "friendlyName": "Asset Librarian",
+                                "children": {},
+                                "content": "resources/Playground_aspects/assetLibrarian"
+                            },
                             "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" },
                             "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
                         },
