@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/features/extensions/Exporters/3DSMax) as well as general information about the plugin.
+If you have not already installed the babylon plugin for 3DS MAX, you can find all instructions [here](/workflow/wfDeeper/Exporters/3DSMax) as well as general information about the plugin.
 
 With this plugin, you can also export your project to glTF 2.0 format (https://github.com/KhronosGroup/glTF/).
 
@@ -25,7 +25,7 @@ To export to a single .glb file, choose **glb** as **Output format**.
 
 ## Exported features
 
-Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/features/extensions/Exporters/3DSMax#features).
+Since the plugin first exports to babylon then converts it to glTF, glTF features are a subset of the [babylon ones](/workflow/wfDeeper/Exporters/3DSMax#features).
 
 - _Cameras_
 
@@ -205,7 +205,7 @@ Such texture defines:
 
 In this case the exporter does not merge textures, but instead assumes the texture provided is already merged.
 
-You can see how to get [a merged ORM texture here](/features/extensions/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
+You can see how to get [a merged ORM texture here](/workflow/wfDeeper/Exporters/Maya_to_glTF#get-a-merged-occlusionroughnessmetallic-texture).
 
 ## Emission
 
@@ -246,7 +246,7 @@ Note that the exporter also supports textures with bmp, gif, tga, tif and dds fo
 
 ## Texture transform
 
-glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_texture_transform). When enabled during export, it would be set to required, meaning that the loader is expected to support the extension. Disabling the extension checkbox from the exporter window will export textures without apply the texture transform, which may look visually incorrect when loading into a glTF importer.
+glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/KhronosGroup/glTF/tree/master/toolsAndResources/2.0/Khronos/KHR_texture_transform). When enabled during export, it would be set to required, meaning that the loader is expected to support the extension. Disabling the extension checkbox from the exporter window will export textures without apply the texture transform, which may look visually incorrect when loading into a glTF importer.
 
 ## Environment texture
 
@@ -256,7 +256,7 @@ However, glTF format does not support this feature and the environment map needs
 
 ## Double sided material
 
-The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/features/extensions/Exporters/3DSMax#double-sided-material).
+The handling of the double sided material is mimic from babylon format. [Detailed explanations here](/workflow/wfDeeper/Exporters/3DSMax#double-sided-material).
 
 ## Babylon material attributes
 
@@ -266,7 +266,7 @@ Native materials are enhanced to have extra attributes under Babylon attributes 
 
 Most Babylon attributes are common to all materials:
 
-- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture. Additionally in gltf, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
+- **Unlit**: A material can be exported as Unlit, meaning independent of lighting. This implies that light-relative attributes or textures are not exported: ambient, specular, emissive, bump mapping and reflection texture. Additionally in gltf, the **KHR_materials_unlit** extension is added to the material. [More details on this extension here](https://github.com/KhronosGroup/glTF/tree/master/toolsAndResources/2.0/Khronos/KHR_materials_unlit). During export, enable the _KHR_materials_unlit_ checkbox.
 - **Backface Culling**: When true, the back faces are not rendered. When false, back faces are rendered using same material as front faces. **This property is native to Standard material and is called _2-Sided_.**
 - **Opacity/Transparency Mode**: You can select how transparency is handled for this material among 3 choices:
   - _Opaque_: The alpha color and texture are ignored during export process.

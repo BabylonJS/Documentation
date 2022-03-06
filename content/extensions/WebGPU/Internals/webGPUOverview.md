@@ -14,13 +14,13 @@ The first 3 extends `Engine` and `Engine` extends `ThinEngine`, which is a low l
 
 Here's a chart with the main files/classes used to implement the **WebGPU** engine:
 
-![WebGPU chart](/img/features/extensions/webgpu/classesChart.png!1366)
+![WebGPU chart](/img/toolsAndResources/webgpu/classesChart.png!1366)
 
 ## Core classes
 These are the core classes used in the WebGPU implementation.
 
 ### WebGPUEngine
-This class is the main entry point for the WebGPU implementation. It extends `Engine` and implements all the API needed by the higher layers to work with WebGPU. Some parts of the implementation are dispatched in the `WebGPU/features/extensions/` files in much the same way it is done for WebGL (in `Engines/features/extensions/` for WebGL).
+This class is the main entry point for the WebGPU implementation. It extends `Engine` and implements all the API needed by the higher layers to work with WebGPU. Some parts of the implementation are dispatched in the `WebGPU/toolsAndResources/` files in much the same way it is done for WebGL (in `Engines/toolsAndResources/` for WebGL).
 * we currently use the same GLSL shaders in **WebGPU** that we use in **WebGL**. Those shaders are converted to **SpirV** thanks to **GLSLlang** and **SpirV** is converted to **WGSL** by a port of `Tint` to **WASM** (**TintWASM**).
 * we are using 3 command encoders: *upload*, *renderTarget* and *render*. *upload* is used when we need to upload data into textures, *renderTarget* is used to render into render targets and *render* is used for the main render pass (when rendering into the swap chain texture). They are pushed into the queue in this order: *upload* -> *render target* -> *render*. Note that the compute shader passes are also using the *renderTarget* encoder. Also, when generating the mipmaps of a render target we use the *renderTarget* encoder and not *upload* so that the mips generation is done after the rendering into the render target and not before (the commands of the *upload* encoder are pushed into the queue before the commands of the *renderTarget* encoder)
 * the GPU timing (that can be seen in the *Inspector* under **Statistics / GPU Frame time**) is done using timestamp queries, but for the time being Chrome does not allow those queries by default: Chrome must be started with the `--disable-dawn-features=disallow_unsafe_apis` flag to make it work

@@ -5,15 +5,15 @@ description: How to configure the Babylon.js viewer.
 keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
     - title: Babylon.js Viewer
-      url: /features/extensions/babylonViewer
+      url: /toolsAndResources/babylonViewer
     - title: The templating system
-      url: /features/extensions/babylonViewer/viewerTemplatingSystem
+      url: /toolsAndResources/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /features/extensions/babylonViewer/defaultViewerConfig
+      url: /toolsAndResources/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /features/extensions/babylonViewer/advancedViewerUsage
+      url: /toolsAndResources/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /features/extensions/babylonViewer/viewerExamples
+      url: /toolsAndResources/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -35,7 +35,7 @@ The default configuration will be loaded per default, unless other configuration
 <babylon extends="minimal" model="https://playground.babylonjs.com/scenes/Rabbit.babylon"></babylon>
 ```
 
-To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/features/extensions/babylonViewer/defaultViewerConfig) 
+To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/toolsAndResources/babylonViewer/defaultViewerConfig) 
 
 ## Extending and changing the default configurations
 
@@ -232,7 +232,7 @@ the file `http://example.com/viewerConfig.json` will be loaded into the configur
 
 ### Configuring using JavaScript
 
-Further discussed in [Advanced usage](//doc.babylonjs.com/features/extensions/Advanced_usage), JavaScript can be used to initialize a viewer. When initializing a viewer using JavaScript, you can provide the initial configuration that will be used with this viewer:
+Further discussed in [Advanced usage](//doc.babylonjs.com/toolsAndResources/Advanced_usage), JavaScript can be used to initialize a viewer. When initializing a viewer using JavaScript, you can provide the initial configuration that will be used with this viewer:
 
 ```javascript
 

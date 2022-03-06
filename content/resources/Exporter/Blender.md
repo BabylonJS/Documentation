@@ -71,7 +71,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                            | BJS equivalent                                                                                                       |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| ![constraints](/img/exporters/blender/constraints/constraints.png) | <ul><li>Track To: useful when using ArcRotate camera [(tip)](/features/extensions/Exporters/Blender_Tips#arcrotate)</li></ul> |
+| ![constraints](/img/exporters/blender/constraints/constraints.png) | <ul><li>Track To: useful when using ArcRotate camera [(tip)](/workflow/wfDeeper/Exporters/Blender_Tips#arcrotate)</li></ul> |
 
 ---
 
@@ -82,7 +82,7 @@ This add-on use the standard Blender installation procedure:
 | Blender                                                                                                 | [BJS equivalent](/typedoc/classes/babylon.camera)                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Lens![lens](/img/exporters/blender/cameras/lens.png)                                                    | <ul><li>Field of View: fov</li><li>Clipping: minZ & maxZ</li></ul>                                                                                                                                                                                                                                       |
-| Exporter panel ![exporter-cameras-options](/img/exporters/blender/cameras/exporter-cameras-options.png) | <ul><li>Camera Type, choose between:<ul><li>Arc Rotate [(tip)](/features/extensions/Exporters/Blender_Tips#arcrotate)</li><li>Device Orientation</li><li>Follow</li><li>Gamepad</li><li>Touch</li><li>Universal</li><li>Virtual Joysticks</li><li>VR Dev Orientation Free</li><li>Web VR Free</li></ul></li></ul> |
+| Exporter panel ![exporter-cameras-options](/img/exporters/blender/cameras/exporter-cameras-options.png) | <ul><li>Camera Type, choose between:<ul><li>Arc Rotate [(tip)](/workflow/wfDeeper/Exporters/Blender_Tips#arcrotate)</li><li>Device Orientation</li><li>Follow</li><li>Gamepad</li><li>Touch</li><li>Universal</li><li>Virtual Joysticks</li><li>VR Dev Orientation Free</li><li>Web VR Free</li></ul></li></ul> |
 
 ---
 
@@ -102,7 +102,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                                                              | [BJS equivalent](/typedoc/classes/babylon.mesh)                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/features/extensions/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                                                         |
+| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/workflow/wfDeeper/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                                                         |
 | UV Maps ![uv-maps](/img/exporters/blender/meshes/uv-maps.png)                                        | <ul><li>UVMap: coordinatesIndex</li><li>limited to 2 channels</li></ul>                                                                                                                                                                                                                                                                                                                                    |
 | Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.png)                      | <ul><li>if multiples layers exist, they will be merge</li></ul>                                                                                                                                                                                                                                                                                                                                            |
 | Exporter panel ![exporter-meshes-options](/img/exporters/blender/meshes/exporter-meshes-options.png) | <ul><li>**Tags**: allow using [scene.getMeshesByTags()](/typedoc/classes/babylon.scene#getmeshesbytags)</li><li>**Materials**:<ul><li>**Name Space**: automatically add a suffix to the mesh materials. Default is Blender filename.</li></ul></li><li>**Procedural Textures / Cycles Baking**: texture baking settings when using procedural textures (Blender Render) or Cycles</li></ul> |
@@ -156,7 +156,7 @@ This add-on use the standard Blender installation procedure:
 #### General
 
 - Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
-- about automatic baking, see [Materials](/features/extensions/Exporters/Blender#materials).
+- about automatic baking, see [Materials](/workflow/wfDeeper/Exporters/Blender#materials).
 
 #### Blender Render
 
@@ -178,14 +178,14 @@ This add-on use the standard Blender installation procedure:
 
 ### Commons & Good practices
 
-- you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/features/extensions/Exporters/Blender_Tips#Animation) for a basic workflow.
+- you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/workflow/wfDeeper/Exporters/Blender_Tips#Animation) for a basic workflow.
 - be sure, before starting animation in Blender, that your objects have their transformations applied! (3DView > Object > Apply)
 
 ### Classic Animations
 
 You will find an example on this [.zip archive](//doc.babylonjs.com/examples/babylon-format.zip). 3D sources files are on `sources` folder, BJS app is on `BJS` folder.
 
-In `sources`, we have our master scene, with only static objects (on the layer 1), and just for us to see it, we have the logo linked on the layer 6. When exporting, take care to have only layer 1 active, as we have checked in the [scene panel](//doc.babylonjs.com/features/extensions/Exporters/Blender#scene) _Export only selected layers_.
+In `sources`, we have our master scene, with only static objects (on the layer 1), and just for us to see it, we have the logo linked on the layer 6. When exporting, take care to have only layer 1 active, as we have checked in the [scene panel](//doc.babylonjs.com/workflow/wfDeeper/Exporters/Blender#scene) _Export only selected layers_.
 
 Once exported, you can see in `BJS/index.html` that we create our main scene using this `.babylon`: line 36
 
@@ -215,7 +215,7 @@ Once your scene is exported, you have multiple solutions to test it:
 
 - quick check it into the [sandbox](https://sandbox.babylonjs.com/)
 - edit the file through the [editor](https://editor.babylonjs.com/)
-- use the [viewer](//doc.babylonjs.com/features/extensions/the_babylon_viewer)
+- use the [viewer](//doc.babylonjs.com/toolsAndResources/the_babylon_viewer)
 - script your own app using the [loader](/features/divingDeeper/importers/loadingFileTypes)
 
 ### Example

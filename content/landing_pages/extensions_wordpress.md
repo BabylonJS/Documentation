@@ -49,9 +49,9 @@ If you need more control, you may use the:
 
 `<babylon></babylon>`
 
-tag in any Wordpress HTML block and configure all needed parameters (light, camera position, camera behaviour, rotating etc). See [Configuring Babylon.js Viewer](https://doc.babylonjs.com/features/extensions/babylonViewer/configuringViewer "Configuring Babylon.js Viewer") for more information on customizing the viewing experience.
+tag in any Wordpress HTML block and configure all needed parameters (light, camera position, camera behaviour, rotating etc). See [Configuring Babylon.js Viewer](https://doc.babylonjs.com/toolsAndResources/babylonViewer/configuringViewer "Configuring Babylon.js Viewer") for more information on customizing the viewing experience.
 
-There are other possible options and configurations (like loading a model from .json file). For all questions regarding Babylon Viewer configuration please refer to the corresponding sections of the [Viewer documentation](https://doc.babylonjs.com/features/extensions/babylonViewer "Viewer documentation").
+There are other possible options and configurations (like loading a model from .json file). For all questions regarding Babylon Viewer configuration please refer to the corresponding sections of the [Viewer documentation](https://doc.babylonjs.com/toolsAndResources/babylonViewer "Viewer documentation").
 
 Babylon Viewer 3D Wordpress plugin is designed to be as straight forward and minimal as possible just to allow for Babylon Viewer extension to work. It doesn’t save any data in the Wordpress database. All settings are configured in the DOM exactly as if you would use original Babylon Viewer extension.
 

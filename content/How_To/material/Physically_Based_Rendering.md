@@ -26,7 +26,7 @@ You can find a demonstration of the effect of using the [PBRMaterial](https://ww
 The two additional materials are `PBRMetallicRoughnessMaterial` and `PBRSpecularGlossinessMaterial`. They both implement a specific convention based on GLTF specifications:
 
 - [Metallic roughness convention](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#metallic-roughness-material) (This is the recommended convention)
-- [Specular glossiness convention](https://github.com/KhronosGroup/glTF/blob/master/features/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md)
+- [Specular glossiness convention](https://github.com/KhronosGroup/glTF/blob/master/toolsAndResources/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md)
 
 ## PBRMetallicRoughnessMaterial
 

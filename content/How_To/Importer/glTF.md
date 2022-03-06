@@ -89,5 +89,5 @@ BABYLON.GLTFFileLoader.HomogeneousCoordinates = true;
 
 ## Extensions
 
-[KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/1.0/Khronos/KHR_binary_glTF)  
-[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/features/extensions/1.0/Khronos/KHR_materials_common)  
+[KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/toolsAndResources/1.0/Khronos/KHR_binary_glTF)  
+[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/toolsAndResources/1.0/Khronos/KHR_materials_common)  

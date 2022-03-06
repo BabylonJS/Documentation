@@ -27,7 +27,7 @@ Other possible GUIs are:
 
 ## CastorGUI
 
-An alternative 2D GUI is the extension [CastorGUI](/features/extensions/castorGUI). It has to be loaded both for the playground and for your own projects.
+An alternative 2D GUI is the extension [CastorGUI](/toolsAndResources/castorGUI). It has to be loaded both for the playground and for your own projects.
 
 It can be found on [Github](https://github.com/dad72/CastorGUI).
 

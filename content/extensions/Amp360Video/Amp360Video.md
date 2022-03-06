@@ -22,7 +22,7 @@ The plugin natively supports VR headsets (Windows Mixed Reality, etc.).
 ## How to Run Locally
 First, clone the Babylon.js extensions repository:
 ```
-git clone https://github.com/BabylonJS/features/extensions.git
+git clone https://github.com/BabylonJS/toolsAndResources.git
 ```
 
 Once the repository has been cloned, open a command prompt in the Amp360Video folder.
@@ -43,7 +43,7 @@ The plugin depends on Babylon.js in order to enable 3D functionalities in AMP.
 For more information about AMP, you can access their [documentation](http://amp.azure.net/libs/amp/latest/docs/index.html).
 
 ## How use in your web site
-After deploying the bundled javascript file [`dist/amp-360video.js`](https://raw.githubusercontent.com/BabylonJS/features/extensions/master/Amp360Video/dist/amp-360video.js) from the dist directory to your WebSite you can follow the steps below.
+After deploying the bundled javascript file [`dist/amp-360video.js`](https://raw.githubusercontent.com/BabylonJS/toolsAndResources/master/Amp360Video/dist/amp-360video.js) from the dist directory to your WebSite you can follow the steps below.
 
 > Note: if you were using the plugin before, you might have needed to reference Babylon.js in your site. We have now released a bundle ensuring the smallest delivery possible so the reference to Babylon.js is not required anymore.
 
@@ -84,7 +84,7 @@ The only difference with your default AMP initialization is the presence of the 
 "plugins": { "threeSixty": { } }'
 ```
 
-One example can be found in the index.html file located in the [repo](https://github.com/BabylonJS/features/extensions/blob/master/Amp360Video/index.html).
+One example can be found in the index.html file located in the [repo](https://github.com/BabylonJS/toolsAndResources/blob/master/Amp360Video/index.html).
 
 ### Code Initialization
 The following code will initialize the plugin in your amp player:
@@ -116,7 +116,7 @@ myPlayer.src([{
 }]);
 ```
 
-One example can be found in the indexCode.html file located in the [repo](https://github.com/BabylonJS/features/extensions/blob/master/Amp360Video/indexCode.html).
+One example can be found in the indexCode.html file located in the [repo](https://github.com/BabylonJS/toolsAndResources/blob/master/Amp360Video/indexCode.html).
 
 ## Define the video 360 format (Monoscopic, Side By Side, Top Bottom)
 Several types of 360 video exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.

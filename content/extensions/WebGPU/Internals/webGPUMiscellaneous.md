@@ -17,7 +17,7 @@ When the features are implemented, the corresponding validation tests should be 
 
 The **Self shadowing** validation test generates rendering errors (but is still ok because there are less than 2.5% errors) because it uses exponential shadow map whose parameters (`depthScale` especially) depend on the precision of the depth map. In WebGL we are using a 32 bits float texture but in WebGPU it's only a half-float texture because linear filtering of 32 bits float textures are not supported (for the time being at least):
 
-![WebGPU chart](/img/features/extensions/webgpu/webgpuValidationTestSelfShadowing.jpg)
+![WebGPU chart](/img/toolsAndResources/webgpu/webgpuValidationTestSelfShadowing.jpg)
 
 **Note to core developers: YOU SHOULD RUN THE VALIDATION TESTS LOCALLY OFTEN BECAUSE THEY ARE NOT RUN ON THE AZURE SERVERS!**
 

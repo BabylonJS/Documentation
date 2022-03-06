@@ -210,7 +210,7 @@ The actual thickness per pixel would be then = minimumThickness + thicknessTextu
 ## Translucency
 The refraction is good to represent the light passing through on low density medium such as beer or wine. But what if your material was more dense like milk where the light would be diffused throughout the material ?
 
-![SubSurface](/img/features/extensions/PBRSubSurface.png)
+![SubSurface](/img/toolsAndResources/PBRSubSurface.png)
 
 In this case, you can rely on the translucency properties of the material.
 
@@ -255,7 +255,7 @@ It can be really useful on materials like skin, foliage, wax, dense colored liqu
 
 You can use this in addition of translucency to accurately represent the spread of the light inside the material.
 
-![SubSurfaceScattering](/img/features/extensions/PBRSubSurfaceScattering.jpg)
+![SubSurfaceScattering](/img/toolsAndResources/PBRSubSurfaceScattering.jpg)
 
 <Playground id="#5H0H89#5" title="Sub-Surface Scattering In PBR" description="Simple example of how to control sub-surface scattering color in PBR." image="/img/playgroundsAndNMEs/features/divingDeeperPBRMaster10.jpg"/>
 
@@ -324,7 +324,7 @@ pbr.subSurface.useMaskFromThicknessTexture = true;
 ## Clear Coat
 Clear coat is a way to simulate the coating you can find in automotive car paint for instance. It usually is a transparent layer of paint that can be used to cover the colored coat.
 
-![SubSurface](/img/features/extensions/PBRClearCoat.png)
+![SubSurface](/img/toolsAndResources/PBRClearCoat.png)
 
 The clear coat is the uppersurface of the material.
 
@@ -417,7 +417,7 @@ All of the configuration here can also for convenience be stored in textures:
 ## Anisotropy
 By default the PBR material is isotropic. This means the shape of the reflection is identical in every direction. Nevertheless, in real life some materials shows really elongated highlights. For instance, looking an old vinyl disc (yes, I am that old), you can see the specular lighting being spread from the center to the border:
 
-![Anisotropy](/img/features/extensions/PBRAnisotropy.png)
+![Anisotropy](/img/toolsAndResources/PBRAnisotropy.png)
 
 <Youtube id="Zk0A5UzNLNw"/>
 

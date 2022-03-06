@@ -198,7 +198,7 @@ In the appropriate section of your shader code to have them injected into your s
 
 ## Shader Builder
 
-This is an extension toBabylon.js. Copy and save the [source code](https://github.com/BabylonJS/features/extensions/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
+This is an extension toBabylon.js. Copy and save the [source code](https://github.com/BabylonJS/toolsAndResources/blob/master/ShaderBuilder/Babylonx.ShaderBuilder.js) for the extension and add as
 
 ```javascript
 <script src="Babylonx.ShaderBuilder.js"></script>

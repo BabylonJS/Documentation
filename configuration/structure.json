@@ -31,7 +31,55 @@
                             "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
                             "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                             "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
-                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" }
+                            "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
+                            "Exporters": {
+                                "friendlyName": "Exporters",
+                                "children": {
+                                    "from_babylon": {
+                                        "friendlyName": "Babylon.js",
+                                        "content": "landing_pages/export_babylon",
+                                        "children": {
+                                            "Save_Babylon": { "friendlyName": " .babylon Exporter", "children": {}, "content": "resources/Exporter/Save_Babylon" },
+                                            "glTFExporter": {
+                                                "friendlyName": ".glTF Exporter",
+                                                "children": {},
+                                                "content": "extensions/glTFExporter/glTFExporter"
+                                            }
+                                        }
+                                    },
+                                    "3DSMax": { "friendlyName": "3DSMax", "children": {}, "content": "resources/Exporter/3DSMax" },
+                                    "3DSMax_to_glTF": { "friendlyName": "3DSMax to glTF", "children": {}, "content": "resources/Exporter/3DSMax_to_glTF" },
+                                    "Blender": { "friendlyName": "Blender", "children": {}, "content": "resources/Exporter/Blender" },
+                                    "Blender_Tips": { "friendlyName": "Blender Tips", "children": {}, "content": "resources/Exporter/Blender_Tips" },
+                                    "Blender_to_glTF": { "friendlyName": "Blender to glTF", "children": {}, "content": "resources/Exporter/Blender_to_glTF" },
+                                    "Bones_influences_per_vertex": { "friendlyName": "Bones influences per vertex", "children": {}, "content": "resources/Exporter/Bones_influences_per_vertex" },
+                                    "Cheetah3D": { "friendlyName": "Cheetah3D", "children": {}, "content": "resources/Exporter/Cheetah3D" },
+                                    "Maya": { "friendlyName": "Maya", "children": {}, "content": "resources/Exporter/Maya" },
+                                    "Maya_to_glTF": { "friendlyName": "Maya to glTF", "children": {}, "content": "resources/Exporter/Maya_to_glTF" },
+                                    "Mixamo_to_Babylon": { "friendlyName": "Mixamo to Babylon", "children": {}, "content": "resources/Exporter/Mixamo_to_Babylon" },
+                                    "Unity": {
+                                        "friendlyName": "Unity",
+                                        "children": {
+                                            "Intro": { "friendlyName": "Introduction to Unity", "children": {}, "content": "resources/Unity/Intro" },
+                                            "Exporter": { "friendlyName": "Export Panels", "children": {}, "content": "resources/Unity/Exporter" },
+                                            "Projects": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Unity/Projects" },
+                                            "01_ScriptComponents": { "friendlyName": "01 ScriptComponents", "children": {}, "content": "resources/Unity/01_ScriptComponents" },
+                                            "02_SceneManager": { "friendlyName": "02 SceneManager", "children": {}, "content": "resources/Unity/02_SceneManager" },
+                                            "03_ShaderMaterials": { "friendlyName": "03 ShaderMaterials", "children": {}, "content": "resources/Unity/03_ShaderMaterials" },
+                                            "04_CollisionMeshes": { "friendlyName": "04 CollisionMeshes", "children": {}, "content": "resources/Unity/04_CollisionMeshes" },
+                                            "05_TerrainBuilder": { "friendlyName": "05 TerrainBuilder", "children": {}, "content": "resources/Unity/05_TerrainBuilder" },
+                                            "06_AnimationState": { "friendlyName": "06 AnimationState", "children": {}, "content": "resources/Unity/06_AnimationState" },
+                                            "07_RuntimePrefabs": { "friendlyName": "07 RuntimePrefabs", "children": {}, "content": "resources/Unity/07_RuntimePrefabs" },
+                                            "08_StaticBatching": { "friendlyName": "08 StaticBatching", "children": {}, "content": "resources/Unity/08_StaticBatching" },
+                                            "09_NavigationMesh": { "friendlyName": "09 NavigationMesh", "children": {}, "content": "resources/Unity/09_NavigationMesh" },
+                                            "10_WindowsPlatform": { "friendlyName": "10 WindowsPlatform", "children": {}, "content": "resources/Unity/10_WindowsPlatform" },
+                                            "11_BabylonArtTools": { "friendlyName": "11 BabylonArtTools", "children": {}, "content": "resources/Unity/11_BabylonArtTools" }
+                                        },
+                                        "content": "landing_pages/extensionsUnityLandingPage"
+                                    }
+                                },
+                                "content": "landing_pages/extensionsExportersLandingPage"
+                            }
                         }
                     },
                     "templates": {
@@ -63,6 +111,7 @@
                     "Babylon.js+ExternalLibraries": {
                         "friendlyName": "Babylon.js + External Libraries",
                         "children": {
+                            "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" },
                             "BabylonJS_and_Instant_Games": { "friendlyName": "BabylonJS and Instant Games", "children": {}, "content": "resources/Library/BabylonJS_and_Instant_Games" },
                             "BabylonJS_and_Ionic_Angular": { "friendlyName": "BabylonJS and Ionic Angular", "children": {}, "content": "resources/Library/BabylonJS_and_Ionic_Angular" },
                             "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
@@ -81,7 +130,11 @@
                                 },
                                 "content": "landing_pages/extensionsExternalLibrariesVueLandingPage"
                             },
-                            "BabylonJS_and_CesiumJS": {"friendlyName": "BabylonJS and CesiumJS", "children": {}, "content": "resources/Library/BabylonJS_and_CesiumJS" }
+                            "wordPress": {
+                                "friendlyName": "Babylon.js and WordPress",
+                                "children": {},
+                                "content": "landing_pages/extensions_wordpress"
+                            }
                         },
                         "content": "landing_pages/extensionsExternalLibrariesLandingPage"
                     }                
@@ -776,231 +829,78 @@
                             }
                         },
                         "content": "landing_pages/advanced_topics_landing_page"
-                    },
-                    "extensions": {
-                        "friendlyName": "Extensions",
-                        "children": {
-                            "amp360Video": {
-                                "friendlyName": "Azure Media Player 360 Video",
-                                "children": {},
-                                "content": "extensions/Amp360Video/Amp360Video"
-                            },
-                            "babylonViewer": {
-                                "friendlyName": "Babylon.js Viewer",
-                                "children": {
-                                    "configuringViewer": { "friendlyName": "Configuring The Viewer", "children": {}, "content": "extensions/Viewer/Configuring_the_viewer" },
-                                    "viewerTemplatingSystem": { "friendlyName": "The Viewer Templating System", "children": {}, "content": "extensions/Viewer/The_templating_system" },
-                                    "defaultViewerConfig": { "friendlyName": "Recreating The Default Viewer Configuration", "children": {}, "content": "extensions/Viewer/Recreating_the_default_configuration" },
-                                    "advancedViewerUsage": { "friendlyName": "Advanced Viewer Usage", "children": {}, "content": "extensions/Viewer/Advanced_usage" },
-                                    "viewerExamples": { "friendlyName": "Viewer Examples", "children": {}, "content": "extensions/Viewer/Viewer_examples" }
-                                },
-                                "content": "extensions/Viewer/The_Babylon_Viewer"
-                            },
-                            "babylonCMSIntegration": {
-                                "friendlyName": "Babylon.js CMS Integration",
-                                "children": {
-                                    "wordPress": {
-                                        "friendlyName": "Babylon.js WordPress Integration",
-                                        "children": {},
-                                        "content": "landing_pages/extensions_wordpress"
-                                    }
-                                },
-                                "content": "landing_pages/extensions_CMS_landingpage"
-                            },
-                            "bufferedInterpolation": {
-                                "friendlyName": "Buffered Interpolation",
-                                "children": {},
-                                "content": "extensions/bufferedInterpolation"
-                            },
-                            "castorGUI": {
-                                "friendlyName": "Castor GUI",
-                                "children": {
-                                    "guiButton": { "friendlyName": "GUIButton", "children": {}, "content": "extensions/CastorGUI/GUIButton" },
-                                    "guiCheckbox": { "friendlyName": "GUICheckbox", "children": {}, "content": "extensions/CastorGUI/GUICheckbox" },
-                                    "guiColor": { "friendlyName": "GUIColor", "children": {}, "content": "extensions/CastorGUI/GUIColor" },
-                                    "guiDialog": { "friendlyName": "GUIDialog", "children": {}, "content": "extensions/CastorGUI/GUIDialog" },
-                                    "guiFieldset": { "friendlyName": "GUIFieldset", "children": {}, "content": "extensions/CastorGUI/GUIFieldset" },
-                                    "guiGroup": { "friendlyName": "GUIGroup", "children": {}, "content": "extensions/CastorGUI/GUIGroup" },
-                                    "guiLabel": { "friendlyName": "GUILabel", "children": {}, "content": "extensions/CastorGUI/GUILabel" },
-                                    "guiManager": { "friendlyName": "GUIManager", "children": {}, "content": "extensions/CastorGUI/GUIManager" },
-                                    "guiMeter": { "friendlyName": "GUIMeter", "children": {}, "content": "extensions/CastorGUI/GUIMeter" },
-                                    "guiPanel": { "friendlyName": "GUIPanel", "children": {}, "content": "extensions/CastorGUI/GUIPanel" },
-                                    "guiProgress": { "friendlyName": "GUIProgress", "children": {}, "content": "extensions/CastorGUI/GUIProgress" },
-                                    "guiRadio": { "friendlyName": "GUIRadio", "children": {}, "content": "extensions/CastorGUI/GUIRadio" },
-                                    "guiSelect": { "friendlyName": "GUISelect", "children": {}, "content": "extensions/CastorGUI/GUISelect" },
-                                    "guiSlider": { "friendlyName": "GUISlider", "children": {}, "content": "extensions/CastorGUI/GUISlider" },
-                                    "guiSpinner": { "friendlyName": "GUISpinner", "children": {}, "content": "extensions/CastorGUI/GUISpinner" },
-                                    "guiText": { "friendlyName": "GUIText", "children": {}, "content": "extensions/CastorGUI/GUIText" },
-                                    "guiTextarea": { "friendlyName": "GUITextarea", "children": {}, "content": "extensions/CastorGUI/GUITextarea" },
-                                    "guiTextfield": { "friendlyName": "GUITextfield", "children": {}, "content": "extensions/CastorGUI/GUITextfield" },
-                                    "guiTextures": { "friendlyName": "GUITextures", "children": {}, "content": "extensions/CastorGUI/GUITextures" },
-                                    "guiWindow": { "friendlyName": "GUIWindow", "children": {}, "content": "extensions/CastorGUI/GUIWindow" }
-                                },
-                                "content": "extensions/CastorGUI/CastorGUI"
-                            },
-                            "clonerSystem": {
-                                "friendlyName": "Cloner System",
-                                "children": {
-                                    "radialCloner": { "friendlyName": "Radial Cloner", "children": {}, "content": "extensions/ClonerSystem/RadialCloner" },
-                                    "linearCloner": { "friendlyName": "Linear Cloner", "children": {}, "content": "extensions/ClonerSystem/LinearCloner" },
-                                    "matrixCloner": { "friendlyName": "Matrix Cloner", "children": {}, "content": "extensions/ClonerSystem/MatrixCloner" },
-                                    "objectCloner": { "friendlyName": "Object Cloner", "children": {}, "content": "extensions/ClonerSystem/ObjectCloner" },
-                                    "randomEffector": { "friendlyName": "Random Effector", "children": {}, "content": "extensions/ClonerSystem/RandomEffector" }
-                                },
-                                "content": "landing_pages/extensionsClonerSystemLandingPage"
-                            },
-                            "dynamicTerrains": {
-                                "friendlyName": "Dynamic Terrains",
-                                "children": {
-                                    "addingDTObjects": { "friendlyName": "Adding Objects to a Dynamic Terrain", "children": {}, "content": "extensions/Terrains/DT_Objects" },
-                                    "DTExamples": { "friendlyName": "Dynamic Terrain Examples", "children": {}, "content": "extensions/Terrains/DT_Examples" }
-                                },
-                                "content": "extensions/Terrains/Dynamic_Terrain"
-                            },
-                            "meshWriter": {
-                                "friendlyName": "Mesh Writer",
-                                "children": {},
-                                "content": "extensions/Mesh_Writer/Mesh_Writer_Introduction"
-                            },
-                            "crowdNavigation": {
-                                "friendlyName": "Crowd Navigation System",
-                                "children": {
-                                    "createNavMesh": { "friendlyName": "Creating A Navigation Mesh", "children": {}, "content": "extensions/Navigation/NavigationMesh" },
-                                    "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" },
-                                    "obstacles": { "friendlyName": "Obstacles", "children": {}, "content": "extensions/Navigation/Obstacles" }
-                                },
-                                "content": "landing_pages/extensionsCrowdNavigationSystemLandingPage"
-                            },
-                            "textureCanvas": {
-                                "friendlyName": "Texture Canvas",
-                                "children": {},
-                                "content": "extensions/TextureCanvas/TextureCanvas"
-                            },
-                            "treeGenerators": {
-                                "friendlyName": "Tree Generators",
-                                "children": {
-                                    "simplePineGenerator": { "friendlyName": "Simple Pine Generator", "children": {}, "content": "extensions/Tree_Generators/Simple_Pine_Generator" },
-                                    "spsTreeGenerator": { "friendlyName": "SPS Tree Generator", "children": {}, "content": "extensions/Tree_Generators/SPS_Tree_Generator" },
-                                    "quickTreeGenerator": { "friendlyName": "Quick Tree Generator", "children": {}, "content": "extensions/Tree_Generators/Quick_Tree_Generator" }
-                                },
-                                "content": "landing_pages/extensionsTreeGeneratorsLandingPage"
-                            },
-                            "editor": {
-                                "friendlyName": "Editor",
-                                "children": {
-                                    "gettingStarted": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Editor/Getting_Started" },
-                                    "workspace": {
-                                        "friendlyName": "Workspaces",
-                                        "children": {
-                                            "creatingWorkspace": { "friendlyName": "Creating a Workspace", "children": {}, "content": "resources/Editor/Workspace/Creating_Workspace" },
-                                            "creatingProject": { "friendlyName": "Creating a Project", "children": {}, "content": "resources/Editor/Workspace/Creating_Project" },
-                                            "renamingProject": { "friendlyName": "Renaming a Project", "children": {}, "content": "resources/Editor/Workspace/Renaming_Project" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorWorkspaceLandingPage"
-                                    },
-                                    "running": {
-                                        "friendlyName": "Running",
-                                        "children": {
-                                            "runningWorkspace": { "friendlyName": "Running a Workspace", "children": {}, "content": "resources/Editor/Running/Running_Workspace" },
-                                            "runningProject": { "friendlyName": "Running a Project", "children": {}, "content": "resources/Editor/Running/Running_Project" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorRunningLandingPage"
-                                    },
-                                    "assets": {
-                                        "friendlyName": "Assets",
-                                        "children": {
-                                            "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
-                                            "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
-                                            "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
-                                            "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorAssetsLandingPage"
-                                    },
-                                    "scripting": {
-                                        "friendlyName": "Scripting",
-                                        "children": {
-                                            "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorPhysicsLandingPage"
-                                    },
-                                    "physics": {
-                                        "friendlyName": "Physics",
-                                        "children": {
-                                            "usingPhysics": { "friendlyName": "Using Physics", "children": {}, "content": "resources/Editor/Physics/Using_Physics" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorScriptingLandingPage"
-                                    },
-                                    "collisions": {
-                                        "friendlyName": "Collisions",
-                                        "children": {
-                                            "basicCollisions": { "friendlyName": "Basic Collisions", "children": {}, "content": "resources/Editor/Collisions/Basic_Collisions" },
-                                            "advancedCollisions": { "friendlyName": "Advanced Collisions", "children": {}, "content": "resources/Editor/Collisions/Advanced_Collisions" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorCollisionsLandingPage"
-                                    },
-                                    "troubleshooting": {
-                                        "friendlyName": "Troubleshooting",
-                                        "children": {
-                                            "basicCollisions": { "friendlyName": "Blurred UI", "children": {}, "content": "resources/Editor/Troubleshooting/Blurred_UI" },
-                                            "startup": { "friendlyName": "Startup", "children": {}, "content": "resources/Editor/Troubleshooting/Startup" }
-                                        },
-                                        "content": "landing_pages/extensionsEditorTroubleshootingLandingPage"
-                                    }
-                                },
-                                "content": "landing_pages/extensionsEditorLandingPage"
-                            },
-                            "Exporters": {
-                                "friendlyName": "Exporters",
-                                "children": {
-                                    "3DSMax": { "friendlyName": "3DSMax", "children": {}, "content": "resources/Exporter/3DSMax" },
-                                    "3DSMax_to_glTF": { "friendlyName": "3DSMax to glTF", "children": {}, "content": "resources/Exporter/3DSMax_to_glTF" },
-                                    "Blender": { "friendlyName": "Blender", "children": {}, "content": "resources/Exporter/Blender" },
-                                    "Blender_Tips": { "friendlyName": "Blender Tips", "children": {}, "content": "resources/Exporter/Blender_Tips" },
-                                    "Blender_to_glTF": { "friendlyName": "Blender to glTF", "children": {}, "content": "resources/Exporter/Blender_to_glTF" },
-                                    "Bones_influences_per_vertex": { "friendlyName": "Bones influences per vertex", "children": {}, "content": "resources/Exporter/Bones_influences_per_vertex" },
-                                    "Cheetah3D": { "friendlyName": "Cheetah3D", "children": {}, "content": "resources/Exporter/Cheetah3D" },
-                                    "Maya": { "friendlyName": "Maya", "children": {}, "content": "resources/Exporter/Maya" },
-                                    "Maya_to_glTF": { "friendlyName": "Maya to glTF", "children": {}, "content": "resources/Exporter/Maya_to_glTF" },
-                                    "Mixamo_to_Babylon": { "friendlyName": "Mixamo to Babylon", "children": {}, "content": "resources/Exporter/Mixamo_to_Babylon" },
-                                    "Save_Babylon": { "friendlyName": "Save Babylon", "children": {}, "content": "resources/Exporter/Save_Babylon" }
-                                },
-                                "content": "landing_pages/extensionsExportersLandingPage"
-                            },
-                            "Unity": {
-                                "friendlyName": "Unity",
-                                "children": {
-                                    "Intro": { "friendlyName": "Introduction to Unity", "children": {}, "content": "resources/Unity/Intro" },
-                                    "Exporter": { "friendlyName": "Export Panels", "children": {}, "content": "resources/Unity/Exporter" },
-                                    "Projects": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Unity/Projects" },
-                                    "01_ScriptComponents": { "friendlyName": "01 ScriptComponents", "children": {}, "content": "resources/Unity/01_ScriptComponents" },
-                                    "02_SceneManager": { "friendlyName": "02 SceneManager", "children": {}, "content": "resources/Unity/02_SceneManager" },
-                                    "03_ShaderMaterials": { "friendlyName": "03 ShaderMaterials", "children": {}, "content": "resources/Unity/03_ShaderMaterials" },
-                                    "04_CollisionMeshes": { "friendlyName": "04 CollisionMeshes", "children": {}, "content": "resources/Unity/04_CollisionMeshes" },
-                                    "05_TerrainBuilder": { "friendlyName": "05 TerrainBuilder", "children": {}, "content": "resources/Unity/05_TerrainBuilder" },
-                                    "06_AnimationState": { "friendlyName": "06 AnimationState", "children": {}, "content": "resources/Unity/06_AnimationState" },
-                                    "07_RuntimePrefabs": { "friendlyName": "07 RuntimePrefabs", "children": {}, "content": "resources/Unity/07_RuntimePrefabs" },
-                                    "08_StaticBatching": { "friendlyName": "08 StaticBatching", "children": {}, "content": "resources/Unity/08_StaticBatching" },
-                                    "09_NavigationMesh": { "friendlyName": "09 NavigationMesh", "children": {}, "content": "resources/Unity/09_NavigationMesh" },
-                                    "10_WindowsPlatform": { "friendlyName": "10 WindowsPlatform", "children": {}, "content": "resources/Unity/10_WindowsPlatform" },
-                                    "11_BabylonArtTools": { "friendlyName": "11 BabylonArtTools", "children": {}, "content": "resources/Unity/11_BabylonArtTools" }
-                                },
-                                "content": "landing_pages/extensionsUnityLandingPage"
-                            },
-                            "glTFExporter": {
-                                "friendlyName": "glTF Exporter",
-                                "children": {},
-                                "content": "extensions/glTFExporter/glTFExporter"
-                            }
-                        },
-                        "content": "landing_pages/extensionsLandingPage"
                     }
                 }
             },
             "toolsAndResources": {
                 "friendlyName": "Tools and Resources",
                 "children": {
+                    "editor": {
+                        "friendlyName": "Editor",
+                        "children": {
+                            "gettingStarted": { "friendlyName": "Getting Started", "children": {}, "content": "resources/Editor/Getting_Started" },
+                            "workspace": {
+                                "friendlyName": "Workspaces",
+                                "children": {
+                                    "creatingWorkspace": { "friendlyName": "Creating a Workspace", "children": {}, "content": "resources/Editor/Workspace/Creating_Workspace" },
+                                    "creatingProject": { "friendlyName": "Creating a Project", "children": {}, "content": "resources/Editor/Workspace/Creating_Project" },
+                                    "renamingProject": { "friendlyName": "Renaming a Project", "children": {}, "content": "resources/Editor/Workspace/Renaming_Project" }
+                                },
+                                "content": "landing_pages/extensionsEditorWorkspaceLandingPage"
+                            },
+                            "running": {
+                                "friendlyName": "Running",
+                                "children": {
+                                    "runningWorkspace": { "friendlyName": "Running a Workspace", "children": {}, "content": "resources/Editor/Running/Running_Workspace" },
+                                    "runningProject": { "friendlyName": "Running a Project", "children": {}, "content": "resources/Editor/Running/Running_Project" }
+                                },
+                                "content": "landing_pages/extensionsEditorRunningLandingPage"
+                            },
+                            "assets": {
+                                "friendlyName": "Assets",
+                                "children": {
+                                    "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
+                                    "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
+                                    "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
+                                    "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                                },
+                                "content": "landing_pages/extensionsEditorAssetsLandingPage"
+                            },
+                            "scripting": {
+                                "friendlyName": "Scripting",
+                                "children": {
+                                    "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                                },
+                                "content": "landing_pages/extensionsEditorPhysicsLandingPage"
+                            },
+                            "physics": {
+                                "friendlyName": "Physics",
+                                "children": {
+                                    "usingPhysics": { "friendlyName": "Using Physics", "children": {}, "content": "resources/Editor/Physics/Using_Physics" }
+                                },
+                                "content": "landing_pages/extensionsEditorScriptingLandingPage"
+                            },
+                            "collisions": {
+                                "friendlyName": "Collisions",
+                                "children": {
+                                    "basicCollisions": { "friendlyName": "Basic Collisions", "children": {}, "content": "resources/Editor/Collisions/Basic_Collisions" },
+                                    "advancedCollisions": { "friendlyName": "Advanced Collisions", "children": {}, "content": "resources/Editor/Collisions/Advanced_Collisions" }
+                                },
+                                "content": "landing_pages/extensionsEditorCollisionsLandingPage"
+                            },
+                            "troubleshooting": {
+                                "friendlyName": "Troubleshooting",
+                                "children": {
+                                    "basicCollisions": { "friendlyName": "Blurred UI", "children": {}, "content": "resources/Editor/Troubleshooting/Blurred_UI" },
+                                    "startup": { "friendlyName": "Startup", "children": {}, "content": "resources/Editor/Troubleshooting/Startup" }
+                                },
+                                "content": "landing_pages/extensionsEditorTroubleshootingLandingPage"
+                            }
+                        },
+                        "content": "landing_pages/extensionsEditorLandingPage"
+                    },
                     "inspector": {
-                        "friendlyName": "Inspector",
+                        "friendlyName": "Inspector & Its Editors",
                         "children": {
                             "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
                             "animationCurveEditor": {
@@ -1078,7 +978,101 @@
                         "children": {},
                         "content": "resources/Reference/offsite_tutorials_list"
                     },
-                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" }
+                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
+                    "amp360Video": {
+                        "friendlyName": "Azure Media Player 360 Video",
+                        "children": {},
+                        "content": "extensions/Amp360Video/Amp360Video"
+                    },
+                    "babylonViewer": {
+                        "friendlyName": "Babylon.js Viewer",
+                        "children": {
+                            "configuringViewer": { "friendlyName": "Configuring The Viewer", "children": {}, "content": "extensions/Viewer/Configuring_the_viewer" },
+                            "viewerTemplatingSystem": { "friendlyName": "The Viewer Templating System", "children": {}, "content": "extensions/Viewer/The_templating_system" },
+                            "defaultViewerConfig": { "friendlyName": "Recreating The Default Viewer Configuration", "children": {}, "content": "extensions/Viewer/Recreating_the_default_configuration" },
+                            "advancedViewerUsage": { "friendlyName": "Advanced Viewer Usage", "children": {}, "content": "extensions/Viewer/Advanced_usage" },
+                            "viewerExamples": { "friendlyName": "Viewer Examples", "children": {}, "content": "extensions/Viewer/Viewer_examples" }
+                        },
+                        "content": "extensions/Viewer/The_Babylon_Viewer"
+                    },
+                    "bufferedInterpolation": {
+                        "friendlyName": "Buffered Interpolation",
+                        "children": {},
+                        "content": "extensions/bufferedInterpolation"
+                    },
+                    "castorGUI": {
+                        "friendlyName": "Castor GUI",
+                        "children": {
+                            "guiButton": { "friendlyName": "GUIButton", "children": {}, "content": "extensions/CastorGUI/GUIButton" },
+                            "guiCheckbox": { "friendlyName": "GUICheckbox", "children": {}, "content": "extensions/CastorGUI/GUICheckbox" },
+                            "guiColor": { "friendlyName": "GUIColor", "children": {}, "content": "extensions/CastorGUI/GUIColor" },
+                            "guiDialog": { "friendlyName": "GUIDialog", "children": {}, "content": "extensions/CastorGUI/GUIDialog" },
+                            "guiFieldset": { "friendlyName": "GUIFieldset", "children": {}, "content": "extensions/CastorGUI/GUIFieldset" },
+                            "guiGroup": { "friendlyName": "GUIGroup", "children": {}, "content": "extensions/CastorGUI/GUIGroup" },
+                            "guiLabel": { "friendlyName": "GUILabel", "children": {}, "content": "extensions/CastorGUI/GUILabel" },
+                            "guiManager": { "friendlyName": "GUIManager", "children": {}, "content": "extensions/CastorGUI/GUIManager" },
+                            "guiMeter": { "friendlyName": "GUIMeter", "children": {}, "content": "extensions/CastorGUI/GUIMeter" },
+                            "guiPanel": { "friendlyName": "GUIPanel", "children": {}, "content": "extensions/CastorGUI/GUIPanel" },
+                            "guiProgress": { "friendlyName": "GUIProgress", "children": {}, "content": "extensions/CastorGUI/GUIProgress" },
+                            "guiRadio": { "friendlyName": "GUIRadio", "children": {}, "content": "extensions/CastorGUI/GUIRadio" },
+                            "guiSelect": { "friendlyName": "GUISelect", "children": {}, "content": "extensions/CastorGUI/GUISelect" },
+                            "guiSlider": { "friendlyName": "GUISlider", "children": {}, "content": "extensions/CastorGUI/GUISlider" },
+                            "guiSpinner": { "friendlyName": "GUISpinner", "children": {}, "content": "extensions/CastorGUI/GUISpinner" },
+                            "guiText": { "friendlyName": "GUIText", "children": {}, "content": "extensions/CastorGUI/GUIText" },
+                            "guiTextarea": { "friendlyName": "GUITextarea", "children": {}, "content": "extensions/CastorGUI/GUITextarea" },
+                            "guiTextfield": { "friendlyName": "GUITextfield", "children": {}, "content": "extensions/CastorGUI/GUITextfield" },
+                            "guiTextures": { "friendlyName": "GUITextures", "children": {}, "content": "extensions/CastorGUI/GUITextures" },
+                            "guiWindow": { "friendlyName": "GUIWindow", "children": {}, "content": "extensions/CastorGUI/GUIWindow" }
+                        },
+                        "content": "extensions/CastorGUI/CastorGUI"
+                    },
+                    "clonerSystem": {
+                        "friendlyName": "Cloner System",
+                        "children": {
+                            "radialCloner": { "friendlyName": "Radial Cloner", "children": {}, "content": "extensions/ClonerSystem/RadialCloner" },
+                            "linearCloner": { "friendlyName": "Linear Cloner", "children": {}, "content": "extensions/ClonerSystem/LinearCloner" },
+                            "matrixCloner": { "friendlyName": "Matrix Cloner", "children": {}, "content": "extensions/ClonerSystem/MatrixCloner" },
+                            "objectCloner": { "friendlyName": "Object Cloner", "children": {}, "content": "extensions/ClonerSystem/ObjectCloner" },
+                            "randomEffector": { "friendlyName": "Random Effector", "children": {}, "content": "extensions/ClonerSystem/RandomEffector" }
+                        },
+                        "content": "landing_pages/extensionsClonerSystemLandingPage"
+                    },
+                    "dynamicTerrains": {
+                        "friendlyName": "Dynamic Terrains",
+                        "children": {
+                            "addingDTObjects": { "friendlyName": "Adding Objects to a Dynamic Terrain", "children": {}, "content": "extensions/Terrains/DT_Objects" },
+                            "DTExamples": { "friendlyName": "Dynamic Terrain Examples", "children": {}, "content": "extensions/Terrains/DT_Examples" }
+                        },
+                        "content": "extensions/Terrains/Dynamic_Terrain"
+                    },
+                    "meshWriter": {
+                        "friendlyName": "Mesh Writer",
+                        "children": {},
+                        "content": "extensions/Mesh_Writer/Mesh_Writer_Introduction"
+                    },
+                    "crowdNavigation": {
+                        "friendlyName": "Crowd Navigation System",
+                        "children": {
+                            "createNavMesh": { "friendlyName": "Creating A Navigation Mesh", "children": {}, "content": "extensions/Navigation/NavigationMesh" },
+                            "crowdAgents": { "friendlyName": "Crowd Agents", "children": {}, "content": "extensions/Navigation/Crowd" },
+                            "obstacles": { "friendlyName": "Obstacles", "children": {}, "content": "extensions/Navigation/Obstacles" }
+                        },
+                        "content": "landing_pages/extensionsCrowdNavigationSystemLandingPage"
+                    },
+                    "textureCanvas": {
+                        "friendlyName": "Texture Canvas",
+                        "children": {},
+                        "content": "extensions/TextureCanvas/TextureCanvas"
+                    },
+                    "treeGenerators": {
+                        "friendlyName": "Tree Generators",
+                        "children": {
+                            "simplePineGenerator": { "friendlyName": "Simple Pine Generator", "children": {}, "content": "extensions/Tree_Generators/Simple_Pine_Generator" },
+                            "spsTreeGenerator": { "friendlyName": "SPS Tree Generator", "children": {}, "content": "extensions/Tree_Generators/SPS_Tree_Generator" },
+                            "quickTreeGenerator": { "friendlyName": "Quick Tree Generator", "children": {}, "content": "extensions/Tree_Generators/Quick_Tree_Generator" }
+                        },
+                        "content": "landing_pages/extensionsTreeGeneratorsLandingPage"
+                    }
                 },
                 "content": "landing_pages/toolsAndResourcesLandingPage"
             },

@@ -32,7 +32,7 @@ WebVR 1.1 is enabled in specific versions of Microsoft Edge, Chrome, and Firefox
 
 ### WebVR controllers
 
-The WebVR controllers are offered in browsers that support the WebVR gamepad extensions - https://w3c.github.io/gamepad/features/extensions.html .
+The WebVR controllers are offered in browsers that support the WebVR gamepad extensions - https://w3c.github.io/gamepad/toolsAndResources.html .
 
 ## The WebVRFreeCamera class
 

@@ -5,15 +5,15 @@ description: The viewer is the simplest way to display 3D content on a web page.
 keywords: extensions, babylon.js, viewer, web page, display
 further-reading:
     - title: Configuring the viewer
-      url: /features/extensions/babylonViewer/configuringViewer
+      url: /toolsAndResources/babylonViewer/configuringViewer
     - title: The templating system
-      url: /features/extensions/babylonViewer/viewerTemplatingSystem
+      url: /toolsAndResources/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /features/extensions/babylonViewer/defaultViewerConfig
+      url: /toolsAndResources/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /features/extensions/babylonViewer/advancedViewerUsage
+      url: /toolsAndResources/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /features/extensions/babylonViewer/viewerExamples
+      url: /toolsAndResources/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -38,7 +38,7 @@ To display a 3D model on you web page:
 
     We recommend using the [glTF format](https://github.com/khronosgroup/gltf) (`.gltf` or `.glb`) for displaying 3D models on your webpage. Other formats supported by Babylon.js loaders are also supported by the viewer component including `.babylon`, `.obj`, and `.stl` formats.
 
-The Babylon.js viewer automatically provides a [default viewing experience](#default-viewing-experience) for 3D models. All aspects of this experience are configurable. See [Configuring the viewer](//doc.babylonjs.com/features/extensions/babylonViewer/configuringViewer) for more information on customizing the viewing experience.
+The Babylon.js viewer automatically provides a [default viewing experience](#default-viewing-experience) for 3D models. All aspects of this experience are configurable. See [Configuring the viewer](//doc.babylonjs.com/toolsAndResources/babylonViewer/configuringViewer) for more information on customizing the viewing experience.
 
 ## Example
 

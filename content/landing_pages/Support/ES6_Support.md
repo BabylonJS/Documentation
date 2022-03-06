@@ -391,8 +391,8 @@ This will be the case for all the methods defined by module augmentation. This m
 - Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
 - Ray and Picking functions can be found in the `Culling/ray` module.
 - Debug Layer functions can be found in the `Debug/debugLayer` module.
-- Occlusion Queries can be found in the `Engines/features/extensions/engine.occlusionQuery` module.
-- Transform Feedback can be found in the `Engines/features/extensions/engine.transformFeedback` module.
+- Occlusion Queries can be found in the `Engines/toolsAndResources/engine.occlusionQuery` module.
+- Transform Feedback can be found in the `Engines/toolsAndResources/engine.transformFeedback` module.
 - Gamepad support can be found in the `Gamepad/gamepadSceneComponent` module.
 - Scene Helpers like createDefaultCamera, createDefaultXXX can be found in the `Helpers/sceneHelpers` module.
 - Mesh Simplification functions can be found in the `Meshes/meshSimplicationSceneComponent` .

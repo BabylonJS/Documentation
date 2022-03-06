@@ -222,7 +222,7 @@ Here is an example of how to use engine instrumentation:
 
 Please note that each counter is *PerfCounter* object which can provide multiple properties like average, total, min, max, count, etc.
 
-The GPU timer requires a special extension (EXT_DISJOINT_TIMER_QUERY - also sometimes reported with the \_webgl2 prefix in WebGL2 context) in order to work. This extension had been disabled due to Spectre and Meltdown on all major browsers, but some have added it back, like Chrome and Edge. You can check if your browser supports this extension on the [Khronos SDK test page](https://www.khronos.org/registry/webgl/sdk/tests/conformance/features/extensions/ext-disjoint-timer-query.html) or on [WebGL report](https://webglreport.com/?v=2).
+The GPU timer requires a special extension (EXT_DISJOINT_TIMER_QUERY - also sometimes reported with the \_webgl2 prefix in WebGL2 context) in order to work. This extension had been disabled due to Spectre and Meltdown on all major browsers, but some have added it back, like Chrome and Edge. You can check if your browser supports this extension on the [Khronos SDK test page](https://www.khronos.org/registry/webgl/sdk/tests/conformance/toolsAndResources/ext-disjoint-timer-query.html) or on [WebGL report](https://webglreport.com/?v=2).
 
 * Note: On Chrome mobile, this extension can be enabled at `chrome://flags#enable-webgl-developer-extensions` followed by a browser restart
 

@@ -12,7 +12,7 @@ video-content:
 
 ## Introduction
 
-The [WebGL Multiview extension](https://www.khronos.org/registry/webgl/features/extensions/OVR_multiview2/) allows rendering multiple views (eg. each eye for VR scenarios) in a single render pass. This can make rendering around 1.5 to 2.0 times faster.
+The [WebGL Multiview extension](https://www.khronos.org/registry/webgl/toolsAndResources/OVR_multiview2/) allows rendering multiple views (eg. each eye for VR scenarios) in a single render pass. This can make rendering around 1.5 to 2.0 times faster.
 
 Multiview is not currently supported in all browsers. If it is supported, the multiview capability should be present.
 
