@@ -937,10 +937,21 @@
                         },
                         "content": "landing_pages/PGsupport/Playground_debuglayer"
                     },
-                    "guiEditor": {
+                    "gui_editor": {
                         "friendlyName": "Gui Editor",
-                        "children": {},
-                        "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage"
+                        "content": "landing_pages/toolsAndResourcesGUIEditorLandingPage",
+                        "children": {
+                            "intro": {
+                                "friendlyName": "Introduction",
+                                "content": "How_to/GUI/gui_editor_intro",
+                                "children": {}
+                            },
+                            "guiUsage": {
+                                "friendlyName": "Usage",
+                                "children": {},
+                                "content": "How_to/GUI/gui_editor_usage"
+                            }
+                        }
                     },
                     "nme": {
                         "friendlyName": "Node Material Editor",
@@ -950,42 +961,8 @@
                         },
                         "content": "landing_pages/toolsAndResourcesNMELandingPage"
                     },
-                    "utilities": {
-                        "friendlyName": "Utility Functions",
-                        "children": {
-                            "area": { "friendlyName": "Mesh Surface Area", "children": {}, "content": "snippets/utilities/area" },
-                            "Deconstruct_Mesh": { "friendlyName": "Extract Submeshes as Meshes", "children": {}, "content": "snippets/utilities/Deconstruct_Mesh" },
-                            "Frame": { "friendlyName": "Picture Frame", "children": {}, "content": "snippets/utilities/Frame" },
-                            "Increasing_Facets": { "friendlyName": "Increase Facets", "children": {}, "content": "snippets/utilities/Increasing_Facets" },
-                            "InnerMeshPoints": { "friendlyName": "Create Points Inside a Mesh", "children": {}, "content": "snippets/utilities/InnerMeshPoints" },
-                            "IsInside": { "friendlyName": "Checks When a Point is Inside a Mesh", "children": {}, "content": "snippets/utilities/IsInside" },
-                            "Line2D": { "friendlyName": "Draws A Line with a Set Width", "children": {}, "content": "snippets/utilities/Line2D" },
-                            "Minimise_Vertices": { "friendlyName": "Force Shared Vertices", "children": {}, "content": "snippets/utilities/Minimise_Vertices" },
-                            "Mitred": { "friendlyName": "Extrusion With Sharp Corners", "children": {}, "content": "snippets/utilities/Mitred" },
-                            "Normals": { "friendlyName": "Display Vertex Normals", "children": {}, "content": "snippets/utilities/Normals" },
-                            "OpenUrl": { "friendlyName": "Open a URL on an Event", "children": {}, "content": "snippets/utilities/OpenUrl" },
-                            "Path3D": { "friendlyName": "Displays Tangent, Normal and Binormal of a Path3D", "children": {}, "content": "snippets/utilities/Path3D" },
-                            "Pivot": { "friendlyName": "Rotate and Scale about a Point", "children": {}, "content": "snippets/utilities/Pivot" },
-                            "Sector": { "friendlyName": "Draws a Sector of a Circle", "children": {}, "content": "snippets/utilities/Sector" },
-                            "SphericalPanning": { "friendlyName": "Spherical Panning Camera", "children": {}, "content": "snippets/utilities/SphericalPanning" },
-                            "SurfaceMeshPoints": { "friendlyName": "Draw Points on a Mesh Surface", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
-                            "World_Axes": { "friendlyName": "Display Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
-                        },
-                        "content": "landing_pages/utilities_landing_page"
-                    },
-                    "offsite": {
-                        "friendlyName": "Offsite Tutorials",
-                        "children": {},
-                        "content": "resources/Reference/offsite_tutorials_list"
-                    },
-                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
-                    "amp360Video": {
-                        "friendlyName": "Azure Media Player 360 Video",
-                        "children": {},
-                        "content": "extensions/Amp360Video/Amp360Video"
-                    },
                     "babylonViewer": {
-                        "friendlyName": "Babylon.js Viewer",
+                        "friendlyName": "Viewer",
                         "children": {
                             "configuringViewer": { "friendlyName": "Configuring The Viewer", "children": {}, "content": "extensions/Viewer/Configuring_the_viewer" },
                             "viewerTemplatingSystem": { "friendlyName": "The Viewer Templating System", "children": {}, "content": "extensions/Viewer/The_templating_system" },
@@ -994,11 +971,6 @@
                             "viewerExamples": { "friendlyName": "Viewer Examples", "children": {}, "content": "extensions/Viewer/Viewer_examples" }
                         },
                         "content": "extensions/Viewer/The_Babylon_Viewer"
-                    },
-                    "bufferedInterpolation": {
-                        "friendlyName": "Buffered Interpolation",
-                        "children": {},
-                        "content": "extensions/bufferedInterpolation"
                     },
                     "castorGUI": {
                         "friendlyName": "Castor GUI",
@@ -1045,11 +1017,6 @@
                         },
                         "content": "extensions/Terrains/Dynamic_Terrain"
                     },
-                    "meshWriter": {
-                        "friendlyName": "Mesh Writer",
-                        "children": {},
-                        "content": "extensions/Mesh_Writer/Mesh_Writer_Introduction"
-                    },
                     "crowdNavigation": {
                         "friendlyName": "Crowd Navigation System",
                         "children": {
@@ -1058,6 +1025,44 @@
                             "obstacles": { "friendlyName": "Obstacles", "children": {}, "content": "extensions/Navigation/Obstacles" }
                         },
                         "content": "landing_pages/extensionsCrowdNavigationSystemLandingPage"
+                    },
+                    "meshWriter": {
+                        "friendlyName": "Mesh Writer",
+                        "children": {},
+                        "content": "extensions/Mesh_Writer/Mesh_Writer_Introduction"
+                    },
+                    "utilities": {
+                        "friendlyName": "Utility Functions",
+                        "children": {
+                            "area": { "friendlyName": "Mesh Surface Area", "children": {}, "content": "snippets/utilities/area" },
+                            "Deconstruct_Mesh": { "friendlyName": "Extract Submeshes as Meshes", "children": {}, "content": "snippets/utilities/Deconstruct_Mesh" },
+                            "Frame": { "friendlyName": "Picture Frame", "children": {}, "content": "snippets/utilities/Frame" },
+                            "Increasing_Facets": { "friendlyName": "Increase Facets", "children": {}, "content": "snippets/utilities/Increasing_Facets" },
+                            "InnerMeshPoints": { "friendlyName": "Create Points Inside a Mesh", "children": {}, "content": "snippets/utilities/InnerMeshPoints" },
+                            "IsInside": { "friendlyName": "Checks When a Point is Inside a Mesh", "children": {}, "content": "snippets/utilities/IsInside" },
+                            "Line2D": { "friendlyName": "Draws A Line with a Set Width", "children": {}, "content": "snippets/utilities/Line2D" },
+                            "Minimise_Vertices": { "friendlyName": "Force Shared Vertices", "children": {}, "content": "snippets/utilities/Minimise_Vertices" },
+                            "Mitred": { "friendlyName": "Extrusion With Sharp Corners", "children": {}, "content": "snippets/utilities/Mitred" },
+                            "Normals": { "friendlyName": "Display Vertex Normals", "children": {}, "content": "snippets/utilities/Normals" },
+                            "OpenUrl": { "friendlyName": "Open a URL on an Event", "children": {}, "content": "snippets/utilities/OpenUrl" },
+                            "Path3D": { "friendlyName": "Displays Tangent, Normal and Binormal of a Path3D", "children": {}, "content": "snippets/utilities/Path3D" },
+                            "Pivot": { "friendlyName": "Rotate and Scale about a Point", "children": {}, "content": "snippets/utilities/Pivot" },
+                            "Sector": { "friendlyName": "Draws a Sector of a Circle", "children": {}, "content": "snippets/utilities/Sector" },
+                            "SphericalPanning": { "friendlyName": "Spherical Panning Camera", "children": {}, "content": "snippets/utilities/SphericalPanning" },
+                            "SurfaceMeshPoints": { "friendlyName": "Draw Points on a Mesh Surface", "children": {}, "content": "snippets/utilities/SurfaceMeshPoints" },
+                            "World_Axes": { "friendlyName": "Display Axes", "children": {}, "content": "snippets/utilities/World_Axes" }
+                        },
+                        "content": "landing_pages/utilities_landing_page"
+                    },
+                    "amp360Video": {
+                        "friendlyName": "Azure Media Player 360 Video",
+                        "children": {},
+                        "content": "extensions/Amp360Video/Amp360Video"
+                    },
+                    "bufferedInterpolation": {
+                        "friendlyName": "Buffered Interpolation",
+                        "children": {},
+                        "content": "extensions/bufferedInterpolation"
                     },
                     "textureCanvas": {
                         "friendlyName": "Texture Canvas",
@@ -1072,6 +1077,12 @@
                             "quickTreeGenerator": { "friendlyName": "Quick Tree Generator", "children": {}, "content": "extensions/Tree_Generators/Quick_Tree_Generator" }
                         },
                         "content": "landing_pages/extensionsTreeGeneratorsLandingPage"
+                    },
+                    "forum": { "friendlyName": "Forum Help", "children": {}, "content": "resources/Reference/forum" },
+                    "offsite": {
+                        "friendlyName": "Offsite Tutorials",
+                        "children": {},
+                        "content": "resources/Reference/offsite_tutorials_list"
                     }
                 },
                 "content": "landing_pages/toolsAndResourcesLandingPage"
