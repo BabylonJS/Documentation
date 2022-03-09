@@ -366,7 +366,7 @@ Unfortunately doing this introduces another side effect called peter panning whe
 
 ![PeterPanning](/img/how_to/shadows/peterpanning.jpg)
 
-This is where you can benefit from aBabylon.js 3.2 feature called normal bias.
+This is where you can benefit from a Babylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
