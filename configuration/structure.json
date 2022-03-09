@@ -99,6 +99,13 @@
                                 "friendlyName": "Repositories",
                                 "content": "templates/repos_landing",
                                 "children": {
+                                    "basic": {
+                                        "friendlyName": "Basic JS Project",
+                                        "content": "templates/repos/basic",
+                                        "children": {
+
+                                        }
+                                    },
                                     "templateRepositories": {
                                         "friendlyName": "Code/Assets/Delivery",
                                         "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage",
