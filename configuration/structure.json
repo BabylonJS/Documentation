@@ -102,9 +102,12 @@
                                     "basic": {
                                         "friendlyName": "Basic JS Project",
                                         "content": "templates/repos/basic",
-                                        "children": {
-
-                                        }
+                                        "children": {}
+                                    },
+                                    "vite": {
+                                        "friendlyName": "Vite TS BoilerPlate",
+                                        "content": "templates/repos/vite",
+                                        "children": {}
                                     },
                                     "templateRepositories": {
                                         "friendlyName": "Code/Assets/Delivery",

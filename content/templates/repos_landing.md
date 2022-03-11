@@ -8,4 +8,4 @@ video-overview:
 video-content:
 ---
 
-Useful template repositories to aid in development.
+Useful community based template repositories to aid in development. Maintainance is the responsibility of the repository owners.

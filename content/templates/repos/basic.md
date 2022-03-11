@@ -2,12 +2,8 @@
 title: Basic Web Project Template
 image: 
 description: Project Template for Basic Scene.
-keywords: getting started, start, chapter 1, first model, import
+keywords: template
 further-reading:
-  - title: Setup with NPM
-    url: /workflow/wfDeeper/npmSupport
-  - title: Setup with Tree Shaking
-    url: /workflow/wfDeeper/treeShaking
 video-overview:
 video-content:
 ---
