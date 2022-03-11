@@ -36,9 +36,7 @@ and since his manufacturing partners had provided him with a simple 3D
 model of the latest Vaporwear smart watch, Allan asked himself, "**How can 
 I quickly and easily add 3D to my existing e-commerce site?**"
 
-***
-**TODO: Vaporwear --> ? --> Vaporwear + 3D**
-***
+![How can they add 3D to the Vaporwear site?](/img/devStories/vaporwearViewer/vaporwear_viewer_question.png)
 
 So Allan did some research and found that Babylon.js specifically 
 caters to e-commerce scenarios by 
@@ -67,9 +65,7 @@ an hour.
     they spent about twenty minutes getting this configured the way they 
     wanted.
 
-***
-**TODO: Vaporwear --> Babylon --> GitHub --> Vaporwear + 3D**
-***
+![With the Babylon Viewer!](/img/devStories/vaporwearViewer/vaporwear_viewer_answer.png)
 
 And that is how Allan and Barnabas added 3D to the existing Vaporwear 
 e-commerce site in right around an hour. While their site used WordPress,

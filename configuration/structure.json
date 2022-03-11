@@ -860,15 +860,15 @@
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_viewer"
                         },
-                        "vaporwearConfigurator": {
-                            "friendlyName": "Advanced 3D for E-Commerce: Vaporwear",
-                            "children": {},
-                            "content": "dev_stories/ecommerce_vaporwear_configurator"
-                        },
                         "utilitiesShowroomCamera": {
                             "friendlyName": "Babylon Utilities: Showroom Camera",
                             "children": {},
                             "content": "dev_stories/utilities_showroom_camera"
+                        },
+                        "vaporwearConfigurator": {
+                            "friendlyName": "Advanced 3D for E-Commerce: Vaporwear",
+                            "children": {},
+                            "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
                     },
                     "content": "landing_pages/dev_stories_landing_page"

@@ -19,21 +19,19 @@ Related links:
 Once upon a time, I was looking at the usage of 3D in e-commerce websites
 when I began to notice a pattern: while the 3D models being rendered were
 often diverse and exciting, the camera movements in these experiences 
-tended to be very, very simplistic. Wondering about this, I speculated that
-the reason for the simplicity (with each experience usually either having
-only arc-rotate or still camera behavior) is because writing camera control
-code is something of a niche specialization, and not every 3D e-commerce 
-site has the resources to invest in it. This got me wondering whether there
-was some common basis of behaviors that could be encapsulated in a Babylon 
-Utility that many e-commerce sites could use to make their 3D cameras more 
-exciting. After deciding that there was such a subset, I finally reached 
-the biggest question: **how would I develop a Babylon Utility so that it
-could be distributed, and perhaps even sold, for use by other people in
-their own projects?**
+tended to be very, very simplistic. Wondering about this, I speculated 
+that the reason for the simplicity (with each experience usually either 
+having only arc-rotate or still camera behavior) is because writing 
+camera control code is something of a niche specialization, and not 
+every 3D e-commerce site has the resources to invest in it. This got me 
+wondering whether there was some common basis of behaviors that could be 
+encapsulated in a Babylon Utility that many e-commerce sites could use 
+to make their 3D cameras more exciting. After deciding that there was 
+such a subset, I finally reached the biggest question: **how would I 
+develop a Babylon Utility so that it could be distributed, and perhaps 
+even sold, for use by other people in their own projects?**
 
-***
-**TODO: No idea what goes here.**
-***
+![How do I distribute Babylon Utilities?](/img/devStories/showroomCamera/showroom_camera_question.png)
 
 Commercial 3D engines tend to provide commercial solutions to this problem;
 the Unity Asset Store, for example, is Unity's solution. As a fully free 
@@ -55,9 +53,7 @@ projects.
     commercial NPM registry that makes it easy to buy and sell access to
     NPM packages hosted there.
 
-***
-**TODO: No idea what goes here either.**
-***
+![With NPM and PrivJs!](/img/devStories/showroomCamera/showroom_camera_answer.png)
 
 And that's how I created the Showroom Camera, a Babylon Utility that
 adds a specialized camera to serve needs specific to e-commerce scenarios, 
@@ -82,27 +78,41 @@ but with a few key differences worth elaborating on.
     following the first six steps from the 
     [first section of the *Fruit Fallin* Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#moving-playground-code-into-a-development-repo).
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/01_new_repo.png)
+    ![New repo](/img/devStories/showroomCamera/01_new_repo.png)
 
     After that point, I deviated from that Dev Story since I wasn't 
     porting over code that was originally in the Playground.
-1.  [CONTINUE FROM HERE, let the screenshots guide you...]
+1.  As is typically the case when bootstrapping an NPM Package Template
+    repository, my first priority was to get rid of the playground.ts
+    and establish the intended "shape" for the `app_package`. However,
+    since this time I was creating a Babylon Utility instead of a 
+    standalone experience, instead of creating an entry point I created
+    a class that would contain a demo/test scene.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/02_showroom_camera_demo_file.png)
-1.  Lorem ipsum...
+    ![Showroom Camera Demo](/img/devStories/showroomCamera/02_showroom_camera_demo_file.png)
+1.  Into this scene, I moved all the code and infrastructure from 
+    playground.ts and playgroundRunner.ts (doing some light refactoring as I 
+    went), again with the goal of being able to delete those files since 
+    they were not a part of my Babylon Utility.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/03_demo_code_port.png)
-1.  Lorem ipsum...
+    ![Move Playground-like functionaility to demo scene](/img/devStories/showroomCamera/03_demo_code_port.png)
+1.  To finish this process, I changed the exports in index.ts...
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/04_index_ts_and_deletions.png)
-1.  Lorem ipsum...
+    ![index.ts changes](/img/devStories/showroomCamera/04_index_ts_and_deletions.png)
+1.  ...and modified the `test_package` to invoke my demo scene instead of 
+    the deleted playgroundRunner.ts entry point.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/05_test_package_changes.png)
-1.  Lorem ipsum...
+    ![test_package changes](/img/devStories/showroomCamera/05_test_package_changes.png)
+1.  Finally, I ran the test app (`npm run dev`) and checked to make sure
+    my refactoring hadn't changed any behavior.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/06_all_looks_the_same.png)
+    ![Make sure everything looks good](/img/devStories/showroomCamera/06_all_looks_same.png)
 
-Lorem ispum dolor sit amet...
+Again, this setup was simply to get my repo ready to develop a Babylon 
+Utility rather than a standalone experience or a Playground port. With 
+the infrastructure now clean and established, I was ready to add 
+showroomCamera.ts and begin implementing the class I intended to export
+as a utility: the `ShowroomCamera` itself.
 
 ### Implementing the `ShowroomCamera`
 
@@ -173,15 +183,13 @@ some of the more significant pieces the implementation.
     gradually move the camera from one state to the next. This is, by 
     far, the most complex part of the `ShowroomCamera` code and was the 
     primary motivation for turning it into a Babylon Utility.
-1.  The `ShowroomCamera.Run(...)` function added in the prior section
+1.  The `ShowroomCameraDemo.Run(...)` function added in the prior section
     serves two roles. During development, this function is essentially
     used as a test harness where uses can be added and changed to test 
     out the new functionality and APIs. After development, this function 
     lives on as a demo illustrating what the `ShowroomCamera` can do and 
     how to use it. For larger projects with more sophisticated testing/
     demo needs, a formal test battery could serve the same purposes.
-
-Lorem ipsum dolor sit amet...
 
 ### Uploading to Share on npmjs.com
 
@@ -195,7 +203,7 @@ developers, not just my own shipping vehicles.
 
 1.	I added a README.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/07_readme.png)
+    ![Add a README](/img/devStories/showroomCamera/07_readme.png)
 
     Note that this isn't the README in the root directory of NPM Package
     Template repository; that README won't be published because only the
@@ -208,13 +216,13 @@ developers, not just my own shipping vehicles.
     `ShowroomCamera`, which will presumably already have their own
     dependencies on `@babylonjs/core`, to resolve versions.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/08_package_json.png)
+    ![Update package.json](/img/devStories/showroomCamera/08_package_json.png)
 1.  
     ```
     npm publish
     ```
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/09_npm_published.png!420)
+    ![Publish to NPM](/img/devStories/showroomCamera/09_npm_published.png!420)
 
 ### Uploading to Sell on PrivJs.com
 
@@ -232,14 +240,14 @@ pleasantly surprised to find the process very easy.
     instructions they provided for publishing an NPM package on their
     registry.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/10_package_json_privjs.png)
+    ![PrivJs instructions](/img/devStories/showroomCamera/10_privjs_instructions.png)
 
     Seems simple enough.
 1.  I did the same things to publish on PrivJs that I did 
     [to publish on npmjs.com](#uploading-to-share-on-npmjs.com), 
     with the exception that I changed the `publishConfig` a bit.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/10_package_json_privjs.png)
+    ![Update package.json for PrivJs](/img/devStories/showroomCamera/11_package_json_privjs.png)
 
     As a side-note, I also had to update my version because I had already
     published on npmjs.com and PrivJs, which is aware of npmjs.com, 
@@ -248,7 +256,7 @@ pleasantly surprised to find the process very easy.
     npm login --registry https://r.privjs.com
     ```
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/11_privjs_login.png)
+    ![PrivJs login](/img/devStories/showroomCamera/12_privjs_login.png)
 1.  ```
     npm publish
     ```
@@ -257,7 +265,7 @@ pleasantly surprised to find the process very easy.
     setting prices, so it's unclear whether I'm ever going to make a 
     profit on this.
 
-    ![Lorem ipsum](/img/devStories/showroomCamera/12_privjs_listing.png)
+    ![PrivJs listing](/img/devStories/showroomCamera/13_privjs_listing.png)
 
 Boom! Soup.
 
