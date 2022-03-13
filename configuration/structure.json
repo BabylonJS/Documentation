@@ -6,6 +6,11 @@
                 "friendlyName": "Workflow",
                 "content": "landing_pages/workflow",
                 "children": {
+                    "get_started": {
+                        "friendlyName": "Getting Started",
+                        "content": "workflow/get_started", 
+                        "children": {}
+                    },
                     "wfintro" : {
                         "friendlyName": "Introduction",
                         "content": "workflow/introduction/intro",
@@ -154,6 +159,11 @@
                 "friendlyName": "Features",
                 "content": "landing_pages/features",
                 "children": {
+                    "get_started": {
+                        "friendlyName": "Getting Started",
+                        "content": "start/get_started", 
+                        "children": {}
+                    },
                     "start": {
                         "friendlyName": "Introduction",
                         "children": {
