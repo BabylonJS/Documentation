@@ -58,12 +58,11 @@ projects.
 And that's how I created the Showroom Camera, a Babylon Utility that
 adds a specialized camera to serve needs specific to e-commerce scenarios, 
 and made it available for other developers to use from free and/or 
-commercial NPM registries. The actual usage of such a Utility should is
-as simple as taking an NPM dependency - the Vaporwear company has 
-illustrated that as in
+commercial NPM registries. The actual usage of such a Utility is as simple 
+as taking an NPM dependency; the Vaporwear company illustrates that in
 [another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
 *This* Dev Story is about *creating* the Showroom Camera Babylon Utility,
-so on that topic let's circle back to the beginning and continue with...
+so on that topic let's circle back to the beginning and proceed with...
 
 ## A More Step-by-Step Journey Through the Process
 
@@ -125,7 +124,7 @@ and specifics of the implementation are perhaps best described in
 (Of course, any and all questions are always welcome on 
 [the forum](https://forum.babylonjs.com/questions)!)
 This section, then, will be limited to just a few high-level glimpses of 
-some of the more significant pieces the implementation.
+some of the more significant pieces of the implementation.
 
 1.	The `ShowroomCamera` has two behaviors: it can act like an 
     `ArcRotateCamera`, or it can act like a "matchmoving" on-rails 
@@ -133,21 +132,21 @@ some of the more significant pieces the implementation.
     model to show it off from all sides). Because the goal in the 
     "arc-rotate" state is to act like an `ArcRotateCamera` (which is a 
     favorite camera of the Babylon.js Community), I decided the best 
-    thing to do in that mode would be to just have the `ShowroomCamera` 
-    *be* an `ArcRotateCamera`. More precisely, the `ShowroomCamera` 
-    *contains* an `ArcRotateCamera`. That way, when the `ShowroomCamera` 
-    enters an "arc-rotate" state, all it has to do is correctly position 
-    the `ArcRotateCamera`, then enable it.
+    thing to do in that mode would be to just have the 
+    `ShowroomCamera` *be* an `ArcRotateCamera`. More precisely, the 
+    `ShowroomCamera` *contains* an `ArcRotateCamera`. That way, when the 
+    `ShowroomCamera` enters an "arc-rotate" state, all it has to do is 
+    correctly position the `ArcRotateCamera`, then enable it.
 1.  "Matchmoving," the second behavior of the `ShowroomCamera`, is 
     achieved by simply using a second camera which follows a 
     user-provided `TransformNode`. Three aspects of this are noteworthy. 
     1.  The matchmoving is done using a second camera (as opposed to 
         just moving the `ArcRotateCamera`) so that the `ArcRotateCamera` 
-        can remain free to position itself; `ArcRotateCamera`s come 
+        can remain free to position itself. `ArcRotateCamera`s come 
         pre-packaged with a *lot* of very custom behaviors, so rather 
         than try to predict what those behaviors will do in a given 
         circumstance (and risk taking a hard dependency on 
-        implementation details of Babylon.js itself), we simply use an 
+        implementation details of Babylon.js), we simply use an 
         `ArcRotateCamera` when we want that behavior and a separate 
         camera when we don't.
     1.  The choice to have the second camera follow a `TransformNode`
@@ -165,9 +164,9 @@ some of the more significant pieces the implementation.
         `TransformNode`; it actually copies its position and orientation 
         from the `TransformNode` frame-by-frame instead of, for example, 
         setting that `TransformNode` to be its parent. This was partly 
-        done to avoid muddling the hierarchy - the `ShowroomCamera` may 
+        done to avoid muddling the hierarchy -- the `ShowroomCamera` may 
         be matchmoving many different `TransformNodes` at various times 
-        in the same scene - but it was also done to resolve difficulties 
+        in the same scene -- but it was also done to resolve difficulties 
         with handedness. For example, when using a `TransformNode` 
         actuated by an animation and imported from a glTF made with 
         Blender, the `TransformNode` the camera should be following may 
@@ -278,9 +277,9 @@ to sell your Babylon Utilities or give them away for free, hopefully the
 process is as straightforward for you as it was for me!
 
 And as for *consuming* these Babylon Utilities, that should also be just 
-as simple as consuming any other NPM package from the registry in \
-question. In fact, I know some people who have already done this - some 
-imaginary people working for an imaginary company - but that is a topic 
+as simple as consuming any other NPM package from the registry in
+question. In fact, I know some people who have already done this -- some 
+imaginary people working for an imaginary company -- but that is a topic 
 for
 [another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
 

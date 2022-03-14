@@ -12,7 +12,7 @@ Related links:
 Original Vaporwear site ([source](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/wp_sites_sources/vaporwear), 
 [demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_original.mp4)),
 Vaporwear site with 3D ([source](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/wp_sites_sources/vaporwear_viewer),
-[demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_viewer.mp4)),
+[demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_with_viewer.mp4)),
 [asset host](https://github.com/syntheticmagus/vaporwear-original-asset-host/).
 
 Note about demos: For most Dev Stories, we try to make the actual usable
@@ -194,8 +194,7 @@ to render it on the Vaporwear WordPress site.
     from the sample adding VR support. (He also cleaned up a lot of 
     copied-over comments he didn't need anymore.) Since thee Vaporwear 
     site was targeting a very clean presentation bordering on minimalism, 
-    so he decided to also remove the logo and fullscreen UI from the nav 
-    bar.
+    he decided to also remove the logo and fullscreen UI from the nav bar.
 
     ![Remove VR support and comments](/img/devStories/vaporwearViewer/19_delete_vr_and_comments.png)
 1.  Lastly, he wanted to make sure the model was rendered using the 
@@ -219,7 +218,7 @@ design they already had. However, with the growing success of the
 Vaporwear business, Allan and Barnabas had already been discussing 
 upgrading the site to a new and more modern technology stack; and after
 seeing the Babylon Viewer on the original Vaporwear site, they started
-to wonder what it would look like to have a e-commerce site that 
+to wonder what it would look like to have an e-commerce site that 
 leveraged 3D as a flagship feature built into the site's design. Allan
 spent a little time browsing the 
 [Babylon forum](https://forum.babylonjs.com/) 
@@ -227,7 +226,7 @@ looking for ideas, where he found a community-made
 [Babylon Utility](https://doc.babylonjs.com/guidedLearning/devStories/showroomCamera)
 that excited him so much that he decided to make it the backbone of 
 the most slick and sophisticated viewer/configurator experience he and
-Barnabas could imagine.
+Barnabas could come up with.
 
 But that is a topic for [another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
 
