@@ -1,5 +1,5 @@
 ---
-title: 3D for E-Commerce - Vaporwear
+title: 3D for E-Commerce - Viewer in WordPress
 image:
 description: A Dev Story about adding 3D to an existing e-commerce website, the fast way.
 keywords: e-commerce, ecommerce, wordpress, vaporwear, viewer

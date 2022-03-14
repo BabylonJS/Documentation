@@ -856,7 +856,7 @@
                             "content": "dev_stories/playground_to_production_fruit_falling"
                         },
                         "vaporwearViewer": {
-                            "friendlyName": "3D for E-Commerce: Vaporwear",
+                            "friendlyName": "3D for E-Commerce: Viewer in WordPress",
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_viewer"
                         },
@@ -866,7 +866,7 @@
                             "content": "dev_stories/utilities_showroom_camera"
                         },
                         "vaporwearConfigurator": {
-                            "friendlyName": "3D for E-Commerce: Vaporwear, Part 2",
+                            "friendlyName": "3D for E-Commerce: Custom Experience",
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
