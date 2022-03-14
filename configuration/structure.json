@@ -866,7 +866,7 @@
                             "content": "dev_stories/utilities_showroom_camera"
                         },
                         "vaporwearConfigurator": {
-                            "friendlyName": "Advanced 3D for E-Commerce: Vaporwear",
+                            "friendlyName": "3D for E-Commerce: Vaporwear, Part 2",
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
