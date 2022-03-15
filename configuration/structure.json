@@ -860,7 +860,7 @@
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_viewer"
                         },
-                        "utilitiesShowroomCamera": {
+                        "showroomCamera": {
                             "friendlyName": "Babylon Utilities: Showroom Camera",
                             "children": {},
                             "content": "dev_stories/utilities_showroom_camera"
