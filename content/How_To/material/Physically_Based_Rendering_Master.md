@@ -505,7 +505,7 @@ pbr.sheen.texture = texture;
 
 ## Normal Map / Parallax
 Normal mapping and Parallax are supported in the exact same way than the standard material. Please, refer to the following links for more information:
-* [Normal Map](/features/divingDeeper/materials/advanced/normalMaps)
+* [Normal Map](/features/divingDeeper/materials/using/normalMaps)
 * [Parallax](/features/divingDeeper/materials/using/parallaxMapping)
 
 ## LightMaps

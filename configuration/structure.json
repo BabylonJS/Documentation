@@ -84,6 +84,56 @@
                                     }
                                 },
                                 "content": "landing_pages/extensionsExportersLandingPage"
+                            },
+                            ".babylonFileFormat": {
+                                "friendlyName": "The .babylon File Format",
+                                "children": {},
+                                "content": "resources/Reference/File_Format_Map_(.babylon)"
+                            },
+                            "minifiedVer": {
+                                "friendlyName": "Creating the Mini-fied Version",
+                                "children": {},
+                                "content": "resources/Reference/Creating_the_Mini-fied_Version"
+                            },
+                            "webGL2": {
+                                "friendlyName": "WebGL2",
+                                "children": {},
+                                "content": "landing_pages/Support/WebGL2"
+                            },
+                            "webGPU": {
+                                "friendlyName": "WebGPU",
+                                "children": {
+                                    "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
+                                    "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
+                                    "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
+                                    "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" },
+                                    "webGPULimitations": { "friendlyName": "Limitations", "children": {}, "content": "extensions/WebGPU/webGPULimitations" },
+                                    "webGPUOptimization": {
+                                        "friendlyName": "Optimizations",
+                                        "children": {
+                                            "webGPUNonCompatibilityMode": { "friendlyName": "Non Compatibility Mode", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUNonCompatibilityMode" },
+                                            "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUSnapshotRendering" },
+                                            "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUMiscellaneous" }
+                                        },
+                                        "content": "extensions/WebGPU/webGPUOptimizations"
+                                    },
+                                    "webGPUInternals": {
+                                        "friendlyName": "Internals",
+                                        "children": {
+                                            "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" },
+                                            "webGPUCacheBindGroup": { "friendlyName": "Cache Bind Groups", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheBindGroup" },
+                                            "webGPUCacheRenderPipeline": { "friendlyName": "Cache Render Pipelines", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheRenderPipeline" },
+                                            "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Internals/webGPUMiscellaneous" }
+                                        },
+                                        "content": "extensions/WebGPU/webGPUInternals"
+                                    }
+                                },
+                                "content": "extensions/WebGPU/webGPU"
+                            },
+                            "serverSide": {
+                                "friendlyName": "Running Babylon.js on a Server",
+                                "children": {},
+                                "content": "landing_pages/Support/nullEngine"
                             }
                         }
                     },
@@ -357,14 +407,23 @@
                                 "friendlyName": "Importing Assets",
                                 "children": {
                                     "loadingFileTypes": { "friendlyName": "Loading Any File Type", "children": {}, "content": "How_To/Importer/Load_From_Any_File_Type" },
+                                    "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
+                                    "divider1": {"friendlyName": "---------------" },
                                     "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {}, "content": "How_To/Importer/glTF" },
+                                    "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" },
                                     "stl": { "friendlyName": ".stl File Loader Plugin", "children": {}, "content": "How_To/Importer/STL" },
                                     "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
-                                    "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
-                                    "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
+                                    "divider2": {"friendlyName": "---------------" },
+                                    "loadFromMemory": {
+                                        "friendlyName": "Loading Assets From Memory",
+                                        "children": {},
+                                        "content": "resources/Reference/Loading_From_Memory"
+                                    },
+                                    "divider3": {"friendlyName": "---------------" },
                                     "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
                                     "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
-                                    "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                                    "divider4": {"friendlyName": "---------------" },
+                                    "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" }
                                 },
                                 "content": "landing_pages/divingDeeperImportersLandingPage"
                             },
@@ -372,9 +431,15 @@
                                 "friendlyName": "Lights",
                                 "children": {
                                     "lights_introduction": { "friendlyName": "Introduction to Lights", "children": {}, "content": "How_To/light/lights_introduction" },
+                                    "volumetricLightScattering": { "friendlyName": "Volumetric Light Scattering Post Process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" },
+                                    "divider1": {"friendlyName": "---------------" },
                                     "shadows": { "friendlyName": "Shadows", "children": {}, "content": "How_To/light/Shadows" },
                                     "shadows_csm": { "friendlyName": "Cascaded Shadow Maps", "children": {}, "content": "How_To/light/Shadows_csm" },
-                                    "volumetricLightScattering": { "friendlyName": "Volumetric Light Scattering Post Process", "children": {}, "content": "How_To/light/Using_the_Volumetric_LightScattering_post-process" }
+                                    "mathShadows": {
+                                        "friendlyName": "Depth metric when rendering shadows",
+                                        "children": {},
+                                        "content": "resources/Manual/Math_shadows"
+                                    }
                                 },
                                 "content": "landing_pages/divingDeeperLightsLandingPage"
                             },
@@ -387,6 +452,7 @@
                                             "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
                                             "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
                                             "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
+                                            "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },                                           
                                             "materialsLibrary": {
                                                 "friendlyName": "The Materials Library",
                                                 "children": {
@@ -436,6 +502,18 @@
                                         },
                                         "content": "landing_pages/diving_deeper_use_material_landing_page"
                                     },
+                                    "shaders": {
+                                        "friendlyName": "Shaders",
+                                        "children": {
+                                            "introToShaders": { "friendlyName": "Introduction to Shaders", "children": {}, "content": "resources/Manual/ShaderIntro" },
+                                            "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
+                                            "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
+                                            "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
+                                            "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" },
+                                            "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" }
+                                        },
+                                        "content": "How_To/shaders/shaders"
+                                    },
                                     "node_material": {
                                         "friendlyName": "Node Materials",
                                         "children": {
@@ -456,7 +534,16 @@
                                             "facet_uvs": { "friendlyName": "Materials and Vertices", "children": {}, "content": "resources/Manual/Facets" },
                                             "custom_procedural_textures": { "friendlyName": "Create Custom Procedural Textures", "children": {}, "content": "How_To/material/create_procedural_textures" },
                                             "texturePackage": { "friendlyName": "Create a Texture Package", "children": {}, "content": "How_To/material/Creating_a_Texture_Package" },
-                                            "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
+                                            "mutliPlatTextures": {
+                                                "friendlyName": "Multi-Platform Compressed Textures",
+                                                "children": {},
+                                                "content": "resources/Manual/Multi-Platform_Compressed_Textures"
+                                            },
+                                            "renderPasses": {
+                                                "friendlyName": "Render pass ids",
+                                                "children": {},
+                                                "content": "resources/Manual/Render_pass_ids"
+                                            },
                                             "transparent_rendering": { "friendlyName": "Transparent Rendering", "children": {}, "content": "resources/Manual/Transparency_and_How_Meshes_Are_Rendered" },
                                             "rawTexture": { "friendlyName": "Raw Textures", "children": {}, "content": "How_To/material/rawTexture" },
                                             "depthValuesDepthRenderer": { "friendlyName": "Get Depth Values with the Depth Renderer", "children": {}, "content": "How_To/material/How_to_use_DepthRenderer_to_get_depth_values" },
@@ -761,94 +848,6 @@
                             }
                         },
                         "content": "landing_pages/divingDeeperLandingPage"
-                    },
-                    "advanced_topics": {
-                        "friendlyName": "Advanced Topics",
-                        "children": {
-                            ".babylonFileFormat": {
-                                "friendlyName": "The .babylon File Format",
-                                "children": {},
-                                "content": "resources/Reference/File_Format_Map_(.babylon)"
-                            },
-                            "minifiedVer": {
-                                "friendlyName": "Creating the Mini-fied Version",
-                                "children": {},
-                                "content": "resources/Reference/Creating_the_Mini-fied_Version"
-                            },
-                            "mathShadows": {
-                                "friendlyName": "Depth metric when rendering shadows",
-                                "children": {},
-                                "content": "resources/Manual/Math_shadows"
-                            },
-                            "loadFromMemory": {
-                                "friendlyName": "Loading Assets From Memory",
-                                "children": {},
-                                "content": "resources/Reference/Loading_From_Memory"
-                            },
-                            "mutliPlatTextures": {
-                                "friendlyName": "Multi-Platform Compressed Textures",
-                                "children": {},
-                                "content": "resources/Manual/Multi-Platform_Compressed_Textures"
-                            },
-                            "renderPasses": {
-                                "friendlyName": "Render pass ids",
-                                "children": {},
-                                "content": "resources/Manual/Render_pass_ids"
-                            },
-                            "shaders": {
-                                "friendlyName": "Shaders",
-                                "children": {
-                                    "introToShaders": { "friendlyName": "Introduction to Shaders", "children": {}, "content": "resources/Manual/ShaderIntro" },
-                                    "shaderCodeInBjs": { "friendlyName": "Putting Shader Code into Babylon.js", "children": {}, "content": "How_To/shaders/Putting" },
-                                    "shaderMaterial": { "friendlyName": "Using ShaderMaterial", "children": {}, "content": "How_To/shaders/Shader_Material" },
-                                    "Fog+ShaderMat": { "friendlyName": "Using Fog with Shader Materials", "children": {}, "content": "How_To/environment/Supporting_fog_with_ShaderMaterial" },
-                                    "image_processing": { "friendlyName": "Image Processing", "children": {}, "content": "How_To/shaders/image_processing" },
-                                    "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" }
-                                },
-                                "content": "How_To/shaders/shaders"
-                            },
-                            "webGL2": {
-                                "friendlyName": "WebGL2",
-                                "children": {},
-                                "content": "landing_pages/Support/WebGL2"
-                            },
-                            "webGPU": {
-                                "friendlyName": "WebGPU",
-                                "children": {
-                                    "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
-                                    "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
-                                    "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
-                                    "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" },
-                                    "webGPULimitations": { "friendlyName": "Limitations", "children": {}, "content": "extensions/WebGPU/webGPULimitations" },
-                                    "webGPUOptimization": {
-                                        "friendlyName": "Optimizations",
-                                        "children": {
-                                            "webGPUNonCompatibilityMode": { "friendlyName": "Non Compatibility Mode", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUNonCompatibilityMode" },
-                                            "webGPUSnapshotRendering": { "friendlyName": "Snapshot Rendering", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUSnapshotRendering" },
-                                            "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Optimizations/webGPUMiscellaneous" }
-                                        },
-                                        "content": "extensions/WebGPU/webGPUOptimizations"
-                                    },
-                                    "webGPUInternals": {
-                                        "friendlyName": "Internals",
-                                        "children": {
-                                            "webGPUOverview": { "friendlyName": "Class Overview", "children": {}, "content": "extensions/WebGPU/Internals/webGPUOverview" },
-                                            "webGPUCacheBindGroup": { "friendlyName": "Cache Bind Groups", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheBindGroup" },
-                                            "webGPUCacheRenderPipeline": { "friendlyName": "Cache Render Pipelines", "children": {}, "content": "extensions/WebGPU/Internals/webGPUCacheRenderPipeline" },
-                                            "webGPUMiscellaneous": { "friendlyName": "Miscellaneous", "children": {}, "content": "extensions/WebGPU/Internals/webGPUMiscellaneous" }
-                                        },
-                                        "content": "extensions/WebGPU/webGPUInternals"
-                                    }
-                                },
-                                "content": "extensions/WebGPU/webGPU"
-                            },
-                            "serverSide": {
-                                "friendlyName": "Running Babylon.js on a Server",
-                                "children": {},
-                                "content": "landing_pages/Support/nullEngine"
-                            }
-                        },
-                        "content": "landing_pages/advanced_topics_landing_page"
                     }
                 }
             },
@@ -923,6 +922,7 @@
                         "friendlyName": "Inspector & Its Editors",
                         "children": {
                             "inspectorVideoOverview": { "friendlyName": "Intro to the Inspector Video Series", "children": {}, "content": "landing_pages/PGsupport/intro_inspector" },
+                            "divider1": {"friendlyName": "---------------" },
                             "animationCurveEditor": {
                                 "friendlyName": "Animation Curve Editor",
                                 "children": {},
@@ -948,11 +948,13 @@
                                 "children": {},
                                 "content": "landing_pages/toolsAndResourcesSkeletonViewerLandingPage"
                             },
+                            "divider2": {"friendlyName": "---------------" },
                             "performanceProfiler": {
                                 "friendlyName": "Performance Profiler",
                                 "children": {},
                                 "content": "landing_pages/toolsAndResourcesPerformanceProfilerLandingPage"
                             },
+                            "divider3": {"friendlyName": "---------------" },
                             "reflector": { "friendlyName": "Debug Scenes Remotely Using the Reflector", "children": {}, "content": "landing_pages/PGsupport/reflector" }
                         },
                         "content": "landing_pages/PGsupport/Playground_debuglayer"
