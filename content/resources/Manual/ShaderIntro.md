@@ -175,5 +175,5 @@ More details on this can be found below.
 
 ## How To
 
-- [Putting Shader Code inBabylon.js](/features/advanced_topics/shaders/shaderCodeInBjs)
-- [ShaderMaterial Object](/features/advanced_topics/shaders/shaderMaterial)
+- [Putting Shader Code inBabylon.js](/features/divingDeeper/materials/shaderss/shaderCodeInBjs)
+- [ShaderMaterial Object](/features/divingDeeper/materials/shaderss/shaderMaterial)

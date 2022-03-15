@@ -20,7 +20,7 @@ Note that we are speaking about **GPU compressed textures**, meaning textures th
 
 <img src="/img/resources/gpu_compressed_textures/container.jpg" title="Container" caption="Photo courtesy of Depositphotos"/>
 
-There are a number of compression formats used by the industry (ASTC, DXT, PVRTC, etc), and depending on your device it will generally support only a (small) subset of them : see [the table here](/features/advanced_topics/mutliPlatTextures#khronos-texture-container-format--ktx-files) for more details. So, to support a wide range of devices, you would need to provide your assets in multiple different formats and Babylon.js would choose the right one depending on the capability of the target device.
+There are a number of compression formats used by the industry (ASTC, DXT, PVRTC, etc), and depending on your device it will generally support only a (small) subset of them : see [the table here](/features/divingDeeper/materials/advanced/#khronos-texture-container-format--ktx-files) for more details. So, to support a wide range of devices, you would need to provide your assets in multiple different formats and Babylon.js would choose the right one depending on the capability of the target device.
 
 It can be a bit tedious to generate and maintain so many formats for a given asset, so **container files** have been created. These files can either contain multiple formats of the same asset or be transcodable to multiple formats, and being the subject of this article we are going to deal with the **KTX2 container file format**.
 

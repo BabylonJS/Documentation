@@ -14,7 +14,7 @@ video-content:
 
 ## Vertex Normals
 
-Each triangular facet of a mesh comprises three vertices. Besides a position each vertex has another important vector3 called a normal. These vertex normals are used by the [shader code](/features/advanced_topics/shaders/introToShaders) in calculating how the mesh is lit. Unlike a mathematical normal there is no necessity for them to be set at right angles and for curved shapes such as a sphere they may not be. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
+Each triangular facet of a mesh comprises three vertices. Besides a position each vertex has another important vector3 called a normal. These vertex normals are used by the [shader code](/features/divingDeeper/materials/shaderss/introToShaders) in calculating how the mesh is lit. Unlike a mathematical normal there is no necessity for them to be set at right angles and for curved shapes such as a sphere they may not be. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
 
 At first the vertex normals are calculated as the mathematical normals for the facet. It then depends whether you want to view the facets as flat surfaces or as part of curve. For flat surfaces the vertex normals remain as the mathematical normals. To enhance the curve when viewed under light where triangular facets share vertices with the same positions each shared vertex normal is recalculated to be the average of the mathematical normals of the shared vertex normals.
 

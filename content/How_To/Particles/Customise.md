@@ -223,7 +223,7 @@ This method takes three parameters
 var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers);
 ```
 
-- fragment: string, the name of the fragment shader which can be in the [shaders store](/features/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/features/advanced_topics/shaders/shaderCodeInBjs#shader-code-in-script-tags);
+- fragment: string, the name of the fragment shader which can be in the [shaders store](/features/divingDeeper/materials/advanced/custom_procedural_textures#using-a-shaderstore-for-shader-storage) or the [id of a DOM element](/features/divingDeeper/materials/shaderss/shaderCodeInBjs#shader-code-in-script-tags);
 - uniforms: [strings], array of uniforms used in the shader;
 - samplers: [strings], array of names of samplers for additional textures!
 

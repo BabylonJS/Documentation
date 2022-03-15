@@ -12,7 +12,7 @@ Currently, all shaders used by **Babylon.js** are written in GLSL and are conver
 
 So, even in WebGPU, if you use a `CustomMaterial` or a `PBRCustomMaterial` to inject some custom shader code, you must write it in GLSL.
 
-If you want to write shader code in the WGSL language, you can either write a [compute shader](/features/advanced_topics/shaders/computeShader) or use the [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) class to wrap a vertex/fragment shader. The latter is the subject of this page.
+If you want to write shader code in the WGSL language, you can either write a [compute shader](/features/divingDeeper/materials/shaderss/computeShader) or use the [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) class to wrap a vertex/fragment shader. The latter is the subject of this page.
 
 ## Using ShaderMaterial to write WGSL code
 You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write GLSL but with some small differences.
