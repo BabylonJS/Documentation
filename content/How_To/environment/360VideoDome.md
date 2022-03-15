@@ -4,8 +4,10 @@ image:
 description: Learn all about Babylon.js 360 video domes.
 keywords: diving deeper, environment, 360 video, dome, 360 video dome, video dome
 further-reading:
-    - title: VideoTexture
-      url: /typedoc/classes/VideoTexture
+    - title: VideoDome
+      url: /typedoc/classes/VideoDome
+    - title: Video as a Texture
+      url: /divingDeeper/materials/using/videoTexture
 video-overview:
 video-content:
 ---
@@ -36,7 +38,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 
 * resolution = 32: Integer, defines the resolution of the sphere used to host the video. Lower resolutions have more artifacts at extreme fovs
 * clickToPlay = false: Add a click to play listener to the video, does not prevent autoplay
-* autoPlay = true: Automatically attempt to being playing the video
+* autoPlay = true: Automatically attempt to begin playing the video. Will auto mute the audio and try again if 1st attempt to play fails due to browser policy.
 * loop = true: Automatically loop video on end
 * size = 1000: Physical radius to create the dome at, defaults to approximately half the far clip plane
 * poster: URL of the image displayed during the video loading or until the user interacts with the video
@@ -45,7 +47,20 @@ All the options are based through the corresponding classes, mainly the dome geo
 
 <Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/features/divingDeeperVideoDome1.jpg"/>
 
-As iOS disable autoplay, you should call video play on user interaction, using `videoDome.videoTexture.video.play();` .
+
+## Auto Play
+
+Modern browsers have strict policies for auto playing video. See  [VideoTexture](/divingDeeper/materials/using/videoTexture) documentation for details.  The underlying VideoTexture used by VideoDome is available as `videoTexture`.  Code to manually play video might look like this:
+
+``` javascript
+scene.onPointerDown = function () {
+    videoDome.videoTexture.video.play();
+    scene.onPointerDown = null;
+};
+
+```
+
+That is essentially what the `clickToPlay=true` option does. However, there can be non-obvious interactions with `autoPlay` in certain browsers, especially when `autoPlay=false`.  
 
 ## FOV adjustment
 
@@ -60,7 +75,7 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the video dome help reduce, but not eliminate, this.
 
-<Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier."/>
+<Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier." image="/img/playgroundsAndNMEs/divingDeeperVideoDome2-fov.jpg"/>
 
 ## Video Types
 
@@ -104,3 +119,11 @@ let videoDome = new BABYLON.VideoDome(
 let videoDome = ....
 videoDome.halfDome = true;
 ```
+
+
+## Disposal
+When disposing a video dome, the second parameter is important to make sure the texture resources are also disposed.
+```javascript
+videoDome.dispose(false, true)
+```
+See also documentation regarding [VideoTexture disposal](/divingDeeper/materials/using/videoTexture#disposal). 

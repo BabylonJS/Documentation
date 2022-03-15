@@ -62,7 +62,7 @@ Here is a list of properties you may set on your parameters object:
 |--------|--------|--------|
 |`chromatic_aberration`|number|0 means effect is disabled, 1 is for realism. Defines the spread of the RGB channels in the chromatic aberration shader.|
 |`edge_blur`|number|0 means effect is disabled, 1 is for realism. Defines the amount of blur that will appear on the corners of the screen.|
-|`distortion`|number|0 means effect is disabled, 1 is for realism. Defines the amount of lens-like distortion.|
+|`distortion`|number|0 means effect is disabled, 1 is for realism. Defines the amount of lens-like distortion. Note that this will effect the pointer position precision.|
 |`grain_amount`|number|Varies from 0 to 1. Amount of grain to blend on screen.|
 |`grain_texture`|BABYLON.Texture|Texture to use for grain effect; if unset, a random B&W noise is used instead.|
 |`dof_focus_distance`|number|The distance at which focus is set. Everything out of focus will be blurred. Note that a focus distance above a few hundred units gives you infinity focus.|
