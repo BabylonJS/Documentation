@@ -43,7 +43,7 @@ developers to quickly and easily add my Babylon Utility into their own
 projects.
 
 1.  First, I created my new repository, leveraging the 
-    [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow)
+    [Template Repository Workflow](../../toolsAndResources/templateRepositories#the-template-repository-workflow)
     to make it easy to redistribute later.
 1.	I next implemented the new utility camera itself.
 1.  To *give* away the ability for others to use my new Babylon Utility, I 
@@ -60,7 +60,7 @@ adds a specialized camera to serve needs specific to e-commerce scenarios,
 and made it available for other developers to use from free and/or 
 commercial NPM registries. The actual usage of such a Utility is as simple 
 as taking an NPM dependency; the Vaporwear company illustrates that in
-[another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
+[another Dev Story](./vaporwearConfigurator).
 *This* Dev Story is about *creating* the Showroom Camera Babylon Utility,
 so on that topic let's circle back to the beginning and proceed with...
 
@@ -70,12 +70,12 @@ so on that topic let's circle back to the beginning and proceed with...
 
 Setting up a repository to develop a Babylon Utility was very similar to 
 the process described in the 
-[*Fruit Fallin'* Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#moving-playground-code-into-a-development-repo),
+[*Fruit Fallin'* Dev Story](./fruitFalling#moving-playground-code-into-a-development-repo),
 but with a few key differences worth elaborating on.
 
 1.  To start, I created and cloned down a new NPM package template repo 
     following the first six steps from the 
-    [first section of the *Fruit Fallin* Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#moving-playground-code-into-a-development-repo).
+    [first section of the *Fruit Fallin* Dev Story](./fruitFalling#moving-playground-code-into-a-development-repo).
 
     ![New repo](/img/devStories/showroomCamera/01_new_repo.png)
 
@@ -157,7 +157,7 @@ some of the more significant pieces of the implementation.
         the `TransformNode` any way they want to: the 
         [demo](https://syntheticmagus.github.io/showroom-camera/)
         features procedural animations made with coroutines while
-        [another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator)
+        [another Dev Story](./vaporwearConfigurator)
         makes heavy use of the ability to control `ShowroomCamera` 
         matchmoving using animations crafted by a 3D artist.
     1.  Note that the second camera *follows* the provided 
@@ -194,7 +194,7 @@ some of the more significant pieces of the implementation.
 
 After I'd gotten the features and APIs I wanted in the `ShowroomCamera`, 
 publishing it to be shared through NPM was as easy as it was in 
-[the first Dev Story that showed this](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#deploying-as-an-npm-package).
+[the first Dev Story that showed this](./fruitFalling#deploying-as-an-npm-package).
 However, there are a few noteworthy differences between the
 Showroom Camera and *Fruit Fallin'* arising from the fact that the 
 latter, as a Babylon Utility, is intended for consumption by other 
@@ -281,6 +281,6 @@ as simple as consuming any other NPM package from the registry in
 question. In fact, I know some people who have already done this -- some 
 imaginary people working for an imaginary company -- but that is a topic 
 for
-[another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
+[another Dev Story](./vaporwearConfigurator).
 
 -syntheticmagus

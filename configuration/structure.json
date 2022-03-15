@@ -860,14 +860,35 @@
                             "children": {},
                             "content": "dev_stories/ecommerce_vaporwear_viewer"
                         },
-                        "utilitiesShowroomCamera": {
+                        "showroomCamera": {
                             "friendlyName": "Babylon Utilities: Showroom Camera",
                             "children": {},
                             "content": "dev_stories/utilities_showroom_camera"
                         },
                         "vaporwearConfigurator": {
                             "friendlyName": "3D for E-Commerce: Custom Experience",
-                            "children": {},
+                            "children": {
+                                "art": {
+                                    "friendlyName": "Chapter 1: the Art",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_1_art"
+                                },
+                                "3d": {
+                                    "friendlyName": "Chapter 2: the 3D",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_2_3d"
+                                },
+                                "frontend": {
+                                    "friendlyName": "Chapter 3: the Frontend",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_3_frontend"
+                                },
+                                "wordpress": {
+                                    "friendlyName": "Bonus Chapter: WordPress",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_4_wordpress"
+                                }
+                            },
                             "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
                     },
