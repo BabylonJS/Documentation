@@ -408,18 +408,17 @@
                                 "children": {
                                     "loadingFileTypes": { "friendlyName": "Loading Any File Type", "children": {}, "content": "How_To/Importer/Load_From_Any_File_Type" },
                                     "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
+                                    "loadFromMemory": {
+                                        "friendlyName": "Loading Assets From Memory",
+                                        "children": {},
+                                        "content": "resources/Reference/Loading_From_Memory"
+                                    },
                                     "divider1": {"friendlyName": "---------------" },
                                     "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {}, "content": "How_To/Importer/glTF" },
                                     "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" },
                                     "stl": { "friendlyName": ".stl File Loader Plugin", "children": {}, "content": "How_To/Importer/STL" },
                                     "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
                                     "divider2": {"friendlyName": "---------------" },
-                                    "loadFromMemory": {
-                                        "friendlyName": "Loading Assets From Memory",
-                                        "children": {},
-                                        "content": "resources/Reference/Loading_From_Memory"
-                                    },
-                                    "divider3": {"friendlyName": "---------------" },
                                     "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
                                     "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
                                     "divider4": {"friendlyName": "---------------" },
