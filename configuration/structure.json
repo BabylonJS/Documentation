@@ -459,7 +459,10 @@
                                             "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
                                             "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
                                             "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },                                        
-                                            "divider2": { "friendlyName": "----------"},
+                                            "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
+                                            "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
+                                            "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
+                                            "divider5": { "friendlyName": "----------"},
                                             "materialsLibrary": {
                                                 "friendlyName": "The Materials Library",
                                                 "children": {
@@ -484,10 +487,6 @@
                                             "HDREnvironment": { "friendlyName": "HDR Environment for PBR", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
                                             "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
                                             "divider4": { "friendlyName": "----------"},
-                                            "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
-                                            "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
-                                            "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
-                                            "divider5": { "friendlyName": "----------"},
                                             "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
                                             "proceduralTexturesLibrary": {
                                                 "friendlyName": "The Procedural Textures Library",
