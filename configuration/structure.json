@@ -451,7 +451,15 @@
                                             "materials_introduction": { "friendlyName": "Introduction to Material", "children": {}, "content": "How_To/material/materials_introduction" },
                                             "moreMaterials": { "friendlyName": "Apply Bump, Opacity, Tiling, and Detail maps", "children": {}, "content": "How_To/material/More_Materials" },
                                             "parallaxMapping": { "friendlyName": "Parallax Mapping", "children": {}, "content": "How_To/material/Using_parallax_mapping" },
-                                            "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },                                           
+                                            "normalMaps": { "friendlyName": "Understanding Normal Maps", "children": {}, "content": "How_To/material/Normal_maps" },
+                                            "divider1": { "friendlyName": "----------"},
+                                            "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
+                                            "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
+                                            "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
+                                            "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
+                                            "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
+                                            "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },                                        
+                                            "divider2": { "friendlyName": "----------"},
                                             "materialsLibrary": {
                                                 "friendlyName": "The Materials Library",
                                                 "children": {
@@ -471,17 +479,15 @@
                                                 },
                                                 "content": "landing_pages/toolsAndResourcesMatLibraryLandingPage"
                                             },
-                                            "texturePerBoxFace": { "friendlyName": "Applying Materials to Individual Faces", "children": {}, "content": "How_To/material/CreateBox_Per_Face_Textures_And_Colors" },
-                                            "frontAndBackUVs": { "friendlyName": "Applying Different Materials to the Front and Back", "children": {}, "content": "How_To/material/FrontandBackUV" },
-                                            "multiMaterials": { "friendlyName": "Multi-Materials", "children": {}, "content": "How_To/material/Multi_Materials" },
-                                            "dynamicTexture": { "friendlyName": "Dynamic Textures", "children": {}, "content": "How_To/material/DynamicTexture" },
-                                            "videoTexture": { "friendlyName": "Video Textures", "children": {}, "content": "How_To/material/video_texture" },
-                                            "blendModes": { "friendlyName": "Blend Modes", "children": {}, "content": "How_To/material/How_to_use_Blend_Modes" },
+                                            "divider3": { "friendlyName": "----------"},
                                             "introToPBR": { "friendlyName": "Introduction to Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering" },
                                             "HDREnvironment": { "friendlyName": "HDR Environment for PBR", "children": {}, "content": "How_To/environment/Use_HDR_Environment" },
                                             "masterPBR": { "friendlyName": "Mastering Physically Based Rendering (PBR)", "children": {}, "content": "How_To/material/Physically_Based_Rendering_Master" },
+                                            "divider4": { "friendlyName": "----------"},
                                             "reflectionTexture": { "friendlyName": "Reflections and Refractions", "children": {}, "content": "How_To/material/Reflect" },
                                             "fresnelParameters": { "friendlyName": "Fresnel Parameters", "children": {}, "content": "How_To/material/How_to_use_FresnelParameters" },
+                                            "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
+                                            "divider5": { "friendlyName": "----------"},
                                             "proceduralTextures": { "friendlyName": "Procedural Textures", "children": {}, "content": "How_To/material/How_to_use_Procedural_Textures" },
                                             "proceduralTexturesLibrary": {
                                                 "friendlyName": "The Procedural Textures Library",
@@ -496,7 +502,7 @@
                                                 },
                                                 "content": "landing_pages/toolsAndResourcesProceduralTexturesLibraryLandingPage"
                                             },
-                                            "ktx2Compression": { "friendlyName": "KTX2 Compressed Textures", "children": {}, "content": "resources/Manual/ktx2_compressed_textures" },
+                                            "divider6": { "friendlyName": "----------"},
                                             "materialPlugins": { "friendlyName": "Material Plugins", "children": {}, "content": "How_To/material/Material_plugins" }
                                         },
                                         "content": "landing_pages/diving_deeper_use_material_landing_page"
