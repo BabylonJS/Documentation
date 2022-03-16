@@ -1,5 +1,5 @@
 ---
-title: Modify the Babylon.js Viewer
+title: Modify the Babylon.js Viewer  (Extension) 
 image:
 description: Modifying the Babylon.js viewer using HTML.
 keywords: extensions, babylon.js, viewer, modify, configure

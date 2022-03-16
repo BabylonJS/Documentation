@@ -1,5 +1,5 @@
 ---
-title: SPS Tree Generator
+title: SPS Tree Generator - Extension
 image: 
 description: Learn about the sps tree generator extension.
 keywords: extensions, babylon.js, tree, tree generator, sps

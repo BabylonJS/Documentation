@@ -8,6 +8,9 @@ video-overview:
 video-content:
 ---
 
+[Cloner Source Code](https://github.com/BabylonJS/Extensions/tree/master/ClonerSystem/src)  
+The maintenance of the Cloner System extension is the responsibility of the author.
+
 ![idpic1](/img/toolsAndResources/clonerSystem/matrixcloner.jpg "MatrixCloner")
 
 The MatrixCloner clones and distributes given meshes in 3D space. If more than one mesh is provided, then the corresponding clones will be placed subsequently one after another starting in the x direction followed by y and z direction.  

@@ -1,5 +1,5 @@
 ---
-title: Dynamic Terrain
+title: Dynamic Terrain  - Extension
 image: 
 description: The Dynamic Terrain is an extension that provides a way to display a large terrain dynamically morphed from a map of 3D data.
 keywords: dynamic terrain, terrain, dynamic

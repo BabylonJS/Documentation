@@ -1,5 +1,5 @@
 ---
-title: CastorGUI V2.0 (ECEMAScript 6)
+title: CastorGUI V2.0 (ECEMAScript 6) - Extension
 image:
 description: Library extension for displaying Castor GUI elements as a layer on top of the canvas.
 keywords: Castor, GUI, plugin, extension
@@ -12,6 +12,7 @@ Library to display a GUI game as a layer on top of the canvas HTML/CSS.
 
 - [Depot](https://github.com/dad72/CastorGUI)
 - [Documentation](/toolsAndResources/castorGUI)
+- The maintenance of the CastorGUI extension is the responsibility of the author.
 
 ## Features:
 

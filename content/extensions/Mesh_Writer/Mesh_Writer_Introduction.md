@@ -1,5 +1,5 @@
 ---
-title: Mesh Writer
+title: Mesh Writer - Extension
 image: 
 description: The Mesh Writer allows you to write 3D text, as meshes, in various fonts.
 keywords: library, 3D text, font
@@ -29,7 +29,8 @@ PG: <Playground id="#PL752W#150" title="Mesh Writer Example 1" description=""/>
 
 ## Getting the code
 
-Copy https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.
+Copy https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.min.js or https://github.com/BabylonJS/features/extensions/blob/master/MeshWriter/meshwriter.js and build it into your load sequence.  
+Maintenance of Mesh Writer is the responsibility of the author.
 
 ## If you prefer npm 
 

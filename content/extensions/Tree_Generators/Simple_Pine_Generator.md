@@ -1,5 +1,5 @@
 ---
-title: Simple Pine Tree Generator
+title: Simple Pine Tree Generator - Extension
 image: 
 description: Learn about the simple pine tree generator extension.
 keywords: extensions, babylon.js, tree, tree generator, pine

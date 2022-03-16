@@ -8,6 +8,9 @@ video-overview:
 video-content:
 ---
 
+[Cloner Source Code](https://github.com/BabylonJS/Extensions/tree/master/ClonerSystem/src)  
+The maintenance of the Cloner System extension is the responsibility of the author.
+
 ![idpic1](/img/toolsAndResources/clonerSystem/linearCloner.jpg "LinearCloner's with different transforming parameters")
 
 The LinearCloner clones and distributes given meshes in a linear manner. If more than one mesh is provided, then the corresponding clones will be placed subsequently one after another. The LinearCloner can instantiated in two different interpolation-modes: absolute and relative. In the first mode the values of the input parameters (scale/rotation/position) can be seen as the difference from the first to the last clone, whereas in the relative mode those values are the difference from clone to clone.

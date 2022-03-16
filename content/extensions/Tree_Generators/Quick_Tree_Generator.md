@@ -1,5 +1,5 @@
 ---
-title: Quick Tree Generator
+title: Quick Tree  - Extension
 image: 
 description: Learn about the quick tree generator extension.
 keywords: extensions, babylon.js, tree, tree generator, quick tree

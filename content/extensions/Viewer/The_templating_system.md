@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Viewer Templating System
+title: Babylon.js Viewer (Extension) Templating System
 image: 
 description: Using and extending the viewer's simple integrated templating system.
 keywords: extensions, babylon.js, viewer, template, templating system, templating

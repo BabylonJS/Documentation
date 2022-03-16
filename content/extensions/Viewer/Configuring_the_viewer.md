@@ -1,5 +1,5 @@
 ---
-title: Configuring the Babylon.js Viewer
+title: Configuring the Babylon.js Viewer  (Extension) 
 image: 
 description: How to configure the Babylon.js viewer.
 keywords: extensions, babylon.js, viewer, modify, configure

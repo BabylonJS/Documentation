@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Editor
+title: Babylon.js Editor - Extension
 image: 
 description: Welcome to the Babylon.js Editor Documentation.
 keywords: editor

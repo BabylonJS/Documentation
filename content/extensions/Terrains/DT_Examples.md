@@ -1,5 +1,5 @@
 ---
-title: Dynamic Terrain Examples
+title: Examples of the Dynamic Terrain - Extension
 image: 
 description: Examples of how to use the dynamic terrain extension.
 keywords: dynamic terrain, terrain, dynamic

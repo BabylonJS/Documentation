@@ -1,5 +1,5 @@
 ---
-title: Adding Objects to a Dynamic Terrain
+title: Adding Objects to a Dynamic Terrain - Extension
 image: 
 description: Adding Solid Particle System (SPS) objects to the terrain
 keywords: dynamic terrain, terrain, dynamic, sps, objects

@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Viewer - Advanced usage
+title: Babylon.js Viewer (Extension) - Advanced usage
 image: 
 description: Advanced uses of the viewer.
 keywords: extensions, babylon.js, library, viewer, advanced

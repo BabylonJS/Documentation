@@ -1,5 +1,5 @@
 ---
-title: Crowd Navigation System
+title: Crowd Navigation System - Extension
 image: 
 description: This system allows you to create primitive AI crowd agents that follow a path along a specific mesh.
 keywords: extensions, babylon.js, crowd

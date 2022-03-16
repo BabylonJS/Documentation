@@ -1,5 +1,5 @@
 ---
-title: Babylon.js Viewer
+title: Babylon.js Viewer - Extension
 image:
 description: The viewer is the simplest way to display 3D content on a web page.
 keywords: extensions, babylon.js, viewer, web page, display
