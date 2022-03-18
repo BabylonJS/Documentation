@@ -31,7 +31,7 @@ To remove a gradient you use
 ```javascript
 particleSystem.remove<PROPERTY>Gradient(fraction_of_time_period_elapsed);
 ```
-There are two time periods used one for a particle lifetime and one for the system duration both running from 0, start to 1, stop.
+There are two time periods used - one for a particle lifetime and the other for the system duration. Both are running from 0 (start) to 1 (stop).
 
 ## Change Size Over Lifetime
 To change size over the lifetime of the particle use
@@ -107,7 +107,7 @@ You can define by how much to limit the speed of a particle with
 ```javascript
 particleSystem.limitVelocityDamping = 0.1; //damping factor
 ```
-A limit will be used to check the current speed of the particle over its lifetime and if the limit is reached then the damping factor is applied as speed * damping factor
+A limit will be used to check the current speed of the particle over its lifetime. And if the limit is reached, then the damping factor is applied as speed * damping factor.
 
 To set the speed limit use
 ```javascript
@@ -153,7 +153,7 @@ AngularSpeed increases over lifetime: <Playground id="#0K3AQ2#26" title="Particl
 AngularSpeed increases then decreases over lifetime: <Playground id="#0K3AQ2#27" title="Particle AngularSpeed Increasing and Decreasing Over Liftime" description="Simple example of particle Angularspeed increasing and decreasing over the lifteime of a particle."/>
 
 ## Change Drag Over Lifetime
-You can simulate air friction by applying a drag to the particle and you can change the amount of drag a particle experiences over its lifetime. Drag is applied in the direction of the particles velocity. A drag of 0.8 will reduce the velocity to 20% of its value. When the drag is &gt; 1 the particles direction will reverse.
+You can simulate air friction by applying a drag to the particle, and you can change the amount of drag the particle experiences over its lifetime. Drag is applied in the direction of the particle's velocity. A drag of 0.8 will reduce the velocity to 20% of its value. When the drag is &gt; 1, the particle's direction will reverse.
 
 To change drag over the lifetime of the particle use
 
@@ -190,9 +190,9 @@ Setting a range of lifetimes
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addEmitRateGradient(0, 10, 20); //emit rate range at start of particle sysstem
-particleSystem.addEmitRateGradient(0.4, 200, 250); //emit rate range at 2/5 of duration of particle sysstem
-particleSystem.addEmitRateGradient(1, 500, 600); //emit rate range at end of particle sysstem
+particleSystem.addEmitRateGradient(0, 10, 20); //emit rate range at start of particle system
+particleSystem.addEmitRateGradient(0.4, 200, 250); //emit rate range at 2/5 of duration of particle system
+particleSystem.addEmitRateGradient(1, 500, 600); //emit rate range at end of particle system
 ```
 
 remove gradient at 0.4
@@ -211,7 +211,7 @@ For example to shorten lifetime as energy is used up over the duration of the pa
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addLifeTimeGradient(0, 0.5); //lifetime at start of particle sysstem
+particleSystem.addLifeTimeGradient(0, 0.5); //lifetime at start of particle system
 particleSystem.addLifeTimeGradient(1, 0); //lifetime at end of particle system
 ```
 
@@ -219,9 +219,9 @@ Setting a range of lifetimes
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addLifeTimeGradient(0, 0.5, 0.75); //lifetime range at start of particle sysstem
-particleSystem.addLifeTimeGradient(0.4, 0.25, 0.5); //lifetime range at 2/5 of duration of particle sysstem
-particleSystem.addLifeTimeGradient(1, 0, 0.1); //lifetime range at end of particle sysstem
+particleSystem.addLifeTimeGradient(0, 0.5, 0.75); //lifetime range at start of particle system
+particleSystem.addLifeTimeGradient(0.4, 0.25, 0.5); //lifetime range at 2/5 of duration of particle system
+particleSystem.addLifeTimeGradient(1, 0, 0.1); //lifetime range at end of particle system
 ```
 
 remove gradient at 0.4
@@ -239,7 +239,7 @@ To change the size of a particle on emission over the duration of the particle s
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addStartSizeGradient(0, 0.25); //start size at start of particle sysstem
+particleSystem.addStartSizeGradient(0, 0.25); //start size at start of particle system
 particleSystem.addStartSizeGradient(1, 1.5); //start size at end of particle system
 ```
 
@@ -247,9 +247,9 @@ Setting a range of start sizes
 ```javascript
 particleSystem.targetStopDuration = 8
 
-particleSystem.addStartSizeGradient(0, 0.5, 0.75); //start size range at start of particle sysstem
-particleSystem.addStartSizeGradient(0.4, 0.25, 0.5); //start size range at 2/5 of duration of particle sysstem
-particleSystem.addStartSizeGradient(1, 0, 0.1); //start size range at end of particle sysstem
+particleSystem.addStartSizeGradient(0, 0.5, 0.75); //start size range at start of particle system
+particleSystem.addStartSizeGradient(0.4, 0.25, 0.5); //start size range at 2/5 of duration of particle system
+particleSystem.addStartSizeGradient(1, 0, 0.1); //start size range at end of particle system
 ```
 
 remove gradient at 0.4
