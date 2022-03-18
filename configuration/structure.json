@@ -869,17 +869,17 @@
                             "friendlyName": "3D for E-Commerce: Custom Experience",
                             "children": {
                                 "art": {
-                                    "friendlyName": "Chapter 1: the Art",
+                                    "friendlyName": "Chapter 1: Art",
                                     "children": {},
                                     "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_1_art"
                                 },
                                 "3d": {
-                                    "friendlyName": "Chapter 2: the 3D",
+                                    "friendlyName": "Chapter 2: 3D",
                                     "children": {},
                                     "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_2_3d"
                                 },
                                 "frontend": {
-                                    "friendlyName": "Chapter 3: the Frontend",
+                                    "friendlyName": "Chapter 3: Frontend",
                                     "children": {},
                                     "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_3_frontend"
                                 },

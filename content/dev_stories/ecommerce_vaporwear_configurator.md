@@ -10,10 +10,10 @@ video-content:
 
 Related links:
 [Vaporwear website demo](https://syntheticmagus.github.io/vaporwear-react-site-deployment/),
-[Chapter 1: Art](),
-[Chapter 2: 3D](),
-[Chapter 3: Frontend](),
-[Bonus Chapter: WordPress]()
+[Chapter 1: Art](./vaporwearConfigurator/art),
+[Chapter 2: 3D](./vaporwearConfigurator/3d),
+[Chapter 3: Frontend](./vaporwearConfigurator/frontend),
+[Bonus Chapter: WordPress](./vaporwearConfigurator/wordpress)
 
 ## High Level Overview
 
