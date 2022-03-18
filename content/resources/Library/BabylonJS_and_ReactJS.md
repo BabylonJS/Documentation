@@ -14,7 +14,7 @@ For anyone interested, it is not difficult to integrateBabylon.js into a React a
 
 ## What you need
 
-It's up to you if you choose Create React App or a custom project; only how to loadBabylon.js in a component will be discussed here. This example uses the newer `@babylonjs/core` ES6 NPM, but can also be modified to work with the `babylonjs` NPM.
+It's up to you if you choose Create React App or a custom project; only how to load Babylon.js in a component will be discussed here. This example uses the newer `@babylonjs/core` ES6 NPM, but can also be modified to work with the `babylonjs` NPM.
 
 ## Component
 
