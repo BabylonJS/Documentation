@@ -392,6 +392,14 @@ So, go back and change the bias to its maximum before seeing peter panning and t
 
 Your shadows are now soft without acnea or peter panning.
 
+### Missing or incorrect shadows
+
+Usually this indicates the resolution of the shadow is too low.  It could be that your directional light is too far away from the object, the resolution of shadow texture is too low, or the model is too small.
+
+If the light is far away, you can try to move your light closer to the object.
+
+![Example image of incorrect or missing shadows](https://aws1.discourse-cdn.com/business7/uploads/babylonjs/optimized/3X/f/6/f69712f021f2c938c0f47bbcb05b171776ea0999_2_1380x814.jpeg)
+
 ## Custom shadow map shaders
 
 ### Global custom shadow map shader
