@@ -11,6 +11,8 @@ video-content:
 Related links:
 [Blender file, glTFs]()
 
+## Introduction: Carlos
+
 To start, Carlos (the 3D artist) spent a good amount of time talking to 
 Diane (the Babylon developer) to make sure they were on the same page
 regarding what features the art should have. Both were of the opinion that

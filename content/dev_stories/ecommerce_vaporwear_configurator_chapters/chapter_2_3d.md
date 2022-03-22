@@ -8,6 +8,13 @@ video-overview:
 video-content:
 ---
 
+Related links: 
+[source](), 
+[asset host](),
+[demo]()
+
+## Introduction: Diane
+
 As the "bridge" connecting Carlos's art to Edie's Web frontend,
 Diane's first priority in architecting the 3D Vaporwear experience 
 was to establish the "contract" with both of her colleagues: she
@@ -73,7 +80,7 @@ Note: Because Dev Stories are not intended to be coding tutorials, the
 following sections gloss over implementation details in order to move
 at a *very* fast pace. For specific information on how any particular
 feature was done, the implementation can be inspected directly in the 
-code, and specifics questions are always very welcome on 
+code, and specific questions are always very welcome on 
 [the forum](https://forum.babylonjs.com/c/questions).
 
 ## Implementing the Watch
@@ -194,11 +201,11 @@ pretty straightforward.
     configuration was making sure the imported "studs" mesh was attached
     to the correct bone. After consulting Carlos (who had helpfully named
     the correct bone, "Bone"), Diane simply had her watch abstraction 
-    cache off a reference to that bone
+    cache off a reference to that bone...
     ***
     **TODO: Picture of watch.ts@117-118**
     ***
-    and provide an easy way to 
+    ...and provide an easy way to 
     [attach the "studs" to it](https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#attaching-a-mesh-to-a-specific-bone).
     ***
     **TODO: Picture of showroom.ts@146-150**
