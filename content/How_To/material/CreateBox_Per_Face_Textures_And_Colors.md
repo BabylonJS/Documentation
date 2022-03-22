@@ -73,6 +73,17 @@ For colors only no material is needed.
 
 These colors are BJS Color4-class values. The Color4 alpha values become active if we set `hasVertexAlpha = true` : 
 
+## Combine Colors and Material
+
+You can also modify the material, e.g. to change specularColor, without changing the colors give by `faceColors` by doing:
+```javascript
+  const material = new BABYLON.StandardMaterial("semi matt", scene)
+  material.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2)
+  box.material = material
+```
+
+<Playground id="#ICZEXW#761" title="FaceColors and Material Example" description="Simple example of using faceColors and material on a box." />
+
 ## Combine Colors and Textures
 
 You can even combine the vertex colors with a colored material.
