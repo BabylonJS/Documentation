@@ -369,4 +369,5 @@ the art features needed for the Vaporwear experience; and after checking
 one last time in Babylon's 3D Commerce-certified Sandbox that all three
 GLBs included everything they should have (and only what they should have)
 and rendered the way he wanted, Carlos passed the GLBs along to Diane
-to be incorporated into the 3D part of the new Vaporwear site.
+to be incorporated into 
+[the 3D part of the new Vaporwear site](./3d).
