@@ -37,9 +37,7 @@ mind, they began to ask each other, "**What might an e-commerce site
 built with 3D as part of the core design look like, and how would we 
 create it?**"
 
-***
-**TODO: Picture**
-***
+![Vaporwear 3D + What = E-Commerce magic?](/img/devStories/vaporwearConfigurator/question.png)
 
 This, of course, was not a small aim, and they didn't go in with the 
 expectation they'd be able to do this in the roughly one hour it had taken
@@ -56,9 +54,7 @@ contract three freelancers to form a team to create this new website.
 -   Edie, the frontend developer, who would take take Diane's 3D experience
     and build the final Vaporwear website around it.
 
-***
-**TODO: Picture**
-***
+![Vaporwear 3D + Blender + Babylon + React.js = E-Commerce magic!](/img/devStories/vaporwearConfigurator/answer.png)
 
 When assembling this team, Allan and Barnabas knew that hiring the right
 people was **the single most important thing they could do to ensure the

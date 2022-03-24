@@ -8,7 +8,10 @@ video-overview:
 video-content:
 ---
 
-Related links: [WordPress plugin source](https://github.com/syntheticmagus/wp-vaporwear-experience), [WordPress site source](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/wp_sites_sources/vaporwear_configurator), [demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_with_configurator.mp4)
+Related links: 
+[WordPress plugin source](https://github.com/syntheticmagus/wp-vaporwear-experience), 
+[WordPress site source](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/wp_sites_sources/vaporwear_configurator), 
+[demo](https://syntheticmagus.github.io/vaporwear-original-asset-host/vaporwear_wp_with_configurator.mp4)
 
 Note about the demo: For most Dev Stories, we try to make the actual usable
 product from the Dev Story available for readers to explore directly. 
@@ -51,9 +54,8 @@ bundle it into a custom
     [WordPress NPM Bridge Template](https://github.com/syntheticmagus/wp-npm-bridge-template)
     using the same approach 
     [described in a Dev Story for starting Babylon's Template Repository Workflow](../fruitFalling#a-more-step-by-step-journey-through-the-process).
-    ***
-    **TODO: Picture of "Use this template" button**
-    ***
+    
+    ![WordPress NPM Bridge Template](/img/devStories/vaporwearConfigurator/chapter_wordpress/01_use_this_template.png)
 1.  Barnabas's plan was to create a plugin that would let him use a
     custom
     [shortcode](https://wordpress.com/support/shortcodes/)
@@ -62,14 +64,12 @@ bundle it into a custom
     had to modify the 
     [plugin PHP file](https://github.com/syntheticmagus/wp-npm-bridge-template/blob/9f8810bb8f6357d9af1c3d5bc6ae326bd26b7419/wp/wp-npm-bridge-template/wp-npm-bridge-template.php) 
     to remove the defaults.
-    ***
-    **TODO: Picture of the modified PHP file**
-    ***
+    
+    ![Hello World WordPress Plugin](/img/devStories/vaporwearConfigurator/chapter_wordpress/02_hello_world_php.png)
 1.  Since he'd changed the names of basically everything, he needed to 
     modify the package.json file, too.
-    ***
-    **TODO: Picture of modified package.json**
-    ***
+    
+    ![Modified package.json](/img/devStories/vaporwearConfigurator/chapter_wordpress/03_package_json.png)
 1.  This simple version wasn't really doing anything meaningful, but he
     did want to check that it was working. Thus, he built what he had
     so far...
@@ -77,19 +77,16 @@ bundle it into a custom
     npm run build
     ```
     ...added it to the old Vaporwear WordPress site...
-    ***
-    **TODO: Picture of adding the plugin**
-    ***
+    
+    ![Add plugin](/img/devStories/vaporwearConfigurator/chapter_wordpress/04_add_plugins.png)
+
     ...and tried using the new `vaporwear-experience` shortcode.
-    ***
-    **TODO: Picture of using the shortcode**
-    ***
+    
+    ![Shortcode](/img/devStories/vaporwearConfigurator/chapter_wordpress/05_shortcode.png)
 
 And it worked!
 
-***
-**TODO: Picture of Hello, world!**
-***
+![Hello, world!](/img/devStories/vaporwearConfigurator/chapter_wordpress/06_hello_world.png)
 
 Now for the real thing.
 
@@ -97,14 +94,12 @@ Now for the real thing.
 
 1.  In the root directory of the plugin repository, Barnabas added Diane's
     3D Vaporwear experience NPM package.
-    ***
-    **TODO: Picture of npm install**
-    ***
+    
+    ![npm install](/img/devStories/vaporwearConfigurator/chapter_wordpress/07_npm_install.png)
 1.  Next, he replaced his "Hello, world!" code in his PHP file with a
     call to a custom function.
-    ***
-    **TODO: Picture of relevant part of PHP file**
-    ***
+    
+    ![Modified plugin PHP file](/img/devStories/vaporwearConfigurator/chapter_wordpress/08_vaporwear_php.png)
 1.  Finally, he defined the custom function he'd called from the PHP
     file in index.js. He based his implementation on Edie's integration
     of the same NPM package into the new Vaporwear site, though of course
@@ -112,30 +107,24 @@ Now for the real thing.
     "matchmoving" states in the experience as the WordPress site's design 
     didn't really have a place for them, so he just skipped right to the 
     configuration state.
-    ***
-    **TODO: Picture of index.js@16-40, emph 25**
-    ***
+    
+    ![Custom function definition](/img/devStories/vaporwearConfigurator/chapter_wordpress/09_index_js_16_40.png)
 1.  For simplicity, he reused the asset host he'd made from his original
     [Babylon Viewer integration](../vaporwearViewer) to host the rest of
     the assets.
-    ***
-    **TODO: Picture of index.js@14**
-    ***
+    
+    ![Asset host URL](/img/devStories/vaporwearConfigurator/chapter_wordpress/10_index_js_14.png)
 1.  Then he built the plugin...
     ```
     npm run build
     ```
 1.  ...uninstalled the old version and replaced it with the new...
-    ***
-    **TODO: Picture of uninstalling the old version**
-    ***
-    ***
-    **TODO: Picture of installing the new version**
-    ***
+    
+    ![Uninstall old plugin](/img/devStories/vaporwearConfigurator/chapter_wordpress/11_uninstall.png)
+    ![Install new plugin](/img/devStories/vaporwearConfigurator/chapter_wordpress/12_adding_the_plugin.png)
 1.  ...and *voila*.
-    ***
-    **TODO: Picture of the configurator in WordPress**
-    ***
+    
+    ![Configurator in WordPress](/img/devStories/vaporwearConfigurator/chapter_wordpress/13_configurator_in_wordpress.png)
 
 And that, at last, concludes the story of the new and improved Vaporwear
 e-commerce experience built from the ground up with 3D in mind. Not only

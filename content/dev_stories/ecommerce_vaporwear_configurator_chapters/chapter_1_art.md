@@ -9,7 +9,7 @@ video-content:
 ---
 
 Related links:
-[Blender file, glTFs]()
+[Blender file, glTFs](https://github.com/syntheticmagus/vaporwear-original-asset-host/tree/main/art_assets)
 
 ## Introduction: Carlos
 
@@ -66,9 +66,8 @@ the main Vaporwear watch asset.
     at different times. That way, larger assets (sophisticated materials, 
     etc.) could be included in the secondary files while still allowing
     the main asset file to remain as small as possible.
-    ***
-    **TODO: Picture of file size**
-    ***
+    
+    ![File size](/img/devStories/vaporwearConfigurator/chapter_art/01_file_size.png)
 1.  **Animations**: In different parts of the site, the watch was supposed
     to adopt two different poses: wrapped "up" as though on a wrist and 
     laid "down" flat as though on a table. To transition between them, the 
@@ -77,18 +76,16 @@ the main Vaporwear watch asset.
     Diane), he chose to simply rig the watch and give it two animations: 
     one to go "up" and one to go "down." He even added a little spin to the 
     animation, just for style.
-    ***
-    **TODO: Picture of NLA**
-    ***
+    
+    ![Blender NLA](/img/devStories/vaporwearConfigurator/chapter_art/02_nla.png)
 1.  **Materials**: While a key goal of main asset was to stay small by 
     leaving most of the materials to be downloaded later in another file,
     the main asset still needed to include the minimum number of materials
     it needed to render. Carlos took special care to make sure the 
     materials included with the main asset were as small as possible while
     still looking good.
-    ***
-    **TODO: Picture of material**
-    ***
+    
+    ![Main material](/img/devStories/vaporwearConfigurator/chapter_art/03_main_material.png)
 1.  **Watch Face**: The face of the watch was supposed to be dynamic,
     showing the actual time, and Diane had told the team she would take
     care of that in code using Babylon's GUI textures. Carlos still needed
@@ -97,9 +94,8 @@ the main Vaporwear watch asset.
     by the GUI texture Diane would generate at runtime. Thus, he could 
     make the provided watch face texture as small and useless as he wanted
     to since it would never be seen in the rendering anyway.
-    ***
-    **TODO: Picture of texture**
-    ***
+    
+    ![Watch face texture](/img/devStories/vaporwearConfigurator/chapter_art/04_face_texture.png)
 
 While working on the main asset, Carlos periodically wanted to check that
 the asset would render the way he expected it to in the final experience.
@@ -116,9 +112,7 @@ real experience on the Vaporwear site. Thus, by viewing his model using
 that Sandbox, he could be sure he was seeing the model (animations and all) 
 the same way that customers eventually would.
 
-***
-**TODO: Picture of watch in sandbox**
-***
+![Watch in sandbox](/img/devStories/vaporwearConfigurator/chapter_art/05_watch_in_sandbox.png)
 
 Note that the main asset's visuals weren't the only things that would be
 included in the main asset file; small amounts of data for 
@@ -178,9 +172,8 @@ noteworthy "tricks."
     do later would be to attach the studs to the correct bone of the 
     watch's skeleton, and the studs should correctly position themselves 
     and animate as the watch's skeleton animates.
-    ***
-    **TODO: Picture of studs and watch flat**
-    ***
+    
+    ![Watch laying flat](/img/devStories/vaporwearConfigurator/chapter_art/06_watch_flat.png)
 1.  **Instancing**: The four "studs" were identical, and this provided an 
     opportunity for Carlos to give a little boost to the eventual rendering 
     performance of the asset. 
@@ -191,9 +184,8 @@ noteworthy "tricks."
     [creating a linked object](https://doc.babylonjs.com/divingDeeper/mesh/copies/instances#blender),
     so Carlos did that with the studs in order to help them render more
     efficiently.
-    ***
-    **TODO: Picture of linked object hierarchy**
-    ***
+    
+    ![Studs as linked meshes](/img/devStories/vaporwearConfigurator/chapter_art/06_studs_linked.png)
 1.  **Materials**: As with the main asset, the "studs" asset was created
     to contain specific geometry, not a materials collection, so Carlos
     included in it only one of each kind of material it used -- one 
@@ -209,9 +201,7 @@ Sandbox. He was even able to use the
 to modify the gemstone material as a preview of what it would look like 
 with another material.
 
-***
-**TODO: Picture of studs in sandbox with material being modified**
-***
+![Studs material modification](/img/devStories/vaporwearConfigurator/chapter_art/08_studs_in_sandbox_modified.png)
 
 ### Additional Materials File
 
@@ -233,9 +223,8 @@ without sacrificing visual quality.
     geometry to minimalistic single-quad planes. This didn't have *much*
     impact on the file size as geometry in general tends to be far, far
     smaller than textures, but it was still better to not waste space.
-    ***
-    **TODO: Picture of the quads**
-    ***
+    
+    ![Materials quads](/img/devStories/vaporwearConfigurator/chapter_art/09_material_quads.png)
 1.  **PBR parameters**: A much more impactful measure was to exclude
     certain textures when those textures could effectively be replaced
     by set parameters. For example, some of the materials Vaporwear
@@ -245,9 +234,8 @@ without sacrificing visual quality.
     constant value instead of the texture. He double-checked with 
     Vaporwear that doing this didn't impact the rendering negatively,
     but in every case they were unable to discern a visible difference.
-    ***
-    **TODO: Picture of PBR material**
-    ***
+    
+    ![Omitted textures](/img/devStories/vaporwearConfigurator/chapter_art/10_omitted_textures.png)
 1.  **Texture resolution**: The last and most powerful trick Carlos used
     to manage file size was to change the resolution of the PBR textures. 
     He had to be careful about doing this because this very easily *could*
@@ -255,9 +243,8 @@ without sacrificing visual quality.
     for many of the materials they were never expected to be viewed from
     very close, and ultimately Carlos was able to reduce the resolution
     of every material texture by at least *some* amount.
-    ***
-    **TODO: Picture of big next to small**
-    ***
+    
+    ![Larger and smaller textures](/img/devStories/vaporwearConfigurator/chapter_art/11_big_next_to_small.png)
 
 Even with all these tricks, the additional materials file ended up 
 weighing in at a whopping 15 megabytes, *far* too large to load in the 
@@ -285,9 +272,8 @@ for Carlos to set up in Blender.
     four different states with "matchmoving" camera motion, so Carlos 
     ended up with four named empty transforms, each with an animation
     that moved it.
-    ***
-    **TODO: Picture of something relevant from Blender**
-    ***
+
+    ![Matchmove nulls](/img/devStories/vaporwearConfigurator/chapter_art/12_matchmove_nulls.png)
 1.  Creating the parameters for the "arc-rotate" camera state was not as 
     precise -- the camera in that state was interactive, so its motion
     could not be fully specified by art -- so all Carlos had to decide
@@ -299,9 +285,8 @@ for Carlos to set up in Blender.
     transform that provided the position for that "matchmoving" state 
     also served to specify the starting position for the "arc-rotate" 
     state.
-    ***
-    **TODO: Picture of something relevant from Blender**
-    ***
+
+    ![Camera overall](/img/devStories/vaporwearConfigurator/chapter_art/13_camera_overall.png)
 
 An important note is that these camera motions were exported as part of the
 main asset GLB, not additional geometry or materials GLBs. This was 
@@ -317,9 +302,7 @@ animations to the main asset was not a problem.
 so that 2D UI (markers, labels, etc.) can be connected to specific 
 locations in the 3D scene.
 
-***
-**TODO: Picture of a hotspot**
-***
+![Hotspot](/img/devStories/vaporwearConfigurator/chapter_art/14_hotspot.png)
 
 The design for the Vaporwear site featured three hotspots, two of which
 would be visible during a "matchmoving" state and one of which would
@@ -331,9 +314,8 @@ hotspots were and when they should be visible.
 1.  Specifying location for the hotspots was easy: for each of the three,
     Carlos simply created a named empty transform to mark the point of 
     interest.
-    ***
-    **TOOD: Picture of hotspot nulls**
-    ***
+    
+    ![Hotspot nulls](/img/devStories/vaporwearConfigurator/chapter_art/15_hotspot_nulls.png)
 1.  Specifying visibility for the hotspots in the "matchmoving" state
     was also simple. Because the motion of the camera was fully determined
     by an animation in these states, Carlos could also characterize when
@@ -346,9 +328,8 @@ hotspots were and when they should be visible.
     was synchronized with the camera movement animation, Diane would 
     simply have to check the visibility indicator's local position to
     determine whether the hotspot was visible or not.
-    ***
-    **TODO: Picture of visibility mechanism**
-    ***
+    
+    ![Hotspot visibility](/img/devStories/vaporwearConfigurator/chapter_art/16_hotspot_visibility.png)
 1.  Specifying visibility for the hotspot in the "arc-rotate" state had to
     be done differently because the camera's motion in that state would be
     driven by the user, not by an animation. Carlos and Diane considered
@@ -360,9 +341,8 @@ hotspots were and when they should be visible.
     invisible. Once again, Carlos added a named empty transform parented
     to the hotspot itself and used the local X position of that transform
     to specify the dot product threshold.
-    ***
-    **TODO: Picture of the arc-rotate hotspot**
-    ***
+    
+    ![Arc-rotate hotspot](/img/devStories/vaporwearConfigurator/chapter_art/17_arc-rotate_hotspot.png)
 
 As with the camera motions, these hotspot parameters were added to the 
 main asset file: they were very small and could be needed very early in

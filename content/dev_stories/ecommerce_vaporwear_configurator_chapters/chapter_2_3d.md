@@ -9,9 +9,9 @@ video-content:
 ---
 
 Related links: 
-[source](), 
-[asset host](),
-[demo]()
+[source](https://github.com/syntheticmagus/vaporwear-experience),
+[asset host](https://github.com/syntheticmagus/vaporwear-assets),
+[demo](https://syntheticmagus.github.io/vaporwear-experience)
 
 ## Introduction: Diane
 
@@ -54,14 +54,12 @@ for consumption in a separate "shipping vehicle."
     repo differed from the *Fruit Fallin'* approach similarly to how
     [the Showroom Camera repo](../showroomCamera#creating-the-repository)
     had differed.)
-    ***
-    **TODO: Picture of relevant *Fruit Fallin'* sections**
-    ***
+    
+    ![Relevant sections from another dev story](/img/devStories/vaporwearConfigurator/chapter_3d/01_fruit_fallin.png)
 1.  She added Carlos's art assets to her asset host repo as soon as those
     were available.
-    ***
-    **TODO: Picture of files in docs folder**
-    ***
+    
+    ![Files in folder](/img/devStories/vaporwearConfigurator/chapter_3d/02_files_in_folder.png)
 1.  Diane chose to use her NPM package repo's `test_package` as
     a test environment that would later double as a demo page (similar 
     to `test_package`'s use in both *Fruit Fallin'* and Showroom Camera).
@@ -69,9 +67,8 @@ for consumption in a separate "shipping vehicle."
     Web page (with elements sometimes overlaid) in the final site, Diane
     changed her `test_package`'s index.js to more closely resemble that
     usage.
-    ***
-    **TODO: Picture of parts of `test_package`'s index.js.**
-    ***
+    
+    ![Test package index.js](/img/devStories/vaporwearConfigurator/chapter_3d/03_test_package_indexjs.png)
 
 With the repos now set up, work could begin on the real features of the 
 Vaporwear 3D experience.
@@ -91,17 +88,16 @@ watch itself. Thus, the first thing Diane chose to tackle as soon as she
 had the watch model was getting that imported and viewable.
 
 1.  The first step to getting the watch to display was to download it.
-    ***
-    **TODO: Picture of the import code.**
-    ***
+    
+    ![Watch download code](/img/devStories/vaporwearConfigurator/chapter_3d/04_download_watch.png)
 1.  When Babylon imports a glTF that includes animations, it automatically
     starts playing the first animation it finds. Since Diane knew she 
     would eventually need to use all the animations, she went ahead
     and cached references to all of them and ensured they started in
     the correct state.
-    ***
-    **TODO: Picture of the animation setting stuff**
-    ***
+    
+    ![Cache animations](/img/devStories/vaporwearConfigurator/chapter_3d/05_cache_animation.png)
+
     Carlos had provided her with the names of the animations along with
     the rest of the details when he delivered the art; however, she could
     also see and test them by dragging the GLBs into Babylon's 
@@ -110,16 +106,14 @@ had the watch model was getting that imported and viewable.
     an `ArcRotateCamera` to start with. With that and a few more minor 
     tweaks to the scene such as setting the clear color to white, Diane
     had the most basic version of the watch rendering.
-    ***
-    **TODO: Picture of the watch rendering**
-    ***
+    
+    ![The watch rendering](/img/devStories/vaporwearConfigurator/chapter_3d/06_watch_rendering.png)
 1.  But this *wasn't*, however, rendering using the 3D Commerce-certified
     settings. To fix this, Diane just needed to add the two code snippets
     described on the 
     [Babylon docs](https://doc.babylonjs.com/divingDeeper/3D_commerce_certif#certified-viewer-version-based-on-babylonjs-engine).
-    ***
-    **TODO: Picture of 3D Commerce code**
-    ***
+    
+    ![3D Commerce settings](/img/devStories/vaporwearConfigurator/chapter_3d/07_3d_commerce_settings.png)
 1.  With the watch now rendering in its default state, the next step was 
     to enable other states. The Vaporwear site's design called for the
     3D experience to have five different behaviors in different parts of 
@@ -127,20 +121,17 @@ had the watch model was getting that imported and viewable.
     the `Showroom` (the main logical container of the experience) changing
     the behavior of the watch (activating the correct animations, etc.) 
     when the state changed.
-    ***
-    **TODO: Picture of showroom.ts@43-51**
-    ***
+    
+    ![States enum](/img/devStories/vaporwearConfigurator/chapter_3d/08_showroom_ts_43_51.png)
 1.  To be able to test this behavior, Diane added a `createDebugUI`
     function to the `Showroom` that would allow the app to be controlled
     using a Babylon GUI interface.
-    ***
-    **TODO: Picture of state control GUI**
-    ***
+    
+    ![Debug UI](/img/devStories/vaporwearConfigurator/chapter_3d/09_state_control_gui.png)
 1.  Finally, Diane added the dynamic watch face using Babylon's GUI and
     a simple coroutine mechanism to update the text.
-    ***
-    **TODO: Picture of watch.ts@136-165**
-    ***
+    
+    ![Dynamic watch face](/img/devStories/vaporwearConfigurator/chapter_3d/10_watch_ts_136_165.png)
 
 At this point, Diane had the watch rendering the way it should (sans 
 camera movement) using only what was available in the main asset file
@@ -179,9 +170,8 @@ pretty straightforward.
     introduced a mechanism that would make loading the configuration 
     assets the final step of entering the "Configuration" state for the 
     first time.
-    ***
-    **TODO: Picture of config asset loading logic**
-    ***
+    
+    ![Config asset loading logic](/img/devStories/vaporwearConfigurator/chapter_3d/11_config_assets_load.png)
 1.  However, the side effect of this approach was that entering the 
     "Configuration" state for the first time would be slightly delayed;
     and while this was better than a visible framerate drop, Diane still
@@ -194,39 +184,34 @@ pretty straightforward.
     cache; that way, when Babylon later made Web requests for those same
     (15 Mb, in some cases) files, such requests would be 15Mb cache hits
     instead of 15 Mb network downloads.
-    ***
-    **TODO: Picture of pre-fetch**
-    ***
+    
+    ![Assets pre-fetch trick](/img/devStories/vaporwearConfigurator/chapter_3d/12_assets_pre-fetch.png)
 1.  Other than loading, the only slightly complex part of enabling 
     configuration was making sure the imported "studs" mesh was attached
     to the correct bone. After consulting Carlos (who had helpfully named
     the correct bone, "Bone"), Diane simply had her watch abstraction 
     cache off a reference to that bone...
-    ***
-    **TODO: Picture of watch.ts@117-118**
-    ***
+    
+    ![Bone caching](/img/devStories/vaporwearConfigurator/chapter_3d/13_watch_ts_117_118.png)
+
     ...and provide an easy way to 
     [attach the "studs" to it](https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#attaching-a-mesh-to-a-specific-bone).
-    ***
-    **TODO: Picture of showroom.ts@146-150**
-    ***
+
+    ![Attach studs](/img/devStories/vaporwearConfigurator/chapter_3d/14_showroom_ts_146_150.png)
 1.  With all the assets loaded and set up as required, enabling 
     configuration was simply a matter of enabling/disabling the "studs"
     geometry...
-    ***
-    **TODO: Picture of showroom.ts@77-79**
-    ***
+    
+    ![Studs enabling/disabling](/img/devStories/vaporwearConfigurator/chapter_3d/15_showroom_ts_77_79.png)
 1.  ...and setting named materials on named meshes, which Diane chose to 
     expose as a simple helper function that wouldn't really need to be 
     extended if more materials were added later.
-    ***
-    **TODO: Picture of showroom.ts@213-221**
-    ***
+    
+    ![Setting materials](/img/devStories/vaporwearConfigurator/chapter_3d/16_showroom_ts_213_221.png)
 1.  Finally, Diane added GUI elements to the test UI to allow her to test
     the new configuration options.
-    ***
-    **TODO: Picture of showroom.ts@276-316**
-    ***
+    
+    ![More GUI elements](/img/devStories/vaporwearConfigurator/chapter_3d/17_showroom_ts_276_onward.png)
 
 ## Implementing the Camera
 
@@ -241,24 +226,22 @@ steps.
 
 1.  First, Diane needed to add the Showroom Camera Babylon Utility as 
     an NPM dependency so that she could use it.
-    ***
-    **TODO: Picture of adding NPM dependency**
-    ***
+    
+    ![npm install](/img/devStories/vaporwearConfigurator/chapter_3d/18_install_dependency.png)
 1.  She then replaced the `ArcRotateCamera` she'd been using temporarily
     with a `ShowroomCamera`. giving that camera a single arc-rotate state
     would cause it to behave exactly like an `ArcRotateCamera`.
-    ***
-    **TODO: Picture of showroom.ts@102-105**
-    ***
+    
+    ![Make showroom camera](/img/devStories/vaporwearConfigurator/chapter_3d/19_make_showroom_camera.png)
 1.  To get the full and correct camera behavior, however, Diane needed to
     create camera states for every different behavior. Since there were 
     five different camera behaviors in the experience, she needed five 
     different states: four matchmoving specific `TransformNode`s from the
     main watch asset, then one arc-rotate state using the starting 
     positions from the "overall" matchmoving state.
-    ***
-    **TODO: Picture of showroom.ts@107-128**
-    ***
+    
+    ![Showroom camera states](/img/devStories/vaporwearConfigurator/chapter_3d/20_showroom_camera_states.png)
+
     This is what Diane tried out of the box, and it immediately...didn't 
     work the way she thought it would. A short amount of debugging later, 
     she discovered that...
@@ -275,43 +258,38 @@ steps.
     own tool. Instead, Diane just modified her import logic to modify the
     camera parents slightly so that they would work with the conventions
     used by Babylon's cameras.
-    ***
-    **TODO: Picture of watch.ts@121-134**
-    ***
+    
+    ![Camera null transformation](/img/devStories/vaporwearConfigurator/chapter_3d/21_watch_ts_121_134.png)
 1.  With that fixed, all that was left was to set the camera to transition
     to the correct state when the Showroom changed states...
-    ***
-    **TODO: Picture of showroom.ts@50-73**
-    ***
+    
+    ![Camera state transitions](/img/devStories/vaporwearConfigurator/chapter_3d/22_showroom_ts_50_73.png)
 1.  ...and create a mechanism for tracking and reporting the "hotspot"
     positions. For the matchmoving state "hotspots," this was simple: 
     reproject the positions of the hotspot `TransformNode`s onto the 
     screen and report visibility based on the animation-controlled
     "hotspot visibility" `TransformNode`'s position:
-    ***
-    **TODO: Picture of watch.ts@275-281**
-    ***
+    
+    ![Matchmove hotstpot visibility](/img/devStories/vaporwearConfigurator/chapter_3d/23_watch_ts_275_281.png)
+
     For the arc-rotate state "hotspot," it was slightly more tricky --
     the visibility had to be determined by a dot product thresholded 
     against the "hotspot visibility" `TransformNode`'s position, as 
     described in 
     [the relevant section of Carlos's chapter](./art#hotspots) --
     but the math was the same.
-    ***
-    **TODO: Picture of watch.ts@308-312**
-    ***
+    
+    ![Arc-rotate hotspot visibility](/img/devStories/vaporwearConfigurator/chapter_3d/24_watch_ts_308_312.png)
+
     For all three "hotspots," Diane chose to expose the results simply
     as public state with an observable to inform those interested when
     the state changed.
-    ***
-    **TODO: Picture of watch.ts@61-64**
-    ***
+    
+    ![Hotspot state](/img/devStories/vaporwearConfigurator/chapter_3d/25_watch_ts_61_64.png)
 
 And, just like that, the Vaporwear 3D experience was feature-complete.
 
-***
-**TODO: Picture of test_package in state transition**
-***
+![Watch animated transition](/img/devStories/vaporwearConfigurator/chapter_3d/26_watch_transition.png)
 
 ## Encapsulating for Frontend Consumption
 
@@ -327,9 +305,8 @@ features.
 
 1.  For most features, Diane decided to just make invocation string-based
     because it was simple and JavaScript-y.
-    ***
-    **TODO: Picture of vaporwearExperience.ts@56-101**
-    ***
+    
+    ![JavaScript-y string-based API](/img/devStories/vaporwearConfigurator/chapter_3d/27_vaporwearExperience_ts_56_74.png)
 1.  For the "hotspots," Diane chose to emulate the `addEventListener`
     pattern from the DOM. This required some minor adaptation of the
     way the "hotspot" state was reported internally, but not much, and it
@@ -337,26 +314,23 @@ features.
     configuration options were loaded. (Edie requested this second event
     so that she could hide the configuration options until the required
     assets were loaded.)
-    ***
-    **TODO: Picture of vaporwearExperience.ts@107-123**
-    ***
+    
+    ![addEventListener pattern](/img/devStories/vaporwearConfigurator/chapter_3d/28_vaporwearExperience_ts_107_123.png)
 1.  Camera parameter settings were actually not a part of the first 
     version of the NPM package Diane delivered to Edie; instead, they
     were added later upon request because Edie wanted the zoom to be
     controlled by buttons so that the mouse wheel would remain reserved
     for scrolling the page.
-    ***
-    **TODO: Picture of vaporwearExperience.ts@48-54**
-    ***
+    
+    ![Camera parameters](/img/devStories/vaporwearConfigurator/chapter_3d/29_vaporwearExperience_ts_48_54.png)
 1.  Finally, it was time to make the Vaporwear 3D experience available for
     Edie to integrate into her frontend. Per Edie's request, Diane did this
     by publishing the experience as a 
     [private NPM package](https://docs.npmjs.com/creating-and-publishing-private-packages),
     which would make it easy for Edie to take a dependency on it in her
     [React app](./frontend).
-    ***
-    **TODO: Picture of npm publish**
-    ***
+    
+    ![npm publish](/img/devStories/vaporwearConfigurator/chapter_3d/30_npm_publish.png)
 
 And with that, Diane's work on the Vaporwear 3D experience was complete.
 She remained in available to answer questions and field requests from
