@@ -130,7 +130,7 @@ In fact two new parameters are needed since the function to be called is the six
 
 ### beginDirectAnimation and Parameters
 
-scene.beginAnimation(target, start frame, end frame, loop, speed, on animation end);
+scene.beginDirectAnimation(target, animations, start frame, end frame, loop, speed, on animation end);
 
 - _target_ - _BabylonJS Object_, theBabylon.js object to be animated
 
