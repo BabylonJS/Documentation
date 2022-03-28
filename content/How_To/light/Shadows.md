@@ -412,8 +412,8 @@ The only required value is shaderName. But you can also add:
 - defines: used to specify additional defines you need in your shader
 
 The shadow map generation is a complex task and requires to take in account several defines (like the type of the shadow map between int and float, or the need for alpha test). It is recommended to check the current default shaders here:
-- Vertex:https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/shadowMap.vertex.fx
-- Fragment: https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/shadowMap.fragment.fx
+- Vertex:https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/shadowMap.vertex.fx
+- Fragment: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/shadowMap.fragment.fx
 
 In order to update your own uniforms, you can rely on `shadowGenerator.onBeforeShadowMapRenderObservable` observable. This will be called for you everytime the shadow map will be rendered and it will give you the current compiled effect.
 
