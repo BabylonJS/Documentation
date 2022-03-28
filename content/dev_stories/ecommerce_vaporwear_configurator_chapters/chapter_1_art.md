@@ -58,11 +58,11 @@ the main Vaporwear watch asset.
     must be *small*; otherwise it won't download quickly enough for the
     site to start in a timely manner. Consequently, file size (as the
     determining factor of download time) became a key concern for the main
-    watch asset. This was the primary motivating for deciding that the 
+    watch asset. This was the primary motivation for deciding that the 
     main asset (which was all that was needed for the initial rendering)
     and additional assets 
     ([configuration options](#configuration-options), 
-    etc.) should be packages as separate files which could be downloaded 
+    etc.) should be packaged as separate files which could be downloaded 
     at different times. That way, larger assets (sophisticated materials, 
     etc.) could be included in the secondary files while still allowing
     the main asset file to remain as small as possible.
@@ -185,7 +185,7 @@ noteworthy "tricks."
     so Carlos did that with the studs in order to help them render more
     efficiently.
     
-    ![Studs as linked meshes](/img/devStories/vaporwearConfigurator/chapter_art/06_studs_linked.png)
+    ![Studs as linked meshes](/img/devStories/vaporwearConfigurator/chapter_art/07_studs_linked.png)
 1.  **Materials**: As with the main asset, the "studs" asset was created
     to contain specific geometry, not a materials collection, so Carlos
     included in it only one of each kind of material it used -- one 
@@ -194,9 +194,9 @@ noteworthy "tricks."
     material-swap configuration, and so they would be included alongside
     other additional materials in a dedicated additional materials file.
 
-Again, the best for Carlos to know for sure how his model would render
-was to export to GLB and view it in Babylon 3D Commerce-certified
-Sandbox. He was even able to use the 
+Again, the best way for Carlos to know for sure how his model would 
+render was to export to GLB and view it in Babylon 3D 
+Commerce-certified Sandbox. He was even able to use the 
 [Inspector](https://doc.babylonjs.com/toolsAndResources/tools/inspector)
 to modify the gemstone material as a preview of what it would look like 
 with another material.
@@ -233,14 +233,14 @@ without sacrificing visual quality.
     textures like these entirely by just setting his material to use a
     constant value instead of the texture. He double-checked with 
     Vaporwear that doing this didn't impact the rendering negatively,
-    but in every case they were unable to discern a visible difference.
+    but in every case they were unable to discern a difference.
     
     ![Omitted textures](/img/devStories/vaporwearConfigurator/chapter_art/10_omitted_textures.png)
 1.  **Texture resolution**: The last and most powerful trick Carlos used
     to manage file size was to change the resolution of the PBR textures. 
     He had to be careful about doing this because this very easily *could*
     degrade the quality of the visuals by losing fine details. However,
-    for many of the materials they were never expected to be viewed from
+    many of the materials were never expected to be viewed from
     very close, and ultimately Carlos was able to reduce the resolution
     of every material texture by at least *some* amount.
     
@@ -336,7 +336,7 @@ hotspots were and when they should be visible.
     several different ways to characterize visibility, and what they 
     ultimately decided on was to use a thresholded dot product to describe
     a "cone" within which the hotspot would be visible: if the dot product
-    between the direction from the hotspot to the camera and the camera's
+    between the direction from the hotspot to the camera and the null's
     X axis was below a certain threshold, the hotspot would be considered
     invisible. Once again, Carlos added a named empty transform parented
     to the hotspot itself and used the local X position of that transform

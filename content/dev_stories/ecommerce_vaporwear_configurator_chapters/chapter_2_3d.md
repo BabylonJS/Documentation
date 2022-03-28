@@ -29,7 +29,7 @@ I don't need to know anything about how you made it."
 
 So Diane's goal was to take the features supplied by Carlos in the art,
 add interactivity, then encapsulate the entire experience into a
-package that could be consume without requiring knowledge of 3D art or
+package that could be consumed without requiring knowledge of 3D art or
 programming. To do this, she decided to build her experience using 
 Babylon's 
 [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow)
@@ -41,8 +41,8 @@ frontend later.
 
 Diane modeled her project development structure on that of the game
 [*Fruit Fallin'*](../fruitFalling),
-as both projects sought to encapsulate a 3D experience into an NPM package
-for consumption in a separate "shipping vehicle."
+as both projects sought to encapsulate a Babylon experience into an NPM 
+package for consumption in a separate "shipping vehicle."
 
 1.  Thus, she began by creating an NPM package repo and an asset host
     repo as described in the 
@@ -101,7 +101,7 @@ had the watch model was getting that imported and viewable.
     Carlos had provided her with the names of the animations along with
     the rest of the details when he delivered the art; however, she could
     also see and test them by dragging the GLBs into Babylon's 
-    [3D Commerce certified sandbox](https://3dcommerce.babylonjs.com/?assetUrl=https://syntheticmagus.github.io/vaporwear-assets/watch.glb).
+    [3D Commerce-certified sandbox](https://3dcommerce.babylonjs.com/?assetUrl=https://syntheticmagus.github.io/vaporwear-assets/watch.glb).
 1.  To avoid having to worry about the camera until later, Diane just used
     an `ArcRotateCamera` to start with. With that and a few more minor 
     tweaks to the scene such as setting the clear color to white, Diane
@@ -182,7 +182,7 @@ pretty straightforward.
     it would not invoke any Babylon APIs. However, it would cause the
     browser to go ahead and download the files and store them in the 
     cache; that way, when Babylon later made Web requests for those same
-    (15 Mb, in some cases) files, such requests would be 15Mb cache hits
+    (15 Mb, in some cases) files, such requests would be 15 Mb cache hits
     instead of 15 Mb network downloads.
     
     ![Assets pre-fetch trick](/img/devStories/vaporwearConfigurator/chapter_3d/12_assets_pre-fetch.png)
@@ -229,7 +229,7 @@ steps.
     
     ![npm install](/img/devStories/vaporwearConfigurator/chapter_3d/18_install_dependency.png)
 1.  She then replaced the `ArcRotateCamera` she'd been using temporarily
-    with a `ShowroomCamera`. giving that camera a single arc-rotate state
+    with a `ShowroomCamera`. Giving that camera a single arc-rotate state
     would cause it to behave exactly like an `ArcRotateCamera`.
     
     ![Make showroom camera](/img/devStories/vaporwearConfigurator/chapter_3d/19_make_showroom_camera.png)
@@ -333,7 +333,7 @@ features.
     ![npm publish](/img/devStories/vaporwearConfigurator/chapter_3d/30_npm_publish.png)
 
 And with that, Diane's work on the Vaporwear 3D experience was complete.
-She remained in available to answer questions and field requests from
+She remained available to answer questions and field requests from
 Edie while the latter was integrating the new experience; and, as 
 mentioned above, Edie did end up making a few specific requests that
 Diane added in follow-up versions. The fact that the Vaporwear experience
