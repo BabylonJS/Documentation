@@ -133,7 +133,7 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 ### Slime simulation
 
-<Playground id="#GXJ3FZ#45" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
+<Playground id="#GXJ3FZ#46" engine="webgpu" title="Slime simulation" description="Simulate organic-like agents"/>
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
