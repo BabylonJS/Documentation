@@ -79,7 +79,7 @@ export function extractMetadataFromDocItem(docItem: IDocMenuItem, fullPage: bool
             if (!metadata.imageUrl) {
                 const imageUrl = (fileContents.match(/\((\/img\/.+?)\)/) || [])[1];
                 if (imageUrl) {
-                    metadata.imageUrl = imageUrl;
+                    metadata.imageUrl = imageUrl.split("!")[0]; // remove the image size
                 } else {
                     // find a playground
                     const playgrounds = fileContents.match(/<Playground (.*)\/>/gm) || [];
