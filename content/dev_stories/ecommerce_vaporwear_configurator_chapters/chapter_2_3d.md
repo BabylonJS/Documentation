@@ -60,6 +60,20 @@ package for consumption in a separate "shipping vehicle."
     were available.
     
     ![Files in folder](/img/devStories/vaporwearConfigurator/chapter_3d/02_files_in_folder.png)
+1.  Normally at this point Diane would have tried compressing the 
+    file sizes of the 3D assets using dev-facing tools like 
+    [gltfpack](https://www.npmjs.com/package/gltfpack)
+    to leverage technologies like
+    [KTX2](http://github.khronos.org/KTX-Specification/#basisu_gd)
+    and
+    [Draco compression](https://google.github.io/draco/).
+    In this particular case, however, that wouldn't have helped. 
+    Carlos's art was already very geometry-light (and included
+    specific node structures that mesh optimization might not
+    respect), making Draco compression not a major factor, and the
+    heavy use of detailed normal maps in the materials would play
+    to KTX2's weaknesses. She was glad she was familiar with these
+    tools, but for this particular scenario she decided not to use them.
 1.  Diane chose to use her NPM package repo's `test_package` as
     a test environment that would later double as a demo page (similar 
     to `test_package`'s use in both *Fruit Fallin'* and Showroom Camera).
@@ -304,9 +318,9 @@ expand on that by adding invocation mechanisms for the rest of the
 features.
 
 1.  For most features, Diane decided to just make invocation string-based
-    because it was simple and JavaScript-y.
+    because it was straightforward.
     
-    ![JavaScript-y string-based API](/img/devStories/vaporwearConfigurator/chapter_3d/27_vaporwearExperience_ts_56_74.png)
+    ![String-based API](/img/devStories/vaporwearConfigurator/chapter_3d/27_vaporwearExperience_ts_56_74.png)
 1.  For the "hotspots," Diane chose to emulate the `addEventListener`
     pattern from the DOM. This required some minor adaptation of the
     way the "hotspot" state was reported internally, but not much, and it
