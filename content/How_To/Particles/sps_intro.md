@@ -10,9 +10,9 @@ video-content:
 
 # An Introduction to The Solid Particle System
 
-The Solid Particle System, SPS, is a single updatable mesh rendered with one draw call. It is built by combining multiple copies of one or more model meshes which become the particles of the system. Once the SPS is built it has the same properties as any other Babylon.js mesh, no more, no less. It can be scaled, rotated, translated, light, textured, etc.
+The Solid Particle System, SPS, is a single updatable mesh rendered with one draw call. It is built by combining multiple copies of one or more model meshes which become the particles of the system. Once the SPS is built, it has the same properties as any other Babylon.js mesh - no more, no less. It can be scaled, rotated, translated, lit, textured, etc.
 
-As a system of particles it provides some methods to manage the particles. However, unlike the standard particle system, it provides no built in behaviors. It has no emitters, no particle physics, no particle recycler nor particle movement. You have to implement your own behaviors. 
+As a system of particles, it provides some methods to manage the particles. However, unlike the standard particle system, it provides no built-in behaviors. It has no emitters, no particle physics, no particle recycler nor particle movement. You have to implement your own behaviors. 
 
 Once you have a mesh model, or models, as a basis for the particles you follow these steps
 
@@ -44,7 +44,7 @@ poly.dispose(); //free memory
 
 const mesh = SPS.buildMesh(); // finally builds and displays the SPS mesh
 ```
-At this stage all the particles are displayed at the origin so to separate them we need to initiate some properties. Access to the individual particles is through the *particles array* the length of which is given by *nbParticles*.
+At this stage, all the particles are displayed at the origin. So to separate them, we need to initiate some properties. Access to the individual particles is through the *particles array*, and the length of which is given by *nbParticles*.
 
 We setup the function to initiate the particles
 
