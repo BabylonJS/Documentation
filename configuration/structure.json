@@ -854,6 +854,21 @@
                             "friendlyName": "Playground to Production: Fruit Fallin'",
                             "children": {},
                             "content": "dev_stories/playground_to_production_fruit_falling"
+                        },
+                        "vaporwearViewer": {
+                            "friendlyName": "3D for E-Commerce: Viewer in WordPress",
+                            "children": {},
+                            "content": "dev_stories/ecommerce_vaporwear_viewer"
+                        },
+                        "showroomCamera": {
+                            "friendlyName": "Babylon Utilities: Showroom Camera",
+                            "children": {},
+                            "content": "dev_stories/utilities_showroom_camera"
+                        },
+                        "vaporwearConfigurator": {
+                            "friendlyName": "3D for E-Commerce: Custom Experience",
+                            "children": {},
+                            "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
                     },
                     "content": "landing_pages/dev_stories_landing_page"

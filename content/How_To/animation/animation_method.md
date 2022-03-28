@@ -20,7 +20,7 @@ const myAnim = new BABYLON.Animation(name, property, frames per second, property
 
 -   _frames per second_ - _number_, the number of animation frames per second (independent of the scene rendering frames per second)
 
--   _property type_ - _number_, the property type of the _property_ parameter. This can be set using the following constants
+-   _property type_ - _number_, the property type of the _property_ parameter. This can be set using the following constants:
 
     BABYLON.Animation.ANIMATIONTYPE_COLOR3  
     BABYLON.Animation.ANIMATIONTYPE_FLOAT  
@@ -29,19 +29,19 @@ const myAnim = new BABYLON.Animation(name, property, frames per second, property
     BABYLON.Animation.ANIMATIONTYPE_VECTOR2  
     BABYLON.Animation.ANIMATIONTYPE_VECTOR3
 
--   _loop mode_ - _number optional_, This can be set using the following Parameters
+-   _loop mode_ - _number optional_, This can be set using the following Parameters:
 
     BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE - Restart the animation from initial value  
     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
     BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
 
 ## Set Key Frames
-This is an array, *myKeys* of objects. Each object having the two properties 
+This is an array, *myKeys* of objects. Each object has the following two properties:
 
 - _frame_ - the frame number
 - _value_ - for the property being changed
 
-Once constructed this is added to the animation
+Once constructed this is added to the animation.
 
 ```javascript
 myAnim.setKeys(myKeys);
@@ -65,31 +65,27 @@ scene.beginAnimation(target, from, to);
 -   _to_ - _number_, the frame at which to end the animation
 
 
-When you want the animation to loop you and true as the fourth parameter
+If you want the animation to loop, set the fourth parameter to true.
 ```javascript
 scene.beginAnimation(target, from, to, true)
 ```
 
 <Playground id="#7V0Y1I" title="Basic Sliding Box Animation" description="An example of basic animation by sliding a box." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
 
-The are a number of further optional parameters than you can find in the *scene* API
+There are a number of further optional parameters that you can find in the *scene* API.
 
-You can apply several animations to a target using
+You can apply several animations to a target using:
 ```javascript
 scene.beginDirectAnimation(target, animations, from, to, loop)
 ```
 
 -   _target_ - _BabylonJS Object_, theBabylon.js object to be animated
-
 -   _animations_ - _array_, of all the animations to apply to the target
-
 -   _from_ - _number_, the frame at which to start the animation
-
 -   _to_ - _number_, the frame at which to end the animation
+-   _loop_ - _boolean_, optional, default *false*, when *true* repeats the animation
 
--   _loop_ - _boolean_, optional, default *false*, when *true* repeats thee animation
-
-Further optional parameters are available and can be found at the *scene* API
+Further optional parameters are available and can be found at the *scene* API.
 
 <Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/> 
 
