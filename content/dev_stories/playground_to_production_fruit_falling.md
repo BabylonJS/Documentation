@@ -215,7 +215,7 @@ to asset hosting for development.
 
     ![Browser screenshot](/img/devStories/fruitFalling/13_example_txt.jpg!500)
 1.  Next, I downloaded a copy of 
-    [player.jpg](https://github.com/BabylonJS/Babylon.js/blob/master/Playground/textures/player.jpg)
+    [player.jpg](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/textures/player.jpg)
     and placed it in the `docs` folder. Again, I used the browser to test
     that this worked by checking that I could see the image at
     http://127.0.0.1:8181/player.jpg. The dev server that comes with the 

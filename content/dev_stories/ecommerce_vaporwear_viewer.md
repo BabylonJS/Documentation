@@ -109,7 +109,7 @@ and add it directly to his WordPress site.
     ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.png)
 1.  Immediately after this, he copy-pasted in the `babylon` tag code
     from the 
-    ["basic usage" Viewer example](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/basicExample.html#L18-L31).
+    ["basic usage" Viewer example](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/basicExample.html#L18-L31).
 
     ![The example code to be copied](/img/devStories/vaporwearViewer/08_copy-paste.png)
 1.  With that code pasted into his HTML block, all he had to do was tell

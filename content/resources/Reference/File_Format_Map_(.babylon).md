@@ -11,7 +11,7 @@ video-content:
 
 **Babylon.js** uses a JSON file format for describing scenes.
 
-You can find the complete loader code [here](https://github.com/BabylonJS/Babylon.js/blob/master/src/Loading/Plugins/babylonFileLoader.ts).
+You can find the complete loader code [here](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Loading/Plugins/babylonFileLoader.ts).
 
 ## Basic types
 .babylon files uses the following convention for basic types:
