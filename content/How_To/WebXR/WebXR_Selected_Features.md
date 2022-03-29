@@ -39,7 +39,7 @@ featuresManager.enableFeature(WebXRFeatureName.TELEPORTATION, "stable" /* or lat
 });
 ```
 
-The latest options can be found in the [WebXR teleportation feature's source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRControllerTeleportation.ts#L31).
+The latest options can be found in the [WebXR teleportation feature's source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerTeleportation.ts#L31).
 
 Some teleportation parameters are needed during construction and are therefore only configurable in the constructor's `options` parameter. To reconfigure parameters which have no public getter/setter, re-enable the feature:
 
@@ -411,7 +411,7 @@ This will enable basic hand support - 25 hidden spheres will be created for each
 
 ### Configuration Options
 
-The current options for the plugin can always be found at the [WebXR hand tracking feature source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRHandTracking.ts#L31). Most of them will be explained later.
+The current options for the plugin can always be found at the [WebXR hand tracking feature source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRHandTracking.ts#L31). Most of them will be explained later.
 
 ### Hand meshes
 
@@ -697,7 +697,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
 
 ### Movement Configuration Options
 
-The current options for the plugin can always be found at the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRControllerMovement.ts#L20). Most of them will be explained here.
+The current options for the plugin can always be found at the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerMovement.ts#L20). Most of them will be explained here.
 
 One important option is `movementOrientationFollowsViewerPose`, which defaults to `true`. When configured to `false` the forward direction will not adjust with the viewer pose, but only to the controller rotation. This can be useful for some experiences where the viewer pose should not affect movement direction. ie: If you are moving forward and look left that you should not drift left, but continue straight. You can try out in the above playground by changing the option.
 

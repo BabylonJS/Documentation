@@ -22,7 +22,7 @@ This section holds a list of the current demos of the viewer
 
 ## Basic usage
 
-[https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/basicExample.html](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/basicExample.html)
+[https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/basicExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/basicExample.html)
 
 A basic example of loading a .babylon model with the default configuration.
 
@@ -30,7 +30,7 @@ A basic example of loading a .babylon model with the default configuration.
 
 ## DOM configuration
 
-[https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/domExample.html](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/domExample.html)
+[https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/domExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/domExample.html)
 
 An example on how to use the DOM to configure the viewer
 
@@ -38,7 +38,7 @@ An example on how to use the DOM to configure the viewer
 
 ## Events example
 
-[https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/eventsExample.html](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/eventsExample.html)
+[https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/eventsExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/eventsExample.html)
 
 An example on how to load the viewer and use its observers using promises, observables and callbacks.
 
@@ -46,7 +46,7 @@ An example on how to load the viewer and use its observers using promises, obser
 
 ## Animations example
 
-[https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/ufoExample.html](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/dist/ufoExample.html)
+[https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/ufoExample.html](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/viewer/public/ufoExample.html)
 
 An example of the animation system of the default viewer
 

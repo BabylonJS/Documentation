@@ -53,7 +53,7 @@ You can create your own plugin by creating a class that provides the following i
 
 * ```function isSupported()```: This function will be called by Babylon.js before everything else to ensure that your plugin can be instanciated (You have to check if required .js files are included for instance)
 
-For implementation details, you can refer to cannon.js plugin: https://github.com/BabylonJS/Babylon.js/blob/master/src/Physics/Plugins/cannonJSPlugin.ts
+For implementation details, you can refer to cannon.js plugin: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Physics/Plugins/cannonJSPlugin.ts
 
 ## Using your plugin
 When you launch the physics simulation, you can add a new parameter to ```enablePhysics``` function to indicate which plugin to use:

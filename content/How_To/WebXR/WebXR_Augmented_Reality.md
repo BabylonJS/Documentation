@@ -436,7 +436,7 @@ xr.baseExperience.onStateChangedObservable.add((webXRState) => {
 
 Once you have entered AR you can check the feature for the DOM overlay type; `domOverlayType` will be non-null if the feature is supported in the browser.
 
-The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRDOMOverlay.ts#L10).
+The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRDOMOverlay.ts#L10).
 
 ## Demos
 

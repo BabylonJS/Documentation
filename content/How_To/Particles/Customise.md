@@ -10,15 +10,15 @@ video-content:
 
 ## How To Customize Particles
 
-As you will have seen there are many properties of the particle system that can be tweaked to control its look.. Babylon.js allows you even more customization to obtain the system you want. These can be split into into two types; custom functions and custom effects.
+As you will have seen, there are many properties of the particle system that can be tweaked to control its look. Babylon.js allows you even more customization to obtain the system you want. These can be split into two types: Custom Functions and Custom Effects.
 
 ## Custom Functions
 
 There are three methods you can customize:
 
-- startDirectionFunction: specifies the direction for each new particle;
-- startPositionFunction: specifies the start position for each new particle;
-- updateFunction: provides an update to each particle each frame and can effect position, color, age, size etc. Try to keep it simple and fast.
+- `startDirectionFunction`: specifies the direction for each new particle;
+- `startPositionFunction`: specifies the start position for each new particle;
+- `updateFunction`: provides an update to each particle on each frame and can affect position, color, age, size etc. Try to keep it simple and fast.
 
 You can directly attach all these functions to the particleSystem.
 
@@ -96,7 +96,7 @@ particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(),
 
 **Grow Particles from Size 0 to a Final Size**
 
-A little trickier since the particles are to start from size 0 both min and max sizes must be 0 and a new property must be added to give the final size.
+A little trickier since the particles are to start from size 0, both min and max sizes must be 0. And a new property must be added to give the final size.
 
 Add in main body of code
 
@@ -107,7 +107,7 @@ particleSystem.maxSize = 0;
 particleSystem.finalSize = 1;
 ```
 
-And the in the `else` section, to get the particle to final size by 35% of life time add
+And in the `else` section, to get the particle to its final size by 35% of life time add
 
 ```javascript
 if (particle.age < particle.lifeTime * 0.35) {
@@ -131,13 +131,13 @@ Below is an example to create a new spray emitter which will send streams of par
 
 #### Create Spray Emitter
 
-In order to determine where a particle is emitted from the cylinder is divided into two regions as in the diagram below.
+In order to determine where a particle is emitted from, the cylinder is divided into two regions as in the diagram below.
 
 ![cylinder emitter](/img/how_to/particles/cyl_particles.png)
 
 Any particle with a start position inside the red region is emitted in the direction from the center to the particle. Any particle with a start position inside the blue region is emitted horizontally.
 
-The `createSprayEmitter` method sets the radius and height of the cylinder, creates a new `SprayParticleEmitter` object which is assigned to the 'particleEmitterType` property.
+The `createSprayEmitter` method sets the radius and height of the cylinder, creates a new `SprayParticleEmitter` object which is assigned to the `particleEmitterType` property.
 
 ```javascript
 BABYLON.ParticleSystem.prototype.createSprayEmitter = function (radius, height) {
@@ -229,7 +229,7 @@ var customEffect = engine.createEffectForParticles(fragment, uniforms, samplers)
 
 ### Fragment Shader Assignment
 
-When assigning a fragment shader to the shader store the name should have `FragmentShader` appended. So for example the creation of a custom effect using fragment name `myParticle` would require a `myParticleFragmentShader` added to the shader store
+When assigning a fragment shader to the shader store, the name should have `FragmentShader` appended. So for example, the creation of a custom effect using fragment name `myParticle` would require a `myParticleFragmentShader` added to the shader store
 
 ```javascript
 BABYLON.Effect.ShadersStore["myParticleFragmentShader"] = [...]
@@ -266,9 +266,9 @@ customEffect.onBind = function () {
 };
 ```
 
-you can see an example of the above in this playground  
+You can see an example of the above in this playground  
 <Playground id="#1ASENS#43" title="Custom Effect using Shader Store" description="Simple example of a custom effect using shader store."/>
 
 ### Particle Effect Object
 
-The particle effect object is a slightly-modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also notice that the ShadersStore is a namespace upon this special effect-object.
+The particle effect object is a slightly modified [Babylon Effect Object](/typedoc/classes/babylon.effect). Also notice that the `ShadersStore` is a namespace upon this special-effect object.

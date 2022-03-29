@@ -330,4 +330,4 @@ postProcess4.onApply = function (effect) {
     effect.setFloat("highlightIntensity", 1.0);
 };
 ```
-You might want to [read more about shaders](https://www.eternalcoding.com/what-do-you-mean-by-shaders-learn-how-to-create-shaders-with-babylon-js/) and try our [CYOS shader editor](https://cyos.babylonjs.com/).
+You might want to [read more about shaders](https://web.archive.org/web/20190904224946/https://www.eternalcoding.com/what-do-you-mean-by-shaders-learn-how-to-create-shaders-with-babylon-js/) and try our [CYOS shader editor](https://cyos.babylonjs.com/).

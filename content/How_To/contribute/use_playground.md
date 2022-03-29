@@ -14,7 +14,7 @@ During the early stages of developing code to contribute to Babylon.js it can be
 
 ## An Example
 
-Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS/Babylon.js/blob/master/src/Maths/math.path.ts , (just search for Curve3 on this page) so it would make sense to put any code to form a bezier surface on the same page.
+Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Maths/math.path.ts , (just search for Curve3 on this page) so it would make sense to put any code to form a bezier surface on the same page.
 
 The first step is to produce code that works. You can of course immediately follow the steps in [how to start contributing](/contribute/howToStart) and of course before submitting a PR there will have to be working code submitted as described on this page. However you might not yet be confident with the whole approach of forking the code, using git, setting up an IDE and pull requests but are familiar with using Typescript.
 

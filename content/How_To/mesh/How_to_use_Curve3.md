@@ -31,6 +31,36 @@ The general form is
 ```javascript
 var curve = BABYLON.Curve3.Create.CURVETYPE(parameters);
 ```
+## Arc Through Three Points
+Available from version 5.0.0.
+Given three points in space, not in a straight line, it is always possible to draw join the points up using a circular arc or to draw a circle through the three points.
+
+```javascript
+var arc = BABYLON.Curve3.ArcThru3Points(first, second, third, steps, closed, fullCircle)
+```
+* **first** _Vector3_ the first point the arc must pass through.
+* **second** _Vector3_ the second point the arc must pass through.
+* **third** _Vector3_ the third point the arc must pass through.
+* **steps** _number_ the larger the number of steps the more detailed the arc.
+* **closed** _boolean_ optional with default false, when true forms the chord from the first and third point
+* **fullCircle** _boolean_ optional with default false, when true forms the complete circle through the three points
+
+This static method returns an instance of _Curve3_.   
+Just use the Curve3 _getPoints()_ method to fill your array : _getPoints()_ returns an array of successive _Vector3_.     
+The _length()_ method returns the curve length.    
+```javascript
+var path = arc.getPoints();
+var l = arc.length();
+```
+
+<Playground id="#KENEJP#3" title="Arc" description="Open arc."/>   
+
+
+<Playground id="#KENEJP#4" title="Segment" description="Segment."/>  
+
+
+<Playground id="#KENEJP#5" title="Full Circle" description="Full Circle."/>  
+
 
 ## Quadratic Bezier Curve
 http://en.wikipedia.org/wiki/B%C3%A9zier_curve#Quadratic_curves

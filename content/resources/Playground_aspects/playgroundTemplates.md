@@ -20,7 +20,7 @@ You can also use the `tab` button to quickly navigate to the next property in th
 
 If you'd like to add your own snippet of code to the available templates, you can do so by updating the playground templates configuration file in the engine.
 
-[Playground Templates Config File](https://github.com/BabylonJS/Babylon.js/blob/master/Playground/templates.json)
+[Playground Templates Config File](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/templates.json)
 
 Each playground template entry into this .json file should include 3 components:
 
