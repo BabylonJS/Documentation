@@ -10,8 +10,6 @@
             ]
         }
     ],
-
-    { "source": "/examples", "destination": "/", "permanent": false },
     "redirects": [
         { "source": "/api", "destination": "/typedoc" },
         { "source": "/api/:match*", "destination": "/typedoc/:match*" },
