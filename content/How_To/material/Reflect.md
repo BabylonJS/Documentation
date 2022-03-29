@@ -152,7 +152,7 @@ Finally, you must set each RefractionTexture's [.indexOfRefraction](/typedoc/cla
 
 By default, cubemap textures (static and dynamic) simulate the physical Laws of Reflection ([wikipedia](https://en.wikipedia.org/wiki/Reflection_(physics)#Laws\_of\_reflection)), to create realistic shiny surfaces. However, you may set a texture's [.coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to select different reflection behavior, and [flat (non-cubemap) textures](#flat-textures-as-environment-maps) always require you to set .coordinatesMode. (Refraction does not use coordinate modes.)
 
-See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/ShadersInclude/reflectionFunction.fx), called by [default.fragment.fx](https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/default.fragment.fx)) for the mathematical definition of each mode.
+See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude/reflectionFunction.fx), called by [default.fragment.fx](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/default.fragment.fx)) for the mathematical definition of each mode.
 
 | coordinatesMode | Description |
 | --- | --- |

@@ -66,7 +66,7 @@ The start of the JSON file format for the above packed spritesheet is shown belo
     ]
 }
 ```
-The complete JSON file can be found on the Github [Babylon.js repository](https://github.com/BabylonJS/Babylon.js/blob/master/Playground/textures/spriteMap/none_trimmed/Legends_Level_A.json)
+The complete JSON file can be found on the Github [Babylon.js repository](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/textures/spriteMap/none_trimmed/Legends_Level_A.json)
 
 First we will start with a background that uses a 2 x 2 grid of tiles and just 4 sprites.
 
