@@ -10,7 +10,7 @@ video-content:
 
 ## Draw a Line of Given Width
 
-Three versions of **Line2D** are given below followed by a suggestion for drawing a line in 3D.
+Four versions of **Line2D** are given below followed by a suggestion for drawing a line in 3D. All Line2Ds can be textured but in only one (the second version) doe the texture follow the line direction.
 In addition the code is adapted as **parallelLines** to produce lines parallel to a central line 
 
 ## Line in XoY Plane Formed from Central Path
@@ -226,6 +226,159 @@ var line2D = function(name, options, scene) {
 	
 }
 ```
+
+## Texture Follows Line in XoY Plane Formed from Central Path
+
+```javascript
+var line = line2D("line", options, scene);
+```
+
+option|value|default value
+--------|-----|-------------
+path|_(Vector3[])_  array of Vector3 points forming the centre line of the line2D | **REQUIRED**
+width|_(number)_ line width|1
+closed|_(boolean)_ true if the first and last points are to be joined to form a polygon|false
+
+Just copy the code below if you want to use it.
+
+### Playground Examples
+
+These examples use an orthographic camera giving a 2D view
+
+<Playground id="#9MYFC2" title="Open Texture Line" description="Open line example."/>
+<Playground id="#9MYFC2#1" title="Closed Texture Line" description="Closed line example."/>
+
+
+### Texture Follow Line2D Code
+
+```javascript
+var createScene = function() {
+  var scene = new BABYLON.Scene(engine);
+
+	// Camera
+    camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 0, -10), this.scene);
+    camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
+    var canvas = document.getElementById("renderCanvas");
+    let ratio = canvas.width / canvas.height ;
+    let zoom = 30;
+    let width = zoom * ratio;
+    camera.orthoTop = zoom;
+    camera.orthoLeft = -width;
+    camera.orthoRight = width;
+    camera.orthoBottom = -zoom;
+
+	var light = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(5, 10, 0), scene);
+	
+	
+	var line2D = function(name, options, scene) {
+	
+		//Arrays for vertex positions and indices
+		var positions = [];
+		var indices = [];
+        var normals = [];
+        var uvs = [];
+
+        var width = options.width / 2 || 0.5;
+        var path = options.path;
+		var closed = options.closed || false;
+		if(options.standardUV === undefined) {
+			standardUV = true;
+		}
+		else {
+			standardUV = options.standardUV;
+		}
+	
+		var angle = 0;
+		
+		var nbPoints = path.length;
+		var line = BABYLON.Vector3.Zero();
+		var nextLine = BABYLON.Vector3.Zero();
+
+		if(nbPoints > 2 && closed) {
+            path[0].subtractToRef(path[nbPoints - 1], line);	    
+			for(var p = 0; p < nbPoints; p++) {
+                path[(p + 1) % nbPoints].subtractToRef(path[p], nextLine);    
+				angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
+				direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;                
+				lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
+				line.normalize();
+                const in0 = path[p].subtract(lineNormal.scale(width)).subtract(line.scale(direction * width/Math.tan(angle/2)));
+				const out0 = path[p].add(lineNormal.scale(width)).add(line.scale(direction * width/Math.tan(angle/2)));
+				line = nextLine.clone();
+                path[(p + 2) % nbPoints].subtractToRef(path[(p + 1) % nbPoints], nextLine);
+                angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
+				direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;                
+				lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
+				line.normalize();
+                const in1 = path[(p + 1) % nbPoints].subtract(lineNormal.scale(width)).subtract(line.scale(direction * width/Math.tan(angle/2)));
+				const out1 = path[(p + 1) % nbPoints].add(lineNormal.scale(width)).add(line.scale(direction * width/Math.tan(angle/2)));        
+				positions.push(in0.x, in0.y, in0.z, out0.x, out0.y, out0.z);
+                positions.push(in1.x, in1.y, in1.z, out1.x, out1.y, out1.z);
+                uvs.push(0, 0, 0, 1, 1, 0, 1, 1);
+                indices.push(4 * p + 2, 4 * p + 3, 4 * p + 1, 4 * p + 2, 4 * p + 1, 4 * p);
+                path[(p + 1) % nbPoints].subtractToRef(path[p], line);     
+			}
+		}
+		else {
+            path[1].subtractToRef(path[0], line);
+            lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
+			line.normalize();		
+			const in0 = path[0].subtract(lineNormal.scale(width));
+			const out0 = path[0].add(lineNormal.scale(width));
+            positions.push(in0.x, in0.y, in0.z, out0.x, out0.y, out0.z);
+            uvs.push(0, 0, 0, 1);
+            indices.push(2, 3, 1);
+            for(var p = 1; p < nbPoints - 1; p++) {
+                path[p + 1].subtractToRef(path[p], nextLine);
+                angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
+			    direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;
+			    lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
+			    line.normalize();		
+			    const in1 = path[p].subtract(lineNormal.scale(width)).subtract(line.scale(direction * width/Math.tan(angle/2)));
+			    const out1 = path[p].add(lineNormal.scale(width)).add(line.scale(direction * width/Math.tan(angle/2)));        
+                positions.push(in1.x, in1.y, in1.z, out1.x, out1.y, out1.z);
+                uvs.push(1, 0, 1, 1);
+                indices.push(4 * (p - 1) + 2, 4 * (p - 1) + 1, 4 * (p - 1));
+                const in0 = in1;
+			    const out0 = out1;        
+			    positions.push(in0.x, in0.y, in0.z, out0.x, out0.y, out0.z);
+                uvs.push(0, 0, 0, 1);
+                indices.push(4 * p + 2, 4 * p + 3, 4 * p + 1);
+                line = nextLine.clone();
+            }                
+			lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
+			line.normalize();
+            const in1 = path[nbPoints - 1].subtract(lineNormal.scale(width));
+			const out1 = path[nbPoints - 1].add(lineNormal.scale(width));
+            positions.push(in1.x, in1.y, in1.z, out1.x, out1.y, out1.z);
+            uvs.push(1, 0, 1, 1);
+            indices.push(4 * (nbPoints - 2) + 2, 4 * (nbPoints - 2) + 1, 4 * (nbPoints - 2));
+        }
+		
+		//Create a custom mesh
+        BABYLON.VertexData.ComputeNormals(positions, indices, normals);
+		BABYLON.VertexData._ComputeSides(BABYLON.Mesh.DOUBLESIDE, positions, indices, normals, uvs);  	
+ 
+		var customMesh = new BABYLON.Mesh("custom", scene);
+
+		//Create a vertexData object
+		var vertexData = new BABYLON.VertexData();
+
+		//Assign positions and indices to vertexData
+		vertexData.positions = positions;
+		vertexData.indices = indices;
+		vertexData.normals = normals;
+		vertexData.uvs = uvs;
+
+		//Apply vertexData to custom mesh
+		vertexData.applyToMesh(customMesh);
+		
+		return customMesh;
+		
+	}
+}
+```
+
 
 ## Line in XoZ Plane Formed from Central Path
 
