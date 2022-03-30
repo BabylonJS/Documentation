@@ -1103,10 +1103,11 @@
                         "assets": {
                             "friendlyName": "Assets",
                             "children": {
+                                "introduction": { "friendlyName": "Introduction", "children": {}, "content": "resources/Editor/Assets/Assets_Introduction" },
+                                "addingFiles": { "friendlyName": "Adding Files", "children": {}, "content": "resources/Editor/Assets/Adding_Files" },
                                 "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
                                 "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
-                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
-                                "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" }
                             },
                             "content": "landing_pages/extensionsEditorAssetsLandingPage"
                         },
