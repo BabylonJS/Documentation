@@ -40,15 +40,15 @@ I quickly and easily add 3D to my existing e-commerce site?**"
 
 So Allan did some research and found that Babylon.js specifically 
 caters to e-commerce scenarios by 
-[including Khronos 3D Commerce conformant rendering as a core offering](https://doc.babylonjs.com/divingDeeper/3D_commerce_certif).
+[including Khronos 3D Commerce conformant rendering as a core offering](../../divingDeeper/3D_commerce_certif).
 (This certification ensures that 3D rendering will be consistent so that 
 models always look the way site owners and customers expect them to.) 
 Furthermore, Babylon.js provides a 
-[Viewer](https://doc.babylonjs.com/extensions/babylonViewer) that makes it
-easy to add 3D to an existing site using only HTML-style code. So Allan 
-consulted with his Web developer Barnabas, and the two of them figured out
-how they would add 3D to the Vaporwear e-commerce website - in right around
-an hour.
+[Viewer](../../extensions/babylonViewer) 
+that makes it easy to add 3D to an existing site using only HTML-style 
+code. So Allan consulted with his Web developer Barnabas, and the two of 
+them figured out how they would add 3D to the Vaporwear e-commerce 
+website -- in right around an hour.
 
 1.	First, they'd spend about ten minutes adding the default viewer into 
     their WordPress site.
@@ -56,7 +56,7 @@ an hour.
     online using an 
     [asset host](https://github.com/BabylonJS/asset-host-template) 
     from Babylon's 
-    [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow).
+    [Template Repository Workflow](../../toolsAndResources/templateRepositories#the-template-repository-workflow).
 1.	Finally, they reconfigured the default viewer to display their Vaporwear
     3D model, disabling the features they didn't need and ensuring the 
     viewer was using Khronos 3D Commerce-conformant rendering. With a 
@@ -81,7 +81,7 @@ Though Barnabas was quite experienced with WordPress, he'd never added 3D
 to an existing site before, so the first thing he wanted to do was make 
 sure he coul get at least *something* rendering on the site in 3D. After 
 finding the
-[Viewer Examples](https://doc.babylonjs.com/extensions/babylonViewer/viewerExamples#basic-usage)
+[Viewer Examples](../../extensions/babylonViewer/viewerExamples#basic-usage)
 in the Babylon.js docs, Barnabas decided to just grab the code from there 
 and add it directly to his WordPress site.
 
@@ -103,7 +103,7 @@ and add it directly to his WordPress site.
 
     ![Where to put the Viewer](/img/devStories/vaporwearViewer/06_div.png)
 1.  Within this `div`, he added the `script` tag he'd found 
-    [in the Babylon Viewer docs](https://doc.babylonjs.com/extensions/babylonViewer#display-3d-models-on-your-webpage) 
+    [in the Babylon Viewer docs](../../extensions/babylonViewer#display-3d-models-on-your-webpage) 
     to import the Viewer so he could use it on his page.
 
     ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.png)
@@ -134,7 +134,7 @@ his 3D model.
 
 1.  To create the asset host itself, he followed the first two steps
     from the 
-    ["Creating an Asset Host Repo" section of a Dev Story he found in the Babylon.js docs](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#creating-an-asset-host-repo).
+    ["Creating an Asset Host Repo" section of a Dev Story he found in the Babylon.js docs](./fruitFalling#creating-an-asset-host-repo).
     
     ![Where to put the Viewer](/img/devStories/vaporwearViewer/11_create_asset_host.png)
 1.  Once the asset host was created, he placed a copy of his 3D model 
@@ -159,7 +159,7 @@ his 3D model.
 1.  With that working, he needed to publish the asset host so that he'd
     be able to access the model from anywhere, so he pushed it up to 
     GitHub Pages by following steps 1, 2, and 3 of the 
-    ["Publishing" section of the *Fruit Fallin'* Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling#publishing-the-test-app-on-github-pages).
+    ["Publishing" section of the *Fruit Fallin'* Dev Story](./fruitFalling#publishing-the-test-app-on-github-pages).
 
     ![Publishing the asset host](/img/devStories/vaporwearViewer/14_github_pages_start.png)
 
@@ -188,7 +188,7 @@ to render it on the Vaporwear WordPress site.
 
     ![New model URL](/img/devStories/vaporwearViewer/18_new_model_url.png)
 1.  However, Barnabas knew the Babylon Viewer is 
-    [highly configurable](https://doc.babylonjs.com/extensions/babylonViewer/configuringViewer),
+    [highly configurable](../../extensions/babylonViewer/configuringViewer),
     so he decided to tweak a few things about its appearance to make it
     look just right for Vaporwear. First, he removed the leftover code
     from the sample adding VR support. (He also cleaned up a lot of 
@@ -221,13 +221,13 @@ seeing the Babylon Viewer on the original Vaporwear site, they started
 to wonder what it would look like to have an e-commerce site that 
 leveraged 3D as a flagship feature built into the site's design. Allan
 spent a little time browsing the 
-[Babylon forum](https://forum.babylonjs.com/) 
+[Babylon forum](https://forum.babylonjs.com/c/demos) 
 looking for ideas, where he found a community-made 
-[Babylon Utility](https://doc.babylonjs.com/guidedLearning/devStories/showroomCamera)
+[Babylon Utility](./showroomCamera)
 that excited him so much that he decided to make it the backbone of 
 the most slick and sophisticated viewer/configurator experience he and
 Barnabas could come up with.
 
-But that is a topic for [another Dev Story](https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator).
+But that is a topic for [another Dev Story](./vaporwearConfigurator).
 
 -syntheticmagus
