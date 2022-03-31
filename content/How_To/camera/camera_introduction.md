@@ -117,7 +117,7 @@ camera.setPosition(new BABYLON.Vector3(0, 0, 20));
 camera.attachControl(canvas, true);
 ```
 
-<Playground id="#SRZRWV#1" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
+<Playground id="#SRZRWV#839" title="arcRotate Camera Example" description="A simple example of how to construct an arcRotate camera." image="/img/playgroundsAndNMEs/divingDeeperCamerasIntro2.jpg" isMain={true} category="Cameras"/>
 
 By default, panning with an `ArcRotateCamera` is also possible by using <kbd>Ctrl</kbd> + <kbd>left mouse button</kbd>. You can use <kbd>right mouse button</kbd> instead by setting `useCtrlForPanning` to `false` in the `attachControl` call :
 
