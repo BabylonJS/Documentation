@@ -154,7 +154,7 @@ On the javascript side, you have the corresponding methods to set a value to the
 * external texture: `setExternalTexture(name, buffer)`
 
 ## Examples
-This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#162" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
+This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#164" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
 As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#105" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
 
@@ -162,4 +162,4 @@ You can also use the new in 5.0 baked vertex animation feature as well as clip p
 
 Playing videos with the regular [VideoTexture](/typedoc/classes/babylon.videotexture) is slow in WebGPU because there are a lot of texture copies that occur behind the scene in the browser. The `texture_external` type object is meant for fast video playing in WebGPU. This playground shows how to use the `ShaderMaterial` class to implement video playing with `texture_external`: <Playground id="#6GFJNR#163" engine="webgpu" title="Video playing with the ShaderMaterial class" description="Demonstrate how to play videos using external texture in WGSL"/>
 
-Sampling a depth texture is not always possible, see [Sampling a depth texture](/advanced_topics/webGPU/webGPUBreakingChanges#sampling-a-depth-texture) for more details. This playground will let you sample a depth texture both in WebGL and WebGPU: <Playground id="#8RU8Q3#67" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU"/>
+Sampling a depth texture is not always possible, see [Sampling a depth texture](/advanced_topics/webGPU/webGPUBreakingChanges#sampling-a-depth-texture) for more details. This playground will let you sample a depth texture both in WebGL and WebGPU: <Playground id="#8RU8Q3#121" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU"/>
