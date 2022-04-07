@@ -86,3 +86,10 @@ Setting it to 0.1 will then reinforce the effect of the main lines (by dropping 
 Note that the shift for each axys allows a loop: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result than `(1, 0, 0)`.
 
  PG: <Playground id="#URSDPL#1" title="Grid Material" description="Example of using grid offset"/>
+ 
+#### useMaxLine
+
+Sometimes the points where grid lines intersect may appear brighter than the rest of the grid. Set useMaxLine to true to remove this effect.
+
+ PG: <Playground id="#1UFGZH#222" title="Grid Material" description="Example of using useMaxLine"/>
+
