@@ -27,6 +27,13 @@
                             }
                         }                        
                     },
+                    "packages": {
+                        "friendlyName": "Framework Packages",
+                        "content": "packages/packages_landing_page",
+                        "children": {
+                            "CDN": { "friendlyName": "CDN", "children": {}, "content": "packages/cdn" }
+                        }
+                    },
                     "wfDeeper": {
                         "friendlyName": "Diving Deeper",
                         "content": "landing_pages/divingDeeperDevelopingLandingPage",
