@@ -440,5 +440,5 @@ The latest options can be found in the [WebXR DOM overlay feature's source code]
 
 ## Demos
 
-<Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+<Playground id="#GG06BQ#97" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 <Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/vrglasses.png"/>
