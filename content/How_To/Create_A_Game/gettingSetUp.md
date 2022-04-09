@@ -272,7 +272,7 @@ If you're working with a large project, you'll most likely want to keep it in a 
 ## Resources
 
 [First Steps](/features/start/chap1/first_app)  
-[How To Get Babylon.js](/workflow/wfDeeper/developWithBjs/frameworkVers)  
+[How To Get Babylon.js](/workflow/packages/frameworkVers)  
 [NPM Support](/workflow/wfDeeper/developWithBjs/npmSupport)  
 [Sample Project](https://github.com/RaananW/babylonjs-webpack-es6)
 

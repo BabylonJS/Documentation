@@ -2,7 +2,7 @@
 title: CDN Babylon.js Packages
 image: 
 description: Obtain BABYLON.js Packages via CDN.
-keywords: babylon.js, CDN, code, core, gui, loaders, serializers, materials, viewer
+keywords: babylon.js, CDN, code, packages, core, gui, loaders, serializers, materials, viewer
 further-reading:
 video-overview:
 video-content:

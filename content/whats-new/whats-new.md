@@ -805,7 +805,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
     -   Moved to a measure/draw mechanism ([Deltakosh](https://github.com/deltakosh))
     -   Added support for [nine patch stretch](https://www.babylonjs-playground.com/#G5H9IN#2) mode for images. ([Deltakosh](https://github.com/deltakosh))
     -   Added invalidateRect to [AdvancedDynamicTexture](/typedoc/classes/babylon.gui.advanceddynamictexture) to improve perf for heavily populated GUIs, works with shadows ([TrevorDev](https://github.com/TrevorDev))
--   Migrated the code to modules and deploy [ES6 npm packages](/workflow/wfDeeper/developWithBjs/treeShaking) ([Sebavan](https://github.com/Sebavan))
+-   Migrated the code to modules and deploy [ES6 npm packages](/workflow/packages/treeShaking) ([Sebavan](https://github.com/Sebavan))
 -   Added [TrailMesh](/features/divingDeeper/mesh/trailMesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
 -   Support rendering to a multiview outputRenderTargetTexture with multiview engine component to improve performance for XR scenarios ([TrevorDev](https://github.com/TrevorDev))
 -   PBR ([Sebavan](https://github.com/Sebavan)):

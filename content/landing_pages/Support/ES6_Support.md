@@ -1,11 +1,11 @@
 ---
-title: Babylon.js ES6 support with Tree Shaking
+title: ES6 support with Tree Shaking
 image:
 description: Learn about tree shaking and package management in Babylon.js.
-keywords: diving deeper, contribution, contribute, open-source, oss, tree-shaking, packages
+keywords: diving deeper, contribution, contribute, open-source, oss, tree-shaking, code, packages, core, packages, gui, loaders, serializers, materials, viewer
 further-reading:
   - title: How To Get Babylon.js
-    url: /workflow/wfDeeper/developWithBjs/frameworkVers
+    url: /workflow/packages/frameworkVers
   - title: NPM Support
     url: /workflow/wfDeeper/developWithBjs/npmSupport
 video-overview:
@@ -13,12 +13,13 @@ video-content:
 ---
 
 ## Introduction
+Please note that by using es6 packages, you will need to rely on extra tooling to bundle and test your library but on the bright side you will be able to tree shake your application and reduce its final size.
 
 The NPM package manager is one of the best way to define and organize your project's dependencies. Parallel to traditional javascript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
 
 We now officially support our npm es6 packages and will continue updating the npm's repository with new versions as they being developed.
 
-Please note that by using es6 packages, you will need to rely on extra tooling to bundle and test your library but on the bright side you will be able to tree shake your application and reduce its final size.
+
 
 All the babylon es6 packages are available within the npm scope @babylonjs.
 
@@ -33,7 +34,23 @@ We offer babylon.js' core and its modules as npm packages. The following are ava
 - [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
 - [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
 - [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
-- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Viewer.
+- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Inspector.
+- [@babylonjs/viewer](https://www.npmjs.com/package/@babylonjs/viewer) - The stand-aloneBabylon.js Viewer.
+
+
+Example
+
+```javascript
+import { Engine } from '@babylonjs/core/Engines/engine'
+
+const canvas = document.getElementById("canvas");
+
+const engine = new Engine(canvas, true);
+
+// code continues....
+```
+
+Please note that you can not mix ES6 and our legacy packages.
 
 ## Basic Example
 

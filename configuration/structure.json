@@ -12,7 +12,7 @@
                         "children": {}
                     },
                     "wfintro" : {
-                        "friendlyName": "Introduction",
+                        "friendlyName": "Beginner's Guide",
                         "content": "workflow/introduction/intro",
                         "children": {
                             "chap1" : {
@@ -31,17 +31,17 @@
                         "friendlyName": "Framework Packages",
                         "content": "packages/packages_landing_page",
                         "children": {
-                            "CDN": { "friendlyName": "CDN", "children": {}, "content": "packages/cdn" }
+                            "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
+                            "CDN": { "friendlyName": "CDN Support", "children": {}, "content": "packages/cdn" },
+                            "npmSupport": { "friendlyName": "UMD/NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
+                            "es6Support": { "friendlyName": "ES6/NPM Support", "children": {}, "content": "landing_pages/Support/ES6_Support" }
                         }
                     },
                     "wfDeeper": {
                         "friendlyName": "Diving Deeper",
                         "content": "landing_pages/divingDeeperDevelopingLandingPage",
                         "children": {
-                            "frameworkVers": { "friendlyName": "Framework Versions", "children": {}, "content": "resources/Reference/Framework_versions" },
-                            "npmSupport": { "friendlyName": "NPM Support", "children": {}, "content": "landing_pages/Support/NPM_Support" },
                             "Running_a_local_webserver_for_BabylonJs": { "friendlyName": "Running a local webserver for BabylonJs", "children": {}, "content": "resources/Library/Running_a_local_webserver_for_BabylonJs" },
-                            "treeShaking": { "friendlyName": "Tree Shaking (take what you need)", "children": {}, "content": "landing_pages/Support/ES6_Support" },
                             "workloads": { "friendlyName": "Workloads", "children": {}, "content": "How_To/contribute/workloads" },
                             "vsCode": { "friendlyName": "Using VSCode", "children": {}, "content": "resources/Reference/vscode" },
                             "Exporters": {

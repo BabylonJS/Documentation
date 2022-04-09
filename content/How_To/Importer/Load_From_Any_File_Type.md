@@ -5,7 +5,7 @@ description: Learn how to import any file type in Babylon.js.
 keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
     - title: How to get Babylon.js
-      url: /workflow/wfDeeper/developWithBjs/frameworkVers
+      url: /workflow/packages/frameworkVers
     - title: Use the glTF File Loader Plugin
       url: /features/divingDeeper/importers/glTF
     - title: Use the OBJ File Loader Plugin

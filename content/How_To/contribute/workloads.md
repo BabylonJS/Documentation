@@ -5,9 +5,9 @@ description: Learn about the legacy workload system in Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, workloads
 further-reading:
     - title: How To Get Babylon.js
-      url: /workflow/wfDeeper/developWithBjs/frameworkVers
+      url: /workflow/packages/frameworkVers
     - title: ES6 Support
-      url: /workflow/wfDeeper/developWithBjs/treeShaking
+      url: /workflow/packages/treeShaking
 video-overview:
 video-content:
 ---

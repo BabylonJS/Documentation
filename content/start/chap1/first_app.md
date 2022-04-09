@@ -9,7 +9,7 @@ further-reading:
   - title: Setup with NPM
     url: /workflow/wfDeeper/developWithBjs/npmSupport
   - title: Setup with Tree Shaking
-    url: /workflow/wfDeeper/developWithBjs/treeShaking
+    url: /workflow/packages/treeShaking
 video-overview:
 video-content:
 ---
