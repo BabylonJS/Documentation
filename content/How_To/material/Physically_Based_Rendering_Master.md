@@ -417,11 +417,11 @@ All of the configuration here can also for convenience be stored in textures:
 ## Iridescence
 Iridescence is a way to simulate the thin film effect you can find on thin layers of oils on the ground. It usually looks like amazing rainbow colors.
 
-![SubSurface](/img/extensions/PBRIridescence.png)
+![Iridescence](/img/extensions/PBRIridescence.png)
 
 In the PBR material, you can enable iridescence with the following code:
 
-<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png" />
+<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -527,7 +527,7 @@ Some materials have a totally different shapes for the specular lobe. By default
 
 In the PBR material, you can enable sheen with the following code:
 
-<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/> 
+<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -726,7 +726,7 @@ We were able to largely match the perceptual falloff from the Arnold ray tracer,
 ## How to Debug
 In order to simplify troubleshooting within the PBR material, a special section has been added to the inspector:
 
-![Inspector](/img/how_to/materials/PBRDebug.png)
+![Inspector](/img/how_to/Materials/PBRDebug.png)
 
 You can choose from the exhaustive list of information what you would like to see. You can also use the split position to choose from which horizontal position the debug mode starts on the screen. This can help looking side by side at the different renders. The output factor can be helpful if you are looking at values pretty small as it would help seeing different colors on screen.
 
