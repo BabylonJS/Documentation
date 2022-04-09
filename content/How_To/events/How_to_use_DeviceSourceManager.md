@@ -33,7 +33,7 @@ Within your scene's render/game loop, you can query the DeviceSourceManager for 
 // If the device has been registered in the DeviceSourceManager
 if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)) {
     // And the A button was pressed
-    if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox).getInput(BABYLON.XboxInput.A) == 1) {
+    if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox).getInput(BABYLON.XboxInput.A) === 1) {
         // Do something
     }
 }
@@ -41,7 +41,7 @@ if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)) {
 
 It should also be noted that you can use optional chaining to make checks fit into a single line
 ```javascript
-if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYLON.XboxInput.A) == 1) {
+if (deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Xbox)?.getInput(BABYLON.XboxInput.A) === 1) {
     // Do something
 }
 ```
@@ -64,12 +64,13 @@ onDeviceDisconnectedObservable.add((device) => {
     // "device" is of Type DeviceSource
 });
 ```
+Here's a demonstration of how these Observables work
+<Playground id="#Y4YWCD#1" title="Basic DeviceSourceManager Demo" description="Simple demonstration of how the DeviceSourceManager observables work" image="/img/playgroundsAndNMEs/pg-Y4YWCD-1.png"/>
 
 For Keyboards and Pointers, you can use an event based system to get the current input and previous input when an input is activated
 ```javascript
-deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Keyboard).onInputChangedObservable.add((device) => {
-    // device.inputIndex is the activated input
-    // device.currentState is the current value
-    // device.previousState is the previous value (before activation)
+deviceSourceManager.getDeviceSource(BABYLON.DeviceType.Keyboard).onInputChangedObservable.add((eventData) => {
+    // eventData will contain the event data that you'd find in something like a PointerEvent or KeyboardEvent
+    // eventData also has an additional value inputIndex
 });
 ```

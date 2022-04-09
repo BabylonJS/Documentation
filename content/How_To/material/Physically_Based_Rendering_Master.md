@@ -414,6 +414,67 @@ All of the configuration here can also for convenience be stored in textures:
 * `tintColorAtDistance`: defines at what distance under the surface the color should be the defined one.
 * `tintTexture`:  defines the clear tint values in a texture. rgb is tint and a is a thickness factor.
 
+## Iridescence
+Iridescence is a way to simulate the thin film effect you can find on thin layers of oils on the ground. It usually looks like amazing rainbow colors.
+
+![SubSurface](/img/extensions/PBRIridescence.png)
+
+In the PBR material, you can enable iridescence with the following code:
+
+<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png" />
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.intensity = 0.9;
+```
+
+You can control the iridescence index of refraction and thickness through their relative properties:
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.indexOfRefraction = 1.3;
+pbr.iridescence.minimumThickness = 100; // in nanometers
+pbr.iridescence.maximumThickness = 400; // in nanometers
+```
+
+By Default, you thickness will be used as a fixed value equal to the maximum thickness.
+
+To provide more control, a texture can be used to control the intensity (will be read from the R channel):
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.texture = intensityTexture;
+```
+
+On the same topic, a texture can be also used to control thickness (will be read from the G channel):
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.thicknessTexture = thicknessTexture;
+```
+
+The thickness read from the texture will be considered as a percentage of how thick it is between the minimumThickness and maximumThickness.
+
 ## Anisotropy
 By default the PBR material is isotropic. This means the shape of the reflection is identical in every direction. Nevertheless, in real life some materials shows really elongated highlights. For instance, looking an old vinyl disc (yes, I am that old), you can see the specular lighting being spread from the center to the border:
 

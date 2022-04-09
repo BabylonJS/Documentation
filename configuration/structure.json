@@ -1167,7 +1167,32 @@
                                 "content": "resources/Networking/Colyseus"
                             }
                         },
-                        "content": "landing_pages/networking_landing_page"
+                        "vaporwearConfigurator": {
+                            "friendlyName": "3D for E-Commerce: Custom Experience",
+                            "children": {
+                                "art": {
+                                    "friendlyName": "Chapter 1: Art",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_1_art"
+                                },
+                                "3d": {
+                                    "friendlyName": "Chapter 2: 3D",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_2_3d"
+                                },
+                                "frontend": {
+                                    "friendlyName": "Chapter 3: Frontend",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_3_frontend"
+                                },
+                                "wordpress": {
+                                    "friendlyName": "Bonus Chapter: WordPress",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_4_wordpress"
+                                }
+                            },
+                            "content": "dev_stories/ecommerce_vaporwear_configurator"
+                        }
                     },
                     "videos": {
                         "friendlyName": "Video Tutorials",
@@ -1228,7 +1253,55 @@
                                 "content": "resources/Playground_aspects/Playground_Textures"
                             }
                         },
-                        "content": "landing_pages/PGsupport/playground-libraries"
+                        "running": {
+                            "friendlyName": "Running",
+                            "children": {
+                                "runningWorkspace": { "friendlyName": "Running a Workspace", "children": {}, "content": "resources/Editor/Running/Running_Workspace" },
+                                "runningProject": { "friendlyName": "Running a Project", "children": {}, "content": "resources/Editor/Running/Running_Project" }
+                            },
+                            "content": "landing_pages/extensionsEditorRunningLandingPage"
+                        },
+                        "assets": {
+                            "friendlyName": "Assets",
+                            "children": {
+                                "introduction": { "friendlyName": "Introduction", "children": {}, "content": "resources/Editor/Assets/Assets_Introduction" },
+                                "addingFiles": { "friendlyName": "Adding Files", "children": {}, "content": "resources/Editor/Assets/Adding_Files" },
+                                "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
+                                "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
+                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" }
+                            },
+                            "content": "landing_pages/extensionsEditorAssetsLandingPage"
+                        },
+                        "scripting": {
+                            "friendlyName": "Scripting",
+                            "children": {
+                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                            },
+                            "content": "landing_pages/extensionsEditorPhysicsLandingPage"
+                        },
+                        "physics": {
+                            "friendlyName": "Physics",
+                            "children": {
+                                "usingPhysics": { "friendlyName": "Using Physics", "children": {}, "content": "resources/Editor/Physics/Using_Physics" }
+                            },
+                            "content": "landing_pages/extensionsEditorScriptingLandingPage"
+                        },
+                        "collisions": {
+                            "friendlyName": "Collisions",
+                            "children": {
+                                "basicCollisions": { "friendlyName": "Basic Collisions", "children": {}, "content": "resources/Editor/Collisions/Basic_Collisions" },
+                                "advancedCollisions": { "friendlyName": "Advanced Collisions", "children": {}, "content": "resources/Editor/Collisions/Advanced_Collisions" }
+                            },
+                            "content": "landing_pages/extensionsEditorCollisionsLandingPage"
+                        },
+                        "troubleshooting": {
+                            "friendlyName": "Troubleshooting",
+                            "children": {
+                                "basicCollisions": { "friendlyName": "Blurred UI", "children": {}, "content": "resources/Editor/Troubleshooting/Blurred_UI" },
+                                "startup": { "friendlyName": "Startup", "children": {}, "content": "resources/Editor/Troubleshooting/Startup" }
+                            },
+                            "content": "landing_pages/extensionsEditorTroubleshootingLandingPage"
+                        }
                     },
                     "playground-tools": {
                         "friendlyName": "Playground Resources",
