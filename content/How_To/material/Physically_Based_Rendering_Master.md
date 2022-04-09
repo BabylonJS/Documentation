@@ -527,7 +527,7 @@ Some materials have a totally different shapes for the specular lobe. By default
 
 In the PBR material, you can enable sheen with the following code:
 
-<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/> 
+<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
