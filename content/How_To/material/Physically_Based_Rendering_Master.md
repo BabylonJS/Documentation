@@ -726,7 +726,7 @@ We were able to largely match the perceptual falloff from the Arnold ray tracer,
 ## How to Debug
 In order to simplify troubleshooting within the PBR material, a special section has been added to the inspector:
 
-![Inspector](/img/how_to/materials/PBRDebug.png)
+![Inspector](/img/how_to/Materials/PBRDebug.png)
 
 You can choose from the exhaustive list of information what you would like to see. You can also use the split position to choose from which horizontal position the debug mode starts on the screen. This can help looking side by side at the different renders. The output factor can be helpful if you are looking at values pretty small as it would help seeing different colors on screen.
 
