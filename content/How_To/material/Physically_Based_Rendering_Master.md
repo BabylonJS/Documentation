@@ -417,11 +417,11 @@ All of the configuration here can also for convenience be stored in textures:
 ## Iridescence
 Iridescence is a way to simulate the thin film effect you can find on thin layers of oils on the ground. It usually looks like amazing rainbow colors.
 
-![SubSurface](/img/extensions/PBRIridescence.png)
+![Iridescence](/img/extensions/PBRIridescence.png)
 
 In the PBR material, you can enable iridescence with the following code:
 
-<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png" />
+<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
