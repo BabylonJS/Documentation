@@ -442,6 +442,11 @@
                     },
                     "content": "landing_pages/divingDeeperMeshLandingPage"
                 },
+                "multiplePlatforms": {
+                    "friendlyName": "Multiple Platforms",
+                    "children": {},
+                    "content": "landing_pages/divingDeeperPlatforms"
+                },
                 "occlusionQueries": {
                     "friendlyName": "Occlusion Queries",
                     "children": {},
