@@ -105,3 +105,16 @@ As mentioned above, you might be interested in
 if you're considering either Babylon Native or Babylon React Native;
 and, as always, please don't hesitate to bring any questions you have to 
 [the forum](https://forum.babylonjs.com/c/questions/).
+
+## ... and More
+
+Of course, this list isn't comprehensive and these aren't the only kinds 
+of apps: there are 
+[VR apps](../divingDeeper/webXR), 
+[server-side apps](../advanced_topics/serverSide), 
+[multi-device apps](../guidedLearning/multiplayer/Colyseus), 
+and so many more possibilities that we could never hope to enumerate 
+them. Cross-platform support is a key objective for Babylon; so 
+no matter which or how many platforms your app needs to run on, we'd love
+to hear about it and help make sure Babylon provides the tools you need 
+to succeed. Thanks for considering Babylon.js!
