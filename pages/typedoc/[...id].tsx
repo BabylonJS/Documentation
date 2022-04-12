@@ -26,7 +26,7 @@ export const ApiPage: FunctionComponent<{
     const html = parseNode(contentNode).result;
     let children = <></>;
     try {
-        children = html.props.children[0].props.children[2].props.children;
+        children = html.props.children[0].props.children[1].props.children;
     } catch (e) {
     }
 

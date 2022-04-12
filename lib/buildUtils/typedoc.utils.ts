@@ -1,5 +1,5 @@
-import { Application } from "typedoc";
-import { ScriptTarget } from "typescript";
+import * as TypeDoc from "typedoc";
+// import { ScriptTarget } from "typescript";
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import del from "del";
 import { sep } from "path";
@@ -26,34 +26,54 @@ export const generateTypeDoc = async () => {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
         const response = await fetch("https://preview.babylonjs.com/documentation.d.ts");
-        const text = await response.text();
+        const text = (await response.text()).replace(/declare module "[^}]*}/g, "");
         try {
             mkdirSync(basePathResolved, { recursive: true });
         } catch (e) {}
         writeFileSync(`${basePathResolved}${sep}doc.d.ts`, text);
 
-        const app = new Application();
+        // write tsconfig.json, required for TypeDoc
+        writeFileSync(
+            `${basePathResolved}${sep}tsconfig.json`,
+            JSON.stringify({
+                compilerOptions: {
+                    experimentalDecorators: true,
+                    noImplicitAny: true,
+                    noImplicitReturns: true,
+                    noImplicitThis: true,
+                    noUnusedLocals: true,
+                    strictNullChecks: true,
+                    strictFunctionTypes: true,
+                    skipLibCheck: true,
+                },
+            }),
+        );
+
+        const app = new TypeDoc.Application();
+
+        // If you want TypeDoc to load tsconfig.json / typedoc.json files
+        app.options.addReader(new TypeDoc.TSConfigReader());
+        app.options.addReader(new TypeDoc.TypeDocReader());
 
         app.bootstrap({
-            target: ScriptTarget.ES2015,
+            // typedoc options here
             name: "Babylon.js API documentation",
             excludeExternals: true,
             excludePrivate: true,
             excludeProtected: true,
-            excludeNotExported: true,
-            includeDeclarations: true,
-            entryPoint: `BABYLON`,
-            mode: "file",
-            theme: "default",
             includes: basePathResolved,
-            exclude: ["node_modules/**"],
-            baseUrl: basePathResolved,
             hideGenerator: true,
-        } as any);
-        const outputDir = `${basePathResolved}${sep}files`;
+            tsconfig: `${basePathResolved}${sep}tsconfig.json`,
+            readme: "none",
+            entryPoints: [`${basePathResolved}${sep}doc.d.ts`],
+        });
 
-        // Rendered docs
-        app.generateDocs([`${basePathResolved}${sep}doc.d.ts`], outputDir);
+        const project = app.convert();
+
+        if (project) {
+            // Rendered docs
+            await app.generateDocs(project, `${basePathResolved}${sep}files`);
+        }
     }
 
     console.log("API done");
@@ -77,7 +97,7 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
         const href = element.getAttribute("href");
         let url = "";
         // index?
-        if (href === "/globals.html" || href === "../globals.html") {
+        if (href === "/modules/BABYLON.html" || href === "../modules/BABYLON.html") {
             url = "/typedoc";
         } else {
             url = baseUrl + href.replace(".html", "");
@@ -91,6 +111,7 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
 };
 
 export const getAPIPageData = async (id: string[]) => {
+    console.log(id);
     const html = readFileSync(`${basePath}${sep}files${sep}${id.join(sep)}.html`, "utf-8").toString();
     // read the HTML file, extract description, title, css
     const root = parse(html);
@@ -119,7 +140,7 @@ export const getAPIPageData = async (id: string[]) => {
     const buff = Buffer.from(url, "utf-8");
     const searchId = buff.toString("base64");
     // index page
-    if (id.length === 1 && id[0] === "globals") {
+    if (id.length === 1 && id[0] === "module/BABYLON") {
         metadata.description = "Babylon.js API main page - BABYLON namespace";
         url = "/typedoc";
     }
@@ -165,5 +186,5 @@ export const getTypeDocFiles = () => {
             },
         };
     });
-    return fileMap.filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("globals") === -1);
+    return fileMap.filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
 };
