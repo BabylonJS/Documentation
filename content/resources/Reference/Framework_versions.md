@@ -9,6 +9,8 @@ video-content:
 
 # CDN Current Versions
 
+THIS PAGE TO BE CHANGED WHEN DIFFERENT VERSION ARE AVAILABLE
+
 ## Direct Usage
 These packages can be imported directly from the CDN, as needed, using
 
