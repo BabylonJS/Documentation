@@ -447,9 +447,9 @@ pbr.iridescence.minimumThickness = 100; // in nanometers
 pbr.iridescence.maximumThickness = 400; // in nanometers
 ```
 
-By Default, you thickness will be used as a fixed value equal to the maximum thickness.
+By Default, the thickness will be used as a fixed value equal to the maximum thickness.
 
-To provide more control, a texture can be used to control the intensity (will be read from the R channel):
+To provide more control, a texture can be used to control the intensity. The value of the R channel will be used to deduce the thickness from the interpolation between min and max thickness:
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);

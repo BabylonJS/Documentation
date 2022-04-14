@@ -1275,7 +1275,10 @@
                         "scripting": {
                             "friendlyName": "Scripting",
                             "children": {
-                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" },
+                                "exposingProperties": { "friendlyName": "Exposing Properties", "children": {}, "content": "resources/Editor/Scripting/Exposing_Properties" },
+                                "gettingComponents": { "friendlyName": "Getting Components", "children": {}, "content": "resources/Editor/Scripting/Getting_Components" },
+                                "listeningEvents": { "friendlyName": "Listening Events", "children": {}, "content": "resources/Editor/Scripting/Listening_Events" }
                             },
                             "content": "landing_pages/extensionsEditorPhysicsLandingPage"
                         },
