@@ -123,7 +123,7 @@ You can have fun showing directly your playground imbedded into your message, us
 <iframe src="https://www.babylonjs-playground.com/frame.html#6F0LKI#2" width="400px" height="250px" ></iframe>
 ```
 
-![playground forum sharing ways](/img/features/pgsupport/pg-forum-sharing-ways.jpg)
+![playground forum sharing ways](/public/img/features/pgsupport/pg-forum-sharing-ways.jpg)
 > *so many ways to share an issue*
 
 ## Compilation Errors
