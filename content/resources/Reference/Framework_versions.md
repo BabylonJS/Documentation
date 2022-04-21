@@ -18,7 +18,7 @@ Babylon comes in two different versions - the preview version and the stable ver
 
 Both versions are considered to be stable and can be used in production. In certain cases (if we still haven't introduced any new features we don't want to have on the stable branch) the preview and the stable versions are identical.
 
-Both versions have their own CDN endpoint. The preview version is available on [preview.babylonjs.com](https://preview.babylonjs.com) and the stable version is available on [cdn.babylonjs.com](https://cdn.babylonjs.com).
+Both version editions can be found on [Github](https://github.com/BabylonJS/Babylon.js#cdn).
 
 When a new version is released on npm it is tagged with either stable or preview.
 
