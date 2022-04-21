@@ -71,7 +71,7 @@ which contains everything necessary to run the code in your browser, including l
   - *Inspector*: The checkbox toggles the playground scene inspector which shows a multitude of variable values.
   - *Metadata*: This is where you describe your playground allowing yourself and other to search the playground database for examples of use.
 - **Version**: Allows and shows your choice of the BABYLON.js framework, either the current stable one or the latest preview version.
-- **Examples** ![examples](/img/features/PGsupport/ex.jpg): A drop down menu giving examples of playgrounds with a search filter.
+- **Examples** ![examples](/public/img/features/pgsupport/ex.jpg): A drop down menu giving examples of playgrounds with a search filter.
 
 ### Small Screens
 
