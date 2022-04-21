@@ -47,7 +47,7 @@ The space for the coding editor and rendering area can be adjusted by dragging t
 
 In Typescript mode the menu has an orange color theme
 
-![Playground Typescript Menu](/img/how_to/Introduction/pgmenu_ts.jpg)
+![Playground Typescript Menu](/public/img/how_to/Introduction/pgmenu_ts.jpg)
 
 ### Large Screen
 
