@@ -24,11 +24,11 @@ This document will walk you through the editor and its capabilities and should h
 
 Let's start by familiarizing ourselves with different parts of the editor.
 
-### ToolBar
+### Header Bar
 
 <img src="/img/tools/guiEditor/commandBar.jpg" title="GUI Editor Command Bar"/>
 
-The Command Bar provides several handy items to help you navigate and manage your GUI creations.
+The Header Bar provides several handy items to help you navigate and manage your GUI creations.
 
 #### Hamburger Menu
 
@@ -68,6 +68,16 @@ The Toggle Guides button will display boundary lines for all of the GUI elements
 
 <img src="/img/tools/guiEditor/toggleGuidesVisual.jpg" title="GUI Editor Toggle Guides Example"/>
 
+#### Artboard Color
+
+Allows you to change the background color in the region outside of the canvas.
+
+#### Responsiveness and Resolution
+
+You can either specify a specific resolution for your canvas in pixels, or you can turn on responsive mode, which lets you easily swap between common resolutions such as mobile and desktop. Responsiveness is an editor-only concept, it does not affect the exported GUI.
+
+####
+
 ### Hierarchy Panel
 
 <img src="/img/tools/guiEditor/layersPanel.jpg" title="GUI Editor Layers Panel"/>
@@ -105,18 +115,18 @@ The checkerboard area reflects the content that will actually be visible in your
 There are several handy keyboard shortcuts that you can utilize in the GUI Editor.
 
 #### General Navigation:
-S = Select Mode
-P = Pan Mode
-Z = Zoom Mode
-F = Fit to Window
-G = Toggle Outlines
-CTRL+A = Select All
+* S = Select Mode
+* P = Pan Mode
+* Z = Zoom Mode
+* F = Fit to Window
+* G = Toggle Outlines
+* CTRL+A = Select All
 
 #### With a GUI Control Selected:
-CTRL+C = Copy
-CTRL+V = Paste
-CTRL+X = Cut
-Delete/Backspace = Delete
+* CTRL+C = Copy
+* CTRL+V = Paste
+* CTRL+X = Cut
+* Delete/Backspace = Delete
 
 ### Control Properties Panel
 
