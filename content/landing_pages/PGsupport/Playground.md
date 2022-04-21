@@ -30,7 +30,7 @@ You can write the code in JavaScript or Typescript. The playground software comp
 
 ## Overview
 
-![Playground Overview](/img/how_to/Introduction/playground.jpg)
+![Playground Overview](/public/img/how_to/Introduction/playground.jpg)
 
 The Playground consists of four areas:
 
