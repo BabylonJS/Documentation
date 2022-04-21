@@ -1,11 +1,21 @@
 ---
-title: MRTK Content
+title: MRTK 2.X Content
 image: 
 description: Learn about the various features and controls shared with MRTK
 keywords: diving deeper, GUI, 3D GUI, 3D, MRTK
 further-reading:
-    - title: Babylon 3D GUI
-      url: /divingDeeper/gui/gui3d
+    - title: How To Use Babylon GUI
+      url: /divingDeeper/gui/gui
+    - title: How To Use Babylon 3D GUI
+      url: /divingDeeper/gui/gui3D
+    - title: How To Use Babylon Gizmos
+      url: /divingDeeper/mesh/gizmo
+    - title: How To Use Babylon Behaviors
+      url: /divingDeeper/behaviors/meshBehaviors
+    - title: How To Use Babylon XR Features
+      url: /divingDeeper/webXR/WebXRSelectedFeatures
+    - title: How To Use Babylon AR Features
+      url: /divingDeeper/webXR/webXRARFeatures
 video-overview:
 video-content:
 ---
@@ -13,9 +23,9 @@ video-content:
 ## What is MRTK
 MRTK stands for the Mixed Reality Toolkit, a set of features, controls, and components designed to ease and accelerate development for VR and AR applications.
 
-There currently only exists [documentation for MRTK's Unity implementation](https://docs.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/), and so when we talk about matching what MRTK offers, we are comparing to what this documentation offers.
+There currently only exists documentation for MRTK's [Unity](https://docs.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/) and [Unreal](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unreal/unreal-mrtk-introduction) implementations, and so when we talk about matching what MRTK offers, we are comparing to what these offer.
 
-This page will go over each of the MRTK-relevant controls and features present in BabylonJS, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page here](/divingDeeper/gui/gui3d), and if a section has a relevant page, that will also be linked.
+This page will go over each of the MRTK-relevant controls and features present in BabylonJS, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page here](/divingDeeper/gui/gui3D), and if a section has a relevant page, that will also be linked.
 
 ## GUI Controls
 The following BabylonJS controls have roots as MRTK features. As they extend  the `Control3D` class, they all support the basic capabilities that `Control3D` objects have.
@@ -26,10 +36,10 @@ The following is an example that showcases several of the controls listed, inclu
 <Playground id="#24DLJ4#7" title="Near Interaction Button Scene Demo" description="Demo showcasing different Control3D objects with Near Interaction support."/>
 
 #### Holographic Button
-The `HolographicButton` class is the standard, familiar button that can be placed and pressed in a 3D environment. It is based off of the original MRTK Holographic button, and supports a title, image, and tooltip.
+The `HolographicButton` class is the standard, familiar button that can be placed and pressed in a 3D environment. It is based off of the MRTK `ButtonHoloLens1`, and supports a title, image, and tooltip.
 
 #### Touch Holographic Button
-The `TouchHolographicButton` is the `HolographicButton` brought to the next generation. It supports everything that the `HolographicButton` supports, but has more depth to it, allowing for visual feedback as it is being interacted with. As part of this added depth, it now responds to near interactions by having the button surface depress as the user's hand/motion controller presses it.
+The `TouchHolographicButton` is akin to MRTK's `PressableButtonHoloLens2`. It supports everything that the `HolographicButton` supports, but has more depth to it, allowing for visual feedback as it is being interacted with. As part of this added depth, it now responds to near interactions by having the button surface depress as the user's hand/motion controller presses it.
 
 #### Touch Mesh Button
 While the `TouchMeshButton` doesn't have a direct representation within MRTK, it is a button that offers custom visuals and support for near interactions. This allows for any object to react to near interaction, if desired, which aligns with MRTK's experimental `Hand Physics Service`.
@@ -72,7 +82,7 @@ Some behaviors and Gizmos are also shared with MRTK components. In MRTK terminol
 More information on `Gizmos` can be found [here](divingDeeper/mesh/gizmo), while behaviors are covered in more detail [here](divingDeeper/behaviors/meshBehaviors).
 
 #### SixDof Drag Behavior
-The `SixDofDragBehavior`, also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users are able to grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3-dimansions, while interacting with near interaction adds the ability to rotate the object in-place.
+The `SixDofDragBehavior`, also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users are able to grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3-dimensions, while interacting with near interaction adds the ability to rotate the object in-place.
 ```javascript
 var sixDofDragBehavior = new BABYLON.SixDofDragBehavior();
 ```
@@ -83,7 +93,7 @@ mesh.addBehavior(sixDofDragBehavior);
 #### Follow Behavior
 The `FollowBehavior` tries to maintain a set distance between the `TransformNode` it's attached to, and the `followedCamera` target (defaults to main camera).
 
-There are many aspects to this behavior that can be customized, these are the core properties:
+There are many aspects to this behavior that can be customized. These are the core properties:
 
 Property | Type | Description
 ---------|------|------------
