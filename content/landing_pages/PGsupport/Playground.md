@@ -128,7 +128,7 @@ You can have fun showing directly your playground imbedded into your message, us
 
 ## Compilation Errors
 
-![compilation error popup](/img/features/pgsupport/pg-compilation-error.jpg)
+![compilation error popup](/public/img/features/pgsupport/pg-compilation-error.jpg)
 
 Any errors in your playground are flagged with a red pop-up box containing limited information. After making an adjustment to your code, you need not close the compilation error pop-up.  It should close automatically at the next Run, if all errors have been corrected.
 
