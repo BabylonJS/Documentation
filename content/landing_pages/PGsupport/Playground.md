@@ -54,7 +54,7 @@ In Typescript mode the menu has an orange color theme
 - **Title and Version**: As stated.
 - **Language**: Typescript/JavaScript switch.
 - **Run** ![run](/public/img/features/pgsupport/run.jpg): Commands the playground to try to render your scene.
-- **Save** ![save](/img/features/PGsupport/save.jpg): Causes your scene to be permanently stored in the playground's database and it will issue a unique URL for each save. On save you will be asked to complete the metadata so that it can be searched for. Once saved it is a good idea to bookmark the page so you can return to it later. You could then share the URL with others, for example, if it is not working as you expect you can ask a question in the forum along with the link to your playground.
+- **Save** ![save](/public/img/features/pgsupport/save.jpg): Causes your scene to be permanently stored in the playground's database and it will issue a unique URL for each save. On save you will be asked to complete the metadata so that it can be searched for. Once saved it is a good idea to bookmark the page so you can return to it later. You could then share the URL with others, for example, if it is not working as you expect you can ask a question in the forum along with the link to your playground.
 - **Download** ![zip](/img/features/PGsupport/zip.jpg): Allows you to download a zip file named *sample.zip*. Once downloaded and unzipped, you will see a file named `index.html` 
 which contains everything necessary to run the code in your browser, including links to external *babylon.js* and other files.
 - **New** ![new](/img/features/PGsupport/new.jpg): Places a basic `createScene()` function into the editor along with code to initialise the scene variable and provide a camera.
