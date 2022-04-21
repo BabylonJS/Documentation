@@ -58,7 +58,7 @@ In Typescript mode the menu has an orange color theme
 - **Download** ![zip](/public/img/features/pgsupport/zip.jpg): Allows you to download a zip file named *sample.zip*. Once downloaded and unzipped, you will see a file named `index.html` 
 which contains everything necessary to run the code in your browser, including links to external *babylon.js* and other files.
 - **New** ![new](/public/img/features/pgsupport/new.jpg): Places a basic `createScene()` function into the editor along with code to initialise the scene variable and provide a camera.
-- **Clear** ![clear](/img/features/PGsupport/clear.jpg): Empties all the code out of the playground editor.  You could then paste in any createScene function you are working on locally.
+- **Clear** ![clear](/public/img/features/pgsupport/clear.jpg): Empties all the code out of the playground editor.  You could then paste in any createScene function you are working on locally.
 - **Settings** ![set](/img/features/PGsupport/set.jpg): The Settings button has a sub menu with extra options
   - *Theme*: Choose the theme for the playground
   - *Font size*: Set the font size in the editor.
