@@ -310,6 +310,8 @@
         { "source": "/how_to/gui", "destination": "/divingDeeper/gui/gui" },
         { "source": "/How_To/Gui3D", "destination": "/divingDeeper/gui/gui3D" },
         { "source": "/how_to/gui3d", "destination": "/divingDeeper/gui/gui3D" },
+        { "source": "/How_To/MRTK", "destination": "/divingDeeper/gui/mrtk" },
+        { "source": "/how_to/mrtk", "destination": "/divingDeeper/gui/mrtk" },
         { "source": "/How_To/ScrollViewer", "destination": "/divingDeeper/gui/scrollViewer" },
         { "source": "/how_to/scrollviewer", "destination": "/divingDeeper/gui/scrollViewer" },
         { "source": "/How_To/Selector", "destination": "/divingDeeper/gui/selector" },
