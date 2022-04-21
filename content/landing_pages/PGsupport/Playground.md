@@ -77,7 +77,7 @@ which contains everything necessary to run the code in your browser, including l
 
 - **Menu** ![menu](/public/img/features/pgsupport/menu.jpg): Contains Run, New, Clear, Save and Zip as submenus.
 - **Code** ![code](/public/img/features/pgsupport/code.jpg): Bottom Left Corner - switch to Code View and Editor.
-- **Scene** ![scene](/img/features/PGsupport/scene.jpg): Bottom Right Corner - switch to Scene View.
+- **Scene** ![scene](/public/img/features/pgsupport/scene.jpg): Bottom Right Corner - switch to Scene View.
 
 ## Playground URL formats
 
