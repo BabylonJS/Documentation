@@ -75,7 +75,7 @@ which contains everything necessary to run the code in your browser, including l
 
 ### Small Screens
 
-- **Menu** ![menu](/img/features/PGsupport/menu.jpg): Contains Run, New, Clear, Save and Zip as submenus.
+- **Menu** ![menu](/public/img/features/pgsupport/menu.jpg): Contains Run, New, Clear, Save and Zip as submenus.
 - **Code** ![code](/img/features/PGsupport/code.jpg): Bottom Left Corner - switch to Code View and Editor.
 - **Scene** ![scene](/img/features/PGsupport/scene.jpg): Bottom Right Corner - switch to Scene View.
 
