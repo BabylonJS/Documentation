@@ -15,8 +15,8 @@ video-content:
 ## Using the Road procedural texture
 
 Road procedural texture can be found here: 
-- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.roadProceduralTexture.js)
-- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.roadProceduralTexture.min.js) 
+- Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.roadProceduralTexture.js)
+- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.roadProceduralTexture.min.js) 
 
 A demo can be found here: <Playground id="#FBW4N#0" title="Road Procedural Texture Demo" description="Road Procedural Texture Demo"/>
 
