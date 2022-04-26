@@ -12,7 +12,7 @@ video-content:
 
 ## About Skyboxes
 
-A simulated sky can be added to a scene using a "skybox" ([wikipedia](<https://en.wikipedia.org/wiki/Skybox_(video_games)>)). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
+A simulated sky can be added to a scene using a "skybox" ([wikipedia]([https://en.wikipedia.org/wiki/Skybox_(video_games)](https://en.wikipedia.org/wiki/Skybox_(video_games)))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 
 In Babylon.js, skyboxes typically use [CubeTexture](/typedoc/classes/babylon.cubetexture) as a [pseudo-reflection texture](#making-the-skybox) on a large cube.
 
@@ -38,7 +38,6 @@ This is an example set of skybox images:
 
 Notice that the images match seamlessly at the edges of the box:
 
-<!-- use HTML to get padding-free table -->
 <table style={{width: 0}}><tbody>
 <tr>
   <th style={{padding: 0}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="some clouds"/></th>
@@ -54,7 +53,8 @@ Notice that the images match seamlessly at the edges of the box:
   <td>_px</td>
   <td>_nz (again)</td>
 </tr>
-</tbody></table><p/>
+</tbody></table>
+<p></p>
 
 You can search the web for "skybox images" to find many examples. These are often a single image of an unfolded cube, which you would need to slice into the six separate images for CubeTexture to load. The [cube textures in the playground library](/toolsAndResources/assetLibraries/availableTextures#cubetextures) may also be useful, and they are already in the appropriate format.
 

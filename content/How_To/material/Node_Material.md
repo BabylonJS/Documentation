@@ -406,7 +406,7 @@ What it does instead is comparing the alpha value from the diffuse texture to `A
 
 If `ALPHATEST = 1`, the computed value is `alphaCutOff`, which is the expected input for `Discard.cutoff` in that case (alpha testing is enabled).
 
-If `ALPHATEST = 0`, the computed value is `-1 + alphaCutOff`. As `alphaCutOff` is a value between 0 and 1, `-1 + alphaCutOff` will always be lower or equal to 0. So, `Discard.cutoff` <= 0 in that case, meaning the fragment will never be discarded (which is the expected result when alpha testing is disabled).
+If `ALPHATEST = 0`, the computed value is `-1 + alphaCutOff`. As `alphaCutOff` is a value between 0 and 1, `-1 + alphaCutOff` will always be lower or equal to 0. So, `Discard.cutoff` &lt;= 0 in that case, meaning the fragment will never be discarded (which is the expected result when alpha testing is disabled).
 
 You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Discard.cutoff`, but it's likely that the addition + subtraction used above is faster than a `Lerp` on GPUs (would need some benchmarking to be sure), even if it's by a small (negligible) margin.
 

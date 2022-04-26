@@ -64,7 +64,7 @@ Effect.RegisterShader("fade", "precision highp float;" + "varying vec2 vUV;" + "
 let fadeLevel = 1.0;
 const postProcess = new PostProcess("Fade", "fade", ["fadeLevel"], null, 1.0, camera);
 postProcess.onApply = (effect) => {
-    effect.setFloat("fadeLevel", fadeLevel);
+  effect.setFloat("fadeLevel", fadeLevel);
 };
 ```
 
@@ -78,13 +78,13 @@ this._transition = false;
 
 ```javascript
 scene.registerBeforeRender(() => {
-    if (this._transition) {
-        fadeLevel -= 0.05;
-        if (fadeLevel <= 0) {
-            this._goToCutScene();
-            this._transition = false;
-        }
+  if (this._transition) {
+    fadeLevel -= 0.05;
+    if (fadeLevel <= 0) {
+      this._goToCutScene();
+      this._transition = false;
     }
+  }
 });
 ```
 
@@ -109,8 +109,8 @@ Adding custom fonts is really simple. I brought in some google fonts that I thou
 
 **Files Used:**
 
--   [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 
 ### External
 
