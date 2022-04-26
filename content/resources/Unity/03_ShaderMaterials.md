@@ -1,8 +1,8 @@
 ---
 title: Shader Materials
-image: 
+image:
 description: Creating shader materials with the Unity Toolkit.
-keywords: babylon.js, exporter, unity, extension, material, shader 
+keywords: babylon.js, exporter, unity, extension, material, shader
 further-reading:
 video-overview:
 video-content:
@@ -10,18 +10,17 @@ video-content:
 
 There is a close relationship between **Materials**, **Shaders** and **Textures** within a game engine render pipeline:
 
-* **Materials** are definitions of how a surface should be rendered, including references to textures used, tiling information, colour tints and more. The available options for a material depend on which shader the material is using.
+- **Materials** are definitions of how a surface should be rendered, including references to textures used, tiling information, colour tints and more. The available options for a material depend on which shader the material is using.
 
-* **Shaders** are small scripts that contain the mathematical calculations and algorithms for calculating the colour of each pixel rendered, based on the lighting input and the Material configuration.
+- **Shaders** are small scripts that contain the mathematical calculations and algorithms for calculating the colour of each pixel rendered, based on the lighting input and the Material configuration.
 
-* **Textures** are bitmap images. A Material may contain references to textures, so that the Material’s shader can use the textures while calculating the surface colour of an object. In addition to basic colour (albedo) of an obejct’s surface, textures can represent many other aspects of a material’s surface such as its reflectivity or roughness.
+- **Textures** are bitmap images. A Material may contain references to textures, so that the Material’s shader can use the textures while calculating the surface colour of an object. In addition to basic colour (albedo) of an obejct’s surface, textures can represent many other aspects of a material’s surface such as its reflectivity or roughness.
 
 A material specifies one specific shader to use, and the shader used determines which options are available in the material. A shader specifies one or more textures variables that it expects to use, and the Material Inspector in Unity allows you to assign your own texture assets to these these texture variables.
 
 For most normal rendering - by which we mean characters, scenery, environments, solid and transparent objects, hard and soft surfaces etc., the Standard Shader is usually the best choice. This is a highly customisable shader which is capable of rendering many types of surface in a highly realistic way. You may choose the **Babylon Standard Material** shader for a legacy diffuse workflow.
 
 Please refer to the [Unity Material](https://docs.unity3d.com/Manual/class-Material.html) documentation for details.
-
 
 ## Creating And Using Shader Materials
 
@@ -39,9 +38,9 @@ You can select which Shader you want any particular Material to use. Simply expa
 
 There are two ways to apply a Texture to a property.
 
-* Drag it from the Project View on top of the Texture square
+- Drag it from the Project View on top of the Texture square
 
-* Click the Select button, and choose the texture from the drop-down list that appears
+- Click the Select button, and choose the texture from the drop-down list that appears
 
 ## Unity Shader Technical Details
 
@@ -81,25 +80,25 @@ Which shader to use for rendering this material.
 The specific values for the shader’s parameters - such as which texture maps, the colour and numeric values to use.
 Custom Shaders are meant to be written by graphics programmers. They are created using the GLSL shader language, which is quite simple. However, getting a shader to work well on a variety graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
 
-
 ## Babylon Shader Material Pipeline
 
 ## Physical Based Rendering
 
-The **BABYLON.PBRMaterial** is the default shader material that will be used for **all** materials using **Unity Standard Shader** pipeline properties. These include the built-in Standard, Standard Roughness, Standard Specular and **any** other shader that uses **Metallic Type** properties (IE: _Metallic). 
+The **BABYLON.PBRMaterial** is the default shader material that will be used for **all** materials using **Unity Standard Shader** pipeline properties. These include the built-in Standard, Standard Roughness, Standard Specular and **any** other shader that uses **Metallic Type** properties (IE: \_Metallic).
 
 ## Diffuse Shader Materials
 
-The **BABYLON.StandardMaterial** is used as the base shader for **all non** physical babsed rendering shaders. During exportation, the toolkit will **scrape** all materials looking for standard shader properties like **_MainTex** and assign them to the standard diffuse shader pipeline.
+The **BABYLON.StandardMaterial** is used as the base shader for **all non** physical babsed rendering shaders. During exportation, the toolkit will **scrape** all materials looking for standard shader properties like **\_MainTex** and assign them to the standard diffuse shader pipeline.
 
 ## Custom Shader Materials
 
-Custom shader materials creates a custom unity shader (.shader) program for use as the design time shader. You can change the content of the unity design time as it is only used for design time * **WYSIWYG** * display purposes. The actual **Shader Controller** class defines the native babylon shader material class to control the material export.
+Custom shader materials creates a custom unity shader (.shader) program for use as the design time shader. You can change the content of the unity design time as it is only used for design time _ **WYSIWYG** _ display purposes. The actual **Shader Controller** class defines the native babylon shader material class to control the material export.
 
 You can create a custom shader material from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Custom Shader Material** from the main menu.
 
 Example library **Water Material** shader asset:
 
+```
     Shader "Babylon/Library Materials/Water Material"
     {
         Properties {
@@ -124,7 +123,7 @@ Example library **Water Material** shader asset:
             [ToggleOff] _BackFaceCulling("Back Face Culling", Int) = 1
             [ToggleOff] _DisableLighting("Disable Surface Lighting", Int) = 0
             _MaxSimultaneousLights("Max Simultaneous Lights", Int) = 4
-            
+
             [HideInInspector] _MainTex ("Base (RGB)", 2D) = "white" {}
         }
 
@@ -155,133 +154,133 @@ Example library **Water Material** shader asset:
                 o.Alpha = _WaterColor.a;
                 o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
             }
-            ENDCG  
+            ENDCG
         }
         FallBack "Legacy Shaders/Diffuse"
     }
+```
 
 The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader controller sub class:
 
-    CGINCLUDE
-    #ifdef BABYLON_INFO
-        controller: "BABYLON.WaterMaterialController"
-    #endif //BABYLON_INFO_END
-    ENDCG
+```
+ CGINCLUDE #ifdef BABYLON_INFO controller: "BABYLON.WaterMaterialController" #endif //BABYLON_INFO_END ENDCG`
+
+```
 
 ## Shader Controller Scripts
 
 The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** sub class properties. The controller class uses the shader properties specfied in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
 
-You can create a custom shader controller script from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Babylon TypeScript >  Shader Controller** from the main menu.
+You can create a custom shader controller script from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Babylon TypeScript > Shader Controller** from the main menu.
 
 Example library **Water Material** shader controller with life cycle:
 
-    module BABYLON {
-        export class WaterMaterialController extends BABYLON.WaterMaterial {
-            constructor(name: string, scene: Scene, public renderTargetSize: Vector2 = new Vector2(512, 512)) {
-                super(name, scene, renderTargetSize);
-                this.initializeInstance();
-            }
+```javascript
+module BABYLON {
+    export class WaterMaterialController extends BABYLON.WaterMaterial {
+        constructor(name: string, scene: Scene, public renderTargetSize: Vector2 = new Vector2(512, 512)) {
+            super(name, scene, renderTargetSize);
+            this.initializeInstance();
+        }
 
-            protected start() :void {
-                var meshes:BABYLON.Mesh[] = this.getScene().getMeshesByTags(this.getWaterTagLabel());
-                if (meshes != null && meshes.length > 0) {
-                    meshes.forEach(mesh => {
-                        this.addToRenderList(mesh);
-                    });
-                }
-            }
-
-            /* Shader Material Water Tag Functions */
-
-            private _waterTagLabel:string = "WATER_TAG_0";
-            protected getWaterTagLabel():string {
-                return this._waterTagLabel;
-            }
-            protected setWaterTagIndex(index:number) : void {
-                var tagIndex = (index >= 0) ? index : 0;
-                this._waterTagLabel = "WATER_TAG_" + tagIndex.toString();
-            }
-
-            /* Shader Material Factory Class Functions */
-            
-            public clone(name: string): BABYLON.WaterMaterialController {
-                return BABYLON.SerializationHelper.Clone(() => new BABYLON.WaterMaterialController(name, this.getScene()), this);
-            }
-
-            public serialize(): any {
-                var serializationObject = BABYLON.SerializationHelper.Serialize(this);
-                serializationObject.customType = "BABYLON.WaterMaterialController";
-                return serializationObject;
-            }
-
-            public static Parse(source: any, scene: BABYLON.Scene, rootUrl: string): BABYLON.WaterMaterialController {
-                var material =  BABYLON.SerializationHelper.Parse(() => new BABYLON.WaterMaterialController(source.name, scene), source, scene, rootUrl);
-                var property = "_Properties";
-                // Parse custom shader properties
-                if (source.vectors4) {
-                    property = "_WaterColor";
-                    if (source.vectors4[property]) {
-                        material.waterColor = BABYLON.Color3.FromArray(source.vectors4[property]);
-                    }
-                    property = "_SecondColor";
-                    if (source.vectors4[property]) {
-                        material.waterColor2 = BABYLON.Color3.FromArray(source.vectors4[property]);
-                    }
-                }
-                if (source.floats) {
-                    var tagIndex:number = 0;
-                    property = "_TagIndex";
-                    if (source.floats[property]) {
-                        tagIndex = source.floats[property];
-                    }
-                    if (tagIndex <= 0) tagIndex = 0;
-                    material.setWaterTagIndex(tagIndex);
-
-                    property = "_WindForce";
-                    if (source.floats[property]) {
-                        material.windForce = source.floats[property];
-                    }
-                    property = "_WaveSpeed";
-                    if (source.floats[property]) {
-                        material.waveSpeed = source.floats[property];
-                    }
-                    property = "_WaveLength";
-                    if (source.floats[property]) {
-                        material.waveLength = source.floats[property];
-                    }
-                    property = "_WaveHeight";
-                    if (source.floats[property]) {
-                        material.waveHeight = source.floats[property];
-                    }
-                    property = "_BumpHeight";
-                    if (source.floats[property]) {
-                        material.bumpHeight = source.floats[property];
-                    }
-                    property = "_ColorBlendFactor";
-                    if (source.floats[property]) {
-                        material.colorBlendFactor = source.floats[property];
-                    }
-                    property = "_SecondBlendFactor";
-                    if (source.floats[property]) {
-                        material.colorBlendFactor2 = source.floats[property];
-                    }
-
-                    var windDirX:number = 0.0;
-                    var windDirY:number = 1.0;
-                    property = "_WindDirectionX";
-                    if (source.floats[property]) {
-                        windDirX = source.floats[property];
-                    }
-                    property = "_WindDirectionY";
-                    if (source.floats[property]) {
-                        windDirY = source.floats[property];
-                    }
-                    material.windDirection = new BABYLON.Vector2(windDirX, windDirY);
-                }
-                return material;
+        protected start() :void {
+            var meshes:BABYLON.Mesh[] = this.getScene().getMeshesByTags(this.getWaterTagLabel());
+            if (meshes != null && meshes.length > 0) {
+                meshes.forEach(mesh => {
+                    this.addToRenderList(mesh);
+                });
             }
         }
-    }
 
-.
+        /* Shader Material Water Tag Functions */
+
+        private _waterTagLabel:string = "WATER_TAG_0";
+        protected getWaterTagLabel():string {
+            return this._waterTagLabel;
+        }
+        protected setWaterTagIndex(index:number) : void {
+            var tagIndex = (index >= 0) ? index : 0;
+            this._waterTagLabel = "WATER_TAG_" + tagIndex.toString();
+        }
+
+        /* Shader Material Factory Class Functions */
+
+        public clone(name: string): BABYLON.WaterMaterialController {
+            return BABYLON.SerializationHelper.Clone(() => new BABYLON.WaterMaterialController(name, this.getScene()), this);
+        }
+
+        public serialize(): any {
+            var serializationObject = BABYLON.SerializationHelper.Serialize(this);
+            serializationObject.customType = "BABYLON.WaterMaterialController";
+            return serializationObject;
+        }
+
+        public static Parse(source: any, scene: BABYLON.Scene, rootUrl: string): BABYLON.WaterMaterialController {
+            var material =  BABYLON.SerializationHelper.Parse(() => new BABYLON.WaterMaterialController(source.name, scene), source, scene, rootUrl);
+            var property = "_Properties";
+            // Parse custom shader properties
+            if (source.vectors4) {
+                property = "_WaterColor";
+                if (source.vectors4[property]) {
+                    material.waterColor = BABYLON.Color3.FromArray(source.vectors4[property]);
+                }
+                property = "_SecondColor";
+                if (source.vectors4[property]) {
+                    material.waterColor2 = BABYLON.Color3.FromArray(source.vectors4[property]);
+                }
+            }
+            if (source.floats) {
+                var tagIndex:number = 0;
+                property = "_TagIndex";
+                if (source.floats[property]) {
+                    tagIndex = source.floats[property];
+                }
+                if (tagIndex <= 0) tagIndex = 0;
+                material.setWaterTagIndex(tagIndex);
+
+                property = "_WindForce";
+                if (source.floats[property]) {
+                    material.windForce = source.floats[property];
+                }
+                property = "_WaveSpeed";
+                if (source.floats[property]) {
+                    material.waveSpeed = source.floats[property];
+                }
+                property = "_WaveLength";
+                if (source.floats[property]) {
+                    material.waveLength = source.floats[property];
+                }
+                property = "_WaveHeight";
+                if (source.floats[property]) {
+                    material.waveHeight = source.floats[property];
+                }
+                property = "_BumpHeight";
+                if (source.floats[property]) {
+                    material.bumpHeight = source.floats[property];
+                }
+                property = "_ColorBlendFactor";
+                if (source.floats[property]) {
+                    material.colorBlendFactor = source.floats[property];
+                }
+                property = "_SecondBlendFactor";
+                if (source.floats[property]) {
+                    material.colorBlendFactor2 = source.floats[property];
+                }
+
+                var windDirX:number = 0.0;
+                var windDirY:number = 1.0;
+                property = "_WindDirectionX";
+                if (source.floats[property]) {
+                    windDirX = source.floats[property];
+                }
+                property = "_WindDirectionY";
+                if (source.floats[property]) {
+                    windDirY = source.floats[property];
+                }
+                material.windDirection = new BABYLON.Vector2(windDirX, windDirY);
+            }
+            return material;
+        }
+    }
+}
+```

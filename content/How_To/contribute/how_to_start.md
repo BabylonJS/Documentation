@@ -188,7 +188,7 @@ Using VSCode? Install the recommended extensions and start `Run and Watch Dev Ho
 
 To build the dev sources, shaders, and assets, run `npm run build:dev`.
 
-To start the dev host, run `npm run serve -w @tools/dev-host`. This will start the dev host in <http://localhost:1338> and will run the code located in the dev-host's src folder.
+To start the dev host, run `npm run serve -w @tools/dev-host`. This will start the dev host in [http://localhost:1338](http://localhost:1338) and will run the code located in the dev-host's src folder.
 
 Note that this will not start watching the sources in the dev folder and will only watch for changes in the dev host src folder.
 
@@ -208,7 +208,7 @@ Using command line:
 - run `npm run watch:dev` (If you want to make changes to the dev packages. Otherwise run `npm run build:dev`)
 - run `npm run serve -w @tools/babylon-server` in a new terminal window
 
-The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to <http://localhost:1338>. To use the TS version navigate to <http://localhost:1338/index-ts>.
+The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1338. To use the TS version navigate to http://localhost:1338/index-ts.
 The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Babylon server package.
 
 As described in the next section, the Babylon server also offers a playground-snippet debugging.
@@ -217,7 +217,7 @@ As described in the next section, the Babylon server also offers a playground-sn
 
 To debug a snippet, run the localhost:1338 server in debug mode and add the snippet to the index. For example:
 
-<http://localhost:1338#IQN716#9>
+[http://localhost:1338#IQN716#9](http://localhost:1338#IQN716#9)
 
 If you started the server in VSCode you will be able to debug the code straight in your IDE.
 
@@ -236,7 +236,7 @@ Using command line:
 - run `npm run watch:dev` (If you want to make changes to the dev packages. Otherwise run `npm run build:dev`)
 - run `npm run serve -w @tools/dev-host` in a new terminal window
 
-Open <http://localhost:1338> in your browser.
+Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 #### Run the playground
 
@@ -257,7 +257,7 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/playground` in a new terminal window
 
-Open <http://localhost:1338> in your browser.
+Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 #### Run the sandbox
 
@@ -278,7 +278,7 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/sandbox` in a new terminal window
 
-Open <http://localhost:1338> in your browser.
+Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 #### Run the GUI editor
 
@@ -299,7 +299,7 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/gui-editor` in a new terminal window
 
-Open <http://localhost:1338> in your browser.
+Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 #### Run tests
 
@@ -352,7 +352,7 @@ _Hint_: You may need to refresh the code before adding back a new breakpoint.
 
 The repository is built similar to a mono-repo. Every package has its own package.json and can be used independently, of course taking its dependencies into account.
 
-Packages in `dev` and `lts` are composites (<https://www.typescriptlang.org/tsconfig#composite>) and can compile using a single command if needed. When watching, dependent packages will be automatically compiled as well, when needed.
+Packages in `dev` and `lts` are composites ([https://www.typescriptlang.org/tsconfig#composite](https://www.typescriptlang.org/tsconfig#composite)) and can compile using a single command if needed. When watching, dependent packages will be automatically compiled as well, when needed.
 
 All packages (with the exception of public es6 packages) have the same basic structure:
 
@@ -375,7 +375,7 @@ To run a specific npm command on a specific package, run `npm <command> -w <pack
 
 To run a specific npm command on the root package, run `npm <command>`.
 
-Read more about node workspaces - <https://docs.npmjs.com/cli/v7/using-npm/workspaces>
+Read more about node workspaces - [https://docs.npmjs.com/cli/v7/using-npm/workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
 
 ### naming convention
 
@@ -776,9 +776,9 @@ Note about dev host - the dev host is not using any best practices for productio
 
 A new package introduced in the Babylon server, which is a direct copy of the Babylon CDN structure. The Babylon server serves javascript files, along with sourcemaps and declarations.
 
-Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is <http://localhost:1338>
+Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is [http://localhost:1338](http://localhost:1338)
 
-The Babylon server's index.html has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the file sceneJs.js or sceneTs.ts for typescript, and open <http://localhost:1338/index.html> or <http://localhost:1338/index-ts.html>
+The Babylon server's index.html has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the file sceneJs.js or sceneTs.ts for typescript, and open http://localhost:1338/index.html or http://localhost:1338/index-ts.html
 
 To start the Babylon server, run:
 
@@ -828,11 +828,11 @@ Notes:
 
 - If the playground is served using HTTPS, the Babylon server must be HTTPS-Enabled as well.
 - To load the dist files (and avoid using the babylon-server) add ?dist=true to the url.
-- All tools will open on <http://localhost:1338>
+- All tools will open on [http://localhost:1338](http://localhost:1338)
 
 ### Playground
 
-The playground is not a public package, but is served on <https://playground.babylonjs.com>. It is a tool for developers to test their code and see how it works.
+The playground is not a public package, but is served on [https://playground.babylonjs.com](https://playground.babylonjs.com). It is a tool for developers to test their code and see how it works.
 
 In order for it to work during production you will need to have a running Babylon server or use the dist query parameter.
 
@@ -899,7 +899,7 @@ To build each and every package available in the repository, run `npm run build 
 
 It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run build babylonjs` will build dev, lts, and public, but those 3 will be ready when building babylonjs-gui and will not build again.
 
-This should be used only when you want to build the public packages in the repository, and will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future we might integrate it more in the repository. TO read more about nx: <https://nx.dev/getting-started/intro>
+This should be used only when you want to build the public packages in the repository, and will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future we might integrate it more in the repository. TO read more about nx: [https://nx.dev/getting-started/intro](https://nx.dev/getting-started/intro)
 
 ## Testing
 
@@ -920,7 +920,7 @@ All files must follow this schema:
 
 Those files will be automatically picked by jest and will run as part of the test script, using the correct environment (jsdom/node for unit tests, puppeteer for visualization tests)
 
-The possible test environment are node and jsdom for unit tests, and also puppeteer for visualization and integration (see <https://jestjs.io/docs/configuration#testenvironment-string>). The default test environment is node (and puppeteer for visualization). To change the environment, add a comment at the first line of the file. For example:
+The possible test environment are node and jsdom for unit tests, and also puppeteer for visualization and integration (see [https://jestjs.io/docs/configuration#testenvironment-string](https://jestjs.io/docs/configuration#testenvironment-string)). The default test environment is node (and puppeteer for visualization). To change the environment, add a comment at the first line of the file. For example:
 
 ```javascript
 /**
@@ -936,13 +936,13 @@ Visualization tests will generate a report if any test failed. The report can be
 
 To run all tests in a single command run `npm run test` or `npx jest` in the main directory.
 
-We are testing using jest. To know everything you need to know, read their documentation - <https://jestjs.io/docs/getting-started>
+We are testing using jest. To know everything you need to know, read their documentation - [https://jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started)
 
 ### Unit testing
 
 Apart from what's written before, there are a few things that need to be observed when writing unit tests.
 
-- Unit tests are meant to test a specific unit or module. Anything else must be mocked. To read more about jest mocking - <https://jestjs.io/docs/mock-functions>
+- Unit tests are meant to test a specific unit or module. Anything else must be mocked. To read more about jest mocking - [https://jestjs.io/docs/mock-functions](https://jestjs.io/docs/mock-functions)
 - If you are testing the connection between two or more modules it is not a unit test and should probably be an integration test.
 - It is recommended not to use puppeteer as the environment for unit testing
 - jsdom does not allow adding script tags to the DOM. Anything that needs to be added externally must be mocked.
@@ -985,7 +985,7 @@ module.exports = {
 };
 ```
 
-Here is the list of all parameters - <https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerlaunchoptions>
+Here is the list of all parameters - [https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerlaunchoptions](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerlaunchoptions)
 
 Puppeteer opens a different context than the node context we are at when running the tests, so all code needed should either be pre-injected (using the Babylon server, for example) or sent during code evaluation. A simple example:
 
@@ -1101,7 +1101,7 @@ Using VSCode? Install the recommended extensions and start `Run and Watch Dev Ho
 
 To build the dev sources, shaders, and assets, run `npm run build:dev`.
 
-To start the dev host, run `npm run serve -w @tools/dev-host`. This will start the dev host in <http://localhost:1338> and will run the code located in the dev-host's src folder.
+To start the dev host, run `npm run serve -w @tools/dev-host`. This will start the dev host in [http://localhost:1338](http://localhost:1338) and will run the code located in the dev-host's src folder.
 
 Note that this will not start watching the sources in the dev folder and will only watch for changes in the dev host src folder.
 

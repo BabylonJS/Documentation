@@ -1,8 +1,8 @@
 ---
 title: Scene Manager
-image: 
+image:
 description: The Unity Toolkit provides runtime life cycle management for game objects.
-keywords: babylon.js, extension, export, unity, manger, scene manager 
+keywords: babylon.js, extension, export, unity, manger, scene manager
 further-reading:
 video-overview:
 video-content:
@@ -10,15 +10,13 @@ video-content:
 
 The babylon scene manager extension provides runtime life cycle management for game objects. The extension supports a scene component application programming interface to enable the usage of **modern game mechanics** to ease web browser game development and provide a **native game editor style development** experience simular to native [Unity](https://www.unity3d.com/) and [Unreal Engine](https://www.unrealengine.com/) game development.
 
-
 ## Babylon Scene Manager
 
 The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with latest toolkit extension but is availble on github for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
 
-* **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension 
+- **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension
 
-* **babylon.manager.d.ts** - Scene manager application programming interface script definition file
-
+- **babylon.manager.d.ts** - Scene manager application programming interface script definition file
 
 ## Babylon Scene Controller
 
@@ -26,6 +24,7 @@ The scene controller script is designed to be used as the main entry point and l
 
 Example scene controller script file:
 
+```javascript
     module PROJECT {
         export class NewSceneController extends BABYLON.MeshComponent {
             public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {
@@ -53,7 +52,7 @@ Example scene controller script file:
             }
         }
     }
-
+```
 
 ## Babylon Scene Components
 
@@ -61,6 +60,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
 
 **GetProperty** - Gets a property from the attached editor script component.
 
+```javascript
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
@@ -70,10 +70,11 @@ Managed scene components provide modern game mechanic helper functions to ease w
             }
         }
     }
-
+```
 
 **GetComponent** - Get a reference to another component attached to the owner object.
 
+```javascript
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
@@ -83,9 +84,11 @@ Managed scene components provide modern game mechanic helper functions to ease w
             }
         }
     }
+```
 
 **GetUserInput** - Get the **local multiplayer** user input from the scene manager for the specified input axis.
 
+```javascript
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
@@ -96,11 +99,13 @@ Managed scene components provide modern game mechanic helper functions to ease w
             }
         }
     }
+```
 
 ## Mesh Script Components
 
 The mesh component script is to be used by **All Non Light And Camera** game objects. The component provides access to the owner mesh via its **BABYLON.AbtractMesh** property:
 
+```javascript
     module PROJECT {
         export class NewMeshComponent extends BABYLON.MeshComponent {
 
@@ -109,11 +114,13 @@ The mesh component script is to be used by **All Non Light And Camera** game obj
             }
         }
     }
+```
 
 ## Light Script Components
 
 The light component script is to be used on **Light** game objects **Only**. The component provides runtime access to the owner light via its **BABYLON.Light** property.
 
+```javascript
     module PROJECT {
         export class NewLightComponent extends BABYLON.LightComponent {
 
@@ -122,11 +129,13 @@ The light component script is to be used on **Light** game objects **Only**. The
             }
         }
     }
+```
 
 ## Camera Script Components
 
 The camera component script is to be used on **Camera** game objects **Only**. The component provides runtime access to the owner camera via its **BABYLON.Camera** property.
 
+```javascript
     module PROJECT {
         export class NewCameraComponent extends BABYLON.CameraComponent {
 
@@ -135,7 +144,7 @@ The camera component script is to be used on **Camera** game objects **Only**. T
             }
         }
     }
-
+```
 
 ## Babylon Global Script Files
 
@@ -143,12 +152,12 @@ Global scripts enable inline global function for all scenes in the project. The 
 
 Example global startup script:
 
-    BABYLON.SceneManager.OnWindowLoad(() => {
-        // Global Page Loaded Handler
-    });
+```javascript
+BABYLON.SceneManager.OnWindowLoad(() => {
+  // Global Page Loaded Handler
+});
 
-    BABYLON.SceneManager.ExecuteWhenReady((scene:BABYLON.Scene, manager:BABYLON.SceneManager)=> {
-        // Global Scene Ready Handler
-    });
-
-.
+BABYLON.SceneManager.ExecuteWhenReady((scene: BABYLON.Scene, manager: BABYLON.SceneManager) => {
+  // Global Scene Ready Handler
+});
+```
