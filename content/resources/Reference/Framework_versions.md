@@ -57,9 +57,9 @@ We have two flavors of releases:
 
 When developing please make sure to pick the one that fits your architecture. We recommend using the ES6 packages which allow your to reduce the final release's size using tree shaking.
 
-# CDN Current Versions
+## CDN Current Versions
 
-## Direct Usage of Packages
+### Direct Usage of Packages
 These packages can be imported directly from the CDN, as needed, using
 
 ```javascript
@@ -91,7 +91,7 @@ These packages can be imported directly from the CDN, as needed, using
 <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.max.js"></script>
 ```
 
-## View Packages
+### View Packages
 
 **Babylon.js Core**  
 Minimum  Version - [https://cdn.babylonjs.com/babylon.js](https://cdn.babylonjs.com/babylon.js)  
