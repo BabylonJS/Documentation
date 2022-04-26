@@ -22,7 +22,7 @@ Both versions have their own CDN endpoint. The preview version is available on [
 
 When a new version is released on npm it is tagged with either stable or preview.
 
-We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: <https://www.npmjs.com/~babylonjs>) will receive a new version update as well, even when they sometimes don't change. As a rule of thumb stick with the same version for all of your dependencies. This is especially important when it comes to the major version - when using babylon's core 5.X, make sure to use all other dependencies in version 5.X.
+We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: [https://www.npmjs.com/~babylonjs](https://www.npmjs.com/~babylonjs)) will receive a new version update as well, even when they sometimes don't change. As a rule of thumb stick with the same version for all of your dependencies. This is especially important when it comes to the major version - when using babylon's core 5.X, make sure to use all other dependencies in version 5.X.
 
 ## Versioning
 
@@ -42,7 +42,7 @@ When needed, we will introduce the preview branch and the preview version. The p
 
 ## Changelog
 
-To see what changed in each version you can take a look at our changelog on the main repository. It is located at <https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md> as is updated on every publish to npm. When updated outside of the update process (possible in certain cases) unreleased features will be included in the "upcoming" version. Those are the features that will be introduced in our next minor/patch release.
+To see what changed in each version you can take a look at our changelog on the main repository. It is located at [https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md](https://github.com/BabylonJS/Babylon.js/blob/master/CHANGELOG.md) as is updated on every publish to npm. When updated outside of the update process (possible in certain cases) unreleased features will be included in the "upcoming" version. Those are the features that will be introduced in our next minor/patch release.
 
 ## Nightlies
 
