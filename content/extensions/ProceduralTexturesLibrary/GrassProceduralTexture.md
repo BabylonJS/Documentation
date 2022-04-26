@@ -15,8 +15,8 @@ video-content:
 ## Using the Grass procedural texture
 
 Grass procedural texture can be found here: 
-- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.grassProceduralTexture.js)
-- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.grassProceduralTexture.min.js)
+- Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.grassProceduralTexture.js)
+- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.grassProceduralTexture.min.js)
 
 A demo can be found here:  https://www.babylonjs-playground.com/#KM3TC#1
 

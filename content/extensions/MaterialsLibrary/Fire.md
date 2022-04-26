@@ -12,7 +12,7 @@ video-content:
 
 ## Using the fire material
 
-Fire material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.fireMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.fireMaterial.js)
+Fire material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.fireMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.fireMaterial.js)
 
 A demo can be found here: PG: <Playground id="#NES8QN" title="Fire Material" description="Example of fire material"/>
 
