@@ -18,8 +18,8 @@ Basically a skeleton (`BABYLON.Skeleton`) contains a hierarchy of bones (`BABYLO
 
 Here are the constructors:
 
--   `BABYLON.Skeleton` = function (name, id, scene)
--   `BABYLON.Bone` = function (name, skeleton, parentBone, matrix)
+- `BABYLON.Skeleton` = function (name, id, scene)
+- `BABYLON.Bone` = function (name, skeleton, parentBone, matrix)
 
 Inside a skeleton, bones can be found inside the `skeleton.bones` array.
 
@@ -41,10 +41,10 @@ You should note that babylon.js supports up to **4 bones influences per vertex**
 
 The mesh must also have additional vertices data:
 
--   _Matrices weights_: 4 floats to weight bones matrices  
-    (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, matricesWeights, false)`)
--   _Matrices indices_: 4 floats to index bones matrices  
-    (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, floatIndices, false)`)
+- _Matrices weights_: 4 floats to weight bones matrices  
+  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind, matricesWeights, false)`)
+- _Matrices indices_: 4 floats to index bones matrices  
+  (`mesh.setVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind, floatIndices, false)`)
 
 The final matrix applied to each vertex is computed as follows:
 
@@ -68,12 +68,12 @@ Here is a sample of how to load a boned mesh and how to launch skeleton animatio
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-    var dude = newMeshes[0];
+  var dude = newMeshes[0];
 
-    dude.rotation.y = Math.PI;
-    dude.position = new BABYLON.Vector3(0, 0, -80);
+  dude.rotation.y = Math.PI;
+  dude.position = new BABYLON.Vector3(0, 0, -80);
 
-    scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
+  scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
 });
 ```
 
@@ -87,23 +87,23 @@ Here is a sample of how to load and clone a mesh and its skeleton:
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-    var rabbit = newMeshes[1];
+  var rabbit = newMeshes[1];
 
-    rabbit.scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
-    shadowGenerator.getShadowMap().renderList.push(rabbit);
+  rabbit.scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
+  shadowGenerator.getShadowMap().renderList.push(rabbit);
 
-    var rabbit2 = rabbit.clone("rabbit2");
-    var rabbit3 = rabbit.clone("rabbit2");
+  var rabbit2 = rabbit.clone("rabbit2");
+  var rabbit3 = rabbit.clone("rabbit2");
 
-    rabbit2.position = new BABYLON.Vector3(-50, 0, -20);
-    rabbit2.skeleton = rabbit.skeleton.clone("clonedSkeleton");
+  rabbit2.position = new BABYLON.Vector3(-50, 0, -20);
+  rabbit2.skeleton = rabbit.skeleton.clone("clonedSkeleton");
 
-    rabbit3.position = new BABYLON.Vector3(50, 0, -20);
-    rabbit3.skeleton = rabbit.skeleton.clone("clonedSkeleton2");
+  rabbit3.position = new BABYLON.Vector3(50, 0, -20);
+  rabbit3.skeleton = rabbit.skeleton.clone("clonedSkeleton2");
 
-    scene.beginAnimation(skeletons[0], 0, 100, true, 0.8);
-    scene.beginAnimation(rabbit2.skeleton, 73, 100, true, 0.8);
-    scene.beginAnimation(rabbit3.skeleton, 0, 72, true, 0.8);
+  scene.beginAnimation(skeletons[0], 0, 100, true, 0.8);
+  scene.beginAnimation(rabbit2.skeleton, 73, 100, true, 0.8);
+  scene.beginAnimation(rabbit3.skeleton, 0, 72, true, 0.8);
 });
 ```
 
@@ -178,8 +178,8 @@ To rotate a bone around an axis, use the rotate function:
 bone.rotate(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
 
--   <Playground id="#D4ZZ8#2" title="Rotated World Space" description="Simple example of rotating bones in world space."/>
--   <Playground id="#D4ZZ8#4" title="Rotated Local Space" description="Simple example of rotating bones in local space."/>
+- <Playground id="#D4ZZ8#2" title="Rotated World Space" description="Simple example of rotating bones in world space."/>
+- <Playground id="#D4ZZ8#4" title="Rotated Local Space" description="Simple example of rotating bones in local space."/>
 
 setAxisAngle, setYawPitchRoll, setRotation, or setRotationMatrix are used to rotate a bone to a specific rotation.
 
@@ -187,10 +187,10 @@ setAxisAngle, setYawPitchRoll, setRotation, or setRotationMatrix are used to rot
 bone.setAxisAngle(axis, angle, BABYLON.Space.WORLD, mesh);
 ```
 
--   setAxisAngle world space: <Playground id="#D4ZZ8#8" title="SetAxisAngle World Space Demo 1" description="Simple example of using the setAxisAngle property in world space."/>
--   setAxisAngle world space: <Playground id="#D4ZZ8#9" title="SetAxisAngle World Space Demo 2" description="Simple example of using the setAxisAngle property in world space."/>
--   setAxisAngle local space: <Playground id="#D4ZZ8#10" title="SetAxisAngle Local Space Demo 1" description="Simple example of using the setAxisAngle property in local space."/>
--   setAxisAngle local space: <Playground id="#D4ZZ8#11" title="SetAxisAngle Local Space Demo 2" description="Simple example of using the setAxisAngle property in local space."/>
+- setAxisAngle world space: <Playground id="#D4ZZ8#8" title="SetAxisAngle World Space Demo 1" description="Simple example of using the setAxisAngle property in world space."/>
+- setAxisAngle world space: <Playground id="#D4ZZ8#9" title="SetAxisAngle World Space Demo 2" description="Simple example of using the setAxisAngle property in world space."/>
+- setAxisAngle local space: <Playground id="#D4ZZ8#10" title="SetAxisAngle Local Space Demo 1" description="Simple example of using the setAxisAngle property in local space."/>
+- setAxisAngle local space: <Playground id="#D4ZZ8#11" title="SetAxisAngle Local Space Demo 2" description="Simple example of using the setAxisAngle property in local space."/>
 
 ```javascript
 bone.setYawPitchRoll(yaw, pitch, roll, BABYLON.Space.WORLD, mesh);
@@ -264,8 +264,8 @@ If you need to set the bone to a specific location, use setPosition.
 bone.setPosition(pos, BABYLON.Space.WORLD, mesh);
 ```
 
--   <Playground id="#1BZJVJ#33" title="setPosition Example 1" description="Simple example of using the setPosition method."/>
--   <Playground id="#1BZJVJ#34" title="setPosition Example 2" description="Simple example of using the setPosition method."/>
+- <Playground id="#1BZJVJ#33" title="setPosition Example 1" description="Simple example of using the setPosition method."/>
+- <Playground id="#1BZJVJ#34" title="setPosition Example 2" description="Simple example of using the setPosition method."/>
 
 To get the position of a bone, use getPosition or getPositionToRef.
 
@@ -335,7 +335,7 @@ var target = BABYLON.MeshBuilder.createSphere();
 var lookCtrl = new BABYLON.BoneLookController(characterMesh, headBone, target.position, { adjustYaw: Math.PI * 0.5, adjustPitch: Math.PI * 0.5, adjustRoll: Math.PI });
 
 scene.registerBeforeRender(function () {
-    lookCtrl.update();
+  lookCtrl.update();
 });
 ```
 
@@ -380,7 +380,7 @@ To use the controller, simply call the controller's update function before the s
 
 ```javascript
 scene.registerBeforeRender(function () {
-    ikCtrl.update();
+  ikCtrl.update();
 });
 ```
 
@@ -415,12 +415,12 @@ There are some differences in with the new views from how the old lines view fun
 
 ```javascript
 let skeletonView = new BABYLON.Debug.SkeletonViewer(
-    skeleton, //Target Skeleton
-    mesh, //That skeletons Attached Mesh or a Node with the same globalMatrix
-    scene, //The Scene scope
-    false, //autoUpdateBoneMatrices?
-    mesh.renderingGroupId > 0 ? mesh.renderingGroupId + 1 : 1, // renderingGroupId
-    options, //Configuration Options
+  skeleton, //Target Skeleton
+  mesh, //That skeletons Attached Mesh or a Node with the same globalMatrix
+  scene, //The Scene scope
+  false, //autoUpdateBoneMatrices?
+  mesh.renderingGroupId > 0 ? mesh.renderingGroupId + 1 : 1, // renderingGroupId
+  options, //Configuration Options
 );
 ```
 
@@ -478,8 +478,8 @@ In order to leverage the color map you will need to pass in an array of objects 
 
 ```javascript
 let colorMapItem = {
-    color: BABYLON.Color3, //The Color to use
-    location: number, // Where on the gradient it is. Between 0-1
+  color: BABYLON.Color3, //The Color to use
+  location: number, // Where on the gradient it is. Between 0-1
 };
 ```
 
