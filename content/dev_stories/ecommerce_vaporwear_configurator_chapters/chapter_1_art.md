@@ -103,7 +103,9 @@ the asset would render the way he expected it to in the final experience.
 rendered things differently than a 
 [3D Commerce-certified](https://www.khronos.org/3dcommerce/) renderer would.) 
 The best way he found to see how the model would *actually* render was to 
-export it to a GLB, then drag-and-drop that GLB into Babylon's 
+export it to a GLB, then drag-and-drop that GLB (along with his intended 
+[IBL lighting](https://doc.babylonjs.com/guidedLearning/createAGame/extraFeatures#ibl-image-based-lighting)) 
+into Babylon's 
 [3D Commerce-certified version of the Sandbox](https://3dcommerce.babylonjs.com/).
 Not only would this render the model in a standard way, but it would 
 actually render it *using Babylon.js*, meaning that the code rendering the
@@ -245,6 +247,14 @@ without sacrificing visual quality.
     of every material texture by at least *some* amount.
     
     ![Larger and smaller textures](/img/devStories/vaporwearConfigurator/chapter_art/11_big_next_to_small.png)
+1.  (**Addendum:** Another trick that can also be worth trying is using
+    JPEGs instead of PNGs for the texture files. This is a trick that
+    must be used cautiously as JPEG compression can sometimes degrade the
+    quality of the texture in problematic ways; but when it works, 
+    especially on larger textures, it can provide significant size 
+    advantages. This is mentioned as an addendum because Carlos probably
+    *should* have tried it alongside his other optimization techniques,
+    but he didn't because, as it happened, he simply didn't think of it.)
 
 Even with all these tricks, the additional materials file ended up 
 weighing in at a whopping 15 megabytes, *far* too large to load in the 
@@ -264,14 +274,14 @@ types of motion required different parameters, both were relatively easy
 for Carlos to set up in Blender.
 
 1.  To create the "matchmoving" camera motion, all Carlos had to do was
-    add an empty transform to his scene and create an animation that moved
-    it in the way he wanted the camera to move. He even found that he
-    could attach a Blender camera to the moving node, allowing him to see
-    the motion directly, and that camera would be exported to glTF simply
-    as the empty transform he needed. The Vaporwear experience contained
-    four different states with "matchmoving" camera motion, so Carlos 
-    ended up with four named empty transforms, each with an animation
-    that moved it.
+    add an empty transform (sometimes called a "null") to his scene and 
+    create an animation that moved it in the way he wanted the camera to 
+    move. He even found that he could attach a Blender camera to the moving 
+    node, allowing him to see the motion directly, and that camera would be 
+    exported to glTF simply as the empty transform he needed. The Vaporwear 
+    experience contained four different states with "matchmoving" camera 
+    motion, so Carlos ended up with four named empty transforms, each with 
+    an animation that moved it.
 
     ![Matchmove nulls](/img/devStories/vaporwearConfigurator/chapter_art/12_matchmove_nulls.png)
 1.  Creating the parameters for the "arc-rotate" camera state was not as 
