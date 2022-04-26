@@ -117,6 +117,8 @@ var backwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) /
 character.moveWithCollisions(backwards);
 ```
 
+<Playground id="#1M79PT#1" title="Basic Mesh Collision Example" description="A simple example of adding an ellipsoid collision buffer around a mesh."/>
+
 ## ArcRotateCamera
 
 The `ArcRotateCamera` can also check collisions, but instead of sliding along obstacles, this camera won't move when a collision happens.
