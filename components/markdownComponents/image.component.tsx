@@ -10,10 +10,13 @@ const styles = makeStyles((theme: Theme) =>
             position: "relative",
             // display: "flex",
             flexDirection: "column",
-            maxWidth: 800,
+            maxWidth: "100%",
             height: "auto",
             margin: theme.spacing(2, 0),
             display: "inline-block",
+            [theme.breakpoints.up("sm")]: {
+                maxWidth: 800,
+            },
         },
         image: {
             flex: 1,
@@ -73,14 +76,14 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     }, [intrinsic]);
     const getImage = () => {
         if (src.startsWith("http") || src.startsWith("//") || src.indexOf(".gif") !== -1) {
-            let style: { width?: string, height?: string } = {};
+            let style: { width?: string; height?: string } = {};
             if (preW) {
                 style.width = `${Math.min(+preW, 760)}px`;
                 if (preH) {
                     style.height = `${+preH}px`;
                 }
             }
-            return <img className={classes.image} {...props} src={src} style={style}/>;
+            return <img className={classes.image} {...props} src={src} style={style} />;
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
@@ -89,30 +92,31 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         try {
             return (
                 <Image
-                    onLoad={(e) => {
+                    onLoadingComplete={(e) => {
                         if (properties.layout === "fill") {
                             try {
-                                const imgTag = e.target as HTMLImageElement;
-                                let h = imgTag.naturalHeight;
-                                let w = imgTag.naturalWidth;
+                                // const imgTag = e.target as HTMLImageElement;
+                                let h = e.naturalHeight;
+                                let w = e.naturalWidth;
                                 // avoid using the loading gif to calculate size
-                                if (imgTag.src.startsWith("data:image/gif;base64")) {
+                                if (src.startsWith("data:image/gif;base64")) {
                                     return;
                                 }
                                 if (preW) {
                                     w = Math.min(+preW, 760);
                                     if (!preH) {
-                                        h = ((h * w) / imgTag.naturalWidth);
+                                        h = (h * w) / e.naturalWidth;
                                     } else {
                                         h = +preH;
                                     }
-                                } else if (imgTag.naturalWidth > imgTag.clientWidth) {
-                                    h = (h * imgTag.clientWidth) / w;
-                                    w = imgTag.clientWidth;
-                                }
+                                } 
+                                // else if (e.naturalWidth > imgTag.clientWidth) {
+                                //     h = (h * imgTag.clientWidth) / w;
+                                //     w = imgTag.clientWidth;
+                                // }
                                 setContainerScale({ h, w });
                                 if (intrinsic.h === 0) {
-                                    setIntrinsic({ h: imgTag.naturalHeight, w: imgTag.naturalWidth });
+                                    setIntrinsic({ h: e.naturalHeight, w: e.naturalWidth });
                                 }
                             } catch (e) {
                                 //no-op
@@ -128,12 +132,11 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return <img className={classes.image} {...props} src={src} />;
         }
     };
-
     return (
         <>
-            <div ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
+            <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
-            </div>
+            </span>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </>
     );

@@ -193,10 +193,10 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkLint = (await import("remark-lint")).default;
+    const remarkGfm = (await import("remark-gfm")).default;
     props.mdxContent = await serialize(props.content, {
-        // components: markdownComponents,
         mdxOptions: {
-            remarkPlugins: [remarkSlug, remarkLint],
+            remarkPlugins: [remarkSlug, /*remarkLint, */remarkGfm],
         },
     });
     return {

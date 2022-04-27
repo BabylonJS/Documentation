@@ -35,7 +35,7 @@
 <url><loc>https://doc.babylonjs.com/advanced_topics/webGPU</loc><lastmod>2021-01-04T20:25:43.855Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/advanced_topics</loc><lastmod>2021-01-04T20:22:18.669Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/3D_commerce_certif</loc><lastmod>2022-03-03T11:51:10.453Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/animation/advanced_animations</loc><lastmod>2021-05-17T09:53:06.214Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/animation/advanced_animations</loc><lastmod>2022-04-27T12:21:39.621Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/animatedCharacter</loc><lastmod>2022-03-03T11:51:10.462Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_design</loc><lastmod>2022-01-05T15:25:40.574Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/animation/animation_introduction</loc><lastmod>2022-04-26T14:03:39.986Z</lastmod></url>
@@ -51,7 +51,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/behaviors/cameraBehaviors</loc><lastmod>2021-10-26T13:48:48.243Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/behaviors/meshBehaviors</loc><lastmod>2022-03-28T11:57:48.535Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/behaviors</loc><lastmod>2021-03-12T10:14:35.354Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/cameras/camera_collisions</loc><lastmod>2022-03-03T11:51:10.466Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/cameras/camera_collisions</loc><lastmod>2022-04-27T12:24:02.938Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/cameras/camera_introduction</loc><lastmod>2022-04-12T11:23:21.599Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/cameras/customizingCameraInputs</loc><lastmod>2021-11-05T15:47:34.664Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/cameras/layerMasksAndMultiCam</loc><lastmod>2021-03-12T10:14:35.202Z</lastmod></url>
@@ -68,7 +68,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToAPI</loc><lastmod>2021-08-18T17:29:39.784Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/contributeToDocs</loc><lastmod>2021-10-26T13:48:48.245Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/forum</loc><lastmod>2021-03-12T10:14:35.381Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/frameworkVers</loc><lastmod>2022-04-26T14:12:09.825Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/frameworkVers</loc><lastmod>2022-04-27T12:24:02.940Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart/validationTests</loc><lastmod>2021-11-05T15:47:34.666Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/howToStart</loc><lastmod>2022-04-26T14:11:24.901Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/developWithBjs/matForMatLibrary</loc><lastmod>2021-03-12T10:14:35.209Z</lastmod></url>
@@ -133,7 +133,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/NMEPostProcesses</loc><lastmod>2022-01-05T15:25:40.581Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/NMEProceduralTexture</loc><lastmod>2022-01-05T15:25:40.581Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/availableNodeBlocks</loc><lastmod>2022-04-12T11:23:21.605Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/nodeMaterial</loc><lastmod>2022-04-26T14:11:24.907Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/nodeMaterial</loc><lastmod>2022-04-27T13:01:09.953Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material/particles_and_nme</loc><lastmod>2022-03-03T11:51:10.457Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/node_material</loc><lastmod>2021-03-12T10:14:35.357Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/materials/using/HDREnvironment</loc><lastmod>2022-03-03T11:51:10.468Z</lastmod></url>
@@ -276,7 +276,7 @@
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/advancedPhysicsFeatures</loc><lastmod>2022-04-26T14:11:24.896Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/compoundBodies</loc><lastmod>2021-01-14T14:32:32.641Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/forces</loc><lastmod>2021-02-23T10:10:58.632Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/divingDeeper/physics/joints</loc><lastmod>2021-01-14T14:32:32.644Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/divingDeeper/physics/joints</loc><lastmod>2022-04-27T12:58:43.503Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/pivotsAxes</loc><lastmod>2021-01-14T14:32:32.643Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/softBodies</loc><lastmod>2021-02-23T10:10:58.670Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/divingDeeper/physics/usingPhysicsEngine</loc><lastmod>2021-02-23T10:10:58.679Z</lastmod></url>
