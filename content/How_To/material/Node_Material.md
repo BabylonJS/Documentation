@@ -4,69 +4,69 @@ image: /img/pageImages/nodeMaterial.jpg
 description: The Node Material is a simple, highly customizable material that you can build yourself piece by piece. Combined with the powerful node-based editor, you can easily create stunning custom GPU shaders and FX for your Babylon.js scenes.
 keywords: shaders, glsl, node editor, graphics, GPU program, material, NME, Node Material, Node Material Editor
 further-reading:
-    - title: Dedicated NME Forum Examples
-      url: https://forum.babylonjs.com/t/node-materials-examples/6048
-    - title: 3 Tips For Getting Started Building Procedural Node Material Shaders
-      url: https://babylonjs.medium.com/procedural-node-material-shaders-3-tips-for-getting-started-4089c1832dfc
-    - title: Mesh shattering with baked physics
-      url: https://babylonjs.medium.com/mesh-shattering-with-baked-physics-5b3f8f381743
-    - title: Fighting Self-Doubt, with Water
-      url: https://babylonjs.medium.com/fighting-self-doubt-with-water-3b1509218009
-    - title: Creating the Babylon.js Node Material
-      url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
-    - /toolsAndResources/tools/nme
+  - title: Dedicated NME Forum Examples
+    url: https://forum.babylonjs.com/t/node-materials-examples/6048
+  - title: 3 Tips For Getting Started Building Procedural Node Material Shaders
+    url: https://babylonjs.medium.com/procedural-node-material-shaders-3-tips-for-getting-started-4089c1832dfc
+  - title: Mesh shattering with baked physics
+    url: https://babylonjs.medium.com/mesh-shattering-with-baked-physics-5b3f8f381743
+  - title: Fighting Self-Doubt, with Water
+    url: https://babylonjs.medium.com/fighting-self-doubt-with-water-3b1509218009
+  - title: Creating the Babylon.js Node Material
+    url: https://babylonjs.medium.com/creating-the-babylon-js-node-material-6893b3abe4df
+  - /toolsAndResources/tools/nme
 video-overview:
 video-content:
-    - title: PBR Nodes in Nodes Materials Part 1
-      url: https://youtu.be/CRg8P1Af1M0
-    - title: Node-Based Procedural Textures
-      url: https://youtu.be/qqMuuSM7GvI
-    - title: Creating Procedural Node Materials Through Code
-      url: https://youtu.be/GrmVObi6caQ
-    - title: Node Material Post Processes
-      url: https://youtu.be/QTuL5raapQQ
-    - title: Node Material Editor Particles!!!!
-      url: https://youtu.be/fZvZMXDoVp4
-    - title: Interactive Hex Tile Series
-      url: https://www.youtube.com/playlist?list=PLsaE__vWcRamMC5oJwhrSj3x3jT9TWOPB
-    - title: Unraveling Advanced Anisotropic Reflections
-      url: https://youtu.be/Zk0A5UzNLNw
-    - title: Diving Into the Audio Engine Part 1
-      url: https://youtu.be/lVfx6sf9zPY
-    - title: Diving Into the Audio Engine Part 2
-      url: https://youtu.be/0uxbFb-cVds
-    - title: Shader Fun with Polar Coordinates
-      url: https://youtu.be/n5WuGHmSZgk
-    - title: The Power of Morph Targets
-      url: https://youtu.be/QlCZAWW4TcI
-    - title: Procedural Terrain using the Raw Texture feature
-      url: https://youtu.be/YKqXcrWliww
-    - title: Node Material Glow Effects
-      url: https://youtu.be/5ZuM-WLqEPQ
-    - title: Mystery Demo Tutorial Series
-      url: https://www.youtube.com/playlist?list=PLsaE__vWcRam5eDcUlGHvylTaATXCAQnC
-    - title: Happy Holidays Node Material Displacement Demo
-      url: https://youtu.be/bnv58YH7lw0
-    - title: Node Material Ink Shader Tutorial
-      url: https://youtu.be/0re82mEd1n8
-    - title: Node Material Editor Graph Updates
-      url: https://youtu.be/uHjAoHnMwDo
-    - title: Fun with Light Textures
-      url: https://youtu.be/n2DLnMa21K0
-    - title: Lighting in Node Material
-      url: https://youtu.be/BU9BTUkdYDY
-    - title: Node Material Toon Shader Video Series
-      url: https://www.youtube.com/playlist?list=PLsaE__vWcRamJgV-PFPvFNgRZEjbu4Muj
-    - title: Node Material Editor Step Node Switches
-      url: https://youtu.be/FwtFroNMmxw
-    - title: Using Your Materials in the Node Material Editor
-      url: https://youtu.be/F0Lh73I_6Z8
-    - title: Lights and Textures in the Node Material Editor
-      url: https://youtu.be/fLXYhGhCejc
-    - title: Working with the Vertex Shader in the Node Material Editor
-      url: https://youtu.be/B5BO3nFc55s
-    - title: Sneak peek at the powerful new Node Material Editor
-      url: https://youtu.be/34uIGJH0ySU
+  - title: PBR Nodes in Nodes Materials Part 1
+    url: https://youtu.be/CRg8P1Af1M0
+  - title: Node-Based Procedural Textures
+    url: https://youtu.be/qqMuuSM7GvI
+  - title: Creating Procedural Node Materials Through Code
+    url: https://youtu.be/GrmVObi6caQ
+  - title: Node Material Post Processes
+    url: https://youtu.be/QTuL5raapQQ
+  - title: Node Material Editor Particles!!!!
+    url: https://youtu.be/fZvZMXDoVp4
+  - title: Interactive Hex Tile Series
+    url: https://www.youtube.com/playlist?list=PLsaE__vWcRamMC5oJwhrSj3x3jT9TWOPB
+  - title: Unraveling Advanced Anisotropic Reflections
+    url: https://youtu.be/Zk0A5UzNLNw
+  - title: Diving Into the Audio Engine Part 1
+    url: https://youtu.be/lVfx6sf9zPY
+  - title: Diving Into the Audio Engine Part 2
+    url: https://youtu.be/0uxbFb-cVds
+  - title: Shader Fun with Polar Coordinates
+    url: https://youtu.be/n5WuGHmSZgk
+  - title: The Power of Morph Targets
+    url: https://youtu.be/QlCZAWW4TcI
+  - title: Procedural Terrain using the Raw Texture feature
+    url: https://youtu.be/YKqXcrWliww
+  - title: Node Material Glow Effects
+    url: https://youtu.be/5ZuM-WLqEPQ
+  - title: Mystery Demo Tutorial Series
+    url: https://www.youtube.com/playlist?list=PLsaE__vWcRam5eDcUlGHvylTaATXCAQnC
+  - title: Happy Holidays Node Material Displacement Demo
+    url: https://youtu.be/bnv58YH7lw0
+  - title: Node Material Ink Shader Tutorial
+    url: https://youtu.be/0re82mEd1n8
+  - title: Node Material Editor Graph Updates
+    url: https://youtu.be/uHjAoHnMwDo
+  - title: Fun with Light Textures
+    url: https://youtu.be/n2DLnMa21K0
+  - title: Lighting in Node Material
+    url: https://youtu.be/BU9BTUkdYDY
+  - title: Node Material Toon Shader Video Series
+    url: https://www.youtube.com/playlist?list=PLsaE__vWcRamJgV-PFPvFNgRZEjbu4Muj
+  - title: Node Material Editor Step Node Switches
+    url: https://youtu.be/FwtFroNMmxw
+  - title: Using Your Materials in the Node Material Editor
+    url: https://youtu.be/F0Lh73I_6Z8
+  - title: Lights and Textures in the Node Material Editor
+    url: https://youtu.be/fLXYhGhCejc
+  - title: Working with the Vertex Shader in the Node Material Editor
+    url: https://youtu.be/B5BO3nFc55s
+  - title: Sneak peek at the powerful new Node Material Editor
+    url: https://youtu.be/34uIGJH0ySU
 ---
 
 ## Node Material
@@ -93,7 +93,7 @@ var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitCommen
 
 Please note that the third parameter will contain optional values that will let you configure how the material will build its shader:
 
--   `emitComments`: Set this value to true if you want the blocks to emit comments in the shader code
+- `emitComments`: Set this value to true if you want the blocks to emit comments in the shader code
 
 #### Adding blocks
 
@@ -119,43 +119,43 @@ viewProjectionInput.setAsSystemValue(BABYLON.NodeMaterialSystemValues.ViewProjec
 
 System values can be:
 
--   BABYLON.NodeMaterialSystemValues.World
--   BABYLON.NodeMaterialSystemValues.View
--   BABYLON.NodeMaterialSystemValues.WorldView
--   BABYLON.NodeMaterialSystemValues.Projection
--   BABYLON.NodeMaterialSystemValues.ViewProjection
--   BABYLON.NodeMaterialSystemValues.WorldViewProjection
--   BABYLON.NodeMaterialSystemValues.CameraPosition
--   BABYLON.NodeMaterialSystemValues.FogColor
--   BABYLON.NodeMaterialSystemValues.DeltaTime
+- BABYLON.NodeMaterialSystemValues.World
+- BABYLON.NodeMaterialSystemValues.View
+- BABYLON.NodeMaterialSystemValues.WorldView
+- BABYLON.NodeMaterialSystemValues.Projection
+- BABYLON.NodeMaterialSystemValues.ViewProjection
+- BABYLON.NodeMaterialSystemValues.WorldViewProjection
+- BABYLON.NodeMaterialSystemValues.CameraPosition
+- BABYLON.NodeMaterialSystemValues.FogColor
+- BABYLON.NodeMaterialSystemValues.DeltaTime
 
 Input blocks can also take their value from a mesh attribute:
 
-```
+```javascript
 let positionInput = new BABYLON.InputBlock("position");
 positionInput.setAsAttribute("position");
 ```
 
 Attributes can be:
 
--   position
--   normal
--   tangent
--   uv
--   uv2
--   matricesIndices
--   matricesWeights
--   matricesIndicesExtra
--   matricesWeightsExtra
+- position
+- normal
+- tangent
+- uv
+- uv2
+- matricesIndices
+- matricesWeights
+- matricesIndicesExtra
+- matricesWeightsExtra
 
 When you manually set the value of an InputNode, you can flag it as `node.isConstant` to indicate that the value will not be dynamically updated and thus the node material will be able to optimize the block by not generating an uniform for this value.
 
 The following functions will let you get information about your InputNode:
 
--   `isSystemValue`
--   `isAttribute`
--   `isUniform`
--   `isConstant`
+- `isSystemValue`
+- `isAttribute`
+- `isUniform`
+- `isConstant`
 
 When an InputNode is an uniform (eg. a manual value that will be sent to the shader) and not a constant, you can set `inputNode.visibleInInspector` to true so users will be able to visually control the value of the node using Babylon.js Inspector.
 
@@ -165,7 +165,7 @@ You can even csutomize the look and feel of the Inspector UI by defining `inputN
 
 By default calling `block.connectTo(otherBlock)` will try to establish a connection by picking an output from the first block and connect it to an available input in the second one:
 
-```
+```javascript
 var positionInput = new BABYLON.InputBlock("position");
 positionInput.setAsAttribute("position");
 
@@ -179,13 +179,13 @@ worldInput.connectTo(worldPos);
 
 If you do not want to use the automatic connection you can then pick the output and the input you want to connect directly:
 
-```
+```javascript
 worldInput.output.connectTo(boneBlock.world);
 ```
 
 You can check if two connection points can connect with
 
-```
+```javascript
 if (worldInput.output.canConnectTo(boneBlock.world)) {
     ...
 }
@@ -195,7 +195,7 @@ The system will throw an exception if you try to connect two incompatible connec
 
 When connected, two connection points can be disconnected with:
 
-```
+```javascript
 worldInput.output.disconnectFrom(boneBlock.world);
 ```
 
@@ -203,19 +203,19 @@ worldInput.output.disconnectFrom(boneBlock.world);
 
 Once a graph is built inside a NodeMaterial, you can use the following API to get a specific node by name:
 
-```
+```javascript
 let block = nodeMaterial.getBlockByName("MyBlock");
 ```
 
 You can also get a block using a predicate:
 
-```
+```javascript
 let block = nodeMaterial.getBlockByPredicate((b) => b.getClassName() === "AddBlock" && b.name === "foo");
 ```
 
 Or you can also use this API to get an InputNode and use it to setup its value if the node is set manual value:
 
-```
+```javascript
 let block = nodeMaterial.getInputBlockByPredicate((b) => b.name === "foo");
 block.value = 10;
 ```
@@ -224,14 +224,14 @@ Note that while this API generically works for all input blocks, not all input b
 
 You can access the list of InputBlocks with:
 
-```
+```javascript
 nodeMaterial.getInputBlocks();
 ```
 
 Or you can get all blocks registered with a node material with:
 
-```
-nodeMaterial.attachedBlocks
+```javascript
+nodeMaterial.attachedBlocks;
 ```
 
 Be sure to also check out the full [API documentation.](/typedoc/classes/babylon.nodematerial)
@@ -242,18 +242,17 @@ Once setup, you can ask the Node Material to build its internal shaders (vertex 
 
 The build function will throw an exception if the shaders cannot be compiled:
 
-```
+```javascript
 try {
-    nodeMaterial.build(true);
+  nodeMaterial.build(true);
 } catch (err) {
-    console.log("Unable to compile because " + err);
+  console.log("Unable to compile because " + err);
 }
-
 ```
 
 Once successfully built, you can use the Node Material like any other materials:
 
-```
+```javascript
 myMesh.material = nodeMaterial;
 ```
 
@@ -261,7 +260,7 @@ myMesh.material = nodeMaterial;
 
 Here is one of the simplest code using the Node Material:
 
-```
+```javascript
 var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
 var positionInput = new BABYLON.InputBlock("position");
 positionInput.setAsAttribute("position");
@@ -297,7 +296,7 @@ nodeMaterial.addOutputNode(fragmentOutput);
 
 Please note that this code is equivalent to:
 
-```
+```javascript
 var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
 nodeMaterial.setToDefault();
 ```
@@ -307,7 +306,7 @@ Here's an advanced and fantastic example of creating an impressive Node Material
 
 ### Using the Node Material Editor
 
-Now that you've learned how the system works and understand how you can use it to create complex shaders more quickly than learning a new shader language, you should probably know that it can actually get even easier! 
+Now that you've learned how the system works and understand how you can use it to create complex shaders more quickly than learning a new shader language, you should probably know that it can actually get even easier!
 
 The [Node Material Editor](/toolsAndResources/tools/nme) is an incredibly powerful tool that allows you to create and connect blocks in a simple visual editor.
 
@@ -315,7 +314,7 @@ The [Node Material Editor](/toolsAndResources/tools/nme) is an incredibly powerf
 
 To invoke the editor you can call `nodematerial.edit()` but this code must be called inside a user interaction (like a click event). You can also call it through the Inspector:
 
-```
+```javascript
 scene.debugLayer.show();
 scene.debugLayer.select(nodeMaterial);
 ```
@@ -330,14 +329,14 @@ Learn more about the [Node Material Editor here](/toolsAndResources/tools/nme).
 
 As a training exercise and to show what is possible to do with the Node Material Editor, the `StandardMaterial` has been recreated in the NME:
 
--   <nme id="#AT7YY5#6" title="Full Standard Material NME" description="A Node Material Editor setup of the full standard material." image="/img/playgroundsAndNMEs/NMEfullStandardMaterial.jpg"/>
--   <nme id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.jpg"/>
--   <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.jpg" isMain={true} category="Node Material"/>
+- <nme id="#AT7YY5#6" title="Full Standard Material NME" description="A Node Material Editor setup of the full standard material." image="/img/playgroundsAndNMEs/NMEfullStandardMaterial.jpg"/>
+- <nme id="#AT7YY5#7" title="Standard Material Without Alpha NME" description="A Node Material Editor setup of the standard material without alpha support." image="/img/playgroundsAndNMEs/NMEstandardMaterialNoAlpha.jpg"/>
+- <Playground id="#M5VQE9#19" title="Playground of Standard Material and NME Standard Material" description="Playground to compare the existing `StandardMaterial` and the corresponding Node Material." image="/img/playgroundsAndNMEs/PGstandardMaterialNMEstandardMaterial.jpg" isMain={true} category="Node Material"/>
 
 Note that the only difference between the full material and the material without alpha support is that nothing is wire to the `fragmentOutput.a` input. If you don't need alpha support, you should use the "non alpha" node material as alpha-based materials have some constraints:
 
--   they don't write to the zbuffer and are only sorted among themselves, so some sorting rendering artifacts can arise
--   they need the `transparencyShadow` property to be `true` for shadow rendering
+- they don't write to the zbuffer and are only sorted among themselves, so some sorting rendering artifacts can arise
+- they need the `transparencyShadow` property to be `true` for shadow rendering
 
 Let's see how the material has been created and how to use it.
 
@@ -345,18 +344,18 @@ Let's see how the material has been created and how to use it.
 
 The material is divided into several frames, mirroring the main features of the standard material:
 
--   Instances
--   Morphs and bones
--   Ambient
--   Diffuse
--   Specular
--   Reflection
--   Emissive
--   Bump (normal map)
--   Opacity
--   Lightmap
--   Vertex color
--   Fog
+- Instances
+- Morphs and bones
+- Ambient
+- Diffuse
+- Specular
+- Reflection
+- Emissive
+- Bump (normal map)
+- Opacity
+- Lightmap
+- Vertex color
+- Fog
 
 In each of these frames, you generally find a boolean float node that enable/disable the feature, and possibly some other properties to fine-tune the feature. Most of these properties are **Constant** properties, meaning they won't consume a _uniform_ in the shaders and won't be visible in the Inspector / be updatable in javascript: you must change their value directly in the material (they correspond to the `#define` you can find in the standard material shader code).
 
@@ -366,11 +365,11 @@ Note that you won't find this enable/disable property in the **Instances**, **Mo
 
 There are a number of additional frames that help organizing the graph more cleanly:
 
--   Final normal. This frame takes the output from the **Bump** frame and builds the final world normal used in subsequent computations (**Reflection** and **Lights**). You can change the `TWOSIDEDLIGHTING` boolean if you want the lighting to be applied whatever the triangle side facing are.
--   Final diffuse computation. It is the frame responsible for computing the final diffuse component, taking into account the ambient, emissive and vertex color components. Here you can modify the `LINKEMISSIVEWITHDIFFUSE` and `EMISSIVEASILLUMINATION` booleans to change the way the diffuse value is computed.
--   Final color computation. Everything is brought together to compute the final rgb color: ambient (texture), specular, reflection and emissive.
--   Final alpha computation. After the opacity (alpha) is generated from the **Opacity** frame, a number of additional computation is performed to produce the final alpha value. You can step in this computation by mean of two booleans, `REFLECTIONOVERALPHA` and `SPECULAROVERALPHA`.
--   Premultiply alpha to color. This one does what its title says and is enabled by the `PREMULTIPLYALPHA` boolean.
+- Final normal. This frame takes the output from the **Bump** frame and builds the final world normal used in subsequent computations (**Reflection** and **Lights**). You can change the `TWOSIDEDLIGHTING` boolean if you want the lighting to be applied whatever the triangle side facing are.
+- Final diffuse computation. It is the frame responsible for computing the final diffuse component, taking into account the ambient, emissive and vertex color components. Here you can modify the `LINKEMISSIVEWITHDIFFUSE` and `EMISSIVEASILLUMINATION` booleans to change the way the diffuse value is computed.
+- Final color computation. Everything is brought together to compute the final rgb color: ambient (texture), specular, reflection and emissive.
+- Final alpha computation. After the opacity (alpha) is generated from the **Opacity** frame, a number of additional computation is performed to produce the final alpha value. You can step in this computation by mean of two booleans, `REFLECTIONOVERALPHA` and `SPECULAROVERALPHA`.
+- Premultiply alpha to color. This one does what its title says and is enabled by the `PREMULTIPLYALPHA` boolean.
 
 #### Construction notes
 
@@ -416,7 +415,7 @@ You can directly setup a Node Material from a file saved from the Node Material 
 
 Here is the code to use:
 
-```
+```javascript
 let nodeMaterial = await BABYLON.NodeMaterial.ParseFromFileAsync("Name For Your Shader", "URL To Your Saved Shader", scene);
 ```
 
@@ -434,9 +433,9 @@ Example: <nme id="#2F999G" title="Node Material Editor Unique URL Example" descr
 
 You can use the following code to load a saved node material from a unique URL:
 
-```
-BABYLON.NodeMaterial.ParseFromSnippetAsync("2F999G", scene).then(nodeMaterial => {
-    sphere.material = nodeMaterial;
+```javascript
+BABYLON.NodeMaterial.ParseFromSnippetAsync("2F999G", scene).then((nodeMaterial) => {
+  sphere.material = nodeMaterial;
 });
 ```
 
@@ -444,17 +443,17 @@ When using NME within the Playground, you have the opportunity to edit your mate
 
 And to begin with you can simply call this code to start a new Node Material from scratch:
 
-```
-BABYLON.NodeMaterial.ParseFromSnippetAsync("_BLANK", scene).then(nodeMaterial => {
-    sphere.material = nodeMaterial;
+```javascript
+BABYLON.NodeMaterial.ParseFromSnippetAsync("_BLANK", scene).then((nodeMaterial) => {
+  sphere.material = nodeMaterial;
 });
 ```
 
 Note:
 
--   There is a use case where you may want to load a node material, but ignore any embedded or linked textures stored in the json. This could be where you are going to supply new textures in code and you don't want to incur the cost of loading the old textures or if you are reusing a node material from an old project where only the textures need to be updated. To do this, place this static property in your code before creating or loading your node materials:
+- There is a use case where you may want to load a node material, but ignore any embedded or linked textures stored in the json. This could be where you are going to supply new textures in code and you don't want to incur the cost of loading the old textures or if you are reusing a node material from an old project where only the textures need to be updated. To do this, place this static property in your code before creating or loading your node materials:
 
-```
+```javascript
 BABYLON.NodeMaterial.IgnoreTexturesAtLoadTime = true;
 ```
 
@@ -464,7 +463,7 @@ And then from there you could have used the Inspector to edit it (The inspector 
 
 Here are some node material examples that you can use "as is" or extend with the NME:
 
--   <Playground id="#9B0DNU#36" title="Incredible NME Ocean Shader" description="Incredible NME Ocean Shader." isMain={true} category="Node Material"/>
--   <nme id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg" isMain={true} category="Materials"/>
--   <nme id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
--   <nme id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
+- <Playground id="#9B0DNU#36" title="Incredible NME Ocean Shader" description="Incredible NME Ocean Shader." isMain={true} category="Node Material"/>
+- <nme id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg" isMain={true} category="Materials"/>
+- <nme id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
+- <nme id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>

@@ -109,11 +109,11 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
     const props = await getPageData([], true);
     const remarkSlug = (await import("remark-slug")).default;
-    const remarkLint = (await import("remark-lint")).default;
+    const remarkGfm = (await import("remark-gfm")).default;
     props.mdxContent = await serialize(props.content, {
         // components: markdownComponents,
         mdxOptions: {
-            remarkPlugins: [remarkSlug, remarkLint],
+            remarkPlugins: [remarkSlug, remarkGfm],
         },
     });
     return {
