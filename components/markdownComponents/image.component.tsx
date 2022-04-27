@@ -110,10 +110,10 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                         h = +preH;
                                     }
                                 } 
-                                // else if (e.naturalWidth > imgTag.clientWidth) {
-                                //     h = (h * imgTag.clientWidth) / w;
-                                //     w = imgTag.clientWidth;
-                                // }
+                                else if (e.naturalWidth > containerRef.current.clientWidth) {
+                                    h = (h * containerRef.current.clientWidth) / w;
+                                    w = containerRef.current.clientWidth;
+                                }
                                 setContainerScale({ h, w });
                                 if (intrinsic.h === 0) {
                                     setIntrinsic({ h: e.naturalHeight, w: e.naturalWidth });
