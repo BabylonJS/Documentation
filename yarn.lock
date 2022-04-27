@@ -123,9 +123,9 @@
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
 
-"@mdx-js/react@^2.0.0":
+"@mdx-js/react@^2.0.0", "@mdx-js/react@^2.1.1":
   version "2.1.1"
-  resolved "https://registry.npmjs.org/@mdx-js/react/-/react-2.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-2.1.1.tgz#c59d844fd61b776fea8673fb77405d4e14db48c5"
   integrity sha512-7zlZDf5xmWH8I0kFE4DG91COOkxjaW9DX5f1HWztZpFcVua2gJgMYfIkFaDpO/DH/tWi6Mz+OheW4194r15igg==
   dependencies:
     "@types/mdx" "^2.0.0"
@@ -2942,6 +2942,15 @@ progress@^2.0.1, progress@^2.0.3:
 prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
+prop-types@^15.8.1:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
   dependencies:
     loose-envify "^1.4.0"

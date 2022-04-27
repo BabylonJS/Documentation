@@ -105,8 +105,7 @@ the asset would render the way he expected it to in the final experience.
 (The various previews available in Blender, his tool of choice, often
 rendered things differently than a
 [3D Commerce-certified](https://www.khronos.org/3dcommerce/) renderer would.)
-The best way he found to see how the model would _actually_ render was to
-export it to a GLB, then drag-and-drop that GLB \(along with his intended[IBL lighting](https://doc.babylonjs.com/guidedLearning/createAGame/extraFeatures#ibl-image-based-lighting)\)
+The best way he found to see how the model would _actually_ render was to export it to a GLB, then drag-and-drop that GLB \(along with his intended [IBL lighting](https://doc.babylonjs.com/guidedLearning/createAGame/extraFeatures#ibl-image-based-lighting)\)
 into Babylon's
 [3D Commerce-certified version of the Sandbox](https://3dcommerce.babylonjs.com/).
 Not only would this render the model in a standard way, but it would
