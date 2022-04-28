@@ -252,7 +252,7 @@ The playground ID is the 6-character id, and the version number if needed. For e
 The same applies to NME examples:
 
 ```html
-<nme id="nmeId" title="NME title" description="A short description" />
+<NME id="nmeId" title="NME title" description="A short description" />
 ```
 
 This can be either inline or in a new line and will automatically add the external and example link.

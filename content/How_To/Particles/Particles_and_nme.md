@@ -103,7 +103,7 @@ The NME can be used for materials, particles and postprocesses. We'll switch to 
 
 ![Particle mode in NME](/img/how_to/Particles/nme_particle.jpg)
 
-For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the the shader I ended up with: <nme id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.jpg"/>
+For this demo, I created a material where the particles are displayed with one texture when above ground (y = 0) and with another one below ground, with a smooth transition between the two. Here is the the shader I ended up with: <NME id="#345ATT#4" title="Node Material Particle Shader Example" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle2.jpg"/>
 
 ![Demo shader](/img/how_to/Particles/demo_shader.jpg)
 

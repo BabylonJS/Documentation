@@ -8,9 +8,6 @@ video-overview:
 video-content:
 ---
 
-
-<!-- [ ![](/img/resources/networking/colyseus/gameplay.png) ](https://playground.babylonjs.com/#RAG7FE) -->
-
 This guide you will show you how you can build a multiplayer experience with Colyseus Multiplayer Framework and Babylon.js.
 
 <iframe height="70%" width="70%" src="https://tutorial-babylonjs-server.glitch.me" />
@@ -24,8 +21,8 @@ This guide you will show you how you can build a multiplayer experience with Col
 
 ## Full source code
 
-* [Babylon.js Project (Client-side)][1]
-* [Colyseus Node.js/TypeScrippt Project (Server-side)](https://github.com/colyseus/tutorial-babylonjs-server/)
+- [Babylon.js Project (Client-side)][1]
+- [Colyseus Node.js/TypeScrippt Project (Server-side)](https://github.com/colyseus/tutorial-babylonjs-server/)
 
 ## Before you start
 
@@ -92,7 +89,7 @@ In a real-world scenario, please follow the [official Colyseus documentation](ht
 Now we can instantiate Colyseus `Client` instance and join a game from any script.
 
 ```typescript
-var createScene = function() {
+var createScene = function () {
   // (...)
 
   //
@@ -103,15 +100,17 @@ var createScene = function() {
   //
   // Connect with Colyseus server
   //
-  colyseusSDK.joinOrCreate("my_room").then(function(room) {
-    console.log("Connected to roomId: " + room.roomId);
-
-  }).catch(function(error) {
-    console.log("Couldn't connect.");
-  });
+  colyseusSDK
+    .joinOrCreate("my_room")
+    .then(function (room) {
+      console.log("Connected to roomId: " + room.roomId);
+    })
+    .catch(function (error) {
+      console.log("Couldn't connect.");
+    });
 
   // (...)
-}
+};
 ```
 
 > Note that we're using the local `ws://localhost:2567` endpoint here. You need to [deploy your server](https://docs.colyseus.io/arena/getting-started/create-application/) to the public internet in order to play with others online.
@@ -153,13 +152,13 @@ We need to handle multiple `Player` instances, and each `Player` will have `x`, 
 import { MapSchema, Schema, type } from "@colyseus/schema";
 
 export class Player extends Schema {
-    @type("number") x: number;
-    @type("number") y: number;
-    @type("number") z: number;
+  @type("number") x: number;
+  @type("number") y: number;
+  @type("number") z: number;
 }
 
 export class MyRoomState extends Schema {
-    @type({ map: Player }) players = new MapSchema<Player>();
+  @type({ map: Player }) players = new MapSchema<Player>();
 }
 ```
 
@@ -218,7 +217,7 @@ Let's create a Plane with size `500`.
 
 ```typescript
 // Create the ground
-var ground = BABYLON.MeshBuilder.CreatePlane("ground", {size: 500}, scene);
+var ground = BABYLON.MeshBuilder.CreatePlane("ground", { size: 500 }, scene);
 ground.position.y = -15;
 ground.rotation.x = Math.PI / 2;
 ```
@@ -237,8 +236,7 @@ We're going to listen to this event on the client-side now:
 // (...)
 
 // connect with the room
-colyseusSDK.joinOrCreate("my_room").then(function(room) {
-
+colyseusSDK.joinOrCreate("my_room").then(function (room) {
   // listen for new players
   room.state.players.onAdd((player, sessionId) => {
     //
@@ -262,14 +260,13 @@ For the visual representation, we need to clone the "Player" object, and keep a 
 // by their `sessionId`
 var playerEntities = {};
 
-colyseusSDK.joinOrCreate("my_room").then(function(room) {
-
+colyseusSDK.joinOrCreate("my_room").then(function (room) {
   // listen for new players
   room.state.players.onAdd(function (player, sessionId) {
     // create player Sphere
     var sphere = BABYLON.MeshBuilder.CreateSphere(`player-${sessionId}`, {
-        segments: 8,
-        diameter: 40
+      segments: 8,
+      diameter: 40,
     });
 
     // set player spawning position
@@ -290,7 +287,7 @@ We can give the current player, color `#ff9900` and other players `grey`, by che
 // (...)
 
 room.state.players.onAdd((player, sessionId) => {
-  var isCurrentPlayer = (sessionId === room.sessionId);
+  var isCurrentPlayer = sessionId === room.sessionId;
 
   // (...)
 
@@ -300,7 +297,6 @@ room.state.players.onAdd((player, sessionId) => {
   if (isCurrentPlayer) {
     // highlight current player
     sphere.material.emissiveColor = BABYLON.Color3.FromHexString("#ff9900");
-
   } else {
     // other players are gray colored
     sphere.material.emissiveColor = BABYLON.Color3.Gray();
@@ -319,8 +315,8 @@ When a player is removed from the state (upon `onLeave()` in the server-side), w
 ```javascript
 // ...
 room.state.players.onRemove(function (player, sessionId) {
-    playerEntities[sessionId].dispose();
-    delete playerEntities[sessionId];
+  playerEntities[sessionId].dispose();
+  delete playerEntities[sessionId];
 });
 // ...
 ```
@@ -341,10 +337,10 @@ scene.onPointerDown = function (event, pointer) {
     // Position adjustments for the current play ground.
     // Prevent spheres from moving all around the screen other than on the ground mesh.
     targetPosition.y = -1;
-    if(targetPosition.x > 245) targetPosition.x = 245;
-    else if(targetPosition.x < -245) targetPosition.x = -245;
-    if(targetPosition.z > 245) targetPosition.z = 245;
-    else if(targetPosition.z < -245) targetPosition.z = -245;
+    if (targetPosition.x > 245) targetPosition.x = 245;
+    else if (targetPosition.x < -245) targetPosition.x = -245;
+    if (targetPosition.z > 245) targetPosition.z = 245;
+    else if (targetPosition.z < -245) targetPosition.z = -245;
 
     // Send position update to the server
     room.send("updatePosition", {
@@ -389,15 +385,15 @@ We are going to use `.onChange()` since we need all the new coordinates at once,
 // (...)
 
 room.state.players.onAdd(function (player, sessionId) {
-    // (...)
-    player.onChange(function () {
-        playerEntities[sessionId].position.set(player.x, player.y, player.z);
-    });
+  // (...)
+  player.onChange(function () {
+    playerEntities[sessionId].position.set(player.x, player.y, player.z);
+  });
 
-    // Alternative, listening to individual properties:
-    // player.listen("x", (newX, prevX) => console.log(newX, prevX));
-    // player.listen("y", (newY, prevY) => console.log(newY, prevY));
-    // player.listen("z", (newZ, prevZ) => console.log(newZ, prevZ));
+  // Alternative, listening to individual properties:
+  // player.listen("x", (newX, prevX) => console.log(newX, prevX));
+  // player.listen("y", (newY, prevY) => console.log(newY, prevY));
+  // player.listen("z", (newZ, prevZ) => console.log(newZ, prevZ));
 });
 
 // (...)
@@ -418,12 +414,12 @@ Instead of updating the player position directly (as in [previous section](#upda
 var playerNextPosition = {};
 
 room.state.players.onAdd(function (player, sessionId) {
-    // (...)
-    playerNextPosition[sessionId] = sphere.position.clone();
+  // (...)
+  playerNextPosition[sessionId] = sphere.position.clone();
 
-    player.onChange(function () {
-        playerNextPosition[sessionId].set(player.x, player.y, player.z);
-    });
+  player.onChange(function () {
+    playerNextPosition[sessionId].set(player.x, player.y, player.z);
+  });
 });
 // (...)
 ```
@@ -432,11 +428,11 @@ And finally, the Render Loop:
 
 ```typescript
 scene.registerBeforeRender(() => {
-    for (let sessionId in playerEntities) {
-        var entity = playerEntities[sessionId];
-        var targetPosition = playerNextPosition[sessionId];
-        entity.position = BABYLON.Vector3.Lerp(entity.position, targetPosition, 0.05);
-    }
+  for (let sessionId in playerEntities) {
+    var entity = playerEntities[sessionId];
+    var targetPosition = playerNextPosition[sessionId];
+    entity.position = BABYLON.Vector3.Lerp(entity.position, targetPosition, 0.05);
+  }
 });
 ```
 
@@ -454,10 +450,8 @@ You can see and interact with all spawned rooms and active client connections th
 
 > See [more information about the monitor panel](https://docs.colyseus.io/colyseus/tools/monitor/).
 
-
 ## More
 
 We hope you found this tutorial useful, if you'd like to learn more about Colyseus please have a look at the [Colyseus documentation](https://docs.colyseus.io/), and join the [Colyseus Discord community](https://discord.gg/RY8rRS7).
-
 
 [1]: https://github.com/colyseus/tutorial-babylonjs-client/

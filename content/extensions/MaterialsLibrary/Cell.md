@@ -12,7 +12,7 @@ video-content:
 
 # Using the cell material
 
-Cell material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.cellMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.cellMaterial.js)
+Cell material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.cellMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.cellMaterial.js)
 
 A demo can be found here: PG: <Playground id="#36VUUE" title="Cell Material" description="Example of cell material"/>
 
