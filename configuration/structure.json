@@ -2,6 +2,14 @@
     "friendlyName": "Home Page",
     "content": "landing_pages/home",
     "children": {
+        "journey": {
+            "friendlyName": "Your Journey Starts Here",
+            "children": {
+                "theFirstStep": { "friendlyName": "The VERY First Step", "children": {}, "content": "journeyStart/the_first_step"},
+                "learningTheDocs": { "friendlyName": "Learning The Docs", "children": {}, "content": "journeyStart/learningTheDocs"}
+            },
+            "content": "journeyStart/journeyStart"
+        },
         "start": {
             "friendlyName": "Getting Started",
             "children": {
