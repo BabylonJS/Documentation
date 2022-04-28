@@ -35,6 +35,6 @@ nodeMaterial.createEffectForParticles(particleSystem);
 
 PG: <Playground id="#J9J6CG#1" title="NME Particle Shaders Example" description="Playground example of using the Node Material Editor to create Particle Shaders." image="/img/playgroundsAndNMEs/PGNMEParticleShader.jpg" isMain={true} category="Node Material"/>
 
-The full fragment shader used by default by the particle system can be recreated in the NME: <nme id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/>
+The full fragment shader used by default by the particle system can be recreated in the NME: <NME id="#X3PJMQ#1" title="NME Full Default Fragment Shader" description="Node Material Editor setup of the default fragment shader for particle systems." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShader.jpg"/>
 
-As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: <nme id="#X3PJMQ#2" title="NME Full Default Fragment Shader GPU Version" description="Node Material Editor setup of the default fragment shader for particle systems on the GPU." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShaderGPU.jpg"/>
+As explained above, if you want to use this material for GPU particle systems, you should remove the use of the `ParticleTextureMask` block: <NME id="#X3PJMQ#2" title="NME Full Default Fragment Shader GPU Version" description="Node Material Editor setup of the default fragment shader for particle systems on the GPU." image="/img/playgroundsAndNMEs/NMEdefaultParticleFragmentShaderGPU.jpg"/>

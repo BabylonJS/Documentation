@@ -129,9 +129,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     const editOnGitHub = () => {
         window.open(gitHubUrl, "_blank");
     };
-
-    const components = markdownComponents;
-    const renderedContent = <MDXRemote {...mdxContent} components={components} />;
+    const renderedContent = <MDXRemote {...mdxContent} components={markdownComponents} />;
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
@@ -192,7 +190,6 @@ export interface IDocumentationParsedUrlQuery extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
     const props = await getPageData(params.id, true);
     const remarkSlug = (await import("remark-slug")).default;
-    const remarkLint = (await import("remark-lint")).default;
     const remarkGfm = (await import("remark-gfm")).default;
     props.mdxContent = await serialize(props.content, {
         mdxOptions: {
