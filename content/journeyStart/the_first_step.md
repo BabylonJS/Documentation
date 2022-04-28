@@ -30,7 +30,9 @@ Why is saveable & shareable important for learning? Through your Babylon journey
 
 And when it comes time to help you learn or solve a problem, we need to SEE and UNDERSTAND the context behind the problem. Sharing your saved playgrounds is the PERFECT solution and is mandatory on the forum. When you're stuck, save your playground, head to the forum, reach out for help, and share the playground. We think you'll be pleasantly surprised at how quickly you'll get help by following this process. 
 
-So now that you know the playground is the single most important tool to start learning, let's open it up in a new tab. [Babylon.js Playground](https://playground.babylonjs.com/).
+So now that you know the playground is the single most important tool to start learning, let's open it up in a new tab. 
+
+[Babylon.js Playground](https://playground.babylonjs.com/)
 
 ### Your First Creation
 
@@ -54,7 +56,7 @@ Go ahead and highlight those lines of code and hit DELETE! You've just made your
 
 BOOM! The sphere is gone!
 
-<Playground id="#V9XCR2" title="Playground 1" description="Goodbye Sphere!"/>
+<Playground id="#2KRNG9" title="Playground 1" description="Goodbye Sphere!"/>
 
 Quick side note - Throughout this document we'll add links to playgrounds showing you exactly what changes were just made. You can reference these playgrounds with your own progress if you ever get stuck. The little arrow symbol will open these playgrounds in a new tab.
 
@@ -70,7 +72,7 @@ ground.material.diffuseColor = BABYLON.Color3.Red();
 
 Run the scene again (ALT+ENTER, or run button)
 
-<Playground id="#V9XCR2#1" title="Playground 2" description="The ground is red!"/>
+<Playground id="#2KRNG9#1" title="Playground 2" description="The ground is red!"/>
 
 Congratulations! You just created a new material, assigned that new material to the ground plane, and assigned it's diffuse channel to be the color red! Pretty cool huh?! Don't worry if some of that is still a bit confusing, the takeaway here is that you're making code changes on the left and seeing updates on the right.
 
@@ -83,13 +85,15 @@ ground.material.diffuseColor = BABYLON.Color3.Red();
 
 Replace it with these two lines and run the scene again:
 ```
-let groundTexture = new BABYLON.Texture("textures/checkerboard.jpg", scene);
+let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
 ground.material.diffuseTexture = groundTexture;
 ```
 
-<Playground id="#V9XCR2#2" title="Playground 3" description="The ground is checkered!"/>
+<Playground id="#2KRNG9#2" title="Playground 3" description="The ground is checkered!"/>
 
-Pretty cool! You've now created your first Babylon.js texture and assigned it to the texture property of your ground material! Ok it's time for another addition to the scene. After all of your ground-related code, give yourself a little space by hitting enter and on a new line press CTRL+SPACE. This will spawn a list of playground templates. These templates are handy pieces of code that you will likely reuse over and over again through your Babylon learning journey. Go ahead and select the template that says "Import a Mesh w/Callback".
+Pretty cool! You've now created your first Babylon.js texture and assigned it to the texture property of your ground material! 
+
+Ok it's time for another addition to the scene. After all of your ground-related code, give yourself a little space by hitting enter and on a new line press CTRL+SPACE. This will spawn a list of playground templates. These templates are handy pieces of code that you will likely reuse over and over again through your Babylon learning journey. Go ahead and select the template that says "Import a Mesh w/Callback".
 
 ![templates](/img/home/playgroundTemplates.jpg)
 
@@ -119,9 +123,9 @@ newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
 ```
 - 5) Run the scene
 
-<Playground id="#V9XCR2#3" title="Playground 4" description="Yeti on the dance floor!"/>
+<Playground id="#2KRNG9#3" title="Playground 4" description="Yeti on the dance floor!"/>
 
-Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the groundplane! Well done! That was quite a bit more you did on your own. 
+Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the groundplane! Well done! 
 
 Let's change one final thing. We want our scene to be interactive, after all isn't that what why you're here - to create interactive web experiences?
 
@@ -131,7 +135,7 @@ Press CTRL+SPACE to bring up the playground templates and create an Arc Rotate C
 
 Run the scene and click+drag or touch+drag on the Babylon scene.
 
-<Playground id="#V9XCR2#4" title="Playground 5" description="Move that camera!"/>
+<Playground id="#2KRNG9#4" title="Playground 5" description="Move that camera!"/>
 
 WooHoo! You've added interaction to the scene! Great job! Go ahead and save your playground by pressing CTRL+S or hitting the save button.
 

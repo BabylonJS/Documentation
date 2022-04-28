@@ -14,4 +14,4 @@ Hello and welcome to the Babylon.js Documentation. In these pages you will find 
 
 Before you go any further, we strongly encourage EVERYONE to [Start Your Babylon.js Journey Here.](journey/theFirstStep)
 
-![Ahoy](/img/home/pirateGif.gif)
+![Babylon](/img/home/babylonjs_identity_color.png)
