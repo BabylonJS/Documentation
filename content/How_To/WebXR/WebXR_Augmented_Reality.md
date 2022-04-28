@@ -4,6 +4,8 @@ image:
 description: Learn about WebXR augmented reality features in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR, AR features
 further-reading:
+    - title: Blog article about light estimation
+      url: https://babylonjs.medium.com/light-estimation-in-babylon-js-285cab428dbb
 video-overview:
 video-content:
 ---
@@ -436,9 +438,115 @@ xr.baseExperience.onStateChangedObservable.add((webXRState) => {
 
 Once you have entered AR you can check the feature for the DOM overlay type; `domOverlayType` will be non-null if the feature is supported in the browser.
 
-The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/blob/master/src/XR/features/WebXRDOMOverlay.ts#L10).
+The latest options can be found in the [WebXR DOM overlay feature's source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRDOMOverlay.ts#L10).
+
+### WebXR Light estimation
+
+When enabling the light estimation feature, WebXR will start analyzing the scene and will provide the developer with light estimation data that can be used to make the scene look more realistic.
+
+For example, when placing an element on the floor, it could provide the light direction for more realistic shadows, and the environment map for more realistic reflections.
+
+The idea is that the underlying system provides us with a lot of details that allow us to “match” the object we are placing with the real world. Light estimation can provide us:
+
+* Light color (and intensity)
+* Light direction
+* Reflection cubemap (environment)
+* Spherical harmonics coefficients
+* Happiness
+
+The data is only provided per frame if requested by the developer. This allows adjusting performance on older/slower devices. When enabling light estimation you can provide the following options:
+
+```javascript
+export interface IWebXRLightEstimationOptions {
+    /**
+     * Disable the cube map reflection feature. In this case only light direction and color will be updated
+     */
+    disableCubeMapReflection?: boolean;
+    /**
+     * Should the scene's env texture be set to the cube map reflection texture
+     * Note that this doesn't work is disableCubeMapReflection if set to false
+     */
+    setSceneEnvironmentTexture?: boolean;
+    /**
+     * How often should the cubemap update in ms.
+     * If not set the cubemap will be updated every time the underlying system updates the environment texture.
+     */
+    cubeMapPollInterval?: number;
+    /**
+     * How often should the light estimation properties update in ms.
+     * If not set the light estimation properties will be updated on every frame (depending on the underlying system)
+     */
+    lightEstimationPollInterval?: number;
+    /**
+     * Should a directional light source be created.
+     * If created, this light source will be updated whenever the light estimation values change
+     */
+    createDirectionalLightSource?: boolean;
+    /**
+     * Define the format to be used for the light estimation texture.
+     */
+    reflectionFormat?: XRReflectionFormat;
+    /**
+     * Should the light estimation's needed vectors be constructed on each frame.
+     * Use this when you use those vectors and don't want their values to change outside of the light estimation feature
+     */
+    disableVectorReuse?: boolean;
+
+    /**
+     * disable applying the spherical polynomial to the cube map texture
+     */
+    disableSphericalPolynomial?: boolean;
+}
+```
+
+Note that all of the following demos are meant to work incorrectly while not in AR mode!
+
+This demo shows how to use the light estimation feature to create a directional light source including shadows and environment map:
+
+<Playground id="#NAZYHG#5" title="Light estimation - full demo" description="Light estimation with a light source, shadows, and environment map enabled"/>
+
+#### Enabling a light source
+
+To enable the feature with one or more of these options, use (for example):
+
+```javascript
+const lightEstimationFeature = featuresManager.enableFeature(BABYLON.WebXRFeatureName.LIGHT_ESTIMATION, "latest", {
+  createDirectionalLightSource: true,
+});
+```
+
+This will create a directional light source that will be updated constantly.
+
+<Playground id="#NAZYHG#1" title="Light estimation - light source" description="Light estimation with a light source enabled"/>
+
+#### Enabling shadows
+
+Since a light source is created for you, you can enable a shadow generator using this light. To do that use the following code after enabling the feature:
+
+```javascript
+const le = defaultXRExperience.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.LIGHT_ESTIMATION, 'latest', {
+    createDirectionalLightSource: true,
+});
+const shadowGenerator = new BABYLON.ShadowGenerator(512, le.directionalLight)
+shadowGenerator.useBlurExponentialShadowMap = true;
+shadowGenerator.setDarkness(0.1);
+shadowGenerator.getShadowMap().renderList.push(meshesToAdd);
+```
+
+#### Adjusting performance
+
+Light estimation can be a heavy task to perform on older/slower devices. You can provide an interval in which the data will be polled to improve your scene's performance:
+
+```javascript
+const lightEstimationFeature = featuresManager.enableFeature(BABYLON.WebXRFeatureName.LIGHT_ESTIMATION, "latest", {
+  lightEstimationPollInterval: 1000,
+  cubeMapPollInterval: 1000,
+});
+```
+
+This will update both the light data itself and the environment cube map every second (instead of every time notifies us that the data has changed).
 
 ## Demos
 
-<Playground id="#GG06BQ#3" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+<Playground id="#GG06BQ#97" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 <Playground id="#KDWCZY" title="Placing A Mesh In Space" description="Simple example of placing a mesh in space." image="/img/playgroundsAndNMEs/vrglasses.png"/>

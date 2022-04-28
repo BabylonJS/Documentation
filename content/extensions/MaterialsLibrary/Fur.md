@@ -10,7 +10,7 @@ video-content:
 
 ![Fur material high](/img/extensions/materials/furHigh.png)
 
-Fur material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.furMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.furMaterial.js)
+Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js)
 
 ## Using the High Level mode
 

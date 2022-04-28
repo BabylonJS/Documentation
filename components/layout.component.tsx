@@ -326,7 +326,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             }}
                         >
                             <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle} className={classes.drawerContainer}>
-                                <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
+                                <Link href="/">
+                                    <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
+                                </Link>
                                 {MenuStructure}
                             </div>
                         </Drawer>
@@ -341,6 +343,6 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
             </div>
         </div>
     );
-}
+};
 
 export default Layout;

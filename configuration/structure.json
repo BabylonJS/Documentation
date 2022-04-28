@@ -146,6 +146,11 @@
                     },
                     "content": "landing_pages/divingDeeperCamerasLandingPage"
                 },
+                "3D_commerce_certif": {
+                    "friendlyName": "3D Commerce Certification",
+                    "children": {},
+                    "content": "How_To/3D_commerce_certif/3D_commerce_certif"
+                },
                 "controls": {
                     "friendlyName": "2D Controls",
                     "children": {
@@ -857,6 +862,42 @@
                             "friendlyName": "Playground to Production: Fruit Fallin'",
                             "children": {},
                             "content": "dev_stories/playground_to_production_fruit_falling"
+                        },
+                        "vaporwearViewer": {
+                            "friendlyName": "3D for E-Commerce: Viewer in WordPress",
+                            "children": {},
+                            "content": "dev_stories/ecommerce_vaporwear_viewer"
+                        },
+                        "showroomCamera": {
+                            "friendlyName": "Babylon Utilities: Showroom Camera",
+                            "children": {},
+                            "content": "dev_stories/utilities_showroom_camera"
+                        },
+                        "vaporwearConfigurator": {
+                            "friendlyName": "3D for E-Commerce: Custom Experience",
+                            "children": {
+                                "art": {
+                                    "friendlyName": "Chapter 1: Art",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_1_art"
+                                },
+                                "3d": {
+                                    "friendlyName": "Chapter 2: 3D",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_2_3d"
+                                },
+                                "frontend": {
+                                    "friendlyName": "Chapter 3: Frontend",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_3_frontend"
+                                },
+                                "wordpress": {
+                                    "friendlyName": "Bonus Chapter: WordPress",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_4_wordpress"
+                                }
+                            },
+                            "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
                     },
                     "content": "landing_pages/dev_stories_landing_page"
@@ -900,6 +941,17 @@
                         }
                     },
                     "content": "landing_pages/video_landing_page"
+                },
+                "multiplayer": {
+                    "friendlyName": "Networking",
+                    "children": {
+                        "Colyseus": {
+                            "friendlyName": "Real-time Multiplayer with Colyseus",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus"
+                        }
+                    },
+                    "content": "landing_pages/networking_landing_page"
                 },
                 "workshop": {
                     "friendlyName": "Workshop",
@@ -1059,17 +1111,21 @@
                         "assets": {
                             "friendlyName": "Assets",
                             "children": {
+                                "introduction": { "friendlyName": "Introduction", "children": {}, "content": "resources/Editor/Assets/Assets_Introduction" },
+                                "addingFiles": { "friendlyName": "Adding Files", "children": {}, "content": "resources/Editor/Assets/Adding_Files" },
                                 "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
                                 "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
-                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
-                                "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" }
                             },
                             "content": "landing_pages/extensionsEditorAssetsLandingPage"
                         },
                         "scripting": {
                             "friendlyName": "Scripting",
                             "children": {
-                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" },
+                                "exposingProperties": { "friendlyName": "Exposing Properties", "children": {}, "content": "resources/Editor/Scripting/Exposing_Properties" },
+                                "gettingComponents": { "friendlyName": "Getting Components", "children": {}, "content": "resources/Editor/Scripting/Getting_Components" },
+                                "listeningEvents": { "friendlyName": "Listening Events", "children": {}, "content": "resources/Editor/Scripting/Listening_Events" }
                             },
                             "content": "landing_pages/extensionsEditorPhysicsLandingPage"
                         },

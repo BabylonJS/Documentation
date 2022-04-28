@@ -8,51 +8,52 @@ video-overview:
 video-content:
 ---
 
-## Adding a new material
-Using the `Assets` panel of the Editor, there are multiple tabs available. In these tabs, the `Materials` tab will allow to manage materials of the scene:
-* Add a standard material (`StandardMaterial` of Babylon.JS)
-* Add a PBR material (`PBRMaterial` of Babylon.JS)
-* Add a node material (`NodeMaterial` of Babylon.JS)
-* Add a node material from a preset (`NodeMaterial` of Babylon.JS)
-* Load an existing preset (previously saved)
 
-To add a new material, simply click the button `Add` in the toolbar of the assets panel and select the type of material to create and give it a name. Then, press enter to validate the name.
+## Introduction
 
-For example a standard material:
-![AddingStandard](/img/extensions/Editor/AddingMaterials/addingstandard.gif)
+Materials are considered to be assets and are available in the `Assets Browser` panel once they are created.
 
-## Examining a material
-As for meshes, the assets can be `double clicked`. A new window will open with the Babylon.JS Inspector focus by default on the material.
+To create a material, use the assets browser panel toolbar `Add -> Materials -> ...`.
 
-![Examining](/img/extensions/Editor/AddingMaterials/examining.gif)
+Common materials `Standard`, `PBR`and `Node` are supported as well as most of the available materials from
+the [Materials Library](https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary).
+Once a material has been added to the assets, its preview (thumbnail) is created automatically.
 
-## Editing a material
-To edit a material, just `click` the asset and the inspector of the Editor will be updated with the material's properties. Just edit the properties and changes will occur on all meshes that have the material assigned in the scene, including the preview of the material in the assets panel:
+![CreatingMaterial](/img/extensions/Editor/AddingMaterials/creating-material.gif)
 
-For example, editing the diffuse color:
-![Editing](/img/extensions/Editor/AddingMaterials/editing.gif)
+## Assigning A Material
 
-## Assigning the material to a mesh
-To assign a material to a mesh, simply drag'n'drop the asset on a mesh in the scene. Once assigned, the inspector of the Editor will now show a tab named "Material" when we select the mesh that has the material assigned. The material can now be edited event if the selected object is the mesh itself.
+To assign a material to a mesh, simply drag'n'drop the material asset from the assets browser on the mesh in
+the preview panel or in the inspector.
 
-**note: When editing a material, the result will be rendered in realtime in the preview but will be deferred in the assets panel.**
+Once a material asset has been dropped, if the material hasn't been previously instantiated the editor will
+create its instance automatically. If the material has been already instantiated, the existing reference is used
+to be assigned on the mesh.
 
-![Assigning](/img/extensions/Editor/AddingMaterials/assigning.gif)
+Example drag'n'dropping a material asset on a mesh in the `Preview Panel`:
 
-## Adding a node material from a snippet id
-Since the `NodeMaterial` material of Babylon.JS exists, artists and developers can share their creations using the Node Material Editor: [https://nme.babylonjs.com](https://nme.babylonjs.com/). To share their creations they can save the node materials they created on a server and share directly the link that contains the Id of the snippet. For example: [https://nme.babylonjs.com/#I4DJ9Z](https://nme.babylonjs.com/#I4DJ9Z).
+![DropInPreview](/img/extensions/Editor/AddingMaterials/drop-in-preview.gif)
 
-In the Editor, we can load these snippets directly by providing the Id of the snippet to add. It'll then load the material's configuration and copy it locally:
+Example selecting a mesh in the graph or the scene and drag'n'dropping a material asset in
+the inspector's field `Material`:
 
-![Snippet](/img/extensions/Editor/AddingMaterials/snippet.gif)
+![DropInInspector](/img/extensions/Editor/AddingMaterials/drop-in-inspector.gif)
 
-## Saving a material preset
-To save a material preset (material that will be typically reused in multiple projects), just `right click` the material in the assets panel and select `Save Material Preset...`.
+## Editing A Material
 
-A preset is a ZIP file that contains the material's properties and its textures files. Once saved, we'll be able to add this configured material in another project:
+To edit a material, simply click on the material in the `Assets Browser` panel or `Assets` panel.
+Once clicked, the inspector is updated to show the editable properties of the material.
 
-### Saving preset
-![SavingPreset](/img/extensions/Editor/AddingMaterials/savingpreset.gif)
+If the material has not been instantiated, assign the material first on a mesh. Else, the inspector will not be instantiated because the instance of the material can't be found.
 
-### Loading from a preset
-![LoadingPreset](/img/extensions/Editor/AddingMaterials/loadingpreset.gif)
+![EditingMaterial](/img/extensions/Editor/AddingMaterials/editing-material.gif)
+
+## Refreshing Thumbnail
+
+To save performances in Editor, materials thumbnails are not permanently updated. In case, for example, one or
+multipe texture asset have been changed, the thumbnail will not be necessary updated.
+
+To update the thumbnail of materials, simply select the materials in the assets browser, `right-click` them
+and select `Refresh Preview`.
+
+![RefreshingThumbnails](/img/extensions/Editor/AddingMaterials/refreshing-thumbnails.gif)

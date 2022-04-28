@@ -96,7 +96,7 @@ We have to specify, what messages are we going to send throught our bus, so we h
 
 There are two types of messages, just for better readibility, you can put them under one enum if you like so. `SceneDirectorEventBusMessages`, these are sent by Vue towards BabylonJS and obviosly the second one is moving from BabylonJS towards Vue.
 
-It is a good idea not to create a message type for every single action, for example you are not going to create a message `LookLeft` and a `LookRight`, but you will create a message `LookAt` and call it with a parameter, however in your `SceneDirector` you can have two separate methods, so Vue just calls `LookLeft` or `LookRight` and the `SceneDirector` send a message `LookAt` with a parameter { rot: - Math.PI / 2 } or { rot: Math.PI / 2 } which will set the cameras `alpha` for example.
+It is a good idea not to create a message type for every single action, for example you are not going to create a message `LookLeft` and a `LookRight`, but you will create a message `LookAt` and call it with a parameter, however in your `SceneDirector` you can have two separate methods, so Vue just calls `LookLeft` or `LookRight` and the `SceneDirector` send a message `LookAt` with a parameter \{ rot: - Math.PI / 2 \} or \{ rot: Math.PI / 2 \} which will set the cameras `alpha` for example.
 
 ## BabylonJS scene
 

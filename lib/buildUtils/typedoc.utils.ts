@@ -25,7 +25,7 @@ export const generateTypeDoc = async () => {
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
-        const response = await fetch("https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/preview%20release/documentation.d.ts");
+        const response = await fetch("https://preview.babylonjs.com/documentation.d.ts");
         const text = await response.text();
         try {
             mkdirSync(basePathResolved, { recursive: true });

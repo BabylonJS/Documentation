@@ -1,6 +1,6 @@
 ---
 title: Developing Build a House from Plans
-image: 
+image:
 description: Starting with a polygon as the footprint of a house develop the functions to build the house with doors and windows
 keywords: house, build, plans, design
 further-reading:
@@ -39,31 +39,31 @@ The top of wall is formed by adding the **height** of the walls to the base corn
 
 The table of positions for the vertexData buffer looks like this
 
-| corner           | position                                                    |
-| ---------------- | ----------------------------------------------------------- |
-| 0                | x<sub>0</sub>, 0, z<sub>0</sub>                             | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
-| 1                | x<sub>1</sub>, 0, z<sub>1</sub>                             | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| 2                | x<sub>2</sub>, 0, z<sub>1</sub>                             | **inner base** |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| nbWalls - 1      | x<sub>nbWalls - 1</sub>, 0, z<sub>nbWalls - 1</sub>         | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
-| nbWalls          | x<sub>nbWalls</sub>, 0, z<sub>nbWalls</sub>                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
-| nbWalls + 1      | x<sub>nbWalls + 1</sub>, 0, z<sub>nbWalls + 1</sub>         | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| nbWalls + 2      | x<sub>nbWalls + 2</sub>, 0, z<sub>nbWalls + 2</sub>         | **outer base** |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| corner           | position                                                      |
+| ---------------- | ------------------------------------------------------------- | -------------------------------- |
+| 0                | x<sub>0</sub>, 0, z<sub>0</sub>                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
+| 1                | x<sub>1</sub>, 0, z<sub>1</sub>                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| 2                | x<sub>2</sub>, 0, z<sub>1</sub>                               | **inner base**                   |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| nbWalls - 1      | x<sub>nbWalls - 1</sub>, 0, z<sub>nbWalls - 1</sub>           | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
+| nbWalls          | x<sub>nbWalls</sub>, 0, z<sub>nbWalls</sub>                   | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
+| nbWalls + 1      | x<sub>nbWalls + 1</sub>, 0, z<sub>nbWalls + 1</sub>           | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| nbWalls + 2      | x<sub>nbWalls + 2</sub>, 0, z<sub>nbWalls + 2</sub>           | **outer base**                   |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
 | 2 \* nbWalls - 1 | x<sub>2 \_ nbWalls - 1</sub>, 0, z<sub>2 \_ nbWalls - 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
 | 2 \* nbWalls     | x<sub>2 \_ nbWalls</sub>, 0, z<sub>2 \_ nbWalls</sub>         | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
 | 2 \* nbWalls + 1 | x<sub>2 \_ nbWalls + 1</sub>, 0, z<sub>2 \_ nbWalls + 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| 2 \* nbWalls + 2 | x<sub>2 \_ nbWalls + 2</sub>, 0, z<sub>2 \_ nbWalls + 2</sub> | **inner top** |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| 2 \* nbWalls + 2 | x<sub>2 \_ nbWalls + 2</sub>, 0, z<sub>2 \_ nbWalls + 2</sub> | **inner top**                    |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
 | 3 \* nbWalls - 1 | x<sub>3 \_ nbWalls - 1</sub>, 0, z<sub>3 \_ nbWalls - 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
 | 3 \* nbWalls     | x<sub>3 \_ nbWalls</sub>, 0, z<sub>3 \_ nbWalls</sub>         | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
 | 3 \* nbWalls + 1 | x<sub>3 \_ nbWalls + 1</sub>, 0, z<sub>3 \_ nbWalls + 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| 3 \* nbWalls + 2 | x<sub>3 \_ nbWalls + 2</sub>, 0, z<sub>3 \_ nbWalls + 2</sub> | **outer top** |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
-| ..               | ..., ..., ...                                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| 3 \* nbWalls + 2 | x<sub>3 \_ nbWalls + 2</sub>, 0, z<sub>3 \_ nbWalls + 2</sub> | **outer top**                    |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
+| ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
 | 4 \* nbWalls - 1 | x<sub>4 \_ nbWalls - 1</sub>, 0, z<sub>4 \_ nbWalls - 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
 
 To form the mesh, the base, top, inner wall and outer wall have to be split into triangular facets by grouping sets of three corners for each and pushing these into the indices array. To form the normals in the correct direction the order of corners is important. For the base and the inner wall this is clockwise and for the top and outer wall this is counter clockwise.
@@ -207,9 +207,11 @@ _scene_ : the scene
 
 Examples
 
-buildFromPlan(walls, 0.3, 2, {}, scene)  
-buildFromPlan(walls, 1, 10, {interiorColor: new BABYLON.Color4(1, 0, 0, 1), exteriorColor: new BABYLON.Color4(0, 0.5, 1, 1)}, scene)  
-buildFromPlan(walls, 0.87, 6.210, {interiorUV: new BABYLON.Vector4(0, 0, 0.5, 1), exteriorUV: new BABYLON.Color4(0.5, 1, 1, 1)}, scene)
+```javascript
+buildFromPlan(walls, 0.3, 2, {}, scene);
+buildFromPlan(walls, 1, 10, { interiorColor: new BABYLON.Color4(1, 0, 0, 1), exteriorColor: new BABYLON.Color4(0, 0.5, 1, 1) }, scene);
+buildFromPlan(walls, 0.87, 6.21, { interiorUV: new BABYLON.Vector4(0, 0, 0.5, 1), exteriorUV: new BABYLON.Color4(0.5, 1, 1, 1) }, scene);
+```
 
 Each wall object has one two or three parameters
 

@@ -114,7 +114,7 @@ Next, the `minimal`configuration will be loaded and appended to the existing con
 
 Notice that thou the minimal configuration define antialiasing to be `true`, the configuration provided by the user will be used. It is only extending and not overwriting.
 
-Next, the configuration object will be inspected. If it contains a configuration URL, it will be loaded. In our case, the (non-existing) <http://example.com/viewerConfig.json> will be downloaded and appended to the configuration already provided. Notice that this configuration object will overwrite definitions in the current configuration object. So if the JSON file looks like this:
+Next, the configuration object will be inspected. If it contains a configuration URL, it will be loaded. In our case, the (non-existing) [http://example.com/viewerConfig.json](http://example.com/viewerConfig.json) will be downloaded and appended to the configuration already provided. Notice that this configuration object will overwrite definitions in the current configuration object. So if the JSON file looks like this:
 
 ```json
 {

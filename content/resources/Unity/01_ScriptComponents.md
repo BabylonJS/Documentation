@@ -1,6 +1,6 @@
 ---
 title: Script Components
-image: 
+image:
 description: The Unity Toolkit allows you to script your own components, allowing you to trigger game events, modify component properties over time and respond to user input in any way you like.
 keywords: babylon.js, export, unity, script, component, script component, extension
 further-reading:
@@ -10,37 +10,35 @@ video-content:
 
 Game object behavior is controlled by the components that are attached to them. Although the toolkit's built-in components can be very versatile, you will soon find you need to go beyond what they can provide to implement your own gameplay features. The toolkit allows you to create your own components using scripts. These allow you to trigger game events, modify component properties over time and respond to user input in any way you like. The toolkit requires two programming languages natively:
 
-* **TypeScript**, a language designed specifically for strong typed JavaScript development. Required for babylon toolkit development;
+- **TypeScript**, a language designed specifically for strong typed JavaScript development. Required for babylon toolkit development;
 
-* **C# (pronounced C-sharp)**, an industry-standard language similar to Java or C++. Required for editor script components only;
+- **C# (pronounced C-sharp)**, an industry-standard language similar to Java or C++. Required for editor script components only;
 
 In addition to these, many other .NET languages can be used with the Unity Editor to prepare your babylon scene content if they can compile a compatible DLL. Please refer to the [Unity Plugin](https://docs.unity3d.com/Manual/Plugins.html) documentation for details.
 
 Learning the art of programming and the use of these particular languages is beyond the scope of this introduction. However, there are many books, tutorials and other resources for learning how to use and program **Unity Editor** inspector windows.
 
-
 ## Babylon Script Classes
 
 Babylon script classes are referred to as **Backing Classes**. The backing class is the native runtime class that gets instantiated for the owned game object. The toolkit provides a set of script file templates for use in your project.
 
-* **JavaScript File** - Empty **JavaScript** code file. To be used as you see fit.
+- **JavaScript File** - Empty **JavaScript** code file. To be used as you see fit.
 
-* **TypeScript Class** - Generic **TypeScript** class file. To be used as you see fit.
+- **TypeScript Class** - Generic **TypeScript** class file. To be used as you see fit.
 
-* **Scene Controller** - Script component designed to be used as the **Main Scene** controller class.
+- **Scene Controller** - Script component designed to be used as the **Main Scene** controller class.
 
-* **Mesh Component** - A standard mesh component script to be used by **all** non **Light** and **Camera** game objects.
+- **Mesh Component** - A standard mesh component script to be used by **all** non **Light** and **Camera** game objects.
 
-* **Light Component** - A standard light component script to be used on **Light** game objects **only**.
+- **Light Component** - A standard light component script to be used on **Light** game objects **only**.
 
-* **Camera Component** - A standard camera component script to used on **Camera** game objects **only**. 
+- **Camera Component** - A standard camera component script to used on **Camera** game objects **only**.
 
-* **Shader Controller** - Script component designed to sub class and control **Shader Material** properties.
+- **Shader Controller** - Script component designed to sub class and control **Shader Material** properties.
 
-* **Global Startup Script** - Inline **Global Application** code and startup event functions.
+- **Global Startup Script** - Inline **Global Application** code and startup event functions.
 
 Unity does not support normal html javascript (.js) files. So rename any plain (.js) file extensions to (.bjs) to be included in your game project output.
-
 
 ## Creating Backing Classes
 
@@ -52,13 +50,13 @@ The new backing class script will be created in whichever folder you have select
 
 It is a good idea to enter the name of the new backing class script at this point rather than editing it later. You must **rename** the class initial text inside the file with your new script name.
 
-
 ## Anatomy Of A Backing Class
 
 When you double-click a script Asset in Unity, it will be opened in a text editor. By default, Unity will use the default code editor, but you can select any code editor you like from the External Tools panel in Unity’s preferences (go to **Unity > Preferences**).
 
 Example mesh component contents of the file will look something like this:
 
+```javascript
     module PROJECT {
         export class NewMeshComponent extends BABYLON.MeshComponent {
             public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {
@@ -82,13 +80,13 @@ Example mesh component contents of the file will look something like this:
             }
         }
     }
+```
 
 An editor script component makes its connection with the internal workings of the babylon toolkit scene manager by implementing a class which derives from the built-in class called **EditorScriptComponent**. You can think of a class as a kind of blueprint for creating a new component type that can be attached to game objects. Each time you attach a script component to a game object, it creates a new instance of the object defined by the blueprint. The name of the class is taken from the editor script component's **Babylon Class** property. The class names must be the same to enable the script component to be attached to a game object.
 
 The main things to note, however, are the four functions defined inside the class. The **Update** function is the place to put code that will handle the frame update for the game object. This might include movement, triggering actions and responding to user input, basically anything that needs to be handled over time during gameplay. To enable the Update function to do its work, it is often useful to be able to set up variables, read preferences and make connections with other game objects before any game action takes place. The **Start** function will be called by the scene manager before gameplay begins (ie, before the Update function is called for the first time) and is an ideal place to do any initialization. The **After** function gets called after the update (including all other component update) functions. Then finally the **Destroy** function gets called on game object disposal.
 
 **Note to beginner game developers:** You may not be aware that the use of any game play logic should **not** be handled in the constructor function. This is because the construction of objects is handled by the scene manager parser and does not take place at the start of gameplay as you might expect. If you include **game loop** type logic in a constructor for a script component, it will interfere with the normal operation of the managed life cycle and can cause major problems with the project. Use construction for internal property setup only.
-
 
 ## Editor Script Components (C#)
 
@@ -99,6 +97,7 @@ the native backing class:
 
 Example runtime backing class script file:
 
+```javascript
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
@@ -108,9 +107,11 @@ Example runtime backing class script file:
             }
         }
     }
+```
 
 Example design time editor script component file:
 
+```javascript
     /* Babylon Editor Script Component (C# UnityScript) */
 
     using System;
@@ -133,6 +134,7 @@ Example design time editor script component file:
             }
         }
     }
+```
 
 **Custom Property Inspector Support**
 
@@ -142,6 +144,7 @@ The code in **OnInspectorGUI** is executed whenever Unity displays the editor in
 
 Example custom property inspector editor script component file:
 
+```csharp
     /* Babylon Editor Script Component (C# UnityScript) */
 
     using System;
@@ -189,7 +192,7 @@ Example custom property inspector editor script component file:
             }
         }
     }
-
+```
 
 ## Managed System Components
 
@@ -197,7 +200,7 @@ The toolkit provides a base set of babylon toolkit managed framework script comp
 
 ## Default Scene Controller
 
-The primary component to serve as the main entry point and controller class for the scene is the **Default Scene Controller**. The default scene controller component should be attached to an empty game object. 
+The primary component to serve as the main entry point and controller class for the scene is the **Default Scene Controller**. The default scene controller component should be attached to an empty game object.
 
 It is a good idea to attach all scene level script components (not required on a specific game object, like sound) to a main game object. You can attach the built-in default scene controller script component by selecting **Components > Babylon > System Components > Default Scene Controller** from the main menu.
 
@@ -302,5 +305,3 @@ A character controller cannot walk through static colliders in a scene, and so w
 The shadow map generator component is for a **Light** only. The generator enables dynamically generated shadows depending upon a light. This is the main object responsible of generating shadows in the framework.
 
 ![Shadow Map Component](/img/exporters/unity/shadowmap.jpg)
-
-.

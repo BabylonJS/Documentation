@@ -15,8 +15,8 @@ video-content:
 ## Using the Fire procedural texture
 
 Fire procedural texture can be found here: 
-- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.fireProceduralTexture.js)
-- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.fireProceduralTexture.min.js)
+- Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.fireProceduralTexture.js)
+- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.fireProceduralTexture.min.js)
 
 A demo can be found here:  <Playground id="#KM3TC" title="Fire Procedural Texture" description="Fire Procedural Texture"/>
 

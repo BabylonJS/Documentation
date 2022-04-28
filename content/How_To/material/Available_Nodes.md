@@ -71,7 +71,7 @@ Here is the default list of Node Material Blocks available to use.
         -   Outputs:
             -   output: Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on input types.
 
-    Example: <nme id="#98NGSE" title="Replace Color Block Example" description="Simple Replace Color block example."/>
+    Example: <NME id="#98NGSE" title="Replace Color Block Example" description="Simple Replace Color block example."/>
 
 -   Conversion:
 
@@ -953,6 +953,15 @@ Here is the default list of Node Material Blocks available to use.
         -   Outputs:
             -   clearcoat: can only be used as input of the `PBRMetallicRoughness` block
 
+    -   `Iridescence`: The iridescence module of the PBR material
+
+        -   Inputs:
+            -   intensity: Float
+            -   indexOfRefraction: Float
+            -   thickness: Float
+        -   Outputs:
+            -   iridescence: can only be used as input of the `PBRMetallicRoughness` block
+
     -   `PBRMetallicRoughness`: The PBR material implementing the metallic/roughness model
 
         -   Inputs:
@@ -970,6 +979,7 @@ Here is the default list of Node Material Blocks available to use.
             -   ambientColor: Color3
             -   reflection: output of the `Reflection` block
             -   clearcoat: output of the `ClearCoat` block
+            -   iridescence: output of the `Iridescence` block
             -   sheen: output of the `Sheen` block
             -   subsurface: output of the `SubSurface` block
             -   anisotropy: output of the `Anisotropy` block

@@ -1,6 +1,6 @@
 ---
 title: Creating A Navigation Mesh
-image: 
+image:
 description: Learn how to create a mesh as a confinment system for crowd agents.
 keywords: extensions, babylon.js, crowd
 further-reading:
@@ -13,32 +13,34 @@ video-content:
 There are many cases to use a navigation mesh: AI and path finding, replace physics for collision detection (only allow player to go where it's possible instead of using collision detection) and many more cases theBabylon.js users will find.
 
 First, create the navigation plugin
-```
+
+```javascript
 let navigationPlugin = new BABYLON.RecastJSPlugin();
 ```
+
 Prepare some parameters for the agent constraints (described below)
 
-```
+```javascript
 var parameters = {
-        cs: 0.2,
-        ch: 0.2,
-        walkableSlopeAngle: 35,
-        walkableHeight: 1,
-        walkableClimb: 1,
-        walkableRadius: 1,
-        maxEdgeLen: 12.,
-        maxSimplificationError: 1.3,
-        minRegionArea: 8,
-        mergeRegionArea: 20,
-        maxVertsPerPoly: 6,
-        detailSampleDist: 6,
-        detailSampleMaxError: 1,
-        };
+  cs: 0.2,
+  ch: 0.2,
+  walkableSlopeAngle: 35,
+  walkableHeight: 1,
+  walkableClimb: 1,
+  walkableRadius: 1,
+  maxEdgeLen: 12,
+  maxSimplificationError: 1.3,
+  minRegionArea: 8,
+  mergeRegionArea: 20,
+  maxVertsPerPoly: 6,
+  detailSampleDist: 6,
+  detailSampleMaxError: 1,
+};
 ```
 
 Call the navigation mesh generation with the parameters and the list of meshes
 
-```
+```javascript
 navigationPlugin.createNavMesh([groundMesh, wallMesh1, wallMesh2, stair1, stair2], parameters);
 ```
 
@@ -46,13 +48,13 @@ And that's it! you can now use the navigation mesh with the crowd system or make
 
 Optionaly, you can get a display of the navmesh to ensure it corresponds to your space constraints
 
-```
+```javascript
 navmeshdebug = navigationPlugin.createDebugNavMesh(scene);
-var matdebug = new BABYLON.StandardMaterial('matdebug', scene);
+var matdebug = new BABYLON.StandardMaterial("matdebug", scene);
 matdebug.diffuseColor = new BABYLON.Color3(0.1, 0.2, 1);
 matdebug.alpha = 0.2;
 navmeshdebug.material = matdebug;
-```    
+```
 
 ## Parameters
 
@@ -70,9 +72,9 @@ walkableRadius - the radius in voxel units of the agents.
 
 maxEdgeLen - The maximum allowed length for contour edges along the border of the mesh. Voxel units.
 
-maxSimplificationError - The maximum distance a simplified contour's border edges should deviate  the original raw contour. Voxel units.
+maxSimplificationError - The maximum distance a simplified contour's border edges should deviate the original raw contour. Voxel units.
 
-minRegionArea -  The minimum number of cells allowed to form isolated island areas. Voxel units.
+minRegionArea - The minimum number of cells allowed to form isolated island areas. Voxel units.
 
 mergeRegionArea - Any regions with a span count smaller than this value will, if possible, be merged with larger regions. Voxel units.
 
@@ -86,13 +88,14 @@ detailSampleMaxError - The maximum distance the detail mesh surface should devia
 
 Basically, query functions help at getting constraint point and vector by the navigation mesh.
 
-```
+```javascript
 getClosestPoint(position: Vector3): Vector3;
 getRandomPointAround(position: Vector3, maxRadius: number): Vector3;
 moveAlong(position: Vector3, destination: Vector3): Vector3;
 ```
 
-Respectively: 
+Respectively:
+
 - get a point on the navmesh close to a world position parameter
 - get a random world position, on the navmesh, inside a circle of maxRadius.
 - constraint a segment by the navmesh and returns the ending world position. Like walking on the navmesh and stopping at the edge.
@@ -101,17 +104,17 @@ When the query can't find a valid solution, the value (0,0,0) is returned.
 
 Those functions use a bounding box for querying the world. The solution returned is within that bound. To properly set the default box extent to get a finer or broader result, call:
 
-```
+```javascript
 setDefaultQueryExtent(extent: Vector3): void;
 ```
 
-If your query returns a point too far from the expected result, use a smaller extent. 
+If your query returns a point too far from the expected result, use a smaller extent.
 
 It's possible to get a path built for navigation as a point array. It's up to the user to use this array for drawing prediction path, trigger events,...
 
-```
+```javascript
 var pathPoints = navigationPlugin.computePath(crowd.getAgentPosition(agent), navigationPlugin.getClosestPoint(destinationPoint));
-pathLine = BABYLON.MeshBuilder.CreateDashedLines("ribbon", {points: pathPoints, updatable: true, instance: pathLine}, scene);
+pathLine = BABYLON.MeshBuilder.CreateDashedLines("ribbon", { points: pathPoints, updatable: true, instance: pathLine }, scene);
 ```
 
 ## Baking result
@@ -120,14 +123,14 @@ Building a navigation mesh can take a lot of cpu and network resources. In order
 
 To retrieve the binary representation of the computed navigation mesh:
 
-``` 
+```javascript
 var binaryData = navigationPlugin.getNavmeshData();
 ```
 
 binaryData is an Uint8Array that you can save to a file for example.
 To restore an UInt8Array to a navigation mesh:
 
-```
+```javascript
 navigationPlugin.buildFromNavmeshData(uint8array);
 ```
 
@@ -137,16 +140,16 @@ Building a navigation mesh can be time and resource heavy. For many use cases, i
 
 To enable web worker, specify a web worker .js script URL to use:
 
-```
+```javascript
 let navigationPlugin = new BABYLON.RecastJSPlugin();
 navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 ```
 
-A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/blob/master/Playground/workers/navMeshWorker.js
+A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/workers/navMeshWorker.js
 
 Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
 
-```
+```javascript
 navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
 {
     console.log("got worker data", navmeshData);
@@ -160,10 +163,10 @@ Performance note: The navmesh is constructed from geometry datas. If multiple me
 
 An example of use with web worker : <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
 
-## NPM 
+## NPM
 
 Loading Recast-Detour NPM module is different between version 1.3.0 and 1.4.0+ as later version is asynchronous. User has to use `await` like this:
 
-```
+```javascript
 const recast = await Recast();
 ```
