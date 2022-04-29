@@ -8,10 +8,6 @@ video-overview:
 video-content:
 ---
 
-[![Web app](/img/flatIcons/Web-256.png!128)](#web-app) &nbsp &nbsp [![Mobile app](/img/flatIcons/Ipad-256.png!128)](#mobile-app) &nbsp &nbsp [![Desktop app](/img/flatIcons/Computer-Desktop-256.png!128)](#desktop-app)
-
-(Royalty-free icons from [Flaticons.net](https://flaticons.net/).)
-
 Babylon.js can be used to build experiences on many different platforms for 
 all kinds of devices, and even provides 
 [ways to target multiple platforms simultaneously](../toolsAndResources/templateRepositories#the-template-repository-workflow)!
