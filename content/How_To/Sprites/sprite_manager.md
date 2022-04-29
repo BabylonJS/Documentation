@@ -43,6 +43,8 @@ sprite.invertU = true; //vertical reflection
 sprite.invertV = true; //horizontal reflection
 ```
 
+Please note that the z-axis position of a sprite will affect its size on the screen, i.e, sprites with a higher z-axis value will appear farther away and such, will be smaller on the screen: <Playground id="#YCY2IL#811" title="Sprite size affected by z position" description="An example of how the z axis position affects a sprite size."/>
+
 A spritesheet example
 
 ![uniform spritesheet](/img/how_to/Sprites/08-2.png)
