@@ -25,7 +25,7 @@ Some meshes appear in both file locations.
 
 ## From the Playground Scenes Folder
 
-This list of files is in the github repo [scenes folder](https://github.com/BabylonJS/Babylon.js/tree/master/Playground/scenes) of the Playground and are available for use.
+This list of files is in the github repo [scenes folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/scenes) of the Playground and are available for use.
 
 Using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `scenes/` or `scenes/folder/` and the `filename` parameter is as given below. The playground will show the actual terms required.
 
