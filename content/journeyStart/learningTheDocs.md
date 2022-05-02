@@ -52,15 +52,13 @@ Lastly, if you select any one of the examples in the examples pane, it will load
 
 The Babylon.js Documentation is written with the latest major version of Babylon.js in mind. [The API docs](https://doc.babylonjs.com/typedoc) are generated against the latest nightly build.
 
-**The latest major version is v5. This is not the default version you will get from npm.**
-
 If you want to install Babylon.js locally using the latest version, please pick the latest release [from the npm page](https://www.npmjs.com/package/@babylonjs/core), and then run:
 
 ```shellscript
  npm i @babylonjs/core@preview
 ```
 
-Don't be scared about the `alpha` version. Babylon's npm releases are considered stable and are fully tested by the team.
+Don't be scared about using the latest version. Babylon's npm releases are considered stable and are fully tested by the team.
 
 
 ## Getting Started
