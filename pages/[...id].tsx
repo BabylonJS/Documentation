@@ -193,7 +193,7 @@ export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentati
     const remarkGfm = (await import("remark-gfm")).default;
     props.mdxContent = await serialize(props.content, {
         mdxOptions: {
-            remarkPlugins: [remarkSlug, /*remarkLint, */remarkGfm],
+            remarkPlugins: [remarkSlug, /*remarkLint, */ remarkGfm],
         },
     });
     return {
