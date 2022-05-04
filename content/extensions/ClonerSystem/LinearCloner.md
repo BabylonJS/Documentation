@@ -19,7 +19,7 @@ _Note:_ Input meshes can be BABYLON meshes but other Cloners as well!
 
 ## Example
 
-Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of {x:2,y:0,z:-1} :
+Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of \{x:2,y:0,z:-1\} :
 
 `var lc = new BABYLONX.LinearCloner([cube1, cube2], demo.scene, { iModeRelative:true,count:10,P:{x:2,y:0,z:-1} });`
 
@@ -41,16 +41,16 @@ Animation can be done via properties:
 | meshes              | array of meshes/cloners to be cloned, meshes will be made inactive after construction |
 | scene               | BABYLON scene                                                                         |
 
-| Optional Parameter | Description                                                             | Default Value        |
-| ------------------ | ----------------------------------------------------------------------- | -------------------- |
-| count              | the nuber of clones                                                     | 3                    |
-| offset             | offset in world units in the direction of the transform position vector | 0                    |
-| growth             | weight factor for all transform parameters in percent/100               | 1                    |
-| P                  | transform position vector                                               | { x: 0, y: 2, z: 0 } |
-| S                  | scale transformation                                                    | { x: 1, y: 1, z: 1}  |
-| R                  | rotation values in degrees                                              | { x: 0, y: 0, z: 0 } |
-| iModeRelative      | interpolation mode,                                                     | false (absolute)     |
-| useInstances       | flag if clones should be technical "clones" or "instances"              | true                 |
+| Optional Parameter | Description                                                             | Default Value          |
+| ------------------ | ----------------------------------------------------------------------- | ---------------------- |
+| count              | the nuber of clones                                                     | 3                      |
+| offset             | offset in world units in the direction of the transform position vector | 0                      |
+| growth             | weight factor for all transform parameters in percent/100               | 1                      |
+| P                  | transform position vector                                               | \{ x: 0, y: 2, z: 0 \} |
+| S                  | scale transformation                                                    | \{ x: 1, y: 1, z: 1\}  |
+| R                  | rotation values in degrees                                              | \{ x: 0, y: 0, z: 0 \} |
+| iModeRelative      | interpolation mode,                                                     | false (absolute)       |
+| useInstances       | flag if clones should be technical "clones" or "instances"              | true                   |
 
 | Properties | Description                                                                          |
 | ---------- | ------------------------------------------------------------------------------------ |
@@ -60,7 +60,7 @@ Animation can be done via properties:
 | position   | @see Optional Parameter P                                                            |
 | scale      | @see Optional Parameter S                                                            |
 | rotation   | @see Optional Parameter R                                                            |
-| rotation3  | rotation values in radians {x,y,z}                                                   |
+| rotation3  | rotation values in radians \{x,y,z\}                                                 |
 | offset     | @see Optional Parameter                                                              |
 | root       | READONLY, getting an invisibe mesh representing the anchor of the cloner (root node) |
 | effectors  | READONLY, gets a list of Effectors assigned to this Cloner                           |

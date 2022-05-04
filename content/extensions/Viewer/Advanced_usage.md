@@ -29,7 +29,7 @@ To do that, use the `model.loader` configuration variable:
 <babylon extends="minimal" model.url="https://example.com/Rabbit" model.loader=".gltf"></babylon>
 ```
 
-This will load <https://example.com/Rabbit> using the glTF loader.
+This will load [https://example.com/Rabbit](https://example.com/Rabbit) using the glTF loader.
 
 ## Retrieving the viewer instance
 

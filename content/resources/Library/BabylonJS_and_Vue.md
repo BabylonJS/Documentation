@@ -230,7 +230,7 @@ const createScene = (canvas: Scene) => {
 
 ## CSS triggers
 
-If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention to browser reflows and repaints. Especially aninmated alpha transparent `div`s can degrade performance. You can read more about the topic in general [here](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser") and have this cheat-sheet always prepared: [CSS Triggers](https://csstriggers.com/).
+If you plan to use an HTML GUI overlay over the BabylonJS canvas, pay attention to browser reflows and repaints. Especially animated alpha transparent `div`s can degrade performance. You can read more about the topic in general [here](https://dev.to/gopal1996/understanding-reflow-and-repaint-in-the-browser-1jbg "Understanding reflow and repaint in the browser") and have this cheat-sheet always prepared: [CSS Triggers](https://csstriggers.com/).
 
 ## Vue reactivity, friend or foe?
 

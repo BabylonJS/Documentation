@@ -279,7 +279,7 @@ Pushing realism even further, material volume albedo affects how far light trave
 
 Let's say you want a skin tone diffusion profile, you can add this to your subsurface configuration by doing :
 
-<Playground id="#W7DYG2#2" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/features/divingDeeperPBRMaster11.jpg"/>
+<Playground id="#W7DYG2#50" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster11.jpg"/>
 
 ```javascript
 pbr.subSurface.scatteringDiffusionProfile = new BABYLON.Color3(0.750, 0.25, 0.20);

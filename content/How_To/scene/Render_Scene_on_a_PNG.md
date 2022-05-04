@@ -1,6 +1,6 @@
 ---
 title: Render Scenes To .png Files
-image: 
+image:
 description: Learn how to render scenes to .png files.
 keywords: diving deeper, scene, render, export, .png, png
 further-reading:
@@ -28,12 +28,14 @@ For example
 var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 BABYLON.Tools.CreateScreenshot(engine, camera, 400);
 ```
+
 will produce an image of the box but
 
 ```javascript
 var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 400);
 ```
+
 will only produce the scene background. This is because this method is activated before the box is actually rendered on the screen. If you want to use `CreateScreenshotUsingRenderTarget` in this way then you need to ensure the scene is rendered first as in this example.
 
 ```javascript
@@ -45,11 +47,13 @@ BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 400);
 However even this will not work if the scene is very complex and has not been rendered in time. It is best to use timing or an action.
 
 ## CreateScreenshot
+
 It's done by simply calling this method: `BABYLON.Tools.CreateScreenshot(engine, camera, size)`.
 You need to provide yourBabylon.js engine, the camera you want to use for the rendering, and a size.
 
 Please note that the engine must be created with `preserveDrawingBuffer` option:
-```
+
+```javascript
 var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
 ```
 
@@ -71,25 +75,25 @@ View of Part of Screen Showing Canvas Used
 ![size = 1600](/img/how_to/scene/sh1600x1600.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, 1600)`
 
-![size = {width:800, height:400}](/img/how_to/scene/sh800x400.png)  
-`BABYLON.Tools.CreateScreenshot(engine, camera, {width:800, height:400})` canvas placed in the middle of image of given size 
+![size = \{width:800, height:400\}](/img/how_to/scene/sh800x400.png)  
+`BABYLON.Tools.CreateScreenshot(engine, camera, {width:800, height:400})` canvas placed in the middle of image of given size
 
 Precision can be used as a multiplier of the screen resolution.
 
-![size = {precision: 0.5}](/img/how_to/scene/sh400p05.png)  
+![size = \{precision: 0.5\}](/img/how_to/scene/sh400p05.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, {precision: 0.5})`
 
-![size = {precision: 2}](/img/how_to/scene/sh400p20.png)  
+![size = \{precision: 2\}](/img/how_to/scene/sh400p20.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, {precision: 2})`
 
-
 ## CreateScreenshotUsingRenderTarget
+
 As for the other method it's done by simply calling this method: `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size)`.
 You need to provide yourBabylon.js engine, the camera you want to use for the rendering, and a size.
 
 Again the size parameter is very versatile and can be a simple number or an object. However you will see differences in the results using the same parameters as before.
 
-*Hint:* When using a camera other than the active camera, only objects located in the viewport of the active camera are visible. As a workaround, all meshes that should be visible can be explicitly set to `alwaysSelectAsActiveMesh = true`. In case of performance issues, the meshes can be set to `alwaysSelectAsActiveMesh = true` shortly before taking the screenshot and then to `alwaysSelectAsActiveMesh = false` again.
+_Hint:_ When using a camera other than the active camera, only objects located in the viewport of the active camera are visible. As a workaround, all meshes that should be visible can be explicitly set to `alwaysSelectAsActiveMesh = true`. In case of performance issues, the meshes can be set to `alwaysSelectAsActiveMesh = true` shortly before taking the screenshot and then to `alwaysSelectAsActiveMesh = false` again.
 
 ### Examples of Results
 
@@ -107,15 +111,15 @@ View of Part of Screen Showing Canvas Used
 ![size = 1600](/img/how_to/scene/rt1600x1600.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 1600)`
 
-![size = {width:800, height:400}](/img/how_to/scene/rt800x400.png)  
+![size = \{width:800, height:400\}](/img/how_to/scene/rt800x400.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {width:800, height:400})` canvas imaged sized as given.
 
 Precision can be used as a multiplier of the screen resolution.
 
-![size = {precision: 0.5}](/img/how_to/scene/rt400p05.png)  
+![size = \{precision: 0.5\}](/img/how_to/scene/rt400p05.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {precision: 0.5})`
 
-![size = {precision: 2}](/img/how_to/scene/rt400p20.png)  
+![size = \{precision: 2\}](/img/how_to/scene/rt400p20.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {precision: 2})`
 
 ### Alternative Camera
@@ -127,12 +131,13 @@ While the active camera is showing the scene as in the above examples you can us
 ```javascript
 var camera2 = new BABYLON.FreeCamera("camera2", new BABYLON.Vector3(0, 200, 0), scene);
 camera2.setTarget(BABYLON.Vector3.Zero());
-    
-BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera2, 400)
+
+BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera2, 400);
 ```
+
 to produce
 
-![secondcamera](/img/how_to/scene/fc.png) 
+![secondcamera](/img/how_to/scene/fc.png)
 
 ## Pixel Density
 
@@ -142,7 +147,6 @@ The following image of the canvas on screen and the resulting screenshot using '
 
 ![Enlarged Image](/img/how_to/scene/sbp80.png)
 
-
 ## Gif Creation
 
 In order to create an animated Gif, you will usually need a set of static images to stick together.
@@ -151,22 +155,22 @@ Either of the following set of codes produces a series of images that you can tu
 
 ```javascript
 var imgNm = 0;
-scene.registerAfterRender(function(){
-    box.rotation.y += 2 * Math.PI / 90;
-    if(imgNm++ < 90) {
-        BABYLON.Tools.CreateScreenshot(engine, camera, 200);
-    }
-})
+scene.registerAfterRender(function () {
+  box.rotation.y += (2 * Math.PI) / 90;
+  if (imgNm++ < 90) {
+    BABYLON.Tools.CreateScreenshot(engine, camera, 200);
+  }
+});
 ```
 
 ```javascript
 var imgNm = 0;
-scene.registerAfterRender(function(){
-    box.rotation.y += 2 * Math.PI / 90;
-    if(imgNm++ < 90) {
-        BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200);
-    }
-})
+scene.registerAfterRender(function () {
+  box.rotation.y += (2 * Math.PI) / 90;
+  if (imgNm++ < 90) {
+    BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200);
+  }
+});
 ```
 
 Here is the result after stitching in your favorite external tool:
@@ -175,7 +179,7 @@ Here is the result after stitching in your favorite external tool:
 
 ## Callback Function
 
-There is a further parameter that can be added to both methods of obtaining screenshots. This is a callback function added after the size parameter. The methods become `BABYLON.Tools.CreateScreenshot(engine, camera, size, onSuccessCallback)`  and  `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size, onSuccessCallback)`.
+There is a further parameter that can be added to both methods of obtaining screenshots. This is a callback function added after the size parameter. The methods become `BABYLON.Tools.CreateScreenshot(engine, camera, size, onSuccessCallback)` and `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size, onSuccessCallback)`.
 
 This callback is a function that takes the image data provided by the method and instead of opening or saving the image allows you to manipulate it instead.
 
@@ -186,36 +190,38 @@ For example when you have rendered this scene
 by triggering either of these
 
 ```javascript
-BABYLON.Tools.CreateScreenshot(engine, camera, 200, function(data) {
-    var mat = new BABYLON.StandardMaterial("mat", scene);
-    mat.diffuseTexture = new BABYLON.Texture(data, scene);
-    box.material = mat;
-})
+BABYLON.Tools.CreateScreenshot(engine, camera, 200, function (data) {
+  var mat = new BABYLON.StandardMaterial("mat", scene);
+  mat.diffuseTexture = new BABYLON.Texture(data, scene);
+  box.material = mat;
+});
 
-BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200, function(data) {
-    var mat = new BABYLON.StandardMaterial("mat", scene);
-    mat.diffuseTexture = new BABYLON.Texture(data, scene);
-    box.material = mat;
-})
+BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 200, function (data) {
+  var mat = new BABYLON.StandardMaterial("mat", scene);
+  mat.diffuseTexture = new BABYLON.Texture(data, scene);
+  box.material = mat;
+});
 ```
+
 you obtain
 
 ![Box with sky texture and sky](/img/how_to/scene/bx2.png)
 
 ## Specific resolution with CreateScreenshot
 
-You may end up having to use `BABYLON.Tools.CreateScreenshot` because you may need to capture advanced effets (that are not captured by the RTT version), In this case, if you want to get a specific resolution you can use the following code (please note the direct use of the `ScreenshotTools` class):
+You may end up having to use `BABYLON.Tools.CreateScreenshot` because you may need to capture advanced effects (that are not captured by the RTT version), In this case, if you want to get a specific resolution you can use the following code (please note the direct use of the `ScreenshotTools` class):
 
 Example:
-```
+
+```javascript
 var currentCanvasSizeWidth = canvas.style.width;
 var currentCanvasSizeHeight = canvas.style.height;
 activeCanvas.style.width = renderWidth + "px";
 activeCanvas.style.height = renderHeight + "px";
 engine.resize(true);
 BABYLON.ScreenshotTools.CreateScreenshotWithResizeAsync(engine, scene.activeCamera, renderWidth, renderHeight).then(() => {
-    canvas.style.width = currentCanvasSizeWidth;
-    canvas.style.height = currentCanvasSizeHeight;
-    engine.resize(true);                        
+  canvas.style.width = currentCanvasSizeWidth;
+  canvas.style.height = currentCanvasSizeHeight;
+  engine.resize(true);
 });
 ```

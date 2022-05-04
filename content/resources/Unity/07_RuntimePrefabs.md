@@ -1,6 +1,6 @@
 ---
 title: Prefabs
-image: 
+image:
 description: The Unity Toolkit has a prefab asset type that allows you to store a game object complete with components and properties.
 keywords: babylon.js, exporter, unity, extension, prefab
 further-reading:
@@ -15,7 +15,6 @@ Fortunately, Unity has a Prefab asset type that allows you to store a game objec
 **Note:** When you drag an asset file (eg, a Mesh) into the scene, it will create a new object instance and all such instances will change when the original asset is changed. However, although its behaviour is superficially similar, the asset is not a prefab, so you won’t be able to add components to it or make use of the other prefab features described below.
 
 Check out the [Unity Prefab Concept Video](https://unity3d.com/learn/tutorials/topics/interface-essentials/prefabs-concept-usage) for details on the prefab usage.
-
 
 ## Unity Prefab System
 
@@ -33,16 +32,15 @@ You can also create instances of prefabs at runtime from your scripts. See the *
 
 The inspector for a prefab instance has three buttons not present for a normal object: **Select**, **Revert** and **Apply**.
 
-The **Select** button selects the prefab asset from which the instance was generated. This allows you to edit the main prefab and thereby change all its instances. However, you can also save overridden values from an instance back to the originating prefab using the **Apply** button (modified transform position values are excluded for obvious reasons). This effectively lets you edit all instances (except those which override the value changed) via any single instance and is a very quick and convenient way to make global changes. 
+The **Select** button selects the prefab asset from which the instance was generated. This allows you to edit the main prefab and thereby change all its instances. However, you can also save overridden values from an instance back to the originating prefab using the **Apply** button (modified transform position values are excluded for obvious reasons). This effectively lets you edit all instances (except those which override the value changed) via any single instance and is a very quick and convenient way to make global changes.
 
 If you experiment with overriding properties but then decide you preferred the default values, you can use the **Revert** button to realign the instance with its prefab.
-
 
 ## Babylon Prefab Layer
 
 ![Prefab Layer](/img/exporters/unity/prefablayer.jpg)
 
-The prefab layer can prepare your objects to take advantage of the toolkit's deep cloning to instantiate game object prefabs at runtime. This step is required to use * **Unity Style Prefabs** * in a web browser environment. Web games cannot directly instaniate a prefab from disk, so game objects intended to be used as runtime prefabs must be present but disabled in the scene. 
+The prefab layer can prepare your objects to take advantage of the toolkit's deep cloning to instantiate game object prefabs at runtime. This step is required to use _ **Unity Style Prefabs** _ in a web browser environment. Web games cannot directly instaniate a prefab from disk, so game objects intended to be used as runtime prefabs must be present but disabled in the scene.
 
 By setting game objects to the **Babylon Prefab** layer you will create disabled source meshes used for deep cloning when you call the scene manager instantiate prefab function.
 
@@ -50,6 +48,7 @@ By setting game objects to the **Babylon Prefab** layer you will create disabled
 
 The toolkit scene manager provides easy to use helper functions for client side prefab instantiation:
 
+```javascript
     declare module BABYLON {
         class SceneManager {
 
@@ -58,21 +57,23 @@ The toolkit scene manager provides easy to use helper functions for client side 
 
             /** Gets ths the raw prefab mesh from scene. */
             getPrefabMesh(prefabName: string): BABYLON.Mesh;
-            
+
             /** Instantiates the specfied prefab object into scene. */
             instantiatePrefab(prefabName: string, cloneName: string, newPosition?: BABYLON.Vector3, newRotation?: BABYLON.Vector3, newScaling?: BABYLON.Vector3, newParent?: Node): BABYLON.Mesh;
         }
     }
+```
 
 Example **Runtime Prefab** script component:
 
+```javascript
     module PROJECT {
         export class TestMeshComponent extends BABYLON.MeshComponent {
             public constructor(owner: BABYLON.AbstractMesh, scene: BABYLON.Scene, tick: boolean = true, propertyBag: any = {}) {
                 super(owner, scene, tick, propertyBag);
             }
             protected start() :void {
-                
+
                 // Spawn player game object
                 var player:BABYLON.Mesh = this.manager.instantiatePrefab("Player", "NewPlayer", BABYLON.Vector3.Zero());
                 console.log("Echo Player: " + player.name);
@@ -80,4 +81,4 @@ Example **Runtime Prefab** script component:
         }
     }
 
-.
+```

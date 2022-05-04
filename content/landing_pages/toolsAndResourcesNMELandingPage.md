@@ -74,7 +74,7 @@ Creating shaders can be a very dense and complicated process, often requiring kn
 
 <img src="/img/how_to/Materials/nme1.jpg" title="Babylon.js Node Material Editor"/>
 
-You can jump in and play around with it here: <nme id="" title="Node Material Editor" description="The starting basic template for creating Node Materials."/>
+You can jump in and play around with it here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials."/>
 
 For an introductory look at the Node Material Editor, check out where it all started with this video:
 

@@ -1,6 +1,6 @@
 ---
 title: Water Material
-image: 
+image:
 description: The Babylon.js materials library water effect.
 keywords: library, materials, materials library
 further-reading:
@@ -14,19 +14,19 @@ video-content:
 
 Water material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/legacy/dist/preview%20release/materialsLibrary/babylon.waterMaterial.js](babylon.waterMaterial.js)
 
-A demo can be found here:   PG: <Playground id="#1SLLOJ#20" title="Water Material" description="Example of water material"/>
+A demo can be found here: PG: <Playground id="#1SLLOJ#20" title="Water Material" description="Example of water material"/>
 
 # Water material by demo
 
-- PG: <Playground id="#1SLLOJ#15" title="Water Material" description="Calm lake"/>  
-- PG: <Playground id="#1SLLOJ#17" title="Water Material" description="Ocean, play with waves"/>  
-- PG: <Playground id="#1SLLOJ#18" title="Water Material" description="Deep water, play with water color"/>  
+- PG: <Playground id="#1SLLOJ#15" title="Water Material" description="Calm lake"/>
+- PG: <Playground id="#1SLLOJ#17" title="Water Material" description="Ocean, play with waves"/>
+- PG: <Playground id="#1SLLOJ#18" title="Water Material" description="Deep water, play with water color"/>
 - PG: <Playground id="#1SLLOJ#19" title="Water Material" description="Beach"/>
 
 The water material needs at least only a bump texture to render properly.
 Just create a new reference of the material and assign its bump texture:
 
-```
+```javascript
 var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
 
 var waterMaterial = new BABYLON.WaterMaterial("water_material", scene);
@@ -37,7 +37,7 @@ ground.material = waterMaterial;
 
 To reflect and refract the world, you just have to add the wanted meshes to the render list:
 
-```
+```javascript
 waterMaterial.addToRenderList(skybox);
 waterMaterial.addToRenderList(mesh1);
 waterMaterial.addToRenderList(mesh2);
@@ -50,7 +50,7 @@ That's all.
 
 You can customize special properties of the material:
 
-```
+```javascript
 waterMaterial.windForce = 45; // Represents the wind force applied on the water surface
 waterMaterial.waveHeight = 1.3; // Represents the height of the waves
 waterMaterial.bumpHeight = 0.3; // According to the bump map, represents the pertubation of reflection and refraction
@@ -59,5 +59,3 @@ waterMaterial.waterColor = new BABYLON.Color3(0.1, 0.1, 0.6); // Represents the 
 waterMaterial.colorBlendFactor = 2.0; // Factor to determine how the water color is blended with the reflected and refracted world
 waterMaterial.waveLength = 0.1; // The lenght of waves. With smaller values, more waves are generated
 ```
-
-

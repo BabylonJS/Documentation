@@ -7,10 +7,7 @@ module.exports = withMDX(
             includePaths: ["./styles"],
         },
         webpack5: true,
-        experimental: {
-            pageDataCollectionTimeout: 120,
-            staticPageGenerationTimeout: 120,
-        },
+        staticPageGenerationTimeout: 120,
     },
     // withSass({
     //     sassLoaderOptions: {
