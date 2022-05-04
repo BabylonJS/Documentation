@@ -44,7 +44,7 @@ The select button allows you to select different GUI controls within your scene.
 
 #### Pan (P)
 
-<img src="/img/tools/guiEditor/move.jpg" title="GUI Editor Move"/>
+<img src="/img/tools/guiEditor/pan.jpg" title="GUI Editor Move"/>
 
 The move button allows you to pan around the GUI by clicking and dragging. You can also use the middle mouse button, or hold space and drag, to pan around your GUI.
 
@@ -75,6 +75,8 @@ Allows you to change the background color in the region outside of the canvas.
 #### Responsiveness and Resolution
 
 You can either specify a specific resolution for your canvas in pixels, or you can turn on responsive mode, which lets you easily swap between common resolutions such as mobile and desktop. Responsiveness is an editor-only concept, it does not affect the exported GUI.
+
+<img src="/img/tools/guiEditor/resolutionResponsive.jpg" title="GUI Editor Responsive Resolution"/>
 
 ####
 
@@ -137,6 +139,10 @@ The Properties Panel will change based on which controls are selected selected t
 For example here is how to change the name of a GUI.
 
 <img src="/img/tools/guiEditor/changeName.jpg" title="GUI Editor Change Name"/>
+
+For properties which can be expressed in either pixels or percentage values, you can click on the unit button next to the input to toggle between unit types. The existing value will be converted into the equivalent value in the other unit.
+
+<img src="/img/tools/guiEditor/changeUnits.jpg" title="GUI Editor Change Units"/>
 
 Note: While using the GUI Editor to create a GUI and modify its properties, these properties can later be changed in the Babylon.js scene code. So you have full control over all of the GUI Control properties at creation time as well as runtime!
 
