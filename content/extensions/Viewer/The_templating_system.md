@@ -321,9 +321,9 @@ The list of templates that are delivered:
 - help - a help screen
 - share - a share screen
 
-All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
+All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
 
-### Changing an existing template:
+### Changing an existing template
 
 If you want to change one of the templates, simply create a new HTML structure and set it in the viewer configuration. For example, if we want to change the loading screen so it will not show an image at all:
 
