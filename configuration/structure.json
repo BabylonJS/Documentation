@@ -215,7 +215,8 @@
                         "scrollViewer": { "friendlyName": "Scroll Viewer", "children": {}, "content": "How_To/GUI/ScrollViewer" },
                         "xmlLoader": { "friendlyName": "XML Loader", "children": {}, "content": "How_To/GUI/XmlLoader" },
                         "selector": { "friendlyName": "Selector", "children": {}, "content": "How_To/GUI/Selector" },
-                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" }
+                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" },
+                        "mrtk": { "friendlyName": "MRTK Content", "children": {}, "content": "How_To/GUI/MRTK" }
                     },
                     "content": "landing_pages/divingDeeperGUILandingPage"
                 },
