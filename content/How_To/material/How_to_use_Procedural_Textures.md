@@ -93,7 +93,7 @@ The NoiseProceduralTexture exposes the following properties:
 
 ## Using Standard Procedural Textures
 
-Babylon.js also has a number of pre-built procedural textures that are gathered in the Procedural Texture library: https://github.com/BabylonJS/Babylon.js/tree/master/proceduralTexturesLibrary
+Babylon.js also has a number of pre-built procedural textures that are gathered in the Procedural Texture library: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/proceduralTextures
 
 You can use them in your project:
 

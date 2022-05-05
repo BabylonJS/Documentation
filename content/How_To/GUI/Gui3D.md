@@ -20,9 +20,9 @@ video-content:
 
 The Babylon.js 3D GUI library is an extension you can use to generate 3D interactive user interface.
 
-The latest version can be found [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview%20release/gui)
+The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js .
 
-And the source code is available on the main [Babylon.js GUI3D repo](https://github.com/BabylonJS/Babylon.js/tree/master/gui/src/3D)
+And the source code is available on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
 
 ## Introduction
 
