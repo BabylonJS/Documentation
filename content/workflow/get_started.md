@@ -1,7 +1,7 @@
 ---
-title: Getting Started 
+title: Starter HTML Template 
 image: 
-description: Getti9ng started with the workflow from simple webpage to complete app with IDE and developmental frameworks.
+description: Getting started with the workflow from simple webpage to complete app with IDE and developmental frameworks.
 keywords: workflow, babylon.js
 further-reading:
   - title: Setup with NPM

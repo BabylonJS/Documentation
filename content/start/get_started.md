@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Starter Scene Code
 image: 
 description: Describes getting started with the features of Babylon.js and the code for them
 keywords: features, getting started, started, getting

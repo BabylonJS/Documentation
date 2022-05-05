@@ -1,5 +1,5 @@
 ---
-title: The Very First Step
+title: The Journey Starts
 image-url: /img/defaultImage.png
 description: Your first Babylon interactive 3D experience
 keywords: start, guide, first, learn, begin, beginner, journey
@@ -8,9 +8,9 @@ video-overview:
 video-content:
 ---
 
-## EVERYONE's very first step.
+## The Journey Starts
 
-Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any futher through the docs.
+Welcome to the start of your journey. You will learn a basic workflow for hosting a website built using the features of Babylon.js. This document is designed for absolutely EVERYONE to give an overview experience to set you on your way to building greater and better with Babylon.js. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any futher through the docs.
 
 This doc will take you on a VERY brief journey of creating and hosting your very first Babylon.js Web Experience. You'll learn about the Babylon.js playground, scratch the surface of learning the core engine, and save your work as a ready-to-host .html file. 
 
@@ -201,4 +201,4 @@ Congratulations! You just built and hosted your very first Babylon.js web experi
 
 Before you take off and explore Babylon further, we humbly ask that you read one additional article. Babylon.js is a rich and powerful engine and we've worked hard to provide a LOT of documentation to help you learn it. The last part of the first step of your Babylon journey is to get an overview of how the Documenation is organized.
 
-[Learning the Babylon.js Documentation](/journey/learningTheDocs)
+[Learning the Babylon.js Documentation](/overview/learningTheDocs)
