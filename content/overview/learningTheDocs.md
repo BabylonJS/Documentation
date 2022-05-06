@@ -11,7 +11,7 @@ video-content:
 
 ## How It's Organized
 
-Having [started your journey](/overview/journey) and having an [overview](/overview/overview) of Babylon.js, the documentation is designed to take you on a step by step further on the journey of mastering all that this platform has to offer. The information is organized into an overview and 6 main sections, which contain chapters, together with a detailed API section, and search facilities.
+Having [started your journey](/overview/journey) and having an [overview](/overview/overview) of Babylon.js, the documentation is designed to take you step by step further on the journey of mastering all that this platform has to offer. The information is organized into an overview and 6 main sections, which contain chapters, together with a detailed API section, and search facilities.
 
 1. [Workflow](/workflow) - There are a variety of ways to deal with the workflow when developing a Babylon.js project. This section will help you to understand the possibilities and provides you with some templates and support for doing so.
 2. [Features](/features) - Babylon.js has a wide range of features. This section takes you through these features and helps you to , code and build with them.
