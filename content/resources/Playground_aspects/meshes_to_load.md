@@ -54,7 +54,7 @@ Elf.gltf | 401 KB | ![elf](/img/resources/meshes/elf.png) | <Playground id="#XY6
 This list of files is in the model library [from the github repo](https://github.com/BabylonJS/MeshesLibrary) and using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `https://models.babylonjs.com/` and the `filename` parameter is as given below. The playground will show the actual terms required.
 
 Filename | Size | Image | Playground
----|---|---|---|---
+---|---|---|---
 aerobatic_plane.glb | 4.4 MB | ![plane](/img/resources/meshes/plane.png) | <Playground id="#5NIBE1#1" title="Plane" description=""/>
 alien.glb | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | <Playground id="#8IMNBM#2" title="Alien" description=""/>
 BabylonJS-logo/v1-2/Babylogo.babylon | 510 KB | ![Babylogo](/img/resources/meshes/Babylogo.jpg) | <Playground id="#TZTY3Y" title="Babylogo" description=""/>
