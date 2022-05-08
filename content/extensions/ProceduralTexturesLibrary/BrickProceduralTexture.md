@@ -10,7 +10,7 @@ video-content:
 
 # Brick Procedural texture
 
-![Brick Procedural texture](/img/extensions/proceduraltextures/brickpt.png)
+![Brick Procedural texture](/img/extensions/proceduraltextures/brickpt.PNG)
 
 ## Using the Brick procedural texture
 
@@ -26,9 +26,10 @@ This texture has 4 parameters :
 - **jointColor** changes the color for the joint between bricks (BABYLON.Color3/4)
 - **brickColor** changes the color for the brick itself (BABYLON.Color3/4)
 
+```javascript
+var brickMaterial = new BABYLON.StandardMaterial(name, scene);
+var brickTexture = new BABYLON.BrickProceduralTexture(name + "text", 512, scene);
+brickTexture.numberOfBricksHeight = 6;
+brickTexture.numberOfBricksWidth = 10;
+brickMaterial.diffuseTexture = brickTexture;
 ```
-	var brickMaterial = new BABYLON.StandardMaterial(name, scene);
-    var brickTexture = new BABYLON.BrickProceduralTexture(name + "text", 512, scene);
-    brickTexture.numberOfBricksHeight = 6;
-    brickTexture.numberOfBricksWidth = 10;
-    brickMaterial.diffuseTexture = brickTexture;
