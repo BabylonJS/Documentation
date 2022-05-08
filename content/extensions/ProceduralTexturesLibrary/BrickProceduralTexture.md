@@ -27,8 +27,8 @@ This texture has 4 parameters :
 - **brickColor** changes the color for the brick itself (BABYLON.Color3/4)
 
 ```javascript
-var brickMaterial = new BABYLON.StandardMaterial(name, scene);
-var brickTexture = new BABYLON.BrickProceduralTexture(name + "text", 512, scene);
+var brickMaterial = new BABYLON.StandardMaterial("brickMat", scene);
+var brickTexture = new BABYLON.BrickProceduralTexture("brickTex", 512, scene);
 brickTexture.numberOfBricksHeight = 6;
 brickTexture.numberOfBricksWidth = 10;
 brickMaterial.diffuseTexture = brickTexture;
