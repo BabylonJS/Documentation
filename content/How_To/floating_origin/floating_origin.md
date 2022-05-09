@@ -20,8 +20,7 @@ This is well known and works perfectly.
 
 Only problem is that our GPU's are still limited to 32 bit floating-point,
 so when we have big coordinates -- objects and/or cameras very far from the world's origin,
-for example at (10000000, 0, 10000500) -- we will notice jittering because of
-32 bits floating-point imprecision because of the big numbers inside matrices.
+for example at (10000000, 0, 10000500) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
 
 ![Pic01](/img/how_to/floating_origin/pic01.jpg)
 
