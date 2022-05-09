@@ -48,7 +48,7 @@ from the camera, and as they are very far anyway, we cannot see the jittering. =
 Let's use an example:
 
 On a solar system, we have an asteroid located at (10000000, 0, 10000000).
-Our camera is close to the asteroid, at (10000500, 0, 10000500).
+Our camera is close to the asteroid, at (10000000, 0, 10000500).
 
 Normally, that would certainly cause jittering, because both objects are very far from the world's origin. But with
 our trick, the jittering does not happen -- remember, we subtract camera double position from the object double position
