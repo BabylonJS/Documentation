@@ -1,3 +1,13 @@
+---
+title: Floating Origin (Huge Scenes Support)
+image: 
+description: Learn how to manage huge scenes using floating-origin trick
+keywords: diving deeper, huge spaces, floating-origin
+further-reading:
+video-overview:
+video-content:
+---
+
 ## HOW FLOATING-ORIGIN WORKS
 
 On traditional 3D rendering, objects will pass three stages until they're displayed on screen:
