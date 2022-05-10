@@ -52,7 +52,7 @@ double sided ribbon not updatable: <Playground id="#F6JW5W#6" title="Create a No
 double sided ribbon not updatable path lines in red: <Playground id="#F6JW5W#7" title="Create a Non Updatable Double Sided Ribbon With Red Path Lines" description="Simple example of creating a non updatable double sided ribbon with red path lines."/>  
 open ribbon: <Playground id="#F6JW5W#8" title="Create An Open Ribbon" description="Simple example of creating an open ribbon."/>
 with closePath true: <Playground id="#F6JW5W#9" title="Create a Ribbon with closePath = True" description="Simple example of creating a ribbon with closePath set to true."/> 
-with closeArray true: <Playground id="#F6JW5W#10 " title="Create a Ribbon with closeArray = True" description="Simple example of creating a ribbon with closeArray set to true."/> 
+with closeArray true: <Playground id="#F6JW5W#10" title="Create a Ribbon with closeArray = True" description="Simple example of creating a ribbon with closeArray set to true."/> 
 
 
 ## Mesh
