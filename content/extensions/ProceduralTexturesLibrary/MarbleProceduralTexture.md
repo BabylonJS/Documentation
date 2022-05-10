@@ -10,7 +10,7 @@ video-content:
 
 # Marble Procedural texture
 
-![Marble Procedural texture](/img/features/extensions/proceduraltextures/marblept.png)
+![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.PNG)
 
 ## Using the Marble procedural texture
 
@@ -26,11 +26,10 @@ This texture has 4 parameters :
 - **jointColor** changes the color for the joint between tiles (BABYLON.Color3/4)
 - **marbleColor** changes the color for the tile itself (BABYLON.Color3/4)
 
-
-```
-	var marbleMaterial = new BABYLON.StandardMaterial("torus", scene);
-    var marbleTexture = new BABYLON.MarbleProceduralTexture("marble", 512, scene);
-    marbleTexture.numberOfTilesHeight = 5;
-    marbleTexture.numberOfTilesWidth = 5;
-    marbleMaterial.ambientTexture = marbleTexture;
+```javascript
+var marbleMaterial = new BABYLON.StandardMaterial("marbleMat", scene);
+var marbleTexture = new BABYLON.MarbleProceduralTexture("marbleTex", 512, scene);
+marbleTexture.numberOfTilesHeight = 5;
+marbleTexture.numberOfTilesWidth = 5;
+marbleMaterial.ambientTexture = marbleTexture;
 ```

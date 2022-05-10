@@ -56,8 +56,9 @@ mesh.increaseVertices(4);
 ```
 
 **Note**
-1. The position and rotation of the mesh must be set before its soft impostor is created;
+1. The position and rotation of the mesh must be set **before** its soft impostor is created.
 2. A mesh used for a soft body cannot be a parent or child of another mesh.
+3. Soft bodies cannot have forces and impulses applied to it.
 
 ## Options for Soft Bodies
 

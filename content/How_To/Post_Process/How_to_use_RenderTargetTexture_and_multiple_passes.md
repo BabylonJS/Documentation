@@ -39,7 +39,7 @@ renderTarget.renderList.push(sphere); // add it to the RTT
 You can use the rendered image as the texture of an object in your main render. Just set it as the texture of a material:
 
 ```
-var mat = new BABYLON.("RTT mat", scene);
+var mat = new BABYLON.StandardMaterial("RTT mat", scene);
 mat.diffuseTexture = renderTarget;
 ```
 

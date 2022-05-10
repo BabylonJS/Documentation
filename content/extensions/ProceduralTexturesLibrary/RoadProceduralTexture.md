@@ -10,7 +10,7 @@ video-content:
 
 # Road Procedural texture
 
-![Road Procedural texture](/img/features/extensions/proceduraltextures/roadpt.png)
+![Road Procedural texture](/img/extensions/proceduraltextures/roadpt.PNG)
 
 ## Using the Road procedural texture
 
@@ -23,9 +23,8 @@ A demo can be found here: <Playground id="#FBW4N#0" title="Road Procedural Textu
 This texture has 1 parameter :
 - **roadColor** is the color for the road (BABYLON.Color3/4)
 
-
-```
-    var roadmaterial = new BABYLON.StandardMaterial("road", scene);
-    var roadmaterialpt = new BABYLON.RoadProceduralTexture("customtext", 512, scene);
-    roadmaterial.diffuseTexture = roadmaterialpt;
+```javascript
+var roadmaterial = new BABYLON.StandardMaterial("roadMat", scene);
+var roadmaterialpt = new BABYLON.RoadProceduralTexture("roadTex", 512, scene);
+roadmaterial.diffuseTexture = roadmaterialpt;
 ```

@@ -10,7 +10,7 @@ video-content:
 
 # Grass Procedural texture
 
-![Grass Procedural texture](/img/features/extensions/proceduraltextures/grasspt.png)
+![Grass Procedural texture](/img/extensions/proceduraltextures/grasspt.PNG)
 
 ## Using the Grass procedural texture
 
@@ -24,9 +24,8 @@ This texture has 2 parameters :
 - **grassColors** is an array of 3 (BABYLON.Color3/4) for the grass. Should be green but you can create red grass if you want to (BABYLON.Color3/4)
 - **groundColor** is the base color for the ground (BABYLON.Color3/4)
 
-
-```
-    var grassMaterial = new BABYLON.StandardMaterial(name + "bawl", scene);
-    var grassTexture = new BABYLON.GrassProceduralTexture(name + "textbawl", 256, scene);
-    grassMaterial.ambientTexture = grassTexture;
+```javascript
+var grassMaterial = new BABYLON.StandardMaterial("grassMat", scene);
+var grassTexture = new BABYLON.GrassProceduralTexture("grassTex", 256, scene);
+grassMaterial.ambientTexture = grassTexture;
 ```

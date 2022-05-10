@@ -10,7 +10,7 @@ video-content:
 
 # Cloud Procedural texture
 
-![Cloud Procedural texture](/img/features/extensions/proceduraltextures/cloudpt.png)
+![Cloud Procedural texture](/img/extensions/proceduraltextures/cloudpt.PNG)
 
 ## Using the cloud procedural texture
 
@@ -26,12 +26,13 @@ This texture has 2 parameters :
 
 Sample to create a cloudy sky
 
-```
-var boxCloud = BABYLON.Mesh.CreateSphere("boxCloud", 100, 1000, scene);
-boxCloud.position = new BABYLON.Vector3(0, 0, 12);
+```javascript
+var cloud = BABYLON.MeshBuilder.CreateSphere("cloud", { segments: 100, diameter: 1000 }, scene);
 var cloudMaterial = new BABYLON.StandardMaterial("cloudMat", scene);
-var cloudProcText = new BABYLON.CloudProceduralTexture("cloud", 1024, scene);
-cloudMaterial.emissiveTexture = cloudProcText;
+var cloudProcTexture = new BABYLON.CloudProceduralTexture("cloudTex", 1024, scene);
+cloudMaterial.emissiveTexture = cloudProcTexture;
 cloudMaterial.backFaceCulling = false;
 cloudMaterial.emissiveTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-boxCloud.material = cloudMaterial;
+cloud.material = cloudMaterial;
+cloud.position = new BABYLON.Vector3(0, 0, 12);
+```
