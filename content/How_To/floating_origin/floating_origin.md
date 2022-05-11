@@ -82,7 +82,7 @@ You must use its doublepos to set object position instead of position directly.
 
 So, let's say that we want a sphere with double precision:
 
-```  
+```javascript
 let camera = new OriginCamera("camera", new BABYLON.Vector3(10000000, 0, 10000500), scene);
 camera.doubletgt = new BABYLON.Vector3(10000000, 0, 10000000);
 camera.touchAngularSensibility = 10000;
