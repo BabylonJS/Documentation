@@ -16,11 +16,12 @@ On traditional 3D rendering, objects will pass three stages until they're displa
 - View matrix: will translate and rotate relative to camera;
 - Projection matrix: will project vertices to screen.
 
+
 This is well known and works perfectly.
 
-Only problem is that our GPU's are still limited to 32 bit floating-point,
+Only problem is that our GPU's are still limited to 32 bits floating-point,
 so when we have big coordinates -- objects and/or cameras very far from the world's origin,
-for example at (10000000, 0, 10000500) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
+for example at (10000000, 0, 10000000) -- we will notice jittering because the big numbers inside matrices will cause 32 bits floating-point imprecision on the GPU.
 
 ![Pic01](/img/how_to/floating_origin/pic01.jpg)
 
@@ -30,14 +31,12 @@ The idea of floating-origin is very simple: we just keep the camera always fixed
 (0, 0, 0) and move the objects instead.
 
 This does not mean that the camera cannot move, though! It "moves", but not directly. Here is
-where lies the trick; instead of changing the real camera position, we use a separate, double precision
-floating-point Vector3 which stores the camera position. The real camera position is kept always (0, 0, 0).
+where lies the trick: instead of changing the real camera position, we use a separate, double precision
+Vector3 which stores the camera position. The real camera position is kept always at origin (0, 0, 0).
 
-We do the same for the objects; all of them get a separate, double precision Vector3 to store their coordinates.
-We don't set their real position directly; instead, we also set their separate coordinates.
+We do the same for the objects: all of them get a separate, double precision Vector3 to store their coordinates. We don't set their real position directly; instead, we also set their separate coordinates.
 
-Then, on a loop which happens every frame just before rendering, we subtract the double camera position
-from each object's double position, and that difference is copied to that object's real position.
+Then, on a loop which happens every frame just before rendering, we subtract the double camera position from each object's double position, and that difference is copied to that object's real position.
 
 The result is that the camera is indeed kept always at origin, and the objects float around, removing
 huge coordinates from the objects that are close to the camera. That is, imprecision only happens very far
@@ -69,6 +68,7 @@ but with no jittering.
 You can find a working playground example with OriginCamera and Entity classes here:  
 
 <Playground id="#LHI514#2" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
+
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
 or your game won't work properly. You will need to create one instance of OriginCamera
