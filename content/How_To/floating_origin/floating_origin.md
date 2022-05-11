@@ -64,7 +64,7 @@ and we don't see any jittering.
 We just need to set the object at (0, 0, -500) and it will have the same visual effect as if we used their real coordinates,
 but with no jittering.
 
-## FLOATING-ORIGIN EXAMPLE
+## Floating-origin examples
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
