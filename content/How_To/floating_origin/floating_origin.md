@@ -68,7 +68,7 @@ but with no jittering.
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
-https://playground.babylonjs.com/#LHI514
+https://playground.babylonjs.com/#LHI514#1
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
 or your game won't work properly. You will need to create one instance of OriginCamera
