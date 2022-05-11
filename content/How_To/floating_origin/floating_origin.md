@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## HOW FLOATING-ORIGIN WORKS
+## How floating-origin works
 
 On traditional 3D rendering, objects will pass three stages until they're displayed on screen:
 
