@@ -24,7 +24,7 @@ for example at (10000000, 0, 10000500) -- we will notice jittering because the b
 
 ![Pic01](/img/how_to/floating_origin/pic01.jpg)
 
-But there is a trick which is good to mitigate that problem; it is called floating-origin.
+But there is a trick which is good to mitigate that problem: floating-origin.
 
 The idea of floating-origin is very simple: we just keep the camera always fixed at world's origin
 (0, 0, 0) and move the objects instead.
@@ -33,7 +33,7 @@ This does not mean that the camera cannot move, though! It "moves", but not dire
 where lies the trick; instead of changing the real camera position, we use a separate, double precision
 floating-point Vector3 which stores the camera position. The real camera position is kept always (0, 0, 0).
 
-We do the same for the object; all of them get a separate, double precision Vector3 to store their coordinates.
+We do the same for the objects; all of them get a separate, double precision Vector3 to store their coordinates.
 We don't set their real position directly; instead, we also set their separate coordinates.
 
 Then, on a loop which happens every frame just before rendering, we subtract the double camera position
@@ -68,7 +68,7 @@ but with no jittering.
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
-https://playground.babylonjs.com/#LHI514#1
+<Playground id="#LHI514#2" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
 or your game won't work properly. You will need to create one instance of OriginCamera
@@ -83,6 +83,7 @@ You must use its doublepos to set object position instead of position directly.
 So, let's say that we want a sphere with double precision:
 
 ```javascript
+// Create the OriginCamera
 let camera = new OriginCamera("camera", new BABYLON.Vector3(10000000, 0, 10000500), scene);
 camera.doubletgt = new BABYLON.Vector3(10000000, 0, 10000000);
 camera.touchAngularSensibility = 10000;
@@ -99,17 +100,16 @@ camera.maxZ = 50000000;
 camera.fov = 1;
 camera.attachControl(canvas, true);
 
+// Create an Entity for the sphere
 let entSphere = new Entity("entSphere", scene);
 camera.add(entSphere);
 
+// Create the sphere and parent it to its Entity
 let sphere = BABYLON.CreateSphere("sphere", {diameter:256});
 sphere.parent = entSphere;
 
-let sphMat = new BABYLON.StandardMaterial("sph", scene);
-sphere.material = sphMat;
-
-entSphere.doublepos.set(10000000, 0, 10000000);
-
+// Position the Entity
+entSphere.doublepos = new BABYLON.Vector3(10000000, 0, 10000000);
 ```  
 
 The OriginCamera extends UniversalCamera, so you can use the same features of that.
