@@ -10,11 +10,11 @@ video-content:
 
 ## What is the Snippet Server
 
-The Snippet Server is the content server used by the Babylon library. Whenever you save a playground, an animation, or a node material, and get a unique URL pointing to your content, this is accomplished by sending HTTP requests to the Snippet Server. However, the server is public, which means that anyone with this unique URL will be able to access your content. If you'd like to run your own, private server, then this page, which explains a reference implementation, will be of use to you.
+The Snippet Server is the content server used by the Babylon library. Whenever you save a playground, an animation, or a node material, and get a unique URL pointing to your content, this is accomplished by sending HTTP requests to the Snippet Server. However, the default server we use doesn't have authentication, which means that anyone with this unique URL will be able to access your content. It is also closed source, which means it isn't possible to run a local copy of it. So, if you want to run your own, private server, you'll have to implement your own. This page explains one such example implementation.
 
 ## Making your own Snippet Server
 
-To check out what is the minimum expected of a Snippet Server, let's take a look at this reference [implementation](). It was done in NodeJS and Express, which are JavaScript-based like Babylon itself. But you could implement your server in any language you prefer, like Python or Go. You only need to implement two API calls. It also uses the file system to store the snippet files, which is very simple to implement, but not the safest. Again, feel free to modify it to suit your needs.
+To check out what is the minimum expected of a Snippet Server, let's take a look at this reference [implementation](https://github.com/BabylonJS/SnippetServerReference). It was done in NodeJS and Express, which are JavaScript-based like Babylon itself, but you could implement your server in any language you prefer, like Python or Go. You only need to implement two API calls. It also uses the file system to store the snippet files, which is very simple to implement, but not the safest. Again, feel free to modify it to suit your needs.
 
 In this reference implementation, the snippets are armazened in a directory called `data`, while another directory, called `metadata`, stores the latest version of each snippet ID. And what is a "snippet ID" and a "version", you may ask? If you look at any URL that is saved in our tools, you can see it has two parts:
 
@@ -119,4 +119,4 @@ Now that you have a server up and running, you'll want to point your Babylon lib
 
 ## A Note About CORS
 
-Depending on your browser of choice, your calls to the Snippet Server may be blocked by [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), so you'll need to add the [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#access-control-allow-origin) header to your responses. The easiest way to do that on Express is using the [CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html).
+Depending on your browser of choice, your calls to the Snippet Server may be blocked by [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), so you'll need to add the [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#access-control-allow-origin) header to your responses. The easiest way to do that in Express is using the [CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html).
