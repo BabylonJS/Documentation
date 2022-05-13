@@ -67,7 +67,7 @@ but with no jittering.
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
-<Playground id="#LHI514#2" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
+<Playground id="#LHI514#3" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
 
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
