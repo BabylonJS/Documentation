@@ -1251,6 +1251,13 @@
             "friendlyName": "Playground search",
             "children": {},
             "content": ""
+        },
+        "contribute": {
+            "friendlyName": "Contribute to Babylon.js",
+            "children": {
+
+            },
+            "content":"landing_pages/contribute_to_babylonjs"
         }
     },
     "navOverrides": { "previous": "" }
