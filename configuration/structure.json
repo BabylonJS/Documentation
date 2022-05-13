@@ -208,6 +208,11 @@
                     },
                     "content": "landing_pages/divingDeeperEventsLandingPage"
                 },
+                "floating_origin": {
+                    "friendlyName": "Floating Origin",
+                    "children": {},
+                    "content": "How_To/floating_origin/floating_origin"
+                },
                 "gui": {
                     "friendlyName": "GUI",
                     "children": {
