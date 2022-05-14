@@ -7,6 +7,11 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
             background: "#fafafa",
+            border: "1px solid #dedede",
+            borderRadius: "5px",
+            backgroundColor: "#f7f7f7",
+            paddingLeft: "16px",
+            paddingRight: "16px",
             zIndex: 100,
             width: "unset !important",
             "& h2": {
