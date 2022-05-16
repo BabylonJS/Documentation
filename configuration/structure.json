@@ -708,7 +708,8 @@
                             "friendlyName": "Playground",
                             "children": {
                                 "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" },
-                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
+                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" },
+                                "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"}
                             },
                             "content": "landing_pages/PGsupport/Playground"
                         },
