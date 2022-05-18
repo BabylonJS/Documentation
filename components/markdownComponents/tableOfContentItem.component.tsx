@@ -13,7 +13,8 @@ const styles = makeStyles((theme: Theme) =>
         button: {
             transform: "translate(4px, -2px)",
             padding: 1,
-            marginLeft: 8
+            marginLeft: 8,
+            height: 20,
         },
     }),
 );
