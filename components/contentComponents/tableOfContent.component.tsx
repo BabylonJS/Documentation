@@ -10,6 +10,7 @@ const styles = makeStyles((theme: Theme) =>
             border: "1px solid #dedede",
             borderRadius: "5px",
             backgroundColor: "#f7f7f7",
+            marginBottom: "1.5rem",
             paddingLeft: "16px",
             paddingRight: "16px",
             zIndex: 100,
