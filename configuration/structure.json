@@ -1310,7 +1310,8 @@
                             "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
                         },
                         "content": "landing_pages/PGsupport/playground-tools"
-                    }
+                    },
+                    "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"}
                 },
                 "content": "landing_pages/PGsupport/Playground"
             },
