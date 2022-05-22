@@ -137,6 +137,6 @@ Apart from the first normal, there are two more parameters:
 
 As mentioned in the beginning section, the position of points along the curve, together with the tangent, normal, and binormal vectors, can be used to guide the position and orientation of an object, creating interesting yet effortless animations.
 
-<Playground id="#SGVUBC#26" title="Camera Following a Path" description="Example of a Camera animated to follow the positions and orientations along a Path3D object."/>
+<Playground id="#SGVUBC#38" title="Camera Following a Path" description="Example of a Camera animated to follow the positions and orientations along a Path3D object."/>
 
 The playground above illustrates this technique. The Path3D is constructed as the combination of a few cubic Bèzier curves (but manually defining the points would work just fine). On each point of the path, its tangent and binormal vectors are passed as [arguments](/typedoc/classes/babylon.quaternion#fromlookdirectionrh) to the ```FromLookDirectionRH()``` method of the [Quaternion class](/features/divingDeeper/mesh/transforms/center_origin/rotation_quaternions), orienting the camera such that it looks down the tangent direction, and points up towards the binormal. We then set the sequences of positions and orientations as [animation keys](/features/divingDeeper/animation/animation_design), and play it. This idea isn't limited to Cameras, as it could also be used to define paths along which characters would walk in a game, for example. 

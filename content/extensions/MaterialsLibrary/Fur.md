@@ -83,7 +83,7 @@ furMaterial.highLevelFur = false;
 ![Fur material](/img/features/extensions/materials/fur.png)
 
 Demos can be found at:
-PG: <Playground id="#EUCNP#6 " title="Fur Material" description="Example using low level mode"/>  
+PG: <Playground id="#EUCNP#6" title="Fur Material" description="Example using low level mode"/>  
  PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap"/>
 
 The fur material needs a high number of the triangular facets that make up a mesh to work well.

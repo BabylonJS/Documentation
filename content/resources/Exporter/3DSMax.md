@@ -1,5 +1,5 @@
 ---
-title: DS MAX Plugin
+title: 3DS MAX Plugin
 image:
 description: How To install the 3DS MAX plugin .
 keywords: babylon.js, exporter, export, extension
