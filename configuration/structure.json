@@ -794,6 +794,7 @@
                                 "friendlyName": "Scene",
                                 "children": {
                                     "fastBuildWorld": { "friendlyName": "Fast Build A World", "children": {}, "content": "How_To/scene/Fast_Build" },
+                                    "floating_origin": {"friendlyName": "Huge Scenes (Floating Origin)", "children": {}, "content": "How_To/floating_origin/floating_origin" },
                                     "interactWithScenes": { "friendlyName": "Interacting With Scenes", "children": {}, "content": "How_To/scene/Interactions" },
                                     "multiScenes": { "friendlyName": "Using Multiple Scenes", "children": {}, "content": "How_To/scene/Multi_Scenes" },
                                     "multiCanvas": { "friendlyName": "Using Multiple Canvases", "children": {}, "content": "How_To/scene/Multi_Canvases" },
