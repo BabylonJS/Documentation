@@ -111,7 +111,7 @@ Note that in the sample we are calling `dispatchWhenReady()` for the first compu
 
 ### Compute Boids
 
-<Playground id="#3URR7V#170" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds" image="/img/extensions/webgpu/boids.png"/>
+<Playground id="#3URR7V#176" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds" image="/img/extensions/webgpu/boids.png"/>
 
 This is a direct port of the WebGPU sample [computeBoids](http://austin-eng.com/webgpu-samples/samples/computeBoids).
 
