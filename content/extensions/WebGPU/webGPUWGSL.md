@@ -156,7 +156,7 @@ On the javascript side, you have the corresponding methods to set a value to the
 ## Examples
 This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#164" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
-As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#105" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
+As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#126" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
 
 You can also use the new in 5.0 baked vertex animation feature as well as clip planes. See: <Playground id="#8RU8Q3#106" engine="webgpu" title="Using BVA and clip planes in WGSL" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support baked vertex animations and clip planes"/>
 
