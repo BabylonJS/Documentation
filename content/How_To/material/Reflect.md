@@ -68,7 +68,7 @@ Equirectangular panoramic images ([panotools wiki](https://wiki.panotools.org/Eq
 
 [EquiRectangularCubeTexture](/typedoc/classes/babylon.equirectangularcubetexture) instances load an equirectangular panorama image into a CubeTexture-compatible environment map.
 
-<Playground id="#RY8LDL" title="Spheres Reflecting Equirectangular Skybox" description="Reflections and refractions of an equirectangular skybox panorama." image="/img/playgroundsAndNMEs/features/divingDeeperReflectionRefraction9.jpg"/>
+<Playground id="#RY8LDL#32" title="Spheres Reflecting Equirectangular Skybox" description="Reflections and refractions of an equirectangular skybox panorama." image="/img/playgroundsAndNMEs/divingDeeperReflectionRefraction9.jpg"/>
 
 ### HDRCubeTexture
 High Dynamic Range ([wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range_imaging)) images capture brighter and dimmer colors than a typical monitor can display. This can be useful for environment mapping even if the final output uses standard dynamic range.
