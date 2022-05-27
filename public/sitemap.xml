@@ -706,6 +706,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.cameragizmo</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.camerainputsmanager</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.cascadedshadowgenerator</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.cellmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.chromaticaberrationpostprocess</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.circleease</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.circleofconfusionpostprocess</loc></url>
@@ -745,9 +746,11 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.currentscreenblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.curve3</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.customblock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.custommaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.customoptimization</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.customparticleemitter</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.customproceduraltexture</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.customshaderstructure</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.cylinderdirectedparticleemitter</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.cylinderparticleemitter</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.database</loc></url>
@@ -823,6 +826,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.filesinput</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.filesinputstore</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.filterpostprocess</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.firematerial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.flycamera</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.flycamerainputsmanager</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.flycamerakeyboardinput</loc></url>
@@ -850,6 +854,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.fresnelparameters</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.frontfacingblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.frustum</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.furmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.fxaapostprocess</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gamepad</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gamepadcamera</loc></url>
@@ -901,7 +906,9 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gradientblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gradientblockcolorstep</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gradienthelper</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gradientmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.grainpostprocess</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gridmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.groundmesh</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gui.abstractbutton3d</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.gui.advanceddynamictexture</loc></url>
@@ -1021,6 +1028,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.khr_materials_volume</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.khronostexturecontainer2</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.khronostexturecontainer</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.lavamaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.layer</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.layerscenecomponent</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.lengthblock</loc></url>
@@ -1058,6 +1066,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.minblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.minmaxreducer</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.mirrortexture</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.mixmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.modblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.modelshape</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.morphtarget</loc></url>
@@ -1087,6 +1096,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.noiseproceduraltexture</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.normalblendblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.normalizeblock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.normalmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.nullengine</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.nullengineoptions</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.objexport</loc></url>
@@ -1120,6 +1130,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrbasesimplematerial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrbrdfconfiguration</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrclearcoatconfiguration</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrcustommaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbriridescenceconfiguration</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.pbrmetallicroughnessblock</loc></url>
@@ -1247,16 +1258,20 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.setparentaction</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.setstateaction</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.setvalueaction</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shaderalebdoparts</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadercodeinliner</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadermaterial</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shaderspecialparts</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shaderstore</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowdepthwrapper</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowgenerator</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowgeneratorscenecomponent</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowlight</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowonlymaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.shadowsoptimization</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.sharpenpostprocess</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.sheenblock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.simplematerial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.simplexperlin3dblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.simplicationqueuescenecomponent</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.simplificationqueue</loc></url>
@@ -1265,6 +1280,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.sixdofdragbehavior</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.size</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.skeleton</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.skymaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.slicetools</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.smartarray</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.smartarraynoduplicate</loc></url>
@@ -1320,6 +1336,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.targetcamera</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.targetedanimation</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.tbnblock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.terrainmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.textfileassettask</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.texture</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.textureassettask</loc></url>
@@ -1345,6 +1362,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.transformblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.transformnode</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.trigonometryblock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.triplanarmaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.twirlblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.uniformbuffer</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.uniqueidgenerator</loc></url>
@@ -1378,6 +1396,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.vrdistortioncorrectionpostprocess</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.vrexperiencehelper</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.vrmultiviewtosingleviewpostprocess</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.watermaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.waveblock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.webgpuengine</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/babylon.webrequest</loc></url>
