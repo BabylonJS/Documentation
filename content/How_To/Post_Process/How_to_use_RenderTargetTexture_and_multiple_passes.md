@@ -147,7 +147,7 @@ Playground example: <Playground id="#S1W87B#20" title="Performance Example" desc
 
 ### Notes about your shader
 
-Note that since you replace the material with a shader from the scratch for mesh instances, you need to handle effects such as animation or the instance transformation,and this will affect your vertex shader (and possibly your fragment shader as well). There are [several includes in Babylon](https://github.com/BabylonJS/Babylon.js/tree/master/src/Shaders/ShadersInclude) that help with that. Here's a sample vertex shader with support for bone animations and instances:
+Note that since you replace the material with a shader from the scratch for mesh instances, you need to handle effects such as animation or the instance transformation,and this will affect your vertex shader (and possibly your fragment shader as well). There are [several includes in Babylon](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) that help with that. Here's a sample vertex shader with support for bone animations and instances:
 
 ```glsl
 precision highp float;

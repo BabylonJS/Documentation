@@ -262,7 +262,7 @@ let canvasContainer = viewer.templateManager.getTemplate("canvasContainer");
 
 ### The template object
 
-Any configured template is creating a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/templating/templateManager.ts).
+Any configured template is creating a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/templating/templateManager.ts).
 
 Here are the public variables we can access:
 
