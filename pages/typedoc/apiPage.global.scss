@@ -34,6 +34,9 @@
                 flex-wrap: wrap;
             }
         }
+        p {
+            display: none;
+        }
     }
 
     display: flex;
@@ -84,6 +87,14 @@
         display: flex;
         flex-direction: column;
         position: unset;
+    }
+
+    a.tsd-anchor-icon {
+        margin-left: 0.25em;
+        svg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     @media (max-width: 640px) {

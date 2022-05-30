@@ -8,6 +8,15 @@ module.exports = withMDX(
         },
         webpack5: true,
         staticPageGenerationTimeout: 120,
+        async redirects() {
+            return [
+              {
+                source: '/typedoc',
+                destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
+                permanent: true,
+              },
+            ]
+          },
     },
     // withSass({
     //     sassLoaderOptions: {

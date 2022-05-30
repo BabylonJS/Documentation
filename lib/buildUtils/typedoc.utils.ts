@@ -111,7 +111,6 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
 };
 
 export const getAPIPageData = async (id: string[]) => {
-    console.log(id);
     const html = readFileSync(`${basePath}${sep}files${sep}${id.join(sep)}.html`, "utf-8").toString();
     // read the HTML file, extract description, title, css
     const root = parse(html);
