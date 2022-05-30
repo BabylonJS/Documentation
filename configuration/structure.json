@@ -2,6 +2,14 @@
     "friendlyName": "Home Page",
     "content": "landing_pages/home",
     "children": {
+        "journey": {
+            "friendlyName": "Your Journey Starts Here",
+            "children": {
+                "theFirstStep": { "friendlyName": "The VERY First Step", "children": {}, "content": "journeyStart/the_first_step"},
+                "learningTheDocs": { "friendlyName": "Learning The Docs", "children": {}, "content": "journeyStart/learningTheDocs"}
+            },
+            "content": "journeyStart/journeyStart"
+        },
         "start": {
             "friendlyName": "Getting Started",
             "children": {
@@ -200,6 +208,11 @@
                     },
                     "content": "landing_pages/divingDeeperEventsLandingPage"
                 },
+                "floating_origin": {
+                    "friendlyName": "Floating Origin",
+                    "children": {},
+                    "content": "How_To/floating_origin/floating_origin"
+                },
                 "gui": {
                     "friendlyName": "GUI",
                     "children": {
@@ -207,7 +220,8 @@
                         "scrollViewer": { "friendlyName": "Scroll Viewer", "children": {}, "content": "How_To/GUI/ScrollViewer" },
                         "xmlLoader": { "friendlyName": "XML Loader", "children": {}, "content": "How_To/GUI/XmlLoader" },
                         "selector": { "friendlyName": "Selector", "children": {}, "content": "How_To/GUI/Selector" },
-                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" }
+                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" },
+                        "mrtk": { "friendlyName": "MRTK Content", "children": {}, "content": "How_To/GUI/MRTK" }
                     },
                     "content": "landing_pages/divingDeeperGUILandingPage"
                 },
@@ -441,6 +455,11 @@
                         "meshExploder": { "friendlyName": "Exploding Meshes", "children": {}, "content": "How_To/mesh/How_to_use_MeshExploder" }
                     },
                     "content": "landing_pages/divingDeeperMeshLandingPage"
+                },
+                "multiplePlatforms": {
+                    "friendlyName": "Multiple Platforms",
+                    "children": {},
+                    "content": "landing_pages/divingDeeperPlatforms"
                 },
                 "occlusionQueries": {
                     "friendlyName": "Occlusion Queries",
@@ -689,7 +708,8 @@
                             "friendlyName": "Playground",
                             "children": {
                                 "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" },
-                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
+                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" },
+                                "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"}
                             },
                             "content": "landing_pages/PGsupport/Playground"
                         },

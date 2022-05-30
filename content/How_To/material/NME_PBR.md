@@ -15,17 +15,17 @@ It is incredibly easy to utilize Physically Based Rendering with Node Materials 
 You can use these playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
 -   Full use of all PBR blocks:
--   PG: <Playground id="#D8AK3Z#16" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg" isMain={true} category="Node Material"/>
--   Material: <nme id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.jpg"/>
+-   PG: <Playground id="#D8AK3Z#44" title="PBR Blocks Playground" description="Playground of the full use of PBR blocks in NME." image="/img/playgroundsAndNMEs/PGPBRNME.jpg" isMain={true} category="Node Material"/>
+-   Material: <NME id="#EPY8BV#6" title="PBR Blocks NME" description="Node Material Editor of the full use of PBR blocks." image="/img/playgroundsAndNMEs/NMEPBRNME.jpg"/>
 -   PBR material with sheen only:
     -   PG: <Playground id="#MUX769#4" title="PBR Blocks Sheen Only Playground" description="Playground of PBR blocks in NME using sheen only." image="/img/playgroundsAndNMEs/PGPBRSheenNME.jpg"/>
-    -   Material: <nme id="#V3R0KJ" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using sheen only." image="/img/playgroundsAndNMEs/NMEPBRSheenNME.jpg"/>
+    -   Material: <NME id="#V3R0KJ" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using sheen only." image="/img/playgroundsAndNMEs/NMEPBRSheenNME.jpg"/>
 -   PBR material with clear coat only:
     -   PG: <Playground id="#0XSPF6#6" title="PBR Blocks Clear Coat Only NME" description="Playground of PBR blocks in NME using clear coat only." image="/img/playgroundsAndNMEs/PGPBRclearCoatNME.jpg"/>
-    -   Material: <nme id="#C3NEY1#4" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using clear coat only." image="/img/playgroundsAndNMEs/NMEPBRclearCoatNME.jpg"/>
+    -   Material: <NME id="#C3NEY1#4" title="PBR Blocks Sheen Only NME" description="Node Material Editor of PBR blocks using clear coat only." image="/img/playgroundsAndNMEs/NMEPBRclearCoatNME.jpg"/>
 -   PBR material with sub surface only:
     -   PG: <Playground id="#7QAN2T#8" title="PBR Blocks sub surface Only Playground" description="Playground of PBR blocks in NME using sub surface only." image="/img/playgroundsAndNMEs/PGPBRsubSurfaceNME.jpg"/>
-    -   Material: <nme id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.jpg"/>
+    -   Material: <NME id="#100NDL#1" title="PBR Blocks sub surface Only NME" description="Node Material Editor of PBR blocks using sub surface only." image="/img/playgroundsAndNMEs/NMEPBRsubSurfaceNME.jpg"/>
 
 The inputs of the different PBR blocks are using the same names as in the `PBRMetallicRoughnessMaterial` class, so you can refer to [this doc](/typedoc/classes/babylon.pbrmetallicroughnessmaterial) for explanations about them.
 

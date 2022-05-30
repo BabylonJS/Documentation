@@ -135,4 +135,4 @@ This block has been imported into the NME with this .json file:
 }
 ```
 
-Here's the link to the NME: <nme id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"/>
+Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"/>

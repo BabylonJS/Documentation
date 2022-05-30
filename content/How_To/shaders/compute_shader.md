@@ -94,7 +94,7 @@ In that case, you must add this sampler in the `bindingsMapping` object.
 
 ### Simple compute shaders
 
-<Playground id="#3URR7V#171" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders"/>
+<Playground id="#3URR7V#171" engine="webgpu" title="Simple compute shaders" description="A simple example of creating various compute shaders" image="/img/extensions/webgpu/simpleComputeShader.png"/>
 
 This PG creates 3 compute shaders:
 * the first one is loading a texture and copying it into another texture by means of a compute shader. This texture is then applied on the ground. **Warning**: it is for demonstration purpose only, don't use this compute shader in real code, a simple copy buffer would be enough to achieve the same thing!
@@ -103,7 +103,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#173" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader"/>
+<Playground id="#3URR7V#173" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader" image="/img/extensions/webgpu/blur.png"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
@@ -111,7 +111,7 @@ Note that in the sample we are calling `dispatchWhenReady()` for the first compu
 
 ### Compute Boids
 
-<Playground id="#3URR7V#170" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds"/>
+<Playground id="#3URR7V#176" engine="webgpu" title="Boids compute shader" description="A GPU compute particle simulation that mimics the flocking behavior of birds" image="/img/extensions/webgpu/boids.png"/>
 
 This is a direct port of the WebGPU sample [computeBoids](http://austin-eng.com/webgpu-samples/samples/computeBoids).
 
@@ -141,7 +141,7 @@ The implentation in WGSL is a little less pretty than the HLSL one because at th
 
 ### Ocean demo
 
-<Playground id="#YX6IB8#55" engine="webgpu" title="Ocean demo" description="Ocean simulation"/>
+<Playground id="#YX6IB8#55" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png"/>
 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 

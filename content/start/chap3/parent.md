@@ -25,7 +25,7 @@ Using merge meshes to combine them would result in the wheels not being able to 
 Before building our simple car let's take a way to set a parent and what this means.
 
 ```javascript
-messhChild.parent = meshParent
+meshChild.parent = meshParent
 ```
 
 Any use of position, scaling and rotation on the parent will also be applied to the child. Setting the position of the child is done in the parent space, setting the rotation and scale of the child takes place in the child's local space.

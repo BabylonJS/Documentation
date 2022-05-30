@@ -75,7 +75,7 @@ The fast SR mode is the most interesting mode as your scene can be handled sever
 
 Here are a number of ways to overcome some of its limitations.
 
-### Updating position of meshes
+### Updating position/rotation/scaling/visibility properties of meshes
 The world matrix and the `visibility` property of a mesh is stored in a specific `Mesh` uniform buffer. In the fast SR mode, this uniform buffer is not updated automatically, so if you update the `position`/`rotation`/`scaling` or the `visibility` property it won't have any effect on the screen.
 
 You should call `mesh.transferToEffect(world)` to update the uniform buffer.

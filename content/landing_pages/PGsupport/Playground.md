@@ -14,6 +14,8 @@ further-reading:
       url: /toolsAndResources/tools/inspector
     - title: How to Use The Inspector in Projects
       url: /toolsAndResources/tools/inspector
+    - title: Make your own Snippet Server
+      url: /toolsAndResources/tools/playground/yourOwnSnippetServer
 video-overview:
 video-content:
 ---

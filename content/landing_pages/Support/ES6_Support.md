@@ -111,7 +111,7 @@ import {
     GridMaterial
 } from '@babylonjs/materials';
 
-let skyMaterial = new GridMaterial(.....)
+let gridMaterial = new GridMaterial(.....)
 ```
 
 ### Creating our first js APP

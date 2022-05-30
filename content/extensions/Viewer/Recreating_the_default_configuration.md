@@ -223,7 +223,7 @@ The default viewer, which is the viewer we are using when using the `<babylon>` 
 
 To add a new template using HTML, I will add each template I want to add inside a `<script id="name-of-template" type="text/x-babylon-viewer-template">`. This template can later be referenced in the viewer configuration using the defined ID.
 
-For example, this is the main template (copied from https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/assets/templates/default/defaultTemplate.html):
+For example, this is the main template (copied from https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/assets/templates/default/defaultTemplate.html):
 
 ```html
 <script id="main-template" type="text/x-babylon-viewer-template">
@@ -368,7 +368,7 @@ In order to get the pointer input work in all browsers - including iOS devices -
 
 ### The navigation bar
 
-In the case of navigation bar I want to show how to add the navbar's template and enable js-events on specific elements of it. The navbar's html code can be found here - https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/assets/templates/default/navbar.html .
+In the case of navigation bar I want to show how to add the navbar's template and enable js-events on specific elements of it. The navbar's html code can be found here - https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/assets/templates/default/navbar.html .
 
 This is the full `templates` object, with comments on the navbar definition
 

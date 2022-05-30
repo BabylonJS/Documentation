@@ -14,7 +14,7 @@ video-content:
 
 ## Textures Available To the Playground
 
-This list of files are in the [textures folder](https://github.com/BabylonJS/Babylon.js/tree/master/Playground/textures) of the Playground and can be loaded as Textures, CubeTextures or HDRCubeTextures.
+This list of files are in the [textures folder](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/textures) of the Playground and can be loaded as Textures, CubeTextures or HDRCubeTextures.
 
 ## Diffuse / Albedo maps
 

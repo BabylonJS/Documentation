@@ -10,6 +10,7 @@ export const markdownComponents = {
     Media: MediaFileComponent,
     Playground: PlaygroundMarkdownComponent,
     nme: NMEMarkdownComponent,
+    NME: NMEMarkdownComponent,
     pre: (props) => <div {...props} />,
     code: SyntaxHighlighting,
     table: Table,
