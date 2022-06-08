@@ -107,8 +107,6 @@ As PCF requires more resources than can be available on small platforms, you can
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
-Only Point and Directional lights are currently supported by PCF.
-
 ### Contact hardening shadow (Webgl2 only)
 Starting with Babylon.js 3.2, contact hardening shadows based on PCSS shadows was introduced.
 
@@ -134,8 +132,6 @@ shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
 The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#2" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/features/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
-
-Only Point and Directional lights are currently supported by PCSS.
 
 ## Transparent objects / shadows
 

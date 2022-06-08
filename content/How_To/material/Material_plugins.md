@@ -27,9 +27,6 @@ class BlackAndWhitePluginMaterial extends BABYLON.MaterialPluginBase {
     // the fourth one is a list of defines used in the shader code.
     super(material, "BlackAndWhite", 200, { BLACKANDWHITE: false });
 
-    // we need to mark the material
-    this.markAllAsDirty = material._dirtyCallbacks[BABYLON.Constants.MATERIAL_AllDirtyFlag];
-
     // let's enable it by default
     this._enable(true);
   }
@@ -69,7 +66,7 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#3" title="Basic material plugin example" />
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#16" title="Basic material plugin example" />
 
 ## More complex plugins
 
@@ -93,7 +90,7 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
     }
     this._isEnabled = enabled;
     // when it's changed, we need to mark the material as dirty so the shader is rebuilt.
-    this.markAllAsDirty();
+    this.markAllDefinesAsDirty();
     this._enable(this._isEnabled);
   }
 
@@ -104,9 +101,6 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
     super(material, "Colorify", 200, { COLORIFY: false });
 
     this._varColorName = material instanceof BABYLON.PBRBaseMaterial ? "finalColor" : "color";
-
-    // get our dirty callback from the material, so we can properly invalidate it for rebuilding.
-    this.markAllAsDirty = material._dirtyCallbacks[BABYLON.Constants.MATERIAL_AllDirtyFlag];
   }
 
   // we use the define to enable or disable the plugin.
@@ -162,7 +156,7 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 }
 ```
 
-<Playground id="#P8B91Z#32" title="Material plugin example with uniforms"/>
+<Playground id="#P8B91Z#35" title="Material plugin example with uniforms"/>
 
 ## Applying a plugin to a single material
 
@@ -174,7 +168,7 @@ const myPlugin = new BlackAndWhitePluginMaterial(material);
 
 This is also useful for dynamic loading of plugins.
 
-<Playground id="#22HT5Z#4" title="Material plugin applied to a single material"/>
+<Playground id="#22HT5Z#15" title="Material plugin applied to a single material"/>
 
 ## Caveats
 
@@ -188,8 +182,8 @@ This is also useful for dynamic loading of plugins.
 
 Here are some other examples of plugins:
 
-<Playground id="#HCLC5W#1" title="Using a class variable to animate a parameter for all instances"/>
-<Playground id="#SYQW69#947" title="Power plant with volumetric fog"/>
-<Playground id="#IQPBS4#46" title="Grain (solves banding issues)"/>
+<Playground id="#HCLC5W#41" title="Using a class variable to animate a parameter for all instances"/>
+<Playground id="#SYQW69#1077" title="Power plant with volumetric fog"/>
+<Playground id="#IQPBS4#62" title="Grain (solves banding issues)"/>
 
 You can also take a look at Babylon's source code. The PBR material includes several complex plugins, such as the [Anisotropic plugin](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrAnisotropicConfiguration.ts), [sheen](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSheenConfiguration.ts) and [subsurface](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSubSurfaceConfiguration.ts), and the [detail map plugin applies to PBR and Standard materials](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/material.detailMapConfiguration.ts).

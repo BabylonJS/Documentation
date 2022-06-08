@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-This tutorial will guide you through the process of creating a material for the [materials library](https://github.com/BabylonJS/Babylon.js/tree/master/materialsLibrary)
+This tutorial will guide you through the process of creating a material for the [materials library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/materials)
 
 ## Setting up environment
 

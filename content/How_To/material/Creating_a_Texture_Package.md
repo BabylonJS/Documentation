@@ -75,7 +75,7 @@ pack.processAsync().then(
 
 You can tell the downloaded to change between jpeg and png image types depending on if you need an alpha channel. Due to the fact that the images are stored as base64 you should avoid using png unless absolutely necessary. You can always download both types and then manually mix and match inside the JSON file.
 
--   <Playground id="#TQ408M#7" title="Texture Packer Download Example" description="Simple example of changing between jpeg and png depending on alpha channel." image="/img/playgroundsAndNMEs/features/divingDeeperCreateTexturePackage2.jpg"/>
+-   <Playground id="#TQ408M#25" title="Texture Packer Download Example" description="Simple example of changing between jpeg and png depending on alpha channel." image="/img/playgroundsAndNMEs/divingDeeperCreateTexturePackage2.jpg"/>
 
 ## Loading From JSON
 
