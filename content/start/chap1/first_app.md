@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
 title: Introduction - Chapter 1 - Setup Your First Web App
 image: 
-=======
-title: Getting Started - Chapter 1 - Setup Your First Web App
-image:
->>>>>>> master
 description: HTML Templates to load your first model or code into a Babylon.js scene.
 keywords: getting started, start, chapter 1, first model, import
 further-reading:
