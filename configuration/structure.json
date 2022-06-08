@@ -961,6 +961,11 @@
                             "friendlyName": "Real-time Multiplayer with Colyseus",
                             "children": {},
                             "content": "resources/Networking/Colyseus"
+                        },
+                        "Colyseus_ammojs": {
+                            "friendlyName": "Network Physical Synchronization (based on ammojs + colyseus)",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus_ammojs"
                         }
                     },
                     "content": "landing_pages/networking_landing_page"
