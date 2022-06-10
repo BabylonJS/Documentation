@@ -82,7 +82,7 @@ Yes, that's it
 
 First, we create a box and ground, and add physics to it,the ground represents the scene, and the box represents the interactive objects in the scene (such as a football played by many people)
 
-```typescript
+```javascript
 scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new AmmoJSPlugin(true, Ammo));
 var ground = BABYLON.Mesh.CreateGround("ground1", 160, 160, 2, scene);
 ground.position.y=-5
@@ -92,12 +92,12 @@ var box = BABYLON.Mesh.CreateBox("box", 2, scene);
 box.position.y = 1;
 box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1, restitution: 0.9 }, scene);
 box.material = new BABYLON.StandardMaterial("s-mat", scene);
-box.material["diffuseColor"] = new BABYLON.Color3(0, 0, 1);
-box.material["emissiveTexture"] = new BABYLON.Texture("./src/grass.png", scene);
+box.material.diffuseColor = new BABYLON.Color3(0, 0, 1);
+box.material.emissiveTexture = new BABYLON.Texture("./src/grass.png", scene);
 ```
 Players and other players, we will create character grid after they join the room
 
-```typescript
+```javascript
 client.joinOrCreate<StateHandler>("game").then(room => {
     const playerViews: {[id: string]: BABYLON.Mesh} = {};
 
@@ -108,7 +108,7 @@ client.joinOrCreate<StateHandler>("game").then(room => {
 });
 ```
 Physical control of player characters through keyboard keys
-```typescript
+```javascript
  // Keyboard listeners
      const keyboard = { x: 0, y: 0 };
     window.addEventListener("keydown", function(e) {
@@ -140,7 +140,7 @@ Physical control of player characters through keyboard keys
     });
 ```
 In runrenderloop, the rotation and position data of each frame of the player are sent to the server
-```typescript
+```javascript
 engine.runRenderLoop(function() {
     if(room&&playerViews[sessionId]){
         room.send('playData', {
@@ -158,7 +158,7 @@ engine.runRenderLoop(function() {
 });
 ```
 Broadcast the position and rotation data submitted by players in the server
-```typescript
+```javascript
   onCreate (options) {
    //...
     this.onMessage("playData", (client, message) => {
@@ -184,7 +184,7 @@ Broadcast the position and rotation data submitted by players in the server
 Update the position and rotation of other players through the broadcast rotation data;
 
 Note: to prevent jitter caused by linear speed, position will be directly used to lock the position when the target is close enough to the broadcast position.
-```typescript
+```javascript
 player.position.onChange = () => {
     if(key != room.sessionId){
           if( Math.abs(playerViews[key].position.x)<0.2
@@ -219,8 +219,8 @@ Now, the control of our players' characters and network synchronization are comp
 #### Physical interaction of scene objects(Multiplayer football)
 
 We are in 'GameRoom.ts' create a variable "boxData" in the file to save the position and rotation data of the box, where "targetId" represents the "sessionId" of the player responsible for the physical calculation and hosting of the box; at the same time, you need to receive the box data sent by the player client and broadcast it to other players.
-```typescript
-export class GameRoom extends Room<StateHandler> {
+```javascript
+export class GameRoom extends Room {
     maxClients = 8;
     boxData={
         targetId:null,
@@ -242,16 +242,16 @@ export class GameRoom extends Room<StateHandler> {
 ```
 
 We declare a variable "isUpdateBox" to record whether the local player character is responsible for the physical collision of the box. If the targetid value broadcast by the server is null or the targetid is equal to the sessionid of the local player, the local player will immediately take over the physical collision. Otherwise, the position and rotation of the box will use the data broadcast by the server
-```typescript
+```javascript
 let isUpdateBox=false;
 
  room.onMessage("boxUpdate", (message) => {
     if(message.targetId==null||message.targetId==sessionId){
         isUpdateBox=true
-        box.material["diffuseColor"] = new BABYLON.Color3(1, 0, 0);
+        box.material.diffuseColor. = new BABYLON.Color3(1, 0, 0);
     }else{
         isUpdateBox=false
-        box.material["diffuseColor"] = new BABYLON.Color3(0, 1, 0);
+        box.material.diffuseColor = new BABYLON.Color3(0, 1, 0);
         box.position= BABYLON.Vector3.Lerp(
           box.position,
           new BABYLON.Vector3(
@@ -295,7 +295,7 @@ let isUpdateBox=false;
 });
 ```
 If other players collide with the box, the targetid will be replaced by the sessionid of other players. Correspondingly, the physical collision permission will also be transferred to other players.
-```typescript
+```javascript
 if (key === room.sessionId) {
     //...
     box.physicsImpostor.registerOnPhysicsCollide( 
