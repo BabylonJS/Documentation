@@ -12,7 +12,7 @@ video-content:
 
 ## About Skyboxes
 
-A simulated sky can be added to a scene using a "skybox" ([wikipedia]([https://en.wikipedia.org/wiki/Skybox_(video_games)](https://en.wikipedia.org/wiki/Skybox_(video_games)))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
+A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 
 In Babylon.js, skyboxes typically use [CubeTexture](/typedoc/classes/babylon.cubetexture) as a [pseudo-reflection texture](#making-the-skybox) on a large cube.
 
