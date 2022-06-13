@@ -126,7 +126,7 @@ You can use the standard WGSL syntax to declare:
 * custom uniform buffers:
 ```wgsl
 struct MyUBO {
-    scale: f32;
+    scale: f32,
 };
 
 var<uniform> myUBO: MyUBO;
@@ -138,7 +138,7 @@ var storageTexture : texture_storage_2d<rgba8unorm,write>;
 * storage buffers:
 ```wgsl
 struct Buffer {
-    items: array<f32>;
+    items: array<f32>,
 };
 var<storage,read_write> storageBuffer : Buffer;
 ```

@@ -22,7 +22,7 @@ and this one for the wheels
 
 ![wheel](/img/getstarted/wheel.png)
 
-For both the extruded polygon and the cylinder face 0, is the bottom, face 2 the top and face 1 the edge joining the bottom and top. Remember that currently the car body and its wheels are built lying down
+For the cylinder face 0, is the bottom, face 2 the top and face 1 the edge joining the bottom and top and for the extruded polygon it is face 0, is the top and face 2 the bottom. Remember that currently the car body and its wheels are built lying down
 
 The top and bottom of the car body use the image in the top left (almost) quarter. The edge part goes across the bottom, round the front, across the top and down the back of the body uses the lower half of the image.
 
