@@ -1,10 +1,11 @@
 import { FunctionComponent, useRef, useEffect } from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
 import { MarkdownMetadata } from "../../lib/interfaces";
 import Layout from "../../components/layout.component";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 // import "./apiPage.module.scss";
 import { ParsedUrlQuery } from "querystring";
@@ -14,11 +15,12 @@ export const ApiPage: FunctionComponent<{
     metadata: MarkdownMetadata;
     cssArray: any[];
     contentNode: any;
+    redirect?: string;
     breadcrumbs: {
         name: string;
         url: string;
     }[];
-}> = ({ contentNode, cssArray, metadata, id, breadcrumbs }) => {
+}> = ({ contentNode, cssArray, metadata, id, breadcrumbs, redirect }) => {
     if (!contentNode) {
         return <></>;
     }
@@ -28,8 +30,12 @@ export const ApiPage: FunctionComponent<{
     try {
         children = html.props.children[0].props.children[1].props.children;
     } catch (e) {}
-
+    const router = useRouter();
     useEffect(() => {
+        if (redirect) {
+            router.push(redirect);
+            return;
+        }
         window.onhashchange = () => {
             if (location.hash === "") {
                 document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
@@ -65,16 +71,14 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
 }
 
 export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }) => {
-    if (params.redirect) {
+    const content = await getAPIPageData(params.id);
+    if (content.redirect) {
         return {
-            redirect: {
-                destination: params.redirect,
-                permanent: true,
+            props: {
+                redirect: content.redirect,
             },
         };
     }
-    // HTML content
-    const content = await getAPIPageData(params.id);
     return {
         props: {
             ...content,

@@ -4,6 +4,7 @@ import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import del from "del";
 import { sep } from "path";
 import * as path from "path";
+import * as glob from "glob";
 import { getAllFiles } from "./tools";
 import { MarkdownMetadata } from "../interfaces";
 import { addSearchItem, clearIndex } from "./search.utils";
@@ -111,7 +112,20 @@ export const generateBreadcrumbs = (html: HTMLElement, id: string[]) => {
 };
 
 export const getAPIPageData = async (id: string[]) => {
-    const html = readFileSync(`${basePath}${sep}files${sep}${id.join(sep)}.html`, "utf-8").toString();
+    let filename = `${basePath}${sep}files${sep}${id.join(sep)}.html`;
+    const allLowerCase = id.every((i) => i.toLowerCase() === i);
+    if (allLowerCase) {
+        glob.sync(path.relative(path.resolve("."), path.resolve(filename)).replaceAll("\\", "/"), { nocase: true }).forEach((f) => {
+            filename = f.substring(f.indexOf(id[0]));
+        });
+        return {
+            redirect: filename,
+        };
+    }
+    if (filename.indexOf("abstractactionmanager") > -1) {
+        console.log("here", filename);
+    }
+    const html = readFileSync(filename, "utf-8").toString();
     // read the HTML file, extract description, title, css
     const root = parse(html);
     const head = root.querySelector("head");
@@ -187,13 +201,14 @@ export const getTypeDocFiles = () => {
             };
         })
         .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
-    const lowCaseFiles = fileMap.map((file) => {
-        return {
-            params: {
-                id: file.params.id.map((id) => id.toLowerCase()),
-                redirect: file.params.id,
-            },
-        };
-    });
-    return [...fileMap, ...lowCaseFiles];
+    return [
+        ...fileMap,
+        ...fileMap.map((file) => {
+            return {
+                params: {
+                    id: file.params.id.map((id) => id.toLowerCase()),
+                },
+            };
+        }),
+    ];
 };
