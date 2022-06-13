@@ -25,7 +25,7 @@ export const ApiPage: FunctionComponent<{
         return <></>;
     }
     const ref = useRef<HTMLDivElement>();
-    const html = parseNode(contentNode).result;
+    const html = redirect ? "" : parseNode(contentNode).result;
     let children = <></>;
     try {
         children = html.props.children[0].props.children[1].props.children;
@@ -76,6 +76,7 @@ export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParse
         return {
             props: {
                 redirect: content.redirect,
+                id: params.id,
             },
         };
     }
