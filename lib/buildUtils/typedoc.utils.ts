@@ -5,6 +5,7 @@ import del from "del";
 import { sep } from "path";
 import * as path from "path";
 import * as glob from "glob";
+import os from "os";
 import { getAllFiles } from "./tools";
 import { MarkdownMetadata } from "../interfaces";
 import { addSearchItem, clearIndex } from "./search.utils";
@@ -122,9 +123,6 @@ export const getAPIPageData = async (id: string[]) => {
             redirect: filename,
         };
     }
-    if (filename.indexOf("abstractactionmanager") > -1) {
-        console.log("here", filename);
-    }
     const html = readFileSync(filename, "utf-8").toString();
     // read the HTML file, extract description, title, css
     const root = parse(html);
@@ -201,14 +199,15 @@ export const getTypeDocFiles = () => {
             };
         })
         .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
-    return [
-        ...fileMap,
-        ...fileMap.map((file) => {
-            return {
-                params: {
-                    id: file.params.id.map((id) => id.toLowerCase()),
-                },
-            };
-        }),
-    ];
+    const extra =
+        os.platform() === "win32"
+            ? []
+            : fileMap.map((file) => {
+                  return {
+                      params: {
+                          id: file.params.id.map((id) => id.toLowerCase()),
+                      },
+                  };
+              });
+    return [...fileMap, ...extra];
 };
