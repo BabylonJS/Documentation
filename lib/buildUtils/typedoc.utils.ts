@@ -173,17 +173,27 @@ export const getAPIPageData = async (id: string[]) => {
 
 export const getTypeDocFiles = () => {
     const filenames = getAllFiles(`${basePath}${sep}files`, [], ".html");
-    const fileMap = filenames.map((fileName) => {
-        const id = fileName
-            .replace(`${basePath}${sep}files`, "")
-            .replace(/\.html$/, "")
-            .split(sep);
-        id.shift();
+    const fileMap = filenames
+        .map((fileName) => {
+            const id = fileName
+                .replace(`${basePath}${sep}files`, "")
+                .replace(/\.html$/, "")
+                .split(sep);
+            id.shift();
+            return {
+                params: {
+                    id,
+                },
+            };
+        })
+        .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
+    const lowCaseFiles = fileMap.map((file) => {
         return {
             params: {
-                id,
+                id: file.params.id.map((id) => id.toLowerCase()),
+                redirect: file.params.id,
             },
         };
     });
-    return fileMap.filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
+    return [...fileMap, ...lowCaseFiles];
 };

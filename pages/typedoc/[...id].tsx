@@ -17,7 +17,7 @@ export const ApiPage: FunctionComponent<{
     breadcrumbs: {
         name: string;
         url: string;
-    }[]
+    }[];
 }> = ({ contentNode, cssArray, metadata, id, breadcrumbs }) => {
     if (!contentNode) {
         return <></>;
@@ -27,19 +27,17 @@ export const ApiPage: FunctionComponent<{
     let children = <></>;
     try {
         children = html.props.children[0].props.children[1].props.children;
-    } catch (e) {
-    }
+    } catch (e) {}
 
     useEffect(() => {
         window.onhashchange = () => {
-            if(location.hash === '') {
-                document.querySelector('.col-content')?.scrollTo({  behavior: "auto", top: 0, left: 0 });
+            if (location.hash === "") {
+                document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
             }
-        }
+        };
         return () => {
             window.onhashchange = undefined;
         };
-
     }, [id]);
 
     return (
@@ -53,7 +51,9 @@ export const ApiPage: FunctionComponent<{
                     );
                 })}
             </Head>
-            <div ref={ref} className="api-container">{children}</div>
+            <div ref={ref} className="api-container">
+                {children}
+            </div>
         </Layout>
     );
 };
@@ -64,7 +64,15 @@ export interface IAPIParsedUrlQuery extends ParsedUrlQuery {
     id: string[];
 }
 
-export const getStaticProps: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery> = async ({ params }) => {
+export const getStaticProps /*: GetStaticProps<{ [key: string]: any }, IAPIParsedUrlQuery>*/ = async ({ params }) => {
+    if (params.redirect) {
+        return {
+            redirect: {
+                destination: params.redirect,
+                permanent: true,
+            },
+        };
+    }
     // HTML content
     const content = await getAPIPageData(params.id);
     return {
