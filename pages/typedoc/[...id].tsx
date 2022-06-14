@@ -32,9 +32,7 @@ export const ApiPage: FunctionComponent<{
     } catch (e) {}
     const router = useRouter();
     useEffect(() => {
-        console.log("useEffect", id);
         if (redirect) {
-            console.log("redirecting to", redirect);
             router.push(redirect + window.location.hash);
         } else {
             window.onhashchange = () => {
