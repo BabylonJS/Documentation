@@ -48,6 +48,11 @@ export const ApiPage: FunctionComponent<{
         }
     }, [id]);
 
+    // do not render if redirecting
+    if (redirect) {
+        return <></>;
+    }
+
     return (
         <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
             <Head>
