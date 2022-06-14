@@ -5,7 +5,7 @@ import CodeIcon from "@material-ui/icons/Code";
 import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
 import LinkIcon from "@material-ui/icons/Link";
 
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import Highlight, { defaultProps } from "prism-react-renderer";
 import vsDark from "prism-react-renderer/themes/vsDark";
 
 import Link from "next/link";
