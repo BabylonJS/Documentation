@@ -21,7 +21,7 @@ export const ApiPage: FunctionComponent<{
         url: string;
     }[];
 }> = ({ contentNode, cssArray, metadata, id, breadcrumbs, redirect }) => {
-    if (!contentNode) {
+    if (!contentNode && !redirect) {
         return <></>;
     }
     const ref = useRef<HTMLDivElement>();
@@ -32,6 +32,7 @@ export const ApiPage: FunctionComponent<{
     } catch (e) {}
     const router = useRouter();
     useEffect(() => {
+        console.log("useEffect", id);
         if (redirect) {
             console.log("redirecting to", redirect);
             router.push(redirect + window.location.hash);
