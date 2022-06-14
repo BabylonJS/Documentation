@@ -21,7 +21,7 @@
         { "source": "/advanced_topics/Shader_Material", "destination": "/features/divingDeeper/materials/shaders/shaderMaterial" },
         { "source": "/advanced_topics/shaders", "destination": "/features/divingDeeper/materials/shaders" },
         { "source": "/advanced_topics/shaders/computeShader", "destination": "/features/divingDeeper/materials/shaders/computeShader" },
-        { "source": "/advanced_topics/shaders/Fog+ShaderMat", "destination": "/features/divingDeeper/materials/shaders/Fog+ShaderMat" },
+        { "source": "/advanced_topics/shaders/Fog\+ShaderMat", "destination": "/features/divingDeeper/materials/shaders/Fog\+ShaderMat" },
         { "source": "/advanced_topics/shaders/image_processing", "destination": "/features/divingDeeper/materials/shaders/image_processing" },
         { "source": "/advanced_topics/shaders/introToShaders", "destination": "/features/divingDeeper/materials/shaders/introToShaders" },
         { "source": "/advanced_topics/shaders/shaderCodeInBjs", "destination": "/features/divingDeeper/materials/shaders/shaderCodeInBjs" },
