@@ -120,7 +120,7 @@ export const getAPIPageData = async (id: string[]) => {
             filename = f.substring(f.indexOf(id[0]));
         });
         return {
-            redirect: `/typedoc/${filename}`,
+            redirect: `/typedoc/${filename.replace(".html", "")}`,
         };
     }
     const html = readFileSync(filename, "utf-8").toString();
