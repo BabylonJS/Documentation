@@ -20,7 +20,7 @@ export const ApiPage: FunctionComponent<{
         name: string;
         url: string;
     }[];
-}> = ({ contentNode, cssArray, metadata, id, breadcrumbs, redirect }) => {
+}> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
     if (!contentNode && !redirect) {
         return <></>;
     }
