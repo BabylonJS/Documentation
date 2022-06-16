@@ -14,7 +14,7 @@ glTF exporter will allow you to export your scene using PBR workflow.
 
 ## Features
 
-Since Blender 2.8, glTF addon comes with Blender enabled by default. You can update it from the official [Github repo](https://github.com/KhronosGroup/glTF-Blender-IO). Official documentation is on [Blender Manual](https://docs.blender.org/manual/en/latest/addons/io_scene_gltf2.html).
+Since Blender 2.8, glTF addon comes with Blender enabled by default. You can update it from the official [Github repo](https://github.com/KhronosGroup/glTF-Blender-IO). Official documentation is on [Blender Manual](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html).
 
 It should be compatible with Blender 2.79b, but you may also note that the old exporter is [still available](https://github.com/KhronosGroup/glTF-Blender-Exporter) ([old documentation](https://github.com/KhronosGroup/glTF-Blender-Exporter/blob/master/docs/user.md)).
 
