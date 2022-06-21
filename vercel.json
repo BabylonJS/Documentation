@@ -826,6 +826,6 @@
         { "source": "/how_to/how_to_start", "destination": "/divingDeeper/developWithBjs/howToStart" },
         { "source": "/babylon101/animations#easing-functions", "destination": "/divingDeeper/animation/advanced_animations#easing-functions" },
         { "source": "/advanced_topics/introToShaders", "destination": "/advanced_topics/shaders/introToShaders" },
-        { "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_React_Native", "destination": "/divingDeeper/multiplePlatforms" }
+        { "source": "/extensions/Babylon.js%2bExternalLibraries/BabylonJS_and_React_Native", "destination": "/divingDeeper/multiplePlatforms" }
     ]
 }
