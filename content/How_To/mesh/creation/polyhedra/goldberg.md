@@ -112,7 +112,7 @@ const colorArray = [
 
 PG: <Playground id="#A8VZGP#34" title="Color Faces" description="Coloring individual faces"/>
 
-PG: <Playground id="#A8VZGP#35" title="Pick and Color" description="Pick a face and color red"/>
+PG: <Playground id="#A8VZGP#106" title="Pick and Color" description="Pick a face and color red"/>
 
 PG: <Playground id="#A8VZGP#36" title="Adjacent Faces" description="Faces immediately adjacent"/>
 
