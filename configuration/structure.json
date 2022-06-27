@@ -885,7 +885,7 @@
                                     "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
                                     "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
                                     "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
-                                    "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                                    "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" }
                                 },
                                 "content": "landing_pages/extensionsEditorAssetsLandingPage"
                             },
