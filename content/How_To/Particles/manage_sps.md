@@ -30,7 +30,7 @@ SPS = null; // tells the GC the reference can be cleaned up also
 When you are not going to use some particle features you can set other properties of the SPS to *false* disable them.  You can always enable them again with *true*. This improve the performance of the scene as no attempt will be made to update these properties.
 
 Property | Type | Default | Use 
------ | ----- | ----- | ----- | -----
+----- | ----- | ----- | -----
 SPS.computeParticleRotation | Boolean | true | allows or prevents computing particle.rotation
 SPS.computeParticleTexture | Boolean | true | allows or prevents computing particle.uvs
 SPS.computeParticleColor | Boolean | true | allows or prevents from computing particle.color
