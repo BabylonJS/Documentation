@@ -969,13 +969,13 @@
                         "children": {
                             "intro": {
                                 "friendlyName": "Introduction",
-                                "content": "How_to/GUI/gui_editor_intro",
+                                "content": "How_To/GUI/gui_editor_intro",
                                 "children": {}
                             },
                             "guiUsage": {
                                 "friendlyName": "Usage",
                                 "children": {},
-                                "content": "How_to/GUI/gui_editor_usage"
+                                "content": "How_To/GUI/gui_editor_usage"
                             }
                         }
                     },
