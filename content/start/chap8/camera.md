@@ -14,7 +14,7 @@ video-content:
 Currently we are using the *ArcRotateCamera* which has us orbiting the village world from a distance. How about a view from inside the village? Let's parent the camera to the character walking around the village and with a few adjustments to values look around from over his shoulder. The creation of the *ArcRotateCamera* has this form,
 
 ```javascript
-const camera = new BABYLON.ArcRotateCamera("name", alpha angle, beta angle, radius, target position);
+const camera = new BABYLON.ArcRotateCamera("name", alpha_angle, beta_angle, radius, target_position);
 ```
 
 As will all cameras in order to move it in response to user input we need to attach it to the canvas.

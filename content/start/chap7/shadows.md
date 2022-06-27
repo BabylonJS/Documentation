@@ -35,7 +35,7 @@ The first parameter is the size of a shadow map and the light generating the sha
 We also need to add a mesh that will cast the shadow.
 
 ```javascript
-shadowGenerator.addShadowCaster(casting mesh, true);
+shadowGenerator.addShadowCaster(casting_mesh, true);
 ```
 
 The optional second parameter, which has default value false, will add any children of the mesh to the shadow caster.
