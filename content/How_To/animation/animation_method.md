@@ -12,7 +12,7 @@ video-content:
 
 ## Creating the animation
 ```javascript
-const myAnim = new BABYLON.Animation(name, property, frames per second, property type, loop mode)
+const myAnim = new BABYLON.Animation(name, property, frames_per_second, property_type, loop_mode)
 ```
 -   _name_ - _string_, name of animation
 

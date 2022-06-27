@@ -17,7 +17,7 @@ The playgrounds on this page contain models (in this example, houses) which can 
 When you add a model to a scene, you are loading it through the browser. As you likely already know, loading anything from a website is an asynchronous function. Therefore, before you can do anything with your models, you first must ensure they have been loaded successfully. You can do this using the _ImportMeshAsync_ method of the _SceneLoader_, which can be done as follows:
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync(model name, folder path, file name, scene);
+BABYLON.SceneLoader.ImportMeshAsync(model_name, folder_path, file_name, scene);
 ```
 
 The scene parameter is optional and will default to the current scene. The first parameter can be any one of three types depending whether you want to load all the models, just one model or a list of models.

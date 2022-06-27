@@ -14,7 +14,7 @@ video-content:
 So far we have just used the hemispheric light for all the scenes. There are a range of lights but for the moment the only new one we will introduce is the spot light. This can be positioned anywhere and given a direction in which to shine. The spread of the light is given by an angle in radians, the larger the angle the wider the spread. The final parameter indicates how fast the light will fall away, the larger the number the less distance the light will shine. The spot light can be given a color.
 
 ```javascript
-const lampLight = new BABYLON.SpotLight("name", position, direction, angle of spread, speed of disipation);
+const lampLight = new BABYLON.SpotLight("name", position, direction, angle_of_spread, speed_of_disipation);
 lampLight.diffuse = BABYLON.Color3.Yellow();
 ```
 We will add a spot light to a street lamp. In order to create a lamp post we introduce another way of creating a mesh by extruding a shape along a path.
