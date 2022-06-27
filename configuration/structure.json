@@ -1360,11 +1360,11 @@
                         "children": {
                             "easydoc": {
                                 "friendlyName": "Minor Edits",
-                                "content": "How_to/contribute/easydoc"
+                                "content": "How_To/contribute/easydoc"
                             },
                             "addToDocs": {
                                 "friendlyName": "Major Additions",
-                                "content": "How_to/contribute/add_to_docs"
+                                "content": "How_To/contribute/add_to_docs"
                             }
                         }
                     }     
