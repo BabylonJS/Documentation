@@ -62,7 +62,7 @@ pcs.buildMeshAsync().then(() => {
 
 ### Updating Particles
 
-When any appropriate particle properties are initiated the the `updateParticles` method can be used. Unlike `initParticles` the function is called by `setParticles` and already passes a particle as an argument.  The method `setParticles` will only execute after the PCS mesh has been built and so may safely be placed inside a render loop to produce an animation. For example
+When any appropriate particle properties are initiated the `updateParticles` method can be used. Unlike `initParticles` the function is called by `setParticles` and already passes a particle as an argument.  The method `setParticles` will only execute after the PCS mesh has been built and so may safely be placed inside a render loop to produce an animation. For example
 
 ```javascript
 pcs.updateParticle = function(particle) {
