@@ -518,13 +518,13 @@ boneWeightShader.setFloat(targetBoneIndex, index);
 
 ## Sharing Skeletons Between Skinned Meshes
 
-Multiple skinned meshes can reference the same skeleton, sometimes with different skinned mesh transforms. This is important for some scenarios, such as populating a crowd. Due to this, some skeleton bone methods require the associated skinned mesh as an argument.
+Multiple skinned meshes can reference the same skeleton, sometimes with different skinned mesh transforms. This is important for some scenarios, such as populating a crowd. Due to this, skeleton bone methods involving absolute transforms require the associated skinned mesh as an argument.
 
 Here are two `Bone` methods that require the associated skinned mesh:
 - `bone.getPosition` for world space
 - `bone.getRotation` for world space
 
-Failing to pass in the associated skinned mesh can potentially result in unexpected behavior since the math will not take the skinned mesh transform into account. This effectively computing transforms relative to the skeleton root.
+Failing to pass in the associated skinned mesh can potentially result in unexpected behavior since the math will not take the skinned mesh transform into account. This effectively computes transforms relative to the skeleton root instead of absolute transforms.
 
 For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. *This is loading the same model as referenced from earlier in this page.*
 
@@ -561,6 +561,16 @@ scene.onBeforeRenderObservable.add(() => {
 
 The box is in the wrong place (i.e., the math does not take the skinned mesh position shift of `30` units into account). This is also what happens when showing the gizmos for the bone because the gizmo doesn't know which skinned mesh is associated with the bone either.
 
-This is why it is important to identify the associated skinned mesh and then pass them to the bone methods to get absolute transforms.
+It is important to identify the associated skinned mesh and then pass it to the bone methods to get absolute transforms. Depending on the model, there may be multiple skinned meshes that correspond to the skeleton. Without knowing the specifics of a model, the best a generic algorithm can do is narrow the list of possible skinned meshes to the ones that reference the target skeleton. In this example, the code is filtering the loaded meshes by the ones matching the first skeleton.
 
-Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis. See also [glTF Skinning](/divingDeeper/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
+```javascript
+var skinnedMeshes = meshes.filter(function (mesh) {
+    return mesh.skeleton === skeletons[0];
+});
+```
+
+<Playground id="#1TVBBI#5" title="Loading Model, Filter Meshes by Skeleton" description="Loading a model with multiple skinned meshes and filtering the meshes to a list of skinned meshes that reference a skeleton."/>
+
+One of these will be the correct mesh to pass to the bone to get absolute transforms. It is up to the user loading the model to decide which is the correct one.
+
+Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. If nothing is modified after loading from a glTF, any of the filtered list of skinned meshes should work as the skinned mesh argument to a bone method for getting absolute transforms. In this case, selecting the first mesh of this filter works for glTF assets. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis of shared skeletons in glTF and [glTF Skinning](/divingDeeper/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
