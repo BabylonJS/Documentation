@@ -515,3 +515,52 @@ boneWeightShader.setFloat(targetBoneIndex, index);
 ```
 
 <Playground id="#1BZJVJ#395" title="Bone Weight Shader" description="Simple example of using the bone weight shader."/>
+
+## Sharing Skeletons Between Skinned Meshes
+
+Multiple skinned meshes can reference the same skeleton, sometimes with different skinned mesh transforms. This is important for some scenarios, such as populating a crowd. Due to this, some skeleton bone methods require the associated skinned mesh as an argument.
+
+Here are two `Bone` methods that require the associated skinned mesh:
+- `bone.getPosition` for world space
+- `bone.getRotation` for world space
+
+Failing to pass in the associated skinned mesh can potentially result in unexpected behavior since the math will not take the skinned mesh transform into account. This effectively computing transforms relative to the skeleton root.
+
+For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. *This is loading the same model as referenced from earlier in this page.*
+
+<Playground id="#92Y727" title="Loading Model" description="Loading a model with multiple skinned meshes."/>
+
+In this case, all of the skinned meshes have the the identity transform and any of these meshes passed to `Bone` methods will be equivalent, but this is not always the case.
+
+Using the following code, the arms of the `dude` has been moved by `30` units on the `x` axis. A box has been placed with a matching transform of the bone to visually see the transform. Note that the associated skinned mesh is being passed to `getPosition` and `getRotation`.
+
+```javascript
+const mesh = scene.getMeshByName(" / 3");
+mesh.position = new BABYLON.Vector3(30, 0, 0);
+
+const box = BABYLON.MeshBuilder.CreateBox("box", { size: 3}, scene);
+const bone = scene.getBoneByName("bone30");
+scene.onBeforeRenderObservable.add(() => {
+    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD, mesh));
+    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD, mesh));
+});
+```
+
+<Playground id="#1TVBBI#1" title="Loading Model with Offset" description="Loading a model with multiple skinned meshes where one has an position offset."/>
+
+This is what happens if the mesh is not passed in as an argument to the `get` methods.
+
+```javascript
+scene.onBeforeRenderObservable.add(() => {
+    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD));
+    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD));
+});
+```
+
+<Playground id="#1TVBBI#2" title="Loading Model with Offset without Skinned Mesh Argument" description="Loading a model with multiple skinned meshes where one has a position offset but the skinned mesh is not passed in to bone methods."/>
+
+The box is in the wrong place (i.e., the math does not take the skinned mesh position shift of `30` units into account). This is also what happens when showing the gizmos for the bone because the gizmo doesn't know which skinned mesh is associated with the bone either.
+
+This is why it is important to identify the associated skinned mesh and then pass them to the bone methods to get absolute transforms.
+
+Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis. See also [glTF Skinning](/divingDeeper/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
