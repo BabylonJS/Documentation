@@ -28,7 +28,7 @@ The same as the *rotation* property the *rotationQuaternion* property sets the o
 Besides *rotate* you can also obtain a rotation quaternion directly by using, for example
 
 ```javascript
-mesh.rotationQuaternion = new BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 0 -1), Math.PI / 3);
+mesh.rotationQuaternion = new BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 0, -1), Math.PI / 3);
 ```
 The parameters for the *RotationAxis* method are axis direction and angle. The axis direction vector should be expressed in the world space.
 
