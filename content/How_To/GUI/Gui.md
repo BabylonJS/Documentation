@@ -403,6 +403,21 @@ Here's an example showing two inputs, one which only accepts numerical keys and 
 
 InputText also supports clipboardObservables, here's an example: <Playground id="#UWS0TS#20" title="InputText With ClipboardObservable" description="Simple example showing InputText with a clipboardObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI20.jpg"/>
 
+## InputTextArea
+
+The InputTextArea is a control used to let users insert text accross multi lines: <Playground id="#UWS0TS" title="InputText Example" description="Simple example of InputText." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI18.jpg"/>
+
+It is very similar to InputText which one it share all its propoerties, observables and behaviors. This sections presents only the difference between these two components.
+
+Here are the specific properties you can define:
+
+| Property (default)           | Type         | Comments                                                                                                                 |
+| ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| autoStretchHeight (true)     | boolean      | The control will resize vertically to adapt to text size                                                                 |
+| maxHeight (100%)             | valueAndUnit | The maximum height allowed if autoStretchWidth is set to true                                                            |
+
+The InputTextArea is a focusable control. This means you can click / touch it in order to give it the focus and control over the keyboard events. You can remove the focus from the control by clicking outside of the control.
+
 ## InputPassword
 
 The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords: <Playground id="#UB58DY" title="InputPassword Example" description="Simple example showing how to add an InputPassword control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI21.jpg"/>
