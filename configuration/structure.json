@@ -2,6 +2,14 @@
     "friendlyName": "Home Page",
     "content": "landing_pages/home",
     "children": {
+        "journey": {
+            "friendlyName": "Your Journey Starts Here",
+            "children": {
+                "theFirstStep": { "friendlyName": "The VERY First Step", "children": {}, "content": "journeyStart/the_first_step"},
+                "learningTheDocs": { "friendlyName": "Learning The Docs", "children": {}, "content": "journeyStart/learningTheDocs"}
+            },
+            "content": "journeyStart/journeyStart"
+        },
         "start": {
             "friendlyName": "Getting Started",
             "children": {
@@ -138,6 +146,11 @@
                     },
                     "content": "landing_pages/divingDeeperCamerasLandingPage"
                 },
+                "3D_commerce_certif": {
+                    "friendlyName": "3D Commerce Certification",
+                    "children": {},
+                    "content": "How_To/3D_commerce_certif/3D_commerce_certif"
+                },
                 "controls": {
                     "friendlyName": "2D Controls",
                     "children": {
@@ -195,6 +208,11 @@
                     },
                     "content": "landing_pages/divingDeeperEventsLandingPage"
                 },
+                "floating_origin": {
+                    "friendlyName": "Floating Origin",
+                    "children": {},
+                    "content": "How_To/floating_origin/floating_origin"
+                },
                 "gui": {
                     "friendlyName": "GUI",
                     "children": {
@@ -202,7 +220,8 @@
                         "scrollViewer": { "friendlyName": "Scroll Viewer", "children": {}, "content": "How_To/GUI/ScrollViewer" },
                         "xmlLoader": { "friendlyName": "XML Loader", "children": {}, "content": "How_To/GUI/XmlLoader" },
                         "selector": { "friendlyName": "Selector", "children": {}, "content": "How_To/GUI/Selector" },
-                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" }
+                        "gui3D": { "friendlyName": "Babylon 3D GUI", "children": {}, "content": "How_To/GUI/Gui3D" },
+                        "mrtk": { "friendlyName": "MRTK Content", "children": {}, "content": "How_To/GUI/MRTK" }
                     },
                     "content": "landing_pages/divingDeeperGUILandingPage"
                 },
@@ -219,14 +238,16 @@
                     "friendlyName": "Importing Assets",
                     "children": {
                         "loadingFileTypes": { "friendlyName": "Loading Any File Type", "children": {}, "content": "How_To/Importer/Load_From_Any_File_Type" },
-                        "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {}, "content": "How_To/Importer/glTF" },
+                        "glTF": { "friendlyName": ".glTF File Loader Plugin", "children": {
+                            "glTFSkinning": { "friendlyName": "Skinning", "children": {}, "content": "How_To/Importer/glTF_Skinning" },
+                            "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                        }, "content": "How_To/Importer/glTF" },
                         "stl": { "friendlyName": ".stl File Loader Plugin", "children": {}, "content": "How_To/Importer/STL" },
                         "oBJ": { "friendlyName": ".obj File Loader Plugin", "children": {}, "content": "How_To/Importer/OBJ" },
                         "incrementalLoading": { "friendlyName": "Incremental Loading System", "children": {}, "content": "How_To/Importer/Using_the_Incremental_Loading_System" },
                         "createImporters": { "friendlyName": "Create Your Own File Importer", "children": {}, "content": "How_To/Importer/How_to_Create_Your_Own_File_Importer" },
                         "assetManager": { "friendlyName": "Asset Manager", "children": {}, "content": "How_To/Importer/How_to_use_AssetsManager" },
-                        "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" },
-                        "progressiveglTFLoad": { "friendlyName": "Progressively Load .glTF Files", "children": {}, "content": "How_To/Importer/Progressively_Load_glTF" }
+                        "assetContainers": { "friendlyName": "Asset Containers", "children": {}, "content": "How_To/Importer/How_to_use_AssetContainer" }
                     },
                     "content": "landing_pages/divingDeeperImportersLandingPage"
                 },
@@ -434,6 +455,11 @@
                         "meshExploder": { "friendlyName": "Exploding Meshes", "children": {}, "content": "How_To/mesh/How_to_use_MeshExploder" }
                     },
                     "content": "landing_pages/divingDeeperMeshLandingPage"
+                },
+                "multiplePlatforms": {
+                    "friendlyName": "Multiple Platforms",
+                    "children": {},
+                    "content": "landing_pages/divingDeeperPlatforms"
                 },
                 "occlusionQueries": {
                     "friendlyName": "Occlusion Queries",
@@ -682,7 +708,8 @@
                             "friendlyName": "Playground",
                             "children": {
                                 "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets" },
-                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" }
+                                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates" },
+                                "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"}
                             },
                             "content": "landing_pages/PGsupport/Playground"
                         },
@@ -739,6 +766,11 @@
                         }
                     },
                     "content": "landing_pages/toolsAndResourcesToolsLandingPage"
+                },
+                "assetLibrarian": {
+                    "friendlyName": "Asset Librarian",
+                    "children": {},
+                    "content": "resources/Playground_aspects/assetLibrarian"
                 },
                 "assetLibraries": {
                     "friendlyName": "Available Asset Libraries",
@@ -842,6 +874,42 @@
                             "friendlyName": "Playground to Production: Fruit Fallin'",
                             "children": {},
                             "content": "dev_stories/playground_to_production_fruit_falling"
+                        },
+                        "vaporwearViewer": {
+                            "friendlyName": "3D for E-Commerce: Viewer in WordPress",
+                            "children": {},
+                            "content": "dev_stories/ecommerce_vaporwear_viewer"
+                        },
+                        "showroomCamera": {
+                            "friendlyName": "Babylon Utilities: Showroom Camera",
+                            "children": {},
+                            "content": "dev_stories/utilities_showroom_camera"
+                        },
+                        "vaporwearConfigurator": {
+                            "friendlyName": "3D for E-Commerce: Custom Experience",
+                            "children": {
+                                "art": {
+                                    "friendlyName": "Chapter 1: Art",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_1_art"
+                                },
+                                "3d": {
+                                    "friendlyName": "Chapter 2: 3D",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_2_3d"
+                                },
+                                "frontend": {
+                                    "friendlyName": "Chapter 3: Frontend",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_3_frontend"
+                                },
+                                "wordpress": {
+                                    "friendlyName": "Bonus Chapter: WordPress",
+                                    "children": {},
+                                    "content": "dev_stories/ecommerce_vaporwear_configurator_chapters/chapter_4_wordpress"
+                                }
+                            },
+                            "content": "dev_stories/ecommerce_vaporwear_configurator"
                         }
                     },
                     "content": "landing_pages/dev_stories_landing_page"
@@ -885,6 +953,22 @@
                         }
                     },
                     "content": "landing_pages/video_landing_page"
+                },
+                "multiplayer": {
+                    "friendlyName": "Networking",
+                    "children": {
+                        "Colyseus": {
+                            "friendlyName": "Real-time Multiplayer with Colyseus",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus"
+                        },
+                        "Colyseus_ammojs": {
+                            "friendlyName": "Network Physical Synchronization (based on ammojs + colyseus)",
+                            "children": {},
+                            "content": "resources/Networking/Colyseus_ammojs"
+                        }
+                    },
+                    "content": "landing_pages/networking_landing_page"
                 },
                 "workshop": {
                     "friendlyName": "Workshop",
@@ -1044,17 +1128,21 @@
                         "assets": {
                             "friendlyName": "Assets",
                             "children": {
+                                "introduction": { "friendlyName": "Introduction", "children": {}, "content": "resources/Editor/Assets/Assets_Introduction" },
+                                "addingFiles": { "friendlyName": "Adding Files", "children": {}, "content": "resources/Editor/Assets/Adding_Files" },
                                 "addingMeshes": { "friendlyName": "Adding Meshes", "children": {}, "content": "resources/Editor/Assets/Adding_Meshes" },
                                 "addingMaterials": { "friendlyName": "Adding Materials", "children": {}, "content": "resources/Editor/Assets/Adding_Materials" },
-                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" },
-                                "addingSounds": { "friendlyName": "Adding Sounds", "children": {}, "content": "resources/Editor/Assets/Adding_Sounds" }
+                                "addingTextures": { "friendlyName": "Adding Textures", "children": {}, "content": "resources/Editor/Assets/Adding_Textures" }
                             },
                             "content": "landing_pages/extensionsEditorAssetsLandingPage"
                         },
                         "scripting": {
                             "friendlyName": "Scripting",
                             "children": {
-                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" }
+                                "attachingScripts": { "friendlyName": "Attaching Scripts", "children": {}, "content": "resources/Editor/Scripting/Attaching_Scripts" },
+                                "exposingProperties": { "friendlyName": "Exposing Properties", "children": {}, "content": "resources/Editor/Scripting/Exposing_Properties" },
+                                "gettingComponents": { "friendlyName": "Getting Components", "children": {}, "content": "resources/Editor/Scripting/Getting_Components" },
+                                "listeningEvents": { "friendlyName": "Listening Events", "children": {}, "content": "resources/Editor/Scripting/Listening_Events" }
                             },
                             "content": "landing_pages/extensionsEditorPhysicsLandingPage"
                         },
@@ -1109,7 +1197,6 @@
                         "BabylonJS_and_PixiJS": { "friendlyName": "BabylonJS and PixiJS", "children": {}, "content": "resources/Library/BabylonJS_and_PixiJS" },
                         "BabylonJS_and_Poki": { "friendlyName": "BabylonJS and Poki", "children": {}, "content": "resources/Library/BabylonJS_and_Poki" },
                         "BabylonJS_and_ReactJS": { "friendlyName": "BabylonJS and ReactJS", "children": {}, "content": "resources/Library/BabylonJS_and_ReactJS" },
-                        "BabylonJS_and_React_Native": { "friendlyName": "BabylonJS and React Native", "children": {}, "content": "resources/Library/BabylonJS_and_React_Native" },
                         "BabylonJS_and_VRM": { "friendlyName": "BabylonJS and VRM", "children": {}, "content": "resources/Library/BabylonJS_and_VRM" },
                         "BabylonJS_and_Vue": {
                             "friendlyName": "BabylonJS and Vue",

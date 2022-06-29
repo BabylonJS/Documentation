@@ -14,7 +14,7 @@ video-content:
 
 The goal of the ShadowOnlyMaterial is to display only shadows casted by a light on a receiving object. It is mostly useful when you want to display shadow on a transparent canvas (on top of your existing DOM).
 
-ShadowOnly material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.shadowOnlyMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.shadowOnlyMaterial.js)
+ShadowOnly material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js)
 
 A demo can be found here:  PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material"/>
 

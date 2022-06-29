@@ -1,8 +1,8 @@
 ---
 title: Physics Collider Components
-image: 
+image:
 description: Using colliders in the Unity Toolkit.
-keywords: babylon.js, exporter, unity, collisions, collider, extension 
+keywords: babylon.js, exporter, unity, collisions, collider, extension
 further-reading:
 video-overview:
 video-content:
@@ -20,18 +20,18 @@ Colliders can be added to an object component to create floors, walls and other 
 
 Please refer to the [Unity Collision](https://docs.unity3d.com/Manual/CollidersOverview.html) documentation for details.
 
-
 ## Managed Runtime Collision Events
 
 Example **Collision Event** script component:
 
+```javascript
     module PROJECT {
         export class ShotController extends BABYLON.MeshComponent {
             protected start() :void {
                 // Physcis collision
                 this.onCollisionEvent((collider:BABYLON.AbstractMesh, tag:string) => {
                     if (tag === "Asteroid" || tag === "Enemy" || tag === "Player") {
-                        var metadata: BABYLON.ObjectMetadata = this.manager.findSceneMetadata(collider); 
+                        var metadata: BABYLON.ObjectMetadata = this.manager.findSceneMetadata(collider);
                         if (metadata.getProperty<boolean>("destroyed", false) === false) {
                             metadata.setProperty("destroyed", true);
                             if (this.shotType === 0) {
@@ -66,5 +66,4 @@ Example **Collision Event** script component:
             }
         }
     }
-
-.
+```

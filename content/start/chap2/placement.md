@@ -59,7 +59,7 @@ We can now use positions to place the boxes sized in three different ways in one
 ### Orientation
 As for scaling and position the [rotation](/divingDeeper/mesh/transforms/center_origin/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
 
-Rotations are given in radians. If you prefer working in degrees Babylon.js provides a conversion tool. Both these lines of code with produce the same rotation.
+Rotations are given in radians. If you prefer working in degrees Babylon.js provides a conversion tool. Both these lines of code will produce the same rotation.
 
 ```javascript
 box.rotation.y = Math.PI / 4;

@@ -25,7 +25,7 @@ Examples on these pages can be viewed in the playground, the place to try out Ba
 
 All projects using the Babylon.js Engine need a scene with a camera and a light added. Then we can create our box.
 
-Wait...what is the Babylon.js Engine you ask? Excellent question. The engine variable seen below is the class that's responsible for interfacing with lower-level APIs such as WegGL, Audio, etc. The constructor to create a Babylon scene (the context that renders visuals to the screen) needs the engine to talk to these lower level APIs. This is why the engine variable is needed when creating a scene.
+Wait...what is the Babylon.js Engine you ask? Excellent question. The engine variable seen below is the class that's responsible for interfacing with lower-level APIs such as WebGL, Audio, etc. The constructor to create a Babylon scene (the context that renders visuals to the screen) needs the engine to talk to these lower level APIs. This is why the engine variable is needed when creating a scene.
 
 You can read more about the [engine class here](/typedoc/classes/babylon.engine). 
 
@@ -45,7 +45,7 @@ Like most meshes created with MeshBuilder the box is created positioned with its
 To be usable in a playground we need to place these within a function called **createScene** which has to return a scene. The playground app takes care of the rest.
 
 ```javascript
-const createScene =  () => {
+const createScene = () => {
     const scene = new BABYLON.Scene(engine);
 
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));

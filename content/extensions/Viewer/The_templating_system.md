@@ -1,23 +1,22 @@
 ---
 title: Babylon.js Viewer Templating System
-image: 
+image:
 description: Using and extending the viewer's simple integrated templating system.
 keywords: extensions, babylon.js, viewer, template, templating system, templating
 further-reading:
-    - title: Babylon.js Viewer
-      url: /extensions/babylonViewer
-    - title: Configuring the viewer
-      url: /extensions/babylonViewer/configuringViewer
-    - title: Recreating the default configuration for the viewer
-      url: /extensions/babylonViewer/defaultViewerConfig
-    - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
-    - title: Babylon.js viewer examples
-      url: /extensions/babylonViewer/viewerExamples
+  - title: Babylon.js Viewer
+    url: /extensions/babylonViewer
+  - title: Configuring the viewer
+    url: /extensions/babylonViewer/configuringViewer
+  - title: Recreating the default configuration for the viewer
+    url: /extensions/babylonViewer/defaultViewerConfig
+  - title: Advanced usage
+    url: /extensions/babylonViewer/advancedViewerUsage
+  - title: Babylon.js viewer examples
+    url: /extensions/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
-
 
 The viewer has a simple integrated templating system for you to use and extend. Using the templating system you can decide how the viewer components, such as the navbar, the error screen, help screen and so on, look like.
 
@@ -31,28 +30,28 @@ As with the general configuration, the template configuration is based on a Type
 
 ```javascript
 export interface ITemplateConfiguration {
-    location?: string; // #template-id OR http://example.com/loading.html
-    html?: string; // raw html string
-    id?: string;
-    params?: { [key: string]: string | number | boolean | object };
-    events?: {
-        // pointer events
-        pointerdown?: boolean | { [id: string]: boolean },
-        pointerup?: boolean | { [id: string]: boolean },
-        pointermove?: boolean | { [id: string]: boolean },
-        pointerover?: boolean | { [id: string]: boolean },
-        pointerout?: boolean | { [id: string]: boolean },
-        pointerenter?: boolean | { [id: string]: boolean },
-        pointerleave?: boolean | { [id: string]: boolean },
-        pointercancel?: boolean | { [id: string]: boolean },
-        //click, just in case
-        click?: boolean | { [id: string]: boolean },
-        // drag and drop
-        dragstart?: boolean | { [id: string]: boolean },
-        drop?: boolean | { [id: string]: boolean },
+  location?: string; // #template-id OR http://example.com/loading.html
+  html?: string; // raw html string
+  id?: string;
+  params?: { [key: string]: string | number | boolean | object };
+  events?: {
+    // pointer events
+    pointerdown?: boolean | { [id: string]: boolean },
+    pointerup?: boolean | { [id: string]: boolean },
+    pointermove?: boolean | { [id: string]: boolean },
+    pointerover?: boolean | { [id: string]: boolean },
+    pointerout?: boolean | { [id: string]: boolean },
+    pointerenter?: boolean | { [id: string]: boolean },
+    pointerleave?: boolean | { [id: string]: boolean },
+    pointercancel?: boolean | { [id: string]: boolean },
+    //click, just in case
+    click?: boolean | { [id: string]: boolean },
+    // drag and drop
+    dragstart?: boolean | { [id: string]: boolean },
+    drop?: boolean | { [id: string]: boolean },
 
-        [key: string]: boolean | { [id: string]: boolean } | undefined, // allow injecting further events
-    };
+    [key: string]: boolean | { [id: string]: boolean } | undefined, // allow injecting further events
+  };
 }
 ```
 
@@ -64,7 +63,7 @@ The location parameter define a URL where the HTML can be found, or an ID of a s
 
 ```html
 <script id="loading-screen" type="text/x-babylon-viewer-template">
-    <img class="loading-image" src="{{loadingImage}}">
+  <img class="loading-image" src="{{loadingImage}}">
 </script>
 ```
 
@@ -150,12 +149,12 @@ the final `<babylon>` tag will look like this:
 
 ```html
 <babylon .....>
-    <viewer>
-        <canvas class="babylonjs-canvas"></canvas>
-    </viewer>
-    <loading-screen>
-        <img class="loading-image" src="data:image/png;base64,...." />
-    </loading-screen>
+  <viewer>
+    <canvas class="babylonjs-canvas"></canvas>
+  </viewer>
+  <loading-screen>
+    <img class="loading-image" src="data:image/png;base64,...." />
+  </loading-screen>
 </babylon>
 ```
 
@@ -169,7 +168,7 @@ Going back to the configuration from the last section, you can see that the HTML
 <img class="loading-image" src="{{loadingImage}}" />
 ```
 
-Anything inside a `{{` and `}}` is considered to be a handlebars expression. This parameter can be defiend in the configuration file, as also seen in the last section:
+Anything inside a `{{` and `}}` is considered to be a handlebars expression. This parameter can be defined in the configuration file, as also seen in the last section:
 
 ```javascript
     templates: {
@@ -206,16 +205,16 @@ This events configuration will register two events:
 1. pointerdown event that will be bound to the inner `#fullscreen-button` div
 1. drop event that will be bound to the navbar element itself.
 
-_If you are wondering why the event definition ({ 'fullscreen-button': true, 'some-other-id': true }) is a map and not an array of IDs - the template can also be configured using HTML, and HTML DOM elements don't support Arrays. This way the HTML can override the event by setting it to "false"._
+_If you are wondering why the event definition (\{ 'fullscreen-button': true, 'some-other-id': true \}) is a map and not an array of IDs - the template can also be configured using HTML, and HTML DOM elements don't support Arrays. This way the HTML can override the event by setting it to "false"._
 
 The event callback will deliver the following object:
 
 ```javascript
 export interface EventCallback {
-    event: Event; // the native browser event
-    template: Template; // the template on which is was executed
-    selector: string; // the selector used (for example #fullscreen-button)
-    payload?: any; // any extra payload. For future development, currently not being used.
+  event: Event; // the native browser event
+  template: Template; // the template on which is was executed
+  selector: string; // the selector used (for example #fullscreen-button)
+  payload?: any; // any extra payload. For future development, currently not being used.
 }
 ```
 
@@ -229,21 +228,21 @@ if (!navbar) return;
 
 // register a new observer
 navbar.onEventTriggered.add((data) => {
-    switch (data.event.type) {
-        case "pointerdown":
-            switch (data.selector) {
-                case "#fullscreen-button":
-                    // let's go full screen!!
-                    break;
-                case "#some-other-id":
-                    // just do something else please
-                    break;
-            }
-            break;
-        case "drop":
-            // What shall we do with the dropped data?
-            break;
-    }
+  switch (data.event.type) {
+    case "pointerdown":
+      switch (data.selector) {
+        case "#fullscreen-button":
+          // let's go full screen!!
+          break;
+        case "#some-other-id":
+          // just do something else please
+          break;
+      }
+      break;
+    case "drop":
+      // What shall we do with the dropped data?
+      break;
+  }
 });
 ```
 
@@ -263,7 +262,7 @@ let canvasContainer = viewer.templateManager.getTemplate("canvasContainer");
 
 ### The template object
 
-Any configured template is creating a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/templating/templateManager.ts).
+Any configured template is creating a new instance of the [Template class](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/templating/templateManager.ts).
 
 Here are the public variables we can access:
 
@@ -288,22 +287,22 @@ public hide(visibilityFunction?: (template: Template) => Promise<Template>): Pro
 
 If calling those functions without any parameters, the `display`of this template will be set to `flex` or `none` respectively.
 
-To define your own show or hide functions, simply provide the visibilityFuntion as the first parameter. The following is a real example from the default viewer:
+To define your own show or hide functions, simply provide the visibilityFunction as the first parameter. The following is a real example from the default viewer:
 
 ```javascript
 template.hide((template) => {
-    // set the opacity to '0'. Opacity transition is set using CSS.
-    template.parent.style.opacity = "0";
-    // define a function for when the transition has ended:
-    let onTransitionEnd = () => {
-        template.parent.removeEventListener("transitionend", onTransitionEnd);
-        // set display none when opacity is '0'
-        template.parent.style.display = "none";
-    };
-    // add the transitionend event listener
-    template.parent.addEventListener("transitionend", onTransitionEnd);
-    // return immediately, don't wait for the transition to end
-    return Promise.resolve(template);
+  // set the opacity to '0'. Opacity transition is set using CSS.
+  template.parent.style.opacity = "0";
+  // define a function for when the transition has ended:
+  let onTransitionEnd = () => {
+    template.parent.removeEventListener("transitionend", onTransitionEnd);
+    // set display none when opacity is '0'
+    template.parent.style.display = "none";
+  };
+  // add the transitionend event listener
+  template.parent.addEventListener("transitionend", onTransitionEnd);
+  // return immediately, don't wait for the transition to end
+  return Promise.resolve(template);
 });
 ```
 
@@ -313,18 +312,18 @@ The default viewer comes with predefined templates that can be simply changed if
 
 The list of templates that are delivered:
 
--   main - the main template (must always be present)
--   viewer - containing the canvas
--   loading screen - a simple loading screen template
--   nav-bar - the bottom navigation bar
--   overlay - a container for overlays, such as error or help
--   error - an error screen
--   help - a help screen
--   share - a share screen
+- main - the main template (must always be present)
+- viewer - containing the canvas
+- loading screen - a simple loading screen template
+- nav-bar - the bottom navigation bar
+- overlay - a container for overlays, such as error or help
+- error - an error screen
+- help - a help screen
+- share - a share screen
 
-All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
+All templates can be found at the assets directory of the viewer - [https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/Viewer/assets/templates/default). The templates include CSS internally, and are self-contained.
 
-### Changing an existing template:
+### Changing an existing template
 
 If you want to change one of the templates, simply create a new HTML structure and set it in the viewer configuration. For example, if we want to change the loading screen so it will not show an image at all:
 
@@ -332,22 +331,22 @@ The new loadingScreen HTML injected in the page as `<script>` tag:
 
 ```html
 <script id="loading-screen" type="text/x-babylon-viewer-template">
-      <style>
-        loading-screen {
-            position: absolute;
-            z-index: 100;
-            opacity: 1;
-            pointer-events: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            -webkit-transition: opacity 2s ease;
-            -moz-transition: opacity 2s ease;
-            transition: opacity 2s ease;
-        }
-    </style>
+    <style>
+      loading-screen {
+          position: absolute;
+          z-index: 100;
+          opacity: 1;
+          pointer-events: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          -webkit-transition: opacity 2s ease;
+          -moz-transition: opacity 2s ease;
+          transition: opacity 2s ease;
+      }
+  </style>
 
-    <span> LOADING... </span>
+  <span> LOADING... </span>
 </script>
 ```
 

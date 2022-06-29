@@ -39,7 +39,7 @@ Use the [picking info](/typedoc/classes/babylon.pickinginfo) that is returned by
 
 ## Detect the first mesh touched by the ray
 
-Check out an example here: <Playground id="#KNE0O#84" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray." isMain={true} category="Mesh"/>
+Check out an example here: <Playground id="#KNE0O#1327" title="Get First Mesh Hit By Ray" description="Simple example of getting the first mesh hit by a ray." isMain={true} category="Mesh"/>
 
 (The following descriptions will reference this example. All line references are from the most recent example link)
 

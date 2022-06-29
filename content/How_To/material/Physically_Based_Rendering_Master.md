@@ -279,7 +279,7 @@ Pushing realism even further, material volume albedo affects how far light trave
 
 Let's say you want a skin tone diffusion profile, you can add this to your subsurface configuration by doing :
 
-<Playground id="#W7DYG2#2" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster11.jpg"/>
+<Playground id="#W7DYG2#50" title="Skin Tone Using A Diffusion Profile In PBR" description="Simple example of skin tone using a diffusion profile in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster11.jpg"/>
 
 ```javascript
 pbr.subSurface.scatteringDiffusionProfile = new BABYLON.Color3(0.750, 0.25, 0.20);
@@ -414,6 +414,67 @@ All of the configuration here can also for convenience be stored in textures:
 * `tintColorAtDistance`: defines at what distance under the surface the color should be the defined one.
 * `tintTexture`:  defines the clear tint values in a texture. rgb is tint and a is a thickness factor.
 
+## Iridescence
+Iridescence is a way to simulate the thin film effect you can find on thin layers of oils on the ground. It usually looks like amazing rainbow colors.
+
+![Iridescence](/img/extensions/PBRIridescence.png)
+
+In the PBR material, you can enable iridescence with the following code:
+
+<Playground id="#2FDQT5#1505" title="Iridescence In PBR" description="Simple example of iridescence in PBR." image="/img/extensions/PBRIridescence.png"/>
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.intensity = 0.9;
+```
+
+You can control the iridescence index of refraction and thickness through their relative properties:
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.indexOfRefraction = 1.3;
+pbr.iridescence.minimumThickness = 100; // in nanometers
+pbr.iridescence.maximumThickness = 400; // in nanometers
+```
+
+By Default, the thickness will be used as a fixed value equal to the maximum thickness.
+
+To provide more control, a texture can be used to control the intensity. The value of the R channel will be used to deduce the thickness from the interpolation between min and max thickness:
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.texture = intensityTexture;
+```
+
+On the same topic, a texture can be also used to control thickness (will be read from the G channel):
+
+```javascript
+var pbr = new BABYLON.PBRMaterial("pbr", scene);
+pbr.albedoColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+pbr.metallic = 1.0;
+pbr.roughness = 0.0;
+
+pbr.iridescence.isEnabled = true;
+pbr.iridescence.thicknessTexture = thicknessTexture;
+```
+
+The thickness read from the texture will be considered as a percentage of how thick it is between the minimumThickness and maximumThickness.
+
 ## Anisotropy
 By default the PBR material is isotropic. This means the shape of the reflection is identical in every direction. Nevertheless, in real life some materials shows really elongated highlights. For instance, looking an old vinyl disc (yes, I am that old), you can see the specular lighting being spread from the center to the border:
 
@@ -466,7 +527,7 @@ Some materials have a totally different shapes for the specular lobe. By default
 
 In the PBR material, you can enable sheen with the following code:
 
-<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/> 
+<Playground id="#FEEK7G#33" title="Sheen In PBR" description="Simple example of sheen in PBR." image="/img/playgroundsAndNMEs/divingDeeperPBRMaster20.jpg"/>
 
 ```javascript
 var pbr = new BABYLON.PBRMaterial("pbr", scene);
@@ -665,7 +726,7 @@ We were able to largely match the perceptual falloff from the Arnold ray tracer,
 ## How to Debug
 In order to simplify troubleshooting within the PBR material, a special section has been added to the inspector:
 
-![Inspector](/img/how_to/materials/PBRDebug.png)
+![Inspector](/img/how_to/Materials/PBRDebug.png)
 
 You can choose from the exhaustive list of information what you would like to see. You can also use the split position to choose from which horizontal position the debug mode starts on the screen. This can help looking side by side at the different renders. The output factor can be helpful if you are looking at values pretty small as it would help seeing different colors on screen.
 

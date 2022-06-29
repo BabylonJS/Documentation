@@ -1,10 +1,13 @@
 import { FunctionComponent } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import vsDark from "prism-react-renderer/themes/vsDark";
 
-export const SyntaxHighlighting: FunctionComponent<{className: string, children: string}> = (props) => {
-    const language = props.className ? props.className.replace(/language-/, "") as Language : 'javascript';
+export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
+    if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
+        return <code>{props.children}</code>;
+    }
+    const language = props.className ? (props.className.replace(/language-/, "") as Language) : "javascript";
     return (
         <Highlight {...defaultProps} theme={vsDark} code={props.children.trim()} language={language}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (

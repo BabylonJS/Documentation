@@ -18,16 +18,16 @@ Inside of [updateFromKeyboard](/guidedLearning/createAGame/characterMovePt1#inpu
 ```javascript
 //dash
 if (this.inputMap["Shift"]) {
-    this.dashing = true;
+  this.dashing = true;
 } else {
-    this.dashing = false;
+  this.dashing = false;
 }
 
 //Jump Checks (SPACE)
 if (this.inputMap[" "]) {
-    this.jumpKeyDown = true;
+  this.jumpKeyDown = true;
 } else {
-    this.jumpKeyDown = false;
+  this.jumpKeyDown = false;
 }
 ```
 
@@ -42,8 +42,8 @@ Here we'll be focusing on [\_updateFromGroundDetection](https://github.com/Babyl
 ```javascript
 //Jump detection
 if (this._input.jumpKeyDown && this._jumpCount > 0) {
-    this._gravity.y = Player.JUMP_FORCE;
-    this._jumpCount--;
+  this._gravity.y = Player.JUMP_FORCE;
+  this._jumpCount--;
 }
 ```
 
@@ -53,11 +53,11 @@ Here we're checking whether our jumpKeyDown is true and the jumpCount is > 0. If
 
 ```javascript
 if (this._isGrounded()) {
-    this._gravity.y = 0;
-    this._grounded = true;
-    this._lastGroundPos.copyFrom(this.mesh.position);
+  this._gravity.y = 0;
+  this._grounded = true;
+  this._lastGroundPos.copyFrom(this.mesh.position);
 
-    this._jumpCount = 1; //allow for jumping
+  this._jumpCount = 1; //allow for jumping
 }
 ```
 
@@ -77,7 +77,7 @@ The [\_checkSlope](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb
 
 ```javascript
 let predicate = function (mesh) {
-    return mesh.isPickable && mesh.isEnabled();
+  return mesh.isPickable && mesh.isEnabled();
 };
 ```
 
@@ -87,7 +87,7 @@ let predicate = function (mesh) {
 
 ```javascript
 if (pick.hit && !pick.getNormal().equals(Vector3.Up())) {
-    //check whether it's stairs or not
+  //check whether it's stairs or not
 }
 ```
 
@@ -100,17 +100,17 @@ Now, we want to update our if not grounded check to take into account slopes:
 
 ```javascript
 if (!this._isGrounded()) {
-    //if the body isnt grounded, check if it's on a slope and was either falling or walking onto it
-    if (this._checkSlope() && this._gravity.y <= 0) {
-        //if you are considered on a slope, you're able to jump and gravity wont affect you
-        this._gravity.y = 0;
-        this._jumpCount = 1;
-        this._grounded = true;
-    } else {
-        //keep applying gravity
-        this._gravity = this._gravity.addInPlace(Vector3.Up().scale(this._deltaTime * Player.GRAVITY));
-        this._grounded = false;
-    }
+  //if the body isnt grounded, check if it's on a slope and was either falling or walking onto it
+  if (this._checkSlope() && this._gravity.y <= 0) {
+    //if you are considered on a slope, you're able to jump and gravity wont affect you
+    this._gravity.y = 0;
+    this._jumpCount = 1;
+    this._grounded = true;
+  } else {
+    //keep applying gravity
+    this._gravity = this._gravity.addInPlace(Vector3.Up().scale(this._deltaTime * Player.GRAVITY));
+    this._grounded = false;
+  }
 }
 ```
 
@@ -128,8 +128,8 @@ For the dashing implementation, we return to [\_updateFromControls](https://gith
 
 ```javascript
 if (this._input.dashing && !this._dashPressed && this._canDash && !this._grounded) {
-    this._canDash = false; //we've started a dash, do not allow another
-    this._dashPressed = true; //start the dash sequence
+  this._canDash = false; //we've started a dash, do not allow another
+  this._dashPressed = true; //start the dash sequence
 }
 ```
 
@@ -141,13 +141,13 @@ This seems like a lot of conditions, and that's because we're limiting the dash 
 let dashFactor = 1;
 //if you're dashing, scale movement
 if (this._dashPressed) {
-    if (this.dashTime > Player.DASH_TIME) {
-        this.dashTime = 0;
-        this._dashPressed = false;
-    } else {
-        dashFactor = Player.DASH_FACTOR;
-    }
-    this.dashTime++;
+  if (this.dashTime > Player.DASH_TIME) {
+    this.dashTime = 0;
+    this._dashPressed = false;
+  } else {
+    dashFactor = Player.DASH_FACTOR;
+  }
+  this.dashTime++;
 }
 ```
 
@@ -182,13 +182,13 @@ Now, if we run the game, we should be able to move, jump, and dash! You will not
 
 **Files Used:**
 
--   [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
+- [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
 **Follow Along:**
 
--   [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/inputController.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/characterController.ts)
+- [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/inputController.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove2/characterController.ts)
 
 ### External
 

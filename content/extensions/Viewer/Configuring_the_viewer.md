@@ -26,8 +26,8 @@ video-content:
 
 The viewer currently defines two types of configurations:
 
-1. The default configuration (`default`), including HTML templates for a navigation bar, layouts for help and error pages, a skybox, ground, shadows, and more. It is defined at [https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/types/default.ts](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/types/default.ts)
-2. The minimal configuration (`minimal`), with only the basics needed to show a model. It is defined at [https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/types/minimal.ts](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/types/minimal.ts)
+1. The default configuration (`default`), including HTML templates for a navigation bar, layouts for help and error pages, a skybox, ground, shadows, and more. It is defined at [https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/types/default.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/types/default.ts)
+2. The minimal configuration (`minimal`), with only the basics needed to show a model. It is defined at [https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/types/minimal.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/types/minimal.ts)
 
 The default configuration will be loaded per default, unless other configuration type will be forced on the viewer by the developer. To force a different type of configuration, add the DOM attribute `extends` to the HTML element. For example:
 
@@ -114,7 +114,7 @@ Next, the `minimal`configuration will be loaded and appended to the existing con
 
 Notice that thou the minimal configuration define antialiasing to be `true`, the configuration provided by the user will be used. It is only extending and not overwriting.
 
-Next, the configuration object will be inspected. If it contains a configuration URL, it will be loaded. In our case, the (non-existing) <http://example.com/viewerConfig.json> will be downloaded and appended to the configuration already provided. Notice that this configuration object will overwrite definitions in the current configuration object. So if the JSON file looks like this:
+Next, the configuration object will be inspected. If it contains a configuration URL, it will be loaded. In our case, the (non-existing) [http://example.com/viewerConfig.json](http://example.com/viewerConfig.json) will be downloaded and appended to the configuration already provided. Notice that this configuration object will overwrite definitions in the current configuration object. So if the JSON file looks like this:
 
 ```json
 {
@@ -330,4 +330,4 @@ This will use the preregistered "form" mapper (which doesn't exist in reality - 
 ## The full configuration interface
 
 Please check the configuration on github, as it is constantly updated:
-[https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/configuration.ts](https://github.com/BabylonJS/Babylon.js/blob/master/Viewer/src/configuration/configuration.ts)
+[https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/configuration.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/configuration.ts)

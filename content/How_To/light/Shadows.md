@@ -107,8 +107,6 @@ As PCF requires more resources than can be available on small platforms, you can
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
-Only Point and Directional lights are currently supported by PCF.
-
 ### Contact hardening shadow (Webgl2 only)
 Starting with Babylon.js 3.2, contact hardening shadows based on PCSS shadows was introduced.
 
@@ -134,8 +132,6 @@ shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
 The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#2" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
-
-Only Point and Directional lights are currently supported by PCSS.
 
 ## Transparent objects / shadows
 
@@ -226,7 +222,7 @@ You can control also the size of the projection window by modifying one of those
 * `light.shadowOrthoScale`: 0.1 by default which means that the projection window is increase by 10% from the optimal size.
 * `light.shadowFrustumSize`: Off by default with a value of 0. You can specify a value which will be used to define the square size of the frustum to use.
 
-The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example:  <Playground id="#R1EVD0#3" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg" isMain={true} category="Shadows"/>
+The light's position, as well as the positions of the mesh that you have pushed into the renderlist, determine where the shadows will appear. Note that your light point-of-view from this position have to view all meshes in the renderList; otherwise the shadows may not be rendered. See the following example:  <Playground id="#R1EVD0#152" title="Animated Directional Light Example" description="Simple Example of a moving directional light." image="/img/playgroundsAndNMEs/divingDeeperShadows10.jpg" isMain={true} category="Shadows"/>
 
 You can also set `light.autoCalcShadowZBounds = true` to compute automatically the best `light.shadowMinZ` and `light.shadowMaxZ` values for each frame. Tightening those values to best fit your scene improve the precision of the depth map, and consequently the shadow rendering. Be warned, however, that when using this parameter with PCF and PCSS you may miss some shadows because of the way those filtering technics are implemented (if all your meshes are both shadow casters and receivers, you won't have any problems with PCF / PCSS, though). Note that `light.autoUpdateExtends` must be set to `true` for `light.autoCalcShadowZBounds` to work.
 
@@ -366,7 +362,7 @@ Unfortunately doing this introduces another side effect called peter panning whe
 
 ![PeterPanning](/img/how_to/shadows/peterpanning.jpg)
 
-This is where you can benefit from aBabylon.js 3.2 feature called normal bias.
+This is where you can benefit from a Babylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
@@ -412,12 +408,12 @@ The only required value is shaderName. But you can also add:
 - defines: used to specify additional defines you need in your shader
 
 The shadow map generation is a complex task and requires to take in account several defines (like the type of the shadow map between int and float, or the need for alpha test). It is recommended to check the current default shaders here:
-- Vertex:https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/shadowMap.vertex.fx
-- Fragment: https://github.com/BabylonJS/Babylon.js/blob/master/src/Shaders/shadowMap.fragment.fx
+- Vertex:https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/shadowMap.vertex.fx
+- Fragment: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/shadowMap.fragment.fx
 
 In order to update your own uniforms, you can rely on `shadowGenerator.onBeforeShadowMapRenderObservable` observable. This will be called for you everytime the shadow map will be rendered and it will give you the current compiled effect.
 
-You can find a complete example here: <Playground id="#IJH4VG#2" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
+You can find a complete example here: <Playground id="#IJH4VG#6" title="Global Custom Shadow Map Shader" description="Simple example of adding a global custom shadow map shader to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows21.jpg"/>
 
 Note that this shader will be used to render all the shadow caster objects pertaining to the shadow generator. If you need more fine-grained control, see next section.
 

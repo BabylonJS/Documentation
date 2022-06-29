@@ -10,7 +10,7 @@ video-content:
 
 ![Fur material high](/img/extensions/materials/furHigh.png)
 
-Fur material can be found here: [https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.furMaterial.js](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/materialsLibrary/babylon.furMaterial.js)
+Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js)
 
 ## Using the High Level mode
 
@@ -83,7 +83,7 @@ furMaterial.highLevelFur = false;
 ![Fur material](/img/extensions/materials/fur.png)
 
 Demos can be found at:
-PG: <Playground id="#EUCNP#6 " title="Fur Material" description="Example using low level mode"/>  
+PG: <Playground id="#EUCNP#6" title="Fur Material" description="Example using low level mode"/>  
  PG: <Playground id="#EUCNP#7" title="Fur Material" description="Example using low level mode and heightmap"/>
 
 The fur material needs a high number of the triangular facets that make up a mesh to work well.

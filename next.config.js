@@ -7,10 +7,16 @@ module.exports = withMDX(
             includePaths: ["./styles"],
         },
         webpack5: true,
-        experimental: {
-            pageDataCollectionTimeout: 120,
-            staticPageGenerationTimeout: 120,
-        },
+        staticPageGenerationTimeout: 120,
+        async redirects() {
+            return [
+              {
+                source: '/typedoc',
+                destination: '/typedoc/modules/BABYLON', // Matched parameters can be used in the destination
+                permanent: true,
+              },
+            ]
+          },
     },
     // withSass({
     //     sassLoaderOptions: {

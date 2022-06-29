@@ -10,13 +10,13 @@ video-content:
 
 # Marble Procedural texture
 
-![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.png)
+![Marble Procedural texture](/img/extensions/proceduraltextures/marblept.PNG)
 
 ## Using the Marble procedural texture
 
 Marble procedural texture can be found here: 
-- Normal: [Normal](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)
-- Minified : [Minified](https://github.com/BabylonJS/Babylon.js/blob/master/dist/preview%20release/proceduralTexturesLibrary/babylon.marbleProceduralTexture.min.js)
+- Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)
+- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.min.js)
 
 A demo can be found here:  <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
 
@@ -26,11 +26,10 @@ This texture has 4 parameters :
 - **jointColor** changes the color for the joint between tiles (BABYLON.Color3/4)
 - **marbleColor** changes the color for the tile itself (BABYLON.Color3/4)
 
-
-```
-	var marbleMaterial = new BABYLON.StandardMaterial("torus", scene);
-    var marbleTexture = new BABYLON.MarbleProceduralTexture("marble", 512, scene);
-    marbleTexture.numberOfTilesHeight = 5;
-    marbleTexture.numberOfTilesWidth = 5;
-    marbleMaterial.ambientTexture = marbleTexture;
+```javascript
+var marbleMaterial = new BABYLON.StandardMaterial("marbleMat", scene);
+var marbleTexture = new BABYLON.MarbleProceduralTexture("marbleTex", 512, scene);
+marbleTexture.numberOfTilesHeight = 5;
+marbleTexture.numberOfTilesWidth = 5;
+marbleMaterial.ambientTexture = marbleTexture;
 ```

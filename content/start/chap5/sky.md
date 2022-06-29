@@ -18,7 +18,7 @@ Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cub
 
 |<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/>|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|skybox\_px.jpg|skybox\_nx.jpg|skybox\_py.jpg|skybox\_nx.jpg|skybox\_pz.jpg|skybox\_nx.jpg|
+|skybox\_px.jpg|skybox\_nx.jpg|skybox\_py.jpg|skybox\_ny.jpg|skybox\_pz.jpg|skybox\_nz.jpg|
 <br/>
 
 Cube textures must be applied using [reflectionTexture](/divingDeeper/materials/using/reflectionTexture) even though the skybox is not a reflection map. Setting [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX\_MODE paints the texture directly on the cube rather than simulating reflections.

@@ -1,6 +1,6 @@
 ---
 title: Create a Procedural Texture for the Procedural Textures Library
-image: 
+image:
 description: Learn how to add your own procedural texture to the Babylon.js procedural textures library.
 keywords: diving deeper, contribution, contribute, open-source, oss, procedural textures library, procedural textures, develope
 further-reading:
@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-This tutorial will guide you through the process of creating a procedural texture for the [procedural textures library](https://github.com/BabylonJS/Babylon.js/tree/master/proceduralTexturesLibrary)
+This tutorial will guide you through the process of creating a procedural texture for the [procedural textures library](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/proceduralTextures)
 
 ## Setting up environment
 
@@ -160,88 +160,53 @@ var cloudBis = new BABYLON.CloudBisProceduralTexture("cloudPTBis", 256, scene);
 Finally update the UI control:
 
 ```javascript
-gui
-  .add(options, "texture", [
-    "default",
-    "fire",
-    "wood",
-    "cloud",
-    "grass",
-    "road",
-    "brick",
-    "marble",
-    "starfield",
-    "cloudBis"
-  ])
-  .onFinishChange(function() {
-    resetPTOptions();
-    switch (options.texture) {
-      case "fire":
-        currentTexture = firePT;
-        addPToptions(firePT, ["time", "alphaThreshold", "speed"]);
-        break;
-      case "wood":
-        currentTexture = woodPT;
-        addPToptions(woodPT, ["ampScale", "woodColor"]);
-        break;
-      case "cloud":
-        currentTexture = cloudPT;
-        addPToptions(cloudPT, ["skyColor", "cloudColor"]);
-        break;
-      case "grass":
-        currentTexture = grassPT;
-        addPToptions(grassPT, ["groundColor"]);
-        break;
-      case "road":
-        currentTexture = roadPT;
-        addPToptions(roadPT, ["roadColor"]);
-        break;
-      case "brick":
-        currentTexture = brickPT;
-        addPToptions(brickPT, [
-          "numberOfBricksHeight",
-          "numberOfBricksWidth",
-          "brickColor",
-          "jointColor"
-        ]);
-        break;
-      case "marble":
-        currentTexture = marblePT;
-        addPToptions(marblePT, [
-          "numberOfTilesHeight",
-          "numberOfTilesWidth",
-          "amplitude",
-          "jointColor"
-        ]);
-        break;
-      case "starfield":
-        currentTexture = starfieldPT;
-        addPToptions(starfieldPT, [
-          "saturation",
-          "distfading",
-          "darkmatter",
-          "alpha",
-          "time",
-          "beta",
-          "zoom",
-          "formuparam",
-          "stepsize",
-          "tile",
-          "brightness"
-        ]);
-        break;
-      case "cloudBis":
-        currentTexture = cloudBis;
-        break;
-      case "none":
-      default:
-        currentTexture = diffuseTexture;
-        break;
-    }
+gui.add(options, "texture", ["default", "fire", "wood", "cloud", "grass", "road", "brick", "marble", "starfield", "cloudBis"]).onFinishChange(function () {
+  resetPTOptions();
+  switch (options.texture) {
+    case "fire":
+      currentTexture = firePT;
+      addPToptions(firePT, ["time", "alphaThreshold", "speed"]);
+      break;
+    case "wood":
+      currentTexture = woodPT;
+      addPToptions(woodPT, ["ampScale", "woodColor"]);
+      break;
+    case "cloud":
+      currentTexture = cloudPT;
+      addPToptions(cloudPT, ["skyColor", "cloudColor"]);
+      break;
+    case "grass":
+      currentTexture = grassPT;
+      addPToptions(grassPT, ["groundColor"]);
+      break;
+    case "road":
+      currentTexture = roadPT;
+      addPToptions(roadPT, ["roadColor"]);
+      break;
+    case "brick":
+      currentTexture = brickPT;
+      addPToptions(brickPT, ["numberOfBricksHeight", "numberOfBricksWidth", "brickColor", "jointColor"]);
+      break;
+    case "marble":
+      currentTexture = marblePT;
+      addPToptions(marblePT, ["numberOfTilesHeight", "numberOfTilesWidth", "amplitude", "jointColor"]);
+      break;
+    case "starfield":
+      currentTexture = starfieldPT;
+      addPToptions(starfieldPT, ["saturation", "distfading", "darkmatter", "alpha", "time", "beta", "zoom", "formuparam", "stepsize", "tile", "brightness"]);
+      break;
+    case "cloudBis":
+      currentTexture = cloudBis;
+      break;
+    case "none":
+    default:
+      currentTexture = diffuseTexture;
+      break;
+  }
 
-    std.diffuseTexture = currentTexture;
-    window.enableTexture(options.texture);
-  });
+  std.diffuseTexture = currentTexture;
+  window.enableTexture(options.texture);
+});
 ```
 
 ## (Optional) enable a graphical interface.

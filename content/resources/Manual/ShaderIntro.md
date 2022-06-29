@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## Introduction to Shaders inBabylon.js
+## Introduction to Shaders in Babylon.js
 
 A shader is a program processed by the Graphical Processing Unit (GPU) to produce a screen image by manipulating data to
 produce individual pixels. The GPU is optimised, through parallel processing, to deal with these thousand of operations
@@ -26,7 +26,7 @@ in an extremely fast way.
 
 ### Basic
 
-To produce aBabylon.js scene, code is written in Javascript which theBabylon.js Engine processes and displays the result on screen.
+To produce a Babylon.js scene, code is written in Javascript which the Babylon.js Engine processes and displays the result on screen.
 The scene can alter through changes to the meshes, the lights or camera position. To show possible changes in a timely way the screen
 display (frame) is re-drawn up to 60 frames per second.
 
@@ -36,7 +36,7 @@ Simplifying, the process is
 - Virtual 3D Model is processed in the CPU by the BJS Engine Code to produce Shader GPU Code
 - Shader GPU Code is processed by GPU to produce screen image.
 
-For example theBabylon.js Engine takes this code
+For example the Babylon.js Engine takes this code
 
 ```javascript
 var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
@@ -44,7 +44,7 @@ var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 
 and turns it into vertex data including positions, colors and normals.
 
-TheBabylon.js Engine creates the shader code for this data and is passed to the GPU.
+The Babylon.js Engine creates the shader code for this data and is passed to the GPU.
 
 ### Custom
 

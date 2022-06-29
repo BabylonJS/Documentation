@@ -1,6 +1,6 @@
 ---
 title: .glTF File Loader Plugin
-image: 
+image:
 description: Learn about the .glTF File Loader Plugin available in Babylon.js.
 keywords: diving deeper, import, importing assets, asset, importing, .glTF, gltf
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 ## Setup
 
-The glTF loader files are located [here](https://github.com/BabylonJS/Babylon.js/tree/master/dist/preview%20release/loaders).
+You can find the loader here [here](https://cdn.babylonjs.com/loaders/babylon.glTFFileLoader.js)
 
 ## Full Version
 
@@ -22,10 +22,11 @@ This loader supports both glTF 1.0 and 2.0 and will use the correct loader based
 ```
 
 ## Warning
+
 A \_root\_ node is added to hold all the **glTF** and **glb** models and model parts are stored as sub-meshes. This is so applications that save models using a right handed system will be loaded correctly into Babylon.js when you add to your create scene function
 
 ```javascript
-scene.useRightHandedSystem = true
+scene.useRightHandedSystem = true;
 ```
 
 This also means that _loadedMeshes[0]_ will point to the added \_root\_ node and _loadedMeshes[1]_ will point to your first loaded mesh.
@@ -38,6 +39,8 @@ This loader supports only glTF 2.0 and will fail to load glTF 1.0.
 <script src="babylon.js"></script>
 <script src="babylon.glTF2FileLoader.js"></script>
 ```
+
+See [Skinning](/divingDeeper/importers/glTF/glTFSkinning) for details on how skinning is implementated in Babylon.js for glTF 2.0.
 
 ## Version 1 Only
 
@@ -88,4 +91,4 @@ BABYLON.GLTFFileLoader.HomogeneousCoordinates = true;
 ## Extensions
 
 [KHR_binary_glTF](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_binary_glTF)  
-[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_materials_common)  
+[KHR_materials_common](https://github.com/KhronosGroup/glTF/tree/master/extensions/1.0/Khronos/KHR_materials_common)
