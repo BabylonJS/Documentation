@@ -319,4 +319,4 @@ In the example there are two viewports, the upper one gives a first-person view 
 
 Remember to click on the scene before using the arrow keys.
 
-<Playground id="#CTCSWQ#1" title="Walk and Look Camera Example" description="A simple example of customizing camera inputs to create a walk and look camera." image="/img/playgroundsAndNMEs/divingDeeperCustomCameraInput1.jpg"/>
+<Playground id="#CTCSWQ#945" title="Walk and Look Camera Example" description="A simple example of customizing camera inputs to create a walk and look camera." image="/img/playgroundsAndNMEs/divingDeeperCustomCameraInput1.jpg"/>
