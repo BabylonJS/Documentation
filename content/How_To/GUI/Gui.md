@@ -405,18 +405,22 @@ InputText also supports clipboardObservables, here's an example: <Playground id=
 
 ## InputTextArea
 
-The InputTextArea is a control used to let users insert text accross multi lines: <Playground id="#UWS0TS" title="InputText Example" description="Simple example of InputText." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI18.jpg"/>
+The InputTextArea is a control used to display editable text across multiple lines:
 
-It is very similar to InputText which one it share all its propoerties, observables and behaviors. This sections presents only the difference between these two components.
+```javascript
+var inputTextArea = new BABYLON.GUI.InputTextArea("input", "Some initial text");
+```
 
-Here are the specific properties you can define:
+You can try it here: <Playground id="#NVAEWD#7" title="InputTextArea Example" description="Simple example of InputTextArea." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI49.jpg"/>
 
-| Property (default)           | Type         | Comments                                                                                                                 |
-| ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| autoStretchHeight (true)     | boolean      | The control will resize vertically to adapt to text size                                                                 |
-| maxHeight (100%)             | valueAndUnit | The maximum height allowed if autoStretchWidth is set to true                                                            |
+InputTextArea behaves the same as the InputText control but it also has these additional properties:
 
-The InputTextArea is a focusable control. This means you can click / touch it in order to give it the focus and control over the keyboard events. You can remove the focus from the control by clicking outside of the control.
+| Property (default)       | Type         | Comments                                                      |
+| ------------------------ | ------------ | ------------------------------------------------------------- |
+| autoStretchHeight (true) | boolean      | The control will resize vertically to adapt to text size      |
+| maxHeight (100%)         | valueAndUnit | The maximum height allowed if autoStretchWidth is set to true |
+
+Here's an example of an InputTextArea using the additional properties: <Playground id="#NVAEWD#8" title="InputTextArea AutoStretchHeight Example" description="Example of InputTextArea with autoStretchHeight enabled" image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI50.jpg"/>
 
 ## InputPassword
 
