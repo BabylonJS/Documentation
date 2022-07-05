@@ -96,7 +96,7 @@ gizmo.updateGizmoRotationToMatchAttachedMesh = false;
 gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 ```
 
-<Playground id="#8GY6J8#20" title="Gizmo .glTF Setup Example" description="Simple example of how to set up a gizmo for a .glTF File."/>
+<Playground id="#8GY6J8#198" title="Gizmo .glTF Setup Example" description="Simple example of how to set up a gizmo for a .glTF File."/>
 
 ## Position, scale and rotation gizmos
 
@@ -199,7 +199,7 @@ gizmo.includeChildPredicate = (m)=>{return m == sphere2};
 
 UI can be attached to the bounding box using the [AttachToBoxBehavior](/divingDeeper/behaviors/meshBehaviors)
 
-<Playground id="#8GY6J8#20" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file."/>
+<Playground id="#8GY6J8#199" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file."/>
 <Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file."/>
 <Playground id="#DEYAQ5#47" title="Bounding Box Gizmo Example" description="Simple example of how to use the Bounding Box Gizmo."/>
 
