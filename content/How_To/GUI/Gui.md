@@ -403,6 +403,25 @@ Here's an example showing two inputs, one which only accepts numerical keys and 
 
 InputText also supports clipboardObservables, here's an example: <Playground id="#UWS0TS#20" title="InputText With ClipboardObservable" description="Simple example showing InputText with a clipboardObservable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI20.jpg"/>
 
+## InputTextArea
+
+The InputTextArea is a control used to display editable text across multiple lines:
+
+```javascript
+var inputTextArea = new BABYLON.GUI.InputTextArea("input", "Some initial text");
+```
+
+You can try it here: <Playground id="#NVAEWD#7" title="InputTextArea Example" description="Simple example of InputTextArea." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI49.jpg"/>
+
+InputTextArea behaves the same as the InputText control but it also has these additional properties:
+
+| Property (default)       | Type         | Comments                                                      |
+| ------------------------ | ------------ | ------------------------------------------------------------- |
+| autoStretchHeight (true) | boolean      | The control will resize vertically to adapt to text size      |
+| maxHeight (100%)         | valueAndUnit | The maximum height allowed if autoStretchWidth is set to true |
+
+Here's an example of an InputTextArea using the additional properties: <Playground id="#NVAEWD#8" title="InputTextArea AutoStretchHeight Example" description="Example of InputTextArea with autoStretchHeight enabled" image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI50.jpg"/>
+
 ## InputPassword
 
 The InputPassword is a control that shows the entered characters as bullets and is thus suited for entering passwords: <Playground id="#UB58DY" title="InputPassword Example" description="Simple example showing how to add an InputPassword control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI21.jpg"/>
