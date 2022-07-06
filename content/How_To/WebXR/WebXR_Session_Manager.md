@@ -52,7 +52,7 @@ This function will initialize the native session. Without calling this function,
 Right after you will need to initialize the reference space of this session, which will define the coordinate system the xr experience will use:
 
 ``` javascript
-const referenceSpace = sessionManager.setReferenceSpaceAsync( /*referenceSpaceType = 'local-floor'*/ );
+const referenceSpace = sessionManager.setReferenceSpaceTypeAsync( /*referenceSpaceType = 'local-floor'*/ );
 ```
 
 The only thing that is left right now is to prepare the render target and the [XR WebGL Layer](https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer):
