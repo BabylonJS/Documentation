@@ -265,7 +265,7 @@ teleportation.backwardsTeleportationDistance = 1.0; // Default is 0.7
 To disable backwards moving use this flag:
 
 ```javascript
-teleportation.backwardsMovementEnabled = false; // Default is 0.7
+teleportation.backwardsMovementEnabled = false; // Default is true
 ```
 
 ### Rotation in place
