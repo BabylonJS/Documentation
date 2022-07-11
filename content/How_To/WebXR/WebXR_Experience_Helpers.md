@@ -11,25 +11,28 @@ video-content:
 
 ## Introduction
 
-In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR automatically for you and provide an environment with which you can develop your AR and VR experiences. Fully configurable, the WebXR experience helper is very flexible and easy to use.
+In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR environment automatically. This environment allows you to develop your AR and VR experiences in a easy to use, flexible and fully configurable manner. 
 
-We offer a basic set of functionalities with the WebXR experience helper, and offer a full XR experience, including UI, teleportation and more, with the Default WebXR experience helper.
+We recommend using the [Default Experience Helper](#the-webxr-default-experience-helper) for ease of use, as it offers a full XR experience, including: UI, teleportation and more. In contrast, the basic set of functionalities is offered via [Basic Experience Helper](#the-webxr-basic-experience-helper), it offers more controll when it comes to configuring the specifics that better fit your use-case.
 
-We recommend using the [Default Experience](#the-webxr-default-experience) for ease of use, and the [Basic Experience Helper](#the-basic-experience-helper) when looking for more control over decisions.
+*Note that you are not forced to use these experience helpers in any way. You can always use your own implementation instead.*
 
-*Note that you don't have to use the experience helper. Everything can be done outside of those helper on your own.*
-
-## The basic Experience Helper
-
-### Basic usage
+## The WebXR (Basic) Experience Helper
 
 The basic experience helper will:
 
-* Initialize the XR scene
-* Create an XR Camera
-* Initialize the features manager
+* Initialize the XR scene;
+* Create an XR Camera;
+* Initialize the features manager;
+* Offers help functions to enter and exit the XR session.
 
-It also offers help functions to enter and exit the XR session.
+The basic experience helper offers direct access to the following:
+
+* An initialized [Session Manager](/divingDeeper/webXR/webXRSessionManagers);
+* A configured [XR Camera](/divingDeeper/webXR/webXRCamera) that will have the non-VR camera's position when entering XR;
+* Initialized [Features Manager](/divingDeeper/webXR/webXRFeaturesManager).
+
+### Usage
 
 The experience helper is promise-based, which technically means its help-functions are mostly asynchronous.
 
@@ -110,24 +113,16 @@ xrBasicHelper.onInitialXRPoseSetObservable.add((xrCamera) => {
 });
 ```
 
-### Other features
+# The WebXR Default Experience Helper
 
-The basic XR experience helper offers direct access to the following:
+The default experience helper will:
 
-* An initialized [Session Manager](/divingDeeper/webXR/webXRSessionManagers)
-* A configured [XR Camera](/divingDeeper/webXR/webXRCamera) that will have the non-VR camera's position when entering XR
-* Initialized [Features Manager](/divingDeeper/webXR/webXRFeaturesManager)
+* Create a [Basic WebXR Experience Helper](#the-webxr-basic-experience-helper) and initialize it;
+* Create an HTML UI button to enter XR;
+* Init the input source class which will initialize controllers;
+* Enable the pointer selection and teleportation features.
 
-# The WebXR Default Experience
-
-### Basic usage of default experience
-
-The default xr experience will:
-
-* Create a [basic experience helper](#the-basic-experience-helper) and initialize it
-* Create an HTML UI button to enter XR
-* Init the input source class which will initialize controllers
-* Enable the pointer selection and teleportation features
+## Usage
 
 The simplest way to use the default experience is calling the help function of `scene` :
 
@@ -214,9 +209,9 @@ defaultXRExperience.pointerSelection.attach();
 
 ### Configuring the GUI
 
-The GUI is the right way to enter and exit the XR experience. Otherwise you can directly use the `baseExperience` Basic experience helper to enter and exit XR as mentioned [above](#the-basic-experience-helper). It defaults to a VR immersive session in local-floor reference mode.
+The GUI is the right way to enter and exit the XR experience. Otherwise you can directly use the method, offered by [Basic Experience Helper](#the-webxr-basic-experience-helper), to enter and exit XR as mentioned [above](#entering-xr). It defaults to a VR immersive session in local-floor reference space.
 
-If you want to change the session mode or reference mode (for example to enter an AR session instead of VR):
+You can change the `uiOptions` to setup the **AR** session instead of the **VR** session:
 
 ``` javascript
 var defaultXRExperience = await scene.createDefaultXRExperienceAsync({
@@ -226,11 +221,9 @@ var defaultXRExperience = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-Read more about the GUI in the [advanced WebXR tutorial]()
-
 ### Available Observables
 
-Apart from those you can find in the `baseExperience` (The Basic XR experience helper) the default experience does not offer any observables.
+Apart from those you can find in the [Basic Experience Helper](#the-webxr-basic-experience-helper) the [Default Experience Helper](#the-webxr-default-experience-helper) does not offer any observables.
 
 ### Further features
 
