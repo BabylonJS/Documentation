@@ -351,7 +351,7 @@ This means the previous example is now requiring about 700Kb vs 2.3Mb before.
 
 **As you will see in the next paragraph, you also need to target individual files to fully benefit from tree shaking in your app.**
 
-# Side Effects
+## Side Effects
 
 Due to our attachment to backward compatibility, we had to make a hard choice between the APIs and the side effects. Actually whilst not working with modules it is easy to not worry about side effects and we relied on this pattern a lot to create a friendlier API surface. For instance, you can directly from the Mesh class create basic shapes like cubes, spheres and so on. Despite being convenient, this means that the full MeshBuilder constructs are then a dependency of Mesh. But what if you are not using any of them ? Why should they be part of the final package ?
 
@@ -408,6 +408,7 @@ This will be the case for all the methods defined by module augmentation. This m
 - depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
 - screenshot support can be found in the `Misc/screenshotTools` .
 - boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
+-  Screen surface reflection postprocess (`scene.enablePrePassRender`) can be found in the `Rendering/prePassRendererSceneComponent` .
 
 _Why do I have an error in the console inviting me to import some other modules?_
 
