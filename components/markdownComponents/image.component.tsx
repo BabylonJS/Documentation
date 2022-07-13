@@ -92,6 +92,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         try {
             return (
                 <Image
+                    unoptimized={true}
                     onLoadingComplete={(e) => {
                         if (properties.layout === "fill") {
                             try {
@@ -109,8 +110,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                                     } else {
                                         h = +preH;
                                     }
-                                } 
-                                else if (e.naturalWidth > containerRef.current.clientWidth) {
+                                } else if (e.naturalWidth > containerRef.current.clientWidth) {
                                     h = (h * containerRef.current.clientWidth) / w;
                                     w = containerRef.current.clientWidth;
                                 }
