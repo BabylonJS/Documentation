@@ -383,7 +383,7 @@ You can play around in this playground:
 
 ## Hand tracking
 
-Some devices and browsers support tracking the hand joints directly, with no need for external controllers. Such devices are the oculus quest (1 and 2) using the native oculus browser.
+Some devices and browsers support tracking the hand joints directly, with no need for external controllers. Such devices are the Oculus Quest (1 and 2) using the native Oculus browser.
 
 25 points on each hand are being tracked and delivered to you on each frame. Babylon's hand tracking feature uses this information to constantly update the WebXRHand object and its 25 childrens' transformations.
 
@@ -391,9 +391,9 @@ Please note that when referring to "hands" on this page we are referring to the 
 
 ### Getting started
 
-To get started you will first need a supported devices. As written before there are currently two main devices with hand support - the oculus quest 1 and 2 using their native browser (and not using oculus link).
+To get started you will first need a supported devices. As written before there are currently two main devices with hand support - the Oculus Quest 1 and 2 using their native browser (and not using Oculus Link).
 
-To enable hand joint tracking support in your oculus quest, make sure to go to chrome://flags and enable `webxr joints-tracking`. Once this is enabled Babylon will be able to read the hand information on each frame.
+To enable hand joint tracking support in your Oculus Quest, make sure to go to [chrome://flags](chrome://flags) and enable `webxr joints-tracking`. Once this is enabled Babylon will be able to read the hand information on each frame.
 
 To enable hand support in your babylon scene, enable the WebXR feature:
 
@@ -581,7 +581,7 @@ scene.onPointerObservable.add((evt) => {
 });
 ```
 
-Note that each system might have different gestures for "select". In the quest it is executed when holding the index finger and the thumb together. Other systems might have a different gesture for that.
+Note that each system might have different gestures for "select". In the Quest it is executed when holding the index finger and the thumb together. Other systems might have a different gesture for that.
 
 ### Using the hand and skeleton joint data
 

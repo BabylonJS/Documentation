@@ -11,13 +11,13 @@ video-content:
 
 ## Introduction
 
-In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR environment automatically. This environment allows you to develop your AR and VR experiences in a easy to use, flexible and fully configurable manner. 
+In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR environment automatically. This environment allows you to develop your AR and VR experiences in a easy to use, flexible and fully configurable manner.
 
-We recommend using the [Default Experience Helper](#the-webxr-default-experience-helper) for ease of use, as it offers a full XR experience, including: UI, teleportation and more. In contrast, the basic set of functionalities is offered via [Basic Experience Helper](#the-webxr-basic-experience-helper), it offers more controll when it comes to configuring the specifics that better fit your use-case.
+We recommend using the [Default Experience Helper](#webxr-default-experience-helper) for ease of use, as it offers a full XR experience, including: UI, teleportation and more. In contrast, the basic set of functionalities is offered via [Basic Experience Helper](#webxr-basic-experience-helper), it offers more controll when it comes to configuring the specifics that better fit your use-case.
 
 *Note that you are not forced to use these experience helpers in any way. You can always use your own implementation instead.*
 
-## The WebXR (Basic) Experience Helper
+## WebXR (Basic) Experience Helper
 
 The basic experience helper will:
 
@@ -32,7 +32,7 @@ The basic experience helper offers direct access to the following:
 * A configured [XR Camera](/divingDeeper/webXR/webXRCamera) that will have the non-VR camera's position when entering XR;
 * Initialized [Features Manager](/divingDeeper/webXR/webXRFeaturesManager).
 
-### Usage
+### How to use (Basic) Experience Helper
 
 The experience helper is promise-based, which technically means its help-functions are mostly asynchronous.
 
@@ -113,16 +113,16 @@ xrBasicHelper.onInitialXRPoseSetObservable.add((xrCamera) => {
 });
 ```
 
-# The WebXR Default Experience Helper
+## WebXR Default Experience Helper
 
 The default experience helper will:
 
-* Create a [Basic WebXR Experience Helper](#the-webxr-basic-experience-helper) and initialize it;
+* Create a [Basic WebXR Experience Helper](#webxr-basic-experience-helper) and initialize it;
 * Create an HTML UI button to enter XR;
 * Init the input source class which will initialize controllers;
 * Enable the pointer selection and teleportation features.
 
-## Usage
+### How to use the Default Experience Helper
 
 The simplest way to use the default experience is calling the help function of `scene` :
 
@@ -209,7 +209,7 @@ defaultXRExperience.pointerSelection.attach();
 
 ### Configuring the GUI
 
-The GUI is the right way to enter and exit the XR experience. Otherwise you can directly use the method, offered by [Basic Experience Helper](#the-webxr-basic-experience-helper), to enter and exit XR as mentioned [above](#entering-xr). It defaults to a VR immersive session in local-floor reference space.
+The GUI is the right way to enter and exit the XR experience. Otherwise you can directly use the method, offered by [Basic Experience Helper](#webxr-basic-experience-helper), to enter and exit XR as mentioned [above](#entering-xr). It defaults to a VR immersive session in local-floor reference space.
 
 You can change the `uiOptions` to setup the **AR** session instead of the **VR** session:
 
@@ -223,7 +223,7 @@ var defaultXRExperience = await scene.createDefaultXRExperienceAsync({
 
 ### Available Observables
 
-Apart from those you can find in the [Basic Experience Helper](#the-webxr-basic-experience-helper) the [Default Experience Helper](#the-webxr-default-experience-helper) does not offer any observables.
+Apart from those you can find in the [Basic Experience Helper](#webxr-basic-experience-helper) the [Default Experience Helper](#webxr-default-experience-helper) does not offer any observables.
 
 ### Further features
 

@@ -77,7 +77,6 @@ panel.addControl(picker);
 
 <Playground id="#1FTUSC#29" title="Simply grabbing objects by controllers" description="Simply grabbing objects by controllers"/> 
 
-
 ## Babylon.js scenes with XR support
 
 <Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo"/>
@@ -85,10 +84,12 @@ panel.addControl(picker);
 <Playground id="#JA1ND3#164" title="Espilit" description="Espilit"/>
 
 ## WebXR with Vite
+
 Step-by-step project setup using Vite and Babylon.js ES6 modules for
 WebXR development.
 
 ### Install Vite
+
 ```bash
 ## Setup vite
 npm create vite@latest
@@ -98,13 +99,16 @@ npm create vite@latest
 ```
 
 ### Install @babylonjs ES6 packages
+
 ```bash
 npm install @babylonjs/core@^5.0.0-beta.8
 npm install @babylonjs/loaders@^5.0.0-beta.8
 ```
 
 ### Enable HTTPS dev server
+
 HTTPS is required by most VR devices. Create or modify `vite.config.ts`:
+
 ```javascript
 import { defineConfig } from 'vite'
 
@@ -120,9 +124,11 @@ export default defineConfig({
 })
 ```
 
-### Setup a basic WebXR scene
-Modify `main.ts`:
-```javascript
+### Set up a basic WebXR scene
+
+Modify the `main.ts` file:
+
+```typescript
 import './style.css'
 
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera.js'
@@ -197,7 +203,9 @@ babylonEngine.runRenderLoop(() => {
 Corresponding git repo: [kaliatech/babylon-docs-vite-webxr](https://github.com/kaliatech/babylon-docs-vite-webxr)
 
 ### Run server and verify
+
 Start vite dev server and make it accessible from the network:
+
 ```bash
 npm run dev -- --host 0.0.0.0
 ```
@@ -206,12 +214,13 @@ Browsing to `https://<your-server-ip>:3443` on a desktop machine should show the
 the [WebXR API Emulator](https://github.com/MozillaReality/WebXR-emulator-extension) is enabled, you
 should also see Babylon.js's default VR headset mode icon
 
-If viewing from within a headset, the controller models should correspond to what is available in the global 
+If viewing from within a headset, the controller models should correspond to what is available in the global
 registry for your device.
 
 To check TypeScript types and build:
+
 ```bash
 npm run build
 ```
-Using the setup above, vite reports a vendor.js size of ~2.4MB (520k gzipped) as of babylon-5.0.0-beta.8.
 
+Using the setup above, vite reports a vendor.js size of ~2.4MB (520k gzipped) as of babylon-5.0.0-beta.8.
