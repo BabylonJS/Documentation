@@ -23,7 +23,7 @@ const styles = makeStyles((theme: Theme) =>
             width: "100%",
         },
         caption: {
-            fontSize: 12,
+            fontSize: 14,
             display: "block",
             marginBottom: theme.spacing(2),
         },
