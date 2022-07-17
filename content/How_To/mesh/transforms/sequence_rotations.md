@@ -16,9 +16,9 @@ When you use the **rotation** method on a mesh then the rotation is applied in l
 The simplest way is to use the addRotation method, *addRotation(x, y, z)* with two zero parameters, for example both of these sets of code
 
 ```javascript
-mesh.rotation.addRotation(Math.PI / 2, 0, 0);
-mesh.rotation.addRotation(0, 0, Math.PI / 3);
-mesh.rotation.addRotation(0, Math.PI / 8, 0);
+mesh.addRotation(Math.PI / 2, 0, 0);
+mesh.addRotation(0, 0, Math.PI / 3);
+mesh.addRotation(0, Math.PI / 8, 0);
 ```
 
 ```javascript
