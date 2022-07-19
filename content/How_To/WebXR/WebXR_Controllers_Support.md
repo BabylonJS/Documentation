@@ -18,7 +18,7 @@ An XR Session controls the input source of the current session. Every new input 
 
 An Input source has one of three target Ray modes - `tracked-pointer` for gamepad-like controllers, `screen` for touch-screen oriented inputs, and `gaze` for gaze-based inputs (input sources like google cardboard that has no proper way for user input).
 
-The [WebXRInput](/typedoc/classes/babylon.webxrinput) class is responsible of coordinating the addition and removal of input sources. It creates **WebXR Input Sources** classes and disposes of them automatically for you.
+The [WebXRInput](/typedoc/classes/babylon.webxrinput) class is responsible for coordinating the addition and removal of input sources. It creates **WebXR Input Sources** classes and disposes of them automatically for you.
 
 Babylon's [WebXR Input Source](/typedoc/classes/babylon.webxrinputsource) class is the container for all user-input related objects. It is created automatically for you by the WebXR Input class for every controller.it is in charge of attaching the motion controller, which, in turn, is in charge of attaching the components and load the model.
 
@@ -51,20 +51,18 @@ The input source, created by the WebXR input, is your central container for a si
 
 ## Public members
 
-As mentioned before the Input source has two reference spaces - `grip` and `target` , which we call `pointer` . Both of those spaces are represented by a mesh, positioned in the orientation and position that is provided by the XRFrame (and the XR session). Which means that if you want to query the current transformation of the user's hand or the direction the user is pointing at.
-
-To do that you can use the `getWorldPointerRayToRef` function:
+As mentioned before the Input source has two reference spaces - `grip` and `target`, which we call `pointer`. Both of those spaces are represented by a mesh, positioned in the orientation and position that is provided by the XRFrame (and the XR session). Which means that if you want to query the current transformation of the user's hand or the direction the user is pointing at, you can use the `getWorldPointerRayToRef` function:
 
 ```javascript
 const resultRay = new BABYLON.Ray();
 
-// get the pointer direction
+// get the pointer direction ray
 xrInputSource.getWorldPointerRayToRef(resultRay);
-// get the grip direction, if available. If not, the pointer:
+// try to get the grip direction ray; If it's not available, it'll automatically fallback to the pointer direction ray:
 xrInputSource.getWorldPointerRayToRef(resultRay, true);
 ```
 
-Usually, you would need to pointer direction ray.
+In most scenarios, you'll need the pointer direction ray.
 
 ### Input source observables
 
@@ -74,7 +72,7 @@ This will be triggered when a motion controller, if available was initialized an
 
 #### onMeshLoadedObservable
 
-This is a helper observable and is the same as `xrController.motionController.onModelLoadedObservable` . But since the motion controller is created async, using the `motionController` observable will only be available after `onMotionControllerInitObservable` was triggered:
+This is a helper observable and is the same as `xrController.motionController.onModelLoadedObservable`. But since the motion controller is created async, using the `motionController` observable will only be available after `onMotionControllerInitObservable` was triggered:
 
 ```javascript
 // async, async, async
@@ -108,7 +106,7 @@ Each motion controller has different components, that are described in its profi
 - Thumbstick
 - Touchpad
 
-It also has a **unique** component id, which correlates to the actual component. For example, the **A button** on the Oculus Touch has the **type** `button` , and the **id** `a-button` .
+It also has a **unique** component id, which correlates to the actual component. For example, the **A button** on the Oculus Touch has the **type** `button`, and the **id** `a-button` .
 
 #### Get the components available
 
@@ -164,12 +162,12 @@ const mainComponent = motionController.getMainComponent();
 
 #### Events and changes of a controller component
 
-A component is updated on each frame with values provided by the gamepad object of the session's input source. Each button has 2 states - `touched` and `pressed` , and a value from 0 to 1 (0 being not pressed at all, 1 being fully pressed). Some components can only have the values 0 and 1 (like the button component).
+A component is updated on each frame with values provided by the gamepad object of the session's input source. Each button has 2 states - `touched` and `pressed`, and a value from 0 to 1 (0 being not pressed at all, 1 being fully pressed). Some components can only have the values 0 and 1 (like the button component).
 
 Some types of components also have axes values (like a thumbstick or touchpad). The axes have values from -1 to 1.
 1 in the X-axis means right, and 1 in the Y-Axis means down (towards the user).
 
-To know what the components supports:
+To know what the components support:
 
 ```javascript
 if (component.isButton()) {
@@ -237,11 +235,11 @@ component.onAxisValueChangedObservable.add((values) => {
 ```
 
 Here is a simple example of controllers input.  
-By using Oculus Quest2 controllers, component ids and controller buttons are mapped as follows.  
+By using Oculus Quest 2 controllers, component ids and controller buttons are mapped as follows.  
 
-On Oculus Quest2 controllers:  
+On Oculus Quest 2 controllers:  
 
-![Quest2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)  
+![Quest 2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)  
 
 On the Playground sample:  
 
@@ -263,14 +261,13 @@ triggerComponent.onButtonStateChangedObservable.add(() => {
 
 Playground for a simple VR controllers input: <Playground id="#28EKWI#37" title="WebXR_motion controller input" description="Simple code for motion controller input on WebXR."/>
 
-
 ### How to get a model
 
 #### The input-profile online repository
 
-As part of the (successful!) attempt at forcing standards to WebXR, the guys at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) github repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.  
+As part of the (successful!) attempt at forcing standards to WebXR, the > at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.  
 
-The repository provides an useful tool as [WebXR Input Profile Viewer](https://immersive-web.github.io/webxr-input-profiles/packages/viewer/dist/index.html). You can easily check each id, state, button, and axis of XR controllers.   
+The repository provides a useful tool as [WebXR Input Profile Viewer](https://immersive-web.github.io/webxr-input-profiles/packages/viewer/dist/index.html). You can easily check each id, state, button, and axis of XR controllers.
 
 Babylon.js natively supports this repository and currently uses it as the default model delivery method for XR controllers.
 

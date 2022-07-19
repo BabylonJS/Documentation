@@ -8,13 +8,13 @@ video-overview:
 video-content:
 ---
 
-Babylon's [WebXRSessionManager](/typedoc/classes/babylon.webxrsessionmanager) class is your direct contact to the browser's native XR session. Each XR experience has a corresponding session that holds the entire XR functionality. A session is initialized with a session mode (the default is `vr-immersive` ) and a reference space mode (default is `local-floor` ) that decides how the scene calculates the user's location and what functionality is available.
+Babylon's [WebXRSessionManager](/typedoc/classes/babylon.webxrsessionmanager) class is your direct contact to the browser's native XR session. Each XR experience has a corresponding session that holds the entire XR functionality. A session is initialized with a session mode (the default is `vr-immersive`) and a reference space mode (default is `local-floor`) that decides how the scene calculates the user's location and what functionality is available.
 
-Usually, the Session Manager will be initialized by the [experience helper](/divingDeeper/webXR/webXRExperienceHelpers), but if you don't use the experience helper, you can create a session manger yourself. The session manager, along with the XR camera, are the only requirement on babylon's side to implement an XR experience.
+Usually, the Session Manager will be initialized by the [experience helper](/divingDeeper/webXR/webXRExperienceHelpers), but if you don't use the experience helper, you can create a session manger yourself. The session manager, along with the XR camera, are the only requirement on Babylons's side to implement an XR experience.
 
 ## Basic usage and initialization
 
-To construct a new session manager, initialize it with a babylon scene:
+To construct a new session manager, initialize it with a Babylon scene:
 
 ``` javascript
 const sessionManager = new WebXRSessionManager(scene);
@@ -41,7 +41,7 @@ if (supported) {
 }
 ```
 
-After making sure XR is available and the session is supported, you can initialize the session and prepare it for rendering:
+After making sure that XR is available and that the session is supported, you can initialize the session and prepare it for rendering:
 
 ``` javascript
 sessionManager.initializeSessionAsync('immersive-vr' /*, xrSessionInit */ );
@@ -49,7 +49,7 @@ sessionManager.initializeSessionAsync('immersive-vr' /*, xrSessionInit */ );
 
 This function will initialize the native session. Without calling this function, no session is available and the XR experience will not work.
 
-Right after you will need to initialize the reference space of this session, which will define the coordinate system the xr experience will use:
+Right after, you will need to initialize the reference space of this session, which will define the coordinate system that the xr experience will use:
 
 ``` javascript
 const referenceSpace = sessionManager.setReferenceSpaceTypeAsync( /*referenceSpaceType = 'local-floor'*/ );
@@ -84,12 +84,12 @@ await sessionManager.exitXRAsync();
 
 ### Managing yourself
 
-WebXR coordinate system is based on a reference space object, that defines the user's current transformation in the scene. This object calculates the current HUD and controllers transformation, and is also required for all AR features.
+WebXR coordinate system is based on a reference space object that defines the user's current transformation in the scene. This object calculates the current HUD and controllers transformation, and is also required for all AR features.
 
-Babylon manages the reference space changes for you when you use the teleportation so you don't have to deal with it yourself. If, however, you wish to access and change the reference space on your own, you have full access to three reference space objects that will help you:
+Babylon manages the reference space changes for you when you use the teleportation, so you don't have to deal with it yourself. If, however, you wish to access and change the reference space on your own, you have full access to three reference space objects that will help you:
 
 1. `xrSession.referenceSpace` is the current reference space, the one being used to render the scene.
-2. `xrSession.baseReferenceSpace` is the initial reference space generated using the `ReferenceSpaceMode` you chose (like `local-floor` ).
+2. `xrSession.baseReferenceSpace` is the initial reference space generated using the `ReferenceSpaceMode` you chose (like `local-floor`).
 3. `xrSession.viewerReferenceSpace` is the initial reference space in the `viewer` reference space mode, compensated with the `defaultHeightCompensation` value.
 
 Using the `getOffsetReferenceSpace` function on the Reference Space object you can change the reference space yourself. Don't forget to update the new reference space in the session manager, otherwise it will not be used in the current scene:
@@ -113,7 +113,7 @@ Read more about [`getOffsetReferenceSpace`](https://www.w3.org/TR/webxr/#dom-xrr
 
 ### Using a new reference space mode
 
-To get a reference space object using a different `XRReferenceSpaceType` , use the `xrSession.setReferenceSpaceTypeAsync` with the requested reference space type. This will reset the viewer and base reference space as well. This function accepts a new reference mode and is promise based:
+To get a reference space object using a different `XRReferenceSpaceType`, use the `xrSession.setReferenceSpaceTypeAsync` with the requested reference space type. This will reset the viewer and base reference space as well. This function accepts a new reference mode and is promise based:
 
 ``` javascript
 // Session was created using the `local` reference space mode, let's move to `local-floor` :

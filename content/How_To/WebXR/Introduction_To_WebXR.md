@@ -30,7 +30,7 @@ video-content:
 
 The [WebXR W3C Proposal](https://immersive-web.github.io/webxr/) is currently in its draft phase. It is, however, already implemented in Chrome (check [caniuse.com](https://caniuse.com/#feat=webxr) to know about others browsers). Starting with version 79, WebVR has been deprecated and WebXR is enabled by default. Earlier browser versions had WebXR behind a configuration flag. One of its goal is deprecating WebVR and other AR implementation and provide a single VR and AR API.
 
-As the API continuously changes, it is difficult to keep up with feature changes. The latest chrome canary is notably the most XR-feature-complete browser and Google continuously updates the browser with new features. This is the main reason we introduced the [Features Manager](/divingDeeper/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backwards compatibility.
+As the API continuously changes, it is difficult to keep up with feature changes. The latest Chrome Canary is notably the most XR-feature-complete browser and Google continuously updates the browser with new features. This is the main reason we introduced the [Features Manager](/divingDeeper/webXR/webXRFeaturesManager), which allows us to implement the newest version of official features with internal versioning without breaking backwards compatibility.
 
 Note that most of the time when we say WebXR, we actually mean WebXR **in VR immersive mode**. This is currently the most used mode of WebXR.
 
@@ -38,13 +38,13 @@ Note that most of the time when we say WebXR, we actually mean WebXR **in VR imm
 
 ### PC
 
-Chrome 79 on windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) Devices. Unofficially, WebXR is working well with the oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
+Chrome 79 on Windows officially supports WebXR with all [Microsoft Mixed Reality](https://en.wikipedia.org/wiki/Windows_Mixed_Reality) Devices. Unofficially, WebXR is working well with the Oculus SDK (Rift, Rift S, and Quest with Link). As of this writing, Oculus support is still behind a flag.
 
 ### Mobile and Quest
 
 WebXR AR features on Android's Chrome Browser (Stable and Canary) can be enabled behind a flag at [chrome://flags](chrome://flags), including AR features such as plane detection, hit-tests and anchors. Note that the AR features' architecture is constantly changing, so expect different results from version to version.
 
-Oculus Quest supports WebXR (in VR mode) in the latest oculus browser. Babylon's specs implementation works well with the quest.
+Oculus Quest supports WebXR (in VR mode) in the latest Oculus browser. Babylon's specs implementation works well with the quest.
 
 No official iOS/iPhone support is planed at the moment. Mozilla has built the [WebXR iOS Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056) which is a (very) limited AR-oriented browser.
 
@@ -54,7 +54,7 @@ For older browsers that support WebVR but not WebXR you can use the [WebXR Polyf
 
 Babylon does not intend on integrating the polyfill in the framework itself or in the playground. We encourage the developer to offer the polyfill to users not using a WebXR-Supported browser.
 
-To use the polyfill in the playground, please add the following to your playground (before 'createScene'):
+To use the polyfill in the playground, please add the following code to your playground (before 'createScene'):
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
@@ -122,7 +122,7 @@ If you experience low-resolution when using the polyfill, make sure to resize th
 
 ### The WebXR Emulator
 
-If you are developing and don't want to constantly test on a real device, use mozilla's [WebXR Emulator](https://blog.mozvr.com/webxr-emulator-extension/) which is available for [chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje) and [firefox](https://addons.mozilla.org/firefox/addon/webxr-api-emulator). We support it and actually use it during development. Highly recommended.
+If you are developing and don't want to constantly test on a real device, use Mozilla's [WebXR Emulator](https://blog.mozvr.com/webxr-emulator-extension/) which is available for [Chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje) and [Firefox](https://addons.mozilla.org/firefox/addon/webxr-api-emulator). We support it and actually use it during development. Highly recommended.
 
 ## Getting started
 
@@ -134,7 +134,7 @@ const xr = scene.createDefaultXRExperienceAsync();
 
 This will enable WebXR **in VR immersive mode**, including session init, input sources, the camera, teleportation and scene interactions. All using our [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper).
 
-Note that the `xr` variable is a Promise. Using the async/await pattern will be simpler and more intuitive. It will also make sense to define floor meshes so we can define our ground and move on it. Here is a sphere in XR:
+Note that the `xr` variable is a Promise. Using the async/await pattern will be simpler and more intuitive. It will also make sense to define floor meshes, so we can define our ground and move on it. Here is a sphere in XR:
 
 ```javascript
 var createScene = async function () {
@@ -168,9 +168,9 @@ Make sure to read more on the [WebXR Experience Helper](/divingDeeper/webXR/webX
 
 When using [Babylon.js ES6 support with tree shaking](divingDeeper/developWithBjs/treeShaking), import WebXR modules from:
 
- *  `@babylonjs/core/XR/*`
+* `@babylonjs/core/XR/*`
 
-And import loaders and side-effects for loading default controller models from the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) github repository.
+And import loaders and side-effects for loading default controller models from the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository.
 
 For example:
 
@@ -187,9 +187,11 @@ import '@babylonjs/loaders/glTF'
 import '@babylonjs/core/Materials/Node/Blocks'
 
 ```
+
 See also:
- * [WebXR Controllers Support](/divingDeeper/webXR/webXRInputControllerSupport)
- * [WebXR with Vite](/divingDeeper/webXR/webXRDemos#webxr-with-vite)
+
+* [WebXR Controllers Support](/divingDeeper/webXR/webXRInputControllerSupport)
+* [WebXR with Vite](/divingDeeper/webXR/webXRDemos#webxr-with-vite)
 
 ## Migrating from WebVR
 
@@ -316,7 +318,7 @@ Read more about the [XR Controllers system](/divingDeeper/webXR/webXRInputContro
 
 Thou we always encourage backwards compatibility **We recommend using WebXR directly** and stop using the WebVR experience helper. However:
 
-The latest WebVR Experience helper has a new flag in its init options - `useXR` . This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead."/>
+The latest WebVR Experience helper has a new flag in its init options - `useXR`. This will check for XR support and will launch the VR session in WebXR, if possible. A working example can be found in <Playground id="#TAFSN0#323" title="WebVR Check for WebXR" description="Simple example of the WebVR -useXR check to create a VR session using WebXR instead."/>
 
 ```javascript
 var createScene = function () {

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-The WebXR Camera is an extension of the `FreeCamera` that includes an update loop from an XRFrame and the ability to create 1 or more rig cameras that will be used to render the XR (both VR and AR) session.
+The WebXR Camera is an extension of the `FreeCamera` that includes an update loop from an XRFrame and the ability to create one or more rig cameras that will be used to render the XR (both VR and AR) session.
 
 If you are not using the [XR Experience helper](/divingDeeper/webXR/webXRExperienceHelpers), you will need an [XR Session Manager](/divingDeeper/webXR/webXRSessionManagers) to construct a new WebXR Camera:
 
@@ -51,7 +51,7 @@ To query the user's height from the real ground use the `realWorldHeight` of the
 const userHeight = xrCamera.realWorldHeight;
 ```
 
-This function will return the height of the user or 0 if not available.
+This getter will return the height of the user or 0 if it's not available.
 
 Note that the user height depends on the type of reference space you chose to your experience. Reference space type `local-floor` will deliver the user's height, but `viewer` (for example) will deliver what you defined as a height compensation in the [XR Session Manager](/divingDeeper/webXR/webXRSessionManagers).
 
@@ -67,7 +67,7 @@ xrCamera.setTransformationFromNonVRCamera();
 
 xrCamera.setTransformationFromNonVRCamera(otherCamera);
 
-// If you want XR o also reset the XR Reference space, set the 2nd variable to true:
+// If you want XR to also reset the XR Reference space, set the 2nd variable to true:
 
 xrCamera.setTransformationFromNonVRCamera(otherCamera, true);
 ```
