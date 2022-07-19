@@ -231,6 +231,10 @@ You can change the number of passes that the depth peeling renderer is doing by 
 
 This effect is only compatible with WebGL 2 and WebGPU.
 
+### Known limitations
+
+* Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
+
 ### Support in WebGPU
 
 Regarding WebGPU, as of this writing (2021/10/26), the `RG32Float` format is not blendable, meaning we can't use it for our depth buffers. So, we must use `RG16Float` instead which has less precision which in turn leads to some visual artefacts: try to browse the PG given above in WebGPU, you will see some artefacts in the whole rendering.
