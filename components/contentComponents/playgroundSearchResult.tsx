@@ -89,7 +89,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
         }
     });
 
-    let parsed: { code: string; };
+    let parsed: { code: string };
     try {
         parsed = JSON.parse(searchResult.jsonPayload);
     } catch (e) {
@@ -97,7 +97,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
     }
 
     const { code } = parsed;
-    const codeLines: Array<string> = (code || '').split("\n");
+    const codeLines: Array<string> = (code || "").split("\n");
     let startingLine = 0;
     let foundLine = -1;
     const lowerTerm = term.toLowerCase();

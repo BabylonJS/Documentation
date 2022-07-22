@@ -24,16 +24,21 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            display: "flex",
             flexDirection: "column",
             height: "100%",
+            [theme.breakpoints.up("md")]: {
+                display: "flex",
+            },
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
             backgroundColor: `${colorPalette.header}`,
             flex: "0 1",
-            position: "relative",
+            position: "fixed",
             display: "block",
+            [theme.breakpoints.up("md")]: {
+                position: "relative",
+            },
         },
         appBarToolbar: {
             backgroundColor: `${colorPalette.header}`,
@@ -146,6 +151,10 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             overflow: "auto",
             flex: 1,
+            paddingTop: "100px",
+            [theme.breakpoints.up("md")]: {
+                paddingTop:0
+            },
         },
         navContainer: {
             background: "#6E6259 0% 0% no-repeat padding-box",
