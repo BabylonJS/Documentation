@@ -11,15 +11,17 @@ video-content:
 
 ## How It's Organized
 
-The Babylon.js documentation is designed to take you on a step by step journey of mastering all that this platform has to offer. The information is organized into 7 main sections, each one expanding on the knowledge from the previous.
+Having [started your journey](/journey) and having an overview of Babylon.js, the documentation is designed to take you step by step further on the journey of mastering all that this platform has to offer. The information is organized into an overview and 9 main sections, which contain chapters, together with a detailed API section, and search facilities.
 
-1. [Getting Started](/start) - This section is designed to take you on a step by step journey of scratching the surface of Babylon.js and everything it has to offer.
-2. [Diving Deeper](/divingDeeper) - Organized by feature, this section will help you take the next step, expand on your knowledge of the platform, and give you a solid understanding of the depth of possibilties in the engine.
-3. [Advanced Topics](/advanced_topics) - This section will transform you into a Babylon.js expert. Tackling the most dense and advanced topics, this section is not for the faint of heart.
-4. [Tools And Resources](/toolsAndResources) - Babylon.js features many incredible tools to make the development process simple and enjoyable. It also has several libraries of content available for you to use completely for free. This section will help you understand and leverage both.
-5. [Guided Learning](/guidedLearning) - Sometimes it's best to learn while doing. This section helps you do just that. These step by step articles and tutorials will help you learn from some of the communities best and brightest teachers.
-6. [Extensions](/extensions) - Bayblon.js is completely free and open source and has one of the world's most amazing development communities behind it, pushing it to be the best that it can be. This section contains information about some of the incredible technology built by the community to that will extend your Babylon.js development even further.
-7. [API](/typedoc) - For the most seasoned Babylon.js developers, those who want to understand every single possible super power available, the API meticulously documents every corner of this fantastic platform.
+1. [Babylon.js Features](/features) - Babylon.js is a fully featured game and rendering engine with a wide range of features. This section takes you through these features and helps you to, code and build with them.
+2. [Adding Babylon.js to Your Web Project](/workflow) - There are a variety of ways to use Babylon.js in your web application and get a Babylon.js project set up. This section will help you to understand the possibilities and provides you with some templates and support for doing so.
+3. [Playground](/playground) - A detailed look at the central Babylon.js resource, how to use it and the many facilities it has to offer, including the ability to search all the playgrounds for examples of what others have done.
+4. [Tools And Resources](/toolsAndResources) - Babylon.js has many incredible tools to make the development process simple and enjoyable. It also has several libraries of content available for you to use completely for free. This section will help you understand and leverage both.
+5. [Preparing Assets for Babylon.js](/howToArt) - From models and animations, to textures, LUTS, and HDR images, in this section learn the workflows and methods to prepare content for Babylon.js.
+6. [Babylon.js Cross-Platform](/crossPlat) - In this section you'll learn how to extend Babylon.js beyond the web and use it to develop native applications for just about any platform you can imagine.
+7. [Contribute](/contribute) - For those of you who want to expand the boundaries of Babylon.js this section describes what is needed and how to contribute to both the code base of Babylon.js and its documentation.
+8. [Guided Learning](/guidedLearning) - Sometimes it's best to learn while doing. This section helps you do just that. These step by step articles and tutorials will help you learn from some of the communities best and brightest teachers.
+9. [Community Extensions](/extensions) - In this section you'll find incredible resources and extensions to Babylon.js, built by the incredibly talented and passionate community.
 
 ## How To Use The Documentation
 
@@ -61,8 +63,6 @@ If you want to install Babylon.js locally using the latest version, please pick 
 Don't be scared about using the latest version. Babylon's npm releases are considered stable and are fully tested by the team.
 
 
-## Getting Started
+## The Bayblon.js Forum
 
-The best place to get started is...well you guessed it, right at our [Getting Started](/start) section. If you're the type of learner that does better exploring on your own, then the [Diving Deeper](/divingDeeper) section is for you. If you are already in love with Babylon.js and want to start contributing to its success, then the [Develop With Babylon.js](/divingDeeper/developWithBjs) section is the place for you.
-
-Well, that's it. Hopefully that's enough to get you started. Oh, and as we like to say, welcome to the Babylon family. Enjoy your journey!
+Next up is to learn about [The Babylon.js Forum](/journey/forum), the place where the community and dev team dive in every day to help each other learn and advance this wonderful platform. 
