@@ -20,7 +20,7 @@ What happens when we put the **Village** as a model in the viewer?
 
 We see that the ground flickers. Why is that? This is because by default the Viewer already adds a ground and where they overlap they 'fight' for supremacy.
 
-How do we overcome this? We use the _extends_ attribute in the &le;babylon&gt; element and set it to minimal.
+How do we overcome this? We use the _extends_ attribute in the &lt;babylon&gt; element and set it to minimal.
 
 ```javascript
 <babylon extends="minimal" model="path to model file"></babylon>
