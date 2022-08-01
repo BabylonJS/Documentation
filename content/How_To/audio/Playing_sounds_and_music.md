@@ -481,21 +481,21 @@ By default, Babylon.js is creating a `BABYLON.SoundTrack` object to act as its m
 
 ```javascript
 var soundTrack = new BABYLON.SoundTrack(scene);
-soundTrack.AddSound(cellolong);
-soundTrack.AddSound(violons11);
+soundTrack.addSound(cellolong);
+soundTrack.addSound(violons11);
 ```
 
 Using this code, the _cellolong_ and _violons11_ sounds will be moved from the main Babylon.js track to this specific sound track. This now means that you change the volume of this track, and thus of these 2 sounds, independently from the main track.
 
-The `AddSound()` function will move the sound from its original container (the main track or a specific track) to the new sound track specified. For instance, with this code:
+The `addSound()` function will move the sound from its original container (the main track or a specific track) to the new sound track specified. For instance, with this code:
 
 ```javascript
 var soundTrack1 = new BABYLON.SoundTrack(scene);
-soundTrack1.AddSound(cellolong);
-soundTrack1.AddSound(violons11);
+soundTrack1.addSound(cellolong);
+soundTrack1.addSound(violons11);
 
 var soundTrack2 = new BABYLON.SoundTrack(scene);
-soundTrack2.AddSound(violons11);
+soundTrack2.addSound(violons11);
 ```
 
 The _violons11_ sound will finally live only in _soundTrack2_.
