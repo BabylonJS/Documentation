@@ -1,5 +1,5 @@
 ---
-title: Extensions
+title: Community Extensions
 image:
 description: Learn all about amazing community-led extensions to the core Babylon platform.
 keywords: extensions

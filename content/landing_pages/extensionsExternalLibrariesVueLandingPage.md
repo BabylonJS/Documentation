@@ -1,5 +1,5 @@
 ---
-title: External Libraries
+title: Vue
 image:
 description: Descriptions of how to use VUE with BabylonJS
 keywords: babylon.js, extension, external libraries, external
