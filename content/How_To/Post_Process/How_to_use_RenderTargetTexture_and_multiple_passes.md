@@ -143,7 +143,7 @@ scene.onBeforeRenderObservable.add(() => {
 
 The example has the complete code, including animated objects and instances. You could freeze some meshes with `scene.freezeActiveMeshes()` to improve the performance even further.
 
-Playground example: <Playground id="#S1W87B#20" title="Performance Example" description="Example of managing performance when running multiple passes."/>
+Playground example: <Playground id="#S1W87B#40" title="Performance Example" description="Example of managing performance when running multiple passes."/>
 
 ### Notes about your shader
 
