@@ -12,7 +12,7 @@ video-content:
 This simply creates a deep copy of the original mesh and saves memory by sharing the geometry. Each clone can have its own material and transformation.
 ```javascript
 const box1 = BABYLON.MeshBuilder.CreateBox("box1", {height: 1, width: 0.75, depth: 0.25, updatable: true});
-const box2 = box.clone("box2");
+const box2 = box1.clone("box2");
 box1.position.x = -1;
 box2.position.x = 1;
 ```
