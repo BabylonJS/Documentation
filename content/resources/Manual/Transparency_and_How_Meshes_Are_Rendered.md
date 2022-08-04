@@ -234,6 +234,7 @@ This effect is only compatible with WebGL 2 and WebGPU.
 ### Known limitations
 
 * Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
+* OIT won't work with refraction textures as the technique just blends pixels at the same location
 
 ### Support in WebGPU
 
