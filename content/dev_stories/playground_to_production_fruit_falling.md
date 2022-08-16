@@ -170,7 +170,7 @@ the Babylon.js Typescript Playground, so I decided to use that.
     solve this; however, since getting it working could be done by just 
     switching to a 
     [RawGit](https://stackoverflow.com/questions/39065921/what-do-raw-githubusercontent-com-urls-represent) 
-    URL for `player.jpg` (which still works, for the moment), I decided 
+    URL for `player.png` (which still works, for the moment), I decided
     to fix it anyway.
 
     ![Raw sprite location](/img/devStories/fruitFalling/10_raw_sprite_location.jpg!700)
