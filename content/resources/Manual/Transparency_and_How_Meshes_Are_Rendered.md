@@ -227,16 +227,16 @@ To avoid some internal state switching, you can set `backFaceCulling = false` on
 
 You can change the number of passes that the depth peeling renderer is doing by updating `scene.depthPeelingRenderer.passCount` which is 5 by default, meaning that at most 10 layers of transparency are displayed. If your scene has a lot of transparency layers, meaning a lot of transparent objects one over the other, you may have to raise this value if you want the scene to be rendered correctly. However, at some point, you won't see the difference when stacking a lot of layers so caping the value to a small value will save you some performances.
 
-**Important notice** : As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independent transparency with post processes, or custom materials. Try it out and see if it works for your case! If it doesn't, report to the forum and we will see what can be done about it.
+**Important notice**: As the feature is still in beta version, it will not work on some cases. You might encounter problems if you combine order independent transparency with post processes, or custom materials. Try it out and see if it works for your case! If it doesn't, report to the forum and we will see what can be done about it.
 
 This effect is only compatible with WebGL 2 and WebGPU.
 
 ### Known limitations
 
 * Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
-* OIT won't work with refraction textures as the technique just blends pixels at the same location
-
-* OIT is currently incompatible with refractions due to the incompatibilities the technique is currently having with post processes.
+* OIT won't work with refraction textures as the technique just blends pixels at the same location.
+* Post processes where OIT is confirmed to not work:
+    * Anti-aliasing 
 
 ### Support in WebGPU
 
