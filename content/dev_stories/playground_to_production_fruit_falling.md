@@ -81,7 +81,7 @@ the process.
 ### Moving Playground Code into a Development Repo
 
 The first step toward developing production code was to move development 
-from [my Playground](https://playground.babylonjs.com/#G4VPXM) into a 
+from [my Playground](https://playground.babylonjs.com/#G4VPXM#1) into a
 dedicated repository. The Babylon.js NPM Package Template, a component 
 of the
 [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
@@ -127,7 +127,7 @@ the Babylon.js Typescript Playground, so I decided to use that.
 
     ![Browser default test app](/img/devStories/fruitFalling/05_default_test_app.jpg!700)
 1.  I then went back to the 
-    [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM) 
+    [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM#1)
     and copied all the code. 
 
     ![Copying my Playground](/img/devStories/fruitFalling/06_sprites_orthographic_falling.jpg!500)
