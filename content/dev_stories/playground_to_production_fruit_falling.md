@@ -509,7 +509,7 @@ easily integrated into a huge variety of different shipping solutions.
 
 3.  ```
     cd app_package
-    npm publish
+    npm publish --access public
     ```
 
 And with that, my app code was available on NPM, ready to be integrated 
