@@ -636,6 +636,7 @@ Web and Android using Ionic and developing on Windows.
             soundGoUrl: "assets/game/sound_go.mp3",
             soundClickUrl: "assets/game/sound_click.mp3",
           };
+          initializeBabylonApp(babylonOptions);
         }, 200);
       }
 
