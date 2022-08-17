@@ -640,7 +640,7 @@ Web and Android using Ionic and developing on Windows.
       }
 
       public render() {
-          return <canvas id="babylonCanvas" width={window.innerWidth} height={window.innerHeight} style={{width: "100%", height: "100%"}} className="center" ref={this._canvas}><canvas>;
+          return <canvas id="babylonCanvas" width={window.innerWidth} height={window.innerHeight} style={{width: "100%", height: "100%"}} className="center" ref={this._canvas}></canvas>;
       }
     }
 
