@@ -659,7 +659,7 @@ Web and Android using Ionic and developing on Windows.
 1.  To test that this worked, I first tested in browser again:
 
     ```
-    npm run serve
+    ionic serve
     ```
     
     ![Fruit Fallin' Ionic](/img/devStories/fruitFalling/33_ionic_fruit_fallin_browser.jpg!300)
