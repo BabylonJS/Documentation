@@ -92,7 +92,7 @@ You can also load specific classes to help with your code:
 import { Engine, Scene } from "@babylonjs/core";
 ```
 
-**NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder"` ` ` for side effects only in order to rely on any of the Mesh creation static methods like ` ` `Mesh.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
+**NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder"` `` for side effects only in order to rely on any of the Mesh creation static methods like `` `Mesh.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
 
 ### Installing other Babylon modules
 
