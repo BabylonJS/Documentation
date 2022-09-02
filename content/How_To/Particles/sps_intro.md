@@ -18,7 +18,7 @@ Once you have a mesh model, or models, as a basis for the particles you follow t
 
 - First, create your SPS with `new SolidParticleSystem(name, scene)`;
 - then, add a number of particles to the SPS from a mesh model with `addShape(model, number)`;
-- wedo this as many times as needed with any model;
+- redo this as many times as needed with any model;
 - When done, build the SPS mesh with `buildMesh()`.
 
 Your SPS is then ready to manage its particles by 
