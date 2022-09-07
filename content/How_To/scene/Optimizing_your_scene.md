@@ -209,6 +209,24 @@ mesh.cullingStrategy = oneOfThePossibleValues;
 Optimistic Inclusion modes give a little gain. They keep the same accuracy than the basic mode on what they are applied (standard or bSphereOnly).  
 BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
 
+## Performance priority
+
+Starting with Babylon.js 5.22, you can now change how the scene will treat performance regarding backward compatibility and ease of use.
+By default, `scene.performancePriority` is set to `BABYLON.ScenePerformancePriority.BackwardCompatible`. In this mode, there is simply no change. The scene will keep prioritizing ease of use and backward compatibility.
+
+If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Intermediate`, the scene will automatically:
+* Freeze materials when they are ready. If you need to change something on a material you will have to call `material.unfreeze()`, do your changes and then call `material.freeze()` again
+* New meshes will be have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustrum clipping for the mesh and always active it (saving complex CPU operations). Keep in mind to turn it off f your scene is GPU bound
+* New meshes will be have their `isPickable ` property set to false. So picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
+* `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
+* `scene.autoClear` will be turned off
+
+If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Aggressive`, the scene will automatically:
+* Enable all features of the `Intermediate` mode
+* The scene will skip all the frustum clipping phase entirely (`scene.skipFrustumClipping` will be set to true)
+
+** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
+
 ## Instrumentation
 Instrumentation is a key tool when you want to optimize a scene. It will help you figure out where are the bottlenecks so you will be able to optimize what needs to be optimized.
 
