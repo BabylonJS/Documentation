@@ -1112,8 +1112,8 @@
                             "friendlyName": "Workspaces",
                             "children": {
                                 "creatingWorkspace": { "friendlyName": "Creating a Workspace", "children": {}, "content": "resources/Editor/Workspace/Creating_Workspace" },
-                                "creatingProject": { "friendlyName": "Creating a Project", "children": {}, "content": "resources/Editor/Workspace/Creating_Project" },
-                                "renamingProject": { "friendlyName": "Renaming a Project", "children": {}, "content": "resources/Editor/Workspace/Renaming_Project" }
+                                "creatingScene": { "friendlyName": "Creating a Scene", "children": {}, "content": "resources/Editor/Workspace/Creating_Scene" },
+                                "renamingScene": { "friendlyName": "Renaming a Scene", "children": {}, "content": "resources/Editor/Workspace/Renaming_Scene" }
                             },
                             "content": "landing_pages/extensionsEditorWorkspaceLandingPage"
                         },
