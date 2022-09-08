@@ -80,7 +80,7 @@ The world matrix and the `visibility` property of a mesh is stored in a specific
 
 You should call `mesh.transferToEffect(world)` to update the uniform buffer.
 
-Here's an example: <Playground id="#7YW416#3" engine="webgpu" title="Update mesh matrix in fast SR mode" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode"/>
+Here's an example: <Playground id="#7YW416#7" engine="webgpu" title="Update mesh matrix in fast SR mode" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode" image="/img/playgroundsAndNMEs/pg-7YW416-3.png"/>
 
 ### Using the glow layer
 As demonstrated in the **Examples** section above the glow layer does not work out of the box in the fast SR mode. With a bit of manual work it can be made to work, though:
