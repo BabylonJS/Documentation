@@ -224,6 +224,7 @@ If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Int
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Aggressive`, the scene will automatically:
 * Enable all features of the `Intermediate` mode
 * The scene will skip all the frustum clipping phase entirely (`scene.skipFrustumClipping` will be set to true)
+* New meshes will have their `doNotSyncBoundingInfo` set to true
 
 ** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
 
