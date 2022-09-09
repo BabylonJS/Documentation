@@ -51,7 +51,7 @@ plane.material = mat;
 ## Two Sided Examples
 
 <Playground id="#LXZPJK#3" title="Different Images On A Plane" description="Simple example of applying different images to the front and back of a plane." image="/img/playgroundsAndNMEs/divingDeeperFrontBack1.jpg"/>
-<Playground id="#4G18GY#2" title="Different Images On A Polygon" description="Simple example of applying different images to the front and back of a Polygon." image="/img/playgroundsAndNMEs/divingDeeperFrontBack2.jpg"/>
+<Playground id="#4G18GY#909" title="Different Images On A Polygon" description="Simple example of applying different images to the front and back of a Polygon." image="/img/playgroundsAndNMEs/divingDeeperFrontBack2.jpg"/>
 
 ## Inside and Outside Examples
 
