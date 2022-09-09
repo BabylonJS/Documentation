@@ -202,7 +202,7 @@ faceUV = new BABYLON.Vector4(Utop_right, Vtop_right, Ubottom_left, Vbottom_left)
 
 You can use the images on the other faces in the following playground to check the change on orientation of the alien sprite in all the reflections.
 
-<Playground id="#ICZEXW#817" title="Understanding Face Orientation Wtih Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.jpg"/>
+<Playground id="#ICZEXW#817" title="Understanding Face Orientation With Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.jpg"/>
 
 Since a Vector4 has the properties x, y, z, w, (in that order) setting 
 
