@@ -11,7 +11,7 @@ video-content:
 
 Starting with Babylon.js v2.4, we introduced Parallax Mapping.
 
-<Playground id="#10I31V#23" title="Parallax Mapping Example" description="Simple example of using parallax mapping in your scene." image="/img/playgroundsAndNMEs/divingDeeperParallaxMapping1.jpg"/>
+<Playground id="#10I31V#408" title="Parallax Mapping Example" description="Simple example of using parallax mapping in your scene." image="/img/playgroundsAndNMEs/divingDeeperParallaxMapping1.jpg"/>
 
 ![parallax mapping example](/img/how_to/Materials/parallax-mapping.jpg)
 
