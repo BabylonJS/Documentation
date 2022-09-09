@@ -121,7 +121,7 @@ mat.diffuseTexture = texture;
 box.material = mat;
 ```
 
-<Playground id="#ICZEXW" title="FaceUVs Example" description="Simple example of using FaceUVs to create a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials2.jpg"/>
+<Playground id="#ICZEXW#812" title="FaceUVs Example" description="Simple example of using FaceUVs to create a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials2.jpg"/>
 
 You do not have to map all the faces. When you just want one face with an image then just map that one face.
 
@@ -135,7 +135,7 @@ Take the alien sprite on row 0 and column 3 and just map this sprite to face 1.
 
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
-<Playground id="#ICZEXW#1" title="Specific Sprite to Single Face" description="Simple example a single sprite on a single face of a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials3.jpg"/>
+<Playground id="#ICZEXW#813" title="Specific Sprite to Single Face" description="Simple example a single sprite on a single face of a box." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials3.jpg"/>
 
 As you view the box in the above playground from different angles you will notice that the whole texture atlas is applied to all the other faces, that is the default value `(0, 0, 1, 1)`. When you want to display just the one sprite on the one face and leave the others blank then you need to set all the other faceUV values to `(0, 0, 0, 0)`.
 
@@ -154,18 +154,18 @@ As you view the box in the above playground from different angles you will notic
   faceUV[1] = new BABYLON.Vector4(3/columns, 0, (3+1)/columns, 1/rows);
 ```
   
-<Playground id="#ICZEXW#2" title="Sprite On Face With Other Blank Faces" description="Simple Example of applying a sprite to the side of a box with the other box faces blank." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials4.jpg"/>
+<Playground id="#ICZEXW#814" title="Sprite On Face With Other Blank Faces" description="Simple Example of applying a sprite to the side of a box with the other box faces blank." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials4.jpg"/>
 
 Of course you can do this with one, two, three, four, or five the box faces.
 
 
 Want add some all over color to the box then just add in a_diffuseColor_ to your material.
 
-<Playground id="#ICZEXW#3" title="Sprite on Box Face With Material Color" description="Simple Example of applying a sprite to the side of a box with applied material color." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials5.jpg"/>
+<Playground id="#ICZEXW#815" title="Sprite on Box Face With Material Color" description="Simple Example of applying a sprite to the side of a box with applied material color." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials5.jpg"/>
 
 You can also use one texture atlas to apply two different images from the same sheet onto two different meshes.  
 
-<Playground id="#ICZEXW#7" title="Sprites Sheet On Faces of 2 Meshes" description="Simple Example of applying a sprite sheet to the faces of different meshes." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials6.jpg"/>
+<Playground id="#ICZEXW#816" title="Sprites Sheet On Faces of 2 Meshes" description="Simple Example of applying a sprite sheet to the faces of different meshes." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials6.jpg"/>
 
 Looking closer at the face images around the sides you will see some images are at 90 degrees to others. Unfortunately should you want to have all images around the side to have the same orientation this is not possible by only adjusting UV coordinates. What can be done by swapping coordinates is considered next, followed by a method using an adjustment to the texture atlas to orientate images on the sides.
 
@@ -202,7 +202,7 @@ faceUV = new BABYLON.Vector4(Utop_right, Vtop_right, Ubottom_left, Vbottom_left)
 
 You can use the images on the other faces in the following playground to check the change on orientation of the alien sprite in all the reflections.
 
-<Playground id="#ICZEXW#4" title="Understanding Face Orientation Wtih Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.jpg"/>
+<Playground id="#ICZEXW#817" title="Understanding Face Orientation Wtih Sprites" description="Simple Example of applying sprites to face mesh reflection." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials7.jpg"/>
 
 Since a Vector4 has the properties x, y, z, w, (in that order) setting 
 
@@ -307,7 +307,7 @@ These colors are BJS Color4-class values. The Color4 alpha values become active 
 
 Finally you can also mix per-face colors with per-face textures, and/or mix either with the material's standard colors.  
 
-<Playground id="#ICZEXW#10" title="Mixed Textures and Colors Per Face" description="Simple Example of applying different textures and colors per face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials15.jpg"/>
+<Playground id="#ICZEXW#818" title="Mixed Textures and Colors Per Face" description="Simple Example of applying different textures and colors per face." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials15.jpg"/>
 
 ## Cylinder
 
@@ -335,7 +335,7 @@ Also note that because of how a cylinder's mesh is constructed the horizontal co
 
 An extruded polygon has three surfaces top, bottom and extruded sides, face 0 is the top, face 1 the extruded sides and face 2 the bottom.
 
-<Playground id="#RNCYVM#2" title="Extruded Polygon with Different Textures on Sides and Top" description="Simple Example of applying different textures to an extruded polygon's sides and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials17.jpg"/>
+<Playground id="#RNCYVM#1352" title="Extruded Polygon with Different Textures on Sides and Top" description="Simple Example of applying different textures to an extruded polygon's sides and top." image="/img/playgroundsAndNMEs/divingDeeperFaceMaterials17.jpg"/>
 
 ## Polyhedra
 
