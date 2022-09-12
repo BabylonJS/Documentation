@@ -66,7 +66,7 @@ The `HandMenu` is a `HolographicMenu` that is anchored to the user's hand using 
 
 Its default position lies on the outside of the user's left hand, such that when their palm is up, the menu is facing them and easily accessible by their right hand.
 
-The menu can be customized to appear by default on the right hand or either hand, and can also be anchored to a different quadrant of the hand. Only one menu will be visible at a time though, even if both hands are up. More information on this can be found in the `HandConstraintBehavior`'s section [here](divingDeeper/gui/mrtk#hand-constraint-behavior).
+The menu can be customized to appear by default on the right hand or either hand, and can also be anchored to a different quadrant of the hand. Only one menu will be visible at a time though, even if both hands are up. More information on this can be found in the `HandConstraintBehavior`'s section [here](/divingDeeper/gui/mrtk#hand-constraint-behavior).
 
 #### Slider 3D
 The `Slider3D` is a customizable slider with a 3D presence. The default range of the slider is from `0` to `1`, though that can be customized, along with the step count and precision.
@@ -79,7 +79,7 @@ See it in action here:
 ## Behaviors and Gizmos
 Some behaviors and Gizmos are also shared with MRTK components. In MRTK terminology, these are usually referred to as Solvers, Bounds Control, or Object Manipulators. Behaviors and Gizmos are attached to `Nodes`, `TransformNodes`, and `Meshes` in order to provide additional functionality.
 
-More information on `Gizmos` can be found [here](divingDeeper/mesh/gizmo), while behaviors are covered in more detail [here](divingDeeper/behaviors/meshBehaviors).
+More information on `Gizmos` can be found [here](/divingDeeper/mesh/gizmo), while behaviors are covered in more detail [here](/divingDeeper/behaviors/meshBehaviors).
 
 #### SixDof Drag Behavior
 The `SixDofDragBehavior`, also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users are able to grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3-dimensions, while interacting with near interaction adds the ability to rotate the object in-place.
@@ -123,7 +123,7 @@ The `BoundingBoxGizmo` is also known as MRTK's `Bounds Control` component. This 
 ## Background Features
 These are features that work in the background to enhance the capabilities available to a user.
 
-General XR features are covered in detail [here](divingDeeper/webXR/WebXRSelectedFeatures), while AR-specific features are covered in detail [here](divingDeeper/webXR/webXRARFeatures).
+General XR features are covered in detail [here](/divingDeeper/webXR/WebXRSelectedFeatures), while AR-specific features are covered in detail [here](/divingDeeper/webXR/webXRARFeatures).
 
 #### Hand Tracking and Near Interaction
 The Hand Tracking feature, `WebXRHandTracking`, is an enhancement to hand inputs for XR devices that support it.
