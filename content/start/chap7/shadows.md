@@ -55,7 +55,7 @@ shadowGenerator.addShadowCaster(dude, true);
 
 ground.receiveShadows = true;
 ```
-<Playground id="#4G38H4#7" title="Adding Basic Shadows" description="Set up a scene for shadows with the shadow generator." image="/img/playgroundsAndNMEs/gettingStartedShadows1.jpg"/>
+<Playground id="#4G38H4#1403" title="Adding Basic Shadows" description="Set up a scene for shadows with the shadow generator." image="/img/playgroundsAndNMEs/gettingStartedShadows1.jpg"/>
 
 Putting this, with suitable value adjustments, in our world gives
 
