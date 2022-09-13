@@ -93,15 +93,15 @@ Saved playgrounds have a hash code reference key added to the URL
 
 | JavaScript | Typescript |
 |---|---|
-| https://www.babylonjs-playground.com/#6F0LKI | [https://www.babylonjs-playground.com/#M1HI7X](https://www.babylonjs-playground.com/ts.html#M1HI7X) |
+| https://www.babylonjs-playground.com/#6F0LKI | [https://www.babylonjs-playground.com/#8M2HVF](https://www.babylonjs-playground.com/#8M2HVF) |
 
 
 After editing any saves of the playground are numbered incrementally from one, for example 
 
 | JavaScript | Typescript |
 |---|---|
-| https://www.babylonjs-playground.com/#6F0LKI#1 | [https://www.babylonjs-playground.com/#M1HI7X#1](https://www.babylonjs-playground.com/ts.html#M1HI7X#1) |
-| https://www.babylonjs-playground.com/#6F0LKI#2 | [https://www.babylonjs-playground.com/#M1HI7X#2](https://www.babylonjs-playground.com/ts.html#M1HI7X#1) |
+| https://www.babylonjs-playground.com/#6F0LKI#1 | [https://www.babylonjs-playground.com/#8M2HVF#1](https://www.babylonjs-playground.com/ts.html#8M2HVF#1) |
+| https://www.babylonjs-playground.com/#6F0LKI#2 | [https://www.babylonjs-playground.com/#8M2HVF#2](https://www.babylonjs-playground.com/ts.html#8M2HVF#2) |
   
 etc.
 
@@ -111,9 +111,7 @@ Template | Description
 --- | ---
 [full.html](https://www.babylonjs-playground.com/full.html#6F0LKI#2) | show the render area in full screen
 [frame.html](https://www.babylonjs-playground.com/frame.html#6F0LKI#2) | show the render area in full screen, but with a bottom toolbar showing FPS, reload and edit buttons
-[indexStable.html](https://www.babylonjs-playground.com/indexStable.html#6F0LKI#2) | use the BJS stable version, not the preview one
 [debug.html](https://www.babylonjs-playground.com/debug.html#6F0LKI#2) | used to run a version of the playground which uses debug version of babylon.js
-[index-local.html](https://www.babylonjs-playground.com/index-local.html#6F0LKI#2) | used for local development using VSCode
 
 ## Forum sharing
 
