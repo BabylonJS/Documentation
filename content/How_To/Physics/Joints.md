@@ -43,41 +43,6 @@ See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) 
 | 7      | ![Distance](/img/how_to/physics/distance.jpg)           | Distance        | Set Bodies a Fixed Distance Apart                                               |
 | 8      | ![Locked](/img/how_to/physics/locked.jpg)               | Locked          | Bodies Act As One Body                                                          |
 
-## Native Joints for Each Physics Engine
-
-The relationship between native joints and physical joints
-
-**_Cannon.js_**
-
-| Cannon Joint           | Physical Joint    |
-| ---------------------- | ----------------- |
-| HingeConstraint        | 1 Hinge           |
-| PointToPointConstraint | 2 Ball and Socket |
-| DistanceConstraint     | 7 Distance        |
-| Spring                 | Not Shown         |
-| LockConstraint         | 8 Locked          |
-
-**_Oimo.js_**
-
-| Oimo Joint         | Physical Joint    |
-| ------------------ | ----------------- |
-| HingeJoint         | 1 Hinge           |
-| BallAndSocketJoint | 2 Ball and Socket |
-| WheelJoint         | 4 Wheel           |
-| SliderJoint        | 5 Slider          |
-| PrismaticJoint     | 6 Prismatic       |
-| DistanceJoint      | 7 Distance        |
-
-**_Ammo.js_**
-
-| Ammo Joint            | Physical Joint    |
-| --------------------- | ----------------- |
-| HingeConstraint       | 1 Hinge           |
-| Point2PointConstraint | 2 Ball and Socket |
-| ConeTwistConstraint   | 3 Cone Twist      |
-| SliderConstraint      | 5 Slider          |
-| FixedConstraint       | 8 Locked(?)       |
-
 ## Babylon.js Joints
 
 The following table lists those joints within Babylon.js and where available their equivalence to each other and their link to the native joints
@@ -87,10 +52,10 @@ The following table lists those joints within Babylon.js and where available the
 | HingeJoint         | HingeConstraint        | HingJoint          | HingeConstraint                              | Yes              |
 | BallAndSocketJoint | PointToPointConstraint | BallAndSocketJoint | Point2PointConstraint                        | no               |
 | WheelJoint         | ----                   | WheelJoint         | Point2PointConstraint                        | Hinge2Joint Only |
-| SliderJoint        | ----                   | SliderJoint        | ----                                         | No               |
+| SliderJoint        | ----                   | SliderJoint        | SliderConstraint                             | No               |
 | PrismaticJoint     | ----                   | PrismaticJoint     | ----                                         | No               |
 | DistanceJoint      | DistanceConstraint     | DistanceJoint      | Point2PointConstraint with Added Constraints | Yes              |
-| LockJoint          | LockConstraint         | ----               | ----                                         | No               |
+| LockJoint          | LockConstraint         | ----               | FixedConstraint                              | No               |
 | SpringJoint        | Spring                 | ----               | ----                                         | No               |
 
 The method to form a joint and connect one body (main) to a second body (connected) is
