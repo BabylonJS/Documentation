@@ -81,7 +81,7 @@ the process.
 ### Moving Playground Code into a Development Repo
 
 The first step toward developing production code was to move development 
-from [my Playground](https://playground.babylonjs.com/#G4VPXM) into a 
+from [my Playground](https://playground.babylonjs.com/#G4VPXM#1) into a
 dedicated repository. The Babylon.js NPM Package Template, a component 
 of the
 [Template Repository Workflow](https://doc.babylonjs.com/toolsAndResources/templateRepositories#the-template-repository-workflow), 
@@ -127,7 +127,7 @@ the Babylon.js Typescript Playground, so I decided to use that.
 
     ![Browser default test app](/img/devStories/fruitFalling/05_default_test_app.jpg!700)
 1.  I then went back to the 
-    [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM) 
+    [Babylon.js Typescript Playground I'd been prototyping in](https://playground.babylonjs.com/#G4VPXM#1)
     and copied all the code. 
 
     ![Copying my Playground](/img/devStories/fruitFalling/06_sprites_orthographic_falling.jpg!500)
@@ -163,14 +163,14 @@ the Babylon.js Typescript Playground, so I decided to use that.
 
     ![New browser Playground](/img/devStories/fruitFalling/09_playground_test_app.jpg!500)
 1.  One more change required! Since my code had been hosted on the 
-    Playground, it was using the Playground-relative `"textures/player.jpg"` 
+    Playground, it was using the Playground-relative `"textures/player.png"`
     URL; however, once that code was running locally, it was unable to 
     build a full URL with which to find that asset. Switching over to my 
     own asset hosting was a later step, so I didn't really *need* to 
     solve this; however, since getting it working could be done by just 
     switching to a 
     [RawGit](https://stackoverflow.com/questions/39065921/what-do-raw-githubusercontent-com-urls-represent) 
-    URL for `player.jpg` (which still works, for the moment), I decided 
+    URL for `player.png` (which still works, for the moment), I decided
     to fix it anyway.
 
     ![Raw sprite location](/img/devStories/fruitFalling/10_raw_sprite_location.jpg!700)
@@ -215,31 +215,31 @@ to asset hosting for development.
 
     ![Browser screenshot](/img/devStories/fruitFalling/13_example_txt.jpg!500)
 1.  Next, I downloaded a copy of 
-    [player.jpg](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/textures/player.jpg)
+    [player.png](https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/textures/player.png)
     and placed it in the `docs` folder. Again, I used the browser to test
     that this worked by checking that I could see the image at
-    http://127.0.0.1:8181/player.jpg. The dev server that comes with the 
+    http://127.0.0.1:8181/player.png. The dev server that comes with the
     Asset Host Template automatically serves new files dropped in the 
     `docs` folder, so there was no need to restart the server.
 
-    ![Player.jpg in the docs folder](/img/devStories/fruitFalling/14_assets_docs_folder.jpg!350)
+    ![Player.png in the docs folder](/img/devStories/fruitFalling/14_assets_docs_folder.jpg!350)
 1.  Going back over to Playground.ts in my source repository, all that
     remained to consume the sprite from my own asset host was to change
-    the the `SPRITE_URL` assignment line to
+    the the `spriteUrl` assignment line to
 
     ```ts
-    const SPRITE_URL: string = "http://127.0.0.1:8181/player.jpg";
+    const spriteUrl: string = "http://127.0.0.1:8181/player.png";
     ```
 
     save the file, then wait for the test app to reload.
 1.  Of course, once that reload happened, I realized I wouldn't be able
     to see the results because the sprite from my asset host looked 
     identical to the one pulled from the Internet. To make extra sure, 
-    then, I changed `player.jpg` to `player_2.jpg` in my asset host,
+    then, I changed `player.png` to `player_2.png` in my asset host,
     then cleared my brower's file cache (so it wouldn't load a cached
-    version of `player.jpg`) and refreshed the test app. After confirming
-    that the test app couldn't find `player.jpg`, I changed the code again
-    to look for `player_2.jpg` and saved the file. When the app 
+    version of `player.png`) and refreshed the test app. After confirming
+    that the test app couldn't find `player.png`, I changed the code again
+    to look for `player_2.png` and saved the file. When the app
     auto-reloaded, it had found the sprite again.
 
     ![Test app without and with correct sprite name](/img/devStories/fruitFalling/15_wrong_name_right_name.jpg!500)
@@ -509,7 +509,7 @@ easily integrated into a huge variety of different shipping solutions.
 
 3.  ```
     cd app_package
-    npm publish
+    npm publish --access public
     ```
 
 And with that, my app code was available on NPM, ready to be integrated 
@@ -636,11 +636,12 @@ Web and Android using Ionic and developing on Windows.
             soundGoUrl: "assets/game/sound_go.mp3",
             soundClickUrl: "assets/game/sound_click.mp3",
           };
+          initializeBabylonApp(babylonOptions);
         }, 200);
       }
 
       public render() {
-          return <canvas id="babylonCanvas" width={window.innerWidth} height={window.innerHeight} style={{width: "100%", height: "100%"}} className="center" ref={this._canvas}><canvas>;
+          return <canvas id="babylonCanvas" width={window.innerWidth} height={window.innerHeight} style={{width: "100%", height: "100%"}} className="center" ref={this._canvas}></canvas>;
       }
     }
 
@@ -659,7 +660,7 @@ Web and Android using Ionic and developing on Windows.
 1.  To test that this worked, I first tested in browser again:
 
     ```
-    npm run serve
+    ionic serve
     ```
     
     ![Fruit Fallin' Ionic](/img/devStories/fruitFalling/33_ionic_fruit_fallin_browser.jpg!300)

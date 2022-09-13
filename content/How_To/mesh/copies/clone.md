@@ -10,6 +10,12 @@ video-content:
 
 ## Clone
 This simply creates a deep copy of the original mesh and saves memory by sharing the geometry. Each clone can have its own material and transformation.
+```javascript
+const box1 = BABYLON.MeshBuilder.CreateBox("box1", {height: 1, width: 0.75, depth: 0.25, updatable: true});
+const box2 = box1.clone("box2");
+box1.position.x = -1;
+box2.position.x = 1;
+```
 
 
 Note that as of v5.0, cloning a mesh with skeleton will assign said skeleton to the clone, ie, the skeleton is shared. If your clone does not need a skeleton, simply set it to null.

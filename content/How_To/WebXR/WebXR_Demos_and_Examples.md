@@ -75,7 +75,7 @@ panel.addControl(picker);
 
 <Playground id="#F41V6N#139" title="A cylinder object is child of a controller" description="A cylinder object is child of a controller"/>  
 
-<Playground id="#1FTUSC#29" title="Simply grabbing objects by controllers" description="Simply grabbing objects by controllers"/> 
+<Playground id="#1FTUSC#37" title="Simply grabbing objects by controllers" description="Simply grabbing objects by controllers"/> 
 
 ## Babylon.js scenes with XR support
 

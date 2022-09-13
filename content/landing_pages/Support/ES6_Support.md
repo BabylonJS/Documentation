@@ -92,7 +92,7 @@ You can also load specific classes to help with your code:
 import { Engine, Scene } from "@babylonjs/core";
 ```
 
-**NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder"` ` ` for side effects only in order to rely on any of the Mesh creation static methods like ` ` `Mesh.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
+**NOTE:** Some of the modules working through side effects you might need to `` `import "@babylonjs/core/Meshes/meshBuilder"` `` for side effects only in order to rely on any of the Mesh creation static methods like `` `Mesh.CreateBox` `` for instance. This was the best way to deliver our ES6 version without breaking backward compatibility of the bundled version.
 
 ### Installing other Babylon modules
 
@@ -158,17 +158,15 @@ This will only have a fullscreen canvas as well as a reference to our applicatio
 Once done you can create a `src` folder containing an index.js file with the following content:
 
 ```javascript
-import { Engine } from "@babylonjs/core/Engines/engine";
-import { Scene } from "@babylonjs/core/scene";
-import { Vector3 } from "@babylonjs/core/Maths/math";
-import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
-import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
-import { Mesh } from "@babylonjs/core/Meshes/mesh";
+import { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
+import { Engine } from '@babylonjs/core/Engines/engine';
+import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
+import { Vector3 } from '@babylonjs/core/Maths/math.vector';
+import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
+import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
+import { Scene } from '@babylonjs/core/scene';
 
-import { GridMaterial } from "@babylonjs/materials/grid";
-
-// Required side effects to populate the Create methods on the mesh class. Without this, the bundle would be smaller but the createXXX methods from mesh would not be accessible.
-import "@babylonjs/core/Meshes/meshBuilder";
+import { GridMaterial } from '@babylonjs/materials/grid/gridMaterial';
 
 // Get the canvas element from the DOM.
 const canvas = document.getElementById("renderCanvas");
@@ -197,8 +195,8 @@ light.intensity = 0.7;
 // Create a grid material
 var material = new GridMaterial("grid", scene);
 
-// Our built-in 'sphere' shape. Params: name, subdivs, size, scene
-var sphere = Mesh.CreateSphere("sphere1", 16, 2, scene);
+// Our built-in 'sphere' shape.
+var sphere = CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
 
 // Move the sphere upward 1/2 its height
 sphere.position.y = 2;
@@ -206,8 +204,8 @@ sphere.position.y = 2;
 // Affect a material
 sphere.material = material;
 
-// Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
-var ground = Mesh.CreateGround("ground1", 6, 6, 2, scene);
+// Our built-in 'ground' shape.
+var ground = CreateGround("ground1", { width: 6, height: 6, subdivisions: 2 }, scene);
 
 // Affect a material
 ground.material = material;
@@ -231,31 +229,15 @@ Switching the project to typescript is pretty straight forward. First in the pre
 Once done we can replace our previous index.js by its typescript equivalent index.ts:
 
 ```javascript
-import {
-    Engine
-} from "@babylonjs/core/Engines/engine";
-import {
-    Scene
-} from "@babylonjs/core/scene";
-import {
-    Vector3
-} from "@babylonjs/core/Maths/math";
-import {
-    FreeCamera
-} from "@babylonjs/core/Cameras/freeCamera";
-import {
-    HemisphericLight
-} from "@babylonjs/core/Lights/hemisphericLight";
-import {
-    Mesh
-} from "@babylonjs/core/Meshes/mesh";
+import { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
+import { Engine } from '@babylonjs/core/Engines/engine';
+import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
+import { Vector3 } from '@babylonjs/core/Maths/math.vector';
+import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
+import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
+import { Scene } from '@babylonjs/core/scene';
 
-import {
-    GridMaterial
-} from "@babylonjs/materials/grid";
-
-// Required side effects to populate the Create methods on the mesh class. Without this, the bundle would be smaller but the createXXX methods from mesh would not be accessible.
-import "@babylonjs/core/Meshes/meshBuilder";
+import { GridMaterial } from '@babylonjs/materials/grid/gridMaterial';
 
 // Get the canvas element from the DOM.
 const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
@@ -284,8 +266,8 @@ light.intensity = 0.7;
 // Create a grid material
 var material = new GridMaterial("grid", scene);
 
-// Our built-in 'sphere' shape. Params: name, subdivs, size, scene
-var sphere = Mesh.CreateSphere("sphere1", 16, 2, scene);
+// Our built-in 'sphere' shape.
+var sphere = CreateSphere('sphere1', { segments: 16, diameter: 2 }, scene);
 
 // Move the sphere upward 1/2 its height
 sphere.position.y = 2;
@@ -293,15 +275,15 @@ sphere.position.y = 2;
 // Affect a material
 sphere.material = material;
 
-// Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
-var ground = Mesh.CreateGround("ground1", 6, 6, 2, scene);
+// Our built-in 'ground' shape.
+var ground = CreateGround('ground1', { width: 6, height: 6, subdivisions: 2 }, scene);
 
 // Affect a material
 ground.material = material;
 
 // Render every frame
 engine.runRenderLoop(() => {
-    scene.render();
+  scene.render();
 });
 ```
 

@@ -56,7 +56,7 @@ eCommerce sites may greatly benefit from this feature as the scene is normally q
 Make sure everything is ready in your scene to be rendered the next frame after you set `engine.snapshotRendering = true`! Indeed, once you set the `snapshotRendering` to `true`, the next frame is recorded and replayed afterwards. If some textures (for eg) were not ready at that time, the mesh won't be rendered in the frame that is recorded and so won't never be visible. You should probably always set `engine.snapshotRendering = true` inside a `scene.executeWhenReady(...)` callback.
 
 ## Examples
-Here's a PG that demonstrates using the snapshot rendering feature: <Playground id="#SYQW69#951" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
+Here's a PG that demonstrates using the snapshot rendering feature: <Playground id="#SYQW69#1092" engine="webgpu" title="Snapshot rendering" description="Demonstrate how to use the snapshot rendering modes"/>
 
 You can choose to disable or enable standard / fast SR mode. Depending on the mode, you will see the javascript time it takes to render a frame (**Frame total**) and the virtual fps (the fps you would have if there was no GPU rendering / the fps was not capped by the browser - it is simply `1000/Frame total`).
 
@@ -80,7 +80,7 @@ The world matrix and the `visibility` property of a mesh is stored in a specific
 
 You should call `mesh.transferToEffect(world)` to update the uniform buffer.
 
-Here's an example: <Playground id="#7YW416#3" engine="webgpu" title="Update mesh matrix in fast SR mode" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode"/>
+Here's an example: <Playground id="#7YW416#7" engine="webgpu" title="Update mesh matrix in fast SR mode" description="Demonstrates how to update the position/rotation/scaling/visibility properties of a mesh in fast snapshot rendering mode" image="/img/playgroundsAndNMEs/pg-7YW416-3.png"/>
 
 ### Using the glow layer
 As demonstrated in the **Examples** section above the glow layer does not work out of the box in the fast SR mode. With a bit of manual work it can be made to work, though:

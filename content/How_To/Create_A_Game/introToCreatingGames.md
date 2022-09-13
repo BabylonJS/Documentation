@@ -24,8 +24,6 @@ I was a complete beginner when it came to working with Babylon.js, so this was a
 
 ![gameplay](/img/how_to/create-a-game/gameplay.gif)
 
-**Check out the game [here](https://capucat.github.io/summers-festival/)!**
-
 ## Summary
 Starting with setting up a project locally, this series will walk you through how I went about creating this game, linking all relevant files. This series isn't meant to be a guide to a perfect game, but rather a reflection of a learning process. Game development is meant to be an iterative process, so this series isn't a step by step of how I developed the game; however, I've done my best to break it down into sections that explain concepts and the overall methods of what I found worked best.
 

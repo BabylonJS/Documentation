@@ -150,7 +150,7 @@ There are a few ways you can specify that you want an animation to be evaluated 
 One issue with additive animations is the problem of authoring for hierarchies. Because additive animations are evaluated relative to the result of other animations rather than the object's parent, it is not very intuitive to create them directly. To ease this burden, static `MakeAnimationAdditive` methods have been added to the [AnimationGroup](/typedoc/classes/babylon.animationgroup#makeanimationadditive), [Skeleton](/typedoc/classes/babylon.skeleton#makeanimationadditive) and [Animation](/typedoc/classes/babylon.animation#makeanimationadditive) classes. These methods allow you to specify a frame in an existing animation and subtract it out of the rest of the keyframes in the animation to make them all relative to that specific pose.
 
 The following example demonstrates how to convert animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
-<Playground id="#6I67BL#2" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
+<Playground id="#6I67BL#321" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
 
 ## Overriding properties
 
