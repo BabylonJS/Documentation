@@ -32,7 +32,7 @@ var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 myMaterial.bumpTexture = new BABYLON.Texture("PATH TO NORMAL MAP", scene);
 ```
 
-<Playground id="#20OAV9#23" title="Using Bump Maps" description="Simple example of applying bump maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials1.jpg" isMain={true} category="Materials"/>
+<Playground id="#20OAV9#8621" title="Using Bump Maps" description="Simple example of applying bump maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials1.jpg" isMain={true} category="Materials"/>
 
 ## Inverting Bumps and Dents
 Use _invertNormalMapX_ and/or _invertNormalMapY_ on the material.
@@ -54,7 +54,7 @@ with the same gradient applied to the material as in the image below.
 
 ![Opacity Material](/img/how_to/Materials/degraded_plane.png)
 
-<Playground id="#20OAV9#24" title="Using Opacity Maps" description="Simple example of applying opacity maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials2.jpg"/>
+<Playground id="#20OAV9#8622" title="Using Opacity Maps" description="Simple example of applying opacity maps." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials2.jpg"/>
 
 ## Applying Opacity
 Add an _opacityTexture_ to any existing texture.
@@ -82,7 +82,7 @@ To offset your texture on your mesh, you  use the _uOffset_ and _vOffset_ proper
 myMaterial.diffuseTexture.uOffset = 1.5;
 myMaterial.diffuseTexture.vOffset = 0.5;
 ```
-<Playground id="#20OAV9#25" title="UV Tiling and Offset" description="Simple example of UV tiling and offset." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials3.jpg"/>
+<Playground id="#20OAV9#8623" title="UV Tiling and Offset" description="Simple example of UV tiling and offset." image="/img/playgroundsAndNMEs/divingDeeperMoreMaterials3.jpg"/>
 
 ## Details maps
 
