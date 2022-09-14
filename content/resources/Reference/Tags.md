@@ -68,8 +68,6 @@ Here we are! **Tags in babylon.js can be used to categorize/group elements, and 
 
 Tags were integrated into babylon.js on April 7, 2014. [Pull request](https://github.com/BabylonJS/Babylon.js/pull/170#event-109351015)
 
-There was a [discussion](https://www.html5gamedevs.com/topic/4961-user-data-in-mesh-object/?p=30458) about adding this feature on the forum. The goal was to be able to retrieve meshes.
-
 ### Pure javascript
 
 The concept was expanded to allow the adding of tags on any javascript object (not necessarily only the objects created by babylon.js). The `Tag` class that has been added to babylon.js contains all the necessary code for this generic concept ([Typescript code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Misc/tags.ts)) and internally uses the `AndOrNotEvaluator` class ([Typescript code](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Misc/andOrNotEvaluator.ts)).

@@ -171,11 +171,6 @@ This add-on use the standard Blender installation procedure:
 | Influence ![influence](/img/exporters/blender/textures/influence.png)                | Be sure to enable only one influence by texture, to avoid automatic baking.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ---
-
-## Animation
-
-(_Note: this part is under construction. You can also check [this forum thread](https://www.html5gamedevs.com/topic/36596-blender-exporter-doc-needs-feedback/) where some informations are centralised before it is written here._)
-
 ### Commons & Good practices
 
 - you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/extensions/Exporters/Blender_Tips#Animation) for a basic workflow.

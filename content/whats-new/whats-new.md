@@ -1899,7 +1899,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
     -   NPM package now has a dependency system, updated during build. ([RaananW](https://github.com/RaananW))
 -   SPS internal storage of each solid particle rotation matrix ([jbousquie](https://github.com/jbousquie))
 -   SPS particle parenting feature ([jbousquie](https://github.com/jbousquie))
--   KeepAssets class and AssetContainer.moveAllFromScene ([HoloLite](https://www.html5gamedevs.com/profile/28694-hololite/) [trevordev](https://github.com/trevordev))
+-   KeepAssets class and AssetContainer.moveAllFromScene [trevordev](https://github.com/trevordev))
 -   GUI.Line can have its world position set from one end or the other ([SvenFrankson](https://github.com/SvenFrankson))
 -   Added FOV system to background material for zoom effects in skyboxes without adjusting camera FOV ([DavidHGillen](https://github.com/DavidHGillen))
 -   glTF loader:
@@ -2205,7 +2205,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   HDRRenderingPipeline:
     -   `HDRRenderingPipeline` has been removed because it is deprecated. It is now replaced by `StandardRenderingPipeline` which is more advanced. See [documentation](//doc.babylonjs.com/How_To/using_standard_rendering_pipeline)
 -   PBRMaterial:
-    -   Fixed several bugs which could lead to visual changes. [More info here](https://www.html5gamedevs.com/topic/30754-pbr-breaking-changes/)
+    -   Fixed several bugs which could lead to visual changes. 
     -   Removed all overloadedXXX properties
     -   Removed all fresnelXXX properties
     -   Removed .babylon.hdr textures: We now use DDS files.
@@ -2304,8 +2304,8 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Moved PBR Material to core ([deltakosh](https://github.com/deltakosh))
 -   StandardMaterial.maxSimultaneousLights can define how many dynamic lights the material can handle. [Demo here](https://www.babylonjs-playground.com/#IRVAX#10) ([deltakosh](https://github.com/deltakosh))
 -   Introduced Canvas2D feature: a 2D engine to render primitives, sprites in 2D, text. Canvas2D can be displayed in Screen Space (above the 3D scene) or in World Space to be a part of the Scene. ([nockawa](https://github.com/nockawa))
--   Added two new types of Texture: FontTexture and MapTexture ([quick doc](https://www.html5gamedevs.com/topic/22565-two-new-texture-types-fonttexture-and-maptexture/)) ([nockawa](https://github.com/nockawa))
--   Added a dynamic [2D Bin Packing Algorithm](http://stackoverflow.com/questions/8762569/how-is-2d-bin-packing-achieved-programmatically), ([more info here](https://www.html5gamedevs.com/topic/22565-two-new-texture-types-fonttexture-and-maptexture/)) ([nockawa](https://github.com/nockawa))
+-   Added two new types of Texture: FontTexture and MapTexture  ([nockawa](https://github.com/nockawa))
+-   Added a dynamic [2D Bin Packing Algorithm](http://stackoverflow.com/questions/8762569/how-is-2d-bin-packing-achieved-programmatically),  ([nockawa](https://github.com/nockawa))
 -   Physics engine was completely rewritten, including both plugins for Oimo.js and Cannon.js. [feature](//doc.babylonjs.com/divingDeeper/physics/usingPhysicsEngine) ([RaananW](https://github.com/RaananW))
 -   Interleaved buffers are now directly supported. Create a `Buffer` object and then use `buffer.createVertexBuffer` to specify the vertex buffers ([benaadams](https://github.com/benaadams))
 -   Vertex buffers can be marked as instanced to allow custom instancing attributes ([benaadams](https://github.com/benaadams))
@@ -2337,9 +2337,9 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   LinesMesh class now supports Intersection. Added the intersectionThreshold property to set a tolerance margin during intersection with wire lines. ([nockawa](https://github.com/nockawa))
 -   Geometry.boundingBias property to enlarge the boundingInfo objects ([nockawa](https://github.com/nockawa))
 -   Tools.ExtractMinAndMax & ExtractMinAndMaxIndexed now supports an optional Bias for Extent computation.
--   Added `StringDictionary<T>` class to implement an efficient generic typed string dictionary based on Javascript associative array. ([quick doc](https://www.html5gamedevs.com/topic/22566-be-efficient-my-friend-use-stringdictionary/)) ([nockawa](https://github.com/nockawa))
+-   Added `StringDictionary<T>` class to implement an efficient generic typed string dictionary based on Javascript associative array.  ([nockawa](https://github.com/nockawa))
 -   Added RectanglePackingMap class to fit several rectangles in a big map in the most optimal way, dynamically. ([nockawa](https://github.com/nockawa))
--   Added DynamicFloatArray class to store float32 based elements of a given size (stride) into one big Float32Array, with allocation/free/pack operations to then access an optimal buffer that can be used to update a WebGLBuffer dynamically.([quick doc](https://www.html5gamedevs.com/topic/22567-dynamicfloatarray-to-the-rescue-for-efficient-instanced-array/)) ([nockawa](https://github.com/nockawa))
+-   Added DynamicFloatArray class to store float32 based elements of a given size (stride) into one big Float32Array, with allocation/free/pack operations to then access an optimal buffer that can be used to update a WebGLBuffer dynamically. ([nockawa](https://github.com/nockawa))
 -   Scene.onPointerObservable property added to enable a unique Observable event for user input (see ArcRotateCamera inputs for examples) ([nockawa](https://github.com/nockawa))
 -   Oimo.js updated to the latest version ([RaananW](https://github.com/RaananW))
 -   Added PhysicsImpostor and PhysicsJoint classes ([RaananW](https://github.com/RaananW))
@@ -2539,7 +2539,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 -   Adding isEnabled for ProceduralTexture ([deltakosh](https://github.com/deltakosh))
 -   Compression supported for raw textures ([deltakosh](https://github.com/deltakosh))
 -   New TonemapPostProcess. See [demo here](https://www.babylonjs-playground.com/#ELTGD) ([deltakosh](https://github.com/deltakosh))
--   New options parameters for Box, Sphere, Plane and Ground. See [demo here](https://www.html5gamedevs.com/topic/17044-evolution-for-out-of-the-box-meshes-creation/) ([deltakosh](https://github.com/deltakosh))
+-   New options parameters for Box, Sphere, Plane and Ground.  ([deltakosh](https://github.com/deltakosh))
 -   Added per face UV and Colors options for `CreateBox` ([jerome](https://github.com/jbousquie))
 -   Added darkness support for soft shadows ([deltakosh](https://github.com/deltakosh))
 -   Added scene.getLensFlareSystemByName() ([deltakosh](https://github.com/deltakosh))

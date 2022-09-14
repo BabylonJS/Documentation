@@ -12,8 +12,6 @@ video-content:
 
 The function simplePineGenerator uses a tube to generate a tree. 
 
-It is based on playgrounds from  this forum topic https://www.html5gamedevs.com/topic/21484-simple-pine-trees/
-
 A demo can be found at: <Playground id="#LG3GS#106" title="Simple Pine Tree Generator Example" description="Simple example of the simple pine tree generator."/>
 
 ## How to use it.

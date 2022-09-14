@@ -6,12 +6,6 @@ keywords: diving deeper, meshes, interactions
 further-reading:
     - title: Mesh Overview
       url: /divingDeeper/mesh/creation/set
-    - title: Forum Pick with Ray
-      url: https://www.html5gamedevs.com/topic/26503-scenepickwithray-blues/
-    - title: Forum World Local Ray
-      url: https://www.html5gamedevs.com/topic/26602-worldlocalray/
-    - title: Forum Gobal to Local
-      url: https://www.html5gamedevs.com/topic/7599-convert-global-coordinates-to-local-coordinates/
 video-overview:
 video-content:
 ---
