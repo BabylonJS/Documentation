@@ -132,7 +132,7 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 - Loading mesh and colliders from file: <Playground id="#66PS52" title="Loading A Mesh And Colliders From A File" description="Simple example of loading a mesh and colliders from a file."/>
 - Loading and adding colliders manually in Babylon: <Playground id="#FD65RR" title="Loading And Adding Colliders Manually" description="Simple example of loading meshes but creating colliders manually."/>
 - Loading and adding collider with joints and pointer interactions: <Playground id="#DGEP8N" title="Loading And Adding A Collider With Joints And Interactions" description="Simple example of loading and adding a collider with joints and pointer interactions."/>
-- Custom engine with [`deterministicLockstep`](/divingDeeper/animation/advanced_animations#deterministic-lockstep): <Playground id="#3ZW889#11" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/> Takes a few moments to load, use Run, &#x25B7;, to clear any error message.
+- Custom engine with [`deterministicLockstep`](/divingDeeper/animation/advanced_animations#deterministic-lockstep): <Playground id="#3ZW889#17" title="Custom Engine With DeterministicLockStep" description="Example of creating a custom engine with determinsticLockStep." image="/img/playgroundsAndNMEs/pg-3ZW889-11.png"/> Takes a few moments to load, use Run, &#x25B7;, to clear any error message.
 
 ### Babylon's physics impostor
 
@@ -191,10 +191,6 @@ Options is a JSON. The interface is as follows:
 * disableBidirectionalTransformation: will disable the bidirectional transformation update. Setting this will make sure the physics engine ignores changes made to the mesh's position and rotation (and will increase performance a bit)
 * group: set the collision group (ammojs only)
 * mask: collision bit mask. Only impostor's group that have at least one bit in the mask will have collisions (ammojs)
-
-#### scene
-
-I hope no explanation is required.
 
 ### Basic physics scene
 
@@ -283,7 +279,7 @@ To apply an impulse, use the applyImpulse function of the impostor:
 impostor.applyImpulse(new BABYLON.Vector3(10, 10, 0), sphere.getAbsolutePosition());
 ```
 
-The first variable is the direction and amount of impulse to apply. The second is where on the body itself the force will be applied. Using this in a game of pool - you can hit the ball at various contact point locations and the interaction will vary (sometimes called "using English"). This is the way to simulate that.
+The first variable is the direction and amount of impulse to apply. The second is where on the body itself the force will be applied. Using this in a game of pool - you can hit the ball at various contact point locations and the interaction will vary.
 
 Playground example - <Playground id="#26LQEZ" title="Impulse Example" description="Simple example of adding physics impulses."/>
 Playground example with a different position of the impulse, giving the ball a "spin" - <Playground id="#26LQEZ#1" title="Different Impulse Positions" description="Simple example of spinning a ball with different impulse positions."/>
@@ -416,8 +412,8 @@ Babylon has 3 help-classes to add joints:
 
 `BABYLON.DistanceJoint` , `BABYLON.HingeJoint`, `BABYLON.Hinge2Joint`.
 
-DistanceJoint playground - <Playground id="#26QVLZ" title="Adding A DistanceJoint" description="Simple example of adding a DistanceJoint."/>
-SpringJoint example - <Playground id="#1BHF6C" title="Adding A SpringJoint" description="Simple example of adding a SpringJoint"/>
+DistanceJoint playground - <Playground id="#26QVLZ#197" title="Adding A DistanceJoint" description="Simple example of adding a DistanceJoint."/>
+SpringJoint example - <Playground id="#1BHF6C#68" title="Adding A SpringJoint" description="Simple example of adding a SpringJoint"/>
 
 #### Setting the joint data
 
@@ -436,7 +432,7 @@ interface PhysicsJointData {
 
 * **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot."/>
 * **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
-* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#5" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work."/>
+* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#51" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work."/>
 * **connectedAxis**: the axis on the connected object on which the constraint will work.
 * **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
 * **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
