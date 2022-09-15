@@ -12,11 +12,11 @@
             "content": "journeyStart/journeyStart"
         },
         "features": {
-            "friendlyName": "Babylon.js Features",
+            "friendlyName": "Features",
             "children": {
                 "starterSceneCode": { "friendlyName": "Starter Scene Code", "children": {}, "content": "features/starterSceneCode"},
                 "introductionToFeatures": { 
-                    "friendlyName": "Introduction to Babylon.js Features", 
+                    "friendlyName": "Introduction", 
                     "children": {
                         "chap1": {
                             "friendlyName": "Firsts",
@@ -103,8 +103,8 @@
                     }, 
                     "content": "start/preface"
                 },
-                "divingDeeper": {
-                    "friendlyName": "Diving Deeper",
+                "featuresDeepDive": {
+                    "friendlyName": "Deep Dive",
                     "children": {
                         "animation": {
                             "friendlyName": "Animation",
@@ -733,19 +733,19 @@
             },
             "content": "webApp/webAppLandingPage"
         },
-        "thePlayground": {
-            "friendlyName": "The Playground",
-            "children": {
-                "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets"},
-                "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates"},
-                "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"},
-                "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" }
-            },
-            "content": "landing_pages/PGsupport/Playground"
-        },
         "toolsAndResources": {
             "friendlyName": "Tools and Resources",
             "children": {
+                "thePlayground": {
+                    "friendlyName": "The Playground",
+                    "children": {
+                        "externalPGAssets": { "friendlyName": "Using External Assets In The Playground", "children": {}, "content": "resources/Playground_aspects/External_PG_assets"},
+                        "pgTemplates": { "friendlyName": "Playground Templates", "children": {}, "content": "resources/Playground_aspects/playgroundTemplates"},
+                        "yourOwnSnippetServer": {"friendlyName": "Make your own Snippet Server", "children": {}, "content": "resources/Playground_aspects/yourOwnSnippetServer"},
+                        "usingThePlaygroundForBJSDev": { "friendlyName": "Using the Playground to Develop for Babylon.js", "children": {}, "content": "How_To/contribute/use_playground" }
+                    },
+                    "content": "landing_pages/PGsupport/Playground"
+                },
                 "inspector": {
                     "friendlyName": "Inspector",
                     "children": {
