@@ -938,6 +938,11 @@
                     },
                     "content": "How_To/Create_A_Game/introToCreatingGames"
                 },
+                "usingVite": {
+                    "friendlyName": "Using Vite with Babylon.js",
+                    "children": {},
+                    "content": "How_To/Use_Vite/usingVite"
+                },
                 "videos": {
                     "friendlyName": "Video Tutorials",
                     "children": {
