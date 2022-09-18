@@ -10,7 +10,7 @@ video-content:
 
 ## What is Vite and why do you need it?
 
-![Vite + Babylon.js Combo Logo](/img/how_to/use-vite/.png)
+![Vite + Babylon.js Combo Logo](/img/how_to/use-vite/01.png)
 
 [Vite](https://vitejs.dev/) is a modern development environment that bundles & optimizes your code, launches local test servers instantly, automates more project configurations out-of-the-box, and contains other quality-of-life improvements. In other words, it's an all-in-one tool that lets you develop Babylon.js projects on your computer locally and with ease. It's intended to replace Webpack, which has a similar goal as Vite but requires more work and maintenance (especially with its config files.)
 
@@ -20,15 +20,15 @@ Whether you're ready to graduate from playing with example projects in the [Play
 
 ***You can skip to Step 3 if you already have a code editor and npm installed.*** Otherwise, it's time to finally leave the Playground and learn how to create Babylon.js projects that you can publish and share anywhere. This is usually done with a code editor, a program that helps you write and manage your projects.
 
-**1)** Install a code editor. This tutorial will be using [Visual Studio Code](https://code.visualstudio.com/) *(or [VSCodium](https://vscodium.com/))* but you can still follow along if you want to use a different one.
+**(1)** Install a code editor. This tutorial will be using [Visual Studio Code](https://code.visualstudio.com/) *(or [VSCodium](https://vscodium.com/))* but you can still follow along if you want to use a different one.
 
-![VSC](/img/how_to/use-vite/.png)
+![VSC](/img/how_to/use-vite/02.png)
 
-Your code editor should look something like this when opened. (Feel free to put on a theme like I did by going to `` > `` > ``.)
+Your code editor may look something like this when opened.
 
-**2)** Close your code editor and install Node.js with [one of these installers](https://nodejs.dev/en/download/) (or via your package manager if you use Linux.) Installing this gives us access to [npm](https://www.npmjs.com/), a library of Node.js packages to help you build web-based apps and keep them up-to-date. This is how we're going to install Babylon.js and Vite.
+**(2)** Close your code editor and install Node.js with [one of these installers](https://nodejs.dev/en/download/) (or via your package manager if you use Linux.) Installing this gives us access to [npm](https://www.npmjs.com/), a library of Node.js packages to help you build web-based apps and keep them up-to-date. This is how we're going to install Babylon.js and Vite.
 
-![npm test](/img/how_to/use-vite/.png)
+![npm test](/img/how_to/use-vite/03.png)
 
 You'll know if you did it right by opening Command Prompt on Windows (or Terminal on macOS/Linux) and writing `npm -v`. If the output is a version number, you're good to go.
 
@@ -36,22 +36,21 @@ You'll know if you did it right by opening Command Prompt on Windows (or Termina
 
 Once you have your code editor and Node.js installed, we can begin setting up your development folder.
 
-**3)** Create a folder on your computer wherever you want to store your Babylon.js projects, and open it in your code editor using the menu `File` > `Open Folder`. If prompted, click on "Yes, I trust the authors." You should now have a sidebar on your left like this:
+**(3)** Create a folder on your computer wherever you want to store your Babylon.js projects, and open it in your code editor using the menu `File` > `Open Folder`. If prompted, click on "Yes, I trust the authors." You should now have a sidebar on your left like this:
 
-![npm test](/img/how_to/use-vite/.png)
+![npm test](/img/how_to/use-vite/04.png)
 
-**4)** Toggle the terminal using the menu `View` > `Terminal` and enter the following commands one after the other:
+**(4)** Toggle the terminal using the menu `View` > `Terminal` and enter the following commands one after the other:
 
 `npm i vite`
 `npm i --save-dev @babylonjs/core`
 `npm i --save-dev @babylonjs/inspector`
-`npm i --save-dev @babylonjs/gui`
 
-This installs Vite and some of Babylon.js' features in your created folder in a directory called `node_modules`.
+This installs Vite and some of Babylon.js' features in your created folder (in a subdirectory called `node_modules`.)
 
-**5)** Now enter the command `npm init vite`. Enter the name of your Babylon.js project (such as `testProj` or whatever name you want). Choose "Vanilla" from the list that pops up, and then choose either "JavaScript" or "TypeScript." For this tutorial, we'll be using the TypeScript option.
+**(5)** Now enter the command `npm init vite`. Enter the name of your Babylon.js project, such as `testProj` or whatever name you want. You can also set a package name, but the default one works fine. Choose "Vanilla" from the list that pops up, and then choose "TypeScript." (This setup also works with JavaScript, but with slightly different steps not documented here.)
 
-![folder structure with vanilla Vite](/img/how_to/use-vite/.png)
+![folder structure with vanilla Vite](/img/how_to/use-vite/05.png)
 
 Look at that! We have a new folder containing a Vite template project. You can rename the folder if you want.
 
@@ -59,48 +58,50 @@ Look at that! We have a new folder containing a Vite template project. You can r
 
 Now let's turn our vanilla Vite folder into an example Babylon.js project that you can use as a foundation for your future Vite & Babylon.js projects.
 
-**6)** Right-click your new folder in the left-hand side and choose `Open in Integrated Terminal`. A second tab in your terminal will open, which is pointing to your newly-generated project folder.
+**(6)** Right-click your new folder in the left-hand side and choose `Open in Integrated Terminal`. A second tab in your terminal will open, which is pointing to your newly-generated project folder.
 
-![new tab](/img/how_to/use-vite/.png)
+![new tab](/img/how_to/use-vite/06.png)
 
 *Note to advanced users: The reason why we didnt just `cd` into the new folder is because it's convenient to have both the root and project folders open as separate tabs in our Terminal. Doing this lets us maintain our packages in the root folder separately from the project subfolder. We can install our necessary packages once in the root folder, and reference them freely in the code inside our project subfolders. NPM is smart enough to detect any packages installed in parent folders- you don't have to directly install them inside your project root directories. This is a good habit to get into instead of maintaining multiple copies of Vite and Babylon.js installed in every single project folder, resulting in wasted storage space. Feel free to deviate from this structure if you'd like, though.*
 
-**7)** Now enter the following commands in the terminal:
+**(7)** Now enter the following commands in the terminal:
 
 `npm i`
 `npm run dev`
 
 The first command updates the Vite packages in your project root folder that still need to be directly in there, and the second one tells Vite to run a server that tests your current code.
 
-**8)** Your terminal should now say that Vite is currently running. Ctrl+click on the localhost: URL to view your test server inside your browser.
+**(8)** Your terminal should now say that Vite is currently running. Ctrl+click on the localhost: URL to view your test server inside your browser.
 
-![Vite success](/img/how_to/use-vite/.png)
+![Vite success](/img/how_to/use-vite/07.png)
 
-If you see this screen, good job! The foundation of our Vite project is now set up. Now let's make it run Babylon.
+If you see this screen, good job! The foundation of our Vite project is now set up. Now let's make it run Babylon.js.
 
-**9)** Go back to your Terminal and press Ctrl+C to stop the server. (Don't forget that keyboard shortcut.) Now use the left-hand sidebar (and right-clicking) to do the following:
+**(9)** Go back to your Terminal and press Ctrl+C to stop the server. (Don't forget that keyboard shortcut.) 
+
+Now use the left-hand sidebar (and some right-clicking) to do the following:
 
 - Delete everything inside the `public` and `src` folders
 - Create a new file inside `src` called `app.ts`
 - Double-click on `index.html` and `tsconfig.json`
 
-![file tabs](/img/how_to/use-vite/.png)
+![file tabs](/img/how_to/use-vite/08.png)
 
 You should now have all three of these files open.
 
-**10)** Open each of the links below and paste the code inside each of the respective files. Save each file (Ctrl+S) after you do this.
+**(10)** Open each of the links below and paste/replace the code inside each of the respective files. Save each file (Ctrl+S) after you do this.
 
-- [Code to paste for app.ts]()
-- [Code to paste for index.html]()
-- [Code to paste for tsconfig.json]()
+- [Code to paste for app.ts](https://github.com/BabylonJS/Documentation/blob/master/public/examples/use-vite/app.ts)
+- [Code to paste for index.html](https://github.com/BabylonJS/Documentation/blob/master/public/examples/use-vite/index.html)
+- [Code to paste for tsconfig.json](https://github.com/BabylonJS/Documentation/blob/master/public/examples/use-vite/tsconfig.json)
 
-![Picture of a file](/img/how_to/use-vite/.png)
+![Picture of a file](/img/how_to/use-vite/09.png)
 
-The code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](). Notice how the `import` statements at the top allow the rest of the code to function. The code for **index.html** contains the title that will appear in the browser titlebar, as well as a `<script>` tag to tell Vite which file has the main code to start our project (which is `app.ts` in our case.) The code for **tsconfig.json** is a combination between the default Vite file and the one from [another Babylon.js tutorial](). You can read the [TypeScript docs]() if you want to know what the other settings do, but it's not necessary for starting out.
+The code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). Notice how the `import` statements at the top allow the rest of the code to function. The code for **index.html** contains the title that will appear in the browser titlebar, as well as a `<script>` tag to tell Vite which file has the main code to start our project (which is `app.ts` in our case.) The code for **tsconfig.json** is a combination between the default Vite file and the one from that other Babylon.js tutorial mentioned earlier. You can read the [TypeScript docs](https://www.typescriptlang.org/tsconfig) if you want to know what the other settings do, but it's not necessary for starting out.
 
-**11)** Run `npm run dev` in your terminal and Ctrl+click the localhost: link again.
+**(11)** Run `npm run dev` in your terminal and Ctrl+click the localhost: link again.
 
-![Babylon & Vite ready](/img/how_to/use-vite/.png)
+![Babylon & Vite ready](/img/how_to/use-vite/10.png)
 
 🎉 YOU DID IT!! You just successfully created a local development environment for Babylon.js using Vite!
 
@@ -126,7 +127,7 @@ Here's how:
 - Your exported code bundle is now in a folder called `dist`. Check if it works by running: `npm run preview`
 - IMPORTANT: Once you verify this test works, open `dist/index.html` and look for any file paths that start with `/`. Change all of these to `./` and save the file.
 
-![Final dist folder](/img/how_to/use-vite/.png)
+![Final dist folder](/img/how_to/use-vite/11.png)
 
 NOW you can upload the contents of your `dist` folder to a host like GitHub Pages or Vercel to share it with the world! It'll run way faster than a project from the Playground since the code bundle only includes the parts of Babylon.js that you need, instead of the entire engine.
 
