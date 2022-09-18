@@ -139,6 +139,6 @@ NOW you can upload the contents of your `dist` folder to a host like GitHub Page
 
 This tutorial was originally a [forum post](https://forum.babylonjs.com/t/how-to-vite-with-babylon-js-game-tutorial-series/33845) I wrote to replace Webpack in capucat's [Create A Game Tutorial Series](https://doc.babylonjs.com/guidedLearning/createAGame), but I was told to turn it into an article for the docs, so here we are. Thank you PirateJC for requesting this write-up! I think it turned out great.
 
-*Written by [wavetro](https://wavetro.net/)*
+***Written by [wavetro](https://wavetro.net/)***
 
 *Last updated: 2022-SEP-17*
