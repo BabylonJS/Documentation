@@ -42,9 +42,9 @@ Once you have your code editor and Node.js installed, we can begin setting up yo
 
 **(4)** Toggle the terminal using the menu `View` > `Terminal` and enter the following commands one after the other:
 
-`npm i vite`
-`npm i --save-dev @babylonjs/core`
-`npm i --save-dev @babylonjs/inspector`
+- `npm i vite`
+- `npm i --save-dev @babylonjs/core`
+- `npm i --save-dev @babylonjs/inspector`
 
 This installs Vite and some of Babylon.js' features in your created folder (in a subdirectory called `node_modules`.)
 
@@ -66,8 +66,8 @@ Now let's turn our vanilla Vite folder into an example Babylon.js project that y
 
 **(7)** Now enter the following commands in the terminal:
 
-`npm i`
-`npm run dev`
+- `npm i`
+- `npm run dev`
 
 The first command updates the Vite packages in your project root folder that still need to be directly in there, and the second one tells Vite to run a server that tests your current code.
 
@@ -125,21 +125,20 @@ Here's how:
 - If it's not already open as a tab, right-click on your project's folder (not the main one) and choose `Open in Integrated Terminal`. Or just click on your second Terminal tab if you still have it.
 - Run this command: `npm run build`
 - Your exported code bundle is now in a folder called `dist`. Check if it works by running: `npm run preview`
-- IMPORTANT: Once you verify this test works, open `dist/index.html` and look for any file paths that start with `/`. Change all of these to `./` and save the file.
+- **IMPORTANT:** Once you verify this test works, open `dist/index.html` and look for any file paths that start with `/`. Change all of these to `./` and save the file.
 
 ![Final dist folder](/img/how_to/use-vite/11.png)
 
 NOW you can upload the contents of your `dist` folder to a host like GitHub Pages or Vercel to share it with the world! It'll run way faster than a project from the Playground since the code bundle only includes the parts of Babylon.js that you need, instead of the entire engine.
 
-## Going further
+*Note to advanced users: if you really want to push the limits of Vite and its bundling capabilities, you can look into using Dynamic `import` Statements. This feature allows you to put import statements inside functions instead of at the top of your code, which helps reduce the overall size of your exported bundle via code-splitting. I haven't tried this feature myself, but [this overview video](https://www.youtube.com/watch?v=kwUfeWe7DCw) from Beyond Fireship is a great place to start exploring this workflow if you're interested.*
 
-Note to advanced users: if you really want to push the limits of Vite and its bundling capabilities, you can look into using Dynamic `import` Statements. This feature allows you to put import statements inside functions instead of at the top of your code, which helps reduce the overall size of your exported bundle via code-splitting. I haven't tried this feature myself, but [this overview video](https://www.youtube.com/watch?v=kwUfeWe7DCw) from Beyond Fireship is a great place to start exploring this workflow if you're interested.
-
-If you already use Vite, you might've noticed that I instructed users to put all static assets in the `public` folder, instead of using URL-holding variables that come from having every asset as an `import` statement, as specified in [the Vite documentation](https://vitejs.dev/guide/assets.html#importing-asset-as-url). This is because we don't really have to do this when Babylon.js projects contain heavy assets like 3D models by default. The obscured filenames that result from using the Vite docs' method don't really prevent the end user from ripping assets from Babylon.js projects either. If you still want to use this "Importing Assets as URLs" workflow anyway, do note that you'll have to create a `.d.ts` file in your `src` folder and figure out [this code snippet](https://stackoverflow.com/questions/51100401/typescript-image-import#answer-51163365) to get it to work with TypeScript. (As you could probably tell, I also haven't tested this method.)
+*Note to existing Vite users: you might've noticed that I instructed users to put all static assets in the `public` folder, instead of using URL-holding variables that come from having every asset as an `import` statement, as specified in [the Vite documentation](https://vitejs.dev/guide/assets.html#importing-asset-as-url). This is because we don't really have to do this when Babylon.js projects contain heavy assets like 3D models by default. The obscured filenames that result from using the Vite docs' method don't really prevent the end user from ripping assets from Babylon.js projects either. If you still want to use this "Importing Assets as URLs" workflow anyway, do note that you'll have to create a `.d.ts` file in your `src` folder and figure out [this code snippet](https://stackoverflow.com/questions/51100401/typescript-image-import#answer-51163365) to get it to work with TypeScript. As you can probably tell, I also haven't tested this method.*
 
 ## Credits
 
 This tutorial was originally a [forum post](https://forum.babylonjs.com/t/how-to-vite-with-babylon-js-game-tutorial-series/33845) I wrote to replace Webpack in capucat's [Create A Game Tutorial Series](https://doc.babylonjs.com/guidedLearning/createAGame), but I was told to turn it into an article for the docs, so here we are. Thank you PirateJC for requesting this write-up! I think it turned out great.
 
 *Written by [wavetro](https://wavetro.net/)*
+
 *Last updated: 2022-SEP-17*
