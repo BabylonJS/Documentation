@@ -809,11 +809,6 @@
             "statusCode": 301
         },
         {
-            "source": "/advanced_topics/shaders/Fog+ShaderMat",
-            "destination": "/features/featuresDeepDive/materials/shaders/Fog+ShaderMat",
-            "statusCode": 301
-        },
-        {
             "source": "/advanced_topics/shaders/image_processing",
             "destination": "/features/featuresDeepDive/materials/shaders/image_processing",
             "statusCode": 301
@@ -1861,11 +1856,6 @@
         {
             "source": "/divingDeeper/3D_commerce_certif",
             "destination": "/setup/support/3D_commerce_certif",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs",
-            "destination": "/setup/support/Running_a_local_webserver_for_BabylonJs",
             "statusCode": 301
         },
         {
@@ -2956,76 +2946,6 @@
         {
             "source": "/extensions/editor/troubleshooting/startup",
             "destination": "/communityExtensions/editor/troubleshooting/startup",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Instant_Games",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Instant_Games",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Ionic_Angular",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Ionic_Angular",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_PixiJS",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_PixiJS",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Poki",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Poki",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_ReactJS",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_ReactJS",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_VRM",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_VRM",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_1",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_4",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_0",
-            "statusCode": 301
-        },
-        {
-            "source": "/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_CesiumJS",
-            "destination": "/communityExtensions/Babylon.js+ExternalLibraries/BabylonJS_and_CesiumJS",
             "statusCode": 301
         },
         {
