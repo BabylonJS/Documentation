@@ -16,7 +16,7 @@ This section goes over some additional features & visual effects that you can us
 
 Image based lighting is really great if you want to give some ambient light to your scene without using an actual light source. Since my implementation of the lanterns took up all of the actual light sources I could use, I needed to figure out a way to add some ambient light into my scene to make the background of the player a little bit brighter.
 
-[Image-based lighting](/divingDeeper/materials/using/HDREnvironment) uses an HRDI image to provide light to a scene, particularly useful for PBR materials. [Image-Based Lighting: The Easy Way](https://www.youtube.com/watch?v=W1wNF7z8vKQ) was super helpful in explaining how IBL works and how to actually create the **.env** that is needed.
+[Image-based lighting](/features/featuresDeepDive/materials/using/HDREnvironment) uses an HRDI image to provide light to a scene, particularly useful for PBR materials. [Image-Based Lighting: The Easy Way](https://www.youtube.com/watch?v=W1wNF7z8vKQ) was super helpful in explaining how IBL works and how to actually create the **.env** that is needed.
 
 This is what the game scene looks like before using IBL:
 
@@ -38,7 +38,7 @@ It's especially helpful when you need the player to be able to see areas they ca
 
 ## Glow Layer
 
-Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/divingDeeper/mesh/glowLayer) is super easy to set up a simple glow layer and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
+Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up a simple glow layer and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
 
 ![without GL](/img/how_to/create-a-game/withoutGL.png) ![withGL](/img/how_to/create-a-game/withGL.png)
 

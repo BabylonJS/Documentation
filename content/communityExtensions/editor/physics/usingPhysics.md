@@ -29,7 +29,7 @@ By selecting a new impostor, the tool will be updated to show the common propert
 * `Restitution`
 * `Friction`
 
-A documentation for all these options is [available here](/divingDeeper/physics/usingPhysicsEngine#options).
+A documentation for all these options is [available here](/features/featuresDeepDive/physics/usingPhysicsEngine#options).
 
 Once these properties are configured, the physics is not preview-able in the Editor. To preview the result, just run the project to see the physics effect and adjust the properties if needed by clicking on the button `Play` in the tools toolbar.
 

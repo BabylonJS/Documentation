@@ -5,15 +5,15 @@ description: How to configure the Babylon.js viewer.
 keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
     - title: Babylon.js Viewer
-      url: /extensions/babylonViewer
+      url: /features/featuresDeepDive/babylonViewer
     - title: The templating system
-      url: /extensions/babylonViewer/viewerTemplatingSystem
+      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /extensions/babylonViewer/defaultViewerConfig
+      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
+      url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /extensions/babylonViewer/viewerExamples
+      url: /features/featuresDeepDive/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -35,7 +35,7 @@ The default configuration will be loaded per default, unless other configuration
 <babylon extends="minimal" model="https://playground.babylonjs.com/scenes/Rabbit.babylon"></babylon>
 ```
 
-To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/extensions/babylonViewer/defaultViewerConfig) 
+To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/features/featuresDeepDive/babylonViewer/defaultViewerConfig) 
 
 ## Extending and changing the default configurations
 

@@ -24,7 +24,7 @@ Also this is brigging new cool toys to the table like Compute Shaders and more t
 
 ## Where are we ?
 
-See [the dedicated page](/advanced_topics/webGPU/webGPUStatus).
+See [the dedicated page](/setup/support/webGPU/webGPUStatus).
 
 You can also follow our progress on out [Github dedicated issue](https://github.com/BabylonJS/Babylon.js/issues/6443).
 

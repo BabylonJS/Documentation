@@ -52,8 +52,8 @@ Our preview CDN is updated every night with the latest features and bug fixes, e
 
 We have two flavors of releases:
 
-- [UMD packages](/divingDeeper/developWithBjs/npmSupport)
-- [ES6 packages](/divingDeeper/developWithBjs/treeShaking)
+- [UMD packages](/setup/frameworkPackages/npmSupport)
+- [ES6 packages](/setup/frameworkPackages/es6Support)
 
 When developing please make sure to pick the one that fits your architecture. We recommend using the ES6 packages which allow your to reduce the final release's size using tree shaking.
 

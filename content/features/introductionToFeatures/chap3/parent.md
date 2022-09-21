@@ -5,7 +5,7 @@ description: Learn the basics of parenting objects in your scene.
 keywords: getting started, start, chapter 3, parenting, parent
 further-reading:
     - title: More on Mesh Parenting
-      url: /divingDeeper/mesh/transforms/parent_pivot
+      url: /features/featuresDeepDive/mesh/transforms/parent_pivot
 video-overview:
 video-content:
 ---
@@ -36,4 +36,4 @@ You can vary the values in the following playground to see the effect on the par
 
 Now we are ready to build the car and afterwards to animate it.
 
-You can read more about [parenting](/divingDeeper/mesh/transforms/parent_pivot).
+You can read more about [parenting](/features/featuresDeepDive/mesh/transforms/parent_pivot).

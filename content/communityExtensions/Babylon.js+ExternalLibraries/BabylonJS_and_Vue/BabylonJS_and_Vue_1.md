@@ -35,19 +35,19 @@ In your Vue app directory install the BabylonJS dependencies:
 npm install @babylonjs/core
 ```
 
-If you want to use the [BabylonJS GUI](/divingDeeper/gui "BabylonJS GUI"), you need to install:
+If you want to use the [BabylonJS GUI](/features/featuresDeepDive/gui "BabylonJS GUI"), you need to install:
 
 ```bash
 npm install babylonjs-gui
 ```
 
-If you want to use the BabylonJS [Inspector](/toolsAndResources/tools/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
+If you want to use the BabylonJS [Inspector](/toolsAndResources/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
 
 ```bash
 npm install @babylonjs/inspector
 ```
 
-You can find more on installing BabylonJS [here](/divingDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial").
+You can find more on installing BabylonJS [here](/setup/frameworkPackages/es6Support "Installing BabylonJS - ES6 tutorial").
 
 ## The Vue component
 
@@ -242,7 +242,7 @@ It is easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the 
 
 ## Where to go next?
 
-If you don't want to pass data from Vue to BabylonJS and vice versa, you can stop here and for example visit our great [Getting started](/start "Getting started") page otherwise jump to [part two of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
+If you don't want to pass data from Vue to BabylonJS and vice versa, you can stop here and for example visit our great [Getting started](/features/introductionToFeatures "Getting started") page otherwise jump to [part two of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_2/ "BabylonJS and Vue - data passing").
 
 ## Links
 

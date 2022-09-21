@@ -5,7 +5,7 @@ description: Learn all about the glow layer in Babylon.js.
 keywords: diving deeper, meshes, glow layer, glow
 further-reading:
     - title: How To Highlight a Mesh
-      url: /divingDeeper/mesh/highlightLayer
+      url: /features/featuresDeepDive/mesh/highlightLayer
     - title: GlowLayer API
       url: /typedoc/classes/babylon.glowlayer
 video-overview:
@@ -122,7 +122,7 @@ Using the function will automatically switch mode and only render the included m
 
 ### Using Glow with Node Materials
 
-The Glow layer can also be combined with a [Node Material](/divingDeeper/materials/node_material/nodeMaterial) for endless possibilities. You can achieve this by utilizing masking in the node material, separating the emission texture from the base color texture, and then recompositing them together using the mesh's glow layer. Check out the following playground and video for a deeper explanation.
+The Glow layer can also be combined with a [Node Material](/features/featuresDeepDive/materials/node_material/nodeMaterial) for endless possibilities. You can achieve this by utilizing masking in the node material, separating the emission texture from the base color texture, and then recompositing them together using the mesh's glow layer. Check out the following playground and video for a deeper explanation.
 
 <Playground id="#7QCYPB" title="Using Glow Layer with Node Materials" description="Simple example of using a mesh's glow layer with a node material."/>
 

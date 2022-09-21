@@ -135,7 +135,7 @@ The sub surface section of the material defines everything happening below the s
 
 ## Refraction
 
-I will not redefine the refraction component here as it has been addressed in the previous section but only highlights the main differences [Here](/divingDeeper/materials/using/reflectionTexture)
+I will not redefine the refraction component here as it has been addressed in the previous section but only highlights the main differences [Here](/features/featuresDeepDive/materials/using/reflectionTexture)
 
 Enabling the refraction would be done through a flag on the sub surface section:
 
@@ -566,14 +566,14 @@ pbr.sheen.texture = texture;
 
 ## Normal Map / Parallax
 Normal mapping and Parallax are supported in the exact same way than the standard material. Please, refer to the following links for more information:
-* [Normal Map](/divingDeeper/materials/advanced/normalMaps)
-* [Parallax](/divingDeeper/materials/using/parallaxMapping)
+* [Normal Map](/features/featuresDeepDive/materials/using/normalMaps)
+* [Parallax](/features/featuresDeepDive/materials/using/parallaxMapping)
 
 ## LightMaps
 LightMaps are available in the same way they are in the standardMaterial by affecting a texture to the ```lightmapTexture``` property. This can also be used as a shadowMap instead by switching the dedicated control flag ```useLightmapAsShadowmap``` to true.
 
 ## Image Processing
-The Processing Configuration can be applied directly on the material as explained in the [image processing documentation](/divingDeeper/postProcesses/usePostProcesses#imageprocessing).
+The Processing Configuration can be applied directly on the material as explained in the [image processing documentation](/features/featuresDeepDive/postProcesses/usePostProcesses#imageprocessing).
 
 ## Light Setup
 Always considering what "Nature does", we reconsidered the BJS light falloff effect in the PBR Material.
@@ -633,7 +633,7 @@ Now, increasing the light radius makes this dot wider
 This uses internally a lot of approximation like Tan(theta) is almost theta for small angles so if you try to put bigger radius than a tenth of the light distance you will not see the desired effect.
 
 ## Shadows (as the standard material)
-Shadows are fully equivalent to the Standard material. All the documentation can be found here: [Shadows](/divingDeeper/lights/shadows);
+Shadows are fully equivalent to the Standard material. All the documentation can be found here: [Shadows](/features/featuresDeepDive/lights/shadows);
 
 ## Notes
 You can find below a few notes which could be helpful during the creation of your scenes.

@@ -19,7 +19,7 @@ There are four possible ways that a material can react to light.
 3. Emissive - the color or texture of the material as if self lit;
 4. Ambient - the color or texture of the material lit by the environmental background lighting.
 
-Diffuse and Specular material require a [light source](/divingDeeper/lights/lights_introduction) to be created.  
+Diffuse and Specular material require a [light source](/features/featuresDeepDive/lights/lights_introduction) to be created.  
 Ambient color requires the ambient color of the scene to be set, giving the environmental background lighting.
 
 ```javascript
@@ -148,7 +148,7 @@ For the back faces of the cube to be visible through the transparent areas of th
 
 Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
 
-[More on creating a texture package](/divingDeeper/materials/advanced/texturePackage)
+[More on creating a texture package](/features/featuresDeepDive/materials/advanced/texturePackage)
 
 ## Back-Face Culling
 

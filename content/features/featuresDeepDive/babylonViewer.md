@@ -5,15 +5,15 @@ description: The viewer is the simplest way to display 3D content on a web page.
 keywords: extensions, babylon.js, viewer, web page, display
 further-reading:
     - title: Configuring the viewer
-      url: /extensions/babylonViewer/configuringViewer
+      url: /features/featuresDeepDive/babylonViewer/configuringViewer
     - title: The templating system
-      url: /extensions/babylonViewer/viewerTemplatingSystem
+      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
     - title: Recreating the default configuration for the viewer
-      url: /extensions/babylonViewer/defaultViewerConfig
+      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
     - title: Advanced usage
-      url: /extensions/babylonViewer/advancedViewerUsage
+      url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
     - title: Babylon.js viewer examples
-      url: /extensions/babylonViewer/viewerExamples
+      url: /features/featuresDeepDive/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---

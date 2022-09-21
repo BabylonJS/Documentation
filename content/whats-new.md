@@ -481,7 +481,7 @@ toc-levels: 0
 - Revamped documentation ([RaananW](https://github.com/RaananW), [John King](https://github.com/BabylonJSGuide), [Patrick Ryan](https://github.com/PatrickRyanMS), [PiratJC](https://github.com/PirateJC))
 - Added KTX + BasisU support ([Popov72](https://github.com/Popov72))
 - Updated WebXR Support ([RaananW](https://github.com/RaananW))
-- Added support for thin instances for faster mesh instances. [Doc](/divingDeeper/mesh/copies/thinInstances) ([Popov72](https://github.com/Popov72))
+- Added support for thin instances for faster mesh instances. [Doc](/features/featuresDeepDive/mesh/copies/thinInstances) ([Popov72](https://github.com/Popov72))
 - Added support in `ShadowGenerator` for soft transparent shadows ([Popov72](https://github.com/Popov72))
 - Added PBR Next features: Reflection probes for accurate shading and Sub Surface Scattering ([CraigFeldpsar](https://github.com/craigfeldspar) and [Sebavan](https://github.com/sebavan/))
 - Added support for latest glTF extensions: KHR_materials_clearcoat, KHR_materials_sheen, KHR_materials_transmission, KHR_texture_basisu ([Sebavan](https://github.com/sebavan/) and [Popov72](https://github.com/Popov72))
@@ -491,7 +491,7 @@ toc-levels: 0
 
 #### General
 
-- Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](/divingDeeper/lights/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
+- Added the `ShadowDepthWrapper` class to support accurate shadow generation for custom as well as node material shaders. [Doc](/features/featuresDeepDive/lights/shadows#custom-shadow-map-shaders) ([Popov72](https://github.com/Popov72))
 - Added support for postproces serialization ([Deltakosh](https://github.com/deltakosh))
 - Added support for querystrings on KTX file URLs ([abogartz](https://github.com/abogartz))
 - Refactored React refs from old string API to React.createRef() API ([belfortk](https://github.com/belfortk))
@@ -760,7 +760,7 @@ toc-levels: 0
 #### Post Processes
 
 - SSAO 2, motion blur and screen space reflections are now using the brand new `PrePassRenderer` to avoid rendering the scene twice ([CraigFeldpsar](https://github.com/craigfeldspar)
-- Added Screen Space Curvature post process: [Doc](/divingDeeper/postProcesses/usePostProcesses#screen-space-curvature) ([Popov72](https://github.com/Popov72) and [Sebavan](https://github.com/sebavan/))
+- Added Screen Space Curvature post process: [Doc](/features/featuresDeepDive/postProcesses/usePostProcesses#screen-space-curvature) ([Popov72](https://github.com/Popov72) and [Sebavan](https://github.com/sebavan/))
 
 ### Bugs
 
@@ -870,19 +870,19 @@ toc-levels: 0
 
 ### Major updates
 
-- Node Material and Node material editor [Doc](/divingDeeper/materials/node_material/nodeMaterial) ([Deltakosh](https://github.com/deltakosh/) / [TrevorDev](https://github.com/TrevorDev))
-- WebGPU preliminary support [Doc](/advanced_topics/webGPU) ([Sebavan](https://github.com/sebavan/))
+- Node Material and Node material editor [Doc](/features/featuresDeepDive/materials/node_material/nodeMaterial) ([Deltakosh](https://github.com/deltakosh/) / [TrevorDev](https://github.com/TrevorDev))
+- WebGPU preliminary support [Doc](/setup/support/webGPU) ([Sebavan](https://github.com/sebavan/))
 - Added the "Cascaded Shadow Mapping" (CSM) shadow rendering technique ([Popov72](https://github.com/Popov72) (initiated by [lockphase](https://github.com/lockphase/)))
-- .basis texture file format support [Doc](/advanced_topics/mutliPlatTextures#basis-file-format) ([TrevorDev](https://github.com/TrevorDev))
-- Navigation mesh and crowd of moving agents [Doc](/extensions/crowdNavigation/createNavMesh) ([CedricGuillemet](https://github.com/CedricGuillemet))
-- Added Points Cloud Particle System [Doc](/divingDeeper/particles/point_cloud_system/pcs_intro) ([JohnK](https://github.com/BabylonJSGuide/))
+- .basis texture file format support [Doc](/features/featuresDeepDive/materials/advanced/mutliPlatTextures#basis-file-format) ([TrevorDev](https://github.com/TrevorDev))
+- Navigation mesh and crowd of moving agents [Doc](/features/featuresDeepDive/crowdNavigation/createNavMesh) ([CedricGuillemet](https://github.com/CedricGuillemet))
+- Added Points Cloud Particle System [Doc](/features/featuresDeepDive/particles/point_cloud_system/pcs_intro) ([JohnK](https://github.com/BabylonJSGuide/))
 - Classes decoupling ending up with smaller bundle sizes [Blog](https://medium.com/@babylonjs/size-matters-e0e94dad01a7) ([Deltakosh](https://github.com/deltakosh/))
-- Babylon.js controls [Doc](/divingDeeper/controls) ([Sebavan](https://github.com/sebavan/) / [Deltakosh](https://github.com/deltakosh/))
+- Babylon.js controls [Doc](/features/featuresDeepDive/controls) ([Sebavan](https://github.com/sebavan/) / [Deltakosh](https://github.com/deltakosh/))
 - Massive WebXR updates (See below) ([RaananW](https://github.com/RaananW/) / [TrevorDev](https://github.com/TrevorDev))
-- Added support for Offscreen canvas [Doc](/divingDeeper/scene/offscreenCanvas) ([Deltakosh](https://github.com/deltakosh/))
-- Added support for multiple canvases with one engine [Doc](/divingDeeper/scene/multiCanvas) ([Deltakosh](https://github.com/deltakosh/))
+- Added support for Offscreen canvas [Doc](/features/featuresDeepDive/scene/offscreenCanvas) ([Deltakosh](https://github.com/deltakosh/))
+- Added support for multiple canvases with one engine [Doc](/features/featuresDeepDive/scene/multiCanvas) ([Deltakosh](https://github.com/deltakosh/))
 - Added useReverseDepthBuffer to Engine which can provide greater z depth for distant objects without the cost of a logarithmic depth buffer ([BenAdams](https://github.com/benaadams/))
-- Screen space reflections post-process [Doc](/divingDeeper/postProcesses/screenSpaceReflectionsPostProcess) ([julien-moreau](https://github.com/julien-moreau))
+- Screen space reflections post-process [Doc](/features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess) ([julien-moreau](https://github.com/julien-moreau))
 
 ### Updates
 
@@ -895,11 +895,11 @@ toc-levels: 0
 - ScaleGizmo and AxisScaleGizmo sensitivity factor ([CedricGuillemet](https://github.com/CedricGuillemet))
 - Individual gizmos can now be enabled/disabled ([Balupg](https://github.com/balupg))
 - Unify preparation of instance attributes. Added `MaterialHelper.PushAttributesForInstances` ([MarkusBillharz](https://github.com/MarkusBillharz))
-- Added support for PBR [irradiance map](/divingDeeper/materials/using/masterPBR#irradiance-map)
+- Added support for PBR [irradiance map](/features/featuresDeepDive/materials/using/masterPBR#irradiance-map)
 - Added ability to set render camera on utility layer instead of using the latest active camera ([TrevorDev](https://github.com/TrevorDev))
 - Move normalizeToUnitCube to transformNode instead of abstract mesh and add predicate to exclude sub objects when scaling ([TrevorDev](https://github.com/TrevorDev))
 - Method to check if device orientation is available ([TrevorDev](https://github.com/TrevorDev))
-- Added support for sound sprites [Doc](/divingDeeper/audio/playingSoundsMusic#playing-a-sound-sprite) ([Deltakosh](https://github.com/deltakosh/))
+- Added support for sound sprites [Doc](/features/featuresDeepDive/audio/playingSoundsMusic#playing-a-sound-sprite) ([Deltakosh](https://github.com/deltakosh/))
 - Display Oculus Quest controller when using a Quest in WebVR ([TrevorDev](https://github.com/TrevorDev))
 - Added startAndReleaseDragOnPointerEvents property to pointerDragBehavior which can be set to false for custom drag triggering ([TrevorDev](https://github.com/TrevorDev))
 - Added optional picking predicate to pointerDragBehavior for filtering affected meshes ([Exolun](https://github.com/Exolun))
@@ -933,7 +933,7 @@ toc-levels: 0
 
 #### Engine
 
-- Improved instanceMesh with user defined custom buffers [Doc](/divingDeeper/mesh/copies/instances#custom-buffers) ([Deltakosh](https://github.com/deltakosh/))
+- Improved instanceMesh with user defined custom buffers [Doc](/features/featuresDeepDive/mesh/copies/instances#custom-buffers) ([Deltakosh](https://github.com/deltakosh/))
 - Morph targets now can morph UV channel as well ([Deltakosh](https://github.com/deltakosh/))
 - Added MorphTarget support to the DepthRenderer, GeometryBufferRenderer and OutlineRenderer ([MarkusBillharz](https://github.com/MarkusBillharz))
 - Added preprocessors for shaders to improve how shaders are compiled for WebGL1/2 or WebGPU ([Deltakosh](https://github.com/deltakosh/))
@@ -1107,13 +1107,13 @@ toc-levels: 0
 
 #### Particles
 
-- Added `particleSystem.isLocal` for CPU particles to let the particles live in emitter local space. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#local-space) ([Deltakosh](https://github.com/deltakosh/))
+- Added `particleSystem.isLocal` for CPU particles to let the particles live in emitter local space. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#local-space) ([Deltakosh](https://github.com/deltakosh/))
 - Added the feature `expandable` to the Solid Particle System ([jerome](https://github.com/jbousquie/))
 - Added the feature `removeParticles()` to the Solid Particle System ([jerome](https://github.com/jbousquie/))
 - Added the feature "storable particles" and `insertParticlesFromArray()` to the Solid Particle System ([jerome](https://github.com/jbousquie/))
 - Added the support for MultiMaterials to the Solid Particle System ([jerome](https://github.com/jbousquie/))
-- Added support for `CustomParticleEmitter`. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#custom-emitter) ([Deltakosh](https://github.com/deltakosh/))
-- Added support for `MeshParticleEmitter`. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#mesh-emitter) ([Deltakosh](https://github.com/deltakosh/))
+- Added support for `CustomParticleEmitter`. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#custom-emitter) ([Deltakosh](https://github.com/deltakosh/))
+- Added support for `MeshParticleEmitter`. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#mesh-emitter) ([Deltakosh](https://github.com/deltakosh/))
 
 #### Navigation Mesh
 
@@ -1242,14 +1242,14 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 - New [fancy forum](https://forum.babylonjs.com)! ([Deltakosh](https://github.com/deltakosh))
-- [Inspector v2.0](/toolsAndResources/tools/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
+- [Inspector v2.0](/toolsAndResources/inspector). [Dev log](https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205) ([Deltakosh](https://github.com/deltakosh))
 - Added support for [parallel shader compilation](https://www.khronos.org/registry/webgl/extensions/KHR_parallel_shader_compile/) ([Deltakosh](https://github.com/deltakosh))
 - Added [Object Based Motion Blur](http://doc.babylonjs.com/how_to/using_motionblurpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
-- Added [support for ammo.js](/divingDeeper/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
-  - Added [support for soft bodies](/divingDeeper/physics/softBodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
+- Added [support for ammo.js](/features/featuresDeepDive/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
+  - Added [support for soft bodies](/features/featuresDeepDive/physics/softBodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
   - Added support for [Convex Hull Impostor](https://github.com/kripken/ammo.js/blob/master/bullet/src/BulletCollision/CollisionShapes/btConvexHullShape.h) using ammo.js plugin ([MackeyK24](https://github.com/mackeyk24))
   - Added `AmmoJSPlugin` scene file loader ([MackeyK24](https://github.com/mackeyk24))
-- Added support for [WebXR](/divingDeeper/webXR/introToWebXR) ([TrevorDev](https://github.com/TrevorDev))
+- Added support for [WebXR](/features/featuresDeepDive/webXR/introToWebXR) ([TrevorDev](https://github.com/TrevorDev))
   - Added `customAnimationFrameRequester` to allow sessions to hook into engine's render loop ([TrevorDev](https://github.com/TrevorDev))
   - Added `Camera customDefaultRenderTarget` to allow cameras to render to a custom render target (e.g., XR framebuffer) instead of the canvas ([TrevorDev](https://github.com/TrevorDev))
   - Added webXR camera which can be updated by a `webXRSession` ([TrevorDev](https://github.com/TrevorDev))
@@ -1262,22 +1262,22 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
   - Added `control.useBitmapCache` to optimize re-rendering of complex controls by keeping a cached version ([Deltakosh](https://github.com/deltakosh))
   - Added new [ImageBasedSlider](http://doc.babylonjs.com/how_to/gui#imagebasedslider) to let users customize sliders using images ([Deltakosh](https://github.com/deltakosh))
   - Added support for clipboard events to let users perform `cut`, `copy` and `paste` events ([Saket Saurabh](https://github.com/ssaket))
-  - Added new [ScrollViewer](/divingDeeper/gui/scrollViewer) with mouse wheel scrolling for larger containers to be viewed using Sliders ([JohnK](https://github.com/BabylonJSGuide/) and [Deltakosh](https://github.com/deltakosh))
+  - Added new [ScrollViewer](/features/featuresDeepDive/gui/scrollViewer) with mouse wheel scrolling for larger containers to be viewed using Sliders ([JohnK](https://github.com/BabylonJSGuide/) and [Deltakosh](https://github.com/deltakosh))
   - Moved to a measure/draw mechanism ([Deltakosh](https://github.com/deltakosh))
   - Added support for [nine patch stretch](https://www.babylonjs-playground.com/#G5H9IN#2) mode for images. ([Deltakosh](https://github.com/deltakosh))
   - Added invalidateRect to [AdvancedDynamicTexture](/typedoc/classes/babylon.gui.advanceddynamictexture) to improve perf for heavily populated GUIs, works with shadows ([TrevorDev](https://github.com/TrevorDev))
-- Migrated the code to modules and deploy [ES6 npm packages](/divingDeeper/developWithBjs/treeShaking) ([Sebavan](https://github.com/Sebavan))
-- Added [TrailMesh](/divingDeeper/mesh/trailMesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
+- Migrated the code to modules and deploy [ES6 npm packages](/setup/frameworkPackages/es6Support) ([Sebavan](https://github.com/Sebavan))
+- Added [TrailMesh](/features/featuresDeepDive/mesh/trailMesh) class. Credit to furcatomasz ([danjpar](https://github.com/danjpar))
 - Support rendering to a multiview outputRenderTargetTexture with multiview engine component to improve performance for XR scenarios ([TrevorDev](https://github.com/TrevorDev))
 - PBR ([Sebavan](https://github.com/Sebavan)):
-  - Added [clear coat](/divingDeeper/materials/using/masterPBR#clear-coat)
-  - Added [anisotropy](/divingDeeper/materials/using/masterPBR#anisotropy)
-  - Added [sheen](/divingDeeper/materials/using/masterPBR#sheen)
-  - Added [sub-surface](/divingDeeper/materials/using/masterPBR#sub-surface)
-  - Added [energy conservation through multiscattering BRDF](/divingDeeper/materials/using/masterPBR#energy-conservation)
-  - Added [Inspector Debug Mode](/divingDeeper/materials/using/masterPBR#how-to-debug)
+  - Added [clear coat](/features/featuresDeepDive/materials/using/masterPBR#clear-coat)
+  - Added [anisotropy](/features/featuresDeepDive/materials/using/masterPBR#anisotropy)
+  - Added [sheen](/features/featuresDeepDive/materials/using/masterPBR#sheen)
+  - Added [sub-surface](/features/featuresDeepDive/materials/using/masterPBR#sub-surface)
+  - Added [energy conservation through multiscattering BRDF](/features/featuresDeepDive/materials/using/masterPBR#energy-conservation)
+  - Added [Inspector Debug Mode](/features/featuresDeepDive/materials/using/masterPBR#how-to-debug)
   - Added Smith Height Correlated Visibility term ([white paper](http://jcgt.org/published/0003/02/03/))
-  - Added [SH Harmonics](/divingDeeper/materials/using/masterPBR#spherical-harmonics)
+  - Added [SH Harmonics](/features/featuresDeepDive/materials/using/masterPBR#spherical-harmonics)
 - Added STL exporter ([pryme8](https://github.com/pryme8))
 
 ### Optimizations
@@ -1368,7 +1368,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added option `multiMultiMaterials` to `mesh.mergeMeshes` ([danjpar](https://github.com/danjpar))
 - Exposed fallback camera distortion metrics option in `vrExperienceHelper` ([TrevorDev](https://github.com/TrevorDev))
 - Added `OnAfterEnteringVRObservable` to `webVRHelper` ([TrevorDev](https://github.com/TrevorDev))
-- Added support for side by side and top/bottom VR videos in the [video dome](/divingDeeper/environment/360VideoDome#video-types) ([Sebavan](https://github.com/Sebavan))
+- Added support for side by side and top/bottom VR videos in the [video dome](/features/featuresDeepDive/environment/360VideoDome#video-types) ([Sebavan](https://github.com/Sebavan))
 - Added unit tests for `BaseCameraPointersInput` and `ArcRotateCameraPointersInput` ([mrdunk](https://github.com))
 - Prevented `onActiveCameraChanged` from being fired when rendering rig cameras ([TrevorDev](https://github.com/TrevorDev))
 - Added `MeshExploder` class ([danjpar](https://github.com/danjpar))
@@ -1571,7 +1571,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - GUI
   - New GUI 3D controls toolset. [Complete doc + demos](//doc.babylonjs.com/how_to/gui3d) ([Deltakosh](https://github.com/deltakosh))
   - New GUI control: [Grid](//doc.babylonjs.com/how_to/gui#grid) ([Deltakosh](https://github.com/deltakosh))
-  - New GUI control: [InputPassword](/divingDeeper/gui/gui#inputpassword) ([theom](https://github.com/theom))
+  - New GUI control: [InputPassword](/features/featuresDeepDive/gui/gui#inputpassword) ([theom](https://github.com/theom))
   - New GUI container [SelectionPanel](//doc.babylonjs.com/how_to/selector) ([JohnK](https://github.com/BabylonJSGuide))
 - Gizmo Support ([TrevorDev](https://github.com/TrevorDev))
   - Gizmo and GizmoManager classes used to manipulate meshes in a scene. Gizmo types include: position, scale, rotation and bounding box [Doc](//doc.babylonjs.com/how_to/gizmo) ([TrevorDev](https://github.com/TrevorDev))
@@ -1585,41 +1585,41 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
   - BoundingBox gizmo support for including/excluding descendants when computing the bounding box ([TrevorDev](https://github.com/TrevorDev))
   - Drag start and stop events for all gizmos ([TrevorDev](https://github.com/TrevorDev))
 - Particle system improvements ([Deltakosh](https://github.com/deltakosh))
-  - Added a ParticleHelper class to create some pre-configured particle systems in a one-liner method style. [Doc](/divingDeeper/particles/particle_system/particleHelper) ([Deltakosh](https://github.com/deltakosh)) / ([DevChris](https://github.com/yovanoc))
+  - Added a ParticleHelper class to create some pre-configured particle systems in a one-liner method style. [Doc](/features/featuresDeepDive/particles/particle_system/particleHelper) ([Deltakosh](https://github.com/deltakosh)) / ([DevChris](https://github.com/yovanoc))
   - Improved CPU particles rendering performance (up to x2 on low end devices)
   - Added support for `isBillboardBased`. [Doc](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#alignment)
-  - Added support for billboard mode. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#alignment)
-  - Added support for `minScaleX`, `minScaleY`, `maxScaleX`, `maxScaleY`. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#size)
-  - Added support for `radiusRange` for sphere emitter. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#sphere-emitter)
-  - Added support for `radiusRange` and `heightRange` for cone emitter. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#cone-emitter)
-  - Added new point emitter. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#point-emitter)
-  - Added new hemispheric emitter. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#hemispheric-emitter)
-  - Added support for `ParticleSystem.BLENDMODE_ADD` alpha mode. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#particle-blending)
-  - Added support for color gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#particle-colors)
-  - Added support for pre-warming. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#pre-warming)
-  - Added support for `minInitialRotation` and `maxInitialRotation`. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#rotation)
-  - Added support for size gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#size)
-  - Added support for life time gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#lifetime)
-  - Added support for angular speed gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#rotation)
-  - Added support for velocity gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#velocity-over-time)
-  - Added support for limit velocity gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#limit-velocity-over-time)
-  - Added support for drag gradients. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#drag-factor)
+  - Added support for billboard mode. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#alignment)
+  - Added support for `minScaleX`, `minScaleY`, `maxScaleX`, `maxScaleY`. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#size)
+  - Added support for `radiusRange` for sphere emitter. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#sphere-emitter)
+  - Added support for `radiusRange` and `heightRange` for cone emitter. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#cone-emitter)
+  - Added new point emitter. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#point-emitter)
+  - Added new hemispheric emitter. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#hemispheric-emitter)
+  - Added support for `ParticleSystem.BLENDMODE_ADD` alpha mode. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#particle-blending)
+  - Added support for color gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#particle-colors)
+  - Added support for pre-warming. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#pre-warming)
+  - Added support for `minInitialRotation` and `maxInitialRotation`. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#rotation)
+  - Added support for size gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#size)
+  - Added support for life time gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#lifetime)
+  - Added support for angular speed gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#rotation)
+  - Added support for velocity gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#velocity-over-time)
+  - Added support for limit velocity gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#limit-velocity-over-time)
+  - Added support for drag gradients. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#drag-factor)
   - Added support for noise textures. [Doc](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#noise-texture)
   - Added support for emit rate gradients. [Doc](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#emit-rate-over-time)
   - Added support for ramp gradients. [Doc](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#ramp-gradients)
   - Start size gradient support for particles. [Doc](//doc.babylonjs.com/divingDeeper/particles/particle_system/particle_system_intro#start-size-over-time) ([TrevorDev](https://github.com/TrevorDev))
   - Attached sub emitters. [Doc](//doc.babylonjs.com/how_to/sub_emitters) ([TrevorDev](https://github.com/TrevorDev))
-  - Cylinder particle emitter and constructor in baseParticle [Doc](/divingDeeper/particles/particle_system/particle_system_intro#cylinder-emitter) ([TrevorDev](https://github.com/TrevorDev))
-  - Added support for cylinder particle emitter. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#cylinder-emitter) ([TrevorDev](https://github.com/TrevorDev))
-  - Added startDelay to support delaying system start of sub emitters. [Doc](/divingDeeper/particles/particle_system/particle_system_intro#creating-the-particles) ([TrevorDev](https://github.com/TrevorDev))
+  - Cylinder particle emitter and constructor in baseParticle [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#cylinder-emitter) ([TrevorDev](https://github.com/TrevorDev))
+  - Added support for cylinder particle emitter. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#cylinder-emitter) ([TrevorDev](https://github.com/TrevorDev))
+  - Added startDelay to support delaying system start of sub emitters. [Doc](/features/featuresDeepDive/particles/particle_system/particle_system_intro#creating-the-particles) ([TrevorDev](https://github.com/TrevorDev))
   - Added support for random start cell when using animated sprite sheets. [Doc](//doc.babylonjs.com/how_to/animate)
 - Added SceneComponent to help decoupling Scene from its components. ([sebavan](https://github.com/sebavan))
-- Added [Environment Texture Tools](/divingDeeper/materials/using/introToPBR#creating-a-compressed-environment-texture) to reduce the size of the usual .DDS file ([sebavan](https://github.com/sebavan))
+- Added [Environment Texture Tools](/features/featuresDeepDive/materials/using/introToPBR#creating-a-compressed-environment-texture) to reduce the size of the usual .DDS file ([sebavan](https://github.com/sebavan))
 - Playground can now be used with TypeScript directly! [Demo](https://www.babylonjs-playground.com/ts.html) ([Deltakosh](https://github.com/deltakosh), [NasimiAsl](https://github.com/NasimiAsl))
 - GUI and Inspector are now ES-Modules ([RaananW](https://github.com/RaananW))
 - Added support for noise procedural textures. [Doc](//doc.babylonjs.com/divingDeeper/materials/using/proceduralTextures#noise-procedural-texture) ([Deltakosh](https://github.com/deltakosh))
 - Added new `PhotoDome` object to display 360 photos. [Demo](https://www.babylonjs-playground.com/#14KRGG#0) ([SzeyinLee](https://github.com/SzeyinLee))
-- Added Video Recorder. [Doc](/divingDeeper/scene/renderToVideo) ([sebavan](https://github.com/sebavan))
+- Added Video Recorder. [Doc](/features/featuresDeepDive/scene/renderToVideo) ([sebavan](https://github.com/sebavan))
 
 ### Updates
 
@@ -1630,7 +1630,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 #### GUI
 
-- Added dead key support and before key add observable to InputText. [Doc](/divingDeeper/gui/gui#using-onbeforekeyaddobservable-for-extended-keyboard-layouts-and-input-masks) ([theom](https://github.com/theom))
+- Added dead key support and before key add observable to InputText. [Doc](/features/featuresDeepDive/gui/gui#using-onbeforekeyaddobservable-for-extended-keyboard-layouts-and-input-masks) ([theom](https://github.com/theom))
 - Added `TextBlock.computeExpectedHeight`, added `TextWrapping.Ellipsis` as `TextBlock.wordWrapping` possible value ([adrientetar](https://github.com/adrientetar))
 - New vertical mode for sliders in 2D GUI. [Demo](https://www.babylonjs-playground.com/#U9AC0N#53) ([Saket Saurabh](https://github.com/ssaket))
 - Added `isEnabled` and `disabledColor` property to Gui Control ([barteq100](https://github.com/barteq100))
@@ -1822,7 +1822,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 ### Major updates
 
-- Support for [GPU particles](/divingDeeper/particles/particle_system/particle_system_intro#gpu-particles). Demo [here](https://www.babylonjs-playground.com/frame.html#PU4WYI#14) ([deltakosh](https://github.com/deltakosh))
+- Support for [GPU particles](/features/featuresDeepDive/particles/particle_system/particle_system_intro#gpu-particles). Demo [here](https://www.babylonjs-playground.com/frame.html#PU4WYI#14) ([deltakosh](https://github.com/deltakosh))
 - Improved building process: We now run a full visual validation test for each pull request. Furthermore, code comments and what's new updates are now mandatory ([sebavan](https://github.com/sebavan))
 - Babylon.js now uses Promises in addition to callbacks. We created several `xxxAsync` functions all over the framework (`SceneLoader.AppendAsync` for instance, which returns a Promise). A polyfill is also integrated to support older browsers ([deltakosh](https://github.com/deltakosh))
 - Introduced texture binding atlas. This optimization allows the engine to reuse texture bindings instead of rebinding textures when they are not on constant sampler indexes ([deltakosh](https://github.com/deltakosh))
@@ -1831,7 +1831,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Introduced [Projection Texture on SpotLight](//doc.babylonjs.com/babylon101/lights#projection-texture). Demo [here](https://www.babylonjs-playground.com/frame.html#CQNGRK) ([lostink](https://github.com/lostink))
 - Introduced support for [local cubemaps](//doc.babylonjs.com/how_to/reflect#using-local-cubemap-mode). Demo [here](https://www.babylonjs-playground.com/frame.html#RNASML#4) ([deltakosh](https://github.com/deltakosh))
 - Added [VideoDome](//doc.babylonjs.com/divingDeeper/environment/360VideoDome) class to easily support 360 videos. Demo [here](https://www.babylonjs-playground.com/frame.html#1E9JQ8#7) ([DavidHGillen](https://github.com/DavidHGillen))
-- Added [GlowLayer](/divingDeeper/mesh/glowLayer) to easily support glow from emissive materials. Demo [here](https://www.babylonjs.com/demos/GlowLayer/) ([sebavan](https://github.com/sebavan))
+- Added [GlowLayer](/features/featuresDeepDive/mesh/glowLayer) to easily support glow from emissive materials. Demo [here](https://www.babylonjs.com/demos/GlowLayer/) ([sebavan](https://github.com/sebavan))
 - New [AssetContainer](//doc.babylonjs.com/how_to/how_to_use_assetcontainer) class and loading methods ([trevordev](https://github.com/trevordev))
 - Added [depth of field](https://www.babylonjs-playground.com/frame.html#8F5HYV#9), [MSAA, sharpening, chromatic aberration and grain effect](https://www.babylonjs-playground.com/#Y3C0HQ#146) to the default pipeline ([trevordev](https://github.com/trevordev))
 - Added support for [animation weights](//doc.babylonjs.com/divingDeeper/animation/animation_introduction#animation-weights). Demo [here](https://www.babylonjs-playground.com/#LL5BIQ) ([deltakosh](https://github.com/deltakosh))
@@ -1840,8 +1840,8 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - New [glTF exporter](//doc.babylonjs.com/extensions/Exporters/3DSMax_to_glTF) for Autodesk 3dsmax ([Noalak](https://github.com/Noalak))
 - New glTF [serializer](//doc.babylonjs.com/extensions/gltfexporter). You can now export glTF or glb files directly from a Babylon scene ([kcoley](https://github.com/kcoley))
 - Physics - Latest production version of Oimo.js is being used - 1.0.9 ([RaananW](https://github.com/RaananW))
-- Introduces [PCF](/divingDeeper/lights/shadows#percentage-closer-filtering-webgl2-only) and [PCSS](/divingDeeper/lights/shadows#contact-hardening-shadow-webgl2-only) shadow support in WebGL 2 ([sebavan](https://github.com/sebavan)))
-- Introduces [PBR Specular Anti Aliasing support](/divingDeeper/materials/using/masterPBR#specular-aliasing). Demo [here](https://www.babylonjs-playground.com/#1XJD4C) ([sebavan](https://github.com/sebavan)))
+- Introduces [PCF](/features/featuresDeepDive/lights/shadows#percentage-closer-filtering-webgl2-only) and [PCSS](/features/featuresDeepDive/lights/shadows#contact-hardening-shadow-webgl2-only) shadow support in WebGL 2 ([sebavan](https://github.com/sebavan)))
+- Introduces [PBR Specular Anti Aliasing support](/features/featuresDeepDive/materials/using/masterPBR#specular-aliasing). Demo [here](https://www.babylonjs-playground.com/#1XJD4C) ([sebavan](https://github.com/sebavan)))
 
 ### Documentation
 
@@ -1932,7 +1932,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added setTextureFromPostProcessOutput to bind the output of a postprocess into an effect ([trevordev](https://github.com/trevordev))
 - Updated bloom effect to only bloom areas of the image above a luminance threshold ([trevordev](https://github.com/trevordev))
 - Cannon and Oimo are optional dependencies ([RaananW](https://github.com/RaananW))
-- Shadows - Introduces [Normal Bias](/divingDeeper/lights/shadows#normal-bias-since-32) ([sebavan](https://github.com/sebavan)))
+- Shadows - Introduces [Normal Bias](/features/featuresDeepDive/lights/shadows#normal-bias-since-32) ([sebavan](https://github.com/sebavan)))
 - Earcut is an external, optional dependency. ([RaananW](https://github.com/RaananW))
 - Return animation groups when calling `SceneLoader.ImportMesh`. ([bghgary](https://github.com/bghgary)]
 - Add support for normalized and non-float data to `Buffer` and `VertexBuffer`. ([bghgary](https://github.com/bghgary)]
@@ -1981,8 +1981,8 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Major updates
 
 - Added VRExperienceHelper to create WebVR experience with 2 lines of code. [Documentation](//doc.babylonjs.com/how_to/webvr_helper) ([davrous](https://github.com/davrous), [TrevorDev](https://github.com/TrevorDev))
-- Added BackgroundMaterial. [Documentation](/divingDeeper/environment/backgroundMaterial) ([sebavan](https://github.com/sebavan))
-- Added EnvironmentHelper. [Documentation](/divingDeeper/environment/environment_introduction#skybox-and-ground) ([sebavan](https://github.com/sebavan))
+- Added BackgroundMaterial. [Documentation](/features/featuresDeepDive/environment/backgroundMaterial) ([sebavan](https://github.com/sebavan))
+- Added EnvironmentHelper. [Documentation](/features/featuresDeepDive/environment/environment_introduction#skybox-and-ground) ([sebavan](https://github.com/sebavan))
 - Added support for WebGL context lost and restored events. [Documentation](//doc.babylonjs.com/tutorials/optimizing_your_scene#handling-webgl-context-lost) ([deltakosh](https://github.com/deltakosh))
 - Added support for non-pow2 textures when in WebGL2 mode ([deltakosh](https://github.com/deltakosh))
 - Engine can now be initialized with an existing WebGL context ([deltakosh](https://github.com/deltakosh))
@@ -2014,7 +2014,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added `scene.onDataLoadedObservable` which is raised when SceneLoader.Append or SceneLoader.Load or SceneLoader.ImportMesh were successfully executed ([deltakosh](https://github.com/deltakosh))
 - Support for adaptiveKernelBlur on MirrorTexture ([deltakosh](https://github.com/deltakosh))
 - Support for non-uniform scaling. Normals are now correctly computed ([deltakosh](https://github.com/deltakosh))
-- Added `MultiObserver`. [Documentation](/divingDeeper/events/observables) ([deltakosh](https://github.com/deltakosh))
+- Added `MultiObserver`. [Documentation](/features/featuresDeepDive/events/observables) ([deltakosh](https://github.com/deltakosh))
 - Added `shadowGenerator.addShadowCaster` and `shadowGenerator.removeShadowCaster` helper functions ([deltakosh](https://github.com/deltakosh))
 - Several inspector improvements ([temechon](https://github.com/temechon))
 - New observables for actions: `onBeforeExecuteObservable` for all actions and `onInterpolationDoneObservable` for `InterpolateValueAction` ([deltakosh](https://github.com/deltakosh))
@@ -2099,7 +2099,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 ### Updates
 
 - Added `syncBoneWithImpostor()` and `syncImpostorWithBone()` to PhysicsImpostor to help with creating ragdoll effects. [Demo](https://playground.babylonjs.com/#PM5MFS#5) ([abow](https://github.com/abow))
-- New automatic creation mode for skybox. [Doc here](/divingDeeper/environment/environment_introduction#automatic-creation) ([deltakosh](https://github.com/deltakosh))
+- New automatic creation mode for skybox. [Doc here](/features/featuresDeepDive/environment/environment_introduction#automatic-creation) ([deltakosh](https://github.com/deltakosh))
 - New way to force compilation of materials. [Doc here](//doc.babylonjs.com/resources/How_materials_work) ([deltakosh](https://github.com/deltakosh))
 - Added a Physics tab to the inspector ([abow](https://github.com/abow))
 - New Debug.PhysicsViewer class for viewing PhysicsImpostors. [Demo](https://www.babylonjs-playground.com/#CA51CM#2) ([abow](https://github.com/abow))
@@ -2299,7 +2299,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Animations blending. See [demo here](https://www.babylonjs-playground.com/#2BLI9T#3). More [info here](//doc.babylonjs.com/divingDeeper/animation/animation_introduction#animation-blending) ([deltakosh](https://github.com/deltakosh))
 - New debuger tool: SkeletonViewer. See [demo here](https://www.babylonjs-playground.com/#1BZJVJ#8) (Adam & [deltakosh](https://github.com/deltakosh))
 - Added Camera Inputs Manager to manage camera inputs (mouse, touch, keyboard, gamepad, ...) in a composable way, without relying on class inheritance. [Documentation here](//doc.babylonjs.com/How_To/Customizing_Camera_Inputs) ([gleborgne](https://github.com/gleborgne))
-- Introduced new observable system to handle events. [Documentation here](/divingDeeper/events/observables) ([nockawa](https://github.com/nockawa), [deltakosh](https://github.com/deltakosh))
+- Introduced new observable system to handle events. [Documentation here](/features/featuresDeepDive/events/observables) ([nockawa](https://github.com/nockawa), [deltakosh](https://github.com/deltakosh))
 - Added a new VR camera : VRDeviceOrientationArcRotateCamera ([temechon](https://github.com/Temechon))
 - Moved PBR Material to core ([deltakosh](https://github.com/deltakosh))
 - StandardMaterial.maxSimultaneousLights can define how many dynamic lights the material can handle. [Demo here](https://www.babylonjs-playground.com/#IRVAX#10) ([deltakosh](https://github.com/deltakosh))

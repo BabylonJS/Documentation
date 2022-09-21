@@ -5,7 +5,7 @@ description: Learn how to assign different objects to different layer masks.
 keywords: diving deeper, layer masks, multi-cam
 further-reading:
     - title: In-Depth layerMask
-      url: /divingDeeper/scene/layermask
+      url: /features/featuresDeepDive/scene/layermask
 video-overview:
 video-content:
 ---
@@ -139,6 +139,6 @@ function addGunSight(scene) {
 
 See it in action here: <Playground id="#JU1DZP" title="Gun Sight Crosshair Example" description="A simple example of creating a gun sight crosshair using layer masks and two cameras." image="/img/playgroundsAndNMEs/divingDeeperLayerMasks1.jpg" isMain={true} category="Cameras"/>
 
-Using the information here and combining it with the viewport information from the previous [section](/divingDeeper/cameras/multiViewsPart2), we can create a more complex example that includes the option to omit meshes from specific cameras.
+Using the information here and combining it with the viewport information from the previous [section](/features/featuresDeepDive/cameras/multiViewsPart2), we can create a more complex example that includes the option to omit meshes from specific cameras.
 
 <Playground id="#L92PHY#217" title="Picture in Picture Visual Camera" description="Using layer masks and viewports, show a visual representation of camera movement." image="/img/playgroundsAndNMEs/pipcamera.png" isMain={true} category="Cameras"/>

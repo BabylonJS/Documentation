@@ -14,7 +14,7 @@ In order to help developers load multiple assets, Babylon.js (starting with vers
 
 This class can be used to import meshes into a scene or load text and binary files.
 
-**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/divingDeeper/mesh/transforms/center_origin/rotation_conventions).
+**Note:** Since meshes you import can have a _rotationQuaternion_ set applying a _rotation_ to one will have unforeseen consequences as detailed in this [warning](/features/featuresDeepDive/mesh/transforms/center_origin/rotation_conventions).
 
 ## Using AssetsManager
 

@@ -5,7 +5,7 @@ description: Learn how to add a skybox to your Babylon.js scene.
 keywords: diving deeper, environment, skybox
 further-reading:
   - title: Reflections and Refractions
-    url: /divingDeeper/materials/using/reflectionTexture
+    url: /features/featuresDeepDive/materials/using/reflectionTexture
 video-overview:
 video-content:
 ---
@@ -24,7 +24,7 @@ CubeTexture images need to be .jpg format (unless the suffixes are customized) a
 
 ![Diagram of X/Y/Z axes and CubeTexture sides](/img/how_to/Materials/cubetexture1.png)
 
-Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/divingDeeper/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for the appropriate settings for a skybox.
+Note, despite being a "Texture", CubeTexture can ONLY be used with [reflectionTexture and refractionTexture](/features/featuresDeepDive/materials/using/reflectionTexture), NOT other Material properties like diffuseTexture. [See below](#makingtheskybox) for the appropriate settings for a skybox.
 
 ## Making or Finding Skybox Images
 
@@ -60,7 +60,7 @@ You can search the web for "skybox images" to find many examples. These are ofte
 
 ## Making the Skybox
 
-Cube textures must be applied using [reflectionTexture](/divingDeeper/materials/using/reflectionTexture) even though skyboxes are not actually reflections; set [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX_MODE to paint the texture directly on the cube rather than simulating reflection.
+Cube textures must be applied using [reflectionTexture](/features/featuresDeepDive/materials/using/reflectionTexture) even though skyboxes are not actually reflections; set [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX_MODE to paint the texture directly on the cube rather than simulating reflection.
 
 Within the playground you can copy and paste the following into your scene:
 

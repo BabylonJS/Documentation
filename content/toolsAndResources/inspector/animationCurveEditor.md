@@ -14,7 +14,7 @@ video-content:
 
 Introduced in Babylon.js 5.0, the Animation Curve Editor (ACE for short) is a powerful tool that allows you to create and modify animations in a simple, fun, and intuitive editor.
 
-This document will walk you through the editor and all of its capabilities. If you're not already familiar with the Animation system in Babylon.js, you might want to brush up on it here: [Babylon Animation Documentation](/divingDeeper/animation)
+This document will walk you through the editor and all of its capabilities. If you're not already familiar with the Animation system in Babylon.js, you might want to brush up on it here: [Babylon Animation Documentation](/features/featuresDeepDive/animation)
 
 To start, check out this awesome video overview of ACE.
 

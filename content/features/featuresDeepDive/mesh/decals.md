@@ -5,7 +5,7 @@ description: Learn how use decals in Babylon.js.
 keywords: diving deeper, meshes, decals
 further-reading:
     - title: Basic Shapes
-      url: /divingDeeper/mesh/creation/set
+      url: /features/featuresDeepDive/mesh/creation/set
 video-overview:
 video-content:
 ---

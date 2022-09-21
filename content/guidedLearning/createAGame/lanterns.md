@@ -23,7 +23,7 @@ In [\_loadAsset](https://github.com/BabylonJS/SummerFestival/blob/master/src/env
 const res = await SceneLoader.ImportMeshAsync("", "./models/", "lantern.glb", this._scene);
 ```
 
-Then, we extract the mesh from the root, and remove the root. [The coordinate system guide for 3DMax](/extensions/Exporters/3DSMax_to_glTF#left-to-right-handed-coordinate-system) explains why we have this root node when we import the glTF. Since we want to clone just the mesh, we'll need to remove the root.
+Then, we extract the mesh from the root, and remove the root. [The coordinate system guide for 3DMax](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#left-to-right-handed-coordinate-system) explains why we have this root node when we import the glTF. Since we want to clone just the mesh, we'll need to remove the root.
 
 ```javascript
 //extract the actual lantern mesh from the root of the mesh that's imported, dispose of the root

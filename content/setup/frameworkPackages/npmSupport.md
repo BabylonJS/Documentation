@@ -5,9 +5,9 @@ description: Learn about Babylon.js's use of the NPM Package Manager.
 keywords: diving deeper, contribution, contribute, open-source, oss, NPM
 further-reading:
     - title: How To Get Babylon.js
-      url: /divingDeeper/developWithBjs/frameworkVers
+      url: /setup/frameworkPackages/frameworkVers
     - title: ESNext Support
-      url: /divingDeeper/developWithBjs/treeShaking
+      url: /setup/frameworkPackages/es6Support
 video-overview:
 video-content:
 ---
@@ -188,7 +188,7 @@ const engine = new Engine(canvas, true);
 // code continues....
 ```
 
-For more information, you can have a look at [the ES6 documentation](/divingDeeper/developWithBjs/treeShaking);
+For more information, you can have a look at [the ES6 documentation](/setup/frameworkPackages/es6Support);
 
 ## External libraries
 

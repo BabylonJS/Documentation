@@ -1,17 +1,17 @@
 ---
 title: The Babylon GUI
-image: 
+image:
 description: Learn all about the Babylon.js 2D GUI system.
 keywords: diving deeper, GUI, 2D
 further-reading:
-    - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /divingDeeper/gui/scrollViewer
-    - title: How To Use Babylon GUI Xml Loader
-      url: /divingDeeper/gui/xmlLoader
-    - title: How To Use Babylon GUI3D
-      url: /divingDeeper/gui/gui3D
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -27,7 +27,7 @@ And the source code is available on the main Babylon.js repo: https://github.com
 
 You can find a complete demo here: https://www.babylonjs.com/demos/gui/
 
-Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](/divingDeeper/gui/gui3D) available to leverage as well. Both systems can be used for different needs for your project.
+Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](/features/featuresDeepDive/gui/gui3D) available to leverage as well. Both systems can be used for different needs for your project.
 
 ## Introduction
 
@@ -39,13 +39,12 @@ To begin with Babylon.GUI, you first need an AdvancedDynamicTexture object.
 
 Babylon.GUI has two modes:
 
-### Fullscreen mode 
+### Fullscreen mode
+
 In this mode, Babylon.GUI will cover the entire screen and will rescale to always adapt to your rendering resolution. It will also intercept clicks (including touches). To create an AdvancedDynamicTexture in fullscreen mode, just run this code:
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "myUI"
-);
+var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
 ```
 
 Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg" isMain={true} category="GUI"/>
@@ -69,14 +68,11 @@ var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myU
 The fullscreen mode is not intended to be used with WebVR as it is a pure 2d rendering. For WebVR scenario you will have to use the texture mode below.
 
 ### Texture mode
+
 In this mode, BABYLON.GUI will be used as a texture for a given mesh. You will have to define the resolution of your texture. To create an AdvancedDynamicTexture in texture mode, just run this code:
 
 ```javascript
-var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
-  myPlane,
-  1024,
-  1024
-);
+var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024);
 ```
 
 Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
@@ -86,12 +82,7 @@ Here is the same example but now using “billboardMode = all” where the GUI w
 Please note that handling pointer move events could be costly on complex meshes, so you can turn off supporting pointer move events with a fourth parameter:
 
 ```javascript
-var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(
-  myPlane,
-  1024,
-  1024,
-  false
-);
+var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024, false);
 ```
 
 Once you have an AdvancedDynamicTexture object, you can start adding controls.
@@ -102,7 +93,7 @@ Here is an example of loading an AdvancedDynamicTexture from the Snippet Server:
 
 ## Debugging
 
-Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/tools/inspector)
+Starting with Babylon.js v4.0, the new inspector can help debugging your GUI by displaying bounding infos and letting you dynamically change properties: [Inspector Docs](/toolsAndResources/inspector)
 
 ## General properties
 
@@ -127,7 +118,7 @@ To use the clipboard events, they first need to be enabled by calling `registerC
 Here is an example on how to use clipboard observables:
 
 - To create new meshes: <Playground id="#S0IW99#1" title="Clipboard Observable Mesh Creation Example" description="Simple example of creating a mesh using the clipboard observable." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI3.jpg"/>
-- To create new textblocks from clipboard data: <Playground id="#AY28VL#4" title="Clipboard Observable Textblock Example" description="Simple example of creating new textblocks from clipboard data." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI4.jpg"/> 
+- To create new textblocks from clipboard data: <Playground id="#AY28VL#4" title="Clipboard Observable Textblock Example" description="Simple example of creating new textblocks from clipboard data." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI4.jpg"/>
 
 You can also define that a control is invisible to events (so you can click through it for instance). To do so, just call `control.isHitTestVisible`.
 
@@ -253,23 +244,23 @@ A control is an abstraction of a piece of UI. There are two kinds of controls:
 
 All controls share the following properties:
 
-| Property (Default)       | Type    | Comments                                                                                                                                               |
-| ------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| alpha (1)                | number  | Between 0 and 1. 0 means completely transparent. 1 means fully opaque                                                                                  |
-| color (Black)            | string  | Foreground color                                                                                                                                       |
-| fontFamily (Ariel)       | string  | Font family can be inherited. This means that if you set it on a container, it will be transmitted to all children of the container                    |
-| fontSize (18)            | number  | Can be inherited                                                                                                                                       |
-| fontStyle (unset)        | string  | Can be inherited                                                                                                                                       |
-| fontWeight (unset)       | string  | Can be inherited                                                                                                                                       |
-| zIndex (0)               | number  | the zIndex can be used to reorder controls on the z axis                                                                                               |
-| shadowBlur (0)           | number  | the amount of blur that is applied to the drop shadow                                                                                                  |
-| shadowOffsetX (0)        | number  | the offset of the shadow on the x axis                                                                                                                 |
-| shadowOffsetY (0)        | number  | the offset of the shadow on the y axis                                                                                                                 |
-| shadowColor (#000)       | string  | the color of the shadow                                                                                                                                |
-| isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                             |
-| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.jpg"/>|
-| overlapGroup             | number  | The overlapGroup which the control belongs to or undefined to exclude from moving the control to a non overlapping poisition.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />|
-| overlapDeltaMultiplier   | number  | The speed of the movement of the control when used with `AdvancedDynamicTexture`'s `moveToNonOverlappedPosition` method. See the playground above.
+| Property (Default)       | Type    | Comments                                                                                                                                                                                                                                                                        |
+| ------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| alpha (1)                | number  | Between 0 and 1. 0 means completely transparent. 1 means fully opaque                                                                                                                                                                                                           |
+| color (Black)            | string  | Foreground color                                                                                                                                                                                                                                                                |
+| fontFamily (Ariel)       | string  | Font family can be inherited. This means that if you set it on a container, it will be transmitted to all children of the container                                                                                                                                             |
+| fontSize (18)            | number  | Can be inherited                                                                                                                                                                                                                                                                |
+| fontStyle (unset)        | string  | Can be inherited                                                                                                                                                                                                                                                                |
+| fontWeight (unset)       | string  | Can be inherited                                                                                                                                                                                                                                                                |
+| zIndex (0)               | number  | the zIndex can be used to reorder controls on the z axis                                                                                                                                                                                                                        |
+| shadowBlur (0)           | number  | the amount of blur that is applied to the drop shadow                                                                                                                                                                                                                           |
+| shadowOffsetX (0)        | number  | the offset of the shadow on the x axis                                                                                                                                                                                                                                          |
+| shadowOffsetY (0)        | number  | the offset of the shadow on the y axis                                                                                                                                                                                                                                          |
+| shadowColor (#000)       | string  | the color of the shadow                                                                                                                                                                                                                                                         |
+| isPointerBlocker (false) | boolean | make sure gui events are triggered before the scene events                                                                                                                                                                                                                      |
+| hoverCursor ("")         | string  | the cursor to use when mouse is over the control, need to have isPointerBlocker set to true <Playground id="#XCPP9Y#888" title="HoverCursor Example" description="Simple example using the hoverCursor control." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI14.jpg"/> |
+| overlapGroup             | number  | The overlapGroup which the control belongs to or undefined to exclude from moving the control to a non overlapping poisition.<Playground id="#BMW0VQ#3" title="OverlapGroup example" description="Simple example using the overlapGroup property of the control." />            |
+| overlapDeltaMultiplier   | number  | The speed of the movement of the control when used with `AdvancedDynamicTexture`'s `moveToNonOverlappedPosition` method. See the playground above.                                                                                                                              |
 
 Controls can be added directly to the AdvancedDynamicTexture or to a container with:
 
@@ -441,11 +432,7 @@ There are three kinds of buttons available out of the box:
 - ImageButton: An image button is a button made with an image and a text. You can create one with:
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageButton(
-  "but",
-  "Click Me",
-  "textures/grass.png"
-);
+var button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"  isMain={true} category="GUI"/>
@@ -453,14 +440,11 @@ You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" descripti
 - ImageWithCenterTextButton: An image button made with a image background and a centered text overlay.
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageWithCenterTextButton(
-  "but",
-  "Click Me",
-  "textures/grass.png"
-);
+var button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click Me", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.jpg"/>
+
 - SimpleButton: A simple button with text only
 
 ```javascript
@@ -472,10 +456,7 @@ You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" des
 - ImageOnlyButton:
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageOnlyButton(
-  "but",
-  "textures/grass.png"
-);
+var button = BABYLON.GUI.Button.CreateImageOnlyButton("but", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.jpg"/>
@@ -504,14 +485,13 @@ You can define your own animations with the following callbacks:
 You can also create a complete custom button by manually adding children to the button. Here is how the ImageButton is built:
 
 ```javascript
-BABYLON.GUI.Button.CreateMyCustomButton = function(name, text, imageUrl) {
+BABYLON.GUI.Button.CreateMyCustomButton = function (name, text, imageUrl) {
   var result = new BABYLON.GUI.Button(name);
 
   // Adding text
   var textBlock = new BABYLON.GUI.TextBlock(name + "_button", text);
   textBlock.textWrapping = true;
-  textBlock.textHorizontalAlignment =
-    BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+  textBlock.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
   textBlock.paddingLeft = "20%";
   result.addControl(textBlock);
 
@@ -696,7 +676,7 @@ Pre-requisite: a valid single layer SVG document with width, height, viewbox def
 
 Here is an example that uses SVG assets for images and buttons: <Playground id="#E5CARD" title="SVG Asset GUI Example" description="Simple example using SVG assets for gui elements." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI37.jpg"/>
 
-Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](/divingDeeper/scene/customLoadingScreen).
+Known issue: The batch loading process requires the entire SVG icon sheet to be loaded as a HTMLObjectElement in the DOM. On certain browsers, you may notice a quick flash of the icon sheet on the canvas as the assets load. To alleviate this, you may employ [a loading screen](/features/featuresDeepDive/scene/customLoadingScreen).
 
 ## ColorPicker
 
@@ -741,19 +721,7 @@ You can define the keys provided by the keyboard with the following code:
 
 ```javascript
 var keyboard = new BABYLON.GUI.VirtualKeyboard();
-keyboard.addKeysRow([
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "0",
-  "\u2190"
-]);
+keyboard.addKeysRow(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\u2190"]);
 ```
 
 Every key will be created using default values specified by the following properties:
@@ -892,7 +860,7 @@ Here is an example of a StackPanel: <Playground id="#XCPP9Y#11" title="StackPane
 
 ### ScrollViewer
 
-Due to its rich feature set, the ScrollViewer has its own dedicated page right [here](/divingDeeper/gui/scrollViewer).
+Due to its rich feature set, the ScrollViewer has its own dedicated page right [here](/features/featuresDeepDive/gui/scrollViewer).
 
 ### Grid
 
@@ -1009,34 +977,18 @@ You can find an implementation example here: <Playground id="#U9AC0N#58" title="
 The key point is to use the camera.layerMask property to isolate your GUI:
 
 ```javascript
-var camera2 = new BABYLON.ArcRotateCamera(
-  "Camera",
-  0,
-  0.8,
-  100,
-  BABYLON.Vector3.Zero(),
-  scene
-);
+var camera2 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
 camera2.layerMask = 2;
 
 // GUI - simply set advancedTexture layerMask to 2
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "UI"
-);
+var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 advancedTexture.layer.layerMask = 2;
 ```
 
 Then all meshes of your main scene will have a different layerMask attached to main camera:
 
 ```javascript
-var camera1 = new BABYLON.ArcRotateCamera(
-  "Camera",
-  0,
-  0.8,
-  100,
-  BABYLON.Vector3.Zero(),
-  scene
-);
+var camera1 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
 camera1.layerMask = 1;
 
 myMesh.layerMask = 1;
@@ -1048,7 +1000,7 @@ The other option will be to use a multi scene approach with a renderloop defined
 
 ```javascript
 guiScene.autoClear = false;
-engine.runRenderLoop(function() {
+engine.runRenderLoop(function () {
   mainScene.render();
   guiScene.render();
 });
@@ -1060,4 +1012,4 @@ In this case the `guiScene` will host your GUI and the `mainScene` will host you
 
 If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
-Please see [Turning AdaptToDeviceRatio Off/On](/divingDeeper/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.
+Please see [Turning AdaptToDeviceRatio Off/On](/features/featuresDeepDive/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.

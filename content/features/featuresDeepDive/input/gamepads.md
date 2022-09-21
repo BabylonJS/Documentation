@@ -5,7 +5,7 @@ description: Learn about gamepad input support in Babylon.js.
 keywords: diving deeper, input, gamepad, controller
 further-reading:
     - title: How to use virtual joysticks
-      url: /divingDeeper/input/virtualJoysticks
+      url: /features/featuresDeepDive/input/virtualJoysticks
 video-overview:
 video-content:
 ---

@@ -102,7 +102,7 @@ animationGroups[0].stop();
 
 ### Control animations via keyboard
 
-The [**Action Manager**](/divingDeeper/events/actions) can be used to capture the keys pressed on the keyboard:
+The [**Action Manager**](/features/featuresDeepDive/events/actions) can be used to capture the keys pressed on the keyboard:
 
 ```javascript
 var inputMap = {};
@@ -166,5 +166,5 @@ if (keydown) {
 
 This simple example can be enhanced:
 - By adding a more robust logic to manage the details of selecting multiple keys and combining them
-- By using the [**Device Source Manager**](/divingDeeper/input/deviceSourceManager) instead of the Action Manager for key presses
-- With [**animation blending**](/divingDeeper/animation/advanced_animations#animation-blending) to ensure much more natural transitions between animations
+- By using the [**Device Source Manager**](/features/featuresDeepDive/input/deviceSourceManager) instead of the Action Manager for key presses
+- With [**animation blending**](/features/featuresDeepDive/animation/advanced_animations#animation-blending) to ensure much more natural transitions between animations

@@ -17,10 +17,10 @@ in an extremely fast way.
 ## Suggested Pre-Reading
 
 - How To:
-  - [Custom Meshes](/divingDeeper/mesh/creation/custom/custom)
-  - [Updating Vertices](/divingDeeper/mesh/creation/custom/updatingVertices)
+  - [Custom Meshes](/features/featuresDeepDive/mesh/creation/custom/custom)
+  - [Updating Vertices](/features/featuresDeepDive/mesh/creation/custom/updatingVertices)
 - Resources:
-  - [Normals in BJS](/divingDeeper/mesh/creation/custom/vertexNormals)
+  - [Normals in BJS](/features/featuresDeepDive/mesh/creation/custom/vertexNormals)
 
 ## An Overview
 
@@ -175,5 +175,5 @@ More details on this can be found below.
 
 ## How To
 
-- [Putting Shader Code inBabylon.js](/advanced_topics/shaders/shaderCodeInBjs)
-- [ShaderMaterial Object](/advanced_topics/shaders/shaderMaterial)
+- [Putting Shader Code inBabylon.js](/features/featuresDeepDive/materials/shaders/shaderCodeInBjs)
+- [ShaderMaterial Object](/features/featuresDeepDive/materials/shaders/shaderMaterial)

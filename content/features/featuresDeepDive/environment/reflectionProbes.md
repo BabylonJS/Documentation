@@ -5,7 +5,7 @@ description: Learn how to use reflection probes in your Babylon.js scene.
 keywords: diving deeper, environment, reflection probe
 further-reading:
     - title: Reflections and Refractions
-      url: /divingDeeper/materials/using/reflectionTexture
+      url: /features/featuresDeepDive/materials/using/reflectionTexture
 video-overview:
 video-content:
 ---

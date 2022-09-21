@@ -16,7 +16,7 @@ During the early stages of developing code to contribute to Babylon.js it can be
 
 Babylon.js has code to form a bezier curve found at https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Maths/math.path.ts , (just search for Curve3 on this page) so it would make sense to put any code to form a bezier surface on the same page.
 
-The first step is to produce code that works. You can of course immediately follow the steps in [how to start contributing](/divingDeeper/developWithBjs/howToStart) and of course before submitting a PR there will have to be working code submitted as described on this page. However you might not yet be confident with the whole approach of forking the code, using git, setting up an IDE and pull requests but are familiar with using Typescript.
+The first step is to produce code that works. You can of course immediately follow the steps in [how to start contributing](/contribute/toBabylon/HowToContribute) and of course before submitting a PR there will have to be working code submitted as described on this page. However you might not yet be confident with the whole approach of forking the code, using git, setting up an IDE and pull requests but are familiar with using Typescript.
 
 So an alternative is to try out the code in the playground. The following playground shows the Typescript code for a bezier surface which is in development with the playground.
 
@@ -43,8 +43,8 @@ Once you are happy the code works and you have copied it to your local repositor
 
 [Start Contibuting](how to start contributing)  
 [Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)  
-[Code Guidelines](/divingDeeper/developWithBjs/approvedNamingConventions)  
-[Comments in the API](/divingDeeper/developWithBjs/contributeToAPI)
+[Code Guidelines](/contribute/toBabylon/approvedNamingConventions)  
+[Comments in the API](/contribute/toBabylon/contributeToAPI)
 
 On the other hand there is always the possibility that someone in the core team likes your idea and its execution so much they might just copy and add it to Babylon.js directly.
 

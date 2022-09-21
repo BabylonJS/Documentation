@@ -28,13 +28,13 @@ https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
 ## BabylonJS official documentation
 
-[Getting started with BabylonJS](/start "Getting started")
+[Getting started with BabylonJS](/features/introductionToFeatures "Getting started")
 
-[The BabylonJS GUI](/divingDeeper/gui/gui "BabylonJS GUI")
+[The BabylonJS GUI](/features/featuresDeepDive/gui/gui "BabylonJS GUI")
 
-[The BabylonJS Inspector not just for debugging](/toolsAndResources/tools/inspector "BabylonJS Inspector")
+[The BabylonJS Inspector not just for debugging](/toolsAndResources/inspector "BabylonJS Inspector")
 
-[Installing BabylonJS - ES6 tutorial](/divingDeeper/developWithBjs/treeShaking "Installing BabylonJS - ES6 tutorial")
+[Installing BabylonJS - ES6 tutorial](/setup/frameworkPackages/es6Support "Installing BabylonJS - ES6 tutorial")
 
 ## Abstract
 

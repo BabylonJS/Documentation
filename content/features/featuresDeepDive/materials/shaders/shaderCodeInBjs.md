@@ -5,9 +5,9 @@ description: Dive deep into the inner workings of how Babylon.js handles shaders
 keywords: babylon.js, advanced, shaders
 further-reading:
   - title: Introduction To Shaders inBabylon.js
-    url: /advanced_topics/shaders/introToShaders
+    url: /features/featuresDeepDive/materials/shaders/introToShaders
   - title: ShaderMaterial Object
-    url: /advanced_topics/shaders/introToShaders
+    url: /features/featuresDeepDive/materials/shaders/introToShaders
 video-overview:
 video-content:
 ---
@@ -21,7 +21,7 @@ Here are four ways of putting shader code into your scene:
 3. Write, save and import a Vertex and Fragment Shader file of type .fx into your code;
 4. Use the shaderBuilder extension ofBabylon.js.
 
-Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/advanced_topics/shaders/shaderMaterial) to pass data to the shaders.
+Methods 1, 2 and 3 use [BABYLON.ShaderMaterial](/features/featuresDeepDive/materials/shaders/shaderMaterial) to pass data to the shaders.
 
 ## Babylon.js CYOS Download
 

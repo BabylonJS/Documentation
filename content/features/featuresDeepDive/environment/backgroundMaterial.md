@@ -123,4 +123,4 @@ You can see an example here: <Playground id="#G3HSAW#11" title="Mix Gray Scale a
 
 ## Environment
 
-Going further, you can take a look at the [Environment documentation](/start/chap5/sky) where you can find information on how to speed up the setup of your scene with a skybox and a ground.
+Going further, you can take a look at the [Environment documentation](/features/introductionToFeatures/chap5/sky) where you can find information on how to speed up the setup of your scene with a skybox and a ground.

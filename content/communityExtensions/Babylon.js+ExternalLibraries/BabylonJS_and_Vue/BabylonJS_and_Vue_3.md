@@ -93,7 +93,7 @@ Now we are ready to `npm run serve`, click on the button and after the cube has 
 
 ## Where to go next?
 
-Visit our great [Getting started](/start "Getting started") page.
+Visit our great [Getting started](/features/introductionToFeatures "Getting started") page.
 
 ## Links
 

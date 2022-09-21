@@ -14,7 +14,7 @@ Gizmo's are objects that can be attached to a node (mesh, bone, transform) to pr
 
 ![](/img/how_to/gui/gizmos.png)
 
-Note: Gizmos will set/modify the [rotationQuaternion](/divingDeeper/mesh/transforms) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
+Note: Gizmos will set/modify the [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
 
 ## GizmoManager
 
@@ -73,7 +73,7 @@ Note: This is not supported on the scale gizmo
 
 ## Setup
 
-Gizmos are displayed by a [UtilityLayerRenderer](/divingDeeper/mesh/utilityLayerRenderer) to not disrupt the existing scene state. If not specified, the default utility layer will be used.
+Gizmos are displayed by a [UtilityLayerRenderer](/features/featuresDeepDive/mesh/utilityLayerRenderer) to not disrupt the existing scene state. If not specified, the default utility layer will be used.
 
 The utility layers are independent of the scene or engine. After creating a gizmo it is exposed off of gizmo.gizmoLayer. If creating a gizmo without specifying a utility layer it will use the default utility layer’s UtilityLayerRenderer.DefaultUtilityLayer (for overlay gizmos like position/scale) and UtilityLayerRenderer.DefaultKeepDepthUtilityLayer (for occluded gizmos like bounding box) It is recommended to use these layers and reuse layers for most cases as every new utility layer comes with additional overhead.
 
@@ -121,7 +121,7 @@ A sensitivity factor can be customized for AxisScaleGizmo and ScaleGizmo. Defaul
 gizmoScale.sensitivity = 3;
 ```
 
-These gizmo's internally use a [pointerDragBehavior](/divingDeeper/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
+These gizmo's internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
 
 ```
 gizmo.dragBehavior.onDragObservable.add(()=>{
@@ -176,7 +176,7 @@ gizmo.onRotationSphereDragEndObservable.add(()=>{
 });
 ```
 
-To drag around objects contained inside a bounding box, [Mesh Behaviors](/divingDeeper/behaviors/meshBehaviors) can be attached.
+To drag around objects contained inside a bounding box, [Mesh Behaviors](/features/featuresDeepDive/behaviors/meshBehaviors) can be attached.
 When using with models with complex geometry such as a custom GLTF file, the complex model should be set to not be pickable by pointers and wrapped in a pickable bounding box mesh to save on performance. A helper method to do this is provided.
 
 ```
@@ -197,7 +197,7 @@ gizmo.includeChildPredicate = (m)=>{return m == sphere2};
 
 <Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo."/>
 
-UI can be attached to the bounding box using the [AttachToBoxBehavior](/divingDeeper/behaviors/meshBehaviors)
+UI can be attached to the bounding box using the [AttachToBoxBehavior](/features/featuresDeepDive/behaviors/meshBehaviors)
 
 <Playground id="#8GY6J8#199" title="Bounding Box Gizmo .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with a .glTF file."/>
 <Playground id="#6E4LSB#15" title="Bounding Box Gizmo Animated .glTF Example" description="Simple example of how to use the Bounding Box Gizmo with an animated .glTF file."/>

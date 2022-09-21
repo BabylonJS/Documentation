@@ -5,17 +5,17 @@ description: Learn about the various features and controls shared with MRTK
 keywords: diving deeper, GUI, 3D GUI, 3D, MRTK
 further-reading:
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/featuresDeepDive/gui/gui
     - title: How To Use Babylon 3D GUI
-      url: /divingDeeper/gui/gui3D
+      url: /features/featuresDeepDive/gui/gui3D
     - title: How To Use Babylon Gizmos
-      url: /divingDeeper/mesh/gizmo
+      url: /features/featuresDeepDive/mesh/gizmo
     - title: How To Use Babylon Behaviors
-      url: /divingDeeper/behaviors/meshBehaviors
+      url: /features/featuresDeepDive/behaviors/meshBehaviors
     - title: How To Use Babylon XR Features
-      url: /divingDeeper/webXR/WebXRSelectedFeatures
+      url: /features/featuresDeepDive/webXR/WebXRSelectedFeatures
     - title: How To Use Babylon AR Features
-      url: /divingDeeper/webXR/webXRARFeatures
+      url: /features/featuresDeepDive/webXR/webXRARFeatures
 video-overview:
 video-content:
 ---
@@ -25,12 +25,12 @@ MRTK stands for the Mixed Reality Toolkit, a set of features, controls, and comp
 
 There currently only exists documentation for MRTK's [Unity](https://docs.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/) and [Unreal](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unreal/unreal-mrtk-introduction) implementations, and so when we talk about matching what MRTK offers, we are comparing to what these offer.
 
-This page will go over each of the MRTK-relevant controls and features present in BabylonJS, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page here](/divingDeeper/gui/gui3D), and if a section has a relevant page, that will also be linked.
+This page will go over each of the MRTK-relevant controls and features present in BabylonJS, showing how each can be used. Many of the controls can also be viewed on the [3D GUI page here](/features/featuresDeepDive/gui/gui3D), and if a section has a relevant page, that will also be linked.
 
 ## GUI Controls
 The following BabylonJS controls have roots as MRTK features. As they extend  the `Control3D` class, they all support the basic capabilities that `Control3D` objects have.
 
-More on the `Control3D` class, and GUI elements in general, can be found [here](/divingDeeper/gui/gui).
+More on the `Control3D` class, and GUI elements in general, can be found [here](/features/featuresDeepDive/gui/gui).
 
 The following is an example that showcases several of the controls listed, including `TouchHolographicButtons` , `TouchMeshButtons`, and the `NearMenu`. This scene is designed for use in XR, and supports use of `WebXRNearInteraction`:
 <Playground id="#24DLJ4#7" title="Near Interaction Button Scene Demo" description="Demo showcasing different Control3D objects with Near Interaction support."/>
@@ -49,7 +49,7 @@ Aside from the customization of its visuals, this button behaves in the same way
 #### Holographic Slate
 The `HolographicSlate` is a flat panel that can float in a 3D environment, used to display 2D content in XR experiences.
 
-It consists of a titlebar and content pane. The titlebar has room for a custom title, plus a follow button and close button. The follow button will toggle whether the slate follows the user around or not, and the close button will destroy the slate. The content pane hosts an `AdvancedDynamicTexture`, which is [explained in more detail here](/divingDeeper/gui/gui).
+It consists of a titlebar and content pane. The titlebar has room for a custom title, plus a follow button and close button. The follow button will toggle whether the slate follows the user around or not, and the close button will destroy the slate. The content pane hosts an `AdvancedDynamicTexture`, which is [explained in more detail here](/features/featuresDeepDive/gui/gui).
 
 See it in action here:
 <Playground id="#43YQHC#2" title="Slate Scene w/ Label" description="A showcase of different uses for HolographicSlates."/>
@@ -66,7 +66,7 @@ The `HandMenu` is a `HolographicMenu` that is anchored to the user's hand using 
 
 Its default position lies on the outside of the user's left hand, such that when their palm is up, the menu is facing them and easily accessible by their right hand.
 
-The menu can be customized to appear by default on the right hand or either hand, and can also be anchored to a different quadrant of the hand. Only one menu will be visible at a time though, even if both hands are up. More information on this can be found in the `HandConstraintBehavior`'s section [here](/divingDeeper/gui/mrtk#hand-constraint-behavior).
+The menu can be customized to appear by default on the right hand or either hand, and can also be anchored to a different quadrant of the hand. Only one menu will be visible at a time though, even if both hands are up. More information on this can be found in the `HandConstraintBehavior`'s section [here](/features/featuresDeepDive/gui/mrtk#hand-constraint-behavior).
 
 #### Slider 3D
 The `Slider3D` is a customizable slider with a 3D presence. The default range of the slider is from `0` to `1`, though that can be customized, along with the step count and precision.
@@ -79,7 +79,7 @@ See it in action here:
 ## Behaviors and Gizmos
 Some behaviors and Gizmos are also shared with MRTK components. In MRTK terminology, these are usually referred to as Solvers, Bounds Control, or Object Manipulators. Behaviors and Gizmos are attached to `Nodes`, `TransformNodes`, and `Meshes` in order to provide additional functionality.
 
-More information on `Gizmos` can be found [here](/divingDeeper/mesh/gizmo), while behaviors are covered in more detail [here](/divingDeeper/behaviors/meshBehaviors).
+More information on `Gizmos` can be found [here](/features/featuresDeepDive/mesh/gizmo), while behaviors are covered in more detail [here](/features/featuresDeepDive/behaviors/meshBehaviors).
 
 #### SixDof Drag Behavior
 The `SixDofDragBehavior`, also known as MRTK's `Object Manipulator` component. By creating and attaching it to an object in the scene, users are able to grab, move, and rotate the object. Interacting with a ray-cast input allows the object to be moved in 3-dimensions, while interacting with near interaction adds the ability to rotate the object in-place.
@@ -123,7 +123,7 @@ The `BoundingBoxGizmo` is also known as MRTK's `Bounds Control` component. This 
 ## Background Features
 These are features that work in the background to enhance the capabilities available to a user.
 
-General XR features are covered in detail [here](/divingDeeper/webXR/WebXRSelectedFeatures), while AR-specific features are covered in detail [here](/divingDeeper/webXR/webXRARFeatures).
+General XR features are covered in detail [here](/features/featuresDeepDive/webXR/WebXRSelectedFeatures), while AR-specific features are covered in detail [here](/features/featuresDeepDive/webXR/webXRARFeatures).
 
 #### Hand Tracking and Near Interaction
 The Hand Tracking feature, `WebXRHandTracking`, is an enhancement to hand inputs for XR devices that support it.

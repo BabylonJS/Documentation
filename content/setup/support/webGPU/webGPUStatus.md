@@ -23,11 +23,11 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 * Support types other than `float` for the vertex buffers (position, normal, uv, ...)
   * Contrary to WebGL, in WebGPU there's no automatic conversion from the type of the vertex buffer to the type used by shader
 * Handle context lost/restore
-* [Multiview / WebXR](/divingDeeper/cameras/multiViewsPart1)
+* [Multiview / WebXR](/features/featuresDeepDive/cameras/multiViewsPart1)
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
 
 ## Make it fast: Optimizations
-The most important optimizations have now been done (see [Optimizations](/advanced_topics/webGPU/webGPUOptimization)), others could be considered:
+The most important optimizations have now been done (see [Optimizations](/setup/support/webGPU/webGPUOptimization)), others could be considered:
 * Use compute shaders to perform some conversions when reading data from buffers
 * Use compute shaders to generate mipmaps
 

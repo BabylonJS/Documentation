@@ -9,7 +9,7 @@ further-reading:
   - title: Geodesic and Goldberg Polyhedra Mathematics
     url: /guidedLearning/workshop/Geodesic_Math
   - title: Icosphere
-    url: /divingDeeper/mesh/creation/polyhedra/icosphere
+    url: /features/featuresDeepDive/mesh/creation/polyhedra/icosphere
 video-overview:
 video-content:
 ---

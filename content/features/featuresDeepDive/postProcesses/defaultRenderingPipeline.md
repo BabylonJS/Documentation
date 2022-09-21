@@ -5,7 +5,7 @@ description: Learn about the default rendering pipeline in Babylon.js.
 keywords: diving deeper, post processes, post process, render pipeline, render, default rendering
 further-reading:
     - title: How To Use PostProcess
-      url: /divingDeeper/postProcesses/usePostProcesses
+      url: /features/featuresDeepDive/postProcesses/usePostProcesses
     - title: Babylon.DefaultRenderingPipeline
       url: /typedoc/classes/babylon.defaultrenderingpipeline
     - title: Babylon.ImageProcessingPostProcess
@@ -147,7 +147,7 @@ You can turn the image processing effect on and off with:
 pipeline.imageProcessingEnabled = true;
 ```
 
-You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/divingDeeper/postProcesses/usePostProcesses#imageprocessing).
+You can also control individual image processing subeffects. To get more info about the ImageProcessing postprocess, please read the following [tutorial](/features/featuresDeepDive/postProcesses/usePostProcesses#imageprocessing).
 
 ## Chromatic Aberration
 

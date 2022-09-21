@@ -7,7 +7,7 @@ further-reading:
     - title: VideoDome
       url: /typedoc/classes/VideoDome
     - title: Video as a Texture
-      url: /divingDeeper/materials/using/videoTexture
+      url: /features/featuresDeepDive/materials/using/videoTexture
 video-overview:
 video-content:
 ---
@@ -20,7 +20,7 @@ Note that the video dome also supports 180 degrees video. Read below for further
 
 ## VideoDome
 
-VideoDomes rely heavily on the [VideoTexture](/divingDeeper/materials/using/videoTexture) class, check out it's documentation so that some parameters make more sense.
+VideoDomes rely heavily on the [VideoTexture](/features/featuresDeepDive/materials/using/videoTexture) class, check out it's documentation so that some parameters make more sense.
 The source video itself should be "Equirectangular", without an equirectangular source the class won't function correctly.
 
 ## VideoDome Code
@@ -50,7 +50,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 
 ## Auto Play
 
-Modern browsers have strict policies for auto playing video. See  [VideoTexture](/divingDeeper/materials/using/videoTexture) documentation for details.  The underlying VideoTexture used by VideoDome is available as `videoTexture`.  Code to manually play video might look like this:
+Modern browsers have strict policies for auto playing video. See  [VideoTexture](/features/featuresDeepDive/materials/using/videoTexture) documentation for details.  The underlying VideoTexture used by VideoDome is available as `videoTexture`.  Code to manually play video might look like this:
 
 ``` javascript
 scene.onPointerDown = function () {
@@ -126,4 +126,4 @@ When disposing a video dome, the second parameter is important to make sure the 
 ```javascript
 videoDome.dispose(false, true)
 ```
-See also documentation regarding [VideoTexture disposal](/divingDeeper/materials/using/videoTexture#disposal). 
+See also documentation regarding [VideoTexture disposal](/features/featuresDeepDive/materials/using/videoTexture#disposal). 

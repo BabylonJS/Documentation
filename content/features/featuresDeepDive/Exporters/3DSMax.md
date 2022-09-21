@@ -278,7 +278,7 @@ The _write textures_ option enables writing the textures to the output directory
 
 The _overwrite textures_ option enables overwriting existing textures in the output directory.
 
-The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/extensions/Exporters/3DSMax_to_glTF#draco-compression).
+The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#draco-compression).
 
 The _Export Animations_ option enables you to export only the geometry and materials.
 
@@ -344,7 +344,7 @@ Also, if animations are not exported correctly, you may want to disable animatio
 
 ## Consideration about bones
 
-To ensure that bones are correctly exported, you have to use the Skin modifier. Skin should be positioned at origin. [More info here](/extensions/Exporters/Bones_influences_per_vertex)
+To ensure that bones are correctly exported, you have to use the Skin modifier. Skin should be positioned at origin. [More info here](/features/featuresDeepDive/Exporters/Bones_influences_per_vertex)
 
 ## Textures image format
 
@@ -374,11 +374,11 @@ Multi-Materials are supported, but **inputting a Multi-Material into another Mul
 
 ## Physical materials
 
-The handling of physical materials is mimic from glTF format. [Detailed explanations here](/extensions/Exporters/3DSMax_to_glTF#pbr-materials)
+The handling of physical materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#pbr-materials)
 
 ## Arnold materials
 
-The handling of arnold materials is mimic from glTF format. [Detailed explanations here](/extensions/Exporters/3DSMax_to_glTF#standard-surface-arnold-material)
+The handling of arnold materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#standard-surface-arnold-material)
 
 As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of the material. You can see below the supported parameters:
 
@@ -424,11 +424,11 @@ Limitations:
 
 ## Shell material
 
-The handling of the shell material is mimic from glTF format. [Detailed explanations here](/extensions/Exporters/3DSMax_to_glTF#shell-material)
+The handling of the shell material is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#shell-material)
 
 ## DirectX Shader
 
-The handling of the directX shader material is mimic from glTF format. [Detailed explanations here](/extensions/Exporters/3DSMax_to_glTF#directx-shader-material)
+The handling of the directX shader material is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#directx-shader-material)
 
 ## Texture transparency
 
@@ -436,7 +436,7 @@ Babylon supports PNG, DDS and TGA formats for texture transparency. You can choo
 
 ![texture](/img/exporters/3DSMax/11_texture.jpg)
 
-**Important:** if you are relying on a physically based material, you can chose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](/extensions/Exporters/3DSMax_to_glTF#alpha-mode) to learn more about this feature.
+**Important:** if you are relying on a physically based material, you can chose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#alpha-mode) to learn more about this feature.
 
 ## Babylon material attributes
 

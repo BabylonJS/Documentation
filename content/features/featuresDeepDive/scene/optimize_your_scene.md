@@ -5,11 +5,11 @@ description: Learn how to optimize your scene in Babylon.js.
 keywords: diving deeper, scene, optimization, optimize
 further-reading:
     - title: How to Use Scene Optimizer
-      url: /divingDeeper/scene/sceneOptimizer
+      url: /features/featuresDeepDive/scene/sceneOptimizer
     - title: How To Optimize Your Scene With Octrees
-      url: /divingDeeper/scene/optimizeOctrees
+      url: /features/featuresDeepDive/scene/optimizeOctrees
     - title: Multiview VR optimization
-      url: /divingDeeper/cameras/multiViewsPart1
+      url: /features/featuresDeepDive/cameras/multiViewsPart1
 video-overview:
 video-content:
 ---
@@ -65,7 +65,7 @@ scene.unfreezeActiveMeshes();
 
 Note that you can force a mesh to be in the active meshes before freezing the list with `mesh.alwaysSelectAsActiveMesh = true`.
 
-Freezing active meshes list may cause some things on the scene to stop updating. One example is [RenderTargetTexture](/divingDeeper/postProcesses/renderTargetTextureMultiPass), if it's used by mesh materials. For that case RTT needs to be explicitly added to the list of active camera's custom render targets, which will guarantee that it ends up in the render list of the scene:
+Freezing active meshes list may cause some things on the scene to stop updating. One example is [RenderTargetTexture](/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass), if it's used by mesh materials. For that case RTT needs to be explicitly added to the list of active camera's custom render targets, which will guarantee that it ends up in the render list of the scene:
 
 ```javascript
 camera.customRenderTargets.push(renderTargetTexture);
@@ -85,7 +85,7 @@ To avoid this process, you can set `scene.skipPointerMovePicking = true`.
 Please note that by doing it, you will have no event over any mesh when the pointer will move (And `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`.
 
 ## Reducing draw calls
-As soon as you can please use [instances](/divingDeeper/mesh/copies/instances) as they are drawn with one single draw call.
+As soon as you can please use [instances](/features/featuresDeepDive/mesh/copies/instances) as they are drawn with one single draw call.
 
 If sharing the same material is a problem, you can then think about using clones which share the same geometry with `mesh.clone("newName")`
 
@@ -264,8 +264,8 @@ Those counters are all reset to 0 at the beginning of each frame. Therefore it i
 
 ## Inspector
 
-Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](/toolsAndResources/tools/inspector#inspector-pane) or turn on/off features or [debugging tools](/toolsAndResources/tools/inspector#specific-debug-tools).
+Starting with Babylon.js v4.0 you can use the Inspector to [analyze your scene](/toolsAndResources/inspector#inspector-pane) or turn on/off features or [debugging tools](/toolsAndResources/inspector#specific-debug-tools).
 
 ## VR/XR scenarios
 
-When usingBabylon.js with WebVR or WebXR, enabling [Multiview](/divingDeeper/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.
+When usingBabylon.js with WebVR or WebXR, enabling [Multiview](/features/featuresDeepDive/cameras/multiViewsPart1) is a quick way to almost double the rendering speed.

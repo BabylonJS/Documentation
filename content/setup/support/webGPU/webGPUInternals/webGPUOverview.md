@@ -40,7 +40,7 @@ This class handles everything related to GPU textures (creation, deletion, readi
 * the mipmap generation is done by issueing n render passes (*6 for a cube texture). It would probably be faster to use some optimized compute shaders instead. Also, see [Lower perf when generating mipmaps compared to webgl](https://bugs.chromium.org/p/dawn/issues/detail?id=587) for some discussions about mipmap generation perf
 
 ### WebGPUSnapshotRendering
-This class implements the snapshot rendering optimization: see [Snapshot Rendering](/advanced_topics/webGPU/webGPUOptimization/webGPUSnapshotRendering) for more information about this optim.
+This class implements the snapshot rendering optimization: see [Snapshot Rendering](/setup/support/webGPU/webGPUOptimization/webGPUSnapshotRendering) for more information about this optim.
 
 It is creating a bundle for each of the render texture (either a render target texture or the swap chain texture) at recording time and replay this bundle for all subsequent frames.
 
@@ -62,10 +62,10 @@ As explained above, it currently only works in Chrome if it is launched with the
 To avoid recreating some objects each time they are needed and to save performance, a number of caches are used by the WebGPU implementation.
 
 ### WebGPUCacheBindGroup
-This class implements a cache of GPU bind groups. See [Cache Bind Groups](/advanced_topics/webGPU/webGPUInternals/webGPUCacheBindGroup) for detailed explanations about the implementation.
+This class implements a cache of GPU bind groups. See [Cache Bind Groups](/setup/support/webGPU/webGPUInternals/webGPUCacheBindGroup) for detailed explanations about the implementation.
 
 ### WebGPUCacheRenderPipeline
-This class implements a cache of GPU render pipelines. See [Cache Render Pipelines](/advanced_topics/webGPU/webGPUInternals/webGPUCacheRenderPipeline) for detailed explanations about the implementation.
+This class implements a cache of GPU render pipelines. See [Cache Render Pipelines](/setup/support/webGPU/webGPUInternals/webGPUCacheRenderPipeline) for detailed explanations about the implementation.
 
 ### WebGPUCacheSampler
 This class implements a cache of GPU samplers. The cache is a simple map:
@@ -109,14 +109,14 @@ These are classes that deal with shaders and shader contexts. Note that **Pipeli
 
 The main task of these classes is to collect the list of buffers, uniforms, attributes, textures and samplers and create the related WebGPU objects, like the bind group layout entries and the bind group entries. Those objects are stored in a `WebGPUShaderProcessingContext` instance. The shader code is also modified so that it complies with the syntax expected by **glsllang**.
 
-These classes also create a description of a special uniform buffer called the **left over buffer** which contains all the uniform variables declared with the `uniform VarType VarName;` syntax in the shader (or `uniform VarName : VarType;` for WGSL shaders - see [Writing shaders in WGSL](/advanced_topics/webGPU/webGPUWGSL#special-syntax-used-in-wgsl-code)). Indeed, you can't declare uniforms outside of a uniform buffer in WebGPU, so the system creates one for you under the hood and handles it transparently.
+These classes also create a description of a special uniform buffer called the **left over buffer** which contains all the uniform variables declared with the `uniform VarType VarName;` syntax in the shader (or `uniform VarName : VarType;` for WGSL shaders - see [Writing shaders in WGSL](/setup/support/webGPU/webGPUWGSL#special-syntax-used-in-wgsl-code)). Indeed, you can't declare uniforms outside of a uniform buffer in WebGPU, so the system creates one for you under the hood and handles it transparently.
 
 To avoid an additional *copy texture with Y inversion* at the end of a frame, these classes inject some special code in all shaders. The parameters that are used by this code (`yFactor` and `textureOutputHeight`) are passed through a specific uniform buffer and is called **Internals** in the shader code. See [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
 
 ### WebGPUShaderProcessingContext
 This class holds all the data extracted/created when the shaders are parsed by `WebGPUShaderProcessorXXX`.
 
-Note that we are using the `_SimplifiedKnownUBOs` definition of the known UBOs and not `_KnownUBOs` to save some `GPURenderPassEncoder.setBindGroup` calls: with `_SimplifiedKnownUBOs` we only use two bind groups, so issue only two calls. There's an optimization that could be made in the future where we would not issue the call for the scene UBO (the bind group 0) if the scene UBO is the same and its content did not change since the last call. However, the expected mode to use WebGPU in is the [non compatibility mode](/advanced_topics/webGPU/webGPUOptimization/webGPUNonCompatibilityMode) and in this mode the number of `setBindGroup` calls is not so relevant as we do them only one time at bundle creation time.
+Note that we are using the `_SimplifiedKnownUBOs` definition of the known UBOs and not `_KnownUBOs` to save some `GPURenderPassEncoder.setBindGroup` calls: with `_SimplifiedKnownUBOs` we only use two bind groups, so issue only two calls. There's an optimization that could be made in the future where we would not issue the call for the scene UBO (the bind group 0) if the scene UBO is the same and its content did not change since the last call. However, the expected mode to use WebGPU in is the [non compatibility mode](/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode) and in this mode the number of `setBindGroup` calls is not so relevant as we do them only one time at bundle creation time.
 
 ### WebGPUPipelineContext
 This class is the main class used by the `Effect` class and gathers all the data related to the shaders the effect is built upon. The main properties are:
@@ -148,7 +148,7 @@ Also, we must know if there's at least one **32 bits float** texture (see `WebGP
 This class keeps track of the list of uniform/storage buffers used by a shader. The material uniform buffer could have been stored on `WebGPUMaterialContext` but to simplify the implementation we did not split the list, all buffers are handled by `WebGPUDrawContext`.
 
 The class also holds two caches:
-* **fastBundle**. It is the bundle used in the [non compatibility mode](/advanced_topics/webGPU/webGPUOptimization/webGPUNonCompatibilityMode)
+* **fastBundle**. It is the bundle used in the [non compatibility mode](/setup/support/webGPU/webGPUOptimization/webGPUNonCompatibilityMode)
 * **bindGroups**. It is the cache of the bind groups. It is reused for the next draw if `WebGPUDrawContext.isDirty==false` (and `WebGPUMaterialContext.isDirty==false`). See [WebGPUCacheBindGroup](#optimization)
 
 Lastly, the class manages a GPU buffer (`WebGPUDrawContext.indirectDrawBuffer`) that stores the parameters used in a (indirect) draw call when using instances in the non compatibility mode. Indeed, when in that mode, the draw call is embedded inside the bundle and if the number of instances to draw changes from one frame to another we would need to recreate the bundle to update the instance count parameter. As creating a bundle incurs some performance penalty, instead of doing a regular draw in the bundlle we issue an indirect draw call and we update the instance count in the GPU buffer.
@@ -191,7 +191,7 @@ When recording the API calls during a frame (as used by the snapshot rendering f
 ### WebGPUClearQuad
 This class handles clearing a rectangular area in a texture. It is used when `WebGPUEngine.clear()` is called and a non fullscreen scissor rect is in effect.
 
-It has its own render pipeline cache instance to avoid interfering with the main render pipeline cache. Indeed, `WebGPUClearQuad` needs to disable the depth test and set the stencil read mask to **0xFF**. If we would set those states on the main render pipeline cache instead, it would/could incurr a change of these states (generally the depth test is enabled) and so force to start the cache traversal with a lower index state than if we use a separate cache instance (see how the render pipeline cache works [Cache Render Pipeline](/advanced_topics/webGPU/webGPUInternals/webGPUCacheRenderPipeline)). Not sure it is a big performance boost (as `WebGPUClearQuad.clear()` is called very infrequently) however, but it's done nonetheless...
+It has its own render pipeline cache instance to avoid interfering with the main render pipeline cache. Indeed, `WebGPUClearQuad` needs to disable the depth test and set the stencil read mask to **0xFF**. If we would set those states on the main render pipeline cache instead, it would/could incurr a change of these states (generally the depth test is enabled) and so force to start the cache traversal with a lower index state than if we use a separate cache instance (see how the render pipeline cache works [Cache Render Pipeline](/setup/support/webGPU/webGPUInternals/webGPUCacheRenderPipeline)). Not sure it is a big performance boost (as `WebGPUClearQuad.clear()` is called very infrequently) however, but it's done nonetheless...
 
 ### WebGPURenderPassWrapper
 This class is a very small wrapper around the main objects used by a GPU render pass: the render pass descriptor, the render pass itself, the color/depth descriptors, the output textures and the depth texture format. There is one instance for the main pass and another for the render target pass and allows to factorize some methods common to main/render target passes (like `_setColorFormat` and `_setDepthTextureFormat`).

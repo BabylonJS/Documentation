@@ -20,7 +20,7 @@ Having [started your journey](/journey) and having an overview of Babylon.js, th
 6. [Babylon.js Cross-Platform](/crossPlat) - In this section you'll learn how to extend Babylon.js beyond the web and use it to develop native applications for just about any platform you can imagine.
 7. [Contribute](/contribute) - For those of you who want to expand the boundaries of Babylon.js this section describes what is needed and how to contribute to both the code base of Babylon.js and its documentation.
 8. [Guided Learning](/guidedLearning) - Sometimes it's best to learn while doing. This section helps you do just that. These step by step articles and tutorials will help you learn from some of the communities best and brightest teachers.
-9. [Community Extensions](/extensions) - In this section you'll find incredible resources and extensions to Babylon.js, built by the incredibly talented and passionate community.
+9. [Community Extensions](/communityExtensions) - In this section you'll find incredible resources and extensions to Babylon.js, built by the incredibly talented and passionate community.
 
 ## How To Use The Documentation
 

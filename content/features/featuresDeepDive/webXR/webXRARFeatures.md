@@ -18,7 +18,7 @@ The idea behind augmented reality is simple - show the real world, but add infor
 
 ### WebXR and AR
 
-Augmented reality using Babylon.js heavily relies on WebXR. It's recommended to first start with the [getting started with WebXR](/divingDeeper/webXR/introToWebXR) guide. Most of the information that is valid for immersive VR sessions is also valid for immersive AR sessions. The few main differences between the two will be explained here.
+Augmented reality using Babylon.js heavily relies on WebXR. It's recommended to first start with the [getting started with WebXR](/features/featuresDeepDive/webXR/introToWebXR) guide. Most of the information that is valid for immersive VR sessions is also valid for immersive AR sessions. The few main differences between the two will be explained here.
 
 ### Supported devices
 

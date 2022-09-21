@@ -4,8 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, animation, 
 further-reading:
-    - title: All About Animations](/divingDeeper/animation/animation_introduction)
-      url: /divingDeeper/animation
+    - title: All About Animations](/features/featuresDeepDive/animation/animation_introduction)
+      url: /features/featuresDeepDive/animation
 video-overview:
 video-content:
 ---

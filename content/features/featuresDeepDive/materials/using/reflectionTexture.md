@@ -5,11 +5,11 @@ description: Learn all about reflection and refraction in Babylon.js.
 keywords: diving deeper, materials, refraction, reflection
 further-reading:
     - title: Skyboxes
-      url: /divingDeeper/environment/skybox
+      url: /features/featuresDeepDive/environment/skybox
     - title: Reflection Probes
-      url: /divingDeeper/environment/reflectionProbes
+      url: /features/featuresDeepDive/environment/reflectionProbes
     - title: Introduction to Physically Based Rendering 
-      url: /divingDeeper/materials/using/introToPBR
+      url: /features/featuresDeepDive/materials/using/introToPBR
 video-overview:
 video-content:
 ---
@@ -19,7 +19,7 @@ Babylon.js uses _environment mapping_ ([wikipedia](https://en.wikipedia.org/wiki
 
 Environment maps are pictures of the world (as seen from some vantage point) which are transformed and applied to meshes to simulate reflection or refraction. These pictures may be single images or composite panoramas, and may be static snapshots or dynamically updated to track scene changes.
 
-Once created (as described below), environment maps may be used in [StandardMaterial](/typedoc/classes/babylon.standardmaterial)'s [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture); environment maps are also used in [Physically Based Rendering](/divingDeeper/materials/using/introToPBR) for sophisticated material surfaces.
+Once created (as described below), environment maps may be used in [StandardMaterial](/typedoc/classes/babylon.standardmaterial)'s [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture); environment maps are also used in [Physically Based Rendering](/features/featuresDeepDive/materials/using/introToPBR) for sophisticated material surfaces.
 
 ## Static environment maps (CubeTexture and friends)
 [CubeTexture](/typedoc/classes/babylon.cubetexture) instances use six images to make a static wraparound environment map (or "cubemap"). [The CubeMap constructor](/typedoc/classes/babylon.cubetexture#constructor) takes a base URL and appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg" and "\_nz.jpg" to load images for the +x, -x, +y, -y, +z, and -z facing sides of a cube.
@@ -31,7 +31,7 @@ Once created (as described below), environment maps may be used in [StandardMate
 Despite the "Texture" name, CubeTexture can _only_ be used with the [.reflectionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) or [.refractionTexture](/typedoc/classes/babylon.standardmaterial#reflectiontexture) properties of [StandardMaterial](/typedoc/classes/babylon.standardmaterial), _not_ other properties like [.diffuseTexture](/typedoc/classes/babylon.standardmaterial#diffusetexture).
 
 ### Skybox cubemaps
-[Skybox images](/divingDeeper/environment/skybox) may be used directly as environment maps. (Conveniently, skyboxes also typically use CubeTexture.) In this case only the skybox will show up in the reflection/refraction; other scene members will not be reflected, but that may be acceptable for simple scenes or small surfaces.
+[Skybox images](/features/featuresDeepDive/environment/skybox) may be used directly as environment maps. (Conveniently, skyboxes also typically use CubeTexture.) In this case only the skybox will show up in the reflection/refraction; other scene members will not be reflected, but that may be acceptable for simple scenes or small surfaces.
 
 This classic cloudy skybox helps demonstrate skybox reflection:
 
@@ -99,7 +99,7 @@ Each [ReflectionProbe](/typedoc/classes/babylon.reflectionprobe) instance provid
 
 <p><Playground id="#KA93U#243" title="Reflection Probes" description="Moving shapes reflecting each other and the ground using reflection probes." image="/img/playgroundsAndNMEs/divingDeeperReflectionProbes1.jpg"/></p>
 
-You must set each ReflectionProbe's [.renderList](/typedoc/classes/babylon.reflectionprobe#renderlist) to an explicit list of meshes to render. Be mindful of efficiency as each probe renders six times (once for each cube face) for every update. See the [Reflection Probes main page](/divingDeeper/environment/reflectionProbes) for more details.
+You must set each ReflectionProbe's [.renderList](/typedoc/classes/babylon.reflectionprobe#renderlist) to an explicit list of meshes to render. Be mindful of efficiency as each probe renders six times (once for each cube face) for every update. See the [Reflection Probes main page](/features/featuresDeepDive/environment/reflectionProbes) for more details.
 
 ### MirrorTexture
 [MirrorTexture](/typedoc/classes/babylon.mirrortexture) (a RenderTargetTexture subclass) acts as a dynamically rendered environment map for flat mirrors.
@@ -159,7 +159,7 @@ See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/
 | CUBIC\_MODE | The default mode for cubemaps. Works best with cubemaps, but will project flat textures onto the X/Y axes of an environment sphere as 4 upside-down copies. |
 | INVCUBIC\_MODE | Like CUBIC\_MODE, but inverts texture Y, so flat texture images are right side up. |
 | PLANAR\_MODE | Like CUBIC\_MODE, but handles flat texture scaling and translation slightly better. (Despite the name, PLANAR\_MODE is not otherwise plane-oriented.) |
-| SKYBOX\_MODE | Rather than reflecting, applies texture images directly to the object surface. Mostly used to make [skyboxes](/divingDeeper/environment/skybox). Works best for cubemaps, but will project flat textures onto the X/Y axes of the object. |
+| SKYBOX\_MODE | Rather than reflecting, applies texture images directly to the object surface. Mostly used to make [skyboxes](/features/featuresDeepDive/environment/skybox). Works best for cubemaps, but will project flat textures onto the X/Y axes of the object. |
 | EQUI&shy;RECTANGULAR\_<wbr/>MODE | Wraps flat textures into an environment map with equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)). Not recommended for cubemaps. |
 | FIXED\_<wbr/>EQUIRECTANGULAR\_<wbr/>MODE | Like SKYBOX\_MODE, but wraps flat textures around the object with equirectangular projection. Does not support [reflection matrix](#the-reflection-matrix) transforms. Not recommended for cubemaps. |
 | FIXED\_<wbr/>EQUIRECTANGULAR\_<wbr/>MIRRORED\_<wbr/>MODE | Like FIXED\_EQUIRECTANGULAR\_MODE, but inverts texture X so images look "correct" on the outside of an object. |

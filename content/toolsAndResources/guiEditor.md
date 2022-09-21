@@ -16,7 +16,7 @@ Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building com
 
 You can access the GUI Editor here: https://gui.babylonjs.com/. The GUI editor can also be opened in a pop-up window from the inspector, allowing you to edit a GUI inside a scene and see your changes propagate back instantly!
 
-This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/divingDeeper/gui/gui)
+This document will walk you through the editor and its capabilities and should help you quickly start creating your own GUIs. If you're not familiar with the GUI system in Babylon.js and would like to learn more, you can read all about it here: [Babylon GUI Documentation](/features/featuresDeepDive/gui/gui)
 
 <Youtube id="9VXgZ_af-nE"/>
 
@@ -228,7 +228,7 @@ let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 
 <Playground id="#4RTUCB#1" title="Load a GUI Into Fullscreen Mode" description="Simple example that shows how to load a GUI into fullscreen mode."/>
 
-Further Information about fullscreen GUIs can be found here: [Fullscreen GUIs](/divingDeeper/gui/gui#fullscreen-mode)
+Further Information about fullscreen GUIs can be found here: [Fullscreen GUIs](/features/featuresDeepDive/gui/gui#fullscreen-mode)
 
 #### Load in Texture Mode
 You can also load a saved GUI as a texture that can be used like any other texture in your scene. Here's an example of using a loaded GUI as a texture for the material of a mesh:
@@ -240,7 +240,7 @@ screenUI.parseFromSnippetAsync("#WFL50L");
 
 <Playground id="#H896c7#13" title="Load a GUI Into Texture Mode" description="Simple example that shows how to load a GUI into texture mode and project it onto a mesh."/>
 
-Further information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/divingDeeper/gui/gui#texture-mode)
+Further information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/features/featuresDeepDive/gui/gui#texture-mode)
 
 #### Changing GUI Control Properties In Your Scene
 After loading a saved GUI into your scene, you can easily access the properties of your GUI Controls.
@@ -259,7 +259,7 @@ A more sophisticated example can be found here:
 <Playground id="#0CRLP8#13" title="Game Menu Demo" description="A game menu built using the GUI editor which demonstrates how tab navigation can be implemented." />
 
 #### Playground Templates
-You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/tools/playground/pgTemplates)
+You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/thePlayground/pgTemplates)
 
 ### Supported Controls
 Here is a list of supported GUI controls available in the GUI Editor:

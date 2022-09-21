@@ -5,7 +5,7 @@ description: Learn all about mesh intersections in Babylon.js.
 keywords: diving deeper, meshes, intersection
 further-reading:
     - title: Cameras Overview
-      url: /divingDeeper/cameras
+      url: /features/featuresDeepDive/cameras
 video-overview:
 video-content:
 ---

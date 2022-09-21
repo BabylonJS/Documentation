@@ -49,7 +49,7 @@ You must use the `AbstractMesh.setMaterialForRenderPass(material, id)` method to
 ### Using a different material when rendering into a RenderTargetTexture
 Before 5.0 it was not easy/performant to use a different material when rendering a mesh into a custom `RenderTargetTexture` and when rendering it into the final framebuffer. Thanks to the new render pass ids, you can now simply call `RenderTargetTexture.setMaterialForRenderPass(meshOrMeshes, material)` to render a mesh in the render target texture with a specific material without any performance penalty!
 
-See an example [here](/divingDeeper/postProcesses/renderTargetTextureMultiPass#making-multiple-passes-and-composing-them)
+See an example [here](/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass#making-multiple-passes-and-composing-them)
 
 ### Using a different material when rendering with the depth renderer or into a glow/highlight layer 
 In the exact same way than for the `RenderTargetTexture` class, you can use a specific material to render a mesh with the depth renderer by using the `DepthRenderer.setMaterialForRenderPass(meshOrMeshes, material)` method: internally it is simply calling `RenderTargetTexture.setMaterialForRenderPass(meshOrMeshes, material)`.

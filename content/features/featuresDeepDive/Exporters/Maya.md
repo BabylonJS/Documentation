@@ -196,7 +196,7 @@ The _Scale factor_ can be used to rescale the whole world. If you set a scale fa
 
 The _Texture quality_ sets the convertion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
 
-The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/extensions/Exporters/Maya_to_glTF#draco-compression).
+The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/Maya_to_glTF#draco-compression).
 
 In the _MorphTarget options_ section, the _Export normal_ and _Export tangent_ checkboxes allow you to customize the morph target export.
 
@@ -237,7 +237,7 @@ Note that the exporter also supports textures with tif and dds formats. But, tho
 
 ## Physical materials
 
-The handling of physical materials is mimic from glTF format. [Detailed explanations here](/extensions/Exporters/Maya_to_glTF#pbr-materials)
+The handling of physical materials is mimic from glTF format. [Detailed explanations here](/features/featuresDeepDive/Exporters/Maya_to_glTF#pbr-materials)
 
 As well as the default supported GLTF parameters, in Babylon format, we support the coating parameters of Arnold Standard Surface. You can see below the supported parameters:
 
@@ -319,4 +319,4 @@ You can find an example script in the [Maya\MELScripts](https://github.com/Babyl
 
 ## Using the exporter
 
-Export your own scene from Maya to babylon format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/divingDeeper/importers/assetManager).
+Export your own scene from Maya to babylon format and load it into the [Babylon Sandbox](http://sandbox.babylonjs.com/). Or load them via scripts using the [babylon loader](/features/featuresDeepDive/importers/assetManager).

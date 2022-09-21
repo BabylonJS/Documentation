@@ -401,7 +401,7 @@ Bones are computed using shaders by default. This allows better performance. But
 
 ## Debugging
 
-Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/tools/inspector#bones-viewer) on and off.
+Starting with Babylon.js v4.0, you can use the Inspector to turn [skeleton viewer](/toolsAndResources/inspector#bones-viewer) on and off.
 
 ### Debugging Extras
 
@@ -573,4 +573,4 @@ var skinnedMeshes = meshes.filter(function (mesh) {
 
 One of these will be the correct mesh to pass to the bone to get absolute transforms. It is up to the user loading the model to decide which is the correct one.
 
-Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. If nothing is modified after loading from a glTF, any of the filtered list of skinned meshes should work as the skinned mesh argument to a bone method for getting absolute transforms. In this case, selecting the first mesh of this filter works for glTF assets. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis of shared skeletons in glTF and [glTF Skinning](/divingDeeper/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.
+Note that some engines (e.g., Unity3D) and glTF do not support sharing skeletons between skinned meshes with different transforms because the skinned mesh transforms are ignored in these cases. If nothing is modified after loading from a glTF, any of the filtered list of skinned meshes should work as the skinned mesh argument to a bone method for getting absolute transforms. In this case, selecting the first mesh of this filter works for glTF assets. See [this issue](https://github.com/KhronosGroup/glTF/issues/1285) and linked issues for more detailed analysis of shared skeletons in glTF and [glTF Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning) for more details about glTF skinning in Babylon.js.

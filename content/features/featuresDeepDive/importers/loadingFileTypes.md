@@ -5,19 +5,19 @@ description: Learn how to import any file type in Babylon.js.
 keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
     - title: How to get Babylon.js
-      url: /divingDeeper/developWithBjs/frameworkVers
+      url: /setup/frameworkPackages/frameworkVers
     - title: Use the glTF File Loader Plugin
-      url: /divingDeeper/importers/glTF
+      url: /features/featuresDeepDive/importers/glTF
     - title: Use the OBJ File Loader Plugin
-      url: /divingDeeper/importers/oBJ
+      url: /features/featuresDeepDive/importers/oBJ
     - title: Use the STL File Loader Plugin
-      url: /divingDeeper/importers/stl
+      url: /features/featuresDeepDive/importers/stl
     - title: Load Files with Assets Manager
-      url: /divingDeeper/importers/assetManager
+      url: /features/featuresDeepDive/importers/assetManager
     - title: Available Meshes for Importing into Playground
       url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /toolsAndResources/tools/playground/externalPGAssets
+      url: /toolsAndResources/thePlayground/externalPGAssets
     - title: SceneLoader
       url: /typedoc/classes/babylon.sceneloader
 video-overview:
@@ -31,9 +31,9 @@ video-content:
 To load a file of a given type, Babylon must first have a reference to the plugin for that file type.
 
 Currently plugins can be found for:
- - [.glTF also use for binary version .glb](/divingDeeper/importers/glTF)
- - [.obj](/divingDeeper/importers/oBJ)
- - [.stl](/divingDeeper/importers/stl)
+ - [.glTF also use for binary version .glb](/features/featuresDeepDive/importers/glTF)
+ - [.obj](/features/featuresDeepDive/importers/oBJ)
+ - [.stl](/features/featuresDeepDive/importers/stl)
 
 To quickly add support for all loaders the following script can be added to your page:
 
@@ -175,7 +175,7 @@ BABYLON.SceneLoader.AppendAsync("./", "duck.gltf", scene).then(function (scene) 
 });
 ```
 
-See [How to Use Promises](/divingDeeper/events/promises) to learn more about using promises.
+See [How to Use Promises](/features/featuresDeepDive/events/promises) to learn more about using promises.
 
 ## Advanced Usage
 
@@ -206,7 +206,7 @@ var loader = BABYLON.SceneLoader.Load("./", "duck.gltf", engine, function (scene
 ## Loading multiple assets
 
 For assistance when load multiple assets the AssetsManager class can be used.
-See [Load Files with Assets Manager](/divingDeeper/importers/assetManager)
+See [Load Files with Assets Manager](/features/featuresDeepDive/importers/assetManager)
 
 ## Direct loading base64 encoded models
 

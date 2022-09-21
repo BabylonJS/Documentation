@@ -16,7 +16,7 @@ want of a better word) shaded mesh.
 
 Sometimes the additional facets and vertices are necessary, for example to prevent seams when using textures. So use carefully. 
 
-More information on the need for extra facets, which turn out to be lines, can be found in [Materials and Facets](/divingDeeper/materials/using/texturePerBoxFace).
+More information on the need for extra facets, which turn out to be lines, can be found in [Materials and Facets](/features/featuresDeepDive/materials/using/texturePerBoxFace).
 
 **NOTE** From Babylon.js version 4.0 onwards this utility now exists as a standard method on a mesh.
 

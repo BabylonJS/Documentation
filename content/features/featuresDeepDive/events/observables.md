@@ -10,7 +10,7 @@ video-content:
 
 ## How To Use Observables
 
-For many of you creating Babylon.js projects only [GUI](/divingDeeper/gui) and [scene](/divingDeeper/events/observables#scene-observables) Observables will be needed, particularly [scene.onPointerObservable](/divingDeeper/scene/interactWithScenes).
+For many of you creating Babylon.js projects only [GUI](/features/featuresDeepDive/gui) and [scene](/features/featuresDeepDive/events/observables#scene-observables) Observables will be needed, particularly [scene.onPointerObservable](/features/featuresDeepDive/scene/interactWithScenes).
 
 ## Introduction
 
@@ -155,9 +155,9 @@ TheBabylon.js Scene Object has over 20 observables that 'fire' under various con
 
 The Scene Object also has observers: onReady, onDataLoaded, onDispose, but they do not happen within a rendering/frame.
 
-Also, [onBeforeStepObservable](/typedoc/classes/babylon.scene#onbeforestepobservable) and [onAfterStepObservable](/typedoc/classes/babylon.scene#onafterstepobservable) are available when using [deterministic lock step](/divingDeeper/animation/advanced_animations#deterministic-lockstep)
+Also, [onBeforeStepObservable](/typedoc/classes/babylon.scene#onbeforestepobservable) and [onAfterStepObservable](/typedoc/classes/babylon.scene#onafterstepobservable) are available when using [deterministic lock step](/features/featuresDeepDive/animation/advanced_animations#deterministic-lockstep)
 
-However possibly the most useful Observable is the one that checks what is happening to the screen pointer whether with mouse or with finger or controller. [scene.onPointerObservable](/typedoc/classes/babylon.scene#onpointerobservable) . For more details on that have a look into the [Interactions HowTo](/divingDeeper/scene/interactWithScenes)
+However possibly the most useful Observable is the one that checks what is happening to the screen pointer whether with mouse or with finger or controller. [scene.onPointerObservable](/typedoc/classes/babylon.scene#onpointerobservable) . For more details on that have a look into the [Interactions HowTo](/features/featuresDeepDive/scene/interactWithScenes)
 
 ## Observable-based countdown function
 

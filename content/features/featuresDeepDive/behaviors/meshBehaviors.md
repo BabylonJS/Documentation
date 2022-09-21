@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Introduction
-Mesh behaviors are [Behaviors](/divingDeeper/behaviors) that can be attached to a mesh.
+Mesh behaviors are [Behaviors](/features/featuresDeepDive/behaviors) that can be attached to a mesh.
 
 ## PointerDragBehavior
 This is used to drag a mesh around a plane or axis using a mouse or VR controller.
@@ -79,7 +79,7 @@ By default, dragging objects away/towards you will be magnified to make moving o
 // The distance towards the target drag position to move each frame. This can be useful to avoid jitter. Set this to 1 for no delay. (Default: 0.2)
 sixDofDragBehavior.zDragFactor = 0.2;
 ```
-**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/divingDeeper/mesh/gizmo)
+**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
 * Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
 
 ## MultiPointerScaleBehavior
@@ -87,7 +87,7 @@ This is used to scale a mesh based on 2 pointers (eg. fingers or VR controllers)
 ```
 var multiPointerScaleBehavior = new BABYLON.MultiPointerScaleBehavior();
 ```
-**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/divingDeeper/mesh/gizmo)
+**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
 * Playground Example: <Playground id="#5G9MC5" title="MultiPointerScaleBehavior Example" description="A simple example of MultiPointerScaleBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" />
 
 ## AttachToBoxBehavior (AppBar)
@@ -140,8 +140,8 @@ surfaceMagnetismBehavior.meshes = meshes;
 By default, it will intersect `meshes` everytime the pointer moves, and the position will be updated accordingly (with interpolation, like with `FollowBehavior`). Use the flag `enabled` to control whether this behavior should get into play.
 
 ## HandConstraintBehavior
-This is used to make a mesh follow the hand of the user. It should always be linked to a [WebXRDefaultExperience](/divingDeeper/webXR/webXRExperienceHelpers#the-webxr-default-experience) to retieve the position of the hand.
-The XR experience should also enable the [HandTracking](/divingDeeper/webXR/WebXRSelectedFeatures#hand-tracking) feature like this :
+This is used to make a mesh follow the hand of the user. It should always be linked to a [WebXRDefaultExperience](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-webxr-default-experience) to retieve the position of the hand.
+The XR experience should also enable the [HandTracking](/features/featuresDeepDive/webXR/WebXRSelectedFeatures#hand-tracking) feature like this :
 
 ```
 xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {

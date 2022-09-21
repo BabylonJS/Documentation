@@ -27,7 +27,7 @@ Other possible GUIs are:
 
 ## CastorGUI
 
-An alternative 2D GUI is the extension [CastorGUI](/extensions/castorGUI). It has to be loaded both for the playground and for your own projects.
+An alternative 2D GUI is the extension [CastorGUI](/communityExtensions/castorGUI). It has to be loaded both for the playground and for your own projects.
 
 It can be found on [Github](https://github.com/dad72/CastorGUI).
 
@@ -75,7 +75,7 @@ The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
 
 #### Pros
 
-* There’s now an awesome [GUI Editor](/toolsAndResources/tools/guiEditor) to make interface creation easier!
+* There’s now an awesome [GUI Editor](/toolsAndResources/guiEditor) to make interface creation easier!
 * Tight integration with 3D scene
 * Ability to optionally apply scene post processing effects to GUI as well
 * Ability to apply/link GUI elements and meshes

@@ -10,7 +10,7 @@ video-content:
 
 ## The standard pipeline is no longer maintained.
 
-[Default pipeline](/divingDeeper/postProcesses/defaultRenderingPipeline) should be used going forward but the standard pipeline will be kept for backwards compatibility.
+[Default pipeline](/features/featuresDeepDive/postProcesses/defaultRenderingPipeline) should be used going forward but the standard pipeline will be kept for backwards compatibility.
 
 ## Introduction
 

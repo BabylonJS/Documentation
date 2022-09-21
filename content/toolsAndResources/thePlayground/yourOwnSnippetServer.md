@@ -113,7 +113,7 @@ And that's all you need for your own Snippet Server! You can add more functional
 
 ## Using your server on Babylon
 
-Now that you have a server up and running, you'll want to point your Babylon library and tools to it. This can be accomplished by [making a copy of the Babylon repository locally](/divingDeeper/developWithBjs/howToStart) and changing instances of the URL "https://snippet.babylonjs.com" to your own Snippet Server URL. You can use the same instance of the server for all cases, or you can have separate instances with separate URLs for separate functionalities like Node Material, Animation, etc. To make it easier to find all these URLs, you can use the "CTRL+SHIFT+F" shortcut on Visual Studio Code (if that's your IDE of choice):
+Now that you have a server up and running, you'll want to point your Babylon library and tools to it. This can be accomplished by [making a copy of the Babylon repository locally](/contribute/toBabylon/HowToContribute) and changing instances of the URL "https://snippet.babylonjs.com" to your own Snippet Server URL. You can use the same instance of the server for all cases, or you can have separate instances with separate URLs for separate functionalities like Node Material, Animation, etc. To make it easier to find all these URLs, you can use the "CTRL+SHIFT+F" shortcut on Visual Studio Code (if that's your IDE of choice):
 
 ![Example of using the Search function of Visual Studio Code to search for "https://snippet.babylonjs.com"](/img/tools/Playground/snippet_search.png)
 

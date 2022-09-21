@@ -5,13 +5,13 @@ description: Learn all about the Babylon.js 3D GUI System.
 keywords: diving deeper, GUI, 3D GUI, 3D
 further-reading:
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/featuresDeepDive/gui/gui
     - title: How To Use Babylon GUI Scroll Viewer
-      url: /divingDeeper/gui/scrollViewer
+      url: /features/featuresDeepDive/gui/scrollViewer
     - title: How To Use Babylon GUI Xml Loader
-      url: /divingDeeper/gui/xmlLoader
+      url: /features/featuresDeepDive/gui/xmlLoader
     - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
+      url: /features/featuresDeepDive/gui/selector
 video-overview:
 video-content:
 ---
@@ -209,7 +209,7 @@ Some observables are also available to help tracking control state:
 - `onPointerClickObservable`: An event triggered when a control is clicked on (with a mouse)
 - `onPointerMoveObservable`: An event triggered when the pointer move over the control
 
-All controls can also be the target of [behaviors](/divingDeeper/behaviors) so they expose the associated properties and functions:
+All controls can also be the target of [behaviors](/features/featuresDeepDive/behaviors) so they expose the associated properties and functions:
 
 - `behaviors`: Gets the list of attached behaviors
 - `addBehavior()`: Attach a behavior to the control
@@ -232,7 +232,7 @@ All these callbacks are empty by default and will be implemented by specialized 
 A button is a control with default animations for enter/out/down and up events.
 It is based on a 2D GUI content.
 
-You can specify the content through the `content` property and set it to any regular [2D GUI content](/divingDeeper/gui):
+You can specify the content through the `content` property and set it to any regular [2D GUI content](/features/featuresDeepDive/gui):
 
 ```javascript
 var button = new BABYLON.GUI.Button3D("reset");
@@ -344,13 +344,13 @@ slate.content = new BABYLON.GUI.Image("checkers", "./textures/Checker_Albedo.png
 
 Content inside the slate can also be scrolled in X or Y directions. Use the `contentResolution` property to manipulate the resolution of the texture.
 
-The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
+The slate natively provides 2 `TouchHolographicButton` on the top right, the leftmost enables the [FollowBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#followbehavior) for the slate, and the rightmost destroys the slate.
 
 <Playground id="#SYD2M2#10" title="HolographicSlate" description="Simple Holographic Slate example"/>
 
 ### Near Menu
 
-The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/divingDeeper/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
+The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
 
 Below, an exemple of a horizontal 3-button near menu.
 
@@ -388,7 +388,7 @@ near.rows = n;
 
 ### Hand Menu
 
-The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/divingDeeper/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
+The `HandMenu` is a `NearMenu` that uses the [HandConstraintBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#handconstraintbehavior). It is useful for XR experiences to always have a 3D menu in hand range.
 
 By default, the `HandMenu` positions itself on the outer side of the users left hand, and only activates when the user both has their palm facing them and is looking at (facing) their hand. These defaults can be changed by modifying the properties on the `HandConstraintBehavior` attached to the `HandMenu`.
 

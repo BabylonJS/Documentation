@@ -1135,7 +1135,7 @@ Here is the default list of Node Material Blocks available to use.
         -   Output:
             -   output: Color3
 
-    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/divingDeeper/postProcesses/usePostProcesses)
+    -   `ImageProcessing`: Provides access to all of the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/features/featuresDeepDive/postProcesses/usePostProcesses)
 
         -   Input:
             -   color: Color4

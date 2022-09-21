@@ -5,11 +5,11 @@ description: Learn about the relationship between materials and vetices.
 keywords: diving deeper, materials, advanced
 further-reading:
     - title: Calculating UVs
-      url: /divingDeeper/mesh/creation/custom/custom
+      url: /features/featuresDeepDive/mesh/creation/custom/custom
     - title: How To Update Vertices
-      url: /divingDeeper/mesh/creation/custom/updatingVertices
+      url: /features/featuresDeepDive/mesh/creation/custom/updatingVertices
     - title: Normals in BJS
-      url: /divingDeeper/mesh/creation/custom/vertexNormals
+      url: /features/featuresDeepDive/mesh/creation/custom/vertexNormals
 video-overview:
 video-content:
 ---
@@ -45,7 +45,7 @@ coordinates to each of the vertices; (0, 1) to vertex 3, (1, 1) to vertex 2, (1,
 
 These are then used to map the image across the facets.
 
-Of course with a mesh consisting of many vertices wrapping an image as texture around the mesh will mean each vertex being assigned a point on the image using fractional values as described in [custom meshes](/divingDeeper/mesh/creation/custom/custom#calculating-uvs).
+Of course with a mesh consisting of many vertices wrapping an image as texture around the mesh will mean each vertex being assigned a point on the image using fractional values as described in [custom meshes](/features/featuresDeepDive/mesh/creation/custom/custom#calculating-uvs).
 
 ## Issues with Adjoining Faces
 

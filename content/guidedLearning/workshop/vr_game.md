@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-WebVR is deprecated and was removed from most (if not all) modern browsers. **it is strongly recommended that projects use the [WebXR experience helper](/divingDeeper/webXR/webXRExperienceHelpers) instead of WebVR**. For more information, check out our [introduction to WebXR](/divingDeeper/webXR/introToWebXR).
+WebVR is deprecated and was removed from most (if not all) modern browsers. **it is strongly recommended that projects use the [WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers) instead of WebVR**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
 
 We leave this information since the code, apart from the direct interface to WebVR,  can be used in other projects.
 
@@ -46,7 +46,7 @@ reticle.isPickable = false;
 reticle.position.z = 2;
 ```
 
-The secret behind creating a reticle is [Raycasting](/divingDeeper/mesh/interactions/picking_collisions). A Ray is a straight line that'll tell us when it intersects with an object. We want to create a Ray from the middle of our camera facing forward, and change the color of the reticle to green when we can interact with the mesh.
+The secret behind creating a reticle is [Raycasting](/features/featuresDeepDive/mesh/interactions/picking_collisions). A Ray is a straight line that'll tell us when it intersects with an object. We want to create a Ray from the middle of our camera facing forward, and change the color of the reticle to green when we can interact with the mesh.
 
 We put the funciton in registerBeforeRender() so that it gets continually updated every frame.
 
@@ -87,7 +87,7 @@ You could improve this reticle a number of ways. As mentioned previously, provid
 
 ### Dynamic GUI
 
-In the context of our game, our GUI consists of a Score variable that increases every time the user clicks the rotating box. To do this, we have a scoreVar object with a 'score' attribute that gets incremented with the action below. Follow these guides for more about [GUI](/divingDeeper/gui/gui) and [Actions](/divingDeeper/events/actions).
+In the context of our game, our GUI consists of a Score variable that increases every time the user clicks the rotating box. To do this, we have a scoreVar object with a 'score' attribute that gets incremented with the action below. Follow these guides for more about [GUI](/features/featuresDeepDive/gui/gui) and [Actions](/features/featuresDeepDive/events/actions).
 
 ```javascript
 /*Object keeping track of score. It's an object and not an int because of the available actions. */
@@ -114,7 +114,7 @@ blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.Act
 
 ### VR Cameras
 
-Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/divingDeeper/cameras/webVRCamera).
+Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
 
 ```javascript
 var camera = new BABYLON.WebVRFreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);
@@ -126,7 +126,7 @@ Alternatively, you can include `scene.createDefaultVRExperience();` to toggle be
 ### Spatial Sound
 
 Spatializing a sound in Babylon.js can be as simple as marking the BABYLON.Sound `spatialSound` attribute as 'true'. However, there are a number of other options you can specify, including linear, inverse, or exponential distance, max distance, and the panning model.  
-A more in depth guide can be found [here](/divingDeeper/audio/playingSoundsMusic#creating-a-spatial-3d-sound).
+A more in depth guide can be found [here](/features/featuresDeepDive/audio/playingSoundsMusic#creating-a-spatial-3d-sound).
 
 Afterwards, we make sure to attach the sound to our moving box, and register the sound to play when the box is clicked.
 

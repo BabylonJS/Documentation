@@ -89,20 +89,20 @@ We currently support these out of the box:
 | Active Meshes | ActiveMeshesStrategy |
 | Active Indices | ActiveIndicesStrategy |
 | Active Faces | ActiveFacesStrategy |
-| [Active Bones](/divingDeeper/mesh/bonesSkeletons) | ActiveBonesStrategy |
-| [Active Particles](/divingDeeper/particles) | ActiveParticlesStrategy |
+| [Active Bones](/features/featuresDeepDive/mesh/bonesSkeletons) | ActiveBonesStrategy |
+| [Active Particles](/features/featuresDeepDive/particles) | ActiveParticlesStrategy |
 | Draw Calls | DrawCallsStrategy |
 | [Total Lights](https://doc.babylonjs.com/divingDeeper/lights) | TotalLightsStrategy |
 | Total Vertices | TotalVerticesStrategy |
 | [Total Materials](https://doc.babylonjs.com/divingDeeper/materials) | TotalMaterialsStrategy |
 | Total Textures | TotalTexturesStrategy |
 | Absolute FPS | AbsoluteFpsStrategy |
-| [Meshes Selection](/divingDeeper/scene/optimizeOctrees#optimizing-meshes-selection-for-rendering) | MeshesSelectionStrategy |
+| [Meshes Selection](/features/featuresDeepDive/scene/optimizeOctrees#optimizing-meshes-selection-for-rendering) | MeshesSelectionStrategy |
 | Render Targets | RenderTargetsStrategy |
 | Particles | ParticlesStrategy |
-| [Sprites](/divingDeeper/sprites) | SpritesStrategy |
+| [Sprites](/features/featuresDeepDive/sprites) | SpritesStrategy |
 | Animations | AnimationsStrategy |
-| [Physics](/divingDeeper/physics) | PhysicsStrategy |
+| [Physics](/features/featuresDeepDive/physics) | PhysicsStrategy |
 | Render | RenderStrategy |
 | Frame Total | FrameTotalStrategy |
 | Inter Frame | InterFrameStrategy |

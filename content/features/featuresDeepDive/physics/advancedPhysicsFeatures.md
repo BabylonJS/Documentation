@@ -5,19 +5,19 @@ description: Unlock the full potential of physics with advanced physics features
 keywords: diving deeper, phyiscs, advanced physics
 further-reading:
     - title: How To Use The Physics Engines
-      url: /divingDeeper/physics/usingPhysicsEngine
+      url: /features/featuresDeepDive/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/featuresDeepDive/physics/forces
     - title: How To Use Joints
-      url: /divingDeeper/physics/joints
+      url: /features/featuresDeepDive/physics/joints
     - title: How To Use Pivots and Axes
-      url: /divingDeeper/physics/pivotsAxes
+      url: /features/featuresDeepDive/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/featuresDeepDive/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /divingDeeper/physics/softBodies
+      url: /features/featuresDeepDive/physics/softBodies
     - title: How To Add Your Own Physics Engine
-      url: /divingDeeper/physics/addPhysicsEngine
+      url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---

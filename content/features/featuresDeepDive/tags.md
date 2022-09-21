@@ -182,7 +182,7 @@ Since it's possible to use tags on any javascript object and since meshes are ja
 var meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5");
 ```
 
-All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/advanced_topics/.babylonFileFormat) and reloaded from them.
+All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/setup/support/.babylonFileFormat) and reloaded from them.
 
 ## What to do with them?
 

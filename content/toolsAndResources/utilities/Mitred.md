@@ -10,7 +10,7 @@ video-content:
 
 ## Extrude Shape with Mitred Corners
 
-Neither [CreateTube](/divingDeeper/mesh/creation/param#tube) nor [ExtrudeShape](/divingDeeper/mesh/creation/param#extruded-shapes) were designed to handle sharp corners but to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following
+Neither [CreateTube](/features/featuresDeepDive/mesh/creation/param#tube) nor [ExtrudeShape](/features/featuresDeepDive/mesh/creation/param#extruded-shapes) were designed to handle sharp corners but to perform well over smooth curves. This can be seen by the tube and extruded shapes narrowing at the corner in the following
 
 <Playground id="#PDRDFA" title="Bend In Tube" description=""/>
 <Playground id="#PDRDFA#1" title="Bend In Extruded Tube" description=""/>

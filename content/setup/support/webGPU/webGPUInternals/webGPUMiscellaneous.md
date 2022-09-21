@@ -26,7 +26,7 @@ Run both the:
 * Standard tests: http://localhost:1338/tests/validation/?list=config&engine=webgpu
 
 You should also run them in the "check resource creation" mode: see [Check Resource Creation - WebGPU only
-](/divingDeeper/developWithBjs/howToStart/validationTests#check-resource-creation---webgpu-only).
+](/contribute/toBabylon/validationTests#check-resource-creation---webgpu-only).
 
 ## TintWASM
 You should update the **TWGSL** (Tint WASM) module regularly so that it stays in sync with the **Tint** source code.

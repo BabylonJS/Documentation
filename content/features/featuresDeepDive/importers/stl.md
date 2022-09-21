@@ -20,7 +20,7 @@ To use it you just have to reference it after Babylon.js:
 ```
 
 Then you can use one of the static functions on the `SceneLoader` to load.
-See [how to load from any file type](/divingDeeper/importers/loadingFileTypes)
+See [how to load from any file type](/features/featuresDeepDive/importers/loadingFileTypes)
 
 By default, the STL loader swaps the Y and Z axes. To disable this behavior,
 set

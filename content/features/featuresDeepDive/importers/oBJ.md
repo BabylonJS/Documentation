@@ -25,11 +25,11 @@ If you are using ES6 imports via NPM, you need to reference with side-effects:
 import 'babylonjs-loaders'
 ```
 
-You can read more about [NPM support](/divingDeeper/developWithBjs/npmSupport)
+You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
 
 ### Load
 
-See [how to load from any file type](/divingDeeper/importers/loadingFileTypes)
+See [how to load from any file type](/features/featuresDeepDive/importers/loadingFileTypes)
 Babylon.js will know how to load the obj file and its mtl file automatically:
 
 ## Good things to know

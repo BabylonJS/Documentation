@@ -35,7 +35,7 @@ for `Arc Rotate Camera` as it makes no sense.*
 ### Free Camera
 The cameras of type `FreeCamera` are the most common types of camera in projects. To enable collisions, simply check the
 `Check Collisions` checkbox and configure the ellipsoid values. For ellipsoids, check the
-[following documentation](/divingDeeper/cameras/camera_collisions#2-define-an-ellipsoid) in order to understand
+[following documentation](/features/featuresDeepDive/cameras/camera_collisions#2-define-an-ellipsoid) in order to understand
 and setup the desired values according the nature of the current scene being edited in the Editor.
 
 The property `Apply Gravity`, if enabled, will apply the gravity previously set in the scene and can be disabled only by unchecking the
@@ -46,7 +46,7 @@ property.
 ### Arc Rotate Camera
 As for the `FreeCamera`, the arc rotate cameras can have their collisions enabled using the checkbox `Enabled`.
 Opposed to the free camera, the ellipsoid property is replaced by `Collisions Radius` property. Check the
-[following documentation](/divingDeeper/cameras/camera_collisions#arcrotatecamera) in order to understand and setup
+[following documentation](/features/featuresDeepDive/cameras/camera_collisions#arcrotatecamera) in order to understand and setup
 the desired value for the collisions radius.
 
 ![SceneGraph](/img/extensions/Editor/BasicCollisions/arc_rotate_camera.png)
@@ -57,7 +57,7 @@ to block the camera.
 
 To enable collisions, simply check the `Check Collisions` checkbox and configure its optional `Ellipsoid` and `Ellipsoid Offset` properties.
 Don't hesitate to check as well the
-[following documentation](/divingDeeper/cameras/camera_collisions#4-object-vs-object-collision) to
+[following documentation](/features/featuresDeepDive/cameras/camera_collisions#4-object-vs-object-collision) to
 understand ellipsoid and ellipsoid offset properties on meshes.
 
 ![SceneGraph](/img/extensions/Editor/BasicCollisions/mesh.png)

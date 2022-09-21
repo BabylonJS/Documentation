@@ -5,7 +5,7 @@ description: Continue your Babylon.js learning by adding a new mesh type to your
 keywords: getting started, start, chapter 2, meshes, cylinder, prism
 further-reading:
     - title: More on Meshes
-      url: /divingDeeper/mesh/creation/set
+      url: /features/featuresDeepDive/mesh/creation/set
 video-overview:
 video-content:
 ---

@@ -35,7 +35,7 @@ In case the stairs 3d model is too complex, and in order to save performances, t
 (or generate on the fly) a lower detailed 3d model for the stair.
 
 The method would consis on creating a lower level of details object of the source mesh (instead of a cube or sphere) made by an
-artist or using the [Auto-LOD Simplification Tool of Babylon.JS](/divingDeeper/mesh/simplifyingMeshes)
+artist or using the [Auto-LOD Simplification Tool of Babylon.JS](/features/featuresDeepDive/mesh/simplifyingMeshes)
 and perform the same next steps for `Basic Collisions`.
 
 The problem here is that generating a lower level of details has a cost in time and simplifying a mesh using the simplification method
@@ -78,9 +78,9 @@ It uses the `QuadraticErrorSimplification` implementation in Babylon.JS and allo
 that will be saved as well as the rest of the scene. In other words, no extra work is needed.
 
 To understand the properties, check the
-[following documentation](/divingDeeper/mesh/simplifyingMeshes#mesh-optimization-startingbabylonjs-21)
+[following documentation](/features/featuresDeepDive/mesh/simplifyingMeshes#mesh-optimization-startingbabylonjs-21)
 for the `Optimize Mesh` property and the
-[following documentation](/divingDeeper/mesh/simplifyingMeshes#usage---simplifying-a-mesh)
+[following documentation](/features/featuresDeepDive/mesh/simplifyingMeshes#usage---simplifying-a-mesh)
 for the quality property.
 
 As informations, the tool shows the base vertices count vs. the LOD vertices count. This can help to understand how much the mesh

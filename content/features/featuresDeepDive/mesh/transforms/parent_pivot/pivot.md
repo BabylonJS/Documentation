@@ -5,16 +5,16 @@ description: Learn how to rotate around an axis in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, axis rotation
 further-reading:
     - title: Using a Pivot
-      url: /divingDeeper/mesh/transforms/parent_pivot/pivots
+      url: /features/featuresDeepDive/mesh/transforms/parent_pivot/pivots
 video-overview:
 video-content:
 ---
 
 ## How To Rotate Around an Axis About a Point
 
-Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the the local origin of the mesh which is the mesh's position. Using [rotation](/divingDeeper/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/divingDeeper/mesh/transforms) and [rotate](/divingDeeper/mesh/transforms#rotate) it is specified explicitly.
+Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the the local origin of the mesh which is the mesh's position. Using [rotation](/features/featuresDeepDive/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) and [rotate](/features/featuresDeepDive/mesh/transforms#rotate) it is specified explicitly.
 
-There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/divingDeeper/mesh/transforms/parent_pivot/transform_node), a parent and [setting a pivot](/divingDeeper/mesh/transforms/parent_pivot/pivots).
+There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/features/featuresDeepDive/mesh/transforms/parent_pivot/transform_node), a parent and [setting a pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots).
 
 Together an axis and a center of rotation define a straight line in space and in the following animated playgrounds this line is shown in white. The asymmetric pilot mesh is used to demonstrate the rotation.
 

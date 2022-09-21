@@ -5,19 +5,19 @@ description: Learn all about physics pivots and axes in Babylon.js.
 keywords: diving deeper, phyiscs, joint, pivots, joint pivots.
 further-reading:
     - title: How To Use The Physics Engines
-      url: /divingDeeper/physics/usingPhysicsEngine
+      url: /features/featuresDeepDive/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/featuresDeepDive/physics/forces
     - title: How To Use Joints
-      url: /divingDeeper/physics/joints
+      url: /features/featuresDeepDive/physics/joints
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/featuresDeepDive/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /divingDeeper/physics/softBodies
+      url: /features/featuresDeepDive/physics/softBodies
     - title: How To Use Advanced Features
-      url: /divingDeeper/physics/advancedPhysicsFeatures
+      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /divingDeeper/physics/addPhysicsEngine
+      url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -30,7 +30,7 @@ Through the use of playgrounds this section considers how the pivot and axis par
 2. Oimo.js;
 3. Ammo.js
 
-See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 The examples on this page a hinge joint and a main body are added to a connected axle using
 

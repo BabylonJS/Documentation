@@ -405,7 +405,7 @@ room.state.players.onAdd(function (player, sessionId) {
 
 ### Interpolating the player's position
 
-To enable position interpolation, we're going to use the [Render Loop](/divingDeeper/animation/render_frame_animation) and the [`Scalar.Lerp()`](/typedoc/classes/babylon.scalar#lerp) method.
+To enable position interpolation, we're going to use the [Render Loop](/features/featuresDeepDive/animation/render_frame_animation) and the [`Scalar.Lerp()`](/typedoc/classes/babylon.scalar#lerp) method.
 
 Instead of updating the player position directly (as in [previous section](#updating-players-visual-representation)), we are going to cache the next position, and constantly interpolate each player position during the Render Loop:
 

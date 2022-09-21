@@ -5,19 +5,19 @@ description: Learn all about physics soft bodies in Babylon.js.
 keywords: diving deeper, phyiscs, soft bodies
 further-reading:
     - title: How To Use The Physics Engines
-      url: /divingDeeper/physics/usingPhysicsEngine
+      url: /features/featuresDeepDive/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /divingDeeper/physics/forces
+      url: /features/featuresDeepDive/physics/forces
     - title: How To Use Joints
-      url: /divingDeeper/physics/joints
+      url: /features/featuresDeepDive/physics/joints
     - title: How To Use Pivots and Axes
-      url: /divingDeeper/physics/pivotsAxes
+      url: /features/featuresDeepDive/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /divingDeeper/physics/compoundBodies
+      url: /features/featuresDeepDive/physics/compoundBodies
     - title: How To Use Advanced Features
-      url: /divingDeeper/physics/advancedPhysicsFeatures
+      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /divingDeeper/physics/addPhysicsEngine
+      url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -25,7 +25,7 @@ video-content:
 # Soft Bodies
 In terms of physics' engines a soft body is a body that can have its shape deformed by interactions with other bodies or forces within the physics world. Out of the three plugins available with Babylon.js soft bodies are only available using Ammo.js. There are three soft bodies you can create, the three dimensional `softbody`, the two dimensional `cloth` and the one dimensional rope. First a number of limitations need to be considered, followed by some aspects particular to soft bodies and then some examples.
 
-See [How to Use The Physics' Engines](/divingDeeper/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 ## Limitations
 A deformation of a body can only be shown if there are sufficient vertices to produce the deformation. The number of vertices used and the need to check their positions and velocities each time step means that the number of soft bodies can be restricted to one, two or possibly three. 
@@ -127,7 +127,7 @@ mesh.physicsImpostor.stiffness = 0.9;
 
 ## The Cloth Soft Body
 
-A 2D soft body. All cloth soft bodies are created from a [ground mesh](/divingDeeper/mesh/creation/set/ground) as this is already two dimensional, has shared vertices and the number of vertices can be increased by setting the subdivisions used. The usual [options](/divingDeeper/physics/softBodies#options-for-soft-bodies) are available.
+A 2D soft body. All cloth soft bodies are created from a [ground mesh](/features/featuresDeepDive/mesh/creation/set/ground) as this is already two dimensional, has shared vertices and the number of vertices can be increased by setting the subdivisions used. The usual [options](/features/featuresDeepDive/physics/softBodies#options-for-soft-bodies) are available.
 
 The clothImpostor is created by, for example,
 
@@ -214,7 +214,7 @@ cloth.physicsImpostor.addAnchor(box.physicsImpostor, 1, 1, 0.8);
 
 ## The Rope Soft Body
 
-A rope is a 1D soft body. This can be constructed using a [lines mesh](/divingDeeper/mesh/creation/param/lines) or an [extruded shape](/divingDeeper/mesh/creation/param/extrude_shape) mesh. The usual [options](/divingDeeper/physics/softBodies#options-for-soft-bodies) available for both, however the use of an extruded shape requires extra parameters in the options.
+A rope is a 1D soft body. This can be constructed using a [lines mesh](/features/featuresDeepDive/mesh/creation/param/lines) or an [extruded shape](/features/featuresDeepDive/mesh/creation/param/extrude_shape) mesh. The usual [options](/features/featuresDeepDive/physics/softBodies#options-for-soft-bodies) available for both, however the use of an extruded shape requires extra parameters in the options.
 
 ### Using Lines
 

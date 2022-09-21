@@ -7,9 +7,9 @@ further-reading:
     - title: Path3D API
       url: https://doc.babylonjs.com/typedoc/classes/babylon.path3d
     - title: Align Object With Path3D
-      url: /divingDeeper/mesh/transforms/center_origin/target_align
+      url: /features/featuresDeepDive/mesh/transforms/center_origin/target_align
     - title: How To Draw Curves
-      url: /divingDeeper/mesh/drawCurves
+      url: /features/featuresDeepDive/mesh/drawCurves
     - title: How to Create a Track with Custom Alignments
       url: /guidedLearning/workshop/Track
 video-overview:
@@ -45,7 +45,7 @@ Please zoom in and rotate : tangents in red, normals in blue, binormal in green.
 Notice, in the next example, how the the triplets slightly rotate when the curve goes more into depth.  
 <Playground id="#2DLXYB#1" title="Tangents, Normals, and Binormals - Color Coded" description="Simple example of exploring color coded tangents, normals, and binormals."/>
 
-Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](/divingDeeper/mesh/path3D#set-the-normal)
+Whilst at any point on the curve there is only one tangent there can be an infinite number of normals and hence binormals. If the default one does not suit you it is possible to [set the normal direction](/features/featuresDeepDive/mesh/path3D#set-the-normal)
 
 
 ## Path3D Methods
@@ -139,4 +139,4 @@ As mentioned in the beginning section, the position of points along the curve, t
 
 <Playground id="#SGVUBC#38" title="Camera Following a Path" description="Example of a Camera animated to follow the positions and orientations along a Path3D object."/>
 
-The playground above illustrates this technique. The Path3D is constructed as the combination of a few cubic Bèzier curves (but manually defining the points would work just fine). On each point of the path, its tangent and binormal vectors are passed as [arguments](/typedoc/classes/babylon.quaternion#fromlookdirectionrh) to the ```FromLookDirectionRH()``` method of the [Quaternion class](/divingDeeper/mesh/transforms/center_origin/rotation_quaternions), orienting the camera such that it looks down the tangent direction, and points up towards the binormal. We then set the sequences of positions and orientations as [animation keys](/divingDeeper/animation/animation_design), and play it. This idea isn't limited to Cameras, as it could also be used to define paths along which characters would walk in a game, for example. 
+The playground above illustrates this technique. The Path3D is constructed as the combination of a few cubic Bèzier curves (but manually defining the points would work just fine). On each point of the path, its tangent and binormal vectors are passed as [arguments](/typedoc/classes/babylon.quaternion#fromlookdirectionrh) to the ```FromLookDirectionRH()``` method of the [Quaternion class](/features/featuresDeepDive/mesh/transforms/center_origin/rotation_quaternions), orienting the camera such that it looks down the tangent direction, and points up towards the binormal. We then set the sequences of positions and orientations as [animation keys](/features/featuresDeepDive/animation/animation_design), and play it. This idea isn't limited to Cameras, as it could also be used to define paths along which characters would walk in a game, for example. 

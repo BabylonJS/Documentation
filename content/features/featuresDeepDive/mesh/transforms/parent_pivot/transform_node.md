@@ -5,7 +5,7 @@ description: Learn about the transform node in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, parent, pivot, transform node
 further-reading:
     - title: How To Rotate Around an Axis about a Point
-      url: /divingDeeper/mesh/transforms/parent_pivot/pivot
+      url: /features/featuresDeepDive/mesh/transforms/parent_pivot/pivot
 video-overview:
 video-content:
 ---

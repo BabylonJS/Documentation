@@ -16,7 +16,7 @@ It can be created manually
 ```javascript
 var container = new BABYLON.AssetContainer(scene);
 ```
-Or by loading from a file. See [loading from files](/divingDeeper/importers/loadingFileTypes)
+Or by loading from a file. See [loading from files](/features/featuresDeepDive/importers/loadingFileTypes)
 
 ## Adding or removing assets to the scene
 

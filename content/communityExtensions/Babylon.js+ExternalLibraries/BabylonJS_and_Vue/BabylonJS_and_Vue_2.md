@@ -538,7 +538,7 @@ Now the we've learned how to control the scene from Vue, it can be very tempting
 
 ## Where to go next?
 
-Visit our great [Getting started](/start "Getting started") page or if you are interested in more advanced Vue stuff, jump to [part three of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3 "BabylonJS and Vue - async scene methods").
+Visit our great [Getting started](/features/introductionToFeatures "Getting started") page or if you are interested in more advanced Vue stuff, jump to [part three of this tutorial](/extensions/Babylon.js+ExternalLibraries/BabylonJS_and_Vue/BabylonJS_and_Vue_3 "BabylonJS and Vue - async scene methods").
 
 ## Links
 

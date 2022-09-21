@@ -18,7 +18,7 @@ First you may ask why is it better than "ctrl + prt scr" screenshot or the Snipp
 
 There are two methods available to do this using `BABYLON.Tools` which are `CreateScreenshot` and the more versatile `CreateScreenshotUsingRenderTarget`.
 
-You also need to consider how you will trigger the screenshot. This can be done for example with a timer such as 'window.setTimeout' or by using the [Babylon.js action manager](/divingDeeper/events/actions) for a keyDown or onPointerDown trigger.
+You also need to consider how you will trigger the screenshot. This can be done for example with a timer such as 'window.setTimeout' or by using the [Babylon.js action manager](/features/featuresDeepDive/events/actions) for a keyDown or onPointerDown trigger.
 
 A major difference between `CreateScreenshot` and `CreateScreenshotUsingRenderTarget` is when you try to use them directly after creating a mesh or meshes. This is because they work differently.
 

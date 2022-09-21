@@ -5,13 +5,13 @@ description: Learn about Scroll Viewer in Babylon.js.
 keywords: diving deeper, GUI, Scroll Viewer
 further-reading:
     - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
+      url: /features/featuresDeepDive/gui/selector
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/featuresDeepDive/gui/gui
     - title: How To Use Babylon GUI Xml Loader
-      url: /divingDeeper/gui/xmlLoader
+      url: /features/featuresDeepDive/gui/xmlLoader
     - title: How To Use Babylon GUI3D
-      url: /divingDeeper/gui/gui3D
+      url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---

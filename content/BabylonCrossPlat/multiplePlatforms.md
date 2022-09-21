@@ -106,9 +106,9 @@ and, as always, please don't hesitate to bring any questions you have to
 
 Of course, this list isn't comprehensive and these aren't the only kinds
 of apps: there are
-[VR apps](/divingDeeper/webXR),
-[server-side apps](/advanced_topics/serverSide),
-[multi-device apps](/guidedLearning/multiplayer/Colyseus),
+[VR apps](/features/featuresDeepDive/webXR),
+[server-side apps](/setup/support/serverSide),
+[multi-device apps](/guidedLearning/networking/Colyseus),
 and so many more possibilities that we could never hope to enumerate
 them. Cross-platform support is a key objective for Babylon; so
 no matter which or how many platforms your app needs to run on, we'd love

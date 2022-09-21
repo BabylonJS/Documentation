@@ -7,7 +7,7 @@ further-reading:
   - title: Geodesic and Goldberg Polyhedra Code Design
     url: /guidedLearning/workshop/Geodesic_Code
   - title: Icosphere
-    url: /divingDeeper/mesh/creation/polyhedra/icosphere
+    url: /features/featuresDeepDive/mesh/creation/polyhedra/icosphere
   - title: A Unified Approach to Geodesic Polyhedra
     url: https://www.researchgate.net/publication/267268539_A_Unified_Approach_to_Class_I_II_III_Geodesic_Domes
 video-overview:

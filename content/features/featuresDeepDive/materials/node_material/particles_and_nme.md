@@ -5,16 +5,16 @@ description: Learn how to use the node material editor to create particle shader
 keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:
     - title: Particle 101
-      url: /divingDeeper/particles
+      url: /features/featuresDeepDive/particles
     - title: Node Material
-      url: /divingDeeper/materials/node_material/particles_and_nme
+      url: /features/featuresDeepDive/materials/node_material/particles_and_nme
 video-overview:
 video-content:
 ---
 
 ## How To use the Node Material with Particles
 
-The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/divingDeeper/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/divingDeeper/materials/node_material/nodeMaterial#creating-post-processes).
+The Node Material Editor (aka NME) is a powerful tool that can be used to design shaders, [particles](/features/featuresDeepDive/materials/node_material/nodeMaterial#creating-particle-shaders), and [post processes](/features/featuresDeepDive/materials/node_material/nodeMaterial#creating-post-processes).
 
 This article will help you set up a simple scene that will contain only a few lines of code, because all of the work will be done using our editors.
 

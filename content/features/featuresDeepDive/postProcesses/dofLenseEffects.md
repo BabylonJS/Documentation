@@ -5,7 +5,7 @@ description: Learn how to use depth of field and other lens effects in Babylon.j
 keywords: diving deeper, post processes, post process, lens effects, DoF
 further-reading:
     - title: Use the default rendering pipeline
-      url: /divingDeeper/postProcesses/defaultRenderingPipeline
+      url: /features/featuresDeepDive/postProcesses/defaultRenderingPipeline
 video-overview:
 video-content:
 ---

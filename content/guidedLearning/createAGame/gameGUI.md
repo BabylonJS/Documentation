@@ -12,7 +12,7 @@ video-content:
 
 By the end of this section, the topics we've gone over should have well equipped you with knowledge on how to implement core mechanics for a game! The next few sections will go over adding more to the game in terms of features you can use to enhance the visuals of the game (including animation & sounds).
 
-The Babylon GUI has a ton to offer, and the babylonjs [gui](/divingDeeper/gui/gui) documentation is extremely thorough in explaining how to use the different controls and components. For this tutorial, I'll just be going over features that were specific to my game or involved a little bit of logic to accompany it.
+The Babylon GUI has a ton to offer, and the babylonjs [gui](/features/featuresDeepDive/gui/gui) documentation is extremely thorough in explaining how to use the different controls and components. For this tutorial, I'll just be going over features that were specific to my game or involved a little bit of logic to accompany it.
 
 ## Game UI
 

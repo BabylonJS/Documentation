@@ -40,11 +40,11 @@ I quickly and easily add 3D to my existing e-commerce site?**"
 
 So Allan did some research and found that Babylon.js specifically
 caters to e-commerce scenarios by
-[including Khronos 3D Commerce conformant rendering as a core offering](/divingDeeper/3D_commerce_certif).
+[including Khronos 3D Commerce conformant rendering as a core offering](/setup/support/3D_commerce_certif).
 (This certification ensures that 3D rendering will be consistent so that
 models always look the way site owners and customers expect them to.)
 Furthermore, Babylon.js provides a
-[Viewer](/extensions/babylonViewer)
+[Viewer](/features/featuresDeepDive/babylonViewer)
 that makes it easy to add 3D to an existing site using only HTML-style
 code. So Allan consulted with his Web developer Barnabas, and the two of
 them figured out how they would add 3D to the Vaporwear e-commerce
@@ -81,7 +81,7 @@ Though Barnabas was quite experienced with WordPress, he'd never added 3D
 to an existing site before, so the first thing he wanted to do was make
 sure he coul get at least *something* rendering on the site in 3D. After
 finding the
-[Viewer Examples](/extensions/babylonViewer/viewerExamples#basic-usage)
+[Viewer Examples](/features/featuresDeepDive/babylonViewer/viewerExamples#basic-usage)
 in the Babylon.js docs, Barnabas decided to just grab the code from there
 and add it directly to his WordPress site.
 
@@ -103,7 +103,7 @@ and add it directly to his WordPress site.
 
     ![Where to put the Viewer](/img/devStories/vaporwearViewer/06_div.png)
 1. Within this `div`, he added the `script` tag he'd found
-    [in the Babylon Viewer docs](/extensions/babylonViewer#display-3d-models-on-your-webpage)
+    [in the Babylon Viewer docs](/features/featuresDeepDive/babylonViewer#display-3d-models-on-your-webpage)
     to import the Viewer so he could use it on his page.
 
     ![Viewer script tag](/img/devStories/vaporwearViewer/07_script.png)
@@ -188,7 +188,7 @@ to render it on the Vaporwear WordPress site.
 
     ![New model URL](/img/devStories/vaporwearViewer/18_new_model_url.png)
 1. However, Barnabas knew the Babylon Viewer is
-    [highly configurable](/extensions/babylonViewer/configuringViewer),
+    [highly configurable](/features/featuresDeepDive/babylonViewer/configuringViewer),
     so he decided to tweak a few things about its appearance to make it
     look just right for Vaporwear. First, he removed the leftover code
     from the sample adding VR support. (He also cleaned up a lot of

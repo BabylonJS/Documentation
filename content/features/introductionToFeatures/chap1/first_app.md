@@ -5,9 +5,9 @@ description: HTML Templates to load your first model or code into a Babylon.js s
 keywords: getting started, start, chapter 1, first model, import
 further-reading:
   - title: Setup with NPM
-    url: /divingDeeper/developWithBjs/npmSupport
+    url: /setup/frameworkPackages/npmSupport
   - title: Setup with Tree Shaking
-    url: /divingDeeper/developWithBjs/treeShaking
+    url: /setup/frameworkPackages/es6Support
 video-overview:
 video-content:
 ---

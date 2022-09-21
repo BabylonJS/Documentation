@@ -5,13 +5,13 @@ description: Learn about the Babylon.js XML Loader.
 keywords: diving deeper, GUI, XML Loader
 further-reading:
     - title: How To Use the Selection Panel Helper
-      url: /divingDeeper/gui/selector
+      url: /features/featuresDeepDive/gui/selector
     - title: How To Use Babylon GUI
-      url: /divingDeeper/gui/gui
+      url: /features/featuresDeepDive/gui/gui
     - title: How To Use Babylon GUI Scroll Viewer
-      url: /divingDeeper/gui/scrollViewer
+      url: /features/featuresDeepDive/gui/scrollViewer
     - title: How To Use Babylon GUI3D
-      url: /divingDeeper/gui/gui3D
+      url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---

@@ -38,7 +38,7 @@ Once your scene is exported, you have multiple solutions to test it:
 
 - quick check using the [sandbox](https://sandbox.babylonjs.com/)
 - use the [viewer](//doc.babylonjs.com/extensions/the_babylon_viewer)
-- script your own app using the [loader](/divingDeeper/importers/loadingFileTypes)
+- script your own app using the [loader](/features/featuresDeepDive/importers/loadingFileTypes)
 
 ## Example
 

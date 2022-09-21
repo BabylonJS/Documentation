@@ -9,13 +9,13 @@ further-reading:
     - title: Meshes Available to Import into the Playground
       url: /toolsAndResources/assetLibraries/availableMeshes
     - title: Using External Assets in the Playground
-      url: /toolsAndResources/tools/playground/externalPGAssets
+      url: /toolsAndResources/thePlayground/externalPGAssets
     - title: How to Use The Inspector in Projects
-      url: /toolsAndResources/tools/inspector
+      url: /toolsAndResources/inspector
     - title: How to Use The Inspector in Projects
-      url: /toolsAndResources/tools/inspector
+      url: /toolsAndResources/inspector
     - title: Make your own Snippet Server
-      url: /toolsAndResources/tools/playground/yourOwnSnippetServer
+      url: /toolsAndResources/thePlayground/yourOwnSnippetServer
 video-overview:
 video-content:
 ---

@@ -14,7 +14,7 @@ An `AnimationGroup` allows you to link together animations and meshes and play t
 
 ## Forming a Group
 
-Following the tutorial for [creating an animation](/divingDeeper/animation/animation_introduction) set up one or more animations.
+Following the tutorial for [creating an animation](/features/featuresDeepDive/animation/animation_introduction) set up one or more animations.
 
 For example having created _animation1_, _animation2_ and _animation3_ and also meshes _mesh1_, _mesh2_, _mesh3_ and _mesh4_ you can form the following animation groups
 

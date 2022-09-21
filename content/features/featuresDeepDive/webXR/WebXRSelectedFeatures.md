@@ -10,7 +10,7 @@ video-content:
 
 # Babylon.js WebXR features
 
-This contains the documentation of all features that are not AR-Exclusive. For AR Features, see the [BabylonJS WebXR AR Features](/divingDeeper/webXR/webXRARFeatures) page.
+This contains the documentation of all features that are not AR-Exclusive. For AR Features, see the [BabylonJS WebXR AR Features](/features/featuresDeepDive/webXR/webXRARFeatures) page.
 
 ## Teleportation Module
 
@@ -28,7 +28,7 @@ Quick note about the **WebXR emulator** - Even thou it doesn't have support for 
 
 ### Enabling teleportation
 
-The teleportation module is turned on per default when using the [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper). To turn it on or re-enable it use the following code:
+The teleportation module is turned on per default when using the [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper). To turn it on or re-enable it use the following code:
 
 ```javascript
 const featuresManager = xr.baseExperience.featuresManager; // or any other way to get a features manager
@@ -63,7 +63,7 @@ Notice that the only obligatory option for the teleportation feature is the xrIn
 
 Floor meshes are most important for teleportation, as the module needs to know where the users are allowed to land and where not.
 
-When using the [WebXR Default Experience Helper](/divingDeeper/webXR/webXRExperienceHelpers#the-basic-experience-helper) you can set the floorMeshes during initialization:
+When using the [WebXR Default Experience Helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-basic-experience-helper) you can set the floorMeshes during initialization:
 
 ```javascript
 var xrHelper = await scene.createDefaultXRExperienceAsync({
@@ -135,7 +135,7 @@ The default input source is an XR headset with two handheld controllers. This in
 
 When the input source has a thumbstick or a touchpad, moving the finger forward will trigger the ray-casting mode. Rotating the finger after seeing the ray casted will rotate the direction in which the user lands. Releasing the finger when seeing a landing zone will move the user there.
 
-When no thumbstick or touchpad is available, the main component (usually a trigger) will be used. See [WebXR input sources](/divingDeeper/webXR/webXRInputControllerSupport) for more information about the main component. When using the main component, which is usually a button, you can define a certain amount of time in milliseconds after which the user will teleport, if still holding the trigger. The default is 3 seconds.
+When no thumbstick or touchpad is available, the main component (usually a trigger) will be used. See [WebXR input sources](/features/featuresDeepDive/webXR/webXRInputControllerSupport) for more information about the main component. When using the main component, which is usually a button, you can define a certain amount of time in milliseconds after which the user will teleport, if still holding the trigger. The default is 3 seconds.
 
 This configuration value can be found in the constructor's options and it is called `timeToTeleport` :
 
@@ -281,8 +281,8 @@ teleportation.rotationAngle = Math.PI / 4;
 
 If you want the render the teleportation target zone on top of the rest of the meshes you can use one of two ways:
 
-1. rendering group id (See [Rendering groups](/divingDeeper/materials/advanced/transparent_rendering))
-2. Utility layer (See [UtilityLayerRenderer](/divingDeeper/mesh/utilityLayerRenderer))
+1. rendering group id (See [Rendering groups](/features/featuresDeepDive/materials/advanced/transparent_rendering))
+2. Utility layer (See [UtilityLayerRenderer](/features/featuresDeepDive/mesh/utilityLayerRenderer))
 
 To set the rendering group id :
 

@@ -144,7 +144,7 @@ Each particle has a different area of the texture set
 
 #### Face Material
 
-When the model mesh you are adding to the SPS is one that is using the [material per face technique](/divingDeeper/materials/using/texturePerBoxFace) then the correct uv values will be applied automatically when the model is added as a shape. Unlike for the colors, the model UVs are saved whether the model had per face UVs or not. This allows to use not only a texture atlas for the particles, but also a texture atlas for the model then inside the particle atlas because you use only one texture in final.
+When the model mesh you are adding to the SPS is one that is using the [material per face technique](/features/featuresDeepDive/materials/using/texturePerBoxFace) then the correct uv values will be applied automatically when the model is added as a shape. Unlike for the colors, the model UVs are saved whether the model had per face UVs or not. This allows to use not only a texture atlas for the particles, but also a texture atlas for the model then inside the particle atlas because you use only one texture in final.
 
 ![Sprite Altlas](/img/how_to/apply-material-to-faces/spriteAtlas2.png)
 

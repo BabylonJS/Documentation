@@ -110,7 +110,7 @@ Before embarking on editing or adding to Babylon.js please make sure you are fam
 
 Please note that some of these are checked on submission automatically by software, including
 
-- The addition of comments to your code as described [here](/divingDeeper/developWithBjs/contributeToAPI);
+- The addition of comments to your code as described [here](/contribute/toBabylon/contributeToAPI);
 - Consistent coding style (linting).
 
 ### Editing with Visual Studio Code
@@ -119,7 +119,7 @@ Visual Studio Code is a straight forward IDE with Git integration and is availab
 
 You can install VSCode from their site: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
-[More on using VSCode with Babylon.js](/divingDeeper/developWithBjs/vsCode)
+[More on using VSCode with Babylon.js](/setup/support/vsCode)
 
 ### Adding files
 

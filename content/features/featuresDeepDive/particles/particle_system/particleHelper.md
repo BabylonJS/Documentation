@@ -5,15 +5,15 @@ description: Learn all about the fabulous particle helper in Babylon.js.
 keywords: diving deeper, particles, particle system, helper, particle helper
 further-reading:
     - title: Particles Overview
-      url: /divingDeeper/particles/particle_system
+      url: /features/featuresDeepDive/particles/particle_system
     - title: Particles
-      url: /divingDeeper/particles
+      url: /features/featuresDeepDive/particles
     - title: How to Use Sub Emitters
-      url: /divingDeeper/particles/particle_system/subEmitters
+      url: /features/featuresDeepDive/particles/particle_system/subEmitters
     - title: Solid Particle System
-      url: /divingDeeper/particles/solid_particle_system
+      url: /features/featuresDeepDive/particles/solid_particle_system
     - title: How to Customize the Particle System
-      url: /divingDeeper/particles/particle_system/customizingParticles
+      url: /features/featuresDeepDive/particles/particle_system/customizingParticles
 video-overview:
 video-content:
 ---

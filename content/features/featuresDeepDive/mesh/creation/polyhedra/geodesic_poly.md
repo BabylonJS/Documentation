@@ -9,9 +9,9 @@ further-reading:
   - title: Geodesic and Goldberg Polyhedra Mathematics
     url: /guidedLearning/workshop/Geodesic_Math
   - title: Icosphere
-    url: /divingDeeper/mesh/creation/polyhedra/icosphere
+    url: /features/featuresDeepDive/mesh/creation/polyhedra/icosphere
   - title: Creating Polyhedra
-    url: /divingDeeper/mesh/creation/polyhedra/polyhedra_by_numbers
+    url: /features/featuresDeepDive/mesh/creation/polyhedra/polyhedra_by_numbers
 video-overview:
 video-content:
 ---
@@ -46,7 +46,7 @@ const geodesic = BABYLON.MeshBuilder.CreateGeodesic("geodesic", options, scene);
 | updatable       | _(boolean)_ true if the mesh is updatable                                                          | false                            |
 | sideOrientation | _(number)_ side orientation                                                                        | DEFAULTSIDE                      |
 
-To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/divingDeeper/materials/using/texturePerBoxFace) taking into account the right number of faces of your polyhedron.
+To understand how to set _faceUV_ or _faceColors_, please read about [Face Colors and Textures for a Box](/features/featuresDeepDive/materials/using/texturePerBoxFace) taking into account the right number of faces of your polyhedron.
 
 ## Examples
 

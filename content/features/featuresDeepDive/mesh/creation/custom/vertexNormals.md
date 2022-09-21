@@ -5,16 +5,16 @@ description: Learn all about vertex normals in Babylon.js.
 keywords: diving deeper, meshes, vertex normals
 further-reading:
     - title: Custom Meshes
-      url: /divingDeeper/mesh/creation/custom
+      url: /features/featuresDeepDive/mesh/creation/custom
     - title: Updating Vertices
-      url: /divingDeeper/mesh/creation/custom/updatingVertices
+      url: /features/featuresDeepDive/mesh/creation/custom/updatingVertices
 video-overview:
 video-content:
 ---
 
 ## Vertex Normals
 
-Each triangular facet of a mesh comprises three vertices. Besides a position each vertex has another important vector3 called a normal. These vertex normals are used by the [shader code](/advanced_topics/shaders/introToShaders) in calculating how the mesh is lit. Unlike a mathematical normal there is no necessity for them to be set at right angles and for curved shapes such as a sphere they may not be. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
+Each triangular facet of a mesh comprises three vertices. Besides a position each vertex has another important vector3 called a normal. These vertex normals are used by the [shader code](/features/featuresDeepDive/materials/shaders/introToShaders) in calculating how the mesh is lit. Unlike a mathematical normal there is no necessity for them to be set at right angles and for curved shapes such as a sphere they may not be. In the case of a sphere they are set as the mathematical normal of the sphere surface rather than that of the flat facets of the mesh that create the sphere.
 
 At first the vertex normals are calculated as the mathematical normals for the facet. It then depends whether you want to view the facets as flat surfaces or as part of curve. For flat surfaces the vertex normals remain as the mathematical normals. To enhance the curve when viewed under light where triangular facets share vertices with the same positions each shared vertex normal is recalculated to be the average of the mathematical normals of the shared vertex normals.
 
@@ -60,7 +60,7 @@ Keeping the indices to a minimum the normals at each corner are an average of th
 
 ## Normals and Flat Shaded Meshes.
 
-There are times, such as needing each face of a box to be covered in a [different material](/divingDeeper/mesh/facetData),
+There are times, such as needing each face of a box to be covered in a [different material](/features/featuresDeepDive/mesh/facetData),
 when it is better to have the box constructed from separate faces each of which are constructed by two facets and no two faces
 sharing a vertex indices. They will of course share vertex positions.
 
