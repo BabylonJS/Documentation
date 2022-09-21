@@ -228,6 +228,8 @@ If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Agg
 
 ** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
 
+You can see an example of how to use it here: https://playground.babylonjs.com/#6HWS9M
+
 ## Instrumentation
 Instrumentation is a key tool when you want to optimize a scene. It will help you figure out where are the bottlenecks so you will be able to optimize what needs to be optimized.
 
