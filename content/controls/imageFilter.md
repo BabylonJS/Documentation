@@ -13,6 +13,7 @@ video-content:
 The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
 
 ## Introduction
+
 Filtering images to apply effect might be tedious and slow on the CPU. The best place to do so (for a wide variety of effects) is on the GPU. But setting up an entire WebGL pipeline simply to process images might be tricky even more if you wish to benefit from WebGL 2 to 1 fallback and workaround famous platform issues.
 
 To greatly simplify this task we introduced the `ImageFilter` Control.
@@ -22,28 +23,30 @@ To greatly simplify this task we introduced the `ImageFilter` Control.
 ## How to use
 
 ### Installation
+
 To begin with the image filter control, you first need to install the controls npm package.
 
-```
+```javascript
 npm install @babylonjs/controls
 ```
 
 To reduce the size of your web page, the controls library is based on the es6 version of `@babylonjs/core` used as a peer dependency. Therefore if you are not relying on it so far in you project, you also need to install core:
 
-```
+```javascript
 npm install @babylonjs/core
 ```
 
 ### Instantiation
+
 Once done, you can now import the control in your code:
 
-```
+```javascript
 import { ImageFilter } from "@babylonjs/controls/imageFilter";
 ```
 
 And simply instantiate it in your page:
 
-```
+```javascript
 const imageFilter = new ImageFilter(filterCanvas);
 ```
 
@@ -51,7 +54,7 @@ You simply need to provide a canvas on which we will be able to use a WebGL cont
 
 Also you, would you need more specific engine configurations, or if you want to use post processes, you should manually use your own engine:
 
-```
+```javascript
 const engine = new Engine(filterCanvas);
 const imageFilter = new ImageFilter(engine);
 ```
@@ -59,14 +62,16 @@ const imageFilter = new ImageFilter(engine);
 By default the controls relies on ThinEngine in order to optimize your bundle but it might have some limitations you do not want to have as part of your experiences.
 
 ## Using Post Process
+
 In order to apply a custom shader as the image filter, you can use the following code:
 
-```
+```javascript
 const blackAndWhitePostProcess = new BlackAndWhitePostProcess("bw", 1, null, undefined, engine);
 backAndWhiteFilter.filter(imageToProcess, blackAndWhitePostProcess);
 ```
 
 Where imageToProcess could be either:
+
 * the url of a picture.
 * a video element (the current visible frame of the video will be used)
 * another canvas element (the current visible state will be used)
@@ -74,9 +79,10 @@ Where imageToProcess could be either:
 This will apply the post process to the provided input and display it in the canvas.
 
 ## Using Custom shader
+
 In order to apply an existing post process as the image filter, you can use the following code:
 
-```
+```javascript
 const customEffectWrapper = new EffectWrapper({
     name: "Custom",
     engine: customFilter.engine,
@@ -101,6 +107,7 @@ customFilter.filter(imageToProcess, customEffectWrapper);
 ```
 
 Where imageToProcess could be either:
+
 * the url of a picture.
 * a video element (the current visible frame of the video will be used)
 * another canvas element (the current visible state will be used)
@@ -109,7 +116,7 @@ This will apply the custom shader in parameter to the picture. By default, `vUV`
 
 Please note that if you need to add custom unifoms or samplers, they should be defined in the effect wrapper list:
 
-```
+```javascript
 const customEffectWrapper = new EffectWrapper({
     name: "Custom",
     engine: customFilter.engine,
@@ -147,7 +154,7 @@ const customEffectWrapper = new EffectWrapper({
 
 Then you can simply bind them either in `onApply`:
 
-```
+```javascript
 customEffectWrapper.onApplyObservable.add(() => {
     // Sets the custom values.
     customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
@@ -157,7 +164,7 @@ customEffectWrapper.onApplyObservable.add(() => {
 
 Or during the render loop:
 
-```
+```javascript
 // Rely on the underlying engine render loop to update the filter result every frame.
 engine.runRenderLoop(() => {
     // Only render if the custom texture is ready (the default one is 
@@ -181,13 +188,15 @@ engine.runRenderLoop(() => {
 Finally, if you are relying on new textures, you need to wait for them to be ready before rendering.
 
 ## Process to the canvas
+
 This is by far the simplest, if you have a canvas in your page. You simply need to use the following code to fit the provided element to the canvas size:
 
-```
+```javascript
 imageFilter.filter(imageToProcess, filter);
 ```
 
 On the previous line, imageToResize could be either:
+
 * the url of a picture.
 * a video element (the current visible frame of the video will be used)
 * another canvas element (the current visible state will be used)
@@ -195,13 +204,15 @@ On the previous line, imageToResize could be either:
 This is the default behavior.
 
 ## Process to a Babylon Texture
+
 Instead of filtering directly to a canvas, you could prefer to only create a Babylon.js texture on the GPU. For this, you can use the following function:
 
-```
+```javascript
 const texture = imageFilter.getFilteredTexture(imageToResize, { width: 128, height: 100 }, filter);
 ```
 
 Like before, imageToResize could be either:
+
 * the url of a picture.
 * a video element (the current visible frame of the video will be used).
 * another canvas element (the current visible state will be used).
@@ -211,9 +222,10 @@ You also need to provide the size you want your texture to have on the GPU.
 Now you are free to use this texture with any other controls.
 
 ## Real Time filtering
+
 Instead of filtering only one time, you might want to create dynamic real time effects. For this, you can simply render the effect during the render loop:
 
-```
+```javascript
 // Rely on the underlying engine render loop to update the filter result every frame.
 engine.runRenderLoop(() => {
     // Only render if the custom texture is ready (the default one is 

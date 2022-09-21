@@ -8,7 +8,6 @@ video-overview:
 video-content:
 ---
 
-
 ## How It's Organized
 
 Having [started your journey](/journey) and having an overview of Babylon.js, the documentation is designed to take you step by step further on the journey of mastering all that this platform has to offer. The information is organized into an overview and 9 main sections, which contain chapters, together with a detailed API section, and search facilities.
@@ -49,20 +48,18 @@ Lastly, if you select any one of the examples in the examples pane, it will load
 
 ![Examples Pane](/img/home/home5.jpg)
 
-
 ## A note on versioning
 
 The Babylon.js Documentation is written with the latest major version of Babylon.js in mind. [The API docs](https://doc.babylonjs.com/typedoc) are generated against the latest nightly build.
 
 If you want to install Babylon.js locally using the latest version, please pick the latest release [from the npm page](https://www.npmjs.com/package/@babylonjs/core), and then run:
 
-```shellscript
+```shell
  npm i @babylonjs/core@preview
 ```
 
 Don't be scared about using the latest version. Babylon's npm releases are considered stable and are fully tested by the team.
 
-
 ## The Bayblon.js Forum
 
-Next up is to learn about [The Babylon.js Forum](/journey/forum), the place where the community and dev team dive in every day to help each other learn and advance this wonderful platform. 
+Next up is to learn about [The Babylon.js Forum](/journey/forum), the place where the community and dev team dive in every day to help each other learn and advance this wonderful platform.
