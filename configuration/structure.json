@@ -698,7 +698,6 @@
                             "children": {
                                 "webGPUStatus": { "friendlyName": "Status", "children": {}, "content": "extensions/WebGPU/webGPUStatus" },
                                 "webGPUBreakingChanges": { "friendlyName": "Breaking Changes", "children": {}, "content": "extensions/WebGPU/webGPUBreakingChanges" },
-                                "computeShader": { "friendlyName": "Compute Shaders", "children": {}, "content": "How_To/shaders/compute_shader" },
                                 "webGPUWGSL": { "friendlyName": "Writing shaders in WGSL", "children": {}, "content": "extensions/WebGPU/webGPUWGSL" },
                                 "webGPULimitations": { "friendlyName": "Limitations", "children": {}, "content": "extensions/WebGPU/webGPULimitations" },
                                 "webGPUOptimization": {
@@ -861,11 +860,6 @@
                     "friendlyName": "Offsite Tutorials",
                     "children": {},
                     "content": "resources/Reference/offsite_tutorials_list"
-                },
-                "templateRepositories": {
-                    "friendlyName": "Template Repositories",
-                    "children": {},
-                    "content": "landing_pages/toolsAndResourcesTemplateRepositoriesLandingPage"
                 }
             },
             "content": "landing_pages/toolsAndResourcesLandingPage"
@@ -895,7 +889,6 @@
                         "Prerequisits": { "friendlyName": "Prerequisits for Contributing", "children": {}, "content": "How_To/contribute/prerequisits"},
                         "HowToContribute": { "friendlyName": "How To Contribute", "children": {}, "content": "How_To/contribute/how_to_start" },
                         "validationTests": { "friendlyName": "Validation Tests", "children": {}, "content": "How_To/contribute/validation_tests"},
-                        "usingThePlaygroundForBJSDev": { "friendlyName": "From Playground to Contribution", "children": {}, "content": "How_To/contribute/use_playground" },
                         "contributeToAPI": { "friendlyName": "Contribute To The API", "children": {}, "content":  "How_To/contribute/contribute_to_api" },
                         "approvedNamingConventions": { "friendlyName": "Approved Naming Conventions", "children": {}, "content": "How_To/contribute/Approved_Naming_Conventions" },
                         "matForMatLibrary": { "friendlyName": "Create a Material For the Material Library", "children": {}, "content": "How_To/contribute/How_to_create_a_material_for_materialsLibrary" },
