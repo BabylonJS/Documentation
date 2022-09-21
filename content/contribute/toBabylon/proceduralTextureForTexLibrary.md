@@ -101,7 +101,7 @@ To be sure that you have intelliSense and that the compilation phase works well 
 ```
 
 The main part of the magic for a procedural texture is happening in the shader file. The TypeScript file is mainly here to give its caller the ability to set values for uniforms and pass it to the shader itself.
-By convention we create a function named **updateShaderUniforms()** which will be called from the construtor and in every setters for each property.
+By convention we create a function named **updateShaderUniforms()** which will be called from the constructor and in every setters for each property.
 
 Here is an example for the CloudBisProceduralTexture.
 

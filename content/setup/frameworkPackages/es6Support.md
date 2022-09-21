@@ -158,15 +158,15 @@ This will only have a fullscreen canvas as well as a reference to our applicatio
 Once done you can create a `src` folder containing an index.js file with the following content:
 
 ```javascript
-import { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
-import { Engine } from '@babylonjs/core/Engines/engine';
-import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
-import { Vector3 } from '@babylonjs/core/Maths/math.vector';
-import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
-import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
-import { Scene } from '@babylonjs/core/scene';
+import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { CreateGround } from "@babylonjs/core/Meshes/Builders/groundBuilder";
+import { CreateSphere } from "@babylonjs/core/Meshes/Builders/sphereBuilder";
+import { Scene } from "@babylonjs/core/scene";
 
-import { GridMaterial } from '@babylonjs/materials/grid/gridMaterial';
+import { GridMaterial } from "@babylonjs/materials/grid/gridMaterial";
 
 // Get the canvas element from the DOM.
 const canvas = document.getElementById("renderCanvas");
@@ -390,7 +390,7 @@ This will be the case for all the methods defined by module augmentation. This m
 - depthRendering support can be found in the `Rendering/depthRendererSceneComponent` .
 - screenshot support can be found in the `Misc/screenshotTools` .
 - boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
--  Screen surface reflection postprocess (`scene.enablePrePassRender`) can be found in the `Rendering/prePassRendererSceneComponent` .
+- Screen surface reflection postprocess (`scene.enablePrePassRender`) can be found in the `Rendering/prePassRendererSceneComponent` .
 
 _Why do I have an error in the console inviting me to import some other modules?_
 

@@ -43,7 +43,7 @@ developers to quickly and easily add my Babylon Utility into their own
 projects.
 
 1.  First, I created my new repository, leveraging the 
-    [Template Repository Workflow](../../toolsAndResources/templateRepositories#the-template-repository-workflow)
+    [Template Repository Workflow](/toolsAndResources/templateRepositories#the-template-repository-workflow)
     to make it easy to redistribute later.
 1.	I next implemented the new utility camera itself.
 1.  To *give* away the ability for others to use my new Babylon Utility, I 

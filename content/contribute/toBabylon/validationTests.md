@@ -10,6 +10,8 @@ video-content:
 
 ## Introduction
 
+NOTE: This page requires revision. If you have any questions, please ask in the [forum](https://forum.babylonjs.com/).
+
 Validation tests are visual tests that check that the rendering of a selection of playgrounds / demos are not broken by some of your changes.
 
 You should normally simply run them as part of the standard build, or manually by browsing [http://localhost:1338/tests/validation](http://localhost:1338/tests/validation).
@@ -23,6 +25,7 @@ A validation test list is a list of visual tests that should be run to guarantee
 ### List format
 
 A validation test list is described in a JSON formatted file, each test being an entry of the **tests** array:
+
 ```json
 {
     "root": "https://cdn.babylonjs.com",
@@ -41,6 +44,7 @@ A validation test list is described in a JSON formatted file, each test being an
     ]
 }
 ```
+
 *Note*: the **root** url is the base url used to retrieve the code for the tests that have a non empty **scriptToRun** or **sceneFolder** entry, but we won't go into more details, we are only interested in tests based on a playground.
 
 A test is simply a playground that is run by the validation engine. The outcome of the test is the comparison between the generated image and a reference image: if it differs too much, the test is flagged as "failed".
@@ -72,7 +76,7 @@ The url to use to start the tests from a validation list is [http://localhost:13
 
 The full format for this url is:
 
-http://localhost:1338/tests/validation/?list=**LIST**&engine=**ENGINE**&test=**TITLE**&fromtest=**TITLE**&useReverseDepthBuffer=**[0|1]**&useNonCompatibilityMode=**[0|1]**&checkresourcecreation=**[0|1]**
+<http://localhost:1338/tests/validation/?list>=**LIST**&engine=**ENGINE**&test=**TITLE**&fromtest=**TITLE**&useReverseDepthBuffer=**[0|1]**&useNonCompatibilityMode=**[0|1]**&checkresourcecreation=**[0|1]**
 
 * **LIST**: name of the list, without the `.json` part. If not provided, the default value is `config`
 * **ENGINE**: name of the engine to run the list with. If not provided, the default value is `webgl2`. The allowed values are: `webgl1`, `webgl2` and `webgpu`
@@ -82,13 +86,14 @@ http://localhost:1338/tests/validation/?list=**LIST**&engine=**ENGINE**&test=**T
 * useNonCompatibilityMode=**[0|1]**: if provided and set to `1`, all the tests will be run with `engine.compatibilityMode = false` (no effect in WebGL)
 * checkresourcecreation=**[0|1]**: see explanations below
 
-Note that the old syntax **http://localhost:1338/tests/validation/?TITLE** still works if you want to run a single test named **TITLE** from the default `config.json` list.
+Note that the old syntax **<http://localhost:1338/tests/validation/?TITLE>** still works if you want to run a single test named **TITLE** from the default `config.json` list.
 
 When running a list of tests, you will see a **Show only failed test** button in the upper right corner of the browser page: use this button to only show tests that failed. Note however that it hides the succeeded tests at the time you hit the button. If new tests succeed, you will see them. Click the button at the end of the run if you want an up to date list (or reclick it several times during the run).
 
 ## Check Resource Creation - WebGPU only
 
 When adding `checkresourcecreation=1` to the test url, three specific checks are performed for each validation test (WebGPU only):
+
 1. that the `engine.countersLastFrame.numEnableEffects` counter value is 0 for the last frame displayed
 1. that the number of bind groups created during the last frame is 0 (`BABYLON.WebGPUCacheBindGroups.NumBindGroupsCreatedLastFrame`)
 1. that there's no bundle created during the last frame (when in **non compatibility mode**) - `engine.countersLastFrame.numBundleCreationNonCompatMode` counter value is 0

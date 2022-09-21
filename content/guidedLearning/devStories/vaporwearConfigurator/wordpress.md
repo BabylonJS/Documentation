@@ -53,7 +53,7 @@ bundle it into a custom
 1.  First, Barnabas created a new repository from the 
     [WordPress NPM Bridge Template](https://github.com/syntheticmagus/wp-npm-bridge-template)
     using the same approach 
-    [described in a Dev Story for starting Babylon's Template Repository Workflow](../fruitFalling#a-more-step-by-step-journey-through-the-process).
+    [described in a Dev Story for starting Babylon's Template Repository Workflow](/fruitFalling#a-more-step-by-step-journey-through-the-process).
     
     ![WordPress NPM Bridge Template](/img/devStories/vaporwearConfigurator/chapter_wordpress/01_use_this_template.png)
 1.  Barnabas's plan was to create a plugin that would let him use a
@@ -110,7 +110,7 @@ Now for the real thing.
     
     ![Custom function definition](/img/devStories/vaporwearConfigurator/chapter_wordpress/09_index_js_16_40.png)
 1.  For simplicity, he reused the asset host he'd made from his original
-    [Babylon Viewer integration](../vaporwearViewer) to host the rest of
+    [Babylon Viewer integration](/vaporwearViewer) to host the rest of
     the assets.
     
     ![Asset host URL](/img/devStories/vaporwearConfigurator/chapter_wordpress/10_index_js_14.png)
