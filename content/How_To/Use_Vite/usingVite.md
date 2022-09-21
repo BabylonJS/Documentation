@@ -14,7 +14,7 @@ video-content:
 
 [Vite](https://vitejs.dev/) is a modern development environment that bundles & optimizes your code, launches local test servers instantly, automates more project configurations out-of-the-box, and contains other quality-of-life improvements. In other words, it's an all-in-one tool that lets you develop Babylon.js projects on your computer locally and with ease. It's intended to replace Webpack, which has a similar goal as Vite but requires more work and maintenance (especially with its config files.)
 
-Whether you're ready to graduate from playing with example projects in the [Playground](https://playground.babylonjs.com/), or if you're already a seasoned developer looking to upgrade your software stack, this guide can benefit any of your future projects with Babylon!
+Whether you're ready to graduate from playing with example projects in the [Playground](https://playground.babylonjs.com/), or if you're already a seasoned developer looking to upgrade your software stack, this guide can benefit any of your future Babylon.js projects!
 
 ## Leaving the Playground with VSCode & npm
 
@@ -75,7 +75,7 @@ The first command updates the Vite packages in your project root folder that sti
 
 ![Vite success](/img/how_to/use-vite/07.png)
 
-If you see this screen, good job! The foundation of our Vite project is now set up. Now let's make it run Babylon.js.
+If you see this screen, good job! The foundation of our Vite project is set up. Now let's make it run Babylon.js.
 
 **(9)** Go back to your Terminal and press Ctrl+C to stop the server. (Don't forget that keyboard shortcut.) 
 
@@ -109,8 +109,9 @@ The code for **app.ts** is a test scene of a sphere from [another Babylon.js tut
 
 **HOWEVER,** before you continue your Babylon.js journey with your shiny new setup, here's some basic upkeep you'll have to keep in mind:
 
-- You should occasionally run `npm update` in the first terminal tab, which is the one for the main folder above your projects. This keeps Vite and Babylon.js updated.
-- Static assets such as images or 3D models should go in the `public` folder (which can then be referenced as if they're in the root folder `"./likethis.png"`.)
+- You should occasionally run `npm up` in the first terminal tab, which is the one for the main folder above your projects. This keeps Vite and Babylon.js updated.
+- If you need to uninstall a package from Step 4 or otherwise, run `npm un <packageNameHere>` in that same main folder or terminal tab.
+- Static assets such as images or 3D models should go in the `public` folder. These can then be referenced as if they're in the root folder `"./likethis.png"`.
 - If you ever get stuck, reach out to [the Babylon forums](https://forum.babylonjs.com/) for help.
 
 And that's it- you can go code now!
