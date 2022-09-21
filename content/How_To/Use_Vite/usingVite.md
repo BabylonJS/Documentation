@@ -126,7 +126,7 @@ Here's how:
 - If it's not already open as a tab, right-click on your project's folder (not the main one) and choose `Open in Integrated Terminal`. Or just click on your second Terminal tab if you still have it.
 - Run this command: `npm run build`
 - Your exported code bundle is now in a folder called `dist`. Check if it works by running: `npm run preview`
-- **IMPORTANT:** Once you verify this test works, open `dist/index.html` and look for any file paths that start with `/`. Change all of these to `./` and save the file.
+- **IMPORTANT:** Once you verify this test works, open `dist/index.html` and look for any file paths that point to root with `/`. Add a period in front of all of those root paths (meaning `/assets` would become `./assets`) and save the file.
 
 ![Final dist folder](/img/how_to/use-vite/11.png)
 
