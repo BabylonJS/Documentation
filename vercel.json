@@ -1854,11 +1854,6 @@
             "statusCode": 301
         },
         {
-            "source": "/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs",
-            "destination": "/setup/support/Running_a_local_webserver_for_BabylonJs",
-            "statusCode": 301
-        },
-        {
             "source": "/divingDeeper/developWithBjs/workloads",
             "destination": "/setup/support/workloads",
             "statusCode": 301
