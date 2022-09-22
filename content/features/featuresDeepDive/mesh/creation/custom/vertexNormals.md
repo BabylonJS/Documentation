@@ -4,10 +4,10 @@ image:
 description: Learn all about vertex normals in Babylon.js.
 keywords: diving deeper, meshes, vertex normals
 further-reading:
-    - title: Custom Meshes
-      url: /features/featuresDeepDive/mesh/creation/custom
-    - title: Updating Vertices
-      url: /features/featuresDeepDive/mesh/creation/custom/updatingVertices
+  - title: Custom Meshes
+    url: /features/featuresDeepDive/mesh/creation/custom
+  - title: Updating Vertices
+    url: /features/featuresDeepDive/mesh/creation/custom/updatingVertices
 video-overview:
 video-content:
 ---

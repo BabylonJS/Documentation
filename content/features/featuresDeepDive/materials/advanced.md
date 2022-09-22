@@ -1,6 +1,6 @@
 ---
 title: Advanced Materials
-image: 
+image:
 description: Learn about more advanced materials and material creation in Babylon.js.
 keywords: diving deeper, materials, advanced
 further-reading:
@@ -10,4 +10,4 @@ video-content:
 
 ## Advanced Materials
 
-To help you customise materials this sections takes a more detailed in depth look at how materials work with Babylon.js. 
+To help you customise materials this sections takes a more detailed in depth look at how materials work with Babylon.js.

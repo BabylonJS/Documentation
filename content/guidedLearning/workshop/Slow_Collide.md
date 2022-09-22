@@ -1,6 +1,6 @@
 ---
 title: Slow Moving Particle Collisions
-image: 
+image:
 description: Keeping the speed of particles below twice their radius per frame to simplify collisions
 keywords: slow, collisions, particles
 further-reading:
@@ -8,13 +8,12 @@ video-overview:
 video-content:
 ---
 
-
-In the [issues](/guidedLearning/workshop/Issues) we found that it is necessary to keep the speed, the distance moved per frame, of particles to below, twice the radius of a particle, to ensure they intersect with walls or each other. Slow particles are those where the initial speed meets this restriction. 
+In the [issues](/guidedLearning/workshop/Issues) we found that it is necessary to keep the speed, the distance moved per frame, of particles to below, twice the radius of a particle, to ensure they intersect with walls or each other. Slow particles are those where the initial speed meets this restriction.
 When the resultant velocities after the collision are based on Newtonian physics for perfectly elastic particles then there are situations when the speeds of particles can increase to indefinitely.
 
 ## The Collisions
 
-For Newtonian physics - 
+For Newtonian physics -
 
 When a particle hits the wall then its velocity perpendicular to the wall will be reversed.
 
@@ -29,11 +28,11 @@ Given that the dark red particles reaches position (x, y, 0) when its speed reac
 ![Fig 15](/img/samples/collide14.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 15
 
-The following Playgrounds use four such sets of particles, to produce four particles that combine to give one particle a speed four times that of the original particles. In each case the higher two groups are set in the XY plane and the lower two groups are in the YZ plane. 
+The following Playgrounds use four such sets of particles, to produce four particles that combine to give one particle a speed four times that of the original particles. In each case the higher two groups are set in the XY plane and the lower two groups are in the YZ plane.
 
 PG: <Playground id="#1DJ7RH" title="Collision Increases Speed" description="Shows how collsions increase speed."/>  
 PG: <Playground id="#1DJ7RH#1" title="Increases Speed with Trails" description="Shows how collsions increase speed with trail markers for path."/>  
-PG: <Playground id="#1DJ7RH#2" title="Increases Speed with More Spacing" description="Shows the effect of spacing"/>  
+PG: <Playground id="#1DJ7RH#2" title="Increases Speed with More Spacing" description="Shows the effect of spacing"/>
 
 ## Escaping Particles
 
@@ -41,9 +40,9 @@ In the above examples the four fold increase in speed depended on setting the pa
 
 In the Playground below, there are occasions when particles escape the box even though there initial speeds are set to below 2r. You may need to run the code more than once to see the effect.
 
-PG: <Playground id="#MYGV6#3" title="Escaping Particles" description="Shows how increase speed allows particles to leave the box"/> 
+PG: <Playground id="#MYGV6#3" title="Escaping Particles" description="Shows how increase speed allows particles to leave the box"/>
 
-The maximum speed of the particles can be changed on lines 21 to 23. Lowering the values for the speed decreases the probability of escape.  
+The maximum speed of the particles can be changed on lines 21 to 23. Lowering the values for the speed decreases the probability of escape.
 
 A single red particle is included so that its reaction can be followed.
 
@@ -57,7 +56,7 @@ The following Playground is an example that uses the above method to stop partic
 
 PG: <Playground id="#MYGV6#4" title="Particles Stopped from Escaping" description="Reverse velocity if displacement from wall is negative."/>
 
-The maximum speed of the particles can be changed on lines 21 to 23. 
+The maximum speed of the particles can be changed on lines 21 to 23.
 
 A single red particle is included so that its reaction can be followed.
 

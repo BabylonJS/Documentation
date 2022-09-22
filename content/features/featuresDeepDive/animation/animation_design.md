@@ -1,6 +1,6 @@
 ---
 title: Designing Animations
-image: 
+image:
 description: A deeper overview of animation and how to leverage it in Babylon.js.
 keywords: diving deeper, animation, introduction, intro
 further-reading:
@@ -41,29 +41,30 @@ The key frames are set into an array of JavaScript objects with properties for f
 const keyFrames = [];
 
 keyFrames.push({
-    frame: 0,
-    value: 2,
+  frame: 0,
+  value: 2,
 });
 
 keyFrames.push({
-    frame: frameRate,
-    value: -2,
+  frame: frameRate,
+  value: -2,
 });
 
 keyFrames.push({
-    frame: 2 * frameRate,
-    value: 2,
+  frame: 2 * frameRate,
+  value: 2,
 });
 
 xSlide.setKeys(keyFrames);
 ```
 
-The animation is now fully made and can be applied to the box 
+The animation is now fully made and can be applied to the box
 
 ```javascript
 box.animations.push(xSlide);
 ```
-The _performance_ (*Animatable*) is started with
+
+The _performance_ (_Animatable_) is started with
 
 ```javascript
 scene.beginAnimation(box, 0, 2 * frameRate, true);
@@ -83,18 +84,17 @@ const frameRate = 10;
 
 const xSlide = new BABYLON.Animation("xSlide", "position.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
-const keyFrames = []; 
+const keyFrames = [];
 
 keyFrames.push({
-    frame: startFrame,
-    value: 2
+  frame: startFrame,
+  value: 2,
 });
 
 keyFrames.push({
-    frame: endFrame,
-    value: -2
+  frame: endFrame,
+  value: -2,
 });
-
 
 xSlide.setKeys(keyFrames);
 
@@ -104,9 +104,8 @@ box.animations.push(xSlide);
 scene.beginAnimation(box, endFrame, startFrame, false);
 ```
 
-Check it out here: 
+Check it out here:
 <Playground id="#7V0Y1I#940" title="Playing an Animation in Reverse" description="An example of playing an animation forwards and backwards."/>
-
 
 ## The Animation Curve Editor (ACE)
 

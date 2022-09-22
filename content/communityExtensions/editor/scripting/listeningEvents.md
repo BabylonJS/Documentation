@@ -1,6 +1,6 @@
 ---
 title: Listening events
-image: 
+image:
 description: Understanding how to use the Babylon.JS Editor api to listen events in application.
 keywords: editor, scripting
 further-reading:
@@ -48,6 +48,7 @@ export default class MyMeshComponent extends Mesh {
 
 To listen pointer events, the decorator `@onPointerEvent` can be used to decorate methods to call.
 This decorator takes 2 arguments:
+
 - the pointer event type (`PointerEventTypes` from `@babylonjs/core/Events/pointerEvents`).
 - a boolean to indicate whether or not the method should be called only when, in case of a mesh, the mesh is picked.
 
@@ -75,6 +76,7 @@ using `scene.onPointerObservable.add((info) => { ... })`.
 
 As for `@onPointerEvent` decorator, the `@onKeyboardEvent` decorator can be used to decorate methods in a script.
 This decorator takes 2 arguments:
+
 - the key of keys to listen (as numbers or strings).
 - the type of keyboard event to listen (key up or key down).
 

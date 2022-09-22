@@ -1,6 +1,6 @@
 ---
 title: Optimizing Solid Particle Systems
-image: 
+image:
 description: Learn best practices for optimizing solid particle systems in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles
 further-reading:
@@ -9,14 +9,15 @@ video-content:
 ---
 
 # Optimize a Solid Particle System
+
 Previously we saw how to use a SPS to optimize a scene containing multiple copies of a model mesh provided the model properties remained fixed. Now we will look at ways of optimizing when the particles are animated.
 
 1. Only update some particles on each render frame;
-2. Use the SPS *vars* property to re-use variables and limit garbage collection.
+2. Use the SPS _vars_ property to re-use variables and limit garbage collection.
 
 ## Restrict the Number of Particles Updated
 
-For any solid particle animation *setParticles()* is called on every render frame. When you have a large big SPS with dozens of thousands particles to improve performance you can restrict the number of particles to update each frame. There are three parameters you can use with *setParticles* to enable you to do this. They are
+For any solid particle animation _setParticles()_ is called on every render frame. When you have a large big SPS with dozens of thousands particles to improve performance you can restrict the number of particles to update each frame. There are three parameters you can use with _setParticles_ to enable you to do this. They are
 
 | parameter | definition                                                                        | default value   |
 | --------- | --------------------------------------------------------------------------------- | --------------- |
@@ -24,7 +25,7 @@ For any solid particle animation *setParticles()* is called on every render fram
 | stop      | _(number)_ the index (included) where to stop to iterate in the `particles` array | nbParticles - 1 |
 | update    | _(boolean)_ to force the SPS mesh vertex buffer to be updated                     | true            |
 
-If you pass a *stop** value greater than *nbParticles - 1*, the iteration will stop anyway at *nbParticles - 1* to prevent access to undefined elements.
+If you pass a *stop\*\* value greater than *nbParticles - 1*, the iteration will stop anyway at *nbParticles - 1\* to prevent access to undefined elements.
 
 Example 1 : you may want to update your 10K particle mesh only every three frames
 
@@ -41,10 +42,10 @@ Example 2 : you could keep, say, the first 5000 particles as unused ones and com
 In Javascript, the Garbage Collector is usually your friend : it takes care about cleaning up all the not any longer needed variables you could have declared and thus it sets the memory free.  
 However, it can sometimes become an awkward friend because it can start its cleaning just while you are displaying a very smooth animation, so it takes the CPU for itself and leaves to you only those nice lags on the screen.  
 In order to avoid unpredictable GC pauses, it's best to avoid allocating new objects in loops that execute often, where particles are created or updated.  
-For example, *updateParticle()* is often called each frame for each particle or each particle vertex. Now imagine that you have a SPS with 30 000 particles. Suppose you write code like this to add a particle acceleration :
+For example, _updateParticle()_ is often called each frame for each particle or each particle vertex. Now imagine that you have a SPS with 30 000 particles. Suppose you write code like this to add a particle acceleration :
 
 ```javascript
-SPS.updateParticle = function(particle) {
+SPS.updateParticle = function (particle) {
   const accel = new BABYLON.Vector3(0, 0.5, 0);
   particle.velocity = particle.velocity.add(accel);
   // ...
@@ -56,13 +57,13 @@ Instead, make your update loops reuse variables that were declared outside the l
 
 ```javascript
 let accel = new BABYLON.Vector3(0, 0.5, 0);
-SPS.updateParticle = function(particle) {
+SPS.updateParticle = function (particle) {
   particle.velocity.addInPlace(accel);
   // ...
 };
 ```
 
-SPS also has a *vars* property, which is an object that you can use to store any variables you want to reuse. Any variables you store there will share the SPS' lifecycle, and get cleaned up when you dispose it:
+SPS also has a _vars_ property, which is an object that you can use to store any variables you want to reuse. Any variables you store there will share the SPS' lifecycle, and get cleaned up when you dispose it:
 
 ```javascript
 SPS.vars.tempVector = new BABYLON.Vector3(0, 0, 0);
@@ -78,5 +79,5 @@ SPS.vars.myInt = 5; // just keep setting integer values to myInt afterwards
 SPS.vars.myString = "foo"; // just keep setting string values to myString afterwards
 ```
 
-Here is an implementation of a simple particle IA called "flocking" what a behavior of association, then cohesion and separation. This example uses *SPS.vars* to allocate the memory used for results only once instead of in-function temporary variables.  
+Here is an implementation of a simple particle IA called "flocking" what a behavior of association, then cohesion and separation. This example uses _SPS.vars_ to allocate the memory used for results only once instead of in-function temporary variables.  
  <Playground id="#2FPT1A#35" title="Solid Particle System Optimization" description="Simple example of a flocking behavior in an optimized solid particle system."/>

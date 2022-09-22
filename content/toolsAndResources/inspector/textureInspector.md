@@ -1,6 +1,6 @@
 ---
 title: The Texture Inspector
-image: 
+image:
 description: Learn all about the texture inspector in Babylon.js.
 keywords: babylon.js, tools, resources, textures, texture inspector
 further-reading:
@@ -15,7 +15,7 @@ The Texture Inspector is designed to enable you to debug your textures inside of
 ## How to Access
 
 ![Accessing the Inspector](/img/features/debuglayer/texture/access.png)
-The Texture Inspector can be accessed from the main inspector panel. Simply select a texture from the list, and click the "edit"  button underneath the texture preview.
+The Texture Inspector can be accessed from the main inspector panel. Simply select a texture from the list, and click the "edit" button underneath the texture preview.
 
 ## Properties
 
@@ -72,9 +72,9 @@ This pane is used to control the RGBA channels. Clicking the eye icons on the le
 
 ## Shortcuts
 
--   Mousewheel and the +/- buttons allow you to zoom in and out
--   The middle mouse button allows you to pan across the texture
--   Control+A selects the entire texture
--   Escape deselects everything
--   Control+S saves the texture to your local machine
--   Control+R resets the texture to it’s original state
+- Mousewheel and the +/- buttons allow you to zoom in and out
+- The middle mouse button allows you to pan across the texture
+- Control+A selects the entire texture
+- Escape deselects everything
+- Control+S saves the texture to your local machine
+- Control+R resets the texture to it’s original state

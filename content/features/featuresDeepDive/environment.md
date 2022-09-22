@@ -1,6 +1,6 @@
 ---
 title: Environment
-image: 
+image:
 description: Learn all about creating beautiful environments in Babylon.js.
 keywords: diving deeper, environment
 further-reading:

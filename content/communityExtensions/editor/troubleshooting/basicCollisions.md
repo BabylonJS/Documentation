@@ -1,6 +1,6 @@
 ---
 title: Blurred Babylon.js Editor UI
-image: 
+image:
 description: Understanding how blurred Babylon.js Editor UI can be fixed
 keywords: editor, troubleshooting
 further-reading:
@@ -20,4 +20,5 @@ In case of RTX NVidia video cards, try installing the `Studio` driver version in
 In case of NVidia video cards in general, try running the `NVidia Control Panel` and select `No Scaling` in the display settings.
 
 ## References
+
 Linked issue: https://github.com/BabylonJS/Editor/issues/266

@@ -125,7 +125,7 @@ var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
 var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 
 idleAnim.weight = 0.5;
-runAnim.weight = 0.5
+runAnim.weight = 0.5;
 ```
 
 If your animations are not of the same size (same distance between from and to keys) then you will need to turn animation synchronization on with the following code:

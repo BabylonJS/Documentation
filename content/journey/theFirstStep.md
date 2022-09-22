@@ -45,7 +45,7 @@ On lines 20-24 you see the following lines of code:
 
 ```javascript
 // Our built-in 'sphere' shape.
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
 // Move the sphere upward 1/2 its height
 sphere.position.y = 1;
@@ -103,9 +103,7 @@ Ok it's time for another addition to the scene. After all of your ground-related
 You should see the following lines of code pop right into the playground:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "Mesh filename.fileextension", scene, function(newMeshes){
-
-});
+BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "Mesh filename.fileextension", scene, function (newMeshes) {});
 ```
 
 let's do a few more things:
@@ -114,13 +112,13 @@ let's do a few more things:
 - 2. Replace "url to the mesh parent directory" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.rootUrl
+Assets.meshes.Yeti.rootUrl;
 ```
 
 - 3. Replace the "Mesh filename.fileextension" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.filename
+Assets.meshes.Yeti.filename;
 ```
 
 - 4. After the BABYLON.SceneLoader.ImportMesh line, but before the "});" add the following line:

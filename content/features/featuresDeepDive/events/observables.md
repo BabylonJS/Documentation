@@ -1,6 +1,6 @@
 ---
 title: Observables
-image: 
+image:
 description: Learn all about observables in Babylon.js.
 keywords: diving deeper, observables
 further-reading:
@@ -58,7 +58,7 @@ import { io } from "socket.io-client";
 const socket = io("/admin");
 
 const onConnectObservable = new Observable();
-const text1 = new BABYLON.GUI.TextBlock;
+const text1 = new BABYLON.GUI.TextBlock();
 
 socket.on("connect", () => {
   onConnectObservable.notifyObservers();
@@ -72,7 +72,7 @@ onConnectObservable.add(() => {
 There is also a utility method `Observable.FromPromise` to create an Observable from a Promise:
 
 ```javascript
-const onStatusObservable = Observable.FromPromise(axios("/ping").then(response => response.statusText));
+const onStatusObservable = Observable.FromPromise(axios("/ping").then((response) => response.statusText));
 
 onStatusObservable.add((statusText) => {
   text1.text = "Server status: " + statusText;

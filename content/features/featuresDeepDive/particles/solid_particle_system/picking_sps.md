@@ -1,6 +1,6 @@
 ---
 title: Picking Solid Particles
-image: 
+image:
 description: Learn how to pick and interact with solid particles in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, picking
 further-reading:
@@ -29,14 +29,14 @@ var SPS = new BABYLON.SolidParticleSystem("SPS", scene, { isPickable: true });
 // add shapes, build the mesh, init particles, etc
 SPS.setParticles(); // initial SPS draw
 SPS.refreshVisibleSize(); // force the BBox recomputation
-scene.onPointerDown = function(evt, pickResult) {
+scene.onPointerDown = function (evt, pickResult) {
   var meshFaceId = pickResult.faceId; // get the mesh picked face
   if (meshFaceId == -1) {
     return;
   } // return if nothing picked
   var picked = SPS.pickedParticle(pickResult); // get the picked particle data : idx and faceId
-  var idx = picked.idx;                         
-  var p = SPS.particles[idx];                   // get the actual picked particle
+  var idx = picked.idx;
+  var p = SPS.particles[idx]; // get the actual picked particle
   p.color.r = 1; // turn it red
   p.color.b = 0;
   p.color.g = 0;

@@ -1,13 +1,13 @@
 ---
 title: NPM Support
-image: 
+image:
 description: Learn about Babylon.js's use of the NPM Package Manager.
 keywords: diving deeper, contribution, contribute, open-source, oss, NPM
 further-reading:
-    - title: How To Get Babylon.js
-      url: /setup/frameworkPackages/frameworkVers
-    - title: ESNext Support
-      url: /setup/frameworkPackages/es6Support
+  - title: How To Get Babylon.js
+    url: /setup/frameworkPackages/frameworkVers
+  - title: ESNext Support
+    url: /setup/frameworkPackages/es6Support
 video-overview:
 video-content:
 ---
@@ -24,14 +24,14 @@ All examples in this tutorial will use commonjs / es6 imports. However, since we
 
 We offer babaylon.js' core and its modules as npm packages. The following are available:
 
-* [babylonjs](https://www.npmjs.com/package/babylonjs) - Babylon's core.
-* [babylonjs-materials](https://www.npmjs.com/package/babylonjs-materials) - a collection of Babylon-supported advanced materials.
-* [babylonjs-loaders](https://www.npmjs.com/package/babylonjs-loaders) -  All of Babylon's official loaders (OBJ, STL, glTF)
-* [babylonjs-post-process](https://www.npmjs.com/package/babylonjs-post-process) - Babylon's post processes.
-* [babylonjs-procedural-textures](https://www.npmjs.com/package/babylonjs-procedural-textures) - Officially supported procedural textures
-* [babylonjs-serializers](https://www.npmjs.com/package/babylonjs-serializers) - Scene / mesh serializers.
-* [babylonjs-gui](https://www.npmjs.com/package/babylonjs-gui) -Babylon.js GUI module.
-* [babylonjs-viewer](https://www.npmjs.com/package/babylonjs-viewer) - The stand-aloneBabylon.js Viewer.
+- [babylonjs](https://www.npmjs.com/package/babylonjs) - Babylon's core.
+- [babylonjs-materials](https://www.npmjs.com/package/babylonjs-materials) - a collection of Babylon-supported advanced materials.
+- [babylonjs-loaders](https://www.npmjs.com/package/babylonjs-loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
+- [babylonjs-post-process](https://www.npmjs.com/package/babylonjs-post-process) - Babylon's post processes.
+- [babylonjs-procedural-textures](https://www.npmjs.com/package/babylonjs-procedural-textures) - Officially supported procedural textures
+- [babylonjs-serializers](https://www.npmjs.com/package/babylonjs-serializers) - Scene / mesh serializers.
+- [babylonjs-gui](https://www.npmjs.com/package/babylonjs-gui) -Babylon.js GUI module.
+- [babylonjs-viewer](https://www.npmjs.com/package/babylonjs-viewer) - The stand-aloneBabylon.js Viewer.
 
 ## Basic usage
 
@@ -50,13 +50,13 @@ This will install babylonjs' javascript files and will also include a TypeScript
 To include Babylon in a javascript or typescript file, use:
 
 ```javascript
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from "babylonjs";
 ```
 
 You can also load specific classes if you need them:
 
 ```javascript
-import { Engine, Scene } from 'babylonjs';
+import { Engine, Scene } from "babylonjs";
 ```
 
 **NOTE:** if you can't make this import method to work, go to the section on typescript and webpack below.
@@ -74,7 +74,7 @@ Same as the babylonjs, this will install (default-minified and non-minified) jav
 To import the dependencies, you will need to import them like for the babylon module:
 
 ```javascript
-import * as Materials from 'babylonjs-materials';
+import * as Materials from "babylonjs-materials";
 ```
 
 And use it like below:
@@ -88,9 +88,9 @@ let skyMaterial = new Materials.SkyMaterial(.....)
 If you prefer not to use es6-import syntax, you can use require in order to import babylon into your project:
 
 ```javascript
-let BABYLON = require('babylonjs');
-let GUI = require('babylonjs-gui');
-let materials = require('babylonjs-materials');
+let BABYLON = require("babylonjs");
+let GUI = require("babylonjs-gui");
+let materials = require("babylonjs-materials");
 ```
 
 ## TypeScript support
@@ -118,6 +118,7 @@ If not detected by your IDE (mostly in case you are not relying on import/export
 This will load BABYLON's namespace and will allow autocomplete (and of course type safety) correctly.
 
 **NOTE:** to generate a default `tsconfig.json` file that contains useful information about the different settings, run the following in your terminal:
+
 ```
 tsc --init
 ```
@@ -128,34 +129,35 @@ A very simple webpack configuration to compile a babylon.js TypeScript project c
 
 ```javascript
 module.exports = {
-    entry: {
-        app: './mygame.ts'
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
-    },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
-    devtool: 'source-map',
-    plugins: [
-
+  entry: {
+    app: "./mygame.ts",
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
+  devtool: "source-map",
+  plugins: [],
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
-    module: {
-        rules: [{
-            test: /\.tsx?$/,
-            loader: 'ts-loader',
-            exclude: /node_modules/
-        }]
-    }
-}
+  },
+};
 ```
 
 Simply create a file `webpack.config.js` at the root of your project and copy-paste the above template in it.
 The file `mygame.ts` should the entry point of the project.
 
 **NOTE:** Make sure you've installed the following packages:
+
 ```
 npm install --save-dev webpack
 npm install --save-dev webpack-cli
@@ -163,23 +165,23 @@ npm install --save-dev typescript
 npm install --save-dev ts-loader
 ```
 
-
 ## ES6
+
 If you wish to benefit from tree shaking and other nitty gritties, you can now rely on our Babylon.js ES6 packages:
 
-* [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
-* [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
-* [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) -  All of Babylon's official loaders (OBJ, STL, glTF)
-* [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
-* [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
-* [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
-* [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
-* [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - TheBabylon.js Inspector for es 6.
+- [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
+- [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
+- [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
+- [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
+- [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
+- [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
+- [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
+- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - TheBabylon.js Inspector for es 6.
 
 Please note that you can not mix ES6 and our legacy packages.
 
 ```javascript
-import { Engine } from '@babylonjs/core/Engines/engine'
+import { Engine } from "@babylonjs/core/Engines/engine";
 
 const canvas = document.getElementById("canvas");
 
@@ -211,9 +213,9 @@ npm install oimo
 This will allow our UMD definition to find oimo in node_modules and use it. If you use AMD you will need to first declare oimo as a module (as oimo uses anonymous AMD definition):
 
 ```javascript
-define('oimo', ['path/to/oimo'], function(OIMO) {
-    return OIMO;
-})
+define("oimo", ["path/to/oimo"], function (OIMO) {
+  return OIMO;
+});
 ```
 
 Now Babylon will automatically find oimo and will inject it.
@@ -243,8 +245,8 @@ You can see an example of that in the Viewer directory of our main repository.
 
 ### error TS2307: Cannot find module 'babylonjs' (or other modules)
 
-* Make sure you have a version higher than 3.1.0-alpha3.4
-* Make sure you added 'babylonjs' to "types" in tsconfig.json
+- Make sure you have a version higher than 3.1.0-alpha3.4
+- Make sure you added 'babylonjs' to "types" in tsconfig.json
 
 ### Even though I use only a few classes from the BABYLON namespace, the entire Babylon module is included
 
@@ -280,20 +282,18 @@ Now we will need to configure webpack to know what to actually do. This is a sim
 const path = require("path");
 
 module.exports = {
-    entry: './index.ts',
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    resolve: {
-        extensions: [".ts"]
-    },
-    module: {
-        rules: [
-            { test: /\.tsx?$/, loader: "ts-loader" }
-        ]
-    },
-    mode: "development"
+  entry: "./index.ts",
+  output: {
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  resolve: {
+    extensions: [".ts"],
+  },
+  module: {
+    rules: [{ test: /\.tsx?$/, loader: "ts-loader" }],
+  },
+  mode: "development",
 };
 ```
 
@@ -330,32 +330,30 @@ We will also add an html file with a canvas (index.html):
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
 
-    <head>
-        <style>
-            html,
-            body {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                text-align: center;
-            }
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+    </style>
+  </head>
 
-            #renderCanvas {
-                width: 100%;
-                height: 100%;
-                touch-action: none;
-            }
-        </style>
-    </head>
-
-    <body>
-        <canvas id="renderCanvas"></canvas>
-        <script src="dist/index.js"></script>
-    </body>
-
+  <body>
+    <canvas id="renderCanvas"></canvas>
+    <script src="dist/index.js"></script>
+  </body>
 </html>
 ```
 
@@ -386,22 +384,22 @@ var canvas: any = document.getElementById("renderCanvas");
 var engine: Engine = new Engine(canvas, true);
 
 function createScene(): Scene {
-    var scene: Scene = new Scene(engine);
+  var scene: Scene = new Scene(engine);
 
-    var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
+  var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
 
-    var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+  var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
 
-    var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+  var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
 
-    return scene;
+  return scene;
 }
 
 var scene: Scene = createScene();
 
 engine.runRenderLoop(() => {
-    scene.render();
+  scene.render();
 });
 ```
 
@@ -410,7 +408,7 @@ You will notice that the BABYLON namespace is gone. and that you see a lot of er
 We will use es6 imports for that. To add the dependencies, we have two options. Defining the BABYLON namespace:
 
 ```javascript
-import * as BABYLON from 'babylonjs';
+import * as BABYLON from "babylonjs";
 ```
 
 This will actually bring back the BABYLON namespace. My preferred option is only loading the dependencies you need:
@@ -466,32 +464,32 @@ import { AdvancedDynamicTexture, Rectangle, Control, TextBlock } from "babylonjs
 let advancedTexture: AdvancedDynamicTexture;
 
 function init(): void {
-    if (!advancedTexture) {
-        advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI("ui1");
-    }
+  if (!advancedTexture) {
+    advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI("ui1");
+  }
 }
 
 export function addLabelToMesh(mesh: AbstractMesh): void {
-    if (!advancedTexture) {
-        init();
-    }
-    let label: Rectangle = new Rectangle("label for " + mesh.name);
-    label.background = "black";
-    label.height = "30px";
-    label.alpha = 0.5;
-    label.width = "100px";
-    label.cornerRadius = 20;
-    label.thickness = 1;
-    label.linkOffsetY = 30;
-    label.top = "10%";
-    label.zIndex = 5;
-    label.verticalAlignment = Control.VERTICAL_ALIGNMENT_TOP;
-    advancedTexture.addControl(label);
+  if (!advancedTexture) {
+    init();
+  }
+  let label: Rectangle = new Rectangle("label for " + mesh.name);
+  label.background = "black";
+  label.height = "30px";
+  label.alpha = 0.5;
+  label.width = "100px";
+  label.cornerRadius = 20;
+  label.thickness = 1;
+  label.linkOffsetY = 30;
+  label.top = "10%";
+  label.zIndex = 5;
+  label.verticalAlignment = Control.VERTICAL_ALIGNMENT_TOP;
+  advancedTexture.addControl(label);
 
-    const text1: TextBlock = new TextBlock();
-    text1.text = mesh.name;
-    text1.color = "white";
-    label.addControl(text1);
+  const text1: TextBlock = new TextBlock();
+  text1.text = mesh.name;
+  text1.color = "white";
+  label.addControl(text1);
 }
 ```
 
@@ -505,18 +503,18 @@ and the createScene function looks like this:
 
 ```javascript
 function createScene(): Scene {
-    var scene: Scene = new Scene(engine);
+  var scene: Scene = new Scene(engine);
 
-    var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
+  var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
 
-    var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+  var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
 
-    var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+  var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
 
-    addLabelToMesh(sphere);
+  addLabelToMesh(sphere);
 
-    return scene;
+  return scene;
 }
 ```
 

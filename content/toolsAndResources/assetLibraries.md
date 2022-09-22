@@ -1,13 +1,12 @@
 ---
 title: Asset Libraries
-image: 
+image:
 description: Learn all about the Babylon.js asset libraries.
 keywords: babylon.js, tools, resources, assets, library
 further-reading:
 video-overview:
 video-content:
 ---
-
 
 # Asset Libraries
 

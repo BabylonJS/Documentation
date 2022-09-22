@@ -1,11 +1,11 @@
 ---
 title: Mesh Intersections
-image: 
+image:
 description: Learn all about mesh intersections in Babylon.js.
 keywords: diving deeper, meshes, intersection
 further-reading:
-    - title: Cameras Overview
-      url: /features/featuresDeepDive/cameras
+  - title: Cameras Overview
+    url: /features/featuresDeepDive/cameras
 video-overview:
 video-content:
 ---
@@ -54,7 +54,7 @@ The other function you can use is `intersectsPoint()` with a specific point, lik
 
 ```javascript
 var pointToIntersect = new BABYLON.Vector3(10, -5, 0);
-if (balloon3.intersectsPoint(pointToIntersect)){
+if (balloon3.intersectsPoint(pointToIntersect)) {
   balloon3.material.emissiveColor = new BABYLON.Color4(1, 0, 0, 1);
 }
 ```

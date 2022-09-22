@@ -1,6 +1,6 @@
 ---
 title: External Libraries
-image: 
+image:
 description: Descriptions of how to use some third party libraries with Babylon.js.
 keywords: babylon.js, extension, external libraries, external
 further-reading:

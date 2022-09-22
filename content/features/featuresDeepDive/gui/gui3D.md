@@ -1,17 +1,17 @@
 ---
 title: Babylon 3D GUI
-image: 
+image:
 description: Learn all about the Babylon.js 3D GUI System.
 keywords: diving deeper, GUI, 3D GUI, 3D
 further-reading:
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /features/featuresDeepDive/gui/scrollViewer
-    - title: How To Use Babylon GUI Xml Loader
-      url: /features/featuresDeepDive/gui/xmlLoader
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
 video-overview:
 video-content:
 ---
@@ -47,7 +47,7 @@ Please also note that the following functions are available:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list.
 - `removeControl()`: Removes a control from the root child list.
 
-The manager also supports a scaling option, `manager.useRealisticScaling`, that scales all added controls to a size more comfortable for XR interactions. Alternatively, a custom scaling can be applied to all controls by setting the value of `manager.controlScaling`. Scaling effects done in these ways can be overridden by updating the control's scale normally. Setting either of these values will apply the change to all existing and future controls the manager owns. 
+The manager also supports a scaling option, `manager.useRealisticScaling`, that scales all added controls to a size more comfortable for XR interactions. Alternatively, a custom scaling can be applied to all controls by setting the value of `manager.controlScaling`. Scaling effects done in these ways can be overridden by updating the control's scale normally. Setting either of these values will apply the change to all existing and future controls the manager owns.
 
 ## Containers
 
@@ -378,7 +378,7 @@ button2.text = "Button 2";
 near.addButton(button2);
 ```
 
-As `NearMenu` is a child class of `VolumeBasedPanel`, the direction of the layout can be changed by tweaking the parameters `rows` and `columns`.  
+As `NearMenu` is a child class of `VolumeBasedPanel`, the direction of the layout can be changed by tweaking the parameters `rows` and `columns`.
 
 For example, to make a near menu with `n` buttons vertical, use :
 

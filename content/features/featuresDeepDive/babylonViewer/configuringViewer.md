@@ -1,19 +1,19 @@
 ---
 title: Configuring the Babylon.js Viewer
-image: 
+image:
 description: How to configure the Babylon.js viewer.
 keywords: extensions, babylon.js, viewer, modify, configure
 further-reading:
-    - title: Babylon.js Viewer
-      url: /features/featuresDeepDive/babylonViewer
-    - title: The templating system
-      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
-    - title: Recreating the default configuration for the viewer
-      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
-    - title: Advanced usage
-      url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
-    - title: Babylon.js viewer examples
-      url: /features/featuresDeepDive/babylonViewer/viewerExamples
+  - title: Babylon.js Viewer
+    url: /features/featuresDeepDive/babylonViewer
+  - title: The templating system
+    url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
+  - title: Recreating the default configuration for the viewer
+    url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
+  - title: Advanced usage
+    url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
+  - title: Babylon.js viewer examples
+    url: /features/featuresDeepDive/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
@@ -35,11 +35,11 @@ The default configuration will be loaded per default, unless other configuration
 <babylon extends="minimal" model="https://playground.babylonjs.com/scenes/Rabbit.babylon"></babylon>
 ```
 
-To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/features/featuresDeepDive/babylonViewer/defaultViewerConfig) 
+To understand the default configuration in more detail and learn how to recreate it using HTML see [Recreating the default configuration for the viewer](/features/featuresDeepDive/babylonViewer/defaultViewerConfig)
 
 ## Extending and changing the default configurations
 
-The default configuration types can be overwritten using many methods described below. As the configuration object never contains Array, any attribute in it can be references using a string, and can therefore be overwritten. 
+The default configuration types can be overwritten using many methods described below. As the configuration object never contains Array, any attribute in it can be references using a string, and can therefore be overwritten.
 
 The order in which the configuration is loaded is :
 
@@ -78,7 +78,7 @@ Next, the `minimal`configuration will be loaded and appended to the existing con
         debug: true
     },
     engine: {
-        antialiasing: false 
+        antialiasing: false
     },
     model: "https://playground.babylonjs.com/scenes/Rabbit.babylon",
     configuration="http://example.com/viewerConfig.json",
@@ -118,9 +118,9 @@ Next, the configuration object will be inspected. If it contains a configuration
 
 ```json
 {
-    "scene": {
-        "debug": false
-    }
+  "scene": {
+    "debug": false
+  }
 }
 ```
 
@@ -177,17 +177,15 @@ Another way of using the DOM to configure the viewer is to use nested DOM elemen
 
 ```html
 <babylon extends="minimal">
-    <model url="https://ugcorigin.s-microsoft.com/12/2e77b8e3-0000-0000-7a48-6505db2f0ef9/952/1508427934473.gltf">
-    </model>
-    <camera>
-        <behaviors>
-            <auto-rotate type="0"></auto-rotate>
-        </behaviors>
-    </camera>
-    <lights>
-        <light1 type="1" shadow-enabled="true">
-        </light1>
-    </lights>
+  <model url="https://ugcorigin.s-microsoft.com/12/2e77b8e3-0000-0000-7a48-6505db2f0ef9/952/1508427934473.gltf"> </model>
+  <camera>
+    <behaviors>
+      <auto-rotate type="0"></auto-rotate>
+    </behaviors>
+  </camera>
+  <lights>
+    <light1 type="1" shadow-enabled="true"> </light1>
+  </lights>
 </babylon>
 ```
 
@@ -205,14 +203,11 @@ Everything written regarding the DOM element configuration is extended here. The
 
 ```html
 <babylon extends="minimal">
-    <model url="https://ugcorigin.s-microsoft.com/12/2e77b8e3-0000-0000-7a48-6505db2f0ef9/952/1508427934473.gltf">
-    </model>
-    <camera behaviors.auto-rotate.type="0">
-    </camera>
-    <lights>
-        <light1 type="1" shadow-enabled="true">
-        </light1>
-    </lights>
+  <model url="https://ugcorigin.s-microsoft.com/12/2e77b8e3-0000-0000-7a48-6505db2f0ef9/952/1508427934473.gltf"> </model>
+  <camera behaviors.auto-rotate.type="0"> </camera>
+  <lights>
+    <light1 type="1" shadow-enabled="true"> </light1>
+  </lights>
 </babylon>
 ```
 
@@ -228,30 +223,28 @@ If the following is defined:
 <babylon scene.debug="true" camera.behaviors.auto-rotate="0" model.url="https://playground.babylonjs.com/scenes/Rabbit.babylon" configuration="http://example.com/viewerConfig.json"></babylon>
 ```
 
-the file `http://example.com/viewerConfig.json` will be loaded into the configuration object. This is a great way of creating a general / global configuration  for a website, while providing the details model data using HTML.
+the file `http://example.com/viewerConfig.json` will be loaded into the configuration object. This is a great way of creating a general / global configuration for a website, while providing the details model data using HTML.
 
 ### Configuring using JavaScript
 
 Further discussed in [Advanced usage](//doc.babylonjs.com/extensions/Advanced_usage), JavaScript can be used to initialize a viewer. When initializing a viewer using JavaScript, you can provide the initial configuration that will be used with this viewer:
 
 ```javascript
-
-let domElement = document.getElementById('my-amazing-element');
+let domElement = document.getElementById("my-amazing-element");
 
 let viewer = new BabylonViewer.DefaultViewer(domElement, {
-    scene: {
-        debug: true
+  scene: {
+    debug: true,
+  },
+  camera: {
+    behaviors: {
+      autoRotate: 0,
     },
-    camera: {
-        behaviors: {
-            autoRotate: 0
-        }
-    },
-    model: {
-        url: "https://playground.babylonjs.com/scenes/Rabbit.babylon"
-    }
+  },
+  model: {
+    url: "https://playground.babylonjs.com/scenes/Rabbit.babylon",
+  },
 });
-
 ```
 
 In this case, the HTML attributes will be ignored(!) and the DOM element will simply serve as the container of the Babylon scene.
@@ -260,37 +253,36 @@ In this case, the HTML attributes will be ignored(!) and the DOM element will si
 
 As shown, the Babylon viewer has 3 types of configuration parsers for you to choose from - "html", "dom", and "json". Those mappers are registered in the mapper manager, exposed in the BabylonViewer namespace.
 
-The mapper manager can be extended. If you have your own type of configuration, or want to support further file types, you can create your own mapper and register it with the mapper. Later on, you can define the type of mapper the configuration will be read with, using the configuration.type variable in the viewer's configuration. 
+The mapper manager can be extended. If you have your own type of configuration, or want to support further file types, you can create your own mapper and register it with the mapper. Later on, you can define the type of mapper the configuration will be read with, using the configuration.type variable in the viewer's configuration.
 
 Let's build a pseudo YAML loader and register it:
 
 First, we implement the IMapper interface:
 
 ```javascript
-
 // In TypeScript
 class YAMLMapper implements IMapper {
-    map(yaml: YAMLThing): ViewerConfiguration {
-        return this.convertToYaml(yaml);
-    }
+  map(yaml: YAMLThing): ViewerConfiguration {
+    return this.convertToYaml(yaml);
+  }
 
-    // so, this needs to be actually implemented...
-    convertYamlToJson(yaml) {}
+  // so, this needs to be actually implemented...
+  convertYamlToJson(yaml) {}
 }
 
 // in JavaScript
 
 let yamlMapper = {
-    map : function(yaml) {
-        return yaml.toJson();
-    }
-}
+  map: function (yaml) {
+    return yaml.toJson();
+  },
+};
 ```
 
 Afterwards, we need to register it with the mapperManager:
 
 ```javascript
-BabylonViewer.mapperManager.registerMapper('yaml', yamlMapper);
+BabylonViewer.mapperManager.registerMapper("yaml", yamlMapper);
 ```
 
 And finally, we need to tell the manager which mapper to use:
@@ -312,17 +304,30 @@ This is useful if you want to be responsible to the download or if the data is s
 For example, let's say we have a predefined JSON configuration loaded in the page already. We could load it this way (notice configuration.payload):
 
 ```html
-<babylon configuration.payload='{"scene": {"debug": true}}' model.title="Damaged Helmet" model.subtitle="BabylonJS" model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
-            model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
-            templates.nav-bar.params.disable-on-fullscreen="true"></babylon>
+<babylon
+  configuration.payload='{"scene": {"debug": true}}'
+  model.title="Damaged Helmet"
+  model.subtitle="BabylonJS"
+  model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
+  model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
+  camera.behaviors.auto-rotate="0"
+  templates.nav-bar.params.disable-on-fullscreen="true"
+></babylon>
 ```
 
 This will work as the default mapper converts a JSON string to a configuration object. If you input a different style of configuration, you could set the mapper's type (after registering it):
 
 ```html
-<babylon configuration.payload="scene.debug=true&engine.antialiasing=true" configuration.mapper="form" model.title="Damaged Helmet" model.subtitle="BabylonJS" model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
-            model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
-            templates.nav-bar.params.disable-on-fullscreen="true"></babylon>
+<babylon
+  configuration.payload="scene.debug=true&engine.antialiasing=true"
+  configuration.mapper="form"
+  model.title="Damaged Helmet"
+  model.subtitle="BabylonJS"
+  model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
+  model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
+  camera.behaviors.auto-rotate="0"
+  templates.nav-bar.params.disable-on-fullscreen="true"
+></babylon>
 ```
 
 This will use the preregistered "form" mapper (which doesn't exist in reality - you should implement it) to read the payload and adjust the configuration.

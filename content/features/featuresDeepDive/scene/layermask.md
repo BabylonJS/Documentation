@@ -1,6 +1,6 @@
 ---
 title: In-Depth layerMask
-image: 
+image:
 description: Learn how the layerMask property work accross the library
 keywords: diving deeper, scene, layerMask, layer, mask
 further-reading:
@@ -17,8 +17,9 @@ video-content:
 `layerMask` is a value that can be assigned to different objects (like meshes, cameras, layers, particle systems, etc) and is used to determine the visibility of this object from another one (for eg, if a mesh is visible from a camera or if a layer should be displayed after a given camera is processed).
 
 The only two things to understand with `layerMask` are that:
-* it can be any number from 0 to 0xFFFFFFFF (or 4294967295, but it’s easier to write 0xFFFFFFFF)
-* when computing a visibility flag, two values of `layerMask` are **AND**ed and if the result is different from 0 the flag is true
+
+- it can be any number from 0 to 0xFFFFFFFF (or 4294967295, but it’s easier to write 0xFFFFFFFF)
+- when computing a visibility flag, two values of `layerMask` are **AND**ed and if the result is different from 0 the flag is true
 
 So, for eg, if `camera.layerMask = 35` and `mesh.layerMask = 2`, `35 & 2 == 2 != 0` so the mesh is visible from this camera. We often show these numbers in hexadecimal because doing the **AND** as a mental calculation is easier that way: `35=0x23` and `2=0x02` and `35 & 2 == 0x23 & 0x02` and from this latter representation it’s easier to see that the result is 2 (well, at least when you are a bit comfortable with hexadecimal!).
 

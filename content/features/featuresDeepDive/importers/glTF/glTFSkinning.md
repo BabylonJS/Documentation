@@ -1,6 +1,6 @@
 ---
 title: glTF 2.0 Skinning
-image: 
+image:
 description: Learn about the implementation details for how skinning is implemented in Babylon.js
 keywords: diving deeper, import, importing assets, asset, importing, skin, skinning, skeleton, bones, joints
 further-reading:
@@ -9,6 +9,7 @@ video-content:
 ---
 
 ## Introduction
+
 Skinning in glTF 2.0 is a bit different than how skinning typically works in Babylon.js. This document will describe a couple of important implementation details in the glTF 2.0 loader regarding skinning. All mentions of glTF below is scoped to glTF 2.0.
 
 ## Bones with Linked Nodes

@@ -1,6 +1,6 @@
 ---
 title: Tree Generators
-image: 
+image:
 description: Learn about the tree generator extensions.
 keywords: extensions, babylon.js, tree, tree generator
 further-reading:

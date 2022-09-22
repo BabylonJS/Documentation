@@ -36,7 +36,7 @@ Create a file called `SceneComponent.jsx` and add this:
 import { useEffect, useRef } from "react";
 import { Engine, Scene } from "@babylonjs/core";
 
-export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest}) => {
+export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest }) => {
   const reactCanvas = useRef(null);
 
   // set up basic engine and scene
@@ -186,7 +186,7 @@ There is an NPM project called `react-babylonjs` that is a react renderer for Ba
 
 What you are able to easily do is powerful, because inside the Scene component you can declare Babylon.js objects like Cameras/Meshes/Lights/Materials/Textures/3D Models/etc, using familiar JSX. Meanwhile there are escape hatches that allow you to work imperatively as well.
 
->Babylon.js ES6 + CRA (Create React App) project examples:
+> Babylon.js ES6 + CRA (Create React App) project examples:
 >
 > - JavaScript (examples for 3D models, GUI, VR, behaviors, props/state management)
 >   - [source](https://github.com/brianzinn/create-react-app-babylonjs)

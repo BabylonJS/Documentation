@@ -29,7 +29,7 @@ public simplify(settings: Array<ISimplificationSettings>,
                 successCallback?: () => void);
 ```
 
--   **Settings**
+- **Settings**
 
 The settings object has two parameters:
 
@@ -41,8 +41,8 @@ A simple example for an array of settings would be:
 
 ```javascript
 [
-    { quality: 0.9, distance: 25, optimizeMesh: true },
-    { quality: 0.3, distance: 50, optimizeMesh: true },
+  { quality: 0.9, distance: 25, optimizeMesh: true },
+  { quality: 0.3, distance: 50, optimizeMesh: true },
 ];
 ```
 
@@ -54,35 +54,35 @@ settings.push(new BABYLON.SimplificationSettings(0.8, 60));
 settings.push(new BABYLON.SimplificationSettings(0.4, 150));
 ```
 
--   **Parallel Processing**
+- **Parallel Processing**
 
 The code runs async. The `parallelProcessing` flag sets the order of processing of each level. If set to true, all will run together. This will use more RAM (for a certain period of time) but will run quicker in general. There is a chance however, that the FPS will be reduced to an unaccepted level due to many parallel calculations between frames. Setting this flag to false will process one setting after the other. This will use only one single simplification object and will use less RAM. It can, however, take a little longer.
 
--   **Type**
+- **Type**
 
 To allow further types of simplification to be implemented (will be explained later, for those who are interested) the type of simplification should be stated. There is only one kind at the moment, BABYLON.SimplificationType.QUADRATIC. This is also the default value, if type is undefined.
 
--   **Success Callback**
+- **Success Callback**
 
 Since this is an asynchronous function (which returns immediately), a callback is required in order to run code after the simplification process is over.
 
 This function will be called after the Auto-LOD process is successfully done.
 
--   **Usage Example**
+- **Usage Example**
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("", "./", "DanceMoves.babylon", scene, (newMeshes, particleSystems, skeletons) => {
-    newMeshes[1].simplify(
-        [
-            { quality: 0.9, distance: 25 },
-            { quality: 0.3, distance: 50 },
-        ],
-        false,
-        BABYLON.SimplificationType.QUADRATIC,
-        function () {
-            alert("LOD finisehd, let's have a beer!");
-        },
-    );
+  newMeshes[1].simplify(
+    [
+      { quality: 0.9, distance: 25 },
+      { quality: 0.3, distance: 50 },
+    ],
+    false,
+    BABYLON.SimplificationType.QUADRATIC,
+    function () {
+      alert("LOD finisehd, let's have a beer!");
+    },
+  );
 });
 ```
 
@@ -124,12 +124,12 @@ An object like a Box (if built in an optimal way, like the BABYLON.Mesh.CreateBo
 
 ### Quirks
 
--   Quadratic simplification can be calculated using many factors. Position, normals, colors, UV coordinates, etc... The more factors, the slower it will run (more calculations). The decision was made to stay with position only - this means that after simplification, the UV coordinates will sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
--   Meshes might change their shape. Very noticeable with a small plane.
--   Meshes might suddenly have "holes" in them. This can be avoided using the mesh optimization (starting 2.1, described further down)
--   Submeshes are supported starting with Babylon.js 2.1. Meshes with submeshes would not be decimated 100% correctly due to the lack of border detection (see next point). Give it a try and see if it fits your needs.
--   Some triangles on the borders will be "deleted". The reason is usually the (lack of) border detection, which is a part of the original paper. The feature was not included in the implementation due to the amount of time needed to calculate that correctly.
--   Objects that are initialized using an image (best example is a Height Map-based ground) will only decimate after the image is fully loaded. For that, take advantage of the `onReady` callbacks they have:
+- Quadratic simplification can be calculated using many factors. Position, normals, colors, UV coordinates, etc... The more factors, the slower it will run (more calculations). The decision was made to stay with position only - this means that after simplification, the UV coordinates will sometimes be a bit off. It is usually unnoticeable if you follow rule 4 above.
+- Meshes might change their shape. Very noticeable with a small plane.
+- Meshes might suddenly have "holes" in them. This can be avoided using the mesh optimization (starting 2.1, described further down)
+- Submeshes are supported starting with Babylon.js 2.1. Meshes with submeshes would not be decimated 100% correctly due to the lack of border detection (see next point). Give it a try and see if it fits your needs.
+- Some triangles on the borders will be "deleted". The reason is usually the (lack of) border detection, which is a part of the original paper. The feature was not included in the implementation due to the amount of time needed to calculate that correctly.
+- Objects that are initialized using an image (best example is a Height Map-based ground) will only decimate after the image is fully loaded. For that, take advantage of the `onReady` callbacks they have:
 
 ```javascript
 const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("ground", "textures/heightmap.png", {width: 20, height: 20, subdivisions: 100, onReady: (readyMesh) => {
@@ -153,11 +153,11 @@ There are two types of optimization available:
 
 ```javascript
 mesh.optimizeIndices(function () {
-    //do whatever you want here
+  //do whatever you want here
 });
 ```
 
-This option alters(!) the mesh's indices order. It is faster, but might change the UV coordinates of vertices of the mesh. If that is the case, use: 
+This option alters(!) the mesh's indices order. It is faster, but might change the UV coordinates of vertices of the mesh. If that is the case, use:
 
 2. Optimization during simplification - The Simplification Settings now includes a new variable: optimizeMesh, which is a boolean that defaults to false. If set to true, a non-altering mesh optimization will run during the mesh's preparation for decimation. The simplification will run on a temporary array of vertices and will correlate the new vertices' positions with the old uv/color information. This is the better option, but also the slower option (will be noticeable with very large meshes like the demo skull) <Playground id="#2JBSNA#4" title="Optimization During Simplification Example" description="Simple example of optimizing while simplifying."/>
 
@@ -170,7 +170,7 @@ If you want to add a new simplification algorithm, there are a few steps that ar
 1. Create a class that implements the BABYLON.ISimplifier interface (and of course implement the function! :-) )
 2. Add the type of simplification to the SimplificationType enum
 3. Add the class init in the mesh.simplify function (the inner function "getSimplifier" should contain your type).
-4. We'd love to see a PR with your new simplification! 
+4. We'd love to see a PR with your new simplification!
 
 ## Accessing the simplification class directly
 

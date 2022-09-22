@@ -1,6 +1,6 @@
 ---
 title: Assets introduction
-image: 
+image:
 description: Understanding how to the "Assets Browser" panel of Babylon.JS Editor
 keywords: editor, workspace, assets
 further-reading:
@@ -14,19 +14,22 @@ Starting from Babylon.JS Editor v4.1.0, assets management has been improved by i
 All assets are now shared across projects and are now browsable like we can do in other famous 3D editors.
 
 The assets browser can browse two main assets types:
-* Sources folder `/src` which contains all the project's TypeScript, Json, etc. files
-* Assets folder `/assets` which contains all the scenes assets (textures, meshes, materials, sounds, etc.).
+
+- Sources folder `/src` which contains all the project's TypeScript, Json, etc. files
+- Assets folder `/assets` which contains all the scenes assets (textures, meshes, materials, sounds, etc.).
 
 To identify assets quickly, distinct colors are applied on titles:
-* `Yellow` represents meshes assets
-* `Green` represents materials assets
-* `Blue` represents particle systems assets
+
+- `Yellow` represents meshes assets
+- `Green` represents materials assets
+- `Blue` represents particle systems assets
 
 ## Using Assets Browser
 
 The Assets Browser panel is composed of 2 resizable panes:
-* left pane: the directory tree, like we have in any file explorer
-* right pane: the content of the selected directory (files & sub-directories)
+
+- left pane: the directory tree, like we have in any file explorer
+- right pane: the content of the selected directory (files & sub-directories)
 
 Each time a directory is selected in the tree (left pane), the right pane is updated to show its content.
 
@@ -40,8 +43,9 @@ and can be clicked to quickly access a specified directory available in the stac
 ## Using favorites
 
 On top of the directory tree, 2 favorites shortcuts are available:
-* `All Materials`: shows the list of all available materials assets that have been instantiated (used) in the current scene.
-* `All Textures`: as for materials, shows the list of all available textures assets that have been instantiated (used) in the current scene.
+
+- `All Materials`: shows the list of all available materials assets that have been instantiated (used) in the current scene.
+- `All Textures`: as for materials, shows the list of all available textures assets that have been instantiated (used) in the current scene.
 
 ![UsingFavorites](/img/extensions/Editor/AssetsIntroduction/using-favorites.gif)
 
@@ -55,6 +59,7 @@ type the name of the folder to created. Once accepted, a new folder will be crea
 ## Selecting Files
 
 As any other file browser, multiple files can be selected using either:
+
 - `CTRL or Command + Click` to select multiple individual files
 - `Shift + Click` to select a range of files
 

@@ -1,6 +1,6 @@
 ---
 title: Combining Animations
-image: 
+image:
 description: Learn how to combine animations together.
 keywords: diving deeper, animation, combine, combination
 further-reading:
@@ -21,29 +21,23 @@ For example adding a rotation animation to the very simple slide animtation to g
 ### Slide and Rotate
 
 ```javascript
-var yRot = new BABYLON.Animation(
-  "yRot",
-  "rotation.y",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-);
+var yRot = new BABYLON.Animation("yRot", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
 var keyFramesR = [];
 
 keyFramesR.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 keyFramesR.push({
   frame: frameRate,
-  value: Math.PI
+  value: Math.PI,
 });
 
 keyFramesR.push({
   frame: 2 * frameRate,
-  value: 2 * Math.PI
+  value: 2 * Math.PI,
 });
 
 yRot.setKeys(keyFramesR);
@@ -56,29 +50,23 @@ yRot.setKeys(keyFramesR);
 Changing the rotation values to larger numbers increases the rotation rate
 
 ```javascript
-var yRot = new BABYLON.Animation(
-  "yRot",
-  "rotation.y",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-);
+var yRot = new BABYLON.Animation("yRot", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
 var keyFramesR = [];
 
 keyFramesR.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 keyFramesR.push({
   frame: frameRate,
-  value: 4 * Math.PI
+  value: 4 * Math.PI,
 });
 
 keyFramesR.push({
   frame: 2 * frameRate,
-  value: 8 * Math.PI
+  value: 8 * Math.PI,
 });
 
 yRot.setKeys(keyFramesR);
@@ -91,29 +79,23 @@ yRot.setKeys(keyFramesR);
 Changing the second key frame position to nearer the end of the frames gives a varying rotation rate.
 
 ```javascript
-var yRot = new BABYLON.Animation(
-  "yRot",
-  "rotation.y",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-);
+var yRot = new BABYLON.Animation("yRot", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
 var keyFramesR = [];
 
 keyFramesR.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 keyFramesR.push({
   frame: 1.5 * frameRate,
-  value: 4 * Math.PI
+  value: 4 * Math.PI,
 });
 
 keyFramesR.push({
   frame: 2 * frameRate,
-  value: 8 * Math.PI
+  value: 8 * Math.PI,
 });
 
 yRot.setKeys(keyFramesR);
@@ -155,21 +137,13 @@ In the first example the box rotates for 5 seconds then goes into a looped slide
 Code changes to beginDirectAnimation are looping becomes false, speed maintained as default 1, and the function nextAnimation is called as the first ends.
 
 ```javascript
-scene.beginDirectAnimation(
-  box,
-  [yRot],
-  0,
-  2 * frameRate,
-  false,
-  1,
-  nextAnimation
-);
+scene.beginDirectAnimation(box, [yRot], 0, 2 * frameRate, false, 1, nextAnimation);
 ```
 
 Additional function added before this is
 
 ```javascript
-var nextAnimation = function() {
+var nextAnimation = function () {
   scene.beginDirectAnimation(box, [xSlide], 0, 2 * frameRate, true);
 };
 ```
@@ -179,11 +153,9 @@ var nextAnimation = function() {
 In the second example the rotation is continued as the box goes into a looped slide.
 
 ```javascript
-var nextAnimation = function() {
+var nextAnimation = function () {
   scene.beginDirectAnimation(box, [yRot, xSlide], 0, 2 * frameRate, true);
 };
 ```
 
 - <Playground id="#9WUJN#16" title="Rotate Then Rotate and Slide" description="The simple slide animation with rotation happening first, then rotation and sliding." image="/img/playgroundsAndNMEs/divingDeeperCombineAnimations2.jpg"/>
-
-

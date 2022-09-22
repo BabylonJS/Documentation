@@ -1,6 +1,6 @@
 ---
-title: Contribute 
-image: 
+title: Contribute
+image:
 description: Describes how you can contibute to the development of Babylon.js
 keywords: contributing, babylon.js
 further-reading:

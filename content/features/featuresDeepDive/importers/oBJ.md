@@ -22,7 +22,7 @@ You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.j
 If you are using ES6 imports via NPM, you need to reference with side-effects:
 
 ```javascript
-import 'babylonjs-loaders'
+import "babylonjs-loaders";
 ```
 
 You can read more about [NPM support](/setup/frameworkPackages/npmSupport)

@@ -1,6 +1,6 @@
 ---
 title: WebGPU Optimizations
-image: 
+image:
 description: Learn how to optimize WebGPU for speed
 keywords: babylon.js, WebGPU, optimization, speed
 further-reading:

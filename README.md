@@ -4,8 +4,8 @@ The page is written using Next.js (Server-side react framework).
 
 ## Requirements
 
-* Node 12 and up
-* yarn
+- Node 12 and up
+- yarn
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 Markdowns can now be augmented with special components. For example, adding:
 
 ```html
-<Playground id="#Y642I8" title="Tinted Shadows Example" description="A Playground example of tinted shadows."/>
+<Playground id="#Y642I8" title="Tinted Shadows Example" description="A Playground example of tinted shadows." />
 ```
 
 will add a playground to the examples pane, allow to show its preview, add a styled link and add it to the search index for the playground. This will also generate images for this playground's preview when needed. Please make sure to commit those images.

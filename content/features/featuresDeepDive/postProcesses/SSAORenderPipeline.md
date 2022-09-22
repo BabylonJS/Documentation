@@ -1,6 +1,6 @@
 ---
 title: Using the SSAO Rendering Pipeline
-image: 
+image:
 description: Learn how to the SSAO Rendering Pipeline in Babylon.js.
 keywords: diving deeper, post processes, post process, render pipeline, render, SSAO
 further-reading:
@@ -17,16 +17,16 @@ You can find an example in our playground:
 
 The post-processes chain is defined by:
 
-* Original scene color post-process: saves the original scene color
-* SSAO post-process
-* Horizontal blur post-process
-* Vertical blur post-process
-* Combine post-process: blends the Vertical blur post-process output with the original scene color
+- Original scene color post-process: saves the original scene color
+- SSAO post-process
+- Horizontal blur post-process
+- Vertical blur post-process
+- Combine post-process: blends the Vertical blur post-process output with the original scene color
 
 Using it is pretty straightforward:
 
 ```javascript
-var ssao = new BABYLON.SSAORenderingPipeline('ssaopipeline', scene, 0.75);
+var ssao = new BABYLON.SSAORenderingPipeline("ssaopipeline", scene, 0.75);
 ```
 
 The third argument is the ratio used by SSAO, Horizontal blur and Vertical blur post-processes
@@ -39,13 +39,14 @@ var ssao = new BABYLON.SSAORenderingPipeline('ssaopipeline', scene, 0.75, [camer
 If you want to attach manually the rendering pipeline, just use the scene rendering pipeline manager like:
 
 ```javascript
-var ssao = new BABYLON.SSAORenderingPipeline('ssaopipeline', scene, 0.75);
+var ssao = new BABYLON.SSAORenderingPipeline("ssaopipeline", scene, 0.75);
 scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("ssaopipeline", cameras);
 ```
 
 **Warning: To save your performances, you should compute the SSAO/blurH/blurV with a lower ratio than 1.0 **
 
 If you want to detach and destroy the rendering pipeline, you can just call `dispose()` method
+
 ```javascript
 ssao.dispose();
 ```

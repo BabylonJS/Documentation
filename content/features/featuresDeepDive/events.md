@@ -1,6 +1,6 @@
 ---
 title: Events
-image: 
+image:
 description: Learn all about events and event handling in Babylon.js.
 keywords: diving deeper, events, event handling
 further-reading:

@@ -26,11 +26,11 @@ To help transforming, note that theBabylon.js loader will automatically set glTF
 - rotated by default to 180° on Y axys
 - scaled on Z by -1
 
-| Blender asset position |Babylon.js asset absolutePosition |
-| :--------------------: | :------------------------------: |
-|           X            |                -X                |
-|           Y            |                Z                 |
-|           Z            |                -Y                |
+| Blender asset position | Babylon.js asset absolutePosition |
+| :--------------------: | :-------------------------------: |
+|           X            |                -X                 |
+|           Y            |                 Z                 |
+|           Z            |                -Y                 |
 
 ## Try it out
 

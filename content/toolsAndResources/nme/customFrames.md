@@ -26,11 +26,11 @@ When we collapse the node, input and output ports that are linked to other nodes
 
 We can export a frame by using the “Export” button.
 
-Once exported, we can load it back into our project for future use by clicking the “+” symbol on the “Custom Frames” tab of the node menu, in the left panel. 
+Once exported, we can load it back into our project for future use by clicking the “+” symbol on the “Custom Frames” tab of the node menu, in the left panel.
 
 ![NME](/img/how_to/Materials/custom_frames_3.jpg)
 
-By loading a custom frame, we can reuse it quickly just like any other node block. Custom frames will stay in this menu any time you open the node material editor. 
+By loading a custom frame, we can reuse it quickly just like any other node block. Custom frames will stay in this menu any time you open the node material editor.
 
 ![NME](/img/how_to/Materials/custom_frames_4.jpg)
 
@@ -46,12 +46,12 @@ Example setup (you have to set your texture to generate some visible output):
 
 Some example values and the results are provided in the following table:
 
- tileX | tileY | offsetX | offsetY | result                                                                       
- ----- | ----- | ------- | ------- | ---------------------------------------------------------------------------- 
- 1     | 1     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-1-1-0-0.jpg)  
- 2     | 4     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-2-4-0-0.jpg)  
- 3     | 1     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-3-1-0-0.jpg)  
- 1     | 1     | 0       | 0.5     | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-1-1-0-05.jpg) 
+| tileX | tileY | offsetX | offsetY | result                                                                        |
+| ----- | ----- | ------- | ------- | ----------------------------------------------------------------------------- |
+| 1     | 1     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-1-1-0-0.jpg)  |
+| 2     | 4     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-2-4-0-0.jpg)  |
+| 3     | 1     | 0       | 0       | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-3-1-0-0.jpg)  |
+| 1     | 1     | 0       | 0.5     | ![Tile and Offset](/img/resources/nme-custom-frames/tile-offset-1-1-0-05.jpg) |
 
 ### UV Twirl
 

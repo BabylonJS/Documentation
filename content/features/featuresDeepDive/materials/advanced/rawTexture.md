@@ -1,6 +1,6 @@
 ---
 title: Creating Raw RGB Textures
-image: 
+image:
 description: Learn how to create raw rgb textures in Babylon.js.
 keywords: diving deeper, materials, advanced, texture, raw texture, raw
 further-reading:
@@ -18,13 +18,13 @@ new BABYLON.RawTexture.CreateRGBTexture(data, width, height, scene);
 
 The parameters are:
 
-* data: This is the raw data that you'll use for the RGB values of each pixel of your texture. The data needs to be an 8-bit array, specifically a javascript `Uint8Array`.
+- data: This is the raw data that you'll use for the RGB values of each pixel of your texture. The data needs to be an 8-bit array, specifically a javascript `Uint8Array`.
 
-* width: The desired width of the texture you'd like to create.
+- width: The desired width of the texture you'd like to create.
 
-* height: The desired height of the texture you'd like to create.
+- height: The desired height of the texture you'd like to create.
 
-* scene: Your Babylon scene.
+- scene: Your Babylon scene.
 
 Here's a small demo of it working. Check out line 29 in this playground: <Playground id="#3TM0BZ" title="Raw Texture Noise Terrain Example" description="Simple example of using noise data to generate an rgb texture, used as a height map to displace a mesh for a terrain effect." image="/img/playgroundsAndNMEs/divingDeeperRawTexture1.jpg"/>
 

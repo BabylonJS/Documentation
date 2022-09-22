@@ -1,6 +1,6 @@
 ---
 title: Adding a Roof to a House Built from Plans
-image: 
+image:
 description: Using a 2D plan to describe a roof build it in 3D
 keywords: house, roof, plan
 further-reading:
@@ -37,54 +37,56 @@ PG: <Playground id="#1Z71FW#41" title="Example Roof Floor" description="."/>
 
 ## Plan of Roof
 
-Though it is possibly more accurate to use the roofprint as a guide to a plan for the roof it is probably easier (in terms of coordinates) to use the original footprint. All you need to do is draw, in a plan diagram, the planes of the roof. An **apex** is a highest point on the roof where planes meet. The plan diagram in _Fig 2_ shows the floorprint corners numbered C0, C1, C2 etc and the apexes numbered in sequence using A0, A1 etc. _Fig 2_ is drawn to scale based on the original base data. 
+Though it is possibly more accurate to use the roofprint as a guide to a plan for the roof it is probably easier (in terms of coordinates) to use the original footprint. All you need to do is draw, in a plan diagram, the planes of the roof. An **apex** is a highest point on the roof where planes meet. The plan diagram in _Fig 2_ shows the floorprint corners numbered C0, C1, C2 etc and the apexes numbered in sequence using A0, A1 etc. _Fig 2_ is drawn to scale based on the original base data.
 
 ![roof plan](/img/samples/roof2.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
 ```javascript
-var baseData = [-3, -2,  -1, -4,  1, -4,  3, -2,  5, -2,  5, 1,  2, 1,  2, 3,  -3, 3];
+var baseData = [-3, -2, -1, -4, 1, -4, 3, -2, 5, -2, 5, 1, 2, 1, 2, 3, -3, 3];
 ```
+
 The red dash lines showing the axes.
 
 From the diagram the roof apex data can be read off and the coordinate pairs placed in the array in sequence order. First pair is from A0, the second from A1 etc.
 
 ```javascript
-var roofApexData = [0, -2,  0, -0.5,  0, 2,  4.5, -0.5];
+var roofApexData = [0, -2, 0, -0.5, 0, 2, 4.5, -0.5];
 ```
 
 This data the needs to be turned into an array, **apexes** for example, of Vector2 which will be used as the second parameter of the **roof** function.
 
 ```javascript
 var apexes = [];
-	
-for(var i = 0; i < roofApexData.length / 2; i++) {
-	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
+
+for (var i = 0; i < roofApexData.length / 2; i++) {
+  apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]));
 }
 ```
+
 Each roof plane can be described using the corner and apex labels. The planes should be draw so that they are described with either 3 or 4 labels. Each plane is set as an array using the labels in a counter clockwise order with corner labels coming first. Remember that the corner labels are already in counter clockwise order. An array of planes is then formed containing all the plane data arrays.
 
 ```javascript
 var planes = [
-	["C0", "C1", "A0"],
-	["C1", "C2", "A0"],
-	["C2", "C3", "A0"],
-	["C3", "A1", "A0"],
-	["C3", "C4", "A3", "A1"],
-	["C4", "C5", "A3"],
-	["C5", "C6", "A1", "A3"],
-	["C6", "C7", "A2", "A1"],
-	["C7", "C8", "A2"],
-	["C8", "C0", "A0", "A2"]
-]
+  ["C0", "C1", "A0"],
+  ["C1", "C2", "A0"],
+  ["C2", "C3", "A0"],
+  ["C3", "A1", "A0"],
+  ["C3", "C4", "A3", "A1"],
+  ["C4", "C5", "A3"],
+  ["C5", "C6", "A1", "A3"],
+  ["C6", "C7", "A2", "A1"],
+  ["C7", "C8", "A2"],
+  ["C8", "C0", "A0", "A2"],
+];
 ```
 
-The roof function can then be applied to produce the sections or planes of the roof. 
+The roof function can then be applied to produce the sections or planes of the roof.
 
 This takes the parameters as shown
 
 ```javascript
-roof(roofprint, apexes, planes, rise, height, uvbase)
+roof(roofprint, apexes, planes, rise, height, uvbase);
 ```
 
 The **rise** is the distance from the roof floor to an apex, the height is the height of the house.
@@ -131,22 +133,23 @@ Specific corners to be used by the _roofprint_ function have to be created for t
 var wholeRoofprint = roofprint(corners, overlap, height);
 var mainRoofprint = roofprint(mainCorners, overlap, height);
 var smallRoofprint = roofprint(smallCorners, overlap, height);
-	
+
 var ceiling = roofFloor(wholeRoofprint);
 ```
+
 Apex arrays has to be formed for both the main and small roof
 
 ```javascript
 var apexes = [];
-	
-for(var i = 0; i < roofApexData.length / 2; i++) {
-	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
+
+for (var i = 0; i < roofApexData.length / 2; i++) {
+  apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]));
 }
 
 var smallApexes = [];
 
-for(var i = 0; i < smallRoofApexData.length / 2; i++) {
-	smallApexes.push(new BABYLON.Vector2(smallRoofApexData[2 * i], smallRoofApexData[2 * i + 1]))
+for (var i = 0; i < smallRoofApexData.length / 2; i++) {
+  smallApexes.push(new BABYLON.Vector2(smallRoofApexData[2 * i], smallRoofApexData[2 * i + 1]));
 }
 ```
 
@@ -154,19 +157,19 @@ In the same way two plane arrays are needed, on for each roof
 
 ```javascript
 var planes = [
-		["C0", "C1", "A0"],
-		["C1", "C2", "A0"],
-		["C2", "C3", "A0"],
-		["C3", "C4", "A1", "A0"],
-		["C4", "C5", "A1"],
-		["C5", "C0", "A0", "A1"]
-	]
-	
-	var smallPlanes = [
-		["C0", "C1", "A1", "A0"],
-		["C1", "C2", "A1"],
-		["C2", "C3", "A0", "A1"]
-	]
+  ["C0", "C1", "A0"],
+  ["C1", "C2", "A0"],
+  ["C2", "C3", "A0"],
+  ["C3", "C4", "A1", "A0"],
+  ["C4", "C5", "A1"],
+  ["C5", "C0", "A0", "A1"],
+];
+
+var smallPlanes = [
+  ["C0", "C1", "A1", "A0"],
+  ["C1", "C2", "A1"],
+  ["C2", "C3", "A0", "A1"],
+];
 ```
 
 Then ,finally, both roof sections can be created

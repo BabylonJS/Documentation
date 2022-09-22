@@ -1,6 +1,6 @@
 ---
 title: Getting components
-image: 
+image:
 description: Understanding how to use the Babylon.JS Editor api to expose properties in Inspector.
 keywords: editor, scripting, inspector
 further-reading:
@@ -46,12 +46,12 @@ import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { fromScene } from "../decorators";
 
 export default class MyMeshComponent extends Mesh {
-    @fromScene("sun")
-    private _sun: DirectionalLight;
+  @fromScene("sun")
+  private _sun: DirectionalLight;
 
-    public onStart(): void {
-        this._sun.intensity = 10;
-    }
+  public onStart(): void {
+    this._sun.intensity = 10;
+  }
 }
 ```
 
@@ -70,12 +70,12 @@ import { ParticleSystem } from "@babylonjs/core/Particles/particleSystem";
 import { fromParticleSystems } from "../decorators";
 
 export default class MyMeshComponent extends Mesh {
-    @fromParticleSystems("rain")
-    private _rain: ParticleSystem;
+  @fromParticleSystems("rain")
+  private _rain: ParticleSystem;
 
-    public onStart(): void {
-        this._rain.start();
-    }
+  public onStart(): void {
+    this._rain.start();
+  }
 }
 ```
 
@@ -93,12 +93,12 @@ import { AnimationGroup } from "@babylonjs/core/Animations/animationGroup";
 import { fromAnimationGroups } from "../decorators";
 
 export default class MyMeshComponent extends Mesh {
-    @fromAnimationGroups("walk")
-    private _walk: AnimationGroup;
+  @fromAnimationGroups("walk")
+  private _walk: AnimationGroup;
 
-    public onStart(): void {
-        this._walk.play(true);
-    }
+  public onStart(): void {
+    this._walk.play(true);
+  }
 }
 ```
 
@@ -130,11 +130,11 @@ import { Sound } from "@babylonjs/core/Audio/sound";
 import { fromSounds } from "../decorators";
 
 export default class MyMeshComponent extends Mesh {
-    @fromSounds("sounds/6sounds.mp3")
-    private _sound: Sound;
+  @fromSounds("sounds/6sounds.mp3")
+  private _sound: Sound;
 
-    public onStart(): void {
-        this._sound.play();
-    }
+  public onStart(): void {
+    this._sound.play();
+  }
 }
 ```

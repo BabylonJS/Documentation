@@ -18,11 +18,11 @@ For beginners to Babylon.js these two sections [Fastest Build](/features/feature
 
 The following is a list of the methods of the `scene` object that help in fast building a world, with a link to their API description:
 
--   [createDefaultCameraOrLight](/typedoc/classes/babylon.scene#createdefaultcameraorlight);
--   [createDefaultCamera](/typedoc/classes/babylon.scene#createdefaultcamera);
--   [createDefaultLight](/typedoc/classes/babylon.scene#createdefaultlight);
--   [createDefaultEnvironment](/typedoc/classes/babylon.scene#createdefaultenvironment);
--   [createDefaultSkybox](/typedoc/classes/babylon.scene#createdefaultskybox);
+- [createDefaultCameraOrLight](/typedoc/classes/babylon.scene#createdefaultcameraorlight);
+- [createDefaultCamera](/typedoc/classes/babylon.scene#createdefaultcamera);
+- [createDefaultLight](/typedoc/classes/babylon.scene#createdefaultlight);
+- [createDefaultEnvironment](/typedoc/classes/babylon.scene#createdefaultenvironment);
+- [createDefaultSkybox](/typedoc/classes/babylon.scene#createdefaultskybox);
 
 ## Fastest Build
 
@@ -49,9 +49,9 @@ As can be seen in the _Fastest Build_ section the helper, `createDefaultCameraOr
 
 The `createDefaultCamera` takes three boolean parameters, all set to _false_ by default. They are
 
--   createArcRotateCamera: creates a free camera by default and an arc rotate camera when _true_;
--   replace: when _true_ the created camera will replace the existing active one;
--   attachCameraControls: when _true_ attaches control to the canvas.
+- createArcRotateCamera: creates a free camera by default and an arc rotate camera when _true_;
+- replace: when _true_ the created camera will replace the existing active one;
+- attachCameraControls: when _true_ attaches control to the canvas.
 
 This code will create an arc rotate camera, replace any existing camera and attach the camera control to the canvas
 
@@ -105,7 +105,7 @@ scene.cameras.push(helperCamera);
 
 The `createDefaultLight` takes just one boolean parameters, set to _false_ by default:
 
--   replace: when _true_ the created light will replace all the existing ones; when _false_ and there are no existing lights a hemispherical light is created; when _false_ and lights already exist, no change is made to the scene.
+- replace: when _true_ the created light will replace all the existing ones; when _false_ and there are no existing lights a hemispherical light is created; when _false_ and lights already exist, no change is made to the scene.
 
 When this method is used before the creation of any other lights then it is usually sufficient to use
 
@@ -168,7 +168,7 @@ to prevent the creation of the skybox:
 
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    createSkybox: false,
+  createSkybox: false,
 });
 ```
 
@@ -176,7 +176,7 @@ to enable ground reflection:
 
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    enableGroundMirror: true,
+  enableGroundMirror: true,
 });
 ```
 
@@ -184,7 +184,7 @@ when you see z-fighting with the ground, modify the `groundYBias` to a larger nu
 
 ```javascript
 var helper = scene.createDefaultEnvironment({
-    groundYBias: 0.01,
+  groundYBias: 0.01,
 });
 ```
 
@@ -213,7 +213,7 @@ or how about changing the options parameters
 ```javascript
 var helper = scene.createDefaultEnvironment();
 var options = {
-    skyboxTexture: new BABYLON.CubeTexture("/textures/skybox", scene),
+  skyboxTexture: new BABYLON.CubeTexture("/textures/skybox", scene),
 };
 helper.updateOptions(options);
 ```
@@ -255,8 +255,8 @@ Since the `createDefault...` helpers take into account any models in the scene t
 
 ```javascript
 BABYLON.SceneLoader.Append("https://www.babylonjs.com/Assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
-    scene.createDefaultCameraOrLight(true, true, true);
-    scene.createDefaultEnvironment();
+  scene.createDefaultCameraOrLight(true, true, true);
+  scene.createDefaultEnvironment();
 });
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: More On Height Maps
-image: 
+image:
 description: Learn more about height maps in Babylon.js.
 keywords: diving deeper, meshes, set shapes, standard shapes, height maps
 further-reading:
@@ -10,10 +10,10 @@ video-content:
 
 ## Introduction
 
-In this tutorial, our goal is to understand height maps, a method used to generate realistic terrain. 
+In this tutorial, our goal is to understand height maps, a method used to generate realistic terrain.
 Height-maps are easy to use, customizable yet produce impressive terrain:
 
->  What we are going to try and achieve
+> What we are going to try and achieve
 
 ![HeightMap](/img/how_to/HeightMap/14.png)
 
@@ -21,7 +21,7 @@ Height-maps are easy to use, customizable yet produce impressive terrain:
 
 ### How height-maps work
 
-Understanding height maps is the main objective of this tutorial. A height map is simply a gray-scale texture. Each pixel in the texture maps onto the height of a point on a plane, thus the name height-map. The whiter the pixel the higher the displacement, the darker the lesser the displacement. From the variations of gray within the texture we can map out a terrain. For this example we shall use the following texture: 
+Understanding height maps is the main objective of this tutorial. A height map is simply a gray-scale texture. Each pixel in the texture maps onto the height of a point on a plane, thus the name height-map. The whiter the pixel the higher the displacement, the darker the lesser the displacement. From the variations of gray within the texture we can map out a terrain. For this example we shall use the following texture:
 
 ![HeightMap3](/img/how_to/HeightMap/worldHeightMap.jpg)
 
@@ -41,7 +41,11 @@ groundMaterial.diffuseTexture = new BABYLON.Texture("Earth__land.jpg", scene);
 // units, with 250 subdivisions in each of the `x` and `z` directions, for a
 // total of 62,500 divisions.
 const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("gdhm", "textures/heightMap.png", {
-    width: 20, height: 20, subdivisions: 250, maxHeight: 10, minHeight: 2
+  width: 20,
+  height: 20,
+  subdivisions: 250,
+  maxHeight: 10,
+  minHeight: 2,
 });
 
 // Bind our material to our mesh
@@ -59,14 +63,14 @@ The parameters passed are:
 
 The following are options, third parameter, used to construct the height-mapped plane:
 
-* **width**: The width of the plane
-* **height**: The height of the plane
-* **minHeight**: Lowest point on the plane
-* **maxHeight**: Highest point on the plane
-* **subdivisions**: How detailed should our height-mapped plane be. Higher for higher poly count and therefore better visual quality. As seen below:
-* ![HeightMap4](/img/how_to/HeightMap/14-2.png)
+- **width**: The width of the plane
+- **height**: The height of the plane
+- **minHeight**: Lowest point on the plane
+- **maxHeight**: Highest point on the plane
+- **subdivisions**: How detailed should our height-mapped plane be. Higher for higher poly count and therefore better visual quality. As seen below:
+- ![HeightMap4](/img/how_to/HeightMap/14-2.png)
 
-----
+---
 
 > Now we can see a 3d representation of the earth's surface on a plane!
 

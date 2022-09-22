@@ -24,41 +24,41 @@ This documentation will explain how to transform an existing Babylon.js game to 
 
 2. Include the Facebook SDK URL in your game HTML page:
 
-```html
-<script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
-```
+   ```html
+   <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
+   ```
 
-3. Then you have to initialize the instant game with the method `FBInstant.initializeAsync`. In the game example, I created a file `main.ts` that will create the game once the framework is initalized:
+3. Then you have to initialize the instant game with the method `FBInstant.initializeAsync`. In the game example, I created a file `main.ts` that will create the game once the framework is initialized:
 
-```javascript
-FBInstant.initializeAsync()
-  .then(() => {
-    // Many properties will be null until the initialization completes.
-    // This is a good place to fetch them:
-    let locale = FBInstant.getLocale(); // 'en_US' 'fr_FR'...
-    let platform = FBInstant.getPlatform(); // 'IOS', 'ANDROID' or 'WEB'
-    let sdkVersion = FBInstant.getSDKVersion(); // '3.0'
-    let playerID = FBInstant.player.getID();
+   ```javascript
+   FBInstant.initializeAsync()
+     .then(() => {
+       // Many properties will be null until the initialization completes.
+       // This is a good place to fetch them:
+       let locale = FBInstant.getLocale(); // 'en_US' 'fr_FR'...
+       let platform = FBInstant.getPlatform(); // 'IOS', 'ANDROID' or 'WEB'
+       let sdkVersion = FBInstant.getSDKVersion(); // '3.0'
+       let playerID = FBInstant.player.getID();
 
-    console.log(locale, platform, sdkVersion, playerID);
+       console.log(locale, platform, sdkVersion, playerID);
 
-    // The game is created here
-    new Game("gameCanvas");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-```
+       // The game is created here
+       new Game("gameCanvas");
+     })
+     .catch((e) => {
+       console.log(e);
+     });
+   ```
 
-Then you can load your assets and start your game.
+   Then you can load your assets and start your game.
 
 4. Update the Facebook loading screen : by using an Asset Manager, you can use the exposed property 'onProgress' to update the loading screen
 
-```javascript
-loader.onProgress = (remaining: number, totalCount: number) => {
-  FBInstant.setLoadingProgress(100 - remaining / totalCount);
-};
-```
+   ```javascript
+   loader.onProgress = (remaining: number, totalCount: number) => {
+     FBInstant.setLoadingProgress(100 - remaining / totalCount);
+   };
+   ```
 
 5. Remove the loading screen and start the game : once your scene is ready, use `FBInstant.startGameAsync` to start your instant game.
 

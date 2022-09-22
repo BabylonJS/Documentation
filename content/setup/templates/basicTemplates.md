@@ -1,6 +1,6 @@
 ---
 title: Single File Text Templates
-image: 
+image:
 description: Basic one page templates
 keywords: babylon.js, template, basic,
 further-reading:

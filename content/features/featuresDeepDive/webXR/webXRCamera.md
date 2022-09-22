@@ -1,6 +1,6 @@
 ---
 title: The WebXR Camera
-image: 
+image:
 description: Learn all about the WebXR camera in Babylon.js, used for VR and AR sessions.
 keywords: VR, diving deeper, WebXR, AR, camera, WebVR
 further-reading:
@@ -12,7 +12,7 @@ The WebXR Camera is an extension of the `FreeCamera` that includes an update loo
 
 If you are not using the [XR Experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers), you will need an [XR Session Manager](/features/featuresDeepDive/webXR/webXRSessionManagers) to construct a new WebXR Camera:
 
-``` javascript
+```javascript
 const xrCamera = new WebXRCamera("nameOfCamera", scene, xrSessionManager);
 ```
 
@@ -26,13 +26,13 @@ The camera's position will update every frame from the information sent to it by
 
 Just like any other camera you can get its direction:
 
-``` javascript
+```javascript
 const direction = xrCamera.getDirection(Axis.Z);
 ```
 
 Or a position in front of the camera in a certain distance:
 
-``` javascript
+```javascript
 // get the position 2 meters in front of the camera
 const frontPosition = xrCamera.getFrontPosition(2);
 ```
@@ -59,7 +59,7 @@ Note that the user height depends on the type of reference space you chose to yo
 
 When entering XR you might want to duplicate the Non-XR camera's position and use it as the base position of the XR Camera. To do that you will need to find the absolute transformation of the old camera and apply it to the new one. Babylon allows you to do that with a single function of the XR Camera:
 
-``` javascript
+```javascript
 // if scene.activeCamera is still the non-VR camera:
 xrCamera.setTransformationFromNonVRCamera();
 

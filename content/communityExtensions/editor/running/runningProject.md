@@ -1,6 +1,6 @@
 ---
 title: Running/playing a project
-image: 
+image:
 description: Understanding how to play a single project in the Babylon.js Editor
 keywords: editor, workspace, running, play
 further-reading:
@@ -13,7 +13,9 @@ video-content:
 Since Babylon.JS Editor v4.0.0-rc.3, it is possible to play directly the scene that is being edited in the Editor. This means the scene, as it is in the Editor, can be played directly including all scripts that are attached in the scene. This is particularely useful to test the scene itself and see if the scripts/components are working as intended.
 
 ## Playing the scene
+
 At the middle of the tools toolbar, there are 2 buttons:
+
 - Play / Stop (on the left) that generates the scene and plays the scene in the Editor's preview panel.
 - Restart (on the right) that simply reloads the scene to be played.
 
@@ -24,6 +26,7 @@ Once the play button is clicked, the scene being edited in the preview panel dis
 ![PlayScene](/img/extensions/Editor/RunningProject/playing_scene.gif)
 
 ## Debugging the scene
+
 All templates in the Editor offer the way to debug TypeScript code directly in VSCode. Just type F5 and place break points or "debugger;" in your code.
 
 **Note: type F5 before running the scene as the remote debugger will not (sometimes) be able to attach the process created on the fly to run the scene.**

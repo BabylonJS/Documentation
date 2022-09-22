@@ -742,9 +742,9 @@ enables users to traverse VR spaces by "walking in place."
 
 ```javascript
 scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
-    const xrRoot = new BABYLON.TransformNode("xrRoot", scene);
-    xr.baseExperience.camera.parent = xrRoot;
-    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xrRoot });
+  const xrRoot = new BABYLON.TransformNode("xrRoot", scene);
+  xr.baseExperience.camera.parent = xrRoot;
+  xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xrRoot });
 });
 ```
 
@@ -757,7 +757,7 @@ itself.
 
 ```javascript
 scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
-    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xr.baseExperience.camera.parent });
+  xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xr.baseExperience.camera.parent });
 });
 ```
 

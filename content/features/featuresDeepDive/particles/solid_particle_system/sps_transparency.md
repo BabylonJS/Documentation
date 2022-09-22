@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Solid Particle System Transparency Issues
-image: 
+image:
 description: Learn some troubleshooting tips for dealing with common SPS transparency issues in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, visibility
 further-reading:
@@ -34,7 +34,7 @@ Note also that the particle sort **can't work** with the MultiMaterials.
 ```javascript
 // create a particle depth sort enabled SPS
 var sps = new BABYLON.SolidParticleSystem("sps", scene, {
-  enableDepthSort: true
+  enableDepthSort: true,
 });
 
 // then later, only do ...

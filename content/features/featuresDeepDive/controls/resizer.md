@@ -4,7 +4,7 @@ image-url: /img/defaultImage.png
 description: The Babylon.js Resizer Control is a web control built on top of Babylon.js in order to accelerate the resizing of pictures in web pages with blazing fast speed.
 keywords: web controls, hardware accelerated, 2D, resize, scale, images
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 
@@ -69,9 +69,9 @@ resizer.resize(imageToResize);
 
 On the previous line, imageToResize could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used)
-* another canvas element (the current visible state will be used)
+- the url of a picture.
+- a video element (the current visible frame of the video will be used)
+- another canvas element (the current visible state will be used)
 
 The source image will be stretch in both direction to fit in the target canvas.
 
@@ -85,9 +85,9 @@ const texture = resizer.getResizedTexture(imageToResize, { width: 128, height: 1
 
 Like before, imageToResize could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used).
-* another canvas element (the current visible state will be used).
+- the url of a picture.
+- a video element (the current visible frame of the video will be used).
+- another canvas element (the current visible state will be used).
 
 You also need to provide the size you want your texture to have on the GPU.
 
@@ -112,8 +112,8 @@ const timeline = new Timeline(resizer, {
 
 The 2 important points are:
 
-* Use a shared control context by passing one control to the constructor of the other one.
-* Returning a resized texture from the thumbnail callback.
+- Use a shared control context by passing one control to the constructor of the other one.
+- Returning a resized texture from the thumbnail callback.
 
 That is it, both controls are linked together making an efficient use of the GPU without wasting resources with bigger thumbnails than needed.
 

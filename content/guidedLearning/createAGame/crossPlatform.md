@@ -38,7 +38,7 @@ Since these controls are only visible in the game state, I added them to the [Hu
 
 ```javascript
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    //make mobile controls
+  //make mobile controls
 }
 ```
 
@@ -78,9 +78,9 @@ Then all we need to do is add the mobile equivalent of our keypresses to the exi
 ```javascript
 //dash
 if (this.inputMap["Shift"] || this._mobileDash) {
-    this.dashing = true;
+  this.dashing = true;
 } else {
-    this.dashing = false;
+  this.dashing = false;
 }
 ```
 
@@ -102,7 +102,7 @@ This followed a similar structure to how we set up the mobile controls for the g
 
 **Files Used:**
 
--   [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
--   [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)
--   [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [index.html](https://github.com/BabylonJS/SummerFestival/blob/master/public/index.html)
+- [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)
+- [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)

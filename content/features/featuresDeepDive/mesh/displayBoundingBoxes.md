@@ -1,6 +1,6 @@
 ---
 title: Drawing Bounding Boxes
-image: 
+image:
 description: Learn how to draw bounding boxes in Babylon.js.
 keywords: diving deeper, meshes, bounding boxes, bounds
 further-reading:
@@ -21,16 +21,18 @@ Let's say that you have a sphere in your scene that you've affecionately named "
 To draw the bounding box around your sphere, all you need to do is set the showBoundingBox property to true.
 
 Like this :
+
 ```javascript
 sphere.showBoundingBox = true;
 ```
-Pretty simple right? 
+
+Pretty simple right?
 
 Here is a playground where you can see it working. <Playground id="#4F33I3" title="Drawing A Box Around A Single Object" description="Simple example of drawing a bounding box around a single object."/>
 
 # Drawing a bounding box around multiple objects
 
-Ok so let's make it a little more complicated. Let's say that your scene also has a ground plane in it that you've lovingly named "ground" and you'd like to draw a bounding box around the area that encomposes both the sphere and ground. 
+Ok so let's make it a little more complicated. Let's say that your scene also has a ground plane in it that you've lovingly named "ground" and you'd like to draw a bounding box around the area that encomposes both the sphere and ground.
 
 To do this, we're going to get the minimum and maximum values of the bounding information of both meshes and compare them with special methods that compares two vector 3 values and gives you the minimum and maximum values. Then we'll set the sphere's bounding information to this new min and max. Let's try it out.
 
@@ -86,7 +88,7 @@ Lastly, instead of setting the bounding information and displaying the bounding 
 
 ```javascript
 parent.setBoundingInfo(new BABYLON.BoundingInfo(newMin, newMax));
-    
+
 parent.showBoundingBox = true;
 ```
 
@@ -138,13 +140,13 @@ We're setting the starting values of these min and max variables to the world mi
 Now we can loop through all of the child meshes and continually update the min and max values with the new bounding information of each comparative mesh. It looks like this:
 
 ```javascript
-for(let i=0; i<childMeshes.length; i++){
-        let meshMin = childMeshes[i].getBoundingInfo().boundingBox.minimumWorld;
-        let meshMax = childMeshes[i].getBoundingInfo().boundingBox.maximumWorld;
+for (let i = 0; i < childMeshes.length; i++) {
+  let meshMin = childMeshes[i].getBoundingInfo().boundingBox.minimumWorld;
+  let meshMax = childMeshes[i].getBoundingInfo().boundingBox.maximumWorld;
 
-        min = BABYLON.Vector3.Minimize(min, meshMin);
-        max = BABYLON.Vector3.Maximize(max, meshMax);
-    }
+  min = BABYLON.Vector3.Minimize(min, meshMin);
+  max = BABYLON.Vector3.Maximize(max, meshMax);
+}
 ```
 
 SWEET! We did it! Nice job! Here's the playground result of those changes. <Playground id="#4F33I3#6" title="Loop Through Meshes to Draw Bounding Box" description="Simple example of looping through meshes to draw an overall bounding box."/>
@@ -154,5 +156,3 @@ To dive even further into bounding boxes, make sure to check out the API as well
 # API
 
 - [boundingBox](/typedoc/classes/babylon.boundingbox)
-
-

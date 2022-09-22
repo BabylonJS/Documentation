@@ -1,6 +1,6 @@
 ---
 title: Online Zenva Course
-image: 
+image:
 description: Video tutorial Zenva Course
 keywords: video tutorial, video, tutorial, course, zenva
 further-reading:

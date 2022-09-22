@@ -1,6 +1,6 @@
 ---
 title: Updating A Solid Particle's Shape
-image: 
+image:
 description: Learn how to change a solid particles shape in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, vertices
 further-reading:
@@ -22,7 +22,7 @@ video-content:
 
 ```javascript
 SPS.computeParticleVertex = true; // false by default for performance reason
-SPS.updateParticleVertex = function(particle, vertex, v) {
+SPS.updateParticleVertex = function (particle, vertex, v) {
   // particle : the current particle object
   // vertex : the current vertex, a solidParticleVertex object
   // the index of the current vertex in the particle shape
@@ -32,11 +32,10 @@ SPS.updateParticleVertex = function(particle, vertex, v) {
     vertex.position.y *= Math.random() + 1;
     vertex.position.z *= Math.random() + 1;
     vertex.color.r = Math.abs(Math.sin(v));
-    vertex.color.g = 1 - vertex.color.r
+    vertex.color.g = 1 - vertex.color.r;
     vertex.uv.x = particle.idx + v;
     vertex.uv.y = vertex.uv.x;
   }
-
 };
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Offscreen Canvas
-image: 
+image:
 description: Learn all about the offscreen canvas in Babylon.js.
 keywords: diving deeper, scene, offscreen canvas
 further-reading:
@@ -17,9 +17,11 @@ You can see a page demonstrating this use case here: https://www.babylonjs.com/D
 <Youtube id="zYrZNROQzKQ"/>
 
 # Setting up the engine
+
 Starting with Babylon.js v4.1, you can create an engine inside a worker by initializing it with an offscreen canvas.
 
 First you need to create an offscreen canvas out of your regular canvas:
+
 ```
 var canvas = document.getElementById("renderCanvas");
 canvas.width = canvas.clientWidth;
@@ -30,7 +32,7 @@ var offscreen = canvas.transferControlToOffscreen();
 Then you need to spin off a new worker and send it the offscreen canvas
 
 ```
-var worker = new Worker("worker.js"); 
+var worker = new Worker("worker.js");
 worker.postMessage({canvas: offscreen}, [offscreen]);
 ```
 
@@ -48,6 +50,7 @@ onmessage = function(evt) {
 Then you can use your engine as usual.
 
 # Caveats
+
 The main caveat of using Babylon.js with an offscreen canvas in a worker thread is that you will need to do special work to communicate with the engine from the main thread. You will have to use the same messaging API we used before to communicate between threads.
 
 Furthermore, Babylon.js will not be able to handle inputs for you and so APIs like `camera.attachControls()` will not work and you will have to message inputs to workers.
@@ -55,6 +58,7 @@ Furthermore, Babylon.js will not be able to handle inputs for you and so APIs li
 Here is an example of communication you will have to setup to support canvas resizing.
 
 On main thread:
+
 ```
 window.addEventListener("resize", () => {
     worker.postMessage({width: canvas.clientWidth, height:canvas.clientHeight});
@@ -62,6 +66,7 @@ window.addEventListener("resize", () => {
 ```
 
 On worker thread:
+
 ```
 
 var engine;
@@ -79,12 +84,14 @@ Note that this feature is new and not yet compatible with every device or browse
 You can check current support of offscreen canvas here: https://caniuse.com/#feat=offscreencanvas
 
 If you want to test the compatibility, you can add this condition before using offscreen canvas:
+
 ```
-if ("OffscreenCanvas" in window && "transferControlToOffscreen" in canvas) { 
+if ("OffscreenCanvas" in window && "transferControlToOffscreen" in canvas) {
     // Ok to use offscreen canvas
 }
 ```
 
 # Resources
+
 - https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
 - https://developers.google.com/web/updates/2018/08/offscreen-canvas

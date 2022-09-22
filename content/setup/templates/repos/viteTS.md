@@ -1,6 +1,6 @@
 ---
 title: Babylon.js Vite Boilerplate
-image: 
+image:
 description: Project Template for Basic Scene.
 keywords: template, boilerplate, vite
 further-reading:

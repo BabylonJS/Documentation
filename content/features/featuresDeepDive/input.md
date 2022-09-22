@@ -1,6 +1,6 @@
 ---
 title: Input
-image: 
+image:
 description: Learn all about user input in Babylon.js.
 keywords: diving deeper, input
 further-reading:

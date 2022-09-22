@@ -151,11 +151,12 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
       _ Position / rotation / scaling
       * Smoothing groups
       * Skin
-      * Geometry (position, normal, color, texture coordinates (2 channels))
-  * Instances
-  _ Morph targets
-      _ Show Bounding box and submeshes bounding boxes (_)
-      _ Animations: Position, scaling, rotation, visibility, bones, morph weights \* Custom attributes
+      \* Geometry (position, normal, color, texture coordinates (2 channels))
+
+  - Instances
+    _ Morph targets
+        _ Show Bounding box and submeshes bounding boxes (_)
+        _ Animations: Position, scaling, rotation, visibility, bones, morph weights \* Custom attributes
 
 - _Materials_
       * Multi-materials

@@ -1,23 +1,23 @@
 ---
 title: Compound Bodies
-image: 
+image:
 description: Learn all about physics compound bodies in Babylon.js.
 keywords: diving deeper, phyiscs, compound boides
 further-reading:
-    - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
-    - title: How to use Forces
-      url: /features/featuresDeepDive/physics/forces
-    - title: How To Use Joints
-      url: /features/featuresDeepDive/physics/joints
-    - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
-    - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
-    - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+  - title: How To Use The Physics Engines
+    url: /features/featuresDeepDive/physics/usingPhysicsEngine
+  - title: How to use Forces
+    url: /features/featuresDeepDive/physics/forces
+  - title: How To Use Joints
+    url: /features/featuresDeepDive/physics/joints
+  - title: How To Use Pivots and Axes
+    url: /features/featuresDeepDive/physics/pivotsAxes
+  - title: How To Create Soft Bodies
+    url: /features/featuresDeepDive/physics/softBodies
+  - title: How To Use Advanced Features
+    url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+  - title: How To Add Your Own Physics Engine
+    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -46,7 +46,7 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 
 <Playground id="#492ZK0#7" title="Skull As A Compound Body 1" description="Simple example of a skull as a compound body."/>
 
-## Compound Covering Meshes to The Complex Mesh 
+## Compound Covering Meshes to The Complex Mesh
 
 1. Create a range of appropriately shaped standard meshes to fit over the irregular mesh;
 2. Parent the standard meshes to the irregular mesh;
@@ -57,7 +57,6 @@ It is roughly composed of a sphere for most of it with a box around the jaw area
 **Note** Steps 2, 4 and 5 must be in that order.
 
 <Playground id="#492ZK0#12" title="Skull As A Compound Body 2" description="Simple example of a skull as a compound body."/>
-
 
 ## Compound to One of the Covering Meshes
 

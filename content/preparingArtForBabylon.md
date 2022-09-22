@@ -1,6 +1,6 @@
 ---
 title: Preparing Assets for Babylon.js
-image: 
+image:
 description: Learn all about how to prepare various assets for use in Bayblon.js
 keywords: assets, workflow, pipeline, art, artwork
 further-reading:

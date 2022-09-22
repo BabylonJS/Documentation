@@ -157,17 +157,16 @@ import "hammerjs";
 To use the new input you add it to your `camera.inputs` after you have create the camera. To avoid one input fighting the other remove the `ArcRotateCameraPointersInput` from `camera.inputs`. After you've created your Input you can set it's parameters. The default ones (please refer to https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera/blob/680cf12155924a818faac5ff9d7f0a0271bb632b/src/utils/ArcRotateCameraHammerJsInput.ts#L21) are good for a general touch screen monitor so you may have to set them according to your needs.
 
 ```javascript
+// remove mouse input
+camera.inputs.removeByType("ArcRotateCameraPointersInput");
 
-    // remove mouse input
-    camera.inputs.removeByType('ArcRotateCameraPointersInput')
-
-    // add hammer js input
-    const hammerJsInput = new ArcRotateCameraHammerJsInput()
-    // now you can set the parameters you like
-    // let's double the zoomSensitivity (default is 1)
-    hammerJsInput.zoomSensitivity = 2
-    // add the input to the camera
-    camera.inputs.add(hammerJsInput)
+// add hammer js input
+const hammerJsInput = new ArcRotateCameraHammerJsInput();
+// now you can set the parameters you like
+// let's double the zoomSensitivity (default is 1)
+hammerJsInput.zoomSensitivity = 2;
+// add the input to the camera
+camera.inputs.add(hammerJsInput);
 ```
 
 Feel free to use this Input class as a starter for your own HammerJS based input.

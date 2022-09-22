@@ -27,7 +27,6 @@ Requirements:
 
 You will need know how to Fork the [Documentation](https://github.com/BabylonJS/Documentation) repository and Clone it onto your local system.
 
-
 ### Running and editing the doc locally
 
 Using a CLI at the location of your local Documentation folder Run:
@@ -99,7 +98,9 @@ For example, let's say we want to add this page. We know that our new page will 
     /* [...] */
 }
 ```
+
 Just add necessary information about your new page:
+
 ```javascript
 /* [...] */
 "documentKeyAndUrl": {
@@ -109,11 +110,15 @@ Just add necessary information about your new page:
 },
 /* [...] */
 ```
+
 Notice the object's key. This will be your new page filename (without markdown extension .md):
 ![new content](/img/contribute/documentation/further-new-content.png)
+
 #### Page metadata
+
 Each page can (but not must) have a metadata section, that provides further information for this page. This is important if you want the page to be visible when being searched.
 The metadata section is a YAML, added to the top of the page:
+
 ```yaml
 ---
 title: Page title, if you want to override the title from the structure file
@@ -125,7 +130,9 @@ video-overview: A youtube video id to show at the beginning of this page
 video-content: a list of videos (youtube or files) to show at the end of the page.
 ---
 ```
+
 For example, this is a part of the metadata in the node_material page:
+
 ```yaml
 ---
 title: Node Material
@@ -154,40 +161,59 @@ video-content:
   - title: Unraveling Advanced Anisotropic Reflections
 ---
 ```
+
 Everything in the metadata is optional and has a different value. However, it is always better to add as much information as possible. This will help people find and use the page. And this is the goal here!
 The image provided will be used when sharing this link on sites supporting open graph, such as Facebook, Medium, Twitter, and so on. The default image is the Babylon.js logo.
+
 #### Internal links
+
 To link to an internal document, use its path from the root without adding the domain. For example:
+
 ```markdown
 [Post Processes](/features/divingDeeper/postProcesses/usePostProcesses)
 ```
+
 ### Adding examples
+
 It is always great to provide examples in your documentation page. By using the correct markdown, you can add playgrounds and NME, and they will be added automatically to the page's side menu.
 To add a playground, add the following code:
+
 ```html
 <Playground id="playgroundId" title="Playground title" description="A short description" image="Optional image url" />
 ```
+
 The playground ID is the 6-character id, and the version number if needed. For example: `#Y642I8#2`.
 The same applies to NME examples:
+
 ```html
 <nme id="nmeId" title="NME title" description="A short description" />
 ```
+
 This can be either inline or in a new line and will automatically add the external and example link.
 An image will be generated for each playground without an image, so don't worry about screen-capturing your playground. Please commit those images along with your document!
+
 ### Adding media (videos and images)
+
 To add a youtube link, use the youtube markdown tag:
+
 ```html
 <Youtube id="qqMuuSM7GvI" />
 ```
+
 To add an image, you can use the markdown annotation:
+
 ```markdown
 ![Particle choice](/img/how_to/Materials/particleMenu.png)
 ```
+
 but you can also use the more advanced `<img/>` tag, that has more control over formatting, size and so on. As always, everything is optional, but very nice to have:
+
 ```html
 <img src="internal link to image" title="Image title" alt="Similar to title" width="300" height="200" caption="Copyright (or any other) caption that will appear under the image" />
 ```
+
 ### Sending pull request
+
 A Pull Request (PR) has to be made to integrate your modifications into the documentation.
 You will first pull your local modifications into your online fork, then ask for merging your fork into the main repo.
 In Github Desktop, you will see all of your modifications. Sometimes a file named `babylon.d.ts` will automatically be modified, but there's no problem to PR with it.
@@ -202,8 +228,11 @@ Click the _New pull request_ button:
 ![github pull](/img/contribute/documentation/further-github-pull.png)
 If no conflicts, you will be able to follow the same steps as we seen above in the [easy way](/contribute/contributeToDocs/easydoc) section.
 Congratulation again, you're now a documentation master!
+
 ## Good Practices
+
 ### General
+
 - if you're not familiar with markdown, you can read this short [Github guide](https://guides.github.com/features/mastering-markdown/)
 - even if you're seeing just a tiny typo, feel free to do a pull request dedicated to it
 - do one commit per tasks, a pull request can take into account multiple commits if needed
@@ -212,16 +241,24 @@ Congratulation again, you're now a documentation master!
 - avoid the use of first person
 - pay attention to spelling, grammar, and punctuation
 - when you're not sure about a point, ask for proof-reading
+
 ### Images
+
 - use and store images from the documentation FTP as much as possible, read [Adding new images](/contribute/contributeToDocs/addToDocs#adding-new-images)
 - be careful about image size (tip: Photoshop has a "Save for the web" export)
+
 ### Code
+
 - when showing a block of JavaScript or TypeScript, include the language name after the code block starting ticks to ensure syntax highlighting:
-![markdown code](/img/contribute/documentation/markdown-code.png)
+  ![markdown code](/img/contribute/documentation/markdown-code.png)
 - when quoting a property in a sentence, you can use single _\`_ char (<kbd>Alt</kbd> + numpad <kbd>96</kbd>)
   - example: You can set the `roughness` of a PBR material to 1.
+
 ### Links
+
 For links to other parts of the Babylon.js documentation and API, use relative links.
 For example, use `[Load Files with Assets Manager](/contribute/contributeToDocs)` rather than `[Load Files with Assets Manager](https://doc.babylonjs.com/contribute/contributeToDocs)`
+
 ## Further Reading
+
 Any articles, URLs, documents, and links that you'd like the reader to have as a reference on the page should go into the "further reading" metadata section at the top of the page. See [Page Metadata](#page-metadata) for more detail.

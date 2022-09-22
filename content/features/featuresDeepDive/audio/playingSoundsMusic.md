@@ -1,13 +1,13 @@
 ---
 title: Audio
-image: 
+image:
 description: Dive into everything you could want to know about using the Babylon.js sound engine for simple to advanced audio.
 keywords: diving deeper, sound, audio, sound engine, audio engine
 further-reading:
-    - title: Sound
-      url: /typedoc/classes/babylon.sound
-    - title: SoundTrack
-      url: /typedoc/classes/babylon.soundtrack
+  - title: Sound
+    url: /typedoc/classes/babylon.sound
+  - title: SoundTrack
+    url: /typedoc/classes/babylon.soundtrack
 video-overview:
 video-content:
 ---
@@ -30,7 +30,7 @@ Here is the code to create a sound or music playing as ambient (not spatialized)
 // Load the sound and play it automatically once ready
 var music = new BABYLON.Sound("Music", "music.wav", scene, null, {
   loop: true,
-  autoplay: true
+  autoplay: true,
 });
 ```
 
@@ -53,7 +53,7 @@ Calling the `BABYLON.Sound()` constructor with an URL generates 2 phases:
 Here is a sample code:
 
 ```javascript
-var music = new BABYLON.Sound("Music", "music.wav", scene, function() {
+var music = new BABYLON.Sound("Music", "music.wav", scene, function () {
   // Sound has been downloaded & decoded
   music.play();
 });
@@ -70,14 +70,14 @@ This sample code plays a gunshot sound if you’re left-clicking or pressing the
 ```javascript
 var gunshot = new BABYLON.Sound("gunshot", "sounds/gunshot.wav", scene);
 
-window.addEventListener("mousedown", function(evt) {
+window.addEventListener("mousedown", function (evt) {
   // left click to fire
   if (evt.button === 0) {
     gunshot.play();
   }
 });
 
-window.addEventListener("keydown", function(evt) {
+window.addEventListener("keydown", function (evt) {
   // Press space key to fire
   if (evt.keyCode === 32) {
     gunshot.play();
@@ -100,10 +100,10 @@ var volume = 0.1;
 var playbackRate = 0.5;
 var gunshot = new BABYLON.Sound("Gunshot", "./gunshot-1.wav", scene, null, {
   playbackRate: playbackRate,
-  volume: volume
+  volume: volume,
 });
 
-gunshot.onended = function() {
+gunshot.onended = function () {
   if (volume < 1) {
     volume += 0.1;
     gunshot.setVolume(volume);
@@ -126,13 +126,7 @@ BABYLON.Engine.audioEngine.setGlobalVolume(0.5);
 A sound sprite is a portion of a sound file. You can define a sound sprite when creating a sound by defining an offset and a length (in seconds):
 
 ```javascript
-var soundSprite = new BABYLON.Sound(
-  "Violons",
-  "/sounds/6sounds.mp3",
-  scene,
-  null,
-  { loop: true, autoplay: true, length: 9.200, offset: 14.000 }
-);
+var soundSprite = new BABYLON.Sound("Violons", "/sounds/6sounds.mp3", scene, null, { loop: true, autoplay: true, length: 9.2, offset: 14.0 });
 ```
 
 You can find examples here: <Playground id="#6LXPBX#12" title="Playing Sound Sprites 1" description="A simple example of playing a portion of a sound file using sound sprites."/>
@@ -144,27 +138,9 @@ and here: <Playground id="#PCY1J#190" title="Playing Sound Sprites 2" descriptio
 For that, you need to call the play method on all sounds only once you’re sure they are all ready to be played. You then need to work with the ready to play callback.
 
 ```javascript
-var music1 = new BABYLON.Sound(
-  "Violons11",
-  "sounds/violons11.wav",
-  scene,
-  soundReady,
-  { loop: true }
-);
-var music2 = new BABYLON.Sound(
-  "Violons18",
-  "sounds/violons18.wav",
-  scene,
-  soundReady,
-  { loop: true }
-);
-var music3 = new BABYLON.Sound(
-  "Cellolong",
-  "sounds/cellolong.wav",
-  scene,
-  soundReady,
-  { loop: true }
-);
+var music1 = new BABYLON.Sound("Violons11", "sounds/violons11.wav", scene, soundReady, { loop: true });
+var music2 = new BABYLON.Sound("Violons18", "sounds/violons18.wav", scene, soundReady, { loop: true });
+var music3 = new BABYLON.Sound("Cellolong", "sounds/cellolong.wav", scene, soundReady, { loop: true });
 
 var soundsReady = 0;
 
@@ -194,15 +170,10 @@ function loadArrayBufferFromURL(urlToSound) {
   var request = new XMLHttpRequest();
   request.open("GET", urlToSound, true);
   request.responseType = "arraybuffer";
-  request.onreadystatechange = function() {
+  request.onreadystatechange = function () {
     if (request.readyState == 4) {
       if (request.status == 200) {
-        gunshotFromAB = new BABYLON.Sound(
-          "FromArrayBuffer",
-          request.response,
-          scene,
-          soundReadyToBePlayed
-        );
+        gunshotFromAB = new BABYLON.Sound("FromArrayBuffer", request.response, scene, soundReadyToBePlayed);
       }
     }
   };
@@ -228,33 +199,24 @@ var music1, music2, music3;
 // Assets manager
 var assetsManager = new BABYLON.AssetsManager(scene);
 
-var binaryTask = assetsManager.addBinaryFileTask(
-  "Violons18 task",
-  "sounds/violons18.wav"
-);
-binaryTask.onSuccess = function(task) {
+var binaryTask = assetsManager.addBinaryFileTask("Violons18 task", "sounds/violons18.wav");
+binaryTask.onSuccess = function (task) {
   music1 = new BABYLON.Sound("Violons18", task.data, scene, soundReady, {
-    loop: true
+    loop: true,
   });
 };
 
-var binaryTask2 = assetsManager.addBinaryFileTask(
-  "Violons11 task",
-  "sounds/violons11.wav"
-);
-binaryTask2.onSuccess = function(task) {
+var binaryTask2 = assetsManager.addBinaryFileTask("Violons11 task", "sounds/violons11.wav");
+binaryTask2.onSuccess = function (task) {
   music2 = new BABYLON.Sound("Violons11", task.data, scene, soundReady, {
-    loop: true
+    loop: true,
   });
 };
 
-var binaryTask3 = assetsManager.addBinaryFileTask(
-  "Cello task",
-  "sounds/cellolong.wav"
-);
-binaryTask3.onSuccess = function(task) {
+var binaryTask3 = assetsManager.addBinaryFileTask("Cello task", "sounds/cellolong.wav");
+binaryTask3.onSuccess = function (task) {
   music3 = new BABYLON.Sound("Cello", task.data, scene, soundReady, {
-    loop: true
+    loop: true,
   });
 };
 
@@ -282,7 +244,7 @@ To transform a sound into a spatial sound, you need to specify that via the opti
 var music = new BABYLON.Sound("music", "music.wav", scene, null, {
   loop: true,
   autoplay: true,
-  spatialSound: true
+  spatialSound: true,
 });
 ```
 
@@ -290,7 +252,7 @@ Default properties of a spatial sound are:
 
 - **distanceModel** (the attenuation) is using a “**linear**” equation by default. Other options are “_inverse_” or “_exponential_”.
 - **maxDistance** is set to **100**. This means that once the listener is farther than 100 units from the sound, the volume will be 0. You can’t hear the sound anymore
-- **panningModel** is set to “_equalpower_”; the equal-power panning algorithm is generally regarded as simple and efficient.  The other available option is “**HRTF**”. The specification says it’s: “_a higher quality spatialization algorithm using a convolution with measured impulse responses from human subjects. This panning method renders stereo output_”. This is the best algorithm when using a headphone.
+- **panningModel** is set to “_equalpower_”; the equal-power panning algorithm is generally regarded as simple and efficient. The other available option is “**HRTF**”. The specification says it’s: “_a higher quality spatialization algorithm using a convolution with measured impulse responses from human subjects. This panning method renders stereo output_”. This is the best algorithm when using a headphone.
 
 **maxDistance** is only used when using the “_linear_” attenuation. Otherwise, you can tune the attenuation of the other models using the **rolloffFactor** and **refDistance** options. Both are set to 1 by default but you can change it of course.
 
@@ -302,7 +264,7 @@ var music = new BABYLON.Sound("music", "music.wav", scene, null, {
   autoplay: true,
   spatialSound: true,
   distanceModel: "exponential",
-  rolloffFactor: 2
+  rolloffFactor: 2,
 });
 ```
 
@@ -325,7 +287,7 @@ Here’s the code to use:
 ```javascript
 var music = new BABYLON.Sound("Violons", "sounds/violons11.wav", scene, null, {
   loop: true,
-  autoplay: true
+  autoplay: true,
 });
 
 // Sound will now follow the box mesh position
@@ -370,7 +332,7 @@ Here is the code to use:
 ```javascript
 var music = new BABYLON.Sound("Violons", "violons11.wav", scene, null, {
   loop: true,
-  autoplay: true
+  autoplay: true,
 });
 music.setDirectionalCone(90, 180, 0);
 music.setLocalDirectionToMesh(new BABYLON.Vector3(1, 0, 0));
@@ -404,7 +366,7 @@ Moreover, the custom attenuation will only works on spatial sounds (obviously) b
 var music = new BABYLON.Sound("Music", "music.wav", scene, null, {
   loop: true,
   autoplay: true,
-  useCustomAttenuation: true
+  useCustomAttenuation: true,
 });
 ```
 
@@ -415,13 +377,7 @@ To create your own logic, you need such code:
 ```javascript
 // Creating custom attenuation function. Near the object, volume is almost 0.
 // The farest, the louder
-music.setAttenuationFunction(function(
-  currentVolume,
-  currentDistance,
-  maxDistance,
-  refDistance,
-  rolloffFactor
-) {
+music.setAttenuationFunction(function (currentVolume, currentDistance, maxDistance, refDistance, rolloffFactor) {
   return (currentVolume * currentDistance) / maxDistance;
 });
 ```
@@ -449,25 +405,25 @@ BABYLON.SceneLoader.Load(
   "TestScene/",
   "testsound.babylon",
   engine,
-  function(newScene) {
-    newScene.executeWhenReady(function() {
+  function (newScene) {
+    newScene.executeWhenReady(function () {
       newScene.activeCamera.attachControl(canvas);
 
       var gunshotSound = newScene.getSoundByName("gunshot-1.wav");
-      window.addEventListener("keydown", function(evt) {
+      window.addEventListener("keydown", function (evt) {
         if (evt.keyCode === 32 && gunshotSound) {
           gunshotSound.play();
         }
       });
 
-      engine.runRenderLoop(function() {
+      engine.runRenderLoop(function () {
         newScene.render();
       });
     });
   },
-  function(progress) {
+  function (progress) {
     // To do: give progress feedback to user
-  }
+  },
 );
 ```
 

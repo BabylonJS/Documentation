@@ -1,30 +1,30 @@
 ---
 title: Forces
-image: 
+image:
 description: Learn all about applying physical forces in Babylon.js.
 keywords: diving deeper, phyiscs, forces
 further-reading:
-    - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
-    - title: How to use Joints
-      url: /features/featuresDeepDive/physics/joints
-    - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
-    - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
-    - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
-    - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+  - title: How To Use The Physics Engines
+    url: /features/featuresDeepDive/physics/usingPhysicsEngine
+  - title: How to use Joints
+    url: /features/featuresDeepDive/physics/joints
+  - title: How To Use Pivots and Axes
+    url: /features/featuresDeepDive/physics/pivotsAxes
+  - title: How To Create Compound Bodies
+    url: /features/featuresDeepDive/physics/compoundBodies
+  - title: How To Create Soft Bodies
+    url: /features/featuresDeepDive/physics/softBodies
+  - title: How To Use Advanced Features
+    url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+  - title: How To Add Your Own Physics Engine
+    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
 
 ## How To Use Forces
 
-This section gives some terminology needed to discuss the use of forces in the three physics' engines 
+This section gives some terminology needed to discuss the use of forces in the three physics' engines
 
 1. Cannon.js;
 2. Oimo.js;
@@ -34,11 +34,9 @@ as well as playground examples to check out the coding. In the playgrounds the p
 
 See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
-
-
 ## Body
 
-Solids in physics are often referred to as `bodies`. In the simulation bodies are made up of two parts, the rendered object and the physics object. The rendered object is a mesh and the physics object, which holds the data about the body, is called a physics imposter. 
+Solids in physics are often referred to as `bodies`. In the simulation bodies are made up of two parts, the rendered object and the physics object. The rendered object is a mesh and the physics object, which holds the data about the body, is called a physics imposter.
 
 **Note:** a box imposter is often preferable when the body is a plane.
 
@@ -54,12 +52,12 @@ new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 2
 
 These are gravity, impulses, friction and applied forces.
 
-### Gravity 
+### Gravity
 
-In the simulations gravity is a universal force applied throughout the time of the simulation producing a gravitational acceleration. Setting a Vector3 for gravity is in fact setting the gravitational acceleration. The default value being `(0, -9.807, 0)`. Since it is a universal force it is set in the physics' engine either when it is enabled or later. 
+In the simulations gravity is a universal force applied throughout the time of the simulation producing a gravitational acceleration. Setting a Vector3 for gravity is in fact setting the gravitational acceleration. The default value being `(0, -9.807, 0)`. Since it is a universal force it is set in the physics' engine either when it is enabled or later.
 
 ```javascript
-/*When physics is enabled use default gravity*/ 
+/*When physics is enabled use default gravity*/
 scene.enablePhysics(null, new BABYLON.CannonJSPlugin());
 scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
 
@@ -82,21 +80,21 @@ var physicsEngine = scene.enablePhysics(null, new BABYLON.AmmoJSPlugin());
 var gravity = physicsEngine.gravity;
 
 //Set gravity
-physicsEngine.setGravity(new BABYLON.Vector3(0, -5, 0))
+physicsEngine.setGravity(new BABYLON.Vector3(0, -5, 0));
 ```
 
 <Playground id="#YUNAST#3" title="Gravity Example" description="Simple example of using gravity in a phyics engine."/>
 
 ### Impulses
 
-An impulse is a force applied to a body in an instance which will change the current linear velocity and/or the angular velocity of the body. Impulses acting at the center of mass of the body will not change the angular velocity.  Unless other forces act on it the body will continue with the new velocities.
+An impulse is a force applied to a body in an instance which will change the current linear velocity and/or the angular velocity of the body. Impulses acting at the center of mass of the body will not change the angular velocity. Unless other forces act on it the body will continue with the new velocities.
 
 An impulse is applied to a body's physics imposter.
 
-Applying an impulse requires a vector giving the magnitude and direction of the impulse and the position vector of the contact point of the impulse. The contact point of the impulse is given in world coordinates. 
+Applying an impulse requires a vector giving the magnitude and direction of the impulse and the position vector of the contact point of the impulse. The contact point of the impulse is given in world coordinates.
 
 ```javascript
-imposter.applyImpulse(impluse_vector, contact_vector)
+imposter.applyImpulse(impluse_vector, contact_vector);
 
 let localRefPoint = new BABYLON.Vector3(x, y, z);
 
@@ -114,7 +112,7 @@ The following playground is initially set up to apply an impulse at the center o
 Friction is a property of a body and is set in the imposter and provides a continuous force between two bodies while they are in contact. You can set friction when creating an imposter and also get and set it later.
 
 ```javascript
-new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 2, friction: 0.4}, scene); //on creation
+new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 2, friction: 0.4 }, scene); //on creation
 
 var friction = imposter.friction; // get friction;
 imposter.friction = 0.1; //set friction.
@@ -128,8 +126,7 @@ Re-visiting the following playground and setting friction on **both** bodies and
 
 ### Applied Forces
 
-An applied force will only affect the body over the time period that it is applied which is the duration of the frame interval. For zero friction a sufficiently large force (to overcome inertia) applied in the first frame interval will set the body in motion. While `Cannon.js` and `Ammo.js` have a native apply force method `Oimo.js` does not and so an applying force is replaced (internally in Babylon.js) with the apply impulse method so a smaller value has a greater effect. 
-
+An applied force will only affect the body over the time period that it is applied which is the duration of the frame interval. For zero friction a sufficiently large force (to overcome inertia) applied in the first frame interval will set the body in motion. While `Cannon.js` and `Ammo.js` have a native apply force method `Oimo.js` does not and so an applying force is replaced (internally in Babylon.js) with the apply impulse method so a smaller value has a greater effect.
 
 ```javascript
 //Force Settings

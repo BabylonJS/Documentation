@@ -1,6 +1,6 @@
 ---
 title: Quick Tree Generator
-image: 
+image:
 description: Learn about the quick tree generator extension.
 keywords: extensions, babylon.js, tree, tree generator, quick tree
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 ![Generated Tree ](/img/extensions/trees/quick1.png)
 
-The function QuickTreeGenerator uses a sphere with randomized vertices to generate a tree. 
+The function QuickTreeGenerator uses a sphere with randomized vertices to generate a tree.
 
 A demo can be found at: <Playground id="#LG3GS#107" title="Quick Tree Generator Example" description="Simple example of the quick tree generator."/>
 
@@ -38,5 +38,5 @@ radius - radius of trunk 1 to 5.
 trunkMaterial - material used for trunk.
 
 leafMaterial - material for canopies.
- 
-scene - BABYLON scene. 
+
+scene - BABYLON scene.

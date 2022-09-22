@@ -1,6 +1,6 @@
 ---
 title: Sprite Map Tile Layout
-image: 
+image:
 description: Learn all about sprite map tile layout in Babylon.js.
 keywords: babylon.js, diving deeper, sprites, tile layout, tile
 further-reading:
@@ -17,18 +17,20 @@ tileID = new Vector2(2, 6);
 ```
 
 Given the frameID (index in frames array) you can set one or more tiles to contain the sprite referenced by this frameID
+
 ```javascript
-spriteMap.changeTiles(layerID, tileID, frameID) //Change one tile
-spriteMap.changeTiles(layerID, [tileID0, tileID1, ... tileIDn], frameID); //Change multiple tiles to sprite at frameID
+spriteMap.changeTiles(layerID, tileID, frameID); //Change one tile
+spriteMap.changeTiles(layerID, [tileID0, tileID1, ...tileIDn], frameID); //Change multiple tiles to sprite at frameID
 ```
 
-When you are going to make multiple changes using just one frameID then passing the tileIDs in an array is optimal. It prevents the buffers having to be updated for each tile instead of in batches. 
+When you are going to make multiple changes using just one frameID then passing the tileIDs in an array is optimal. It prevents the buffers having to be updated for each tile instead of in batches.
 
 Change a whole row of stones to Roman columns <Playground id="#YCY2IL#20" title="Sprite Map Tile Layout" description="Simple example showing sprite map tile layouts."/>
 
-You will often find the need for a blank tile. We recommend that you find a single transparent pixel on your packed spritesheet file You can reference this in JSON file.  
+You will often find the need for a blank tile. We recommend that you find a single transparent pixel on your packed spritesheet file You can reference this in JSON file.
 
 In the spritesheet file used in these docs there is a transparent pixel at x = 221, y = 221 so we make a cell frame of width = height = 1 and maintain the same source sizes as the other frames. Adding the following to your JSON gives a blank tile.
+
 ```
 {
 	"filename": "blank.png",
@@ -39,4 +41,5 @@ In the spritesheet file used in these docs there is a transparent pixel at x = 2
 	"sourceSize": {"w":32,"h":32}
 },
 ```
+
 <Playground id="#YCY2IL#21" title="Blank Tile Added to JSON" description="Simple example of adding a blank tile to a JSON file."/>

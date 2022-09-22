@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 7 - Day to Night
-image: 
+image:
 description: Learn the basics the Babylon.js GUI system.
 keywords: getting started, start, chapter 7, lighting, lights, spotlight, gui
 further-reading:
@@ -11,14 +11,18 @@ video-content:
 # Getting Started - Day to Night
 
 ## Day to Night
+
 One useful way to add a graphical user interface to a scene is the Babylon.js GUI. When working in virtual reality this GUI is necessary as it is designed to be within and part of the Babylon.js scene canvas rather than the HTML document. This GUI is pre-loaded into the playground but is an additional script to load in your own projects with
 
 ```html
-<script>https://cdn.babylonjs.com/gui/babylon.gui.min.js</script>
+<script>
+  https://cdn.babylonjs.com/gui/babylon.gui.min.js
+</script>
 ```
+
 For the village world we will a GUI stack panel to contain two GUI elements. A text block for the heading and a slider bar to change day to night and back by setting the intensity of the light.
 
-The first thing we need to do is create a special texture, called an *AdvancedDynamicTexture*, on which the GUI elements will be drawn.
+The first thing we need to do is create a special texture, called an _AdvancedDynamicTexture_, on which the GUI elements will be drawn.
 
 ```javascript
 const adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -38,15 +42,17 @@ adt.addControl(panel);
 ```
 
 Next create the text block and add it to the panel
+
 ```javascript
 const header = new BABYLON.GUI.TextBlock();
 header.text = "Night to Day";
 header.height = "30px";
 header.color = "white";
-panel.addControl(header); 
+panel.addControl(header);
 ```
 
 We create and add the slider to the panel.
+
 ```javascript
 const slider = new BABYLON.GUI.Slider();
 slider.minimum = 0;
@@ -61,11 +67,12 @@ panel.addControl(slider);
 ```
 
 We need to add an observable event to the slider in order to change the light intensity.
+
 ```javascript
 slider.onValueChangedObservable.add((value) => {
-    if (light) {
-        light.intensity = value;
-    }
+  if (light) {
+    light.intensity = value;
+  }
 });
 ```
 

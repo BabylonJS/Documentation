@@ -1,6 +1,6 @@
 ---
 title: Post Processes
-image: 
+image:
 description: Learn Post Process effect in Babylon.js.
 keywords: diving deeper, post processes, post process
 further-reading:

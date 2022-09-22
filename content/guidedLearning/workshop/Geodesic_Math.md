@@ -1,6 +1,6 @@
 ---
 title: Geodesic and Goldberg Polyhedra Mathematics
-image: 
+image:
 description: The Math used to build Geodesic and Goldberg Polyhedra
 keywords: geodesic, goldberg, icosphere, polyhedron, polyhedra, dome
 further-reading:
@@ -45,9 +45,9 @@ Fig 5 Primary Triangle Grid Rotation 5, 2
 
 There are three classes of these types of polyhedra
 
-* Class I GD(m, 0)  
-* Class II GD(m, m)  
-* Class III GD(m, n) m &ne; n
+- Class I GD(m, 0)
+- Class II GD(m, m)
+- Class III GD(m, n) m &ne; n
 
 For Class III GD(m, n) and GD(n, m) are reflections of each other as are GP(m, n) and GP(n, m). We only consider Class III GD(m, n) where m > n.
 
@@ -76,70 +76,70 @@ In order to achieve both of these we need to understand transformations on an is
 
 In terms of the net all the GD(m, n) vertices lie on an isometric grid and we will need to rotate them 60<sup>o</sup> about given points. To understand how this is achieved we consider isometric vectors and their transformations.
 
-The *x* axis is horizontal and the angle between the *x* axis and the *y* axis is 60<sup>o</sup> 
+The _x_ axis is horizontal and the angle between the _x_ axis and the _y_ axis is 60<sup>o</sup>
 
 ![axis](/img/snippets/geo11.png)  
 Fig 8 Isometric Axis
 
-The unit vector along the *x* axis is *i*&#8407; and along the *y* axis is *j*&#8407;, the unit vector k&#8407; = -*i*&#8407; + *j*&#8407;which lies along the third line of an isometric grid is also useful.
+The unit vector along the _x_ axis is _i_&#8407; and along the _y_ axis is _j_&#8407;, the unit vector k&#8407; = -_i_&#8407; + _j_&#8407;which lies along the third line of an isometric grid is also useful.
 
 ![unit vectors](/img/snippets/geo12.png)  
 Fig 9 Unit Vectors
 
-Consider the position vector *xi*&#8407; + *yj*&#8407; its length |*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + *xy*);. This is the result of applying the cosine rule to the triangle in Fig 10 
+Consider the position vector _xi_&#8407; + _yj_&#8407; its length |_xi_&#8407; + _yj_&#8407;| = &radic;(_x<sup>2</sup>_ + _y<sup>2</sup>_ + _xy_);. This is the result of applying the cosine rule to the triangle in Fig 10
 
-|*xi*&#8407; + *yj*&#8407;| = &radic;(*x<sup>2</sup>* + *y<sup>2</sup>* + 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = 0.5
+|_xi_&#8407; + _yj_&#8407;| = &radic;(_x<sup>2</sup>_ + _y<sup>2</sup>_ + 2*xy*cos(120<sup>o</sup>)); and cos(120<sup>o</sup>) = 0.5
 
 ![length](/img/snippets/geo13.png)  
 Fig 10 Unit Vectors
 
-Vector additions still hold *xi*&#8407; + *yj*&#8407; + *ai*&#8407; + *bj*&#8407; = (*x* + *a*)*i*&#8407; + (*y* + *b*)*j*&#8407;
+Vector additions still hold _xi_&#8407; + _yj_&#8407; + _ai_&#8407; + _bj_&#8407; = (_x_ + _a_)_i_&#8407; + (_y_ + _b_)_j_&#8407;
 
 Luckily all our application needs only integer values for the vectors and rotations only multiples of 60<sup>o</sup>
 
-Consider the rotation of the position vector *xi*&#8407; + *yj*&#8407; 60<sup>o</sup> about the origin O, where x and y are integers. The rotation about the origin can be R<sup>+</sup> (counter clockwise purple to red) or R<sup>-</sup> (clockwise purple to blue) as in Fig 11
+Consider the rotation of the position vector _xi_&#8407; + _yj_&#8407; 60<sup>o</sup> about the origin O, where x and y are integers. The rotation about the origin can be R<sup>+</sup> (counter clockwise purple to red) or R<sup>-</sup> (clockwise purple to blue) as in Fig 11
 
 ![rotation](/img/snippets/geo14.png)  
 Fig 11 Rotation about the origin
 
-R<sup>+</sup>(*xi*&#8407; + *yj*&#8407;) = *yk*&#8407; + *xj*&#8407; = *y*(-*i*&#8407; + *j*&#8407;) + *xj*&#8407;  
-= -*yi*&#8407; + (*x* + *y*)*j*&#8407;
+R<sup>+</sup>(_xi_&#8407; + _yj_&#8407;) = _yk_&#8407; + _xj_&#8407; = _y_(-_i_&#8407; + _j_&#8407;) + _xj_&#8407;  
+= -_yi_&#8407; + (_x_ + _y_)_j_&#8407;
 
-R<sup>-</sup>(*xi*&#8407; + *yj*&#8407;) = *yi*&#8407; - *xk*&#8407; = *yi*&#8407; - *x*(-*i*&#8407; + *j*&#8407;);  
-= (*x* + *y*)*&#8407; - *xj*&#8407;
+R<sup>-</sup>(_xi_&#8407; + _yj_&#8407;) = _yi_&#8407; - _xk_&#8407; = _yi_&#8407; - _x_(-_i_&#8407; + _j_&#8407;);  
+= (_x_ + _y_)*&#8407; - *xj\*&#8407;
 
-Where S<sup>+</sup> and S<sup>-</sup> are respectively counter clockwise and clockwise rotations of *xi*&#8407; + *yj*&#8407;  60<sup>o</sup> about a point *ai*&#8407; + *bj*&#8407; 
+Where S<sup>+</sup> and S<sup>-</sup> are respectively counter clockwise and clockwise rotations of _xi_&#8407; + _yj_&#8407; 60<sup>o</sup> about a point _ai_&#8407; + _bj_&#8407;
 
-S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
-= R<sup>+</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;  
-= R<sup>+</sup>((*x* - *a*)*i*&#8407;) + (*y* - *b*)*j*&#8407;) + *ai*&#8407; + *bj*&#8407;   
-= -(*y* - *b*)*i*&#8407; + ((*x* - *a*) + (*y* - *b*))*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
-= (*a* + *b* - *y)*i*&#8407; + (*x* + *y* - *a*)*j*&#8407;
+S<sup>+</sup>(_xi_&#8407; + _yj_&#8407;, _ai_&#8407; + _bj_&#8407;)  
+= R<sup>+</sup>((_xi_&#8407; + _yj_&#8407;) - (_ai_&#8407; + _bj_&#8407;)) + _ai_&#8407; + _bj_&#8407;  
+= R<sup>+</sup>((_x_ - _a_)_i_&#8407;) + (_y_ - _b_)_j_&#8407;) + _ai_&#8407; + _bj_&#8407;  
+= -(_y_ - _b_)_i_&#8407; + ((_x_ - _a_) + (_y_ - _b_))_j_&#8407; + _ai_&#8407; + _bj_&#8407;  
+= (_a_ + _b_ - *y)*i*&#8407; + (*x* + *y* - *a*)*j\*&#8407;
 
-S<sup>-</sup>(*xi*&#8407; + *yj*&#8407;, *ai*&#8407; + *bj*&#8407;)  
-= R<sup>-</sup>((*xi*&#8407; + *yj*&#8407;) - (*ai*&#8407; + *bj*&#8407;)) + *ai*&#8407; + *bj*&#8407;    
-= R<sup>-</sup>((*x* - *a*)*i*&#8407; + (*y* - *b*)*j*&#8407;) + *ai*&#8407; + *bj*&#8407;  
-= (*x* - *a* + *y* - *b*)*i*&#8407; - (*x* - *a*)*j*&#8407; + *ai*&#8407; + *bj*&#8407;  
-= (*x* + *y* - *b*)*i*&#8407; + (*a* + *b* - *x*)*j*&#8407;
+S<sup>-</sup>(_xi_&#8407; + _yj_&#8407;, _ai_&#8407; + _bj_&#8407;)  
+= R<sup>-</sup>((_xi_&#8407; + _yj_&#8407;) - (_ai_&#8407; + _bj_&#8407;)) + _ai_&#8407; + _bj_&#8407;  
+= R<sup>-</sup>((_x_ - _a_)_i_&#8407; + (_y_ - _b_)_j_&#8407;) + _ai_&#8407; + _bj_&#8407;  
+= (_x_ - _a_ + _y_ - _b_)_i_&#8407; - (_x_ - _a_)_j_&#8407; + _ai_&#8407; + _bj_&#8407;  
+= (_x_ + _y_ - _b_)_i_&#8407; + (_a_ + _b_ - _x_)_j_&#8407;
 
 ![rotation center](/img/snippets/geo22.png)  
 Fig 12 Symmetry Rotations 0 <sup>o</sup>, 120<sup>o</sup>, -120<sup>o</sup>
 
 We also need to consider rotations 120<sup>o</sup> and -120<sup>o</sup> about the center of the triangle OAB.
 
-Let P have position vector *xi*&#8407; + *yj*&#8407; which after a rotation of 120<sup>o</sup> maps to P<sub>1</sub> and after a rotation of -120<sup>o</sup> maps to P<sup>2</sup>
+Let P have position vector _xi_&#8407; + _yj_&#8407; which after a rotation of 120<sup>o</sup> maps to P<sub>1</sub> and after a rotation of -120<sup>o</sup> maps to P<sup>2</sup>
 
-P<sub>1</sub> = m*i*&#8407; + n*j*&#8407; - *yi*&#8407; + *xk*&#8407;  
-= m*i*&#8407; + n*j*&#8407; - *yi*&#8407; - *xi*&#8407; + *xj*&#8407;  
-= (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407; 
+P<sub>1</sub> = m*i*&#8407; + n*j*&#8407; - _yi_&#8407; + _xk_&#8407;  
+= m*i*&#8407; + n*j*&#8407; - _yi_&#8407; - _xi_&#8407; + _xj_&#8407;  
+= (m - _x_ - _y_)_i_&#8407; + (n + _x_)j\*&#8407;
 
-P<sup>2</sup> =  -n*i*&#8407; + (m + n)*j*&#8407; - *yk*&#8407; - *xj*&#8407;  
-= -n*i*&#8407; + (m + n)*j*&#8407; + *yi*&#8407; - *yj*&#8407; - *xj*&#8407;  
-= (*y* - n)*i*&#8407; + (m + n - *x* - *y*)*j*&#8407;
+P<sup>2</sup> = -n*i*&#8407; + (m + n)_j_&#8407; - _yk_&#8407; - _xj_&#8407;  
+= -n*i*&#8407; + (m + n)_j_&#8407; + _yi_&#8407; - _yj_&#8407; - _xj_&#8407;  
+= (_y_ - n)_i_&#8407; + (m + n - _x_ - _y_)_j_&#8407;
 
 Where R<sup>C+</sup> is a rotation of 120<sup>o</sup> and R<sup>C-</sup> is a rotation of -120<sup>o</sup> about the center of OAB
 
-R<sup>C+</sup>(*xi*&#8407; + *yj*&#8407;) = (m - *x* - *y*)*i*&#8407; + (n + *x*)j*&#8407;  
+R<sup>C+</sup>(_xi_&#8407; + _yj_&#8407;) = (m - _x_ - _y_)_i_&#8407; + (n + _x_)j*&#8407;  
 R<sup>C-</sup>(*xi*&#8407; + *yj*&#8407;) = (*y* - n)*i*&#8407; + (m + n - *x* - *y*)j*&#8407;
 
 ### Match Vertices Across Edges of a Primary Face
@@ -152,108 +152,105 @@ Fig 13 Labelled Net
 Depending on the position of the face the vertex alignment differs as can be seen in Fig 14.
 
 ![map 1](/img/snippets/geo10.png)  
-Fig 14 Face and Edge Relationships 
+Fig 14 Face and Edge Relationships
 
-Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B,  as shown in red in Fig 14. The 30 possible edges are all covered by the table below.
+Since F shares edges with F<sub>R</sub>, F<sub>L</sub> and F<sub>B</sub> any matching of GD(m, n) vertices across the edges of F can be dealt with by considering the counter clockwise rotations of various permutations of F, F<sub>R</sub>, F<sub>L</sub> or F<sub>B</sub> around the vertices, O, A or B, as shown in red in Fig 14. The 30 possible edges are all covered by the table below.
 
-|From Face|To Face|About||From Face|To Face|About|
-|----|----|----|----|----|----|----|
-|0|1|B||10|0|O||
-|1|2|B||11|1|O||
-|2|3|B||12|2|O|
-|3|4|B||13|3|O|
-|4|0|B||14|4|O|
-|5|10|O||15|19|B|
-|5|14|A||15|5|A|
-|6|11|O||16|15|B|
-|6|10|A||16|6|A|
-|7|12|O||17|16|B|
-|7|11|A||17|7|A|
-|8|13|O||18|17|B|
-|8|12|A||18|8|A|
-|9|14|O||19|18|B|
-|9|13|A||19|9|A|
+| From Face | To Face | About |     | From Face | To Face | About |
+| --------- | ------- | ----- | --- | --------- | ------- | ----- | --- |
+| 0         | 1       | B     |     | 10        | 0       | O     |     |
+| 1         | 2       | B     |     | 11        | 1       | O     |     |
+| 2         | 3       | B     |     | 12        | 2       | O     |
+| 3         | 4       | B     |     | 13        | 3       | O     |
+| 4         | 0       | B     |     | 14        | 4       | O     |
+| 5         | 10      | O     |     | 15        | 19      | B     |
+| 5         | 14      | A     |     | 15        | 5       | A     |
+| 6         | 11      | O     |     | 16        | 15      | B     |
+| 6         | 10      | A     |     | 16        | 6       | A     |
+| 7         | 12      | O     |     | 17        | 16      | B     |
+| 7         | 11      | A     |     | 17        | 7       | A     |
+| 8         | 13      | O     |     | 18        | 17      | B     |
+| 8         | 12      | A     |     | 18        | 8       | A     |
+| 9         | 14      | O     |     | 19        | 18      | B     |
+| 9         | 13      | A     |     | 19        | 9       | A     |
 
-Table 1  
+Table 1
 
 &nbsp  
-&nbsp;  
+&nbsp;
 
-We can see that a rotation about B aligns edge AB and OB, about O aligns edge OB and OA and about A aligns OA and BA. 
+We can see that a rotation about B aligns edge AB and OB, about O aligns edge OB and OA and about A aligns OA and BA.
 
 We now consider obtaining the three vertices for the edge overlapping facets in more detail. We start with a rotation about B
-
 
 ![primary triangle](/img/snippets/geo15.png)  
 Fig 15 Rotation of Primary Triangle about the B for - Left GD(5, 2), Right (GD(6, 3))
 
 Consider a primary triangle OAB as in Fig 15. For triangle OAB take O as the origin of the isometric axes then each vertex (red sphere) can be given (x, y) coordinates. For each y there is a minimum (blue marker) and maximum (green) value of x that belong to OAB. Rotating OAB 60<sup>o</sup> counter clockwise about B the minimum x map to the orange markers in the rotation. As you can see in Fig 15 example there is overlap of maximum and minimum markers at the primary triangle vertices. For GD(m, n) when n is a factor of m then the maximum x (green) of OAB coincide with the rotated minimum x (orange) for some facet vertices as well as at the primary triangle vertices.
 
-We can also see that rows contain either one or two rotated minimums. 
+We can also see that rows contain either one or two rotated minimums.
 
 ![overlaps](/img/snippets/geo16.png)  
 Fig 16 Facet Overlap Vertices
 
 In Fig 16 we can see that there are three types of rotated minimum vertices 0, 1, 2 that produce facets that overlap the edge. Each of these points can be associated with two facet triangle, one that is up (light grey) and one down (dark grey).
 
-For all facet vertices *xi*&#8407; + *yj*&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(*y*) be the point with maximum x value and M<sup>min</sup>(*y*) the point with minimum x value for row *y*.
+For all facet vertices _xi_&#8407; + _yj_&#8407; of a primary triangle OAB of GD(m, n) let M<sup>max</sup>(_y_) be the point with maximum x value and M<sup>min</sup>(_y_) the point with minimum x value for row _y_.
 
-Let *P* = *x<sub>p</sub>i*&#8407; + *y<sub>p</sub>j*&#8407; be the position vector of a rotated minimum *xi*&#8407; + *yj*&#8407; =  M<sup>min</sup>(*y*). 
+Let _P_ = _x<sub>p</sub>i_&#8407; + _y<sub>p</sub>j_&#8407; be the position vector of a rotated minimum _xi_&#8407; + _yj_&#8407; = M<sup>min</sup>(_y_).
 
-When *P* = M<sup>max</sup>(*y<sub>p</sub>*) the up and down facets lie inside the primary triangle are are thus ignored in creating ovelapping facets.
+When _P_ = M<sup>max</sup>(_y<sub>p</sub>_) the up and down facets lie inside the primary triangle are are thus ignored in creating ovelapping facets.
 
 For an up facet
-When *P* is of type 0 and 1 the facet (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1), *P* + *i*&#8407; - *j*&#8407;
+When _P_ is of type 0 and 1 the facet (light grey) has vertices _P_, M<sup>max</sup>(_y<sub>p</sub>_ - 1), _P_ + _i_&#8407; - _j_&#8407;
 
-When *P* is of type 2 the facet (light grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
+When _P_ is of type 2 the facet (light grey) has vertices _P_, M<sup>max</sup>(_y<sub>p</sub>_ - 1) - _i_&#8407;, M<sup>max</sup>(_y<sub>p</sub>_ - 1)
 
 For a down facet
-When *P* is of type 0 the facet (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1)
+When _P_ is of type 0 the facet (dark grey) has vertices _P_, M<sup>max</sup>(_y<sub>p</sub>_), M<sup>max</sup>(_y<sub>p</sub>_ - 1)
 
-When *P* is of type 1 the facet (dark grey) has vertices *P*, *P* - *i*&#8407;, M<sup>max</sup>(*y<sub>p</sub>* - 1)
+When _P_ is of type 1 the facet (dark grey) has vertices _P_, _P_ - _i_&#8407;, M<sup>max</sup>(_y<sub>p</sub>_ - 1)
 
-When *P* is of type 2 the facet (dark grey) has vertices *P*, M<sup>max</sup>(*y<sub>p</sub>*), M<sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;
+When _P_ is of type 2 the facet (dark grey) has vertices _P_, M<sup>max</sup>(_y<sub>p</sub>_), M<sup>max</sup>(_y<sub>p</sub>_ - 1) - _i_&#8407;
 
 This range of vertex triples forms all the overlapping facets.
 
 Considering Fig 15 these position vectors are all relative to the origin O of primary triangle F. However for facet vertices in F<sub>R</sub> we need the position vectors of these vertices to be relative to the origin O of F<sub>R</sub>. Rotating F<sub>R</sub> 60<sup>o</sup> clockwise will return F<sub>R</sub> to the primary triangles position as in Fig 4
 
-For each vertex in the triples based on *P* we just need to apply S<sup>-</sup>.  Since S<sup>-</sup>(S<sup>+</sup>) is the identity S<sup>-</sup>(*P*, B) = *xi*&#8407; + *yj*&#8407;
+For each vertex in the triples based on _P_ we just need to apply S<sup>-</sup>. Since S<sup>-</sup>(S<sup>+</sup>) is the identity S<sup>-</sup>(_P_, B) = _xi_&#8407; + _yj_&#8407;
 
-For *xi*&#8407; + *yj*&#8407;   
-Type 1 occurs when *P*.*j*&#8407 = S<sup>+</sup>(M<sup>min</sup>(*y* + 1);, B).*j*&#8407  
-Type 2 occurs when *P* - *j*&#8407; &ne;  M<sup>max</sup>(*y<sub>p</sub>* - 1)  
-Otherwise *P* is of type 0.
+For _xi_&#8407; + _yj_&#8407;  
+Type 1 occurs when _P_._j_&#8407 = S<sup>+</sup>(M<sup>min</sup>(_y_ + 1);, B)._j_&#8407  
+Type 2 occurs when _P_ - _j_&#8407; &ne; M<sup>max</sup>(_y<sub>p</sub>_ - 1)  
+Otherwise _P_ is of type 0.
 
-*P* = S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, B)    
-= S<sup>+</sup>(*xi*&#8407; + *yj*&#8407;, -n*i*&#8407; + (m + n)*j*&#8407;)  
-= (-n + m + n - *y*)*i*&#8407; + (*x* + *y* + *n*)*j*&#8407;  
-= (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407;  
+_P_ = S<sup>+</sup>(_xi_&#8407; + _yj_&#8407;, B)  
+= S<sup>+</sup>(_xi_&#8407; + _yj_&#8407;, -n*i*&#8407; + (m + n)_j_&#8407;)  
+= (-n + m + n - _y_)_i_&#8407; + (_x_ + _y_ + _n_)_j_&#8407;  
+= (m - _y_)_i_&#8407; + (_x_ + _y_ + n)_j_&#8407;
 
-*P* + *i*&#8407; - *j*&#8407; = (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407; + *i*&#8407; - *j*&#8407;  
-= (m - (*y* - 1))*i*&#8407; + (*x* + (*y* - 1) + n)*j*&#8407;
-= S<sup>+</sup>(*xi*&#8407; + (*y* - 1)j*&#8407;, B);
+_P_ + _i_&#8407; - _j_&#8407; = (m - _y_)_i_&#8407; + (_x_ + _y_ + n)_j_&#8407; + _i_&#8407; - _j_&#8407;  
+= (m - (_y_ - 1))_i_&#8407; + (_x_ + (_y_ - 1) + n)_j_&#8407;
+= S<sup>+</sup>(_xi_&#8407; + (_y_ - 1)j\*&#8407;, B);
 
-*P* - *i*&#8407; = (m - *y*)*i*&#8407; + (*x* + *y* + n)*j*&#8407; - *i*&#8407;  
-= (m - (*y* + 1))*i*&#8407; + (*x* - 1 + (*y* + 1) + n)*j*&#8407;
-= S<sup>+</sup>((*x* - 1)i*&#8407; + (*y* + 1)j*&#8407;, B);
-
+_P_ - _i_&#8407; = (m - _y_)_i_&#8407; + (_x_ + _y_ + n)_j_&#8407; - _i_&#8407;  
+= (m - (_y_ + 1))_i_&#8407; + (_x_ - 1 + (_y_ + 1) + n)_j_&#8407;
+= S<sup>+</sup>((_x_ - 1)i*&#8407; + (*y* + 1)j*&#8407;, B);
 
 If follows that the overlapping facet vertex triples are given by
 
-| *P* Type | Triangle | Vertex Triple |
-| ---- | ---- | ---- |
-| 0, 1 | Up | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* - 1)|
-| 2 | Up | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407;, M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) |
-| 0 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) |
-| 1 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F<sub>R</sub></sub><sup>min</sup>(*y* + 1), M<sup>max</sup>(*y<sub>p</sub>* - 1) |
-| 2 | Down | M<sub>F<sub>R</sub></sub><sup>min</sup>(*y*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>*), M<sub>F</sub><sup>max</sup>(*y<sub>p</sub>* - 1) - *i*&#8407; |
+| _P_ Type | Triangle | Vertex Triple                                                                                                                                                 |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0, 1     | Up       | M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_ - 1), M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_ - 1)              |
+| 2        | Up       | M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_ - 1) - _i_&#8407;, M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_ - 1) |
+| 0        | Down     | M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_ - 1)                  |
+| 1        | Down     | M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_), M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_ + 1), M<sup>max</sup>(_y<sub>p</sub>_ - 1)                          |
+| 2        | Down     | M<sub>F<sub>R</sub></sub><sup>min</sup>(_y_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_), M<sub>F</sub><sup>max</sup>(_y<sub>p</sub>_ - 1) - _i_&#8407;     |
 
 Table 2
 
-&nbsp;  
+&nbsp;
 
-  
 A rotation about O is as in Fig 17
 
 ![rotation O](/img/snippets/geo17.png)  
@@ -285,14 +282,14 @@ For each facet vertex that lies on on within the primary triangle we determine t
 ![facet vertices](/img/snippets/geo21.png)  
 Fig 21 Internal Facet Vertices
 
-The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n). 
+The red vertices lie on the maximum equilateral triangle CDE, that can be drawn wholly inside OAB along grid lines. The bottom left red vertex lies on the intersection of the y axis and the line through A parallel to the x axis and so has iso-coordinates (0, n).
 
 ![Rotational Symmetry](/img/snippets/geo22.png)  
 Fig 22 Rotating (x, y) 0, 120<sup>o</sup>, -120<sup>o</sup>
 
-Therefore by rotational symmetry 
+Therefore by rotational symmetry
 
-D = R<sup>C+</sup>(0, n) = (m - n, n) and   
+D = R<sup>C+</sup>(0, n) = (m - n, n) and  
 E = R<sup>C-</sup>(0, n) = (0, m)
 
 Now consider the green vertices, they all lie on triangles similar to OCA as in Fig 23 and note that OA = n and CA = m
@@ -300,25 +297,25 @@ Now consider the green vertices, they all lie on triangles similar to OCA as in 
 ![Green Vertices](/img/snippets/geo23.png)  
 Fig 23 Green Vertices
 
-Let F be the point (0, y) with y &lt; n and G the point (x, y). Let H be the point where the extended line through FG meets OA. It follows that x &le; FH. Note that 
+Let F be the point (0, y) with y &lt; n and G the point (x, y). Let H be the point where the extended line through FG meets OA. It follows that x &le; FH. Note that
 
 ![Similar Triangles](/img/snippets/geo24.png)  
 Fig 24 Similar Triangles
 
 Triangles OCA and OFH are similar and so
 
-<ins>FH</ins> = <ins>OF</ins>     
+<ins>FH</ins> = <ins>OF</ins>
 
 CA &nbsp; OC
 
 and so
 
-FH = y * (m / n)  and since x &le; FH  
-x &le; y * (m / n);
+FH = y _ (m / n) and since x &le; FH  
+x &le; y _ (m / n);
 
 The green vertices all lie on the iso-grid and so are all points (x, y) with integer values for x and y where
 
-0 &lt; y &lt n and 0 &le; x &le; y * (m / n);
+0 &lt; y &lt n and 0 &le; x &le; y \* (m / n);
 Using rotation symmetry and rotating about the center of OAB 120<sup>o</sup> and -120<sup>o</sup> gives the yellow and blue vertices.
 
 ![Along edge](/img/snippets/geo29.png)  
@@ -329,76 +326,71 @@ Any facet vertices lying on an edge of a primary triangle will have the same pos
 When n = 0, there is no rotation and there are m - 1 shared positions along each edge between the vertices.
 
 When n &ne; 0, let g be the HCF (highest common factor) of m and n. When n = 1 there are no shared positions along each edge between vertices. When n &gt; 1 let m<sub>1</sub> and n<sub>1</sub> be such that m = gm<sub>1</sub> and n = gn<sub>1</sub> then the number of shared positions between the vertices along one edge is g - 1.
- 
-Along OA they occur at  m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;, 2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407;, ......, (g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;.
 
-Along AB at R<sup>C+</sup>(m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C+</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C+</sup>((g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;).
+Along OA they occur at m<sub>1</sub>_i_&#8407; + n<sub>1</sub>j*&#8407;, 2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407;, ......, (g - 1)m<sub>1</sub>_i_&#8407; + (g - 1)n<sub>1</sub>j\*&#8407;.
 
-Along BO at R<sup>C-</sup>(m<sub>1</sub>*i*&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C-</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C-</sup>((g - 1)m<sub>1</sub>*i*&#8407; + (g - 1)n<sub>1</sub>j*&#8407;).
+Along AB at R<sup>C+</sup>(m<sub>1</sub>_i_&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C+</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C+</sup>((g - 1)m<sub>1</sub>_i_&#8407; + (g - 1)n<sub>1</sub>j\*&#8407;).
 
+Along BO at R<sup>C-</sup>(m<sub>1</sub>_i_&#8407; + n<sub>1</sub>j*&#8407;), R<sup>C-</sup>(2m<sub>1</sub>*i*&#8407; + 2n<sub>1</sub>j*&#8407);, ......, R<sup>C-</sup>((g - 1)m<sub>1</sub>_i_&#8407; + (g - 1)n<sub>1</sub>j\*&#8407;).
 
 ### Cartesian Coordinates
 
 ![Carteian](/img/snippets/geo27.png)  
 Fig 26 Cartesian Coordinates
 
-Fig 26 shows that the cartesian coordinates of a point with position iso-vector *xi*&#8407; + *yj*&#8407;  
-has cartesian coordinates (*x* + 0.5*y*, 0.5&radic;3y)
+Fig 26 shows that the cartesian coordinates of a point with position iso-vector _xi_&#8407; + _yj_&#8407;  
+has cartesian coordinates (_x_ + 0.5*y*, 0.5&radic;3y)
 
 ### Mapping Primary Triangle to Icosahedron Face
 
 ![Primary Map](/img/snippets/geo28.png)  
 Fig 27 Primary Triangle Mapping to Icosahedron Face
 
-Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors *u*&#8407 and *v*&#8407 along the *X* and *Y* axes respectively and *i*&#8407; and *j*&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference *X<sub>1</sub>Y<sub>1</sub>* are formed by a rotation and scaling of OAB and *XY* in 3D space with *u<sub>1</sub>*&#8407 and *v<sub>1</sub>*&#8407 and *i<sub>1</sub>*&#8407; and *j<sub>1</sub>*&#8407; the corresponding Cartesian and iso Vectors.
+Let OAB be an equilateral triangle with a Cartesian frame of reference with units vectors _u_&#8407 and _v_&#8407 along the _X_ and _Y_ axes respectively and _i_&#8407; and _j_&#8407; the usual iso-vectors. O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> and the frame of reference _X<sub>1</sub>Y<sub>1</sub>_ are formed by a rotation and scaling of OAB and _XY_ in 3D space with _u<sub>1</sub>_&#8407 and _v<sub>1</sub>_&#8407 and _i<sub>1</sub>_&#8407; and _j<sub>1</sub>_&#8407; the corresponding Cartesian and iso Vectors.
 
-Let P be any point with cartesian position vector *xu*&#8407; + *yv*&#8407;.  Let *d* be the scaling of O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> to OAB. The corresponding point P<sub>1</sub> to P with have position vector *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub>. 
+Let P be any point with cartesian position vector _xu_&#8407; + _yv_&#8407;. Let _d_ be the scaling of O<sub>1</sub>A<sub>1</sub>B<sub>1</sub> to OAB. The corresponding point P<sub>1</sub> to P with have position vector _xdu&#8407;<sub>1</sub>_ + _ydv_&#8407;<sub>1</sub>.
 
-In iso_vectors OA = m*i*&#8407; + n*j*&#8407; and OB = -n*i*&#8407; + (m + n)*j*&#8407; and so in Cartesian vectors
+In iso_vectors OA = m*i*&#8407; + n*j*&#8407; and OB = -n*i*&#8407; + (m + n)_j_&#8407; and so in Cartesian vectors
 
-OA = (m + 0.5n)*u*&#8407; + 0.5&radic;3n*v*&#8407; and 
+OA = (m + 0.5n)_u_&#8407; + 0.5&radic;3n*v*&#8407; and
 
-OB = (0.5(m + n) - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407; = 0.5(m - n)*u*&#8407; + 0.5&radic;3(m + n)*v*&#8407;
+OB = (0.5(m + n) - n)_u_&#8407; + 0.5&radic;3(m + n)_v_&#8407; = 0.5(m - n)_u_&#8407; + 0.5&radic;3(m + n)_v_&#8407;
 
-(m + 0.5n)OB = (m + 0.5n)(0.5(m - n))*u*&#8407; + 0.5&radic;3(m + n)(m + 0.5n)*uv&#8407;
+(m + 0.5n)OB = (m + 0.5n)(0.5(m - n))_u_&#8407; + 0.5&radic;3(m + n)(m + 0.5n)\*uv&#8407;
 
-(0.5(m - n))OA = (m + 0.5)(0.5(m - n))*u*&#8407; + 0.5&radic;3n(0.5(m - n))*v*&#8407;
+(0.5(m - n))OA = (m + 0.5)(0.5(m - n))_u_&#8407; + 0.5&radic;3n(0.5(m - n))_v_&#8407;
 
-(m + 0.5n)OB - (0.5(m - n))OA = 0.5&radic;3((m + n)(m + 0.5n) - n(0.5(m - n)))*v*&#8407;
+(m + 0.5n)OB - (0.5(m - n))OA = 0.5&radic;3((m + n)(m + 0.5n) - n(0.5(m - n)))_v_&#8407;
 
-(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)*v*&#8407;
+(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + 0.5n<sup>2</sup> + mn + 0.5mn - 0.5mn + 0.5n<sup>2</sup>)_v_&#8407;
 
-(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)*v*&#8407;
+(2m + n)OB - (m - n)OA = &radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)_v_&#8407;
 
-from which we can find *v*&#8407; and then *u*&#8407; in terms of OA and OB. 
+from which we can find _v_&#8407; and then _u_&#8407; in terms of OA and OB.
 
-Since O<sub>1</sub>A<sub>1</sub> = md*i<sub>1</sub>*&#8407; + nd*j<sub>1</sub>*&#8407; and   
+Since O<sub>1</sub>A<sub>1</sub> = md*i<sub>1</sub>*&#8407; + nd*j<sub>1</sub>*&#8407; and  
 O<sub>1</sub>B<sub>1</sub> = -nd*i<sub>1</sub>*&#8407; + (m + n)d*j<sub>1</sub>*&#8407;
 
-we can use this method to find *v<sub>1</sub>*&#8407; and then *u<sub>1</sub>*&#8407; in terms of O<sub>1</sub>A<sub>1</sub> and O<sub>1</sub>B<sub>1</sub> so that we can determine P<sub>1</sub>. 
+we can use this method to find _v<sub>1</sub>_&#8407; and then _u<sub>1</sub>_&#8407; in terms of O<sub>1</sub>A<sub>1</sub> and O<sub>1</sub>B<sub>1</sub> so that we can determine P<sub>1</sub>.
 
-For example when finding *v<sub>1</sub>*&#8407; the coefficient of O<sub>1</sub>B<sub>1</sub> will be 
+For example when finding _v<sub>1</sub>_&#8407; the coefficient of O<sub>1</sub>B<sub>1</sub> will be
 
 <ins>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d(m + n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ins>  
-&nbsp;  
+&nbsp;
 
 d<sup>2</sup>&radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)
 
 =
 
 <ins>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(m + n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ins>  
-&nbsp;  
+&nbsp;
 
 d&radic;3(m<sup>2</sup> + n<sup>2</sup> + mn)
 
-We also note that m<sup>2</sup> + n<sup>2</sup> + mn = l<sup>2</sup>, where l is the length of OA. 
+We also note that m<sup>2</sup> + n<sup>2</sup> + mn = l<sup>2</sup>, where l is the length of OA.
 
-Doing the calculations for *v<sub>1</sub>*&#8407; and for *u<sub>1</sub>*&#8407; the coefficients of O<sub>1</sub>A<sub>1</sub> and of  O<sub>1</sub>B<sub>1</sub> all contain the common multiplier 1 / dl<sup>2</sup>.
+Doing the calculations for _v<sub>1</sub>_&#8407; and for _u<sub>1</sub>_&#8407; the coefficients of O<sub>1</sub>A<sub>1</sub> and of O<sub>1</sub>B<sub>1</sub> all contain the common multiplier 1 / dl<sup>2</sup>.
 
-Since *xu*&#8407; + *yv*&#8407; in OAB maps to  *xdu&#8407;<sub>1</sub>* + *ydv*&#8407;<sub>1</sub> in O<sub>1</sub>A<sub>1</sub>O<sub>1</sub>B<sub>1</sub> and d / dl<sup>2</sup> = 1 / l<sup>2</sup> when it comes to coding we can calculate constant coefficients just once and rather than calculating *u*&#8407; and *v*&#8407; as unit vectors calculate them as vectors scaled by d, for example
+Since _xu_&#8407; + _yv_&#8407; in OAB maps to _xdu&#8407;<sub>1</sub>_ + _ydv_&#8407;<sub>1</sub> in O<sub>1</sub>A<sub>1</sub>O<sub>1</sub>B<sub>1</sub> and d / dl<sup>2</sup> = 1 / l<sup>2</sup> when it comes to coding we can calculate constant coefficients just once and rather than calculating _u_&#8407; and _v_&#8407; as unit vectors calculate them as vectors scaled by d, for example
 
-*v*&#8407; = ((2m + n)O<sub>1</sub>B<sub>1</sub> - (m - n)O<sub>1</sub>A<sub>1</sub>) / l<sup>2</sup>&radic;3
-
-
-
-
+_v_&#8407; = ((2m + n)O<sub>1</sub>B<sub>1</sub> - (m - n)O<sub>1</sub>A<sub>1</sub>) / l<sup>2</sup>&radic;3

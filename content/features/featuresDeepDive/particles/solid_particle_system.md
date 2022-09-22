@@ -1,6 +1,6 @@
 ---
 title: Solid Particle System
-image: 
+image:
 description: Learn all about the solid particle system in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles
 further-reading:

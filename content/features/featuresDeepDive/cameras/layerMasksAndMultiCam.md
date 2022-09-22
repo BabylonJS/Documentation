@@ -4,8 +4,8 @@ image:
 description: Learn how to assign different objects to different layer masks.
 keywords: diving deeper, layer masks, multi-cam
 further-reading:
-    - title: In-Depth layerMask
-      url: /features/featuresDeepDive/scene/layermask
+  - title: In-Depth layerMask
+    url: /features/featuresDeepDive/scene/layermask
 video-overview:
 video-content:
 ---

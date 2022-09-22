@@ -1,6 +1,6 @@
 ---
 title: Ascii Art
-image: 
+image:
 description: Check out the free Ascii Art Post Process available for you to use in your Babylon.js scenes.
 keywords: babylon.js, tools, resources, assets, library, post process, ascii
 further-reading:
@@ -16,7 +16,8 @@ If you would like it, this tutorial is made for you.
 
 ## How to use ?
 
-Ascii Art Post Process Scripts can be found here: 
+Ascii Art Post Process Scripts can be found here:
+
 - Normal: https://cdn.babylonjs.com/postProcessesLibrary/babylon.asciiArtPostProcess.js
 - Minified: https://cdn.babylonjs.com/postProcessesLibrary/babylon.asciiArtPostProcess.min.js
 
@@ -50,12 +51,12 @@ But you could also play with more parameters:
 
 ```
 // Creates the post process
-var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera, 
+var postProcess = new BABYLON.AsciiArtPostProcess("AsciiArt", camera,
     {
         font: "20px Monospace",
         characterSet: " -+@",
         mixToNormal: 0.5,
-        mixToTile: 0.5        
+        mixToTile: 0.5
     });
 ```
 

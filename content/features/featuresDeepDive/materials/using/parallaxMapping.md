@@ -1,13 +1,12 @@
 ---
 title: Parallax Mapping
-image: 
+image:
 description: Learn all about using parallax mapping in Babylon.js.
 keywords: diving deeper, materials, parallax
 further-reading:
 video-overview:
 video-content:
 ---
- 
 
 Starting with Babylon.js v2.4, we introduced Parallax Mapping.
 
@@ -37,14 +36,13 @@ The outcome is way more realistic than traditional Parallax but there can be a p
 
 You can use Parallax Mapping through the following materials:
 
- - [StandardMaterial](/typedoc/classes/babylon.standardmaterial)
- - [PBRMaterial](/typedoc/classes/babylon.pbrmaterial)
+- [StandardMaterial](/typedoc/classes/babylon.standardmaterial)
+- [PBRMaterial](/typedoc/classes/babylon.pbrmaterial)
 
 In Babylon.js we think of a parallax mapping as an extension of Normal Mapping, hence to benefit of the former, you have to enable the later. The reason is that we support only the height map being encoded in the Alpha channel of the normal map, as explained above.
 
 You have three properties to work with Parallax:
 
- - **useParallax**: enables Parallax Mapping over Bump. This property won't have any effect if you didn't assigned a **bumpTexture**.
- - **useParallaxOcclusion**: enables Parallax Occlusion, when setting this property, you must also set **useParallax** to true.
- - **parallaxScaleBias**: apply a scaling factor that determine which "depth" the height map should represent. A value between 0.05 and 0.1 is reasonable in Parallax, you can reach 0.2 using Parallax Occlusion.
-
+- **useParallax**: enables Parallax Mapping over Bump. This property won't have any effect if you didn't assigned a **bumpTexture**.
+- **useParallaxOcclusion**: enables Parallax Occlusion, when setting this property, you must also set **useParallax** to true.
+- **parallaxScaleBias**: apply a scaling factor that determine which "depth" the height map should represent. A value between 0.05 and 0.1 is reasonable in Parallax, you can reach 0.2 using Parallax Occlusion.

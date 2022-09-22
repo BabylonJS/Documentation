@@ -1,6 +1,6 @@
 ---
 title: Lava Material
-image: 
+image:
 description: The Babylon.js materials library lava effect.
 keywords: library, materials, materials library, lava, lava material
 further-reading:
@@ -11,7 +11,6 @@ video-content:
 ![Screenshot](/img/extensions/materials/lava.jpg)
 
 PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
-
 
 Lava material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js)
 
@@ -31,11 +30,13 @@ ground.material = lavaMaterial;
 ```
 
 The diffuse texture will be the color of your lava, the noise texture will represent the lava deformation.
-Notice that this material will update each vertex position of your object. If there are not enough vertices, 
+Notice that this material will update each vertex position of your object. If there are not enough vertices,
 some artefacts may appears.
 
 ## Lights
+
 By default, the material is subject to lights. If you wish, you can cancel this by relying on the unlit property.
+
 ```
 material.unlit = true;
 ```
@@ -50,4 +51,3 @@ You can customize two properties of the material:
 lavaMaterial.speed = 2.0; // Default 1. Represents speed of perturbations of the lava
 lavaMaterial.fogColor = new BABYLON.Color3(1, 0, 0); // Default to (0,0,0) black. Represents the color of the fog displayed on the lava ground.
 ```
-

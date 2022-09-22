@@ -1,6 +1,6 @@
 ---
 title: Diving Deeper
-image: 
+image:
 description: Go deeper with your learning of Babylon.js feature by feature.
 keywords: diving deeper, features
 further-reading:

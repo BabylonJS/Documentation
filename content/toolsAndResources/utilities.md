@@ -1,6 +1,6 @@
 ---
 title: Utilities
-image: 
+image:
 description: Learn about some handy javascript functions that you can add to any project, called Utilities.
 keywords: babylon.js, tools, resources, utilities
 further-reading:

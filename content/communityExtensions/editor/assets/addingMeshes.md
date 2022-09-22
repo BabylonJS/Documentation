@@ -1,6 +1,6 @@
 ---
 title: Adding meshes assets
-image: 
+image:
 description: Understanding how to add and manage meshes in a Babylon.JS Editor project
 keywords: editor, workspace, assets, mesh
 further-reading:
@@ -28,8 +28,9 @@ Once a source mesh file (.babylon, .fbx, etc.) has been updated in the assets, `
 select `"Update References"`
 
 Meshes can be updated by:
-* Choosing which component to update (geometry, material, skeleton)
-* Forcing to update all components (geometry(ies), material(s) and skeleton(s))
+
+- Choosing which component to update (geometry, material, skeleton)
+- Forcing to update all components (geometry(ies), material(s) and skeleton(s))
 
 ![UpdatingReferences](/img/extensions/Editor/AddingMeshes/updating-references.gif)
 
@@ -44,4 +45,5 @@ You can refer to [the inspector documentation](https://doc.babylonjs.com/toolsAn
 ![ExaminingAsset](/img/extensions/Editor/AddingMeshes/examining-asset.gif)
 
 ## Cleaning assets
+
 In order to let the user managing its own assets, the Editor will never remove useless assets until it is asked by the user. That means, when updating meshes, that old materials and texture will still be availalbe in the assets panel. Don't forget to clear unused assets (for example unused materials then unused textures) to keep the project clear if you are sure that old materials, for example, are not needed anymore.

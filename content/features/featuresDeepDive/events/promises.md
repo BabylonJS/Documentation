@@ -24,7 +24,7 @@ Regarding portability, Babylon.js provides a custom polyfill for browsers where 
 
 ```javascript
 BABYLON.SceneLoader.LoadAssetContainerAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene).then(function (container) {
-    container.addAllToScene();
+  container.addAllToScene();
 });
 ```
 
@@ -36,12 +36,12 @@ BABYLON.SceneLoader.LoadAssetContainerAsync("https://playground.babylonjs.com/sc
 var scene = new BABYLON.Scene(engine);
 var xrPromise = scene.createDefaultXRExperienceAsync();
 xrPromise
-    .then((xrExperience) => {
-        return BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
-    })
-    .then(function () {
-        // xr resolved, skull added to the scene
-    });
+  .then((xrExperience) => {
+    return BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
+  })
+  .then(function () {
+    // xr resolved, skull added to the scene
+  });
 ```
 
 ### Using async/await with promises
@@ -50,11 +50,11 @@ Note: This is not supported in all browsers
 
 ```javascript
 var main = async function () {
-    var scene = new BABYLON.Scene(engine);
-    var helper = scene.createDefaultVRExperience();
-    var supported = await helper.webVRCamera.useStandingMatrixAsync();
-    console.log(supported);
-    await BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
+  var scene = new BABYLON.Scene(engine);
+  var helper = scene.createDefaultVRExperience();
+  var supported = await helper.webVRCamera.useStandingMatrixAsync();
+  console.log(supported);
+  await BABYLON.SceneLoader.AppendAsync("https://playground.babylonjs.com/scenes/", "skull.babylon", scene);
 };
 ```
 
@@ -66,17 +66,17 @@ var scene = new BABYLON.Scene(engine);
 var baseUrl = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/";
 
 Promise.all([
-    BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "BoomBox/glTF/", "BoomBox.gltf", scene).then(function (result) {
-        result.meshes[0].position.x = 0.01;
-    }),
-    BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "Avocado/glTF/", "Avocado.gltf", scene).then(function (result) {
-        result.meshes[0].position.x = -0.01;
-        result.meshes[0].position.y = -0.01;
-        result.meshes[0].scaling.scaleInPlace(0.25);
-    }),
+  BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "BoomBox/glTF/", "BoomBox.gltf", scene).then(function (result) {
+    result.meshes[0].position.x = 0.01;
+  }),
+  BABYLON.SceneLoader.ImportMeshAsync(null, baseUrl + "Avocado/glTF/", "Avocado.gltf", scene).then(function (result) {
+    result.meshes[0].position.x = -0.01;
+    result.meshes[0].position.y = -0.01;
+    result.meshes[0].scaling.scaleInPlace(0.25);
+  }),
 ]).then(() => {
-    scene.createDefaultCameraOrLight(true, true, true);
-    scene.activeCamera.alpha += Math.PI;
+  scene.createDefaultCameraOrLight(true, true, true);
+  scene.activeCamera.alpha += Math.PI;
 });
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Adding textures assets
-image: 
+image:
 description: Understanding how to add and manage textures in a Babylon.JS Editor project
 keywords: editor, workspace, assets, texture
 further-reading:

@@ -1,6 +1,6 @@
 ---
 title: Behaviors
-image: 
+image:
 description: Dive into the rich world of behaviors in Babylon.js.
 keywords: diving deeper, behaviors
 further-reading:

@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 2 - Making Copies
-image: 
+image:
 description: Continue your Babylon.js learning by making copies of meshes.
 keywords: getting started, start, chapter 2, copy, duplicate, copies
 further-reading:
@@ -11,19 +11,22 @@ video-content:
 # Getting Started - Making Copies
 
 ## Copying Meshes
-The two main ways to copy a mesh is to clone it or create an instance of it. Cloning gives you an independent copy of a mesh whereas an instance is still linked to the original for its material. You cannot change the material of an instance of a mesh. There are also advanced ways of creating copies which are available in the *Mesh Chapter*
+
+The two main ways to copy a mesh is to clone it or create an instance of it. Cloning gives you an independent copy of a mesh whereas an instance is still linked to the original for its material. You cannot change the material of an instance of a mesh. There are also advanced ways of creating copies which are available in the _Mesh Chapter_
 
 To clone the house use
 
 ```javascript
-clonedHouse = house.clone("clonedHouse")
-```
-and for an instance it is
-```javascript
-instanceHouse = house.createInstance("instanceHouse")
+clonedHouse = house.clone("clonedHouse");
 ```
 
-As at this point in our world all the houses will use the same material we will go with *createInstance*.
+and for an instance it is
+
+```javascript
+instanceHouse = house.createInstance("instanceHouse");
+```
+
+As at this point in our world all the houses will use the same material we will go with _createInstance_.
 
 Before we do that we combine the building functions to produce a house of width 1 or 2, a detached or semi-detached house respectively.
 
@@ -36,15 +39,14 @@ To begin we build one house of each type and position them. Afterwards we will c
 const houses = [];
 
 for (let i = 0; i < places.length; i++) {
-    if (places[i][0] === 1) {
-        houses[i] = detached_house.createInstance("house" + i);
-    }
-    else {
-        houses[i] = semi_house.createInstance("house" + i);
-    }
-    houses[i].rotation.y = places[i][1];
-    houses[i].position.x = places[i][2];
-    houses[i].position.z = places[i][3];
+  if (places[i][0] === 1) {
+    houses[i] = detached_house.createInstance("house" + i);
+  } else {
+    houses[i] = semi_house.createInstance("house" + i);
+  }
+  houses[i].rotation.y = places[i][1];
+  houses[i].position.x = places[i][2];
+  houses[i].position.z = places[i][3];
 }
 ```
 
@@ -59,7 +61,3 @@ As before, in order to keep the upper parts of the playground editor for newer c
 Now the world we are building is a little more complex let's take a file of the village and re-visit viewing it as part of a web site we want to enhance.
 
 <Playground id="#KBS9I5#80" title="Importing the Village as a .glb File" description="An example of how to load a .glb of the starting village into your scene." image="/img/playgroundsAndNMEs/gettingStartedCopies2.jpg"/>
-
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: Meshes
-image: 
+image:
 description: Dive into the rich world of understanding meshes in Babylon.js.
 keywords: diving deeper, meshes
 further-reading:

@@ -1,6 +1,6 @@
 ---
 title: Importing Assets
-image: 
+image:
 description: Learn how to import assets to use in your Babylon.js scenes.
 keywords: diving deeper, import, importing assets, asset, importing
 further-reading:
@@ -16,4 +16,4 @@ Possible file types are gLTF, obj, stl
 
 To help you with imported assets there is a manager for them.
 
-**Note:** Since meshes you import can have a _rotationQuaternion_ set before applying a rotation set the _rotationQuaternion_ to _null
+**Note:** Since meshes you import can have a _rotationQuaternion_ set before applying a rotation set the _rotationQuaternion_ to \_null

@@ -1,6 +1,6 @@
 ---
 title: Managing A Point Cloud System
-image: 
+image:
 description: Learn all point cloud system management in Babylon.js.
 keywords: diving deeper, point cloud, point cloud system, management
 further-reading:
@@ -26,11 +26,11 @@ The pseudo-code for `setParticles` is
 
 ```javascript
 function setParticles() {
-    beforeUpdateParticles();
-    for (var p = 0; p < nbParticles; p++) {
-        updateParticles(particles[p]);
-    }
-    afterUpdateParticles();
+  beforeUpdateParticles();
+  for (var p = 0; p < nbParticles; p++) {
+    updateParticles(particles[p]);
+  }
+  afterUpdateParticles();
 }
 ```
 
@@ -71,18 +71,17 @@ If you pass a `end` value greater than `nbParticles` - 1, the iteration will sto
 
 Example 1 : to only update 10000 particles mesh every three frames
 
--   frame 1 : `setParticles(0, 3300, false)` computes everything for particles from 0 to 3300 and doesn't update the mesh.
--   frame 2 : `setParticles(3301, 6600, false)` computes everything for particles from 3301 to 6600 and doesn't update the mesh.
--   frame 3 : `setParticles(6601, 9999, true)` computes everything for particles from 6601 to 9999 and finally updates the mesh.
+- frame 1 : `setParticles(0, 3300, false)` computes everything for particles from 0 to 3300 and doesn't update the mesh.
+- frame 2 : `setParticles(3301, 6600, false)` computes everything for particles from 3301 to 6600 and doesn't update the mesh.
+- frame 3 : `setParticles(6601, 9999, true)` computes everything for particles from 6601 to 9999 and finally updates the mesh.
 
 In this playground change _invSpeed_ (line 29) to change speed.
 
--   <Playground id="#UI95UC#25" title="Start And End For Animation Speed" description="Simple example of setting a start and end to a system's animation speed."/>
+- <Playground id="#UI95UC#25" title="Start And End For Animation Speed" description="Simple example of setting a start and end to a system's animation speed."/>
 
 Example 2 : you could keep, say, the first 5000 particles as unused ones and compute the particle behavior only for the last 5000 in your global pool - `setParticles(5000, 9999, true)` computes everything for particles from 5000 to 9999 and updates the mesh.
 
--   <Playground id="#UI95UC#26" title="Start And End For Part Animation" description="Simple example of setting a start and end to a part's animation"/>
-
+- <Playground id="#UI95UC#26" title="Start And End For Part Animation" description="Simple example of setting a start and end to a part's animation"/>
 
 ## Hints and Tips
 
@@ -92,9 +91,9 @@ For example, consider a PCS with, say, 30000 particles where you change their ve
 
 ```javascript
 pcs.updateParticle = function (particle) {
-    var accel = new BABYLON.Vector3(0, 0.5, 0);
-    particle.velocity = particle.velocity.add(accel);
-    // ...
+  var accel = new BABYLON.Vector3(0, 0.5, 0);
+  particle.velocity = particle.velocity.add(accel);
+  // ...
 };
 ```
 
@@ -105,8 +104,8 @@ Instead, make your update loops reuse variables that are declared outside the lo
 ```javascript
 var accel = new BABYLON.Vector3(0, 0.5, 0);
 pcs.updateParticle = function (particle) {
-    particle.velocity.addInPlace(accel);
-    // ...
+  particle.velocity.addInPlace(accel);
+  // ...
 };
 ```
 

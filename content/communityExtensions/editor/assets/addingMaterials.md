@@ -1,13 +1,12 @@
 ---
 title: Adding materials assets
-image: 
+image:
 description: Understanding how to add and manage materials in a Babylon.JS Editor project
 keywords: editor, workspace, assets, material
 further-reading:
 video-overview:
 video-content:
 ---
-
 
 ## Introduction
 

@@ -14,13 +14,13 @@ Tag? You may already have heard or read this word before. Let's see some generic
 
 ### Tags are used:
 
--   as an index term assigned to a piece of information
--   to pass parameters to subroutines
--   as components of the HTML markup language
--   as labels for specific revisions of a project
--   as unique identifiers in URI
--   as links to other Facebook pages
-    ...
+- as an index term assigned to a piece of information
+- to pass parameters to subroutines
+- as components of the HTML markup language
+- as labels for specific revisions of a project
+- as unique identifiers in URI
+- as links to other Facebook pages
+  ...
 
 (from [Wikipedia](http://en.wikipedia.org/wiki/Tag))
 
@@ -85,10 +85,10 @@ BABYLON.Tags.DisableFor(myJSObj);
 
 `EnableFor` adds functions to the javascript object in the aim to:
 
--   test if it has tags `hasTags`
--   add tags to it `addTags`
--   remove tags from it `removesTags`
--   test if it matches a tags query `matchesTagsQuery` (see below)
+- test if it has tags `hasTags`
+- add tags to it `addTags`
+- remove tags from it `removesTags`
+- test if it matches a tags query `matchesTagsQuery` (see below)
 
 Those functions are proxies of static methods of `Tags` (`HasTags`, `AddTagsTo`, `RemoveTagsFrom` and `MatchesQuery`).
 
@@ -170,9 +170,9 @@ BABYLON.Tags.MatchesQuery(myJSObj4); // true
 
 ### Rules to respect
 
--   the tags "true" and "false" are reserved and cannot be used as tags.
--   a tag cannot start with "||", "&&", or '!'
--   a tag cannot contain whitespaces
+- the tags "true" and "false" are reserved and cannot be used as tags.
+- a tag cannot start with "||", "&&", or '!'
+- a tag cannot contain whitespaces
 
 ### Use in babylon.js
 
@@ -200,6 +200,6 @@ or make some green ghosts appear when you want:
 var ghosts = myScene.getMeshesByTags("ghost && green");
 
 for (var index = 0; index < ghosts.length; index++) {
-    ghosts[index].isVisible = true;
+  ghosts[index].isVisible = true;
 }
 ```

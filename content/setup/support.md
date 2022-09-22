@@ -1,6 +1,6 @@
 ---
 title: Developing With and For Babylon.js
-image: 
+image:
 description: Dive into the amazing world of contributing to the Babylon platform.
 keywords: diving deeper, contribution, contribute, open-source, oss
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 # Developing With and For Babylon.js
 
-For those of you who want to know more about the organization and structure of Babylon.js, in order to either use it to develop well structured projects of your own or to make contributions to it, you have come to the right place.  Here you will find where you can obtain Babylon.js in full or just the modules you need to import into you JavaScript or Typescript application.
+For those of you who want to know more about the organization and structure of Babylon.js, in order to either use it to develop well structured projects of your own or to make contributions to it, you have come to the right place. Here you will find where you can obtain Babylon.js in full or just the modules you need to import into you JavaScript or Typescript application.
 
 Even the best developers need help from time to time and the Babylon.js forum is there to help. To make the best use of the forum check out the first page of this section.
 

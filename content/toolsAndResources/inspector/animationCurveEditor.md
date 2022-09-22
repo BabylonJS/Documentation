@@ -1,10 +1,10 @@
 ---
 title: ACE - The Animation Curve Editor
-image: 
+image:
 description: Learn all about the powerful Animation Curve Editor.
 keywords: babylon.js, tools, resources, animation, editor, curve, curve editor, animation editor
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 
@@ -50,7 +50,7 @@ The Menu offers you the ability to create a new animation, load an animation fro
 
 <img src="/img/tools/ACE/create.jpg" title="Create Button"/>
 
-Pressing the create tab will display a menu that allows you to create a new animation. 
+Pressing the create tab will display a menu that allows you to create a new animation.
 
 <img src="/img/tools/ACE/createMenu.jpg" title="Create Menu"/>
 
@@ -227,11 +227,12 @@ The Play Range represents the starting and ending frames when you use one of the
 It is very easy to load your saved GUIs into your Babylon.js Scene and modify them. Here are a few handy examples:
 
 ### Load From The Snippet Server
+
 You can load an animation into your Babylon scene from the snippet server like this:
 
 ```javascript
-let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
-let animations = await BABYLON.Animation.CreateFromSnippetAsync('YOUR SNIPPET ID');
+let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+let animations = await BABYLON.Animation.CreateFromSnippetAsync("YOUR SNIPPET ID");
 sphere.animations = animations;
 scene.beginAnimation(sphere, 0, 100, true);
 ```
@@ -239,10 +240,11 @@ scene.beginAnimation(sphere, 0, 100, true);
 <Playground id="#YAWBMY" title="Loaded Animation From Snippet" description="Simple example of loading an animation from the snippet server."/>
 
 ### Load From .JSON Object
+
 You can load an Animation into your Babylon scene from a saved .JSON object like this:
 
 ```javascript
-let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+let sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 let animations = await BABYLON.Animation.ParseFromFileAsync(null, "https://doc.babylonjs.com/examples/animations.json");
 sphere.animations = animations;
 scene.beginAnimation(sphere, 0, 100, true);
@@ -251,6 +253,7 @@ scene.beginAnimation(sphere, 0, 100, true);
 <Playground id="#YAWBMY#7" title="Loaded Animation From .JSON" description="Simple example of loading an animation from a saved .JSON object."/>
 
 ### The Magic Loop
+
 As with all Babylon tools, if you've loaded an animation from the snippet server into your scene and then use the GUI Editor to edit that animation. Once you save a new version of that animation, the tool will automatically change the snippet server load line to use your newly created Snippet ID! If you haven't tried this out, you need to, it's awesome!
 
 ## Creating Animations With ACE

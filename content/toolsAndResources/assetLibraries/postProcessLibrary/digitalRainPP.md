@@ -1,13 +1,12 @@
 ---
 title: Digital Rain
-image: 
+image:
 description: Check out the free Digital Rain Post Process available for you to use in your Babylon.js scenes.
 keywords: babylon.js, tools, resources, assets, library, post process, digital rain
 further-reading:
 video-overview:
 video-content:
 ---
-
 
 ## Using the Digital Rain post-process
 
@@ -17,7 +16,8 @@ If you would like it, this tutorial is made for you.
 
 ## How to use ?
 
-Digital Rain Post Process Scripts can be found here: 
+Digital Rain Post Process Scripts can be found here:
+
 - Normal: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.js
 - Minified: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.min.js
 
@@ -51,11 +51,11 @@ But you could also play with more parameters:
 
 ```
 // Creates the post process
-var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera, 
+var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera,
     {
         font: "30px Monospace",
         mixToNormal: 0.5,
-        mixToTile: 0.5        
+        mixToTile: 0.5
     });
 ```
 

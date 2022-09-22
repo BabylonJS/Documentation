@@ -1,23 +1,22 @@
 ---
 title: Babylon.js Viewer - Advanced usage
-image: 
+image:
 description: Advanced uses of the viewer.
 keywords: extensions, babylon.js, library, viewer, advanced
 further-reading:
-    - title: Babylon.js Viewer
-      url: /features/featuresDeepDive/babylonViewer
-    - title: Configuring the viewer
-      url: /features/featuresDeepDive/babylonViewer/configuringViewer
-    - title: The templating system
-      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
-    - title: Recreating the default configuration for the viewer
-      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
-    - title: Babylon.js viewer examples
-      url: /features/featuresDeepDive/babylonViewer/viewerExamples
+  - title: Babylon.js Viewer
+    url: /features/featuresDeepDive/babylonViewer
+  - title: Configuring the viewer
+    url: /features/featuresDeepDive/babylonViewer/configuringViewer
+  - title: The templating system
+    url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
+  - title: Recreating the default configuration for the viewer
+    url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
+  - title: Babylon.js viewer examples
+    url: /features/featuresDeepDive/babylonViewer/viewerExamples
 video-overview:
 video-content:
 ---
-
 
 ## Forcing the type of loader on a model
 
@@ -37,23 +36,23 @@ The viewer has a viewer manager that registers each viewer currently on this pag
 
 ```javascript
 // using basic callback
-BabylonViewer.viewerManager.onViewerAdded = function(viewer) {
-    console.log(viewer);
-}
+BabylonViewer.viewerManager.onViewerAdded = function (viewer) {
+  console.log(viewer);
+};
 
 // user observers
 
-BabylonViewer.viewerManager.onViewerAddedObservable.add(function(viewer) {
-    console.log(viewer);
-})
+BabylonViewer.viewerManager.onViewerAddedObservable.add(function (viewer) {
+  console.log(viewer);
+});
 ```
 
 Another way of getting the viewer is using the promise-based API:
 
 ```javascript
 // you will need to set an id attribute to the viewer element and use it here:
-BabylonViewer.viewerManager.getViewerPromiseById('viewer-id').then(function(viewer) {
-    console.log(viewer.getBaseId());
+BabylonViewer.viewerManager.getViewerPromiseById("viewer-id").then(function (viewer) {
+  console.log(viewer.getBaseId());
 });
 ```
 
@@ -63,9 +62,9 @@ If you know the viewer was already initialized, there are two simple ways of get
 
 ```javascript
 // using the id
-let viewer = BabylonViewer.viewerManager.getViewerById('viewer-id');
+let viewer = BabylonViewer.viewerManager.getViewerById("viewer-id");
 // using the viewer HTML element
-let element = document.querySelector('babylon');
+let element = document.querySelector("babylon");
 let viewer2 = BabylonViewer.viewerManager.getViewerByHTMLElement(element);
 ```
 
@@ -77,7 +76,7 @@ Babylon Viewer automatically initializes `babylon` HTML tags and renders a viewe
 // a simple way of disabling auto init
 BabylonViewer.disableInit = true;
 // Initializing the viewer on specific HTML tags.
-BabylonViewer.InitTags('the-other-tag-name');
+BabylonViewer.InitTags("the-other-tag-name");
 ```
 
 ## Finding the Babylon Engine, Scene, and Camera
@@ -110,16 +109,16 @@ Let's take a look at a (very not-helpful) example - we will delay the entire exe
 // taken from here - https://blog.raananweber.com/2015/12/01/writing-a-promise-delayer/
 function DelayPromise(delay) {
   //return a function that accepts a single variable
-  return function(data) {
+  return function (data) {
     //this function returns a promise.
-    return new Promise(function(resolve, reject) {
-      setTimeout(function() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
         //a promise that is resolved after "delay" milliseconds with the data provided
-        console.log('done!');
+        console.log("done!");
         resolve(data);
       }, delay);
     });
-  }
+  };
 }
 
 // force a 500 ms delay after the scene was created.
@@ -133,10 +132,10 @@ If we would simply use setTimeout and return, setTimeout would have async-execut
 The registered function doesn't have to be a promise. If registering a simple function, it will still work and execute correctly:
 
 ```javascript
-viewer.onSceneInitObservable.add(function(scene) {
-    scene.clearColor = BABYLON.Color4.Blue();
-    // returning the scene object. a common practice, not a must
-    return scene;
+viewer.onSceneInitObservable.add(function (scene) {
+  scene.clearColor = BABYLON.Color4.Blue();
+  // returning the scene object. a common practice, not a must
+  return scene;
 });
 ```
 
@@ -159,41 +158,44 @@ In certain cases you would want to load your model using javascript after the vi
 To do so, the viewer exposes the "loadModel" function. Loading model requires you to wait for the engine to initialize. So in order to get it to work correctly, you will need to wait for the onEngineInit observable to notify you about it:
 
 ```javascript
-BabylonViewer.viewerManager.getViewerPromiseById('babylon-viewer').then(function (viewer) {
-    // this will resolve only after the viewer with this specific ID is initialized
+BabylonViewer.viewerManager.getViewerPromiseById("babylon-viewer").then(function (viewer) {
+  // this will resolve only after the viewer with this specific ID is initialized
 
-    viewer.onEngineInitObservable.add(function (scene) {
-        viewer.loadModel({
-            title: "Helmet",
-            subtitle: "BabylonJS",
-            thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
-            url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
-        });
-
-        // load another model after 20 seconds. Just to show it is possible
-        setTimeout(() => {
-            viewer.loadModel({
-                title: "Rabbit",
-                subtitle: "BabylonJS",
-                thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
-                url: "https://playground.babylonjs.com/scenes/Rabbit.babylon"
-            });
-        }, 20000);
+  viewer.onEngineInitObservable.add(function (scene) {
+    viewer.loadModel({
+      title: "Helmet",
+      subtitle: "BabylonJS",
+      thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
+      url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf",
     });
+
+    // load another model after 20 seconds. Just to show it is possible
+    setTimeout(() => {
+      viewer.loadModel({
+        title: "Rabbit",
+        subtitle: "BabylonJS",
+        thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
+        url: "https://playground.babylonjs.com/scenes/Rabbit.babylon",
+      });
+    }, 20000);
+  });
 });
 ```
 
 The `loadModel` function will return a `Promise<ViewerModel>` that is thenable when the model was fully loaded. Helpful when you want to tell the user the model loaded successfully :
 
 ```javascript
-viewer.loadModel({
+viewer
+  .loadModel({
     title: "Helmet",
     subtitle: "BabylonJS",
     thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
-    url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
-}).then(model => {
+    url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf",
+  })
+  .then((model) => {
     console.log("model loaded!");
-}).catch(error => {
+  })
+  .catch((error) => {
     console.log("error loading the model!", error);
-});
+  });
 ```

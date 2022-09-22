@@ -1,17 +1,17 @@
 ---
 title: Scroll Viewer
-image: 
+image:
 description: Learn about Scroll Viewer in Babylon.js.
 keywords: diving deeper, GUI, Scroll Viewer
 further-reading:
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Xml Loader
-      url: /features/featuresDeepDive/gui/xmlLoader
-    - title: How To Use Babylon GUI3D
-      url: /features/featuresDeepDive/gui/gui3D
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -40,9 +40,7 @@ var myScrollViewer = new BABYLON.GUI.ScrollViewer("name");
 and add it to an advanced texture as usual.
 
 ```javascript
-var myAdvancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "UI"
-);
+var myAdvancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 myAdvancedTexture.addControl(myScollViewer);
 ```
 
@@ -89,13 +87,13 @@ var myScrollViewer = new BABYLON.GUI.ScrollViewer("", true);
 
 Additional properties are available
 
-| Property                                                 | Type      | Default | Comments                                                                                                         |
-| -------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| Property                                                   | Type      | Default | Comments                                                                                                         |
+| ---------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
 | thumbImage<br/>horizontalThumbImage<br/>verticalThumbImage | GUI Image | none    | Image used for the thumb; required for image scroll bars                                                         |
 | barImage<br/>horizontalBarImage<br/>verticalBarImage       | GUI Image | none    | Image for the scroll bars                                                                                        |
-| thumbHeight                                              | number    | 1       | Proportion of thumb compared to bar height (0 to 1)                                                              |
-| barImageHeight                                           | number    | 1       | Proportion of barImage compared to bar height (0 to 1)                                                           |
-| scrollBackground                                         | string    | grey    | background color of scroll bars excluding the bottom right square; useful behind a thin or transparent bar image |
+| thumbHeight                                                | number    | 1       | Proportion of thumb compared to bar height (0 to 1)                                                              |
+| barImageHeight                                             | number    | 1       | Proportion of barImage compared to bar height (0 to 1)                                                           |
+| scrollBackground                                           | string    | grey    | background color of scroll bars excluding the bottom right square; useful behind a thin or transparent bar image |
 
 You do not have to have a barImage.
 

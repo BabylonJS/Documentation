@@ -1,6 +1,6 @@
 ---
 title: WebXR Session Manager
-image: 
+image:
 description: Learn all about the WebXR session manager in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR
 further-reading:
@@ -16,7 +16,7 @@ Usually, the Session Manager will be initialized by the [experience helper](/fea
 
 To construct a new session manager, initialize it with a Babylon scene:
 
-``` javascript
+```javascript
 const sessionManager = new WebXRSessionManager(scene);
 ```
 
@@ -26,39 +26,39 @@ Before activating the session, you can check if XR is available and the session 
 
 You can do this using the static function `IsSessionSupportedAsync` or the `isSessionSupportedAsync` function of the session manager itself:
 
-``` javascript
+```javascript
 // Static:
-const supported = await WebXRSessionManager.IsSessionSupportedAsync('immersive-vr');
+const supported = await WebXRSessionManager.IsSessionSupportedAsync("immersive-vr");
 if (supported) {
-    // xr available, session supported
+  // xr available, session supported
 }
 
 // or:
 
-const supported = await sessionManager.isSessionSupportedAsync('immersive-vr');
+const supported = await sessionManager.isSessionSupportedAsync("immersive-vr");
 if (supported) {
-    // xr available, session supported
+  // xr available, session supported
 }
 ```
 
 After making sure that XR is available and that the session is supported, you can initialize the session and prepare it for rendering:
 
-``` javascript
-sessionManager.initializeSessionAsync('immersive-vr' /*, xrSessionInit */ );
+```javascript
+sessionManager.initializeSessionAsync("immersive-vr" /*, xrSessionInit */);
 ```
 
 This function will initialize the native session. Without calling this function, no session is available and the XR experience will not work.
 
 Right after, you will need to initialize the reference space of this session, which will define the coordinate system that the xr experience will use:
 
-``` javascript
-const referenceSpace = sessionManager.setReferenceSpaceTypeAsync( /*referenceSpaceType = 'local-floor'*/ );
+```javascript
+const referenceSpace = sessionManager.setReferenceSpaceTypeAsync(/*referenceSpaceType = 'local-floor'*/);
 ```
 
 The only thing that is left right now is to prepare the render target and the [XR WebGL Layer](https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer):
 
-``` javascript
-const renderTarget = sessionManager.getWebXRRenderTarget( /*outputCanvasOptions: WebXRManagedOutputCanvasOptions*/ );
+```javascript
+const renderTarget = sessionManager.getWebXRRenderTarget(/*outputCanvasOptions: WebXRManagedOutputCanvasOptions*/);
 const xrWebGLLayer = renderTarget.initializeXRLayerAsync(this.sessionManager.session);
 ```
 
@@ -68,7 +68,7 @@ The session manager is now ready to render the scene using the XR session.
 
 To start rendering the scene use the `runXRRenderLoop` :
 
-``` javascript
+```javascript
 sessionManager.runXRRenderLoop();
 ```
 
@@ -76,7 +76,7 @@ The scene will now render to the XR Device instead of the browser canvas.
 
 To stop rendering, end the session:
 
-``` javascript
+```javascript
 await sessionManager.exitXRAsync();
 ```
 
@@ -94,14 +94,14 @@ Babylon manages the reference space changes for you when you use the teleportati
 
 Using the `getOffsetReferenceSpace` function on the Reference Space object you can change the reference space yourself. Don't forget to update the new reference space in the session manager, otherwise it will not be used in the current scene:
 
-``` javascript
+```javascript
 // move the player 2 units (meters) up:
 
 // height change - move the reference space negative 2 units (up two units):
 const heightChange = new XRRigidTransform({
-    x: 0,
-    y: -2,
-    z: 0
+  x: 0,
+  y: -2,
+  z: 0,
 });
 // get a new reference space object using the current reference space
 const newReferenceSpace = xrSession.referenceSpace.getOffsetReferenceSpace(heightChange);
@@ -115,9 +115,9 @@ Read more about [`getOffsetReferenceSpace`](https://www.w3.org/TR/webxr/#dom-xrr
 
 To get a reference space object using a different `XRReferenceSpaceType`, use the `xrSession.setReferenceSpaceTypeAsync` with the requested reference space type. This will reset the viewer and base reference space as well. This function accepts a new reference mode and is promise based:
 
-``` javascript
+```javascript
 // Session was created using the `local` reference space mode, let's move to `local-floor` :
-const newReferenceSpace = await xrSession.setReferenceSpaceTypeAsync('local-floor');
+const newReferenceSpace = await xrSession.setReferenceSpaceTypeAsync("local-floor");
 
 // The session will take care of updating all reference space objects (base, viewer, and the current one).
 ```
@@ -139,7 +139,7 @@ Will be triggered after the XRSession has ended and Babylon finished with clean-
 
 ### onXRReferenceSpaceChanged
 
- Will be triggered every time a new reference space was applied to the current scene. This is a good way of finding our if the user transported to a new location.
+Will be triggered every time a new reference space was applied to the current scene. This is a good way of finding our if the user transported to a new location.
 
 ## Further functionalities
 

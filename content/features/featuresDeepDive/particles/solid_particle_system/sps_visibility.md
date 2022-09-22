@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Solid Particle System Visibility Issues
-image: 
+image:
 description: Learn some troubleshooting tips for dealing with common SPS visibility issues in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, visibility
 further-reading:

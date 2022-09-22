@@ -1,6 +1,6 @@
 ---
 title: Using Materials
-image: 
+image:
 description: Jump into the exciting world of learning to use Babylon.js materials.
 keywords: diving deeper, materials
 further-reading:

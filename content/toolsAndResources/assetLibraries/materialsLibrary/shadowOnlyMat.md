@@ -1,6 +1,6 @@
 ---
 title: ShadowOnly Material
-image: 
+image:
 description: The Babylon.js materials library ShadowOnlyMaterial displays only shadows casted by a light on a receiving object.
 keywords: library, materials, materials library, shadows, shadow material
 further-reading:
@@ -16,7 +16,7 @@ The goal of the ShadowOnlyMaterial is to display only shadows casted by a light 
 
 ShadowOnly material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js)
 
-A demo can be found here:  PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material"/>
+A demo can be found here: PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material"/>
 
 ## Using the ShadowOnly material
 
@@ -31,10 +31,8 @@ ground.receiveShadows = true
 
 By default the shadow color is black but you can force an artificial color with `material.shadowColor = BABYLON.Color3.Red()`.
 
-Demo here:  PG: <Playground id="#1KF7V1#19" title="Shadow Only Material" description="Example of shadow only material color"/>
+Demo here: PG: <Playground id="#1KF7V1#19" title="Shadow Only Material" description="Example of shadow only material color"/>
 
-**Limitation:** Please note that only the first light that can reach the mesh will be used. 
+**Limitation:** Please note that only the first light that can reach the mesh will be used.
 So if you have multiple lights in your scene you may end up using `light.includedOnlyMeshes` or `light.excludedMeshes` or `light.includeOnlyWithLayerMask` or `light.excludeWithLayerMask`.
 You can also force the material to pick a specific light with `material.activeLight = light`.
-
-

@@ -1,6 +1,6 @@
 ---
 title: Tri-Planar Mapping Material
-image: 
+image:
 description: The Babylon.js materials library tri-planar mapping material provides an elegant technique to give realistic textures from any angle or on any complex shape.
 keywords: library, materials, materials library, tri-planar, tri-planar material
 further-reading:
@@ -18,6 +18,7 @@ Press "1" to activate the Tri-Planar material (by default)
 Press "2" to active the default material
 
 # What are you talking about??
+
 In the case of very large scenes, you are likely to use terrains generated using procedural methods.
 In this case, you'll have to compute the vertices positions, normals and UVs (and so on).
 One of the most tricky tasks should be to generate the UV coordinates properly without taking care of the possible abrupt changes of the terrains.
@@ -65,6 +66,4 @@ triPlanarMaterial.normalTextureY = new BABYLON.Texture("textures/grassn.png", sc
 triPlanarMaterial.normalTextureZ = triPlanarMaterial.normalTextureX;
 ```
 
-
 To go further in the theory, you can read this [great article](http://gamedevelopment.tutsplus.com/articles/use-tri-planar-texture-mapping-for-better-terrain--gamedev-13821) about tri-planar mapping.
-

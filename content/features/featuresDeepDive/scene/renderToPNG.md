@@ -75,15 +75,15 @@ View of Part of Screen Showing Canvas Used
 ![size = 1600](/img/how_to/scene/sh1600x1600.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, 1600)`
 
-![size = \{width:800, height:400\}](/img/how_to/scene/sh800x400.png)  
+![size = {width:800, height:400}](/img/how_to/scene/sh800x400.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, {width:800, height:400})` canvas placed in the middle of image of given size
 
 Precision can be used as a multiplier of the screen resolution.
 
-![size = \{precision: 0.5\}](/img/how_to/scene/sh400p05.png)  
+![size = {precision: 0.5}](/img/how_to/scene/sh400p05.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, {precision: 0.5})`
 
-![size = \{precision: 2\}](/img/how_to/scene/sh400p20.png)  
+![size = {precision: 2}](/img/how_to/scene/sh400p20.png)  
 `BABYLON.Tools.CreateScreenshot(engine, camera, {precision: 2})`
 
 ## CreateScreenshotUsingRenderTarget
@@ -111,15 +111,15 @@ View of Part of Screen Showing Canvas Used
 ![size = 1600](/img/how_to/scene/rt1600x1600.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, 1600)`
 
-![size = \{width:800, height:400\}](/img/how_to/scene/rt800x400.png)  
+![size = {width:800, height:400}](/img/how_to/scene/rt800x400.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {width:800, height:400})` canvas imaged sized as given.
 
 Precision can be used as a multiplier of the screen resolution.
 
-![size = \{precision: 0.5\}](/img/how_to/scene/rt400p05.png)  
+![size = {precision: 0.5}](/img/how_to/scene/rt400p05.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {precision: 0.5})`
 
-![size = \{precision: 2\}](/img/how_to/scene/rt400p20.png)  
+![size = {precision: 2}](/img/how_to/scene/rt400p20.png)  
 `BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, {precision: 2})`
 
 ### Alternative Camera

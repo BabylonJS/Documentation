@@ -1,17 +1,17 @@
 ---
 title: Intro to The Inspector Video Series
-image: 
+image:
 description: Dive into a video series overview of The Inspector in Babylon.js.
 keywords: babylon.js, tools, resources, inspector, debug layer
 further-reading:
-    - title: The Inspector overview
-      url: /toolsAndResources/inspector
-    - title: How To Use The Inspector in Projects
-      url: /toolsAndResources/inspector
-    - title: Dev blog about the inspector
-      url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
-    - title: Using the Texture Inspector
-      url: /toolsAndResources/inspector/textureInspector
+  - title: The Inspector overview
+    url: /toolsAndResources/inspector
+  - title: How To Use The Inspector in Projects
+    url: /toolsAndResources/inspector
+  - title: Dev blog about the inspector
+    url: https://medium.com/@babylonjs/dev-log-creating-the-new-inspector-b15c50900205
+  - title: Using the Texture Inspector
+    url: /toolsAndResources/inspector/textureInspector
 video-overview:
 video-content:
 ---
@@ -64,7 +64,7 @@ In the seventh video of the "Intro to the Inspector" series, Trevor walks you th
 
 <Youtube id="imNGaP3VogU"/>
 
-In the eighth video of the "Intro to the Inspector" series, Patrick walks you through using render pipelines, taking advantage of post-process effects to create stunning images. 
+In the eighth video of the "Intro to the Inspector" series, Patrick walks you through using render pipelines, taking advantage of post-process effects to create stunning images.
 
 ## Part 9: The Tools Tab
 

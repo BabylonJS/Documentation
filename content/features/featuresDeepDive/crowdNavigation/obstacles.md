@@ -1,6 +1,6 @@
 ---
 title: Adding and removing obstacles
-image: 
+image:
 description: Learn how to add and remove obstacles for crowd agents.
 keywords: extensions, babylon.js, crowd, obstacles
 further-reading:
@@ -43,6 +43,7 @@ Also, depending on your use case, this value must be carrefully chosen to trade 
 ## Obstacles API
 
 Once the navigation mesh is updated to take tiles into account, obstacles are accessible thru 3 simple functions:
+
 ```
 addCylinderObstacle(position: Vector3, radius: number, height: number): IObstacle;
 addBoxObstacle(position: Vector3, extent: Vector3, angle: number): IObstacle;

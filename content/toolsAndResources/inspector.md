@@ -244,7 +244,7 @@ myNode.inspectableCustomProperties = [
       { label: "options2", value: 2 }
       }],
       callback: (option)=>{
-      
+
       },
       type: BABYLON.InspectableType.Options,
 
@@ -253,7 +253,7 @@ myNode.inspectableCustomProperties = [
       label: "My button field",
       propertyName: "myButtonField",
       callback: ()=>{
-      
+
       },
       type: BABYLON.InspectableType.Button,
 

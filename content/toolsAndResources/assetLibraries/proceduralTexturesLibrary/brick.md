@@ -1,6 +1,6 @@
 ---
 title: Brick Procedural Texture
-image: 
+image:
 description: Check out the free Brick Procedural Texture.
 keywords: babylon.js, tools, resources, assets, library, procedural texture, brick
 further-reading:
@@ -14,13 +14,15 @@ video-content:
 
 ## Using the Brick procedural texture
 
-Brick procedural texture can be found here: 
+Brick procedural texture can be found here:
+
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#1CL0BO" title="Brick Procedural Texture" description="Brick Procedural Texture"/>
+A demo can be found here: <Playground id="#1CL0BO" title="Brick Procedural Texture" description="Brick Procedural Texture"/>
 
 This texture has 4 parameters :
+
 - **numberOfBricksHeight** controls the number of bricks in height (Int)
 - **numberOfBricksWidth** controls the number of bricks in width (Int)
 - **jointColor** changes the color for the joint between bricks (BABYLON.Color3/4)

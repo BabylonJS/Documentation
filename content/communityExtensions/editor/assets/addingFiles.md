@@ -1,6 +1,6 @@
 ---
 title: Adding files
-image: 
+image:
 description: Understanding how to add files in a Babylon.JS Editor project
 keywords: editor, workspace, assets
 further-reading:
@@ -19,24 +19,25 @@ Each time a file has been added, its thumbnail will be computed if its type is r
 ![AddingFiles](/img/extensions/Editor/AddingFiles/adding-files.gif)
 
 ## Supported meshes formats
-* .babylon
-* .fbx
-* .gltf
-* .glb
-* .obj
-* .stl
+
+- .babylon
+- .fbx
+- .gltf
+- .glb
+- .obj
+- .stl
 
 ## Supported texture formats
-* .png
-* .jpg
-* .bmp
-* .basis
-* .dds (cube texture)
-* .env (cube texture)
+
+- .png
+- .jpg
+- .bmp
+- .basis
+- .dds (cube texture)
+- .env (cube texture)
 
 ## Supported sound formats
-* .mp3
-* .ogg
-* .wav
 
-
+- .mp3
+- .ogg
+- .wav

@@ -190,7 +190,6 @@ further-reading: A list of links to add at the end of this page. Can be internal
 video-overview: A youtube video id to show at the beginning of this page
 video-content: a list of videos (youtube or files) to show at the end of the page.
 ---
-
 ```
 
 For example, this is a part of the metadata in the node_material page:
@@ -222,7 +221,6 @@ video-content:
     url: https://www.youtube.com/playlist?list=PLsaE__vWcRamMC5oJwhrSj3x3jT9TWOPB
   - title: Unraveling Advanced Anisotropic Reflections
 ---
-
 ```
 
 Everything in the metadata is optional and has a different value. However, it is always better to add as much information as possible. This will help people find and use the page. And this is the goal here!

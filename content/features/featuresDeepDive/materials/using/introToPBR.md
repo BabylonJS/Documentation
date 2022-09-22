@@ -1,13 +1,13 @@
 ---
 title: Introduction to Physically Based Rendering
-image: 
+image:
 description: Start learning about Physically Based Rendering in Babylon.js.
 keywords: diving deeper, materials, PBR, Physically Based Rendering
 further-reading:
 video-overview:
 video-content:
 ---
- 
+
 ## Introduction
 
 The aim of Physically Based Rendering, PBR, is to to simulate **real life lighting**.
@@ -73,10 +73,7 @@ pbr.roughness = 0;
 But in this case, we need something to reflect. To define this environment, just add this line:
 
 ```javascript
-pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-  "/textures/environment.dds",
-  scene
-);
+pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/textures/environment.dds", scene);
 ```
 
 This call will create all required data used by the materials to produce final output.
@@ -89,10 +86,7 @@ Perhaps a bit too reflective now, so let's add more roughness to give it a more 
 pbr.baseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 pbr.metallic = 1.0;
 pbr.roughness = 0.4;
-pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-  "/textures/environment.dds",
-  scene
-);
+pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/textures/environment.dds", scene);
 ```
 
 <Playground id="#2FDQT5#12" title="Reflective Surface With Roughness Using PBR" description="Simple example of a reflective surface with roughness using PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro3.jpg"/>
@@ -103,10 +97,7 @@ To get more precise over how metallic and roughness on your object, you can also
 pbr.baseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 pbr.metallic = 1.0; // set to 1 to only use it from the metallicRoughnessTexture
 pbr.roughness = 1.0; // set to 1 to only use it from the metallicRoughnessTexture
-pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-  "/textures/environment.dds",
-  scene
-);
+pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/textures/environment.dds", scene);
 pbr.metallicRoughnessTexture = new BABYLON.Texture("/textures/mr.jpg", scene);
 ```
 
@@ -129,10 +120,7 @@ var pbr = new BABYLON.PBRSpecularGlossinessMaterial("pbr", scene);
 pbr.diffuseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 pbr.specularColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 pbr.glossiness = 0.4;
-pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-  "/textures/environment.dds",
-  scene
-);
+pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/textures/environment.dds", scene);
 ```
 
 <Playground id="#Z1VL3V#5" title="Surface Glossiness With PBR" description="Simple example of surface glossiness with PBR in your scene." image="/img/playgroundsAndNMEs/divingDeeperPBRIntro5.jpg"/>
@@ -143,10 +131,7 @@ The specularGlossinessTexture can then (like the metallicRoughnessTexture textur
 pbr.diffuseColor = new BABYLON.Color3(1.0, 0.766, 0.336);
 pbr.specularColor = new BABYLON.Color3(1.0, 1.0, 1.0);
 pbr.glossiness = 1.0;
-pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-  "/textures/environment.dds",
-  scene
-);
+pbr.environmentTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/textures/environment.dds", scene);
 pbr.specularGlossinessTexture = new BABYLON.Texture("/textures/sg.png", scene);
 ```
 

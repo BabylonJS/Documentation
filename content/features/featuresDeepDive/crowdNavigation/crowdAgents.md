@@ -1,6 +1,6 @@
 ---
 title: Crowd Agents
-image: 
+image:
 description: Learn how to create crowd agents that follow a path along a navigation mesh.
 keywords: extensions, babylon.js, crowd
 further-reading:
@@ -39,6 +39,7 @@ And that's it! You will get a non moving agent. We now want to move it.
 ```
 crowd.agentGoto(agentIndex, navigationPlugin.getClosestPoint(endPoint));
 ```
+
 This code will get the closest position on the navmesh to endPoint. Then it asks the agent to go to that position.
 Depending on your agent parameters, it will get there faster of slower.
 
@@ -73,7 +74,7 @@ You can teleport an agent to any position using this call:
 crowd.agentTeleport(agentIndex, navigationPlugin.getClosestPoint(destinationPoint));
 ```
 
-Please note the navigation state is reseted when teleporting. You'll have to call ```agentGoto``` to choose a new destination.
+Please note the navigation state is reseted when teleporting. You'll have to call `agentGoto` to choose a new destination.
 
 ## Agent orientation and next path target
 
@@ -89,6 +90,7 @@ if (velocity.length() > 0.2)
     ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
 }
 ```
+
 In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting."/>
 
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.
@@ -98,6 +100,7 @@ The agent's cube is oriented by the velocity and a grey little box is placed at 
 An observable automaticaly fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number propery in the `IAgentParameters` object.
 If there are too many agents in the crowd trying to reach the same destination, a bottleneck can happen and few agents will reach destination. Be sure to properly set those values.
 To add an observable, simply add your function:
+
 ```
 var crowd = navigationPlugin.createCrowd(10, 0.1, scene);
 ...

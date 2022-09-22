@@ -1,6 +1,6 @@
 ---
 title: The Skeleton Viewer
-image: 
+image:
 description: Learn all about the Skeleton Viewer in Babylon.js.
 keywords: babylon.js, tools, resources, skeleton, viewer, rigging, bones
 further-reading:

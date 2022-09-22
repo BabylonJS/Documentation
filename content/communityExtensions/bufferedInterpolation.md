@@ -1,10 +1,10 @@
 ---
 title: Babylon Buffered Interpolation
-image: 
+image:
 description: Awesome package for interpolation of position, rotation, scale data of networked Babylon.js objects.
 keywords: extensions, network, interpolation, networked objects
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 

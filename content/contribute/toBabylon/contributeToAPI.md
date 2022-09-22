@@ -1,6 +1,6 @@
 ---
 title: Contribute To The API
-image: 
+image:
 description: Learn how to contribute to the Babylon.js API.
 keywords: diving deeper, contribution, contribute, open-source, oss, API, develope
 further-reading:
@@ -150,7 +150,7 @@ export class MapperManager {
     this._mappers = {
       html: new HTMLMapper(),
       json: new JSONMapper(),
-      dom: new DOMMapper()
+      dom: new DOMMapper(),
     };
   }
 }

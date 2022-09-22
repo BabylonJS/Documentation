@@ -4,8 +4,8 @@ image:
 description: Learn how to rotate around an axis in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, axis rotation
 further-reading:
-    - title: Using a Pivot
-      url: /features/featuresDeepDive/mesh/transforms/parent_pivot/pivots
+  - title: Using a Pivot
+    url: /features/featuresDeepDive/mesh/transforms/parent_pivot/pivots
 video-overview:
 video-content:
 ---
@@ -23,10 +23,10 @@ The Pilot
 
 In each of the following examples there is
 
--   a center of rotation at CoR_At;
--   a marker mesh for the center of rotation, a small sphere positioned at CoR_At;
--   an axis to rotate around
--   the pilot mesh at a starting position relative to the center of rotation, pilotStart.
+- a center of rotation at CoR_At;
+- a marker mesh for the center of rotation, a small sphere positioned at CoR_At;
+- an axis to rotate around
+- the pilot mesh at a starting position relative to the center of rotation, pilotStart.
 
 ## How to Use TransformNode as a Center of Rotation
 
@@ -83,7 +83,7 @@ pilot.setPivotMatrix(BABYLON.Matrix.Translation(pivotTranslate.x, pivotTranslate
 /*-------------------Rotation Animation--------------------*/
 var angle = 0.025;
 scene.registerAfterRender(function () {
-    pilot.rotate(axis, angle, BABYLON.Space.LOCAL);
+  pilot.rotate(axis, angle, BABYLON.Space.LOCAL);
 });
 ```
 

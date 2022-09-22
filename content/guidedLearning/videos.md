@@ -1,6 +1,6 @@
 ---
 title: Videos
-image: 
+image:
 description: Early videos from the start of Babylon.js
 keywords: videos, early
 further-reading:

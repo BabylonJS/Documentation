@@ -1,13 +1,13 @@
 ---
 title: Shader Material
-image: 
+image:
 description: Learn about the shader material in Babylon.js.
 keywords: babylon.js, advanced, shader material
 further-reading:
-    - title: Introduction To Shaders inBabylon.js
-      url: /features/featuresDeepDive/materials/shaders/introToShaders
-    - title: How To Put Shader Code inBabylon.js
-      url: /features/featuresDeepDive/materials/shaders/shaderCodeInBjs
+  - title: Introduction To Shaders inBabylon.js
+    url: /features/featuresDeepDive/materials/shaders/introToShaders
+  - title: How To Put Shader Code inBabylon.js
+    url: /features/featuresDeepDive/materials/shaders/shaderCodeInBjs
 video-overview:
 video-content:
 ---
@@ -16,7 +16,7 @@ video-content:
 
 The ShaderMaterial object has the necessary methods to pass data from your scene to the Vertex and Fragment Shaders and returns a material that can be applied to any mesh. This returned material effects how the mesh will look based on the code in the shaders.
 
-It is called by 
+It is called by
 
 ```javascript
 var myShaderMaterial = new BABYLON.ShaderMaterial(name, scene, route, options);
@@ -25,10 +25,11 @@ var myShaderMaterial = new BABYLON.ShaderMaterial(name, scene, route, options);
 - `name`: a string, naming the shader
 - `scene`: the scene in which the shader is to be used
 - `route`: the route to the shader code in one of three ways:
-    1. object: `{ vertex: "custom", fragment: "custom" }`, used with `BABYLON.Effect.ShadersStore["customVertexShader"]` and `BABYLON.Effect.ShadersStore["customFragmentShader"]`
-    2. object: `{ vertexElement: "vertexShaderCode", fragmentElement: "fragmentShaderCode" }`, used with shader code in `<script>` tags
-    3. object: `{ vertexSource: "vertex shader code string", fragmentSource: "fragment shader code string" }` using with strings containing the shaders code
-    4. string: `"./COMMON_NAME"`, used with external files *COMMON\_NAME.vertex.fx* and *COMMON\_NAME.fragment.fx* in *index.html* folder.
+
+  1. object: `{ vertex: "custom", fragment: "custom" }`, used with `BABYLON.Effect.ShadersStore["customVertexShader"]` and `BABYLON.Effect.ShadersStore["customFragmentShader"]`
+  2. object: `{ vertexElement: "vertexShaderCode", fragmentElement: "fragmentShaderCode" }`, used with shader code in `<script>` tags
+  3. object: `{ vertexSource: "vertex shader code string", fragmentSource: "fragment shader code string" }` using with strings containing the shaders code
+  4. string: `"./COMMON_NAME"`, used with external files _COMMON_NAME.vertex.fx_ and _COMMON_NAME.fragment.fx_ in _index.html_ folder.
 
 - `options`: object containing attributes and uniforms arrays containing their names as strings.
 
@@ -45,6 +46,7 @@ var myShaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAM
         needAlphaTesting: true
 });
 ```
+
 **Note**: that's the exhaustive list of available attributes, uniforms.
 
 Any attribute in the Vertex Shader code **must** appear in the `attributes` array.
@@ -57,7 +59,7 @@ if your shader code contains #define values, you can specify the ones you want t
 
 Uniforms assigned to textures in the shader code must be present in the samplers array, all other uniforms must be present in the uniforms array.
 
-Textures are passed, for example, as 
+Textures are passed, for example, as
 
 ```javascript
 var amigaTexture = new BABYLON.Texture("amiga.jpg", scene);

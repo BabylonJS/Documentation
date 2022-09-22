@@ -1,6 +1,6 @@
 ---
 title: Occlusion Queries
-image: 
+image:
 description: Learn all about leveraging occlusion queries in Babylon.js.
 keywords: diving deeper, occlusion queries
 further-reading:
@@ -25,7 +25,7 @@ Babylon.js engine draw a light transparent bounding box on the targeted Mesh bef
 To use the Occlusion Queries on a Mesh
 
 ```javascript
-var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
+var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
 sphere.occlusionType = BABYLON.AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC;
 ```
 
@@ -40,8 +40,9 @@ sphere.isOccluded = true;
 ## Advanced
 
 As described earlier the Occlusion Queries result is asynchronous and it may take some time to get the result and because of this the object would take many frames to be loaded waiting for the query result. In this case you can use property `occlusionRetryCount` to set the number of waiting frames before query get broken. Once a break happens you will need to decide whether to draw the object or to maintain its state, property `occlusionType` is used for this reason as you have 2 options
-1) OCCLUSION_TYPE_OPTIMISTIC: this option will render the mesh if a break is happened.
-2) OCCLUSION_TYPE_STRICT: this option will restore the last state of the object whether visible continue as visible or hidden continue as hidden.
+
+1. OCCLUSION_TYPE_OPTIMISTIC: this option will render the mesh if a break is happened.
+2. OCCLUSION_TYPE_STRICT: this option will restore the last state of the object whether visible continue as visible or hidden continue as hidden.
 
 As a scenario of using restrict and optimistic if you have 2 expensive objects in your scene one of them is a must render object so you could set `occlusionRetryCount` and set the occlusionType to optimistic so your object will be rendered in case the query result is not available. If your object can wait till the query is available, don't set the `occlusionRetryCount` or set the property while use occlusionType as Strict so if the object was rendered in the last scene re-render it again in the current scene else hide it.
 

@@ -58,22 +58,22 @@ To use the polyfill in the playground, please add the following code to your pla
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
-    if (navigator.xr) {
-        return resolve();
-    }
-    if (window.WebXRPolyfill) {
-        new WebXRPolyfill();
-        return resolve();
-    } else {
-        const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
-        const s = document.createElement("script");
-        s.src = url;
-        document.head.appendChild(s);
-        s.onload = () => {
-            new WebXRPolyfill();
-            resolve();
-        };
-    }
+  if (navigator.xr) {
+    return resolve();
+  }
+  if (window.WebXRPolyfill) {
+    new WebXRPolyfill();
+    return resolve();
+  } else {
+    const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
+    const s = document.createElement("script");
+    s.src = url;
+    document.head.appendChild(s);
+    s.onload = () => {
+      new WebXRPolyfill();
+      resolve();
+    };
+  }
 });
 ```
 
@@ -81,22 +81,22 @@ afterwards, make sure to `await` it before initializing WebXR:
 
 ```javascript
 const xrPolyfillPromise = new Promise((resolve) => {
-    if (navigator.xr) {
-        return resolve();
-    }
-    if (window.WebXRPolyfill) {
-        new WebXRPolyfill();
-        return resolve();
-    } else {
-        const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
-        const s = document.createElement("script");
-        s.src = url;
-        document.head.appendChild(s);
-        s.onload = () => {
-            new WebXRPolyfill();
-            resolve();
-        };
-    }
+  if (navigator.xr) {
+    return resolve();
+  }
+  if (window.WebXRPolyfill) {
+    new WebXRPolyfill();
+    return resolve();
+  } else {
+    const url = "https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js";
+    const s = document.createElement("script");
+    s.src = url;
+    document.head.appendChild(s);
+    s.onload = () => {
+      new WebXRPolyfill();
+      resolve();
+    };
+  }
 });
 
 var createScene = async function () {
@@ -168,30 +168,29 @@ Make sure to read more on the [WebXR Experience Helper](/features/featuresDeepDi
 
 When using [Babylon.js ES6 support with tree shaking](divingDeeper/developWithBjs/treeShaking), import WebXR modules from:
 
-* `@babylonjs/core/XR/*`
+- `@babylonjs/core/XR/*`
 
 And import loaders and side-effects for loading default controller models from the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository.
 
 For example:
 
 ```javascript
-import { WebXRDefaultExperience } from '@babylonjs/core/XR/webXRDefaultExperience.js'
+import { WebXRDefaultExperience } from "@babylonjs/core/XR/webXRDefaultExperience.js";
 
 // Enable GLTF/GLB loader for loading controller models from WebXR Input registry
-import '@babylonjs/loaders/glTF'
+import "@babylonjs/loaders/glTF";
 
 // Without this next import, an error message like this occurs loading controller models:
 //  Build of NodeMaterial failed" error when loading controller model
 //  Uncaught (in promise) Build of NodeMaterial failed: input rgba from block
 //  FragmentOutput[FragmentOutputBlock] is not connected and is not optional.
-import '@babylonjs/core/Materials/Node/Blocks'
-
+import "@babylonjs/core/Materials/Node/Blocks";
 ```
 
 See also:
 
-* [WebXR Controllers Support](/features/featuresDeepDive/webXR/webXRInputControllerSupport)
-* [WebXR with Vite](/features/featuresDeepDive/webXR/webXRDemos#webxr-with-vite)
+- [WebXR Controllers Support](/features/featuresDeepDive/webXR/webXRInputControllerSupport)
+- [WebXR with Vite](/features/featuresDeepDive/webXR/webXRDemos#webxr-with-vite)
 
 ## Migrating from WebVR
 

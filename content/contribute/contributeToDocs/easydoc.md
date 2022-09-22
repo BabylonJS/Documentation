@@ -14,7 +14,7 @@ video-content:
 
 This is the quickest way to correct spelling and grammar errors or to add sentences or paragraph or two to clarify an explanation.
 
-Requirements: you just need a [Github](https://github.com) account and a Fork of  the [Documentation](https://github.com/BabylonJS/Documentation) repository.
+Requirements: you just need a [Github](https://github.com) account and a Fork of the [Documentation](https://github.com/BabylonJS/Documentation) repository.
 
 At the bottom of each Documentation page you will see the github icon
 

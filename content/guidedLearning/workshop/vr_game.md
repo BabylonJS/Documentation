@@ -10,7 +10,7 @@ video-content:
 
 WebVR is deprecated and was removed from most (if not all) modern browsers. **it is strongly recommended that projects use the [WebXR experience helper](/features/featuresDeepDive/webXR/webXRExperienceHelpers) instead of WebVR**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
 
-We leave this information since the code, apart from the direct interface to WebVR,  can be used in other projects.
+We leave this information since the code, apart from the direct interface to WebVR, can be used in other projects.
 
 A simple WebVR gamelet to show how to implement key VR features.
 
@@ -24,10 +24,10 @@ The scene is very simple. The pickable object is steadily rotating around you. W
 
 This scene shows:
 
--   Creating a [simple reticle](#reticle)
--   [Dynamic GUI](#dynamic-gui)
--   [VR Camera](#vr-cameras)
--   [Spatial Sound](#spatial-sound)
+- Creating a [simple reticle](#reticle)
+- [Dynamic GUI](#dynamic-gui)
+- [VR Camera](#vr-cameras)
+- [Spatial Sound](#spatial-sound)
 
 ### Reticle
 
@@ -53,19 +53,19 @@ We put the funciton in registerBeforeRender() so that it gets continually update
 ```javascript
 /*The function that runs to determine the behavior of the reticle.*/
 function castRay() {
-    var ray = camera.getForwardRay();
+  var ray = camera.getForwardRay();
 
-    var hit = scene.pickWithRay(ray);
+  var hit = scene.pickWithRay(ray);
 
-    if (hit.pickedMesh) {
-        reticle.material.emissiveColor = BABYLON.Color3.Green();
-    } else {
-        reticle.material.emissiveColor = BABYLON.Color3.Red();
-    }
+  if (hit.pickedMesh) {
+    reticle.material.emissiveColor = BABYLON.Color3.Green();
+  } else {
+    reticle.material.emissiveColor = BABYLON.Color3.Red();
+  }
 }
 
 scene.registerBeforeRender(function () {
-    castRay();
+  castRay();
 });
 ```
 
@@ -73,11 +73,11 @@ In order for the reticle to move with the VR Camera as well as the Web camera, w
 
 ```javascript
 VRHelper.onEnteringVR = function () {
-    console.log(VRHelper.currentVRCamera);
-    reticle.parent = VRHelper.currentVRCamera;
+  console.log(VRHelper.currentVRCamera);
+  reticle.parent = VRHelper.currentVRCamera;
 };
 VRHelper.onExitingVR = function () {
-    reticle.parent = camera;
+  reticle.parent = camera;
 };
 ```
 

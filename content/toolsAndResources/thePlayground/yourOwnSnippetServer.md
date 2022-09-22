@@ -1,6 +1,6 @@
 ---
 title: Make your own Snippet Server
-image: 
+image:
 description: Learn about the snippet server and how you can implement and use your own
 keywords: babylon.js, tools
 further-reading:
@@ -28,54 +28,54 @@ When saving a snippet (like when we click the button "Save" on the Playground), 
 
 ```javascript
 app.post("/:id?", (req, res) => {
-    let id = req.params.id;
-    let version;
+  let id = req.params.id;
+  let version;
 
-    if (!id) {
-        // Generate "random" 5 character string
-        const genRndChar = () => {
-            const idx = Math.floor(Math.random() * chars.length);
-            return chars[idx];
-        };
+  if (!id) {
+    // Generate "random" 5 character string
+    const genRndChar = () => {
+      const idx = Math.floor(Math.random() * chars.length);
+      return chars[idx];
+    };
 
-        id = "";
-        for (let i = 0; i < ID_LEN; i++) {
-            id += genRndChar();
-        }
+    id = "";
+    for (let i = 0; i < ID_LEN; i++) {
+      id += genRndChar();
     }
+  }
 
-    const metadataPath = METADATA_DIR + id + METADATA_EXT;
-    // Look for the latest version in the metadata directory. If there is no metadata file, then it is the first version.
-    if (fs.existsSync(metadataPath)) {
-        version = fs.readFileSync(metadataPath, {encoding: 'utf-8'});
-        // Increment the version and convert back to string
-        version = Number.parseInt(version) + 1;
-        version = version + "";
-    } else {
-        version = "1";
-    }
+  const metadataPath = METADATA_DIR + id + METADATA_EXT;
+  // Look for the latest version in the metadata directory. If there is no metadata file, then it is the first version.
+  if (fs.existsSync(metadataPath)) {
+    version = fs.readFileSync(metadataPath, { encoding: "utf-8" });
+    // Increment the version and convert back to string
+    version = Number.parseInt(version) + 1;
+    version = version + "";
+  } else {
+    version = "1";
+  }
 
-    const newLocalToken = id + LOCAL_SEPARATOR + version;
-    
-    fs.writeFileSync(metadataPath, version);
+  const newLocalToken = id + LOCAL_SEPARATOR + version;
 
-    const filePath = DATA_DIR + newLocalToken + FILE_EXT;
-    const stringBody = JSON.stringify(req.body);
-    fs.writeFileSync(filePath, stringBody);
-    
-    res.status(200).json({
-        id,
-        version
-    });
+  fs.writeFileSync(metadataPath, version);
+
+  const filePath = DATA_DIR + newLocalToken + FILE_EXT;
+  const stringBody = JSON.stringify(req.body);
+  fs.writeFileSync(filePath, stringBody);
+
+  res.status(200).json({
+    id,
+    version,
+  });
 });
 ```
 
 The request body itself is a JSON containing the following attributes:
 
-* payload: That's the content itself in the form of a string, which may be a JavaScript/TypeScript code string in the case of the Playground, or a JSON string in the case of Animations.
-* name
-* description
-* tags
+- payload: That's the content itself in the form of a string, which may be a JavaScript/TypeScript code string in the case of the Playground, or a JSON string in the case of Animations.
+- name
+- description
+- tags
 
 The response body is also a JSON, and should contain the snippet ID and snippet version as attributes.
 
@@ -85,25 +85,25 @@ When retrieving a snippet, a [HTTP GET](https://developer.mozilla.org/en-US/docs
 
 ```javascript
 app.get("/:id/:version?", (req, res) => {
-    const id = req.params.id;
-    const version = req.params.version || "1";
-    
-    const localToken = id + LOCAL_SEPARATOR + version;
-    const path = DATA_DIR + localToken + FILE_EXT;
-    
-    if (fs.existsSync(path)) {
-        const rawData = fs.readFileSync(path);
-        const parsedData = JSON.parse(rawData);
-        
-        res.status(200).json({
-            name: parsedData.name,
-            description: parsedData.description,
-            tags: parsedData.tags,
-            jsonPayload: parsedData.payload
-        });
-    } else {
-        res.status(404).send();
-    }
+  const id = req.params.id;
+  const version = req.params.version || "1";
+
+  const localToken = id + LOCAL_SEPARATOR + version;
+  const path = DATA_DIR + localToken + FILE_EXT;
+
+  if (fs.existsSync(path)) {
+    const rawData = fs.readFileSync(path);
+    const parsedData = JSON.parse(rawData);
+
+    res.status(200).json({
+      name: parsedData.name,
+      description: parsedData.description,
+      tags: parsedData.tags,
+      jsonPayload: parsedData.payload,
+    });
+  } else {
+    res.status(404).send();
+  }
 });
 ```
 

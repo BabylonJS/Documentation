@@ -1,13 +1,13 @@
 ---
 title: 360 Video Domes
-image: 
+image:
 description: Learn all about Babylon.js 360 video domes.
 keywords: diving deeper, environment, 360 video, dome, 360 video dome, video dome
 further-reading:
-    - title: VideoDome
-      url: /typedoc/classes/VideoDome
-    - title: Video as a Texture
-      url: /features/featuresDeepDive/materials/using/videoTexture
+  - title: VideoDome
+    url: /typedoc/classes/VideoDome
+  - title: Video as a Texture
+    url: /features/featuresDeepDive/materials/using/videoTexture
 video-overview:
 video-content:
 ---
@@ -27,7 +27,7 @@ The source video itself should be "Equirectangular", without an equirectangular 
 
 Within the playground you can copy and paste the following into your scene and then adjust the options.
 
-``` javascript
+```javascript
 videoDome = new BABYLON.VideoDome("videoDome", url, { < options >
 }, scene);
 ```
@@ -36,38 +36,36 @@ All of the settings in the options object are optional, but the object itself is
 
 All the options are based through the corresponding classes, mainly the dome geometry and the VideoTexture:
 
-* resolution = 32: Integer, defines the resolution of the sphere used to host the video. Lower resolutions have more artifacts at extreme fovs
-* clickToPlay = false: Add a click to play listener to the video, does not prevent autoplay
-* autoPlay = true: Automatically attempt to begin playing the video. Will auto mute the audio and try again if 1st attempt to play fails due to browser policy.
-* loop = true: Automatically loop video on end
-* size = 1000: Physical radius to create the dome at, defaults to approximately half the far clip plane
-* poster: URL of the image displayed during the video loading or until the user interacts with the video
-* useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
-* halfDomeMode = false: Enable the support for 180 videos instead of 360.
+- resolution = 32: Integer, defines the resolution of the sphere used to host the video. Lower resolutions have more artifacts at extreme fovs
+- clickToPlay = false: Add a click to play listener to the video, does not prevent autoplay
+- autoPlay = true: Automatically attempt to begin playing the video. Will auto mute the audio and try again if 1st attempt to play fails due to browser policy.
+- loop = true: Automatically loop video on end
+- size = 1000: Physical radius to create the dome at, defaults to approximately half the far clip plane
+- poster: URL of the image displayed during the video loading or until the user interacts with the video
+- useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
+- halfDomeMode = false: Enable the support for 180 videos instead of 360.
 
 <Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoDome1.jpg"/>
 
-
 ## Auto Play
 
-Modern browsers have strict policies for auto playing video. See  [VideoTexture](/features/featuresDeepDive/materials/using/videoTexture) documentation for details.  The underlying VideoTexture used by VideoDome is available as `videoTexture`.  Code to manually play video might look like this:
+Modern browsers have strict policies for auto playing video. See [VideoTexture](/features/featuresDeepDive/materials/using/videoTexture) documentation for details. The underlying VideoTexture used by VideoDome is available as `videoTexture`. Code to manually play video might look like this:
 
-``` javascript
+```javascript
 scene.onPointerDown = function () {
-    videoDome.videoTexture.video.play();
-    scene.onPointerDown = null;
+  videoDome.videoTexture.video.play();
+  scene.onPointerDown = null;
 };
-
 ```
 
-That is essentially what the `clickToPlay=true` option does. However, there can be non-obvious interactions with `autoPlay` in certain browsers, especially when `autoPlay=false`.  
+That is essentially what the `clickToPlay=true` option does. However, there can be non-obvious interactions with `autoPlay` in certain browsers, especially when `autoPlay=false`.
 
 ## FOV adjustment
 
 Sometimes 360 Video can feel an uncomfortable distance from the camera, to help with this a material based FOV adjustment is available.
 Adjust it between 0.0 and 2.0 with the following code.
 
-``` javascript
+```javascript
 videoDome.fovMultiplier = newValue;
 ```
 
@@ -85,7 +83,7 @@ The first one represents a panoramic view which is dedicated to one eye. The sec
 
 In the video Dome you can change adapt to the type of your source video by using :
 
-``` javascript
+```javascript
 videoDome.videoMode = BABYLON.VideoDome.MODE_MONOSCOPIC;
 // or
 videoDome.videoMode = BABYLON.VideoDome.MODE_SIDEBYSIDE;
@@ -99,31 +97,34 @@ Another format of VR-enabled videos are the 180 degrees videos. The front of the
 
 There are two ways to enable the 180 video mode (which we call `half dome mode` ):
 
-* During construction enable the halfDomeMode in the options:
+- During construction enable the halfDomeMode in the options:
 
-``` javascript
+```javascript
 let videoDome = new BABYLON.VideoDome(
-    "videoDome",
-    ["https://videourl.com/videos/180.mp4"], {
-        resolution: 32,
-        clickToPlay: true,
-        halfDomeMode: true
-    },
-    scene
+  "videoDome",
+  ["https://videourl.com/videos/180.mp4"],
+  {
+    resolution: 32,
+    clickToPlay: true,
+    halfDomeMode: true,
+  },
+  scene,
 );
 ```
 
-* set `videoDome.halfDome` to true : 
+- set `videoDome.halfDome` to true :
 
-``` javascript
+```javascript
 let videoDome = ....
 videoDome.halfDome = true;
 ```
 
-
 ## Disposal
+
 When disposing a video dome, the second parameter is important to make sure the texture resources are also disposed.
+
 ```javascript
-videoDome.dispose(false, true)
+videoDome.dispose(false, true);
 ```
-See also documentation regarding [VideoTexture disposal](/features/featuresDeepDive/materials/using/videoTexture#disposal). 
+
+See also documentation regarding [VideoTexture disposal](/features/featuresDeepDive/materials/using/videoTexture#disposal).

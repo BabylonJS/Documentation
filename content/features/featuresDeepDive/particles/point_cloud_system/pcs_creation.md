@@ -1,6 +1,6 @@
 ---
 title: Creating A Point Cloud System
-image: 
+image:
 description: Learn how to create a point cloud system in Babylon.js.
 keywords: diving deeper, point cloud, point cloud system
 further-reading:
@@ -28,13 +28,13 @@ pcs.addPoints(10000);
 
 will add 10000 points.
 
--   <Playground id="#UI95UC" title="Adding Point Cloud Points" description="Simple example of adding point cloud points."/>
+- <Playground id="#UI95UC" title="Adding Point Cloud Points" description="Simple example of adding point cloud points."/>
 
 You can use your own function as a second parameter to set particle properties such as position and color. This function must have this kind of signature:
 
 ```javascript
 var myFunc = function (particle, i, s) {
-    // particle is the current particle, the i-th one in the PCS and the s-th one in its group
+  // particle is the current particle, the i-th one in the PCS and the s-th one in its group
 };
 ```
 
@@ -42,8 +42,8 @@ For example using i;
 
 ```javascript
 var myfunc = function (particle, i, s) {
-    particle.position = new BABYLON.Vector3(0.5 + 0.25 * Math.random(), i / 5000, 0.25 * Math.random());
-    particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
+  particle.position = new BABYLON.Vector3(0.5 + 0.25 * Math.random(), i / 5000, 0.25 * Math.random());
+  particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
 };
 pcs.addPoints(10000, myfunc);
 pcs.addPoints(10000, myfunc);
@@ -53,8 +53,8 @@ will produce a tall block of points whose heights cover the full range of 20000 
 
 ```javascript
 var myfunc = function (particle, i, s) {
-    particle.position = new BABYLON.Vector3(0.5 + 0.25 * Math.random(), s / 5000, 0.25 * Math.random());
-    particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
+  particle.position = new BABYLON.Vector3(0.5 + 0.25 * Math.random(), s / 5000, 0.25 * Math.random());
+  particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
 };
 pcs.addPoints(10000, myfunc);
 pcs.addPoints(10000, myfunc);
@@ -68,8 +68,8 @@ In addition the use of `particle.groupId` can have an effect on all particles wi
 
 ```javascript
 var myfunc = function (particle, i, s) {
-    particle.position = new BABYLON.Vector3(particle.groupId * 0.5 + 0.25 * Math.random(), i / 5000, 0.25 * Math.random());
-    particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
+  particle.position = new BABYLON.Vector3(particle.groupId * 0.5 + 0.25 * Math.random(), i / 5000, 0.25 * Math.random());
+  particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random());
 };
 pcs.addPoints(10000, myfunc);
 pcs.addPoints(10000, myfunc);
@@ -79,7 +79,7 @@ will displace the second group of points along the x axis.
 
 ![use groupId](/img/how_to/particles/points2.jpg)
 
--   <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points."/>
+- <Playground id="#UI95UC#1" title="Pass A Function" description="Simple example of passing a function to add point cloud points."/>
 
 ## Add Surface / Volume Points
 
@@ -137,36 +137,36 @@ Of course when you import a model you may not know how many child meshes the mod
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) {
-    var n = meshes.length;
-    var p;
-    var t;
-    for (var i = 0; i < n; i++) {
-        if (meshes[i].material !== null) {
-            console.log("Mesh", i);
-            t = meshes[i].material.getActiveTextures();
-            p = t.length;
-            for (var j = 0; j < p; j++) {
-                console.log("Texture", j, "Name", t[j].name);
-            }
-        }
+  var n = meshes.length;
+  var p;
+  var t;
+  for (var i = 0; i < n; i++) {
+    if (meshes[i].material !== null) {
+      console.log("Mesh", i);
+      t = meshes[i].material.getActiveTextures();
+      p = t.length;
+      for (var j = 0; j < p; j++) {
+        console.log("Texture", j, "Name", t[j].name);
+      }
     }
+  }
 });
 ```
 
 **Examples**
 
--   <Playground id="#UI95UC#2" title="Random Surface" description="Simple example of a point cloud system with random surfaces."/>
--   <Playground id="#UI95UC#3" title="Stated Surface" description="Simple example of a point cloud system with stated surfaces"/>
--   <Playground id="#UI95UC#4" title="Surface Color from Mesh Color" description="Simple example of a point cloud system with surface color from mesh color."/>
--   <Playground id="#UI95UC#5" title="Surface Color from Mesh Texture" description="Simple example of a point cloud system with surface color from mesh texture."/>
--   <Playground id="#UI95UC#6" title="Surface UV from Mesh Texture" description="Simple example of a point cloud system with surface UV from mesh texture."/>
--   <Playground id="#UI95UC#28" title="Surface Color from Imported Mesh Texture" description="Simple example of a point cloud system with surface color from an imported mesh texture."/>
--   <Playground id="#UI95UC#7" title="Random Volume" description="Simple example of a point cloud system with random volume."/>
--   <Playground id="#UI95UC#8" title="Stated Volume" description="Simple example of a point cloud system with stated volume."/>
--   <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color."/>
--   <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture."/>
--   <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture."/>
--   <Playground id="#UI95UC#28" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture."/>
+- <Playground id="#UI95UC#2" title="Random Surface" description="Simple example of a point cloud system with random surfaces."/>
+- <Playground id="#UI95UC#3" title="Stated Surface" description="Simple example of a point cloud system with stated surfaces"/>
+- <Playground id="#UI95UC#4" title="Surface Color from Mesh Color" description="Simple example of a point cloud system with surface color from mesh color."/>
+- <Playground id="#UI95UC#5" title="Surface Color from Mesh Texture" description="Simple example of a point cloud system with surface color from mesh texture."/>
+- <Playground id="#UI95UC#6" title="Surface UV from Mesh Texture" description="Simple example of a point cloud system with surface UV from mesh texture."/>
+- <Playground id="#UI95UC#28" title="Surface Color from Imported Mesh Texture" description="Simple example of a point cloud system with surface color from an imported mesh texture."/>
+- <Playground id="#UI95UC#7" title="Random Volume" description="Simple example of a point cloud system with random volume."/>
+- <Playground id="#UI95UC#8" title="Stated Volume" description="Simple example of a point cloud system with stated volume."/>
+- <Playground id="#UI95UC#9" title="Volume Color from Mesh Color" description="Simple example of a point cloud system with volume color from mesh color."/>
+- <Playground id="#UI95UC#10" title="Volume Color From Mesh Texture" description="Simple example of a point cloud system with volume color from a mesh texture."/>
+- <Playground id="#UI95UC#11" title="Volume UV from Mesh Texture" description="Simple example of a point cloud system with volume UV from a mesh texture."/>
+- <Playground id="#UI95UC#28" title="Volume Color From Imported Mesh Texture" description="Simple example of a point cloud system with volume color from an imported mesh texture."/>
 
 ## Building the Mesh
 

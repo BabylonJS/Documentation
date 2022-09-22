@@ -44,9 +44,9 @@ private _setupPlayerCamera(): UniversalCamera {
 
 Here's a breakdown of the hierarchy for the camera system:
 
--   \_camRoot: TransformNode
-    -   \_yTilt: TransformNode
-        -   camera: UniversalCamera
+- \_camRoot: TransformNode
+  - \_yTilt: TransformNode
+    - camera: UniversalCamera
 
 **\_camRoot** is our root parent that handles the overall positioning of our camera. It's in charge of updating its position to follow the player's position and is located at the center of the player.
 

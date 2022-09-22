@@ -33,11 +33,13 @@ faceUV[0] = new BABYLON.Vector4(0, 0.5, 0.38, 1);
 ```
 
 The top of the car body uses the same image but it needs flipping over to fit the other side of the car.
+
 ```javascript
 faceUV[2] = new BABYLON.Vector4(0.38, 1, 0, 0.5);
 ```
 
 The edge runs from (0, 0) to (1, 0.5)
+
 ```javascript
 faceUV[1] = new BABYLON.Vector4(0, 0, 1, 0.5);
 ```
@@ -51,10 +53,11 @@ wheelUV[0] = new BABYLON.Vector4(0, 0, 1, 1);
 wheelUV[1] = new BABYLON.Vector4(0, 0.5, 0, 0.5);
 wheelUV[2] = new BABYLON.Vector4(0, 0, 1, 1);
 ```
+
 Putting these together and rotating the finished car upright gives
 
 ![car model](/img/getstarted/carmodel.png)
 
-<Playground id="#KDPAQ9#13" title="Adding Materials To The Wheels" description="Simple demonstration of adding a material to the extruded wheels." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials2.jpg"/> 
+<Playground id="#KDPAQ9#13" title="Adding Materials To The Wheels" description="Simple demonstration of adding a material to the extruded wheels." image="/img/playgroundsAndNMEs/gettingStartedCarMaterials2.jpg"/>
 
 At last we are ready to think about animating the wheels.

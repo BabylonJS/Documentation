@@ -1,17 +1,17 @@
 ---
 title: Selector
-image: 
+image:
 description: Learn about the selector in Babylon.js.
 keywords: diving deeper, GUI, selector
 further-reading:
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /features/featuresDeepDive/gui/scrollViewer
-    - title: How To Use Babylon GUI Xml Loader
-      url: /features/featuresDeepDive/gui/xmlLoader
-    - title: How To Use Babylon GUI3D
-      url: /features/featuresDeepDive/gui/gui3D
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -40,9 +40,7 @@ new BABYLON.GUI.SelectionPanel(name);
 After construction you can add groups of selectors, each newly added group is placed below any already added groups. For example
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "UI"
-);
+var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
 var selectBox = new BABYLON.GUI.SelectionPanel("selectBox");
 selectBox.width = 0.25;
@@ -68,15 +66,9 @@ new BABYLON.GUI.SelectionPanel(name, [selector groups])
 Example
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "UI"
-);
+var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
-var selectBox = new BABYLON.GUI.SelectionPanel("selectBox", [
-  transformGroup,
-  colorGroup,
-  rotateGroup
-]);
+var selectBox = new BABYLON.GUI.SelectionPanel("selectBox", [transformGroup, colorGroup, rotateGroup]);
 selectBox.width = 0.25;
 selectBox.height = 0.52;
 selectBox.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -131,24 +123,8 @@ transformGroup.addCheckbox("High", toPlace);
 colorGroup.addRadio("Blue", setColor, true);
 colorGroup.addRadio("Red", setColor);
 
-rotateGroup.addSlider(
-  "Angle Y",
-  orientateY,
-  "degs",
-  0,
-  2 * Math.PI,
-  0,
-  displayValue
-);
-rotateGroup.addSlider(
-  "Angle X",
-  orientateX,
-  "degs",
-  0,
-  2 * Math.PI,
-  Math.PI,
-  displayValue
-);
+rotateGroup.addSlider("Angle Y", orientateY, "degs", 0, 2 * Math.PI, 0, displayValue);
+rotateGroup.addSlider("Angle X", orientateX, "degs", 0, 2 * Math.PI, Math.PI, displayValue);
 ```
 
 ## Selector Called Functions
@@ -160,7 +136,7 @@ One function for each selector. Each requires a Boolean parameter with actions d
 Examples
 
 ```javascript
-var toSize = function(isChecked) {
+var toSize = function (isChecked) {
   if (isChecked) {
     box.scaling = new BABYLON.Vector3(0.5, 0.5, 0.5);
   } else {
@@ -168,7 +144,7 @@ var toSize = function(isChecked) {
   }
 };
 
-var toPlace = function(isChecked) {
+var toPlace = function (isChecked) {
   if (isChecked) {
     box.position.y = 1.5;
   } else {
@@ -184,7 +160,7 @@ Within a radio group the same function is used for all selectors. The function r
 Examples
 
 ```javascript
-var setColor = function(but) {
+var setColor = function (but) {
   switch (but) {
     case 0:
       box.material = blueMat;
@@ -204,16 +180,16 @@ Examples
 
 ```javascript
 // Change mesh
-var orientateY = function(angle) {
+var orientateY = function (angle) {
   box.rotation.y = angle;
 };
 
-var orientateX = function(angle) {
+var orientateX = function (angle) {
   box.rotation.x = angle;
 };
 
 //Format value
-var displayValue = function(value) {
+var displayValue = function (value) {
   return BABYLON.Tools.ToDegrees(value) | 0;
 };
 ```
@@ -284,16 +260,7 @@ rotationGroup.removeSelector(0);
 For a selector within a group that is contained within a selection panel you can add a selector by use of the group position and correct parameters, eg
 
 ```javascript
-selectBox.addToGroupSlider(
-  2,
-  "Angle X",
-  orientateX,
-  "degs",
-  0,
-  2 * Math.PI,
-  Math.PI,
-  displayValue
-);
+selectBox.addToGroupSlider(2, "Angle X", orientateX, "degs", 0, 2 * Math.PI, Math.PI, displayValue);
 ```
 
 - <Playground id="#BXMTCD#9" title="Selector Panel Add Selector" description="Simple example showing how to add a selector panel and add a selector to your scene." image="/img/playgroundsAndNMEs/divingDeeperSelector6.jpg"/>

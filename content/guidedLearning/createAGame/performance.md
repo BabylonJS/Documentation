@@ -4,8 +4,8 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, performance, merge, post process, optimization
 further-reading:
-    - title: Bonus Page About The Design Process, 3D Modeling and Art Assets
-      url: /guidedLearning/createAGame/designArt
+  - title: Bonus Page About The Design Process, 3D Modeling and Art Assets
+    url: /guidedLearning/createAGame/designArt
 video-overview:
 video-content:
 ---
@@ -36,7 +36,7 @@ The glow layer really only needed to be used with the lanterns to give that extr
 
 ```javascript
 this._environment._lanternObjs.forEach((lantern) => {
-    gl.addIncludedOnlyMesh(lantern.mesh);
+  gl.addIncludedOnlyMesh(lantern.mesh);
 });
 ```
 
@@ -50,13 +50,13 @@ Effect.RegisterShader("fade", "precision highp float;" + "varying vec2 vUV;" + "
 let fadeLevel = 1.0;
 this._transition = false;
 startBtn.onPointerDownObservable.add(() => {
-    //fade screen
-    const postProcess = new PostProcess("Fade", "fade", ["fadeLevel"], null, 1.0, camera);
-    postProcess.onApply = (effect) => {
-        effect.setFloat("fadeLevel", fadeLevel);
-    };
-    this._transition = true;
-    //...other stuff done when startBtn is pressed
+  //fade screen
+  const postProcess = new PostProcess("Fade", "fade", ["fadeLevel"], null, 1.0, camera);
+  postProcess.onApply = (effect) => {
+    effect.setFloat("fadeLevel", fadeLevel);
+  };
+  this._transition = true;
+  //...other stuff done when startBtn is pressed
 });
 ```
 
@@ -83,20 +83,20 @@ this._light = light;
 
 ```javascript
 if (this.mesh.name.includes("14") || this.mesh.name.includes("15")) {
-    light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform1"));
+  light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform1"));
 } else if (this.mesh.name.includes("16") || this.mesh.name.includes("17")) {
-    light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform2"));
+  light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform2"));
 } else if (this.mesh.name.includes("18") || this.mesh.name.includes("19")) {
-    light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform3"));
+  light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform3"));
 } else if (this.mesh.name.includes("20") || this.mesh.name.includes("21")) {
-    light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform4"));
+  light.includedOnlyMeshes.push(this._scene.getMeshByName("festivalPlatform4"));
 }
 this._scene
-    .getTransformNodeByName(this.mesh.name + "lights")
-    .getChildMeshes()
-    .forEach((m) => {
-        light.includedOnlyMeshes.push(m);
-    });
+  .getTransformNodeByName(this.mesh.name + "lights")
+  .getChildMeshes()
+  .forEach((m) => {
+    light.includedOnlyMeshes.push(m);
+  });
 ```
 
 This became a little tricky in the festival area because there were 2 lanterns on a platform, so for these I had to manually check for the grouped lanterns on the platform. This is why the first part of the function has checks for lanterns 14-21.
@@ -111,5 +111,5 @@ This became a little tricky in the festival area because there were 2 lanterns o
 
 **Files Used:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
--   [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/lantern.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/lantern.ts)

@@ -1,6 +1,6 @@
 ---
 title: Texture Canvas
-image: 
+image:
 description: Learn about the texture canvas extension that functions as a texture that other textures can be drawn upon.
 keywords: extensions, babylon.js, texture canvas
 further-reading:
@@ -34,9 +34,9 @@ let canvas = new TextureCanvas({ width: 256, height: 128 }, scene);
 
 Aditionally, you may pass three more parameters, which are:
 
--   _initTexture_, an initial texture to draw.
--   _onReady_, a function to be called when the canvas is ready.
--   _options_, an object with the properties _generateMipMaps_ (boolean) and _samplingMode_ (number)
+- _initTexture_, an initial texture to draw.
+- _onReady_, a function to be called when the canvas is ready.
+- _options_, an object with the properties _generateMipMaps_ (boolean) and _samplingMode_ (number)
 
 PG: <Playground id="#9S5YZY#6" title="Texture Canvas" description="Example of a TextureCanavas"/>
 
@@ -56,16 +56,16 @@ A context has the following propteries:
 
 | Name                    | Type                                                                                                                | Description                                                                                               |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| diffuseTexture          | [Texture](/typedoc/classes/babylon.texture)                                                    | The texture to draw.                                                                                      |
+| diffuseTexture          | [Texture](/typedoc/classes/babylon.texture)                                                                         | The texture to draw.                                                                                      |
 | diffuseSamplingRect     | [Rectangle](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#rectangle-class)         | The area of the diffuse texture to draw.                                                                  |
 | drawRect                | [Rectangle](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#rectangle-class)         | The area to draw to.                                                                                      |
 | rotation                | [Vector3Matrix](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#vector3matrix-class) | The rotation axes in radians to rotate the diffuse textures by (_z_ is 2D rotation).                      |
 | pivotPoint              | [PivotPoint](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#pivotpoint-class)       | The rotation pivot point.                                                                                 |
 | skewing                 | [UVector](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#uvector-class)             | The amount of skewing/shearing.                                                                           |
-| opacityTexture          | [Texture](/typedoc/classes/babylon.texture)                                                    | The texture to get the alpha values from.                                                                 |
+| opacityTexture          | [Texture](/typedoc/classes/babylon.texture)                                                                         | The texture to get the alpha values from.                                                                 |
 | opacityTextureIntensity | number                                                                                                              | How much the opacity texture should be contributing to the difuse's alpha values, ranging from 0.0 to 1.0 |
 | opacitySamplingRect     | [Rectangle](https://github.com/Poolminer/BabylonTextureCanvas/blob/master/DOCUMENTATION.md#rectangle-class)         | The area of the opacity texture to use.                                                                   |
-| clearColor              | [Color4](/typedoc/classes/babylon.color4)                                                      | The color to clear the canvas with.                                                                       |
+| clearColor              | [Color4](/typedoc/classes/babylon.color4)                                                                           | The color to clear the canvas with.                                                                       |
 
 And the following methods:
 

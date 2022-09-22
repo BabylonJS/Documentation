@@ -1,19 +1,19 @@
 ---
 title: Babylon.js Viewer Examples
-image: 
+image:
 description: Examples of using the viewer
 keywords: extensions, babylon.js, viewer, examples
 further-reading:
-    - title: Babylon.js Viewer
-      url: /features/featuresDeepDive/babylonViewer
-    - title: Configuring the viewer
-      url: /features/featuresDeepDive/babylonViewer/configuringViewer
-    - title: The templating system
-      url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
-    - title: Recreating the default configuration for the viewer
-      url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
-    - title: Advanced usage
-      url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
+  - title: Babylon.js Viewer
+    url: /features/featuresDeepDive/babylonViewer
+  - title: Configuring the viewer
+    url: /features/featuresDeepDive/babylonViewer/configuringViewer
+  - title: The templating system
+    url: /features/featuresDeepDive/babylonViewer/viewerTemplatingSystem
+  - title: Recreating the default configuration for the viewer
+    url: /features/featuresDeepDive/babylonViewer/defaultViewerConfig
+  - title: Advanced usage
+    url: /features/featuresDeepDive/babylonViewer/advancedViewerUsage
 video-overview:
 video-content:
 ---

@@ -1,6 +1,6 @@
 ---
 title: Using Clipping Planes
-image: 
+image:
 description: Learn all about clipping planes in Babylon.js.
 keywords: diving deeper, scene, clip, clipping, clipping planes
 further-reading:
@@ -43,7 +43,7 @@ sphere.onBeforeRenderObservable.add(function() {
 
 sphere.onAfterRenderObservable.add(function() {
     scene.clipPlane = null;
-});    
+});
 ```
 
 Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using 4 different clipping planes at the same time."/>

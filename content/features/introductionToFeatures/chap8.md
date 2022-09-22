@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 8 - Ways to See The World
-image: 
+image:
 description: Learn the basics of Babylon.js cameras in Chapter 8.
 keywords: getting started, start, chapter 8, intro, cameras, camera
 further-reading:

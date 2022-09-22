@@ -1,6 +1,6 @@
 ---
 title: Point Cloud System
-image: 
+image:
 description: Learn all about the point cloud system in Babylon.js.
 keywords: diving deeper, point cloud, point cloud system
 further-reading:

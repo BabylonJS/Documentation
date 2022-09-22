@@ -56,10 +56,10 @@ To give an idea on how the material diffuse color reacts to the diffuse light co
 
 This reaction of
 
--   Yellow Material
--   Purple Material
--   Cyan Material
--   White Material
+- Yellow Material
+- Purple Material
+- Cyan Material
+- White Material
 
 to white, red, green and blue diffuse spot lights can also be seen in the following image.
 

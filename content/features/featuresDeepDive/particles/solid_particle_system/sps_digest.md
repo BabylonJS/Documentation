@@ -1,6 +1,6 @@
 ---
 title: Solid Particles From Mesh Facets
-image: 
+image:
 description: Learn how to create solid particles from mesh facets in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, facets
 further-reading:
@@ -14,11 +14,7 @@ There is another way than adding shapes of meshes used as models to populate the
 To digest a mesh means that the SPS will decompose this mesh geometry and use all its facets to generate the particles. So, by default, a digested mesh generates as many particles as the mesh number of facets.
 
 ```javascript
-var model = BABYLON.MeshBuilder.CreateTorusKnot(
-  "s",
-  { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 },
-  scene
-);
+var model = BABYLON.MeshBuilder.CreateTorusKnot("s", { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 }, scene);
 SPS.digest(model);
 model.dispose();
 SPS.buildMesh();
@@ -28,11 +24,7 @@ Note that in this case, all the generated particles have their property "positio
 This method is obviously compatible with `addShape()` and you can even call it several times with the same model, or different models, in the same SPS.
 
 ```javascript
-var model = BABYLON.MeshBuilder.CreateTorusKnot(
-  "s",
-  { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 },
-  scene
-);
+var model = BABYLON.MeshBuilder.CreateTorusKnot("s", { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 }, scene);
 SPS.addShape(boxModel, 50);
 SPS.digest(model);
 SPS.addShape(sphereModel, 20);
@@ -53,11 +45,7 @@ This method accepts three optional parameters : `facetNb`, `delta` and `number`
   If `number` is greater than the total number of mesh facets, then this total number is used for the value of `number`.
 
 ```javascript
-var model = BABYLON.MeshBuilder.CreateTorusKnot(
-  "s",
-  { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 },
-  scene
-);
+var model = BABYLON.MeshBuilder.CreateTorusKnot("s", { radius: 20, tube: 6, tubularSegments: 64, radialSegments: 128 }, scene);
 SPS.digest(model, { facetNb: 10 }); // 10 facets per particle whatever their final number
 SPS.digest(model, { number: 200 }); // 200 particles whatever their final size
 SPS.digest(model, { facetNb: 10, delta: 30 }); // between 10 and 40 facets per particle, randomly, whatever their final number

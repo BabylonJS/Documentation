@@ -1,18 +1,19 @@
 ---
 title: Thin Instances
-image: 
+image:
 description: Learn how to leverage thin instances in your Babylon.js scenes.
 keywords: diving deeper, meshes, mesh transformation, instances, thin instances
 further-reading:
-    - title: How To Use Instances
-      url: /features/featuresDeepDive/mesh/copies/instances
+  - title: How To Use Instances
+    url: /features/featuresDeepDive/mesh/copies/instances
 video-overview:
 video-content:
-    - title: A Pirate Playset Part 1 - Thin Instances
-      url: https://youtu.be/0DaSvI_n7Us
+  - title: A Pirate Playset Part 1 - Thin Instances
+    url: https://youtu.be/0DaSvI_n7Us
 ---
 
 ## How to use Thin Instances
+
 Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
 
 PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances."/>
@@ -22,8 +23,9 @@ As explained in [How To Use Instances](/features/featuresDeepDive/mesh/copies/in
 However, regular instances still have a performance penalty on the javascript side because each instance is its own object (`InstancedMesh`): if you have 10000 instances in your scene, the engine must loop over all those objects to make a number of processing (visibility check, etc).
 
 Thin instances don't create new objects so you don't incur any penalty on the javascript side by having thousands of them. This performance increase does come with a cost:
-* all thin instances are always all drawn (if the mesh is deemed visible) or none. It's all or nothing.
-* adding / removing a thin instance is more costly than with `InstancedMesh`
+
+- all thin instances are always all drawn (if the mesh is deemed visible) or none. It's all or nothing.
+- adding / removing a thin instance is more costly than with `InstancedMesh`
 
 Thin instances should be used when you need a lot of static instances that you know won't change often / at all. Think of the seats of a stadium, for eg.
 
@@ -32,9 +34,11 @@ So, regular instances may still be the way to go, depending on your scene: if yo
 <Youtube id="0DaSvI_n7Us"/>
 
 ## Creating thin instances
+
 A thin instance is represented by a position/rotation/scaling data packed into a matrix.
 
 The easiest way to create a thin instance is by doing:
+
 ```javascript
 var matrix = BABYLON.Matrix.Translation(-2, 2, 0);
 var idx = sphere.thinInstanceAdd(matrix);
@@ -43,6 +47,7 @@ var idx = sphere.thinInstanceAdd(matrix);
 You can also pass an array of matrices to `thinInstanceAdd` if you want to create multiple thin instances at once.
 
 Note that `sphere` itself is not rendered. If you want to render it, use `thinInstanceAddSelf()`:
+
 ```javascript
 var idx2 = sphere.thinInstanceAddSelf();
 ```
@@ -50,6 +55,7 @@ var idx2 = sphere.thinInstanceAddSelf();
 These methods return an index that you can use to reference the thin instance.
 
 For example, you can update a thin instance afterwards:
+
 ```javascript
 var matrix2 = BABYLON.Matrix.Translation(2, 1, 0);
 sphere.thinInstanceSetMatrixAt(idx2, matrix2);
@@ -62,9 +68,11 @@ Those 3 methods take an additional `refresh` parameter (`true` by default) that 
 The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitely the bounding info by calling `thinInstanceRefreshBoundingInfo`.
 
 ## Custom attributes
+
 As for regular instances, you can add custom attributes to thin instances.
 
 To do so, register the attribute and set the value(s) for the thin instance(s):
+
 ```typescript
 sphere.thinInstanceRegisterAttribute("color", 4);
 
@@ -73,6 +81,7 @@ sphere.thinInstanceSetAttributeAt("color", idx2, [1, 0, 0, 1]);
 ```
 
 As the thin instance indexes are really indexes into the underlying buffer, you can set the values for several thin instances at once:
+
 ```typescript
 sphere.thinInstanceRegisterAttribute("color", 4);
 
@@ -88,7 +97,9 @@ Note that you can't set a number that is higher than what the underlying buffer 
 Set the number to 0 to bypass the thin instance rendering and render the mesh as usual.
 
 ## Faster thin instances
+
 To get the most of the thin instance support, you can directly pass the pre-built buffer of matrices / custom attributes:
+
 ```typescript
 var matrix1 = BABYLON.Matrix.Translation(-2, 2, 0);
 var matrix2 = BABYLON.Matrix.IdentityReadOnly;
@@ -119,6 +130,7 @@ If you update the buffers you passed to `thinInstanceSetBuffer`, you must call `
 To gain some performances, you can flag the buffers as **static**, meaning you won't change them later on. This way, the system can apply some optimizations to your buffers.
 
 To do so, pass `true` for the 4th parameter of `thinInstanceSetBuffer`:
+
 ```javascript
 sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16, true);
 sphere.thinInstanceSetBuffer("color", bufferColors, 4, true);
@@ -132,7 +144,7 @@ Here's an example of thin instances picking: <Playground id="#RC2IAH#1" title="T
 
 ## Limitations
 
-* Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
+- Thin instances with mixed positive and negative determinant matrices won't be rendered correctly. If you need thin instances with both positive and negative determinants, create two meshes and add the thin instances to one or the other (don't forget to set the `sideOrientation` property properly for both mesh materials!).
 
 For eg: <Playground id="#217750#3" title="Thin Instances Wrong Rendering" description="Simple example of thin instances with wrong rendering."/>
 
@@ -145,9 +157,9 @@ To correct the problem, create another mesh, add the green/blue instances to tha
 PG: <Playground id="#217750#4" title="Thin Instances Correct Rendering" description="Simple example of thin instances with correct rendering."/>
 ![Correct rendering](/img/how_to/Mesh/thinInstancesOkSideOrientation.png)
 
-* If you want to create a thin instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
+- If you want to create a thin instance from a cloned mesh, you have to first make sure that you call clonedMesh.makeGeometryUnique().
 
-* When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is taken care of internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you decide to change the world matrix buffer layout, like changing the number of matrices it contains, or using a different order. In that case, you will have to keep a second buffer, storing previous world matrices, and updating it by writing :
+- When using motion blur, the engine needs to store world matrices of the previous frame to compute velocity. Usually, this part is taken care of internally, but in certain cases you may have to specify these matrices manually. You may in fact see weird blurring artifacts if you decide to change the world matrix buffer layout, like changing the number of matrices it contains, or using a different order. In that case, you will have to keep a second buffer, storing previous world matrices, and updating it by writing :
 
 ```javascript
 mesh.thinInstanceSetBuffer("previousMatrix", instancedPreviousBuffer, 16);

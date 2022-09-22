@@ -1,6 +1,6 @@
 ---
 title: Expanding Solid Particle Systems
-image: 
+image:
 description: Learn how to expand solid particle systems in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, expandable
 further-reading:
@@ -105,12 +105,12 @@ Each click removes 100 particles of a given shape and restore 100 particles of a
 
 - When you remove particles, the remaining ones are reindexed, meaning that their `particle.idx` value can change. The particle identifier `particle.id` keeps unchanged. If a particle is given a parent and if this parent is removed, then the particle `parent` property value is set to `null`.
 - Adding or removing particles will create a new VertexData object, so a new VBO buffer, each time `buildMesh()` is called.  
-  This can trigger the Garbage Collector activity at some unwanted moment, so it's not a good idea to add or remove particles each frame.  
-  Moreover, using an expandable SPS uses more memory than a fixed one because all the dynamic extensible arrays are saved under the hood along the SPS life.
+   This can trigger the Garbage Collector activity at some unwanted moment, so it's not a good idea to add or remove particles each frame.  
+   Moreover, using an expandable SPS uses more memory than a fixed one because all the dynamic extensible arrays are saved under the hood along the SPS life.
 
   In a standard SPS, the particle index `particle.idx` and the particle identifier `particle.id` have the same value.  
-In an expandable SPS (see below), when particles are removed only the particle identifier `particle.id` keeps unchanged whereas the particle index may change.  
-So, when using an expandable SPS, make sure to set a particle parent with the parent identifier and make sure that this parent still exists.
+  In an expandable SPS (see below), when particles are removed only the particle identifier `particle.id` keeps unchanged whereas the particle index may change.  
+  So, when using an expandable SPS, make sure to set a particle parent with the parent identifier and make sure that this parent still exists.
 
 ```javascript
 if (otherParticle) {

@@ -1,6 +1,6 @@
 ---
 title: Using Multiple Canvases
-image: 
+image:
 description: Learn about using multiple canvases at the same time in Babylon.js.
 keywords: diving deeper, scene, multi-canvas
 further-reading:
@@ -23,6 +23,7 @@ let view = engine.registerView(document.getElementById("renderCanvas1"), camera1
 ```
 
 Please note that you can also call the same code with no camera:
+
 ```
 let view = engine.registerView(document.getElementById("renderCanvas1"));
 ```
@@ -32,6 +33,7 @@ If the camera is undefined the render loop will be executed to the view without 
 ## Removing a view
 
 To remove a previously registered view, you can run the following code:
+
 ```
 engine.unRegisterView(document.getElementById("renderCanvas1"));
 ```
@@ -47,6 +49,7 @@ A view cannot be rendered if it has a defined camera and the underlying scene is
 You can use views to render multiple cameras from the same scene or from different scenes. As you control the render loop, it is up to you to test the `engine.activeView` to determine which view is currently rendered.
 
 So your render loop could look like:
+
 ```
 let myRenderLoop = () => {
    if (engine.activeView.camera === undefined) {
@@ -62,6 +65,7 @@ let myRenderLoop = () => {
 By default, scenes will capture events from the main rendering canvas (the one used to create the Engine). You can change that behavior by setting the `engine.inputElement` to the DOM element you want to use for events.
 
 This must be done before creating a scene or if you do it after you have to run the following code:
+
 ```
 scene.detachControl();
 engine.inputElement = myNewElement;
@@ -79,6 +83,7 @@ view.enabled = false;
 ```
 
 ## Demo
+
 You can see a live demo here: https://www.babylonjs.com/Demos/Views
 
 The initialization code for this page can be found here: https://github.com/BabylonJS/Website/blob/master/build/Demos/Views/index.html

@@ -1,6 +1,6 @@
 ---
 title: Running workspaces and projects in Babylon.JS Editor
-image: 
+image:
 description: Descriptions of how to manage workspaces in Babylon.js Editor.
 keywords: editor, workspace
 further-reading:

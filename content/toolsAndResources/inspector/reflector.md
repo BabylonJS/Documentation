@@ -1,6 +1,6 @@
 ---
 title: Debug Scenes Remotely Using the Reflector
-image: 
+image:
 description: Debug scenes remotely by reflecting the scene over the network.
 keywords: babylon.js, tools, resources, debug layer, inspector, remote debugging
 further-reading:
@@ -21,6 +21,7 @@ The default port is 1234. Specify a different port by adding `--port=<port>` to 
 ![bridge](/img/features/reflector/bridge.png)
 
 ### Step 2 - Start the reflector debugging session
+
 Open https://sandbox.babylonjs.com/?reflector=true.
 
 The default hostname and port are `localhost` and `1234`. Specify a different hostname or port by adding `&hostname=<hostname>&port=<port>` to the url. The hostname and port must match the host and port that is running the reflector bridge.
@@ -51,6 +52,6 @@ Happy remote debugging the scene!
 
 ## Known Issues
 
-* Some states are not correctly reflected across the remote connection.
-* Large scenes may exceed the limits of how much can be transferred via web sockets.
-* The web scokets are currently not secure which can cause issues with https connections.
+- Some states are not correctly reflected across the remote connection.
+- Large scenes may exceed the limits of how much can be transferred via web sockets.
+- The web scokets are currently not secure which can cause issues with https connections.

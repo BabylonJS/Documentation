@@ -1,6 +1,6 @@
 ---
 title: Using the Standard Rendering Pipeline (depricated)
-image: 
+image:
 description: Learn about the standard rendering pipeline in Babylon.js.
 keywords: diving deeper, post processes, post process, render pipeline, render, standard rendering
 further-reading:
@@ -16,11 +16,11 @@ video-content:
 
 This rendering pipeline tends to simulate a chain of famous post-process effects such as
 
--   Lens imperfections (surexposed surfaces are highlighted)
--   Dirty lens effect
--   Depth of field
--   Motion Blur
--   Volumetric Lights
+- Lens imperfections (surexposed surfaces are highlighted)
+- Dirty lens effect
+- Depth of field
+- Motion Blur
+- Volumetric Lights
 
 Simple playground : <Playground id="#FRUD8#2" title="Standard Rendering Pipeline Example" description="Simple example of the standard rendering pipeline."/>
 Full playground: <Playground id="#X3XD2C#1" title="Standard Rendering Pipeline Example (full example)" description="Full example of the standard rendering pipeline."/>

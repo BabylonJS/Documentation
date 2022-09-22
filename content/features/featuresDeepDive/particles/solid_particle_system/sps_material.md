@@ -1,6 +1,6 @@
 ---
 title: Solid Particle System Materials
-image: 
+image:
 description: Learn all about solid particle system materials in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles, materials
 further-reading:
@@ -21,7 +21,7 @@ The simplest way to set different materials to the particles is to set a differe
 ```javascript
 // model1, model2 and model3 are meshes with already set materials at this step
 var sps = new BABYLON.SolidParticleSystem("sps", scene, {
-  useModelMaterial: true
+  useModelMaterial: true,
 });
 sps.addShape(model1, 300);
 sps.addShape(model2, 300);
@@ -41,7 +41,7 @@ You can still change this behavior by assignig some materials on the particle ba
 This can be done at creation time in a `positionFunction` of an immutable SPS for instance.
 
 ```javascript
-var initParticle = function(particle, i) {
+var initParticle = function (particle, i) {
   particle.position.x = areaSize * (Math.random() - 0.5);
   particle.position.y = areaSize * (Math.random() - 0.5);
   particle.position.z = areaSize * (Math.random() - 0.5);
@@ -53,7 +53,7 @@ var initParticle = function(particle, i) {
 };
 var sps = new BABYLON.SolidParticleSystem("sps", scene, {
   useModelMaterial: true,
-  updatable: false
+  updatable: false,
 });
 sps.addShape(model1, 300, { positionFunction: initFunction });
 sps.addShape(model2, 300, { positionFunction: initFunction });
@@ -77,7 +77,7 @@ So, whatever the SPS is immutable or not and whatever you're using `enableMultiM
 ```javascript
 var sps = new BABYLON.SolidParticleSystem("sps", scene, {
   enableMultiMaterial: true,
-  updatable: false
+  updatable: false,
 });
 sps.addShape(model1, 300, { positionFunction: initFunction });
 sps.addShape(model2, 300, { positionFunction: initFunction });
@@ -108,7 +108,7 @@ Like `setMultiMaterials()`, it's probably not a good idea to call it each frame 
 ```javascript
 // updatable SPS creation
 var sps = new BABYLON.SolidParticleSystem("sps", scene, {
-  enableMultiMaterial: true
+  enableMultiMaterial: true,
 });
 sps.addShape(model1, 300);
 sps.addShape(model2, 300);

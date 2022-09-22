@@ -1,11 +1,11 @@
 ---
 title: Getting Started - Chapter 5 - Skies Above
-image: 
+image:
 description: Learn to add a skybox to your scene.
 keywords: getting started, start, chapter 5, environment, skybox
 further-reading:
-    - title: Skyboxes
-      url: /features/featuresDeepDive/environment/skybox
+  - title: Skyboxes
+    url: /features/featuresDeepDive/environment/skybox
 video-overview:
 video-content:
 ---
@@ -16,15 +16,16 @@ We can simulate the appearance of a sky by applying six suitable images to the i
 
 Skybox images are usually loaded with [CubeTexture](/typedoc/classes/babylon.cubetexture). CubeTexture's constructor takes a base URL and (by default) appends "\_px.jpg", "\_nx.jpg", "\_py.jpg", "\_ny.jpg", "\_pz.jpg", and "\_nz.jpg" to load the +x, -x, +y, -y, +z, and -z facing sides of the cube.
 
-|<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/>|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|skybox\_px.jpg|skybox\_nx.jpg|skybox\_py.jpg|skybox\_ny.jpg|skybox\_pz.jpg|skybox\_nz.jpg|
+| <img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="some clouds"/> | <img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="the sun overhead"/> | <img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="solid gray"/> | <img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="more clouds"/> | <img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="more clouds"/> |
+| :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                                     skybox_px.jpg                                     |                                     skybox_nx.jpg                                     |                                       skybox_py.jpg                                        |                                    skybox_ny.jpg                                     |                                     skybox_pz.jpg                                     |                                     skybox_nz.jpg                                     |
+
 <br/>
 
-Cube textures must be applied using [reflectionTexture](/features/featuresDeepDive/materials/using/reflectionTexture) even though the skybox is not a reflection map. Setting [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX\_MODE paints the texture directly on the cube rather than simulating reflections.
+Cube textures must be applied using [reflectionTexture](/features/featuresDeepDive/materials/using/reflectionTexture) even though the skybox is not a reflection map. Setting [coordinatesMode](/typedoc/classes/babylon.texture#coordinatesmode) to SKYBOX_MODE paints the texture directly on the cube rather than simulating reflections.
 
 ```javascript
-const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:150}, scene);
+const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 150 }, scene);
 const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
 skyboxMaterial.backFaceCulling = false;
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);

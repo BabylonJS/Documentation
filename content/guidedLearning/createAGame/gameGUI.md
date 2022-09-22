@@ -56,17 +56,17 @@ The game timer is just a simple TextBlock called [_clockTime_](https://github.co
 
 ```javascript
 if (!this._stopTimer && this._startTime != null) {
-    let curTime = Math.floor((new Date().getTime() - this._startTime) / 1000) + this._prevTime;
-    this.time = curTime;
-    this._clockTime.text = this._formatTime(curTime);
+  let curTime = Math.floor((new Date().getTime() - this._startTime) / 1000) + this._prevTime;
+  this.time = curTime;
+  this._clockTime.text = this._formatTime(curTime);
 }
 ```
 
 What this does is:
 
 1. Calculates the amount of time in milliseconds that has passed since the start time, then divides by 1000 to convert it into seconds. Then adds whatever _\_prevTime_ is.
-    - _\_prevTime_ is initialized to 0 and only ever updates if the game is paused and when the game resumes
-    - _\_startTime_ is updated to the current time so that the next time **updateHud** is called, we account for the time we spent paused (the difference in time will be the same as it left off).
+   - _\_prevTime_ is initialized to 0 and only ever updates if the game is paused and when the game resumes
+   - _\_startTime_ is updated to the current time so that the next time **updateHud** is called, we account for the time we spent paused (the difference in time will be the same as it left off).
 2. Stores the total time elapsed in seconds
 3. Formats the time to match our game's world time
 
@@ -79,15 +79,16 @@ let minsPassed = Math.floor(time / 60);
 let secPassed = time % 240; // goes back to 0 after 4mins/240sec
 // 4sec = 1min game time
 if (secPassed % 4 == 0) {
-    this._mString = Math.floor(minsPassed / 4) + 11;
-    this._sString = (secPassed / 4 < 10 ? "0" : "") + secPassed / 4;
+  this._mString = Math.floor(minsPassed / 4) + 11;
+  this._sString = (secPassed / 4 < 10 ? "0" : "") + secPassed / 4;
 }
 let day = this._mString == 11 ? " PM" : " AM";
 return this._mString + ":" + this._sString + day;
 ```
 
-The game's time starts at 11:00PM and goes until 12:00AM. We want to convert our time into minutes and seconds so that we can calculate the hours & minutes of the game.  
- - _\_mString_ will really only update if 4 minutes have passed, otherwise it will always be 11 - _\_sString_ updates every 4 seconds.
+The game's time starts at 11:00PM and goes until 12:00AM. We want to convert our time into minutes and seconds so that we can calculate the hours & minutes of the game.
+
+- _\_mString_ will really only update if 4 minutes have passed, otherwise it will always be 11 - _\_sString_ updates every 4 seconds.
 
 #### Start/Stop
 
@@ -116,10 +117,10 @@ this._ui.startTimer();
 
 ```javascript
 scene.onBeforeRenderObservable.add(() => {
-    // when the game isn't paused, update the timer
-    if (!this._ui.gamePaused) {
-        this._ui.updateHud();
-    }
+  // when the game isn't paused, update the timer
+  if (!this._ui.gamePaused) {
+    this._ui.updateHud();
+  }
 });
 ```
 
@@ -129,8 +130,8 @@ We start setting up the game loop.
 ```javascript
 // once the timer 240seconds, take us to the lose state
 if (this._ui.time >= 240 && !this._player.win) {
-    this._goToLose();
-    this._ui.stopTimer();
+  this._goToLose();
+  this._ui.stopTimer();
 }
 ```
 
@@ -149,10 +150,10 @@ this.stopSpark = false;
 this._sparklerLife.cellId = 0;
 this._spark.cellId = 0;
 if (this._handle) {
-    clearInterval(this._handle);
+  clearInterval(this._handle);
 }
 if (this._sparkhandle) {
-    clearInterval(this._sparkhandle);
+  clearInterval(this._sparkhandle);
 }
 ```
 
@@ -166,15 +167,15 @@ Have the actual sparkler object's light visible again by increasing its intensit
 
 ```javascript
 this._handle = setInterval(() => {
-    if (!this.gamePaused) {
-        if (this._sparklerLife.cellId < 10) {
-            this._sparklerLife.cellId++;
-        }
-        if (this._sparklerLife.cellId == 10) {
-            this.stopSpark = true;
-            clearInterval(this._handle);
-        }
+  if (!this.gamePaused) {
+    if (this._sparklerLife.cellId < 10) {
+      this._sparklerLife.cellId++;
     }
+    if (this._sparklerLife.cellId == 10) {
+      this.stopSpark = true;
+      clearInterval(this._handle);
+    }
+  }
 }, 2000);
 ```
 
@@ -184,16 +185,16 @@ This interval controls the actual sparkler's lifetime. The sparkler has 10 energ
 
 ```javascript
 this._sparkhandle = setInterval(() => {
-    if (!this.gamePaused) {
-        if (this._sparklerLife.cellId < 10 && this._spark.cellId < 5) {
-            this._spark.cellId++;
-        } else if (this._sparklerLife.cellId < 10 && this._spark.cellId >= 5) {
-            this._spark.cellId = 0;
-        } else {
-            this._spark.cellId = 0;
-            clearInterval(this._sparkhandle);
-        }
+  if (!this.gamePaused) {
+    if (this._sparklerLife.cellId < 10 && this._spark.cellId < 5) {
+      this._spark.cellId++;
+    } else if (this._sparklerLife.cellId < 10 && this._spark.cellId >= 5) {
+      this._spark.cellId = 0;
+    } else {
+      this._spark.cellId = 0;
+      clearInterval(this._sparkhandle);
     }
+  }
 }, 185);
 ```
 
@@ -229,13 +230,13 @@ In the [game loop](#using-the-game-timer), we want to be checking:
 ```javascript
 //reset the sparkler timer
 if (this._player.sparkReset) {
-    this._ui.startSparklerTimer();
-    this._player.sparkReset = false;
+  this._ui.startSparklerTimer();
+  this._player.sparkReset = false;
 }
 //stop the sparkler timer after 20 seconds
 else if (this._ui.stopSpark && this._player.sparkLit) {
-    this._ui.stopSparklerTimer();
-    this._player.sparkLit = false;
+  this._ui.stopSparklerTimer();
+  this._player.sparkLit = false;
 }
 ```
 
@@ -259,7 +260,7 @@ In order to achieve the cutscene that I ended up with: animation + dialogue, I h
 
 ```javascript
 beginning_anim.onImageLoadedObservable.add(() => {
-    anims_loaded++;
+  anims_loaded++;
 });
 ```
 
@@ -272,17 +273,17 @@ The dialogue text doesn't automatically progress, but instead waits for an input
 
 ```javascript
 next.onPointerUpObservable.add(() => {
-    if (transition == 8) {
-        //once we reach the last dialogue frame, goToGame
-        this._cutScene.detachControl();
-        this._engine.displayLoadingUI(); //if the game hasn't loaded yet, we'll see a loading screen
-        transition = 0; //since we only want to go through this block once
-        canplay = true; //signals that we can progress to the game since we've completed the dialogue sequence
-    } else if (transition < 8) {
-        // 8 frames of dialogue
-        transition++;
-        dialogue.cellId++;
-    }
+  if (transition == 8) {
+    //once we reach the last dialogue frame, goToGame
+    this._cutScene.detachControl();
+    this._engine.displayLoadingUI(); //if the game hasn't loaded yet, we'll see a loading screen
+    transition = 0; //since we only want to go through this block once
+    canplay = true; //signals that we can progress to the game since we've completed the dialogue sequence
+  } else if (transition < 8) {
+    // 8 frames of dialogue
+    transition++;
+    dialogue.cellId++;
+  }
 });
 ```
 
@@ -290,11 +291,11 @@ In addition, the dialogue has a background animation that just keeps looping:
 
 ```javascript
 let dialogueTimer = setInterval(() => {
-    if (finished_anim && dialogueBg.cellId < 3) {
-        dialogueBg.cellId++;
-    } else {
-        dialogueBg.cellId = 0;
-    }
+  if (finished_anim && dialogueBg.cellId < 3) {
+    dialogueBg.cellId++;
+  } else {
+    dialogueBg.cellId = 0;
+  }
 }, 250);
 ```
 
@@ -306,13 +307,13 @@ I used a [popup menu](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2e
 
 ```javascript
 pauseBtn.onPointerDownObservable.add(() => {
-    this._pauseMenu.isVisible = true;
-    playerUI.addControl(this._pauseMenu);
-    this.pauseBtn.isHitTestVisible = false;
+  this._pauseMenu.isVisible = true;
+  playerUI.addControl(this._pauseMenu);
+  this.pauseBtn.isHitTestVisible = false;
 
-    //when game is paused, make sure that the next start time is the time it was when paused
-    this.gamePaused = true;
-    this._prevTime = this.time;
+  //when game is paused, make sure that the next start time is the time it was when paused
+  this.gamePaused = true;
+  this._prevTime = this.time;
 });
 ```
 
@@ -326,13 +327,13 @@ Similarly, you need to make sure that you do the opposite when you press the res
 
 ```javascript
 resumeBtn.onPointerDownObservable.add(() => {
-    this._pauseMenu.isVisible = false;
-    this._playerUI.removeControl(pauseMenu);
-    this.pauseBtn.isHitTestVisible = true;
+  this._pauseMenu.isVisible = false;
+  this._playerUI.removeControl(pauseMenu);
+  this.pauseBtn.isHitTestVisible = true;
 
-    //game unpaused, our time is now reset
-    this.gamePaused = false;
-    this._startTime = new Date().getTime();
+  //game unpaused, our time is now reset
+  this.gamePaused = false;
+  this._startTime = new Date().getTime();
 });
 ```
 
@@ -363,12 +364,12 @@ Now, we have a timed 3D platformer that takes you to the lose state when 4 minut
 
 **Files Used:**
 
--   [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
--   [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
+- [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/ui.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [inputController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts)
 
 **Follow Along:**
 
--   [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/gui/ui.ts)
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/gui/app.ts)
--   [all necessary images](https://github.com/BabylonJS/SummerFestival/tree/master/public/sprites)
+- [ui.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/gui/ui.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/gui/app.ts)
+- [all necessary images](https://github.com/BabylonJS/SummerFestival/tree/master/public/sprites)

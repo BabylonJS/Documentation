@@ -1,10 +1,10 @@
 ---
 title: The GUI Editor
-image: 
+image:
 description: Learn all about the simple and easy GUI Editor in Babylon.js.
 keywords: babylon.js, tools, resources, gui, gui editor
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 
@@ -12,7 +12,7 @@ video-content:
 
 ## Creating GUIs With Ease
 
-Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs has to be constructed using code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it, and makes it easy to manipulate all the parameters of each control. 
+Introduced in Babylon.js 5.0, the GUI Editor is a visual editor for building complex and beautiful graphical user interfaces. Traditionally, Babylon GUIs has to be constructed using code, which could be a tedious and confusing process. The GUI Editor lets you see the interface as you're assembling it, and makes it easy to manipulate all the parameters of each control.
 
 You can access the GUI Editor here: https://gui.babylonjs.com/. The GUI editor can also be opened in a pop-up window from the inspector, allowing you to edit a GUI inside a scene and see your changes propagate back instantly!
 
@@ -117,18 +117,20 @@ The checkerboard area reflects the content that will actually be visible in your
 There are several handy keyboard shortcuts that you can utilize in the GUI Editor.
 
 #### General Navigation:
-* S = Select Mode
-* P = Pan Mode
-* Z = Zoom Mode
-* F = Fit to Window
-* G = Toggle Outlines
-* CTRL+A = Select All
+
+- S = Select Mode
+- P = Pan Mode
+- Z = Zoom Mode
+- F = Fit to Window
+- G = Toggle Outlines
+- CTRL+A = Select All
 
 #### With a GUI Control Selected:
-* CTRL+C = Copy
-* CTRL+V = Paste
-* CTRL+X = Cut
-* Delete/Backspace = Delete
+
+- CTRL+C = Copy
+- CTRL+V = Paste
+- CTRL+X = Cut
+- Delete/Backspace = Delete
 
 ### Control Properties Panel
 
@@ -161,7 +163,7 @@ Note: the zOrder of each control is determined by it's position in the hierarchy
 
 ### Saving GUIs Out Of the Editor
 
-You can save your GUI creations from the Editor in two different ways, locally or on the Babylon.js Snippet Server. 
+You can save your GUI creations from the Editor in two different ways, locally or on the Babylon.js Snippet Server.
 
 #### Saving Locally
 
@@ -179,26 +181,28 @@ You can save to the snippet server by selecting the 'Save To Snippet' button in 
 
 ### Loading GUIs Into the Editor
 
-You can load your GUI creations into the Editor in two different ways, locally or from the Babylon.js Snippet Server. 
+You can load your GUI creations into the Editor in two different ways, locally or from the Babylon.js Snippet Server.
 
 #### Loading locally
 
-Loading locally will prompt you to upload a .JSON object of your GUI into the Editor. 
+Loading locally will prompt you to upload a .JSON object of your GUI into the Editor.
 
 You can load locally by selecting the 'Load' button in the hamburger menu:
 <img src="/img/tools/guiEditor/loadLocal1.jpg" title="GUI Editor Load Local 1"/>
 
 #### Loading From The Snippet Server
 
-Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the the Editor. 
+Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the the Editor.
 
 You can load from the snippet server by selecting the 'Load From Snippet Server' button in the hamburger menu:
 <img src="/img/tools/guiEditor/loadSnippet1.jpg" title="GUI Editor Load Snippet 1"/>
 
 ### Using GUIs From The Editor In Your Scene
+
 It is very easy to load your saved GUIs into your Babylon.js scene and modify them. Here are a few handy examples:
 
 #### Load From .JSON Object
+
 You can load a GUI into your Babylon scene from a saved .JSON file somewhere on the web like this:
 
 ```javascript
@@ -209,20 +213,22 @@ let loadedGUI = await advancedTexture.parseFromURLAsync("https://doc.babylonjs.c
 <Playground id="#SWI883" title="Load a GUI from a .json Object" description="Simple example that shows how to load a GUI into your scene from a .json object."/>
 
 #### Load From Snippet Server
+
 You can also load a GUI into your Babylon scene from the Snippet Server like this:
 
 ```javascript
-let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);  
+let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
 let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 ```
 
 <Playground id="#4RTUCB#1" title="Load a GUI From The Snippet Server" description="Simple example that shows how to load a GUI into your scene from the snippet server."/>
 
 #### Load in Fullscreen Mode
+
 You can load your saved GUI as a fullscreen GUI that's overlayed on top of your entire scene like this:
 
 ```javascript
-let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);  
+let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
 let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 ```
 
@@ -231,6 +237,7 @@ let loadedGUI = await advancedTexture.parseFromSnippetAsync("#MMWSUI");
 Further Information about fullscreen GUIs can be found here: [Fullscreen GUIs](/features/featuresDeepDive/gui/gui#fullscreen-mode)
 
 #### Load in Texture Mode
+
 You can also load a saved GUI as a texture that can be used like any other texture in your scene. Here's an example of using a loaded GUI as a texture for the material of a mesh:
 
 ```javascript
@@ -243,6 +250,7 @@ screenUI.parseFromSnippetAsync("#WFL50L");
 Further information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/features/featuresDeepDive/gui/gui#texture-mode)
 
 #### Changing GUI Control Properties In Your Scene
+
 After loading a saved GUI into your scene, you can easily access the properties of your GUI Controls.
 
 You can access an individual control by name like this:
@@ -259,32 +267,34 @@ A more sophisticated example can be found here:
 <Playground id="#0CRLP8#13" title="Game Menu Demo" description="A game menu built using the GUI editor which demonstrates how tab navigation can be implemented." />
 
 #### Playground Templates
+
 You can also find quick access to the common lines of code needed to load GUIs into your scene, through the [playground templates.](/toolsAndResources/thePlayground/pgTemplates)
 
 ### Supported Controls
+
 Here is a list of supported GUI controls available in the GUI Editor:
 
-Icon | Control Name | Further Information
----|---|---|
-![rectangle](/img/tools/guiEditor/rectangleIcon.jpg) | Rectangle | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)
-![ellipse](/img/tools/guiEditor/ellipseIcon.jpg) | Ellipse | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)
-![stackpanel](/img/tools/guiEditor/stackPanelIcon.jpg) | Stack Panel | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)
-![grid](/img/tools/guiEditor/gridIcon.jpg) | Grid | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)
-![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.jpg) | Scroll Viewer | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)
-![line](/img/tools/guiEditor/lineIcon.jpg) | Line | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)
-![textblock](/img/tools/guiEditor/textIcon.jpg) | Text Block | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)
-![inputText](/img/tools/guiEditor/inputTextIcon.jpg) | Input Text | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)
-![inputPassword](/img/tools/guiEditor/inputPasswordIcon.jpg) | Input Password | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)
-![image](/img/tools/guiEditor/imageIcon.jpg) | Image | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)
-![displayGrid](/img/tools/guiEditor/displayGridIcon.jpg) | Display Grid | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)
-![textButton](/img/tools/guiEditor/textButtonIcon.jpg) | Text Button | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)
-![checkbox](/img/tools/guiEditor/checkBoxIcon.jpg) | Checkbox | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)
-![radioButton](/img/tools/guiEditor/radioIcon.jpg) | Radio Button | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)
-![slider](/img/tools/guiEditor/sliderIcon.jpg) | Slider | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)
-![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard)
-![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg) | Color Picker | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)
-
+| Icon                                                             | Control Name     | Further Information                                                                              |
+| ---------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------ |
+| ![rectangle](/img/tools/guiEditor/rectangleIcon.jpg)             | Rectangle        | [Rectangle Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#rectangle)              |
+| ![ellipse](/img/tools/guiEditor/ellipseIcon.jpg)                 | Ellipse          | [Ellipse Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#ellipse)                  |
+| ![stackpanel](/img/tools/guiEditor/stackPanelIcon.jpg)           | Stack Panel      | [Stack Panel Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#stackpanel)           |
+| ![grid](/img/tools/guiEditor/gridIcon.jpg)                       | Grid             | [Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#grid)                        |
+| ![scrollviewer](/img/tools/guiEditor/scrollViewerIcon.jpg)       | Scroll Viewer    | [Scroll Viewer Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#scrollviewer)       |
+| ![line](/img/tools/guiEditor/lineIcon.jpg)                       | Line             | [Line Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#line)                        |
+| ![textblock](/img/tools/guiEditor/textIcon.jpg)                  | Text Block       | [Text Block Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#textblock)             |
+| ![inputText](/img/tools/guiEditor/inputTextIcon.jpg)             | Input Text       | [Input Text Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputtext)             |
+| ![inputPassword](/img/tools/guiEditor/inputPasswordIcon.jpg)     | Input Password   | [Input Password Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#inputpassword)     |
+| ![image](/img/tools/guiEditor/imageIcon.jpg)                     | Image            | [Image Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#image)                      |
+| ![displayGrid](/img/tools/guiEditor/displayGridIcon.jpg)         | Display Grid     | [Display Grid Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#displaygrid)         |
+| ![textButton](/img/tools/guiEditor/textButtonIcon.jpg)           | Text Button      | [A Button with a Text Block as a Child] (https://doc.babylonjs.com/divingDeeper/gui/gui#button)  |
+| ![checkbox](/img/tools/guiEditor/checkBoxIcon.jpg)               | Checkbox         | [Checkbox Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#checkbox)                |
+| ![radioButton](/img/tools/guiEditor/radioIcon.jpg)               | Radio Button     | [Radio Button Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#radiobutton)         |
+| ![slider](/img/tools/guiEditor/sliderIcon.jpg)                   | Slider           | [Slider Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#slider)                    |
+| ![virtualkeyboard](/img/tools/guiEditor/virtualKeyboardIcon.jpg) | Virtual Keyboard | [Virtual Keyboard Documentation](https://doc.babylonjs.com/divingDeeper/gui/gui#virtualkeyboard) |
+| ![colorpicker](/img/tools/guiEditor/colorPickerIcon.jpg)         | Color Picker     | [Color Picker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker)                       |
 
 ### Demos
+
 Check out additional demos here:
 <Playground id="#5JEP1H" title="Full Color Picker Demo" description="More advance example that shows how to load a GUI and modify GUI controls."/>

@@ -1,6 +1,6 @@
 ---
 title: Floating Origin (Huge Scenes Support)
-image: 
+image:
 description: Learn how to manage huge scenes using floating-origin trick
 keywords: diving deeper, huge spaces, floating-origin
 further-reading:
@@ -15,7 +15,6 @@ On traditional 3D rendering, objects will pass three stages until they're displa
 - World matrix: places, scales and rotates the object on the world;
 - View matrix: will translate and rotate relative to camera;
 - Projection matrix: will project vertices to screen.
-
 
 This is well known and works perfectly.
 
@@ -65,19 +64,18 @@ but with no jittering.
 
 ## Floating-origin examples
 
-You can find a working playground example with OriginCamera and Entity classes here:  
+You can find a working playground example with OriginCamera and Entity classes here:
 
 <Playground id="#LHI514#3" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
-
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
 or your game won't work properly. You will need to create one instance of OriginCamera
 and at least one instance of Entity.
 
-OriginCamera is a special camera which has a separate position control stored as doublepos (and its target as doubletgt). 
+OriginCamera is a special camera which has a separate position control stored as doublepos (and its target as doubletgt).
 You must stop using position and target from camera, and use their double precision counterparts doublepos and doubletgt.
 
-All objects from scene must then be parented to a Entity instance. Entity also has doublepos property which is double precision coordinate. 
+All objects from scene must then be parented to a Entity instance. Entity also has doublepos property which is double precision coordinate.
 You must use its doublepos to set object position instead of position directly.
 
 So, let's say that we want a sphere with double precision:
@@ -89,12 +87,12 @@ camera.doubletgt = new BABYLON.Vector3(10000000, 0, 10000000);
 camera.touchAngularSensibility = 10000;
 camera.inertia = 0;
 camera.speed = 1;
-camera.keysUp.push(87);    		// W
-camera.keysDown.push(83)   		// D
-camera.keysLeft.push(65);  		// A
-camera.keysRight.push(68); 		// S
-camera.keysUpward.push(69);		// E
-camera.keysDownward.push(81);     // Q
+camera.keysUp.push(87); // W
+camera.keysDown.push(83); // D
+camera.keysLeft.push(65); // A
+camera.keysRight.push(68); // S
+camera.keysUpward.push(69); // E
+camera.keysDownward.push(81); // Q
 camera.minZ = 0.5;
 camera.maxZ = 50000000;
 camera.fov = 1;
@@ -105,16 +103,16 @@ let entSphere = new Entity("entSphere", scene);
 camera.add(entSphere);
 
 // Create the sphere and parent it to its Entity
-let sphere = BABYLON.CreateSphere("sphere", {diameter:256});
+let sphere = BABYLON.CreateSphere("sphere", { diameter: 256 });
 sphere.parent = entSphere;
 
 // Position the Entity
 entSphere.doublepos = new BABYLON.Vector3(10000000, 0, 10000000);
-```  
+```
 
 The OriginCamera extends UniversalCamera, so you can use the same features of that.
 
-Finally, even on huge scenes you commonly will have objects spread into separate regions, so you 
+Finally, even on huge scenes you commonly will have objects spread into separate regions, so you
 most probably would not need one Entity instance for each object. If you think carefully, you
 can have one Entity instance for each region of your scene, a region which does not extend for more
 than let's say 10,000 units to avoid imprecision again. Then, you can add many objects that are

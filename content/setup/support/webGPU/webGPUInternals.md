@@ -1,6 +1,6 @@
 ---
 title: WebGPU Internals
-image: 
+image:
 description: Learn how the WebGPU engine has been implemented in Babylon.js
 keywords: babylon.js, WebGPU, engine, implementation
 further-reading:

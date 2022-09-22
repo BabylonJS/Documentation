@@ -1,6 +1,6 @@
 ---
 title: Advanced Topics
-image: 
+image:
 description: Dive into the most advanced topics about Babylon.js.
 keywords: babylon.js, advanced
 further-reading:

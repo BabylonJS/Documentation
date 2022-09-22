@@ -1,13 +1,13 @@
 ---
 title: Grouping Animations
-image: 
+image:
 description: Learn how to group animations together for easier management.
 keywords: diving deeper, animation, group, grouping
 further-reading:
 video-overview:
 video-content:
-    - title: Demystifying Animation Groups
-      url: https://youtu.be/BSqxoQ-at24
+  - title: Demystifying Animation Groups
+    url: https://youtu.be/BSqxoQ-at24
 ---
 
 An `AnimationGroup` allows you to link together animations and meshes and play them, pause them and stop them as a group.
@@ -76,7 +76,7 @@ You can create a new AnimationGroup from an animatable by enumerating the animat
 var animationGroup = new BABYLON.AnimationGroup("my-animation-group");
 
 for (anim of idleAnim.getAnimations()) {
-    animationGroup.addTargetedAnimation(anim.animation, anim.target);
+  animationGroup.addTargetedAnimation(anim.animation, anim.target);
 }
 ```
 
@@ -87,7 +87,7 @@ Example: - <Playground id="#CBGEQX#5" title="Create AnimationGroup From Animatab
 There is an **onAnimationEnd** observable that can be used to trigger a function when the animation ends.
 
 ```javascript
-animationGroup1.onAnimationEndObservable.add(function() {
+animationGroup1.onAnimationEndObservable.add(function () {
   mesh2.material = redMaterial;
 });
 ```
@@ -99,7 +99,7 @@ animationGroup1.onAnimationEndObservable.add(function() {
 There is an **onAnimationLoop** observable that can be used to trigger a function when the animation loops.
 
 ```javascript
-animationGroup1.onAnimationLoopObservable.add(function(targetAnimation) {
+animationGroup1.onAnimationLoopObservable.add(function (targetAnimation) {
   console.log(targetAnimation.animation.name);
 });
 ```
@@ -107,7 +107,7 @@ animationGroup1.onAnimationLoopObservable.add(function(targetAnimation) {
 There is also an **onAnimationGroupLoop** observable that can be used to trigger a function when all the animation of the group have looped:
 
 ```javascript
-animationGroup1.onAnimationGroupLoopObservable.add(function(group) {
+animationGroup1.onAnimationGroupLoopObservable.add(function (group) {
   console.log("Group looped!");
 });
 ```

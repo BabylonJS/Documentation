@@ -16,25 +16,25 @@ Recall that we loaded the assets in the [load](/guidedLearning/createAGame/impor
 
 ```javascript
 if (m.name == "ground") {
-    //dont check for collisions, dont allow for raycasting to detect it(cant land on it)
-    m.checkCollisions = false;
-    m.isPickable = false;
+  //dont check for collisions, dont allow for raycasting to detect it(cant land on it)
+  m.checkCollisions = false;
+  m.isPickable = false;
 }
 //areas that will use box collisions
 if (m.name.includes("stairs") || m.name == "cityentranceground" || m.name == "fishingground.001" || m.name.includes("lilyflwr")) {
-    m.checkCollisions = false;
-    m.isPickable = false;
+  m.checkCollisions = false;
+  m.isPickable = false;
 }
 //collision meshes
 if (m.name.includes("collision")) {
-    m.isVisible = false;
-    m.isPickable = true;
+  m.isVisible = false;
+  m.isPickable = true;
 }
 //trigger meshes
 if (m.name.includes("Trigger")) {
-    m.isVisible = false;
-    m.isPickable = false;
-    m.checkCollisions = false;
+  m.isVisible = false;
+  m.isPickable = false;
+  m.checkCollisions = false;
 }
 ```
 
@@ -55,44 +55,44 @@ We've already set up our actionManager, so now we will register new `ActionManag
 ```javascript
 //Platform destination
 this.mesh.actionManager.registerAction(
-    new ExecuteCodeAction(
-        {
-            trigger: ActionManager.OnIntersectionEnterTrigger,
-            parameter: this.scene.getMeshByName("destination"),
-        },
-        () => {
-            if (this.lanternsLit == 22) {
-                this.win = true;
-                //tilt camera to look at where the fireworks will be displayed
-                this._yTilt.rotation = new Vector3(5.689773361501514, 0.23736477827122882, 0);
-                this._yTilt.position = new Vector3(0, 6, 0);
-                this.camera.position.y = 17;
-            }
-        },
-    ),
+  new ExecuteCodeAction(
+    {
+      trigger: ActionManager.OnIntersectionEnterTrigger,
+      parameter: this.scene.getMeshByName("destination"),
+    },
+    () => {
+      if (this.lanternsLit == 22) {
+        this.win = true;
+        //tilt camera to look at where the fireworks will be displayed
+        this._yTilt.rotation = new Vector3(5.689773361501514, 0.23736477827122882, 0);
+        this._yTilt.position = new Vector3(0, 6, 0);
+        this.camera.position.y = 17;
+      }
+    },
+  ),
 );
 
 //World ground detection
 //if player falls through "world", reset the position to the last safe grounded position
 this.mesh.actionManager.registerAction(
-    new ExecuteCodeAction(
-        {
-            trigger: ActionManager.OnIntersectionEnterTrigger,
-            parameter: this.scene.getMeshByName("ground"),
-        },
-        () => {
-            this.mesh.position.copyFrom(this._lastGroundPos); // need to use copy or else they will be both pointing at the same thing & update together
-        },
-    ),
+  new ExecuteCodeAction(
+    {
+      trigger: ActionManager.OnIntersectionEnterTrigger,
+      parameter: this.scene.getMeshByName("ground"),
+    },
+    () => {
+      this.mesh.position.copyFrom(this._lastGroundPos); // need to use copy or else they will be both pointing at the same thing & update together
+    },
+  ),
 );
 ```
 
 What we're doing here is setting up to check whenever the player intersects or collides with this specified mesh, and if it does, it triggers an action.
 
 1. Destination Platform detection
-    - There's a platform where the player needs to reach, this will trigger the "win" state. For my game, that was displaying fireworks in the scene, so it will adjust the camera view to point towards where the fireworks would go off. _this.win_ is actually just a flag here because my game doesn't have a true separate win state, it just triggers an overlay to display the credits after fireworks have started.
+   - There's a platform where the player needs to reach, this will trigger the "win" state. For my game, that was displaying fireworks in the scene, so it will adjust the camera view to point towards where the fireworks would go off. _this.win_ is actually just a flag here because my game doesn't have a true separate win state, it just triggers an overlay to display the credits after fireworks have started.
 2. "World" ground detection
-    - If we collide with the world ground, we want to reset our mesh's position to what we've stored in _this.\_lastGroundPos_ (Recall that we actually update this every time we're grounded). This is actually a feature I added to account for world bounds that will basically reset the player's position to the last safe grounded position. That way, the player can never end up falling off or leaving the world and ending up in a "freefall" state.
+   - If we collide with the world ground, we want to reset our mesh's position to what we've stored in _this.\_lastGroundPos_ (Recall that we actually update this every time we're grounded). This is actually a feature I added to account for world bounds that will basically reset the player's position to the last safe grounded position. That way, the player can never end up falling off or leaving the world and ending up in a "freefall" state.
 
 ## Player and Trigger Volumes
 
@@ -107,13 +107,13 @@ There are two types:
 ```javascript
 //trigger areas for rotating camera view
 if (this.mesh.intersectsMesh(this.scene.getMeshByName("cornerTrigger"))) {
-    if (this._input.horizontalAxis > 0) {
-        //rotates to the right
-        this._camRoot.rotation = Vector3.Lerp(this._camRoot.rotation, new Vector3(this._camRoot.rotation.x, Math.PI / 2, this._camRoot.rotation.z), 0.4);
-    } else if (this._input.horizontalAxis < 0) {
-        //rotates to the left
-        this._camRoot.rotation = Vector3.Lerp(this._camRoot.rotation, new Vector3(this._camRoot.rotation.x, Math.PI, this._camRoot.rotation.z), 0.4);
-    }
+  if (this._input.horizontalAxis > 0) {
+    //rotates to the right
+    this._camRoot.rotation = Vector3.Lerp(this._camRoot.rotation, new Vector3(this._camRoot.rotation.x, Math.PI / 2, this._camRoot.rotation.z), 0.4);
+  } else if (this._input.horizontalAxis < 0) {
+    //rotates to the left
+    this._camRoot.rotation = Vector3.Lerp(this._camRoot.rotation, new Vector3(this._camRoot.rotation.x, Math.PI, this._camRoot.rotation.z), 0.4);
+  }
 }
 ```
 
@@ -124,19 +124,19 @@ There's a single cornerTrigger mesh that's located at the corner of a building. 
 ```javascript
 //rotates the camera to point down at the player when they enter the area, and returns it back to normal when they exit
 if (this.mesh.intersectsMesh(this.scene.getMeshByName("festivalTrigger"))) {
-    if (this._input.verticalAxis > 0) {
-        this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.DOWN_TILT, 0.4);
-    } else if (this._input.verticalAxis < 0) {
-        this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.ORIGINAL_TILT, 0.4);
-    }
+  if (this._input.verticalAxis > 0) {
+    this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.DOWN_TILT, 0.4);
+  } else if (this._input.verticalAxis < 0) {
+    this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.ORIGINAL_TILT, 0.4);
+  }
 }
 //once you've reached the destination area, return back to the original orientation, if they leave rotate it to the previous orientation
 if (this.mesh.intersectsMesh(this.scene.getMeshByName("destinationTrigger"))) {
-    if (this._input.verticalAxis > 0) {
-        this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.ORIGINAL_TILT, 0.4);
-    } else if (this._input.verticalAxis < 0) {
-        this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.DOWN_TILT, 0.4);
-    }
+  if (this._input.verticalAxis > 0) {
+    this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.ORIGINAL_TILT, 0.4);
+  } else if (this._input.verticalAxis < 0) {
+    this._yTilt.rotation = Vector3.Lerp(this._yTilt.rotation, Player.DOWN_TILT, 0.4);
+  }
 }
 ```
 
@@ -146,10 +146,10 @@ The two areas where we're rotating the camera up/down is when the character ente
 
 **Files Used:**
 
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
 **Follow Along:**
 
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/collisionsTriggers/characterController.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/collisionsTriggers/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/collisionsTriggers/characterController.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/collisionsTriggers/environment.ts)

@@ -1,6 +1,6 @@
 ---
 title: Exposing properties
-image: 
+image:
 description: Understanding how to use the Babylon.JS Editor provided api to retrieve components references.
 keywords: editor, scripting
 further-reading:
@@ -14,6 +14,7 @@ Script properties can be exposed and modified in the Editor. Using `@visibleInIn
 properties to expose can be customized and grouped in the `Inspector`.
 
 Suported property types are:
+
 - number
 - string
 - boolean
@@ -53,6 +54,7 @@ import { visibleInInspector } from "../decorators";
 
 As well as type, name and default value, the decorator has an `options` parameter used to customize the property
 in the Editor. All fields are optional:
+
 - **min**: defines the minimum value that can be set in the Editor field. Available only for numbers and vectors.
 - **max**: defines the maximum value that can be set in the Editor field. Available only for numbers and vectors.
 - **step**: defines the step to applied on the property when the user modifies the property in the Editor using the mouse.
@@ -86,14 +88,14 @@ import { Mesh } from "@babylonjs/core/Meshes/mesh";
 import { visibleInInspector } from "../decorators";
 
 export default class MyMeshComponent extends Mesh {
-    @visibleInInspector("number", "Speed", 0.04, { min: 0, max: 1, step: 0.01 })
-    private _speed: number = 1;
+  @visibleInInspector("number", "Speed", 0.04, { min: 0, max: 1, step: 0.01 })
+  private _speed: number = 1;
 
-    /**
-     * Called each frame.
-     */
-    public onUpdate(): void {
-        this.rotation.y += 0.04 * this._speed;
-    }
+  /**
+   * Called each frame.
+   */
+  public onUpdate(): void {
+    this.rotation.y += 0.04 * this._speed;
+  }
 }
 ```

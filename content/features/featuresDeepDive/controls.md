@@ -18,5 +18,4 @@ Babylon.js provides an unified API on top of **WebGL**, **WebGL2** and **WebGPU*
 
 ![Resizer](/img/features/controls/resizer.png)
 
-
 Sample https://github.com/sebavan/BabylonjsVideoProcessingSample

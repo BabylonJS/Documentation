@@ -1,6 +1,6 @@
 ---
 title: An Introduction To The Solid Particle System
-image: 
+image:
 description: Learn the basics of the solid particle system in Babylon.js.
 keywords: diving deeper, particles, solid particle system, solid particles
 further-reading:
@@ -12,7 +12,7 @@ video-content:
 
 The Solid Particle System, SPS, is a single updatable mesh rendered with one draw call. It is built by combining multiple copies of one or more model meshes which become the particles of the system. Once the SPS is built, it has the same properties as any other Babylon.js mesh - no more, no less. It can be scaled, rotated, translated, lit, textured, etc.
 
-As a system of particles, it provides some methods to manage the particles. However, unlike the standard particle system, it provides no built-in behaviors. It has no emitters, no particle physics, no particle recycler nor particle movement. You have to implement your own behaviors. 
+As a system of particles, it provides some methods to manage the particles. However, unlike the standard particle system, it provides no built-in behaviors. It has no emitters, no particle physics, no particle recycler nor particle movement. You have to implement your own behaviors.
 
 Once you have a mesh model, or models, as a basis for the particles you follow these steps
 
@@ -21,12 +21,13 @@ Once you have a mesh model, or models, as a basis for the particles you follow t
 - redo this as many times as needed with any model;
 - When done, build the SPS mesh with `buildMesh()`.
 
-Your SPS is then ready to manage its particles by 
+Your SPS is then ready to manage its particles by
 
 - initiating their positions, colors etc. with `initParticles()`;
 - update the SPS and draw it with `setParticles()`.
 
 When you want to animate the particles by changing their properties over time you need to
+
 - define their individual behavior with`updateParticle(particle)`;
 - call `setParticles()` within the render loop.
 
@@ -44,24 +45,25 @@ poly.dispose(); //free memory
 
 const mesh = SPS.buildMesh(); // finally builds and displays the SPS mesh
 ```
-At this stage, all the particles are displayed at the origin. So to separate them, we need to initiate some properties. Access to the individual particles is through the *particles array*, and the length of which is given by *nbParticles*.
+
+At this stage, all the particles are displayed at the origin. So to separate them, we need to initiate some properties. Access to the individual particles is through the _particles array_, and the length of which is given by _nbParticles_.
 
 We setup the function to initiate the particles
 
 ```javascript
 // initiate particles function
 SPS.initParticles = () => {
-    for (let p = 0; p < SPS.nbParticles; p++) {
-        const particle = SPS.particles[p];
-        //Place particles at random positions with a cube
-      	particle.position.x = BABYLON.Scalar.RandomRange(-50, 50);
-        particle.position.y = BABYLON.Scalar.RandomRange(-50, 50);
-        particle.position.z = BABYLON.Scalar.RandomRange(-50, 50);
-    }
+  for (let p = 0; p < SPS.nbParticles; p++) {
+    const particle = SPS.particles[p];
+    //Place particles at random positions with a cube
+    particle.position.x = BABYLON.Scalar.RandomRange(-50, 50);
+    particle.position.y = BABYLON.Scalar.RandomRange(-50, 50);
+    particle.position.z = BABYLON.Scalar.RandomRange(-50, 50);
+  }
 };
 ```
 
-then call it to apply the initiation, followed by *setParticles* to actually reconfigure the SPS mesh geometry and vertex data
+then call it to apply the initiation, followed by _setParticles_ to actually reconfigure the SPS mesh geometry and vertex data
 
 ```javascript
 //Update SPS mesh
@@ -80,6 +82,6 @@ Texture individual particles: <Playground id="#GLZ1PX#5" title="Individually Tex
 
 While it can be useful to have an SPS that will not change, for example to represent an asteroid field or city buildings
 
-![Immutable](/img/how_to/Particles/sps1.png)  
+![Immutable](/img/how_to/Particles/sps1.png)
 
 there is much more you can do with an SPS.

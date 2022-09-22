@@ -4,8 +4,8 @@ image:
 description: Learn how to pick meshes in Babylon.js.
 keywords: diving deeper, meshes, interactions
 further-reading:
-    - title: Mesh Overview
-      url: /features/featuresDeepDive/mesh/creation/set
+  - title: Mesh Overview
+    url: /features/featuresDeepDive/mesh/creation/set
 video-overview:
 video-content:
 ---
@@ -98,10 +98,10 @@ We added a new function predicate _(line #54)_:
 
 ```javascript
 function predicate(mesh) {
-    if (mesh == box2 || mesh == box) {
-        return false;
-    }
-    return true;
+  if (mesh == box2 || mesh == box) {
+    return false;
+  }
+  return true;
 }
 ```
 
@@ -130,10 +130,10 @@ Starting with Babylon.js v4.0 you can define a custom predicate to filter the tr
 
 ```javascript
 scene.pick(scene.pointerX, scene.pointerY, null, false, null, (p0, p1, p2, ray) => {
-    var p0p1 = p0.subtract(p1);
-    var p2p1 = p2.subtract(p1);
-    var normal = BABYLON.Vector3.Cross(p0p1, p2p1);
-    return BABYLON.Vector3.Dot(ray.direction, normal) < 0;
+  var p0p1 = p0.subtract(p1);
+  var p2p1 = p2.subtract(p1);
+  var normal = BABYLON.Vector3.Cross(p0p1, p2p1);
+  return BABYLON.Vector3.Dot(ray.direction, normal) < 0;
 });
 ```
 

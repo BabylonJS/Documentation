@@ -1,6 +1,6 @@
 ---
 title: Babylon.js Cross Platform
-image: 
+image:
 description: Learn how to use Babylon.js to create Native Apps!
 keywords: native, app, cross platform
 further-reading:

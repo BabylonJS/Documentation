@@ -1,23 +1,23 @@
 ---
 title: Joints
-image: 
+image:
 description: Learn all about using joints in physics engines within Babylon.js.
 keywords: diving deeper, phyiscs, joints
 further-reading:
-    - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
-    - title: How to use Forces
-      url: /features/featuresDeepDive/physics/forces
-    - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
-    - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
-    - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
-    - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+  - title: How To Use The Physics Engines
+    url: /features/featuresDeepDive/physics/usingPhysicsEngine
+  - title: How to use Forces
+    url: /features/featuresDeepDive/physics/forces
+  - title: How To Use Pivots and Axes
+    url: /features/featuresDeepDive/physics/pivotsAxes
+  - title: How To Create Compound Bodies
+    url: /features/featuresDeepDive/physics/compoundBodies
+  - title: How To Create Soft Bodies
+    url: /features/featuresDeepDive/physics/softBodies
+  - title: How To Use Advanced Features
+    url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+  - title: How To Add Your Own Physics Engine
+    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -61,10 +61,7 @@ The following table lists those joints within Babylon.js and where available the
 The method to form a joint and connect one body (main) to a second body (connected) is
 
 ```javascript
-var joint = new BABYLON.PhysicsJoint(
-  BABYLON.PhysicsJoint.TYPE_OF_JOINT,
-  jointData
-);
+var joint = new BABYLON.PhysicsJoint(BABYLON.PhysicsJoint.TYPE_OF_JOINT, jointData);
 
 mainImpostor.addJoint(connectedImpostor, joint);
 ```
@@ -247,10 +244,7 @@ The table below shows the joints that a motor can be added to.
 To add a motor to one of these joints simply replace `PhysicsJoint` with `MotorEnabledJoint` and set the motor on the joint.
 
 ```javascript
-var joint = new BABYLON.PhysicsJoint(
-  BABYLON.PhysicsJoint.TYPE_OF_JOINT,
-  jointData
-);
+var joint = new BABYLON.PhysicsJoint(BABYLON.PhysicsJoint.TYPE_OF_JOINT, jointData);
 
 mainImpostor.addJoint(connectedImpostor, joint);
 ```

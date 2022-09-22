@@ -1,6 +1,6 @@
 ---
 title: The Sprite Editor
-image: 
+image:
 description: Learn all about the Sprite Editor in Babylon.js.
 keywords: babylon.js, tools, resources, sprite, sprite editor
 further-reading:

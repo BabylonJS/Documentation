@@ -102,9 +102,9 @@ gizmo.updateGizmoPositionToMatchAttachedMesh = true;
 
 Default gizmos for position, rotation and scale on a single axis are supported
 
--   <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo."/>
--   <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo."/>
--   <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo."/>
+- <Playground id="#31M2AP#9" title="AxisDragGizmo Example" description="Simple example of how to use the AxisDragGizmo."/>
+- <Playground id="#31M2AP#10" title="AxisScaleGizmo Example" description="Simple example of how to use the AxisScaleGizmo."/>
+- <Playground id="#31M2AP#11" title="PlaneRotationGizmo Example" description="Simple example of how to use the PlaneRotationGizmo."/>
 
 Snapping can be enabled on any of the single axis gizmos
 
@@ -131,9 +131,9 @@ gizmo.dragBehavior.onDragObservable.add(()=>{
 
 Classes for 3 axis gizmos are also provided which contain 3 of the single axis gizmos within
 
--   <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo."/>
--   <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo."/>
--   <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo."/>
+- <Playground id="#31M2AP#6" title="PositionGizmo Example" description="Simple example of how to use the PositionGizmo."/>
+- <Playground id="#31M2AP#8" title="ScaleGizmo Example" description="Simple example of how to use the ScaleGizmo."/>
+- <Playground id="#31M2AP#7" title="RotationGizmo Example" description="Simple example of how to use the RotationGizmo."/>
 
 The single axis gizmos within these are exposed via the xGizmo, yGizmo and zGizmo properties. The scale gizmo also has a uniformScaleGizmo property which references center gizmo used to uniformly scale.
 

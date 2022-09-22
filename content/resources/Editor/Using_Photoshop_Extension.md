@@ -1,6 +1,6 @@
 ---
 title: using the Photoshop Extension
-image: 
+image:
 description: Babylon.js Editor extension to connect to the current Photoshop instance opened in our computer and send to the editor the file that is being edited in Photoshop.
 keywords: editor, photoshop
 further-reading:
@@ -15,6 +15,7 @@ The Babylon.JS Editor v3.2.0 comes with a new feature: the Photoshop Extension. 
 The Editor's plugin is called a "Generator Plug-in" and works only with Photoshop CC. In other words, the editor will connect to Photoshop and listen for events.
 
 A simple demo video is available here:
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-gsR6FJPA8Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ## Enabling Extensions
@@ -23,10 +24,11 @@ First, we have to enable Generators Plug-ins in Photoshop. To enable, just go in
 ![OpeningPreferences](/img/extensions/Editor/PhotoshopExtension/photoshop_setup.png)
 
 The first options are based on Photoshop Generators. We'll have to enable:
-* Generator
-* Remote connections (required as the plug-in is not installed in the Photoshop directory but is embeded by the editor)
-* A password (default is "password")
-![Generators](/img/extensions/Editor/PhotoshopExtension/generators.png)
+
+- Generator
+- Remote connections (required as the plug-in is not installed in the Photoshop directory but is embeded by the editor)
+- A password (default is "password")
+  ![Generators](/img/extensions/Editor/PhotoshopExtension/generators.png)
 
 Once done, click "Ok" and Generator Plug-ins are enabled!
 

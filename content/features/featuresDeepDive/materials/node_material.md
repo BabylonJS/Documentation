@@ -1,6 +1,6 @@
 ---
 title: Node Material
-image: 
+image:
 description: Learn all about the incredibly powerful Node Material in Babylon.js.
 keywords: diving deeper, materials, node, node material, shader
 further-reading:

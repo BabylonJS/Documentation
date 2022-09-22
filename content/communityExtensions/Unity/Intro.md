@@ -1,8 +1,8 @@
 ---
 title: Introduction to the Unity Toolkit
-image: 
+image:
 description: Introducing the features of the Unity Toolkit.
-keywords: babylon.js, exporter, unity 
+keywords: babylon.js, exporter, unity
 further-reading:
 video-overview:
 video-content:
@@ -30,14 +30,12 @@ Skyboxes for the scene are primarily controlled via the [Unity Lighting Window](
 
 The preferred **Color Space** for realistic rendering is **Linear**. A significant advantage of using **Linear** color space is that the colors supplied to shaders within your scene will brighten linearly as light intensities increase. This can be selected using the **Color Space** property from **Edit>Project Settings>Player** settings panel.
 
-
 ## Getting Started
 
 The [Project Setup](Projects) section outlines basic project setup, scene configuration and runtime script compiler options. You can auto detect the platform script compiler locations in the **Project Compiler Options** section on the main export panel. Check out the [Getting Started Video](http://www.babylontoolkit.com/videos/GettingStarted.mp4) to get started with **Babylon Toolkit** style game development.
 
-
 ## Toolkit Features
-    
+
 ### Script Components
 
 [Script Components](01_ScriptComponents) are the primary way of attaching native babylon classes to game objects and prefabs in the editor.
@@ -56,7 +54,7 @@ game objects like meshes, cameras and lights. Each component type has a ready, s
 
 ### Shader Materials
 
-[Shader Materials](03_ShaderMaterials) are used to assign unity standard and legacy shaders to native babylon material classes. Custom shaders are supportted if they follow the unity shader property naming standard. The universial shader material component encapsulates both Unity design time shader and babylon runtime shader information. Please refer to 
+[Shader Materials](03_ShaderMaterials) are used to assign unity standard and legacy shaders to native babylon material classes. Custom shaders are supportted if they follow the unity shader property naming standard. The universial shader material component encapsulates both Unity design time shader and babylon runtime shader information. Please refer to
 the [Unity Material Editor](https://docs.unity3d.com/Manual/Materials.html) documentation for details.
 
 ### Collision Meshes
@@ -71,7 +69,7 @@ The terrain builder supports custom terrain splatmap shaders to allow design tim
 
 ### Animation State
 
-[Animation State](06_AnimationState) is supported for both transform and skeleton animations. Transform animations are used to animate the position, rotation and scale of any light, camera or mesh. Skeleton animation are used to animate the bones of a skeletal mesh. Legacy Animation controls are used to enable standard bone key frame animations only. 
+[Animation State](06_AnimationState) is supported for both transform and skeleton animations. Transform animations are used to animate the position, rotation and scale of any light, camera or mesh. Skeleton animation are used to animate the bones of a skeletal mesh. Legacy Animation controls are used to enable standard bone key frame animations only.
 
 The newer standard Animator controls are used to enable the built-in Unity Mechanim humanoid animation rigging system. Please refer to the [Unity Animation Group](https://docs.unity3d.com/Manual/comp-AnimationGroup.html) documentation for details.
 
@@ -95,7 +93,6 @@ The [Windows Platform](10_WindowsPlatform) toolset provides built-in support to 
 
 The [Babylon Art Tools](11_BabylonArtTools) included in the toolkit provides a number of art tools to aid in creating optimized game ready assets.
 
-
 ## Exported Content
 
 ### Editor Script Components
@@ -106,110 +103,110 @@ Native JavaScript Libraries (renamed to .bjs) that are included anywhere in the 
 
 ### Supported Unity Features
 
-* **Scene**
- * Assets
- * Metadata
-* **Cameras**
- * Name
- * Position
- * Target
- * FOV
- * LOD Groups
- * Clip Range Start
- * Clip Range End
- * Check Collisions
- * Gravity
- * Ellipsoid
- * Animations (Position)
-* **Lights**
- * Type (Point, Directional, Spot)
- * Name
- * Position
- * Direction
- * Spot Angle
- * Intensity
- * Diffuse Color
- * Animations (Position)
- * Shadow Maps
- * Light Maps
-* **Materials**
- * Name
- * Diffuse Color
- * Specular Color
- * Specular Power
- * Emissive Color
- * Alpha
- * Backface Culling
- * Diffuse Texture
- * Reflection Texture
- * Emissive Texture
- * Bump Texture
-* **Physically Based Rendering**
- * Metallic Setup
- * Roughness Setup
- * Specular Setup
-* **Multi-Materials**
- * Name
- * Child Materials
-* **Textures**
- * Name
- * Associated File
- * Use Alpha
- * uOffset / voffset
- * uScale / uScale
-* **Meshes**
- * Name
- * Geometry (Positions &amp; Normals)
- * Position
- * Rotation
- * Scaling
- * Texture Coordinates (2 Channels)
- * Check Collisions
- * Receive &amp; Cast Shadows
- * Animations (Position, Rotation, Scaling)
- * Skeletons (Shared Cloning)
-* **Shaders**
- * Vertex Shaders
- * Fragment Shaders
- * Custom Shaders
-* **Layers**
- * Custom Layers
- * Object Layers
- * Static Layers
- * Prefab Layers
- * Ignore Layers (Void)
-* **Tagging**
- * Object Tag Name
- * Custom Tag Names
-* **Terrains**
- * Multiple Terrains
- * Splatmap Textures
- * Tree Instances
- * Grass Patches (Under Construction)
- * Detail Prototypes (Under Construction)
-* **Components**
- * Mesh Filter
- * Mesh Renderer
- * Skinned Mesh Renderer
-* **Collisions**
- * Box Collider
- * Sphere Collider
- * Capsule Collider
- * Mesh Collider
- * Wheel Collider
- * Terrain Collider
-* **Navigation**
- * Navigation Mesh
- * Nav Mesh Agent
- * Off Mesh Link
- * Nav Mesh Obstacle
-* **Local Multiplayer**
- * Multiplayer Input 
- * Multiplayer Camera
-* **Miscellaneous**
- * Tree Component
- * Terrain Component
- * Animator Component
- * Animation Component
+- **Scene**
+- Assets
+- Metadata
+- **Cameras**
+- Name
+- Position
+- Target
+- FOV
+- LOD Groups
+- Clip Range Start
+- Clip Range End
+- Check Collisions
+- Gravity
+- Ellipsoid
+- Animations (Position)
+- **Lights**
+- Type (Point, Directional, Spot)
+- Name
+- Position
+- Direction
+- Spot Angle
+- Intensity
+- Diffuse Color
+- Animations (Position)
+- Shadow Maps
+- Light Maps
+- **Materials**
+- Name
+- Diffuse Color
+- Specular Color
+- Specular Power
+- Emissive Color
+- Alpha
+- Backface Culling
+- Diffuse Texture
+- Reflection Texture
+- Emissive Texture
+- Bump Texture
+- **Physically Based Rendering**
+- Metallic Setup
+- Roughness Setup
+- Specular Setup
+- **Multi-Materials**
+- Name
+- Child Materials
+- **Textures**
+- Name
+- Associated File
+- Use Alpha
+- uOffset / voffset
+- uScale / uScale
+- **Meshes**
+- Name
+- Geometry (Positions &amp; Normals)
+- Position
+- Rotation
+- Scaling
+- Texture Coordinates (2 Channels)
+- Check Collisions
+- Receive &amp; Cast Shadows
+- Animations (Position, Rotation, Scaling)
+- Skeletons (Shared Cloning)
+- **Shaders**
+- Vertex Shaders
+- Fragment Shaders
+- Custom Shaders
+- **Layers**
+- Custom Layers
+- Object Layers
+- Static Layers
+- Prefab Layers
+- Ignore Layers (Void)
+- **Tagging**
+- Object Tag Name
+- Custom Tag Names
+- **Terrains**
+- Multiple Terrains
+- Splatmap Textures
+- Tree Instances
+- Grass Patches (Under Construction)
+- Detail Prototypes (Under Construction)
+- **Components**
+- Mesh Filter
+- Mesh Renderer
+- Skinned Mesh Renderer
+- **Collisions**
+- Box Collider
+- Sphere Collider
+- Capsule Collider
+- Mesh Collider
+- Wheel Collider
+- Terrain Collider
+- **Navigation**
+- Navigation Mesh
+- Nav Mesh Agent
+- Off Mesh Link
+- Nav Mesh Obstacle
+- **Local Multiplayer**
+- Multiplayer Input
+- Multiplayer Camera
+- **Miscellaneous**
+- Tree Component
+- Terrain Component
+- Animator Component
+- Animation Component
 
 .

@@ -1,6 +1,6 @@
 ---
 title: Physics
-image: 
+image:
 description: Learn all about the powerful physics capabilities of Babylon.js.
 keywords: diving deeper, phyiscs
 further-reading:
@@ -20,7 +20,7 @@ There are plugins for 3 physics engines:
 
 All need to be enabled before use.
 
-Interactions between objects are achieved by imposters, simple objects that are attached to any complex objects with a scene. The imposter can be assigned physical attributes such as mass, friction, a coefficient of restitution, impulse, and linear and angular 
+Interactions between objects are achieved by imposters, simple objects that are attached to any complex objects with a scene. The imposter can be assigned physical attributes such as mass, friction, a coefficient of restitution, impulse, and linear and angular
 
 Two imposters can be connected using joints such as a hinge or ball and socket.
 

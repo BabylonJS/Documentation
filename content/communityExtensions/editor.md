@@ -1,6 +1,6 @@
 ---
 title: Babylon.js Editor
-image: 
+image:
 description: Welcome to the Babylon.js Editor Documentation.
 keywords: editor
 further-reading:

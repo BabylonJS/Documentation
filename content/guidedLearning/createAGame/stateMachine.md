@@ -18,10 +18,10 @@ Recall from the [Create a Scene](/guidedLearning/createAGame/gettingSetUp#creati
 
 How I went about this was by outlining all of the different scenes I would need for the game:
 
--   START
--   CUTSCENE
--   GAME
--   LOSE
+- START
+- CUTSCENE
+- GAME
+- LOSE
 
 The reason why there's no win and pause state is because those are actually still using the game scene and so it still needs to be able to render the game scene. I've made those two "states" as GUI overlays.
 Now that we know what states we want we can go ahead and create an enum for them. All the enum does is assign names to the states and encodes them as numbers. We also want to create a class variable **\_state** to store the current state that we're in. Now, our app.ts should look something like this:
@@ -140,8 +140,8 @@ guiMenu.addControl(startBtn);
 
 //this handles interactions with the start button attached to the scene
 startBtn.onPointerDownObservable.add(() => {
-    this._goToCutScene();
-    scene.detachControl(); //observables disabled
+  this._goToCutScene();
+  scene.detachControl(); //observables disabled
 });
 ```
 
@@ -195,7 +195,7 @@ The most important aspect is what we do after that:
 ```javascript
 var finishedLoading = false;
 await this._setUpGame().then((res) => {
-    finishedLoading = true;
+  finishedLoading = true;
 });
 ```
 
@@ -222,7 +222,7 @@ next.left = "-12%";
 cutScene.addControl(next);
 
 next.onPointerUpObservable.add(() => {
-    this._goToGame();
+  this._goToGame();
 });
 ```
 
@@ -343,8 +343,8 @@ If you're having trouble getting through the states, open the browser's inspecto
 
 **Files Used:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
 
 **Follow Along:**
 
--   [sampleApp.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/stateMachine/sampleApp.ts)
+- [sampleApp.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/stateMachine/sampleApp.ts)

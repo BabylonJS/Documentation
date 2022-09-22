@@ -1,6 +1,6 @@
 ---
 title: Open A URL On An Event
-image: 
+image:
 description: Helpful code snippet for opening a url on an event in Babylon.js.
 keywords: babylon.js, tools, resources, utilities, interaction, url, open
 further-reading:
@@ -10,16 +10,18 @@ video-content:
 
 ## Open an URL with Action Manager
 
-Since any Javascript can be called when executing code action with the action manager it is straight forward to open a new web page using 
+Since any Javascript can be called when executing code action with the action manager it is straight forward to open a new web page using
 
 ```javascript
-window.open(URL)
+window.open(URL);
 ```
+
 to open a new window or
 
 ```javascript
-window.location = URL
+window.location = URL;
 ```
+
 to replace the contants of the current window.
 
 <Playground id="#INB624#1" title="Open URL On Single Mesh Click" description=""/>

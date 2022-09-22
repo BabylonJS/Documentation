@@ -1,6 +1,6 @@
 ---
 title: Marble Procedural Texture
-image: 
+image:
 description: Check out the free Marble Procedural Texture.
 keywords: babylon.js, tools, resources, assets, library, procedural texture, marble
 further-reading:
@@ -14,13 +14,15 @@ video-content:
 
 ## Using the Marble procedural texture
 
-Marble procedural texture can be found here: 
+Marble procedural texture can be found here:
+
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
+A demo can be found here: <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
 
 This texture has 4 parameters :
+
 - **numberOfTilesHeight** controls the number of tiles in height (Int)
 - **numberOfTilesWidth** controls the number of tiles in width (Int)
 - **jointColor** changes the color for the joint between tiles (BABYLON.Color3/4)

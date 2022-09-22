@@ -1,6 +1,6 @@
 ---
 title: A Range Template Repositories
-image: 
+image:
 description: A catergory holding template repositories
 keywords: babylon.js, template, repository,
 further-reading:

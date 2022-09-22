@@ -1,35 +1,39 @@
 ---
 title: Fireworks with Shaders
-image: 
-description: Using a shader to produce a firework that burst 
+image:
+description: Using a shader to produce a firework that burst
 keywords: shader, firework
 further-reading:
 video-overview:
 video-content:
 ---
 
-As with any code it is important to have a firm idea of what you want to achieve, what is possible to code and 
-a design. 
+As with any code it is important to have a firm idea of what you want to achieve, what is possible to code and
+a design.
 
 ## Requirements
-The requirements are for a collection of coloured facets to bursts out from a central position so that each fragment lies on the surface of an expanding sphere. 
+
+The requirements are for a collection of coloured facets to bursts out from a central position so that each fragment lies on the surface of an expanding sphere.
 All fragments should be equally spaced on the sphere and should change colour during the expansion, fading over time.
 
 ## First Stage Design
-A sphere created inBabylon.js is made up of facets where vertices of adjoining facets share normals to ensure a smooth surface. 
-Converting the sphere to a flat shaded mesh will give each facet its own set of normals which will be the mathematical normals for the plane of the facet. 
+
+A sphere created inBabylon.js is made up of facets where vertices of adjoining facets share normals to ensure a smooth surface.
+Converting the sphere to a flat shaded mesh will give each facet its own set of normals which will be the mathematical normals for the plane of the facet.
 To make a facet travel outwards from the centre over time its position at any time will be _start position + normal \* function of time_
 
-The sphere is flat shaded and the normals for the three vertices of each facet will be the same. The original position of each vertex and its normal 
-are accessible to the shader as attributes passing time as a uniform will be enough. 
+The sphere is flat shaded and the normals for the three vertices of each facet will be the same. The original position of each vertex and its normal
+are accessible to the shader as attributes passing time as a uniform will be enough.
 
 To obtain an initially fast expansion the slowing down a logarithmic function of time will be used.
 
 ## Second Stage Design
-The colour and transparency of all the facets will be the same at the same time and so a change to each component of the colour of a vertex 
+
+The colour and transparency of all the facets will be the same at the same time and so a change to each component of the colour of a vertex
 can be applied as a function of time.
 
 ## Third Stage Design
+
 After the first coding of the shaders adjustments were made to the functions of time, manually, to obtaim a satisfactory appearance to the burst of facets.
 
 ## Shader Material Code
@@ -53,11 +57,11 @@ void main(void) {
 }
 ```
 
-### Sphere 
+### Sphere
 
 ```javascript
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:10}, scene);
-sphere.convertToFlatShadedMesh();	
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 10 }, scene);
+sphere.convertToFlatShadedMesh();
 
 sphere.material = shaderMaterial;
 ```
@@ -65,16 +69,15 @@ sphere.material = shaderMaterial;
 ### Animation Loop
 
 ```javascript
-var t = 0.;
-var time = 0.;
-scene.registerBeforeRender(function() {
-    if(time<8) {
-        sphere.material.setFloat("time", time);
-        time +=0.1;
-    }   
-    else {
-        sphere.dispose();
-    }
+var t = 0;
+var time = 0;
+scene.registerBeforeRender(function () {
+  if (time < 8) {
+    sphere.material.setFloat("time", time);
+    time += 0.1;
+  } else {
+    sphere.dispose();
+  }
 });
 ```
 

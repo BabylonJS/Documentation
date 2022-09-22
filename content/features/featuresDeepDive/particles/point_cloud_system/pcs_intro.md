@@ -1,6 +1,6 @@
 ---
 title: The Point Cloud Particle System
-image: 
+image:
 description: Dive into the point cloud particle system in Babylon.js.
 keywords: diving deeper, point cloud, point cloud system, particle
 further-reading:
@@ -18,12 +18,12 @@ Particles can be added to a PCS with a function or using an existing mesh as a m
 
 The expected usage is:
 
--   First, create your PCS with `new PointsCloudSystem()`.
--   Then, add particles in the PCS, using one of `addPoints(number, function)`, `addSurfacePoints(mesh, number, method)` or `addVolumePoints(mesh, number, method)`.
--   Redo the additions as many times as needed. Each addition creates a new group of particles identified by `particle.groupID`.
--   When done, build the PCS mesh with `buildMeshAsync()`.
--   Changes to particle properties can be achieved with the `initParticles()` or `updateParticle(particle)` methods and a call to `setParticles`.
--   Particle animation can be accomplished by defining their individual behavior in `updateParticle(particle)` and calling `setParticles()` within the render loop.
+- First, create your PCS with `new PointsCloudSystem()`.
+- Then, add particles in the PCS, using one of `addPoints(number, function)`, `addSurfacePoints(mesh, number, method)` or `addVolumePoints(mesh, number, method)`.
+- Redo the additions as many times as needed. Each addition creates a new group of particles identified by `particle.groupID`.
+- When done, build the PCS mesh with `buildMeshAsync()`.
+- Changes to particle properties can be achieved with the `initParticles()` or `updateParticle(particle)` methods and a call to `setParticles`.
+- Particle animation can be accomplished by defining their individual behavior in `updateParticle(particle)` and calling `setParticles()` within the render loop.
 
 ## Limitations
 

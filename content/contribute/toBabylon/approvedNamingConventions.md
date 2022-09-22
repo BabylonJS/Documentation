@@ -1,6 +1,6 @@
 ---
 title: Approved Naming Conventions
-image: 
+image:
 description: Learn about standard approved naming conventions in Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, naming conventions
 further-reading:

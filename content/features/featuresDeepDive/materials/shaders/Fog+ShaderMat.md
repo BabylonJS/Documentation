@@ -1,6 +1,6 @@
 ---
 title: Supporting Fog With ShaderMaterial
-image: 
+image:
 description: Learn how to support fog alongside the shader material in Babylon.js.
 keywords: babylon.js, advanced, shader material, fog
 further-reading:
@@ -9,9 +9,11 @@ video-content:
 ---
 
 ## How To Support Fog with ShaderMaterial
+
 In order to support fog in your custom shaders, you will have to add some lines of code in your vertex and pixel shaders.
 
 ## Vertex shader
+
 First, you need to declare a varying variable:
 
 ```
@@ -25,6 +27,7 @@ fFogDistance = (view * worldPosition).z; // This is the distance of the vertex f
 ```
 
 ## Pixel shader
+
 Next, you need to add the following code to be able to compute the fog accordingly to parameters sent by the scene:
 
 ```
@@ -77,7 +80,7 @@ You then have to add the following code for the onBind callback of your ShaderMa
 shaderMaterial.onBind = function(mat, mesh) {
     var effect = mat.getEffect();
     effect.setMatrix("view", scene.getViewMatrix());
-    effect.setFloat4("vFogInfos", scene.fogMode, scene.fogStart, scene.fogEnd, scene.fogDensity); 
+    effect.setFloat4("vFogInfos", scene.fogMode, scene.fogStart, scene.fogEnd, scene.fogDensity);
     effect.setColor3("vFogColor", scene.fogColor);
 }
 ```

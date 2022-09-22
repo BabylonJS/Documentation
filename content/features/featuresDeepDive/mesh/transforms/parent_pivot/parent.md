@@ -4,10 +4,10 @@ image:
 description: Learn about parents and children in Babylon.js.
 keywords: diving deeper, meshes, mesh transformation, transformation, parents, children
 further-reading:
-    - title: How To Transform Coordinates
-      url: /features/featuresDeepDive/mesh/transforms/center_origin/ref_frame
-    - title: Frame of Reference
-      url: /features/featuresDeepDive/mesh/transforms/center_origin/ref_frame
+  - title: How To Transform Coordinates
+    url: /features/featuresDeepDive/mesh/transforms/center_origin/ref_frame
+  - title: Frame of Reference
+    url: /features/featuresDeepDive/mesh/transforms/center_origin/ref_frame
 video-overview:
 video-content:
 ---
@@ -63,11 +63,11 @@ The following code gives the animation.
 
 ```javascript
 scene.registerAfterRender(function () {
-    box.rotate(BABYLON.Axis.Y, Math.PI / 150, BABYLON.Space.LOCAL);
-    box.rotate(BABYLON.Axis.X, Math.PI / 200, BABYLON.Space.LOCAL);
-    box.translate(new BABYLON.Vector3(-1, -1, -1).normalize(), 0.001, BABYLON.Space.WORLD);
-    y += 0.001;
-    small.translate(BABYLON.Axis.Y, 0.001, BABYLON.Space.LOCAL);
+  box.rotate(BABYLON.Axis.Y, Math.PI / 150, BABYLON.Space.LOCAL);
+  box.rotate(BABYLON.Axis.X, Math.PI / 200, BABYLON.Space.LOCAL);
+  box.translate(new BABYLON.Vector3(-1, -1, -1).normalize(), 0.001, BABYLON.Space.WORLD);
+  y += 0.001;
+  small.translate(BABYLON.Axis.Y, 0.001, BABYLON.Space.LOCAL);
 });
 ```
 
@@ -82,11 +82,11 @@ The building will be an array of boxes with each box parented to the disc.
 ```javascript
 var phi = 0;
 scene.registerAfterRender(function () {
-    matrix = disc.getWorldMatrix();
-    disc.rotate(BABYLON.Axis.Y, Math.PI / 150, BABYLON.Space.LOCAL);
-    disc.rotate(BABYLON.Axis.Z, Math.PI / 200, BABYLON.Space.LOCAL);
-    disc.position = new BABYLON.Vector3(15 * Math.cos(phi), 16 * Math.sin(phi), 5);
-    phi += 0.01;
+  matrix = disc.getWorldMatrix();
+  disc.rotate(BABYLON.Axis.Y, Math.PI / 150, BABYLON.Space.LOCAL);
+  disc.rotate(BABYLON.Axis.Z, Math.PI / 200, BABYLON.Space.LOCAL);
+  disc.position = new BABYLON.Vector3(15 * Math.cos(phi), 16 * Math.sin(phi), 5);
+  phi += 0.01;
 });
 ```
 

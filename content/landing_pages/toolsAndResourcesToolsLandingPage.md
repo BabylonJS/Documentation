@@ -1,6 +1,6 @@
 ---
 title: Tools
-image: 
+image:
 description: Learn all about the powerful development tools available to you in Babylon.js.
 keywords: babylon.js, tools, resources
 further-reading:

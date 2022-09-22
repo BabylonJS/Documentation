@@ -1,6 +1,6 @@
 ---
 title: Terrain Material
-image: 
+image:
 description: The Babylon.js materials library terrain material displays upto 4 terrain textures.
 keywords: library, materials, materials library, terrain, terrain material
 further-reading:
@@ -17,6 +17,7 @@ PG: <Playground id="#E6OZX#7" title="Terrain Material" description="Example of t
 ## Using the terrain material
 
 The terrain material works with at least 4 textures:
+
 - 3 Diffuse textures. (required)
 - 3 Bump textures. (not required)
 - 1 Mixmap texture: represents the intensity of each diffuse texture according the channels R (red), G (green) and B (blue). (required)
@@ -44,4 +45,3 @@ terrain.material = terrainMaterial;
 ```
 
 That's all.
-

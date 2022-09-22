@@ -60,8 +60,8 @@ For a SPS having thousands of particles, computing the bounding box for each par
 
 ```javascript
 var SPS = new SolidParticleSystem("sps", scene, {
-    particleIntersection: true,
-    boundingSphereOnly: true,
+  particleIntersection: true,
+  boundingSphereOnly: true,
 });
 ```
 
@@ -74,9 +74,9 @@ Imagine that your particle is a spherical shape with a radius of R. Its bounding
 
 ```javascript
 var SPS = new SolidParticleSystem("sps", scene, {
-    particleIntersection: true,
-    boundingSphereOnly: true,
-    bSphereRadiusFactor: 1 / Math.sqrt(3),
+  particleIntersection: true,
+  boundingSphereOnly: true,
+  bSphereRadiusFactor: 1 / Math.sqrt(3),
 });
 ```
 

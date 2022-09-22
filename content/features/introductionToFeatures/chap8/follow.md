@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Chapter 8 - Follow That Character
-image: 
+image:
 description: Learn the basics of the FollowCamera.
 keywords: getting started, start, chapter 8, cameras, camera, FollowCamera
 further-reading:
@@ -8,52 +8,59 @@ video-overview:
 video-content:
 ---
 
-
 # Getting Started - Follow That Character
 
 ## Follow That Character
 
-Without using parenting we can also track the characters movements with a *FollowCamera*.
+Without using parenting we can also track the characters movements with a _FollowCamera_.
 
-We give a *FollowCamera* a start position and a target to follow and a goal position from which to view the target. 
+We give a _FollowCamera_ a start position and a target to follow and a goal position from which to view the target.
 
-We create the *FollowCamera* with a name, start position and the optional scene parameter.
+We create the _FollowCamera_ with a name, start position and the optional scene parameter.
+
 ```javascript
 const camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-6, 0, 0), scene);
 ```
 
-We then set the goal: 
+We then set the goal:
 height above the the center of the target;
+
 ```javascript
 camera.heightOffset = 8;
 ```
 
 radial distance from target plus height offset;
-```javascript	
+
+```javascript
 camera.radius = 1;
 ```
 
 rotation, in radians, center of target in x y plane;
+
 ```javascript
 camera.rotationOffset = 0;
 ```
 
 acceleration in moving from current to goal position;
+
 ```javascript
-camera.cameraAcceleration = 0.005
+camera.cameraAcceleration = 0.005;
 ```
 
-speed at which acceleration is halted 
+speed at which acceleration is halted
+
 ```javascript
-camera.maxCameraSpeed = 10
-```	
+camera.maxCameraSpeed = 10;
+```
 
 Of course we also attach the camera to the canvas
+
 ```javascript
-    camera.attachControl(canvas, true);
+camera.attachControl(canvas, true);
 ```
 
 Finally we set the target
+
 ```javascript
 camera.lockedTarget = targetMesh;
 ```

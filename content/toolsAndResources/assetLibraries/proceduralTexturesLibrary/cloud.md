@@ -1,6 +1,6 @@
 ---
 title: Cloud Procedural Texture
-image: 
+image:
 description: Check out the free Cloud Procedural Texture.
 keywords: babylon.js, tools, resources, assets, library, procedural texture, cloud
 further-reading:
@@ -14,13 +14,15 @@ video-content:
 
 ## Using the cloud procedural texture
 
-Cloud procedural texture can be found here: 
+Cloud procedural texture can be found here:
+
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.cloudProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.cloudProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
+A demo can be found here: <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
 
 This texture has 2 parameters :
+
 - **skyColor** : the color for the sky (BABYLON.Color3/4)
 - **cloudColor** : the color for the cloud (BABYLON.Color3/4)
 

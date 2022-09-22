@@ -1,13 +1,13 @@
 ---
 title: The Texture Library
-image: 
+image:
 description: Learn about the free available textures in the Babylon.js texture library.
 keywords: babylon.js, tools, resources, assets, library, textures
 further-reading:
-    - title: Meshes Available to Import into the Playground
-      url: /toolsAndResources/assetLibraries/availableMeshes
-    - title: Using External Assets in the Playground
-      url: /toolsAndResources/thePlayground/externalPGAssets
+  - title: Meshes Available to Import into the Playground
+    url: /toolsAndResources/assetLibraries/availableMeshes
+  - title: Using External Assets in the Playground
+    url: /toolsAndResources/thePlayground/externalPGAssets
 video-overview:
 video-content:
 ---
@@ -24,43 +24,43 @@ In the playground use
 new BABYLON.Texture("textures/filename", scene);
 ```
 
-|                                                                                      Overview                                                                                       | Filename                                                                                                       | Size   |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | -------------------------------------------------------------------------------------------------------------- | ------ |
-|                                                                 ![](/img/resources/textures_thumbs/albedo.png.jpg)                                                                  | albedo.png                                                                                                     | 590 KB |
-|                                           <img src='https://www.babylonjs-playground.com/textures/amiga.jpg' width='64' height='64'/>                                            | amiga.jpg                                                                                                      | 2 KB   |
-| <img src='https://www.babylonjs-playground.com/textures/BJS-logo_v3.png' width='64' height='64'  style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | BJS-logo_v3.png <br/>[(ktx available)](/features/featuresDeepDive/materials/advanced/mutliPlatTextures) | 39 KB  |
-|                                           <img src='https://www.babylonjs-playground.com/textures/bloc.jpg' width='64' height='64'/>                                           | bloc.jpg                                                                                                       | 3 KB   |
+|                                                                                    Overview                                                                                    | Filename                                                                                                | Size   |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------- | ------ |
+|                                                               ![](/img/resources/textures_thumbs/albedo.png.jpg)                                                               | albedo.png                                                                                              | 590 KB |
+|                                          <img src='https://www.babylonjs-playground.com/textures/amiga.jpg' width='64' height='64'/>                                           | amiga.jpg                                                                                               | 2 KB   |
+| <img src='https://www.babylonjs-playground.com/textures/BJS-logo_v3.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | BJS-logo_v3.png <br/>[(ktx available)](/features/featuresDeepDive/materials/advanced/mutliPlatTextures) | 39 KB  |
+|                                           <img src='https://www.babylonjs-playground.com/textures/bloc.jpg' width='64' height='64'/>                                           | bloc.jpg                                                                                                | 3 KB   |
 |                                        <img src='https://www.babylonjs-playground.com/textures/checkerBJS.png' width='64' height='64'/>                                        | checkerBJS.png <br/>[(ktx available)](/features/featuresDeepDive/materials/advanced/mutliPlatTextures)  | 38 KB  |
-|    <img src='https://www.babylonjs-playground.com/textures/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>    | cloud.png                                                                                                      | 58 KB  |
-| <img src='https://www.babylonjs-playground.com/textures/lava/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | lava/cloud.png                                                                                                 | 81 KB  |
-|                                            <img src='https://www.babylonjs-playground.com/textures/co.png' width='64' height='64'/>                                            | co.png                                                                                                         | 2 KB   |
-|                                          <img src='https://www.babylonjs-playground.com/textures/crate.png' width='64' height='64'/>                                           | crate.png                                                                                                      | 80 KB  |
-|                                                                    ![](/img/resources/textures_thumbs/earth.jpg)                                                                    | earth.jpg                                                                                                      | 261KB  |
-|                                           <img src='https://www.babylonjs-playground.com/textures/fire.png' width='64' height='64'/>                                           | fire.png                                                                                                       | 44 KB  |
-|                                                                  ![](/img/resources/textures_thumbs/floor.png.jpg)                                                                  | floor.png                                                                                                      | 509 KB |
-|                                           <img src='https://www.babylonjs-playground.com/textures/fur.jpg' width='64' height='64'/>                                            | fur.jpg                                                                                                        | 140 KB |
-|                                                                    ![](/img/resources/textures_thumbs/grass.jpg)                                                                    | grass.jpg                                                                                                      | 750 KB |
-|                                                                  ![](/img/resources/textures_thumbs/grass.dds.jpg)                                                                  | grass.dds                                                                                                      | 43 KB  |
-|                                                                  ![](/img/resources/textures_thumbs/grass.png.jpg)                                                                  | grass.png                                                                                                      | 620 KB |
-|                                          <img src='https://www.babylonjs-playground.com/textures/ground.jpg' width='64' height='64'/>                                          | ground.jpg                                                                                                     | 506 KB |
-|                                      <img src='https://www.babylonjs-playground.com/textures/lava/lavatile.jpg' width='64' height='64'/>                                       | `lava/lavatile.jpg`                                                                                            | 546 KB |
-|                                       <img src='https://www.babylonjs-playground.com/textures/leopard_fur.JPG' width='64' height='64'/>                                        | leopard_fur.JPG                                                                                                | 9 KB   |
-|                                          <img src='https://www.babylonjs-playground.com/textures/Logo.png' width='64' height='32' />                                           | Logo.png                                                                                                       | 12 KB  |
-|                                        <img src='https://www.babylonjs-playground.com/textures/mercator.jpg' width='128' height='64'/>                                         | mercator.jpg                                                                                                   | 977 KB |
-|                                        <img src='https://www.babylonjs-playground.com/textures/mercator2.jpg' width='128' height='64'/>                                        | mercator2.jpg                                                                                                  | 87 KB  |
-|    <img src='https://www.babylonjs-playground.com/textures/palm.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | palm.png                                                                                                       | 392 KB |
-|                                           <img src='https://www.babylonjs-playground.com/textures/rock.png' width='64' height='64'/>                                           | rock.png                                                                                                       | 260 KB |
-|                                           <img src='https://www.babylonjs-playground.com/textures/sand.jpg' width='64' height='64'/>                                           | sand.jpg                                                                                                       | 496 KB |
-|                                         <img src='https://www.babylonjs-playground.com/textures/speckles.jpg' width='64' height='64'/>                                         | speckles.jpg                                                                                                   | 7 KB   |
-|                                          <img src='https://www.babylonjs-playground.com/textures/stars.png' width='64' height='32'/>                                           | stars.png                                                                                                      | 188 KB |
-|     <img src='https://www.babylonjs-playground.com/textures/sun.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | sun.png                                                                                                        | 7 KB   |
-|        <img src='/img/resources/textures_thumbs/SunDiffuse.png' width='128' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>         | SunDiffuse.png                                                                                                 | 799 KB |
-|    <img src='https://www.babylonjs-playground.com/textures/tree.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | tree.png                                                                                                       | 304 KB |
+|    <img src='https://www.babylonjs-playground.com/textures/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>    | cloud.png                                                                                               | 58 KB  |
+| <img src='https://www.babylonjs-playground.com/textures/lava/cloud.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | lava/cloud.png                                                                                          | 81 KB  |
+|                                            <img src='https://www.babylonjs-playground.com/textures/co.png' width='64' height='64'/>                                            | co.png                                                                                                  | 2 KB   |
+|                                          <img src='https://www.babylonjs-playground.com/textures/crate.png' width='64' height='64'/>                                           | crate.png                                                                                               | 80 KB  |
+|                                                                 ![](/img/resources/textures_thumbs/earth.jpg)                                                                  | earth.jpg                                                                                               | 261KB  |
+|                                           <img src='https://www.babylonjs-playground.com/textures/fire.png' width='64' height='64'/>                                           | fire.png                                                                                                | 44 KB  |
+|                                                               ![](/img/resources/textures_thumbs/floor.png.jpg)                                                                | floor.png                                                                                               | 509 KB |
+|                                           <img src='https://www.babylonjs-playground.com/textures/fur.jpg' width='64' height='64'/>                                            | fur.jpg                                                                                                 | 140 KB |
+|                                                                 ![](/img/resources/textures_thumbs/grass.jpg)                                                                  | grass.jpg                                                                                               | 750 KB |
+|                                                               ![](/img/resources/textures_thumbs/grass.dds.jpg)                                                                | grass.dds                                                                                               | 43 KB  |
+|                                                               ![](/img/resources/textures_thumbs/grass.png.jpg)                                                                | grass.png                                                                                               | 620 KB |
+|                                          <img src='https://www.babylonjs-playground.com/textures/ground.jpg' width='64' height='64'/>                                          | ground.jpg                                                                                              | 506 KB |
+|                                      <img src='https://www.babylonjs-playground.com/textures/lava/lavatile.jpg' width='64' height='64'/>                                       | `lava/lavatile.jpg`                                                                                     | 546 KB |
+|                                       <img src='https://www.babylonjs-playground.com/textures/leopard_fur.JPG' width='64' height='64'/>                                        | leopard_fur.JPG                                                                                         | 9 KB   |
+|                                          <img src='https://www.babylonjs-playground.com/textures/Logo.png' width='64' height='32' />                                           | Logo.png                                                                                                | 12 KB  |
+|                                        <img src='https://www.babylonjs-playground.com/textures/mercator.jpg' width='128' height='64'/>                                         | mercator.jpg                                                                                            | 977 KB |
+|                                        <img src='https://www.babylonjs-playground.com/textures/mercator2.jpg' width='128' height='64'/>                                        | mercator2.jpg                                                                                           | 87 KB  |
+|    <img src='https://www.babylonjs-playground.com/textures/palm.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | palm.png                                                                                                | 392 KB |
+|                                           <img src='https://www.babylonjs-playground.com/textures/rock.png' width='64' height='64'/>                                           | rock.png                                                                                                | 260 KB |
+|                                           <img src='https://www.babylonjs-playground.com/textures/sand.jpg' width='64' height='64'/>                                           | sand.jpg                                                                                                | 496 KB |
+|                                         <img src='https://www.babylonjs-playground.com/textures/speckles.jpg' width='64' height='64'/>                                         | speckles.jpg                                                                                            | 7 KB   |
+|                                          <img src='https://www.babylonjs-playground.com/textures/stars.png' width='64' height='32'/>                                           | stars.png                                                                                               | 188 KB |
+|     <img src='https://www.babylonjs-playground.com/textures/sun.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | sun.png                                                                                                 | 7 KB   |
+|        <img src='/img/resources/textures_thumbs/SunDiffuse.png' width='128' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>         | SunDiffuse.png                                                                                          | 799 KB |
+|    <img src='https://www.babylonjs-playground.com/textures/tree.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | tree.png                                                                                                | 304 KB |
 
 ## Height maps
 
-|                                                   Overview                                                    | Filename               | Size  |
-| :-----------------------------------------------------------------------------------------------------------: | ---------------------- | ----- |
+|                                                 Overview                                                 | Filename               | Size  |
+| :------------------------------------------------------------------------------------------------------: | ---------------------- | ----- |
 |     <img src='https://www.babylonjs-playground.com/textures/distortion.png' width='64' height='64'/>     | distortion.png         | 42 KB |
 |     <img src='https://www.babylonjs-playground.com/textures/heightMap.png' width='64' height='64'/>      | heightMap.png          | 39 KB |
 | <img src='https://www.babylonjs-playground.com/textures/heightMapTriPlanar.png' width='64' height='64'/> | heightMapTriPlanar.png | 44 KB |
@@ -68,14 +68,14 @@ new BABYLON.Texture("textures/filename", scene);
 
 ## Metallic maps
 
-|                                                Overview                                                 | Filename         | Size  |
-| :-----------------------------------------------------------------------------------------------------: | ---------------- | ----- |
+|                                              Overview                                              | Filename         | Size  |
+| :------------------------------------------------------------------------------------------------: | ---------------- | ----- |
 | <img src='https://www.babylonjs-playground.com/textures/reflectivity.png' width='64' height='64'/> | reflectivity.png | 92 KB |
 
 ## Normal maps
 
-|                                               Overview                                                | Filename       | Size   |
-| :---------------------------------------------------------------------------------------------------: | -------------- | ------ |
+|                                             Overview                                             | Filename       | Size   |
+| :----------------------------------------------------------------------------------------------: | -------------- | ------ |
 | <img src='https://www.babylonjs-playground.com/textures/floor_bump.PNG' width='64' height='64'/> | floor_bump.PNG | 329 KB |
 |   <img src='https://www.babylonjs-playground.com/textures/grassn.png' width='64' height='64'/>   | grassn.png     | 156 KB |
 |   <img src='https://www.babylonjs-playground.com/textures/normal.png' width='64' height='64'/>   | normal.png     | 695 KB |
@@ -85,18 +85,18 @@ new BABYLON.Texture("textures/filename", scene);
 
 ## Opacity / Alpha maps
 
-|                                                                                          Overview                                                                                           | Filename                | Size   |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ----------------------- | ------ |
+|                                                                                        Overview                                                                                        | Filename                | Size   |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ----------------------- | ------ |
 |                                          <img src='https://www.babylonjs-playground.com/textures/candleopacity.png' width='64' height='64'/>                                           | candleopacity.png       | 18 KB  |
 |                                             <img src='https://www.babylonjs-playground.com/textures/opacity.png' width='64' height='64'/>                                              | opacity.png             | 26 KB  |
 | <img src='https://www.babylonjs-playground.com/textures/WhiteTransarentRamp.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | WhiteTransarentRamp.png | 223 KB |
 
 ## Sphere maps
 
-|                                               Overview                                               | Filename      | Size   |
-| :--------------------------------------------------------------------------------------------------: | ------------- | ------ |
+|                                            Overview                                             | Filename      | Size   |
+| :---------------------------------------------------------------------------------------------: | ------------- | ------ |
 | <img src='https://www.babylonjs-playground.com/textures/sphereMap.png' width='64' height='64'/> | sphereMap.png | 340 KB |
-|                          ![](/img/resources/textures_thumbs/test2D.dds.jpg)                          | test2D.dds    | 2 MB   |
+|                       ![](/img/resources/textures_thumbs/test2D.dds.jpg)                        | test2D.dds    | 2 MB   |
 
 ## 360° Equirectangular maps (for PhotoDome)
 
@@ -106,10 +106,10 @@ In the Playground use
 new BABYLON.PhotoDome("textureName", "textures/filename", { resolution: 32, size: 1000 }, scene);
 ```
 
-|                                 Overview                                  | Filename                              | Viewer                                                         | Size   |
-| :-----------------------------------------------------------------------: | ------------------------------------- | -------------------------------------------------------------- | ------ |
-|             ![](/img/resources/textures_thumbs/360photo.jpg)              | 360photo.jpg                          | <Playground id="#14KRGG#3" title="360 Photo" description=""/>  | 2.5 MB |
-|          ![](/img/resources/textures_thumbs/equirectangular.jpg)          | equirectangular.jpg                   | <Playground id="#14KRGG#18" title="Equirectangular" description=""/> | 279 KB |
+|                                 Overview                                  | Filename                              | Viewer                                                                          | Size   |
+| :-----------------------------------------------------------------------: | ------------------------------------- | ------------------------------------------------------------------------------- | ------ |
+|             ![](/img/resources/textures_thumbs/360photo.jpg)              | 360photo.jpg                          | <Playground id="#14KRGG#3" title="360 Photo" description=""/>                   | 2.5 MB |
+|          ![](/img/resources/textures_thumbs/equirectangular.jpg)          | equirectangular.jpg                   | <Playground id="#14KRGG#18" title="Equirectangular" description=""/>            | 279 KB |
 | ![](/img/resources/textures_thumbs/GatonaParkWalkway1_Panorama_4Kx2K.jpg) | GatonaParkWalkway1_Panorama_4Kx2K.jpg | <Playground id="#14KRGG#49" title="GatonaParkWalkway Panorama" description=""/> | 5.5 MB |
 
 ## CubeTextures
@@ -125,16 +125,16 @@ new BABYLON.CubeTexture("textures/common part of filenames", scene);
 //e.g.: new BABYLON.CubeTexture("textures/skykox2", scene);
 ```
 
-|                         Overview                         | Filename                                                                                                     | Viewer                                                         | Size       |
-| :------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---------- |
+|                         Overview                         | Filename                                                                                              | Viewer                                                            | Size       |
+| :------------------------------------------------------: | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
 |   ![](/img/resources/textures_thumbs/cubemapDebug.jpg)   | cubemapDebug/ <br/>[(ktx available)](/features/featuresDeepDive/materials/advanced/mutliPlatTextures) | <Playground id="#UU7RQ#322" title="cubemapDebug" description=""/> | 6 x 80 KB  |
-|      ![](/img/resources/textures_thumbs/skybox.jpg)      | skybox                                                                                                       | <Playground id="#UU7RQ#91" title="Skybox" description=""/>  | 6 x 20 KB  |
-|     ![](/img/resources/textures_thumbs/skybox2.jpg)      | skybox2                                                                                                      | <Playground id="#UU7RQ#92" title="Skybox 2" description=""/>  | 6 x 400 KB |
-|     ![](/img/resources/textures_thumbs/skybox3.jpg)      | skybox3                                                                                                      | <Playground id="#UU7RQ#93" title="Skybox 3" description=""/>  | 6 x 150 KB |
-|     ![](/img/resources/textures_thumbs/skybox4.jpg)      | skybox4                                                                                                      | <Playground id="#UU7RQ#94" title="Skybox 4" description=""/>  | 6 x 150 KB |
-|   ![](/img/resources/textures_thumbs/skyboxBlack.jpg)    | skyboxBlack                                                                                                  | <Playground id="#UU7RQ#344" title="Skybox Black" description=""/> | 6 x 7 KB   |
-|      ![](/img/resources/textures_thumbs/space.jpg)       | space                                                                                                        | [take a look](https://www.babylonjs-playground.com/#UU7RQ#245) | 6 x 200 KB |
-| ![](/img/resources/textures_thumbs/TropicalSunnyDay.jpg) | TropicalSunnyDay                                                                                             | [take a look](https://www.babylonjs-playground.com/#UU7RQ#95)  | 6 x 600 KB |
+|      ![](/img/resources/textures_thumbs/skybox.jpg)      | skybox                                                                                                | <Playground id="#UU7RQ#91" title="Skybox" description=""/>        | 6 x 20 KB  |
+|     ![](/img/resources/textures_thumbs/skybox2.jpg)      | skybox2                                                                                               | <Playground id="#UU7RQ#92" title="Skybox 2" description=""/>      | 6 x 400 KB |
+|     ![](/img/resources/textures_thumbs/skybox3.jpg)      | skybox3                                                                                               | <Playground id="#UU7RQ#93" title="Skybox 3" description=""/>      | 6 x 150 KB |
+|     ![](/img/resources/textures_thumbs/skybox4.jpg)      | skybox4                                                                                               | <Playground id="#UU7RQ#94" title="Skybox 4" description=""/>      | 6 x 150 KB |
+|   ![](/img/resources/textures_thumbs/skyboxBlack.jpg)    | skyboxBlack                                                                                           | <Playground id="#UU7RQ#344" title="Skybox Black" description=""/> | 6 x 7 KB   |
+|      ![](/img/resources/textures_thumbs/space.jpg)       | space                                                                                                 | [take a look](https://www.babylonjs-playground.com/#UU7RQ#245)    | 6 x 200 KB |
+| ![](/img/resources/textures_thumbs/TropicalSunnyDay.jpg) | TropicalSunnyDay                                                                                      | [take a look](https://www.babylonjs-playground.com/#UU7RQ#95)     | 6 x 600 KB |
 
 ### HDR
 
@@ -223,8 +223,8 @@ new BABYLON.VideoTexture("name", "textures/video.ext", scene);
 
 Textures are stored on `textures/icons/` folder.
 
-|                                                                                           Overview                                                                                            | Filename            | Size    |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------- | ------- |
+|                                                                                         Overview                                                                                         | Filename            | Size    |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------- | ------- |
 |      <img src='https://www.babylonjs-playground.com/textures/icons/Back.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>       | Back.png            | 820 B   |
 |      <img src='https://www.babylonjs-playground.com/textures/icons/Crop.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>       | Crop.png            | 820 B   |
 |     <img src='https://www.babylonjs-playground.com/textures/icons/Delete.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>      | Delete.png          | 800 B   |
@@ -249,8 +249,8 @@ Textures are stored on `textures/icons/` folder.
 
 Textures are stored on `textures/gui/` folder.
 
-|                                                                                               Overview                                                                                                | Filename                     | Size   |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------------------------- | ------ |
+|                                                                                             Overview                                                                                             | Filename                     | Size   |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------------------------- | ------ |
 |     <img src='https://www.babylonjs-playground.com/textures/gui/backgroundImage.png' width='128' height='16' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>      | backgroundImage.png          | 3.1 KB |
 | <img src='https://www.babylonjs-playground.com/textures/gui/backgroundImage-vertical.png' width='16' height='128' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | backgroundImage-vertical.png | 3.5 KB |
 |           <img src='https://www.babylonjs-playground.com/textures/gui/thumb.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>           | thumb.png                    | 4.6 KB |
@@ -261,15 +261,15 @@ Textures are stored on `textures/gui/` folder.
 
 ### Decals
 
-|                                                                                    Overview                                                                                    | Filename   | Size   |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------- | ------ |
+|                                                                                 Overview                                                                                  | Filename   | Size   |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ---------- | ------ |
 | <img src='https://www.babylonjs-playground.com/textures/impact.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/> | impact.png | 4 KB   |
 |  <img src='https://www.babylonjs-playground.com/textures/nba.png' width='32' height='128' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | nba.png    | 268 KB |
 
 ### LensFlares
 
-|                                                 Overview                                                 | Filename          | Size   |
-| :------------------------------------------------------------------------------------------------------: | ----------------- | ------ |
+|                                              Overview                                               | Filename          | Size   |
+| :-------------------------------------------------------------------------------------------------: | ----------------- | ------ |
 |     <img src='https://www.babylonjs-playground.com/textures/flare.png' width='64' height='64'/>     | flare.png         | 15 KB  |
 |   <img src='https://www.babylonjs-playground.com/textures/lenscolor.png' width='128' height='8'/>   | lenscolor.png     | 4 KB   |
 |   <img src='https://www.babylonjs-playground.com/textures/lensdirt.jpg' width='64' height='64'/>    | lensdirt.jpg      | 19 KB  |
@@ -285,8 +285,8 @@ var LUTTexture = new BABYLON.Texture("textures/filename", scene);
 var postProcess = new BABYLON.ColorCorrectionPostProcess("color_correction", LUTTexture, 1.0, universalCamera);
 ```
 
-|                                                     Overview                                                      | Filename                    | Size |
-| :---------------------------------------------------------------------------------------------------------------: | --------------------------- | ---- |
+|                                                   Overview                                                   | Filename                    | Size |
+| :----------------------------------------------------------------------------------------------------------: | --------------------------- | ---- |
 |       <img src='https://www.babylonjs-playground.com/textures/colorGrade.png' width='64' height='8'/>        | colorGrade.png              | 1 KB |
 | <img src='https://www.babylonjs-playground.com/textures/colorGrade-highContrast.png' width='64' height='8'/> | colorGrade-highContrast.png | 6 KB |
 |   <img src='https://www.babylonjs-playground.com/textures/colorGrade-inverted.png' width='64' height='8'/>   | colorGrade-inverted.png     | 4 KB |
@@ -294,8 +294,8 @@ var postProcess = new BABYLON.ColorCorrectionPostProcess("color_correction", LUT
 
 ### Particles
 
-|                                                                                           Overview                                                                                            | Filename                  | Size     |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------- | -------- |
+|                                                                                         Overview                                                                                         | Filename                  | Size     |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------- | -------- |
 |          <img src='https://www.babylonjs-playground.com/textures/Dot.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>          | Dot.png                   | 5.2 KB   |
 |                                                <img src='https://www.babylonjs-playground.com/textures/fire.png' width='64' height='64'/>                                                | fire.jpg                  | 44 KB    |
 | <img src='https://www.babylonjs-playground.com/textures/Fire_SpriteSheet_8x8.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | Fire_SpriteSheet_8x8.png  | 170.5 KB |
@@ -313,16 +313,16 @@ var postProcess = new BABYLON.ColorCorrectionPostProcess("color_correction", LUT
 
 ### Sprites
 
-|                                                     Overview                                                     | Filename                  | Viewer                                                        | Size   |
-| :--------------------------------------------------------------------------------------------------------------: | ------------------------- | ------------------------------------------------------------- | ------ |
+|                                                  Overview                                                   | Filename                  | Viewer                                                        | Size   |
+| :---------------------------------------------------------------------------------------------------------: | ------------------------- | ------------------------------------------------------------- | ------ |
 |        <img src='https://www.babylonjs-playground.com/textures/player.png' width='256' height='32'/>        | player.png                | [take a look](https://www.babylonjs-playground.com/#D6R7CT#1) | 138 KB |
 | <img src='https://www.babylonjs-playground.com/textures/Smoke_SpriteSheet_8x8.png' width='64' height='64'/> | Smoke_SpriteSheet_8x8.png | [take a look](https://www.babylonjs-playground.com/#D6R7CT#2) | 763 KB |
 |         <img src='https://www.babylonjs-playground.com/textures/walk.png' width='64' height='64'/>          | walk.png                  | [take a look](https://www.babylonjs-playground.com/#D6R7CT#3) | 33 KB  |
 
 ## Misc
 
-|                                                                                        Overview                                                                                        | Filename              | Size   |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --------------------- | ------ |
+|                                                                                     Overview                                                                                      | Filename              | Size   |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --------------------- | ------ |
 |  <img src='https://assets.babylonjs.com/environments/backgroundGround.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>  | backgroundGround.png  |        |
 |                                         <img src='https://www.babylonjs-playground.com/textures/DemageFont.png' width='64' height='64'/>                                          | DemageFont.png        | 7 KB   |
 |    <img src='https://www.babylonjs-playground.com/textures/invmask.png' width='64' height='64' style={{backgroundImage:'url(/img/resources/textures_thumbs/alphaBgd.png)'}}/>     | invmask.png           | 5 KB   |

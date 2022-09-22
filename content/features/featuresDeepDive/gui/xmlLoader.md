@@ -1,17 +1,17 @@
 ---
 title: XML Loader
-image: 
+image:
 description: Learn about the Babylon.js XML Loader.
 keywords: diving deeper, GUI, XML Loader
 further-reading:
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /features/featuresDeepDive/gui/scrollViewer
-    - title: How To Use Babylon GUI3D
-      url: /features/featuresDeepDive/gui/gui3D
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -49,8 +49,8 @@ xmlLoader.loadLayout("layouts/testgui.xml", null);
 The third parameter in the loadLayout function, is a callback which is called once the layout has been parsed. Inside the callback, it is possible to retrieve elements and add events to them. This would be an example of how it would be used.
 
 ```javascript
-xmlLoader.loadLayout("layouts/testgui.xml", advancedTexture, function() {
-    xmlLoader.getNodeById("helloButton").onPointerClickObservable.add(clickEvent);
+xmlLoader.loadLayout("layouts/testgui.xml", advancedTexture, function () {
+  xmlLoader.getNodeById("helloButton").onPointerClickObservable.add(clickEvent);
 });
 ```
 
@@ -65,14 +65,17 @@ xmlLoader.isLoaded(); // Returns true or false depending whether the layout has 
 If you need to detach a container from the scene
 
 ```javascript
-var node = xmlLoader.getNodeById("firstContainer"); 
+var node = xmlLoader.getNodeById("firstContainer");
 advancedTexture.removeControl(node);
 ```
+
 Then attach it again
+
 ```javascript
-var node = xmlLoader.getNodeById("firstContainer"); 
+var node = xmlLoader.getNodeById("firstContainer");
 advancedTexture.addControl(node);
 ```
+
 ## XML Layouts
 
 The structure for an XML layout is very straightforward. This is what a simple XML layout would look like
@@ -141,14 +144,14 @@ Let's suppose we have the following object in your javascript :
 
 ```javascript
 var objTexts = {
-        first: {
-            name: "john",
-            surname: "smith"
-        },
-        second: {
-            name: "ben",
-            surname: "Stiller"
-        }
+  first: {
+    name: "john",
+    surname: "smith",
+  },
+  second: {
+    name: "ben",
+    surname: "Stiller",
+  },
 };
 ```
 
@@ -162,7 +165,9 @@ Let's also suppose the following list retains the users of your application and 
        </Container>
 </StackPanel>
 ```
+
 Or
+
 ```javascript
 xmlLoader.getNodeById("myName").text = "john";
 xmlLoader.getNodeById("mySurname").text = "smith";

@@ -4,8 +4,8 @@ image:
 description: Learn about how to use video as a texture in Babylon.js.
 keywords: diving deeper, materials, video texture
 further-reading:
-    - title: VideoTexture
-      url: /typedoc/classes/VideoTexture
+  - title: VideoTexture
+    url: /typedoc/classes/VideoTexture
 video-overview:
 video-content:
 ---
@@ -22,7 +22,7 @@ ecran.material.diffuseTexture = new BABYLON.VideoTexture("video", "textures/baby
 
 The [_VideoTexture_ object](/typedoc/classes/babylon.videotexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded... is the one used as content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
 
-The internal [video DOM object](https://www.w3.org/wiki/HTML/Elements/video) is accessible via the VideoTexture.video property, which allows you to control some characteristics and monitor the status of the video. e.g.  play, pause, loop, autoplay. See the link above for the full story.
+The internal [video DOM object](https://www.w3.org/wiki/HTML/Elements/video) is accessible via the VideoTexture.video property, which allows you to control some characteristics and monitor the status of the video. e.g. play, pause, loop, autoplay. See the link above for the full story.
 
 ![video](/img/how_to/Advanced%20Texturing/3.png)
 
@@ -38,8 +38,8 @@ Modern browsers have strict policies for autoplaying video. Without user interac
 
 ```javascript
 scene.onPointerDown = function () {
-    videoTexture.video.play();
-    scene.onPointerDown = null;
+  videoTexture.video.play();
+  scene.onPointerDown = null;
 };
 ```
 
@@ -49,9 +49,9 @@ An event is also available to detect if you are in browser preventing autoplay b
 
 ```javascript
 texture.onUserActionRequestedObservable.add(() => {
-    scene.onPointerDown = function () {
-        videoTexture.video.play();
-    };
+  scene.onPointerDown = function () {
+    videoTexture.video.play();
+  };
 });
 ```
 
@@ -67,34 +67,32 @@ BABYLON.VideoTexture.CreateFromWebCam(scene, function (videoTexture) {}, { maxWi
 
 The third parameter is optional and can be used to define minWidth, maxWidth, minHeight and maxHeight. These values will be used to constraint the camera resolution.
 
-
 ## Disposal
 
-VideoTexture creates and uses an HTML video element internally.  When VideoTexture.dispose is called, texture resources are disposed as expected. However, the underlying video element is not removed. Causing complete release of all underlying video resources is not standardized across browsers, but code like this can be used:
+VideoTexture creates and uses an HTML video element internally. When VideoTexture.dispose is called, texture resources are disposed as expected. However, the underlying video element is not removed. Causing complete release of all underlying video resources is not standardized across browsers, but code like this can be used:
 
 ```javascript
 // Store reference to the underlying HTML5 video element
-const videoEl = videoDome.videoTexture.video 
+const videoEl = videoDome.videoTexture.video;
 
 // Dispose texture
 videoTexture.dispose();
 
 // Remove any <source> elements, etc.
 while (videoEl.firstChild) {
-    videoEl.removeChild(videoEl.lastChild);
+  videoEl.removeChild(videoEl.lastChild);
 }
 
 // Set a blank src
-videoEl.src = ''
+videoEl.src = "";
 
 // Prevent non-important errors in some browsers
-videoEl.removeAttribute('src')
+videoEl.removeAttribute("src");
 
 // Get certain browsers to let go
-videoEl.load()
+videoEl.load();
 
-videoEl.remove()
+videoEl.remove();
 ```
 
 This is only important to users that need to load/dispose multiple VideoTextures over time.
-

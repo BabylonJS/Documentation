@@ -1,6 +1,6 @@
 ---
 title: Shaders
-image: 
+image:
 description: Learn all about shaders (GPU instructions) and shader development!
 keywords: babylon.js, advanced, shaders, shader development, GPU
 further-reading:

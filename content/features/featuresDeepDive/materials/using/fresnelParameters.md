@@ -1,6 +1,6 @@
 ---
 title: Fresnel Paramaters
-image: 
+image:
 description: Learn fresnel parameters in Babylon.js.
 keywords: diving deeper, materials, fresnel, fresnel parameters
 further-reading:
@@ -14,11 +14,11 @@ Babylon.js 1.14 introduced new parameters for the StandardMaterial: _FresnelPara
 
 There are 5 of them:
 
-* ```StandardMaterial.diffuseFresnelParameters```
-* ```StandardMaterial.opacityFresnelParameters```
-* ```StandardMaterial.reflectionFresnelParameters```
-* ```StandardMaterial.emissiveFresnelParameters```
-* ```StandardMaterial.refractionFresnelParameters```
+- `StandardMaterial.diffuseFresnelParameters`
+- `StandardMaterial.opacityFresnelParameters`
+- `StandardMaterial.reflectionFresnelParameters`
+- `StandardMaterial.emissiveFresnelParameters`
+- `StandardMaterial.refractionFresnelParameters`
 
 ## How Fresnel is working
 
@@ -50,7 +50,7 @@ material.reflectionFresnelParameters.rightColor = BABYLON.Color3.White();
 
 ![](/img/how_to/Fresnel/fresnel02.jpg)
 
-By using ```bias``` and ```power``` properties, you can control how the fresnel is computed along the surface of the object according to this formula:
+By using `bias` and `power` properties, you can control how the fresnel is computed along the surface of the object according to this formula:
 
 _finalFresnelTerm = pow(**bias** + fresnelTerm, **power**)_
 
@@ -72,11 +72,12 @@ material.reflectionFresnelParameters.power = 4;
 ## How to use it
 
 A _FresnelParameter_ is defined by the following properties:
-* ```isEnabled``` to activate or deactivate fresnel effect
-* leftColor to define color used on edges
-* rightColor to define color used on center
-* bias to define bias applied to computed fresnel term
-* power to compute exponent applied to fresnel term
+
+- `isEnabled` to activate or deactivate fresnel effect
+- leftColor to define color used on edges
+- rightColor to define color used on center
+- bias to define bias applied to computed fresnel term
+- power to compute exponent applied to fresnel term
 
 Here is a simple example:
 

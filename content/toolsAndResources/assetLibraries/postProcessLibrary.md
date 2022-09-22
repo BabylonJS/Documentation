@@ -1,6 +1,6 @@
 ---
 title: Post Process Library
-image: 
+image:
 description: Learn about the free available post processes in the Babylon.js post process library.
 keywords: babylon.js, tools, resources, assets, library, post process
 further-reading:

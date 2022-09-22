@@ -1,6 +1,6 @@
 ---
 title: The Particle Editor
-image: 
+image:
 description: Learn all about the Particle Editor in Babylon.js.
 keywords: babylon.js, tools, resources, particles, particle editor
 further-reading:

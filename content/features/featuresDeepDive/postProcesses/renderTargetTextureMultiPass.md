@@ -1,6 +1,6 @@
 ---
 title: Render Target Texture With Multiple Passes
-image: 
+image:
 description: Learn about the render target texture and running multiple passes in Babylon.js.
 keywords: diving deeper, post processes, post process, render target texture
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 ## How to use RenderTargetTexture and run multiple passes
 
-Sometimes it's interesting to render a scene multiple times and compose the generated passes for the final image. There are multiple uses for that: you can generate a texture in real time, to make a car rearview mirror for example, or you can perform complex effects with multiple independent renders that are combined together. 
+Sometimes it's interesting to render a scene multiple times and compose the generated passes for the final image. There are multiple uses for that: you can generate a texture in real time, to make a car rearview mirror for example, or you can perform complex effects with multiple independent renders that are combined together.
 
 The PostProcess API doesn't let you render a scene twice. That's where RenderTargetTexture (RTT) comes into play. Several [games use multiple passes for their graphics](http://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/).
 
@@ -18,9 +18,9 @@ The PostProcess API doesn't let you render a scene twice. That's where RenderTar
 
 You need to create a RenderTargetTexture and attach it to the scene. It's pretty straightforward:
 
-```    
+```
 var renderTarget = new BABYLON.RenderTargetTexture(
-    'render to texture', // name 
+    'render to texture', // name
     512, // texture size
     scene // the scene
 );
@@ -55,38 +55,38 @@ Since v5.0 it's very easy to use a different material than the regular material 
 
 ```javascript
 const causticMaterial = new BABYLON.ShaderMaterial(
-    'caustic shader material', // human name
-    scene,
-    'caustic', // shader path
-    {
-        attributes: ['position', 'normal', 'uv'],
-        uniforms: ['world', 'worldView', 'worldViewProjection', 'view', 'projection', 'time', 'direction']
-    }
+  "caustic shader material", // human name
+  scene,
+  "caustic", // shader path
+  {
+    attributes: ["position", "normal", "uv"],
+    uniforms: ["world", "worldView", "worldViewProjection", "view", "projection", "time", "direction"],
+  },
 );
 
 // the render texture. We'll render the scene with caustic shader to this texture.
-const renderTarget = new BABYLON.RenderTargetTexture('caustic texture', 512, scene);
+const renderTarget = new BABYLON.RenderTargetTexture("caustic texture", 512, scene);
 scene.customRenderTargets.push(renderTarget);
 
 renderTarget.setMaterialForRendering(ground, causticMaterial);
 ```
 
-For the final pass we'll create a shader to merge the base render (which will be provided in the GLSL as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
+For the final pass we'll create a shader to merge the base render (which will be provided in the GLSL as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`.
 
 ```javascript
 // create the final pass composer
 var finalPass = new BABYLON.PostProcess(
-    'Final compose shader', 
-    'final', // shader name
-    null, // attributes
-    [ 'causticTexture' ], // textures
-    1.0,  // options
-    camera,
-    BABYLON.Texture.BILINEAR_SAMPLINGMODE, // sampling
-    engine // engine
+  "Final compose shader",
+  "final", // shader name
+  null, // attributes
+  ["causticTexture"], // textures
+  1.0, // options
+  camera,
+  BABYLON.Texture.BILINEAR_SAMPLINGMODE, // sampling
+  engine, // engine
 );
 finalPass.onApply = (effect) => {
-    effect.setTexture('causticTexture', renderTarget); // pass the renderTarget as our second texture
+  effect.setTexture("causticTexture", renderTarget); // pass the renderTarget as our second texture
 };
 ```
 
@@ -113,10 +113,10 @@ First, create objects that will be in the RTT with a clone of the RTT shader mat
 // we need that because we'll have different transforms on the shaders
 let rttMaterials = [];
 const getCausticMaterial = () => {
-    let c = rttMaterial.clone();
-    c.freeze(); // freeze because we'll only update uniforms
-    rttMaterials.push(c);
-    return c;
+  let c = rttMaterial.clone();
+  c.freeze(); // freeze because we'll only update uniforms
+  rttMaterials.push(c);
+  return c;
 };
 
 // some material for the ground.
@@ -125,7 +125,7 @@ grass0.diffuseTexture = new BABYLON.Texture("textures/grass.png", scene);
 grass0.freeze();
 
 // Our built-in 'ground' shape.
-var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 ground.material = grass0;
 // add caustics
 renderTarget.setMaterialForRendering(ground, getCausticMaterial());
@@ -136,15 +136,14 @@ Apply any uniforms on all material clones:
 
 ```javascript
 scene.onBeforeRenderObservable.add(() => {
-    // ... 
-    rttMaterials.forEach((c) => c.setFloat('time', timeDiff));
+  // ...
+  rttMaterials.forEach((c) => c.setFloat("time", timeDiff));
 });
 ```
 
 The example has the complete code, including animated objects and instances. You could freeze some meshes with `scene.freezeActiveMeshes()` to improve the performance even further.
 
 Playground example: <Playground id="#S1W87B#42" title="Performance Example" description="Example of managing performance when running multiple passes."/>
-
 
 ### Notes about your shader
 

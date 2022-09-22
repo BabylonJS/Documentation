@@ -1,6 +1,6 @@
 ---
 title: Create a Material For The Material Library
-image: 
+image:
 description: Learn how to add your own material to the Babylon.js material library.
 keywords: diving deeper, contribution, contribute, open-source, oss, material library, material, develope
 further-reading:
@@ -124,15 +124,8 @@ The next function to update is _bind_. Add this code after the `//Textures` comm
 if (this.emissiveTexture && StandardMaterial.EmissiveTextureEnabled) {
   this._effect.setTexture("emissiveSampler", this.emissiveTexture);
 
-  this._effect.setFloat2(
-    "vEmissiveInfos",
-    this.emissiveTexture.coordinatesIndex,
-    this.emissiveTexture.level
-  );
-  this._effect.setMatrix(
-    "emissiveMatrix",
-    this.emissiveTexture.getTextureMatrix()
-  );
+  this._effect.setFloat2("vEmissiveInfos", this.emissiveTexture.coordinatesIndex, this.emissiveTexture.level);
+  this._effect.setMatrix("emissiveMatrix", this.emissiveTexture.getTextureMatrix());
 }
 ```
 
@@ -160,21 +153,12 @@ To test your material, open the /materialsLibrary/index.html page. References ar
 Then add the material at line 120:
 
 ```javascript
-var diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial(
-  "diffuseEmissive",
-  scene
-);
-diffuseEmissive.diffuseTexture = new BABYLON.Texture(
-  "textures/amiga.jpg",
-  scene
-);
+var diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial("diffuseEmissive", scene);
+diffuseEmissive.diffuseTexture = new BABYLON.Texture("textures/amiga.jpg", scene);
 diffuseEmissive.diffuseTexture.uScale = 5;
 diffuseEmissive.diffuseTexture.vScale = 5;
 
-diffuseEmissive.emissiveTexture = new BABYLON.Texture(
-  "textures/amiga.jpg",
-  scene
-);
+diffuseEmissive.emissiveTexture = new BABYLON.Texture("textures/amiga.jpg", scene);
 diffuseEmissive.emissiveTexture.uScale = 10;
 diffuseEmissive.emissiveTexture.vScale = 10;
 ```
@@ -182,23 +166,21 @@ diffuseEmissive.emissiveTexture.vScale = 10;
 Finally update the UI control:
 
 ```javascript
-gui
-  .add(options, "material", ["standard", "simple", "diffuseEmissive"])
-  .onFinishChange(function() {
-    switch (options.material) {
-      case "diffuseEmissive":
-        currentMaterial = diffuseEmissive;
-        break;
-      case "simple":
-        currentMaterial = simple;
-        break;
-      default:
-        currentMaterial = std;
-        break;
-    }
+gui.add(options, "material", ["standard", "simple", "diffuseEmissive"]).onFinishChange(function () {
+  switch (options.material) {
+    case "diffuseEmissive":
+      currentMaterial = diffuseEmissive;
+      break;
+    case "simple":
+      currentMaterial = simple;
+      break;
+    default:
+      currentMaterial = std;
+      break;
+  }
 
-    currentMesh.material = currentMaterial;
-  });
+  currentMesh.material = currentMaterial;
+});
 ```
 
 ## Launch the test server

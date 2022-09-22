@@ -4,17 +4,17 @@ image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, project creation, install, webpack, scene
 further-reading:
-    - title: Github Game Repository
-      url: https://github.com/BabylonJS/SummerFestival
+  - title: Github Game Repository
+    url: https://github.com/BabylonJS/SummerFestival
 video-overview:
 video-content:
 ---
 
 ## Introduction
 
-The game will be developed using Typescript and requires some setting up using NPM. The setup of the project will probably be the hardest part! For a simpler introduction to the features of Babylon.js and a basic HTML and JavaScript template read the [Getting Started](/features/introductionToFeatures) section first. 
+The game will be developed using Typescript and requires some setting up using NPM. The setup of the project will probably be the hardest part! For a simpler introduction to the features of Babylon.js and a basic HTML and JavaScript template read the [Getting Started](/features/introductionToFeatures) section first.
 
-The setup process for this game example is based off of the [NPM-support](/setup/frameworkPackages/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications. 
+The setup process for this game example is based off of the [NPM-support](/setup/frameworkPackages/npmSupport) documentation for getting started with Babylon.js and the [babylonjs webpack](https://github.com/RaananW/babylonjs-webpack-es6) sample project, but with a few additions and modifications.
 
 ## First Steps
 
@@ -25,12 +25,12 @@ First you'll need to set up where you want the project to be located.
 1. Using the text editor of your choice, open up your project folder. I will be using Visual Studio Code for this series.
 2. Create a folder where you'll be storing your project files
 3. Set up the file folder structure to be something like this:
-    - dist
-    - public
-    - src
+   - dist
+   - public
+   - src
 4. Main files
-    - Go into your src folder and create an app.ts file
-    - Go into your public folder and create an index.html file with the following contents:
+   - Go into your src folder and create an app.ts file
+   - Go into your public folder and create an index.html file with the following contents:
 
 ```javascript
 <!DOCTYPE html>
@@ -111,30 +111,30 @@ const fs = require("fs");
 const appDirectory = fs.realpathSync(process.cwd());
 
 module.exports = {
-    entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
-    output: {
-        filename: "js/bundleName.js", //name for the javascript file that is created/compiled in memory
-    },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: "ts-loader",
-                exclude: /node_modules/,
-            },
-        ],
-    },
-    mode: "development",
+  entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
+  output: {
+    filename: "js/bundleName.js", //name for the javascript file that is created/compiled in memory
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  mode: "development",
 };
 ```
 
 ** Plugins **  
 Additionally, we will install some plugins that will help with updating when running locally, and cleaning our bundle.
 
-**NOTE** Make sure that the file *webpack.config.js* is closed before installing the plugins.
+**NOTE** Make sure that the file _webpack.config.js_ is closed before installing the plugins.
 
 ```javascript
 npm install --save-dev html-webpack-plugin
@@ -150,39 +150,39 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const appDirectory = fs.realpathSync(process.cwd());
 
 module.exports = {
-    entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
-    output: {
-        filename: "js/bundleName.js", //name for the js file that is created/compiled in memory
-        clean: true,
+  entry: path.resolve(appDirectory, "src/app.ts"), //path to the main .ts file
+  output: {
+    filename: "js/bundleName.js", //name for the js file that is created/compiled in memory
+    clean: true,
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  devServer: {
+    host: "0.0.0.0",
+    port: 8080, //port that we're using for local host (localhost:8080)
+    static: path.resolve(appDirectory, "public"), //tells webpack to serve from the public folder
+    hot: true,
+    devMiddleware: {
+      publicPath: "/",
     },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"],
-    },
-    devServer: {
-        host: "0.0.0.0",
-        port: 8080, //port that we're using for local host (localhost:8080)
-        static: path.resolve(appDirectory, "public"), //tells webpack to serve from the public folder
-        hot: true,
-        devMiddleware: {
-            publicPath: "/",
-        }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: "ts-loader",
-                exclude: /node_modules/,
-            },
-        ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: path.resolve(appDirectory, "public/index.html"),
-        })
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
-    mode: "development",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(appDirectory, "public/index.html"),
+    }),
+  ],
+  mode: "development",
 };
 ```
 
@@ -198,40 +198,40 @@ The App class will serve as our entire game application. This is a very simple e
 
 ```javascript
 class App {
-    constructor() {
-        // create the canvas html element and attach it to the webpage
-        var canvas = document.createElement("canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.id = "gameCanvas";
-        document.body.appendChild(canvas);
+  constructor() {
+    // create the canvas html element and attach it to the webpage
+    var canvas = document.createElement("canvas");
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.id = "gameCanvas";
+    document.body.appendChild(canvas);
 
-        // initialize babylon scene and engine
-        var engine = new Engine(canvas, true);
-        var scene = new Scene(engine);
+    // initialize babylon scene and engine
+    var engine = new Engine(canvas, true);
+    var scene = new Scene(engine);
 
-        var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
-        camera.attachControl(canvas, true);
-        var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
-        var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+    var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+    camera.attachControl(canvas, true);
+    var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+    var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
 
-        // hide/show the Inspector
-        window.addEventListener("keydown", (ev) => {
-            // Shift+Ctrl+Alt+I
-            if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.keyCode === 73) {
-                if (scene.debugLayer.isVisible()) {
-                    scene.debugLayer.hide();
-                } else {
-                    scene.debugLayer.show();
-                }
-            }
-        });
+    // hide/show the Inspector
+    window.addEventListener("keydown", (ev) => {
+      // Shift+Ctrl+Alt+I
+      if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.keyCode === 73) {
+        if (scene.debugLayer.isVisible()) {
+          scene.debugLayer.hide();
+        } else {
+          scene.debugLayer.show();
+        }
+      }
+    });
 
-        // run the main render loop
-        engine.runRenderLoop(() => {
-            scene.render();
-        });
-    }
+    // run the main render loop
+    engine.runRenderLoop(() => {
+      scene.render();
+    });
+  }
 }
 new App();
 ```

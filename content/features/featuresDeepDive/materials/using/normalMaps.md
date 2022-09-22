@@ -1,6 +1,6 @@
 ---
 title: Normal Maps
-image: 
+image:
 description: Learn all about normal maps in Babylon.js.
 keywords: diving deeper, materials, advanced, normals, normal map
 further-reading:
@@ -14,8 +14,8 @@ To do so we are going to use this playground as an example: <Playground id="#YCC
 
 What the normal map formats are and what they look like?
 
-* OpenGL expects the first pixel in the texture to be at the bottom (lower-left pixel) and can be thought of as bottom up
-* DirectX expects the first pixel in the texture to be at the top (upper-left pixel) and can be thought of as top down
+- OpenGL expects the first pixel in the texture to be at the bottom (lower-left pixel) and can be thought of as bottom up
+- DirectX expects the first pixel in the texture to be at the top (upper-left pixel) and can be thought of as top down
 
 To see what that looks like, we can consider this normal map comparison:
 
@@ -27,20 +27,20 @@ Truly, the only difference between the two formats at the file level is that the
 
 Now let’s look at the requirements used by software:
 
-* [Arnold Renderer uses OpenGL format](https://academy.substance3d.com/courses/Substance-guide-to-Rendering-in-Arnold)
-* [Maya can use either format but needs to be specified in the Display preferences](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Customizing/files/GUID-BF017019-B89A-47F0-8AB5-106C058AB854-htm.html). I believe that the default is OpenGL - Core Profile (Compatibility) due to Arnold now being their bundled renderer.
+- [Arnold Renderer uses OpenGL format](https://academy.substance3d.com/courses/Substance-guide-to-Rendering-in-Arnold)
+- [Maya can use either format but needs to be specified in the Display preferences](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Customizing/files/GUID-BF017019-B89A-47F0-8AB5-106C058AB854-htm.html). I believe that the default is OpenGL - Core Profile (Compatibility) due to Arnold now being their bundled renderer.
 
 ![Maya export window](/img/how_to/Materials/normal_maps2.png)
 
 When you are creating your textures, you can specify the format for the normal map before baking, but you need to align with your final use case. With that in mind, whether you are targeting an offline rendering engine like Arnold or a real-time rendering engine like Babylon.js, you need to know which format is expected by the renderer’s shaders and how your file formats may impact that choice. So let’s look at those:
 
-* [glTF uses OpenGL as the format for its normal textures](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#materialnormaltexture).
-* Babylon.js uses DirectX as the format for its normal textures for Standard Materials, PBR materials, and Node Materials
+- [glTF uses OpenGL as the format for its normal textures](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#materialnormaltexture).
+- Babylon.js uses DirectX as the format for its normal textures for Standard Materials, PBR materials, and Node Materials
 
 This would seem to be a simple conversion from OpenGL to DirectX formats when using a glTF, but there is another issue that complicates this matter.
 
-* glTF uses a right-handed coordinate system
-* Babylon.js uses a left-handed coordinate system
+- glTF uses a right-handed coordinate system
+- Babylon.js uses a left-handed coordinate system
 
 This is important for this reason:
 

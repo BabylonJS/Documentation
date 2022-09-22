@@ -1,6 +1,6 @@
 ---
 title: Babylon.js CMS Integration
-image: 
+image:
 description: This section contains extensions that help Babylon.js integrate with Content Management Systems.
 keywords: extensions, babylon.js, CMS system
 further-reading:

@@ -1,6 +1,6 @@
 ---
 title: WebXR
-image: 
+image:
 description: Learn about creating immersive web experineces with WebXR in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR
 further-reading:

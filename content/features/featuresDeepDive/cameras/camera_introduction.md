@@ -93,14 +93,14 @@ Whether using the keyboard, mouse, or touch swipes, left/right directions change
 The following optional `ArcRotateCamera` properties can also be handy:
 
 - **zoomToMouseLocation** - if set to `true` will cause mouse wheel to zoom in or out centered on
-  current mouse location instead of a fixed camera.target location.  This makes it easy  to explore
-  all corners of a large scene.  Setting this means that the mouse wheel input controller will be
-  changing the camera.target position during mouse wheel zooming.  When this is `true` the zoom
+  current mouse location instead of a fixed camera.target location. This makes it easy to explore
+  all corners of a large scene. Setting this means that the mouse wheel input controller will be
+  changing the camera.target position during mouse wheel zooming. When this is `true` the zoom
   operation using the mouse wheel is doing both zooming and a small amount of panning at the same
   time.
 
 - **wheelDeltaPercentage** - if set to non-zero value will cause the zooming amount to be set to a
-  percentage of the camera radius.  This means the zoom slows down as you get closer to the target
+  percentage of the camera radius. This means the zoom slows down as you get closer to the target
   object which is nice because it means you can be more precise about camera placement while you
   explore your object up close.
 
@@ -387,4 +387,3 @@ While this is realistic, it may be visually inappealing. If the angle between th
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
-

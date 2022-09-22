@@ -1,6 +1,6 @@
 ---
 title: Running Babylon.js On A Server
-image: 
+image:
 description: Learn how to run Babylon.js on a server.
 keywords: babylon.js, advanced, server
 further-reading:
@@ -13,6 +13,7 @@ Starting with Babylon.js v3.1, we introduced the NullEngine which is a version o
 The NullEngine will not produce any rendering and thus can be used in a node / server side environment.
 
 It can be used to:
+
 - Run tests
 - Run a server side version of your application / game
 - Use specific Babylon.js services (like gltf loaders for instance)
@@ -81,7 +82,8 @@ With `textureSize`, you can define the size of all textures (which will be all b
 ## Troubleshooting
 
 While the goal of the NullEngine is to completely replace the Engine class, some features cannot be used server side:
-* camera.attachControl cannot be used as it requires a HTML eLement
-* DynamicTexture cannot be used as they rely on HTML canvas
+
+- camera.attachControl cannot be used as it requires a HTML eLement
+- DynamicTexture cannot be used as they rely on HTML canvas
 
 Furthermore as we already mentioned earlier, you need to provide an implementation of the XmlHttpRequest class.

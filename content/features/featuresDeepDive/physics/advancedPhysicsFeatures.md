@@ -1,23 +1,23 @@
 ---
 title: Advanced Physics Features
-image: 
+image:
 description: Unlock the full potential of physics with advanced physics features in Babylon.js.
 keywords: diving deeper, phyiscs, advanced physics
 further-reading:
-    - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
-    - title: How to use Forces
-      url: /features/featuresDeepDive/physics/forces
-    - title: How To Use Joints
-      url: /features/featuresDeepDive/physics/joints
-    - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
-    - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
-    - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+  - title: How To Use The Physics Engines
+    url: /features/featuresDeepDive/physics/usingPhysicsEngine
+  - title: How to use Forces
+    url: /features/featuresDeepDive/physics/forces
+  - title: How To Use Joints
+    url: /features/featuresDeepDive/physics/joints
+  - title: How To Use Pivots and Axes
+    url: /features/featuresDeepDive/physics/pivotsAxes
+  - title: How To Create Compound Bodies
+    url: /features/featuresDeepDive/physics/compoundBodies
+  - title: How To Create Soft Bodies
+    url: /features/featuresDeepDive/physics/softBodies
+  - title: How To Add Your Own Physics Engine
+    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -34,15 +34,15 @@ On the positive side, a heightmap can collide with most other objects, as oppose
 
 There are certain conditions in which a heightmap can be initialized:
 
-* It must be square (x === z). The most important values are the y values in each point of the heightmap.
-* It cannot contain holes or missing textures
-* It is recommended that the heightmap be generated from a GroundMesh, generated from a heightmap image
+- It must be square (x === z). The most important values are the y values in each point of the heightmap.
+- It cannot contain holes or missing textures
+- It is recommended that the heightmap be generated from a GroundMesh, generated from a heightmap image
 
 To create a ground from an image-based ground mesh:
 
 ```javascript
 var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/worldHeightMap.jpg", 200, 200, 50, 0, 30, scene, false, function () {
-    ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0 });
+  ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0 });
 });
 ```
 
@@ -50,24 +50,23 @@ To create a heightmap from a square ribbon:
 
 ```javascript
 var exponentialPath = function (p) {
-    var path = [];
-    for (var i = -50; i <= 50; i++) {
-        path.push(new BABYLON.Vector3(p-50, (Math.sin(p / 3) * 10 * Math.exp((i - p) / 100) + i / 3), i));
-    }
-    return path;
+  var path = [];
+  for (var i = -50; i <= 50; i++) {
+    path.push(new BABYLON.Vector3(p - 50, Math.sin(p / 3) * 10 * Math.exp((i - p) / 100) + i / 3, i));
+  }
+  return path;
 };
 // let's populate arrayOfPaths with all these different paths
 var arrayOfPaths = [];
 for (var p = 0; p <= 100; p++) {
-    arrayOfPaths[p] = exponentialPath(p);
-
+  arrayOfPaths[p] = exponentialPath(p);
 }
 
 var mesh = BABYLON.Mesh.CreateRibbon("ribbon", arrayOfPaths, false, false, 0, scene);
-mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, friction:1, restitution: 0.5 });
+mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, friction: 1, restitution: 0.5 });
 ```
 
-A demo for both of these examples can be found here - 
+A demo for both of these examples can be found here -
 <Playground id="#D3LQD#7" title="Creating Ground From An Image-Based Ground Mesh" description="Simple example of creating ground from an image based ground mesh."/>
 <Playground id="#EXL6K#9" title="Creating A Heightmap From A Square Ribbon" description="Simple example of creating a heightmap from a square ribbon."/>
 
@@ -84,7 +83,7 @@ A simple example of the mesh impostor can be found here - <Playground id="#3B313
 To generate a mesh impostor, simply set the MeshImpostor type when creating the physics impostor of the mesh:
 
 ```javascript
-mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.MeshImpostor, {mass: 0});
+mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.MeshImpostor, { mass: 0 });
 ```
 
 The rest will be done by Babylon and the physics engine.
@@ -103,9 +102,9 @@ Motor.enabled joints are using the `IMotorEnabledJoint` :
 
 ```javascript
 interface IMotorEnabledJoint {
-    physicsJoint: any; //the native physics joint object. Coming from the selected engine.
-    setMotor(force?: number, maxForce?: number, motorIndex?: number): void; // provide force to the motor
-    setLimit(upperLimit: number, lowerLimit?: number, motorIndex?: number): void; // set limits to the motor
+  physicsJoint: any; //the native physics joint object. Coming from the selected engine.
+  setMotor(force?: number, maxForce?: number, motorIndex?: number): void; // provide force to the motor
+  setLimit(upperLimit: number, lowerLimit?: number, motorIndex?: number): void; // set limits to the motor
 }
 ```
 
@@ -113,10 +112,10 @@ Setting a motor on a hinge joint (assuming impostors are already set):
 
 ```javascript
 var joint1 = new BABYLON.HingeJoint({
-    mainPivot: new BABYLON.Vector3(0, 0, 0), // Pivot on the main mesh
-    connectedPivot: new BABYLON.Vector3(0, 0, 0), // pivot (connecting point) on the connected pivot
-    mainAxis: new BABYLON.Vector3(0, 0, -1), // the hinge will turn on the Z axis
-    connectedAxis: new BABYLON.Vector3(0, 0, -1) // Same as above - Z axis on the connected mesh
+  mainPivot: new BABYLON.Vector3(0, 0, 0), // Pivot on the main mesh
+  connectedPivot: new BABYLON.Vector3(0, 0, 0), // pivot (connecting point) on the connected pivot
+  mainAxis: new BABYLON.Vector3(0, 0, -1), // the hinge will turn on the Z axis
+  connectedAxis: new BABYLON.Vector3(0, 0, -1), // Same as above - Z axis on the connected mesh
 });
 holder.physicsImpostor.addJoint(wheel.physicsImpostor, joint1); // attach holder (main) and wheel using the defined hinge joint
 
@@ -131,7 +130,7 @@ To create a compound, use babylon's parenting system. A single object should be 
 
 ```javascript
 // Create a 2-sphere compound
- var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
 sphere.position.y = 10;
 
 var sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
@@ -143,8 +142,8 @@ sphere2.parent = sphere;
 After creating the meshes, we need to initialize the impostors. It is important to first initialize the child impostors and initialize the parent impostor at the end:
 
 ```javascript
-sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, {mass: 2, restitution: 0.8});
-sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, {mass: 2, restitution: 0.8});
+sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 2, restitution: 0.8 });
+sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 2, restitution: 0.8 });
 ```
 
 The mass will be accumulated. So this single physics body's mass will be 4. `sphere2`'s physics impostor will be "disabled" and will be joined to `sphere`'s impostor, which is the main impostor. To apply impulses, set the liner velocity etc', use `sphere.physicsImpostor`.
@@ -161,7 +160,7 @@ It is important to note that this will only work if your parent has no impostor 
 To create an impostor for a child mesh using the ignoreParent flag:
 
 ```javascript
-sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, {ignoreParent: true, mass: 2, restitution: 0.8});
+sphere2.physicsImpostor = new BABYLON.PhysicsImpostor(sphere2, BABYLON.PhysicsImpostor.SphereImpostor, { ignoreParent: true, mass: 2, restitution: 0.8 });
 ```
 
 A simple example can be found here - <Playground id="#PRHF00#4" title="Ignore Parent Example" description="Simple example of ignoring a physics parent."/>
@@ -173,7 +172,7 @@ This means it's possible to display at 60 frames per seconds while updating the 
 With substeps, the physics will look like it's running at 60 frames per second but will perform smaller steps.
 This is useful when the physics update needs more precision. For example, simulating a bullet against a wall or more accurate physics for a car.
 The substeps can also be used to reduce the physics update. For example, doing an update every 2 frames.
-In the following example, the physics is computed 10 times a second instead of 60. 
+In the following example, the physics is computed 10 times a second instead of 60.
 
 ```javascript
 var physicsEngine = scene.getPhysicsEngine();
@@ -188,4 +187,4 @@ Raanan Weber wrote an article about cloth simulation in his blog: [https://blog.
 
 ## An Oimo Demo
 
-* Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo"/>
+- Oimo car demo - <Playground id="#SFELK#3" title="Oimo Car Demo" description="Oimo Car Demo"/>

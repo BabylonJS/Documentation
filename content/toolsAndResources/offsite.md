@@ -1,6 +1,6 @@
 ---
 title: Offsite Tutorials
-image: 
+image:
 description: List of helpful offsite tutorials about Babylon.js.
 keywords: babylon.js, tools, resources, tutorial
 further-reading:
@@ -20,9 +20,9 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## David Catuhe
 
--   website: http://eternalcoding.com
--   forum username: [Deltakosh](https://forum.babylonjs.com/u/deltakosh/)
--   social networks: [Twitter](https://twitter.com/deltakosh), [Github](https://github.com/Deltakosh), [Linkedin](https://www.linkedin.com/in/dcatuhe/)
+- website: http://eternalcoding.com
+- forum username: [Deltakosh](https://forum.babylonjs.com/u/deltakosh/)
+- social networks: [Twitter](https://twitter.com/deltakosh), [Github](https://github.com/Deltakosh), [Linkedin](https://www.linkedin.com/in/dcatuhe/)
 
 <div class='beforeWideTable'></div>
 
@@ -30,7 +30,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ **Open-Sourcing the Docs** ](https://www.eternalcoding.com/babylon-js-open-sourcing-the-documentation/)                                                             |                      Documentation, Community                       | Deltakosh speaks about core-team documentation philosophies, particularly, community involvement.                                                                                                                                      |
 | [ **Our Move to TypeScript** ](https://www.eternalcoding.com/why-we-decided-to-move-from-plain-javascript-to-typescript-for-babylon-js/)                              |                         TypeScript, Source                          | Here, Deltakosh tells of the thought and activities behind the move from plain JavaScript... to TypeScript.                                                                                                                            |
-| [ **All About Shaders** ](https://www.eternalcoding.com/what-do-you-mean-by-shaders-learn-how-to-create-shaders-with-babylon-js/)                                    | Shaders, Vertex Shader, Fragment Shader, GLSL, ShaderMaterial, CYOS | This is a great introduction to shaders, and how they can be used in Babylon.js. An easy-reading, yet thorough tutorial with great illustrations. Prepare yourself to become excited about shaders, as this document will make you so. |
+| [ **All About Shaders** ](https://www.eternalcoding.com/what-do-you-mean-by-shaders-learn-how-to-create-shaders-with-babylon-js/)                                     | Shaders, Vertex Shader, Fragment Shader, GLSL, ShaderMaterial, CYOS | This is a great introduction to shaders, and how they can be used in Babylon.js. An easy-reading, yet thorough tutorial with great illustrations. Prepare yourself to become excited about shaders, as this document will make you so. |
 | [ **Blender -> Babylon Exporting** ](https://www.eternalcoding.com/babylon-js-how-to-load-a-babylon-file-produced-with-blender/)                                      |                      Blender, Export, Exporter                      | Blender is an open-source modeler and scene layout application that complimentsBabylon.js beautifully. In this heavily-illustrated tutorial, Deltakosh shows us how to do scene exporting... from Blender... to .babylon files.        |
 | [ **Understanding Device Orientation** ](https://www.eternalcoding.com/understanding-deviceorientation-events-by-creating-a-small-3d-game-with-babylon-js/)           |                  DeviceOrientation, EventListener                   | Device Orientation inputs... are the wave of the future. According to Deltakosh, they "rock"... literally. :) Join David and his friends for this superb exploration of device orientation tech and its uses.                          |
 | [ **Physics in WebGL Games** ](https://www.eternalcoding.com/create-wonderful-interactive-games-for-the-web-using-webgl-and-a-physics-engine-babylon-js-cannon-js/)   |                      CannonJS, OimoJS, Physics                      | Although this is an older document, it still speaks pertinently about the wonderful world of WebGL physics engine integration.                                                                                                         |
@@ -42,8 +42,8 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## David Rousset
 
--   website: https://www.davrous.com
--   social networkfs: [Twitter](https://twitter.com/davrous)
+- website: https://www.davrous.com
+- social networkfs: [Twitter](https://twitter.com/davrous)
 
 <div class='beforeWideTable'></div>
 
@@ -60,8 +60,8 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Julian Chenard
 
--   website: http://www.pixelcodr.com
--   social networks: [Twitter](https://twitter.com/Temechon)
+- website: http://www.pixelcodr.com
+- social networks: [Twitter](https://twitter.com/Temechon)
 
 <div class='beforeWideTable'></div>
 
@@ -70,7 +70,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 | [ **Using VertexData/VertexBuffer** ](http://www.pixelcodr.com/tutos/trees/trees.html)           |     VertexData, VertexBuffer, Indices, Vertices, Normals     | [Julian "Temechon" Chenard](http://www.pixelcodr.com/aboutme.html) is a fine game programmer, teacher, OOP-master, and a darned nice guy, too. In this splendid tutorial, Temechon uses the handy Babylon VertexData object, along with blank/updatable mesh... to make lightweight trees.                                                                                                    |
 | [ **Contributing to Babylon.js** ](http://www.pixelcodr.com/tutos/contribute/contribute.html)    |                      Contribute, GitHub                      | People who are not familiar with source repositories, GitHub, version control, etc... sometimes struggle-with approved methods for open-source contributions. Temechon succeeds in removing those struggles... with this comprehensive tutorial about contributing to Babylon.js.                                                                                                             |
 | [ **Toad Attack - The Making-Of** ](http://www.pixelcodr.com/tutos/toad_attack/toad_attack.html) |                             Game                             | Here is a fantastic two-part "Basics" tutorial about the making of "Toad Attack", one of Temechon's cool games. Good stuff!                                                                                                                                                                                                                                                                   |
-| [ **All About ActionManagers** ](http://www.pixelcodr.com/tutos/plane/plane.html)                |          ActionManager, Actions, Trigger, Predicate          | Once upon a time, Deltakosh created an ActionManager class with [great docs](/features/featuresDeepDive/events/actions). In this cool tutorial, Temechon uses it within a complete webGL game. Two How_To in one!                                                                                                                                                                                            |
+| [ **All About ActionManagers** ](http://www.pixelcodr.com/tutos/plane/plane.html)                |          ActionManager, Actions, Trigger, Predicate          | Once upon a time, Deltakosh created an ActionManager class with [great docs](/features/featuresDeepDive/events/actions). In this cool tutorial, Temechon uses it within a complete webGL game. Two How_To in one!                                                                                                                                                                             |
 | [ **Old School Oimo Physics** ](http://www.pixelcodr.com/tutos/oimo/oimo.html)                   |                   Physics, Oimo, Impostor                    | Temechon coded much of the original physics "plugins", interfacing third-party physics engines... to Babylon.js. Later, version 2 of the plugins was developed by Raanan Weber (see below), but Raanan ensured that v2 plugins were backwards-compatible with original v1 plugins. So, this older Oimo-based physics tutorial is still quite pertinent. Its code examples still work great.   |
 | [ **More Oimo - Impulses & Velocities** ](http://www.pixelcodr.com/tutos/physics/physics.html)   | Physics, Oimo, AngularVelocity, LinearVelocity, ApplyImpulse | In this slightly-advanced Oimo physics tutorial, Temechon shows us how to "force the issue"... adding energy and direction to Oimo's physics impostors. This tutorial is based-upon the v1 Oimo plugin, but again, due to backwards-compatibility, all code examples work fine with the v2 plugins, as well. It's all good!                                                                   |
 | [ **First Person Shooter Prototype** ](http://www.pixelcodr.com/tutos/shooter/shooter.html)      |    OOP, Project, Asset, LayerMask, Viewport, PointerLock     | The first-person shooter (FPS) game is one of the most enjoyable and popular game-types in 3D land. In this gorgeous tutorial, Julian takes us end-to-end through the development process. As with all of Julian's games and How_To, he uses Object Oriented Programming (OOP) techniques, which result in re-usable pieces. These OOP pieces streamline work-flow for future games/projects. |
@@ -78,9 +78,9 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Raanan Weber
 
--   website: https://blog.raananweber.com/
--   forum username: [RaananW](https://forum.babylonjs.com/u/raananw)
--   social networks: [Twitter](https://twitter.com/RaananW)
+- website: https://blog.raananweber.com/
+- forum username: [RaananW](https://forum.babylonjs.com/u/raananw)
+- social networks: [Twitter](https://twitter.com/RaananW)
 
 <div class='beforeWideTable'></div>
 
@@ -98,8 +98,8 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Julien Moreau-Mathis
 
--   website: https://medium.com/@Luaacro
--   social networks: [Twitter](https://twitter.com/Luaacro)
+- website: https://medium.com/@Luaacro
+- social networks: [Twitter](https://twitter.com/Luaacro)
 
 <div class='beforeWideTable'></div>
 
@@ -109,33 +109,33 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Andy Beaulieu
 
--   website: http://www.spritehand.com/
--   social networks: [Twitter](https://twitter.com/AndyBeaulieu)
+- website: http://www.spritehand.com/
+- social networks: [Twitter](https://twitter.com/AndyBeaulieu)
 
 <div class='beforeWideTable'></div>
 
-| Title                                                                                                                             |         Keywords          | Description                                                                                                                                                        |
-| :-------------------------------------------------------------------------------------------------------------------------------- | :-----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [**Babylon.js: Physics and Character Animation**](http://www.spritehand.com/2014/08/babylonjs-physics-and-character.html)         |          Physics          | Andy Beaulieu does some substantial early work with adding physics to player characters. Thanks for sharing it, Andy!                                              |
-| [**Sharing 3D Scans in WebGL usingBabylon.js**](http://www.spritehand.com/2014/01/sharing-3d-scans-in-webgl-using.html)           |           Scan            | Here, Andy takes a trip down Scanner's Lane, and brings us along for the ride.                                                                                     |
-| [**Bing 3D Maps using WebGL andBabylon.js**](http://www.spritehand.com/2013/12/bing-3d-maps-using-webgl-and-babylonjs.html)       |   Map, HeightMap, Bing    | In this mini-tutorial, Andy looks at how we can useBabylon.js and WebGL to create a 3D height map and route path, using data from Bing Maps REST Services.         |
-| [**Fluid Simulation usingBabylon.js and LiquidFun**](http://www.spritehand.com/2016/01/fluid-simulation-using-babylonjs-and.html) | Fluid, SoftBody, LiquiFun |Babylon.js and LiquidFun allow for the creation of fluid simulations including soft body physics, using JavaScript and WebGL. Andy is here to tell us all about it. |
+| Title                                                                                                                             |         Keywords          | Description                                                                                                                                                         |
+| :-------------------------------------------------------------------------------------------------------------------------------- | :-----------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**Babylon.js: Physics and Character Animation**](http://www.spritehand.com/2014/08/babylonjs-physics-and-character.html)         |          Physics          | Andy Beaulieu does some substantial early work with adding physics to player characters. Thanks for sharing it, Andy!                                               |
+| [**Sharing 3D Scans in WebGL usingBabylon.js**](http://www.spritehand.com/2014/01/sharing-3d-scans-in-webgl-using.html)           |           Scan            | Here, Andy takes a trip down Scanner's Lane, and brings us along for the ride.                                                                                      |
+| [**Bing 3D Maps using WebGL andBabylon.js**](http://www.spritehand.com/2013/12/bing-3d-maps-using-webgl-and-babylonjs.html)       |   Map, HeightMap, Bing    | In this mini-tutorial, Andy looks at how we can useBabylon.js and WebGL to create a 3D height map and route path, using data from Bing Maps REST Services.          |
+| [**Fluid Simulation usingBabylon.js and LiquidFun**](http://www.spritehand.com/2016/01/fluid-simulation-using-babylonjs-and.html) | Fluid, SoftBody, LiquiFun | Babylon.js and LiquidFun allow for the creation of fluid simulations including soft body physics, using JavaScript and WebGL. Andy is here to tell us all about it. |
 
 ## Célian Garcia
 
--   social networks: [Github](https://github.com/kostar111/)
+- social networks: [Github](https://github.com/kostar111/)
 
 <div class='beforeWideTable'></div>
 
 | Title                                                                                                                                                                                                                       |               Keywords               | Description                                                                                                                                                                                                                                                                 |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ **Querying for Terrain Data** ](https://translate.google.com/translate?hl=en&sl=fr&tl=en&u=http%3A%2F%2Fmakina-corpus.com%2Fblog%2Fmetier%2F2014%2Faffichage-dun-mnt-avec-babylon-js-a-partir-de-donnees-postgresql)      | VertexData, PostgreSQL, PostGIS, SQL | French researcher Célian Garcia (Kostar111) has worked on elevation models and tiled terrain, using Babylon.js as his plotter/renderer. In this real-time-translated document, Kostar uses DB queries to gather JSON, which he then transforms into a Babylon.js heightMap. |
-| [ **Creating Tiled Ground in Babylon.js** ](https://translate.google.com/translate?hl=en&sl=fr&tl=en&u=http%3A%2F%2Fmakina-corpus.com%2Fblog%2Fmetier%2F2014%2Fvisualiser-des-chemins-de-randonnee-en-3d-grace-a-babylonjs) |       Terrain, HeightMap, Tile       | Kostar111 is back, with this Babylon.js-specific tutorial about creating tiled grounds. No translations, great illustrations, and some very nice playground demos. Thanks Célian!                                         |
-| [ **Working with Babylon.js Terrains** ](https://makina--corpus-com.translate.goog/sig-webmapping/une-randonnee-en-3d-grace-babylonjs-partie-3-les-textures?_x_tr_sl=fr&_x_tr_tl=en&_x_tr_hl=en)    |          Terrain, Textures          | Kostar111 continues his research into terrain generation, in this 3-part translated tutorial.                                                                                                                                                                                                                                 |
+| [ **Creating Tiled Ground in Babylon.js** ](https://translate.google.com/translate?hl=en&sl=fr&tl=en&u=http%3A%2F%2Fmakina-corpus.com%2Fblog%2Fmetier%2F2014%2Fvisualiser-des-chemins-de-randonnee-en-3d-grace-a-babylonjs) |       Terrain, HeightMap, Tile       | Kostar111 is back, with this Babylon.js-specific tutorial about creating tiled grounds. No translations, great illustrations, and some very nice playground demos. Thanks Célian!                                                                                           |
+| [ **Working with Babylon.js Terrains** ](https://makina--corpus-com.translate.goog/sig-webmapping/une-randonnee-en-3d-grace-babylonjs-partie-3-les-textures?_x_tr_sl=fr&_x_tr_tl=en&_x_tr_hl=en)                            |          Terrain, Textures           | Kostar111 continues his research into terrain generation, in this 3-part translated tutorial.                                                                                                                                                                               |
 
 ## Rahman Nasimi Asl
 
--   forum username: [nasimiasl](https://forum.babylonjs.com/u/nasimiasl/)
+- forum username: [nasimiasl](https://forum.babylonjs.com/u/nasimiasl/)
 
 <div class='beforeWideTable'></div>
 
@@ -146,8 +146,8 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Pryme8
 
--   forum username: [Pryme8](https://forum.babylonjs.com/u/pryme8/)
--   social networks: [Github](https://github.com/pryme8)
+- forum username: [Pryme8](https://forum.babylonjs.com/u/pryme8/)
+- social networks: [Github](https://github.com/pryme8)
 
 | Title                                                                | Keywords | Description                             |
 | :------------------------------------------------------------------- | :------: | --------------------------------------- |
@@ -161,7 +161,7 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Serapth
 
--   website: https://gamefromscratch.com
+- website: https://gamefromscratch.com
 
 | Title                                                                                               |    Keywords     | Description                                      |
 | :-------------------------------------------------------------------------------------------------- | :-------------: | ------------------------------------------------ |
@@ -169,31 +169,31 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Vincent Lamy
 
--   website: https://www.nothing-is-3d.com/
--   forum username: [Vinc3r](https://forum.babylonjs.com/u/Vinc3r)
--   social networks: [Mastodon](https://mamot.fr/@Vinc3r), [Github](https://github.com/Vinc3r)
+- website: https://www.nothing-is-3d.com/
+- forum username: [Vinc3r](https://forum.babylonjs.com/u/Vinc3r)
+- social networks: [Mastodon](https://mamot.fr/@Vinc3r), [Github](https://github.com/Vinc3r)
 
 <div class='beforeWideTable'></div>
 
-| Title                                                                                          |           Keywords           | Description                                                                                                                                                                                                                      |
-| :--------------------------------------------------------------------------------------------- | :--------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Title                                                                                           |           Keywords           | Description                                                                                                                                                                                                                      |
+| :---------------------------------------------------------------------------------------------- | :--------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**From Blender to Babylon.js**](https://nothing-is-3d.com/article27/from-blender-to-babylonjs) |  Lightmap, Blender, Export   | Help users to use their precomputed lighting from Blender toBabylon.js ([FR version](https://www.nothing-is-3d.com/article25/de-blender-vers-babylonjs) available).                                                              |
-| [**Use a local webserver**](https://www.nothing-is-3d.com/article28/use-a-local-webserver)     | development, testing, server | Help users uncomfortable with web dev environment to quickly be able to launch a local webserver instead of using an online FTP ([FR version](https://www.nothing-is-3d.com/article26/utiliser-un-serveur-web-local) available). |
+| [**Use a local webserver**](https://www.nothing-is-3d.com/article28/use-a-local-webserver)      | development, testing, server | Help users uncomfortable with web dev environment to quickly be able to launch a local webserver instead of using an online FTP ([FR version](https://www.nothing-is-3d.com/article26/utiliser-un-serveur-web-local) available). |
 
 ## Andrija Perusic
 
--   forum username: [Andrija_Perusic](https://forum.babylonjs.com/u/Andrija_Perusic/)
--   social networks: [Github](https://github.com/creationspirit), [Linkedin](https://www.linkedin.com/in/andrija-peru%C5%A1i%C4%87-394733147/)
+- forum username: [Andrija_Perusic](https://forum.babylonjs.com/u/Andrija_Perusic/)
+- social networks: [Github](https://github.com/creationspirit), [Linkedin](https://www.linkedin.com/in/andrija-peru%C5%A1i%C4%87-394733147/)
 
 <div class='beforeWideTable'></div>
 
-| Title                                                                                                                                     |                            Keywords                            | Description                                                                                                                                                                                                  |
-| :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Title                                                                                                                                     |                            Keywords                            | Description                                                                                                                                                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ **Realtime multiplayer game with NullEngine starter project** ](https://github.com/creationspirit/multiplayer-browser-game-boilerplate) | React, Colyseus, Typescript, NullEngine, boilerplate, tutorial | Simple starter project for a multiplayer game using authoritative server arhitecture made with Colyseus and Babylon.js NullEngine. Starter includes a simple scene where players can move freely and a lobby. |
 
 ## gryff
 
--   forum username: [gryff](https://forum.babylonjs.com/u/gryff)
+- forum username: [gryff](https://forum.babylonjs.com/u/gryff)
 
 <div class='beforeWideTable'></div>
 
@@ -203,10 +203,10 @@ Anyone who wrote a tutorial is welcome on this page, do not hesitate to [PR in G
 
 ## Symbitic
 
--   social networks: [GitHub](https://github.com/Symbitic)
+- social networks: [GitHub](https://github.com/Symbitic)
 
 <div class='beforeWideTable'></div>
 
-| Title                                                                                                                                |          Keywords          | Description                                                                                                                                                  |
-| :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Title                                                                                       |                    Keywords                     | Description                                                                                                                   |
+| :------------------------------------------------------------------------------------------ | :---------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------- |
 | [**Awesome Babylon.js**](https://github.com/Symbitic/awesome-babylonjs/blob/main/README.md) | TypeScript, Babylon, Physics, WebXR, Playground | A list of all the best Babylon.js tutorials, articles, playgrounds, projects, and open-source games. New submissions welcome. |

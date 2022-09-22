@@ -1,23 +1,23 @@
 ---
 title: Using A Physics Engine
-image: 
+image:
 description: Learn how to use one of the available physics engines in Babylon.js.
 keywords: diving deeper, phyiscs
 further-reading:
-    - title: How To Use Forces
-      url: /features/featuresDeepDive/physics/forces
-    - title: How to use Joints
-      url: /features/featuresDeepDive/physics/joints
-    - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
-    - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
-    - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
-    - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+  - title: How To Use Forces
+    url: /features/featuresDeepDive/physics/forces
+  - title: How to use Joints
+    url: /features/featuresDeepDive/physics/joints
+  - title: How To Use Pivots and Axes
+    url: /features/featuresDeepDive/physics/pivotsAxes
+  - title: How To Create Compound Bodies
+    url: /features/featuresDeepDive/physics/compoundBodies
+  - title: How To Create Soft Bodies
+    url: /features/featuresDeepDive/physics/softBodies
+  - title: How To Use Advanced Features
+    url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+  - title: How To Add Your Own Physics Engine
+    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -27,7 +27,7 @@ video-content:
 ## Introduction
 
 Babylon.js has a plugin system for physics engines that enables the user to add physics interactions to the scene's objects.
-Unlike the internal collision system, a physics engine calculates objects'  body dynamics and emulates "real-life" interactions between them. So if two objects collide, they will "bounce" off one another, just like you would expect from a real-life object.
+Unlike the internal collision system, a physics engine calculates objects' body dynamics and emulates "real-life" interactions between them. So if two objects collide, they will "bounce" off one another, just like you would expect from a real-life object.
 
 Babylon.js' plugin system allowed us to use well established physics engines and to integrate them into Babylon.js' render loop. Apart from very advanced usage, there is no need to interact directly with the physics engine. Babylon.js does the work for you.
 
@@ -58,7 +58,7 @@ To enable the physics engine, call the scene's `enablePhysics` function:
 
 ```javascript
 var scene = new BABYLON.Scene(engine);
-var gravityVector = new BABYLON.Vector3(0,-9.81, 0);
+var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
 var physicsPlugin = new BABYLON.CannonJSPlugin();
 scene.enablePhysics(gravityVector, physicsPlugin);
 ```
@@ -72,7 +72,7 @@ scene.enablePhysics();
 To use OimoJS simply change the 2nd parameter to `new BABYLON.OimoJSPlugin()`:
 
 ```javascript
-scene.enablePhysics(new BABYLON.Vector3(0,-9.81, 0), new BABYLON.OimoJSPlugin());
+scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
 ```
 
 Calling this function will create a new BABYLON.PhysicsEngine object that will be in charge of handling the physics interactions.
@@ -83,26 +83,26 @@ Please note that when using Ammo since version 5.0 you are required to initializ
 
 ```javascript
 await Ammo();
-scene.enablePhysics(new BABYLON.Vector3(0,-9.81, 0), new BABYLON.AmmoJSPlugin());
+scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.AmmoJSPlugin());
 ```
 
 ### Impostors
 
-To allow interaction between objects, the physics engines use an impostor, which is a simpler representation of a complex object. 
+To allow interaction between objects, the physics engines use an impostor, which is a simpler representation of a complex object.
 An impostor, as a rule, is a rigid body - meaning it cannot be changed during interaction. A sphere will always have the same radius, a box will always have the same length. If you want to change the object, a new impostor will be created.
 
 Each physics engine has different types of Impostors. The following table shows what each engine supports, and what it uses to simulate the missing impostors
 
-| Impostor Type | Cannon.js | Oimo.js | Energy.js | Ammo.js | Notes   |
-|---------------|-----------|---------|-----------|---------|---------|
-| Box           | Box       | Box     | Box       | Box     |         |
-| Sphere        | Sphere    | Sphere  | Sphere    | Sphere  |         |
-| Particle      | Particle  | Sphere  | Unknown   | Sphere  |         |
-| Plane         | Plane     | Box     | Plane     | Box     | Simulates an unlimited surface. Like a floor that never ends. Consider using Box |
-| Cylinder      | Cylinder  | Cylinder| Cylinder  | Cylinder|         |
-| Mesh          | Mesh      | Box     | Mesh      | Mesh    | Use only when necessary - will lower performance. Cannon's mesh impostor only collides against spheres and planes |
-| Heightmap     | Heightmap | Box     | Mesh      | Mesh    |         |
-| ConvexHull    | N/A       | N/A     | N/A       | Mesh    | Allows physics impostor support for convex mesh hull shapes |
+| Impostor Type | Cannon.js | Oimo.js  | Energy.js | Ammo.js  | Notes                                                                                                             |
+| ------------- | --------- | -------- | --------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| Box           | Box       | Box      | Box       | Box      |                                                                                                                   |
+| Sphere        | Sphere    | Sphere   | Sphere    | Sphere   |                                                                                                                   |
+| Particle      | Particle  | Sphere   | Unknown   | Sphere   |                                                                                                                   |
+| Plane         | Plane     | Box      | Plane     | Box      | Simulates an unlimited surface. Like a floor that never ends. Consider using Box                                  |
+| Cylinder      | Cylinder  | Cylinder | Cylinder  | Cylinder |                                                                                                                   |
+| Mesh          | Mesh      | Box      | Mesh      | Mesh     | Use only when necessary - will lower performance. Cannon's mesh impostor only collides against spheres and planes |
+| Heightmap     | Heightmap | Box      | Mesh      | Mesh     |                                                                                                                   |
+| ConvexHull    | N/A       | N/A      | N/A       | Mesh     | Allows physics impostor support for convex mesh hull shapes                                                       |
 
 Using simple impostors for complex objects will increase performance but decrease the reality of the scene's physics. Consider when complex impostors (like the mesh or the heightmap) is needed, and when the simpler geometries can be used.
 
@@ -111,6 +111,7 @@ Using simple impostors for complex objects will increase performance but decreas
 To get reasonably accurate collisions without overloading the physics engine, a collider mesh is recommended. One way to do this is as followed:
 
 #### Authoring
+
 1. Model a mesh as usual (eg. in Blender, Babylon, Maya, etc.)
 1. Using impostor primitives (eg. Box or Sphere) create collider meshes outlining the mesh
 1. Label the collider meshes so they can be accessed within Babylon by name
@@ -136,7 +137,7 @@ To get reasonably accurate collisions without overloading the physics engine, a 
 
 ### Babylon's physics impostor
 
-To enable physics on an object(*) you need to assign it a physics impostor. The signature of the impostor's constructor is (provided with TypeScript type definition):
+To enable physics on an object(\*) you need to assign it a physics impostor. The signature of the impostor's constructor is (provided with TypeScript type definition):
 
 ```javascript
 new BABYLON.PhysicsImpostor(object: IPhysicsEnabledObject, type: number, options: PhysicsImpostorParameters, scene:BABYLON.Scene);
@@ -148,7 +149,7 @@ You will notice that I keep on writing object and not mesh, and that the first p
 
 ```javascript
 position: BABYLON.Vector3;
-rotationQuaternion: BABYLON.Quaternion
+rotationQuaternion: BABYLON.Quaternion;
 ```
 
 An AbstractMesh will be the first choice, of course. But a Solid Particle also applies, and so does a light or certain cameras. I will show how to use an impostor on different object types in the advanced tutorial.
@@ -173,24 +174,24 @@ BABYLON.PhysicsImpostor.ConvexHullImpostor;
 Options is a JSON. The interface is as follows:
 
 ```javascript
-    export interface PhysicsImpostorParameters {
-        mass: number;
-        friction?: number;
-        restitution?: number;
-        nativeOptions?: any;
-        ignoreParent?: boolean;
-        disableBidirectionalTransformation?: boolean;
-    }
+export interface PhysicsImpostorParameters {
+  mass: number;
+  friction?: number;
+  restitution?: number;
+  nativeOptions?: any;
+  ignoreParent?: boolean;
+  disableBidirectionalTransformation?: boolean;
+}
 ```
 
-* mass: The only mandatory parameters is mass, which is the object's mass in kg. A `0` as a value will create a static impostor - good for floors.
-* friction: is the impostor's friction when colliding against other impostors.
-* restitution: is the amount of force the body will "give back" when colliding. A low value will create no bounce, a value of 1 will be a very bouncy interaction.
-* nativeOptions: is a JSON with native options of the selected physics plugin. More about it in the advanced tutorial.
-* ignoreParent: when using babylon's parenting system, the physics engine will use the compound system. To avoid using the compound system, set this flag to true. More about it in the advanced tutorial.
-* disableBidirectionalTransformation: will disable the bidirectional transformation update. Setting this will make sure the physics engine ignores changes made to the mesh's position and rotation (and will increase performance a bit)
-* group: set the collision group (ammojs only)
-* mask: collision bit mask. Only impostor's group that have at least one bit in the mask will have collisions (ammojs)
+- mass: The only mandatory parameters is mass, which is the object's mass in kg. A `0` as a value will create a static impostor - good for floors.
+- friction: is the impostor's friction when colliding against other impostors.
+- restitution: is the amount of force the body will "give back" when colliding. A low value will create no bounce, a value of 1 will be a very bouncy interaction.
+- nativeOptions: is a JSON with native options of the selected physics plugin. More about it in the advanced tutorial.
+- ignoreParent: when using babylon's parenting system, the physics engine will use the compound system. To avoid using the compound system, set this flag to true. More about it in the advanced tutorial.
+- disableBidirectionalTransformation: will disable the bidirectional transformation update. Setting this will make sure the physics engine ignores changes made to the mesh's position and rotation (and will increase performance a bit)
+- group: set the collision group (ammojs only)
+- mask: collision bit mask. Only impostor's group that have at least one bit in the mask will have collisions (ammojs)
 
 ### Basic physics scene
 
@@ -222,7 +223,7 @@ The physics impostor holds a set of functions that can be executed on the physic
 The physics impostor synchronizes the physics engine's body and the connected object with each frame.
 That means that changing the object's position or rotation in Babylon code will also move the impostor. The impostor is also the one updating the object's position after the physics engine is finished calculating the next step.
 
-Playground example (sphere rotation and position) -  <Playground id="#B5BDU" title="Rotating A Sphere's Physics Imposter" description="Simple example of rotating a sphere via its physics imposter."/>
+Playground example (sphere rotation and position) - <Playground id="#B5BDU" title="Rotating A Sphere's Physics Imposter" description="Simple example of rotating a sphere via its physics imposter."/>
 Notice how the sphere rotates (due to the rotate function), but this rotation is not being taken into account by the physics engine.
 
 Playground example (box rotation and position) - <Playground id="#2ADVLV" title="Rotating A Box's Physics Imposter" description="Simple example of rotating a box via its physics imposter."/>
@@ -240,7 +241,7 @@ impostor.getLinearVelocity();
 To set the object's linear velocity use:
 
 ```javascript
-impostor.setLinearVelocity(new BABYLON.Vector3(0,1,0));
+impostor.setLinearVelocity(new BABYLON.Vector3(0, 1, 0));
 ```
 
 Playground example - <Playground id="#BXII" title="Linear Velocity Example" description="Simple example of physics linear velocity."/>
@@ -258,8 +259,9 @@ impostor.getAngularVelocity();
 ```
 
 To set the object's angular velocity use:
+
 ```javascript
-impostor.setAngularVelocity(new BABYLON.Quaternion(0,1,0,0));
+impostor.setAngularVelocity(new BABYLON.Quaternion(0, 1, 0, 0));
 ```
 
 Playground example - <Playground id="#IGM3H" title="Angular Velocity Example" description="Simple example of physics angular velocity."/>
@@ -286,7 +288,7 @@ Playground example with a different position of the impulse, giving the ball a "
 
 #### Radial explosion impulse/force & gravitational fields
 
-You have the ability to create radial explosions & gravitational forces. 
+You have the ability to create radial explosions & gravitational forces.
 
 The forces are never applied to impostors that have mass equal 0 (the ground for example).
 
@@ -298,66 +300,75 @@ var radius = 10;
 var strength = 20;
 var falloff = BABYLON.PhysicsRadialImpulseFalloff.Linear; // or BABYLON.PhysicsRadialImpulseFalloff.Constant
 
-var explosionEvent = physicsHelper.applyRadialExplosionImpulse( // or .applyRadialExplosionForce
-    origin,
-    radius,
-    strength,
-    falloff
+var explosionEvent = physicsHelper.applyRadialExplosionImpulse(
+  // or .applyRadialExplosionForce
+  origin,
+  radius,
+  strength,
+  falloff,
 );
 // the second `radius` argument can also act as options: `.applyRadialExplosionImpulse(origin, { radius: radius, strength: strength, falloff: falloff })`
 
 // or
 
-var gravitationalFieldEvent = physicsHelper.gravitationalField(
-    origin,
-    radius,
-    strength,
-    falloff
-);
+var gravitationalFieldEvent = physicsHelper.gravitationalField(origin, radius, strength, falloff);
 // the second `radius` argument can also act as options: `.gravitationalField(origin, { radius: radius, strength: strength, falloff: falloff })`
 gravitationalFieldEvent.enable(); // need to call, if you want to activate the gravitational field.
-setTimeout(function (gravitationalFieldEvent) { gravitationalFieldEvent.disable(); }, 3000, gravitationalFieldEvent);
+setTimeout(
+  function (gravitationalFieldEvent) {
+    gravitationalFieldEvent.disable();
+  },
+  3000,
+  gravitationalFieldEvent,
+);
 
 // or
 
 var updraftEvent = physicsHelper.updraft(
-    origin,
-    radius,
-    strength,
-    height,
-    BABYLON.PhysicsUpdraftMode.Center // or BABYLON.PhysicsUpdraftMode.Perpendicular
+  origin,
+  radius,
+  strength,
+  height,
+  BABYLON.PhysicsUpdraftMode.Center, // or BABYLON.PhysicsUpdraftMode.Perpendicular
 );
 // the second `radius` argument can also act as options: `.updraft(origin, { radius: radius, strength: strength, height: height, updraftMode: PhysicsUpdraftMode.Center })`
 updraftEvent.enable();
-setTimeout(function (updraftEvent) { updraftEvent.disable(); }, 5000, updraftEvent);
+setTimeout(
+  function (updraftEvent) {
+    updraftEvent.disable();
+  },
+  5000,
+  updraftEvent,
+);
 
 // or
 
-var vortexEvent = physicsHelper.vortex(
-    origin,
-    radius,
-    strength,
-    height
-);
+var vortexEvent = physicsHelper.vortex(origin, radius, strength, height);
 // the second `radius` argument can also act as options: `.vortex(origin, { radius: radius, strength: strength, height: height, centripetalForceThreshold: 0.7, centripetalForceMultiplier: 5, centrifugalForceMultiplier: 0.5, updraftForceMultiplier: 0.02 })`
 vortexEvent.enable();
-setTimeout(function (vortexEvent) { vortexEvent.disable(); }, 5000, vortexEvent);
+setTimeout(
+  function (vortexEvent) {
+    vortexEvent.disable();
+  },
+  5000,
+  vortexEvent,
+);
 ```
 
-In case you want to do some debug, like visually show the sphere and/or rays, you can do that by calling `event.getData()` *(note that if you do that, you will need to manually call `event.dispose()` to dispose the unused meshes, after you are done debugging)*. The `event.getData()` will return back the `sphere` mesh variable, which you can then use, to apply a semi-transparent material, so you can visualize it. The `explosionEvent.getData()` will also return back the `rays` rays variable, in case you want them for debugging purposes.
+In case you want to do some debug, like visually show the sphere and/or rays, you can do that by calling `event.getData()` _(note that if you do that, you will need to manually call `event.dispose()` to dispose the unused meshes, after you are done debugging)_. The `event.getData()` will return back the `sphere` mesh variable, which you can then use, to apply a semi-transparent material, so you can visualize it. The `explosionEvent.getData()` will also return back the `rays` rays variable, in case you want them for debugging purposes.
 
-*For a more detailed explanation, please take a look at the playground example below.*
+_For a more detailed explanation, please take a look at the playground example below._
 
 Playground example - <Playground id="#UZHINX" title="Radial Explosion" description="Simple example of a radial explosion."/>
 
 #### Collision callbacks
 
-You can add a callback function that will be called when an impostor collides with another impostor. 
+You can add a callback function that will be called when an impostor collides with another impostor.
 This is how to change the color of an object if it collides against the ground.
 
 ```javascript
-sphereImpostor.registerOnPhysicsCollide(groundImpostor, function(main, collided) {
-    main.object.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+sphereImpostor.registerOnPhysicsCollide(groundImpostor, function (main, collided) {
+  main.object.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
 });
 ```
 
@@ -375,13 +386,13 @@ To connect two impostors together, you can now use joints.
 Think of the joint as a limitation (or constraint) of either rotation or position (or both) between two impostors.
 Each engine supports different types of joints (which usually have different names as well):
 
-| Joint Type | Cannon.js | Oimo.js | Energy.js | Notes   |
-|---------------|-----------|---------|-----------|---------|
-| Distance  | Distance | Distance | ---   |  A fixed distance between two impostors |
-| Hinge | Hinge | Hinge | Hinge | A joint allowing rotation on a single axis (much like your knee) |
-| Hinge2| ----  | Wheel  | Hinge2   | A joint allowing rotation on a single axis in two different points |
-| Ball And Socket | Point To Point | Ball | Ball And Socket | A joint allowing one of the objects to rotate around a specific socket (like your hip) |
-| Slider | ---- | Slider | Slider | A joint allowing changing the position along a single axis |
+| Joint Type      | Cannon.js      | Oimo.js  | Energy.js       | Notes                                                                                  |
+| --------------- | -------------- | -------- | --------------- | -------------------------------------------------------------------------------------- |
+| Distance        | Distance       | Distance | ---             | A fixed distance between two impostors                                                 |
+| Hinge           | Hinge          | Hinge    | Hinge           | A joint allowing rotation on a single axis (much like your knee)                       |
+| Hinge2          | ----           | Wheel    | Hinge2          | A joint allowing rotation on a single axis in two different points                     |
+| Ball And Socket | Point To Point | Ball     | Ball And Socket | A joint allowing one of the objects to rotate around a specific socket (like your hip) |
+| Slider          | ----           | Slider   | Slider          | A joint allowing changing the position along a single axis                             |
 
 Cannon also has a special Spring joint that will simulate a spring connected between two impostors.
 
@@ -430,12 +441,12 @@ interface PhysicsJointData {
 }
 ```
 
-* **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot."/>
-* **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
-* **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#51" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work."/>
-* **connectedAxis**: the axis on the connected object on which the constraint will work.
-* **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
-* **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
+- **mainPivot**: is the point on the main mesh (the mesh creating the joint) to which the constraint will be connected. Demo: <Playground id="#BGUY#3" title="Main Pivot Example" description="Simple example of using the main pivot."/>
+- **connectedPivot**: is the point on the connected mesh (the mesh creating the joint) to which the constraint will be connected.
+- **mainAxis**: the axis on the main object on which the constraint will work. <Playground id="#BGUY#51" title="Main Axis Example" description="Simple example of the axis on the main object on which constraints will work."/>
+- **connectedAxis**: the axis on the connected object on which the constraint will work.
+- **collision**: should the two connected objects also collide with each other. The objects are sometimes forced to be close by and this can prevent constant collisions between them.
+- **nativParams**: further parameters that will be delivered to the constraint without a filter. Those are native parameters of the specific physics engine you chose.
 
 You can read further about joint data in this blog article : [WebGL physics-based car using Babylon.js and Oimo.js](https://blog.raananweber.com/2016/09/06/webgl-car-physics-using-babylon-js-and-oimo-js/).
 

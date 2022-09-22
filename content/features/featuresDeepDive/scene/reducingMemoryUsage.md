@@ -1,6 +1,6 @@
 ---
 title: Reducing Memory Footprint
-image: 
+image:
 description: Learn how to reduce the memory footprint of scenes in Babylon.js.
 keywords: diving deeper, scene, optimize, scene optimizer, memory
 further-reading:
@@ -53,6 +53,5 @@ If you don't need to use these features, you can call this function to free asso
 ```
 scene.cleanCachedTextureBuffer();
 ```
-
 
 You can find a demo here: <Playground id="#AS54U8#1" title="Reducing Memory Footprint Example" description="Simple example showing how to reduce the memory footprint of a scene."/>

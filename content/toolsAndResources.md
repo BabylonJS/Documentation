@@ -1,6 +1,6 @@
 ---
 title: Tools And Resources
-image: 
+image:
 description: Learn about handy development tools and resources available to you for creating stunning Babylon.js scenes.
 keywords: babylon.js, tools, resources
 further-reading:

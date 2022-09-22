@@ -1,5 +1,5 @@
 ---
-title:   Contributing to Babylon.js
+title: Contributing to Babylon.js
 image:
 description: Learn how to start contributing to Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, develop

@@ -38,9 +38,9 @@ Therefore, in order to act on the result and manupulate the objects, we follow t
 
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((result) => {
-    result.meshes[1].position.x = 20;
-    const myMesh1 = scene.getMeshByName("myMesh_1");
-    myMesh1.rotation.y = Math.PI / 2;
+  result.meshes[1].position.x = 20;
+  const myMesh1 = scene.getMeshByName("myMesh_1");
+  myMesh1.rotation.y = Math.PI / 2;
 });
 ```
 
