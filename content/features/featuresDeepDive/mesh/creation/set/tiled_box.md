@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Tiled Box
-A tiled box is only available with *MeshBuilder*. A tiled box is constructed from six tiled planes  s o that he tile size, pattern and alignment of tiles will be the same for each face. Using the faceUV array each side can have a different texture for its tiles as [explained](/features/featuresDeepDive/materials/using/texturePerBoxFace) for a standard box.
+A tiled box is only available with *MeshBuilder*. A tiled box is constructed from six tiled planes so that the size, pattern and alignment of tiles will be the same for each face. Using the faceUV array each side can have a different texture for its tiles as [explained](/features/featuresDeepDive/materials/using/texturePerBoxFace) for a standard box.
 
 ## MeshBuilder
 Usage :
