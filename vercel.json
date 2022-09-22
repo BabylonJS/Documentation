@@ -809,11 +809,6 @@
             "statusCode": 301
         },
         {
-            "source": "/advanced_topics/shaders/Fog+ShaderMat",
-            "destination": "/features/featuresDeepDive/materials/shaders/Fog+ShaderMat",
-            "statusCode": 301
-        },
-        {
             "source": "/advanced_topics/shaders/image_processing",
             "destination": "/features/featuresDeepDive/materials/shaders/image_processing",
             "statusCode": 301
