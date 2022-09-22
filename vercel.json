@@ -809,6 +809,11 @@
             "statusCode": 301
         },
         {
+            "source": "/advanced_topics/shaders/Fog+ShaderMat",
+            "destination": "/features/featuresDeepDive/materials/shaders/Fog+ShaderMat",
+            "statusCode": 301
+        },
+        {
             "source": "/advanced_topics/shaders/image_processing",
             "destination": "/features/featuresDeepDive/materials/shaders/image_processing",
             "statusCode": 301
@@ -1829,11 +1834,6 @@
             "statusCode": 301
         },
         {
-            "source": "/toolsAndResources/templateRepositories",
-            "destination": "/toolsAndResources/templateRepositories",
-            "statusCode": 301
-        },
-        {
             "source": "/divingDeeper/developWithBjs/frameworkVers",
             "destination": "/setup/frameworkPackages/frameworkVers",
             "statusCode": 301
@@ -1856,6 +1856,11 @@
         {
             "source": "/divingDeeper/3D_commerce_certif",
             "destination": "/setup/support/3D_commerce_certif",
+            "statusCode": 301
+        },
+        {
+            "source": "/extensions/Babylon.js+ExternalLibraries/Running_a_local_webserver_for_BabylonJs",
+            "destination": "/setup/support/Running_a_local_webserver_for_BabylonJs",
             "statusCode": 301
         },
         {
@@ -1989,11 +1994,6 @@
             "statusCode": 301
         },
         {
-            "source": "/toolsAndResources",
-            "destination": "/toolsAndResources",
-            "statusCode": 301
-        },
-        {
             "source": "/toolsAndResources/tools/inspector",
             "destination": "/toolsAndResources/inspector",
             "statusCode": 301
@@ -2059,246 +2059,6 @@
             "statusCode": 301
         },
         {
-            "source": "/toolsAndResources/assetLibrarian",
-            "destination": "/toolsAndResources/assetLibrarian",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries",
-            "destination": "/toolsAndResources/assetLibraries",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/fireMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/fireMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/waterMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/waterMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/lavaMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/lavaMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/furMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/furMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/normalMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/normalMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/terrainMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/terrainMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/triPlanarMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/triPlanarMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/gradientMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/gradientMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/skyMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/skyMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/gridMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/gridMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/shadowOnlyMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/shadowOnlyMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/cellShadingMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/materialsLibrary/mixMat",
-            "destination": "/toolsAndResources/assetLibraries/materialsLibrary/mixMat",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/availableMeshes",
-            "destination": "/toolsAndResources/assetLibraries/availableMeshes",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/postProcessLibrary",
-            "destination": "/toolsAndResources/assetLibraries/postProcessLibrary",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/postProcessLibrary/asciiArtPP",
-            "destination": "/toolsAndResources/assetLibraries/postProcessLibrary/asciiArtPP",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/postProcessLibrary/digitalRainPP",
-            "destination": "/toolsAndResources/assetLibraries/postProcessLibrary/digitalRainPP",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/cloud",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/cloud",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/fire",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/fire",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/grass",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/grass",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/marble",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/marble",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/road",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/road",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/wood",
-            "destination": "/toolsAndResources/assetLibraries/proceduralTexturesLibrary/wood",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/assetLibraries/availableTextures",
-            "destination": "/toolsAndResources/assetLibraries/availableTextures",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities",
-            "destination": "/toolsAndResources/utilities",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/area",
-            "destination": "/toolsAndResources/utilities/area",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Deconstruct_Mesh",
-            "destination": "/toolsAndResources/utilities/Deconstruct_Mesh",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Frame",
-            "destination": "/toolsAndResources/utilities/Frame",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Increasing_Facets",
-            "destination": "/toolsAndResources/utilities/Increasing_Facets",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/InnerMeshPoints",
-            "destination": "/toolsAndResources/utilities/InnerMeshPoints",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/IsInside",
-            "destination": "/toolsAndResources/utilities/IsInside",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Line2D",
-            "destination": "/toolsAndResources/utilities/Line2D",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Minimise_Vertices",
-            "destination": "/toolsAndResources/utilities/Minimise_Vertices",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Mitred",
-            "destination": "/toolsAndResources/utilities/Mitred",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Normals",
-            "destination": "/toolsAndResources/utilities/Normals",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/OpenUrl",
-            "destination": "/toolsAndResources/utilities/OpenUrl",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Path3D",
-            "destination": "/toolsAndResources/utilities/Path3D",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Pivot",
-            "destination": "/toolsAndResources/utilities/Pivot",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/Sector",
-            "destination": "/toolsAndResources/utilities/Sector",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/SphericalPanning",
-            "destination": "/toolsAndResources/utilities/SphericalPanning",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/SurfaceMeshPoints",
-            "destination": "/toolsAndResources/utilities/SurfaceMeshPoints",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/utilities/World_Axes",
-            "destination": "/toolsAndResources/utilities/World_Axes",
-            "statusCode": 301
-        },
-        {
-            "source": "/toolsAndResources/offsite",
-            "destination": "/toolsAndResources/offsite",
-            "statusCode": 301
-        },
-        {
             "source": "/divingDeeper/multiplePlatforms",
             "destination": "/BabylonCrossPlat/multiplePlatforms",
             "statusCode": 301
@@ -2339,151 +2099,6 @@
             "statusCode": 301
         },
         {
-            "source": "/guidedLearning",
-            "destination": "/guidedLearning",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories",
-            "destination": "/guidedLearning/devStories",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/fruitFalling",
-            "destination": "/guidedLearning/devStories/fruitFalling",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearViewer",
-            "destination": "/guidedLearning/devStories/vaporwearViewer",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/showroomCamera",
-            "destination": "/guidedLearning/devStories/showroomCamera",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearConfigurator",
-            "destination": "/guidedLearning/devStories/vaporwearConfigurator",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearConfigurator/art",
-            "destination": "/guidedLearning/devStories/vaporwearConfigurator/art",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearConfigurator/3d",
-            "destination": "/guidedLearning/devStories/vaporwearConfigurator/3d",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearConfigurator/frontend",
-            "destination": "/guidedLearning/devStories/vaporwearConfigurator/frontend",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/devStories/vaporwearConfigurator/wordpress",
-            "destination": "/guidedLearning/devStories/vaporwearConfigurator/wordpress",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame",
-            "destination": "/guidedLearning/createAGame",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/gettingSetUp",
-            "destination": "/guidedLearning/createAGame/gettingSetUp",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/stateMachine",
-            "destination": "/guidedLearning/createAGame/stateMachine",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/simpleGameState",
-            "destination": "/guidedLearning/createAGame/simpleGameState",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/playerCamera",
-            "destination": "/guidedLearning/createAGame/playerCamera",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/characterMovePt1",
-            "destination": "/guidedLearning/createAGame/characterMovePt1",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/characterMovePt2",
-            "destination": "/guidedLearning/createAGame/characterMovePt2",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/importMeshes",
-            "destination": "/guidedLearning/createAGame/importMeshes",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/lanterns",
-            "destination": "/guidedLearning/createAGame/lanterns",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/collisionsTriggers",
-            "destination": "/guidedLearning/createAGame/collisionsTriggers",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/gameGUI",
-            "destination": "/guidedLearning/createAGame/gameGUI",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/animations",
-            "destination": "/guidedLearning/createAGame/animations",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/particleSystems",
-            "destination": "/guidedLearning/createAGame/particleSystems",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/musicSFX",
-            "destination": "/guidedLearning/createAGame/musicSFX",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/extraFeatures",
-            "destination": "/guidedLearning/createAGame/extraFeatures",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/crossPlatform",
-            "destination": "/guidedLearning/createAGame/crossPlatform",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/performance",
-            "destination": "/guidedLearning/createAGame/performance",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/closing",
-            "destination": "/guidedLearning/createAGame/closing",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/createAGame/designArt",
-            "destination": "/guidedLearning/createAGame/designArt",
-            "statusCode": 301
-        },
-        {
             "source": "/guidedLearning/multiplayer",
             "destination": "/guidedLearning/networking",
             "statusCode": 301
@@ -2496,111 +2111,6 @@
         {
             "source": "/guidedLearning/multiplayer/Colyseus_ammojs",
             "destination": "/guidedLearning/networking/Colyseus_ammojs",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/videos",
-            "destination": "/guidedLearning/videos",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/videos/3DProgrammingBeginners",
-            "destination": "/guidedLearning/videos/3DProgrammingBeginners",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/videos/RTSGameDev",
-            "destination": "/guidedLearning/videos/RTSGameDev",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop",
-            "destination": "/guidedLearning/workshop",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Geodesic_Math",
-            "destination": "/guidedLearning/workshop/Geodesic_Math",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Geodesic_Code",
-            "destination": "/guidedLearning/workshop/Geodesic_Code",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Car_Path",
-            "destination": "/guidedLearning/workshop/Car_Path",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Car_Driven",
-            "destination": "/guidedLearning/workshop/Car_Driven",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/House",
-            "destination": "/guidedLearning/workshop/House",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/House_Use",
-            "destination": "/guidedLearning/workshop/House_Use",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/roof",
-            "destination": "/guidedLearning/workshop/roof",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Track",
-            "destination": "/guidedLearning/workshop/Track",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Track_Code",
-            "destination": "/guidedLearning/workshop/Track_Code",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Collide_Intro",
-            "destination": "/guidedLearning/workshop/Collide_Intro",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Issues",
-            "destination": "/guidedLearning/workshop/Issues",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Grid_Moves",
-            "destination": "/guidedLearning/workshop/Grid_Moves",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Slow_Collide",
-            "destination": "/guidedLearning/workshop/Slow_Collide",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Free_Collide",
-            "destination": "/guidedLearning/workshop/Free_Collide",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/vr_game",
-            "destination": "/guidedLearning/workshop/vr_game",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Writing1",
-            "destination": "/guidedLearning/workshop/Writing1",
-            "statusCode": 301
-        },
-        {
-            "source": "/guidedLearning/workshop/Writing2",
-            "destination": "/guidedLearning/workshop/Writing2",
             "statusCode": 301
         },
         {
