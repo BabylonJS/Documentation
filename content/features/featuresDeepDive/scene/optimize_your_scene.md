@@ -209,22 +209,29 @@ mesh.cullingStrategy = oneOfThePossibleValues;
 Optimistic Inclusion modes give a little gain. They keep the same accuracy than the basic mode on what they are applied (standard or bSphereOnly).  
 BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
 
-## Performance priority
+## Performance Priority Modes
 
 Starting with Babylon.js 5.22, you can now change how the scene will treat performance regarding backward compatibility and ease of use.
+
+### Backward compatiblity mode (default)
 By default, `scene.performancePriority` is set to `BABYLON.ScenePerformancePriority.BackwardCompatible`. In this mode, there is simply no change. The scene will keep prioritizing ease of use and backward compatibility.
 
+### Intermediate mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Intermediate`, the scene will automatically:
-* Freeze materials when they are ready. If you need to change something on a material you will have to call `material.unfreeze()`, do your changes and then call `material.freeze()` again
-* New meshes will be have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustrum clipping for the mesh and always active it (saving complex CPU operations). Keep in mind to turn it off f your scene is GPU bound
-* New meshes will be have their `isPickable ` property set to false. So picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
+* Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.unfreeze()`, do your changes, and then call `material.freeze()` again
+* New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustrum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind to turn it off if your scene is GPU bound
+* New meshes will have their `isPickable ` property set to false. Picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
 * `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
 * `scene.autoClear` will be turned off
 
+### Agressive mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Aggressive`, the scene will automatically:
 * Enable all features of the `Intermediate` mode
 * The scene will skip all the frustum clipping phase entirely (`scene.skipFrustumClipping` will be set to true)
 * New meshes will have their `doNotSyncBoundingInfo` set to true
+* The manager will not reset between frames (`scene.renderingManager.maintainStateBetweenFrames` is set to true). This means that if a mesh becomes invisible or transparent it will not be visible until this boolean is set to false again
+
+ 
 
 ** Please note that the `Intermediate` and `Aggressive` modes will not be backward compatible, which means that we will probably add more features in these modes in the future to support performance first**
 
