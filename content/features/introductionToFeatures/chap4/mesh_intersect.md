@@ -15,7 +15,7 @@ video-content:
 The simplest way of seeing if two meshes are in contact is to use the _intersectsMesh_ method, as in
 
 ```javascript
-mesh1.intersectMesh(mesh2);
+mesh1.intersectsMesh(mesh2);
 ```
 
 which will be true if a box bounding mesh1 would overlap with a box bounding mesh2. Each mesh has a built-in bounding box which lies close to the surface of the mesh that is used in checking the intersection of the meshes.
