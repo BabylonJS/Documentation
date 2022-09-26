@@ -89,15 +89,97 @@ Now use the left-hand sidebar (and some right-clicking) to do the following:
 
 You should now have all three of these files open.
 
-**(10)** Open each of the links below and paste/replace the code inside each of the respective files. Save each file (Ctrl+S) after you do this.
-
-- [Code to paste for app.ts](https://github.com/BabylonJS/Documentation/blob/master/public/examples/usingVite/app.ts)
-- [Code to paste for index.html](https://github.com/BabylonJS/Documentation/blob/master/public/examples/usingVite/index.html)
-- [Code to paste for tsconfig.json](https://github.com/BabylonJS/Documentation/blob/master/public/examples/usingVite/tsconfig.json)
+**(10)** Copy the contents of the three code blocks below and paste them into their respective files. Save each file (Ctrl+S) after you do this.
 
 ![Picture of a file](/img/how_to/using-vite/09.png)
 
-The code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). Notice how the `import` statements at the top allow the rest of the code to function. The code for **index.html** contains the title that will appear in the browser title bar, as well as a `<script>` tag to tell Vite which file has the main code to start our project (which is `app.ts` in our case.) The code for **tsconfig.json** is a slimmed-down combination between the default Vite file and the one from that other Babylon.js tutorial mentioned earlier. Each line roughly explains what each setting does. You can read the [TypeScript docs](https://www.typescriptlang.org/tsconfig) if you want to learn more.
+This code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). Notice how the `import` statements at the top allow the rest of the code to function: 
+
+```typescript
+import "@babylonjs/core/Debug/debugLayer";
+import "@babylonjs/inspector";
+import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBuilder } from "@babylonjs/core";
+
+class App {
+    constructor() {
+        // create the canvas html element and attach it to the webpage
+        var canvas = document.createElement("canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.id = "gameCanvas";
+        document.body.appendChild(canvas);
+
+        // initialize babylon scene and engine
+        var engine = new Engine(canvas, true);
+        var scene = new Scene(engine);
+
+        var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+        camera.attachControl(canvas, true);
+        var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+        var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+
+        // hide/show the Inspector
+        window.addEventListener("keydown", (ev) => {
+            // Shift+Ctrl+Alt+I
+            if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.keyCode === 73) {
+                if (scene.debugLayer.isVisible()) {
+                    scene.debugLayer.hide();
+                } else {
+                    scene.debugLayer.show();
+                }
+            }
+        });
+
+        // run the main render loop
+        engine.runRenderLoop(() => {
+            scene.render();
+        });
+    }
+}
+new App();
+```
+
+This code for **index.html** contains the title that will appear in the browser title bar, as well as a `<script>` tag to tell Vite which file has the main code to start our project, which is `app.ts` in our case:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title of Your Project</title>
+    </head>
+    <body>
+       <script type="module" src="./src/app.ts"></script>
+    </body>
+</html>
+```
+
+This code for **tsconfig.json** is a slimmed-down combination between the default Vite file and the one from that other Babylon.js tutorial mentioned earlier. Each line roughly explains what each setting does. (Note that JSON files normally don't allow you to insert comments like this example here, but tsconfig.json in particular does.) You can read the [TypeScript docs](https://www.typescriptlang.org/tsconfig) if you want to learn more:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es6", // choose our ECMA/JavaScript version (all modern browsers support ES6 so it's your best bet)
+    "lib": [ // choose our default ECMA/libraries to import
+      "dom", // mandatory for all browser-based apps
+      "es6" // mandatory for targeting ES6
+    ],
+    "useDefineForClassFields": true, // enable latest ECMA runtime behavior with older ECMA/JavaScript versions (delete this line if target: "ESNext" or "ES2022"+)
+    "module": "ESNext", // use the latest ECMA/JavaScript syntax for our import statements and such
+    "moduleResolution": "node", // ensures we are using CommonJS for our npm packages
+    "noResolve": false, // disable TypeScript from automatically detecting/adding files based on import statements and etc (it's less helpful than you think)
+    "isolatedModules": true, // allows our code to be processed by other transpilers, such as preventing non-module TS files (you could delete this since we're only using base TypeScript)
+    "removeComments": true, // remove comments from our outputted code to save on space (look into terser if you want to protect the outputted JS even more)
+    "esModuleInterop": true, // treats non-ES6 modules separately from ES6 modules (helpful if module: "ESNext")
+    "noImplicitAny": false, // usually prevents code from using "any" type fallbacks to prevent untraceable JS errors, but we'll need this disabled for our example code
+    "noUnusedLocals": false, // usually raises an error for any unused local variables, but we'll need this disabled for our example code
+    "noUnusedParameters": true, // raises an error for unused parameters
+    "noImplicitReturns": true, // raises an error for functions that return nothing
+    "skipLibCheck": true // skip type-checking of .d.ts files (it speeds up transpiling)
+  },
+  "include": ["src"] // specify location(s) of .ts files
+}
+```
 
 **(11)** Run `npm run dev` in your terminal and Ctrl+click the localhost: link again.
 
