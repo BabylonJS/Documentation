@@ -152,7 +152,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
         <Layout
             breadcrumbs={generateBreadcrumbs()}
             metadata={{
-                title: "Search page",
+                title: query ? "Search results: " + query : "Search Page",
                 description: "Search page for Babylon.js documentation site. Search for documents and code examples",
                 imageUrl: "",
                 keywords: "search, documentation, query, examples, playground",
