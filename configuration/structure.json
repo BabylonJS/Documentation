@@ -2662,6 +2662,11 @@
                     },
                     "content": "guidedLearning/createAGame"
                 },
+                "usingVite": {
+                    "friendlyName": "Using Vite with Babylon.js",
+                    "children": {},
+                    "content": "guidedLearning/usingVite"
+                },
                 "networking": {
                     "friendlyName": "Networking",
                     "children": {
