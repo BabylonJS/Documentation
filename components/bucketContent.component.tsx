@@ -93,7 +93,7 @@ const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUr
                             <Typography component="h6" variant="h6">
                                 {title}
                             </Typography>
-                            <Typography style={{}} variant="subtitle1" color="textSecondary">
+                            <Typography style={{}} variant="subtitle1" color="textSecondary" title={title}>
                                 {description}
                             </Typography>
                         </CardContent>
