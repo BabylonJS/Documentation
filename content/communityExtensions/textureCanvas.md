@@ -16,6 +16,8 @@ video-content:
 
 TextureCanvas is a texture on which other textures can be drawn.
 
+NOTE - Texture Canvas works with Babylon.js 4.2 and below.
+
 ## Usage
 
 ## Creating a canvas

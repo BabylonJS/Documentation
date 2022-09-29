@@ -409,6 +409,12 @@ If `ALPHATEST = 0`, the computed value is `-1 + alphaCutOff`. As `alphaCutOff` i
 
 You could also have used `Lerp(0, alphaCutOff, ALPHATEST)` as the input for `Discard.cutoff`, but it's likely that the addition + subtraction used above is faster than a `Lerp` on GPUs (would need some benchmarking to be sure), even if it's by a small (negligible) margin.
 
+#### Shader Promotion Optimization
+
+The Node Material features a default performance optimization where some nodes in the fragment shader are "promoted" to being evaluated with the vertex shader. This optimization ensures the fastest possible shader evaluation possible. There may be times where this optimization does NOT provide the desired outcome when creating a Node Material. You can change this behavior by setting the "Target" property of any given node, to either "Fragment" or "Vertex." By default, this property is set to "Neutral" which will permit the optimization to occur. Setting this property to "Fragment" or "Vertex" will force the system to evaluate that node in that specific part of the shader.
+
+![Emissive](/img/playgroundsAndNMEs/nmeNodePromotion.png)
+
 ### Loading from a file saved from the Node Material Editor
 
 You can directly setup a Node Material from a file saved from the Node Material Editor.

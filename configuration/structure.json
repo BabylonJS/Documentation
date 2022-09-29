@@ -1285,6 +1285,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/displayBoundingBoxes"
                                 },
+                                "billboardMode": {
+                                    "friendlyName": "BillBoard Mode",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/billboard"
+                                },
                                 "decals": {
                                     "friendlyName": "Decals",
                                     "children": {},
@@ -2428,11 +2433,6 @@
                         }
                     },
                     "content": "toolsAndResources/utilities"
-                },
-                "offsite": {
-                    "friendlyName": "Offsite Tutorials",
-                    "children": {},
-                    "content": "toolsAndResources/offsite"
                 }
             },
             "content": "toolsAndResources"
@@ -2519,6 +2519,9 @@
         "guidedLearning": {
             "friendlyName": "Guided Learning",
             "children": {
+                "bjsBook": {
+                    "friendlyName": "Journey Beyond The Docs", "children": {}, "content": "guidedLearning/journeyBeyond"
+                },
                 "devStories": {
                     "friendlyName": "Dev Stories",
                     "children": {
@@ -2789,6 +2792,11 @@
                         }
                     },
                     "content": "guidedLearning/workshop"
+                },
+                "offsite": {
+                    "friendlyName": "Offsite Tutorials",
+                    "children": {},
+                    "content": "toolsAndResources/offsite"
                 }
             },
             "content": "guidedLearning"
