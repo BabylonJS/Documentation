@@ -16,7 +16,7 @@ Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or bel
 
 This add-on use the standard Blender installation procedure:
 
-- Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (_Blender2Babylon-X.X.zip_, you don't need to unzip).
+- Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (click on the zip file with the appropriate exporter version you'd like to download: _Blender2Babylon-X.X.zip_ and then hit the "Download" button).
 - In Blender, go to `File` menu > `User Preferences`.
 - Switch to the `Add-ons` tab.
 - (optional) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
