@@ -6,7 +6,6 @@ module.exports = withMDX(
         sassOptions: {
             includePaths: ["./styles"],
         },
-        webpack5: true,
         staticPageGenerationTimeout: 150,
         async redirects() {
             return [

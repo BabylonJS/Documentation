@@ -63,6 +63,7 @@ export const generateTypeDoc = async () => {
             excludeExternals: true,
             excludePrivate: true,
             excludeProtected: true,
+            excludeInternal: true,
             includes: basePathResolved,
             hideGenerator: true,
             tsconfig: `${basePathResolved}${sep}tsconfig.json`,
