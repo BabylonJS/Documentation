@@ -19,6 +19,8 @@ When you need the appearance of a solid shape then there is an option to cap the
 
 When you need sharp mitred corners there is a utility function available [Extruded Shape with Mitred Corners](/toolsAndResources/utilities/Mitred)
 
+Because the extrusion converts the path points to a Path3D, there are two anomalies that can occur for a given set of path points. The first is that the orientation of the normal to the path is undefined when the path is a straight line. The Path3D constructor will pick a first normal, which may not be the one needed. Use the firstNormal option to set the path normal at the first point. The second anomaly occurs when the path reverses itself from one point to the next; this causes the tangent at that point to become undefined. To apply a heuristic fix for this, use the adjustFrame option set to true.
+
 ## MeshBuilder
 Usage :
 ```javascript
@@ -52,6 +54,8 @@ frontUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an 
 backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option** | Vector4(0,0, 1,1) 
 instance|_(LineMesh)_ an instance of an extruded shape to be updated|null
 invertUV|_(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°)|false
+firstNormal|_(Vector3)_ path normal of first point of path|null
+adjustFrame|_(boolean)_ apply heuristic to adjust tangents of paths that reverse direction|false
 
 ### Examples
  <Playground id="#MR8LEL#2" title="Close Shape by Push" description="Closed shape extrusion."/>  
@@ -81,7 +85,14 @@ capped extrusion
  <Playground id="#MR8LEL#741" title="Incorrectly Capped Extrusion" description="Incorrectly capped extrusion."/>  
 
  shape profile that does not cap correctly  
+ 
+  <Playground id="#5ICT41#8" title="Extrusion firstNormal" description="How setting firstNormal affects extrusion."/>
+  
+ setting first normal to control orientation
 
+ <Playground id="#5ICT41#6" title="Extrusion path reverses direction" description="Correcting reversing extrusion path"/>
+ 
+ extrusion path reverses causing artifacts
 
 ## Mesh
 Usage:
