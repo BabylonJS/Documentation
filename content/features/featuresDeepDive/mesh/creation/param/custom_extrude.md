@@ -115,7 +115,7 @@ Extrusion with constant scale 1 and no rotation
 
 closeShape and closePath both set to true
 
-<Playground id="#5ICT41#5", title="Using firstNormal and adjustFrame" description="specifying first normal and adjusting tangents and normals."/>
+<Playground id="#5ICT41#5" title="Using firstNormal and adjustFrame" description="specifying first normal and adjusting tangents and normals."/>
 
 using firstNormal and adjustFrame options
 
