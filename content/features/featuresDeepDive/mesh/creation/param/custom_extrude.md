@@ -55,6 +55,8 @@ extruded = BABYLON.MeshBuilder.ExtrudeShapeCustom("ext", options); //No scene pa
 | backUVs          | _(Vector4)_ **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE is an option**                      | Vector4(0,0, 1,1) |
 | instance         | _(LineMesh)_ an instance of an extruded shape to be updated                                         | null              |
 | invertUV         | _(boolean)_ to swap the U and V coordinates at geometry construction time (texture rotation of 90°) | false             |
+| firstNormal      | _(Vector3)_ path normal of first point                                                              | null              |
+| adjustFrame      | _(boolean)_ apply heuristic to adjust tangents of paths that reverse direction                      | false             |
 
 You must set at least the _shape_ and _path_ options. On update, you must set the _shape_, _path_ and _instance_ options and you can set the _rotationFunction_ or _scaleFunction_ options.
 
@@ -112,6 +114,10 @@ Extrusion with constant scale 1 and no rotation
 <Playground id="#ZMKN5T#115" title="Closed Shape and Path" description="Closed shape and path."/>
 
 closeShape and closePath both set to true
+
+<Playground id="#5ICT41#5" title="Using firstNormal and adjustFrame" description="specifying first normal and adjusting tangents and normals."/>
+
+using firstNormal and adjustFrame options
 
 <Playground id="#ZMKN5T#116" title="Strange Shapes With Custom Extrusion" description="Generating some strange shapes with custom extrusion."/>
 
