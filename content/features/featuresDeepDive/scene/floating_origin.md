@@ -4,6 +4,8 @@ image:
 description: Learn how to manage huge scenes using floating-origin trick
 keywords: diving deeper, huge spaces, floating-origin
 further-reading:
+  - title: Original floating-origin research page
+    url: https://www.researchgate.net/publication/331628217_Using_a_Floating_Origin_to_Improve_Fidelity_and_Performance_of_Large_Distributed_Virtual_Worlds
 video-overview:
 video-content:
 ---
@@ -25,13 +27,13 @@ for example at (10000000, 0, 10000000) -- we will notice jittering because the b
 
 ![Pic01](/img/how_to/floating_origin/pic01.jpg)
 
-But there is a trick which is good to mitigate that problem: floating-origin.
+But there is a trick which is good to mitigate that problem: floating-origin, first described by Chris Thorne [^1].
 
 The idea of floating-origin is very simple: we just keep the camera always fixed at world's origin
 (0, 0, 0) and move the objects instead.
 
 This does not mean that the camera cannot move, though! It "moves", but not directly. Here is
-where lies the trick: instead of changing the real camera position, we use a separate, double precision
+where lies the trick: instead of changing the real camera position, we use a separate, double precision [^*]
 Vector3 which stores the camera position. The real camera position is kept always at origin (0, 0, 0).
 
 We do the same for the objects: all of them get a separate, double precision Vector3 to store their coordinates. We don't set their real position directly; instead, we also set their separate coordinates.
@@ -120,3 +122,7 @@ can have one Entity instance for each region of your scene, a region which does 
 than let's say 10,000 units to avoid imprecision again. Then, you can add many objects that are
 always in that region to just one Entity. Doing that, you can even move those objects by using
 their positions directly, as you would do normally. And still, no imprecision will be seen anymore.
+
+[^1]: Chris Thorne, 2005. Using a Floating Origin to Improve Fidelity and Performance of Large Distributed Virtual Worlds
+[^*]: The original article by Chris Thorne uses single-precision floats.
+
