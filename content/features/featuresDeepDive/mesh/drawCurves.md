@@ -185,7 +185,7 @@ It follows that set of rotation quaternions $(x, y, z, w)$ where $x^2 + y^2 + z^
 $x^2 + y^2 + z^2 + w^2 = 1$ and so  
 $x^2 + + y^2 + z^2 = 1 - w^2$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Eq 1
 
-Since $0 \leq w \leq 1$ then $0 < 1 \leq; (1 + w) \leq 2$ 
+Since $0 \leq w \leq 1$ then $0 < 1 \leq (1 + w) \leq 2$ 
 
 Dividing Eq 1 by $(1 + w)^2$, which can never be $0$
 
@@ -196,8 +196,15 @@ This gives the mapping
 $f(x, y, z, w)$ = \($x \over (1 + w)$, $y\over (1 + w)$, $z\over (1 + w)$ \)
 
 
+Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto one of a series of concentric spherical shells of  
+radius, $r$,  $0 \leq r$ = $(1 - w) \over (1 + w)$ $\leq 0.5$.
 
-Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto a spherical shell of radius, $r$,  $0 \leq r$ = $(1 - w) \over (1 + w)$ $\leq 0.5$
+
+![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
+
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1), the outer, white shell,  of radius 0.5 is where $w = 0$.
+
+The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
 
 
 ### Drawing
