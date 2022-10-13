@@ -158,6 +158,50 @@ var l = catmullRom.length();
 <Playground id="#1AU0M4" title="Drawing A Catmull-Rom Spline Open Curve" description="Simple example of drawing a Catmull-Rom Spline Open Curve."/>
 <Playground id="#1AU0M4#18" title="Drawing A Catmull-Rom Spline Closed Curve" description="Simple example of drawing a Catmull-Rom Spline Closed Curve."/>
 
+## Hermite Quaternion Spline
+
+```javascript
+BABYLON.Quaternion.Hermite(point0, tangent0, point1, tangent1, amount)
+```
+
+allows the interpolation of quaternions for use in animation. As a quaternion is a 4D object how can you visualize the Hermite quaternion spline that the interpolation uses? By representing the hyperspline in 3D space.
+
+This is achieved by mapping a rotation quaternion onto a Vector3.
+
+
+### The Math
+What is needed if a function f with f(x, y^2 + z^2 + w^2 = 1 , z, w) = (x<sub>v</sub>, y^2 + z^2 + w^2 = 1 <sub>v</sub>, z<sub>v</sub>)
+For a rotation quaternion there are two things to note:  
+
+1. &nbsp; $x^2 + y^2 + z^2 + w^2 = 1$
+2. &nbsp; $(x, y, z, w)$ and $(-x, -y, -z, -w)$ are equivalent.
+
+The equivalence of $(x, y, z, w)$ and $(-x, -y, -z, -w)$ can be seen in the following
+
+<Playground id="#9S6YUQ" title="Equivalent Rotation Quaternions" description="Scale by -1 produces equivalent rotation quaternions."/>  
+
+It follows that set of rotation quaternions $(x, y, z, w)$ where $x^2 + y^2 + z^2 + w^2 = 1$ and $-1 \leq x, y, z, \leq 1$ and $0 \leq w \leq 1$ covers all possible rotations.
+
+$x^2 + y^2 + z^2 + w^2 = 1$ and so  
+$x^2 + + y^2 + z^2 = 1 - w^2$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Eq 1
+
+Since $0 \leq w \leq 1$ then $0 < 1 \leq; (1 + w) \leq 2$ 
+
+Dividing Eq 1 by $(1 + w)^2$, which can never be $0$
+
+$x^2 + y^2 + z^2 + w^2 \over (1 + w)^2$ = $(1 - w^2) \over (1 + w)^2$ = $(1 - w) \over (1 + w)$
+
+This gives the mapping 
+
+$f(x, y, z, w)$ = \($x \over (1 + w)$, $y\over (1 + w)$, $z\over (1 + w)$ \)
+
+
+
+Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto a spherical shell of radius, $r$,  $0 \leq r$ = $(1 - w) \over (1 + w)$ $\leq 0.5$
+
+
+### Drawing
+
 ## Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
 Why would you do this and not just use the points to draw a line?   
