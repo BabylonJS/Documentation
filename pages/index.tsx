@@ -106,7 +106,7 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
     );
 };
 
-export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async () => {
     const props = await getPageData([], true);
     const remarkSlug = (await import("remark-slug")).default;
     const remarkGfm = (await import("remark-gfm")).default;
