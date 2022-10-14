@@ -166,11 +166,14 @@ BABYLON.Quaternion.Hermite(point0, tangent0, point1, tangent1, amount)
 
 allows the interpolation of quaternions for use in animation. As a quaternion is a 4D object how can you visualize the Hermite quaternion spline that the interpolation uses? By representing the hyperspline in 3D space.
 
-This is achieved by mapping a rotation quaternion onto a Vector3.
+This is achieved by mapping a rotation quaternion onto a 3D vector.
 
 
 ### The Math
-What is needed if a function f with f(x, y^2 + z^2 + w^2 = 1 , z, w) = (x<sub>v</sub>, y^2 + z^2 + w^2 = 1 <sub>v</sub>, z<sub>v</sub>)
+What is needed if a function $f$ from rotation quaternions to 3D vectors of the form 
+
+$f(x, y, z, w) = (x_{v}, y_{v}, z_{v})$
+
 For a rotation quaternion there are two things to note:  
 
 1. &nbsp; $x^2 + y^2 + z^2 + w^2 = 1$
@@ -183,28 +186,43 @@ The equivalence of $(x, y, z, w)$ and $(-x, -y, -z, -w)$ can be seen in the foll
 It follows that set of rotation quaternions $(x, y, z, w)$ where $x^2 + y^2 + z^2 + w^2 = 1$ and $-1 \leq x, y, z, \leq 1$ and $0 \leq w \leq 1$ covers all possible rotations.
 
 $x^2 + y^2 + z^2 + w^2 = 1$ and so  
-$x^2 + + y^2 + z^2 = 1 - w^2$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Eq 1
+$x^2 + y^2 + z^2 = 1 - w^2$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Eq 1
 
 Since $0 \leq w \leq 1$ then $0 < 1 \leq (1 + w) \leq 2$ 
 
 Dividing Eq 1 by $(1 + w)^2$, which can never be $0$
 
-$x^2 + y^2 + z^2 + w^2 \over (1 + w)^2$ = $(1 - w^2) \over (1 + w)^2$ = $(1 - w) \over (1 + w)$
+$x^2 + y^2 + z^2 \over (1 + w)^2$ = $(1 - w^2) \over (1 + w)^2$ = $(1 - w) \over (1 + w)$
 
 This gives the mapping 
 
-$f(x, y, z, w)$ = \($x \over (1 + w)$, $y\over (1 + w)$, $z\over (1 + w)$ \)
+$f(x, y, z, w)$ = ($x \over (1 + w)$, $y\over (1 + w)$, $z\over (1 + w)$ )
 
 
-Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto one of a series of concentric spherical shells of  
-radius, $r$,  $0 \leq r$ = $(1 - w) \over (1 + w)$ $\leq 0.5$.
+Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto one of a series of concentric spherical shells of radius, $r$,  
+
+$0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
 
 
 ![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
 
-The center of the shells represents the rotation quaternion $(0, 0, 0, 1), the outer, white shell,  of radius 0.5 is where $w = 0$.
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white shell,  is a unit sphere where $w = 0$.
 
 The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
+
+Since the radius, r,  of the sphere at $(x, y, z)$ is such that  $r^2 = x^2 + y^2 + z^2$ and 
+
+$r^2$ = $(1 - w) \over (1 + w)$ then
+
+$w$ = $(1 - r^2) \over (1 + r^2)$ and 
+
+$1 + w$ = $2 \over (1 + r^2)$ and
+
+$f^{-1}(x, y, z)$ = ($2x \over (1 + r^2)$, $2y \over (1 + r^2)$, $2z \over (1 + r^2)$, $(1 - r^2) \over (1 + r^2)$)
+
+
+
+
 
 
 ### Drawing
