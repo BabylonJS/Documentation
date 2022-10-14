@@ -221,11 +221,55 @@ $1 + w$ = $2 \over (1 + r^2)$ and
 $f^{-1}(x, y, z)$ = ($2x \over (1 + r^2)$, $2y \over (1 + r^2)$, $2z \over (1 + r^2)$, $(1 - r^2) \over (1 + r^2)$)
 
 
-
-
-
-
 ### Drawing
+The following function will return a Curve3 within a unit sphere representing a Hermite quaternion spline in 3D space using the math above.
+
+```javascript
+const hermiteQuarternionSpline = (p1, t1, p2, t2, nbPoints) => {
+  const hermite = new Array();
+  const step = 1.0 / nbPoints;
+  for (let i = 0; i <= nbPoints; i++) {
+    const q = BABYLON.Quaternion.Hermite(p1, t1, p2, t2, i * step);
+    q.normalize();
+    if (q.w < 0) {
+      q.scaleInPlace(-1);
+    }
+    const v = new BABYLON.Vector3(q.x / (1 + q.w), q.y / (1 + q.w), q.z / (1 + q.w));
+    hermite.push(v);
+  }
+  return new BABYLON.Curve3(hermite);
+}
+```
+* **p1** : _Quaternion_ the origin point,
+* **t1** : _Quaternion_ the origin tangent vector,
+* **p2** : _Quaternion_ the destination point,
+* **t2** : _Quaternion_ the destination tangent vector,
+* **nbPoints** : _number_ the wanted final curve number of points in the array.
+
+**Warning**  
+Using BABYON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
+
+To produce a vector on the outer shell requires a rotation quaternion with $w = 0$
+
+Take the rotation quaternion from 
+
+```javascript
+new BABYLON.Quaternion(1, 1, 1, 0).normalize();  //giving (0.5774, 0.5774, 0.5774, 0) to 4 dp
+```
+
+However using 
+
+```javascript
+BABYON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1) 
+```
+and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer shell.  
+**End Warning**  
+
+<Playground id="#4B0VBG" title="Hermite Quaternion Spline" description="Hermite quaternion spline represented in 3D space."/>  
+
+As it is difficult to visualize the spline from pure quaternions it would be useful if there was an editor to draw the representation of the spline in 3D space.
+
+### Simple Editor
 
 ## Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
