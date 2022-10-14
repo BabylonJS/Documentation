@@ -31,7 +31,7 @@ angle|_(number)_ the angle to rotate the decal|0
 
 <Playground id="#1BAPRM#73" title="Simple Example of Decals" description="Simple example of pasting decals in a Babylon.js scene."/> click on the cat.
 
-Starting with v5.XX.Y, decals can be created for rigged meshes and two new options are available:
+Starting with v5.28.0, decals can be created for rigged meshes and two new options are available:
 
 property|value|default value
 --------|-----|-------------
