@@ -206,7 +206,7 @@ $0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
 
 ![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
 
-The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white shell,  is a unit sphere where $w = 0$.
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white ,,  is a unit sphere where $w = 0$.
 
 The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
 
@@ -249,7 +249,7 @@ const hermiteQuarternionSpline = (p1, t1, p2, t2, nbPoints) => {
 **Warning**  
 Using BABYON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
 
-To produce a vector on the outer shell requires a rotation quaternion with $w = 0$
+To produce a vector on the outer , requires a rotation quaternion with $w = 0$
 
 Take the rotation quaternion from 
 
@@ -262,14 +262,21 @@ However using
 ```javascript
 BABYON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1) 
 ```
-and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer shell.  
+and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer ,.  
 **End Warning**  
 
 <Playground id="#4B0VBG" title="Hermite Quaternion Spline" description="Hermite quaternion spline represented in 3D space."/>  
 
 As it is difficult to visualize the spline from pure quaternions it would be useful if there was an editor to draw the representation of the spline in 3D space.
 
-### Simple Editor
+### A (Very) Basic Editor
+
+<Playground id="#4B0VBG#1" title="Hermite Quaternion Editor" description="Hermite quaternion spline Editor 3D space."/>  
+
+This playgound allows you to drag representatives of the start (green) and end (red) quaternions within the unit sphere in 3D space. The representation of the start and end quaternion tangents (purple) are attached to the respective start and end controls. The tangents may also be dragged around (invisible) sphere shells centered on the start and end controls. The shells, and hence radius, may be adjusted using the up and down arrow keys (or w and x) for the selected control. Whilst dragging or adjusting the radius the camera is detached. The camera will be attached whenever any dragging is ended or when using keys you can attach it by pressing the spacebar.
+
+The representation of the spline in 3D space is drawn as you adjust the controls. To apply the Hermite quaternion spline created to the box click on the animate button.
+
 
 ## Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
