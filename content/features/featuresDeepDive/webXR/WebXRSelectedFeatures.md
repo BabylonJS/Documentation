@@ -742,13 +742,13 @@ enables users to traverse VR spaces by "walking in place."
 
 ```javascript
 scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
-    const xrRoot = new BABYLON.TransformNode("xrRoot", scene);
-    xr.baseExperience.camera.parent = xrRoot;
-    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xrRoot });
+  const xrRoot = new BABYLON.TransformNode("xrRoot", scene);
+  xr.baseExperience.camera.parent = xrRoot;
+  xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xrRoot });
 });
 ```
 
-<Playground id="#HE33TR#0" title="Walking Locomotion Demo" description="Basic demo of walking locomotion"/>
+<Playground id="#HE33TR#11" title="Walking Locomotion Demo" description="Basic demo of walking locomotion"/>
 
 While it is highly recommended to articulate the `WebXRCamera`'s parent
 node in order to avoid conflating virtual positional data with XR
@@ -757,11 +757,11 @@ itself.
 
 ```javascript
 scene.createDefaultXRExperienceAsync({ disableTeleportation: true }).then((xr) => {
-    xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xr.baseExperience.camera.parent });
+  xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.WALKING_LOCOMOTION, "latest", { locomotionTarget: xr.baseExperience.camera.parent });
 });
 ```
 
-<Playground id="#HE33TR#2" title="WebXRCamera Walking Locomotion" description="Walking locomotion operating on the WebXRCamera directly"/>
+<Playground id="#HE33TR#10" title="WebXRCamera Walking Locomotion" description="Walking locomotion operating on the WebXRCamera directly"/>
 
 To move, simply face in the direction you want to go and "walk in place,"
 lifting and replacing each foot in turn much as you would if you were
