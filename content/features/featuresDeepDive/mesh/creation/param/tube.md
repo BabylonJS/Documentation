@@ -25,7 +25,7 @@ let tube = BABYLON.MeshBuilder.CreateTube("tube", options, scene);  //scene is o
 // Update
 options.path[0].x +=6; 
 options.instance = tube;
-tube = BABYLON.MeshBuilder.CreateTubes("tube", options); //No scene parameter when using instance
+tube = BABYLON.MeshBuilder.CreateTube("tube", options); //No scene parameter when using instance
 ```
 
 option|value|default value
