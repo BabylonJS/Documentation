@@ -158,6 +158,126 @@ var l = catmullRom.length();
 <Playground id="#1AU0M4" title="Drawing A Catmull-Rom Spline Open Curve" description="Simple example of drawing a Catmull-Rom Spline Open Curve."/>
 <Playground id="#1AU0M4#18" title="Drawing A Catmull-Rom Spline Closed Curve" description="Simple example of drawing a Catmull-Rom Spline Closed Curve."/>
 
+## Hermite Quaternion Spline
+
+```javascript
+BABYLON.Quaternion.Hermite(point0, tangent0, point1, tangent1, amount)
+```
+
+allows the interpolation of quaternions for use in animation. As a quaternion is a 4D object how can you visualize the Hermite quaternion spline that the interpolation uses? By representing the hyperspline in 3D space.
+
+This is achieved by mapping a rotation quaternion onto a 3D vector.
+
+
+### The Math
+What is needed if a function $f$ from rotation quaternions to 3D vectors of the form 
+
+$f(x, y, z, w) = (x_{v}, y_{v}, z_{v})$
+
+For a rotation quaternion there are two things to note:  
+
+1. &nbsp; $x^2 + y^2 + z^2 + w^2 = 1$
+2. &nbsp; $(x, y, z, w)$ and $(-x, -y, -z, -w)$ are equivalent.
+
+The equivalence of $(x, y, z, w)$ and $(-x, -y, -z, -w)$ can be seen in the following
+
+<Playground id="#9S6YUQ" title="Equivalent Rotation Quaternions" description="Scale by -1 produces equivalent rotation quaternions."/>  
+
+It follows that set of rotation quaternions $(x, y, z, w)$ where $x^2 + y^2 + z^2 + w^2 = 1$ and $-1 \leq x, y, z, \leq 1$ and $0 \leq w \leq 1$ covers all possible rotations.
+
+$x^2 + y^2 + z^2 + w^2 = 1$ and so  
+$x^2 + y^2 + z^2 = 1 - w^2$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Eq 1
+
+Since $0 \leq w \leq 1$ then $0 < 1 \leq (1 + w) \leq 2$ 
+
+Dividing Eq 1 by $(1 + w)^2$, which can never be $0$
+
+$x^2 + y^2 + z^2 \over (1 + w)^2$ = $(1 - w^2) \over (1 + w)^2$ = $(1 - w) \over (1 + w)$
+
+This gives the mapping 
+
+$f(x, y, z, w)$ = ($x \over (1 + w)$, $y\over (1 + w)$, $z\over (1 + w)$ )
+
+
+Each rotation quaternion where $0 \leq w \leq 1$ is mapped onto one of a series of concentric spherical shells of radius, $r$,  
+
+$0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
+
+
+![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
+
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white ,,  is a unit sphere where $w = 0$.
+
+The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
+
+Since the radius, r,  of the sphere at $(x, y, z)$ is such that  $r^2 = x^2 + y^2 + z^2$ and 
+
+$r^2$ = $(1 - w) \over (1 + w)$ then
+
+$w$ = $(1 - r^2) \over (1 + r^2)$ and 
+
+$1 + w$ = $2 \over (1 + r^2)$ and
+
+$f^{-1}(x, y, z)$ = ($2x \over (1 + r^2)$, $2y \over (1 + r^2)$, $2z \over (1 + r^2)$, $(1 - r^2) \over (1 + r^2)$)
+
+
+### Drawing
+The following function will return a Curve3 within a unit sphere representing a Hermite quaternion spline in 3D space using the math above.
+
+```javascript
+const hermiteQuarternionSpline = (p1, t1, p2, t2, nbPoints) => {
+  const hermite = new Array();
+  const step = 1.0 / nbPoints;
+  for (let i = 0; i <= nbPoints; i++) {
+    const q = BABYLON.Quaternion.Hermite(p1, t1, p2, t2, i * step);
+    q.normalize();
+    if (q.w < 0) {
+      q.scaleInPlace(-1);
+    }
+    const v = new BABYLON.Vector3(q.x / (1 + q.w), q.y / (1 + q.w), q.z / (1 + q.w));
+    hermite.push(v);
+  }
+  return new BABYLON.Curve3(hermite);
+}
+```
+* **p1** : _Quaternion_ the origin point,
+* **t1** : _Quaternion_ the origin tangent vector,
+* **p2** : _Quaternion_ the destination point,
+* **t2** : _Quaternion_ the destination tangent vector,
+* **nbPoints** : _number_ the wanted final curve number of points in the array.
+
+**Warning**  
+Using BABYON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
+
+To produce a vector on the outer , requires a rotation quaternion with $w = 0$
+
+Take the rotation quaternion from 
+
+```javascript
+new BABYLON.Quaternion(1, 1, 1, 0).normalize();  //giving (0.5774, 0.5774, 0.5774, 0) to 4 dp
+```
+
+However using 
+
+```javascript
+BABYON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1) 
+```
+and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer ,.  
+**End Warning**  
+
+<Playground id="#4B0VBG" title="Hermite Quaternion Spline" description="Hermite quaternion spline represented in 3D space."/>  
+
+As it is difficult to visualize the spline from pure quaternions it would be useful if there was an editor to draw the representation of the spline in 3D space.
+
+### A (Very) Basic Editor
+
+<Playground id="#4B0VBG#1" title="Hermite Quaternion Editor" description="Hermite quaternion spline Editor 3D space."/>  
+
+This playgound allows you to drag representatives of the start (green) and end (red) quaternions within the unit sphere in 3D space. The representation of the start and end quaternion tangents (purple) are attached to the respective start and end controls. The tangents may also be dragged around (invisible) sphere shells centered on the start and end controls. The shells, and hence radius, may be adjusted using the up and down arrow keys (or w and x) for the selected control. Whilst dragging or adjusting the radius the camera is detached. The camera will be attached whenever any dragging is ended or when using keys you can attach it by pressing the spacebar.
+
+The representation of the spline in 3D space is drawn as you adjust the controls. To apply the Hermite quaternion spline created to the box click on the animate button.
+
+
 ## Custom Curve3 Object
 You can also make your own Curve3 object from a simple array of successive Vector3.   
 Why would you do this and not just use the points to draw a line?   
