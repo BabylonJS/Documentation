@@ -19,7 +19,7 @@ To help in visualizing orientation this asymmetric mesh is used in examples
 The most straight forward method to change the orientation of a mesh is the rotation property.
 
 ```javascript
- mesh.rotation = new BABYLON.Vector3(alpha, beta, gamma);
+ mesh.rotation = new BABYLON.Vector3(alpha, beta, gamma); //alpha, beta, gamma in radians
 ``` 
 or
 
@@ -28,7 +28,7 @@ mesh.rotation.x  =  alpha; //rotation around x axis
 mesh.rotation.y  =  beta;  //rotation around y axis
 mesh.rotation.z  =  gamma; //rotation around z axis
 ```
-where alpha, beta, and gamma are angles measured in radians are known as the **Euler angles**.
+where alpha, beta, and gamma are angles measured in **radians** are known as the **Euler angles**.
 
 Four questions need an immediate answer
 
