@@ -261,4 +261,8 @@ myNode.inspectableCustomProperties = [
 ];
 ```
 
-<Playground id="#LQF5QR#2" title="Inspector custom properties" description="An example of inspector custom properties" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />
+<Playground id="#LQF5QR#2" title="Inspector custom properties for a node" description="An example of inspector custom properties for a node" image="/img/playgroundsAndNMEs/inspectorCustomProperties.jpg" />
+
+The inspector can also be extended to allow manipulation of custom material properties.
+
+<Playground id="#LQF5QR#52" title="Inspector custom properties for a material" description="An example of inspector custom properties for a material"/>
