@@ -97,7 +97,7 @@ In WebGL you could list several times the same attribute when creating a [Shader
 
 ~~This playground creates a render target texture (RTT) and enables the depth/stencil texture. The RTT itself is displayed on the leftmost plane and the depth texture corresponding to this RTT is displayed on the rightmost plane. In WebGL, we are using a standard material and the emissive texture to display the depth texture whereas in WebGPU we are using a custom `ShaderMaterial` written in `WGSL`.~~
 
-After a specification update, it now works! So, the WebGL path in the Playground libked above does also work in WebGPU, no need for a special case.
+After a specification update, it now works! So, the WebGL path in the Playground linked above does also work in WebGPU, no need for a special case.
 
 ## Miscellaneous
 
