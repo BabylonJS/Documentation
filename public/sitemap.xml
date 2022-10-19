@@ -103,9 +103,9 @@
 <url><loc>https://doc.babylonjs.com/communityExtensions/treeGenerators/spsTreeGenerator</loc><lastmod>2022-09-22T12:30:30.274Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/communityExtensions/treeGenerators</loc><lastmod>2022-09-22T12:30:30.272Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/communityExtensions</loc><lastmod>2022-09-22T12:30:30.193Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/addToDocs</loc><lastmod>2022-09-22T12:30:30.277Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/addToDocs</loc><lastmod>2022-10-17T11:20:21.081Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/easydoc</loc><lastmod>2022-09-22T12:30:30.278Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs</loc><lastmod>2022-09-22T12:30:30.276Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs</loc><lastmod>2022-10-17T11:20:30.293Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/toBabylon/HowToContribute</loc><lastmod>2022-09-22T12:30:30.280Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/toBabylon/Prerequisits</loc><lastmod>2022-09-22T12:30:30.282Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/toBabylon/approvedNamingConventions</loc><lastmod>2022-09-22T12:30:30.282Z</lastmod></url>
@@ -279,7 +279,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/ribbon</loc><lastmod>2022-09-22T12:30:30.422Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/ribbon_extra</loc><lastmod>2022-09-22T12:30:30.423Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/ribbon_maths</loc><lastmod>2022-09-22T12:30:30.423Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/tube</loc><lastmod>2022-09-22T12:30:30.424Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/tube</loc><lastmod>2022-10-17T11:24:10.994Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param</loc><lastmod>2022-09-22T12:30:30.414Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/polyhedra/custom_poly</loc><lastmod>2022-09-22T12:30:30.425Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/polyhedra/geodesic_poly</loc><lastmod>2022-09-22T12:30:30.426Z</lastmod></url>
@@ -303,7 +303,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/torus_knot</loc><lastmod>2022-09-22T12:30:30.438Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set</loc><lastmod>2022-09-22T12:30:30.429Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation</loc><lastmod>2022-09-22T12:30:30.410Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/decals</loc><lastmod>2022-09-22T12:30:30.439Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/decals</loc><lastmod>2022-10-17T11:24:10.994Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/displayBoundingBoxes</loc><lastmod>2022-09-22T12:30:30.440Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/drawCurves</loc><lastmod>2022-09-22T12:30:30.441Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/dynamicMeshMorph</loc><lastmod>2022-09-22T12:30:30.441Z</lastmod></url>
@@ -423,7 +423,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/sprites/sprites_introduction</loc><lastmod>2022-09-22T12:30:30.530Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/sprites</loc><lastmod>2022-09-22T12:30:30.522Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/tags</loc><lastmod>2022-09-22T12:30:30.530Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/webXR/WebXRSelectedFeatures</loc><lastmod>2022-09-22T12:30:30.533Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/webXR/WebXRSelectedFeatures</loc><lastmod>2022-10-17T11:23:59.474Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/webXR/introToWebXR</loc><lastmod>2022-09-22T12:30:30.534Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/webXR/webXRARFeatures</loc><lastmod>2022-09-22T12:30:30.534Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/webXR/webXRCamera</loc><lastmod>2022-09-22T12:30:30.536Z</lastmod></url>
@@ -537,7 +537,7 @@
 <url><loc>https://doc.babylonjs.com/guidedLearning</loc><lastmod>2022-09-22T12:30:30.571Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/journey/forum</loc><lastmod>2022-09-22T12:30:30.609Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/journey/learningTheDocs</loc><lastmod>2022-09-22T12:30:30.610Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/journey/theFirstStep</loc><lastmod>2022-10-13T09:56:19.567Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/journey/theFirstStep</loc><lastmod>2022-10-17T11:19:24.797Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/journey</loc><lastmod>2022-09-22T12:30:30.608Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/preparingArtForBabylon</loc><lastmod>2022-09-22T12:30:30.614Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/setup/frameworkPackages/CDN</loc><lastmod>2022-09-22T12:30:30.617Z</lastmod></url>
@@ -879,7 +879,6 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.Frustum</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.FurMaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.FxaaPostProcess</loc></url>
-<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.AnimationPropertyInfo</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.ArrayItem</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.GLTFLoader</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.Loader.Extensions.CameraAnimationPropertyInfo</loc></url>
@@ -911,8 +910,6 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.Loader.Extensions.MSFT_audio_emitter</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.Loader.Extensions.MSFT_lod</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.Loader.Extensions.MaterialAnimationPropertyInfo</loc></url>
-<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.TransformNodeAnimationPropertyInfo</loc></url>
-<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2.WeightAnimationPropertyInfo</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTF2Export</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTFData</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GLTFFileLoader</loc></url>
