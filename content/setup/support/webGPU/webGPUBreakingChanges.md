@@ -89,13 +89,15 @@ In WebGL you could list several times the same attribute when creating a [Shader
 
 ### Sampling a depth texture
 
-It is not possible to sample a depth texture from a GLSL shader when using the WebGPU engine because of the special type of a depth texture. **Note that it does work when using a comparison sampler: only non-comparison sampling does not work!**
+~~It is not possible to sample a depth texture from a GLSL shader when using the WebGPU engine because of the special type of a depth texture. **Note that it does work when using a comparison sampler: only non-comparison sampling does not work!**~~
 
-If you want to sample a depth texture in WebGPU when using a non-comparison sampler, you will need to use a `ShaderMaterial` and write the shader in `WGSL`.
+~~If you want to sample a depth texture in WebGPU when using a non-comparison sampler, you will need to use a `ShaderMaterial` and write the shader in `WGSL`.
 
-Here's how you can do it so that it works both in WebGL and WebGPU: <Playground id="#8RU8Q3#107" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU"/>
+~~Here's how you can do it so that it works both in WebGL and WebGPU:~~ <Playground id="#8RU8Q3#134" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU" image="/img/playgroundsAndNMEs/pg-8RU8Q3-107.png"/>
 
-This playground creates a render target texture (RTT) and enables the depth/stencil texture. The RTT itself is displayed on the leftmost plane and the depth texture corresponding to this RTT is displayed on the rightmost plane. In WebGL, we are using a standard material and the emissive texture to display the depth texture whereas in WebGPU we are using a custom `ShaderMaterial` written in `WGSL`.
+~~This playground creates a render target texture (RTT) and enables the depth/stencil texture. The RTT itself is displayed on the leftmost plane and the depth texture corresponding to this RTT is displayed on the rightmost plane. In WebGL, we are using a standard material and the emissive texture to display the depth texture whereas in WebGPU we are using a custom `ShaderMaterial` written in `WGSL`.~~
+
+After a specification update, it now works! So, the WebGL path in the Playground libked above does also work in WebGPU, no need for a special case.
 
 ## Miscellaneous
 
