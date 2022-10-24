@@ -178,7 +178,7 @@ Ray.intersectsMesh(mesh, fastCheck) → PickingInfo
 
 Another handy feature is the createPickingRay. This special ray is cast from a camera, out to infinity, in the direction of the cursor (relative to the virtual lens). Confusing? Basically think of it as a ray that's cast out of the camera and 'aimed' by the cursor. This is another method for picking objects in your scene. Here's a playground and video to check out on the subject.
 
- <Playground id="##AC8XPN#81" title="Picking Ray Example" description="Simple example of using a picking ray."/>
+ <Playground id="#AC8XPN#81" title="Picking Ray Example" description="Simple example of using a picking ray."/>
 
 <Youtube id="dgsWKpa7RcY"/>
 
