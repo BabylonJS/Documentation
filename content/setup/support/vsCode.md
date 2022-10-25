@@ -18,16 +18,15 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 Once installed, a few plugins will help you have the best experience. You can search for them in the extension tab (Ctrl+Shift+d):
 
-1. [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) as well as the chrome browser
-2. [Shader languages support for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.shader) for syntax highlighting and autocompletion in glsl shader
-3. [Babylon.js file viewer](https://marketplace.visualstudio.com/items?itemName=julianchen.babylon-js-viewer) can be used to display the content of a .babylon file directly in VSCode. It can be useful if you want to quickly check if your artist did a good job with an object and their names :)
+1. [Shader languages support for VSCode](https://marketplace.visualstudio.com/items?itemName=slevesque.shader) for syntax highlighting and autocompletion in glsl shader
+2. [Babylon.js file viewer](https://marketplace.visualstudio.com/items?itemName=julianchen.babylon-js-viewer) can be used to display the content of a .babylon file directly in VSCode. It can be useful if you want to quickly check if your artist did a good job with an object and their names :)
 
 ## Keybindings setup
 
 Finally, I would recommend adding a few shortcuts to your environment. Follow the [guide](https://code.visualstudio.com/docs/getstarted/keybindings#_custom-keybindings-for-refactorings):
 
 1.  To configure keyboard shortcuts the way you want, go to the menu under File > Preferences > Keyboard Shortcuts. (Code > Preferences > Keyboard Shortcuts on Mac)
-2.  Click ```Open Keyboard Shortcuts (JSON)``` on the right side and add:
+2.  Click `Open Keyboard Shortcuts (JSON)` on the right side and add:
 
 ```
 // Place your key bindings in this file to overwrite the defaults
