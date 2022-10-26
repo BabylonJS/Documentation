@@ -9,16 +9,18 @@ video-content:
 ---
 
 ## Introduction
-As you might be aware, the next generation of the 3D web is starting to arise.
-
-Following the specification from the [GPU for the Web Working Group](https://github.com/gpuweb/gpuweb), we have started the journey to support this new technology. Our plan is to deliver support with WebGL feature parity and the new WebGPU specification with Babylon 5.
+Following the specification from the [GPU for the Web Working Group](https://github.com/gpuweb/gpuweb), we have begun the journey to support this new technology. Our plan is to deliver support with WebGPU and WebGL feature parity in Babylon 5.
 
 ![Inspector](/img/extensions/WebGPU.png)
 
 ### Benefits of WebGPU
 The promise behind [WebGPU](https://developer.chrome.com/en/docs/web-platform/webgpu/#what) is an exceptionally faster API provided through lower level control to system graphics resources from JavaScript. We hope to bring these extra performance improvements to developers in order to create even higher quality 3D web games and experiences through a tool they are already familiar with: Babylon.js.
 
-Also this is bringing new cool toys to the table like Compute Shaders and more to come.
+Some features WebGPU brings to the table are:
+* Compute shaders
+* Ray tracing ([in-progress](https://github.com/gpuweb/gpuweb/issues/535))
+* Improved performance across the board
+* and more...
 
 ## Progress
 
@@ -53,6 +55,6 @@ Assuming you're using a browser that supports WebGPU, you can try it out yoursel
 
 ![WebGPU](/img/extensions/webGPUPlayground.jpg)
 
-You can follow the status from the dedicated [Chrome Status Platform Page](https://www.chromestatus.com/feature/6213121689518080).
+Follow the status from the dedicated [Chrome Status Platform Page](https://www.chromestatus.com/feature/6213121689518080).
 
-All the demo code is available on [Github](https://github.com/BabylonJS/Website/tree/master/build/Demos/WebGPU), so you can compare both the WebGL and WebGPU versions and take notice that there are currently no differences beside initialization. We will try to keep it this way. :-)
+All demo code is available on [Github](https://github.com/BabylonJS/Website/tree/master/build/Demos/WebGPU), so you can compare both the WebGL and WebGPU versions and take notice that there are currently no differences beside initialization. We will try to keep it this way. :-)
