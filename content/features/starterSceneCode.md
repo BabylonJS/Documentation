@@ -16,7 +16,7 @@ In this playground a sphere and a ground have been created. Try changing the dia
 
 <Playground id="#WJXQP0" title="Basic Playground" description="CreateScene Playground." />  
 
-### Decription
+### Description
 
 ```javascript
 const createScene = function () {
