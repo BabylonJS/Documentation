@@ -2439,8 +2439,10 @@
         },
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
-            "children": {},
-            "content": "preparingArtForBabylon"
+            "children": {
+                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" }
+            },
+            "content": "preparingArtForBabylon/basicConcepts"
         },
         "BabylonCrossPlat": {
             "friendlyName": "Babylon.js Cross-Platform",

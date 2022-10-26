@@ -86,6 +86,15 @@ await Ammo();
 scene.enablePhysics(new BABYLON.Vector3(0,-9.81, 0), new BABYLON.AmmoJSPlugin());
 ```
 
+for Cannon, you need to set the CANNON attribute in window:
+
+```javascript
+import * as cannon from "cannon";
+
+window.CANNON = cannon;
+scene.enablePhysics(null, new CannonJSPlugin());
+```
+
 ### Impostors
 
 To allow interaction between objects, the physics engines use an impostor, which is a simpler representation of a complex object. 
