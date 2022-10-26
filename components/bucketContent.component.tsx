@@ -31,15 +31,14 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: 16,
             height: 160,
             minHeight: 160,
+            minWidth: 200,
+            width: '100%',
 
-            [theme.breakpoints.up("sm")]: {
+            [theme.breakpoints.up("lg")]: {
                 width: "50% !important",
             },
-            [theme.breakpoints.up("lg")]: {
-                width: "33% !important",
-            },
             [theme.breakpoints.up("xl")]: {
-                width: "25% !important",
+                width: "33% !important",
             },
         },
         root: {
