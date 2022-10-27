@@ -103,7 +103,7 @@ For a flat shaded mesh each of the triangular facets making a face of the box ha
 
 ## Playground Showing Box Normals
 
-<Playground id="#1H7L5C#37" title="Box Normals" description="Simple example of box normals."/>
+<Playground id="#1H7L5C#113" title="Box Normals" description="Simple example of box normals."/>
 
 ## Advantage of Shared Normals
 
