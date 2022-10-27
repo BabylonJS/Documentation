@@ -346,9 +346,9 @@ BABYLON.SceneLoader.CleanBoneMatrixWeights = true;
 
 ### Self Shadow
 
-It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#1" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows13.jpg"/>
+It is probably the case that Self-Shadowing requires the biggest attention during its setup. Let's try to setup self-shadowing on the following scene): <Playground id="#FH3FM2#77" title="Self-Shadowing Step 1" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows13.jpg"/>
 
-The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts):  <Playground id="#FH3FM2#4" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows14.jpg"/>
+The first step consists in adding a shadow generator in the scene and defining every meshes as both casters and receivers (we also force the bias to 0 to highlight the generated artifacts):  <Playground id="#FH3FM2#78" title="Self-Shadowing Step 2" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows14.jpg"/>
 
 As you can notice there are weird patterns appearing everywhere on the surface of the self-shadowed objects. This is called shadow acnea ([more information](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne)).
 
@@ -356,7 +356,7 @@ Fortunately, in Babylon we do have a way to solve the issue.
 
 #### Bias
 
-As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#5" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows15.jpg"/>
+As detailed in the previous [opengl tutorial](http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/#shadow-acne), you can increase the value of the bias to make all the acnea disappear: <Playground id="#FH3FM2#79" title="Self-Shadowing Step 3" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows15.jpg"/>
 
 Unfortunately doing this introduces another side effect called peter panning where the shadows are not attached to their objects anymore.
 
@@ -366,25 +366,25 @@ This is where you can benefit from a Babylon.js 3.2 feature called normal bias.
 
 #### Normal Bias (Since 3.2)
 
-First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#6" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows16.jpg"/>
+First move back the bias to be at the limit of seeing peter panning artifacts: <Playground id="#FH3FM2#80" title="Self-Shadowing Step 4" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows16.jpg"/>
 
 As you notice, there is now a bit of acnea appearing on the object where the surface is parallel to the light direction:
 
 ![ParallelAcnea](/img/how_to/shadows/paralellacnea.jpg)
 
-This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#7" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows17.jpg"/>
+This is where to add a bit of normal bias. Basically, during the generation of the shadow map, this will inset the geometry in the direction of the normal where the surface is parallel to the light: <Playground id="#FH3FM2#81" title="Self-Shadowing Step 5" description="Simple Example of self shadowing in your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows17.jpg"/>
 
 All the artifacts are now gone and it is time to make our shadows look awesome.
 
 #### Soft Shadows
 
-Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#8" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/divingDeeperShadows18.jpg"/>
+Try to change the shadow generator to Contact hardening: <Playground id="#FH3FM2#82" title="Self-Shadowing Step 6" description="Simple Example of adding contact hardening to your shadow generator." image="/img/playgroundsAndNMEs/divingDeeperShadows18.jpg"/>
 
-At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#10" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/divingDeeperShadows19.jpg"/>
+At first, you cannot see the contact hardening effect and, not only this, you can see shadow acnea again. Taking note of the section on PCSS you realize that the light min and max should be set as close as possible: <Playground id="#FH3FM2#76" title="Self-Shadowing Step 7" description="Adjusting the light min and max for better PCSS." image="/img/playgroundsAndNMEs/divingDeeperShadows19.jpg"/>
 
 Now the contact hardening effect is present but the acnea is even stronger. Unfortunately, the bias is applied on the normalized coordinates depth (0-1) so changing the near and far value of the light impacts how big the bias should be.
 
-So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#11" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/divingDeeperShadows20.jpg"/>
+So, go back and change the bias to its maximum before seeing peter panning and then apply some normal bias to remove the rest of the acnea leads to the following result: <Playground id="#FH3FM2#83" title="Self-Shadowing Step 8" description="Dialing it all in." image="/img/playgroundsAndNMEs/divingDeeperShadows20.jpg"/>
 
 Your shadows are now soft without acnea or peter panning.
 

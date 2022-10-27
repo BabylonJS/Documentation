@@ -70,7 +70,7 @@ panel.addControl(picker);
 
 ## Other demos
  
-<Playground id="#PPM311#63" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="VR/AR"/>
+<Playground id="#PPM311#148" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="VR/AR"/>
 <Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" isMain={true} category="VR/AR"/>
 
 <Playground id="#F41V6N#139" title="A cylinder object is child of a controller" description="A cylinder object is child of a controller"/>  
