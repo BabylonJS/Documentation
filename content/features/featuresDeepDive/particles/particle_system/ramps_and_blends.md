@@ -107,4 +107,4 @@ Billboard mode Y - steam: <Playground id="#B9HKG0#10" title="Billboard Mode Y" d
 Billboard false - spherical: <Playground id="#EV0SEQ" title="Billboard Mode False" description="Simple example of setting billboard mode to false."/>
 Multiply blend mode - smoke pillar: <Playground id="#KUDH9F#1" title="Multiply Blend Mode" description="Simple example of setting particle blend mode to multiply."/>
 Add blend mode and billboard mode stretched - sparks (select scene, press space): <Playground id="#5A4TP5" title="Add Blend Mode And Stretched Billboard Mode" description="Simple example of setting particle blend mode to add and billboard mode to stretched."/>
-Ramp and blend - explosion (select scene, press space): <Playground id="#VS5XS7#0" title="Ramp and Blend" description="Simple example of a ramp and blend."/>
+Ramp and blend - explosion (select scene, press space): <Playground id="#VS5XS7#8" title="Ramp and Blend" description="Simple example of a ramp and blend."/>

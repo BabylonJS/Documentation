@@ -85,7 +85,7 @@ window.addEventListener("keydown", function(evt) {
 });
 ```
 
-Test it on this gunshot sound playground: <Playground id="#PCY1J#4" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction." isMain={true} category="Audio"/>
+Test it on this gunshot sound playground: <Playground id="#PCY1J#299" title="Playing Sounds With Interaction" description="A simple example playing a sound on user interaction." isMain={true} category="Audio"/>
 
 ## Some basic properties
 

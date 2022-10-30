@@ -165,4 +165,4 @@ More here: [Creating Procedural Textures](/features/featuresDeepDive/materials/n
 
 **Note :** when using ShaderStore or DOM Element shader for custom procedural textures : the config.json file is not needed anymore and you can just use setFloat or setVector3 (and so on), and setTexture on the CustomProceduralTexture will give values and Sampler2D to the shader code.
 
-Feel free to play with this scene here: <Playground id="#24C4KC#17" title="Node Material Procedural Texture Example 2" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture2.jpg"/>
+Feel free to play with this scene here: <Playground id="#24C4KC#51" title="Node Material Procedural Texture Example 2" description="Simple example of creating a procedural texture using the node material editor." image="/img/playgroundsAndNMEs/divingDeeperCreateProceduralTexture2.jpg"/>

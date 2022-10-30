@@ -128,7 +128,7 @@ sphere.thinInstanceSetBuffer("color", bufferColors, 4, true);
 
 Thin instances are supported for collisions, picking, rendering and shadows. However, for collisions, a single bounding info encompassing all the thin instances is used to check intersection: the check is not done for each thin instance separately.
 
-Here's an example of thin instances picking: <Playground id="#RC2IAH#1" title="Thin Instances Picking Example" description="Simple example of using picking with thin instances."/>
+Here's an example of thin instances picking: <Playground id="#RC2IAH#115" title="Thin Instances Picking Example" description="Simple example of using picking with thin instances."/>
 
 ## Limitations
 
