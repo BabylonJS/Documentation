@@ -12,7 +12,7 @@ video-content:
 
 ## About Skyboxes
 
-A simulated sky can be added to a scene using a "skybox" ([wikipedia](https://en.wikipedia.org/wiki/Skybox_(video_games))). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
+A simulated sky can be added to a scene using a "skybox" ([wikipedia](<https://en.wikipedia.org/wiki/Skybox_(video_games)>)). A skybox is a large standard cube surrounding the scene, with a sky image painted on each face. (Images are a lot easier and faster to render than 3D objects, and just as good for far-distant scenery.)
 
 In Babylon.js, skyboxes typically use [CubeTexture](/typedoc/classes/babylon.cubetexture) as a [pseudo-reflection texture](#making-the-skybox) on a large cube.
 
@@ -38,13 +38,13 @@ This is an example set of skybox images:
 
 Notice that the images match seamlessly at the edges of the box:
 
-<table style={{width: 0}}><tbody>
+<table><tbody>
 <tr>
-  <th style={{padding: 0}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="some clouds"/></th>
-  <th style={{padding: 0}}><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 0}}><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 0}}><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="adjacent clouds"/></th>
-  <th style={{padding: 0}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="wrapping around to the original clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="some clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="adjacent clouds"/></th>
+  <th style={{padding: 10}}><img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="wrapping around to the original clouds"/></th>
 </tr>
 <tr>
   <td>_nz</td>

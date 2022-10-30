@@ -2522,6 +2522,15 @@
             "source": "/extensions/Unity/11_BabylonArtTools",
             "destination": "/communityExtensions/Unity/11_BabylonArtTools",
             "statusCode": 301
-        }
+        },
+        { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
+        { "source": "/webpages/app1.html", "destination": "/webpages/app1" },
+        { "source": "/webpages/app2.html", "destination": "/webpages/app2" },
+        { "source": "/webpages/page2.html", "destination": "/webpages/page2" },
+        { "source": "/webpages/page3.html", "destination": "/webpages/page3" },
+        { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
+        { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
+        { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
+        { "source": "/webpages/app4.html", "destination": "/webpages/app4" }
     ]
 }
