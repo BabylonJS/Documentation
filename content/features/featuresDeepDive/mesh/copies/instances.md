@@ -93,7 +93,7 @@ instance.instancedBuffers.color = new BABYLON.Color4(Math.random(), Math.random(
 
 The system will take care of updating the internal vertex buffer.
 
-Example: <Playground id="#YPABS1" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
+Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
 
 ## Advanced control
 

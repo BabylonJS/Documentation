@@ -131,7 +131,7 @@ As PCSS requires more resources than can be available on small platform, you can
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
 ```
 
-The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#2" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
+The following link gives you a good appreciation of the softening of shadows as the shadow caster moves further away from the object receiving the shadow: <Playground id="#ZT8BKT#57" title="Distance Shadow Softening Example" description="Simple Example of shadow softening with distance." image="/img/playgroundsAndNMEs/divingDeeperShadows6.jpg" isMain={true} category="Shadows"/>
 
 ## Transparent objects / shadows
 
