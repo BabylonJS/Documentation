@@ -7,7 +7,7 @@ keywords: diving deeper, animation, introduction, intro
 
 ## An Introduction to Animation
 
-However animation is achieved it has to take into account the action wanted, timing, the number of frames needed to produce the required fluidity and key points within the sequence. To help understand howBabylon.js goes about animation how animation is achieved.
+However animation is achieved it has to take into account the action wanted, timing, the number of frames needed to produce the required fluidity and key points within the sequence. This introduction should help to understand how Babylon.js goes about animations and how they are achieved.
 
 Animations are produced by a sequence of images, _frames_, which are displayed one after the other. This sequence of _frames_ can be individual drawings or for, stop motion animation, photographs of models that are moved slightly frame by frame
 
@@ -15,7 +15,7 @@ Animations are produced by a sequence of images, _frames_, which are displayed o
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Horse_gif_slow.gif" title="Horse Animation" caption="from Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Horse_gif_slow.gif)"/>
 
-During the design stage the creator will need to consider how long a sequence should take and how smooth it needs to be. The smoother the movement the more frames are required. Once the number of frames is known then the animation frames per second can be found. Also knowing the object's start position and end position and how many frames are required will determine the object's movement per frame.
+During the design stage the creator will need to consider how long a sequence should take and how smooth it needs to be. The smoother the movement the more frames are required. Once the number of frames is known the animation frames per second can be inferred. Also knowing the object's start position and end position and how many frames are required will determine the object's movement per frame.
 
 In Babylon.js, as in stop motion animation, individual objects have to be moved one by. Whereas we might talk about the overall finished piece as an animation in Babylon.js an _Animation_ is also a specific object that details a transformation, timing and looping that can then be applied to any mesh, camera or light. To this data is added values at key frames from which Babylon.js calculates the transformations to take place for the in between frames.
 
