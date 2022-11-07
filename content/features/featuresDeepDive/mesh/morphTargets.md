@@ -143,7 +143,7 @@ The [Node Material](/features/featuresDeepDive/materials/node_material) is a pow
 
 ![Use Morph Target with Node Material](/img/how_to/morphtargetnode.png)
 
-<Playground id="#HPV2TZ#299" title="Using Node Material with Morph Targets" description="Use Morph Target node on the Node Material">
+<Playground id="#HPV2TZ#299" title="Using Node Material with Morph Targets" description="Use Morph Target node on the Node Material"/>
 
 ## Limitations
 
