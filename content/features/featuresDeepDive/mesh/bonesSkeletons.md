@@ -398,7 +398,7 @@ poleTarget.setEnabled(false);
 Bones are computed using shaders by default. This allows better performance. But on low end devices, shaders could be limited and not able to process bones. You can in this case ask Babylon.js to compute bones using CPU by setting `mesh.computeBonesUsingShaders = false`.
 
 Note however that when using instances / thin instances, things can be a bit different:
-1. When `computeBonesUsingShaders = true`, the vertex shader code is doing 4 texture reads **PER** vertex **PER** instance **PER** frame.
+1. When `computeBonesUsingShaders = true`, the vertex shader code is doing 16 texture reads **PER** vertex **PER** instance **PER** frame (it's 32 if you have more than 4 influences per vertex - 8 being the maximum supported by Babylon.js)
 1. When `computeBonesUsingShaders = false`, there's no texture reads anymore but the vertices are transformed according to their bones on the CPU and the final vertex positions are uploaded to the GPU once **PER** frame.
 
 As 2 is independent from the number of instances and has a fixed cost (depending on the number of vertices), there’s a point where 2 will be faster than 1, and it will be more and more in favor of 2 with increasing number of instances.
