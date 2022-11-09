@@ -185,6 +185,6 @@ Here are some other examples of plugins:
 <Playground id="#HCLC5W#41" title="Using a class variable to animate a parameter for all instances"/>
 <Playground id="#SYQW69#1077" title="Power plant with volumetric fog"/>
 <Playground id="#IQPBS4#62" title="Grain (solves banding issues)"/>
-<Playground id="#8WJTJG#8" title="Simple Fog of War effect"/>
+<Playground id="#8WJTJG#10" title="Simple Fog of War effect"/>
 
 You can also take a look at Babylon's source code. The PBR material includes several complex plugins, such as the [Anisotropic plugin](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrAnisotropicConfiguration.ts), [sheen](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSheenConfiguration.ts) and [subsurface](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSubSurfaceConfiguration.ts), and the [detail map plugin applies to PBR and Standard materials](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/material.detailMapConfiguration.ts).
