@@ -10,7 +10,7 @@ video-content:
 
 Babylon.js can be used to build experiences on many different platforms for
 all kinds of devices, and even provides
-[ways to target multiple platforms simultaneously](/toolsAndResources/templateRepositories#the-template-repository-workflow)!
+[ways to target multiple platforms simultaneously](/setup/templates/repos/templateRepositories#the-template-repository-workflow)!
 So, what are you making?
 
 ## Web App
@@ -20,7 +20,7 @@ just about any Web development workflow. Here are just a few of the
 available recommended ways to build a Web app with Babylon.js.
 
 - You could use the
-  [Template Repository Workflow](/toolsAndResources/templateRepositories#the-template-repository-workflow)
+  [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow)
   to develop your Babylon.js experience as a portable NPM package which
   could then be incorporated into all sorts of other projects.
 - You could build a single-repo project focused specifically on
@@ -54,7 +54,7 @@ mobile app for Android or iOS. The following are a few of the best:
   The
   [_Fruit Fallin'_ Dev Story](/guidedLearning/devStories/fruitFalling)
   illustrates a way to do this using the
-  [Template Repository Workflow](/toolsAndResources/templateRepositories#the-template-repository-workflow).
+  [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow).
 - For
   [React Native](https://reactnative.dev/)
   developers,
@@ -84,7 +84,7 @@ and, of course, any and all questions are welcome on
   everything at once. The
   [_Fruit Fallin'_ Dev Story](/guidedLearning/devStories/fruitFalling)
   illustrates a way to do this using the
-  [Template Repository Workflow](/toolsAndResources/templateRepositories#the-template-repository-workflow).
+  [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow).
 - [Electron](https://www.electronjs.org/)
   is a great option for natively targeting desktop platforms in a similar
   way to how Ionic and React Native are great options for mobile
