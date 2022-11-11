@@ -60,6 +60,6 @@ If you want to install Babylon.js locally using the latest version, please pick 
 
 Don't be scared about using the latest version. Babylon's npm releases are considered stable and are fully tested by the team.
 
-## The Bayblon.js Forum
+## The Babylon.js Forum
 
 Next up is to learn about [The Babylon.js Forum](/journey/forum), the place where the community and dev team dive in every day to help each other learn and advance this wonderful platform.
