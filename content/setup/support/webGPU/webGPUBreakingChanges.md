@@ -91,7 +91,7 @@ In WebGL you could list several times the same attribute when creating a [Shader
 
 ~~It is not possible to sample a depth texture from a GLSL shader when using the WebGPU engine because of the special type of a depth texture. **Note that it does work when using a comparison sampler: only non-comparison sampling does not work!**~~
 
-~~If you want to sample a depth texture in WebGPU when using a non-comparison sampler, you will need to use a `ShaderMaterial` and write the shader in `WGSL`.
+~~If you want to sample a depth texture in WebGPU when using a non-comparison sampler, you will need to use a `ShaderMaterial` and write the shader in `WGSL`.~~
 
 ~~Here's how you can do it so that it works both in WebGL and WebGPU:~~ <Playground id="#8RU8Q3#134" title="Sampling a depth texture" description="Demonstrate sampling a depth texture in WebGL and in WebGPU" image="/img/playgroundsAndNMEs/pg-8RU8Q3-107.png"/>
 
