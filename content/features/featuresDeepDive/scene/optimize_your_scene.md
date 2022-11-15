@@ -201,10 +201,19 @@ You can change this behaviour for any mesh of your scene at any time (and change
 
 mesh.cullingStrategy = oneOfThePossibleValues;
 ```
-* Standard : the more accurate and standard one (exclusion test)  
-* Bounding Sphere Only : faster but less accurate (exclusion test)  
-* Optimistic Inclusion : mesh center inclusion test then standard exclusion test, for meshes almost always expected in the frustum. Same accuracy than the standard test.  
-* Optimistic Inclusion Then Bounding Sphere Only : mesh center inclusion test, then bounding sphere exclusion test only. Same accuracy than the bSphereOnly test, interesting for almost always in the frustum meshes.  
+* Standard : the most accurate and standard one. This is an exclusion test. The test order is :
+  *  Is the bounding sphere outside the frustum ?
+  *  If not, are the bounding box vertices outside the frustum ?
+  *  It not, then the cullable object is in the frustum.
+* Bounding Sphere Only : faster but less accurate. This is an exclusion test. It's faster than the standard strategy because the bounding box is not tested. It's also less accurate than the standard because some not visible objects can still be selected. The test order is :
+  *  Is the bounding sphere outside the frustum ?
+  *  If not, then the cullable object is in the frustum.
+* Optimistic Inclusion : This in an inclusion test first, then the standard exclusion test. This can be faster when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the standard test when the tested object center is not the frustum but one of its bounding box vertex is still inside. Anyway, it's as accurate as the standard strategy. The test order is :
+  *  Is the cullable object bounding sphere center in the frustum ?
+  *  If not, apply the default culling strategy.
+* Optimistic Inclusion Then Bounding Sphere Only : This in an inclusion test first, then the bounding sphere only exclusion test. This can be the fastest test when a cullable object is expected to be almost always in the camera frustum. This could also be a little slower than the BoundingSphereOnly strategy when the tested object center is not in the frustum but its bounding sphere still intersects it. It's less accurate than the standard strategy and as accurate as the BoundingSphereOnly strategy. The test order is :
+  *  Is the cullable object bounding sphere center in the frustum ?
+  *  If not, apply the Bounding Sphere Only strategy. No Bounding Box is tested here.
 
 Optimistic Inclusion modes give a little gain. They keep the same accuracy than the basic mode on what they are applied (standard or bSphereOnly).  
 BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
