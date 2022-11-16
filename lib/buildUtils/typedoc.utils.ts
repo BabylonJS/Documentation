@@ -204,9 +204,7 @@ export const getTypeDocFiles = () => {
             };
         })
         .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
-    const extra = [];
-    // fix redirects of lowercase
-    os.platform() === "win32"
+    const extra = os.platform() === "win32"
         ? []
         : fileMap.map((file) => {
             return {
