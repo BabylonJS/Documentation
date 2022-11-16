@@ -159,21 +159,25 @@ export const getAPIPageData = async (id: string[]) => {
 
     root.querySelectorAll("script").forEach((node) => node.remove());
 
-    // TODO - check for errors
-    const res = await addSearchItem({
-        id: searchId,
-        path: url,
-        isApi: true,
-        content: htmlToText(html),
-        keywords: id,
-        description: metadata.description,
-        title: metadata.title,
-        imageUrl: metadata.imageUrl,
-        videoLink: metadata.videoOverview,
-    });
+    // do not index lowercased pages
+    if (/[A-Z]/.test(url)) {
 
-    // add to sitemap
-    addToSitemap(metadata.title, url);
+        // TODO - check for errors
+        const res = await addSearchItem({
+            id: searchId,
+            path: url,
+            isApi: true,
+            content: htmlToText(html),
+            keywords: id,
+            description: metadata.description,
+            title: metadata.title,
+            imageUrl: metadata.imageUrl,
+            videoLink: metadata.videoOverview,
+        });
+
+        // add to sitemap
+        addToSitemap(metadata.title, url);
+    }
 
     return {
         id,
@@ -201,15 +205,15 @@ export const getTypeDocFiles = () => {
         })
         .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
     const extra = [];
-    // probably not needed anymore.
-    // os.platform() === "win32"
-    //     ? []
-    //     : fileMap.map((file) => {
-    //           return {
-    //               params: {
-    //                   id: file.params.id.map((id) => id.toLowerCase()),
-    //               },
-    //           };
-    //       });
+    // fix redirects of lowercase
+    os.platform() === "win32"
+        ? []
+        : fileMap.map((file) => {
+            return {
+                params: {
+                    id: file.params.id.map((id) => id.toLowerCase()),
+                },
+            };
+        });
     return [...fileMap, ...extra];
 };
