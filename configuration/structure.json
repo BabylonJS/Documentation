@@ -2568,6 +2568,11 @@
                                 }
                             },
                             "content": "guidedLearning/devStories/vaporwearConfigurator"
+                        },
+                        "BabylonReactNativeForUnityDevs": {
+                            "friendlyName": "Getting started with Babylon React Native, a guide for Unity Developers",
+                            "children": {},
+                            "content": "guidedLearning/guideForUnityDevs"
                         }
                     },
                     "content": "guidedLearning/devStories"
