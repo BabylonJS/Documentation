@@ -24,7 +24,7 @@ value|Type
 0 | BILLBOARDMODE_NONE
 1 | BILLBOARDMODE_X
 2 | BILLBOARDMODE_Y
-3 | BILLBOARDMODE_Z
-4 | BILLBOARDMODE_ALL
+4 | BILLBOARDMODE_Z
+7 | BILLBOARDMODE_ALL
 
 <Playground id="#ANE052#1" title="Simple Example of Mesh Billboard Mode" description="Simple example of setting a mesh to use Billboard Mode."/>
