@@ -121,6 +121,10 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 [More on using VSCode with Babylon.js](/setup/support/vsCode)
 
+### VSCode Extensions
+
+If you are using VSCode, the repository comes with a list of recommended extensions. If you want to be able to debug entirely in VSCode you will need to install those extensions.
+
 ### Adding files
 
 When in doubt about where your files should be added then raise an issue in the Babyon.js repository or ask on the forum.
@@ -173,10 +177,6 @@ To check your npm and node version after node was installed:
 npm --version
 node --version
 ```
-
-### VSCode Extensions
-
-If you are using VSCode, the repository comes with a list of recommended extensions. If you want to be able to debug entirely in VSCode you will need to install those extensions.
 
 ### The Build
 
