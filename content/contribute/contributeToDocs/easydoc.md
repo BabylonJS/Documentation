@@ -44,4 +44,4 @@ Congratulations, your modifications are now waiting to be validated and merged i
 
 ![pull now waiting](/img/contribute/documentation/easy-pull-waiting.png)
 
-Do not hesitate to read the [Good Practice](/How_to/contribute/add_to_docs#good-practices) section.
+Do not hesitate to read the [Good Practice](/contribute/contributeToDocs#good-practices) section.
