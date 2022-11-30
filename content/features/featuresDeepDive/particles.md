@@ -18,3 +18,5 @@ The particle system uses small 2D sprites which may be animated and always face 
 The solid particle system (SPS) combines one or more base meshes into a single mesh requiring a single draw call per frame. There are many features available that allow you to control the behavior of the individual mesh particles.
 
 A points cloud particle system (PCS) is a single updatable mesh and uses a material property to display its vertices as pixel squares of a size you set. The points cloud system provides some methods to manage the individual particles.
+
+Also, as of version 5.X.Y, a new fluid rendering component has been added to the `Scene` class that allows you to render a particle system (`ParticleSystem`, `GPUParticleSystem` or some custom vertex buffers) as a fluid.
