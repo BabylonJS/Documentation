@@ -9,9 +9,9 @@ video-content:
 ---
 
 
-## Box Mesh
+## Box
 The created box has its origin at the center of the box, its width (x), height (y) and depth (z) are as given.
-## MeshBuilder.
+## MeshBuilder
 Usage :
 ```javascript
 const box = BABYLON.MeshBuilder.CreateBox("box", options, scene); //scene is optional and defaults to the current scene
@@ -38,7 +38,7 @@ backUVs|_(Vector4)_  **ONLY WHEN sideOrientation:BABYLON.Mesh.DOUBLESIDE set** |
 Cuboid: <Playground id="#6XIT28#4" title="Create a Cuboid" description="Simple example of creating a cuboid." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes1.jpg"/> 
 Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title="Create a Box With Face Numbers" description="Simple example of creating a box with face numbers." image="/img/playgroundsAndNMEs/divingDeeperMeshSetShapes2.jpg"/>
 
-## Mesh.
+## Mesh
 Usage
 ```javascript
 const box = BABYLON.Mesh.CreateBox("box", size, scene);
