@@ -52,7 +52,7 @@ I've found the line between these sort of blurred, so here's the difference betw
 
 - Node.js (https://nodejs.org/en/) is an open-source runtime environment. So this is where your JavaScript runs in.
 - NPM (https://www.npmjs.com/) is the Node Package Manager, so just like you have a package manager in Unity, this is the one for JavaScript and TypeScript. And since it depends on Node.js you first need to get that before you can install libraries in your project. It's possible to globally install libraries, but typically you would have them in the same folder as your project.
-- NPX is a package runner, very similar to NPM. Instead of focussing on the managing of packages, it focusses on running packages instead without you having to worry too much on the versions (a better explanation: https://stackoverflow.com/a/52018825/2497085).
+- NPX is a package runner, very similar to NPM. Instead of focussing on the managing of packages, it focuses on running packages instead without you having to worry too much on the versions (a better explanation: https://stackoverflow.com/a/52018825/2497085).
 - NVM is the Node Version Manager, this helps you when you need to switch Node versions.
 
 So to start, you need to install NVM (https://github.com/nvm-sh/nvm#installing-and-updating) Once you have that setup, you can install Node.js by running: `nvm install node` in the Terminal. The version of Node that you use can be very specific depending on your environment or if you're working with an existing app. If you're working with an existing app it's a good idea to ask which version of Node.js you need. Installing Node.js also gives us access to NPM, since that's included. So after installing Node.js you're done setting up for now.
