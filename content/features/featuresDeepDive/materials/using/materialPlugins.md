@@ -8,11 +8,13 @@ video-overview:
 video-content:
 ---
 
-# Material
+## Introduction
 
 As of v5.0 Babylon includes a Material Plugin system, which allows customization of an existing material with custom shader code. This adds a lot of flexibility, since one can easily modify the behavior of existing materials with special effects without having to rewrite the entire shader code, in a simple and reusable way.
 
 This is incredibly useful and powerful, since materials can be changed at runtime and have effects that were previously only possible with complex multi-pass renderings or postprocessing.
+
+## Basic example
 
 Let's start with an example: suppose you want an object to be rendered in black and white. All you want is to change the end of its shader, converting the final fragment color to grayscale. To do that you create a material plugin modifying that part of the shader code.
 
@@ -66,11 +68,11 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#16" title="Basic material plugin example" />
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#16" title="Basic example" description="Basic material plugin example"/>
 
 ## More complex plugins
 
-Sometimes your plugins will need to get uniforms. This is also possible with the plugins, which can register defines, uniforms and samplers (textures).
+Sometimes, your material extension will need to get uniforms. This is also possible with the plugins, which can register defines, uniforms, samplers (textures) and attributes.
 
 Let's take a look at a more involved example, which is not enabled by default but has proper enable/disable controls as well.
 
@@ -156,9 +158,11 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 }
 ```
 
-<Playground id="#P8B91Z#35" title="Material plugin example with uniforms"/>
+<Playground id="#P8B91Z#35" title="Using uniforms" description="Material plugin example with uniforms"/>
 
-Here's another example which uses a sampler: <Playground id="#HBWKYN#7" title="Material plugin example with uniforms and samplers"/>
+Here's another example which uses a sampler: <Playground id="#HBWKYN#7" title="Using sampler" description="Material plugin example with sampler"/>
+
+And another one using a custom attribute this time: <Playground id="#HBWKYN#9" title="Using attribute" description="Material plugin example with attribute"/>
 
 ## Applying a plugin to a single material
 
@@ -170,7 +174,85 @@ const myPlugin = new BlackAndWhitePluginMaterial(material);
 
 This is also useful for dynamic loading of plugins.
 
-<Playground id="#22HT5Z#15" title="Material plugin applied to a single material"/>
+<Playground id="#22HT5Z#15" title="Single material" description="Material plugin applied to a single material"/>
+
+## Implementing a complete and well designed plugin
+
+The examples given above should be appropriate 90% of the time, but if you want to fully integrate into the framework or have additional requirements, you may need to do additional work.
+
+A material plugin extends the `MaterialPluginBase` class and we have only implemented a few methods in the examples so far. Here are all the methods you can implement in a material plugin:
+| Method | Description |
+|--------|-------------|
+|`isReadyForSubMesh`|Implements this method if you are using resources that may take some time to be ready (like textures). As long as the method returns `false`, the material won't be used to render the mesh|
+|`bindForSubMesh`|This method will allow you to bind the uniforms and textures used by your plugin. Use the methods of the provided `uniformBuffer` to set these uniforms / textures|
+|`hardBindForSubMesh`|This method is like `bindForSubMesh` but is called even if `mustRebind()` returns `false` (`bindForSubMesh` is only called if `mustRebind` returns `true`). `mustRebind()` is an internal method that returns `true` only if the system thinks the uniform parameters should be rebound. It has its own logic for deciding whether to return `true` or `false` and it may be different from your needs. Use `hardBindForSubMesh` in cases where `isReadyForSubMesh` is not called but you still need to bind some parameters|
+|`dispose`|Implements this method if your plugin uses some resources that should be disposed when the plugin is no longer needed|
+|`getCustomCode`|This is the method used to inject code in the vertex and fragment shaders. Look at the playgrounds on this page for examples of how to do this|
+|`prepareDefines`|This allows you to set the defines used by (the shader code of) your plugin|
+|`prepareDefinesBeforeAttributes`|This methods does the same thing than `prepareDefines` but is called before `MaterialHelper.PrepareDefinesForAttributes` is called. So, if you need some defines to exist when `MaterialHelper.PrepareDefinesForAttributes` is called, you should use `prepareDefinesBeforeAttributes` instead of `prepareDefines`|
+|`hasTexture`|You should return `true` if you are using the texture passed as a parameter in your plugin. That will ensure that your plugin is properly notified when some properties of this texture change|
+|`hasRenderTargetTextures`|You should return `true` if your plugin uses one or more render target texture(s) for its work. That will ensure that the texture(s) is/are rendered correctly in each frame (you also need to implement the `fillRenderTargetTextures` method)|
+|`fillRenderTargetTextures`|Will be called if `hasRenderTargetTextures` returns `true`. You should add the render target texture(s) you are using into the array passed as a parameter|
+|`getActiveTextures`|You should return all the textures you are using in your plugin (if any)|
+|`getAnimatables`|You should return all the animatables you are using in your plugin (if any). Most of the time, these are the textures that have animations (`texture.animations && texture.animations.length > 0`)|
+|`getSamplers`|You should return all the samplers (textures) your are using in your plugin (if any)|
+|`getAttributes`|You should return all the attributes your are using in your plugin (if any)|
+|`getUniformBuffersNames`|You should return the names of all the uniform buffers you are using in your plugin (if any)|
+|`getUniforms`|You should return all the uniforms you are using in your plugin (if any). Look at the playgrounds on this page for examples of how to do this|
+
+Additional comments:
+* if you want to use a texture in your plugin, you have to implement `getSamplers` and add its definition in the **CUSTOM_FRAGMENT_DEFINITIONS** block of code (**CUSTOM_VERTEX_DEFINITIONS** if you want to use the texture in the vertex shader):
+```typescript
+getSamplers(samplers) {
+    samplers.push("texture");
+}
+
+getCustomCode(shaderType) {
+    if (shaderType === "fragment") return {
+        "CUSTOM_FRAGMENT_DEFINITIONS": `
+            uniform sampler2D myTexture;
+        `,
+
+        "CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR": `
+              color.rgb = texture(myTexture, vDiffuseUV + uvOffset).rgb;
+        `,
+    }
+    return null
+}
+```
+* if you want to use a custom attribute in your plugin, you have to implement `getAttributes` and add its definition in the **CUSTOM_VERTEX_DEFINITIONS** block of code:
+```typescript
+getSamplers(samplers) {
+    samplers.push("arrayTex");
+}
+
+getAttributes(attributes) {
+    attributes.push('texIndices');
+}
+
+getCustomCode(shaderType) {
+    if (shaderType === "vertex") return {
+        "CUSTOM_VERTEX_DEFINITIONS": `
+            attribute float texIndices;
+            varying float texIndex;
+        `,
+
+        "CUSTOM_VERTEX_MAIN_BEGIN": `
+            texIndex = texIndices;
+        `,
+    }
+    if (shaderType === "fragment") return {
+        "CUSTOM_FRAGMENT_DEFINITIONS": `
+            uniform highp sampler2DArray arrayTex;
+            varying float texIndex;
+        `,
+
+        "!baseColor\\=texture2D\\(diffuseSampler,vDiffuseUV\\+uvOffset\\);":
+            `baseColor = texture(arrayTex, vec3(vDiffuseUV, texIndex));`,
+    }
+    return null
+}
+```
 
 ## Caveats
 
@@ -184,8 +266,8 @@ This is also useful for dynamic loading of plugins.
 
 Here are some other examples of plugins:
 
-<Playground id="#HCLC5W#41" title="Using a class variable to animate a parameter for all instances"/>
-<Playground id="#SYQW69#1077" title="Power plant with volumetric fog"/>
-<Playground id="#IQPBS4#62" title="Grain (solves banding issues)"/>
+<Playground id="#HCLC5W#41" title="Animate parameter" description="Using a class variable to animate a parameter for all instances"/>
+<Playground id="#SYQW69#1077" title="Volumetric fog" description="Power plant with volumetric fog"/>
+<Playground id="#IQPBS4#62" title="Grain" description="Grain (solves banding issues)"/>
 
 You can also take a look at Babylon's source code. The PBR material includes several complex plugins, such as the [Anisotropic plugin](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrAnisotropicConfiguration.ts), [sheen](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSheenConfiguration.ts) and [subsurface](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSubSurfaceConfiguration.ts), and the [detail map plugin applies to PBR and Standard materials](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/material.detailMapConfiguration.ts).
