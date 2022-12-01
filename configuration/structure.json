@@ -2440,7 +2440,8 @@
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
             "children": {
-                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" }
+                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
+                "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" }
             },
             "content": "preparingArtForBabylon/basicConcepts"
         },

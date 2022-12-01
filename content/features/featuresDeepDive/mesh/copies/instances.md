@@ -90,7 +90,7 @@ box.setVerticesBuffer(buffer);
 
 The last parameter of the VertexBuffer constructor is the one to set to true to flag it as instanceable.
 
-Example: <Playground id="#8L50Q3#1" title="Custom Buffers Example 1" description="Simple example of custom buffers."/>
+Example: <Playground id="#8L50Q3#203" title="Custom Buffers Example 1" description="Simple example of custom buffers."/>
 
 The other way is to register a custom buffer with `registerInstancedBuffer`:
 
@@ -108,7 +108,7 @@ instance.instancedBuffers.color = new BABYLON.Color4(Math.random(), Math.random(
 
 The system will take care of updating the internal vertex buffer.
 
-Example: <Playground id="#YPABS1" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
+Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
 
 ## Advanced control
 

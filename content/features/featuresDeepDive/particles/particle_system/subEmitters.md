@@ -76,4 +76,4 @@ particleSystem.stop(false);
 
 <Playground id="#T0L01N#47" title="Sub Emitters" description="Simple example of sub emitters."/>
 <Playground id="#9NHBCC#1" title="Sub Emitters On Death Only" description="Simple example of sub emitters on death only"/>
-<Playground id="#7HH1UH" title="Complete example (hit Space to launch a barrel)" description="Complete Sub Emitter Example"/>
+<Playground id="#7HH1UH#6" title="Complete example (hit Space to launch a barrel)" description="Complete Sub Emitter Example"/>

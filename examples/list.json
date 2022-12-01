@@ -793,7 +793,7 @@
                     "doc": "https://doc.babylonjs.com/how_to/using_the_ssao_rendering_pipeline",
                     "icon": "icons/ssao_1.png",
                     "description": "Screen space ambient occlusion",
-                    "PGID": "#N96NXC#0"
+                    "PGID": "#N96NXC#106"
                 },
                 {
                     "title": "SSAO rendering pipeline (WebGL2)",

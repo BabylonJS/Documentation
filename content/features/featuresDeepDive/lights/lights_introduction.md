@@ -179,7 +179,7 @@ light.lightmapMode = BABYLON.Light.LIGHTMAP_SHADOWSONLY;
 
 This is the same as LIGHTMAP_DEFAULT except only the shadows cast from this light will be applied.
 
-<Playground id="#ULACCM#2" title="Lightmaps Example" description="Simple Example of using lightmaps in your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro9.jpg"/>
+<Playground id="#ULACCM#37" title="Lightmaps Example" description="Simple Example of using lightmaps in your scene." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro9.jpg"/>
 
 ## Projection Texture
 
