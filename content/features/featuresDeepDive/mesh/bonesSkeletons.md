@@ -79,6 +79,14 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 
 A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." isMain={true} category="Mesh"/>
 
+## Use Bones with Node Material
+
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write GLSL. To use a Node Material in a mesh with bones, you need to add the Bones node to it so that the bone influences are correctly computed:
+
+![Use Instances with Node Material](/img/how_to/bones-node.png)
+
+<Playground id="#92Y727#302" title="Using Node Material with Bones" description="Use Bones node on the Node Material">
+
 ## Cloning bones
 
 Bones and skeletons can be cloned (This is the case with the rabbits in the previous link).
@@ -521,12 +529,13 @@ boneWeightShader.setFloat(targetBoneIndex, index);
 Multiple skinned meshes can reference the same skeleton, sometimes with different skinned mesh transforms. This is important for some scenarios, such as populating a crowd. Due to this, skeleton bone methods involving absolute transforms require the associated skinned mesh as an argument.
 
 Here are two `Bone` methods that require the associated skinned mesh:
+
 - `bone.getPosition` for world space
 - `bone.getRotation` for world space
 
 Failing to pass in the associated skinned mesh can potentially result in unexpected behavior since the math will not take the skinned mesh transform into account. This effectively computes transforms relative to the skeleton root instead of absolute transforms.
 
-For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. *This is loading the same model as referenced from earlier in this page.*
+For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. _This is loading the same model as referenced from earlier in this page._
 
 <Playground id="#92Y727" title="Loading Model" description="Loading a model with multiple skinned meshes."/>
 
@@ -538,11 +547,11 @@ Using the following code, the arms of the `dude` has been moved by `30` units on
 const mesh = scene.getMeshByName(" / 3");
 mesh.position = new BABYLON.Vector3(30, 0, 0);
 
-const box = BABYLON.MeshBuilder.CreateBox("box", { size: 3}, scene);
+const box = BABYLON.MeshBuilder.CreateBox("box", { size: 3 }, scene);
 const bone = scene.getBoneByName("bone30");
 scene.onBeforeRenderObservable.add(() => {
-    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD, mesh));
-    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD, mesh));
+  box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD, mesh));
+  box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD, mesh));
 });
 ```
 
@@ -552,8 +561,8 @@ This is what happens if the mesh is not passed in as an argument to the `get` me
 
 ```javascript
 scene.onBeforeRenderObservable.add(() => {
-    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD));
-    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD));
+  box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD));
+  box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD));
 });
 ```
 
@@ -565,7 +574,7 @@ It is important to identify the associated skinned mesh and then pass it to the 
 
 ```javascript
 var skinnedMeshes = meshes.filter(function (mesh) {
-    return mesh.skeleton === skeletons[0];
+  return mesh.skeleton === skeletons[0];
 });
 ```
 
