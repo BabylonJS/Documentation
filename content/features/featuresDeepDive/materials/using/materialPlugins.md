@@ -70,7 +70,7 @@ You can see the final code in action in the PlayGround: <Playground id="#GC63G5#
 
 ## More complex plugins
 
-Sometimes your plugins will need to get uniforms. This is also possible with the plugins, which can register defines and uniforms.
+Sometimes your plugins will need to get uniforms. This is also possible with the plugins, which can register defines, uniforms and samplers (textures).
 
 Let's take a look at a more involved example, which is not enabled by default but has proper enable/disable controls as well.
 
@@ -113,7 +113,7 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
     return {
       // first, define the UBO with the correct type and size.
       ubo: [{ name: "myColor", size: 3, type: "vec3" }],
-      // now, on the fragment shader, add the uniform itself.
+      // now, on the fragment shader, add the uniform itself in case uniform buffers are not supported by the engine
       fragment: `#ifdef COLORIFY
                     uniform vec3 myColor;
                 #endif`,
@@ -157,6 +157,8 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 ```
 
 <Playground id="#P8B91Z#35" title="Material plugin example with uniforms"/>
+
+Here's another example which uses a sampler: <Playground id="#HBWKYN#7" title="Material plugin example with uniforms and samplers"/>
 
 ## Applying a plugin to a single material
 
