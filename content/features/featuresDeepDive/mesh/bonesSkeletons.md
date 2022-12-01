@@ -85,7 +85,7 @@ The [Node Material](/features/featuresDeepDive/materials/node_material) is a pow
 
 ![Use Instances with Node Material](/img/how_to/bones-node.png)
 
-<Playground id="#92Y727#302" title="Using Node Material with Bones" description="Use Bones node on the Node Material">
+<Playground id="#92Y727#302" title="Using Node Material with Bones" description="Use Bones node on the Node Material"/>
 
 ## Cloning bones
 
