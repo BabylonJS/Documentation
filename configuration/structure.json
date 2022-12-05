@@ -2101,6 +2101,17 @@
         "toolsAndResources": {
             "friendlyName": "Tools and Resources",
             "children": {
+                "accessibility": {
+                    "friendlyName": "Accessibility",
+                    "children": {
+                        "screenReaders": {
+                            "friendlyName": "Screen Readers",
+                            "children": {},
+                            "content": "toolsAndResources/accessibility/screenReaders"
+                        }
+                    },
+                    "content": "toolsAndResources/accessibility"
+                },
                 "thePlayground": {
                     "friendlyName": "The Playground",
                     "children": {
