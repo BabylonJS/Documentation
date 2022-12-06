@@ -1548,6 +1548,32 @@
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/point_cloud_system"
+                                },
+                                "fluid_renderer": {
+                                    "friendlyName": "Fluid Renderer",
+                                    "children": {
+                                        "fluid_using": {
+                                            "friendlyName": "Using the Fluid Renderer",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/using_fluid_renderer"
+                                        },
+                                        "fluid_demos": {
+                                            "friendlyName": "Fluid Rendering Demos",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/demos"
+                                        },
+                                        "fluid_gui": {
+                                            "friendlyName": "Fluid Rendering GUI",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/gui"
+                                        },
+                                        "fluid_implementation": {
+                                            "friendlyName": "Technical Implementation Details",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/implementation_details"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/particles/fluid_renderer"
                                 }
                             },
                             "content": "features/featuresDeepDive/particles"
