@@ -30,7 +30,7 @@ Here is a diffuse rendering to better see the particles:
 
 ![image](/img/features/fluidrenderer/impl_diffuse.jpg)
 
-The depth must be a linear depth for the blur post-processing to work as intended (see next step)! Thus, the depth texture is created by recording the z-coordinate of the view space of each projected point of the sphere. The shaders used to generate this texture are [particleDepth.vertex.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/particleDepth.vertex.glsl) / [particleDepth.fragment.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/particleDepth.fragment.glsl).
+The depth must be a linear depth for the blur post-processing to work as intended (see next step)! Thus, the depth texture is created by recording the z-coordinate of the view space of each projected point of the sphere. The shaders used to generate this texture are [particleDepth.vertex.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.vertex.fx) / [particleDepth.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDepth.fragment.fx).
 
 The normals used for the diffuse (and final) rendering are computed thanks to the depth and the uv coordinates. The depth of the view space as well as the uv coordinates are converted to NDC (Normalized Device Coordinate) space and these coordinates are transformed to view space by multiplying them by the inverse projection matrix. We will describe the calculation that converts Z from view space to NDC space a little later in the text as this is a question that comes up often in the Babylon.js forums.
 
@@ -47,7 +47,7 @@ As explained in [1](#ref1) slides 20-31, a standard 2D Gaussian blur will not be
 
 Note that for performance reasons, the bilateral filtering is performed by first applying a filter in the X dimension and then another one in the Y dimension. This is not mathematically correct because bilateral filtering is not separable. Doing two passes produces some artifacts but they are normally not visible/acceptable and it would be too GPU performance consuming to do otherwise anyway, so it's a tradeoff we pay for better performance at the expense of quality.
 
-The shader used to implement bilateral filtering is [bilateralBlur.fragment.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/bilateralBlur.fragment.glsl).
+The shader used to implement bilateral filtering is [bilateralBlur.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingBilateralBlur.fragment.fx).
 
 Reference [2](#ref2) helped me a lot to configure this shader correctly (especially to adapt the kernel size to the projected particle size).
 
@@ -65,7 +65,7 @@ For fluid surfaces, it is important to implement the **Fresnel** effect, which i
 
 ![image](/img/features/fluidrenderer/impl_basic_rendering.jpg)
 
-The shader used to implement the final fluid rendering is [renderFluid.fragment.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/renderFluid.fragment.glsl).
+The shader used to implement the final fluid rendering is [renderFluid.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingRender.fragment.fx).
 
 We can do better by calculating a thickness for each texel (see next step), but if you are limited by the GPU, this is a cheaper way to render fluid surfaces.
 
@@ -107,7 +107,7 @@ The generated diffuse texture :
 
 The list of 3D coordinates for the dude was generated using the [PointsCloudSystem](/typedoc/classes/babylon.pointscloudsystem) class, which can generate points distributed over a mesh and is also capable of generating vertex colors for these points by sampling the diffuse texture of the material.
 
-The shaders used to generate this texture are [particleDiffuse.vertex.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/particleDiffuse.vertex.glsl) / [particleDiffuse.fragment.glsl](https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/particleDiffuse.fragment.glsl).
+The shaders used to generate this texture are [particleDiffuse.vertex.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDiffuse.vertex.fx) / [particleDiffuse.fragment.glsl](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingParticleDiffuse.fragment.fx).
 
 The following section will go into more detail on some of the steps described and others that I ignored (such as including the fluid in an existing scene).
 
@@ -133,7 +133,7 @@ Finally, the z-coordinate of the clip space is transformed into NDC space by div
 
 This is the formula used in the rendering shader:
 
-https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/renderFluid.fragment.glsl#L43-L54
+https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingRender.fragment.fx#L45-L56
 
 ### Calculation of the kernel size for the bilateral filter
 
@@ -165,7 +165,7 @@ Note that everything can be precomputed, except for `Zview` :
 
 To calculate the kernel size, the bilateral blur shader simply does :
 
-https://github.com/Popov72/FluidRendering/blob/main/src/assets/shaders/bilateralBlur.fragment.glsl#L11-L18
+https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingBilateralBlur.fragment.fx#L11-L18
 
 ### Integrating the fluid into an existing scene
 
@@ -251,7 +251,7 @@ where `thicknessRT` is the `RenderTargetWrapper` used to generate the thickness 
 
 However, there is a subtlety here: we allow the user to use a different size for the thickness texture than for the scene! Thus, it is possible that `thicknessRT` does not have the same width/height as the RTT of `firstPostProcess.inputTexture`. In this case, you will get an error when trying to use the scene depth buffer with `thicknessRT` because it is not allowed to use different sizes for the depth texture and the normal output rendering texture.
 
-So we have to resize the scene depth texture to match the dimensions of `thicknessRT` before we can use it. There is a little helper class that does this ([CopyDepthTexture](https://github.com/Popov72/FluidRendering/blob/main/src/scenes/Utils/copyDepthTexture.ts)) but it's not totally straightforward because you are not allowed to do a simple texture copy: copying depth textures is not allowed (neither in WebGL nor in WebGPU). So you have to render a texture and set `gl_FragDepth` to the value of the source depth texture (reading from a depth texture **is** allowed in a shader) to write to the output (correctly sized) depth texture.
+So we have to resize the scene depth texture to match the dimensions of `thicknessRT` before we can use it. There is a little helper class that does this ([FluidRenderingDepthTextureCopy](https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Rendering/fluidRenderer/fluidRenderingDepthTextureCopy.ts)) but it's not totally straightforward because you are not allowed to do a simple texture copy: copying depth textures is not allowed (neither in WebGL nor in WebGPU). So you have to render a texture and set `gl_FragDepth` to the value of the source depth texture (reading from a depth texture **is** allowed in a shader) to write to the output (correctly sized) depth texture.
 
 ### Use particle velocity to simulate foam
 

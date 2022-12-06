@@ -35,7 +35,7 @@ With the generated diffuse texture being:
 
 ## Particle custom shape
 
-PG: <Playground id="#XMXDAA#9" title="Particle custom shape" description="Example of a custom particle system rendered as a fluid"/>
+PG: <Playground id="#XMXDAA#23" title="Particle custom shape" description="Example of a custom particle system rendered as a fluid"/>
 
 Note: It may take a little while to load, please be patient.
 
@@ -55,7 +55,7 @@ Image towards the end of the demo :
 
 ## Pre-computed particles - rendering only
 
-PG: <Playground id="#XMXDAA#11" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
+PG: <Playground id="#XMXDAA#24" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
 
 Note: loading may take a **long time** as there are many large files to download (precomputed particle positions), please be patient.
 
@@ -65,7 +65,7 @@ This demo shows a precomputed animation of about 80000 particles. The precompute
 
 ## Box, sphere and wall
 
-PG: <Playground id="#XMXDAA#13" title="Box, sphere and wall" description="Example of real fluid simulation with dragging box and sphere"/>
+PG: <Playground id="#XMXDAA#25" title="Box, sphere and wall" description="Example of real fluid simulation with dragging box and sphere"/>
 
 This demo is the first to use a basic fluid simulator to simulate fluid movement (see the `FluidSimulator` class in the PG). Since the simulation is run in javascript, only a few thousand particles (at most, it depends on the power of your computer) can be simulated, hence the relatively large size of these particles.
 
@@ -79,7 +79,7 @@ The wall and the sphere can be moved with the mouse. You can also rotate the box
 
 ## Height map
 
-PG: <Playground id="#XMXDAA#14" title="Height map" description="Example of real fluid simulation with a height map"/>
+PG: <Playground id="#XMXDAA#26" title="Height map" description="Example of real fluid simulation with a height map"/>
 
 Note: the terrain may take a little time to load, please be patient.
 
@@ -104,7 +104,7 @@ The values 0.03 / 0.04 in the names are the particle sizes used to generate the 
 
 ## Glass
 
-PG: <Playground id="#XMXDAA#15" title="Glass" description="Example of real fluid simulation of wine filling a glass"/>
+PG: <Playground id="#XMXDAA#27" title="Glass" description="Example of real fluid simulation of wine filling a glass"/>
 
 Note: may take a little while to load, please be patient.
 
