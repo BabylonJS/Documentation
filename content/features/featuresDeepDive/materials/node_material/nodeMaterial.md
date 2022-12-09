@@ -474,3 +474,4 @@ Here are some node material examples that you can use "as is" or extend with the
 - <NME id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
 - <NME id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
 - <Playground id="#VJY6H3" title="Nine Patch with NME" description="Example Node Material for Nine Patch Texture Scaling" image="/img/playgroundsAndNMEs/ninePatchNME.jpg" isMain={true} category="Materials"/>
+- <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.jpg" isMain={true} category="Materials"/>
