@@ -55,11 +55,13 @@ Image towards the end of the demo :
 
 ## Pre-computed particles - rendering only
 
-PG: <Playground id="#XMXDAA#24" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
+PG: <Playground id="#XMXDAA#40" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
 
-Note: loading may take a **long time** as there are many large files to download (precomputed particle positions), please be patient.
+This demo shows a precomputed animation of about 70000 particles. The precomputed particle positions come from https://github.com/ttnghia/RealTimeFluidRendering/releases/tag/Datasets (**SphereDropGround** dataset).
 
-This demo shows a precomputed animation of about 80000 particles. The precomputed particle positions come from https://github.com/ttnghia/RealTimeFluidRendering/releases/tag/Datasets (**SphereDropGround** dataset).
+Note:
+* the position files have been optimized to be smaller and have been compressed into a single zip file. As such, the quality is not the best you can get because of the quantization used to make the files smaller (especially visible at the end of the animation, when the liquid does not fluctuate much). However, it does allow the demo to load very quickly.
+* if you want to get the best quality, search for `_readZipped` and set it to `false`.
 
 ![image](/img/features/fluidrenderer/demo_precomputed.jpg)
 
