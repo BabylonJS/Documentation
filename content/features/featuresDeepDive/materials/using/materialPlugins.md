@@ -14,6 +14,8 @@ As of v5.0 Babylon includes a Material Plugin system, which allows customization
 
 This is incredibly useful and powerful, since materials can be changed at runtime and have effects that were previously only possible with complex multi-pass renderings or postprocessing.
 
+**Important note: this only works for Standard and PBR materials (and for materials that would subclass them)!**
+
 ## Basic example
 
 Let's start with an example: suppose you want an object to be rendered in black and white. All you want is to change the end of its shader, converting the final fragment color to grayscale. To do that you create a material plugin modifying that part of the shader code.
