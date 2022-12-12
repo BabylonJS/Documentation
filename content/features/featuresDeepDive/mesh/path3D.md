@@ -92,6 +92,7 @@ path3D.update(points2);
 ```
 Tangents, normals and bi-normals are thus recomputed for this new path.
 
+<Playground id="#2DLXYB#253" title="Update Path3D" description="Update a Path3D object and observe its results."/>
 
 ### Getting the closest position to a point
 
