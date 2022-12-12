@@ -59,7 +59,7 @@ aerobatic_plane.glb | 4.4 MB | ![plane](/img/resources/meshes/plane.png) | <Play
 alien.glb | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | <Playground id="#8IMNBM#2" title="Alien" description=""/>
 BabylonJS-logo/v1-2/Babylogo.babylon | 510 KB | ![Babylogo](/img/resources/meshes/Babylogo.jpg) | <Playground id="#TZTY3Y" title="Babylogo" description=""/>
 BabylonJS-logo/v3/babylonJS_logo_solid_v3.babylon<br/>BabylonJS-logo/v3/babylonJS_logo_v3.babylon | 59 KB<br/>8 KB | ![babylonJS_logo_v3](/img/resources/meshes/babylonJS_logo_v3.jpg) | <Playground id="#Q9JFZ1" title="Babylon_log_v3" description=""/>
-Chair/Chair.obj | 1.09 MB | ![chair](/img/resources/meshes/chair.png) | <Playground id="#KJV35B#1" title="Chair" description=""/>
+Chair/Chair.obj | 1.09 MB | ![chair](/img/resources/meshes/chair.png) | <Playground id="#KJV35B#20" title="Chair" description=""/>
 Channel9/Channel9.stl | 1.03 MB | ![channel9](/img/resources/meshes/channel9.png) | <Playground id="#AJJ8U5#2" title="Channel9" description=""/>
 clothFolds.glb | 2.21 MB | ![clothFolds](/img/resources/meshes/clothFolds.jpg) | <Playground id="#5NIBE1#2" title="Cloth Folds" description=""/>
 CornellBox/cornellBox.babylon | 216 kB | ![cornellBox-babylon](/img/resources/meshes/cornellBox-babylon.jpg) | <Playground id="#4AJ16M#2" title="CornellBox-Babylon" description=""/>
