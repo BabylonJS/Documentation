@@ -31,7 +31,7 @@ You can write the code in JavaScript or Typescript. The playground software comp
 
 ### Scene creation functions
 
-Usually you'll want to place your scene creation code in the already defined `createScene` function. But sometimes, you might want to substitute it for the `delayCreateScene` function, which allows you to return a scene without a camera (because for instance you plan to create the camera after an asynchronous mesh load, like: <Playground id="TVHK90#113" title="delayCreateScene example" description="An example of a Playground scene defined using the delayCreateScene function" image="/img/playgroundsAndNMEs/delayCreateSceneExample.png">).
+Usually you'll want to place your scene creation code in the already defined `createScene` function. But sometimes, you might want to substitute it for the `delayCreateScene` function, which allows you to return a scene without a camera (because for instance you plan to create the camera after an asynchronous mesh load, like: <Playground id="TVHK90#113" title="delayCreateScene example" description="An example of a Playground scene defined using the delayCreateScene function" image="/img/playgroundsAndNMEs/delayCreateSceneExample.png"/>).
 
 You can also override the engine creation by defining the `createEngine` function. This can be useful if you want to test a scene without antialiasing, for example: <Playground id="#NCWBUU#1" title="createEngine example" description="How to use createEngine on the playground to customize engine creation" image="/img/playgroundsAndNMEs/createEnginePG.png"/>
 
