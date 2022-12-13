@@ -37,19 +37,20 @@ export interface IFullImage {
     alt: string;
     width: never;
     height: never;
-    layout: "fill";
     unsized: true;
     caption?: string;
+    fill?: boolean;
 }
 
 export interface ISizedImageEmbed {
     src: string;
     alt: string;
-    width: ReactText;
-    height: ReactText;
+    width: number;
+    height: number;
     layout: "fixed" | "intrinsic" | "responsive";
     unsized: true;
     caption?: string;
+    fill?: boolean;
 }
 
 export type IImageEmbed = IFullImage | ISizedImageEmbed;
