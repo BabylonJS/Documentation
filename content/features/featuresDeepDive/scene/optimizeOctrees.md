@@ -71,4 +71,3 @@ These functions return a [SmartArray](https://github.com/BabylonJS/Babylon.js/tr
 
 ## Demos
 * <Playground id="#3YFJ5R#0" title="Octree Demo" description=""/>
-* <Playground id="#0K8EYN#0" title="Instances Demo" description=""/>
