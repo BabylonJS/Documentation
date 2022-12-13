@@ -153,7 +153,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
             paddingTop: "100px",
             [theme.breakpoints.up("md")]: {
-                paddingTop:0
+                paddingTop: 0,
             },
         },
         navContainer: {
@@ -228,7 +228,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 <meta name="og:url" content={url} />
                 <meta name="og:description" content={description.substr(0, 150)} />
                 <meta name="twitter:card" content="summary_large_image" />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous"/>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.css" integrity="sha384-IKOookmJ6jaAbJnGdgrLG5MDmzxJmjkIm6XCFqxnhzuMbfkEhGQalwVq2sYnGyZM" crossOrigin="anonymous" />
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
                 {!!next && <link rel="next" href={baseDomain + "/" + next.id.join("/")} />}
                 {setCanonical && <link rel="canonical" href={url} />}
@@ -272,34 +272,26 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             />
                         </form>
                     </div>
-                    <Link href="https://github.com/BabylonJS/Babylon.js">
-                        <a rel="noopener" target="_blank">
-                            <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
-                                <GithubIcon></GithubIcon>
-                            </IconButton>
-                        </a>
+                    <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
+                        <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
+                            <GithubIcon></GithubIcon>
+                        </IconButton>
                     </Link>
                 </Toolbar>
                 <div className={classes.navContainer}>
-                    <Link href="/typedoc">
-                        <a>API</a>
-                    </Link>
+                    <Link href="/typedoc">API</Link>
                     {!!previous && (
                         <Link key="previousArticle" href={"/" + previous.id.join("/")}>
-                            <a>
-                                <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
-                                    <LeftArrowIcon></LeftArrowIcon>
-                                </Tooltip>
-                            </a>
+                            <Tooltip title={`Previous article: ${previous.metadata.title}`} aria-label="Previous article">
+                                <LeftArrowIcon></LeftArrowIcon>
+                            </Tooltip>
                         </Link>
                     )}
                     {!!next && (
                         <Link key="nextArticle" href={"/" + next.id.join("/")}>
-                            <a>
-                                <Tooltip title={`Next article: ${next.metadata.title}`} aria-label="Next article">
-                                    <RightArrowIcon></RightArrowIcon>
-                                </Tooltip>
-                            </a>
+                            <Tooltip title={`Next article: ${next.metadata.title}`} aria-label="Next article">
+                                <RightArrowIcon></RightArrowIcon>
+                            </Tooltip>
                         </Link>
                     )}
                     <div className={classes.breadcrumbsContainer}>
@@ -307,9 +299,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             return (
                                 <div key={`bc-${idx}`}>
                                     <span>
-                                        <Link href={link.url}>
-                                            <a>{link.name}</a>
-                                        </Link>
+                                        <Link href={link.url}>{link.name}</Link>
                                     </span>
                                     <span>{idx !== breadcrumbs.length - 1 ? "|" : ""}</span>
                                 </div>

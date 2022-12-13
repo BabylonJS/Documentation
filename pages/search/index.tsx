@@ -78,6 +78,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [apiOnly, setApiOnly] = useState<boolean>(false);
+    const [filterApi, setFilterApi] = useState<boolean>(false);
     const [noResults, setNoResults] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const classes = useStyles();
@@ -144,6 +145,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                     }}
                 />
                 <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiChange} name="apiOnly" color="primary" />} label="API Only" />
+                <FormControlLabel control={<Checkbox checked={filterApi} onChange={handleApiChange} name="apiOnly" color="primary" />} label="Filter API" />
             </FormGroup>
         </form>
     );

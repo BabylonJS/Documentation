@@ -154,9 +154,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                             {Array.from(tags).map((chip: string) => {
                                 return (
                                     <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
-                                        <a>
-                                            <Chip size="small" color="primary" label={chip} />
-                                        </a>
+                                        <Chip size="small" color="primary" label={chip} />
                                     </Link>
                                 );
                             })}
@@ -189,12 +187,10 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         size="small"
                         color="inherit"
                     >
-                        <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-                            <a target="_blank">
-                                <Tooltip title={`Open ${searchResult.id} in a new tab`}>
-                                    <ExternalLinkIcon></ExternalLinkIcon>
-                                </Tooltip>
-                            </a>
+                        <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`} target="_blank">
+                            <Tooltip title={`Open ${searchResult.id} in a new tab`}>
+                                <ExternalLinkIcon></ExternalLinkIcon>
+                            </Tooltip>
                         </Link>
                     </IconButton>
                 </Typography>

@@ -104,14 +104,12 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     </IconButton>
                 </a>
                 <span title={title}>{title}</span>
-                <Link href={link}>
-                    <a target="_blank">
-                        <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
-                            <Tooltip title={`Open ${type} ${title} in a new tab`}>
-                                <ExternalLinkIcon></ExternalLinkIcon>
-                            </Tooltip>
-                        </IconButton>
-                    </a>
+                <Link href={link} target={"_blank"}>
+                    <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
+                        <Tooltip title={`Open ${type} ${title} in a new tab`}>
+                            <ExternalLinkIcon></ExternalLinkIcon>
+                        </Tooltip>
+                    </IconButton>
                 </Link>
             </div>
             <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
@@ -125,7 +123,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     src={image || imageUrl || getExampleImageUrl(example)}
                     title={title}
                     alt={title}
-                    layout="fill"
+                    fill={true}
                 ></Image>
             </div>
             <div className={classes.footer}>
