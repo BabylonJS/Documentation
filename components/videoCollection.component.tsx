@@ -44,9 +44,9 @@ const useStyles = makeStyles((theme: Theme) =>
 export const VideoCollection: FunctionComponent<{ videoLinks: Array<string | { url: string; title: string }> }> = ({ videoLinks }) => {
     const classes = useStyles();
     const isYoutube = (url: string) => {
-        if (url.indexOf("youtu.be") !== -1) {
+        if (url.indexOf("youtu.be/") !== -1) {
             return url.split("youtu.be/")[1];
-        } else if (url.indexOf("youtube.com")) {
+        } else if (url.indexOf("youtube.com/")) {
             return url.split("v=")[1];
         }
         return "";
