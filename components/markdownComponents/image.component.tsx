@@ -87,14 +87,17 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
-            properties.layout = "fill";
+            properties.fill = true;
+        } else {
+            properties.width = +properties.width;
+            properties.height = +properties.height;
         }
         try {
             return (
                 <Image
                     unoptimized={true}
                     onLoadingComplete={(e) => {
-                        if (properties.layout === "fill") {
+                        if (properties.fill === true) {
                             try {
                                 // const imgTag = e.target as HTMLImageElement;
                                 let h = e.naturalHeight;

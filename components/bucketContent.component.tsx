@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
             height: 160,
             minHeight: 160,
             minWidth: 200,
-            width: '100%',
+            width: "100%",
 
             [theme.breakpoints.up("lg")]: {
                 width: "50% !important",
@@ -84,24 +84,22 @@ interface IBucketItem {
 const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUrl, description }: IBucketItem) => {
     const classes = useStyles();
     return (
-        <Link key={link} href={link}>
-            <a className={classes.divRoot}>
-                <Card className={classes.root}>
-                    <div className={classes.details}>
-                        <CardContent className={classes.content}>
-                            <Typography component="h6" variant="h6">
-                                {title}
-                            </Typography>
-                            <Typography style={{}} variant="subtitle1" color="textSecondary" title={title}>
-                                {description}
-                            </Typography>
-                        </CardContent>
-                    </div>
-                    <div className={classes.imageContainer}>
-                        <Image alt={title} src={imageUrl} layout="fill"></Image>
-                    </div>
-                </Card>
-            </a>
+        <Link key={link} href={link} className={classes.divRoot}>
+            <Card className={classes.root}>
+                <div className={classes.details}>
+                    <CardContent className={classes.content}>
+                        <Typography component="h6" variant="h6">
+                            {title}
+                        </Typography>
+                        <Typography style={{}} variant="subtitle1" color="textSecondary" title={title}>
+                            {description}
+                        </Typography>
+                    </CardContent>
+                </div>
+                <div className={classes.imageContainer}>
+                    <Image alt={title} src={imageUrl} fill={true}></Image>
+                </div>
+            </Card>
         </Link>
     );
 };
@@ -134,10 +132,8 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                             {externalLinks.map(({ url, title }) => {
                                 return (
                                     <li key={url}>
-                                        <Link href={url}>
-                                            <a rel="noopener" target="_blank">
-                                                {title}
-                                            </a>
+                                        <Link href={url} target={"_blank"} rel={"noopener"}>
+                                            {title}
                                         </Link>
                                     </li>
                                 );
