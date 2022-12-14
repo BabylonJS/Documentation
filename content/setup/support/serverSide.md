@@ -44,13 +44,13 @@ BABYLON.SceneLoader.ImportMesh("", "https://playground.babylonjs.com/scenes/", "
     camera.target = newMeshes[0];
 
     console.log("Meshes loaded from babylon file: " + newMeshes.length);
-    for (var index = 0; index < newMeshes.length; index++) {
+    for (let index = 0; index < newMeshes.length; index++) {
         console.log(newMeshes[index].toString());
     }
 
     BABYLON.SceneLoader.ImportMesh("", "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
         console.log("Meshes loaded from gltf file: " + meshes.length);
-        for (var index = 0; index < meshes.length; index++) {
+        for (let index = 0; index < meshes.length; index++) {
             console.log(meshes[index].toString());
         }
     });

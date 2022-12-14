@@ -98,7 +98,7 @@ To map sprites 0 to 5 onto faces 0 to 5 it is sufficient for the face number to 
 
   var faceUV = new Array(6);
 
-  for (var i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     faceUV[i] = new BABYLON.Vector4(i/columns, 0, (i+1)/columns, 1/rows);
   }
 ```
@@ -146,7 +146,7 @@ As you view the box in the above playground from different angles you will notic
   var faceUV = new Array(6);
 
   //set all values to zero
-  for (var i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     faceUV[i] = new BABYLON.Vector4(0, 0, 0, 0);
   }
 

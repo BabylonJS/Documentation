@@ -34,7 +34,7 @@ Here we create a simple plane ribbon in the xOz plane
 // path function
 var pathFunction = function(k) {
   var path = [];
-  for (var i = 0; i < 60; i++) {
+  for (let i = 0; i < 60; i++) {
     var x = i - 30;
     var y = 0;
     var z = k;
@@ -45,7 +45,7 @@ var pathFunction = function(k) {
 // ribbon creation
 var sideO = BABYLON.Mesh.BACKSIDE;
 var pathArray = [];
-for(var i = -20; i < 20; i++) {
+for(let i = -20; i < 20; i++) {
   pathArray.push(pathFunction(i * 2));
 }
 var mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene, true, sideO);
@@ -58,7 +58,7 @@ We can now imagine we want to change this existing ribbon _y_ coordinates accord
 Note we don't create new paths or a new _pathArray_ array. We just access with indexes to every element and just change values.   
 ```javascript
 var updatePath = function(path) {
-  for (var i = 0; i < path.length; i++) {
+  for (let i = 0; i < path.length; i++) {
     var x = path[i].x;
     var z = path[i].z;
     var y = 20 * Math.sin(i/ 10);
@@ -69,7 +69,7 @@ var updatePath = function(path) {
 };
 
 // update pathArray
-for(var p = 0; p < pathArray.length; p++) {
+for(let p = 0; p < pathArray.length; p++) {
   updatePath(pathArray[p]);
 }
 ```
@@ -92,7 +92,7 @@ If we now want its shape to evolve dynamically, we just have to set the _pathArr
 
 ```javascript
 var updatePath = function(path, k) {
-  for (var i = 0; i < path.length; i++) {
+  for (let i = 0; i < path.length; i++) {
     var x = path[i].x;
     var z = path[i].z;
     var y = 20 * Math.sin(i/ 10) * Math.sin(k + z / 40);
@@ -109,7 +109,7 @@ var mesh = BABYLON.Mesh.CreateRibbon("ribbon", pathArray, false, false, 0, scene
 var k = 0;
 scene.registerBeforeRender(function() {
   // path array update
-  for(var p = 0; p < pathArray.length; p++) {
+  for(let p = 0; p < pathArray.length; p++) {
     updatePath(pathArray[p], k);
   }
   // ribbon update
@@ -288,7 +288,7 @@ var mesh = CreateXXX("mesh", path, etc, ..., scene, true); // updatable = true :
 var computeValue = function(val1, val2) { ... }; // your update logic : returns a value in function of val1 and val2
 var getParam = function() { ... }; // returns a param value evolving in the render loop
 var updatePath = function(path, k) { // updates the existing path array elements
-  for (var i = 0; i < path.length; i++) {
+  for (let i = 0; i < path.length; i++) {
     var x = computeValue(path[i].x, k);
     var y = computeValue(path[i].y, k);
     var z = computeValue(path[i].z, k);

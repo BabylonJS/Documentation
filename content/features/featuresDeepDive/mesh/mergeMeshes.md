@@ -62,7 +62,7 @@ var mergeMeshes = function (meshName, arrayObj, scene) {
   var MatricesIndicesKind = true;
   var MatricesWeightsKind = true;
 
-  for (var i = 0; i != arrayObj.length; i++) {
+  for (let i = 0; i != arrayObj.length; i++) {
     if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UVKind])) UVKind = false;
     if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UV2Kind])) UV2Kind = false;
     if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.ColorKind])) ColorKind = false;
@@ -86,14 +86,14 @@ var mergeMeshes = function (meshName, arrayObj, scene) {
     arrayObj[i].computeWorldMatrix(true);
     var worldMatrix = arrayObj[i].getWorldMatrix();
 
-    for (var ite = 0; ite != arrayPos[i].length; ite += 3) {
+    for (let ite = 0; ite != arrayPos[i].length; ite += 3) {
       var vertex = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
       savedPosition.push(vertex.x);
       savedPosition.push(vertex.y);
       savedPosition.push(vertex.z);
     }
 
-    for (var iter = 0; iter != arrayNormal[i].length; iter += 3) {
+    for (let iter = 0; iter != arrayNormal[i].length; iter += 3) {
       var vertex = BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
       savedNormal.push(vertex.x);
       savedNormal.push(vertex.y);

@@ -4,8 +4,8 @@ image:
 description: Learn how to assign different objects to different layer masks.
 keywords: diving deeper, layer masks, multi-cam
 further-reading:
-    - title: In-Depth layerMask
-      url: /features/featuresDeepDive/scene/layermask
+  - title: In-Depth layerMask
+    url: /features/featuresDeepDive/scene/layermask
 video-overview:
 video-content:
 ---
@@ -35,11 +35,11 @@ To setup for multi-cameras:
 if (scene.activeCameras.length === 0){
     scene.activeCameras.push(scene.activeCamera);
 }
-var secondCamera = new Babylon.Camera(...);
+const secondCamera = new Babylon.Camera(...);
 secondCamera.layerMask = 0x10000000;
 scene.activeCameras.push(secondCamera);
 
-var Button = new BABYLON.Mesh(...);
+const Button = new BABYLON.Mesh(...);
 Button.layerMask = 0x10000000;
 ```
 
@@ -48,7 +48,7 @@ Button.layerMask = 0x10000000;
 Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
 
 ```javascript
-for (var i = scene.lights.length - 1; i >= 0; i--) {
+for (let i = scene.lights.length - 1; i >= 0; i--) {
   scene.lights[i].excludeWithLayerMask = 0x10000000;
 }
 ```
@@ -56,7 +56,7 @@ for (var i = scene.lights.length - 1; i >= 0; i--) {
 Then make the "button" light:
 
 ```javascript
-var light = new BABYLON.Light(...);
+const light = new BABYLON.Light(...);
 light.includeOnlyWithLayerMask = 0x10000000;
 ```
 
@@ -85,51 +85,51 @@ function addGunSight(scene) {
   if (scene.activeCameras.length === 0) {
     scene.activeCameras.push(scene.activeCamera);
   }
-  var secondCamera = new BABYLON.FreeCamera("GunSightCamera", new BABYLON.Vector3(0, 0, -50), scene);
+  const secondCamera = new BABYLON.FreeCamera("GunSightCamera", new BABYLON.Vector3(0, 0, -50), scene);
   secondCamera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
   secondCamera.layerMask = 0x20000000;
   scene.activeCameras.push(secondCamera);
 
   meshes = [];
-  var h = 250;
-  var w = 250;
+  const h = 250;
+  const w = 250;
 
-  var y = BABYLON.Mesh.CreateBox("y", h * 0.2, scene);
+  const y = BABYLON.Mesh.CreateBox("y", h * 0.2, scene);
   y.scaling = new BABYLON.Vector3(0.05, 1, 1);
   y.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(y);
 
-  var x = BABYLON.Mesh.CreateBox("x", h * 0.2, scene);
+  const x = BABYLON.Mesh.CreateBox("x", h * 0.2, scene);
   x.scaling = new BABYLON.Vector3(1, 0.05, 1);
   x.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(x);
 
-  var lineTop = BABYLON.Mesh.CreateBox("lineTop", w * 0.8, scene);
+  const lineTop = BABYLON.Mesh.CreateBox("lineTop", w * 0.8, scene);
   lineTop.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineTop.position = new BABYLON.Vector3(0, h * 0.5, 0);
   meshes.push(lineTop);
 
-  var lineBottom = BABYLON.Mesh.CreateBox("lineBottom", w * 0.8, scene);
+  const lineBottom = BABYLON.Mesh.CreateBox("lineBottom", w * 0.8, scene);
   lineBottom.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineBottom.position = new BABYLON.Vector3(0, h * -0.5, 0);
   meshes.push(lineBottom);
 
-  var lineLeft = BABYLON.Mesh.CreateBox("lineLeft", h, scene);
+  const lineLeft = BABYLON.Mesh.CreateBox("lineLeft", h, scene);
   lineLeft.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineLeft.position = new BABYLON.Vector3(w * -0.4, 0, 0);
   meshes.push(lineLeft);
 
-  var lineRight = BABYLON.Mesh.CreateBox("lineRight", h, scene);
+  const lineRight = BABYLON.Mesh.CreateBox("lineRight", h, scene);
   lineRight.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineRight.position = new BABYLON.Vector3(w * 0.4, 0, 0);
   meshes.push(lineRight);
 
-  var gunSight = BABYLON.Mesh.MergeMeshes(meshes);
+  const gunSight = BABYLON.Mesh.MergeMeshes(meshes);
   gunSight.name = "gunSight";
   gunSight.layerMask = 0x20000000;
   gunSight.freezeWorldMatrix();
 
-  var mat = new BABYLON.StandardMaterial("emissive mat", scene);
+  const mat = new BABYLON.StandardMaterial("emissive mat", scene);
   mat.checkReadyOnlyOnce = true;
   mat.emissiveColor = new BABYLON.Color3(0, 1, 0);
 

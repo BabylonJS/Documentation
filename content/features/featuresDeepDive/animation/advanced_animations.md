@@ -13,7 +13,7 @@ video-content:
 Starting with Babylon.js v3.3, you can use promises to wait for an animatable to end:
 
 ```javascript
-var anim = scene.beginAnimation(box1, 0, 100, false);
+const anim = scene.beginAnimation(box1, 0, 100, false);
 
 console.log("before");
 await anim.waitAsync();
@@ -95,11 +95,11 @@ To start an animation with a weight, you can use the new `scene.beginWeightedAni
 
 ```javascript
 // Will have a weight of 1.0
-var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
+const idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
 // Will have a weight of 0
-var walkAnim = scene.beginWeightedAnimation(skeleton, 90, 124, 0, true);
+const walkAnim = scene.beginWeightedAnimation(skeleton, 90, 124, 0, true);
 // Will have a weight of 0
-var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
+const runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 ```
 
 This function accepts the following parameters:
@@ -121,11 +121,11 @@ You can also set the `weight` value of any Animatable at any time to switch to a
 In a same way, you can set it to -1 to turn the weight mode off. If you set the weight to 0, the animation will be considered paused.
 
 ```javascript
-var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
-var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
+const idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
+const runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 
 idleAnim.weight = 0.5;
-runAnim.weight = 0.5
+runAnim.weight = 0.5;
 ```
 
 If your animations are not of the same size (same distance between from and to keys) then you will need to turn animation synchronization on with the following code:
@@ -157,7 +157,7 @@ The following example demonstrates how to convert animations to additive and ble
 When you have a mesh with multiple animations or a skeleton (where all bones can be animated) you can use an animationPropertiesOverride to specify some general properties for all child animations. These properties will override local animation properties:
 
 ```javascript
-var overrides = new BABYLON.AnimationPropertiesOverride();
+const overrides = new BABYLON.AnimationPropertiesOverride();
 
 overrides.enableBlending = true;
 overrides.blendingSpeed = 0.1;
@@ -209,19 +209,19 @@ Here is a straightforward sample to animate a torus within a `CircleEase` easing
 
 ```javascript
 //Create a Vector3 animation at 30 FPS
-var animationTorus = new BABYLON.Animation("torusEasingAnimation", "position", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+const animationTorus = new BABYLON.Animation("torusEasingAnimation", "position", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
 // the torus destination position
-var nextPos = torus.position.add(new BABYLON.Vector3(-80, 0, 0));
+const nextPos = torus.position.add(new BABYLON.Vector3(-80, 0, 0));
 
 // Animation keys
-var keysTorus = [];
+const keysTorus = [];
 keysTorus.push({ frame: 0, value: torus.position });
 keysTorus.push({ frame: 120, value: nextPos });
 animationTorus.setKeys(keysTorus);
 
 // Creating an easing function
-var easingFunction = new BABYLON.CircleEase();
+const easingFunction = new BABYLON.CircleEase();
 
 // For each easing function, you can choose between EASEIN (default), EASEOUT, EASEINOUT
 easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
@@ -244,13 +244,13 @@ Here is a pretty cool implementation using the bezier curve algorithm :
 ![bezier curve algorithm](/img/how_to/Animations/bezier.jpg)
 
 ```javascript
-var bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
+const bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
 ```
 
 Finally, you can extend the **EasingFunction** base function to create your own easing function, like this :
 
 ```javascript
-var FunnyEase = (function (_super) {
+const FunnyEase = (function (_super) {
   __extends(FunnyEase, _super);
   function FunnyEase() {
     _super.apply(this, arguments);
@@ -279,7 +279,7 @@ It's very simple to do this:
 // - The frame at which the event will be triggered
 // - The action to execute
 // - A boolean if the event should execute only once (false by default)
-var event1 = new BABYLON.AnimationEvent(
+const event1 = new BABYLON.AnimationEvent(
   50,
   function () {
     console.log("Yeah!");
@@ -308,7 +308,7 @@ this.engine = new BABYLON.Engine(theCanvas, true, {
 This way, the scene will render quantizing physics and animation steps by discrete chunks of the timeStep amount, as set in the physics engine. For example:
 
 ```javascript
-var physEngine = new BABYLON.CannonJSPlugin(false);
+const physEngine = new BABYLON.CannonJSPlugin(false);
 newScene.enablePhysics(this.gravity, physEngine);
 physEngine.setTimeStep(1 / 60);
 ```

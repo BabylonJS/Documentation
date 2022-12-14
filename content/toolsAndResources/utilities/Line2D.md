@@ -74,7 +74,7 @@ var line2D = function(name, options, scene) {
 
 	if(nbPoints > 2 && closed) {	
 		path[2].subtractToRef(path[1], nextLine);    
-		for(var p = 0; p < nbPoints; p++) {    
+		for(let p = 0; p < nbPoints; p++) {    
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;                
 			lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
@@ -91,7 +91,7 @@ var line2D = function(name, options, scene) {
 		innerData[0] = path[0].subtract(lineNormal.scale(width));
 		outerData[0] = path[0].add(lineNormal.scale(width));
 	
-		for(var p = 0; p < nbPoints - 2; p++) {	
+		for(let p = 0; p < nbPoints - 2; p++) {	
 			path[p + 2].subtractToRef(path[p + 1], nextLine);
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));			
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;			
@@ -119,7 +119,7 @@ var line2D = function(name, options, scene) {
 	var maxY = Number.MIN_VALUE;
 	var minY = Number.MAX_VALUE;
 	
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(innerData[p].x, innerData[p].y, innerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -127,7 +127,7 @@ var line2D = function(name, options, scene) {
 		minY = Math.min(innerData[p].y, minY);
 	}
 
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(outerData[p].x, outerData[p].y, outerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -135,7 +135,7 @@ var line2D = function(name, options, scene) {
 		minY = Math.min(innerData[p].y, minY);
 	}
 
-        for(var i = 0; i < nbPoints - 1; i++) {
+        for(let i = 0; i < nbPoints - 1; i++) {
             indices.push(i, i + 1, nbPoints + i + 1);
             indices.push(i, nbPoints + i + 1, nbPoints + i)
         }
@@ -149,7 +149,7 @@ var line2D = function(name, options, scene) {
         var uvs =[];
 
 	if(standardUV) {
-		for(var p = 0; p < positions.length; p += 3) {
+		for(let p = 0; p < positions.length; p += 3) {
 			uvs.push((positions[p] - minX)/(maxX - minX), (positions[p + 1] - minY)/(maxY - minY))
 		}
 	}
@@ -181,7 +181,7 @@ var line2D = function(name, options, scene) {
 		uvs[2 * indices[4]] = (p3 - minX)/(maxX - minX);
 		uvs[2 * indices[4] + 1] = 0;
 	
-		for(var i = 6; i < indices.length; i +=6) {
+		for(let i = 6; i < indices.length; i +=6) {
 		
 			flip = (flip + 1) % 2;
 			v0 = innerData[0];
@@ -296,7 +296,7 @@ var createScene = function() {
 
 		if(nbPoints > 2 && closed) {
             path[0].subtractToRef(path[nbPoints - 1], line);	    
-			for(var p = 0; p < nbPoints; p++) {
+			for(let p = 0; p < nbPoints; p++) {
                 path[(p + 1) % nbPoints].subtractToRef(path[p], nextLine);    
 				angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 				direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;                
@@ -328,7 +328,7 @@ var createScene = function() {
             positions.push(in0.x, in0.y, in0.z, out0.x, out0.y, out0.z);
             uvs.push(0, 0, 0, 1);
             indices.push(2, 3, 1);
-            for(var p = 1; p < nbPoints - 1; p++) {
+            for(let p = 1; p < nbPoints - 1; p++) {
                 path[p + 1].subtractToRef(path[p], nextLine);
                 angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 			    direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;
@@ -439,7 +439,7 @@ var line2D = function(name, options, scene) {
 
 	if(nbPoints > 2 && closed) {	
 		path[2].subtractToRef(path[1], nextLine);    
-		for(var p = 0; p < nbPoints; p++) {    
+		for(let p = 0; p < nbPoints; p++) {    
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().y;                
 			lineNormal = new BABYLON.Vector3(-line.z, 0, 1 * line.x).normalize();
@@ -456,7 +456,7 @@ var line2D = function(name, options, scene) {
 		innerData[0] = path[0].subtract(lineNormal.scale(width));
 		outerData[0] = path[0].add(lineNormal.scale(width));
 	
-		for(var p = 0; p < nbPoints - 2; p++) {	
+		for(let p = 0; p < nbPoints - 2; p++) {	
 			path[p + 2].subtractToRef(path[p + 1], nextLine);
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));			
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().y;			
@@ -484,7 +484,7 @@ var line2D = function(name, options, scene) {
 	var maxZ = Number.MIN_VALUE;
 	var minZ = Number.MAX_VALUE;
 	
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(innerData[p].x, innerData[p].y, innerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -492,7 +492,7 @@ var line2D = function(name, options, scene) {
 		minZ = Math.min(innerData[p].z, minZ);
 	}
 
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(outerData[p].x, outerData[p].y, outerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -500,7 +500,7 @@ var line2D = function(name, options, scene) {
 		minZ = Math.min(innerData[p].z, minZ);
 	}
 
-        for(var i = 0; i < nbPoints - 1; i++) {
+        for(let i = 0; i < nbPoints - 1; i++) {
             indices.push(i, i + 1, nbPoints + i + 1);
             indices.push(i, nbPoints + i + 1, nbPoints + i)
         }
@@ -514,7 +514,7 @@ var line2D = function(name, options, scene) {
         var uvs =[];
 
 	if(standardUV) {
-		for(var p = 0; p < positions.length; p += 3) {
+		for(let p = 0; p < positions.length; p += 3) {
 			uvs.push((positions[p] - minX)/(maxX - minX), (positions[p + 2] - minZ)/(maxZ - minZ));               
 		}
 	}
@@ -546,7 +546,7 @@ var line2D = function(name, options, scene) {
 		uvs[2 * indices[4]] = (p3 - minX)/(maxX - minX);
 		uvs[2 * indices[4] + 1] = 0;
 	
-		for(var i = 6; i < indices.length; i +=6) {
+		for(let i = 6; i < indices.length; i +=6) {
 		
 			flip = (flip + 1) % 2;
 			v0 = innerData[0];
@@ -653,7 +653,7 @@ var line2D = function(name, options, scene) {
 
 	if(nbPoints > 2 && closed) {	
 		path[2].subtractToRef(path[1], nextLine);    
-		for(var p = 0; p < nbPoints; p++) {    
+		for(let p = 0; p < nbPoints; p++) {    
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().y;                
 			lineNormal = new BABYLON.Vector3(-line.z, 0, 1 * line.x).normalize();
@@ -670,7 +670,7 @@ var line2D = function(name, options, scene) {
 		innerData[0] = path[0];
 		outerData[0] = path[0].add(lineNormal.scale(width));
 	
-		for(var p = 0; p < nbPoints - 2; p++) {	
+		for(let p = 0; p < nbPoints - 2; p++) {	
 			path[p + 2].subtractToRef(path[p + 1], nextLine);
 			angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));			
 			direction = BABYLON.Vector3.Cross(line, nextLine).normalize().y;			
@@ -698,7 +698,7 @@ var line2D = function(name, options, scene) {
 	var maxZ = Number.MIN_VALUE;
 	var minZ = Number.MAX_VALUE;
 	
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(innerData[p].x, innerData[p].y, innerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -706,7 +706,7 @@ var line2D = function(name, options, scene) {
 		minZ = Math.min(innerData[p].z, minZ);
 	}
 
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		positions.push(outerData[p].x, outerData[p].y, outerData[p].z);
 		maxX = Math.max(innerData[p].x, maxX);
 		minX = Math.min(innerData[p].x, minX);
@@ -714,7 +714,7 @@ var line2D = function(name, options, scene) {
 		minZ = Math.min(innerData[p].z, minZ);
 	}
 
-        for(var i = 0; i < nbPoints - 1; i++) {
+        for(let i = 0; i < nbPoints - 1; i++) {
             indices.push(i, i + 1, nbPoints + i + 1);
             indices.push(i, nbPoints + i + 1, nbPoints + i)
         }
@@ -728,7 +728,7 @@ var line2D = function(name, options, scene) {
         var uvs =[];
 
 	if(standardUV) {
-		for(var p = 0; p < positions.length; p += 3) {
+		for(let p = 0; p < positions.length; p += 3) {
 			uvs.push((positions[p] - minX)/(maxX - minX), (positions[p + 2] - minZ)/(maxZ - minZ));                
 		}
 	}
@@ -760,7 +760,7 @@ var line2D = function(name, options, scene) {
 		uvs[2 * indices[4]] = (p3 - minX)/(maxX - minX);
 		uvs[2 * indices[4] + 1] = 0;
 	
-		for(var i = 6; i < indices.length; i +=6) {
+		for(let i = 6; i < indices.length; i +=6) {
 		
 			flip = (flip + 1) % 2;
 			v0 = innerData[0];
@@ -867,7 +867,7 @@ var parallelLines = function(options, scene) {
 	innerData[0] = path[0].subtract(lineNormal.scale(innerWidth));
 	outerData[0] = path[0].add(lineNormal.scale(outerWidth));
 
-	for(var p = 0; p < nbPoints - 2; p++) {	
+	for(let p = 0; p < nbPoints - 2; p++) {	
 		path[p + 2].subtractToRef(path[p + 1], nextLine);
 		angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));			
 		direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;			

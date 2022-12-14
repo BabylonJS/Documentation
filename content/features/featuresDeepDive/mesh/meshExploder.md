@@ -37,7 +37,7 @@ var sphere1 = BABYLON.MeshBuilder.CreateSphere('sphere1', { segments:12, diamete
 sphere1.position.y += 2;
 toExplodeArray.push(sphere1);
 
-for (var alpha = 0; alpha < Math.PI*2; alpha+=Math.PI/10) {
+for (let alpha = 0; alpha < Math.PI*2; alpha+=Math.PI/10) {
     var sphere0 = BABYLON.MeshBuilder.CreateSphere('sphere0', { segments:8, diameter:.5 }, scene);
     sphere0.position.y = 2;
     sphere0.position.z = Math.cos(alpha)*1.25;

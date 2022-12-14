@@ -51,12 +51,12 @@ BABYLON.Mesh.prototype.minimizeVertices = function() {
 
         var _mapPtr =0; // new index;
         var _uniquePositions = {}; // unique vertex positions
-        for(var _i=0; _i<_idata.length; _i+=3) {
+        for(let _i=0; _i<_idata.length; _i+=3) {
             var _facet = [_idata[_i], _idata[_i + 1], _idata[_i+2]]; //facet vertex indices
             var _pstring = []; //lists facet vertex positions (x,y,z) as string "xyz""
-            for(var _j = 0; _j<3; _j++) { //
+            for(let _j = 0; _j<3; _j++) { //
                 _pstring[_j] = "";
-                for(var _k = 0; _k<3; _k++) {
+                for(let _k = 0; _k<3; _k++) {
                     //small values make 0
                     if (Math.abs(_pdata[3*_facet[_j] + _k]) < 0.0001) {
                         _pdata[3*_facet[_j] + _k] = 0;
@@ -70,14 +70,14 @@ BABYLON.Mesh.prototype.minimizeVertices = function() {
                 //for each facet position check if already listed in uniquePositions
                 // if not listed add to uniquePositions and set index pointer
                 // if listed use its index in uniquePositions and new index pointer
-                for(var _j = 0; _j<3; _j++) { 
+                for(let _j = 0; _j<3; _j++) { 
                     var _ptr = _uniquePositions[_pstring[_j]];
                     if(_ptr === undefined) {
                         _uniquePositions[_pstring[_j]] = _mapPtr;
                         _ptr = _mapPtr++;
                         //not listed so add individual x, y, z coordinates to new positions array newPdata
                         //and add matching normal data to new normals array newNdata
-                        for(var _k = 0; _k<3; _k++) {
+                        for(let _k = 0; _k<3; _k++) {
                             _newPdata.push(_pdata[3*_facet[_j] + _k]);
                         }
                     }

@@ -51,14 +51,14 @@ To create a heightmap from a square ribbon:
 ```javascript
 var exponentialPath = function (p) {
     var path = [];
-    for (var i = -50; i <= 50; i++) {
+    for (let i = -50; i <= 50; i++) {
         path.push(new BABYLON.Vector3(p-50, (Math.sin(p / 3) * 10 * Math.exp((i - p) / 100) + i / 3), i));
     }
     return path;
 };
 // let's populate arrayOfPaths with all these different paths
 var arrayOfPaths = [];
-for (var p = 0; p <= 100; p++) {
+for (let p = 0; p <= 100; p++) {
     arrayOfPaths[p] = exponentialPath(p);
 
 }

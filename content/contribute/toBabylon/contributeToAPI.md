@@ -1,6 +1,6 @@
 ---
 title: Contribute To The API
-image: 
+image:
 description: Learn how to contribute to the Babylon.js API.
 keywords: diving deeper, contribution, contribute, open-source, oss, API, develope
 further-reading:
@@ -150,7 +150,7 @@ export class MapperManager {
     this._mappers = {
       html: new HTMLMapper(),
       json: new JSONMapper(),
-      dom: new DOMMapper()
+      dom: new DOMMapper(),
     };
   }
 }
@@ -313,7 +313,7 @@ Plain comments to describe the FUNCTION
  * Clears the texture
  */
 public clear(): void {
-    var size = this.getSize();
+    const size = this.getSize();
     this._context.fillRect(0, 0, size.width, size.height);
 }
 ```
@@ -363,7 +363,7 @@ public getContext(): CanvasRenderingContext2D {
  * @returns the serialized object
  */
 public serialize(): any {
-    var serializationObject = SerializationHelper.Serialize(this);
+    const serializationObject = SerializationHelper.Serialize(this);
 
     // Internal working here
 
@@ -416,7 +416,7 @@ this.onErrorCallback(onError, msg, exception);
  * @param update defines whether texture is immediately update (default is true)
  */
 public drawText(text: string, x: number, y: number, font: string, color: string, clearColor: string, invertY?: boolean, update = true) {
-    var size = this.getSize();
+    const size = this.getSize();
     if (clearColor) {
 this._context.fillStyle = clearColor;
 this._context.fillRect(0, 0, size.width, size.height);
@@ -424,11 +424,11 @@ this._context.fillRect(0, 0, size.width, size.height);
 
     this._context.font = font;
     if (x === null || x === undefined) {
-var textSize = this._context.measureText(text);
+const textSize = this._context.measureText(text);
 x = (size.width - textSize.width) / 2;
     }
     if (y === null || y === undefined) {
-var fontSize = parseInt((font.replace(/\D/g, '')));;
+const fontSize = parseInt((font.replace(/\D/g, '')));;
 y = (size.height / 2) + (fontSize / 3.65);
     }
 
@@ -454,7 +454,7 @@ Comments to describe the FUNCTION and use @param for each parameter and @returns
  * @returns a new TextFileAssetTask object
  */
 public addTextFileTask(taskName: string, url: string): TextFileAssetTask {
-var task = new TextFileAssetTask(taskName, url);
+const task = new TextFileAssetTask(taskName, url);
     this._tasks.push(task);
 
     return task;
@@ -469,7 +469,7 @@ var task = new TextFileAssetTask(taskName, url);
  * @returns The hemispheric light
  */
 public transferToEffect(effect: Effect, lightIndex: string): HemisphericLight {
-    var normalizeDirection = Vector3.Normalize(this.direction);
+    const normalizeDirection = Vector3.Normalize(this.direction);
     this._uniformBuffer.updateFloat4("vLightData",
 normalizeDirection.x,
 normalizeDirection.y,
@@ -539,7 +539,7 @@ private follow(): void {
     this._cartesianCoordinates.y = this.radius * Math.sin(this.beta);
     this._cartesianCoordinates.z = this.radius * Math.sin(this.alpha) * Math.cos(this.beta);
 
-    var targetPosition = this.target.getAbsolutePosition();
+    const targetPosition = this.target.getAbsolutePosition();
     this.position = targetPosition.add(this._cartesianCoordinates);
     this.setTarget(targetPosition);
 }
@@ -547,12 +547,12 @@ private follow(): void {
 
 ```javascript
 private _drawRoundedRect(context: CanvasRenderingContext2D, offset: number = 0): void {
-    var x = this._currentMeasure.left + offset;
-    var y = this._currentMeasure.top + offset;
-    var width = this._currentMeasure.width - offset * 2;
-    var height = this._currentMeasure.height - offset * 2;
+    const x = this._currentMeasure.left + offset;
+    const y = this._currentMeasure.top + offset;
+    const width = this._currentMeasure.width - offset * 2;
+    const height = this._currentMeasure.height - offset * 2;
 
-    var radius = Math.min(height / 2 - 2, Math.min(width / 2 - 2, this._cornerRadius));
+    const radius = Math.min(height / 2 - 2, Math.min(width / 2 - 2, this._cornerRadius));
 
     context.beginPath();
     context.moveTo(x + radius, y);

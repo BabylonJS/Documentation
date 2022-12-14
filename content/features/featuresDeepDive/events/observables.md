@@ -1,6 +1,6 @@
 ---
 title: Observables
-image: 
+image:
 description: Learn all about observables in Babylon.js.
 keywords: diving deeper, observables
 further-reading:
@@ -58,7 +58,7 @@ import { io } from "socket.io-client";
 const socket = io("/admin");
 
 const onConnectObservable = new Observable();
-const text1 = new BABYLON.GUI.TextBlock;
+const text1 = new BABYLON.GUI.TextBlock();
 
 socket.on("connect", () => {
   onConnectObservable.notifyObservers();
@@ -72,7 +72,7 @@ onConnectObservable.add(() => {
 There is also a utility method `Observable.FromPromise` to create an Observable from a Promise:
 
 ```javascript
-const onStatusObservable = Observable.FromPromise(axios("/ping").then(response => response.statusText));
+const onStatusObservable = Observable.FromPromise(axios("/ping").then((response) => response.statusText));
 
 onStatusObservable.add((statusText) => {
   text1.text = "Server status: " + statusText;
@@ -90,7 +90,7 @@ In the following example the sphere and its scale change create an Observer thro
 Set the Observable that notifies its Observers before the scene starts the rendering each frame.
 
 ```javascript
-var alpha = 0;
+const alpha = 0;
 scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
@@ -103,8 +103,8 @@ scene.onBeforeRenderObservable.add(function () {
 To remove an Observer, you need to store it during it's creation to refer to it with remove. The following example remove the Observer before it is notified of even the first frame rendering.
 
 ```javascript
-var alpha = 0;
-var observer = scene.onBeforeRenderObservable.add(function () {
+const alpha = 0;
+const observer = scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
   alpha += 0.01;
@@ -118,8 +118,8 @@ scene.onBeforeRenderObservable.remove(observer);
 The following example removes the Observer during the rendering cycle. Since it is not possible to remove an Observer that does not exist there is a need to check whether the Observable still has the Observer.
 
 ```javascript
-var alpha = 0;
-var observer = scene.onBeforeRenderObservable.add(function () {
+const alpha = 0;
+const observer = scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
   alpha += 0.01;

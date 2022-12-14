@@ -86,9 +86,9 @@ knot00.addLODLevel(30, knot02);
 knot00.addLODLevel(45, knot03);
 knot00.addLODLevel(55, null);
 
-for (var x = -count; x <= count; x++) {
-    for (var y = -count; y <= count; y++) {
-        for (var z = 5; z < 10; z++) {
+for (let x = -count; x <= count; x++) {
+    for (let y = -count; y <= count; y++) {
+        for (let z = 5; z < 10; z++) {
             var knot = knot00.createInstance("knotI"),
             knot.position = new BABYLON.Vector3(x * scale, y * scale, z * scale);
         }

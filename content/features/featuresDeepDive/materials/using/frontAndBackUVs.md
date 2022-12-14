@@ -1,6 +1,6 @@
 ---
 title: Different Textures On The Front And Back Of A Mesh
-image: 
+image:
 description: Learn how to apply different textures to the front and back of a mesh.
 keywords: diving deeper, materials, face materials, front, back, UV, UVs
 further-reading:
@@ -18,24 +18,23 @@ To have different textures front and back the front and back image must be in th
 
 This is then split using the _frontUVs_ and _backUVs_ options.
 
-
 ## FrontUVs and BackUVs
 
-Both frontUVs and backUVs have the form Vector4(u0, v0, u1, v1) with 0&lt;=  u0, v0, u1, v1 &lt;= 1 and 
-(u0, v0) are the bottom left coordinates and (u1, v1) the top right coordinates of the clipping rectangle 
+Both frontUVs and backUVs have the form Vector4(u0, v0, u1, v1) with 0&lt;= u0, v0, u1, v1 &lt;= 1 and
+(u0, v0) are the bottom left coordinates and (u1, v1) the top right coordinates of the clipping rectangle
 of the image.
 
 To split the image above you can form two variables
 
 ```javascript
-var f = new BABYLON.Vector4(0.5,0, 1, 1); // front image = half the whole image along the width 
-var b = new BABYLON.Vector4(0,0, 0.5, 1); // back image = second half along the width 
+const f = new BABYLON.Vector4(0.5, 0, 1, 1); // front image = half the whole image along the width
+const b = new BABYLON.Vector4(0, 0, 0.5, 1); // back image = second half along the width
 ```
 
 and then place in the options
 
 ```javascript
-var plane = BABYLON.MeshBuilder.CreatePlane("plane", {height:1, width: 0.665, sideOrientation: BABYLON.Mesh.DOUBLESIDE, frontUVs: f, backUVs: b}, scene);
+const plane = BABYLON.MeshBuilder.CreatePlane("plane", { height: 1, width: 0.665, sideOrientation: BABYLON.Mesh.DOUBLESIDE, frontUVs: f, backUVs: b }, scene);
 ```
 
 taking into account width to height ratio of section of image.
@@ -43,7 +42,7 @@ taking into account width to height ratio of section of image.
 It is then just a case of creating a _StandardMaterial_ and setting the texture to the image.
 
 ```javascript
-var mat = new BABYLON.StandardMaterial("", scene);
+const mat = new BABYLON.StandardMaterial("", scene);
 mat.diffuseTexture = new BABYLON.Texture("URL to Image File", scene);
 plane.material = mat;
 ```

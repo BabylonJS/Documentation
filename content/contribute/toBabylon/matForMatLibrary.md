@@ -160,7 +160,7 @@ To test your material, open the /materialsLibrary/index.html page. References ar
 Then add the material at line 120:
 
 ```javascript
-var diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial(
+const diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial(
   "diffuseEmissive",
   scene
 );

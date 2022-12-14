@@ -137,7 +137,7 @@ Since the circle has been given a perturbation some small rotation of the car wi
 var points = [];
 var n = 50; // number of points - more points the slower the car
 var r = 50; //radius
-for (var i = 0; i < n + 1; i++) {
+for (let i = 0; i < n + 1; i++) {
 	points.push( new BABYLON.Vector3((r + (r/5)*Math.sin(8*i*Math.PI/n))* Math.cos(2*i*Math.PI/n), 0, (r + (r/10)*Math.sin(6*i*Math.PI/n)) * Math.sin(2*i*Math.PI/n)));
 }	
 	

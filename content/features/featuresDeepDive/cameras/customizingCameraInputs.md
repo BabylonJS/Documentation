@@ -37,8 +37,8 @@ Using input managers, you can add, remove, enable, or disable any input availabl
 The input manager is available through the camera's [inputs](/typedoc/classes/babylon.freecamera#inputs) property. For example:
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
-var inputManager = camera.inputs;
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const inputManager = camera.inputs;
 ```
 
 ## Configure your inputs
@@ -48,7 +48,7 @@ Most inputs provide settings to customize the sensibility and adapt it to your o
 Each input provides a short name available on the manager. The goal is to provide a friendly syntax when playing with your inputs.
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 camera.inputs.attached.gamepad.gamepadAngularSensibility = 250;
 ```
@@ -58,14 +58,14 @@ camera.inputs.attached.gamepad.gamepadAngularSensibility = 250;
 The input managers of `ArcRotateCamera` and `FreeCamera` expose short-hand functions for adding built-in inputs.
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.addGamepad();
 ```
 
 If you wish, you can also add an instance of your own input (we will cover how to implement your own input at the end of this article).
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.add(new BABYLON.FreeCameraGamepadInput());
 ```
 
@@ -76,7 +76,7 @@ When you call `attachControl` on the camera, you are activating all inputs attac
 If you want to disable an input temporarily, you can call `detachControl` directly on the input... like this:
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.attached.mouse.detachControl();
 camera.inputs.addGamepad();
 ```
@@ -92,7 +92,7 @@ camera.inputs.attachInput(camera.inputs.attached.mouse);
 Sometimes you want a very specific input mechanism. The best approach in such cases is probably to clear all inputs and add only those you may want in your scene.
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 camera.inputs.clear();
 camera.inputs.addMouse();
 ```
@@ -100,7 +100,7 @@ camera.inputs.addMouse();
 You can also remove a single input from your input manager. You can remove them by instance, or by Type name
 
 ```javascript
-var camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.FreeCamera("sceneCamera", new BABYLON.Vector3(0, 1, -15), scene);
 // remove by instance
 camera.inputs.remove(camera.inputs.attached.mouse);
 // remove by type
@@ -157,17 +157,16 @@ import "hammerjs";
 To use the new input you add it to your `camera.inputs` after you have create the camera. To avoid one input fighting the other remove the `ArcRotateCameraPointersInput` from `camera.inputs`. After you've created your Input you can set it's parameters. The default ones (please refer to https://github.com/RolandCsibrei/babylonjs-hammerjs-arc-rotate-camera/blob/680cf12155924a818faac5ff9d7f0a0271bb632b/src/utils/ArcRotateCameraHammerJsInput.ts#L21) are good for a general touch screen monitor so you may have to set them according to your needs.
 
 ```javascript
+// remove mouse input
+camera.inputs.removeByType("ArcRotateCameraPointersInput");
 
-    // remove mouse input
-    camera.inputs.removeByType('ArcRotateCameraPointersInput')
-
-    // add hammer js input
-    const hammerJsInput = new ArcRotateCameraHammerJsInput()
-    // now you can set the parameters you like
-    // let's double the zoomSensitivity (default is 1)
-    hammerJsInput.zoomSensitivity = 2
-    // add the input to the camera
-    camera.inputs.add(hammerJsInput)
+// add hammer js input
+const hammerJsInput = new ArcRotateCameraHammerJsInput();
+// now you can set the parameters you like
+// let's double the zoomSensitivity (default is 1)
+hammerJsInput.zoomSensitivity = 2;
+// add the input to the camera
+camera.inputs.add(hammerJsInput);
 ```
 
 Feel free to use this Input class as a starter for your own HammerJS based input.
@@ -185,7 +184,7 @@ camera.inputs.removeByType("FreeCameraKeyboardMoveInput");
 Now create the new input method `FreeCameraKeyboardRotateInput`:
 
 ```javascript
-var FreeCameraKeyboardRotateInput = function () {
+const FreeCameraKeyboardRotateInput = function () {
   this._keys = [];
   this.keysLeft = [37];
   this.keysRight = [39];
@@ -208,14 +207,14 @@ and attach and detach methods:
 
 ```javascript
 FreeCameraKeyboardRotateInput.prototype.attachControl = function (noPreventDefault) {
-  var _this = this;
-  var engine = this.camera.getEngine();
-  var element = engine.getInputElement();
+  const _this = this;
+  const engine = this.camera.getEngine();
+  const element = engine.getInputElement();
   if (!this._onKeyDown) {
     element.tabIndex = 1;
     this._onKeyDown = function (evt) {
       if (_this.keysLeft.indexOf(evt.keyCode) !== -1 || _this.keysRight.indexOf(evt.keyCode) !== -1) {
-        var index = _this._keys.indexOf(evt.keyCode);
+        const index = _this._keys.indexOf(evt.keyCode);
         if (index === -1) {
           _this._keys.push(evt.keyCode);
         }
@@ -226,7 +225,7 @@ FreeCameraKeyboardRotateInput.prototype.attachControl = function (noPreventDefau
     };
     this._onKeyUp = function (evt) {
       if (_this.keysLeft.indexOf(evt.keyCode) !== -1 || _this.keysRight.indexOf(evt.keyCode) !== -1) {
-        var index = _this._keys.indexOf(evt.keyCode);
+        const index = _this._keys.indexOf(evt.keyCode);
         if (index >= 0) {
           _this._keys.splice(index, 1);
         }
@@ -243,8 +242,8 @@ FreeCameraKeyboardRotateInput.prototype.attachControl = function (noPreventDefau
 };
 
 FreeCameraKeyboardRotateInput.prototype.detachControl = function () {
-  var engine = this.camera.getEngine();
-  var element = engine.getInputElement();
+  const engine = this.camera.getEngine();
+  const element = engine.getInputElement();
   if (this._onKeyDown) {
     element.removeEventListener("keydown", this._onKeyDown);
     element.removeEventListener("keyup", this._onKeyUp);
@@ -261,10 +260,10 @@ Optionally, add checking inputs:
 ```javascript
 FreeCameraKeyboardRotateInput.prototype.checkInputs = function () {
   if (this._onKeyDown) {
-    var camera = this.camera;
+    const camera = this.camera;
     // Keyboard
-    for (var index = 0; index < this._keys.length; index++) {
-      var keyCode = this._keys[index];
+    for (let index = 0; index < this._keys.length; index++) {
+      const keyCode = this._keys[index];
       if (this.keysLeft.indexOf(keyCode) !== -1) {
         camera.cameraRotation.y += this.sensibility;
       } else if (this.keysRight.indexOf(keyCode) !== -1) {

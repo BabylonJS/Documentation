@@ -61,8 +61,8 @@ There are two ways to create a skybox. Let's start with the manual one to unders
 #### Manual creation
 First, our box, nothing new, just take notice of the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
 ```javascript
-var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
-var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
+skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
 skyboxMaterial.backFaceCulling = false;
 skyboxMaterial.disableLighting = true;
 skybox.material = skyboxMaterial;
@@ -109,7 +109,7 @@ More info about rendering groups and rendering order can be found [here](/featur
 Now that we understand how a skybox can be created let's move to a simpler way:
 
 ```javascript
-var envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
+envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
 scene.createDefaultSkybox(envTexture, true, 1000);
 ```
 

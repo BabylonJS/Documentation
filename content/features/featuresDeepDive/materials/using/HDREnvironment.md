@@ -1,6 +1,6 @@
 ---
 title: Using An HDR Environment For PBR
-image: 
+image:
 description: Learn about using an HDR Environment in your Babylon.js scene.
 keywords: diving deeper, materials, PBR, Physically Based Rendering, HDR, Environment
 further-reading:
@@ -18,12 +18,12 @@ To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.
 scene.createDefaultEnvironment();
 ```
 
-This will load the file [*environmentSpecular.env*](https://assets.babylonjs.com/environments/environmentSpecular.env) from *assets.babylonjs.com*.
+This will load the file [_environmentSpecular.env_](https://assets.babylonjs.com/environments/environmentSpecular.env) from _assets.babylonjs.com_.
 
 To load a custom env texture, simply set the `scene.environmentTexture`:
 
 ```javascript
-var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment.env", scene);
+const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment.env", scene);
 scene.environmentTexture = hdrTexture;
 ```
 
@@ -66,13 +66,12 @@ In case you have a .hdr texture, you're able to use the [IBL Texture Tool](https
 
 Just drag &amp; drop your .hdr file, wait a bit, and save the .env wherever you want.
 
-
 ## Directly use .hdr files
 
 In case you want to directly use a .hdr file and are not able to prefilter it to a .env or a .dds from the sandbox or an external tool, you can do it at the moment your texture is loaded.
 
 ```javascript
-var reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
+const reflectionTexture = new BABYLON.HDRCubeTexture("./textures/environment.hdr", scene, 128, false, true, false, true);
 ```
 
 This method will involve a small delay in the loading of the texture, due to the prefiltering being achieved on-the-fly. Therefore it is preferable to use .env or .dds files for optimal performance.
@@ -87,15 +86,12 @@ The first tool rely on an open source framework named IBL Baker whereas the seco
 Note that you can rotate your environmentTexture if needed:
 
 ```javascript
-var hdrRotation = 10; // in degrees
-hdrTexture.setReflectionTextureMatrix(
-    BABYLON.Matrix.RotationY(
-        BABYLON.Tools.ToRadians(hdrRotation)
-    )
-);
+const hdrRotation = 10; // in degrees
+hdrTexture.setReflectionTextureMatrix(BABYLON.Matrix.RotationY(BABYLON.Tools.ToRadians(hdrRotation)));
 ```
 
 ### Creating a dds environment file from IBL Baker
+
 You can find IBLBaker on: [https://github.com/derkreature/IBLBaker](https://github.com/derkreature/IBLBaker)
 
 After cloning the repo, you will be able to go to `/bin64` folder and launch `IBLBaker.exe`.
@@ -113,6 +109,7 @@ Once you are satisfied with the overall result, just click on `save environment`
 **Please do not forget to write full name with extension in order to make the save works correctly**.
 
 ### Creating a dds environment file from LYS
+
 [Lys](https://www.knaldtech.com/lys/) can be found on the [knaldtech](https://www.knaldtech.com/lys/) website.
 
 Using Lys, the output quality of the generated mipmaps will be a higher standard really close in roughness response to the Unity standard materials. You could generate with Lys: 128, 256 or 512 px wide dds cube texture.
@@ -135,8 +132,7 @@ Finally, you can export your texture through the main tab:
 
 ![Export](/img/how_to/Environment/Lys_DefaultSettings_MainExportButton.png)
 
-You are all set and ready to use the exported texture in the ```CubeTexture.CreateFromPrefilteredData``` function.
-
+You are all set and ready to use the exported texture in the `CubeTexture.CreateFromPrefilteredData` function.
 
 ## Using a pure cube texture
 
@@ -148,6 +144,7 @@ So, you can still do this as well:
 ```javascript
 scene.environmentTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
 ```
+
 In this case you won't be able to get HDR rendering and some visual artifacts may appear (mostly when using glossiness or roughness).
 
 ## What is a .env (Tech Deep Dive)

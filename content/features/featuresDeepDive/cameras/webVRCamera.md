@@ -41,7 +41,7 @@ The WebVR controllers are offered in browsers that support the WebVR gamepad ext
 The `WebVRFreeCamera` is initialized the same as a standard free camera:
 
 ```javascript
-var camera = new BABYLON.WebVRFreeCamera("camera1", new BABYLON.Vector3(0, 0, 0), scene);
+const camera = new BABYLON.WebVRFreeCamera("camera1", new BABYLON.Vector3(0, 0, 0), scene);
 ```
 
 This will initialize a new WebVR camera and will enable WebVR in the engine.

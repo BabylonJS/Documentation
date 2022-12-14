@@ -65,7 +65,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
             protected start() :void {
-                var hello:string = this.getProperty("hello", "Default Value");
+                const hello:string = this.getProperty("hello", "Default Value");
                 console.log("Echo Hello: " + hello);
             }
         }
@@ -79,7 +79,7 @@ Managed scene components provide modern game mechanic helper functions to ease w
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
             protected start() :void {
-                var animator:BABYLON.AnimationState = this.getComponent("BABYLON.AnimationState");
+                const animator:BABYLON.AnimationState = this.getComponent("BABYLON.AnimationState");
                 if (animator) console.log("Echo Owner: " + animator.owned.name);
             }
         }
@@ -93,8 +93,8 @@ Managed scene components provide modern game mechanic helper functions to ease w
         export class TestMeshComponent extends BABYLON.MeshComponent {
 
             protected update() :void {
-                var vertical:number = this.manager.getUserInput(BABYLON.UserInputAxis.Vertical, BABYLON.PlayerNumber.One);
-                var horizontal:number = this.manager.getUserInput(BABYLON.UserInputAxis.Horizontal, BABYLON.PlayerNumber.One);
+                const vertical:number = this.manager.getUserInput(BABYLON.UserInputAxis.Vertical, BABYLON.PlayerNumber.One);
+                const horizontal:number = this.manager.getUserInput(BABYLON.UserInputAxis.Horizontal, BABYLON.PlayerNumber.One);
                 console.log("Echo Input: " + vertical.toString() + " x " + horizontal.toString());
             }
         }

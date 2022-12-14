@@ -141,7 +141,7 @@ BABYLON.Mesh.prototype.createInnerPoints = function(pointsNb) {
 	var particleDistance = 0;
 	var testPoint = BABYLON.Vector3.Zero();
 
-	for(var p = 0; p <pointsNb; p++) {			
+	for(let p = 0; p <pointsNb; p++) {			
 		index = Math.floor(BABYLON.Scalar.RandomRange(0, indices.length / 3));		
 		id0 = indices[3 * index];
 		id1 = indices[3 * index + 1]; 

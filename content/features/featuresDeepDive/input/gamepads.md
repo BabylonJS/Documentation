@@ -1,30 +1,34 @@
 ---
 title: Gamepads
-image: 
+image:
 description: Learn about gamepad input support in Babylon.js.
 keywords: diving deeper, input, gamepad, controller
 further-reading:
-    - title: How to use virtual joysticks
-      url: /features/featuresDeepDive/input/virtualJoysticks
+  - title: How to use virtual joysticks
+    url: /features/featuresDeepDive/input/virtualJoysticks
 video-overview:
 video-content:
 ---
 
 ## Gamepad Manager
+
 First create a GamepadManager:
+
 ```javascript
-var gamepadManager = new BABYLON.GamepadManager();
+const gamepadManager = new BABYLON.GamepadManager();
 ```
+
 Listen to the manager's onGamepad Connected/Disconnected events:
+
 ```javascript
-gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
-});
-gamepadManager.onGamepadDisconnectedObservable.add((gamepad, state)=>{
-});
+gamepadManager.onGamepadConnectedObservable.add((gamepad, state) => {});
+gamepadManager.onGamepadDisconnectedObservable.add((gamepad, state) => {});
 ```
 
 ## Gamepad events
+
 Once a gamepad is available, event listeners can be added to handle the gamepad's inputs
+
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
     gamepad.onButtonDownObservable.add((button, state)=>{
@@ -39,7 +43,9 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 ```
 
 ## Gamepad types
+
 Depending on the type of controller, handle any of it's unique properties:
+
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
     if (gamepad instanceof BABYLON.Xbox360Pad) {
@@ -51,14 +57,16 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
         gamepad.onMainButtonStateChangedObservable.add((button, state)=>{
             console.log(button.value)
         })
-        var position = gamepad.devicePosition
-        var rotation = gamepad.deviceRotationQuaternion
+        const position = gamepad.devicePosition
+        const rotation = gamepad.deviceRotationQuaternion
     }
 }
 ```
 
 ## Check a gamepad's current state
+
 At any time, a gamepad's current state can be checked with the gamepads properties:
+
 ```javascript
 scene.registerBeforeRender(function () {
     if(gamepad instanceof BABYLON.Xbox360Pad){

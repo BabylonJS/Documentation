@@ -65,8 +65,8 @@ Cube textures must be applied using [reflectionTexture](/features/featuresDeepDi
 Within the playground you can copy and paste the following into your scene:
 
 ```javascript
-var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
-var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
 skyboxMaterial.backFaceCulling = false;
 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;

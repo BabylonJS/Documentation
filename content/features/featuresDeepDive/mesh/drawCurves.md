@@ -18,7 +18,7 @@ If you want to draw a circular path then it is easy enough to generate the point
 
 ```javascript
 var path = [];
-for(var theta = 0; theta < 2 * Math.PI; theta +=deltaTheta ) {
+for(let theta = 0; theta < 2 * Math.PI; theta +=deltaTheta ) {
     path.push(new BABYLON.Vector3(radius * Math.cos(theta), radius * Math.sin(theta), 0));
 ```
 
@@ -288,7 +288,7 @@ Create an array of  Vector3 along a simple sinus curve.
 
 ```javascript
 var mySinus = [];
-for (var i = 0; i < 30; i++) {
+for (let i = 0; i < 30; i++) {
  mySinus.push( new BABYLON.Vector3(i, Math.sin(i / 10), 0) );
 }
 var mySinusCurve = new BABYLON.Curve3(mySinus);

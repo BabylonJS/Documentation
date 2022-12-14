@@ -252,9 +252,9 @@ var mesh = BABYLON.MeshBuilder.CreateRibbon("m", {pathArray: paths, updatable: t
 mesh.updateFacetData();    // enable the feature once
 // morphing function : change the ribbon geometry
 var morphRibbon = function(k) {
-    for (var p = 0; p < paths.length; p++) {
+    for (let p = 0; p < paths.length; p++) {
         var path = paths[p];
-        for (var i = 0; i < path.length) {
+        for (let i = 0; i < path.length) {
             path[i].y = Math.sin(k) * Math.cos(i);
         }
     }

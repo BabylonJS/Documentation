@@ -40,7 +40,7 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
     var _gaps = pps+1;
     var _n = _gaps + 1;
     var _fvs =[];
-    for(var _i=0; _i<_n; _i++) {
+    for(let _i=0; _i<_n; _i++) {
         _fvs[_i] = [];
     }    
     var _A,_B;
@@ -55,11 +55,11 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
     var _positions = this.getVerticesData(BABYLON.VertexBuffer.PositionKind);    
     var _normals =[];    
 
-    for(var _i = 0; _i<_meshIndices.length; _i+=3) {
+    for(let _i = 0; _i<_meshIndices.length; _i+=3) {
         _vertexIndex[0] = _meshIndices[_i];
         _vertexIndex[1] = _meshIndices[_i + 1];
         _vertexIndex[2] = _meshIndices[_i + 2];        
-        for(var _j = 0; _j<3; _j++) {
+        for(let _j = 0; _j<3; _j++) {
             _A = _vertexIndex[_j];
             _B = _vertexIndex[(_j+1)%3];        
             if(_side[_A] === undefined  && _side[_B] ===  undefined) {            
@@ -82,7 +82,7 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
                 _u.x = (_uvs[2*_B] - _uvs[2*_A])/_gaps;
                 _u.y = (_uvs[2*_B + 1] - _uvs[2*_A + 1])/_gaps;
                 _side[_A][_B].push(_A);                
-                for(var _k=1; _k<_gaps; _k++) {                
+                for(let _k=1; _k<_gaps; _k++) {                
                     _side[_A][_B].push(_positions.length/3);                
                     _positions.push(_positions[3 * _A] + _k*_d.x, _positions[3 * _A + 1] + _k*_d.y, _positions[3 * _A + 2] + _k*_d.z);
                     _uvs.push(_uvs[2*_A] + _k*_u.x, _uvs[2*_A + 1] + _k*_u.y);
@@ -90,7 +90,7 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
                 _side[_A][_B].push(_B);
                 _side[_B][_A]=[];
                 _l = _side[_A][_B].length;
-                for(var _a=0; _a<_l; _a++) {
+                for(let _a=0; _a<_l; _a++) {
                     _side[_B][_A][_a] = _side[_A][_B][_l-1-_a];
                 }
             }
@@ -98,14 +98,14 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
                 if(_side[_A][_B] === undefined) {            
                     _side[_A][_B]=[];
                     _l = _side[_B][_A].length;
-                    for(var _a=0; _a<_l; _a++) {
+                    for(let _a=0; _a<_l; _a++) {
                         _side[_A][_B][_a] = _side[_B][_A][_l-1-_a];
                     }
                 }
                 if(_side[_B][_A] === undefined) {            
                     _side[_B][_A]=[];                
                     _l = _side[_A][_B].length;
-                    for(var _a=0; _a<_l; _a++) {
+                    for(let _a=0; _a<_l; _a++) {
                         _side[_B][_A][_a] = _side[_A][_B][_l-1-_a];
                     }
                 }
@@ -114,7 +114,7 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
         _fvs[0][0] = _meshIndices[_i];
         _fvs[1][0] = _side[_meshIndices[_i]][_meshIndices[_i + 1]][1];
         _fvs[1][1] = _side[_meshIndices[_i]][_meshIndices[_i + 2]][1];        
-        for(var _k = 2; _k<_gaps; _k++) {
+        for(let _k = 2; _k<_gaps; _k++) {
             _fvs[_k][0] = _side[_meshIndices[_i]][_meshIndices[_i + 1]][_k];
             _fvs[_k][_k] = _side[_meshIndices[_i]][_meshIndices[_i + 2]][_k];        
             _d.x = (_positions[3 * _fvs[_k][_k]] - _positions[3 * _fvs[_k][0]])/_k;
@@ -122,7 +122,7 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
             _d.z = (_positions[3 * _fvs[_k][_k] + 2] - _positions[3 * _fvs[_k][0] + 2])/_k;
             _u.x = (_uvs[2*_fvs[_k][_k]] - _uvs[2*_fvs[_k][0]])/_k;
             _u.y = (_uvs[2*_fvs[_k][_k] + 1] - _uvs[2*_fvs[_k][0] + 1])/_k;
-            for(var _j = 1; _j<_k; _j++) {                
+            for(let _j = 1; _j<_k; _j++) {                
                 _fvs[_k][_j] = _positions.length/3;                
                 _positions.push(_positions[3 * _fvs[_k][0]] + _j*_d.x, _positions[3 * _fvs[_k][0] + 1] + _j*_d.y, _positions[3 * _fvs[_k][0] + 2] + _j*_d.z);
                 _uvs.push(_uvs[2*_fvs[_k][0]] + _j*_u.x, _uvs[2*_fvs[_k][0] + 1] + _j*_u.y);
@@ -131,8 +131,8 @@ BABYLON.Mesh.prototype.increaseFacets = function(pps) { //pps points per side
         _fvs[_gaps] = _side[_meshIndices[_i + 1]][_meshIndices[_i + 2]];
 
         _indices.push(_fvs[0][0],_fvs[1][0],_fvs[1][1]);
-        for(var _k = 1; _k<_gaps; _k++) {
-            for(var _j = 0; _j<_k; _j++) {            
+        for(let _k = 1; _k<_gaps; _k++) {
+            for(let _j = 0; _j<_k; _j++) {            
                 _indices.push(_fvs[_k][_j],_fvs[_k+1][_j],_fvs[_k+1][_j+1]);
                 _indices.push(_fvs[_k][_j],_fvs[_k+1][_j+1],_fvs[_k][_j+1]);
             }        

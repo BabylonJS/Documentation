@@ -17,7 +17,7 @@ _Note:_ Input meshes can be BABYLON meshes but other Cloners as well!
 
 Example of a RadialCloner with a count of 24 clones (12 cubes cube1/cube2) distributed aligned with a radius of 6 units in the plane XZ:
 
-`var rc = new BABYLONX.RadialCloner([cube1, cube2], demo.scene, {count:24,radius:6});`
+`const rc = new BABYLONX.RadialCloner([cube1, cube2], demo.scene, {count:24,radius:6});`
 
 Transforming of all clones can be done as you would do with a single mesh:
 

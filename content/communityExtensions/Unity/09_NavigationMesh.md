@@ -83,18 +83,18 @@ Example **Navigation Mesh** script component:
             protected start() :void {
                 this.navmesh = this.manager.getNavigationMesh();
                 if (this.navmesh) {
-                    var minimoi = BABYLON.Mesh.CreateBox("MiniMoi", 0.5, this.scene);
+                    const minimoi = BABYLON.Mesh.CreateBox("MiniMoi", 0.5, this.scene);
                     minimoi.material = new BABYLON.StandardMaterial("MoiMaterial", this.scene);
                     (<BABYLON.StandardMaterial>minimoi.material).diffuseColor = new BABYLON.Color3(1., 0., 0);
                     minimoi.position = new BABYLON.Vector3(0, 0.25, 0);
 
                     // Setup point and click demo navigation
-                    var canvas = document.getElementById("cvs");
+                    const canvas = document.getElementById("cvs");
                     canvas.addEventListener('click', (evt)=> {
-                        var pickingInfo = this.scene.pick(this.scene.pointerX, this.scene.pointerY, (mesh) => { return (mesh === this.navmesh); });
+                        const pickingInfo = this.scene.pick(this.scene.pointerX, this.scene.pointerY, (mesh) => { return (mesh === this.navmesh); });
                         if (pickingInfo.hit) {
-                            var navpoint = pickingInfo.pickedPoint;
-                            var path = this.manager.findNavigationPath(minimoi.position, navpoint);
+                            const navpoint = pickingInfo.pickedPoint;
+                            const path = this.manager.findNavigationPath(minimoi.position, navpoint);
                             if (path != null) {
                                 this.manager.moveNavigationAgent(minimoi, path, 5.0);
                             }

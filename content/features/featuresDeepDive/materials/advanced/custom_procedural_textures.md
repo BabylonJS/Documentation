@@ -95,7 +95,7 @@ Here is a more complex example using 2 samplers and mixing their color equally.
 To use this custom texture, you need to make your folder available to your babylon.js html/javascript files and use a **CustomProceduralTexture** class instead of a standard one. The difference is only that you specify a new parameter which is the relative path to the folder containing the custom texture. Babylon.js will automatically read the config.json and custom.fragment.fx files and load everything for you.
 
 ```javascript
-var texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
+const texture = new BABYLON.CustomProceduralTexture("texture", "./pathtotexture", 1024, scene);
 ```
 
 ## Using a ShaderStore for Shader Storage
@@ -120,7 +120,7 @@ Note that your shader name should be suffixed with **PixelShader** as the Proced
 To use this shader, you just have to create a CustomProceduralTexture and put the name of your shader in the store instead of the path to the files.
 
 ```javascript
-var customProcText = new BABYLON.CustomProceduralTexture("customtext", "Lines", 1024, scene);
+const customProcText = new BABYLON.CustomProceduralTexture("customtext", "Lines", 1024, scene);
 ```
 
 ## Using a DOM Element for Shader Storage
@@ -142,8 +142,8 @@ Finally you can also use **DOM Elements** to store your shader. You just have to
 To use it, you just have to create a simple object containing one property which is named **fragmentElement** and contains the id identifying the script DOM element.
 
 ```javascript
-var linesShader = { fragmentElement: "LinesPixelShader" };
-var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
+const linesShader = { fragmentElement: "LinesPixelShader" };
+const customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShader, 1024, scene);
 ```
 
 ## Using Node Material to generate procedural texture
@@ -151,7 +151,7 @@ var customProcText = new BABYLON.CustomProceduralTexture("customtext", linesShad
 You can use NodeMaterial to generate the shaders for your procedural texture.
 The code to generate it is very simple:
 
-```
+```javascript
 BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMaterial) => {
     const proceduralTexture = nodeMaterial.createProceduralTexture(256);
 });
