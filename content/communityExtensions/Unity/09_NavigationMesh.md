@@ -83,7 +83,7 @@ Example **Navigation Mesh** script component:
             protected start() :void {
                 this.navmesh = this.manager.getNavigationMesh();
                 if (this.navmesh) {
-                    const minimoi = BABYLON.Mesh.CreateBox("MiniMoi", 0.5, this.scene);
+                    const minimoi = BABYLON.MeshBuilder.CreateBox("MiniMoi", {size: 0.5}, this.scene);
                     minimoi.material = new BABYLON.StandardMaterial("MoiMaterial", this.scene);
                     (<BABYLON.StandardMaterial>minimoi.material).diffuseColor = new BABYLON.Color3(1., 0., 0);
                     minimoi.position = new BABYLON.Vector3(0, 0.25, 0);

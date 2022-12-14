@@ -15,7 +15,7 @@ BABYLON.EdgesRenderer is a tool used to render edges on top of a mesh. Edges are
 You can enable edges rendering like this:
 
 ```javascript
-const box = BABYLON.Mesh.CreateBox("box1", 2, scene);
+const box = BABYLON.MeshBuilder.CreateBox("box1", { size: 2 }, scene);
 box.enableEdgesRendering();
 box.edgesWidth = 4.0;
 box.edgesColor = new BABYLON.Color4(0, 0, 1, 1);

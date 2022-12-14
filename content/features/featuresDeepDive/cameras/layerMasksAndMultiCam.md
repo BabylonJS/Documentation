@@ -94,32 +94,32 @@ function addGunSight(scene) {
   const h = 250;
   const w = 250;
 
-  const y = BABYLON.Mesh.CreateBox("y", h * 0.2, scene);
+  const y = BABYLON.MeshBuilder.CreateBox("y", { size: h * 0.2 }, scene);
   y.scaling = new BABYLON.Vector3(0.05, 1, 1);
   y.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(y);
 
-  const x = BABYLON.Mesh.CreateBox("x", h * 0.2, scene);
+  const x = BABYLON.MeshBuilder.CreateBox("x", { size: h * 0.2 }, scene);
   x.scaling = new BABYLON.Vector3(1, 0.05, 1);
   x.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(x);
 
-  const lineTop = BABYLON.Mesh.CreateBox("lineTop", w * 0.8, scene);
+  const lineTop = BABYLON.MeshBuilder.CreateBox("lineTop", { size: w * 0.8 }, scene);
   lineTop.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineTop.position = new BABYLON.Vector3(0, h * 0.5, 0);
   meshes.push(lineTop);
 
-  const lineBottom = BABYLON.Mesh.CreateBox("lineBottom", w * 0.8, scene);
+  const lineBottom = BABYLON.MeshBuilder.CreateBox("lineBottom", { size: w * 0.8 }, scene);
   lineBottom.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineBottom.position = new BABYLON.Vector3(0, h * -0.5, 0);
   meshes.push(lineBottom);
 
-  const lineLeft = BABYLON.Mesh.CreateBox("lineLeft", h, scene);
+  const lineLeft = BABYLON.MeshBuilder.CreateBox("lineLeft", { size: h }, scene);
   lineLeft.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineLeft.position = new BABYLON.Vector3(w * -0.4, 0, 0);
   meshes.push(lineLeft);
 
-  const lineRight = BABYLON.Mesh.CreateBox("lineRight", h, scene);
+  const lineRight = BABYLON.MeshBuilder.CreateBox("lineRight", { size: h }, scene);
   lineRight.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineRight.position = new BABYLON.Vector3(w * 0.4, 0, 0);
   meshes.push(lineRight);

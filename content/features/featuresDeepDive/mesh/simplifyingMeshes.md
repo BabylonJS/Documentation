@@ -109,7 +109,7 @@ With optimization during simplification -
 
 Not all meshes can be simplified. Better said - all meshes can be simplified, some however, should not be.
 
-An object like a Box (if built in an optimal way, like the BABYLON.Mesh.CreateBox function) has no "extra faces" that can be removed. removing one single face will cause it to... not be a box.
+An object like a Box (if built in an optimal way, like the BABYLON.MeshBuilder.CreateBox function) has no "extra faces" that can be removed. removing one single face will cause it to... not be a box.
 
 ### A few "rules" to follow
 

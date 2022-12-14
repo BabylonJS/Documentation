@@ -266,7 +266,7 @@ This method needs two parameters :
 - a _computeNormals_ boolean (default = true) to skip/unskip the normals re-computation after the mesh update .
 
 ```javascript
-const box = BABYLON.Mesh.CreateBox("box", 5.0, scene, true);
+const box = BABYLON.MeshBuilder.CreateBox("box", { size: 5.0, updatable: true }, scene);
 const positionFunction = function (positions) {
   // modify positions array values here
 };
