@@ -1,6 +1,6 @@
 ---
 title: Sequencing Animations
-image: 
+image:
 description: Learn how to sequence animations one after another.
 keywords: diving deeper, animation, sequence, sequencing
 further-reading:
@@ -47,62 +47,50 @@ Key values for the camera will be its positions at frames 0, 3, 5 and 8 seconds 
 
 ```javascript
 //for camera move forward
-var movein = new BABYLON.Animation(
-  "movein",
-  "position",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_VECTOR3,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-);
+const movein = new BABYLON.Animation("movein", "position", frameRate, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-var movein_keys = [];
+const movein_keys = [];
 
 movein_keys.push({
   frame: 0,
-  value: new BABYLON.Vector3(0, 5, -30)
+  value: new BABYLON.Vector3(0, 5, -30),
 });
 
 movein_keys.push({
   frame: 3 * frameRate,
-  value: new BABYLON.Vector3(0, 2, -10)
+  value: new BABYLON.Vector3(0, 2, -10),
 });
 
 movein_keys.push({
   frame: 5 * frameRate,
-  value: new BABYLON.Vector3(0, 2, -10)
+  value: new BABYLON.Vector3(0, 2, -10),
 });
 
 movein_keys.push({
   frame: 8 * frameRate,
-  value: new BABYLON.Vector3(-2, 2, 3)
+  value: new BABYLON.Vector3(-2, 2, 3),
 });
 
 movein.setKeys(movein_keys);
 
 //for camera to sweep round
-var rotate = new BABYLON.Animation(
-  "rotate",
-  "rotation.y",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-);
+const rotate = new BABYLON.Animation("rotate", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-var rotate_keys = [];
+const rotate_keys = [];
 
 rotate_keys.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 rotate_keys.push({
   frame: 9 * frameRate,
-  value: 0
+  value: 0,
 });
 
 rotate_keys.push({
   frame: 14 * frameRate,
-  value: Math.PI
+  value: Math.PI,
 });
 
 rotate.setKeys(rotate_keys);
@@ -117,39 +105,33 @@ Key values for the sweep will be its rotation about the y axis at frames.
 
 ```javascript
 //for door to open and close
-var sweep = new BABYLON.Animation(
-  "sweep",
-  "rotation.y",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-);
+const sweep = new BABYLON.Animation("sweep", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-var sweep_keys = [];
+const sweep_keys = [];
 
 sweep_keys.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 sweep_keys.push({
   frame: 3 * frameRate,
-  value: 0
+  value: 0,
 });
 
 sweep_keys.push({
   frame: 5 * frameRate,
-  value: Math.PI / 3
+  value: Math.PI / 3,
 });
 
 sweep_keys.push({
   frame: 13 * frameRate,
-  value: Math.PI / 3
+  value: Math.PI / 3,
 });
 
 sweep_keys.push({
   frame: 15 * frameRate,
-  value: 0
+  value: 0,
 });
 
 sweep.setKeys(sweep_keys);
@@ -162,39 +144,33 @@ Key points for lights are remaining off for 7 seconds, coming to full intensity 
 
 ```javascript
 //for light to brighten and dim
-var lightDimmer = new BABYLON.Animation(
-  "dimmer",
-  "intensity",
-  frameRate,
-  BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-  BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-);
+const lightDimmer = new BABYLON.Animation("dimmer", "intensity", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
 
-var light_keys = [];
+const light_keys = [];
 
 light_keys.push({
   frame: 0,
-  value: 0
+  value: 0,
 });
 
 light_keys.push({
   frame: 7 * frameRate,
-  value: 0
+  value: 0,
 });
 
 light_keys.push({
   frame: 10 * frameRate,
-  value: 1
+  value: 1,
 });
 
 light_keys.push({
   frame: 14 * frameRate,
-  value: 1
+  value: 1,
 });
 
 light_keys.push({
   frame: 15 * frameRate,
-  value: 0
+  value: 0,
 });
 
 lightDimmer.setKeys(light_keys);
@@ -202,25 +178,13 @@ lightDimmer.setKeys(light_keys);
 
 ## Cartoon
 
-Now just run all the clips simulaneously
+Now just run all the clips simultaneously
 
 ```javascript
 scene.beginDirectAnimation(camera, [movein, rotate], 0, 25 * frameRate, false);
 scene.beginDirectAnimation(hinge, [sweep], 0, 25 * frameRate, false);
-scene.beginDirectAnimation(
-  spotLights[0],
-  [lightDimmer],
-  0,
-  25 * frameRate,
-  false
-);
-scene.beginDirectAnimation(
-  spotLights[1],
-  [lightDimmer.clone()],
-  0,
-  25 * frameRate,
-  false
-);
+scene.beginDirectAnimation(spotLights[0], [lightDimmer], 0, 25 * frameRate, false);
+scene.beginDirectAnimation(spotLights[1], [lightDimmer.clone()], 0, 25 * frameRate, false);
 ```
 
 <Playground id="#2L26P1#8" title="Finished Animation Sequence Example" description="An example of sequencing animations one after another." image="/img/playgroundsAndNMEs/divingDeeperAnimationSequence.jpg"/>

@@ -153,7 +153,7 @@ function createSection(points, startSection, endSection) {
 
   /***** Loop over rails in section*****/
 
-  for (var i = railsFrom; i < railsTo; i++) {
+  for (let i = railsFrom; i < railsTo; i++) {
     points[(i + 1) % points.length].subtractToRef(points[i], railDirection); //direction of each rail
     railDirection.normalize();
     swivel = -Math.atan2(railDirection.z, railDirection.x); //swivel angle rail makes in xz plane
@@ -210,7 +210,7 @@ var createTrack = function (points, sections) {
   var nbSections = sections.length;
 
   var looped = sections[nbSections - 1].start === 0;
-  for (var i = 1; i < nbSections - looped; i++) {
+  for (let i = 1; i < nbSections - looped; i++) {
     if (sections[i - 1].start > sections[i].start) {
       console.log("sections not in order");
       return;
@@ -234,7 +234,7 @@ var createTrack = function (points, sections) {
   }
 
   //Store track data per section
-  for (var i = 0; i < sections.length - 1; i++) {
+  for (let i = 0; i < sections.length - 1; i++) {
     createSection(points, sections[i], sections[i + 1]);
   }
 

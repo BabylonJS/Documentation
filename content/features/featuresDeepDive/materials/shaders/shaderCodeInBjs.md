@@ -56,7 +56,7 @@ BABYLON.Effect.ShadersStore["customFragmentShader"] = "\r\n" + "precision highp 
 the Javascript code to use the shader as a material is
 
 ```javascript
-var shaderMaterial = new BABYLON.ShaderMaterial(
+const shaderMaterial = new BABYLON.ShaderMaterial(
   "shader",
   scene,
   {
@@ -73,7 +73,7 @@ var shaderMaterial = new BABYLON.ShaderMaterial(
 and the Javascript code to set a texture to the material is
 
 ```javascript
-var mainTexture = new BABYLON.Texture("amiga.jpg", scene);
+const mainTexture = new BABYLON.Texture("amiga.jpg", scene);
 shaderMaterial.setTexture("textureSampler", mainTexture);
 ```
 
@@ -136,7 +136,7 @@ In the _index.html_ file the Javascript code for the shaders is
 the Javascript code to use the shader as a material becomes
 
 ```javascript
-var shaderMaterial = new BABYLON.ShaderMaterial(
+const shaderMaterial = new BABYLON.ShaderMaterial(
   "shader",
   scene,
   {
@@ -165,7 +165,7 @@ COMMON_NAME.fragment.fx
 The Javascript code to use the shader as material becomes
 
 ```javascript
-var shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAME", {
+const shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAME", {
   attributes: ["position", "normal", "uv"],
   uniforms: ["world", "worldView", "worldViewProjection", "view", "projection"],
 });

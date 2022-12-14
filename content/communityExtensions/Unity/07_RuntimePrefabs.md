@@ -75,7 +75,7 @@ Example **Runtime Prefab** script component:
             protected start() :void {
 
                 // Spawn player game object
-                var player:BABYLON.Mesh = this.manager.instantiatePrefab("Player", "NewPlayer", BABYLON.Vector3.Zero());
+                const player:BABYLON.Mesh = this.manager.instantiatePrefab("Player", "NewPlayer", BABYLON.Vector3.Zero());
                 console.log("Echo Player: " + player.name);
             }
         }

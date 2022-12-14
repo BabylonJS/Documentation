@@ -612,35 +612,35 @@ The dev host is configured to be much more forgiving when developing. The best e
 The current simple structure of the dev host allows you to copy code from the playground, and making the changes needed to run it in the dev host. For example, this playground:
 
 ```javascript
-var createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    var scene = new BABYLON.Scene(engine);
+const createScene = function () {
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -651,34 +651,34 @@ import { canvas, engine } from "./index";
 import { FreeCamera, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@dev/core";
 
 export const createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    const scene = new Scene(engine);
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -689,34 +689,34 @@ import { canvas, engine } from "./index";
 import * as BABYLON from "@dev/core";
 
 export const createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    const scene = new BABYLON.Scene(engine);
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -971,17 +971,17 @@ Visualization tests are running using puppeteer, which is an interface to contro
 
 ```javascript
 module.exports = {
-    launch: {
-        dumpio: false, // should we see logs?
-        timeout: 30000, // timeout of 30 seconds
-        headless: false, // true to run headless
-        product: browser, // can be either chrome or firefox
-        ignoreHTTPSErrors: true, // should SSL issues be automatically resolved, in case the files are hosted locally on self-signed SSL certificate
-        devtools: true, // Should the dev tools open automatically
-        args: browser === "chrome" ? chromeFlags : firefoxFlags, // additional arguments for the browser, for example enabling garbage collection
-        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // choose the chrome (or firefox) to use
-    },
-    browserContext: "default",
+  launch: {
+    dumpio: false, // should we see logs?
+    timeout: 30000, // timeout of 30 seconds
+    headless: false, // true to run headless
+    product: browser, // can be either chrome or firefox
+    ignoreHTTPSErrors: true, // should SSL issues be automatically resolved, in case the files are hosted locally on self-signed SSL certificate
+    devtools: true, // Should the dev tools open automatically
+    args: browser === "chrome" ? chromeFlags : firefoxFlags, // additional arguments for the browser, for example enabling garbage collection
+    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // choose the chrome (or firefox) to use
+  },
+  browserContext: "default",
 };
 ```
 
@@ -991,7 +991,7 @@ Puppeteer opens a different context than the node context we are at when running
 
 ```javascript
 const random = await page.evaluate((aRandomNumber) => {
-    return aRandomNumber * Math.random();
+  return aRandomNumber * Math.random();
 }, Math.random());
 ```
 
@@ -1116,7 +1116,7 @@ Change and save files including comments.
 Check if your code can be used in the local playground.
 
 ### Success
-  
+
 Commit files you have added or edited but not those built.
 
 ### Push Pull-Request Check

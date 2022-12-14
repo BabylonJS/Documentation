@@ -44,7 +44,7 @@ Babylon.GUI has two modes:
 In this mode, Babylon.GUI will cover the entire screen and will rescale to always adapt to your rendering resolution. It will also intercept clicks (including touches). To create an AdvancedDynamicTexture in fullscreen mode, just run this code:
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
+const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
 ```
 
 Here is an example of a simple fullscreen mode GUI: <Playground id="#XCPP9Y#1" title="Fullscreen GUI Example" description="Simple example of adding a fullscreen BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI1.jpg" isMain={true} category="GUI"/>
@@ -58,7 +58,7 @@ It can be set like this:
 ```javascript
 // true == foreground (default)
 // false == background
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI", foreground? : Boolean );
+const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI", foreground? : Boolean );
 // it can also be changed on the go:
     advancedTexture.isForeground = false;
 ```
@@ -72,7 +72,7 @@ The fullscreen mode is not intended to be used with WebVR as it is a pure 2d ren
 In this mode, BABYLON.GUI will be used as a texture for a given mesh. You will have to define the resolution of your texture. To create an AdvancedDynamicTexture in texture mode, just run this code:
 
 ```javascript
-var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024);
+const advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024);
 ```
 
 Here is an example of a simple texture mode GUI: <Playground id="#ZI9AK7#1" title="Texture Mode GUI Example" description="Simple example of adding a texture mode BabylonGUI to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI2.jpg"/>
@@ -82,7 +82,7 @@ Here is the same example but now using “billboardMode = all” where the GUI w
 Please note that handling pointer move events could be costly on complex meshes, so you can turn off supporting pointer move events with a fourth parameter:
 
 ```javascript
-var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024, false);
+const advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(myPlane, 1024, 1024, false);
 ```
 
 Once you have an AdvancedDynamicTexture object, you can start adding controls.
@@ -399,7 +399,7 @@ InputText also supports clipboardObservables, here's an example: <Playground id=
 The InputTextArea is a control used to display editable text across multiple lines:
 
 ```javascript
-var inputTextArea = new BABYLON.GUI.InputTextArea("input", "Some initial text");
+const inputTextArea = new BABYLON.GUI.InputTextArea("input", "Some initial text");
 ```
 
 You can try it here: <Playground id="#NVAEWD#7" title="InputTextArea Example" description="Simple example of InputTextArea." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI49.jpg"/>
@@ -432,7 +432,7 @@ There are three kinds of buttons available out of the box:
 - ImageButton: An image button is a button made with an image and a text. You can create one with:
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures/grass.png");
+const button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"  isMain={true} category="GUI"/>
@@ -440,7 +440,7 @@ You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" descripti
 - ImageWithCenterTextButton: An image button made with a image background and a centered text overlay.
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click Me", "textures/grass.png");
+const button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click Me", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton Example" description="Simple example showing how to add an ImageWithCenterTextButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI23.jpg"/>
@@ -448,7 +448,7 @@ You can try it here: <Playground id="#PLTRBV" title="ImageWithCenterTextButton E
 - SimpleButton: A simple button with text only
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateSimpleButton("but", "Click Me");
+const button = BABYLON.GUI.Button.CreateSimpleButton("but", "Click Me");
 ```
 
 You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" description="Simple example showing how to add a SimpleButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI24.jpg"/>
@@ -456,7 +456,7 @@ You can try it here: <Playground id="#XCPP9Y#4" title="SimpleButton Example" des
 - ImageOnlyButton:
 
 ```javascript
-var button = BABYLON.GUI.Button.CreateImageOnlyButton("but", "textures/grass.png");
+const button = BABYLON.GUI.Button.CreateImageOnlyButton("but", "textures/grass.png");
 ```
 
 You can try it here: <Playground id="#XCPP9Y#28" title="ImageOnlyButton Example" description="Simple example showing how to add an ImageOnlyButton control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI25.jpg"/>
@@ -486,17 +486,17 @@ You can also create a complete custom button by manually adding children to the 
 
 ```javascript
 BABYLON.GUI.Button.CreateMyCustomButton = function (name, text, imageUrl) {
-  var result = new BABYLON.GUI.Button(name);
+  const result = new BABYLON.GUI.Button(name);
 
   // Adding text
-  var textBlock = new BABYLON.GUI.TextBlock(name + "_button", text);
+  const textBlock = new BABYLON.GUI.TextBlock(name + "_button", text);
   textBlock.textWrapping = true;
   textBlock.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
   textBlock.paddingLeft = "20%";
   result.addControl(textBlock);
 
   // Adding image
-  var iconImage = new BABYLON.GUI.Image(name + "_icon", imageUrl);
+  const iconImage = new BABYLON.GUI.Image(name + "_icon", imageUrl);
   iconImage.width = "20%";
   iconImage.stretch = BABYLON.GUI.Image.STRETCH_UNIFORM;
   iconImage.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -720,7 +720,7 @@ The VirtualKeyboard is a control used to display simple onscreen keyboard. This 
 You can define the keys provided by the keyboard with the following code:
 
 ```javascript
-var keyboard = new BABYLON.GUI.VirtualKeyboard();
+const keyboard = new BABYLON.GUI.VirtualKeyboard();
 keyboard.addKeysRow(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\u2190"]);
 ```
 
@@ -763,7 +763,7 @@ class KeyPropertySet {
 The VirtualKeyboard provides a static method to create a default layout:
 
 ```javascript
-var keyboard = BABYLON.GUI.VirtualKeyboard.CreateDefaultLayout();
+const keyboard = BABYLON.GUI.VirtualKeyboard.CreateDefaultLayout();
 ```
 
 The default layout is equivalent to:
@@ -867,7 +867,7 @@ Due to its rich feature set, the ScrollViewer has its own dedicated page right [
 The Grid is a control which defines a set of rows and columns and allows children to specify which cell they want to belong to:
 
 ```javascript
-var grid = new BABYLON.GUI.Grid();
+const grid = new BABYLON.GUI.Grid();
 grid.addColumnDefinition(100, true);
 grid.addColumnDefinition(0.5);
 grid.addColumnDefinition(0.5);
@@ -876,7 +876,7 @@ grid.addRowDefinition(0.5);
 grid.addRowDefinition(0.5);
 
 // This rect will be on first row and second column
-var rect = new BABYLON.GUI.Rectangle();
+const rect = new BABYLON.GUI.Rectangle();
 rect.background = "green";
 rect.thickness = 0;
 grid.addControl(rect, 0, 1);
@@ -923,7 +923,7 @@ grid.addControl(control, 1, 2); // 2nd row, thrid column
 You can get the list of controls in a specific cell by calling:
 
 ```javascript
-var controls = grid.getChildrenAt(2, 3);
+const controls = grid.getChildrenAt(2, 3);
 ```
 
 Here is an example of a Grid: <Playground id="#KX33X8#1" title="Grid Example" description="Simple example showing how to add a Grid control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI46.jpg"/>
@@ -933,7 +933,7 @@ Here is an example of a Grid: <Playground id="#KX33X8#1" title="Grid Example" de
 Starting with Babylon.js v3.3, you can create a style object that will be used to share configuration across controls. To do so, you can use this code:
 
 ```javascript
-var style = advancedTexture.createStyle();
+const style = advancedTexture.createStyle();
 style.fontSize = 24;
 style.fontStyle = "italic";
 style.fontFamily = "Verdana";
@@ -977,18 +977,18 @@ You can find an implementation example here: <Playground id="#U9AC0N#58" title="
 The key point is to use the camera.layerMask property to isolate your GUI:
 
 ```javascript
-var camera2 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
+const camera2 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
 camera2.layerMask = 2;
 
 // GUI - simply set advancedTexture layerMask to 2
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 advancedTexture.layer.layerMask = 2;
 ```
 
 Then all meshes of your main scene will have a different layerMask attached to main camera:
 
 ```javascript
-var camera1 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
+const camera1 = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
 camera1.layerMask = 1;
 
 myMesh.layerMask = 1;

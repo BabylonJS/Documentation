@@ -36,7 +36,7 @@ Create a file called `SceneComponent.jsx` and add this:
 import { useEffect, useRef } from "react";
 import { Engine, Scene } from "@babylonjs/core";
 
-export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest}) => {
+export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest }) => {
   const reactCanvas = useRef(null);
 
   // set up basic engine and scene
@@ -109,7 +109,7 @@ let box;
 
 const onSceneReady = (scene) => {
   // This creates and positions a free camera (non-mesh)
-  var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
+  const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
   // This targets the camera to scene origin
   camera.setTarget(Vector3.Zero());
@@ -120,7 +120,7 @@ const onSceneReady = (scene) => {
   camera.attachControl(canvas, true);
 
   // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-  var light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+  const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
 
   // Default intensity is 1. Let's dim the light a small amount
   light.intensity = 0.7;
@@ -140,7 +140,7 @@ const onSceneReady = (scene) => {
  */
 const onRender = (scene) => {
   if (box !== undefined) {
-    var deltaTimeInMillis = scene.getEngine().getDeltaTime();
+    const deltaTimeInMillis = scene.getEngine().getDeltaTime();
 
     const rpm = 10;
     box.rotation.y += (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
@@ -186,7 +186,7 @@ There is an NPM project called `react-babylonjs` that is a react renderer for Ba
 
 What you are able to easily do is powerful, because inside the Scene component you can declare Babylon.js objects like Cameras/Meshes/Lights/Materials/Textures/3D Models/etc, using familiar JSX. Meanwhile there are escape hatches that allow you to work imperatively as well.
 
->Babylon.js ES6 + CRA (Create React App) project examples:
+> Babylon.js ES6 + CRA (Create React App) project examples:
 >
 > - JavaScript (examples for 3D models, GUI, VR, behaviors, props/state management)
 >   - [source](https://github.com/brianzinn/create-react-app-babylonjs)

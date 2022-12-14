@@ -38,10 +38,10 @@ Enable through the option in the [VRCameraMetrics](/typedoc/classes/babylon.vrca
 
 ```javascript
 // Enable multiview
-var multiviewMetrics = BABYLON.VRCameraMetrics.GetDefault();
+const multiviewMetrics = BABYLON.VRCameraMetrics.GetDefault();
 multiviewMetrics.multiviewEnabled = true;
 // Create camera
-var multiviewCamera = new BABYLON.VRDeviceOrientationFreeCamera("", new BABYLON.Vector3(-10, 5, 0), scene, undefined, multiviewMetrics);
+const multiviewCamera = new BABYLON.VRDeviceOrientationFreeCamera("", new BABYLON.Vector3(-10, 5, 0), scene, undefined, multiviewMetrics);
 ```
 
 <Playground id="#EZDZZV" title="VRDeviceOrientationFreeCamera Multiview Example" description="A simple example of using multiviews to create a VRDeviceOrientationFreeCamera." image="/img/playgroundsAndNMEs/divingDeeperMultiviews2.jpg"/>

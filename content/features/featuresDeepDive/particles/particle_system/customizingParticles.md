@@ -54,7 +54,7 @@ The update function has the default form
 
 ```javascript
 updateFunction = function (particles) {
-  for (var index = 0; index < particles.length; index++) {
+  for (let index = 0; index < particles.length; index++) {
     var particle = particles[index];
     particle.age += this._scaledUpdateSpeed;
 

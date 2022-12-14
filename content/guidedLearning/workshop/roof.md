@@ -58,7 +58,7 @@ This data the needs to be turned into an array, **apexes** for example, of Vecto
 ```javascript
 var apexes = [];
 	
-for(var i = 0; i < roofApexData.length / 2; i++) {
+for(let i = 0; i < roofApexData.length / 2; i++) {
 	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
 }
 ```
@@ -139,13 +139,13 @@ Apex arrays has to be formed for both the main and small roof
 ```javascript
 var apexes = [];
 	
-for(var i = 0; i < roofApexData.length / 2; i++) {
+for(let i = 0; i < roofApexData.length / 2; i++) {
 	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
 }
 
 var smallApexes = [];
 
-for(var i = 0; i < smallRoofApexData.length / 2; i++) {
+for(let i = 0; i < smallRoofApexData.length / 2; i++) {
 	smallApexes.push(new BABYLON.Vector2(smallRoofApexData[2 * i], smallRoofApexData[2 * i + 1]))
 }
 ```

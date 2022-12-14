@@ -39,7 +39,7 @@ Simplifying, the process is
 For example the Babylon.js Engine takes this code
 
 ```javascript
-var box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
+const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 ```
 
 and turns it into vertex data including positions, colors and normals.

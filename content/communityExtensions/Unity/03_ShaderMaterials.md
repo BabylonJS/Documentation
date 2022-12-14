@@ -184,7 +184,7 @@ module BABYLON {
         }
 
         protected start() :void {
-            var meshes:BABYLON.Mesh[] = this.getScene().getMeshesByTags(this.getWaterTagLabel());
+            const meshes:BABYLON.Mesh[] = this.getScene().getMeshesByTags(this.getWaterTagLabel());
             if (meshes != null && meshes.length > 0) {
                 meshes.forEach(mesh => {
                     this.addToRenderList(mesh);
@@ -199,7 +199,7 @@ module BABYLON {
             return this._waterTagLabel;
         }
         protected setWaterTagIndex(index:number) : void {
-            var tagIndex = (index >= 0) ? index : 0;
+            const tagIndex = (index >= 0) ? index : 0;
             this._waterTagLabel = "WATER_TAG_" + tagIndex.toString();
         }
 
@@ -210,14 +210,14 @@ module BABYLON {
         }
 
         public serialize(): any {
-            var serializationObject = BABYLON.SerializationHelper.Serialize(this);
+            const serializationObject = BABYLON.SerializationHelper.Serialize(this);
             serializationObject.customType = "BABYLON.WaterMaterialController";
             return serializationObject;
         }
 
         public static Parse(source: any, scene: BABYLON.Scene, rootUrl: string): BABYLON.WaterMaterialController {
-            var material =  BABYLON.SerializationHelper.Parse(() => new BABYLON.WaterMaterialController(source.name, scene), source, scene, rootUrl);
-            var property = "_Properties";
+            const material =  BABYLON.SerializationHelper.Parse(() => new BABYLON.WaterMaterialController(source.name, scene), source, scene, rootUrl);
+            const property = "_Properties";
             // Parse custom shader properties
             if (source.vectors4) {
                 property = "_WaterColor";
@@ -230,7 +230,7 @@ module BABYLON {
                 }
             }
             if (source.floats) {
-                var tagIndex:number = 0;
+                const tagIndex:number = 0;
                 property = "_TagIndex";
                 if (source.floats[property]) {
                     tagIndex = source.floats[property];
@@ -267,8 +267,8 @@ module BABYLON {
                     material.colorBlendFactor2 = source.floats[property];
                 }
 
-                var windDirX:number = 0.0;
-                var windDirY:number = 1.0;
+                const windDirX:number = 0.0;
+                const windDirY:number = 1.0;
                 property = "_WindDirectionX";
                 if (source.floats[property]) {
                     windDirX = source.floats[property];

@@ -75,14 +75,14 @@ var mitredExtrude = function (name, options, scene) {
 
     var allPaths = [];
 
-    for (var s = 0; s < shape.length; s++) {
+    for (let s = 0; s < shape.length; s++) {
         path[1].subtractToRef(path[0], line);
         axisZ = line.clone().normalize();
         axisX = BABYLON.Vector3.Cross(scene.activeCamera.position, axisZ).normalize();
         axisY = BABYLON.Vector3.Cross(axisZ, axisX);
         startPoint = path[0].add(axisX.scale(shape[s].x)).add(axisY.scale(shape[s].y));
         var ribbonPath = [startPoint.clone()];
-        for (var p = 0; p < nbPoints - 2; p++) {
+        for (let p = 0; p < nbPoints - 2; p++) {
             path[p + 2].subtractToRef(path[p + 1], nextLine);
             nextAxisZ = nextLine.clone().normalize();
             nextAxisX = BABYLON.Vector3.Cross(scene.activeCamera.position, nextAxisZ).normalize();

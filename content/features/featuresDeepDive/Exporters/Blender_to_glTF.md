@@ -26,11 +26,11 @@ To help transforming, note that theBabylon.js loader will automatically set glTF
 - rotated by default to 180° on Y axys
 - scaled on Z by -1
 
-| Blender asset position |Babylon.js asset absolutePosition |
-| :--------------------: | :------------------------------: |
-|           X            |                -X                |
-|           Y            |                Z                 |
-|           Z            |                -Y                |
+| Blender asset position | Babylon.js asset absolutePosition |
+| :--------------------: | :-------------------------------: |
+|           X            |                -X                 |
+|           Y            |                 Z                 |
+|           Z            |                -Y                 |
 
 ## Try it out
 
@@ -78,8 +78,8 @@ Let's say you have exported [WaterBottle.glb](https://github.com/KhronosGroup/gl
   <body>
     <canvas id="canvas"></canvas>
     <script type="text/javascript">
-      var canvas = document.getElementById("canvas");
-      var engine = new BABYLON.Engine(canvas, true);
+      const canvas = document.getElementById("canvas");
+      const engine = new BABYLON.Engine(canvas, true);
 
       // here the doc for Load function: //doc.babylonjs.com/api/classes/babylon.sceneloader#load
       BABYLON.SceneLoader.Load("", "WaterBottle.glb", engine, function (scene) {

@@ -34,21 +34,21 @@ The following two examples are best seen in the full Playground where sliders ca
 
 To use morph targets, you first have to create a `MorphTargetManager` and affect it to a mesh:
 
-```
-var manager = new BABYLON.MorphTargetManager();
+```javascript
+const manager = new BABYLON.MorphTargetManager();
 sphere.morphTargetManager = manager;
 ```
 
 Then you can create `MorphTarget` either with the `FromMesh` static function:
 
-```
-var target = BABYLON.MorphTarget.FromMesh(sphereTarget, "target", 0.25);
+```javascript
+const target = BABYLON.MorphTarget.FromMesh(sphereTarget, "target", 0.25);
 ```
 
 or simply by creating a target and specifying positions and normals:
 
-```
-var target = new BABYLON.MorphTarget(name, influence);
+```javascript
+const target = new BABYLON.MorphTarget(name, influence);
 target.setPositions(...);
 target.setNormals(...);
 ```
@@ -59,52 +59,52 @@ Targets with influence = 0 are disabled.
 
 Here is a complete example with 4 targets:
 
-```
-var scramble = function(data) {
-    for (index = 0; index < data.length; index ++) {
-        data[index] += 0.1 * Math.random();
-    }
-}
+```javascript
+const scramble = function (data) {
+  for (index = 0; index < data.length; index++) {
+    data[index] += 0.1 * Math.random();
+  }
+};
 
 // Main sphere
-var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+const sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
 
 // Let's create some targets
-var sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
+const sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
 sphere2.setEnabled(false);
 sphere2.updateMeshPositions(scramble);
 
-var sphere3 = BABYLON.Mesh.CreateSphere("sphere3", 16, 2, scene);
+const sphere3 = BABYLON.Mesh.CreateSphere("sphere3", 16, 2, scene);
 sphere3.setEnabled(false);
 
 sphere3.scaling = new BABYLON.Vector3(2.1, 3.5, 1.0);
 sphere3.bakeCurrentTransformIntoVertices();
 
-var sphere4 = BABYLON.Mesh.CreateSphere("sphere4", 16, 2, scene);
+const sphere4 = BABYLON.Mesh.CreateSphere("sphere4", 16, 2, scene);
 sphere4.setEnabled(false);
 sphere4.updateMeshPositions(scramble);
 
-var sphere5 = BABYLON.Mesh.CreateSphere("sphere5", 16, 2, scene);
+const sphere5 = BABYLON.Mesh.CreateSphere("sphere5", 16, 2, scene);
 sphere5.setEnabled(false);
 
 sphere5.scaling = new BABYLON.Vector3(1.0, 0.1, 1.0);
 sphere5.bakeCurrentTransformIntoVertices();
 
 // Create a manager and affect it to the sphere
-var manager = new BABYLON.MorphTargetManager();
+const manager = new BABYLON.MorphTargetManager();
 sphere.morphTargetManager = manager;
 
 // Add the targets
-var target0 = BABYLON.MorphTarget.FromMesh(sphere2, "sphere2", 0.25);
+const target0 = BABYLON.MorphTarget.FromMesh(sphere2, "sphere2", 0.25);
 manager.addTarget(target0);
 
-var target1 = BABYLON.MorphTarget.FromMesh(sphere3, "sphere3", 0.25);
+const target1 = BABYLON.MorphTarget.FromMesh(sphere3, "sphere3", 0.25);
 manager.addTarget(target1);
 
-var target2 = BABYLON.MorphTarget.FromMesh(sphere4, "sphere4", 0.25);
+const target2 = BABYLON.MorphTarget.FromMesh(sphere4, "sphere4", 0.25);
 manager.addTarget(target2);
 
-var target3 = BABYLON.MorphTarget.FromMesh(sphere5, "sphere5", 0.25);
+const target3 = BABYLON.MorphTarget.FromMesh(sphere5, "sphere5", 0.25);
 manager.addTarget(target3);
 ```
 
@@ -114,13 +114,13 @@ At any time, you can remove a target with `manager.removeTarget(target)`
 
 You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](/typedoc/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
 
-```
+```javascript
 console.log(mesh.morphTargetManager);
 ```
 
 If you want to view or change the value of a morph target influence, it can be accessed by getting the influence from the array in the morphTargetManager by key value.
 
-```
+```javascript
 myInfluence = mesh.morphTargetManager.getTarget(key);
 ```
 

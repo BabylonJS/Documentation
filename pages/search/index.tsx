@@ -111,8 +111,14 @@ export const SearchResults: FunctionComponent<{}> = () => {
             .catch(() => {});
     }, [query]);
 
-    const handleApiChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleApiOnly = (event: ChangeEvent<HTMLInputElement>) => {
         setApiOnly(event.target.checked);
+        setFilterApi(false);
+    };
+
+    const handleFilterApi = (event: ChangeEvent<HTMLInputElement>) => {
+        setFilterApi(event.target.checked);
+        setApiOnly(false);
     };
 
     const searchForm = (
@@ -144,8 +150,8 @@ export const SearchResults: FunctionComponent<{}> = () => {
                         ),
                     }}
                 />
-                <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiChange} name="apiOnly" color="primary" />} label="API Only" />
-                <FormControlLabel control={<Checkbox checked={filterApi} onChange={handleApiChange} name="apiOnly" color="primary" />} label="Filter API" />
+                <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiOnly} name="apiOnly" color="primary" />} label="API Only" />
+                <FormControlLabel control={<Checkbox checked={filterApi} onChange={handleFilterApi} name="filterApi" color="primary" />} label="Filter API" />
             </FormGroup>
         </form>
     );
@@ -192,7 +198,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                                     {searchForm}
                                     <div style={{ display: "flex", flexDirection: "column" }}>
                                         {results
-                                            .filter((res) => (apiOnly ? res.isApi : true))
+                                            .filter((res) => (apiOnly ? res.isApi : filterApi ? !res.isApi : true))
                                             .map((res) => {
                                                 return <SearchResult key={res.id} searchResult={res}></SearchResult>;
                                             })}

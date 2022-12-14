@@ -1,6 +1,6 @@
 ---
 title: Multi-Materials
-image: 
+image:
 description: Learn how to use Babylon.js Multi-Materials.
 keywords: diving deeper, materials, multi material
 further-reading:
@@ -12,25 +12,24 @@ A multi-material is used to apply different materials to different parts of the 
 
 ![Multi Material Sphere](/img/how_to/Materials/multi.png)
 
-
 To be able to define a multi-materials you first have to define some standard materials:
 
 ```javascript
-var material0 = new BABYLON.StandardMaterial("mat0", scene);
+const material0 = new BABYLON.StandardMaterial("mat0", scene);
 material0.diffuseColor = new BABYLON.Color3(1, 0, 0);
 material0.bumpTexture = new BABYLON.Texture("normalMap.jpg", scene);<br/>
-    
-var material1 = new BABYLON.StandardMaterial("mat1", scene);
+
+const material1 = new BABYLON.StandardMaterial("mat1", scene);
 material1.diffuseColor = new BABYLON.Color3(0, 0, 1);
-  
-var material2 = new BABYLON.StandardMaterial("mat2", scene);
+
+const material2 = new BABYLON.StandardMaterial("mat2", scene);
 material2.emissiveColor = new BABYLON.Color3(0.4, 0, 0.4);</pre>
 ```
 
 Then you can create a multi-material in order to gather them all:
 
 ```javascript
-var multimat = new BABYLON.MultiMaterial("multi", scene);
+const multimat = new BABYLON.MultiMaterial("multi", scene);
 multimat.subMaterials.push(material0);
 multimat.subMaterials.push(material1);
 multimat.subMaterials.push(material2);
@@ -39,7 +38,7 @@ multimat.subMaterials.push(material2);
 You are now able to affect the multi-material to your mesh:
 
 ```javascript
-var sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 3, scene);
+const sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 3, scene);
 sphere.material = multimat;
 ```
 
@@ -51,7 +50,7 @@ To define multiple submeshes, you just have to use this code:
 
 ```javascript
 sphere.subMeshes = [];
-var verticesCount = sphere.getTotalVertices();
+const verticesCount = sphere.getTotalVertices();
 
 new BABYLON.SubMesh(0, 0, verticesCount, 0, 900, sphere);
 new BABYLON.SubMesh(1, 0, verticesCount, 900, 900, sphere);
@@ -60,17 +59,16 @@ new BABYLON.SubMesh(2, 0, verticesCount, 1800, 2088, sphere);
 
 In this case, you will have 3 parts:
 
-* One starting from index 0 to index 900
-* One starting from index 900 to index 1800
-* One starting from index 1800 to index 3880
-
+- One starting from index 0 to index 900
+- One starting from index 900 to index 1800
+- One starting from index 1800 to index 3880
 
 A submesh is defined with:
 
-* The index of the material to use (this index is used to find the correct material Inside the _subMaterials_ collection of a multi-material)
-* The index of the first vertex and the count of vertices used (To optimize things for collisions for instance)
-* Index of the first indice to use and indices count
-* The parent mesh
+- The index of the material to use (this index is used to find the correct material Inside the _subMaterials_ collection of a multi-material)
+- The index of the first vertex and the count of vertices used (To optimize things for collisions for instance)
+- Index of the first indice to use and indices count
+- The parent mesh
 
 So with the code above, you can use the first material on the top part of the sphere, the second material on the middle part and the last material on the bottom part of the sphere.
 
@@ -78,7 +76,7 @@ So with the code above, you can use the first material on the top part of the sp
 
 ## With Merged Meshes
 
-When you [merge meshes](/features/featuresDeepDive/mesh/mergeMeshes) together setting the final parameter *multiMultiMaterial* to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
+When you [merge meshes](/features/featuresDeepDive/mesh/mergeMeshes) together setting the final parameter _multiMultiMaterial_ to true the subMeshes array is automatically created with all merging meshes' subMeshes. Each subMesh's material is also included in the resulting mesh's new multiMaterial. This feature ignores the parameter (`subdivideWithSubMeshes`).
 
 <Playground id="#INZ0Z0#59" title="Multi-Material With Merged Meshes 1" description="Simple example of applying a multi-material to merged meshes." image="/img/playgroundsAndNMEs/divingDeeperMultiMaterial2.jpg"/>
 

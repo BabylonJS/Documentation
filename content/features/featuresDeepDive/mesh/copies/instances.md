@@ -25,7 +25,7 @@ BABYLON.SceneLoader.ImportMesh("", "//www.babylonjs.com/assets/Tree/", "tree.bab
   // Make the "root" mesh not visible. The instanced versions of it that we
   // create below will be visible.
   mesh.isVisible = false;
-  for (var index = 0; index < 100; index++) {
+  for (let index = 0; index < 100; index++) {
     var newInstance = mesh.createInstance("i" + index);
     // Here you could change the properties of your individual instance,
     // for example to form a diagonal line of instances:
@@ -77,7 +77,7 @@ You also have the opportunity to specify per instance values for any attribute. 
 let instanceCount = 1000;
 let colorData = new Float32Array(4 * instanceCount);
 
-for (var index = 0; index < instanceCount; index++) {
+for (let index = 0; index < instanceCount; index++) {
   colorData[index * 4] = Math.random();
   colorData[index * 4 + 1] = Math.random();
   colorData[index * 4 + 2] = Math.random();

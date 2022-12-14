@@ -57,7 +57,7 @@ Using keys in the Playground requires you to click inside the rendering area to 
 
 ```javascript
 // Parameters : name, position, scene
-var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 0, -10), scene);
+const camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 0, -10), scene);
 
 // Targets the camera to a particular position. In this case the scene origin
 camera.setTarget(BABYLON.Vector3.Zero());
@@ -93,14 +93,14 @@ Whether using the keyboard, mouse, or touch swipes, left/right directions change
 The following optional `ArcRotateCamera` properties can also be handy:
 
 - **zoomToMouseLocation** - if set to `true` will cause mouse wheel to zoom in or out centered on
-  current mouse location instead of a fixed camera.target location.  This makes it easy  to explore
-  all corners of a large scene.  Setting this means that the mouse wheel input controller will be
-  changing the camera.target position during mouse wheel zooming.  When this is `true` the zoom
+  current mouse location instead of a fixed camera.target location. This makes it easy to explore
+  all corners of a large scene. Setting this means that the mouse wheel input controller will be
+  changing the camera.target position during mouse wheel zooming. When this is `true` the zoom
   operation using the mouse wheel is doing both zooming and a small amount of panning at the same
   time.
 
 - **wheelDeltaPercentage** - if set to non-zero value will cause the zooming amount to be set to a
-  percentage of the camera radius.  This means the zoom slows down as you get closer to the target
+  percentage of the camera radius. This means the zoom slows down as you get closer to the target
   object which is nice because it means you can be more precise about camera placement while you
   explore your object up close.
 
@@ -108,7 +108,7 @@ The following optional `ArcRotateCamera` properties can also be handy:
 
 ```javascript
 // Parameters: name, alpha, beta, radius, target position, scene
-var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
+const camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
 
 // Positions the camera overwriting alpha, beta, radius
 camera.setPosition(new BABYLON.Vector3(0, 0, 20));
@@ -153,7 +153,7 @@ The speed with which the camera moves to a goal position is set through its acce
 
 ```javascript
 // Parameters: name, position, scene
-var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 10, -10), scene);
+const camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 10, -10), scene);
 
 // The goal distance of camera from target
 camera.radius = 30;
@@ -189,14 +189,14 @@ The [AnaglyphUniversalCamera](/typedoc/classes/babylon.anaglyphuniversalcamera) 
 
 ```javascript
 // Parameters : name, position, eyeSpace, scene
-var camera = new BABYLON.AnaglyphUniversalCamera("af_cam", new BABYLON.Vector3(0, 1, -15), 0.033, scene);
+const camera = new BABYLON.AnaglyphUniversalCamera("af_cam", new BABYLON.Vector3(0, 1, -15), 0.033, scene);
 ```
 
 ### Constructing an Anaglyph ArcRotateCamera
 
 ```javascript
 // Parameters : name, alpha, beta, radius, target, eyeSpace, scene
-var camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI / 2, Math.PI / 4, 20, BABYLON.Vector3.Zero(), 0.033, scene);
+const camera = new BABYLON.AnaglyphArcRotateCamera("aar_cam", -Math.PI / 2, Math.PI / 4, 20, BABYLON.Vector3.Zero(), 0.033, scene);
 ```
 
 The `eyeSpace` parameter sets the amount of shift between the left-eye view and the right-eye view. Once you are wearing your 3D glasses, you might want to experiment with this float value.
@@ -211,7 +211,7 @@ The [DeviceOrientationCamera](/typedoc/classes/babylon.deviceorientationcamera) 
 
 ```javascript
 // Parameters : name, position, scene
-var camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
+const camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
 
 // Targets the camera to a particular position
 camera.setTarget(new BABYLON.Vector3(0, 0, -10));
@@ -246,12 +246,12 @@ Here is a complete sample that loads the Espilit demo and switches the default c
 document.addEventListener("DOMContentLoaded", startGame, false);
 function startGame() {
   if (BABYLON.Engine.isSupported()) {
-    var canvas = document.getElementById("renderCanvas");
-    var engine = new BABYLON.Engine(canvas, true);
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true);
 
     BABYLON.SceneLoader.Load("Espilit/", "Espilit.babylon", engine, function (newScene) {
 
-      var VJC = new BABYLON.VirtualJoysticksCamera("VJC", newScene.activeCamera.position, newScene);
+      const VJC = new BABYLON.VirtualJoysticksCamera("VJC", newScene.activeCamera.position, newScene);
       VJC.rotation = newScene.activeCamera.rotation;
       VJC.checkCollisions = newScene.activeCamera.checkCollisions;
       VJC.applyGravity = newScene.activeCamera.applyGravity;
@@ -287,21 +287,21 @@ Example (requires a VR device):
 
 ```javascript
 // Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationFreeCamera("Camera", new BABYLON.Vector3(-6.7, 1.2, -1.3), scene);
+const camera = new BABYLON.VRDeviceOrientationFreeCamera("Camera", new BABYLON.Vector3(-6.7, 1.2, -1.3), scene);
 ```
 
 ### Constructing a VR Device Orientation Arc Rotate Camera
 
 ```javascript
 // Parameters: name, alpha, beta, radius, target, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationArcRotateCamera("Camera", Math.PI / 2, Math.PI / 4, 25, new BABYLON.Vector3(0, 0, 0), scene);
+const camera = new BABYLON.VRDeviceOrientationArcRotateCamera("Camera", Math.PI / 2, Math.PI / 4, 25, new BABYLON.Vector3(0, 0, 0), scene);
 ```
 
 ### Constructing a VR Device Orientation Gamepad Camera
 
 ```javascript
 // Parameters: name, position, scene, compensateDistortion, vrCameraMetrics
-var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.Vector3(-10, 5, 14));
+const camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.Vector3(-10, 5, 14));
 ```
 
 ## WebVR Free Camera
@@ -312,7 +312,7 @@ var camera = new BABYLON.VRDeviceOrientationGamepadCamera("Camera", new BABYLON.
 
 ```javascript
 // Parameters : name, position, scene, webVROptions
-var camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
+const camera = new BABYLON.WebVRFreeCamera("WVR", new BABYLON.Vector3(0, 1, -15), scene);
 ```
 
 This camera deserves its own page: [Using the WebVR Camera](/features/featuresDeepDive/cameras/webVRCamera).
@@ -331,7 +331,7 @@ Its defaults are:
 
 ```javascript
 // Parameters: name, position, scene
-var camera = new BABYLON.FlyCamera("FlyCamera", new BABYLON.Vector3(0, 5, -10), scene);
+const camera = new BABYLON.FlyCamera("FlyCamera", new BABYLON.Vector3(0, 5, -10), scene);
 
 // Airplane like rotation, with faster roll correction and banked-turns.
 // Default is 100. A higher number means slower correction.
@@ -387,4 +387,3 @@ While this is realistic, it may be visually inappealing. If the angle between th
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
-

@@ -300,7 +300,7 @@ Primary.prototype.MapToFace = function (faceNb) {
     
     const mapped = [];
     let tempVec = BABYLON.Vector3.Zero();
-    for (var i = 0; i < this.cartesian.length; i++) {
+    for (let i = 0; i < this.cartesian.length; i++) {
         tempVec = this.u.scale(this.cartesian[i].x).add(this.v.scale(this.cartesian[i].y)).add(O);
         mapped[i] = [tempVec.x, tempVec.y, tempVec.z];
     }

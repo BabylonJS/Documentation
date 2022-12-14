@@ -224,7 +224,7 @@ In JavaScript, you can obviously also create your own properties like _accelerat
 
 ```javascript
 SPS.initParticles = function () {
-  for (var p = 0; p < SPS.nbParticles; p++) {
+  for (let p = 0; p < SPS.nbParticles; p++) {
     particles[p].age = Math.random() * 20;
   }
 };
@@ -254,7 +254,7 @@ The following pseudo-code schema will show you their application.
 var particles: SolidParticles[] = [array of SolidParticle objects];
 function setParticles() {
     beforeUpdateParticles();
-    for (var p = 0; p < nbParticles; p++) {
+    for (let p = 0; p < nbParticles; p++) {
         updateParticles(particles[p]);
     }
     updateTheWholeMesh();

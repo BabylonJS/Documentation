@@ -49,10 +49,10 @@ So to better understand how it works, here is another global pseudo-code schema 
 var particles: SolidParticles[] = [array of SolidParticle objects];
 function setParticles() {
     beforeUpdateParticles();                 // your custom function
-    for (var p = 0; p < nbParticles; p++) {
+    for (let p = 0; p < nbParticles; p++) {
       var particle = particles[p];
       updateParticles(particle);             // your custom position function
-      for(var v = 0; particle.vertices.length; v++) {
+      for(let v = 0; particle.vertices.length; v++) {
         var vertex = particle.vertices[v];
         updateParticleVertex(particle, vertex, v);   // your ustom vertex function
         computeAllTheVertexStuff();

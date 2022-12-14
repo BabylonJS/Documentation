@@ -25,7 +25,7 @@ If you ever needed it, this tutorial is made for you.
 Before anything else, you must ensure that your engine was created with stencil on:
 
 ```javascript
-var engine = new BABYLON.Engine(canvas, true, { stencil: true });
+const engine = new BABYLON.Engine(canvas, true, { stencil: true });
 ```
 
 The HighlightLayer relies on stencil to determine which part of the image it needs to paint.
@@ -36,7 +36,7 @@ In the most basic shape, you only need to instantiate one highlight layer in you
 
 ```javascript
 // Add the highlight layer.
-var hl = new BABYLON.HighlightLayer("hl1", scene);
+const hl = new BABYLON.HighlightLayer("hl1", scene);
 hl.addMesh(sphere, BABYLON.Color3.Green());
 ```
 
@@ -50,7 +50,7 @@ In case one highlighted mesh do not require highlights anymore, you can simply r
 
 ```javascript
 // Add the highlight layer.
-var hl = new BABYLON.HighlightLayer("hl1", scene);
+const hl = new BABYLON.HighlightLayer("hl1", scene);
 hl.addMesh(sphere, BABYLON.Color3.Green());
 hl.removeMesh(sphere);
 ```
@@ -77,7 +77,7 @@ The first thing you will probably notice is the fact that overlapping highlighte
 
 ```javascript
 // Add the highlight layer.
-var hl = new BABYLON.HighlightLayer("hl1", scene);
+const hl = new BABYLON.HighlightLayer("hl1", scene);
 hl.addMesh(sphere, BABYLON.Color3.Green());
 hl.addMesh(ground, BABYLON.Color3.Red());
 ```
@@ -88,9 +88,9 @@ This is the default behavior optimized for performance. If you are running your 
 
 ```javascript
 // Add the highlight layer.
-var hl1 = new BABYLON.HighlightLayer("hl1", scene);
+const hl1 = new BABYLON.HighlightLayer("hl1", scene);
 hl1.addMesh(sphere, BABYLON.Color3.White());
-var hl2 = new BABYLON.HighlightLayer("hl2", scene);
+const hl2 = new BABYLON.HighlightLayer("hl2", scene);
 hl2.addMesh(ground, BABYLON.Color3.Red());
 ```
 
@@ -102,10 +102,10 @@ The second question you will probably have is the ability to animate the blur si
 
 ```javascript
 // Add the highlight layer.
-var hl2 = new BABYLON.HighlightLayer("hl2", scene);
+const hl2 = new BABYLON.HighlightLayer("hl2", scene);
 hl2.addMesh(ground, BABYLON.Color3.Red());
 
-var alpha = 0;
+const alpha = 0;
 scene.registerBeforeRender(() => {
   alpha += 0.06;
 
@@ -122,11 +122,11 @@ Finally, you can easily enable/disable inner and outer glow on the highlight lay
 
 ```javascript
 // Add the highlight layer.
-var hl1 = new BABYLON.HighlightLayer("hl1", scene);
+const hl1 = new BABYLON.HighlightLayer("hl1", scene);
 hl1.addMesh(sphere, BABYLON.Color3.White());
 hl1.outerGlow = false;
 
-var hl2 = new BABYLON.HighlightLayer("hl2", scene);
+const hl2 = new BABYLON.HighlightLayer("hl2", scene);
 hl2.addMesh(ground, BABYLON.Color3.Red());
 hl2.innerGlow = false;
 ```
@@ -156,7 +156,7 @@ By default, the highlight layer will apply on all active cameras but it creates 
 You can easily specify what camera your highlights are related to in the options:
 
 ```javascript
-var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: camera });
+const hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: camera });
 hl1.addMesh(sphere, BABYLON.Color3.Green());
 ```
 
@@ -183,5 +183,5 @@ The available members of the option object are:
 You can pass them during the construction of the highlight layer:
 
 ```javascript
-var hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: myCamera });
+const hl1 = new BABYLON.HighlightLayer("hl1", scene, { camera: myCamera });
 ```

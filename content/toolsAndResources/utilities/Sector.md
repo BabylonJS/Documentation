@@ -30,7 +30,7 @@ function showAngleSector(origin, vector1, vector2, radius, sectorType) {
     var matrix;
     var ang = angle / nbPoints;
     var rotated;
-    for (var i = 0; i < nbPoints; i++) {
+    for (let i = 0; i < nbPoints; i++) {
       matrix = BABYLON.Matrix.RotationAxis(cross, ang * i);
       rotated = BABYLON.Vector3.TransformCoordinates(firstPoint, matrix);
       points.push(rotated.add(origin));
@@ -47,7 +47,7 @@ function showAngleSector(origin, vector1, vector2, radius, sectorType) {
         break;
       case 2:
         var pointO = [];
-        for (var j = 0; j < points.length; j++) {
+        for (let j = 0; j < points.length; j++) {
           pointO.push(origin);
         }
         sector = BABYLON.Mesh.CreateRibbon("sector", [points, pointO], null, null, 0, scene);

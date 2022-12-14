@@ -78,7 +78,7 @@ You can see an example here:<Playground id="#G3HSAW#6" title="Background Materia
 As the reflection can be compared to the standard material, using a mirror works also in the same way.
 
 ```javascript
-var mirror = new BABYLON.MirrorTexture("mirror", 512, scene);
+mirror = new BABYLON.MirrorTexture("mirror", 512, scene);
 mirror.mirrorPlane = new BABYLON.Plane(0, -1, 0, 0);
 mirror.renderList.push(sphere);
 
@@ -92,13 +92,13 @@ You can see an example here: <Playground id="#G3HSAW#9" title="Background Materi
 As we can both use reflection and diffuse, reflection fresnel can help feeling more immersed in the experience:
 
 ```javascript
-var backgroundMaterial = new BABYLON.BackgroundMaterial("backgroundMaterial", scene);
+backgroundMaterial = new BABYLON.BackgroundMaterial("backgroundMaterial", scene);
 backgroundMaterial.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/backgroundGround.png", scene);
 backgroundMaterial.diffuseTexture.hasAlpha = true;
 backgroundMaterial.opacityFresnel = false;
 backgroundMaterial.shadowLevel = 0.4;
 
-var mirror = new BABYLON.MirrorTexture("mirror", 512, scene);
+mirror = new BABYLON.MirrorTexture("mirror", 512, scene);
 mirror.mirrorPlane = new BABYLON.Plane(0, -1, 0, 0);
 mirror.renderList.push(sphere);
 backgroundMaterial.reflectionTexture = mirror;

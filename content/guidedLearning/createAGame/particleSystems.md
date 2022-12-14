@@ -103,7 +103,7 @@ For every third vertex position, we store a new position and normal as vector3s.
 
 ```javascript
 //emitter for the particle system
-let gizmo = Mesh.CreateBox("gizmo", 0.001, this._scene);
+let gizmo = MeshBuilder.CreateBox("gizmo", { size: 0.001 }, this._scene);
 gizmo.position = vertPosition;
 gizmo.parent = emitter;
 let direction = vertNormal.normalize().scale(1); // move in the direction of the normal

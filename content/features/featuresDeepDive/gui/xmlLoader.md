@@ -1,17 +1,17 @@
 ---
 title: XML Loader
-image: 
+image:
 description: Learn about the Babylon.js XML Loader.
 keywords: diving deeper, GUI, XML Loader
 further-reading:
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /features/featuresDeepDive/gui/scrollViewer
-    - title: How To Use Babylon GUI3D
-      url: /features/featuresDeepDive/gui/gui3D
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -23,15 +23,15 @@ When you want to create GUI layouts in an easy and structured way you may want t
 The xml Loader is able to load Babylon GUI layouts directly from xml. You create it with
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-var xmlLoader = new BABYLON.GUI.XmlLoader();
+const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+const xmlLoader = new BABYLON.GUI.XmlLoader();
 ```
 
 The XmlLoader might be used as part of a javascript class or function. In order for the class to correctly map observables and dynamic attributes with the class methods and attributes, it is necessary to provide the class object in the constructor. This would be how the XmlLoader would be initialized inside a class.
 
 ```javascript
-var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-var xmlLoader = new BABYLON.GUI.XmlLoader(this);
+const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+const xmlLoader = new BABYLON.GUI.XmlLoader(this);
 ```
 
 You can then proceed to load a layout using the **loadLayout** method.
@@ -40,7 +40,7 @@ You can then proceed to load a layout using the **loadLayout** method.
 xmlLoader.loadLayout("layouts/testgui.xml", advancedTexture);
 ```
 
-This is what is needed to initialize and load a layout. There may be cases when you may need to load a layout without attaching it to the advancedTexture. In this case, it suffices to set the second paramenter null like the following.
+This is what is needed to initialize and load a layout. There may be cases when you may need to load a layout without attaching it to the advancedTexture. In this case, it suffices to set the second parameter null like the following.
 
 ```javascript
 xmlLoader.loadLayout("layouts/testgui.xml", null);
@@ -49,8 +49,8 @@ xmlLoader.loadLayout("layouts/testgui.xml", null);
 The third parameter in the loadLayout function, is a callback which is called once the layout has been parsed. Inside the callback, it is possible to retrieve elements and add events to them. This would be an example of how it would be used.
 
 ```javascript
-xmlLoader.loadLayout("layouts/testgui.xml", advancedTexture, function() {
-    xmlLoader.getNodeById("helloButton").onPointerClickObservable.add(clickEvent);
+xmlLoader.loadLayout("layouts/testgui.xml", advancedTexture, function () {
+  xmlLoader.getNodeById("helloButton").onPointerClickObservable.add(clickEvent);
 });
 ```
 
@@ -65,14 +65,17 @@ xmlLoader.isLoaded(); // Returns true or false depending whether the layout has 
 If you need to detach a container from the scene
 
 ```javascript
-var node = xmlLoader.getNodeById("firstContainer"); 
+const node = xmlLoader.getNodeById("firstContainer");
 advancedTexture.removeControl(node);
 ```
+
 Then attach it again
+
 ```javascript
-var node = xmlLoader.getNodeById("firstContainer"); 
+const node = xmlLoader.getNodeById("firstContainer");
 advancedTexture.addControl(node);
 ```
+
 ## XML Layouts
 
 The structure for an XML layout is very straightforward. This is what a simple XML layout would look like
@@ -140,15 +143,15 @@ It is also possible to connect a structure like an Array or Object directly to X
 Let's suppose we have the following object in your javascript :
 
 ```javascript
-var objTexts = {
-        first: {
-            name: "john",
-            surname: "smith"
-        },
-        second: {
-            name: "ben",
-            surname: "Stiller"
-        }
+const objTexts = {
+  first: {
+    name: "john",
+    surname: "smith",
+  },
+  second: {
+    name: "ben",
+    surname: "Stiller",
+  },
 };
 ```
 
@@ -162,7 +165,9 @@ Let's also suppose the following list retains the users of your application and 
        </Container>
 </StackPanel>
 ```
+
 Or
+
 ```javascript
 xmlLoader.getNodeById("myName").text = "john";
 xmlLoader.getNodeById("mySurname").text = "smith";

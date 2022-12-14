@@ -31,14 +31,14 @@ scene.ambientColor = new BABYLON.Color3(1, 1, 1);
 Create a material using
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
 Set the material color using one, some or all of _diffuseColor_, _specularColor_, _emissiveColor_ and _ambientColor_. Remember that _ambientColor_
 will only apply if the scene ambient color has been set.
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 
 myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
 myMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
@@ -56,10 +56,10 @@ To give an idea on how the material diffuse color reacts to the diffuse light co
 
 This reaction of
 
--   Yellow Material
--   Purple Material
--   Cyan Material
--   White Material
+- Yellow Material
+- Purple Material
+- Cyan Material
+- White Material
 
 to white, red, green and blue diffuse spot lights can also be seen in the following image.
 
@@ -92,14 +92,14 @@ Textures are formed using a saved image.
 Create a material using
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
 Set the material texture using one, some or all of _diffuseTexture_, _specularTexture_, _emissiveTexture_ and _ambientTexture_.
 Notice that _ambientTexture_ is applied without the scene ambient color having been set.
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 
 myMaterial.diffuseTexture = new BABYLON.Texture("PATH TO IMAGE", scene);
 myMaterial.specularTexture = new BABYLON.Texture("PATH TO IMAGE", scene);

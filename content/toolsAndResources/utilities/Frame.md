@@ -65,7 +65,7 @@ var frameMaker = function(name, options, scene) {
 	
 	var originX = Number.MAX_VALUE;
 	
-	for(var m = 0; m < profile.length; m++) {
+	for(let m = 0; m < profile.length; m++) {
 		originX = Math.min(originX, profile[m].x);
 	}
 
@@ -82,7 +82,7 @@ var frameMaker = function(name, options, scene) {
 	path[1].subtractToRef(path[0], line);
 	path[2].subtractToRef(path[1], nextLine);    
 	
-	for(var p = 0; p < nbPoints; p++) {    
+	for(let p = 0; p < nbPoints; p++) {    
 		angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));            
 		direction = BABYLON.Vector3.Cross(line, nextLine).normalize().z;                
 		lineNormal = new BABYLON.Vector3(line.y, -1 * line.x, 0).normalize();
@@ -102,9 +102,9 @@ var frameMaker = function(name, options, scene) {
 	var frame = [];
 	var extrusionPaths = []
 	
-	for(var p = 0; p < nbPoints; p++) {
+	for(let p = 0; p < nbPoints; p++) {
 		extrusionPaths = [];
-		for(var m = 0; m < profile.length; m++) {
+		for(let m = 0; m < profile.length; m++) {
 			extrusionPaths[m] = [];
 			extrusionPaths[m].push(new BABYLON.Vector3(cornerProfile[p][m].x, cornerProfile[p][m].y, profile[m].y));
 			extrusionPaths[m].push(new BABYLON.Vector3(cornerProfile[(p + 1) % nbPoints][m].x, cornerProfile[(p + 1) % nbPoints][m].y, profile[m].y));
