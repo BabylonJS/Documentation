@@ -13,7 +13,7 @@ video-content:
 To easily merge a number of meshes to a single mesh use the static `MergeMeshes` of the `Mesh` class:
 
 ```javascript
-var newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32BitsIndices, meshSubclass, subdivideWithSubMeshes, multiMultiMaterials);
+const newMesh = BABYLON.Mesh.MergeMeshes(arrayOfMeshes, disposeSource, allow32BitsIndices, meshSubclass, subdivideWithSubMeshes, multiMultiMaterials);
 ```
 
 | variable                          | description                                                                                                    |
@@ -44,23 +44,23 @@ Note: Careful, when you merge cloned mesh, you need to update the world matrix o
 **Note: This article covers the internal merging process. You can also use `BABYLON.VertexData` object and its `merge()` function for a simpler solution.**
 
 ```javascript
-var mergeMeshes = function (meshName, arrayObj, scene) {
-  var arrayPos = [];
-  var arrayNormal = [];
-  var arrayUv = [];
-  var arrayUv2 = [];
-  var arrayColor = [];
-  var arrayMatricesIndices = [];
-  var arrayMatricesWeights = [];
-  var arrayIndice = [];
-  var savedPosition = [];
-  var savedNormal = [];
-  var newMesh = new BABYLON.Mesh(meshName, scene);
-  var UVKind = true;
-  var UV2Kind = true;
-  var ColorKind = true;
-  var MatricesIndicesKind = true;
-  var MatricesWeightsKind = true;
+const mergeMeshes = function (meshName, arrayObj, scene) {
+  const arrayPos = [];
+  const arrayNormal = [];
+  const arrayUv = [];
+  const arrayUv2 = [];
+  const arrayColor = [];
+  const arrayMatricesIndices = [];
+  const arrayMatricesWeights = [];
+  const arrayIndice = [];
+  const savedPosition = [];
+  const savedNormal = [];
+  const newMesh = new BABYLON.Mesh(meshName, scene);
+  const UVKind = true;
+  const UV2Kind = true;
+  const ColorKind = true;
+  const MatricesIndicesKind = true;
+  const MatricesWeightsKind = true;
 
   for (let i = 0; i != arrayObj.length; i++) {
     if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.UVKind])) UVKind = false;
@@ -70,9 +70,9 @@ var mergeMeshes = function (meshName, arrayObj, scene) {
     if (!arrayObj[i].isVerticesDataPresent([BABYLON.VertexBuffer.MatricesWeightsKind])) MatricesWeightsKind = false;
   }
 
-  for (i = 0; i != arrayObj.length; i++) {
-    var ite = 0;
-    var iter = 0;
+  for (let i = 0; i != arrayObj.length; i++) {
+    const ite = 0;
+    const iter = 0;
     arrayPos[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.PositionKind);
     arrayNormal[i] = arrayObj[i].getVerticesData(BABYLON.VertexBuffer.NormalKind);
     if (UVKind) arrayUv = arrayUv.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.UVKind));
@@ -81,27 +81,27 @@ var mergeMeshes = function (meshName, arrayObj, scene) {
     if (MatricesIndicesKind) arrayMatricesIndices = arrayMatricesIndices.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesIndicesKind));
     if (MatricesWeightsKind) arrayMatricesWeights = arrayMatricesWeights.concat(arrayObj[i].getVerticesData(BABYLON.VertexBuffer.MatricesWeightsKind));
 
-    var maxValue = savedPosition.length / 3;
+    const maxValue = savedPosition.length / 3;
 
     arrayObj[i].computeWorldMatrix(true);
-    var worldMatrix = arrayObj[i].getWorldMatrix();
+    const worldMatrix = arrayObj[i].getWorldMatrix();
 
     for (let ite = 0; ite != arrayPos[i].length; ite += 3) {
-      var vertex = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
+      const vertex = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(arrayPos[i][ite], arrayPos[i][ite + 1], arrayPos[i][ite + 2]), worldMatrix);
       savedPosition.push(vertex.x);
       savedPosition.push(vertex.y);
       savedPosition.push(vertex.z);
     }
 
     for (let iter = 0; iter != arrayNormal[i].length; iter += 3) {
-      var vertex = BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
+      const vertex = BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(arrayNormal[i][iter], arrayNormal[i][iter + 1], arrayNormal[i][iter + 2]), worldMatrix);
       savedNormal.push(vertex.x);
       savedNormal.push(vertex.y);
       savedNormal.push(vertex.z);
     }
 
-    var tmp = arrayObj[i].getIndices();
-    for (it = 0; it != tmp.length; it++) {
+    const tmp = arrayObj[i].getIndices();
+    for (let it = 0; it != tmp.length; it++) {
       arrayIndice.push(tmp[it] + maxValue);
     }
     arrayIndice = arrayIndice.concat(tmp);

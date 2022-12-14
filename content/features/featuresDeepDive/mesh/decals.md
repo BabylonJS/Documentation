@@ -1,11 +1,11 @@
 ---
 title: Decals
-image: 
+image:
 description: Learn how use decals in Babylon.js.
 keywords: diving deeper, meshes, decals
 further-reading:
-    - title: Basic Shapes
-      url: /features/featuresDeepDive/mesh/creation/set
+  - title: Basic Shapes
+    url: /features/featuresDeepDive/mesh/creation/set
 video-overview:
 video-content:
 ---
@@ -15,28 +15,30 @@ video-content:
 These are usually used to add details on meshes (bullets hole, local details, etc...), a decal is a mesh produced from a subset of a previous one with a small offset in order to appear on top of it.
 
 Creation Example :
+
 ```javascript
-var decal = BABYLON.MeshBuilder.CreateDecal("decal", mesh,  {position: myPos}, scene);
+const decal = BABYLON.MeshBuilder.CreateDecal("decal", mesh, { position: myPos }, scene);
 ```
+
 Don't forget the _mesh_ parameter; this is the mesh to which the decal is applied.
 
 Properties, all optional :
 
-property|value|default value
---------|-----|-------------
-position|_(Vector3)_ position of the decal (World coordinates) | (0, 0, 0)
-normal|_(Vector3)_  the normal of the mesh where the decal is applied onto (World coordinates)|Vector3.Up
-size|_(Vector3)_  the x, y, z sizes of the decal|(1, 1, 1)
-angle|_(number)_ the angle to rotate the decal|0
+| property | value                                                                                  | default value |
+| -------- | -------------------------------------------------------------------------------------- | ------------- |
+| position | _(Vector3)_ position of the decal (World coordinates)                                  | (0, 0, 0)     |
+| normal   | _(Vector3)_ the normal of the mesh where the decal is applied onto (World coordinates) | Vector3.Up    |
+| size     | _(Vector3)_ the x, y, z sizes of the decal                                             | (1, 1, 1)     |
+| angle    | _(number)_ the angle to rotate the decal                                               | 0             |
 
 <Playground id="#1BAPRM#73" title="Simple Example of Decals" description="Simple example of pasting decals in a Babylon.js scene."/> click on the cat.
 
 Starting with v5.28.0, decals can be created for rigged meshes and two new options are available:
 
-property|value|default value
---------|-----|-------------
-localMode|defines that the computations should be done with the local mesh coordinates instead of the world space coordinates. Use this mode if you want the decal to be parented to the source mesh and move/rotate with it. | false
-<nobr>cullBackFaces</nobr>|defines if the back faces should be removed from the decal mesh|false
+| property                   | value                                                                                                                                                                                                               | default value |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| localMode                  | defines that the computations should be done with the local mesh coordinates instead of the world space coordinates. Use this mode if you want the decal to be parented to the source mesh and move/rotate with it. | false         |
+| <nobr>cullBackFaces</nobr> | defines if the back faces should be removed from the decal mesh                                                                                                                                                     | false         |
 
 <br/>
 Note that `localMode=true` is automatically enforced for rigged meshes (when `sourceMesh.skeleton !== null`) otherwise it would not work. Also, you should probably always set `localMode` to `true` even for non rigged meshes as it will allow your decal to follow the source mesh even if this mesh moves/rotates.
@@ -51,16 +53,16 @@ In this picture, the red box materializes the projection box and has the `size` 
 
 As the projection box extends farther from the back, with `cullBackFaces=false` the projected texture will be visible on the back:
 
-front|back
------|----
-![Front](/img/features/decals/decal_front.jpg!350)|![Back](/img/features/decals/decal_back_nok.jpg!350)
+| front                                              | back                                                 |
+| -------------------------------------------------- | ---------------------------------------------------- |
+| ![Front](/img/features/decals/decal_front.jpg!350) | ![Back](/img/features/decals/decal_back_nok.jpg!350) |
 
 <br/>
 With `cullBackFaces=true` however, the projected texture will not be visible on the back:
 
-front|back
------|----
-![Front](/img/features/decals/decal_front.jpg!350)|![Back](/img/features/decals/decal_back_ok.jpg!300)
+| front                                              | back                                                |
+| -------------------------------------------------- | --------------------------------------------------- |
+| ![Front](/img/features/decals/decal_front.jpg!350) | ![Back](/img/features/decals/decal_back_ok.jpg!300) |
 
 <br/>
 Of course, you can try to lower the dimensions of the projection box:

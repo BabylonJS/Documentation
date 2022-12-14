@@ -21,7 +21,7 @@ Note: Gizmos will set/modify the [rotationQuaternion](/features/featuresDeepDive
 To get a default gizmo setup, the GizmoManager class can be used.
 
 ```javascript
-var gizmoManager = new BABYLON.GizmoManager(scene);
+const gizmoManager = new BABYLON.GizmoManager(scene);
 ```
 
 The gizmo manager will attach the enabled gizmo to whatever object in the scene that is selected by a pointer. To enable a gizmo, any of the following can be used:
@@ -53,12 +53,12 @@ gizmoManager.gizmos.scaleGizmo;
 gizmoManager.gizmos.rotationGizmo;
 gizmoManager.gizmos.positionGizmo;
 
-gizmoManager.gizmos.positionGizmo.xGizmo.dragBehavior.onDragStartObservable.add(()=>{
-    console.log("Position gizmo's x axis started to be dragged");
-})
-gizmoManager.gizmos.positionGizmo.xGizmo.dragBehavior.onDragEndObservable.add(()=>{
-    console.log("Position gizmo's x axis drag was ended");
-})
+gizmoManager.gizmos.positionGizmo.xGizmo.dragBehavior.onDragStartObservable.add(() => {
+  console.log("Position gizmo's x axis started to be dragged");
+});
+gizmoManager.gizmos.positionGizmo.xGizmo.dragBehavior.onDragEndObservable.add(() => {
+  console.log("Position gizmo's x axis drag was ended");
+});
 ```
 
 By default gizmo orientation is in local space so it will be rotated to match the rotation of the object that it is attached to. To change to world orientation, the updateGizmoRotationToMatchAttachedMesh property can be set to false:
@@ -78,8 +78,8 @@ Gizmos are displayed by a [UtilityLayerRenderer](/features/featuresDeepDive/mesh
 The utility layers are independent of the scene or engine. After creating a gizmo it is exposed off of gizmo.gizmoLayer. If creating a gizmo without specifying a utility layer it will use the default utility layer’s UtilityLayerRenderer.DefaultUtilityLayer (for overlay gizmos like position/scale) and UtilityLayerRenderer.DefaultKeepDepthUtilityLayer (for occluded gizmos like bounding box) It is recommended to use these layers and reuse layers for most cases as every new utility layer comes with additional overhead.
 
 ```javascript
-var utilLayer = new BABYLON.UtilityLayerRenderer(scene);
-var gizmo = new BABYLON.AxisDragGizmo(new BABYLON.Vector3(1,0,0), BABYLON.Color3.FromHexString("#00b894"), utilLayer);
+const utilLayer = new BABYLON.UtilityLayerRenderer(scene);
+const gizmo = new BABYLON.AxisDragGizmo(new BABYLON.Vector3(1, 0, 0), BABYLON.Color3.FromHexString("#00b894"), utilLayer);
 ```
 
 When created, the gizmo will not be attached to a node and will not be visible so the gizmo can be attached to a node to become active. Setting this to null will disable/hide the gizmo once again.
@@ -110,9 +110,9 @@ Snapping can be enabled on any of the single axis gizmos
 
 ```javascript
 gizmo.snapDistance = 0.3;
-gizmo.onSnapObservable.add((event)=>{
-    console.log(event);
-})
+gizmo.onSnapObservable.add((event) => {
+  console.log(event);
+});
 ```
 
 A sensitivity factor can be customized for AxisScaleGizmo and ScaleGizmo. Default is 1, a higher value means more stretch for the same drag.
@@ -124,9 +124,9 @@ gizmoScale.sensitivity = 3;
 These gizmo's internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
 
 ```javascript
-gizmo.dragBehavior.onDragObservable.add(()=>{
-    console.log("drag");
-})
+gizmo.dragBehavior.onDragObservable.add(() => {
+  console.log("drag");
+});
 ```
 
 Classes for 3 axis gizmos are also provided which contain 3 of the single axis gizmos within
@@ -162,17 +162,17 @@ gizmo.rotationSphereSize = false;
 The following events are fired when dragging occurs on either the scale or rotation meshes of the bounding box.
 
 ```javascript
-gizmo.onScaleBoxDragObservable.add(()=>{
-    console.log("scaleDrag");
+gizmo.onScaleBoxDragObservable.add(() => {
+  console.log("scaleDrag");
 });
-gizmo.onScaleBoxDragEndObservable.add(()=>{
-    console.log("scaleEnd");
+gizmo.onScaleBoxDragEndObservable.add(() => {
+  console.log("scaleEnd");
 });
-gizmo.onRotationSphereDragObservable.add(()=>{
-    console.log("rotDrag");
+gizmo.onRotationSphereDragObservable.add(() => {
+  console.log("rotDrag");
 });
-gizmo.onRotationSphereDragEndObservable.add(()=>{
-    console.log("rotEnd");
+gizmo.onRotationSphereDragEndObservable.add(() => {
+  console.log("rotEnd");
 });
 ```
 
@@ -180,7 +180,7 @@ To drag around objects contained inside a bounding box, [Mesh Behaviors](/featur
 When using with models with complex geometry such as a custom GLTF file, the complex model should be set to not be pickable by pointers and wrapped in a pickable bounding box mesh to save on performance. A helper method to do this is provided.
 
 ```javascript
-var boundingBox = BABYLON.BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox(gltfMesh);
+const boundingBox = BABYLON.BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox(gltfMesh);
 ```
 
 Additionally, the bounding box can ignore children of the attached mesh to add additional performance gain when needed.
@@ -192,7 +192,9 @@ gizmo.ignoreChildren = true;
 To only ignore certain children when computing the bounding box, the includeChildPredicate can be set.
 
 ```javascript
-gizmo.includeChildPredicate = (m)=>{return m == sphere2};
+gizmo.includeChildPredicate = (m) => {
+  return m == sphere2;
+};
 ```
 
 <Playground id="#SG9ZZB" title="Bounding Box Gizmo Example" description="Simple example of a bounding box gizmo."/>
@@ -208,9 +210,9 @@ UI can be attached to the bounding box using the [AttachToBoxBehavior](/features
 To customize the visual appearance of an existing gizmo, create a mesh on the same utility layer and then setCustomMesh on the gizmo. Utility layers do not contain lights by default so it is recommended use a material with an emissive texture.
 
 ```javascript
-var customMesh = BABYLON.MeshBuilder.CreateBox("", {size: 0.1}, gizmo.gizmoLayer.utilityLayerScene)
-customMesh.material = material
-gizmo.setCustomMesh(customMesh)
+const customMesh = BABYLON.MeshBuilder.CreateBox("", { size: 0.1 }, gizmo.gizmoLayer.utilityLayerScene);
+customMesh.material = material;
+gizmo.setCustomMesh(customMesh);
 ```
 
 <Playground id="#7KX2R8#133" title="Gizmo Customization Example" description="Simple example of how to customize the gizmo."/>
