@@ -43,19 +43,19 @@ See more about 'refresh rate' in the Custom Procedural Textures section... far b
 Applying a procedural texture is just the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
 
 ```javascript
-var cylinder = BABYLON.Mesh.CreateCylinder("mycylinder", 7, 2, 2, 12, 1, scene);
+const cylinder = BABYLON.Mesh.CreateCylinder("mycylinder", 7, 2, 2, 12, 1, scene);
 ```
 
 Then, you need to create a StandardMaterial:
 
 ```javascript
-var material = new BABYLON.StandardMaterial("material", scene);
+const material = new BABYLON.StandardMaterial("material", scene);
 ```
 
 Now, create a WoodProceduralTexture object for which you need to pass a name, the size of the generated texture and the scene.
 
 ```javascript
-var texture = new BABYLON.WoodProceduralTexture("texture", 1024, scene);
+const texture = new BABYLON.WoodProceduralTexture("texture", 1024, scene);
 ```
 
 You are almost set! All you need to do now is to associate the texture to the material as a diffuseTexture, for instance, (or emissiveTexture, specularTexture, any other) and then apply the material to the mesh.
@@ -79,7 +79,7 @@ The NoiseProceduralTexture is available out of the box with the core Babylon.js 
 You can create one with the following code:
 
 ```javascript
-var noiseTexture = new BABYLON.NoiseProceduralTexture("perlin", 256, scene);
+const noiseTexture = new BABYLON.NoiseProceduralTexture("perlin", 256, scene);
 ```
 
 The NoiseProceduralTexture exposes the following properties:
