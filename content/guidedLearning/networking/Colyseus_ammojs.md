@@ -83,7 +83,7 @@ First, we create a box and ground, and add physics to it,the ground represents t
 
 ```javascript
 scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new AmmoJSPlugin(true, Ammo));
-var ground = BABYLON.Mesh.CreateGround("ground1", 160, 160, 2, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground1", { width: 160, height: 160, subdivisions: 2 }, scene);
 ground.position.y = -5;
 ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, friction: 0.5, restitution: 0.7 }, scene);
 

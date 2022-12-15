@@ -21,7 +21,7 @@ The lava material needs at least a noise texture and a diffuse texture to render
 Just create a new reference of the material and assign it two textures:
 
 ```
-var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
 
 var lavaMaterial = new BABYLON.LavaMaterial("lava", scene);
 lavaMaterial.noiseTexture = new BABYLON.Texture("cloud.png", scene); // Set the bump texture

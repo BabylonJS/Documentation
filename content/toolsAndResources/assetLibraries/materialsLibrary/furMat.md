@@ -91,7 +91,7 @@ The number of facets needed also depends on the size of the mesh.
 Example that seem to work for ground and sphere are:
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGround("ground", 8, 8, 200, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 8, height: 8, subdivisions: 200 }, scene);
 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 500, diameter: 8 }, scene);
 ```
 

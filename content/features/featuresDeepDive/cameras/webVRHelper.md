@@ -66,7 +66,7 @@ See it in action here: <Playground id="#TAFSN0#230" title="Fallback Orientation 
 To enable teleportation in the scene, create a mesh that the user should be able to teleport to and then enable teleportation with that mesh's name.
 
 ```javascript
-const ground = BABYLON.Mesh.CreateGround("ground", 6, 6, 2, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6, subdivisions: 2 }, scene);
 vrHelper.enableTeleportation({ floorMeshName: "ground" });
 ```
 
@@ -100,7 +100,7 @@ vrHelper.onAfterCameraTeleport.add((targetPosition) => {
 To enable teleportation in the scene, create a mesh that the user should be able to teleport to and then enable teleportation with that mesh's name.
 
 ```javascript
-const ground = BABYLON.Mesh.CreateGround("ground", 6, 6, 2, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6, subdivisions: 2 }, scene);
 vrHelper.enableTeleportation({ floorMeshName: "ground" });
 ```
 

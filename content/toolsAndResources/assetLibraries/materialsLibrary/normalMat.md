@@ -18,7 +18,7 @@ PG: <Playground id="#22VQKB" title="Normal Material" description="Example of nor
 
 Very simple : 
 ```
-var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
 var normalMaterial = new BABYLON.NormalMaterial("normal", scene);
 ground.material = normalMaterial;
 ```

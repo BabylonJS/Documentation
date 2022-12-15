@@ -36,6 +36,6 @@ Ground: <Playground id="#45R5JK" title="Create a Ground" description="Simple exa
 Usage
 
 ```javascript
-const ground = BABYLON.Mesh.CreateGround("ground", width, height, subdivisions, scene);
-const ground = BABYLON.Mesh.CreateGround("ground", width, height, subdivisions, scene, updatable); //one optional parameter after scene
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width, height, subdivisions }, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width, height, subdivisions }, scene, updatable); //one optional parameter after scene
 ```
