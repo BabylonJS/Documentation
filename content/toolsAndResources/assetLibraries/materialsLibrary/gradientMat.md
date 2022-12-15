@@ -20,7 +20,7 @@ You can get the gradient material:
 The material creates a smooth gradient with two colors:
 
 ```
-var sphere = BABYLON.Mesh.CreateSphere("sphere", 32, 2, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 32, diameter: 2 }, scene);
 
 var gradientMaterial = new BABYLON.GradientMaterial("grad", scene);
 gradientMaterial.topColor = BABYLON.Color3.Red(); // Set the gradient top color

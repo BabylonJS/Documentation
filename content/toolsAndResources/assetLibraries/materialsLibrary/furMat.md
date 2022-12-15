@@ -92,7 +92,7 @@ Example that seem to work for ground and sphere are:
 
 ```javascript
 var ground = BABYLON.Mesh.CreateGround("ground", 8, 8, 200, scene);
-var sphere = BABYLON.Mesh.CreateSphere("sphere", 500, 8, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 500, diameter: 8 }, scene);
 ```
 
 The fur material is created using

@@ -67,24 +67,24 @@ const scramble = function (data) {
 };
 
 // Main sphere
-const sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
 
 // Let's create some targets
-const sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
+const sphere2 = BABYLON.MeshBuilder.CreateSphere("sphere2", { segments: 16, diameter: 2 }, scene);
 sphere2.setEnabled(false);
 sphere2.updateMeshPositions(scramble);
 
-const sphere3 = BABYLON.Mesh.CreateSphere("sphere3", 16, 2, scene);
+const sphere3 = BABYLON.MeshBuilder.CreateSphere("sphere3", { segments: 16, diameter: 2 }, scene);
 sphere3.setEnabled(false);
 
 sphere3.scaling = new BABYLON.Vector3(2.1, 3.5, 1.0);
 sphere3.bakeCurrentTransformIntoVertices();
 
-const sphere4 = BABYLON.Mesh.CreateSphere("sphere4", 16, 2, scene);
+const sphere4 = BABYLON.MeshBuilder.CreateSphere("sphere4", { segments: 16, diameter: 2 }, scene);
 sphere4.setEnabled(false);
 sphere4.updateMeshPositions(scramble);
 
-const sphere5 = BABYLON.Mesh.CreateSphere("sphere5", 16, 2, scene);
+const sphere5 = BABYLON.MeshBuilder.CreateSphere("sphere5", { segments: 16, diameter: 2 }, scene);
 sphere5.setEnabled(false);
 
 sphere5.scaling = new BABYLON.Vector3(1.0, 0.1, 1.0);

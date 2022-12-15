@@ -131,10 +131,10 @@ To create a compound, use babylon's parenting system. A single object should be 
 
 ```javascript
 // Create a 2-sphere compound
- var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+ var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
 sphere.position.y = 10;
 
-var sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
+var sphere2 = BABYLON.MeshBuilder.CreateSphere("sphere2", { segments: 16, diameter: 2 }, scene);
 sphere2.position.x = 2;
 sphere.position.y = 1;
 sphere2.parent = sphere;

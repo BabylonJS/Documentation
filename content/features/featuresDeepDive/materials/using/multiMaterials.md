@@ -38,7 +38,7 @@ multimat.subMaterials.push(material2);
 You are now able to affect the multi-material to your mesh:
 
 ```javascript
-const sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 3, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("Sphere0", { segments: 16, diameter: 3 }, scene);
 sphere.material = multimat;
 ```
 

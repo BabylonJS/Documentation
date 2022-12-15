@@ -105,7 +105,7 @@ client.joinOrCreate <
 
     room.state.players.onAdd = function (player, key) {
       // Our built-in 'sphere' shape. Params: name, subdivs, size, scene
-      playerViews[key] = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+      playerViews[key] = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
     };
   });
 ```
