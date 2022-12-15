@@ -17,7 +17,7 @@ export interface IBucketContentProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        h2: {
+        h3: {
             borderTop: "1px black solid",
             marginTop: "50px !important",
             paddingTop: theme.spacing(2),
@@ -117,7 +117,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
         <>
             {(!!bucketItems.length || (externalLinks && !!externalLinks.length)) && (
                 <>
-                    <Typography className={classes.h2} component="h2" variant="h2">
+                    <Typography className={classes.h3} component="h3" variant="h3">
                         {title}
                     </Typography>
                     {!!bucketItems.length && (
