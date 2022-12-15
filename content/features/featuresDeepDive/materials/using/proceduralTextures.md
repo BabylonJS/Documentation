@@ -43,7 +43,7 @@ See more about 'refresh rate' in the Custom Procedural Textures section... far b
 Applying a procedural texture is just the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
 
 ```javascript
-const cylinder = BABYLON.Mesh.CreateCylinder("mycylinder", 7, 2, 2, 12, 1, scene);
+const cylinder = BABYLON.MeshBuilder.CreateCylinder("mycylinder", { height: 7, diameterTop: 2, diameterBottom: 2, tessellation: 12, subdivisions: 1 }, scene);
 ```
 
 Then, you need to create a StandardMaterial:

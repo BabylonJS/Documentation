@@ -357,7 +357,7 @@ const hermite = BABYLON.Curve3.CreateHermiteSpline(p1, t1, p2, t2, 50);
 continued = continued.continue(hermite);
 
 // finally drawing a smooth closed curve
-const closedCurve = BABYLON.Mesh.CreateLines("closed", continued.getPoints(), scene);
+const closedCurve = BABYLON.MeshBuilder.CreateLines("closed", { points: continued.getPoints() }, scene);
 ```
 
 <Playground id="#2GCEVH" title="Closed Joined Curves" description="Simple example of closed joined curves."/>
