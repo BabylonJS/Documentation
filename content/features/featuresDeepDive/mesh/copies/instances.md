@@ -56,7 +56,7 @@ The [Node Material](/features/featuresDeepDive/materials/node_material) is a pow
 
 The Instances node also gives information on the instance number of the object, which can be useful to, for example, color each instance differently.
 
-<Playground id="#PB1NS6" title="Using Node Material with Instances" description="Use Instances node on the Node Material"/>
+<Playground id="#PB1NS6#6" title="Using Node Material with Instances" description="Use Instances node on the Node Material"/>
 
 ## Instancing a glTF object
 
