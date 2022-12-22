@@ -143,15 +143,11 @@ It's even easier as Lines just require a path of points as parameter.
 
 ```javascript
 const points1 = [v1, v2, ..., vN]; // vector3 array
-const lines = BABYLON.Mesh.CreateLines("lines", points1, scene, true);
-const dashedlines = BABYLON.Mesh.CreateDashedLines("lines", points1, dashSize, gapSize, nb, scene, true);
+let lines = BABYLON.MeshBuilder.CreateLines("lines", {points: points1, updatable: true}, scene, true);
+let dashedLines = BABYLON.Mesh.CreateDashedLines("lines", points1, dashSize, gapSize, nb, scene, true);
 
-const points2 = [u1, u2, ..., uN]; // another vector3 array
-lines = BABYLON.Mesh.CreateLines(null, points2, null, null, lines);
-dashedlines = BABYLON.Mesh.CreateDashedLines(null, points2, null, null, null, null, null, dashedlines);
-// or
 lines = BABYLON.MeshBuilder.CreateLines(null, {points: points2, instance: lines});
-dashedlines = BABYLON.MeshBuilder.CreateDashedLines(null, {points: points2, instance: dashedlines});
+dashedLines = BABYLON.MeshBuilder.CreateDashedLines(null, {points: points2, instance: dashedLines});
 ```
 
 We can, of course, set the update method within the render loop.
@@ -173,8 +169,6 @@ const radius1 = 5;
 const path2 = [u1, ..., uN]; // another vector3 array : tube axis2
 const radius2 = 8;
 const tube = BABYLON.Mesh.CreateTube("tube", path1, radius1, 12, null, cap, scene, true);
-tube = BABYLON.Mesh.CreateTube(null, path2, radius2, null, null, null, null, null, tube);
-// or
 tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radius: radius2, instance: tube});
 ```
 
@@ -183,9 +177,7 @@ Of course, it also works with the _radiusFunction_ parameter :
 ```javascript
 const radiusFunction1 = function(i, distance) { ... };
 const radiusFunction2 = function(i, distance) { ... };
-const tube = BABYLON.Mesh.CreateTube("tube", path1, null, 12, radiusFunction1, cap, scene, true);
-tube = BABYLON.Mesh.CreateTube(null, path2, null, null, radiusFunction2, null, null, null, tube);
-// or
+let tube = BABYLON.MeshBuilder.CreateTube("tube", { path: path1, tessellation: 12, radiusFunction: radiusFunction1, cap, updatable: true }, scene);
 tube = BABYLON.MeshBuilder.CreateTube(null, {path: path2, radiusFunction: radiusFunction2, instance: tube});
 ```
 
@@ -215,10 +207,8 @@ const scale2 = 3;
 const rotation1 = 0;
 const rotation2 = 0.2;
 // extrusion
-const extruded = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap, scene, true);
+let extruded = BABYLON.MeshBuilder.ExtrudeShape("ext", { shape: shape1, path: path1, scale: scale1, rotation: rotation1, cap, updatable: true }, scene);
 // mesh update
-extruded = BABYLON.Mesh.ExtrudeShape(null, shape2, path2, scale2, rotation2, null, null, null, null, extruded);
-// or
 extruded = BABYLON.MeshBuilder.ExtrudeShape(null, { shape: shape2, path: path2, scale: scale2, rotation: rotation2, instance: extruded });
 ```
 
@@ -231,10 +221,8 @@ const myScale2 = function(i, distance) { ... };
 const myRotation1 = function(i, distance) { ... };
 const myRotation2 = function(i, distance) { ... };
 // extrusion
-const ext = BABYLON.Mesh.ExtrudeShapeCustom("ext", shape1, path1, myScale1, myRotation1, false, false, cap, scene, true);
+let ext = BABYLON.Mesh.ExtrudeShapeCustom("ext", { shape: shape1, path: path1, scaleFunction: myScale1, rotationFunction: myRotation1, updatable: true, cap }, scene);
 // mesh update
-ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2, null, null, null, null, null, null, ext);
-// or
 ext = BABYLON.MeshBuilder.ExtrudeShapeCustom(null,{shape: shape2, path: path2, scaleFunction: myScale2, rotationFunction: myRotation2, instance: ext});
 ```
 
@@ -243,7 +231,7 @@ Both new functions can be used in the render loop.
 The funny part is, as _ExtrudeShape()_ and _ExtrudedShapeCustom()_ build the same mesh (only parameters change), you can create a simple extruded shape with _ExtrudeShape()_ and then morph it with _ExtrudeShapeCustom()_ if you need more complexity.
 
 ```javascript
-const ext = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap, scene, true);
+let ext = BABYLON.Mesh.ExtrudeShape("ext", shape1, path1, scale1, rotation1, cap, scene, true);
 // mesh update
 ext = BABYLON.Mesh.ExtrudeShapeCustom(null, shape2, path2, myScale2, myRotation2, null, null, null, null, null, null, ext);
 ```
@@ -275,7 +263,7 @@ box.updateMeshPositions(positionFunction, true);
 
 Example: <Playground id="#1UZIZC#6" title="Custom Shape Example" description="Simple example of dynamically morphing a custom shape."/>
 
-## More speed : freezeNormals !
+## More speed : freezeNormals
 
 The former _CreateXXX()_ update functions try to be as much optimized as possible to run fast in the render loop.  
 However, you may need some more speed for any reason (huge mesh with dozens of thousands of vertices for instance).  

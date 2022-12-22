@@ -144,7 +144,7 @@ var createScene = async function () {
   camera.attachControl(canvas, true);
   var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
   light.intensity = 0.7;
-  var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+  var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
   sphere.position.y = 1;
 
   const env = scene.createDefaultEnvironment();

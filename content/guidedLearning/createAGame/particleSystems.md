@@ -32,7 +32,7 @@ Similar to this playground, I made a [Firework class](https://github.com/Babylon
    The rocket is a particle system created in the constructor of the Firework. We start off by creating an emitter for the rocket. This is the mesh that's going to have the particle system attached to it so that the particle system moves along with its position.
 
 ```javascript
-const sphere = Mesh.CreateSphere("rocket", 4, 1, scene);
+const sphere = MeshBuilder.CreateSphere("rocket", { segments: 4, diameter: 1 }, scene);
 sphere.isVisible = false;
 //the origin spawn point for all fireworks is determined by a TransformNode called "fireworks", this was placed in blender
 let randPos = Math.random() * 10;
@@ -67,7 +67,7 @@ The particle system itself just uses a simple texture and decreases in size over
 The explosion has its own function [\_explosions](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L218) that creates another particle system. It's a bit more involved, but I'll do my best to try and explain what is going on:
 
 ```javascript
-const explosion = Mesh.CreateSphere("explosion", 4, 1, this._scene);
+const explosion = MeshBuilder.CreateSphere("explosion", { segments: 4, diameter: 1 }, this._scene);
 explosion.isVisible = false;
 explosion.position = position;
 let emitter = explosion;

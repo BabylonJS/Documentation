@@ -25,7 +25,7 @@ Babylon.js engine draw a light transparent bounding box on the targeted Mesh bef
 To use the Occlusion Queries on a Mesh
 
 ```javascript
-const sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
 sphere.occlusionType = BABYLON.AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC;
 ```
 

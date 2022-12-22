@@ -37,7 +37,7 @@ The sphere reticle starts red, and changes to green when pickable. We don't want
 
 ```javascript
 /*Sphere reticle*/
-var reticle = BABYLON.Mesh.CreateSphere("reticle", 10, 0.03, scene);
+var reticle = BABYLON.MeshBuilder.CreateSphere("reticle", { segments: 10, diameter: 0.03 }, scene);
 var retmat = new BABYLON.StandardMaterial("reticalmaterial", scene);
 retmat.emissiveColor = BABYLON.Color3.Red();
 retmat.specularColor = BABYLON.Color3.Black();

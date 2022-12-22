@@ -27,7 +27,7 @@ The water material needs at least only a bump texture to render properly.
 Just create a new reference of the material and assign its bump texture:
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
 
 var waterMaterial = new BABYLON.WaterMaterial("water_material", scene);
 waterMaterial.bumpTexture = new BABYLON.Texture("bump.png", scene); // Set the bump texture
