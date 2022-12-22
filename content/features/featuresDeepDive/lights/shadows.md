@@ -309,8 +309,8 @@ It's the biggest artifact possible, the shadow disappeared! We have set `shadowM
 All lights need to provide a projection matrix to shadow generators in order to build the shadow map. You can define your own version by setting `light.customProjectionMatrixBuilder` value:
 
 ```
-light.customProjectionMatrixBuilder = function(viewMatrix: Matrix, renderList: Array<AbstractMesh>) {
-    return BABYLON.Matrix.PerspectiveFovLH(angle, 1.0, activeCamera.minZ, this.shadowMaxZ);
+light.customProjectionMatrixBuilder = function(viewMatrix: Matrix, renderList: Array<AbstractMesh>, result: Matrix) {
+    BABYLON.Matrix.PerspectiveFovLHToRef(angle, 1.0, activeCamera.minZ, this.shadowMaxZ, result);
 }
 ```
 
