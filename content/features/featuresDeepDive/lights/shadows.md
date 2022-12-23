@@ -10,16 +10,16 @@ video-content:
 
 ## Introduction
 
-In this tutorial, we are going to learn how to create shadows inBabylon.js. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
+In this tutorial, we are going to learn how to create shadows in Babylon.js. Shadows are now becoming dynamic, and they are now dynamically generated depending upon a light.
 You might want to visit a playground example for this tutorial:
 
 <Playground id="#IFYDRS" title="Shadow Example" description="Simple Example of adding shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows1.jpg" isMain={true} category="Shadows"/>
 
 ## How can I do this?
 
-Shadows are easy to generate using the babylon.js `ShadowGenerator`. This function uses a shadow map: a map of your scene generated from the light’s point of view.
+Shadows are easy to generate using the Babylon.js `ShadowGenerator`. This function uses a shadow map: a map of your scene generated from the light’s point of view.
 
-The two parameters used by the shadow generator are: the size of the shadow map, and which light is used for the shadow map's computation.
+The two parameters used by the shadow generator are: the size of the shadow map, and which light is used for the shadow map's computation:
 
 ```javascript
 const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
@@ -31,12 +31,12 @@ Next, you have to define which shadows will be rendered. Here we want the shadow
 shadowGenerator.getShadowMap().renderList.push(torus);
 ```
 
-Introduced with babylon.js v3.1, there are two new helper functions to deal with shadow casters:
+Introduced with Babylon.js v3.1, there are two new helper functions to deal with shadow casters:
 
 - `addShadowCaster(mesh, includeDescendants)`: Helper function to add a mesh and its descendants to the list of shadow casters
 - `removeShadowCaster(mesh, includeDescendants)`: Helper function to remove a mesh and its descendants from the list of shadow casters
 
-And finally, you will have to define where the shadows will be displayed... by setting a mesh parameter to true:
+And finally, you will have to define where the shadows will be displayed by setting a mesh parameter to true:
 
 ```javascript
 ground.receiveShadows = true;
@@ -54,7 +54,7 @@ There are three filters available:
 shadowGenerator.usePoissonSampling = true;
 ```
 
-If you set this one to _true_, Variance shadow maps will be disabled. This filter uses Poisson sampling to soften shadows. The result is better, but slower.
+If you set this one to `true`, Variance shadow maps will be disabled. This filter uses Poisson sampling to soften shadows. The result is better, but slower.
 
 ### Exponential shadow map
 
@@ -62,7 +62,7 @@ If you set this one to _true_, Variance shadow maps will be disabled. This filte
 shadowGenerator.useExponentialShadowMap = true;
 ```
 
-It is _true_ by default, because it is useful to decrease the aliasing of the shadow.  But if you want to reduce computation time, feel free to turn it off.
+It is `true` by default, because it is useful to decrease the aliasing of the shadow.  But if you want to reduce computation time, feel free to turn it off.
 You can also control how the exponential shadow map scales depth values by changing the `shadowGenerator.depthScale`. By default, the value is 50.0 but you may want to change it if the depth scale of your world (the distance between MinZ and MaxZ) is small.
 
 ### Blur exponential shadow map
@@ -75,7 +75,7 @@ This is the better soften shadow filter but the slower as well. It uses blurred 
 
 The quality of the blur is defined by the following properties:
 
-- `shadowGenerator.blurScale`: Define the scale used to downscale the shadow map before applying the blur postprocess. By default, the value is 2
+- `shadowGenerator.blurScale`: Define the scale used to downscale the shadow map before applying the blur postprocess. By default, the value is 2.
 - `shadowGenerator.blurBoxOffset`: Define the offset of the box's edge used to apply the blur. By default, the value is 1 (Meaning the box will go from -1 to 1 in both directions resulting in 9 values read by the blur postprocess).
 - `shadowGenerator.useKernelBlur`: You can decide to use kernel blur instead of box blur. While a bit more expensive, the quality of the shadow is far better with kernel blur. You can control the kernel size with `shadowGenerator.blurKernel`, which default value is 1.
 
@@ -144,7 +144,7 @@ shadowGenerator.useContactHardeningShadow = true;
 
 Here is an example of how PCSS works: <Playground id="#B48X7G#2" title="PCSS Shadow Example" description="Simple Example of adding Contact Hardening shadows to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows5.jpg"/>
 
-As PCSS requires more resources than can be available on small platform, you can use the `filteringQuality` property to choose the best tradeoff between quality and performances depending on your experience. (the lower the quality the better the performances).
+As PCSS requires more resources than can be available on small platform, you can use the `filteringQuality` property to choose the best tradeoff between quality and performances depending on your experience (the lower the quality the better the performances).
 
 ```javascript
 shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_LOW;
@@ -228,7 +228,7 @@ Only point, directional and spot lights can cast shadows.
 ### Point lights
 
 Point lights use cubemaps rendering so please be cautious when enabling them as this could lead to some performance issues.
-You can also visit the [point light shadow map playground scene]( <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows9.jpg"/>
+You can also check the example: <Playground id="#XDNVAY#0" title="Point Light Shadow Map Example" description="Simple Example of adding point lights with shadow maps to your scene." image="/img/playgroundsAndNMEs/divingDeeperShadows9.jpg"/>
 
 Furthermore, `BlurExponentialShadowMap` and `CloseBlurExponentialShadowMap` are not supported by point lights (mostly because blurring the six faces of the cubemap would be too expensive).
 
