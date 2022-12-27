@@ -301,8 +301,8 @@ Open [http://localhost:1341](http://localhost:1341) in your browser.
 
 Using VSCode:
 
-- In the Run and Debug Menu, choose "Launch GUI Editor" `Run and debug unit tests` or `Run and debug visualization tests`, OR
-- Open the Command Palette, type "Run Task", select `Run unit tests` or `Run visualization tests`
+- In the Run and Debug Menu, choose "Run and debug unit tests" or "Run and debug visualization tests", OR
+- Open the Command Palette, type "Run Task", select "Run unit tests` or "Run visualization tests"
 
 Using command line:
 
