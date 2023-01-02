@@ -200,8 +200,8 @@ Following is a list of quick ways to get started with certain tasks, both in VSC
 
 Using VSCode:
 
-- Start the "CDNServe and watch (Dev)" task
-- If you want to debug, run "Run and watch Babylon Server" from the debug menu
+- Run "Run and watch Dev Server" from the Run and Debug Menu, OR
+- Open the Command Palette, type "Run Task", select "CDN Serve and watch (Dev)"
 
 Using command line:
 
@@ -227,9 +227,8 @@ Note that the loader will react to changes in the hash (and will reload the scen
 
 Using VSCode:
 
-- Start the "Run and watch Dev Host (Dev)" task
-- Or if you are just testing the core without changing it, start the "Run Dev Host (Demo)" task
-- If you want to debug, run "Run and watch dev host (Dev)" from the debug menu
+- Run "Run and watch dev host (Dev)" from the Run and Debug Menu, OR
+- Open the Command Palette, type "Run Task", select "Run and watch Dev Host (Dev)"
 
 Using command line:
 
@@ -242,9 +241,8 @@ Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 Using VS Code:
 
-- Run the task "Playground Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "Playground Serve (Dev)"
-- If you want to debug, run "Launch Playground (chrome)" (Or "Playground development") from the debug menu
+- In the Run and Debug Menu, choose "Launch Playground" (Or "Playground development", in case you are making changes to the Playground code itself), OR
+- Open the Command Palette, type "Run Task", select "Playground Serve for core (Dev)" (Or if you are just developing the playground itself, select "Playground Serve (Dev)")
 
 Using command line:
 
@@ -263,9 +261,8 @@ Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 Using VS Code:
 
-- Run the task "Sandbox Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "Sandbox Serve (Dev)"
-- If you want to debug, run "Launch Sandbox (chrome)" (Or "Sandbox development") from the debug menu
+- In the Run and Debug Menu, choose "Launch Sandbox" (Or "Sandbox development", in case you are making changes to the Sandbox code itself), OR
+- Open the Command Palette, type "Run Task", select "Sandbox Serve for core (Dev)" (Or if you are just developing the sandbox itself, select "Sandbox Serve (Dev)")
 
 Using command line:
 
@@ -278,15 +275,14 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/sandbox` in a new terminal window
 
-Open [http://localhost:1338](http://localhost:1338) in your browser.
+Open [http://localhost:1339](http://localhost:1339) in your browser.
 
 #### Run the GUI editor
 
 Using VS Code:
 
-- Run the task "GUI Editor Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "GUI Editor Serve (Dev)"
-- If you want to debug, run "Launch GUI Editor (chrome)" (Or "GUI Editor development") from the debug menu
+- In the Run and Debug Menu, choose "Launch GUI Editor" (Or "GUI Editor development", in case you are making changes to the GUI Editor code itself), OR
+- Open the Command Palette, type "Run Task", select "GUI Editor Serve for core (Dev)" (Or if you are just developing the GUI Editor itself, select "GUI Editor Serve (Dev)")
 
 Using command line:
 
@@ -299,14 +295,14 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/gui-editor` in a new terminal window
 
-Open [http://localhost:1338](http://localhost:1338) in your browser.
+Open [http://localhost:1341](http://localhost:1341) in your browser.
 
 #### Run tests
 
 Using VSCode:
 
-- Run the task `Run unit tests` or `run visualization tests`
-- To debug - launch `Run and debug unit tests` or `Run and debug visualization tests`
+- In the Run and Debug Menu, choose "Run and debug unit tests" or "Run and debug visualization tests", OR
+- Open the Command Palette, type "Run Task", select "Run unit tests` or "Run visualization tests"
 
 Using command line:
 
@@ -331,7 +327,7 @@ When making changes to the linked package, make sure to repeat the build steps. 
 
 Notes:
 
-- this process will be simplified soon.
+- This process will be simplified soon.
 - You can link any package, not only the public one. However, you cannot rename the package. so if you link @dev/core you will need to add @dev/core to the dependencies of the external project.
 
 #### Add a dependency to a project
@@ -377,7 +373,7 @@ To run a specific npm command on the root package, run `npm <command>`.
 
 Read more about node workspaces - [https://docs.npmjs.com/cli/v7/using-npm/workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
 
-### naming convention
+### Naming convention
 
 - npm packages always low case kebab case (i.e. gui-editor)
 - directories in camel case (i.e. guiEditor)
