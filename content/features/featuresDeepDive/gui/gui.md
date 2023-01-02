@@ -850,7 +850,7 @@ Here is an example of an ellipse control: <Playground id="#XCPP9Y#10" title="Ell
 The StackPanel is a control which stacks its children based on its orientation (can be horizontal or vertical).
 All children must have a defined width or height (depending on the orientation) in **pixels** (A warning will be written to the console if this is not true. This warning can be turned off with `panel.ignoreLayoutWarnings = true`).
 
-The height (or width) of the StackPanel is defined automatically based on children.
+If the panel is vertical, its height will depend on the children, while its width will be 100% of the parent, unless specified. If the panel is horizontal, its width will depend on the children, while its height will be 100% of the parent, unless specified.
 
 | Property   | Type    | Default | Comments                 |
 | ---------- | ------- | ------- | ------------------------ |
