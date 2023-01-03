@@ -207,6 +207,6 @@ Congratulations! You just built and hosted your very first Babylon.js web experi
 
 ### Documentation Overview
 
-Before you take off and explore Babylon further, we humbly ask that you read one additional article. Babylon.js is a rich and powerful engine and we've worked hard to provide a LOT of documentation to help you learn it. The last part of the first step of your Babylon journey is to get an overview of how the Documenation is organized.
+Before you take off and explore Babylon further, we humbly ask that you read one additional article. Babylon.js is a rich and powerful engine and we've worked hard to provide a LOT of documentation to help you learn it. The last part of the first step of your Babylon journey is to get an overview of how the documentation is organized.
 
 [Learning the Babylon.js Documentation](/journey/learningTheDocs)
