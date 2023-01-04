@@ -20,13 +20,13 @@ video-content:
 
 When you want to keep your user interface small and the information to present large you can use the **ScrollViewer** to contain the information.
 
-![ScrollViewer](/img/gui/scroll1.jpg).
+![ScrollViewer](/img/GUI/scroll1.jpg).
 
 It consists of vertical and horizontal scroll bars and a viewing area. The information you want to present is created as a control that you add to your scroll viewer and is shown in the viewing area. If all the information control fits inside the scroll viewer no scroll bars will be shown.
 
 From Babylon.js version 4.1 onwards it is possible to use an image for the thumb control and in the bars
 
-![ScrollViewer with Image Bars](/img/gui/scroll4.jpg).
+![ScrollViewer with Image Bars](/img/GUI/scroll4.jpg).
 
 ## Creating the Scroll Viewer
 
@@ -109,7 +109,7 @@ You can also choose to have different images for the vertical and horizontal bar
 
 When you add a TextBlock of a given size to a scroll viewer both horizontal and vertical scroll bars are shown as needed.
 
-![Contained TextBlock](/img/gui/scroll3.jpg)
+![Contained TextBlock](/img/GUI/scroll3.jpg)
 
 - <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.jpg"/>
 
@@ -120,7 +120,7 @@ myTextBlock.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
 myTextBlock.resizeToFit = true;
 ```
 
-![Adjusting TextBlock](/img/gui/scroll2.jpg)
+![Adjusting TextBlock](/img/GUI/scroll2.jpg)
 
 - <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer7.jpg"/>
 
