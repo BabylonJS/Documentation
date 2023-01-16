@@ -18,9 +18,9 @@ video-content:
 
 Additional information can be viewed at [vrm.dev](https://vrm.dev/en/).
 
-## How to load VRM file inBabylon.js?
+## How to load VRM file in Babylon.js?
 
-You can load VRM file inBabylon.js that uses [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is community-madeBabylon.js glTF Loader Extension for `VRM`.
+You can load VRM file in Babylon.js that uses [babylon-vrm-loader](https://github.com/virtual-cast/babylon-vrm-loader), which is community-madeBabylon.js glTF Loader Extension for `VRM`.
 
 It supports `.vrm` and `.vci` file loading.
 

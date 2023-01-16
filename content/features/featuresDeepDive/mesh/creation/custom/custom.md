@@ -14,7 +14,7 @@ video-content:
 
 ## How to Create a Mesh from Scratch
 
-Each and every shape inBabylon.js is built from a mesh of triangles or facets as shown below:
+Each and every shape in Babylon.js is built from a mesh of triangles or facets as shown below:
 
 ![Custom Mesh](/img/features/scene/custom1.jpg)
 

@@ -4,7 +4,7 @@ image:
 description: Dive deep into the inner workings of how Babylon.js handles shaders.
 keywords: babylon.js, advanced, shaders
 further-reading:
-  - title: Introduction To Shaders inBabylon.js
+  - title: Introduction To Shaders in Babylon.js
     url: /features/featuresDeepDive/materials/shaders/introToShaders
   - title: ShaderMaterial Object
     url: /features/featuresDeepDive/materials/shaders/introToShaders
@@ -12,7 +12,7 @@ video-overview:
 video-content:
 ---
 
-## Putting Shader Code inBabylon.js
+## Putting Shader Code in Babylon.js
 
 Here are four ways of putting shader code into your scene:
 

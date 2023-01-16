@@ -160,7 +160,7 @@ void main(void) {
 
 ![Shader Code](/img/how_to/Shaders/shade3.jpg)
 
-## Putting Shader Code inBabylon.js
+## Putting Shader Code in Babylon.js
 
 Here are four ways of putting shader code into your scene:
 

@@ -66,7 +66,7 @@ sharing a vertex indices. They will of course share vertex positions.
 
 ![Seperate Faces](/img/how_to/Mesh/box3.jpg)
 
-InBabylon.js this can be achieved using the `convertToFlatShadedMesh` function. The results are shown below:
+In Babylon.js this can be achieved using the `convertToFlatShadedMesh` function. The results are shown below:
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
