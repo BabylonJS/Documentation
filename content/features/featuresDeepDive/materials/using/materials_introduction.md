@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Materials allow you to cover your meshes in color and texture. How a material appears depends on the light or lights used in the scene and how it is set to react .
+Materials allow you to cover your meshes in color and texture. How a material appears depends on the light or lights used in the scene and how it is set to react.
 
 ## Reactions to light
 
@@ -146,18 +146,18 @@ For the back faces of the cube to be visible through the transparent areas of th
 
 ## Texture Packer
 
-Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
+Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures. The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
 
 [More on creating a texture package](/features/featuresDeepDive/materials/advanced/texturePackage)
 
 ## Back-Face Culling
 
 This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object,
-as it will be hidden by the front face. InBabylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
+as it will be hidden by the front face. In Babylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
 
 Looking at the images below, when the material property _backFaceCulling_ is true you can see that the transparent areas around the
 dog are still transparent, you can see the background through them. However, you cannot see the images on the back faces as they have been culled (or removed).
-When _backFaceCulling_ is false the back faces are not removed during rendering so they can be seen through the transparent areas of the front faces.
+When _backFaceCulling_ is false the back faces are not removed during rendering, so they can be seen through the transparent areas of the front faces.
 
 | Back Face Culling True                      | Back Face Culling False                      |
 | ------------------------------------------- | -------------------------------------------- |
