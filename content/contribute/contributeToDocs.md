@@ -62,7 +62,7 @@ Requirements:
 
 ### Forking
 
-Start by going to the mainBabylon.js [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
+Start by going to the main Babylon.js [Documentation](https://github.com/BabylonJS/Documentation) repository and clicking on the _Fork_ button:
 
 ![fork](/img/contribute/documentation/further-fork-creation.png)
 

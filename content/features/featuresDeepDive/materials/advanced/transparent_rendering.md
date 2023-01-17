@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-This article has been written to help you understand how things are drawn on screen, and how transparency is handled inBabylon.js. Feel free to contribute in whatever way seems fit to you!
+This article has been written to help you understand how things are drawn on screen, and how transparency is handled in Babylon.js. Feel free to contribute in whatever way seems fit to you!
 
 ## General Considerations
 

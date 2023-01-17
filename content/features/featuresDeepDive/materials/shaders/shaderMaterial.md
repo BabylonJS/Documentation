@@ -4,9 +4,9 @@ image:
 description: Learn about the shader material in Babylon.js.
 keywords: babylon.js, advanced, shader material
 further-reading:
-  - title: Introduction To Shaders inBabylon.js
+  - title: Introduction To Shaders in Babylon.js
     url: /features/featuresDeepDive/materials/shaders/introToShaders
-  - title: How To Put Shader Code inBabylon.js
+  - title: How To Put Shader Code in Babylon.js
     url: /features/featuresDeepDive/materials/shaders/shaderCodeInBjs
 video-overview:
 video-content:
