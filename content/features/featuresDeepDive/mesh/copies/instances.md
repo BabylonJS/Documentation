@@ -110,6 +110,12 @@ The system will take care of updating the internal vertex buffer.
 
 Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
 
+If you want to use custom buffers in conjunction with node materials, you can access the instanced buffers color with the mesh.color block. Make sure you have added the Instances block to your graph and then the mesh.color block will reference the instanced buffers color assigned to the instance.  
+
+![Use Instanced Buffers Color with Node Material](/img/how_to/instances-node-meshColor.png)
+
+Example: <Playground id="#D6GB23" title="Custom Buffers in Node Material" description="Using custom buffers to drive texture offset in node material."/>
+
 ## Advanced control
 
 You can decide to control the world matrix instanced buffer the same way you control the custom buffers.
