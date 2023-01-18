@@ -47,6 +47,8 @@ const Button = new BABYLON.Mesh(...);
 Button.layerMask = 0x10000000;
 ```
 
+[You can click here to read on a more in-depth look at the layer mask.](https://doc.babylonjs.com/features/featuresDeepDive/scene/layermask)
+
 ## Lights
 
 Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
