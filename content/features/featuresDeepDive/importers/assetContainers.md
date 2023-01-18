@@ -72,3 +72,8 @@ You can also set two parameters to the call to `instantiateModelsToScene`:
 ```javascript
 const entries = container.instantiateModelsToScene(name => "p" + name, true);
 ```
+
+You can remove a specific set of instantiated models again with:
+```javascript
+entries.removeFromScene();
+```
