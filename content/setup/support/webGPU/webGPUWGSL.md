@@ -17,6 +17,8 @@ If you want to write shader code in the WGSL language, you can either write a [c
 ## Using ShaderMaterial to write WGSL code
 You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write GLSL but with some small differences.
 
+Note: if you use the "color" attribute in your shader code, don't add it to the **attributes** property passed to the `ShaderMaterial` constructor! This attribute will be automatically added if a vertex buffer named "color" is attached to the mesh. If you add "color" to the **attributes** array, you will get an error like "Attribute shader location (1) is used more than once".
+
 ### Setting the right shader language
 You must set the `shaderLanguage` property to `BABYLON.ShaderLanguage.WGSL` in the `options` parameter you pass to the constructor.
 For eg:
