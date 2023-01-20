@@ -3018,6 +3018,11 @@
                     },
                     "content": "communityExtensions/dynamicTerrains"
                 },
+                "figmaToBabylonJS": {
+                    "friendlyName": "Figma to BabylonJS",
+                    "children": {},
+                    "content": "communityExtensions/figmaToBabylonJS"
+                },
                 "meshWriter": {
                     "friendlyName": "Mesh Writer",
                     "children": {},
