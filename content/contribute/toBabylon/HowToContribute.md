@@ -353,7 +353,7 @@ Packages in `dev` and `lts` are composites ([https://www.typescriptlang.org/tsco
 All packages (with the exception of public es6 packages) have the same basic structure:
 
 - src folder holds typescript files and assets
-- test folder holds tests (See [testing](##Testing))
+- test folder holds tests (See [Testing](#testing))
 - dist folder holds compiled files, including sourcemaps and declarations, and assets (if configured)
 - optional public folder for public assets that will be hosted when the package is served (only where applicable)
 
@@ -808,7 +808,7 @@ As with any webpack-hosted package, there are a few properties that can be confi
 
 ## Tools
 
-We have several tools that we are hosting for our users. All of them (playground, sandbox, node editor and the GUI editor) are using the same architecture when it comes to referencing the core library - they use our UMD packages (the files that are hosted on our CDN). This is why, in order to get them to work you need to make sure the Babylon server is running in the background. See [Babylon Server](#Babylon Server) for more information.
+We have several tools that we are hosting for our users. All of them (playground, sandbox, node editor and the GUI editor) are using the same architecture when it comes to referencing the core library - they use our UMD packages (the files that are hosted on our CDN). This is why, in order to get them to work you need to make sure the Babylon server is running in the background. See [Babylon Server](#babylon-server) for more information.
 
 All tools are packed and served with webpack, and are configured similarity.
 
