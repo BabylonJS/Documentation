@@ -1,7 +1,7 @@
 ---
-title:   Pre-Requisits to Contribute to Babylon.js
+title:   Pre-Requisites to Contribute to Babylon.js
 image:
-description: Pre-requisits for contributing to Babylon.js.
+description: Pre-requisites for contributing to Babylon.js.
 keywords: diving deeper, contribution, contribute, open-source, oss, develop
 further-reading:
 video-overview:
