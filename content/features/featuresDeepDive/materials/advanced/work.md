@@ -22,7 +22,9 @@ As the process is a bit expensive, once compiled an effect will remain in memory
 
 Everytime you will change a property of a material (like adding a texture or enabling an option), a new effect will be compiled unless an equivalent can be found in the cache.
 
-## Improving User Experience
+## Rendering optimization
+
+Since v5.0, meshes are sorted according to the `uniqueId` property of their material, in ascending order, and are rendered in this sorted order. This is to optimize state changes and reduce the number of times these states need to be changed. You can change this order by changing the `uniqueId` value, or by using the [setRenderingOrder](/typedoc/classes/babylon.scene#setrenderingorder) method of the scene.
 
 ## Precompilation
 By default, materials are compiled only when required. But you may want to precompile everything before running your rendering in order to get the smoother experience possible.
