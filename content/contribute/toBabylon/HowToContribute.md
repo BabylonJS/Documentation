@@ -770,7 +770,7 @@ Note about dev host - the dev host is not using any best practices for productio
 
 #### Babylon Server
 
-A new package introduced in the Babylon server, which is a direct copy of the Babylon CDN structure. The Babylon server serves javascript files, along with sourcemaps and declarations.
+The Babylon server is a direct copy of the Babylon CDN structure. It serves javascript files, along with sourcemaps and declarations.
 
 Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is [http://localhost:1338](http://localhost:1338)
 
