@@ -463,7 +463,7 @@ npx build-tools -c process-assets --isCore --watch
 
 in the directory of the specific project. There should also be a `build:assets` and `watch:assets` script in the package.json of every package.
 
-Shaders are also considered to be assets. They are being processed differently, but using the same script. a shader (`.fx` file) will generate a typescript file that will be compiled as part of the build process of the library. When building, `build:assets` will be executed before `compile:source` does. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
+Shaders are also considered to be assets. They are being processed differently, but using the same script. Processing a shader (`.fx` file) will result in a Typescript file, which will be compiled as part of the library during the build process. When building, `build:assets` will be executed before `compile:source` does. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
 
 ```javascript
 "build": "npm run clean && npm run compile",
