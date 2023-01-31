@@ -2501,10 +2501,10 @@
                     "friendlyName": "Contribute to Babylon.js",
                     "content": "contribute/toBabylon",
                     "children": {
-                        "Prerequisits": {
-                            "friendlyName": "Prerequisits for Contributing",
+                        "Prerequisites": {
+                            "friendlyName": "Prerequisites for Contributing",
                             "children": {},
-                            "content": "contribute/toBabylon/Prerequisits"
+                            "content": "contribute/toBabylon/Prerequisites"
                         },
                         "HowToContribute": {
                             "friendlyName": "How To Contribute",

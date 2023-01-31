@@ -2523,6 +2523,11 @@
             "destination": "/communityExtensions/Unity/11_BabylonArtTools",
             "statusCode": 301
         },
+        {
+            "source": "/contribute/toBabylon/Prerequisits",
+            "destination": "/contribute/toBabylon/Prerequisites",
+            "statusCode": 301
+        },
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/app1.html", "destination": "/webpages/app1" },
         { "source": "/webpages/app2.html", "destination": "/webpages/app2" },
