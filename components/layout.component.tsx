@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme: Theme) =>
         inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
             // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
             transition: theme.transitions.create("width"),
             width: "100%",
             [theme.breakpoints.up("md")]: {
@@ -139,12 +139,11 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             maxWidth: "100%",
             [theme.breakpoints.up("md")]: {
-                width: `calc(100% - ${300}px)`,
+                width: `calc(100% - 300px)`,
             },
         },
         contentContainer: {
             overflow: "auto",
-            // padding: theme.spacing(2),
             flex: 1,
             display: "flex",
         },
