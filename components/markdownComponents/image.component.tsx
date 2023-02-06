@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
 

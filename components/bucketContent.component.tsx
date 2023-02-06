@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { IDocumentationPageProps } from "../lib/content.interfaces";
-import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Card, CardContent, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 import Link from "next/link";
 import Image from "next/image";

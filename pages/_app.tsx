@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head';
 import PropTypes from 'prop-types';

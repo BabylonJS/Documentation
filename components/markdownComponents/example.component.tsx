@@ -1,9 +1,10 @@
-import { createStyles, makeStyles, Snackbar, Theme, Tooltip, Hidden } from "@material-ui/core";
+import { Snackbar, Theme, Tooltip, Hidden } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { FunctionComponent, MouseEvent, SyntheticEvent, useContext, useEffect, useState } from "react";
 import { DocumentationContext } from "../../pages/[...id]";
 
-import LinkIcon from "@material-ui/icons/Link";
-import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
+import LinkIcon from "@mui/icons-material/Link";
+import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { colorPalette } from "../../styles/theme";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";

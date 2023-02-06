@@ -1,4 +1,5 @@
-import { createStyles, makeStyles, Theme, Typography, Link as MaterialLink } from "@material-ui/core";
+import { Theme, Typography, Link as MaterialLink } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import Layout from "../components/layout.component";
@@ -35,7 +36,7 @@ export const NotFoundComponent = () => {
     const router = useRouter();
     const classes = useStyles();
     const searchTerm = router.asPath.split("/").join(" ").trim();
-    const query = `/search?q=${searchTerm.replace(/ /g, '+')}`;
+    const query = `/search?q=${searchTerm.replace(/ /g, "+")}`;
     return (
         <Layout
             breadcrumbs={[]}
@@ -56,9 +57,7 @@ export const NotFoundComponent = () => {
                         search instead for "
                         {
                             <Link href={query}>
-                                <MaterialLink href={query}>
-                                    {searchTerm}
-                                </MaterialLink>
+                                <MaterialLink href={query}>{searchTerm}</MaterialLink>
                             </Link>
                         }
                         "

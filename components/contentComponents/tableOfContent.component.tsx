@@ -1,4 +1,5 @@
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { FunctionComponent, useContext, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";

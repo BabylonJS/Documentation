@@ -2,8 +2,9 @@ import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
-import LinkIcon from "@material-ui/icons/Link";
-import { createStyles, IconButton, makeStyles, Tooltip, Theme } from "@material-ui/core";
+import LinkIcon from "@mui/icons-material/Link";
+import { IconButton, Tooltip, Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({

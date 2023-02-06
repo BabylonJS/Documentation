@@ -4,7 +4,8 @@ import { IMediaEmbed } from "../../lib/content.interfaces";
 // reduce package size
 import YoutubePlayer from "react-player/youtube";
 import FilePlayer from "react-player/file";
-import { makeStyles, createStyles, Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({

@@ -1,6 +1,7 @@
 import Layout from "../../components/layout.component";
-import SearchIcon from "@material-ui/icons/Search";
-import { Button, CircularProgress, createStyles, FormControl, FormGroup, InputAdornment, InputLabel, makeStyles, Select, TextField, Theme, Typography } from "@material-ui/core";
+import SearchIcon from "@mui/icons-material/Search";
+import { Button, CircularProgress, FormControl, FormGroup, InputAdornment, InputLabel, Select, TextField, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { ChangeEvent, FunctionComponent, useEffect, useRef, useState } from "react";
 import { GetStaticProps } from "next";
 import { IPlaygroundSearchResult, PlaygroundSearchResult, SearchType } from "../../components/contentComponents/playgroundSearchResult";
@@ -220,7 +221,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                     <Select
                         native
                         value={type}
-                        onChange={handleTypeChange}
+                        onChange={(e) => handleTypeChange(e as any)}
                         label="Search Type"
                         inputProps={{
                             name: "type",
