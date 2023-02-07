@@ -1,15 +1,16 @@
-import { createStyles, makeStyles, Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip } from "@material-ui/core";
+import { Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip } from "@mui/material";
 import { FunctionComponent, useEffect, useState } from "react";
 
-import CodeIcon from "@material-ui/icons/Code";
-import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
-import LinkIcon from "@material-ui/icons/Link";
+import CodeIcon from "@mui/icons-material/Code";
+import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
+import LinkIcon from "@mui/icons-material/Link";
 
 import Highlight, { defaultProps } from "prism-react-renderer";
 import vsDark from "prism-react-renderer/themes/vsDark";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
+import { createStyles, makeStyles } from "@mui/styles";
 
 export type SearchType = "code" | "name" | "tags";
 

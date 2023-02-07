@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { IDocumentationPageProps } from "../lib/content.interfaces";
-import { Typography } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Typography, Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 import { YoutubeComponent } from "./markdownComponents/media.component";
 

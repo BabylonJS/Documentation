@@ -2,10 +2,11 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Checkbox, createStyles, FormControlLabel, FormGroup, InputAdornment, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
+import { Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import { IDocumentSearchResult, IPlaygroundSearchResult, queryIndex } from "../../lib/frontendUtils/searchQuery.utils";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 import { ExamplesComponent } from "../../components/contentComponents/example.component";

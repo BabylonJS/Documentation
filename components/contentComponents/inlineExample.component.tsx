@@ -1,10 +1,11 @@
-import { createStyles, IconButton, makeStyles, Theme, Tooltip, Typography } from "@material-ui/core";
+import { IconButton, Theme, Tooltip, Typography } from "@mui/material";
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 import { DocumentationContext } from "../../pages/[...id]";
+import { makeStyles, createStyles } from "@mui/styles";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({

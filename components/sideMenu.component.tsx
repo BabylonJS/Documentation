@@ -2,13 +2,14 @@ import { IMenuItem } from "../lib/content.interfaces";
 import { FunctionComponent, useState, ReactFragment, useEffect, useRef } from "react";
 
 import Link from "next/link";
-import { createStyles, IconButton, makeStyles, TextField, Theme } from "@material-ui/core";
+import { IconButton, TextField, Theme } from "@mui/material";
+import { makeStyles, createStyles } from "@mui/styles";
 
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import FilterIcon from "@material-ui/icons/FilterList";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FilterIcon from "@mui/icons-material/FilterList";
 import { colorPalette } from "../styles/theme";
-import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
