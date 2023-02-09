@@ -48,7 +48,7 @@ Once you have your code editor and Node.js installed, we can begin setting up yo
 
 This installs Vite and some of Babylon.js' features in your created folder (in a subdirectory called `node_modules`.)
 
-**(5)** Now enter the command `npm init vite`. Enter the name of your Babylon.js project, such as `testProj` or whatever name you want. You can also set a package name, but the default one works fine. Choose "Vanilla" from the list that pops up, and then choose "TypeScript." (This setup also works with JavaScript, but with slightly different steps not documented here.)
+**(5)** Now enter the command `npm init vite`. Enter the name of your Babylon.js project, such as `testProj` or whatever name you want. You can also set a package name, but the default one works fine. Choose "Vanilla" from the list that pops up, and then choose "TypeScript." (If you want to use JavaScript instead of TypeScript, choose the "JavaScript" option instead.)
 
 ![folder structure with vanilla Vite](/img/how_to/using-vite/05.png)
 
@@ -58,7 +58,7 @@ Look at that! We have a new folder containing a Vite template project. You can r
 
 Now let's turn our vanilla Vite folder into an example Babylon.js project that you can use as a foundation for your future Vite & Babylon.js projects.
 
-**(6)** Right-click your new folder in the left-hand side and choose `Open in Integrated Terminal`. A second tab in your terminal will open, which is pointing to your newly-generated project folder.
+**(6)** Right-click your new folder in the left-hand side and choose `Open in Integrated Terminal`. A second tab in your terminal will open, which is pointing to your newly-generated project folder. (JavaScript users: you should have a yellow JS logo instead of a blue TS one.)
 
 ![new tab](/img/how_to/using-vite/06.png)
 
@@ -75,7 +75,7 @@ The first command updates the Vite packages in your project root folder that sti
 
 ![Vite success](/img/how_to/using-vite/07.png)
 
-If you see this screen, good job! The foundation of our Vite project is set up. Now let's make it run Babylon.js.
+If you see this screen, good job! The foundation of our Vite project is set up. Now let's make it run Babylon.js. (JavaScript users: for the following steps 9 and 10, you'll need to follow a different set of instructions altogether. Please see the alternate Steps 9 and 10 located below under Step 11.)
 
 **(9)** Go back to your Terminal and press Ctrl+C to stop the server. (Don't forget that keyboard shortcut.) 
 
@@ -93,7 +93,7 @@ You should now have all three of these files open.
 
 ![Picture of a file](/img/how_to/using-vite/09.png)
 
-This code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). Notice how the `import` statements at the top allow the rest of the code to function: 
+This code for **app.ts** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). You do not need to follow this exact `class App { constructor() { ... } }` structure for your own apps to work properly. Notice how the `import` statements at the top allow the rest of the code to function: 
 
 ```typescript
 import "@babylonjs/core/Debug/debugLayer";
@@ -103,20 +103,20 @@ import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBu
 class App {
     constructor() {
         // create the canvas html element and attach it to the webpage
-        var canvas = document.createElement("canvas");
+        const canvas = document.createElement("canvas");
         canvas.style.width = "100%";
         canvas.style.height = "100%";
         canvas.id = "gameCanvas";
         document.body.appendChild(canvas);
 
         // initialize babylon scene and engine
-        var engine = new Engine(canvas, true);
-        var scene = new Scene(engine);
+        const engine = new Engine(canvas, true);
+        const scene = new Scene(engine);
 
-        var camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+        const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
         camera.attachControl(canvas, true);
-        var light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
-        var sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+        const light1: HemisphericLight = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+        const sphere: Mesh = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
 
         // hide/show the Inspector
         window.addEventListener("keydown", (ev) => {
@@ -187,6 +187,89 @@ This code for **tsconfig.json** is a slimmed-down combination between the defaul
 
 🎉 YOU DID IT!! You just successfully created a local development environment for Babylon.js using Vite!
 
+------------------------------------------
+
+**(9 for JS)** *This is an alternate Step 9 for JavaScript users instead of TypeScript:*
+
+Go back to your Terminal and press Ctrl+C to stop the server. (Don't forget that keyboard shortcut.) 
+
+Now use the left-hand sidebar (and some right-clicking) to do the following:
+
+- Delete all the files that end in .js and .svg (including inside the `public` folder)
+- Create a new file inside your project folder called `app.js`
+- Double-click `index.html` so that it's open next to your `app.js` file
+
+You should now have the two files open.
+
+**(10 for JS)** *This is an alternate Step 10 for JavaScript users instead of TypeScript:* 
+
+Copy the contents of the two code blocks below and paste them into their respective files. Save each file (Ctrl+S) after you do this.
+
+This code for **app.js** is a test scene of a sphere from [another Babylon.js tutorial](https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp). You do not need to follow this exact `class App { constructor() { ... } }` structure for your own apps to work properly. Notice how the only main differences between this code and the TypeScript version is the lack of type declarations on the camera/light1/sphere lines, and how the `import` statements at the top allow the rest of the code to function: 
+
+```js
+import "@babylonjs/core/Debug/debugLayer";
+import "@babylonjs/inspector";
+import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, MeshBuilder } from "@babylonjs/core";
+
+class App {
+    constructor() {
+        // create the canvas html element and attach it to the webpage
+        const canvas = document.createElement("canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.id = "gameCanvas";
+        document.body.appendChild(canvas);
+
+        // initialize babylon scene and engine
+        const engine = new Engine(canvas, true);
+        const scene = new Scene(engine);
+
+        const camera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+        camera.attachControl(canvas, true);
+        const light1 = new HemisphericLight("light1", new Vector3(1, 1, 0), scene);
+        const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+
+        // hide/show the Inspector
+        window.addEventListener("keydown", (ev) => {
+            // Shift+Ctrl+Alt+I
+            if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.keyCode === 73) {
+                if (scene.debugLayer.isVisible()) {
+                    scene.debugLayer.hide();
+                } else {
+                    scene.debugLayer.show();
+                }
+            }
+        });
+
+        // run the main render loop
+        engine.runRenderLoop(() => {
+            scene.render();
+        });
+    }
+}
+new App();
+
+```
+
+This code for **index.html** contains the title that will appear in the browser title bar, as well as a `<script>` tag to tell Vite which file has the main code to start our project, which is `app.js` in our case:
+
+```html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title of Your Project</title>
+    </head>
+    <body>
+       <script type="module" src="./app.js"></script>
+    </body>
+</html>
+```
+
+Now scroll back up to do Step 11, and then read the rest of the page below to finish.
+
 ## Maintenance and updates
 
 **HOWEVER,** before you continue your Babylon.js journey with your shiny new setup, here's some basic upkeep you'll have to keep in mind:
@@ -224,4 +307,4 @@ This tutorial was originally a [forum post](https://forum.babylonjs.com/t/how-to
 
 ***Written by [wavetro](https://wavetro.net/)***
 
-*Last updated: 2022-SEP-22*
+*Last updated: 2023-FEB-08*
