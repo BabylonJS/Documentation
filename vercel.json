@@ -2536,6 +2536,7 @@
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
         { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
-        { "source": "/webpages/app4.html", "destination": "/webpages/app4" }
+        { "source": "/webpages/app4.html", "destination": "/webpages/app4" },
+        { "source": "/how_to/progressively_load_gltf", "destination": "/features/featuresDeepDive/importers/glTF/progressiveglTFLoad", "statusCode": 301 }
     ]
 }
