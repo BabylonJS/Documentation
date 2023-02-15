@@ -157,7 +157,7 @@ scene.actionManager.registerAction(
 );
 ```
 
-For more advanced use cases, you can pass a callback function as a parameter value:
+For more advanced use cases, you can pass a callback function as a parameter value (Available from 5.47.0):
 
 ```javascript
 scene.actionManager.registerAction(
