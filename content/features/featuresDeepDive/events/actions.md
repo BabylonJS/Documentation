@@ -157,6 +157,20 @@ scene.actionManager.registerAction(
 );
 ```
 
+For more advanced use cases, you can pass a callback function as a parameter value:
+
+```javascript
+scene.actionManager.registerAction(
+    new BABYLON.ExecuteCodeAction(
+        {
+            trigger: BABYLON.ActionManager.OnKeyUpTrigger,
+            parameter: function(actionEvent) { return actionEvent.sourceEvent.key === 'R'; }
+        },
+        function () { console.log('R button was pressed'); }
+    )
+);
+```
+
 ## Available Actions
 Most of the actions have a `propertyPath` property. This string defines the path to the property to affect with the action. 
 You can use direct values like `position` or `diffuse`. But you can also provide complex paths like `position.x`
