@@ -38,7 +38,7 @@ new BABYLON.Color3.White();
 new BABYLON.Color3.Purple();
 new BABYLON.Color3.Magenta();
 new BABYLON.Color3.Yellow();
-new BABYLON.Color3.Gray(),
+new BABYLON.Color3.Gray();
 new BABYLON.Color3.Teal();
 ```
 Now some texture for the box and roof
