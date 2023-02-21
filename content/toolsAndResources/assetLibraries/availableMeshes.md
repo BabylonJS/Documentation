@@ -49,9 +49,9 @@ StanfordBunny.obj | 4.69 MB | ![bunny](/img/resources/meshes/bunny.png) | <Playg
 ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | <Playground id="#058SEW#3" title="UFO" description=""/>
 Elf.gltf | 401 KB | ![elf](/img/resources/meshes/elf.png) | <Playground id="#XY6QF0" title="Elf" description=""/>
 
-## From the Model Library
+## From the Assets Library
 
-This list of files is in the model library [from the github repo](https://github.com/BabylonJS/MeshesLibrary) and using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter has the form `https://models.babylonjs.com/` and the `filename` parameter is as given below. The playground will show the actual terms required.
+This list of files is a small subset of the available models in the asset library [from the github repo](https://github.com/BabylonJS/Assets/blob/master/Assets.md) and using a `scene` method to append or import scenes or meshes, the `rootUrl` parameter uses the Asset Librarian like this:Assets.meshes.meshname.rooturl and the `filename` parameter is similar: Assets.meshes.meshname.filename. See playgrounds below for examples.
 
 Filename | Size | Image | Playground
 ---|---|---|---
