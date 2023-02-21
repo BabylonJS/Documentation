@@ -55,40 +55,34 @@ This list of files is in the model library [from the github repo](https://github
 
 Filename | Size | Image | Playground
 ---|---|---|---
-aerobatic_plane.glb | 4.4 MB | ![plane](/img/resources/meshes/plane.png) | <Playground id="#5NIBE1#1" title="Plane" description=""/>
-alien.glb | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | <Playground id="#8IMNBM#2" title="Alien" description=""/>
-BabylonJS-logo/v1-2/Babylogo.babylon | 510 KB | ![Babylogo](/img/resources/meshes/Babylogo.jpg) | <Playground id="#TZTY3Y" title="Babylogo" description=""/>
-BabylonJS-logo/v3/babylonJS_logo_solid_v3.babylon<br/>BabylonJS-logo/v3/babylonJS_logo_v3.babylon | 59 KB<br/>8 KB | ![babylonJS_logo_v3](/img/resources/meshes/babylonJS_logo_v3.jpg) | <Playground id="#Q9JFZ1" title="Babylon_log_v3" description=""/>
-Chair/Chair.obj | 1.09 MB | ![chair](/img/resources/meshes/chair.png) | <Playground id="#KJV35B#20" title="Chair" description=""/>
-Channel9/Channel9.stl | 1.03 MB | ![channel9](/img/resources/meshes/channel9.png) | <Playground id="#AJJ8U5#2" title="Channel9" description=""/>
-clothFolds.glb | 2.21 MB | ![clothFolds](/img/resources/meshes/clothFolds.jpg) | <Playground id="#5NIBE1#2" title="Cloth Folds" description=""/>
-CornellBox/cornellBox.babylon | 216 kB | ![cornellBox-babylon](/img/resources/meshes/cornellBox-babylon.jpg) | <Playground id="#4AJ16M#2" title="CornellBox-Babylon" description=""/>
-CornellBox/cornellBox.babylon lightmapped | 343 kB | ![cornellBox-babylon-lightmapped](/img/resources/meshes/cornellBox-babylon-lightmapped.jpg) | <Playground id="#4AJ16M#5" title="CornellBox Babylon Lightmapped" description=""/>
-CornellBox/cornellBox.glb | 162 kB | ![cornellBox-glb](/img/resources/meshes/cornellBox-glb.jpg) | <Playground id="#4AJ16M#3" title="cornellBox-glb" description=""/>
-CornellBox/cornellBox.glb lightmapped | 289 kB | ![cornellBox-glb-lightmapped](/img/resources/meshes/cornellBox-glb-lightmapped.jpg) | <Playground id="#ADPQFC#9" title="CornellBox glb lightmapped" description=""/>
-Dude/dude.babylon | 3.46 MB | ![dude](/img/resources/meshes/dude.png) | <Playground id="#WLDCUC#3" title="Dude" description=""/>
-emoji_heart.glb | 1.08 MB | ![heart](/img/resources/meshes/heart.png) | <Playground id="#4AJ16M#1" title="Heart" description=""/>
-ExplodingBarrel.glb | 2.9 MB | ![ExplodingBarrel](/img/resources/meshes/ExplodingBarrel.jpg) | <Playground id="#4AJ16M#23" title="ExplodingBarrel" description=""/>
-flightHelmet.glb | 50.4 MB | ![helmet](/img/resources/meshes/helmet.png) | <Playground id="#BVK9I0#10" title="Helmet" description=""/>
-fish.glb | 45.4 MB | ![fish](/img/resources/meshes/fish.png) | <Playground id="#9CMU0F" title="Fish" description=""/>
-Georgia-Tech-Dragon/dragon.babylon | 40.4 MB | ![georgia tech dragon](/img/resources/meshes/dragon-babylon.jpg) | <Playground id="#MZ1I83" title="Georgia Tech Dragon" description=""/>
-Georgia-Tech-Dragon/dragon.glb | 20 MB | ![georgia tech dragon](/img/resources/meshes/dragon.jpg) | <Playground id="#1GFFWE#1" title="Georgia Tech Dragon (smaller)" description=""/>
-haunted_house.glb | 37.2 MB | ![haunted house](/img/resources/meshes/haunted_house.png) | <Playground id="#E8UGIC" title="Haunted House" description=""/>
-Lee-Perry-Smith-Head/head.babylon | 11.2 MB | ![lee perry smith head](/img/resources/meshes/lee-perry-smith-head-babylon.jpg) | <Playground id="#NA2WKW" title="Lee Perry Smith Head" description=""/>
-Lee-Perry-Smith-Head/head.glb | 25.9 MB | ![lee perry smith head](/img/resources/meshes/lee-perry-smith-head.jpg) | <Playground id="#GA8DG5" title="Lee Perry Smith Head" description=""/>
-Marble/marble/marble.gltf | 30 KB | ![marble](/img/resources/meshes/marble.jpg) | <Playground id="#36YIWS#2" title="Marble" description=""/>
-Marble/marbleTower/marbleTower.gltf | 2.60 MB | ![MarbleTower](/img/resources/meshes/MarbleTower.jpg) | <Playground id="#FN0IGW#1" title="MarbleTower" description=""/>
-seagulf.glb | 934 KB | ![seagull](/img/resources/meshes/seagull.png) | <Playground id="#8LFTCH#3" title="Seagull" description=""/>
-shaderBall.glb | 3.95 MB | ![shaderBall](/img/resources/meshes/shaderBall.jpg) | <Playground id="#2UPLBH" title="Shader Ball" description=""/>
-PBR_Spheres.glb | 3.38 Mo | ![PBR_Spheres](/img/resources/meshes/PBR_Spheres.png) | <Playground id="#ISZ7Y2#3" title="PBR_Spheres" description=""/>
-shaderBall/BabylonShaderBall_Simple.gltf | 1.86 MB | ![BabylonShaderBall_Simple](/img/resources/meshes/BabylonShaderBall_Simple.jpg) | <Playground id="#AE8AA3" title="Babylon Simple Shader Ball" description=""/>
-shark.glb | 14.7 MB | ![shark](/img/resources/meshes/shark.png) | <Playground id="#ISZ7Y2" title="Shark" description=""/>
-Skull/skull.babylon | 3.94 MB | ![skull](/img/resources/meshes/skull.png) | <Playground id="#VV935G#3" title="Skull" description=""/>
-solar_system.glb | 3.94 MB | ![solar system](/img/resources/meshes/solar_system.png) | <Playground id="#KILIHT" title="Solar System" description=""/>
-toast_acrobatics.glb | 7.45 MB | ![toast acrobatics](/img/resources/meshes/toast_acrobatics.png) | <Playground id="#KM2N07" title="Acrobatic Toast" description=""/>
-TrailMeshSpell/spellDisk.glb<br/>TrailMeshSpell/pinkEnergyBall.glb<br/>TrailMeshSpell/greenEnergyBall.glb<br/>TrailMeshSpell/yellowEnergyBall.glb | 2.37 MB<br/>2.41 MB<br/>4.45 MB<br/>2.22 MB | ![TrailMeshSpell](/img/resources/meshes/TrailMeshSpell.jpg) | <Playground id="#AAP917#1" title="Trail Mesh Spell" description=""/>
-vintageFan_animated.gltf | 3.43 MB | ![vintageFan_animated](/img/resources/meshes/vintageFan_animated.jpg) | <Playground id="#YBEKDT" title="Vintage Fan" description=""/>
-ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | <Playground id="#058SEW#4" title="UFO" description=""/>
+aerobatic_plane.glb | 4.4 MB | ![plane](/img/resources/meshes/plane.png) | <Playground id="#5NIBE1#207" title="Plane" description=""/>
+alien.glb | 15.1 MB | ![alien](/img/resources/meshes/alien.png) | <Playground id="#8IMNBM#721" title="Alien" description=""/>
+BabylonJS-logo/v3/babylonJS_logo_solid_v3.babylon<br/>BabylonJS-logo/v3/babylonJS_logo_v3.babylon | 59 KB<br/>8 KB | ![babylonJS_logo_v3](/img/resources/meshes/babylonJS_logo_v3.jpg) | <Playground id="#Q9JFZ1#3" title="Babylon_log_v3" description=""/>
+Chair/Chair.obj | 1.09 MB | ![chair](/img/resources/meshes/chair.png) | <Playground id="#KJV35B#21" title="Chair" description=""/>
+Channel9/Channel9.stl | 1.03 MB | ![channel9](/img/resources/meshes/channel9.png) | <Playground id="#AJJ8U5#52" title="Channel9" description=""/>
+clothFolds.glb | 2.21 MB | ![clothFolds](/img/resources/meshes/clothFolds.jpg) | <Playground id="#5NIBE1#208" title="Cloth Folds" description=""/>
+CornellBox/cornellBox.glb | 162 kB | ![cornellBox-glb](/img/resources/meshes/cornellBox-glb.jpg) | <Playground id="#4AJ16M#675" title="cornellBox-glb" description=""/>
+dragon.glb | 20 MB | ![georgia tech dragon](/img/resources/meshes/dragon.jpg) | <Playground id="#MZ1I83#17" title="Dragon" description=""/>
+Dude/dude.babylon | 3.46 MB | ![dude](/img/resources/meshes/dude.png) | <Playground id="#WLDCUC#190" title="Dude" description=""/>
+emoji_heart.glb | 1.08 MB | ![heart](/img/resources/meshes/heart.png) | <Playground id="#4AJ16M#676" title="Heart" description=""/>
+ExplodingBarrel.glb | 2.9 MB | ![ExplodingBarrel](/img/resources/meshes/ExplodingBarrel.jpg) | <Playground id="#4AJ16M#677" title="ExplodingBarrel" description=""/>
+flightHelmet.glb | 50.4 MB | ![helmet](/img/resources/meshes/helmet.png) | <Playground id="#BVK9I0#102" title="Helmet" description=""/>
+fish.glb | 45.4 MB | ![fish](/img/resources/meshes/fish.png) | <Playground id="#9CMU0F#38" title="Fish" description=""/>
+haunted_house.glb | 37.2 MB | ![haunted house](/img/resources/meshes/haunted_house.png) | <Playground id="#E8UGIC#20" title="Haunted House" description=""/>
+head.glb | 25.9 MB | ![lee perry smith head](/img/resources/meshes/lee-perry-smith-head.jpg) | <Playground id="#GA8DG5#6" title="Head" description=""/>
+marble.gltf | 30 KB | ![marble](/img/resources/meshes/marble.jpg) | <Playground id="#36YIWS#5" title="Marble" description=""/>
+marbleTower.gltf | 2.60 MB | ![MarbleTower](/img/resources/meshes/MarbleTower.jpg) | <Playground id="#FN0IGW#3" title="MarbleTower" description=""/>
+seagulf.glb | 934 KB | ![seagull](/img/resources/meshes/seagull.png) | <Playground id="#8LFTCH#2131" title="Seagull" description=""/>
+shaderBall.glb | 3.95 MB | ![shaderBall](/img/resources/meshes/shaderBall.jpg) | <Playground id="#2UPLBH#10" title="Shader Ball" description=""/>
+PBR_Spheres.glb | 3.38 Mo | ![PBR_Spheres](/img/resources/meshes/PBR_Spheres.png) | <Playground id="#ISZ7Y2#98" title="PBR_Spheres" description=""/>
+BabylonShaderBall_Simple.gltf | 1.86 MB | ![BabylonShaderBall_Simple](/img/resources/meshes/BabylonShaderBall_Simple.jpg) | <Playground id="#AE8AA3#7" title="Babylon Simple Shader Ball" description=""/>
+shark.glb | 14.7 MB | ![shark](/img/resources/meshes/shark.png) | <Playground id="#ISZ7Y2#99" title="Shark" description=""/>
+Skull/skull.babylon | 3.94 MB | ![skull](/img/resources/meshes/skull.png) | <Playground id="#VV935G#54" title="Skull" description=""/>
+solar_system.glb | 3.94 MB | ![solar system](/img/resources/meshes/solar_system.png) | <Playground id="#KILIHT#22" title="Solar System" description=""/>
+toast_acrobatics.glb | 7.45 MB | ![toast acrobatics](/img/resources/meshes/toast_acrobatics.png) | <Playground id="#KM2N07#38" title="Acrobatic Toast" description=""/>
+TrailMeshSpell/spellDisk.glb<br/>TrailMeshSpell/pinkEnergyBall.glb<br/>TrailMeshSpell/greenEnergyBall.glb<br/>TrailMeshSpell/yellowEnergyBall.glb | 2.37 MB<br/>2.41 MB<br/>4.45 MB<br/>2.22 MB | ![TrailMeshSpell](/img/resources/meshes/TrailMeshSpell.jpg) | <Playground id="#AAP917#39" title="Trail Mesh Spell" description=""/>
+vintageFan_animated.gltf | 3.43 MB | ![vintageFan_animated](/img/resources/meshes/vintageFan_animated.jpg) | <Playground id="#YBEKDT#17" title="Vintage Fan" description=""/>
+ufo.glb | 17 MB | ![ufo](/img/resources/meshes/ufo.png) | <Playground id="#058SEW#331" title="UFO" description=""/>
 
 ## Finding Camera Values
 
