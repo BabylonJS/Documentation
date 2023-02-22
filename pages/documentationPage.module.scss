@@ -190,28 +190,35 @@
 
     h2,
     .splendor-h2 {
-        font-size: 1.627rem;
-        border-bottom: 1px solid black;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
     }
 
     h3,
     .splendor-h3 {
-        font-size: 1.499rem;
+        font-size: 1.3rem;
     }
 
     h4,
     .splendor-h4 {
-        font-size: 1.14rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #666;
     }
 
     h5,
     .splendor-h5 {
-        font-size: 0.95rem;
+        font-size: 1 rem;
+        font-weight: 600;
+        color: #888;
     }
 
     h6,
     .splendor-h6 {
-        font-size: 0.8rem;
+        font-size: 1 rem;
+        font-style: italic;
     }
 
     @media (max-width: 640px) {
