@@ -14,8 +14,6 @@ Rendering a scene on a browser is a great experience because you can reach a lot
 
 The `SceneOptimizer` tool is designed to help you reach a specific framerate by gracefully degrading rendering quality at runtime.
 
-----
-
 ## Basic usage
 
 To start using the `SceneOptimizer`, you can create a new `BABYLON.SceneOptimizer` instance.
@@ -51,8 +49,6 @@ It also provides several functions:
 - `reset()`: used to restore the current priority level to 0
 - `dispose()`: used to release all resources
 
------
-
 ## Helper
 
 You can also decide to use a static helper that will create everything you need in one line. `BABYLON.SceneOptimizer.OptimizeAsync()`. You can call this function when you want to optimize your scene. The simplest call you can do is the following:
@@ -74,8 +70,6 @@ function() {
 
 As you can see, you can provide success/fail callbacks and a set of options.
 Please note that the `BABYLON.SceneOptimizer.OptimizeAsync()` function returns a `SceneOptimizer` object which is created with `autoGeneratePriorities` to false.
-
-----
 
 ## Options
 
@@ -150,8 +144,6 @@ Based on these optimizations, the basic sets are configured like this:
  * `onApply(scene, optimizer)`: A custom callback used to apply custom optimizations. It must return true if all optimizations where applied
  * `onGetDescription()`: This callback must return a string describing the action of the optimization
 
----
-
 ### Custom Optimizations.
 
 You can create you own optimizations by extending the class `BABYLON.CustomOptimization`. The new class must provide two functions, `onApply` and `onGetDescription`. Every instance takes a `priority` , its only argument and also a number. For example:
@@ -185,8 +177,6 @@ options.addCustomOptimization(function () {
 }, 0.6);
 ```
 
------
-
 ## Advanced Usage
 
 You can create your own set of options with the following code (please note that if `autoGeneratePriorities` is true, you don't need to define the priority value)
@@ -218,14 +208,10 @@ result.optimizations.push(new BABYLON.HardwareScalingOptimization(priority, 4));
 return result;
 ```
 
-----
-
 ## Improvement Mode
 
 When created in improvement mode (4th parameter of the constructor), the `SceneOptimizer` object will run all optimization while the current FPS is above the target frame rate. So, for instance if, the target FPS is 60, the optimizer will execute all optimizations in its list while the FPS remains at 60. It is a good tool to provide rendering improvements to a given scene.
 Please note that when in improvement mode, the optimizations will adapt their behaviour automatically (for instance, the `ShadowsOptimization` will turn shadows on instead of off).
-
----
 
 ## Demos
 
