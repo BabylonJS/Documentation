@@ -82,3 +82,11 @@ skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("URL TO IMAGE DIRECTO
 ```
 
 <Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.jpg"/>
+
+## Large Skyboxes
+
+If you're trying to work with very large skyboxes (size 10000+), be sure to increase you camera's `maxZ` value accordingly. Otherwise, you will encounter notable visual distortions.
+
+First, you should check if a skybox that big is really needed. If all you want is a "static sky" effect (e.g. the distance to the sky should not change depending on camera position), you can set `infiniteDistance = true` on the skybox mesh and work with a smaller mesh.
+
+
