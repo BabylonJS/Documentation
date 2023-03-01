@@ -368,7 +368,7 @@ _The intellisense does not propose the method I normally use in the bundled vers
 
 This will be the case for all the methods defined by module augmentation. This means that as long as you are not importing the parent modules, the methods will not even be discoverable. This is the case for all our scene components. For enabling physics on the scene you need `import "@babylonjs\core\Physics\physicsEngineComponent"` to populate the `scene.enablePhysics` function. Please find below the list of those components for their augmented methods:
 
-- scene."animationRelatedMethods like beginAnimation and so on... " are available in the `Animations/animatable` module.
+- scene."animationRelatedMethods" like beginAnimation and so on... " are available in the `Animations/animatable` module.
 - scene."audioRelatedMethods" are available in the `Audio/audioSceneComponent` and `Audio/audioEngine` module.
 - Octree functions can be found in the `Culling/Octrees/octreeSceneComponent` module.
 - Ray and Picking functions can be found in the `Culling/ray` module.
@@ -391,6 +391,7 @@ This will be the case for all the methods defined by module augmentation. This m
 - screenshot support can be found in the `Misc/screenshotTools` .
 - boundingBox support can be found in the `Rendering/boundingBoxRenderer` .
 - Screen surface reflection postprocess (`scene.enablePrePassRender`) can be found in the `Rendering/prePassRendererSceneComponent` .
+- Decal Map support is enabled by importing `Materials/material.decalMap`. If you only want to enable support at the mesh level and not the material level, use `Meshes/abstractMesh.decalMap` instead. See [here](/features/featuresDeepDive/mesh/decals#using-decal-maps-with-es6-and-tree-shaking) for why you want to do this.
 
 _Why do I have an error in the console inviting me to import some other modules?_
 
