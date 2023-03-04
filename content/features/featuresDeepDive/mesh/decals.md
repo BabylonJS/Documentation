@@ -82,7 +82,7 @@ Note that the decal is created with `localMode=true`, that's why it works as exp
 
 ### Texture Decals (or Decal Maps)
 
-Decal Maps are new in Babylon.js since 5.X.0. They are a way to add decal to a mesh without having to create a new mesh. It is a texture that is applied to a mesh in such a way that it appears to be a decal on the mesh.
+Decal Maps are new in Babylon.js since 5.49.0. They are a way to add decal to a mesh without having to create a new mesh. It is a texture that is applied to a mesh in such a way that it appears to be a decal on the mesh.
 
 The advantage of Decal Maps over Mesh Decals is that they are much faster to create and render. Also, they can be applied to meshes with morph targets or any other custom vertex deformation, which is not the case with Mesh Decals. The main drawback is that you need an additional texture for each mesh you want to apply a decal map to. Other problems are:
 * If your mesh has large extensions, you may need to use large decal textures to get enough detail for the decals.
@@ -113,14 +113,13 @@ Whenever you need to add a new decal to the map, just call `renderTexture`. This
 Once you have created the decal map, you can apply it to a mesh using the `decalMap` property of the mesh and enable support for the decal map in the material:
 ```javascript
 mesh.decalMap = decalMap;
-mesh.material.decalMap.smoothAlpha = true;
 mesh.material.decalMap.isEnabled = true;
 ```
 
 Note that you must enable support for decal maps (`material.decalMap.isEnabled = true`) before rendering with the material! This is because a material plugin must be added to a material before the first rendering, and decal map is implemented by the material plugin mechanism.
-You can disable/enable the decal map rendering at any time afterwards by updating `decalMap.isEnabled`, however. You can even start in a disabled state and enable it later, but the important thing is to set a value to `material.decalMap.isEnabled` before the first rendering.
+However, you can disable/enable the decal map rendering at any time by updating `decalMap.isEnabled`. You can even start in a disabled state and enable it later, but the important thing is to set a value to `material.decalMap.isEnabled` (or even just access `material.decalMap`) before the first rendering. If you don't do this, `material.decalMap` will always return `null`.
 
-Here's a PG that shows how to use decal maps: <Playground id="#9BVW2S#49" title="Decal Maps" description="Example of using decal maps."/> Click on the alien's head to add a decal.
+Here's a PG that shows how to use decal maps: <Playground id="#9BVW2S#49" title="Decal maps" description="Example of using decal maps."/> Click on the alien's head to add a decal.
 
 #### Using Decal Maps with ES6 and Tree Shaking
 
@@ -131,7 +130,6 @@ In ES6 with Tree Shaking, another way to enable decal map support without having
 ```javascript
 BABYLON.RegisterMaterialPlugin("DecalMap", (material) => {
     material.decalMap = new BABYLON.DecalMapConfiguration(material);
-    material.decalMap.smoothAlpha = true;
     material.decalMap.isEnabled = true;
     return material.decalMap;
 }) ;
