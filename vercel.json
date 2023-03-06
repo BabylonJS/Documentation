@@ -1504,43 +1504,84 @@
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/usingPhysicsEngine",
-            "destination": "/features/featuresDeepDive/physics/usingPhysicsEngine",
+            "source": "/divingDeeper/physics/v1/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/usingPhysicsEngine",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/forces",
-            "destination": "/features/featuresDeepDive/physics/forces",
+            "source": "/divingDeeper/physics/v1/forces",
+            "destination": "/features/featuresDeepDive/physics/v1/forces",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/joints",
-            "destination": "/features/featuresDeepDive/physics/joints",
+            "source": "/divingDeeper/physics/v1/joints",
+            "destination": "/features/featuresDeepDive/physics/v1/joints",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/pivotsAxes",
-            "destination": "/features/featuresDeepDive/physics/pivotsAxes",
+            "source": "/divingDeeper/physics/v1/pivotsAxes",
+            "destination": "/features/featuresDeepDive/physics/v1/pivotsAxes",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/compoundBodies",
-            "destination": "/features/featuresDeepDive/physics/compoundBodies",
+            "source": "/divingDeeper/physics/v1/compoundBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/compoundBodies",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/softBodies",
-            "destination": "/features/featuresDeepDive/physics/softBodies",
+            "source": "/divingDeeper/physics/v1/softBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/softBodies",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/advancedPhysicsFeatures",
-            "destination": "/features/featuresDeepDive/physics/advancedPhysicsFeatures",
+            "source": "/divingDeeper/physics/v1/advancedPhysicsFeatures",
+            "destination": "/features/featuresDeepDive/physics/v1/advancedPhysicsFeatures",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/addPhysicsEngine",
-            "destination": "/features/featuresDeepDive/physics/addPhysicsEngine",
+            "source": "/divingDeeper/physics/v1/addPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/addPhysicsEngine",
+            "statusCode": 301
+        },
+
+        {
+            "source": "/divingDeeper/physics/v2/aggregates",
+            "destination": "/features/featuresDeepDive/physics/v2/aggregates",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/collisionCallback",
+            "destination": "/features/featuresDeepDive/physics/v2/collisionCallback",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/compounds",
+            "destination": "/features/featuresDeepDive/physics/v2/compounds",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/concepts",
+            "destination": "/features/featuresDeepDive/physics/v2/concepts",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/constraints",
+            "destination": "/features/featuresDeepDive/physics/v2/constraints",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/forces",
+            "destination": "/features/featuresDeepDive/physics/v2/forces",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/raycast",
+            "destination": "/features/featuresDeepDive/physics/v2/raycast",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v2/usingPhysicsEngine",
             "statusCode": 301
         },
         {
