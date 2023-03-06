@@ -1,7 +1,7 @@
 ---
 title: Getting Started - Chapter 5 - Sprite Trees
 image: 
-description: Learn to add a skybox to your scene.
+description: Learn to add 2D sprites to your scene.
 keywords: getting started, start, chapter 5, environment, skybox
 further-reading:
 video-overview:
