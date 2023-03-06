@@ -1504,42 +1504,42 @@
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/usingPhysicsEngine",
+            "source": "/divingDeeper/physics/usingPhysicsEngine",
             "destination": "/features/featuresDeepDive/physics/v1/usingPhysicsEngine",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/forces",
+            "source": "/divingDeeper/physics/forces",
             "destination": "/features/featuresDeepDive/physics/v1/forces",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/joints",
+            "source": "/divingDeeper/physics/joints",
             "destination": "/features/featuresDeepDive/physics/v1/joints",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/pivotsAxes",
+            "source": "/divingDeeper/physics/pivotsAxes",
             "destination": "/features/featuresDeepDive/physics/v1/pivotsAxes",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/compoundBodies",
+            "source": "/divingDeeper/physics/compoundBodies",
             "destination": "/features/featuresDeepDive/physics/v1/compoundBodies",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/softBodies",
+            "source": "/divingDeeper/physics/softBodies",
             "destination": "/features/featuresDeepDive/physics/v1/softBodies",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/advancedPhysicsFeatures",
+            "source": "/divingDeeper/physics/advancedPhysicsFeatures",
             "destination": "/features/featuresDeepDive/physics/v1/advancedPhysicsFeatures",
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/physics/v1/addPhysicsEngine",
+            "source": "/divingDeeper/physics/addPhysicsEngine",
             "destination": "/features/featuresDeepDive/physics/v1/addPhysicsEngine",
             "statusCode": 301
         },
