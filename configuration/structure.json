@@ -1623,7 +1623,7 @@
                                             "friendlyName": "Add Your Own Physics Engine",
                                             "children": {},
                                             "content": "features/featuresDeepDive/physics/v1/addPhysicsEngine"
-                                        },
+                                        }
                                 },
                                 "content": "features/featuresDeepDive/physics"
                                 },
