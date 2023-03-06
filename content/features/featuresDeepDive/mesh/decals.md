@@ -10,9 +10,12 @@ video-overview:
 video-content:
 ---
 
-## How to Use Decals
+## What are Decals for
 
-These are usually used to add details on meshes (bullets hole, local details, etc...), a decal is a mesh produced from a subset of a previous one with a small offset in order to appear on top of it.
+These are usually used to add details on meshes (bullets hole, local details, etc...).
+A decal is either a mesh produced from a subset of a previous one with a small offset in order to appear on top of it, or an additional texture applied to a mesh (a "decal map").
+
+### Mesh Decals
 
 Creation Example :
 
@@ -76,3 +79,60 @@ You can use this PG to experiment with decals: <Playground id="#EEUVTY#199" titl
 You can move over the dude / cube / mesh and left click to create a permanent decal. The "Cull back faces of decal" checkbox lets you experiment with the `cullBackFaces` option.
 
 Note that the decal is created with `localMode=true`, that's why it works as expected for the sphere and the box (the decal will follow the rotation/movement of the mesh).
+
+### Texture Decals (or Decal Maps)
+
+Decal Maps are new in Babylon.js since 5.49.0. They are a way to add decal to a mesh without having to create a new mesh. It is a texture that is applied to a mesh in such a way that it appears to be a decal on the mesh.
+
+The advantage of Decal Maps over Mesh Decals is that they are much faster to create and render. Also, they can be applied to meshes with morph targets or any other custom vertex deformation, which is not the case with Mesh Decals. The main drawback is that you need an additional texture for each mesh you want to apply a decal map to. Other problems are:
+* If your mesh has large extensions, you may need to use large decal textures to get enough detail for the decals.
+* You cannot selectively remove some decals and not others in a decal texture: you can either remove them all (by deleting the decal texture or turning off the effect in the mesh), or none.
+* The texture coordinates of the mesh must be unique, which means that each triangle in the mesh must correspond to a different texture area.
+* Mipmaps are generally necessary to limit aliasing problems. If you often update a large number of decal textures, this can have a substantial impact on performance.
+
+Decal Maps have two aspects: creating the texture/adding decals, and applying the texture to a mesh.
+
+**Note**: Decal Maps are only supported for standard and PBR materials!
+
+#### Creating the Decal Map
+
+There is a new class called `MeshUVSpaceRenderer` which can be used to create and update a decal map. The main method is `renderTexture`, which allows you to add a decal to the texture:
+
+```javascript	
+const decalMap = new BABYLON.MeshUVSpaceRenderer(mesh, scene);
+const texture = new BABYLON.Texture("bullet.png", scene);
+const decalSize = new BABYLON.Vector3(1, 1, 1);
+// find the position and the normal of the mesh where you want to add the decal
+...
+decalMap.renderTexture(texture, position, normal, decalSize) ;
+```
+Whenever you need to add a new decal to the map, just call `renderTexture`. This is much faster than creating a new mesh decal and you can do it several times per frame without any problem (think "machine gun burst").
+
+#### Rendering a mesh with a decal map
+
+Once you have created the decal map, you can apply it to a mesh using the `decalMap` property of the mesh and enable support for the decal map in the material:
+```javascript
+mesh.decalMap = decalMap;
+mesh.material.decalMap.isEnabled = true;
+```
+
+Note that you must enable support for decal maps (`material.decalMap.isEnabled = true`) before rendering with the material! This is because a material plugin must be added to a material before the first rendering, and decal map is implemented by the material plugin mechanism.
+However, you can disable/enable the decal map rendering at any time by updating `decalMap.isEnabled`. You can even start in a disabled state and enable it later, but the important thing is to set a value to `material.decalMap.isEnabled` (or even just access `material.decalMap`) before the first rendering. If you don't do this, `material.decalMap` will always return `null`.
+
+Here's a PG that shows how to use decal maps: <Playground id="#9BVW2S#49" title="Decal maps" description="Example of using decal maps."/> Click on the alien's head to add a decal.
+
+#### Using Decal Maps with ES6 and Tree Shaking
+
+Decal maps are an optional feature that is not supported by default by the standard and PBR materials, to avoid an increase in code size if you do not use it.
+To enable support when using ES6 and Tree Shaking, see [Babylon.js ES6 support with Tree Shaking](/setup/frameworkPackages/es6Support#faq).
+
+In ES6 with Tree Shaking, another way to enable decal map support without having to update each material individually is to globally enable decal map plugin injection in all materials:
+```javascript
+BABYLON.RegisterMaterialPlugin("DecalMap", (material) => {
+    material.decalMap = new BABYLON.DecalMapConfiguration(material);
+    material.decalMap.isEnabled = true;
+    return material.decalMap;
+}) ;
+```
+
+If you do this, you should import the file `Meshes/abstractMesh.decalMap` and not `Materials/material.decalMap`!
