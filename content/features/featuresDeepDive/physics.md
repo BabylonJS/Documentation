@@ -12,6 +12,14 @@ video-content:
 
 Physics engines are third party external programs that can be plugged into Babylon.js. They, depending on their features, emulate "real-life" interactions between objects, which can be meshes, solid particles from the solid particle system or some cameras. One feature of a Physics Engine is the addition of gravity to a scene.
 
+There are 2 physics architecture in Babylon.js. 
+- a Version 1 (V1 for short) that was the only architecture before 6.0 release
+- a Version 2 (V2 for short) more modern with support for last gen Physics Engine
+
+At some point V1 will be deprecated for V2.
+
+## Physics V1
+
 There are plugins for 3 physics engines:
 
 1. Cannon.js - a wonderful physics engine written entirely in JavaScript
@@ -25,3 +33,17 @@ Interactions between objects are achieved by imposters, simple objects that are 
 Two imposters can be connected using joints such as a hinge or ball and socket.
 
 Ammo also allows the creation of soft bodies.
+
+## Physics V2
+
+There are plugins for X physics engines:
+
+1. 
+
+All need to be enabled before use.
+
+This architecture allows finer grain control on your physics scene.
+By making the difference between Collision shapes and Body dynamic.
+A typical use case is to have only one collision shape used by numerous bodies.
+This allows a lower memory footprint and more efficient memory addressing.
+A special effort has been put into better performances for a huge number of bodies. This is the case for the collision callback mecanism.
