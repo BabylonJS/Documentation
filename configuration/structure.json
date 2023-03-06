@@ -1624,8 +1624,8 @@
                                             "children": {},
                                             "content": "features/featuresDeepDive/physics/v1/addPhysicsEngine"
                                         },
-                                        "content": "features/featuresDeepDive/physics"
-                                    }
+                                },
+                                "content": "features/featuresDeepDive/physics"
                                 },
                                 "Version 2": {
                                     "friendlyName": "Physics with V2 architecture",
