@@ -555,7 +555,7 @@ Enable the Depth Sensing:
 ```javascript
 // featuresManager from the base webxr experience helper
 const depthSensing = featureManager.enableFeature(
-  WebXRFeatureName.DEPTH_SENSING,
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
   "latest",
   {
     dataFormatPreference: ["ushort", "float"],
@@ -569,13 +569,13 @@ or for TypeScript:
 ```typescript
 // featuresManager from the base webxr experience helper
 const depthSensing = featureManager.enableFeature(
-  WebXRFeatureName.DEPTH_SENSING,
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
   "latest",
   {
     dataFormatPreference: ["ushort", "float"],
     usagePreference: ["cpu", "gpu"],
-  } as IWebXRDepthSensingOptions,
-) as WebXRDepthSensing;
+  } as BABYLON.IWebXRDepthSensingOptions,
+) as BABYLON.WebXRDepthSensing;
 ```
 
 When you enable depth sensing featrure, you have to pass options.
@@ -598,6 +598,44 @@ export interface IWebXRDepthSensingOptions {
    */
   dataFormatPreference: WebXRDepthDataFormat[];
 }
+```
+
+The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will selected.
+Some information can be accessed only cpu mode (gpu is also same).
+
+The data format is currently "ushort" or "float". It describes a data format for buffers and textures.
+Same as depth usage, you can specify when you initialize the feature.
+
+With this feature, you can access some information like below.
+
+```typescript
+sessionManager.onXRFrameObservable.add(() => {
+  const {
+    depthUsage,                  // "cpu" or "gpu"
+    depthDataFormat,             // "ushort" or "float"
+
+    width,                       // depth image width
+    height,                      // depth image height
+
+    rawValueToMeters,            // operator of obtain depth value in meters
+
+    normDepthBufferFromNormView, // An XRRigidTransform
+
+    latestDepthImageTexture,     // RawTexture for depth image
+    latestDepthBuffer,           // depth value array (cpu only)
+    latestInternalTexture,       // InternalTexture of depth image (gpu only)
+  } = depthSensing;
+
+  // apply depth texture to a material
+  material.diffuseTexture = latestDepthImageTexture;
+});
+
+// observe `getDepthInMeters` is available
+depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
+  // depth value of center point of the screen
+  const meters = getDepthInMeters(0.5, 0.5);
+  console.log(meters);
+});
 ```
 
 
