@@ -546,6 +546,98 @@ const lightEstimationFeature = featuresManager.enableFeature(BABYLON.WebXRFeatur
 
 This will update both the light data itself and the environment cube map every second (instead of every time notifies us that the data has changed).
 
+### Depth Sensing
+
+Depth Sensing can be used for obtaining depth information of cameras. If your device has capabilities such as depth estimation, you can access depth buffer via this feature. For more information, please check the [explaner for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
+
+Enable the Depth Sensing:
+
+```javascript
+// featuresManager from the base webxr experience helper
+const depthSensing = featureManager.enableFeature(
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
+  "latest",
+  {
+    dataFormatPreference: ["ushort", "float"],
+    usagePreference: ["cpu", "gpu"],
+  },
+);
+```
+
+or for TypeScript:
+
+```typescript
+// featuresManager from the base webxr experience helper
+const depthSensing = featureManager.enableFeature(
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
+  "latest",
+  {
+    dataFormatPreference: ["ushort", "float"],
+    usagePreference: ["cpu", "gpu"],
+  } as BABYLON.IWebXRDepthSensingOptions,
+) as BABYLON.WebXRDepthSensing;
+```
+
+When you enable depth sensing featrure, you have to pass options.
+Options is typed with `IWebXRDepthSensingOptions`.
+
+```typescript
+export type WebXRDepthUsage = "cpu" | "gpu";
+export type WebXRDepthDataFormat = "ushort" | "float";
+
+/**
+ * Options for Depth Sensing feature
+ */
+export interface IWebXRDepthSensingOptions {
+  /**
+   *  The desired depth sensing usage for the session
+   */
+  usagePreference: WebXRDepthUsage[];
+  /**
+   * The desired depth sensing data format for the session
+   */
+  dataFormatPreference: WebXRDepthDataFormat[];
+}
+```
+
+The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will selected.
+Some information can be accessed only cpu mode (gpu is also same).
+
+The data format is currently "ushort" or "float". It describes a data format for buffers and textures.
+Same as depth usage, you can specify when you initialize the feature.
+
+With this feature, you can access some information like below.
+
+```typescript
+sessionManager.onXRFrameObservable.add(() => {
+  const {
+    depthUsage,                  // "cpu" or "gpu"
+    depthDataFormat,             // "ushort" or "float"
+
+    width,                       // depth image width
+    height,                      // depth image height
+
+    rawValueToMeters,            // operator of obtain depth value in meters
+
+    normDepthBufferFromNormView, // An XRRigidTransform
+
+    latestDepthImageTexture,     // RawTexture for depth image
+    latestDepthBuffer,           // depth value array (cpu only)
+    latestInternalTexture,       // InternalTexture of depth image (gpu only)
+  } = depthSensing;
+
+  // apply depth texture to a material
+  material.diffuseTexture = latestDepthImageTexture;
+});
+
+// observe `getDepthInMeters` is available
+depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
+  // depth value of center point of the screen
+  const meters = getDepthInMeters(0.5, 0.5);
+  console.log(meters);
+});
+```
+
 ## Demos
 
 <Playground id="#GG06BQ#97" title="XR Measurement Tape" description="XR Measurement Tape Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
