@@ -814,15 +814,16 @@ Forum: https://forum.babylonjs.com/t/non-overlapping-gui-linked-controls/24610
 
 ### Clipping
 
-By default containers will clip their children to their bounds. You can disable this option by calling this code:
+By default containers will clip their children to their bounds. If you want to clip a control's contents and its children, you should set
 
 ```javascript
 container.clipChildren = false;
+container.clipContent = true;
 ```
 
 Please note that not clipping children may generate issues with `adt.useInvalidateRectOptimization` so it is recommended to turn this optimization off if you want to use unclipped children.
 
-You can find a demo here: <Playground id="#LBF8S2" title="Clipping Example" description="Simple example showing how to use clipping in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI42.jpg"/>
+You can find a demo here: <Playground id="#LBF8S2#38" title="Clipping Example" description="Simple example showing how to use clipping in your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI42.jpg"/>
 
 ### Rectangle
 
