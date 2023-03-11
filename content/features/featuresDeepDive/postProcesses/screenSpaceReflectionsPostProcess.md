@@ -8,6 +8,8 @@ video-overview:
 video-content:
 ---
 
+<span style={{"color": "red"}}>This post process is deprecated starting with v5.48.0! It is superseded by the [Screen Space Reflections Rendering Pipeline](/features/featuresDeepDive/postProcesses/SSRRenderingPipeline).</span>
+
 ## Introduction
 Rendering reflections in real-time can be done using several methods. Each method contains its own pros and cons. For Web technologies, 2 main methods exist:
 * **Using a Mirror Texture**:
