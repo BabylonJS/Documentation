@@ -26,10 +26,12 @@ Here's a comparison of rendering with and without the SSR rendering pipeline ena
 | --- | --- |
 | ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr.jpg!500) |
 | ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_balls.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_balls.jpg!500) |
+| ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_brainstem.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_brainstem.jpg!500) |
 
 Here are the playgrounds that generated the above images:
 * <Playground id="#PIZ1GK#1017" title="SSR Rendering Pipeline Example (Hill Valley)" description="Hill Valley scene with screen space reflections"/>
 * <Playground id="#PIZ1GK#1002" title="SSR Rendering Pipeline Example (Balls)" description="Mirror and Balls scene with screen space reflections"/>
+* <Playground id="#PIZ1GK#1022" title="SSR Rendering Pipeline Example (BrainStem)" description="Robot scene with screen space reflections"/>
 
 ## Prerequisite
 To render reflections using the SSR rendering pipeline, the device must support WebGL 2 or WebGPU. If not supported, the rendering pipeline will just work as a pass-through.
@@ -114,7 +116,7 @@ You don't need to concern yourself with the inner details of these renderers, bu
 
 ### Using MSAA
 
-You should normally choose the pre-pass renderer because the reflectivity color is computed more accurately than with the geometry buffer renderer, but if you want to use MSAA as the antialiasing method, the geometry buffer renderer may be a better choice. That's because MSAA can lead to artifacts when used with the pre-pass renderer.
+You should normally choose the pre-pass renderer because the reflectivity color is computed more accurately than with the geometry buffer renderer and the performances are better overall, but if you want to use MSAA as the antialiasing method, the geometry buffer renderer may be a better choice. That's because MSAA can lead to artifacts when used with the pre-pass renderer.
 
 Here's an example of a scene using MSAA with the geometry buffer and pre-pass renderer:
 | Geometry Buffer | Pre-Pass |
@@ -149,6 +151,8 @@ Also, one thing to note regarding the pre-pass renderer is that by default it's 
 | Geometry Buffer | Pre-Pass with half-float depth |
 | --- | --- |
 | ![Geometry buffer](/img/how_to/ssrRenderingPipeline/geometry_buffer_sphere_debug.jpg!500) | ![Pre-Pass with half-float depth](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_debug.jpg!500) |
+
+Note: `ssr.clipToFrustum` has been set to `false` to take these screenshots because the artifacts are more visible with a yellow background than with a blue one!
 
 You get these artifacts because there's less precision in the depth buffer and consequently you get more self-collisions between the reflected ray and the current surface the ray is shot from (see section 2.1 in [How SSR is working](#how-ssr-is-working)).
 
@@ -230,15 +234,75 @@ strength and reflectionSpecularFalloffExponent
 
 attenuateScreenBorders, attenuateIntersectionDistance, attenuateFacingCamera, attenuateBackfaceReflection
 
-## How to deal with some Artifacts
+## How to deal with Artifacts
 
-enable transparent rendering for the back face depth renderer
-back faces must exist when using enableAutomaticThicknessComputation
+SSR is prone to a lot of artifacts, some of which you can fix and others that are inherent to the technique.
+
+This section will try to describe the most common artifacts and how to fix them when possible, or how to hide them as much as possible when not.
+
+### Artifacts when enabling MSAA with the Pre-Pass renderer
+
+Those artifacts and how to fix them have already been described in the **Geometry buffer or Pre-Pass renderer section**, [Using MSAA](#using-msaa) sub-section.
+For illustration purpose, here's how the artifacts can look like:
+![Artifacts caused by MSAA](/img/how_to/ssrRenderingPipeline/msaa_pre_pass_auto_thickness.jpg!500)
+
+### Artifacts relatd to the depth buffer precision
+Those artifacts and how to fix them have already been described in the **Geometry buffer or Pre-Pass renderer section**, [Depth texture type](#depth-texture-type) sub-section.
+For illustration purpose, here's how the artifacts can look like:
+![Artifacts caused by depth buffer precision](/img/how_to/ssrRenderingPipeline/artifacts_prepass_depth_precision.jpg!500)
+
+### Artifacts with transparent meshes
+
+You should note that the pre-pass renderer handles transparent meshes better than the geometry buffer renderer when using the opacity texture:
+| Geometry Buffer | Pre-Pass |
+| --- | --- |
+| ![Geometry Buffer with transparent mesh](/img/how_to/ssrRenderingPipeline/geometry_buffer_automatic_thickness_mesh_transparent.jpg!500) | ![Pre-Pass with transparent mesh](/img/how_to/ssrRenderingPipeline/prepass_automatic_thickness_mesh_transparent.jpg!500) |
+
+It's still not perfect, you can get artifacts even with the pre-pass renderer (exagerated by setting a full mirroring surface):
+![Artifacts with transparent meshes and pre-pass renderer](/img/how_to/ssrRenderingPipeline/artifacts_prepass_automatic_thickness_mesh_transparent.jpg!500)
+
+Here's the corresponding PG: <Playground id="#PIZ1GK#1032" title="SSR Artifacts (transparent meshes with prepass renderer)" description="SSR Artifacts with the prepass renderer and transparent meshes"/>
+
+There's nothing we can do about it, unfortunately, you will have to be creative to try to hide these defects!
+
+### Artifacts when using enableAutomaticThicknessComputation
+
+For the automatic thickness computation to work, the back faces must exist, so that a thickness can be computed accurately by subtracting the depth read from the back and front depth textures. If some of your objects have front faces only, you will get some ugly artifacts:
+
+| This plane does not have a back face | Some of the objects of the robot don't have back faces |
+| --- | --- |
+| ![Artifacts with plane](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_plane.jpg!500) | ![Artifacts with robot](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_robot.jpg!500) |
+
+The fix is to make sure that all your objects have back faces:
+* for the plane it's easy, simply set `plane.material.backFaceCulling = false`
+* for the robot it is less easy, you would have to find the faulty meshes and either create back faces for them or set `backFaceCulling = false` for their materials. Another solution would be to simply disable the automatic thickness computation!
+
+Here's the PG for the plane example: <Playground id="#PIZ1GK#1024" title="SSR Artifacts (automatic thickness)" description="SSR Artifacts with automatic thickness computation"/>
+
+Note that there's a special case for transparent meshes. In the standard rendering pass, transparent meshes don't write to the depth buffer, so it won't be possible to calculate a correct thickness for those subjects.
+It happens that transparent meshes DO write to the depth texture when using the geometry / pre-pass renderer, but the back face depth renderer created internally when enabling automatic thickness computation doesn't.
+You will need to enable writing depth values for transparent meshes by doing:
+```javascript
+ssr.backfaceDepthRenderer.forceDepthWriteTransparentMeshes = true;
+```
+
+You will get the same kind of artifacts if you don't do it:
+| Artifacts when using transparent material | Artifacts fixed |
+| --- | --- |
+| ![Artifacts with transparent mesh](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_mesh_transparent.jpg!500) | ![Artifacts fixed with transparent meshes](/img/how_to/ssrRenderingPipeline/noartifacts_automatic_thickness_mesh_transparent.jpg!500) |
+
+Here's the PG corresponding to the right screenshot: <Playground id="#PIZ1GK#1031" title="SSR No Artifacts (automatic thickness transparent meshes)" description="SSR No Artifact with automatic thickness computation and transparent meshes"/>
+
+**Important note**: when you change some of the SSR pipeline properties (like `samples`, `blurDispersionStrength`, `enableAutomaticThicknessComputation`, `debug` and others), the full state of the SSR pipeline is recreated. All the property values you set are retained and so the pipeline is recreated in the right state **EXCEPT** for the `backfaceDepthRenderer.forceDepthWriteTransparentMeshes` value, which is not directly owned by the pipeline! So, if you change some of the SSR properties, you will have to re-set the value for `backfaceDepthRenderer.forceDepthWriteTransparentMeshes` afterward.
+
+
+
+
 Screen space technique: Works only with geometry rendered on screen => quand on regarde vers le bas, disparition des reflets / pareil sur les bords de l'écran
 
 
 ---
-To favor speed over quality, you should try to use:
-* big values for `step`
-* small values for `maxSteps` and `maxDistance`
-* disable `enableSmoothReflections`
+To favor speed over quality, you should try to set:
+* as big values as possible for `step`
+* as small values as possible for `maxSteps` and `maxDistance`
+* disable `enableSmoothReflections` - but, with bigger values of `step`, you would probably want to enable this setting
