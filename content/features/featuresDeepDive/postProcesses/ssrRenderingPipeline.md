@@ -214,13 +214,26 @@ You can lower the GPU requirement of this mode by setting a value greater than 0
 To sum up:
 * a ray won't go farther than `maxDistance` (in 3D space)
 * a ray won't go farther than `maxSteps` * `step` pixels (in 2D space)
-* if `step` is greater than 1, you can enable `enableSmoothReflections` to compute more accurate intersections and improve reflections
+* if `step` is greater than 1, you can enable `enableSmoothReflections` to compute more accurate intersections and thus improve reflections
 
-`clipToFrustum = true` will clip the ray to the camera frustum and should generally by left `true`, as even if it is adding some shader instructions, it allows to shorten the ray and then the computation.
+`clipToFrustum = true` will clip the ray to the camera frustum and should generally be left `true`, as even if it is adding some shader instructions, it allows to shorten the ray and thus to reduce the computation.
+
+`step` should be an integer value strictly positive, as it is a number of pixels.
 
 ### Strength of the reflections
 
-strength and reflectionSpecularFalloffExponent
+`strength` and `reflectionSpecularFalloffExponent` are working together to boost or reduce the SSR effect:
+* The `strength` parameter will modulate the reflectivity color
+* The `reflectionSpecularFalloffExponent` parameter is applied after the modulation of the reflectivity color by the `strength` parameter
+
+The formula is:
+```math
+reflectionMultiplier = pow(reflectivity * strength, reflectionSpecularFalloffExponent)
+finalColor = color * (1 - reflectionMultiplier) + reflectionMultiplier * SSR
+```
+Note: `pow` is the exponentiation operator.
+
+It's probably better to keep `strength = 1` (the default) and change `reflectionSpecularFalloffExponent` depending on the fact that you want to strenghten the effect (use values less than 1) or reduce the effect (use values greater than 1).
 
 ### roughnessFactor, blurDispersionStrength, blurQuality, blurDownsample, ssrDownsample
 
@@ -228,17 +241,24 @@ strength and reflectionSpecularFalloffExponent
 
 ### reflectivityThreshold
 
-### environmentTexture
+### environmentTexture, environmentTextureIsProbe
 
-### Effect attenuations
+### Attenuation parameters
 
-attenuateScreenBorders, attenuateIntersectionDistance, attenuateFacingCamera, attenuateBackfaceReflection
+There are 5 parameters (booleans) that can be used to attenuate the reflections, in an effort to try to hide some of the SSR artifacts:
+* `attenuateScreenBorders`: attenuates the reflections on the screen borders (default: `true`)
+* `attenuateIntersectionDistance`: attenuates the reflections according to the distance of the intersection (default: `true`)
+* `attenuateIntersectionIterations`: attenuates the reflections according to the number of iterations performed to find the intersection (default: `true`)
+* `attenuateFacingCamera`: attenuates the reflections when the reflection ray is facing the camera (the view direction) (default: `false`)
+* `attenuateBackfaceReflection`: attenuates the backface reflections (default: `false`)
+
+To see how these parameters can impact the final rendering, see the [Artifacts inherent to the SSR technique](#artifacts-inherent-to-the-ssr-technique) section.
 
 ## How to deal with Artifacts
 
 SSR is prone to a lot of artifacts, some of which you can fix and others that are inherent to the technique.
 
-This section will try to describe the most common artifacts and how to fix them when possible, or how to hide them as much as possible when not.
+This section will describe the most common artifacts and how to fix them when possible, or how to hide them as much as possible when not.
 
 ### Artifacts when enabling MSAA with the Pre-Pass renderer
 
@@ -283,23 +303,76 @@ Note that there's a special case for transparent meshes. In the standard renderi
 It happens that transparent meshes DO write to the depth texture when using the geometry / pre-pass renderer, but the back face depth renderer created internally when enabling automatic thickness computation doesn't.
 You will need to enable writing depth values for transparent meshes by doing:
 ```javascript
-ssr.backfaceDepthRenderer.forceDepthWriteTransparentMeshes = true;
+ssr.backfaceForceDepthWriteTransparentMeshes = true;
 ```
+
+As this is generally what you want, `true` is the default value for `backfaceForceDepthWriteTransparentMeshes`.
 
 You will get the same kind of artifacts if you don't do it:
 | Artifacts when using transparent material | Artifacts fixed |
 | --- | --- |
 | ![Artifacts with transparent mesh](/img/how_to/ssrRenderingPipeline/artifacts_automatic_thickness_mesh_transparent.jpg!500) | ![Artifacts fixed with transparent meshes](/img/how_to/ssrRenderingPipeline/noartifacts_automatic_thickness_mesh_transparent.jpg!500) |
 
-Here's the PG corresponding to the right screenshot: <Playground id="#PIZ1GK#1031" title="SSR No Artifacts (automatic thickness transparent meshes)" description="SSR No Artifact with automatic thickness computation and transparent meshes"/>
+Here's the PG corresponding to the right screenshot: <Playground id="#PIZ1GK#1035" title="SSR No Artifacts (automatic thickness transparent meshes)" description="SSR No Artifact with automatic thickness computation and transparent meshes"/>
 
-**Important note**: when you change some of the SSR pipeline properties (like `samples`, `blurDispersionStrength`, `enableAutomaticThicknessComputation`, `debug` and others), the full state of the SSR pipeline is recreated. All the property values you set are retained and so the pipeline is recreated in the right state **EXCEPT** for the `backfaceDepthRenderer.forceDepthWriteTransparentMeshes` value, which is not directly owned by the pipeline! So, if you change some of the SSR properties, you will have to re-set the value for `backfaceDepthRenderer.forceDepthWriteTransparentMeshes` afterward.
+### Artifacts inherent to the SSR technique
 
+Because SSR is a screen space technique, it can only deal with geometry rendered on screen: when moving, some geometry which was previously visible and reflected on some other objects won't be visible anymore, and the reflection will disappear when the objects that reflected the geometry are still visible.
 
+Also, the back of objects can't be reflected properly, because we only have access to the front colors of the objects (the color texture stores what the camera sees, so the front of the objects, not the back).
 
+#### Attenuate reflections on the edges of the screen
 
-Screen space technique: Works only with geometry rendered on screen => quand on regarde vers le bas, disparition des reflets / pareil sur les bords de l'écran
+Here is what happens to the reflections on the edges of the screen when the geometries are out of sight:
+<video controls muted loop preload="auto" width="600px">
+    <source src="/img/how_to/ssrRenderingPipeline/artifacts_ssr_geometry_disappear.webm" type="video/webm"/>
+    Your browser does not support the video tag.
+</video>
 
+The `attenuateScreenBorders = true` setting makes the disappearing reflections less abrupt:
+
+<video controls muted loop preload="auto" width="600px">
+    <source src="/img/how_to/ssrRenderingPipeline/artifacts_ssr_geometry_disappear_attenuate.webm" type="video/webm"/>
+    Your browser does not support the video tag.
+</video>
+
+As it's what you would expect by default, `true` is the default value for `attenuateScreenBorders`.
+
+#### Attenuate reflections according to distance
+
+Reflections should be attenuated according to the distance the ray travelled before hitting an intersection, and also according to the number of steps we performed before computing this intersection. That's because if/when we hit the max distance / max steps, we want a soft transition between what we generated before and after reaching the limit:
+| Hard transition when `maxDistance` reached | Hard transition when `maxSteps` reached |
+| --- | --- |
+| ![Hard transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxdistance.jpg!500) | ![Hard transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_hardtransition_maxsteps.jpg!500) |
+
+If we enable `attenuateIntersectionDistance` in the first case, and `attenuateIntersectionIterations` in the second, we get:
+| Soft transition when `maxDistance` reached | Soft transition when `maxSteps` reached |
+| --- | --- |
+| ![Soft transition with maxDistance](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxdistance.jpg!500) | ![Soft transition with maxSteps](/img/how_to/ssrRenderingPipeline/artifacts_softtransition_maxsteps.jpg!500) |
+
+That's normally the behavior you would want, so both of these parameters are enabled by default.
+
+#### Attenuate reflections for rays facing the camera
+
+Reflected rays that are going toward the camera should normally be ignored for intersection purposes (by setting `attenuateFacingCamera = true`), because they generally are going to hit an object on the back and we only know their front colors. However, having a wrong reflection can sometimes be better than not having a reflection at all, all the more if blurring is applied (so making the "wrongness" less obvious):
+| `attenuateFacingCamera = false` | `attenuateFacingCamera = true` |
+| --- | --- |
+| ![No attenuation for rays facing the camera](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_noattenuation.jpg!500) | ![Rays facing the camera attenuated](/img/how_to/ssrRenderingPipeline/artifacts_facingcamera_attenuation.jpg!500) |
+
+As you can see, when rays facing the camera are not attenuated, we get a "back" reflection for the gas pumps. These reflections are wrong because we can't reflect the back of the pumps, but it's not obvious in the screenshot and in movement + a bit of blur would probably fool a lot of people! That's why the `attenuateFacingCamera` parameter is `false` by default.
+
+Here's the PG corresponding to the left screenshot: <Playground id="#PIZ1GK#1038" title="SSR rays facing camera" description="SSR no attenuation for rays facing camera"/>
+
+#### Attenuate back face reflections
+
+`attenuateBackfaceReflection` is used for somewhat the same purpose as `attenuateFacingCamera` and can remove artifacts that the latter can't. For eg:
+| `attenuateBackfaceReflection = false` | `attenuateBackfaceReflection = true` |
+| --- | --- |
+| ![No attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_noattenuation.jpg!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/artifacts_backface_attenuation.jpg!500) |
+
+The rays reflected by the window which hit the "20" panel are doing an angle with the view direction, which is too big for `attenuateFacingCamera` to remove the reflections, but `attenuateBackfaceReflection` is able to do it. That's because it is checking the angle between the reflected ray and the normal at the intersection point, and if they point to the same direction, it attenuates / removes the reflections.
+
+As this check needs an additional texture fetching to get the normal at the intersection point, and also because `attenuateFacingCamera` can catch most of the problems, `attenuateBackfaceReflection` is `false` by default.
 
 ---
 To favor speed over quality, you should try to set:
