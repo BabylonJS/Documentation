@@ -122,7 +122,13 @@ If you experience low-resolution when using the polyfill, make sure to resize th
 
 ### The WebXR Emulator
 
-If you are developing and don't want to constantly test on a real device, use Mozilla's [WebXR Emulator](https://blog.mozvr.com/webxr-emulator-extension/) which is available for [Chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje) and [Firefox](https://addons.mozilla.org/firefox/addon/webxr-api-emulator). We support it and actually use it during development. Highly recommended.
+If you want to debug your XR scene on your desktop you will need to emulate WebXR. The first method is using a browser extension.
+
+Mozilla's [WebXR Emulator extension](https://blog.mozvr.com/webxr-emulator-extension/) has not been updated for quite some time. Instead, we recommend using Meta's [Immersive WebXR emulator](https://github.com/meta-quest/immersive-web-emulator/) which is available for both [Chrome](https://chrome.google.com/webstore/detail/immersive-web-emulator/cgffilbpcibhmcfbgggfhfolhkfbhmik) and [Edge](https://microsoftedge.microsoft.com/addons/detail/immersive-web-emulator/hhlkbhldhffpeibcfggfndbkfohndamj).
+
+Another option to debug your scene on Window is emulating a headset using [Microsoft's Mixed Reality portal](https://www.microsoft.com/store/apps/9NG1H8B3ZC7M). Instructions can be found here: [https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-mixed-reality-simulator).
+
+The main difference between the two approaches is that the first one works in your browser and emulates WebXR, and the second is directly using the WebXR implementation of the browser and emulates a headset in an external native application.
 
 ## Getting started
 
