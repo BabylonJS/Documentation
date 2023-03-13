@@ -146,28 +146,27 @@ Here's the PG used in these examples: <Playground id="#PIZ1GK#1016" title="Compa
 
 ### Depth texture type
 
-Also, one thing to note regarding the pre-pass renderer is that by default it's using half-float for the depth texture. It can lead to some rendering artifacts if you compare with the geometry buffer renderer, which is using full float for the depth texture:
+Also, one thing to note regarding the pre-pass renderer, is that you have the possibility to use 16 bits float textures for the depth texture, to save memory space for eg. (the geometry buffer renderer always uses a 32 bits float texture). It can lead to some rendering artifacts, depending on your scene:
 
-| Geometry Buffer | Pre-Pass with half-float depth |
+| 32 bits float depth texture | 16 bits float depth texture |
 | --- | --- |
-| ![Geometry buffer](/img/how_to/ssrRenderingPipeline/geometry_buffer_sphere_debug.jpg!500) | ![Pre-Pass with half-float depth](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_debug.jpg!500) |
+| ![32 bits float depth texture](/img/how_to/ssrRenderingPipeline/geometry_buffer_sphere_debug.jpg!500) | ![16 bits float depth texture](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_debug.jpg!500) |
 
 Note: `ssr.clipToFrustum` has been set to `false` to take these screenshots because the artifacts are more visible with a yellow background than with a blue one!
 
 You get these artifacts because there's less precision in the depth buffer and consequently you get more self-collisions between the reflected ray and the current surface the ray is shot from (see section 2.1 in [How SSR is working](#how-ssr-is-working)).
 
-You can fix the problem by either using full float precision for the pre-pass renderer:
-```javascript
-    BABYLON.PrePassRenderer.TextureFormats[BABYLON.Constants.PREPASS_DEPTH_TEXTURE_TYPE].format = BABYLON.Constants.TEXTURETYPE_FLOAT;
-```
-or by raising `selfCollisionNumSkip`:
+You can fix the problem by either keeping the default 32 bits float depth texture or by raising `selfCollisionNumSkip`:
 ```javascript
 ssr.selfCollisionNumSkip = 2;
 ```
+![16 bits float depth texture with selfCollisionNumSkip=2](/img/how_to/ssrRenderingPipeline/pre_pass_sphere_skip_2_debug.jpg!500)
+
+Here's the PG corresponding to this screenshot: <Playground id="#PIZ1GK#1042" title="16 bits float depth texture and skip to 2" description="16 bits float depth texture and skip to 2"/>
 
 ## Description of the SSR parameters
 
-In the following sections, we will describe in depth the parameters of the SSR rendering pipeline, as it's not always easy to choose the right values for each parameter, or to know how it impacts the final rendering.
+In the following sections, we will describe the most important parameters of the SSR rendering pipeline, as it's not always easy to choose the right values for each parameter, or to know how it impacts the final rendering.
 
 ### Thickness
 
@@ -207,7 +206,7 @@ Sometimes, it's better to add a bit of blur to hide the artifacts instead of ena
 
 You can lower the GPU requirement of this mode by setting a value greater than 0 for `backfaceDepthTextureDownsample` (1 to divide the size of the texture by 2, 2 to divide it by 3 and so on), which will reduce the size of the depth texture used by the depth renderer. However, it can lead to severe artifacts, so it will still be a trade-off between performance and quality and how you can try to best hide the artifacts.
 
-### Max distance, Max steps, step, smooth reflections and clipToFrustum
+### Max distance, Max steps, step, smooth reflections and clipping to frustum
 
 `maxDistance`, `maxSteps`, `step` and `enableSmoothReflections` are working somewhat together, and how they impact the final rendering can be understood by reading the [How SSR is working](#how-ssr-is-working) section as well as [Debugging your SSR scenes](#debugging-your-ssr-scenes).
 
@@ -237,22 +236,18 @@ It's probably better to keep `strength = 1` (the default) and change `reflection
 
 ### roughnessFactor, blurDispersionStrength, blurQuality, blurDownsample, ssrDownsample
 
-### selfCollisionNumSkip
+### Reflectivity threshold
 
-### reflectivityThreshold
+The `reflectivityThreshold` parameter is used to discard pixels that have a reflectivity value below a certain threshold. This is useful to avoid computing SSR for pixels that are not reflecting anything or so, which can be useful to save some GPU time.
 
-### environmentTexture, environmentTextureIsProbe
+For eg., in this scene, `reflectivityThreshold` has been set to 0:
+| `reflectivityThreshold = 0` | Debug view |
+| --- | --- |
+| ![SSR with reflectivityThreshold = 0](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0.jpg!500) | ![Debug view of the scene](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_debug.jpg!500) |
 
-### Attenuation parameters
+Thanks to the debug view, we can see that the reflections are computed on the sphere, but taking them into account does not make any difference visually because the `metallic` property of the material is 0 and the `roughness` is 1, so the reflectivity is very low (0.04). By setting `reflectivityThreshold` to `0.04` (the default value), these reflections are not computed anymore:
 
-There are 5 parameters (booleans) that can be used to attenuate the reflections, in an effort to try to hide some of the SSR artifacts:
-* `attenuateScreenBorders`: attenuates the reflections on the screen borders (default: `true`)
-* `attenuateIntersectionDistance`: attenuates the reflections according to the distance of the intersection (default: `true`)
-* `attenuateIntersectionIterations`: attenuates the reflections according to the number of iterations performed to find the intersection (default: `true`)
-* `attenuateFacingCamera`: attenuates the reflections when the reflection ray is facing the camera (the view direction) (default: `false`)
-* `attenuateBackfaceReflection`: attenuates the backface reflections (default: `false`)
-
-To see how these parameters can impact the final rendering, see the [Artifacts inherent to the SSR technique](#artifacts-inherent-to-the-ssr-technique) section.
+![SSR with reflectivityThreshold = 0.04](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_04.jpg!500)
 
 ## How to deal with Artifacts
 
@@ -323,7 +318,7 @@ Also, the back of objects can't be reflected properly, because we only have acce
 
 #### Attenuate reflections on the edges of the screen
 
-Here is what happens to the reflections on the edges of the screen when the geometries are out of sight:
+Here is what happens to the reflections when the geometries are getting out of sight:
 <video controls muted loop preload="auto" width="600px">
     <source src="/img/how_to/ssrRenderingPipeline/artifacts_ssr_geometry_disappear.webm" type="video/webm"/>
     Your browser does not support the video tag.
@@ -373,6 +368,41 @@ Here's the PG corresponding to the left screenshot: <Playground id="#PIZ1GK#1038
 The rays reflected by the window which hit the "20" panel are doing an angle with the view direction, which is too big for `attenuateFacingCamera` to remove the reflections, but `attenuateBackfaceReflection` is able to do it. That's because it is checking the angle between the reflected ray and the normal at the intersection point, and if they point to the same direction, it attenuates / removes the reflections.
 
 As this check needs an additional texture fetching to get the normal at the intersection point, and also because `attenuateFacingCamera` can catch most of the problems, `attenuateBackfaceReflection` is `false` by default.
+
+#### Dealing with missed intersections
+
+When a reflected ray doesn't hit anything (either because there's no geometry to intersect or because we reached the max distance / max steps), we have two choices for the color we must pick:
+* if an environment cube texture has been provided, we read the color from the texture using the reflected ray direction
+* if no environment texture has been provided, we use the color of the current pixel as a fallback
+
+If you don't provide an environment texture, you will generally see some clear discrepancies between the pixels for which we were able to find a reflected pixel and those for which we couldn't:
+| No environment texture | Debug view |
+| --- | --- |
+| ![No environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap.jpg!500) | ![Attenuation for back face reflections](/img/how_to/ssrRenderingPipeline/sponza_ssr_noenvmap_debug.jpg!500) |
+
+The debug view helps to understand what's going on: the lighter pixels on the left screenshot correspond to pixels where no intersection could be computed (blue or red in the right screenshot), so we ended up using the original pixel color of the floor for the SSR effect, which is a bit lighter than the pixel which should have normally been reflected.
+
+Using an environment texture can help hide these artifacts, provided that the environment texture is a good match of the local environment! The best way to generate such textures is to use a reflection probe. The probe will capture the local environment by rendering the scene to a cube texture from the probe position.
+
+For the screenshot below, a probe has been created roughly at the center of the courtyard and has been set as a [local cube map](/features/featuresDeepDive/materials/using/reflectionTexture#local-cubemaps) by providing a bounding box for the cube, which is roughly the size of the courtyard:
+![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap.jpg!500)
+
+Note that because the environment texture is coming from a reflection probe, you have to set `ssr.environmentTextureIsProbe` to `true` (a probe cube texture is treated differently than an ordinary cube texture because the Y axis is reversed).
+
+If you look closely, you will see that some reflections are not quite right, and if you move around you will see reflections that are clearly misplaced:
+![With environment texture](/img/how_to/ssrRenderingPipeline/sponza_ssr_envmap_misplaced.jpg!500)
+
+One way to mitigate these artifacts would be to use several cube maps, depending on where we stand in the scene, and not use a global cube map for the whole scene.
+
+Here's the PG corresponding to the scene with the local cube map: <Playground id="#PIZ1GK#1040" title="SSR using local cube map" description="SSR using a local cube map for the environment texture"/>
+
+#### Dealing with self-intersections
+
+As explained in the [How SSR is working](#how-ssr-is-working) section, the starting point of the reflected ray is offseted to avoid self-collision intersections and wrong reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at start before considering an intersection as legitimate. If a value of 1 works well in most cases, sometimes you need to raise the value a little bit:
+| `selfCollisionNumSkip = 1` | `selfCollisionNumSkip = 2` |
+| --- | --- |
+| ![selfCollisionNumSkip = 1](/img/how_to/ssrRenderingPipeline/hillvalley_skip_1.jpg!500) | ![selfCollisionNumSkip = 2](/img/how_to/ssrRenderingPipeline/hillvalley_skip_2.jpg!500) |
+
 
 ---
 To favor speed over quality, you should try to set:
