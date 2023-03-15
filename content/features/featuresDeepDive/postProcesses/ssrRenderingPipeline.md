@@ -275,8 +275,6 @@ Here is the corresponding PG: <Playground id="#KA93U#1037" title="SSR blur stand
 The `blurDownsample` property (default: 0) can be used to reduce the size of the textures used in the blur pass: `blurDownsample = 1` will blur at half resolution, `blurDownsample = 2` will blur at 1/3 resolution, etc.
 Using a value greater than 0 will save some performance and generally have little impact on the final result (at least for small values of `blurDownsample`), so feel free to use it!
 
-The last parameter you can change is `blurQuality`, which is a value between 2 and 5 (default: 2). It controls the weights applied during the blur pass. It doesn't have much impact on the final result, so feel free to experiment and use the value that suits you best.
-
 Note that when blur is not enabled, `roughnessFactor` is used as a factor to modulate the jitter of the starting point of the reflected ray:
 | no blur, `roughnessFactor = 0.05` | no blur, `roughnessFactor = 0.2` |
 | --- | --- |
