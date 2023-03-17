@@ -124,7 +124,7 @@ By default Babylon.js uses indexed meshes where vertices can be reuse by faces. 
 ```
 mesh.convertToUnIndexedMesh();
 ```
-For example this works very well for a cube where it is more efficient to send 32 positions instead of 24 positions and 32 indices.
+Note that this is nearly always a net loss, especially for meshes where all vertex attributes (normal, UV coords, etc.) can be reused by multiple triangles, such as meshes that model smooth surfaces. Even for a cube under artificially favorable conditions (no vertex attributes besides position, and comparing with indexing that uses 32-bit indices), it is no better: 2\*3\*6=36 3-vectors (36\*3\*4=432 bytes) unindexed vs. 4\*6=24 3-vectors plus 36 indices (24\*3\*4+36\*4=432 bytes). By default, Babylon.js also includes normal, color and UV vertex attributes -- and the more vertex attributes there are, the more space-efficient indexing is.
 
 ## Turning AdaptToDeviceRatio Off/On
 By default, Babylon.js does not adapt to device ratio anymore. It by default focuses on perf vs quality after receiving lots of community requests.
