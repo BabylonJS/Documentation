@@ -110,7 +110,7 @@ manager.addTarget(target3);
 
 At any time, you can remove a target with `manager.removeTarget(target)`
 
-## How to access morph targets in a glTF file
+## How to Access Morph Targets in a glTF File
 
 You can access a morph target influence on a mesh in a glTF file through the [morphTargetManager](/typedoc/classes/babylon.morphtargetmanager#gettarget) which is automatically created for a loaded glTF file containing morph targets. You can see how many influences are present on the mesh by writing to the console.
 
@@ -128,7 +128,7 @@ See the following example for a full playground using morph targets from a glTF 
 
 - <Playground id="#9CLJEF" title="Morph Targets From a .glTF File" description="Simple example of using morph targets from a .glTF file."/>
 
-## List of morphable properties
+## List of Morphable Properties
 
 You can morph the following mesh attributes:
 
@@ -136,6 +136,26 @@ You can morph the following mesh attributes:
 - normal (can be turned of by calling `manager.enableNormalMorphing = false`)
 - tangents (can be turned of by calling `manager.enableTangentMorphing = false`)
 - uvs (can be turned of by calling `manager.enableUVMorphing = false`)
+
+## Animating Morph Targets
+
+You can animate any morph target influence by creating a [BABYLON.Animation](https://doc.babylonjs.com/features/featuresDeepDive/animation/animation_method) targeting the influence you wish to control. When creating your animation, you need to list "influence" as the property to be animated. This property will always be of type FLOAT.
+
+
+```javascript
+const myAnim = new BABYLON.Animation(name, "influence", frames_per_second, BABYLON.Animation.ANIMATIONTYPE_FLOAT, loop_mode);
+```
+
+To play the morph target animation, add the animation to the mesh that owns the [MorphTargetManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.MorphTargetManager) so that the animation is easy to access later. You can then call `scene.beginAnimation` while targeting the specific morph target you want to animate.
+
+```javascript
+mesh.animations.push(myAnim);
+scene.beginAnimation(morphTarget, from, to, true);
+```
+
+You can animate multiple morphs on the same mesh by creating a new animation for each morph and targeting the appropriate influence. If you want to play several morph animations simultaneously - such as playing blink animations on morph targets driving each individual eye - you can add these animations to an [animation group](https://doc.babylonjs.com/features/featuresDeepDive/animation/groupAnimations).
+
+- <Playground id="#019CR7#2" title="Animating Morph Targets" description="Simple example of adding animation to a morph target"/>
 
 ## Use Morph Targets with Node Material
 
