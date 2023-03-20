@@ -102,10 +102,10 @@ You can use them in your project:
 
 All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
 
-- **WoodProceduralTexture**: //doc.babylonjs.com/extensions/woodproceduraltexture
-- **MarbleProceduralTexture**: //doc.babylonjs.com/extensions/marbleproceduraltexture
-- **BrickProceduralTexture**: //doc.babylonjs.com/extensions/brickproceduraltexture
-- **FireProceduralTexture**: //doc.babylonjs.com/extensions/fireproceduraltexture
-- **GrassProceduralTexture**: //doc.babylonjs.com/extensions/grassproceduraltexture
-- **RoadProceduralTexture**: //doc.babylonjs.com/extensions/roadproceduraltexture
-- **CloudProceduralTexture**: //doc.babylonjs.com/extensions/cloudproceduraltexture
+- [BrickProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick)
+- [CloudProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/cloud)
+- [FireProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/fire)
+- [GrassProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/grass)
+- [MarbleProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/marble)
+- [RoadProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/road)
+- [WoodProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/wood)
