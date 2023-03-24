@@ -967,6 +967,19 @@ To reduce the amount of code required to achieve frequent tasks you can use the 
 
 - `BABYLON.GUI.RadioButton.AddRadioButtonWithHeader(title, group, isChecked, onValueChanged)`: This function will create a horizontal StackPanel and will add a radio button (set with specified group and isChecked parameters) alongside a text block displaying the `title` property. `onValueChanged` defines the callback to call when radio button state changes.
 
+## Cloning
+
+You can clone individual controls by using the `clone` method. Its argument is an optional AdvancedDynamicTexture that will host the cloned control. This is so you can clone the control to a different ADT. After cloning the control, you still have to add it to the ADT, like this:
+
+```javascript
+const cloned = control.clone();
+adt.addControl(cloned);
+```
+
+An example can be seen here: <Playground id="#1W1JS5" title="Cloning a control" description="Playground showing how to clone a control"/>
+
+You can also clone the entire ADT by using the same method: <Playground id="#XCPP9Y#18083" title="Cloning the entire ADT" description="Playground showing how to clone an ADT"/>
+
 ## GUI and postprocesses
 
 ### LayerMask
