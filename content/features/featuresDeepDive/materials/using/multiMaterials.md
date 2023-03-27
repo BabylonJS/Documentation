@@ -17,13 +17,13 @@ To be able to define a multi-materials you first have to define some standard ma
 ```javascript
 const material0 = new BABYLON.StandardMaterial("mat0", scene);
 material0.diffuseColor = new BABYLON.Color3(1, 0, 0);
-material0.bumpTexture = new BABYLON.Texture("normalMap.jpg", scene);<br/>
+material0.bumpTexture = new BABYLON.Texture("normalMap.jpg", scene);
 
 const material1 = new BABYLON.StandardMaterial("mat1", scene);
 material1.diffuseColor = new BABYLON.Color3(0, 0, 1);
 
 const material2 = new BABYLON.StandardMaterial("mat2", scene);
-material2.emissiveColor = new BABYLON.Color3(0.4, 0, 0.4);</pre>
+material2.emissiveColor = new BABYLON.Color3(0.4, 0, 0.4);
 ```
 
 Then you can create a multi-material in order to gather them all:
