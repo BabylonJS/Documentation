@@ -173,7 +173,7 @@ ssr.selfCollisionNumSkip = 2;
 
 Here is the corresponding PG for this screenshot: <Playground id="#PIZ1GK#1047" title="16 bits float depth texture and skip to 2" description="16 bits float depth texture and skip to 2"/>
 
-Note that currently WebGPU does not support blending for 32-bit floating point textures, so the depth texture is a 16-bit floating point texture!
+Note that currently WebGPU does not support filtering for 32-bit floating point textures, so the depth texture is a 16-bit floating point texture!
 
 ## Description of SSR parameters
 
