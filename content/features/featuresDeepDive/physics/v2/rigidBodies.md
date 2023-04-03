@@ -10,20 +10,20 @@ video-overview:
 video-content:
 ---
 
-# Core concepts
+## Core concepts
 
 Key concepts of a physics engine include collision shapes, which define the physical shape of an object and determine how it interacts with other objects. Bodies represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include constraints, which enforce specific behaviors between objects, and forces, which can be applied to objects to simulate gravity, friction, and other effects.
 
-# Body
+## Body
 
 A physics body is a virtual object that represents a physical object in a simulation, with properties like mass, position, and velocity. Bodies can be *static* or *dynamic*.
 
-## Static Vs Dynamic
+### Static Vs Dynamic
 
 Static bodies are fixed in place while dynamic bodies can move and be affected by forces, collisions, and other physics simulations.
 A body with a mass of 0 will be static.
 
-## Creating a body
+### Creating a body
 
 You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic), and a scene (which needs to have an active Physics Engine).
 
@@ -32,7 +32,7 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
 const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
 ```
 
-## Setting the mass of a body
+### Setting the mass of a body
 
 A body can have different *mass properties* which affect how it responds to the physics stimuli. These properties are: mass, center of mass, inertia, and inertia orientation. For some Physics Engines, they can automatically determine these properties depending on its shape, and in most cases, the only parameter you will need to change is the mass. 
 
@@ -46,7 +46,7 @@ body.setMassProperties({
 });
 ```
 
-# Shape
+## Shape
 
 A physics shape is a virtual representation of the collision geometry of a physics body, used for collision detection and response. If multiple bodies share the same or similar enough geometry, the same shape can be reused for all of them, greatly increasing performance. Every body needs a shape to be affected by physics.
 
@@ -73,7 +73,7 @@ The Shape types support by the V2 Plugin are:
 
 We describe them and their parameters in more detail in the following page: **TODO: Have a separate page for shapes**
 
-# Material
+## Material
 
 A Material holds friction and restitution and is associated with a Physics Shape.
 
@@ -88,7 +88,8 @@ const shape = new BABYLON.PhysicsShapeSphere(new BABYLON.Vector3(0,0,0), 0.5, sc
 const material = {friction: 0.2, restitution: 0.3};
 shape.material = material;
 ```
-# Disposing of your elements
+
+## Disposing of your elements
 
 When a Body or Shape is not needed anymore, it is good practice to dispose of it. This ensures that the Physics Engine doesn't waste time processing what it does not need to. You can dispose of them by calling the `dispose` method.
 

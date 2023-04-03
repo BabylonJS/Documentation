@@ -10,7 +10,7 @@ video-overview:
 video-content:
 ---
 
-# What is Raycast 
+## What is Raycast
 
 In a collision detection scenario, a raycast can be used to determine whether a line of sight exists between two objects or whether a collision is imminent. By casting a ray from one object to another, the physics engine can determine whether the ray intersects with any other objects in its path, allowing the game to determine whether the two objects can "see" each other or whether a collision has occurred.
 

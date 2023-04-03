@@ -22,11 +22,11 @@ video-overview:
 video-content:
 ---
 
-# What is it
+## What is it
 
-A constraint represents a relationship between two bodies. 
+A constraint represents a relationship between two bodies.
 
-# Constraint Types
+## Constraint Types
 
 | Enum | Name | Notes |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ A constraint represents a relationship between two bodies.
 | LOCK | Lock | ![Locked](/img/how_to/physics/locked.jpg) |
 | PRISMATIC | Prismatic | ![Prismatic](/img/how_to/physics/prismatic.jpg) |
 
-# How to use it
+## How to use it
 
 ```javascript
 const bodyA = new BABYLON.PhysicsBody(objectA, BABYLON.PhysicsMotionType.DYNAMIC, scene);
@@ -51,6 +51,6 @@ const constraint = new BABYLON.DistanceConstraint(
 bodyA.addConstraint(bodyB, constraint);
 ```
 
-# Examples
+## Examples
 
 ** PG `testConstraintsPG.js` **

@@ -10,7 +10,8 @@ video-overview:
 video-content:
 ---
 
-# Difference between a force and an impulse
+
+## Difference between a force and an impulse
 
 A force is a continuous effect that is applied to an object over time, which can change the object's velocity or direction of motion. For example, a force could be used to simulate gravity, wind resistance, or a player pushing an object.
 
@@ -18,7 +19,7 @@ An impulse, on the other hand, is a sudden, instantaneous effect that changes th
 
 In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object.
 
-# How to use it
+## How to use it
 
 ```javascript
 body.applyForce(
@@ -34,9 +35,9 @@ body.applyImpulse(
 );
 ```
 
-# Physics Helper
+## Physics Helper
 
-## Radial explosion impulse/force & gravitational fields
+### Radial explosion impulse/force & gravitational fields
 
 You have the ability to create radial explosions & gravitational forces. 
 
