@@ -447,7 +447,7 @@ If you look closely, you will see that some reflections are not quite right, and
 
 One way to mitigate these artifacts would be to use several cube maps, depending on where you are in the scene, and not to use one global cube map for the whole scene.
 
-Here is the PG corresponding to the scene with the local cube map: <Playground id="#PIZ1GK#1040" title="SSR using local cube map" description="SSR using a local cube map for the environment texture"/>
+Here is the PG corresponding to the scene with the local cube map: <Playground id="#PIZ1GK#1094" title="SSR using local cube map" description="SSR using a local cube map for the environment texture" image="/img/playgroundsAndNMEs/pg-PIZ1GK-1040.png" />
 
 #### Managing self-intersections
 
