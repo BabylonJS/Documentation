@@ -38,7 +38,7 @@ npm install @babylonjs/core
 If you want to use the [BabylonJS GUI](/features/featuresDeepDive/gui "BabylonJS GUI"), you need to install:
 
 ```bash
-npm install babylonjs-gui
+npm install @babylonjs/gui
 ```
 
 If you want to use the BabylonJS [Inspector](/toolsAndResources/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
