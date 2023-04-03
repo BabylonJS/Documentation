@@ -33,7 +33,7 @@ TrailMesh will be affected by all modifications to the generator mesh. Using `ba
 ## Example Usage
 
 ```javascript
-const alpha = Math.PI;
+let alpha = Math.PI;
 // Create a mesh for the trail to follow.
 const cube = BABYLON.MeshBuilder.CreateBox("cube", {}, scene);
 cube.scaling.y = 2;
@@ -50,7 +50,7 @@ sourceMat.specularColor = new BABYLON.Color3.Black();
 
 trail.material = sourceMat;
 
-observer = scene.onBeforeRenderObservable.add(animate);
+const observer = scene.onBeforeRenderObservable.add(animate);
 function animate() {
   alpha += Math.PI / 120;
   cube.position.x = Math.sin(alpha) * 10;
