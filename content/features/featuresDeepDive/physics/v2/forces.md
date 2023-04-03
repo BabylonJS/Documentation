@@ -35,11 +35,18 @@ body.applyImpulse(
 );
 ```
 
+A reminder that, if a body's node is an InstancedMesh, you can choose which instance to apply the force/impulse by passing `instanceIndex` as a parameter:
+
+```javascript
+// Apply a force to the first instance ONLY
+body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
+```
+
 ## Physics Helper
 
 ### Radial explosion impulse/force & gravitational fields
 
-You have the ability to create radial explosions & gravitational forces. 
+You have the ability to create radial explosions & gravitational forces.
 
 The forces are never applied to impostors that have mass equal 0 (the ground for example).
 

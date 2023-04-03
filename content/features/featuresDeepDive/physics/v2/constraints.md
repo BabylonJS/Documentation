@@ -24,7 +24,7 @@ video-content:
 
 ## What is it
 
-A constraint represents a relationship between two bodies.
+A constraint represents a *connection* between two bodies. This connection can have several restrictions on the movement of these bodies, and allows us to simulate ropes, hinges and other joints.
 
 ## Constraint Types
 
@@ -49,6 +49,13 @@ const constraint = new BABYLON.DistanceConstraint(
 );
 
 bodyA.addConstraint(bodyB, constraint);
+```
+
+If one or both bodies are instanced, you can specify the instance to which the constraint applies:
+
+```javascript
+// This will add a constraint between the instance in index 3 of body A, and the instance in index 2 of body B
+bodyA.addConstraint(bodyB, constraint, 3, 2); 
 ```
 
 ## Examples

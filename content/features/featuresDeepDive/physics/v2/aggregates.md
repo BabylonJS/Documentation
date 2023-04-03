@@ -20,15 +20,21 @@ Once created, you can easily get the individual parts and tweak them.
 
 ## How to use it
 
-Here is an example
-
 ```javascript
 const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
 const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
 ```
 
 This is very similar to the Physics V1 Impostor.
-At aggregate creation, a body, a shape and a material are instanciated all at once. This however means you can't reuse shapes for aggregates. This can have effects on performance.
+At aggregate creation, a body, a shape and a material are instantiated all at once. However, recreating shapes is not the most performant choice. You can alternatively pass the shape instead of the ShapeType, and the aggregate will reuse that shape:
+
+```javascript
+const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
+const sphere2 = sphere.clone("sphere2");
+
+const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
+const aggregate2 = new BABYLON.PhysicsAggregate(sphere2, aggregate.shape, { mass: 1 }, scene);
+```
 
 ## Tweaking and accessing Body, Shape and Material
 
@@ -41,4 +47,4 @@ aggregate.body.setMassProperties({mass: 10});
 
 ## Disposing of an Aggregate
 
-You can dispose of an aggregate by using the `dispose` method. This will dispose of the body and shape that were created by it.
+You can dispose of an aggregate by using the `dispose` method. This will dispose of the body and shape that were created by it, in case the shape was created by the aggregate. If the shape was passed as a parameter, then it will not be disposed, as it could still be used somewhere else.

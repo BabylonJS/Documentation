@@ -27,6 +27,7 @@ if (raycastResult.hasHit) {
     console.log("Collision at ", raycastResult.hitPointWorld);
 }
 ```
+
 Important thing to note here is the `raycastResult` that can (and should!) be reused between calls. This is the major difference with Physics V1 raycasting.
 
 ** Example and PG **

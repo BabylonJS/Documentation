@@ -75,7 +75,7 @@ The physics engine is now enabled and is running during the render loop.
 
 Use the physics debug display when your scene and dynamics doesn't behave the way you think it should.
 It will display geometry the way the physics engine sees the world.
-There are two ways to debug display.
+There are two ways to invoke the display.
 
 ### Programmatically
 
@@ -87,7 +87,7 @@ for (const mesh of scene.rootNodes) {
     }
 }
 ```
-This snippet will create the PhysicsViewer and then will add every PhysicsBody available thanks to the scebe meshes.
+This snippet will create the PhysicsViewer and then will add every PhysicsBody available thanks to the scene meshes.
 
 ### Using the Inspector
 

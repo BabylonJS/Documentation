@@ -12,7 +12,7 @@ video-content:
 
 ## Core concepts
 
-Key concepts of a physics engine include collision shapes, which define the physical shape of an object and determine how it interacts with other objects. Bodies represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include constraints, which enforce specific behaviors between objects, and forces, which can be applied to objects to simulate gravity, friction, and other effects.
+Key concepts of a physics engine include collision Shapes, which define the physical shape of an object and determine how it interacts with other objects, and Bodies, which represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include constraints, which enforce specific behaviors between objects, and forces, which can be applied to objects to simulate gravity, friction, and other effects.
 
 ## Body
 
@@ -34,7 +34,7 @@ const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, 
 
 ### Setting the mass of a body
 
-A body can have different *mass properties* which affect how it responds to the physics stimuli. These properties are: mass, center of mass, inertia, and inertia orientation. For some Physics Engines, they can automatically determine these properties depending on its shape, and in most cases, the only parameter you will need to change is the mass. 
+A body can have different *mass properties* which affect how it responds to the physics stimuli. These properties are: mass, center of mass, inertia, and inertia orientation. Some physics engines, such as XXX, can automatically determine these properties depending on its shape, and in most cases, the mass will be the only parameter in need of change.
 
 ```javascript
 const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
@@ -44,6 +44,27 @@ body.setMassProperties({
   inertia: new BABYLON.Vector3(1, 1, 1),
   inertiaOrientation: new BABYLON.Quaternion(0, 0, 0, 1)
 });
+```
+
+### Instanced bodies
+
+For meshes composed of [thin instances](/features/featuresDeepDive/mesh/copies/thinInstances), the body created by the engine is composed of multiple internal body instances. This allows the use of fast rendering instances along with the physics simulation. All instances must have the same shape, but they can have their own individual mass, have forces and constraints individually applied to them, etc. Methods that can be applied at instance level have an optional `instanceIndex` parameter that receives the index of the instance where the method will be applied to. If no `instanceIndex` is provided, the method will be applied to all instances. An example is here:
+
+```javascript
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
+
+// This generates 3 thin instances based on the sphere mesh
+sphere.thinInstanceAddSelf();
+sphere.thinInstanceAddSelf();
+sphere.thinInstanceAddSelf();
+
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+
+// Apply a vertical force on all the 3 spheres
+body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
+
+// Apply a force to the first sphere ONLY
+body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
 ## Shape
@@ -57,6 +78,9 @@ const shape = new BABYLON.PhysicsShapeSphere(
   scene // containing scene
 );
 body.shape = shape;
+body2.shape = shape;
+body3.shape = shape;
+// ...
 ```
 
 The Shape types support by the V2 Plugin are:
@@ -93,4 +117,25 @@ shape.material = material;
 
 When a Body or Shape is not needed anymore, it is good practice to dispose of it. This ensures that the Physics Engine doesn't waste time processing what it does not need to. You can dispose of them by calling the `dispose` method.
 
-When a node associated to a Body is disposed, the corresponding Body is also disposed. However, *the shape used by the body is not automatically disposed*, as the same shape can be used by multiple bodies. 
+When a node associated to a Body is disposed, the corresponding Body is also disposed. However, *the shape used by the body is not automatically disposed*, as the same shape can be used by multiple bodies.
+
+```javascript
+const shape = new BABYLON.PhysicsShapeSphere(
+  new BABYLON.Vector3(0,0,0), // center of the sphere in local space
+  0.5, // radius of the sphere
+  scene // containing scene
+);
+body.shape = shape;
+body2.shape = shape;
+body3.shape = shape;
+
+// ...
+
+// When disposing of the scene:
+body.dispose();
+body2.dispose();
+body3.dispose();
+
+// Don't forget to dispose of the shape when it's not needed anymore!
+shape.dispose();
+```
