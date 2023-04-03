@@ -18,7 +18,7 @@ In a collision detection scenario, a raycast can be used to determine whether a 
 
 Here is an example of raycast
 
-```
+```javascript
 var raycastResult = new BABYLON.PhysicsRaycastResult();
 var start = new BABYLON.Vector3(1, 20, 2);
 var end = new BABYLON.Vector3(1, -20, 2);
@@ -27,6 +27,6 @@ if (raycastResult.hasHit) {
     console.log("Collision at ", raycastResult.hitPointWorld);
 }
 ```
-Important thing to note here is the `raycastResult` that can (and should!) be reused between calls. This is the major difference with V1 raycasting.
+Important thing to note here is the `raycastResult` that can (and should!) be reused between calls. This is the major difference with Physics V1 raycasting.
 
 ** Example and PG **

@@ -1,7 +1,7 @@
 ---
 title: Constraints
 image: 
-description: Learn all about using Constraints in physics V2 with Babylon.js.
+description: Learn all about using Constraints with Babylon.js.
 keywords: diving deeper, phyiscs, joints
 further-reading:
     - title: How To Use The Physics Engines
@@ -22,15 +22,11 @@ video-overview:
 video-content:
 ---
 
-# Joints
+# What is it
 
-A constraints is a constraint feature between two bodies. This area has the largest differences between the physics engine both in the joints available and the names used. Not all native joints are available in some plugins.
+A constraint represents a relationship between two bodies. 
 
-Playgrounds are available to check out the coding. In the playgrounds the physics' engine used can be changed by selecting which ones to comment out.
-
-See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
-
-## Physical Constraint Types
+# Constraint Types
 
 | Enum | Name | Notes |
 | --- | --- | --- |
@@ -41,8 +37,20 @@ See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPh
 | LOCK | Lock | ![Locked](/img/how_to/physics/locked.jpg) |
 | PRISMATIC | Prismatic | ![Prismatic](/img/how_to/physics/prismatic.jpg) |
 
-## API
+# How to use it
 
-## Example
+```javascript
+const bodyA = new BABYLON.PhysicsBody(objectA, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const bodyB = new BABYLON.PhysicsBody(objectB, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+
+const constraint = new BABYLON.DistanceConstraint(
+  10, // max distance between the two bodies
+  scene
+);
+
+bodyA.addConstraint(bodyB, constraint);
+```
+
+# Examples
 
 ** PG `testConstraintsPG.js` **
