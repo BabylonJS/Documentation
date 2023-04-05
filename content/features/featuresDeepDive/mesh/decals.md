@@ -119,7 +119,9 @@ mesh.material.decalMap.isEnabled = true;
 Note that you must enable support for decal maps (`material.decalMap.isEnabled = true`) before rendering with the material! This is because a material plugin must be added to a material before the first rendering, and decal map is implemented by the material plugin mechanism.
 However, you can disable/enable the decal map rendering at any time by updating `decalMap.isEnabled`. You can even start in a disabled state and enable it later, but the important thing is to set a value to `material.decalMap.isEnabled` (or even just access `material.decalMap`) before the first rendering. If you don't do this, `material.decalMap` will always return `null`.
 
-Here's a PG that shows how to use decal maps: <Playground id="#9BVW2S#49" title="Decal maps" description="Example of using decal maps."/> Click on the alien's head to add a decal.
+Here are sample playgrounds that show how to use decal maps. Click on the meshes to add decals: 
+- <Playground id="#9BVW2S#49" title="Decal maps" description="Example of using decal maps."/>
+- <Playground id="#N10DXG" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.jpg" />
 
 #### Using Decal Maps with ES6 and Tree Shaking
 
