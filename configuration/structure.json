@@ -2216,7 +2216,7 @@
                     "content": "toolsAndResources/inspector"
                 },
                 "guiEditor": {
-                    "friendlyName": "Gui Editor",
+                    "friendlyName": "GUI Editor",
                     "children": {},
                     "content": "toolsAndResources/guiEditor"
                 },
