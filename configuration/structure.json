@@ -1620,6 +1620,11 @@
                                     "friendlyName": "Raycast",
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/raycast"
+                                },
+                                "migrate": {
+                                    "friendlyName": "Migrate from V1",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/migrateFromV1"
                                 }
                             },
                             "content": "features/featuresDeepDive/physics"
@@ -3358,6 +3363,7 @@
         },
         "legacy": {
             "friendlyName": "Legacy",
+            "content": "legacy",
             "children": {
                 "physics": {
                     "friendlyName": "Physics V1",

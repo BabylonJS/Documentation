@@ -67,6 +67,10 @@ body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
+#### Limitations
+
+There are a few limitations when using instanced bodies in this way. Currently, it is not supported to have different scales on each thin instance's matrix. It is also not supported to have transformations at the mesh level, i.e, the instanced mesh's position, rotation and scale values have to be their default ones.
+
 ## Shape
 
 A physics shape is a virtual representation of the collision geometry of a physics body, used for collision detection and response. If multiple bodies share the same or similar enough geometry, the same shape can be reused for all of them, greatly increasing performance. Every body needs a shape to be affected by physics.
