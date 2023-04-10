@@ -121,7 +121,7 @@ However, you can disable/enable the decal map rendering at any time by updating 
 
 Here are sample playgrounds that show how to use decal maps. Click on the meshes to add decals: 
 - <Playground id="#9BVW2S#49" title="Decal maps" description="Example of using decal maps."/>
-- <Playground id="#N10DXG" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.jpg" />
+- <Playground id="#N10DXG#17" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.jpg" />
 
 #### Using Decal Maps with ES6 and Tree Shaking
 
