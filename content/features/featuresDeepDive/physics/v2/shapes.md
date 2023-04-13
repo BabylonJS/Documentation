@@ -26,6 +26,8 @@ const shape = new BABYLON.PhysicsShapeSphere(
 );
 ```
 
+![Sphere Shape](/img/features/physics/sphere_shape.png);
+
 ```javascript
 const shape = new BABYLON.PhysicsShapeCapsule(
     new BABYLON.Vector3(0, -0.5, 0),    // starting point of the capsule segment
@@ -35,6 +37,8 @@ const shape = new BABYLON.PhysicsShapeCapsule(
 );
 ```
 
+![Capsule Shape](/img/features/physics/capsule_shape.png);
+
 ```javascript
 const shape = new BABYLON.PhysicsShapeCylinder(
     new BABYLON.Vector3(0, -0.5, 0),    // starting point of the cylinder segment
@@ -43,6 +47,8 @@ const shape = new BABYLON.PhysicsShapeCylinder(
     scene                               // scene of the shape
 );
 ```
+
+![Cylinder Shape](/img/features/physics/cylinder_shape.png);
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeBox(
