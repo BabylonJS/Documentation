@@ -1591,6 +1591,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/rigidBodies"
                                 },
+                                "shapes": {
+                                    "friendlyName": "Shapes",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/shapes"
+                                },
                                 "forces": {
                                     "friendlyName": "Forces",
                                     "children": {},

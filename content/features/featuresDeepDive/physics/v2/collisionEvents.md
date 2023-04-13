@@ -14,7 +14,7 @@ video-content:
 
 ## What is it?
 
-Collision events are often used in game development to trigger events or reactions based on collisions. For example, a collision between a player character and an enemy could trigger damage to the player, while a collision between a player and a collectible item could trigger a pickup event. The collision event system uses the Observable and Observer system, which is also used in other parts of Babylon.js
+Collision events are often used in game development to trigger events or reactions based on collisions. For example, a collision between a player character and an enemy could trigger damage to the player, while a collision between a player and a collectible item could trigger a pickup event. The collision event system uses the Observable and Observer system, which is also used in other parts of Babylon.js.
 
 ## How to use
 

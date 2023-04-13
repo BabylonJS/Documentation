@@ -12,7 +12,7 @@ video-content:
 
 ## Core concepts
 
-Key concepts of a physics engine include collision Shapes, which define the physical shape of an object and determine how it interacts with other objects, and Bodies, which represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include constraints, which enforce specific behaviors between objects, and forces, which can be applied to objects to simulate gravity, friction, and other effects.
+Key concepts of a physics engine include collision Shapes, which define the physical shape of an object and determine how it collides with other objects, and Bodies, which represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include Constraints, which enforce specific behaviors between objects, and Forces, which can be applied to objects to simulate gravity, friction, and other effects.
 
 ## Body
 
@@ -34,9 +34,18 @@ const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, 
 
 ### Setting the mass of a body
 
-A body can have different *mass properties* which affect how it responds to the physics stimuli. These properties are: mass, center of mass, inertia, and inertia orientation. Some physics engines, such as XXX, can automatically determine these properties depending on its shape, and in most cases, the mass will be the only parameter in need of change.
+A body can have different *mass properties* which affect how it responds to the physics stimuli. These properties are: mass, center of mass, inertia, and inertia orientation. Some physics engines, such as XXX, can automatically determine these properties depending on its shape, so in most cases the only parameter you will need to change is the mass.
 
 ```javascript
+// Setting only the basic mass properties
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+body.setMassProperties({
+  mass: 1,
+});
+```
+
+```javascript
+// Setting the full mass properties. ONLY DO THIS IF YOU KNOW WHAT YOU'RE DOING!
 const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
 body.setMassProperties({
   mass: 1,
@@ -48,7 +57,7 @@ body.setMassProperties({
 
 ### Instanced bodies
 
-For meshes composed of [thin instances](/features/featuresDeepDive/mesh/copies/thinInstances), the body created by the engine is composed of multiple internal body instances. This allows the use of fast rendering instances along with the physics simulation. All instances must have the same shape, but they can have their own individual mass, have forces and constraints individually applied to them, etc. Methods that can be applied at instance level have an optional `instanceIndex` parameter that receives the index of the instance where the method will be applied to. If no `instanceIndex` is provided, the method will be applied to all instances. An example is here:
+For meshes composed of [thin instances](/features/featuresDeepDive/mesh/copies/thinInstances), the body created by the engine is composed of multiple internal body instances. This allows faster rendering along with the physics simulation. All instances must have the same shape, but they can have their own individual mass, have forces and constraints individually applied to them, etc. Methods that can be applied at instance level have an optional `instanceIndex` parameter that receives the index of the instance where the method will be applied to. If no `instanceIndex` is provided, the method will be applied to all instances. An example is here:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
@@ -63,7 +72,7 @@ const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, 
 // Apply a vertical force on all the 3 spheres
 body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 
-// Apply a force to the first sphere ONLY
+// Apply a horizontal force to the first sphere ONLY
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
@@ -73,7 +82,7 @@ There are a few limitations when using instanced bodies in this way. Currently, 
 
 ## Shape
 
-A physics shape is a virtual representation of the collision geometry of a physics body, used for collision detection and response. If multiple bodies share the same or similar enough geometry, the same shape can be reused for all of them, greatly increasing performance. Every body needs a shape to be affected by physics.
+A physics shape is a virtual representation of the collision geometry of a physics body, used for collision detection and response. If multiple bodies share the same or similar enough geometry, the same shape can be reused for all of them, greatly increasing performance. A body needs a shape to be able to collide with other objects.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeSphere(
@@ -87,19 +96,20 @@ body3.shape = shape;
 // ...
 ```
 
-The Shape types support by the V2 Plugin are:
-| Enum | Description | Image |
-| --- | --- | --- |
-| SPHERE | Simple sphere | |
-| CAPSULE | A cylinder with a half sphere at top and bottom | |
-| CYLINDER | Cylinder | |
-| BOX | Box | |
-| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| |
-| CONTAINER | Holder of other shapes | |
-| MESH | Mesh used for rendering or a simpler version | |
-| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | |
+The Shape types supported by the V2 Plugin are:
 
-We describe them and their parameters in more detail in the following page: **TODO: Have a separate page for shapes**
+| Enum | Description | Image | XXX plugin support |
+| --- | --- | --- | --- |
+| SPHERE | Simple sphere | | ✅ |
+| CAPSULE | A cylinder with a half sphere at top and bottom | | ✅ |
+| CYLINDER | Cylinder | | ✅ |
+| BOX | Box | | ✅ |
+| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| | ✅ |
+| CONTAINER | Holder of other shapes | | ✅ |
+| MESH | Mesh used for rendering or a simpler version | | ✅ |
+| HEIGHTFIELD | A height field mesh is a 2D surface with height data. | | 🟥 |
+
+[This page contains more detail about shapes and their parameters.](/features/featuresDeepDive/physics/shapes)
 
 ## Material
 
@@ -109,7 +119,7 @@ Friction is a measure of the resistance to motion between two objects in contact
 
 Restitution, also known as elasticity or bounciness, is a measure of how much energy is conserved in a collision between two objects. It describes how much an object will bounce back after a collision, relative to how much it was moving before the collision. Restitution is often used to model the behavior of objects bouncing, colliding, or deforming.
 
-Both friction and restitution can be defined as values between 0 and 1, with higher values indicating greater resistance or energy conservation, respectively.
+Both friction and restitution are non-negative values, usually between 0 and 1, with higher values indicating greater resistance or energy conservation, respectively.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeSphere(new BABYLON.Vector3(0,0,0), 0.5, scene);
@@ -140,6 +150,6 @@ body.dispose();
 body2.dispose();
 body3.dispose();
 
-// Don't forget to dispose of the shape when it's not needed anymore!
+// Don't forget to also dispose of the shape when it's not needed anymore!
 shape.dispose();
 ```
