@@ -76,7 +76,7 @@ var gravitationalFieldEvent = physicsHelper.gravitationalField(
 );
 // the second `radius` argument can also act as options: `.gravitationalField(origin, { radius: radius, strength: strength, falloff: falloff })`
 gravitationalFieldEvent.enable(); // need to call, if you want to activate the gravitational field.
-setTimeout(function (gravitationalFieldEvent) { gravitationalFieldEvent.disable(); }, 3000, gravitationalFieldEvent);
+setTimeout(() => gravitationalFieldEvent.disable(), 3000);
 
 // or
 
@@ -89,7 +89,7 @@ var updraftEvent = physicsHelper.updraft(
 );
 // the second `radius` argument can also act as options: `.updraft(origin, { radius: radius, strength: strength, height: height, updraftMode: PhysicsUpdraftMode.Center })`
 updraftEvent.enable();
-setTimeout(function (updraftEvent) { updraftEvent.disable(); }, 5000, updraftEvent);
+setTimeout(() => updraftEvent.disable(), 5000);
 
 // or
 
@@ -101,7 +101,7 @@ var vortexEvent = physicsHelper.vortex(
 );
 // the second `radius` argument can also act as options: `.vortex(origin, { radius: radius, strength: strength, height: height, centripetalForceThreshold: 0.7, centripetalForceMultiplier: 5, centrifugalForceMultiplier: 0.5, updraftForceMultiplier: 0.02 })`
 vortexEvent.enable();
-setTimeout(function (vortexEvent) { vortexEvent.disable(); }, 5000, vortexEvent);
+setTimeout(() => vortexEvent.disable(), 5000);
 ```
 
 *For a more detailed explanation, please take a look at the playground example below.*

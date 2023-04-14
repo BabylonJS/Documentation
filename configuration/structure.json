@@ -1630,6 +1630,11 @@
                                     "friendlyName": "Migrate from V1",
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/migrateFromV1"
+                                },
+                                "perfTips": {
+                                    "friendlyName": "Performance Tips",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/perfTips"
                                 }
                             },
                             "content": "features/featuresDeepDive/physics"
