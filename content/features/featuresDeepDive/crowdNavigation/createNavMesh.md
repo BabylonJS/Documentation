@@ -145,7 +145,7 @@ let navigationPlugin = new BABYLON.RecastJSPlugin();
 navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 ```
 
-A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/workers/navMeshWorker.js
+A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js
 
 Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
 
