@@ -78,6 +78,21 @@ textureTask.onSuccess = function (task) {
 };
 ```
 
+
+And make sure to call load() to initialize the tasks:
+
+```javascript
+textureTask.load();
+
+textureTask.onFinish = (tasks) => {
+      // do render stuff
+  _this.engine.runRenderLoop(() => {
+    _this.scene.render();
+  })
+}
+```
+
+
 ### Task state and error handling
 
 Each task has a state object that represents the current execution state of the task. The state is represented by an enum, `BABYLON.AssetTaskState` and has 4 states:
