@@ -10,7 +10,7 @@ video-content:
 
 ## Creating PBR materials
 
-It is incredibly easy to utilize Physically Based Rendering with Node Materials thanks to the PBRMettalic_Roughness block.
+It is incredibly easy to utilize Physically Based Rendering with Node Materials thanks to the `PBRMetallicRoughness` block.
 
 You can use these playgrounds and materials as starting points for your own experiments to create PBR materials in the NME (note that the node material may take some time to load in the PG - the mesh will stay black until the material is loaded):
 
