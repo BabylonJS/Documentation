@@ -68,7 +68,7 @@ const shape = new BABYLON.PhysicsShapeConvexHull(
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeMesh(
-    mesh,   // mesh from which to produce the convex hull
+    mesh,   // mesh from which to calculate the collisions
     scene   // scene of the shape
 );
 ```

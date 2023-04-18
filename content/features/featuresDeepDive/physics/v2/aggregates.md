@@ -14,25 +14,23 @@ video-content:
 
 ## What is an Aggregate
 
-The Physics Aggregate is a compound object that contains a Body and a Shape. It's a helper that allows creating all the objects necessary to physicalize your scene in just one call.
-In that sense, it's similar to Physics V1 Impostors, but with more control.
-Once created, you can easily get the individual parts and tweak them.
+The Physics Aggregate is a object that contains a Body and a Shape. It's a helper that allows creating all the objects necessary to physicalize your scene in just one call. In that sense, it's similar to Physics V1 Impostors, but with more control. Once created, you can easily get the individual parts and tweak them.
 
 ## How to use it
 
 ```javascript
 const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
-const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
+const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
 ```
 
 This is very similar to the Physics V1 Impostor.
-At aggregate creation, a body and a shape are instantiated all at once. However, recreating shapes is not the most performant choice. You can alternatively pass the shape instead of the ShapeType, and the aggregate will reuse that shape:
+At aggregate creation, a body and a shape are instantiated all at once. However, recreating shapes is not the most performant choice. You can alternatively pass the shape instead of the PhysicsShapeType, and the aggregate will reuse that shape:
 
 ```javascript
 const sphere = BABYLON.Mesh.CreateSphere("sphere", 16, 2, scene);
 const sphere2 = sphere.clone("sphere2");
 
-const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
+const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
 const aggregate2 = new BABYLON.PhysicsAggregate(sphere2, aggregate.shape, { mass: 1 }, scene);
 ```
 
@@ -41,7 +39,7 @@ const aggregate2 = new BABYLON.PhysicsAggregate(sphere2, aggregate.shape, { mass
 You can access the individual physics components by using the accessors:
 
 ```javascript
-const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
+const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
 aggregate.body.setMassProperties({mass: 10});
 ```
 

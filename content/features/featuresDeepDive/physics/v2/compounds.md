@@ -21,19 +21,19 @@ Imagine you have a mesh that represents a character. Character meshes are usuall
 ```javascript
 const myMesh = BABYLON.SceneLoader.ImportMeshAsync(...);
 
-const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
-sphere.position.y = 3;
-sphere.parent = myMesh;
-const box = BABYLON.MeshBuilder.CreateBox("box", { height: 2, width: 1, depth: 1 });
-box.parent = myMesh;
+const headNode = new BABYLON.TransformNode("headNode");
+headNode.position.y = 3;
+headNode.parent = myMesh;
+const bodyNode = new BABYLON.TransformNode("bodyNode");
+bodyNode.parent = myMesh;
 
 const boxShape = new BABYLON.PhysicsShapeBox(new BABYLON.Vector3(0, 0, 0), new BABYLON.Quaternion(0, 0, 0, 1), new BABYLON.Vector3(1, 2, 1), scene);
 const sphereShape = new BABYLON.PhysicsShapeSphere(new BABYLON.Vector3(0, 0, 0), 1, scene);
 
 const parentShape = new BABYLON.PhysicsShapeContainer(scene);
 
-parentShape.addChild(boxShape, box);
-parentShape.addChild(sphereShape, sphere);
+parentShape.addChild(boxShape, bodyNode);
+parentShape.addChild(sphereShape, headNode);
 
 const body = new BABYLON.PhysicsBody(myMesh, scene);
 body.shape = parentShape;

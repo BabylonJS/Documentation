@@ -109,10 +109,10 @@ var createScene = function () {
   scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), v2Plugin);
 
   // Create a sphere shape and the associated body. Size will be determined automatically.
-  var sphereAggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1 }, scene);
+  var sphereAggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
 
   // Create a static box shape.
-  var groundAggregate = new BABYLON.PhysicsAggregate(ground, BABYLON.ShapeType.BOX, { mass: 0 }, scene);
+  var groundAggregate = new BABYLON.PhysicsAggregate(ground, BABYLON.PhysicsShapeType.BOX, { mass: 0 }, scene);
 
   return scene;
 };

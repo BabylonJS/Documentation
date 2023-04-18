@@ -25,14 +25,14 @@ You will just need to change it to:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
-const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.ShapeType.SPHERE, { mass: 1, friction: 0.2, restitution: 0.3 }, scene);
+const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1, friction: 0.2, restitution: 0.3 }, scene);
 ```
 
-Note we switched the constructor from `PhysicsImpostor` to `PhysicsAggregate`, and the second parameter (the type of the physical shape) from `BABYLON.PhysicsImpostor.SphereImpostor` to `BABYLON.ShapeType.SPHERE`. [Here are the available types of shapes](/features/featuresDeepDive/physics/rigidBodies#shape).
+Note we switched the constructor from `PhysicsImpostor` to `PhysicsAggregate`, and the second parameter (the type of the physical shape) from `BABYLON.PhysicsImpostor.SphereImpostor` to `BABYLON.PhysicsShapeType.SPHERE`. [Here are the available types of shapes](/features/featuresDeepDive/physics/rigidBodies#shape).
 
 ## Option 2: No Aggregates
 
-One of the most important new features in the new architecture is the ability to fine-tune the collision shapes and reuse them, greatly increasing speed and customizability. So it is also possible to separately create bodies and shapes:
+One of the most important new features in the new architecture is the ability to fine-tune the collision shapes and reuse them, improving memory usage and customizability. So it is also possible to separately create bodies and shapes:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
@@ -50,7 +50,7 @@ sphereBody.shape = sphereShape;
 sphereBody.setMassProperties({ mass: 1 });
 ```
 
-The advantage of this approach is that, if you have another mesh you want to use with the same collider shape and material, you can reuse them:
+The advantage of this approach is that, if you have another mesh you want to use with the same collider shape and material, you can reuse the shape:
 
 ```javascript
 const complexModel = await BABYLON.SceneLoader.ImportMeshAsync(...);

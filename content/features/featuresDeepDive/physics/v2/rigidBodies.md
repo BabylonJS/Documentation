@@ -12,7 +12,7 @@ video-content:
 
 ## Core concepts
 
-Key concepts of a physics engine include collision Shapes, which define the physical shape of an object and determine how it collides with other objects, and Bodies, which represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include Constraints, which enforce specific behaviors between objects, and Forces, which can be applied to objects to simulate gravity, friction, and other effects.
+Key concepts of a physics engine include Collision Shapes, which define the physical shape of an object and determine how it collides with other objects, and Physic Bodies, which represent physical objects in the simulation, and can have mass, velocity, and other properties. Material properties such as friction, elasticity, and density affect how objects behave when they collide. Other important concepts include Physics Constraints, which enforce specific behaviors between objects, and Forces, which can be applied to objects to simulate gravity, friction, and other effects.
 
 ## Body
 
@@ -23,13 +23,17 @@ A physics body is a virtual object that represents a physical object in a simula
 Static bodies are fixed in place while dynamic bodies can move and be affected by forces, collisions, and other physics simulations.
 A body with a mass of 0 will be static.
 
+### Sleep mode
+
+When creating a body, you can specify that it starts in *sleep mode*. Bodies in this mode will have their physic calculations skipped until they collide with another body or a force is applied to them, improving performance at the start. However, *sleep mode is not an absolute guarantee*. Other factors may cause the body to wake up from this mode, so avoid having behavior that depends on it, and use it only as an aid to performance. It is also not possible to put a body back to sleep after it is awoken.
+
 ### Creating a body
 
-You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic), and a scene (which needs to have an active Physics Engine).
+You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic), a boolean representing if the body will start in sleep mode or not, and a scene (which needs to have an active Physics Engine).
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
-const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 ```
 
 ### Setting the mass of a body
@@ -38,7 +42,7 @@ A body can have different *mass properties* which affect how it responds to the 
 
 ```javascript
 // Setting only the basic mass properties
-const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 body.setMassProperties({
   mass: 1,
 });
@@ -46,7 +50,7 @@ body.setMassProperties({
 
 ```javascript
 // Setting the full mass properties. ONLY DO THIS IF YOU KNOW WHAT YOU'RE DOING!
-const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 body.setMassProperties({
   mass: 1,
   centerOfMass: new BABYLON.Vector3(0, 1, 0),

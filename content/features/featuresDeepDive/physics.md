@@ -30,21 +30,20 @@ There are plugins for X physics engines:
 
 All need to be enabled before use.
 
-This architecture allows finer grain control on your physics scene.
-By making the difference between Collision shapes and Body dynamic.
+This architecture allows finer grain control on your physics scene by making the difference between collision shapes and Physical body.
 A typical use case is to have only one collision shape used by numerous bodies.
 This allows a lower memory footprint and more efficient memory addressing.
-A special effort has been put into better performances for a huge number of bodies. This is the case for the collision callback mechanism.
+A special effort has been put into better performance for a huge number of bodies. This is also the case for the collision callback mechanism.
 
-A broad overview of the Physics V2 advances is available on this [Medium article](https://medium.com/@babylonjs/physics-v2-overview-ed36039ce1e7).
+A broad overview of the Physics V2 advancements is available on this [Medium article](https://medium.com/@babylonjs/physics-v2-overview-ed36039ce1e7).
 
 ## Physics V1
 
 There are plugins for 3 physics engines:
 
-1. Cannon.js - a wonderful physics engine written entirely in JavaScript
-2. Oimo.js - a JS port of the lightweight Oimo physics engine
-3. Ammo.js - a JS post of the bullet physics engine
+1. Cannon.js - a wonderful physics engine written entirely in JavaScript.
+2. Oimo.js - a JS port of the lightweight Oimo physics engine.
+3. Ammo.js - a JS port of the bullet physics engine.
 
 All need to be enabled before use.
 

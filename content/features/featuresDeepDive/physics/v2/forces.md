@@ -10,16 +10,9 @@ video-overview:
 video-content:
 ---
 
-
-## Difference between a force and an impulse
-
-A force is a continuous effect that is applied to an object over time, which can change the object's velocity or direction of motion. For example, a force could be used to simulate gravity, wind resistance, or a player pushing an object.
-
-An impulse, on the other hand, is a sudden, instantaneous effect that changes the velocity of an object. It is a specific amount of force applied over a very short duration of time, often modeled as a single frame in a game. For example, a collision between two objects might generate an impulse that changes the direction and speed of both objects.
-
-In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object.
-
 ## How to use it
+
+Both forces and impulses don't have any effect on bodies whose mass is 0.
 
 ```javascript
 body.applyForce(
@@ -35,12 +28,20 @@ body.applyImpulse(
 );
 ```
 
-A reminder that, if a body's node is an InstancedMesh, you can choose which instance to apply the force/impulse by passing `instanceIndex` as a parameter:
+A reminder that, if a body's transform node contains Thin Instances, you can choose which instance to apply the force/impulse by passing `instanceIndex` as a parameter:
 
 ```javascript
 // Apply a force to the first instance ONLY
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
+
+## Difference between a force and an impulse
+
+A force is a continuous effect that is applied to an object over time, which can change the object's velocity or direction of motion. For example, a force could be used to simulate gravity, wind resistance, or a player pushing an object.
+
+An impulse, on the other hand, is a sudden, instantaneous effect that changes the velocity of an object. It is a specific amount of force applied over a very short duration of time, often modeled as a single frame in a game. For example, a collision between two objects might generate an impulse that changes the direction and speed of both objects.
+
+In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object.
 
 ## Physics Helper
 
@@ -48,7 +49,7 @@ body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0)
 
 You have the ability to create radial explosions & gravitational forces.
 
-The forces are never applied to impostors that have mass equal 0 (the ground for example).
+The forces are never applied to bodies that have mass equal 0 (the ground for example).
 
 ```javascript
 var physicsHelper = new BABYLON.PhysicsHelper(scene);

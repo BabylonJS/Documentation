@@ -30,4 +30,6 @@ if (raycastResult.hasHit) {
 
 Important thing to note here is the `raycastResult` that can (and should!) be reused between calls. This is the major difference with Physics V1 raycasting.
 
+The result object has some information about the properties of the intersection, such as the intersection point, and the Physics Body that was hit. [You can see the documentation page here](todo add link).
+
 ** Example and PG **
