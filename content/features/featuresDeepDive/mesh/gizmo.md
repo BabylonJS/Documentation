@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-Gizmo's are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with mesh. Whereas Position, scale and rotation gizmos are also usable with TransformNodes and Bones.
+Gizmos are objects that can be attached to a node (mesh, bone, transform) to provide interaction. The GizmoManager and BoundingBox gizmo work with mesh. Whereas Position, scale and rotation gizmos are also usable with TransformNodes and Bones.
 
 ![Babylon.js Gizmos](/img/how_to/gui/gizmos.png)
 
@@ -46,7 +46,7 @@ gizmoManager.usePointerToAttachGizmos = false;
 gizmoManager.attachToMesh(mesh);
 ```
 
-All the internal gizmo's are accessible through the manager to support scenarios such as listening to drag events.
+All the internal gizmos are accessible through the manager to support scenarios such as listening to drag events.
 
 ```javascript
 gizmoManager.gizmos.scaleGizmo;
@@ -121,7 +121,7 @@ A sensitivity factor can be customized for AxisScaleGizmo and ScaleGizmo. Defaul
 gizmoScale.sensitivity = 3;
 ```
 
-These gizmo's internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
+These gizmos internally use a [pointerDragBehavior](/features/featuresDeepDive/behaviors/meshBehaviors), this is exposed and can be used perform tasks before/during/after dragging a gizmo
 
 ```javascript
 gizmo.dragBehavior.onDragObservable.add(() => {
