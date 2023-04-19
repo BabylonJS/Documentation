@@ -52,14 +52,16 @@ const constraint = new BABYLON.DistanceConstraint(
 bodyA.addConstraint(bodyB, constraint);
 ```
 
-If one or both bodies are instanced, you can specify the instance to which the constraint applies:
+If one or both bodies are instanced, you need to specify the instance to which the constraint applies:
 
 ```javascript
 // This will add a constraint between the instance in index 3 of body A, and the instance in index 2 of body B
-bodyA.addConstraint(bodyB, constraint, 3, 2); 
+bodyA.addConstraint(bodyB, constraint, 3, 2);
+// The constraint can also be between two instances in the same body
+bodyA.addConstraint(bodyA, constraint, 4, 7); 
 ```
 
-For the 6DOF (6 Degrees of Freedom) constraint, you should specify an array with entries specifying the translational and rotational axis that have min and max limits:
+For the 6DOF (6 Degrees of Freedom) constraint, you should pass an array with entries specifying the translational and rotational axis that have min and max limits:
 
 ```javascript
 // This will constraint the bodies to mantain a distance of at least 1 and at most 2, and to rotate at most 1.58 rad along the perpendicular axis

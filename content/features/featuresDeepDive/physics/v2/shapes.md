@@ -28,7 +28,9 @@ const shape = new BABYLON.PhysicsShapeSphere(
 );
 ```
 
-![Sphere Shape](/img/features/physics/sphere_shape.png) A sphere is probably the simplest shape that can be simulated. The sphere is described by a single point for the center and a radius.
+![Sphere Shape](/img/features/physics/sphere_shape.png)
+
+A sphere is probably the simplest shape that can be simulated. The sphere is described by a single point for the center and a radius.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeCylinder(
@@ -39,7 +41,9 @@ const shape = new BABYLON.PhysicsShapeCylinder(
 );
 ```
 
-![Cylinder Shape](/img/features/physics/cylinder_shape.png) A cylinder shape is described by two points and a radius. It's a great choice for barrels, wheels, and glasses.
+![Cylinder Shape](/img/features/physics/cylinder_shape.png)
+
+A cylinder shape is described by two points and a radius. It's a great choice for barrels, wheels, and glasses.
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeCapsule(
@@ -91,3 +95,6 @@ const shape = new BABYLON.PhysicsShapeContainer(
 A container shape doesn't have any geometry by itself, however, it does allow any other shape to be added as a child, with an additional transform. If none of the other shape types are suitable to match your render geometry, you can use a container and add a number of simpler shapes to approximate your visual mesh.
 
 [The Container has its own page](/features/featuresDeepDive/physics/compounds) for more information.
+
+The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
+![Comparison](/img/features/physics/shapes_comparison.png)

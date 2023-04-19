@@ -20,7 +20,7 @@ There are 2 physics architecture in Babylon.js.
 
 - a Version 2 (V2 for short) with support for modern Physics Engines.
 
-We strongly recommend using V2 over V1. A migration guide is here.
+We strongly recommend using V2 over V1. [A migration guide is here](/features/featuresDeepDive/physics/v2/migrateFromV1.md).
 
 ## Physics V2
 
@@ -30,7 +30,7 @@ There are plugins for X physics engines:
 
 All need to be enabled before use.
 
-This architecture allows finer grain control on your physics scene by making the difference between collision shapes and Physical body.
+This architecture allows finer grain control on your physics scene by making the difference between collision shapes and physical body.
 A typical use case is to have only one collision shape used by numerous bodies.
 This allows a lower memory footprint and more efficient memory addressing.
 A special effort has been put into better performance for a huge number of bodies. This is also the case for the collision callback mechanism.
