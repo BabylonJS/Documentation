@@ -22,13 +22,13 @@ Augmented reality using Babylon.js heavily relies on WebXR. It's recommended to 
 
 ### Supported devices
 
-Immersive AR sessions are (currently) supported on two types of devices - mobile phones and Firefox reality on the HoloLens.
+Many devices support immersive AR sessions using WebXR. Most Android devices support it using a chromium-based browser, The hololens 2 supports it in its native browser, and quest devices supporting passthrough mode will run an AR session as well. New devices are constantly added to this list. The best way to check is it to use the static `IsSessionSupported` function, available on the WebXR session manager.
 
 Mobile phones using Android support immersive AR sessions on Chrome (Stable/Canary). Note that you will need to install [AR Core](https://play.google.com/store/apps/details?id=com.google.ar.core), otherwise it will be a very short experience.
 
-HoloLens 2 supports WebXR and immersive AR sessions when using [Firefox Reality for HoloLens](https://www.microsoft.com/en-ca/p/firefox-reality/9npq78m7nb0r).
+HoloLens 2 supports WebXR and immersive AR/VR sessions when using the native Edge browser.
 
-To check your scene on a desktop you can use the WebXR emulator, which supports a set of features of AR and lets you enter an immersive AR session when choosing the mobile mode.
+The new WebXR emulator supports AR sessions as well, if you want to test your experience on a local browser before trying it on a supporting device.
 
 ### Simple scene in immersive AR
 
