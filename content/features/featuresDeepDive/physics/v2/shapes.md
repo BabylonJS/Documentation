@@ -48,7 +48,7 @@ const shape = new BABYLON.PhysicsShapeCylinder(
 );
 ```
 
-![Cylinder Shape](/img/features/physics/cylinder_shape.png);
+![Cylinder Shape](/img/features/physics/cylinder_shape.png)
 
 ```javascript
 const shape = new BABYLON.PhysicsShapeBox(
@@ -78,5 +78,8 @@ const shape = new BABYLON.PhysicsShapeContainer(
     scene   // scene of the shape
 )
 ```
+
+The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
+![Comparison](/img/features/physics/shapes_comparison.png)
 
 [The Container has its own page.](/features/featuresDeepDive/physics/compounds)

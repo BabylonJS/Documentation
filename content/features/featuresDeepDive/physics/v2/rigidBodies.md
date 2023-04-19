@@ -25,7 +25,7 @@ A body with a mass of 0 will be static.
 
 ### Sleep mode
 
-When creating a body, you can specify that it starts in *sleep mode*. Bodies in this mode will have their physic calculations skipped until they collide with another body or a force is applied to them, improving performance at the start. However, *sleep mode is not an absolute guarantee*. Other factors may cause the body to wake up from this mode, so avoid having behavior that depends on it, and use it only as an aid to performance. It is also not possible to put a body back to sleep after it is awoken.
+When creating a body, you can specify it to start in *sleep mode*. Bodies in this mode will have their physics calculations skipped until they collide with another body or a force is applied to them, improving performance at the start. However, *sleep mode is not an absolute guarantee*. Other factors may cause the body to wake up from this mode, so avoid having behavior that depends on it, and use it only as an aid to performance. It is also not possible to put a body back to sleep after it is awake.
 
 ### Creating a body
 
@@ -82,7 +82,7 @@ body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0)
 
 #### Limitations
 
-There are a few limitations when using instanced bodies in this way. Currently, it is not supported to have different scales on each thin instance's matrix. It is also not supported to have transformations at the mesh level, i.e, the instanced mesh's position, rotation and scale values have to be their default ones.
+There are a few limitations when using instanced bodies in this way. Currently, it is not supported to have different scales on each thin instance's matrix. It is also not supported to have transformations at the mesh level, i.e, the instanced mesh's position, rotation and scale values have to be the default.
 
 ## Shape
 
@@ -104,13 +104,13 @@ The Shape types supported by the V2 Plugin are:
 
 | Enum | Description | Image | XXX plugin support |
 | --- | --- | --- | --- |
-| SPHERE | Simple sphere | | ✅ |
-| CAPSULE | A cylinder with a half sphere at top and bottom | | ✅ |
-| CYLINDER | Cylinder | | ✅ |
-| BOX | Box | | ✅ |
-| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| | ✅ |
-| CONTAINER | Holder of other shapes | | ✅ |
-| MESH | Mesh used for rendering or a simpler version | | ✅ |
+| SPHERE | Simple sphere | ![Sphere Shape](/img/features/physics/sphere_shape_viewer.png) | ✅ |
+| CAPSULE | A cylinder with a half sphere at top and bottom | ![capsule Shape](/img/features/physics/capsule_shape_viewer.png) | ✅ |
+| CYLINDER | Cylinder | ![cylinder Shape](/img/features/physics/cylinder_shape_viewer.png) | ✅ |
+| BOX | Box | ![box Shape](/img/features/physics/cube_shape_viewer.png) | ✅ |
+| CONVEX_HULL | A convex hull is the smallest convex shape containing points.| ![convex_hull Shape](/img/features/physics/convex_hull_shape_viewer.png) | ✅ |
+| MESH | Mesh used for rendering or a simpler version | ![mesh Shape](/img/features/physics/mesh_shape_viewer.png) | ✅ |
+| CONTAINER | Holder of other shapes | ![container Shape](/img/features/physics/compound_shape_viewer.png) | ✅ |
 | HEIGHTFIELD | A height field mesh is a 2D surface with height data. | | 🟥 |
 
 [This page contains more detail about shapes and their parameters.](/features/featuresDeepDive/physics/shapes)
@@ -133,7 +133,7 @@ shape.material = material;
 
 ## Disposing of your elements
 
-When a Body or Shape is not needed anymore, it is good practice to dispose of it. This ensures that the Physics Engine doesn't waste time processing what it does not need to. You can dispose of them by calling the `dispose` method.
+When a Body or Shape is not needed anymore, it is good practice to dispose of it. This ensures that the Physics Engine doesn't waste time processing what it doesn't need to. You can dispose of them by calling the `dispose` method.
 
 When a node associated to a Body is disposed, the corresponding Body is also disposed. However, *the shape used by the body is not automatically disposed*, as the same shape can be used by multiple bodies.
 

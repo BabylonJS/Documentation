@@ -4,20 +4,6 @@ image:
 description: Learn how to use one of the available physics engines in Babylon.js.
 keywords: diving deeper, phyiscs
 further-reading:
-  - title: How To Use Forces
-    url: /features/featuresDeepDive/physics/forces
-  - title: How to use Joints
-    url: /features/featuresDeepDive/physics/joints
-  - title: How To Use Pivots and Axes
-    url: /features/featuresDeepDive/physics/pivotsAxes
-  - title: How To Create Compound Bodies
-    url: /features/featuresDeepDive/physics/compoundBodies
-  - title: How To Create Soft Bodies
-    url: /features/featuresDeepDive/physics/softBodies
-  - title: How To Use Advanced Features
-    url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-  - title: How To Add Your Own Physics Engine
-    url: /features/featuresDeepDive/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -66,7 +52,7 @@ scene.enablePhysics();
 scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.XXX());
 ```
 
-Calling this function will create a new BABYLON.PhysicsEngine object that will be in charge of handling the physics interactions.
+Calling this function will create a new `PhysicsEngine` object that will be in charge of handling the physics interactions.
 
 The physics engine is now enabled and is running during the render loop.
 
@@ -139,4 +125,6 @@ This snippet will create the PhysicsViewer and then will add every PhysicsBody a
 
 ### Using the Inspector
 
-** Screen capture **
+You can turn on and off the Physics Viewer on the Debug Tab of the Inspector:
+
+![Inspector Physics Viewer](/img/features/physics/inspector-physics-viewer.gif)

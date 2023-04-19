@@ -35,6 +35,8 @@ A reminder that, if a body's transform node contains Thin Instances, you can cho
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
+If no index is applied, the force/impulse is applied to all instances.
+
 ## Difference between a force and an impulse
 
 A force is a continuous effect that is applied to an object over time, which can change the object's velocity or direction of motion. For example, a force could be used to simulate gravity, wind resistance, or a player pushing an object.
@@ -45,11 +47,7 @@ In summary, a force is a *continuous* effect over time, while an impulse is a su
 
 ## Physics Helper
 
-### Radial explosion impulse/force & gravitational fields
-
-You have the ability to create radial explosions & gravitational forces.
-
-The forces are never applied to bodies that have mass equal 0 (the ground for example).
+The helper assists you with creating some phenomena like radial explosions or vortices.
 
 ```javascript
 var physicsHelper = new BABYLON.PhysicsHelper(scene);
