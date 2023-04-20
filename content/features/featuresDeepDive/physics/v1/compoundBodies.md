@@ -5,19 +5,19 @@ description: Learn all about physics compound bodies in Babylon.js.
 keywords: diving deeper, phyiscs, compound boides
 further-reading:
     - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
+      url: /legacy/physics/usingPhysicsEngine
     - title: How to use Forces
-      url: /features/featuresDeepDive/physics/forces
+      url: /legacy/physics/forces
     - title: How To Use Joints
-      url: /features/featuresDeepDive/physics/joints
+      url: /legacy/physics/joints
     - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
+      url: /legacy/physics/pivotsAxes
     - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
+      url: /legacy/physics/softBodies
     - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+      url: /legacy/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+      url: /legacy/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
