@@ -37,7 +37,7 @@ Here is a comparison of the rendering with and without the activation of the SSR
 | ![With SSR](/img/how_to/ssrRenderingPipeline/intro_with_ssr_brainstem.jpg!500) | ![Without SSR](/img/how_to/ssrRenderingPipeline/intro_without_ssr_brainstem.jpg!500) |
 
 Here are the playgrounds that generated the above images:
-* <Playground id="#PIZ1GK#1053" title="SSR Rendering Pipeline Example (Hill Valley)" description="Hill Valley scene with screen space reflections"/>
+* <Playground id="#PIZ1GK#1116" title="SSR Rendering Pipeline Example (Hill Valley)" description="Hill Valley scene with screen space reflections"/>
 * <Playground id="#PIZ1GK#1044" title="SSR Rendering Pipeline Example (Balls)" description="Mirror and Balls scene with screen space reflections"/>
 * <Playground id="#PIZ1GK#1045" title="SSR Rendering Pipeline Example (BrainStem)" description="Robot scene with screen space reflections"/>
 
