@@ -88,6 +88,21 @@ let constraint = new BABYLON.Physics6DoFConstraint({
 ], scene);
 ```
 
+## Best practices
+
+A problem that's very noticeable to users of your application is when a third body comes between the constraint spaces of a pair of constrained bodies, resulting in visual penetration, as seen in the picture below.
+
+![Ragdoll bone gap](/img/how_to/physics/ragdollbonegap.jpg)
+
+This can look very unnatural and, in addition, cause jitter between the constrained bodies, as the collision detection will "fight" against the constraint. Overlapping the constrained bodies greatly helps to avoid situations like this.
+
+![Ragdoll with overlapping bones](/img/how_to/physics/ragdolloverlappedbones.jpg)
+
+Even when the constraint is not attempting to force the bodies into an overlapping position, most use-cases for constraints still attempt to position the bodies very close to each other. To avoid the collision detection from "fighting" the constraint resolution, by default, we disable collisions between each pair of constrained bodies. If you *do* want the bodies to collide, however, this can be controlled by `PhysicsConstraint.isCollisionsEnabled`.
+
+When simulating a long chain of constrained bodies, not all of the constraints might be solved perfectly by the physics engine, which can result in stretching or misalignment of the constraint - this is more likely to happen if the mass ratio between two constrained bodies is very high. A common approach to mitigate this is to tweak the mass ratios of the constrained bodies - increase the mass and inertia of bodies which are closer to the "root" of the chain and decrease as the bodies are further from the root. e.g. if you have a ragdoll, ensure that the torso has the most mass and decrease the mass as you move down the limbs of the ragdoll.
+
+
 ## Examples
 
 ** PG `testConstraintsPG.js` **
