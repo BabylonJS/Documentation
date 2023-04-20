@@ -126,7 +126,7 @@ Here are sample playgrounds that show how to use decal maps. Click on the meshes
 #### Using Decal Maps with ES6 and Tree Shaking
 
 Decal maps are an optional feature that is not supported by default by the standard and PBR materials, to avoid an increase in code size if you do not use it.
-To enable support when using ES6 and Tree Shaking, see [Babylon.js ES6 support with Tree Shaking](/setup/frameworkPackages/es6Support#faq).
+To enable support when using ES6 and Tree Shaking, see [Babylon.js ES6 support with Tree Shaking](/setup/frameworkPackages/es6Support#tree-shaking).
 
 In ES6 with Tree Shaking, another way to enable decal map support without having to update each material individually is to globally enable decal map plugin injection in all materials:
 ```javascript
