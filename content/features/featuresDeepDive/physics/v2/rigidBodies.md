@@ -105,7 +105,7 @@ body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
-<Playground id="#MZKDQT" title="Instances" description="How to use instances with physics"/>
+<Playground id="#MZKDQT#1" title="Instances" description="How to use instances with physics"/>
 
 <Playground id="#BJZ39H" title="Pendulum Instances" description="Pendulum Instances"/>
 
