@@ -163,7 +163,7 @@ Also, one thing to note about the pre-pass renderer is that you have the option 
 
 Note: `ssr.clipToFrustum` has been set to `false` to take these screenshots because the artifacts are more visible with a yellow background than with a blue one!
 
-You get these artifacts because there is less precision in the depth buffer and therefore you get more self-collisions between the reflected ray and the actual surface from which the ray is shot (see section 2.1 in [How SSR is working](#how-ssr-is-working)).
+You get these artifacts because there is less precision in the depth buffer and therefore you get more self-collisions between the reflected ray and the actual surface from which the ray is shot (see section 2.1 in [How SSR is working](#how-ssr-works)).
 
 You can solve the problem by keeping the default texture with a depth of 32 bits or by increasing `selfCollisionNumSkip` :
 ```javascript
@@ -181,7 +181,7 @@ In the following sections, we will describe the most important parameters of the
 
 ### Thickness
 
-In [step 2.2 of the SSR algorithm](#how-ssr-is-working), we know if the ray has hit an object when:
+In [step 2.2 of the SSR algorithm](#how-ssr-works), we know if the ray has hit an object when:
 * the depth of the current point of the ray is farther away than the depth of the pixel on which this point is projected (this depth is read from the depth buffer). This means that the current ray point is "behind" the object that was rendered in the depth buffer at that point. Note that the depth increases for objects further away from the camera.
 * The depth of the previous point of the ray is closer than the depth of the pixel on which this point is projected. This means that the previous point of the ray is "in front" of the object that was rendered in the depth buffer at that point
 
@@ -221,7 +221,7 @@ You can reduce the GPU requirements of this mode by setting a value greater than
 
 ### Maximum distance, maximum steps, steps, smooth reflections and clipping to frustum
 
-`maxDistance`, `maxSteps`, `step` and `enableSmoothReflections` work together, and their impact on the final rendering can be understood by reading the [How SSR works](#how-ssr-is-working) section as well as [Debugging your SSR scenes](#debugging-your-ssr-scenes).
+`maxDistance`, `maxSteps`, `step` and `enableSmoothReflections` work together, and their impact on the final rendering can be understood by reading the [How SSR works](#how-ssr-works) section as well as [Debugging your SSR scenes](#debugging-your-ssr-scenes).
 
 In summary:
 * a ray will not go further than `maxDistance` (in 3D space)
@@ -451,7 +451,7 @@ Here is the PG corresponding to the scene with the local cube map: <Playground i
 
 #### Managing self-intersections
 
-As explained in [How-ssr-is-working](#how-ssr-is-working), the starting point of the reflected ray is shifted to avoid self-intersections and false reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at the start before considering an intersection legitimate. While a value of 1 works well in most cases, it is sometimes necessary to increase this value a bit:
+As explained in [How-ssr-is-working](#how-ssr-works), the starting point of the reflected ray is shifted to avoid self-intersections and false reflections. The `selfCollisionNumSkip` property controls how many iterations to skip at the start before considering an intersection legitimate. While a value of 1 works well in most cases, it is sometimes necessary to increase this value a bit:
 | `selfCollisionNumSkip = 1` | `selfCollisionNumSkip = 2` |
 | --- | --- |
 | ![selfCollisionNumSkip = 1](/img/how_to/ssrRenderingPipeline/hillvalley_skip_1.jpg!500) | ![selfCollisionNumSkip = 2](/img/how_to/ssrRenderingPipeline/hillvalley_skip_2.jpg!500) |
