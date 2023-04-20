@@ -96,7 +96,7 @@ In the WGSL code, you access a uniform by prefixing its name by `scene.` or `mes
 ```wgsl
 @vertex
 fn main(input : VertexInputs) -> FragmentInputs {
-    gl_Position = scene.viewProjection * mesh.world * vec4<f32>(position, 1.0);
+    vertexOutputs.position = scene.viewProjection * mesh.world * vec4<f32>(vertexInputs.position, 1.0);
 }    
 ```
 
