@@ -133,7 +133,7 @@ Finally, the z-coordinate of the clip space is transformed into NDC space by div
 
 This is the formula used in the rendering shader:
 
-https://github.com/BabylonJS/Babylon.js/blob/master/packages/dev/core/src/Shaders/fluidRenderingRender.fragment.fx#L45-L56
+https://github.com/BabylonJS/Babylon.js/blob/5d9c40407eb8e05666cae42944e57fd1c38c318a/packages/dev/core/src/Shaders/fluidRenderingRender.fragment.fx#L45-L56
 
 ### Calculation of the kernel size for the bilateral filter
 
