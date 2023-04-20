@@ -14,7 +14,7 @@ video-content:
 
 Physics Shapes represent the geometry that a body will have when interacting with the world. Depending on the chosen shape, the body will react differently to colliding with other objects. Even if the visual mesh of an object is composed of many triangles, if it has a simple enough physics shape, its collisions can be computed quickly.
 
-In general, the convex hull gives the best performance while also matching the visual geometry as best as possible. However, if you have highly concave meshes, which would be unsuitable for a convex shape, it's still possible to use a container with multiple simpler shapes. 
+In general, the convex hull gives the best performance while also matching the visual geometry as best as possible. However, if you have highly concave meshes, which would be unsuitable for a convex shape, it's still possible to use a container with multiple simpler shapes.
 
 ## Available shapes and parameters
 
@@ -83,7 +83,7 @@ const shape = new BABYLON.PhysicsShapeMesh(
 );
 ```
 
-A mesh shape is simply a collection of triangles. All the triangles in the input mesh will become triangles in the physics engine. This is a great choice for your static bodies, as generally, those static bodies represent highly concave objects, so this will give the closest match to your render geometry. Be aware that when two complex mesh shapes collide with each other, it might require the physics engine to calculate collisions between a huge triangles, which can slow down the simulation.
+A mesh shape is simply a collection of triangles. All the triangles in the input mesh will become triangles in the physics engine. This is a great choice for your static bodies, as generally, those static bodies represent highly concave objects, so this will give the closest match to your render geometry. Be aware that when two complex mesh shapes collide with each other, it might require the physics engine to calculate collisions between a huge number of triangles, which can slow down the simulation.
 
 
 ```javascript
