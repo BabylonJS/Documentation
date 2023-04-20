@@ -38,7 +38,7 @@ To enable the physics engine, call the scene's `enablePhysics` function:
 ```javascript
 var scene = new BABYLON.Scene(engine);
 var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
-var physicsPlugin = new BABYLON.XXX();
+var physicsPlugin = new BABYLON.HavokPlugin();
 scene.enablePhysics(gravityVector, physicsPlugin);
 ```
 
@@ -49,7 +49,7 @@ scene.enablePhysics();
 ```
 
 ```javascript
-scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.XXX());
+scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.HavokPlugin());
 ```
 
 Calling this function will create a new `PhysicsEngine` object that will be in charge of handling the physics interactions.
@@ -90,7 +90,7 @@ var createScene = function () {
   var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 10, height: 10 }, scene);
 
   // initialize plugin
-  var v2Plugin = new BABYLON.XXX();
+  var v2Plugin = new BABYLON.HavokPlugin();
   // enable physics in the scene with a gravity
   scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), v2Plugin);
 

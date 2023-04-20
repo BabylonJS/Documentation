@@ -58,3 +58,5 @@ const body = new BABYLON.PhysicsBody(complexModel, BABYLON.PhysicsMotionType.DYN
 body.shape = sphereShape;
 body.setMassProperties({mass: complexModelMass});
 ```
+
+<Playground id="#Q6TJRN#2" title="Shapes test" description="Use all available shapes with or without aggregates."/>

@@ -34,6 +34,11 @@ const aggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.
 const aggregate2 = new BABYLON.PhysicsAggregate(sphere2, aggregate.shape, { mass: 1 }, scene);
 ```
 
+
+<Playground id="#4Y813L#1" title="Reuse shapes with Aggregates" description="Reuse shapes with Aggregates"/>
+
+<Playground id="#Z8HTUN" title="Simple scene with Aggregate" description="Simple falling sphere created with an aggregate"/>
+
 ## Tweaking and accessing individual components
 
 You can access the individual physics components by using the accessors:

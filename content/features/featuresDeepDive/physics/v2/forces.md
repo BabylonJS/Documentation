@@ -105,4 +105,4 @@ setTimeout(() => vortexEvent.disable(), 5000);
 
 *For a more detailed explanation, please take a look at the playground example below.*
 
-** example PG `physicsHelperPG.js` **
+<Playground id="#E5URLZ#2" title="Physics helpers" description="Show how to use physics helpers and add various effects with forces"/>

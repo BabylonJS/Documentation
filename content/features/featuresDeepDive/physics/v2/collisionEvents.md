@@ -44,4 +44,6 @@ const observer = observable.add((collisionEvent) => {
 });
 ```
 
+<Playground id="#7JI3E8#1" title="Collision observers" description="Use collision observer to log an output when bodies are colliding"/>
+
 [The properties of the collision event are described in this page](todo add link to collision api docs).

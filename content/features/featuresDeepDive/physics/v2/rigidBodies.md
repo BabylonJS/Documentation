@@ -39,6 +39,8 @@ The final motion type is *animated* - bodies with this motion type are similar t
 
 When creating a body, you can request that it starts in *sleep mode*. Bodies in this mode will have their physic calculations skipped until the engine needs them to collide with another body or if a force is applied to them. This can improve performance if you're loading a scene where you know the bodies are at rest. However, *sleep mode is not an absolute guarantee*. Other factors, such as a nearby not-sleeping body can cause the body to wake up from this mode, so avoid having behavior that depends on it, and use it only as an aid to performance. Even if you don't request a body to start in sleep mode, the physics engine will automatically put bodies to sleep when they have come to rest and wake those bodies up when appropriate.
 
+<Playground id="#KJ0945#1" title="Sleep mode" description="Shows how sleep mode has influence on created bodies dynamics"/>
+
 ### Creating a body
 
 You can create a body using the `PhysicsBody` constructor. It takes the `TransformNode` associated with that body, a motion type (static vs dynamic vs animated), a boolean representing if the body will start in sleep mode or not, and a scene (which needs to have an active Physics Engine).
@@ -47,6 +49,10 @@ You can create a body using the `PhysicsBody` constructor. It takes the `Transfo
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere");
 const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 ```
+
+<Playground id="#RQIZD3#1" title="Add bodies" description="Add bodies on demand"/>
+
+<Playground id="#MZCQC4" title="Clone" description="Cloned mesh with attached body also duplicates physics properties"/>
 
 ### Setting the mass of a body
 
@@ -76,6 +82,7 @@ body.setMassProperties({
   inertiaOrientation: new BABYLON.Quaternion(0, 0, 0, 1)
 });
 ```
+<Playground id="#JVZAFL#1" title="Center of mass" description="Shos how the center of mass influences body motion"/>
 
 ### Instanced bodies
 
@@ -97,6 +104,10 @@ body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 // Apply a horizontal force to the first sphere ONLY
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
+
+<Playground id="#MZKDQT" title="Instances" description="How to use instances with physics"/>
+
+<Playground id="#BJZ39H" title="Pendulum Instances" description="Pendulum Instances"/>
 
 #### Limitations
 
