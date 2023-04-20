@@ -32,8 +32,8 @@ const sphereShape = new BABYLON.PhysicsShapeSphere(new BABYLON.Vector3(0, 0, 0),
 
 const parentShape = new BABYLON.PhysicsShapeContainer(scene);
 
-parentShape.addChild(boxShape, bodyNode);
-parentShape.addChild(sphereShape, headNode);
+parentShape.addChildFromParent(myMesh, boxShape, bodyNode);
+parentShape.addChildFromParent(myMesh, sphereShape, headNode);
 
 const body = new BABYLON.PhysicsBody(myMesh, scene);
 body.shape = parentShape;

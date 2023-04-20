@@ -99,4 +99,4 @@ A container shape doesn't have any geometry by itself, however, it does allow an
 The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
 ![Comparison](/img/features/physics/shapes_comparison.png)
 
-<Playground id="#7VUW3U" title="Simple scene" description="Simple falling sphere created with body and shape"/>
+<Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
