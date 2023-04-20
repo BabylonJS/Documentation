@@ -19,15 +19,7 @@ The plugin system allows us to use well established physics engines and to integ
 
 ## What physics engine are integrated
 
-There are plugins for X physics engines:
-
-1.
-
-Each engine has its own features and its own way of calculating the body dynamics. We at Babylon.js tried collecting the common usage of all engines and provide an easy-to-use interface to them.
-
-Once you picked an engine, do not forget to add a reference to the engine code:
-
-1.
+There is a plugin for Havok Physics engine.
 
 ## Basic usage
 
