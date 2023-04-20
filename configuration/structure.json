@@ -1584,42 +1584,57 @@
                                 "usingPhysicsEngine": {
                                     "friendlyName": "Using A Physics Engine",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/usingPhysicsEngine"
+                                    "content": "features/featuresDeepDive/physics/v2/usingPhysicsEngine"
+                                },
+                                "rigidBodies": {
+                                    "friendlyName": "Rigid bodies",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/rigidBodies"
+                                },
+                                "shapes": {
+                                    "friendlyName": "Shapes",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/shapes"
                                 },
                                 "forces": {
                                     "friendlyName": "Forces",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/forces"
+                                    "content": "features/featuresDeepDive/physics/v2/forces"
                                 },
-                                "joints": {
-                                    "friendlyName": "Joints",
+                                "compounds": {
+                                    "friendlyName": "Compounds",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/joints"
+                                    "content": "features/featuresDeepDive/physics/v2/compounds"
                                 },
-                                "pivotsAxes": {
-                                    "friendlyName": "Pivots and Axes",
+                                "aggregates": {
+                                    "friendlyName": "Aggregates",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/pivotsAxes"
+                                    "content": "features/featuresDeepDive/physics/v2/aggregates"
                                 },
-                                "compoundBodies": {
-                                    "friendlyName": "Compound Bodies",
+                                "collisionEvents": {
+                                    "friendlyName": "Collision Events",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/compoundBodies"
+                                    "content": "features/featuresDeepDive/physics/v2/collisionEvents"
                                 },
-                                "softBodies": {
-                                    "friendlyName": "Soft Bodies",
+                                "constraints": {
+                                    "friendlyName": "Constraints",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/softBodies"
+                                    "content": "features/featuresDeepDive/physics/v2/constraints"
                                 },
-                                "advancedPhysicsFeatures": {
-                                    "friendlyName": "Advanced Physics Features",
+                                "raycast": {
+                                    "friendlyName": "Raycast",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/advancedPhysicsFeatures"
+                                    "content": "features/featuresDeepDive/physics/v2/raycast"
                                 },
-                                "addPhysicsEngine": {
-                                    "friendlyName": "Add Your Own Physics Engine",
+                                "migrate": {
+                                    "friendlyName": "Migrate from V1",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/addPhysicsEngine"
+                                    "content": "features/featuresDeepDive/physics/v2/migrateFromV1"
+                                },
+                                "perfTips": {
+                                    "friendlyName": "Performance Tips",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/perfTips"
                                 }
                             },
                             "content": "features/featuresDeepDive/physics"
@@ -2566,7 +2581,9 @@
             "friendlyName": "Guided Learning",
             "children": {
                 "bjsBook": {
-                    "friendlyName": "Journey Beyond The Docs", "children": {}, "content": "guidedLearning/journeyBeyond"
+                    "friendlyName": "Journey Beyond The Docs",
+                    "children": {},
+                    "content": "guidedLearning/journeyBeyond"
                 },
                 "devStories": {
                     "friendlyName": "Dev Stories",
@@ -3358,6 +3375,53 @@
                 }
             },
             "content": "communityExtensions"
+        },
+        "legacy": {
+            "friendlyName": "Legacy",
+            "content": "legacy",
+            "children": {
+                "physics": {
+                    "friendlyName": "Physics V1",
+                    "children": {
+                        "usingPhysicsEngine": {
+                            "friendlyName": "Using A Physics Engine",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/usingPhysicsEngine"
+                        },
+                        "forces": {
+                            "friendlyName": "Forces",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/forces"
+                        },
+                        "joints": {
+                            "friendlyName": "Joints",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/joints"
+                        },
+                        "pivotsAxes": {
+                            "friendlyName": "Pivots and Axes",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/pivotsAxes"
+                        },
+                        "compoundBodies": {
+                            "friendlyName": "Compound Bodies",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/compoundBodies"
+                        },
+                        "softBodies": {
+                            "friendlyName": "Soft Bodies",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/softBodies"
+                        },
+                        "advancedPhysicsFeatures": {
+                            "friendlyName": "Advanced Physics Features",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/advancedPhysicsFeatures"
+                        }
+                    },
+                    "content": "features/featuresDeepDive/physics"
+                }
+            }
         },
         "whats-new": {
             "friendlyName": "What's New",
