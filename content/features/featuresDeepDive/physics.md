@@ -16,13 +16,13 @@ There are 2 physics architecture in Babylon.js.
 
 - a Version 2 (V2 for short) with support for modern Physics Engines.
 
-  > [🚀 You can find the V2 API documented here.](/features/featuresDeepDive/physics/v2/usingPhysicsEngine)  
+  > [🚀 You can find the V2 API documented here.](/features/featuresDeepDive/physics/usingPhysicsEngine)  
 
 - Version 1 (V1 for short), which is a pre-6.0 Legacy API.
 
   > [⚠️ The documentation for V1 has been moved to the Legacy section.](/legacy/physics)
 
-#### We strongly recommend using V2 over V1. [A migration guide is here](/features/featuresDeepDive/physics/v2/migrateFromV1.md).
+#### We strongly recommend using V2 over V1. [A migration guide is here](/features/featuresDeepDive/physics/migrate).
 
 ## Physics V2
 
