@@ -73,21 +73,21 @@ var createScene = function () {
   light.intensity = 0.7;
 
   // Our built-in 'sphere' shape.
-  var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
 
   // Move the sphere upward at 4 units
   sphere.position.y = 4;
 
   // Our built-in 'ground' shape.
-  var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 10, height: 10 }, scene);
+  var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 10, height: 10}, scene);
 
   // initialize plugin
-  var v2Plugin = new BABYLON.HavokPlugin();
+  var hk = new BABYLON.HavokPlugin();
   // enable physics in the scene with a gravity
-  scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), v2Plugin);
+  scene.enablePhysics(new BABYLON.Vector3(0, -9.8, 0), hk);
 
   // Create a sphere shape and the associated body. Size will be determined automatically.
-  var sphereAggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1 }, scene);
+  var sphereAggregate = new BABYLON.PhysicsAggregate(sphere, BABYLON.PhysicsShapeType.SPHERE, { mass: 1, restitution:0.75}, scene);
 
   // Create a static box shape.
   var groundAggregate = new BABYLON.PhysicsAggregate(ground, BABYLON.PhysicsShapeType.BOX, { mass: 0 }, scene);
@@ -95,6 +95,8 @@ var createScene = function () {
   return scene;
 };
 ```
+
+<Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
 
 ## Debugging your scene
 
