@@ -105,4 +105,4 @@ When simulating a long chain of constrained bodies, not all of the constraints m
 
 ## Examples
 
-** PG `testConstraintsPG.js` **
+<Playground id="#7DMWP8" title="Constraints" description="Shows all the different constraints available"/>
