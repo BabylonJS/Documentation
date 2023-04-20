@@ -10,7 +10,13 @@ video-content:
 
 # Migrate from Physics V1
 
-Babylon 6.0 brought a new physics architecture, which aims to provide closer functionality to what most of the existing physic engines provide. However, it also includes some extra classes to make this migration easier. Here we show two ways of migrating your existing V1 scene to V2:
+Babylon 6.0 brought a new physics architecture, which aims to provide closer functionality to what most of the existing physic engines provide. However, it also includes some extra classes to make this migration easier.
+
+The Physics Plugin for V2 is Havok, which has to be initialized outside the Playground. You can initialize it by doing:
+
+```javascript
+globalThis.HK = await HavokPhysics();
+```
 
 ## Option 1: Using Aggregates
 
