@@ -26,9 +26,9 @@ There are 2 physics architecture in Babylon.js.
 
 ## Physics V2
 
-There are plugins for X physics engines:
+There are plugins for 1 physics engine:
 
-1.
+1. Havok - a powerful engine used in AAA games.
 
 All need to be enabled before use.
 
