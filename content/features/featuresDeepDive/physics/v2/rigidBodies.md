@@ -12,7 +12,7 @@ video-content:
 
 ## Core concepts
 
-A physics engine enables a game engine to simulate how real-world objects would behave. This means objects will fall down due to gravity, collide and bounce off each other. The simulation used by XXX is sometimes called a *rigid body* simulation, which is simply a term which means objects which don't change shape due to squashing or stretching.
+A physics engine enables a game engine to simulate how real-world objects would behave. This means objects will fall down due to gravity, collide and bounce off each other. The simulation used by Havok is sometimes called a *rigid body* simulation, which is simply a term which means objects which don't change shape due to squashing or stretching.
 
 The most basic object in the physics engine is a body (`PhysicsBody`), which can be associated with a `TransformNode` - a body represents an object in the simulation; the simulation will process all the bodies, attempt to make them behave in a physically realistic manner and then update the `TransformNode` to match the position of the simulated body. The most obvious way it does this is that the engine performs collision detection to prevent bodies from intersecting. In order for a pair of bodies to detect collisions, the bodies each need a shape; however, collision detection can require a lot of calculations, so, rather than using the visual meshes of an object, the `PhysicsBody` has a shape (`PhysicsShape`) which is usually simpler than the render meshes and enable the engine to minimize the amount of calculations necessary to simulate the world. Shapes are described in more detail in a [future chapter](/features/featuresDeepDive/physics/shapes).
 
@@ -60,7 +60,7 @@ A body has a *mass properties* which affect how it responds to the physics stimu
 
 The mass properties are: *mass*, which determines how "heavy" an object is, *center of mass*, which determines the point that a body spins around, *inertia*, which is similar to mass, but describes how far away the mass is distributed from the center of mass, affecting rotations, and *inertia orientation* which determines the axes that a body spins around.
 
-Some physics engines, such as XXX, can automatically determine the mass properties of a body from the body's shape, so it is very common to supply only the mass parameter and allow the rest of the properties to be derived by the engine (although the engine will also compute a mass if one is not provided)
+Some physics engines, such as Havok, can automatically determine the mass properties of a body from the body's shape, so it is very common to supply only the mass parameter and allow the rest of the properties to be derived by the engine (although the engine will also compute a mass if one is not provided)
 
 These mass properties are very important for achieving physically-realistic behaviour. An object with an incorrect inertia or center of mass will appear to rotate in an unnatural way, while a body with an incorrect mass might appear to be unnaturally heavy (or light!)
 
@@ -131,7 +131,7 @@ body3.shape = shape;
 
 The Shape types supported by the V2 Plugin are:
 
-| Enum | Description | Image | XXX plugin support |
+| Enum | Description | Image | Havok plugin support |
 | --- | --- | --- | --- |
 | SPHERE | Simple sphere | ![Sphere Shape](/img/features/physics/sphere_shape_viewer.png) | ✅ |
 | CAPSULE | A cylinder with a half sphere at top and bottom | ![capsule Shape](/img/features/physics/capsule_shape_viewer.png) | ✅ |
