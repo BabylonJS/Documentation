@@ -5,19 +5,19 @@ description: Learn all about applying physical forces in Babylon.js.
 keywords: diving deeper, phyiscs, forces
 further-reading:
     - title: How To Use The Physics Engines
-      url: /features/featuresDeepDive/physics/usingPhysicsEngine
+      url: /legacy/physics/usingPhysicsEngine
     - title: How to use Joints
-      url: /features/featuresDeepDive/physics/joints
+      url: /legacy/physics/joints
     - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
+      url: /legacy/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
+      url: /legacy/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
+      url: /legacy/physics/softBodies
     - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
+      url: /legacy/physics/advancedPhysicsFeatures
     - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+      url: /legacy/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
@@ -32,7 +32,7 @@ This section gives some terminology needed to discuss the use of forces in the t
 
 as well as playground examples to check out the coding. In the playgrounds the physics' engine used can be changed by selecting which ones to comment out.
 
-See [How to Use The Physics' Engines](/features/featuresDeepDive/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
+See [How to Use The Physics' Engines](/legacy/physics/usingPhysicsEngine) for an overall view of setting up and using the three plugins.
 
 
 
