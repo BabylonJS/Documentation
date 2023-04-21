@@ -1635,6 +1635,11 @@
                                     "friendlyName": "Performance Tips",
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/perfTips"
+                                },
+                                "havokPlugin": {
+                                    "friendlyName": "The Havok Physics Plugin",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/usingHavok"
                                 }
                             },
                             "content": "features/featuresDeepDive/physics"
