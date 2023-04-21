@@ -40,7 +40,7 @@ const createScene = function () {
     const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", 
         {diameter: 2, segments: 32}, 
         scene);
-    // Move phere upward 1/2 its height
+    // Move sphere upward 1/2 its height
     sphere.position.y = 1;
     // Built-in 'ground' shape.
     const ground = BABYLON.MeshBuilder.CreateGround("ground", 
