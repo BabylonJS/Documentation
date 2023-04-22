@@ -21,7 +21,7 @@ The second is the Babylon Havok plugin, which is responsible for the integration
 _To read about the babylon plugin directly, [skip to the next section](#the-babylon-havok-plugin)._
 
 Havok is now available for the web, using a WebAssembly version of the engine. It is available, free to use, under the MIT license.
-The engine is available on both [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URL `https://cdn.babylonjs.com/havok/HavokPhjysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhjysics_es.js` when using the `module` script.
+The engine is available on both [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URL `https://cdn.babylonjs.com/havok/HavokPhjysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhysics_es.js` when using the `module` script.
 
 The NPM package contains the same two flavors as the CDN: an es-modules version and a UMD version for common.js and AMD projects. Your bundler will select the right file for you.
 
@@ -62,7 +62,7 @@ The main different between the CDN and the npm package is the way the HavokPhysi
 Whereas using npm you need to import/require the package, using the CDN you get the object directly from the global scope.
 
 ```html
-<script src="https://cdn.babylonjs.com/havok/HavokPhjysics_umd.js"></script>
+<script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
 <script>
   // before initializing your babylon scene:
   let havokInstance;
@@ -79,7 +79,7 @@ A way to use the CDN without polluting the global scope is to use the `module` s
 
 ```html
 <script type="module">
-  import HavokPhysics from "https://cdn.babylonjs.com/havok/HavokPhjysics_es.js";
+  import HavokPhysics from "https://cdn.babylonjs.com/havok/HavokPhysics_es.js";
   let havokInstance;
   HavokPhysics().then((havok) => {
     // Havok is now available
