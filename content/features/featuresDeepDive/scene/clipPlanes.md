@@ -50,6 +50,6 @@ sphere.onAfterRenderObservable.add(function() {
 
 Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using clipping planes per mesh (scene level)."/>
 
-Since version 5.0, the best way to use clip planes in this case is through the properties `material.clipPlane` / `clipPlane2` / ... / `clipPlane6`. This way, you don't need to add observers to `onBeforeRenderObservable` / `onAfterRenderObservable`.
+Since version 5.33.0, the best way to use clip planes in this case is through the properties `material.clipPlane` / `clipPlane2` / ... / `clipPlane6`. This way, you don't need to add observers to `onBeforeRenderObservable` / `onAfterRenderObservable`.
 
 Demo: <Playground id="#EHLHNX#104" title="Clipping Planes Example 3" description="Using clipping planes per mesh (material level)."  image="/img/playgroundsAndNMEs/pg-EHLHNX.png" />
