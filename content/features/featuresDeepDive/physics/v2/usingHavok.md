@@ -1,8 +1,8 @@
 ---
-title: Using A Physics Engine
+title: Using Havok and the Havok Plugin
 image:
-description: Learn how to use one of the available physics engines in Babylon.js.
-keywords: diving deeper, phyiscs
+description: Learn how to use the havok plugin offered by Babylon.js
+keywords: diving deeper, phyiscs, havok
 further-reading:
 video-overview:
 video-content:
