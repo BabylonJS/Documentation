@@ -2,7 +2,7 @@
 title: Using Havok and the Havok Plugin
 image:
 description: Learn how to use the havok plugin offered by Babylon.js
-keywords: diving deeper, phyiscs, havok
+keywords: diving deeper, physics, havok, plugin
 further-reading:
 video-overview:
 video-content:
