@@ -38,3 +38,8 @@ parentShape.addChildFromParent(myMesh, sphereShape, headNode);
 const body = new BABYLON.PhysicsBody(myMesh, scene);
 body.shape = parentShape;
 ```
+The following Playground shows a simple example of creating a Container body to approximate a mesh:
+<Playground id="3H3DLR" description="Simple Physics Container example" />
+            
+The following Playground shows a comparison of using Container, Convex Hull and Mesh shapes on different meshes:
+<Playground id="LKPBW5" description="Comparison of using Container, Convex Hull and Mesh shapes on different meshes" />
