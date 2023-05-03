@@ -49,7 +49,7 @@ As the ES6 version is composed of many separated files the usual way to consume 
 2. Open **GitBash** (or similar) for **MyAwesomeApp**
 3. npm init
 4. npm install webpack webpack-cli webpack-dev-server --save-dev
-5. npm install --save-dev @babylonjs/core
+5. npm install @babylonjs/core
 6. Create **index.html** file in **MyAwesomeApp** as described in `First App Section` below
 7. Create Folder **src** in **MyAwesomeApp**
 8. Create **index.js** file in **src** as described in `First App Section` below
@@ -73,7 +73,7 @@ Following the default webpack convention, you do not even need a configuration f
 To install the latest babylon es6 version use:
 
 ```bash
-npm install --save-dev @babylonjs/core
+npm install @babylonjs/core
 ```
 
 This will install babylonjs' javascript files and will also include a TypeScript declaration file.
