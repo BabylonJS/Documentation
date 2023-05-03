@@ -208,7 +208,7 @@ Using command line:
 - run `npm run watch:dev` (If you want to make changes to the dev packages. Otherwise run `npm run build:dev`)
 - run `npm run serve -w @tools/babylon-server` in a new terminal window
 
-The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1338. To use the TS version navigate to http://localhost:1338/index-ts.
+The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1337. To use the TS version navigate to http://localhost:1337/index-ts.html.
 The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Babylon server package.
 
 As described in the next section, the Babylon server also offers a playground-snippet debugging.
