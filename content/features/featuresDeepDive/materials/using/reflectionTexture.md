@@ -169,7 +169,7 @@ See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/
 
 ### Examples with a test pattern cubemap
 
-|+x (right)|-x (left)|-y (up)|-y (down)|+z (back)|-z (front)|
+|+x (right)|-x (left)|+y (up)|-y (down)|+z (back)|-z (front)|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" alt="RGT test pattern"/>|<img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" alt="LFT test pattern"/>|<img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" alt="TOP test pattern"/>|<img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" alt="BOT test pattern"/>|<img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" alt="BCK test pattern"/>|<img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" alt="FRT test pattern"/>|
 <br/>
