@@ -35,7 +35,7 @@ Despite the "Texture" name, CubeTexture can _only_ be used with the [.reflection
 
 This classic cloudy skybox helps demonstrate skybox reflection:
 
-|+x (right)|-x (left)|-y (up)|-y (down)|+z (back)|-z (front)|
+|+x (right)|-x (left)|+y (up)|-y (down)|+z (back)|-z (front)|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="Some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="More clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="The sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="Solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="More clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="More clouds"/>|
 <br/>
