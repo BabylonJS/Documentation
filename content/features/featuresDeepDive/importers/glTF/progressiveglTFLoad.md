@@ -18,12 +18,9 @@ This demo playground loads a glTF binary (a.k.a. GLB) asset which is a single fi
 
 ## About MSFT_lod
 
-[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js supports progressively loading these LODs, for the purpose of reducing the time to first render, as well as selecting LODs based on screen coverage.  
-You can use the property `MSFT_screencoverage` in the gltf file to indicate to Babylon.js which LOD level to select. Screen coverage is calculated as a ratio between the screen surface the mesh occupies, and the total screen surface.
+[MSFT_lod](https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod) is a Microsoft glTF extension for discrete LODs. It has support for both node and material LODs. Babylon.js currently only supports progressively loading these LODs for the purpose of reducing the time to first render. LODs that switch based on rendering distance or screen coverage is not currently supported.
 
-[This playground](https://playground.babylonjs.com/#2YZFA0#228) demonstrates loading a simple gltf file that contains 3 LOD levels. You can retrieve the file [here](https://playground.babylonjs.com/scenes/msft-lod.gltf) if you want to inspect it.
-
-There are not many tools that can create assets with MSFT_lod at the moment. The car asset in the first demo above is exported from [Adobe Dimension](https://www.adobe.com/products/dimension.html) for sharing on the web. [BabylonPolymorph](https://github.com/BabylonJS/BabylonPolymorph) will eventually be able to do this, but this project is still very early. There is also [glTF-Toolkit](https://github.com/Microsoft/glTF-Toolkit) for Windows Mixed Reality which unfortunately is not well suited for Babylon.js, but perhaps it can be modified to work better.
+There are not many tools that can create assets with MSFT_lod at the moment. The car asset in the first demo above is exported from [Adobe Dimension](https://www.adobe.com/products/dimension.html) for sharing on the web. There is also [glTF-Toolkit](https://github.com/Microsoft/glTF-Toolkit) for Windows Mixed Reality which unfortunately is not well suited for Babylon.js, but perhaps it can be modified to work better. Otherwise, it might be best to manually add the extension with a tool like [Visual Studio Code](https://code.visualstudio.com) with the [glTF Tools for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=cesium.gltf-vscode).
 
 ## Using HTTP Range Requests
 
