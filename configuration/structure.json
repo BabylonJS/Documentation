@@ -2504,6 +2504,7 @@
             "children": {
                 "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
                 "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" },
+                "planningMeshUVs": { "friendlyName": "Planning Mesh UVs", "children": {}, "content": "preparingArtForBabylon/planningMeshUVs" },
                 "controllingColorSpace": { "friendlyName": "Controlling Color Space", "children": {}, "content": "preparingArtForBabylon/controllingColorSpace" }
             },
             "content": "preparingArtForBabylon/basicConcepts"
