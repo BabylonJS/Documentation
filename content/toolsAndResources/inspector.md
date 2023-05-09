@@ -33,10 +33,21 @@ Its interface uses two panes:
 - The scene explorer pane
 - The inspector pane
 
-It can be called using:
+It can be called in two manners:
+
+1. Without [ES Modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
 
 ```javascript
 scene.debugLayer.show();
+```
+
+2. Using ES Modules (Avoid using the first approach if you're already using modules):
+
+```javascript
+import { Inspector } from '@babylonjs/inspector';
+
+// ... YOUR SCENE CREATION
+Inspector.Show(scene, {});
 ```
 
 ![debug layer overview](/img/features/debuglayer/debuglayer.jpg)
@@ -49,7 +60,27 @@ scene.debugLayer.show({
 });
 ```
 
+or:
+
+```javascript
+Inspector.Show(scene, {
+  embedMode: true
+});
+```
+
 ![embed mode](/img/features/debuglayer/embedmode.jpg)
+
+To hide the inspector:
+
+```javascript
+scene.debugLayer.hide();
+```
+
+or:
+
+```javascript
+Inspector.Hide(); // You don't need to pass the scene
+```
 
 ## Scene explorer pane
 
