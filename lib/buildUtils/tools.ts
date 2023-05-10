@@ -118,7 +118,9 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
 };
 
 export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
-    const browser = await puppeteer.launch(); // opens a virtual browser
+    const browser = await puppeteer.launch({
+        headless: "new"
+    }); // opens a virtual browser
 
     try {
         const page = await browser.newPage(); // creates a new page
