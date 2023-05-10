@@ -17,14 +17,14 @@ Both forces and impulses don't have any effect on bodies whose mass is 0.
 ```javascript
 body.applyForce(
     new BABYLON.Vector3(0, 10, 0), // direction and magnitude of the applied force
-    new BABYLON.Vector3(0, 0, 0) // point in the body's LOCAL space where the force will be applied    
+    new BABYLON.Vector3(0, 0, 0) // point in WORLD space where the force will be applied    
 );
 
 // .... OR .....
 
 body.applyImpulse(
     new BABYLON.Vector3(0, 10, 0), // direction and magnitude of the applied impulse
-    new BABYLON.Vector3(0, 0, 0) // point in the body's LOCAL space where the impulse will be applied    
+    new BABYLON.Vector3(0, 0, 0) // point in WORLD space where the impulse will be applied    
 );
 ```
 
