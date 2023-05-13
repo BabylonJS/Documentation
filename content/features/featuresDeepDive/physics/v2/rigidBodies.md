@@ -96,7 +96,7 @@ sphere.thinInstanceAddSelf();
 sphere.thinInstanceAddSelf();
 sphere.thinInstanceAddSelf();
 
-const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const body = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 
 // Apply a vertical force on all the 3 spheres
 body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
