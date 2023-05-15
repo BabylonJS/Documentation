@@ -18,7 +18,9 @@ Babylon.js sound engine is based on the [**Web Audio specification**](http://web
 
 The sound engine offers **ambient** sound, **spatialized** sound and **directional** sound. It can be created by code or by loading a .babylon file. It follows the simple & powerful philosophy of the rest of the engine as you’re going to see.
 
-The sound format supported is the one from the browser. It’s usually at least **.mp3** and **.wav**.
+The sound format supported is the one from the browser **.mp3**, **.ogg**, **.wav**, **.m4a**, **.mp4**. It’s usually at least **.mp3** and **.wav**. 
+
+**Note:** Other formats like **.aac** can be loaded as well as long as the browser supports them by passing `skipCodecCheck` to `true` in the `Sound` creation options.
 
 **Note:** all music samples demonstrated in the playground has been composed by [**David Rousset**](https://soundcloud.com/david-rousset/)
 
