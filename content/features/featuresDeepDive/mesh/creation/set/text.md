@@ -51,4 +51,5 @@ By default, when used in the playground, the following fonts are available:
 
 ### Examples
 
+Hello world: <Playground id="#6I2RMN" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.jpg"/> 
 
