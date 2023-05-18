@@ -1025,6 +1025,11 @@
                                                     "friendlyName": "Tiled Ground",
                                                     "children": {},
                                                     "content": "features/featuresDeepDive/mesh/creation/set/tiled_ground"
+                                                },
+                                                "text": {
+                                                    "friendlyName": "Text",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/mesh/creation/set/text"
                                                 }
                                             },
                                             "content": "features/featuresDeepDive/mesh/creation/set"
