@@ -44,10 +44,10 @@ Babylon.js is supporting the fantastic work done by Gero3 on http://gero3.github
 
 Simply go to this site and generate the json description file for the font you want to use.
 
-By default, when used in the playground, the following fonts are available:
-* /fonts/Droid Sans_Bold.json (http://www.droidfonts.com/)
-* /fonts/Droid Sans_Regular.json (http://www.droidfonts.com/)
-* /fonts/Kenney Future Regular.json (https://www.kenney.nl/assets/kenney-fonts)
+We are also offering already exported fonts on assets.babylonjs.com:
+* https://assets.babylonjs.com/fonts/Droid Sans_Bold.json (http://www.droidfonts.com/)
+* https://assets.babylonjs.com/fonts/Droid Sans_Regular.json (http://www.droidfonts.com/)
+* https://assets.babylonjs.com/fonts/Kenney Future Regular.json (https://www.kenney.nl/assets/kenney-fonts)
 
 ### Examples
 
