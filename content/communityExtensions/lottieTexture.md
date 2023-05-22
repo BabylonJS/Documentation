@@ -1,3 +1,15 @@
+---
+title: Lottie Texture
+image: 
+description: An extension library. Load and play the lottie animation file in babylonjs.
+keywords: extensions, texture, animation, lottie, lottie texture
+further-reading:
+video-overview:
+video-content:
+---
+
+An extension library. Load and play the lottie animation file in babylonjs.
+
 ## Introduction
 This is an integration of lottie-web and babylonjs.
 
