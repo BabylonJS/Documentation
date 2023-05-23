@@ -3057,6 +3057,11 @@
                     "children": {},
                     "content": "communityExtensions/figmaToBabylonJS"
                 },
+                "lottieTexture": {
+                    "friendlyName": "Lottie Texture",
+                    "children": {},
+                    "content": "communityExtensions/lottieTexture"
+                },
                 "meshWriter": {
                     "friendlyName": "Mesh Writer",
                     "children": {},
