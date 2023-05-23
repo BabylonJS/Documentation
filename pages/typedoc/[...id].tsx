@@ -48,6 +48,7 @@ export const ApiPage: FunctionComponent<{
     }, [id]);
 
     // do not render if redirecting
+
     if (redirect) {
         return <></>;
     }
