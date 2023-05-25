@@ -10,7 +10,7 @@ video-content:
 
 # Journey Beyond the Docs
 
-Sometimes all a person needs is to know the syntax for a particular component, a no-nonsense explanation of a specific topic. Other times, more context is needed to understand a concept. After all, an isolated code snippet does not an application make (unless it's running in the [Playground](https://playground.babylonjs.com) of course). For those who want or need more context, [there's a book for that](https://packt.link/josh)!
+Sometimes all a person needs is to know the syntax for a particular component, a no-nonsense explanation of a specific topic. Other times, more context is needed to understand a concept. After all, an isolated code snippet does not an application make (unless it's running in the [Playground](https://playground.babylonjs.com) of course). For those who want or need more context, [there's a book for that](https://packt.link/Josh)!
 
 _Going the Distance with Babylon.js_ is a book that bridges the gap between the practical, focused information in the BJS documentation and real-world application development incorporating those concepts.
 
