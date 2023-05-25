@@ -34,6 +34,7 @@ const myAnim = new BABYLON.Animation(name, property, frames_per_second, property
     BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE - Restart the animation from initial value  
     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
     BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
+    BABYLON.Animation.ANIMATIONLOOPMODE_YOYO - The animation will reverses its direction when it reaches the end instead of restarting from the beginning
 
 ## Set Key Frames
 This is an array, *myKeys* of objects. Each object has the following two properties:
