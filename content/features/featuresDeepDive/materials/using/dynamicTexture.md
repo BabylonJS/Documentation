@@ -63,7 +63,7 @@ You can obtain the canvas context using
 const ctx = myDynamicTexture.getContext();
 ```
 
-exposing all the possibilities of the HTML5 canvas element.
+exposing all the possibilities of the [HTML5 canvas](https://www.w3schools.com/Tags/ref_canvas.asp) element to give you full control over drawing, transforming, compositing and other pixel manipulation to create or update your dynamic texture in real time.
 
 ### Drawing Curves
 
@@ -118,6 +118,40 @@ myDynamicTexture.update();
 ```
 
 <Playground id="#5ZCGRM#4" title="Adding An Image" description="Simple example of adding an image with dynamic textures." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture3.jpg"/>
+
+### Transformations
+
+Anything that is drawn to a canvas can be transformed using methods like `scale`, `rotate`, or `translate`. It is helpful to `save` the context before transformaiton and then `restore` context after transformation to ensure the texure updates correctly.
+
+``` javascript
+const texSize = 512;
+
+ctx.save();
+
+// define position and size of rectangle
+const left = texSize * 0.5 - (texSize * 0.125);
+const top = texSize * 0.5 - (texSize * 0.125);
+const width = 0.25 * texSize;
+const height = 0.25 * texSize;
+
+// translate context to center rotation of rectangle
+const rotationCenterU = width * 0.5 + left;
+const rotationCenterV = height * 0.5 + top;
+ctx.translate(rotationCenterU, rotationCenterV);
+
+// rotate context before drawing
+ctx.rotate(Math.PI/4);
+
+// draw rectangle
+ctx.fillStyle = "Red";
+ctx.fillRect(-width * 0.5, -height * 0.5, width, height);
+
+ctx.restore();
+
+```
+
+<Playground id="#6XFI1A" title="Translate and Rotate Rectangle" description="Simple example of transforming a rectangle on a dynamic texture" image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture8.jpg"/>
+
 
 ## Playground Combination
 
