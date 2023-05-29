@@ -122,12 +122,12 @@ getSimpleName();
 //T his function must activate your input event.  Even if your input does not need a DOM element
 // element and noPreventDefault must be present and used as parameter names.
 // Return void.
-attachControl(element, noPreventDefault);
+attachControl(noPreventDefault);
 
 // Detach control must deactivate your input and release all pointers, closures or event listeners
 // element must be present as a parameter name.
 // Return void.
-detachControl(element);
+detachControl();
 
 // This optional function will get called for each rendered frame, if you want to synchronize your
 // input to rendering, no need to use requestAnimationFrame. It's a good place for applying
@@ -299,10 +299,10 @@ interface ICameraInput<TCamera extends BABYLON.Camera> {
   getSimpleName(): string;
 
   //this function must activate your input, event if your input does not need a DOM element
-  attachControl: (element: HTMLElement, noPreventDefault?: boolean) => void;
+  attachControl: (noPreventDefault?: boolean) => void;
 
   //detach control must deactivate your input and release all pointers, closures or event listeners
-  detachControl: (element: HTMLElement) => void;
+  detachControl: () => void;
 
   //this optional function will get called for each rendered frame, if you want to synchronize your input to rendering,
   //no need to use requestAnimationFrame. It's a good place for applying calculations if you have to
