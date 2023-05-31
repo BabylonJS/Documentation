@@ -102,19 +102,20 @@ export const clearPlaygroundIndex = async () => {
     }
     console.log("clearing playgrounds index.");
     // get all elements
-    const results = await fetch(getUrl("search", "playgrounds"), {
-        // Adding method type
-        method: "POST",
-
-        body: JSON.stringify({
-            top: 1000,
-        }),
-
-        // Adding body or contents to send
-
-        // Adding headers to the request
-        headers,
-    });
+    const getResults = async (params?: { top?: number, skip?: number }) => {
+        return await fetch(getUrl("search", "playgrounds"), {
+            // Adding method type
+            method: "POST",
+            
+            body: JSON.stringify({
+                filter: `isMain eq true`,
+                top: 10000,
+                ...params
+            }),
+            // Adding headers to the request
+            headers,
+        });
+    }
     const removeDocuments = async (ids: string[]) => {
         return await fetch(getUrl("index", "playgrounds"), {
             // Adding method type
@@ -134,8 +135,16 @@ export const clearPlaygroundIndex = async () => {
             headers,
         });
     };
-    const result = (await results.json());
-    const filtered = result.value && (result.value as Array<ISearchResult>);
+    let result = (await (await getResults()).json());
+    const values = [];
+    while (result["@odata.nextLink"]) {
+        values.push(...result.value);
+        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+    }
+    values.push(...result.value);
+        
+
+    const filtered = values && (values as Array<ISearchResult>);
     while (filtered.length) {
         const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
@@ -152,22 +161,27 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
         console.log("no search API key defined");
         return;
     }
+    // option to clear the entire index on a production build. Needs to be set server-side.
+    if(process.env.OVERRIDE_DONOTDELETE) {
+        doNotDelete.length = 0;
+        console.log("OVERRIDE_DONOTDELETE is set. Clearing entire index.");
+    }
     console.log("clearing search index. isApi:", isApi);
-    // get all elements
-    const results = await fetch(getUrl("search"), {
-        // Adding method type
-        method: "POST",
 
-        body: JSON.stringify({
-            filter: `isApi eq ${isApi}`,
-            top: 1000,
-        }),
+    const getResults = async (params?: { top?: number, skip?: number }) => {
+        return await fetch(getUrl("search"), {
+            // Adding method type
+            method: "POST",
 
-        // Adding body or contents to send
-
-        // Adding headers to the request
-        headers,
-    });
+            body: JSON.stringify({
+                filter: `isApi eq ${isApi}`,
+                top: 10000,
+                ...params
+            }),
+            // Adding headers to the request
+            headers,
+        });
+    }
     const removeDocuments = async (ids: string[]) => {
         return await fetch(getUrl("index"), {
             // Adding method type
@@ -187,8 +201,14 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
             headers,
         });
     };
-    const result = (await results.json());
-    const filtered = result.value && (result.value as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
+    const values = [];
+    let result = (await (await getResults()).json());
+    while (result["@odata.nextLink"]) {
+        values.push(...result.value);
+        result = (await (await getResults(result["@search.nextPageParameters"])).json());
+    }
+    values.push(...result.value);
+    const filtered = values && (values as Array<IDocumentSearchResult>).filter((res) => !doNotDelete.includes(res.path));
     while (filtered.length) {
         const toDelete = filtered.splice(0, 50);
         const httpResult = await removeDocuments(toDelete.map((item) => item.id));
@@ -197,5 +217,5 @@ export const clearIndex = async (isApi: boolean = false, doNotDelete: string[] =
             throw new Error("error clearing index");
         }
     }
-    console.log("search index cleared");
+    console.log("search index cleared. isApi:", isApi);
 };
