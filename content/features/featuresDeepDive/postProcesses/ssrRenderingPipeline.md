@@ -79,7 +79,7 @@ The algorithm is based on the following steps:
     1. If the ray does not intersect anything:
         1. we use the color from `SSRRenderingPipeline.environmentTexture` as the hit color if a texture is provided.
         1. we simply use the color of the pixel if no environment texture is provided.
-    1. If blur is not enabled, we blend the hit color with the pixel color to generate the final color. The blending is done using the reflectivity of the object at that pixel. The calculation of the intersection is done by marching the ray (which means that we advance the ray step by step and calculate a new 3D point at each step) in the screen space, using the depth buffer to know if the ray hit an object or not. In this way, we can calculate the position of the intersected object in camera space (3D) but move forward in 2D space so as not to spend resources in iterations that would project the current point of the ray on the same pixel as the previous iteration.
+    1. If blur is not enabled, we blend the hit color with the pixel color to generate the final color. By default, the blending is done using the reflectivity of the object at that pixel (there's a new option in 6.5.1 (`useFresnel`) that will blend using the fresnel coefficient). The calculation of the intersection is done by marching the ray (which means that we advance the ray step by step and calculate a new 3D point at each step) in the screen space, using the depth buffer to know if the ray hit an object or not. In this way, we can calculate the position of the intersected object in camera space (3D) but move forward in 2D space so as not to spend resources in iterations that would project the current point of the ray on the same pixel as the previous iteration.
     1. If blur is enabled, we simply store the SSR effect and not the final pixel color. We will blur the SSR effect in one more pass (see next step).
 1. If blur is enabled, we blur (in two passes - horizontal and vertical) the result of the SSR pass and merge it with the original scene in a final pass.
 
@@ -286,7 +286,7 @@ As you can see, jittering produces noise, so it's up to you to turn it on or off
 
 The `reflectivityThreshold` parameter is used to discard pixels whose reflectivity value is below a certain threshold. This avoids computing the SSR for pixels that reflect nothing or almost nothing, which can be useful for saving time on the GPU.
 
-For example, in this scene, `reflectivityThreshold` has been set to 0 :
+For example, in this scene, `reflectivityThreshold` has been set to 0.001 :
 | `reflectivityThreshold = 0` | Debug view |
 | --- | --- |
 | ![SSR with reflectivityThreshold = 0](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0.jpg!500) | ![Debug view of the scene](/img/how_to/ssrRenderingPipeline/ssr_ball_rthreshold_0_debug.jpg!500) |
@@ -300,6 +300,23 @@ Using the debug view, we can see that the reflections are calculated on the sphe
 By default, the SSR pipeline expects the input color texture to be in gamma space and will generate its output in gamma space. If for some reason the input is in linear space or you want to generate the output in linear space, you can use these parameters:
 * `inputTextureColorIsInGammaSpace`: set it to `false` to indicate that the input color texture is in linear space.
 * `generateOutputInGammaSpace`: set it to `false` to generate the output in linear space.
+
+### Use fresnel
+
+New in 6.5.1 is the ability to use the fresnel coefficient to blend the SSR effect with the original scene. This is controlled by the `useFresnel` property, which is `false` by default.
+Setting `useFresnel` to `true` is more physically accurate, but is more GPU-intensive when you also enable blur (`blurDispersionStrength > 0`).
+
+This setting can be useful if you want PBR materials to show reflections even when their `metallic` property is set to 0. By default, `reflectivityThreshold = 0.04` because when using material reflectivity instead of Fresnel as the blending factor, reflections are not visible when `metallic = 0` (reflectivity is 0.04 in this case). By setting `useFresnel = true`, you can obtain reflections even when `metallic = 0`.
+
+Note that the rendering can be quite different if you use `useFresnel = true`, everything will look more reflective:
+| `useFresnel = false` | `useFresnel = true` |
+| --- | --- |
+| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_false.jpg!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/hillvalley_usefresnel_true.jpg!500) |
+| ![useFresnel = false](/img/how_to/ssrRenderingPipeline/balls_usefresnel_false.jpg!500) | ![useFresnel = true](/img/how_to/ssrRenderingPipeline/balls_usefresnel_true.jpg!500) |
+
+In the second example, the blue sphere has a PBR material applied, with `metallic = 0` and `roughness = 0`.
+Note that `reflectivityThreshold` has been lowered to 0.001, as reflections would not have been calculated with the default value of 0.04!
+As you can see, there are no visible reflections in the non-Fresnel case, whereas they are visible in the Fresnel case.
 
 ## How to deal with artifacts
 
