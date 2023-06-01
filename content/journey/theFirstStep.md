@@ -199,9 +199,30 @@ Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save 
 
 ![pages](/img/home/pages.jpg)
 
-After your settings are saved you'll see the url to your new live website! You can share that url with anyone that you'd like!
+After your settings are saved you'll see the url to to reach your website! You can share that url with anyone that you'd like!
 
 ![url](/img/home/url.jpg)
+
+Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named _config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
+
+![create text file](/img/home/addNewTextFile.jpg)
+
+This will open a text editor for you to create the file. At the top, type `_config.yml` in the input field as the name of the file to save in your repository. Then type the following in the body of the file:
+
+```
+theme: jekyll-theme-minimal
+title: Title For Your Website
+description: Website description.
+
+```
+
+![create config file](/img/home/createTextFile.jpg)
+
+Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and desctiption will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
+
+![commit text file to repository](/img/home/commitTextFile.jpg)
+
+
 
 Congratulations! You just built and hosted your very first Babylon.js web experience!
 
