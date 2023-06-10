@@ -39,7 +39,7 @@ The top of wall is formed by adding the **height** of the walls to the base corn
 
 The table of positions for the vertexData buffer looks like this
 
-| corner           | position                                                      |
+| corner           | position                                                      |                                  |
 | ---------------- | ------------------------------------------------------------- | -------------------------------- |
 | 0                | x<sub>0</sub>, 0, z<sub>0</sub>                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9D; |
 | 1                | x<sub>1</sub>, 0, z<sub>1</sub>                               | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
@@ -263,4 +263,4 @@ wall 6 - doorSpace door, left 1
 
 Applying the plan leads to
 
-PG: <Playground id="#4GBWI5#272" title="House Built from a FloorPlan" description="A basic house built from a floorplan."/>
+PG: <Playground id="#4GBWI5##2144" title="House Built from a FloorPlan" description="A basic house built from a floorplan."/>
