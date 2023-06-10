@@ -263,4 +263,4 @@ wall 6 - doorSpace door, left 1
 
 Applying the plan leads to
 
-PG: <Playground id="#4GBWI5##2144" title="House Built from a FloorPlan" description="A basic house built from a floorplan."/>
+PG: <Playground id="#4GBWI5#2144" title="House Built from a FloorPlan" description="A basic house built from a floorplan."/>
