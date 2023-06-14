@@ -213,6 +213,14 @@ The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Baby
 
 As described in the next section, the Babylon server also offers a playground-snippet debugging.
 
+#### Windows permission denied troubleshooting
+
+If you get an error like `Error: listen EACCES: permission denied 0.0.0.0:1337` run the following commands as a privileged user:
+
+`net stop winnat` and `net start winnat`
+
+The server should be able to listen on port 1337 without any issues.
+
 #### Debug a playground snippet
 
 To debug a snippet, run the localhost:1338 server in debug mode and add the snippet to the index. For example:
