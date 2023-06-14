@@ -39,7 +39,7 @@ as the top and bottom are not seen we will just use the defaults.
 
 We set these using
 ```javascript
-faceUV = [];
+const faceUV = [];
 faceUV[0] = new BABYLON.Vector4(0.5, 0.0, 0.75, 1.0); //rear face
 faceUV[1] = new BABYLON.Vector4(0.0, 0.0, 0.25, 1.0); //front face
 faceUV[2] = new BABYLON.Vector4(0.25, 0, 0.5, 1.0); //right side
