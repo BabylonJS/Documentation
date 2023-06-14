@@ -258,3 +258,11 @@ The dynamic texture can be serialized with the scene using `SceneSerializer.Seri
 This playground demonstrates serializing a dynamic texture associated with a material on a mesh:
 
 <Playground id="#FU0ES5" title="Drawing Text and a Curve Texture Serialized Mesh" description="Simple example of drawing text and a curve texture serialized mesh." image="/img/playgroundsAndNMEs/divingDeeperDynamicTexture7.jpg"/>
+
+## Dynamic Texture Example
+![product customization with dynamic texture](/img/how_to/productCustomizationDynamicTexture.png)
+
+This playground example incorporates a user-manipulated dynamic texture allowing the customization of an asset. This scene demonstrates many of the previous concepts and shows why dynamic textures are a great way to provide users with interactive scene materials.
+
+<Playground id="#XMEL56#7" title="Product Customization" description="Customize the graphics of a skateboard deck." isMain={true} category="Dynamic Texture"/>
+
