@@ -62,6 +62,7 @@ Here's how a **Multiply** custom block could be implemented:
 Most of the properties should be self-explanatory. Here are the possible values for some of the properties:
 * target: **Neutral**, **Vertex**, **Fragment**, **VertexAndFragment**
 * in/out parameters: **Float**, **Int**, **Vector2**, **Vector3**, **Vector4**, **Color3**, **Color4**, **Matrix**, **Object**, **AutoDetect**, **BasedOnInput**
+* in parameters only: **sampler2D**, **samplerCube**
 
 As this block allows any type of input (**Float**, **Vector3**, etc as the **AutoDetect** value shows for the **left** and **right** parameter types), the type of **output** is set to `BasedOnInput` to inherit the value of the input that will be plugged to **left** (value of `typeFromInput`) at runtime. Also, we want the types of the **left** and **right** inputs to be the same (once an input is plugged, the other one should inherit the same type), that's why we have a `inLinkedConnectionTypes` section in the file.
 
