@@ -1052,6 +1052,11 @@
                                                     "children": {},
                                                     "content": "features/featuresDeepDive/mesh/creation/param/line_system"
                                                 },
+                                                "greased_line": {
+                                                    "friendlyName": "GreasedLine",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/mesh/creation/param/greased_line"
+                                                },
                                                 "ribbon": {
                                                     "friendlyName": "Ribbon",
                                                     "children": {},
