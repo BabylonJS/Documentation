@@ -10,7 +10,7 @@ video-content:
 
 ## GreasedLine
 
-`GreasedLine` is a special type of line which uses a regular mesh with triangles to display a line of any width. It incorporates custom shaders designed to ensure that the mesh always faces the camera resulting in consistent thickness from all perspectives. The shaders are provided as a plugin material. You can use `StandardMaterial` or `PBRMaterial` with `GreasedLine` so you can use any property of the material to stylize your line. `GreasedLine` also features dashing, multicolored lines with sampling option, color blending options, variable width of both side of the line (upper, lower part), visibility (what percentage of the line is visible), points coordinates offsets, instance mode (you can add more lines to an instance and they will be drawn in one draw call), lazy mode. The values for these features are animatable. You can translate, rotate and scale the line as well because it's a mesh.
+`GreasedLine` is a special type of line which uses a regular mesh with triangles to display a line of any width. It incorporates custom shaders designed to ensure that the mesh always faces the camera resulting in consistent thickness from all perspectives. The shaders are provided using plugin material. You can use `StandardMaterial` or `PBRMaterial` with `GreasedLine` so you can use any property of the material to stylize your line. `GreasedLine` also features dashing, multicolored lines with sampling option, color blending options, variable width of both side of the line (upper, lower part), visibility (what percentage of the line is visible), points coordinates offsets, instance mode (you can add more lines to an instance and they will be drawn in one draw call), lazy mode. The values for these features are animatable. You can translate, rotate and scale the line as well because it's a mesh.
 
 ## Create a GreasedLine
 
@@ -28,7 +28,7 @@ const line = BABYLON.CreateGreasedLine("name", { points })
 
 ### GreasedLineMeshBuilderOptions
 
-You will find explanation of these option below this code snippet.
+You will find explanation of these options below this code snippet.
 
 ```javascript
 points: GreasedLinePoints;
@@ -36,6 +36,7 @@ widths?: number[];
 widthDistribution?: GreasedLineMeshWidthDistribution;
 instance?: GreasedLineMesh;
 updatable?: boolean;
+uvs?: number[];
 lazy?: boolean;
 ```
 
@@ -83,9 +84,11 @@ You can draw more lines at once by using the `instance` option. See the **Instan
 
 You need to specify at least two points to draw a line, obviously.
 
+**Do not use too long lines because they can be distorted by perspective. Use smaller line segments in a long line. There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info.
+
 #### **widths** and **widthDistribution**
 
-You can specify two width values for each point in your line. The first value specifies the width of the line above the line and the second below the line. These values are not normalized so if you use a value of 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
+You can specify two width values for each point in your line. The first value specifies the width of the line below the line and the second above the line. These values are not normalized so if you use a value of 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
 
 The `CreateGreasedLine` function uses the function `CompleteGreasedLineWidthTable` to fill the missing values, if any. You can use the `widthDistribution` option to set the method used to automatically fill the `widths` table.
 
@@ -119,15 +122,19 @@ Please have a look at the API docs for more explanation about the width distribu
 
 #### **instance**
 
-You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. See the examples for code.
+You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. *Lines added to an instance are joined with existing mesh*. See the examples for code.
+
+#### **updatable**
+
+If you want to update your line after it was created set this option to `true`. This applies to `setOffsets`, `setSegmentWidths` and `setColorPointers`.
+
+#### **uvs**
+
+You can set your custom UVs when creating the line.
 
 #### **lazy**
 
 You can disable recalculating line data and updating the buffers when adding a new line to a line instance by setting this option to true. This option is always used with the `instance` option specified. If you're done with adding new lines you just need to call `line.updateLazy()` to recalculate the data and update the buffers. See the examples for code.
-
-#### **updatable**
-
-If you want to update your line after it was created set this option to `true`.
 
 ### GreasedLineMaterialBuilderOptions
 
