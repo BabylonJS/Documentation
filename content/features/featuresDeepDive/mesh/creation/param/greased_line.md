@@ -546,3 +546,17 @@ There are other useful functions like getting points for drawing a circle/oval, 
 **As an overall rule always cache your parameters when calling functions. These functions located in `GreasedLineTools` may be CPU intensive so avoid using them in the render loop or cache as much as possible. For example convert your `number` coordinates to `Vector3` coordinates once and store the result. Get the line length only once and buffer the value. Etc...**
 
 ## Example playgrounds
+
+<Playground id="#H1LRZ3#18" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh  ." />
+<Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
+<Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
+<Playground id="#H1LRZ3#37" title="GreasedLine instance" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
+<Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
+<Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
+<Playground id="#H1LRZ3#32" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
+<Playground id="#H1LRZ3#31" title="Arrows" description="You can easily create arrows with GreasedLine." />
+<Playground id="#H1LRZ3#22" title="PBR albedoTexture" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#7" title="PBR reflection" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#9" title="PBR sphere" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
