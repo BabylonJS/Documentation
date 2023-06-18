@@ -84,7 +84,7 @@ You can draw more lines at once by using the `instance` option. See the **Instan
 
 You need to specify at least two points to draw a line, obviously.
 
-**Do not use too long lines because they can be distorted by perspective. Use smaller line segments in a long line. There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info.
+**Do not use sharp angle connected long lines because they can be distorted by perspective. Use smaller line segments. There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info.
 
 #### **widths** and **widthDistribution**
 
@@ -472,7 +472,7 @@ const gl = new BABYLON.GlowLayer("glow", scene, {
 })
 gl.intensity = 1.8;
 gl.referenceMeshToUseItsOwnMaterial(line1)
-````
+```
 
 #### Line using PBRMaterial
 
@@ -545,18 +545,23 @@ There are other useful functions like getting points for drawing a circle/oval, 
 
 **As an overall rule always cache your parameters when calling functions. These functions located in `GreasedLineTools` may be CPU intensive so avoid using them in the render loop or cache as much as possible. For example convert your `number` coordinates to `Vector3` coordinates once and store the result. Get the line length only once and buffer the value. Etc...**
 
+## Picking and intersections
+
+You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` object to find the intersections of the ray and the line. You can finetune the intersection sensitivity by altering the value of the public property `intersectionTreshold`.
+
 ## Example playgrounds
 
 <Playground id="#H1LRZ3#18" title="Basic usage" description="Basic scenarios with GreasedLine." />
-<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh  ." />
-<Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
-<Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
-<Playground id="#H1LRZ3#37" title="GreasedLine instance" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
+<Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
+<Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 <Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
+<Playground id="#H1LRZ3#50" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
 <Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
-<Playground id="#H1LRZ3#32" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
+<Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#31" title="Arrows" description="You can easily create arrows with GreasedLine." />
-<Playground id="#H1LRZ3#22" title="PBR albedoTexture" description="Example of using GreasedLine with PBR material." />
-<Playground id="#H1LRZ3#7" title="PBR reflection" description="Example of using GreasedLine with PBR material." />
-<Playground id="#H1LRZ3#9" title="PBR sphere" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
+<Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
