@@ -28,7 +28,8 @@ const line = BABYLON.CreateGreasedLine("name", { points })
 
 ### GreasedLineMeshBuilderOptions
 
-You will find explanation of these options below this code snippet.
+You will find explanation of these options below this code snippet. 
+
 
 ```javascript
 points: GreasedLinePoints;
@@ -119,6 +120,8 @@ const line = BABYLON.CreateGreasedLine("line", { points, widths })
 You can use the function `CompleteGreasedLineWidthTable` manually and set the `widthDistribution` to `WIDTH_DISTRIBUTION_NONE`. If you prepared the width table with the correct number of entries, set `widthDistribution` to `WIDTH_DISTRIBUTION_NONE` as well.
 
 Please have a look at the API docs for more explanation about the width distribution modes.
+
+*You might wonder when you proceed reading to the `materialOptions` and you'll find the `width` option specified there and `widths` here. It's because the `options` objects contains all the mesh related options and `width` is used when creating the material, so it's material related.*
 
 #### **instance**
 
