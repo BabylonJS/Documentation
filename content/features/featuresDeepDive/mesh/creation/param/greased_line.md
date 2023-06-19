@@ -129,7 +129,7 @@ You can add lines to an existing line whenever you want. All you need to is to s
 
 #### **updatable**
 
-If you want to update your line after it was created set this option to `true`. This applies to `setOffsets`, `setSegmentWidths` and `setColorPointers`.
+If you want to update your line mesh after it was created set this option to `true`. This applies to `setOffsets`, `setSegmentWidths` and `setColorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance.
 
 #### **uvs**
 
@@ -558,8 +558,11 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+<Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
+<Playground id="#H1LRZ3#58" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
 <Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#56" title="Visibility" description="Control how much of your line is visible." />
 <Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 <Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
 <Playground id="#H1LRZ3#50" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
