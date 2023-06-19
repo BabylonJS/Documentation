@@ -164,7 +164,7 @@ var createScene = async function () {
 };
 ```
 
-<Playground id="#F41V6N" title="Sphere In WebXR Using Babylon.js" description="Simple example of a sphere in WebXR using Babylon.js" isMain={true} category="VR/AR"/>
+<Playground id="#F41V6N" title="Sphere In WebXR Using Babylon.js" description="Simple example of a sphere in WebXR using Babylon.js" isMain={true} category="WebXR"/>
 
 And that's it!
 

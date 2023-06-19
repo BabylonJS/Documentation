@@ -300,7 +300,7 @@ postProcess.onApply = function (effect) {
 };
 ```
 
-You can find another example here: <Playground id="#DAC1WM" title="Custom Post Process Example" description="Simple example of a custom post process."/>
+You can find another example here: <Playground id="#DAC1WM" title="Custom Post Process Example" description="Simple example of a custom post process." isMain={true} category="Post-processing"/>
 
 To use the output of a previous post process setTextureFromPostProcess can be used.
 Note: This will set sceneSampler to the output of the post process before postProcess0 NOT the output of postProcess0.

@@ -13,7 +13,7 @@ video-content:
 BABYLON.SSAORenderingPipeline is a rendering pipeline (chained post-processes) that will compute the ambient occlusion of a given scene from the screen space.
 You can find an example in our playground:
 
-<Playground id="#N96NXC#106" title="SSAO Rendering Pipeline Example" description="Simple example of using the SSAO rendering pipeline."/>
+<Playground id="#N96NXC#106" title="SSAO Rendering Pipeline Example" description="Simple example of using the SSAO rendering pipeline." isMain={true} category="Post-processing"/>
 
 The post-processes chain is defined by:
 

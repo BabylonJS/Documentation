@@ -105,4 +105,4 @@ When simulating a long chain of constrained bodies, not all of the constraints m
 
 ## Examples
 
-<Playground id="#7DMWP8" title="Constraints" description="Shows all the different constraints available"/>
+<Playground id="#7DMWP8" title="Constraints" description="Shows all the different constraints available" isMain={true} category="Physics"/>

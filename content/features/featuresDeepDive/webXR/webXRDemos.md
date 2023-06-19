@@ -33,7 +33,7 @@ const xrHelper = await scene.createDefaultXRExperienceAsync({
 });
 ```
 
-<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled." isMain={true} category="VR/AR"/>
+<Playground id="#9K3MRA#1" title="Basic Scene With Teleportation" description="Simple example of a basic scene with teleportation enabled." isMain={true} category="WebXR"/>
 
 ### Adding a color picker to the basic scene
 
@@ -66,12 +66,12 @@ picker.onValueChangedObservable.add(function(value) {
 panel.addControl(picker);
 ```
 
-<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="VR/AR"/>
+<Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="WebXR"/>
 
 ## Other demos
  
-<Playground id="#PPM311#148" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="VR/AR"/>
-<Playground id="#B922X8#19" title="Physics Playground" description="Physics Playground" isMain={true} category="VR/AR"/>
+<Playground id="#PPM311#148" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="WebXR"/>
+<Playground id="#B922X8#19" title="Legacy Physics Playground" description="Physics Playground" isMain={true} category="WebXR"/>
 
 <Playground id="#F41V6N#139" title="A cylinder object is child of a controller" description="A cylinder object is child of a controller"/>  
 

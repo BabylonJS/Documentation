@@ -94,7 +94,7 @@ finalPass.onApply = (effect) => {
 };
 ```
 
-Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture."/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
+Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture." isMain={true} category="Post-processing"/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
 
 ## Performance and tips
 
