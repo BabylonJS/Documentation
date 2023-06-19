@@ -559,7 +559,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
 <Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
-<Playground id="#H1LRZ3#58" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
+<Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
 <Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
 <Playground id="#H1LRZ3#56" title="Visibility" description="Control how much of your line is visible." />
