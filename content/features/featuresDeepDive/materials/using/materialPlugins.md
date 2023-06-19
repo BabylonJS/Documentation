@@ -201,6 +201,7 @@ A material plugin extends the `MaterialPluginBase` class and we have only implem
 |`getAttributes`|You should return all the attributes your are using in your plugin (if any)|
 |`getUniformBuffersNames`|You should return the names of all the uniform buffers you are using in your plugin (if any)|
 |`getUniforms`|You should return all the uniforms you are using in your plugin (if any). Look at the playgrounds on this page for examples of how to do this|
+|`serialize` and `parse`|You should implement these methods if you want your plugin to be properly serialized and parsed|
 
 Additional comments:
 * if you want to use a texture in your plugin, you have to implement `getSamplers` and add its definition in the **CUSTOM_FRAGMENT_DEFINITIONS** block of code (**CUSTOM_VERTEX_DEFINITIONS** if you want to use the texture in the vertex shader):
@@ -272,5 +273,6 @@ Here are some other examples of plugins:
 <Playground id="#SYQW69#1077" title="Volumetric fog" description="Power plant with volumetric fog"/>
 <Playground id="#IQPBS4#62" title="Grain" description="Grain (solves banding issues)"/>
 <Playground id="#8WJTJG#11" title="Fog of War" description="Simple Fog of War effect"/>
+<Playground id="#P8B91Z#102" title="Serialize and parse" description="Implements the methods to serialize and parse the plugin"/>
 
 You can also take a look at Babylon's source code. The PBR material includes several complex plugins, such as the [Anisotropic plugin](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrAnisotropicConfiguration.ts), [sheen](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSheenConfiguration.ts) and [subsurface](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/PBR/pbrSubSurfaceConfiguration.ts), and the [detail map plugin applies to PBR and Standard materials](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Materials/material.detailMapConfiguration.ts).
