@@ -262,11 +262,11 @@ Length of the dash. 0 to 1. 0.5 means half empty, half drawn.
 
 #### **dashOffset**
 
-Offset of the dashes along the line. 0 to 1.
+Offset of the dashes along the line. 0 to 1. Normalized value.
 
 #### **visibility**
 
-Sets the line length visibility.
+Sets the line length visibility. Normalized value.
 0 - 0% of the line will be visible.
 1 - 100% of the line will be visible.
 
@@ -542,6 +542,10 @@ const points2 = BABYLON.GreasedLineTools.SegmentizeLineBySegmentCount(pointsOrig
 
 The line will be divided into 4 pieces because the line length is 1 and we asked for 0.25 long segments when using the first function or you can provide the number segments using the second function. Check the playgrounds for real life examples.
 
+#### Finding the last visible position on the line when using the visibility option
+
+The visibility option allows you to render only part of the line. You can use this option to reveal your line by incrementing it's value. Remember, the value of this option must be normalized so it must be between 0 and 1. For example you may want to display a marker where the line ends. You can use the `BABYLON.GreasedLineTools.GetPositionOnLineByVisibility(lineSegments: { point1: Vector3; point2: Vector3; length: number }[], lineLength: number, visbility: number, localSpace = false)` function for this. Examine the example Playground how to deal with this function.
+
 #### Other functions
 
 There are other useful functions like getting points for drawing a circle/oval, an arc, drawing arrows, getting line length, etc. Check the source code, the API and/or the playgrounds.
@@ -570,6 +574,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#31" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#31" title="Curves" description="Example of drawing a colorful curve." />
+<Playground id="#H1LRZ3#86" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
