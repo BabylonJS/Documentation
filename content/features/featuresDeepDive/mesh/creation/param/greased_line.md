@@ -565,16 +565,17 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
-<Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#23" title="Dashing" description="How to create dashed lines." />
 <Playground id="#H1LRZ3#56" title="Visibility" description="Control how much of your line is visible." />
 <Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 <Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
 <Playground id="#H1LRZ3#50" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
 <Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
-<Playground id="#H1LRZ3#31" title="Arrows" description="You can easily create arrows with GreasedLine." />
-<Playground id="#H1LRZ3#31" title="Curves" description="Example of drawing a colorful curve." />
+<Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
+<Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
 <Playground id="#H1LRZ3#86" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
+<Playground id="#H1LRZ3#96" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
