@@ -569,6 +569,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#31" title="Arrows" description="You can easily create arrows with GreasedLine." />
+<Playground id="#H1LRZ3#31" title="Curves" description="Example of drawing a colorful curve." />
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
