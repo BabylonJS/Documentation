@@ -557,6 +557,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#18" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
+<Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
 <Playground id="#H1LRZ3#24" title="Dashing" description="How to create dashed lines." />
 <Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
