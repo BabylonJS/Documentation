@@ -85,16 +85,16 @@ You can draw more lines at once by using the `instance` option. See the **Instan
 
 You need to specify at least two points to draw a line, obviously.
 
-**Do not use sharp angle connected long lines because they can be distorted by perspective. Use smaller line segments. There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info. Another option is to create two lines and add them to one instance or you can add them as to separate lines like:
+*Do not use sharp angle connected long lines because they can be distorted by perspective. Use smaller line segments.* There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info. Another option is to create two lines and add them to one instance or you can add them as to separate lines like (this approach can cause little quirks where the lines 'connects' to each other when using dash mode - depending on your line width):
 
 ```javascript
-const points = [
-        -10, 0, 0
+const points = [[
+        -10, 0, 0,
         0, 10, 0
     ], [
         0, 10, 0,
         10, 0, 0
-    ]
+    ]]
 ```
 
 #### **widths** and **widthDistribution**
