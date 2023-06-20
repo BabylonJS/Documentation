@@ -98,7 +98,7 @@ var createScene = function () {
 };
 ```
 
-<Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
+<Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape" isMain={true} category="Physics"/>
 
 ## Debugging your scene
 

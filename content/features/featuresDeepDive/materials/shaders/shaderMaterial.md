@@ -53,7 +53,7 @@ const myShaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_N
 - If your shader code contains #define values, you can specify the ones you want to activate in the `defines` array.
 - Uniforms assigned to textures in the shader code must be present in the samplers array, all other uniforms must be present in the uniforms array.
 
-<Playground id="#5T8G3I" title="Simplest Shader Material" description="Most basic example of ShaderMaterial" />
+<Playground id="#5T8G3I" title="Simplest Shader Material" description="Most basic example of ShaderMaterial" isMain={true} category="Materials" />
 
 <Playground id="#2TGH43" title="Accessing a shader code file from Github" description="Showing how to refer to shader files stored in a Github repository" />
 
@@ -80,7 +80,7 @@ myShaderMaterial.setVector3("direction", BABYLON.Vector3.Zero());
 
 where the set method's name is dependant on type.
 
-<Playground id="#5T8G3I#13" title="Passing a Color3 uniform to a shader" description="Demonstrating how to pass a Color3 uniform to a shader" />
+<Playground id="#5T8G3I#16" title="Passing and updating a Color3 uniform to a shader" description="Demonstrating how to pass a Color3 uniform to a shader" isMain={true} category="Materials" />
 
 ## Troubleshoot
 

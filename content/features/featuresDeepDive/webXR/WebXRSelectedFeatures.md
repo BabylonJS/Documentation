@@ -656,7 +656,7 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
 
 Notice that you can't define the mass. that is because the tracked joints will always have mass `0` to prevent them from constantly "falling down" towards the center of gravity.
 
-<Playground id="#X7Y4H8#73" title="Hand tracking with physics" description="A simple example of a hands-enabled physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
+<Playground id="#X7Y4H8#73" title="Hand tracking with legacy physics" description="A simple example of a hands-enabled legacy physics playground" image="/img/how_to/xr/handTrackingSpheres.jpg"/>
 
 ## Movement Module
 

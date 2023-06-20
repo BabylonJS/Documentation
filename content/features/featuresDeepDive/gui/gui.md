@@ -173,7 +173,7 @@ To set value as percentage, use this construct: `control.left = "50%"`
 
 You can also not define the unit (In this case the default unit will be used): `control.width = 0.5` (which is equivalent to `control.width = "50%"`)
 
-Here is an example of how to use positions and sizes: <Playground id="#XCPP9Y#14" title="Positions and Sizes Example" description="Simple example demonstrating gui positions and sizes." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI8.jpg" isMain={true} category="GUI"/>
+Here is an example of how to use and update positions and sizes: <Playground id="#KKA6L4" title="Positions and Sizes Example" description="Simple example demonstrating how to set and update GUI positions and sizes." isMain={true} category="GUI"/>
 
 ### Tracking positions
 
