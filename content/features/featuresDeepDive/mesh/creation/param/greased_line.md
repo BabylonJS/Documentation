@@ -49,6 +49,8 @@ Points of the line specified as x, y, z coordinates. *All the points connected a
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
 
+Please not that `points` are not updatable unlike when using a `LineMesh`. You have to use `line.setOffsets(number[])` to update the position of points. See below the Offsets section and the PG example Offsetting line vertices.
+
 ```javascript
 const points = 
 [
@@ -568,7 +570,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 
 ## Example playgrounds
 
-<Playground id="#H1LRZ3#18" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
