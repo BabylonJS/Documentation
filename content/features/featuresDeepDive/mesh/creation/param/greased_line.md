@@ -49,7 +49,7 @@ Points of the line specified as x, y, z coordinates. *All the points connected a
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
 
-Please not that `points` are not updatable unlike when using a `LineMesh`. You have to `line.setOffsets(number[])` to update the position of points. See below the Offsets section and the PG example Offsetting line vertices.
+Please not that `points` are not updatable unlike when using a `LineMesh`. You have to use `line.setOffsets(number[])` to update the position of points. See below the Offsets section and the PG example Offsetting line vertices.
 
 ```javascript
 const points = 
