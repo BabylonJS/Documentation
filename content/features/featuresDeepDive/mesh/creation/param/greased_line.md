@@ -1,7 +1,7 @@
 ---
 title: Creating A GreasedLine
 image:
-description: Learn how to create GreaasedLines in Babylon.js.
+description: Learn how to create GreasedLines in Babylon.js.
 keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
 further-reading:
 video-overview:
