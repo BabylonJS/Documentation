@@ -1,0 +1,591 @@
+---
+title: Creating A GreasedLine
+image:
+description: Learn how to create GreaasedLines in Babylon.js.
+keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
+further-reading:
+video-overview:
+video-content:
+---
+
+## GreasedLine
+
+`GreasedLine` is a special type of line which uses a regular mesh with triangles to display a line of any width. It incorporates custom shaders designed to ensure that the mesh always faces the camera resulting in consistent thickness from all perspectives. The shaders are provided using plugin material. You can use `StandardMaterial` or `PBRMaterial` with `GreasedLine` so you can use any property of the material to stylize your line. `GreasedLine` also features dashing, multicolored lines with sampling option, color blending options, variable width of both side of the line (upper, lower part), visibility (what percentage of the line is visible), points coordinates offsets, instance mode (you can add more lines to an instance and they will be drawn in one draw call), lazy mode. The values for these features are animatable. You can translate, rotate and scale the line as well because it's a mesh.
+
+## Create a GreasedLine
+
+The easiest, prefered and recommended way to create a `GreasedLine` is to use the `CreateGreasedLine` function:
+
+```javascript
+function CreateGreasedLine(name: string, options: GreasedLineMeshBuilderOptions, materialOptions?: Nullable<GreasedLineMaterialBuilderOptions>, scene?: Nullable<Scene>)
+```
+
+The simplest usage is:
+
+```javascript
+const line = BABYLON.CreateGreasedLine("name", { points })
+```
+
+### GreasedLineMeshBuilderOptions
+
+You will find explanation of these options below this code snippet. 
+
+
+```javascript
+points: GreasedLinePoints;
+widths?: number[];
+widthDistribution?: GreasedLineMeshWidthDistribution;
+instance?: GreasedLineMesh;
+updatable?: boolean;
+uvs?: number[];
+lazy?: boolean;
+```
+
+#### **points**
+
+Points of the line specified as x, y, z coordinates. *All the points connected are called a line. The part of the line between two points is called a line segment in this documentation.*
+
+`points` can be type of `number[]`, `number[][]`, `Vector3[]`, `Vector3[][]`, `Float32Array` or `Float32Array[]`. 
+
+If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
+
+```javascript
+const points = 
+[
+    0, 0, 0, 
+    1, 0, 0, 
+    1, 1, 0
+] 
+// x, y, z, 
+// x, y, z, ...
+
+// is the same as
+const points = 
+[
+    new BABYLON.Vector3(0,0,0)
+    new BABYLON.Vector3(1,0,0)
+    new BABYLON.Vector3(1,1,0)
+]
+```
+
+*It's a good habit to format your `number` coordinates for better readibility.*
+
+We recommend you to use the `number` or `Float32Array` objects if possible to avoid unnecessary creation of temporary `Vector3` objects holding the points, mainly if you are creating the coordinates dynamically on the fly. The coordinates are converted to `number[][]` internally so `number[]` or `number[][]` are the fastest options.
+
+To draw two or more at once lines you can define the points as:
+
+```javascript
+const points = [
+    [ 0, 0, 0, 1, 0, 0],
+    [ 0, 1, 0, 1, 1, 0]
+]
+```
+
+You can draw more lines at once by using the `instance` option. See the **Instance mode** example below.
+
+You need to specify at least two points to draw a line, obviously.
+
+*Do not use sharp angle connected long lines because they can be distorted by perspective. Use smaller line segments.* There are helper functions available in `BABYLON.GreasedLineTools` for that. See the GreasedLineTools section for more info. Another option is to create two lines and add them to one instance or you can add them as to separate lines like (this approach can cause little quirks where the lines 'connects' to each other when using dash mode - depending on your line width):
+
+```javascript
+const points = [[
+        -10, 0, 0,
+        0, 10, 0
+    ], [
+        0, 10, 0,
+        10, 0, 0
+    ]]
+```
+
+#### **widths** and **widthDistribution**
+
+You can specify two width values for each point in your line. The first value specifies the width of the line below the line and the second above the line. These values are not normalized so if you use a value of 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
+
+The `CreateGreasedLine` function uses the function `CompleteGreasedLineWidthTable` to fill the missing values, if any. You can use the `widthDistribution` option to set the method used to automatically fill the `widths` table.
+
+You can choose from these values:
+
+```javascript
+enum GreasedLineMeshWidthDistribution {
+    WIDTH_DISTRIBUTION_NONE = 0,
+    WIDTH_DISTRIBUTION_REPEAT = 1,
+    WIDTH_DISTRIBUTION_EVEN = 2,
+    WIDTH_DISTRIBUTION_START = 3,
+    WIDTH_DISTRIBUTION_END = 4,
+    WIDTH_DISTRIBUTION_START_END = 5,
+}
+```
+
+The default for this option is `WIDTH_DISTRIBUTION_START`.
+
+Let's see an example:
+
+```javascript
+const points = [0, 0, 0, 1, 0, 0]
+const widths = [2, 2]
+const line = BABYLON.CreateGreasedLine("line", { points, widths })
+// the width table will be filled as [2, 2, 1, 1]
+```
+
+You can use the function `CompleteGreasedLineWidthTable` manually and set the `widthDistribution` to `WIDTH_DISTRIBUTION_NONE`. If you prepared the width table with the correct number of entries, set `widthDistribution` to `WIDTH_DISTRIBUTION_NONE` as well.
+
+Please have a look at the API docs for more explanation about the width distribution modes.
+
+*You might wonder when you proceed reading to the `materialOptions` and you'll find the `width` option specified there and `widths` here. It's because the `options` objects contains all the mesh related options and `width` is used when creating the material, so it's material related.*
+
+#### **instance**
+
+You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. *Lines added to an instance are joined with existing mesh*. See the examples for code.
+
+#### **updatable**
+
+If you want to update your line mesh after it was created set this option to `true`. This applies to `setOffsets`, `setSegmentWidths` and `setColorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance.
+
+#### **uvs**
+
+You can set your custom UVs when creating the line.
+
+#### **lazy**
+
+You can disable recalculating line data and updating the buffers when adding a new line to a line instance by setting this option to true. This option is always used with the `instance` option specified. If you're done with adding new lines you just need to call `line.updateLazy()` to recalculate the data and update the buffers. See the examples for code.
+
+### GreasedLineMaterialBuilderOptions
+
+```javascript
+createAndAssignMaterial?: boolean;
+width?: number;
+sizeAttenuation?: boolean;
+materialType?: GreasedLineMeshMaterialType;
+color?: Color3;
+colorMode?: GreasedLineMeshColorMode;
+colors?: Color3[];
+colorDistribution?: GreasedLineMeshColorDistribution;
+colorDistributioType?: GreasedLineMeshColorDistributionType;
+useColors?: boolean;
+colorsSampling?: number;
+useDash?: boolean;
+dashCount?: number;
+dashOffset?: number;
+dashRatio?: number;
+visibility?: number;
+resolution?: Vector2;
+```
+
+#### **createAndAssignMaterial**
+
+If set to true a new material will be created and a new material plugin will be attached to the material. The material will be set on the mesh. If the `instance` option is specified in the mesh options, no material will be created/assigned. If you omit `GreasedLineMaterialBuilderOptions` when calling `CreateGreasedLine` it behaves as if this option was set to true so it creates the material and the plugin. **The default value is true. You can share the material between multiple lines so if you don't need a new material, set this to `false` to save resources and gain performance.**
+
+#### **width**
+
+Line width in scene units unless `sizeAttenuation` is true.
+
+#### **sizeAttenuation**
+
+If true then line will width be reduced.
+
+#### **materialType**
+
+Type of the material to use to render the line. Default is `StandardMaterial`. Currently you can choose from:
+
+```javascript
+enum GreasedLineMeshMaterialType {
+    MATERIAL_TYPE_STANDARD = 0,
+    MATERIAL_TYPE_PBR = 1,
+}
+```
+
+#### **color**
+
+Color of the line. Applies to all line segments. Defaults to White.
+
+#### **colorMode**
+
+Color mode of the line. Applies to all line segments. The pixel color from the material shader will be modified with the value of `color` using the colorMode. The default mode is `GreasedLineMeshColorMode.SET`. It means it will set the color regardless the color from the material shader. To be more precise it will set the color to the exact value and doesn't care about the color information from the material (texures, lighting, ...)
+
+You can choose from and the names are selfexplanatory:
+
+```javascript
+enum GreasedLineMeshColorMode {
+    COLOR_MODE_SET = 0,
+    COLOR_MODE_ADD = 1,
+    COLOR_MODE_MULTIPLY = 2,
+}
+```
+
+#### **colors** and **colorDistribution**
+
+An array of colors of the line segments. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
+
+The `CreateGreasedLine` function uses the function `CompleteGreasedLineColorTable` to fill the missing values, if any. You can use the `colorDistribution` option to set the method used to automatically fill the `colors` table.
+
+You can choose from these values:
+
+```javascript
+enum GreasedLineMeshColorDistribution {
+    COLOR_DISTRIBUTION_NONE = 0,
+    COLOR_DISTRIBUTION_REPEAT = 1,
+    COLOR_DISTRIBUTION_EVEN = 2,
+    COLOR_DISTRIBUTION_START = 3,
+    COLOR_DISTRIBUTION_END = 4,
+    COLOR_DISTRIBUTION_START_END = 5,
+}
+```
+
+The default for this option is `COLOR_MODE_START`.
+
+Let'see an example (you will end up with a half red half white line)
+
+```javascript
+const points = [0, 0, 0, 1, 0, 0, 2, 0, 0]
+const colors = [BABYLON.Color3.Red()]
+const line = BABYLON.CreateGreasedLine("line", { points }, { colors })
+// the color table will be filled as [red, white] - white is the default
+```
+
+*The colors are used only when the option `useColors` is set to `true` and you doesn't set the `color` option.*
+
+The color blending of the colors depends on `colorMode` option.
+
+#### **colorDistributionType**
+
+The method used to distribute the colors along the line. You can use segment distribution when each segment will use on color from the color table. Or you can use line distribution when the colors are distributed evenly along the line ignoring the segments.
+
+#### **colorsSampling**
+
+Sampling type of the colors texture. Defaults to NEAREST_NEAREST. The line segment will be distinctly colored. If you use for example LINEAR_LINEAR you'll get a smooth color gradient.
+
+#### **useColors**
+
+If true, `colors` are used, otherwise they're ignored.
+
+#### **useDash**
+
+If true, dashing is used.
+
+#### **dashCount**
+
+Number of dashes in the line. If you add more lines, all of them will use this dash count and they are not treated as one line.
+
+#### **dashRatio**
+
+Length of the dash. 0 to 1. 0.5 means half empty, half drawn.
+
+#### **dashOffset**
+
+Offset of the dashes along the line. 0 to 1. Normalized value.
+
+#### **visibility**
+
+Sets the line length visibility. Normalized value.
+0 - 0% of the line will be visible.
+1 - 100% of the line will be visible.
+
+#### **resolution**
+
+Rendering resolution. There may be special occasions when you want to change the resolution. In most cases do not set this value.
+
+## GreasedLine materials
+
+`GreasedLine` uses `StandardMaterial` or `PBRMaterial` as the base material for rendering. It also uses a `GreasedLinePluginMaterial` which plugs into the base material and provides the additional features of `GreasedLine`.
+
+If you want to alter the properties of the material you need to use `line.material` but if you want to change the `GreasedLine` specific material properties you need to do it on the `line.greasedMaterial` object.
+
+**Materials can be shared between line instances.** If you create a line a the other should have the same material options then create the other line(s) by setting it's material option `createAndAssign` material to `false` and simply set the material:
+
+```javascript
+const points1 = [-1, 0, 0, 1, 0, 0]
+const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }) 
+
+const points2 = [-1, 1, 0, 1, 1, 0]
+const line2 = BABYLON.CreateGreasedLine("line2", { points: points2 }, { createAndAssignMaterial: false })
+
+line2.material = line1.material
+```
+
+## Examples
+
+The best way to show the possibilities of `GreasedLine` is to go trough the following examples.
+
+### Basic code snippets with StandardMaterial
+
+#### Line with no material settings, default width, default color
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points })
+```
+
+#### Lines with no material settings, default width, default color
+
+```javascript
+const points = [[-1, 0, 0, 1, 0, 0], [-1, 1, 0, 1, 1, 0]]
+const lines = BABYLON.CreateGreasedLine("lines", { points })
+```
+
+#### Line with a color specified
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points }, { color: BABYLON.Color3.Red() })
+```
+
+#### Line with a width specified
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points }, { width: 0.5 })
+```
+
+#### Line with multiple colors
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const colors = [BABYLON.Color3.Red(), BABYLON.Color3.Yellow()]
+const line = BABYLON.CreateGreasedLine("line", { points }, { useColors: true, colors })
+```
+
+#### Line with multiple widths
+
+```javascript
+const points = [-1, 0, 0, -0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 1, 0, 0]
+const widths = [1, 1, 2, 2, 3, 3, 2, 2]
+const line = BABYLON.CreateGreaseLine("line", { points }, [ widths ])
+```
+
+#### Instance mode
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points })
+
+const points2 = [-1, 1, 0, 1, 1, 0]
+BABYLON.CreateGreasedLine("line", { instance: line, points: points2 })
+```
+
+#### Lazy mode
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { lazy: true, points })
+
+const points2 = [-1, 1, 0, 1, 1, 0]
+BABYLON.CreateGreasedLine("line", { instance: line, lazy: true, points: points2 })
+
+const points3 = [-1, -1, 0, 1, -1, 0]
+BABYLON.CreateGreasedLine("line", { instance: line, lazy: true, points: points3 })
+
+line.updateLazy()
+```
+
+#### Dashed line
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points }, { useDash: true, dashCount: 4, dashRatio: 0.5})
+```
+
+#### Line visibility
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points }, { visibility: 0.5 })
+```
+
+#### Offsets
+
+You can offset the vertices of the line. **Keep in mind that there are 2 vertices per point and the line must be updatable**. If your line disappears after calling this function it means you've provided not enough offsets. There is a function `BABYLON.GreasedLineTools.GetPointsCountInfo(points: number[][]): { total: number; counts: number[] }` which will tell you the exact counts. Just pass you line `points` option to this function.
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points, updatable: true })
+
+const offsets = [
+    -0.3, -0.3, 0,
+    0, 0, 0,
+    0, 0, 0,
+    0, 0, 0
+]
+line.setOffsets(offsets)
+```
+
+#### Line transformations
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", { points })
+
+line.position.x = 2
+line.rotation.z = Math.PI / 2
+line.scaling = new BABYLON.Vector3(2, 2, 2)
+```
+
+#### Drawing arcs
+
+```javascript
+const f = new BABYLON.Vector3(-0.5 + Math.random(), -0.5 + Math.random(), -0.5 + Math.random()).scale(20);
+const s = new BABYLON.Vector3(-0.5 + Math.random(), -0.5 + Math.random(), -0.5 + Math.random()).scale(20);
+const t = new BABYLON.Vector3(-0.5 + Math.random(), -0.5 + Math.random(), -0.5 + Math.random()).scale(20);
+
+const arc = BABYLON.Curve3.ArcThru3Points(f, s, t);
+const arcLine = BABYLON.CreateGreasedLine("arc", { points: arc.getPoints() })
+```
+
+#### Line with texture
+
+```javascript
+const points1 = [-6, 0, 0, 6, 0, 0]
+const line1 = BABYLON.CreateGreasedLine(
+    "line1", 
+    { points: points1 }, 
+    { width: 1, colorMode: BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY }
+)
+
+const texture = new BABYLON.Texture("/textures/amiga.jpg", scene)
+texture.uScale = 10
+
+line1.material.emissiveTexture = texture
+```
+
+The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `undefined` if you don't want to do color blending at all.  **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+
+```javascript
+const points1 = [-6, 0, 0, 6, 0, 0]
+const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
+line1.greasedLineMaterial.setColor(undefined)
+
+const texture = new BABYLON.Texture("/textures/amiga.jpg", scene)
+texture.uScale = 10
+
+line1.material.emissiveTexture = texture
+```
+
+#### Setting line color using it's material
+
+You have to set a `colorMode` option or set the `color` to `undefined`. **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+
+```javascript
+const points1 = [-6, 0, 0, 6, 0, 0]
+const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
+line1.greasedLineMaterial.setColor(undefined)
+line1.material.emissiveColor = BABYLON.Color3.Red()
+```
+
+#### Glowing line
+
+You have to set a `colorMode` option or set the `color` to `undefined`. **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+
+```javascript
+const points1 = [-6, 0, 0, 6, 0, 0]
+const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
+line1.greasedLineMaterial.setColor(undefined)
+line1.material.emissiveColor = BABYLON.Color3.Red()
+
+const gl = new BABYLON.GlowLayer("glow", scene, {
+    blurKernelSize: 32,
+})
+gl.intensity = 1.8;
+gl.referenceMeshToUseItsOwnMaterial(line1)
+```
+
+#### Line using PBRMaterial
+
+All you have to do is set the `materialType` to `BABYLON.GreasedLineMeshMaterialType.MATERIAL_TYPE_PBR` and set the `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY`. Do not set the `color` to `undefined` as it was the case with `StandardMaterial` unless you set the base color of the line another way, for example by setting a texture on `PBRMaterial`.
+
+```javascript
+const points = [-1, 0, 0, 1, 0, 0]
+const line = BABYLON.CreateGreasedLine("line", 
+    { points }, 
+    { 
+        materialType: BABYLON.GreasedLineMeshMaterialType.MATERIAL_TYPE_PBR,
+        colorMode: BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY, 
+    }
+)
+
+const pbrMaterial = line.material
+// set your PBR material properties here
+```
+
+### GreasedLineTools
+
+The `GreasedLineTools` contains useful helper functions which will help you to easily handle common tasks when using `GreasedLine`. Refer to the API for details.
+
+#### Meshes to lines
+
+You can easily draw a wireframe of a mesh like this:
+
+```javascript
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 32, diameter: 2 }, scene);
+const sphereLines = BABYLON.CreateGreasedLine(
+    "sphereLines", 
+    { points: BABYLON.GreasedLineTools.MeshesToLines([sphere]) }
+)
+```
+
+#### Convert number[] to Vector3[] and vice versa
+
+You will often face situations when you need to convert your point coordinates mainly when using `GreasedLineTools` functions. There are two helper functions for that:
+
+```javascript
+BABYLON.GreasedLineTools.ToVector3Array(points: number[])
+BABYLON.GreasedLineTools.ToNumberArray(array: Vector3[])
+```
+
+#### Getting the count of points in your line instance
+
+You will face certain tasks such creating color textures, offset buffers, etc. and you will need to know how many points is the line instance created from. Mainly if you use the functions below which will divide and segmentize your lines you'll easily lost tracking of the exact counts. You get the total number of points and number of points in each line in the line instance.
+
+```javascript
+BABYLON.GreasedLineTools.GetPointsCountInfo(points: number[][]): { total: number; counts: number[] }
+```
+
+is here to help.
+
+#### Dividing a line to smaller segments
+
+You may want to divide your line to smaller pieces (to segments) for example for assigning different colors to the segments or setting different width on the segment or manipulating the offset of that smaller segment.
+
+```javascript
+const pointsOriginal = BABYLON.GreasedLineTools.ToVector3Array([0, 0, 0, 1, 0, 0])
+const points = BABYLON.GreasedLineTools.SegmentizeLineBySegmentLength(pointsOriginal, 0.25)
+const points2 = BABYLON.GreasedLineTools.SegmentizeLineBySegmentCount(pointsOriginal, 4)
+```
+
+The line will be divided into 4 pieces because the line length is 1 and we asked for 0.25 long segments when using the first function or you can provide the number segments using the second function. Check the playgrounds for real life examples.
+
+#### Finding the last visible position on the line when using the visibility option
+
+The visibility option allows you to render only part of the line. You can use this option to reveal your line by incrementing it's value. Remember, the value of this option must be normalized so it must be between 0 and 1. For example you may want to display a marker where the line ends. You can use the `BABYLON.GreasedLineTools.GetPositionOnLineByVisibility(lineSegments: { point1: Vector3; point2: Vector3; length: number }[], lineLength: number, visbility: number, localSpace = false)` function for this. Examine the example Playground how to deal with this function.
+
+#### Other functions
+
+There are other useful functions like getting points for drawing a circle/oval, an arc, drawing arrows, getting line length, etc. Check the source code, the API and/or the playgrounds.
+
+**As an overall rule always cache your parameters when calling functions. These functions located in `GreasedLineTools` may be CPU intensive so avoid using them in the render loop or cache as much as possible. For example convert your `number` coordinates to `Vector3` coordinates once and store the result. Get the line length only once and buffer the value. Etc...**
+
+## Picking and intersections
+
+You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` object to find the intersections of the ray and the line. You can finetune the intersection sensitivity by altering the value of the public property `intersectionTreshold`.
+
+## Example playgrounds
+
+<Playground id="#H1LRZ3#18" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
+<Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
+<Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+<Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
+<Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
+<Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
+<Playground id="#H1LRZ3#23" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#56" title="Visibility" description="Control how much of your line is visible." />
+<Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
+<Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
+<Playground id="#H1LRZ3#50" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
+<Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
+<Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
+<Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
+<Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
+<Playground id="#H1LRZ3#86" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
+<Playground id="#H1LRZ3#96" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
+<Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
