@@ -64,11 +64,11 @@ The list of the properties you can use to define a test are:
 
 ### Creating new lists
 
-The default list of visual tests is configured in the file **tests/validation/config.json** in the repo. This is the list that is used when using the default url [http://localhost:1338/tests/validation](http://localhost:1338/tests/validation).
+The default list of visual tests is configured in the file **packages/tools/tests/test/visualization/config.json** in the repo. This is the list that is used when using the default url [http://localhost:1338/tests/validation](http://localhost:1338/tests/validation).
 
-However, other lists can be created: you simply need to create .json file(s) in the **tests/validation/** directory. For eg **tests/validation/webgpu.json**, which is a list used during the webgpu implementation.
+However, other lists can be created: you simply need to create .json file(s) in the **packages/tools/tests/test/visualization/** directory. For eg **packages/tools/tests/test/visualization/webgpu.json**, which is a list used during the webgpu implementation.
 
-The reference pictures used by the validation tests of the list must be located in a directory named after the list itself. So, if you have created a list `mylist.json`, you should create a directory `mylist/` under `tests/validation/ReferenceImages/` and put the reference pictures there.
+The reference pictures used by the validation tests of the list must be located in a directory named after the list itself. So, if you have created a list `mylist.json`, you should create a directory `mylist/` under `packages/tools/tests/test/visualization/ReferenceImages/` and put the reference pictures there.
 
 ## Running tests
 
