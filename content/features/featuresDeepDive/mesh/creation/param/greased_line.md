@@ -507,11 +507,30 @@ const pbrMaterial = line.material
 // set your PBR material properties here
 ```
 
-### GreasedLineTools
+#### Text using GreasedLine
+
+You can draw text with Greased Line as well.
+
+```javascript
+    const fontData = await (await fetch("https://assets.babylonjs.com/fonts/Droid Sans_Regular.json")).json();
+
+    const points = BABYLON.GreasedLineTools.GetPointsFromText(
+        "BabylonJS",
+        16, // size
+        16, // resolution
+        fontData // typeface.js font
+    )
+
+    const textLines = BABYLON.CreateGreasedLine("textLines", { points })
+```
+
+Read more about the `GetPointsFromText` function below and check out the example PG.
+
+## GreasedLineTools
 
 The `GreasedLineTools` contains useful helper functions which will help you to easily handle common tasks when using `GreasedLine`. Refer to the API for details.
 
-#### Meshes to lines
+### Meshes to lines
 
 You can easily draw a wireframe of a mesh like this:
 
@@ -523,7 +542,7 @@ const sphereLines = BABYLON.CreateGreasedLine(
 )
 ```
 
-#### Convert number[] to Vector3[] and vice versa
+### Convert number[] to Vector3[] and vice versa
 
 You will often face situations when you need to convert your point coordinates mainly when using `GreasedLineTools` functions. There are two helper functions for that:
 
@@ -532,7 +551,7 @@ BABYLON.GreasedLineTools.ToVector3Array(points: number[])
 BABYLON.GreasedLineTools.ToNumberArray(array: Vector3[])
 ```
 
-#### Getting the count of points in your line instance
+### Getting the count of points in your line instance
 
 You will face certain tasks such creating color textures, offset buffers, etc. and you will need to know how many points is the line instance created from. Mainly if you use the functions below which will divide and segmentize your lines you'll easily lost tracking of the exact counts. You get the total number of points and number of points in each line in the line instance.
 
@@ -542,7 +561,7 @@ BABYLON.GreasedLineTools.GetPointsCountInfo(points: number[][]): { total: number
 
 is here to help.
 
-#### Dividing a line to smaller segments
+### Dividing a line to smaller segments
 
 You may want to divide your line to smaller pieces (to segments) for example for assigning different colors to the segments or setting different width on the segment or manipulating the offset of that smaller segment.
 
@@ -554,11 +573,23 @@ const points2 = BABYLON.GreasedLineTools.SegmentizeLineBySegmentCount(pointsOrig
 
 The line will be divided into 4 pieces because the line length is 1 and we asked for 0.25 long segments when using the first function or you can provide the number segments using the second function. Check the playgrounds for real life examples.
 
-#### Finding the last visible position on the line when using the visibility option
+### Finding the last visible position on the line when using the visibility option
 
 The visibility option allows you to render only part of the line. You can use this option to reveal your line by incrementing it's value. Remember, the value of this option must be normalized so it must be between 0 and 1. For example you may want to display a marker where the line ends. You can use the `BABYLON.GreasedLineTools.GetPositionOnLineByVisibility(lineSegments: { point1: Vector3; point2: Vector3; length: number }[], lineLength: number, visbility: number, localSpace = false)` function for this. Examine the example Playground how to deal with this function.
 
-#### Other functions
+### Getting points from text and a typeface.js font - the GetPointsFromText function
+
+You can draw texts using `GreasedLine`. See the example code snippet above and the PG below.
+
+```javascript
+GreasedLineTools.GetPointsFromText(text: string, size: number, resolution: number, fontData: IFontData, z = 0, includeInner = true): number[][]
+```
+
+The `size` is the height of the text in BabylonJS units. 
+Keep the `resolution` as low as possible without loosing details. Start at low values as 4 and go up to 32-64 (or you can use 1 to get cool low resolution vector font).
+`fontData` is the same object you would use with `BABYLON.MeshBuilder.CreateText`. You can generate yout typeface.js font [here](https://gero3.github.io/facetype.js/).
+
+### Other functions
 
 There are other useful functions like getting points for drawing a circle/oval, an arc, drawing arrows, getting line length, etc. Check the source code, the API and/or the playgrounds.
 
@@ -586,8 +617,10 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
+<Playground id="#H1LRZ3#113" title="Drawing text" description="You can also draw text with GreasedLine." />
 <Playground id="#H1LRZ3#86" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#96" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
+<Playground id="#H1LRZ3#115" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
