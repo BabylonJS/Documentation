@@ -587,7 +587,7 @@ GreasedLineTools.GetPointsFromText(text: string, size: number, resolution: numbe
 
 The `size` is the height of the text in BabylonJS units. 
 Keep the `resolution` as low as possible without loosing details. Start at low values as 2-4 and go up to 32-64 (or you can use 1 to get cool low resolution vector font).
-`fontData` is the same object you would use with `BABYLON.MeshBuilder.CreateText`. You can generate yout typeface.js font [here](https://gero3.github.io/facetype.js/){:target="_blank"}.
+`fontData` is the same object you would use with `BABYLON.MeshBuilder.CreateText`. You can generate yout typeface.js font [here](https://gero3.github.io/facetype.js/).
 
 ### Other functions
 
