@@ -579,15 +579,7 @@ The visibility option allows you to render only part of the line. You can use th
 
 ### Getting points from text and a typeface.js font - the GetPointsFromText function
 
-You can draw texts using `GreasedLine`. See the example code snippet above and the PG below.
-
-```javascript
-GreasedLineTools.GetPointsFromText(text: string, size: number, resolution: number, fontData: IFontData, z = 0, includeInner = true): number[][]
-```
-
-The `size` is the height of the text in BabylonJS units. 
-Keep the `resolution` as low as possible without loosing details. Start at low values as 2-4 and go up to 32-64 (or you can use 1 to get cool low resolution vector font).
-`fontData` is the same object you would use with `BABYLON.MeshBuilder.CreateText`. You can generate yout typeface.js font [here](https://gero3.github.io/facetype.js/){:target="_blank"}.
+You can draw texts using `GreasedLine`. See the example code snippet above
 
 ### Other functions
 
