@@ -17,7 +17,7 @@ An example of colliding complex shapes is given below. It has been constructed u
 
 ![Complex Shape](/img/samples/collide1.jpg)
 
-PG: <Playground id="#WLYB9" title="Complex Shapes Colliding" description="An example of complex shapes in collision."/>
+PG: <Playground id="#WLYB9#5" title="Complex Shapes Colliding" description="An example of complex shapes in collision."/>
 
 To begin with the frame rate will be taken as constant throughout the animation and speed for any shape will be in units per frame.
   
