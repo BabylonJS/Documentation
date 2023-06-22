@@ -635,6 +635,8 @@ Here is an example of a MultiLine combining meshes, a control and a point: <Play
 ## Image
 
 Use the image control to display an image in your UI.
+
+### Stretch Modes and Scaling
 You can control the stretch used by the image with `image.stretch` property. You can set it to one of these values:
 
 - BABYLON.GUI.Image.STRETCH_NONE: Use original size
@@ -644,6 +646,8 @@ You can control the stretch used by the image with `image.stretch` property. You
 - BABYLON.GUI.Image.STRETCH_NINE_PATCH: Scale the image using a [nine patch technique](http://wiresareobsolete.com/2010/06/9-patches/). You have to either define the `sliceLeft`, `sliceRight`, `sliceTop` and `sliceBottom` properties or store data into your image (in the first and last rows and columns) and call `image.populateNinePatchSlicesFromImage = true` to read that data. Demo: <Playground id="#G5H9IN#2" title="Stretch_Nine_Patch Example" description="Simple example showing how to add an Image control with Stretch_Nine_Patch to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI32.jpg"/>
 
 You may want to have the Image control adapt its size to the source image. To do so just call `image.autoScale = true`.
+
+### Image Source
 
 You can change image source at any time with `image.source="myimage.jpg"`.
 
@@ -664,7 +668,11 @@ You can also apply stretch to animation sheet using `image.stretch` property.
 
 <Playground id="#K60448#2" title="Image With Stetched Sprite Sheet Example 2" description="Simple example showing how to add an Image with a stretched sprite sheet to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI36.jpg"/>
 
-Starting with babylon.js v4.0, you can also set `img.detectPointerOnOpaqueOnly = true` to indicate if pointers should only be validated on pixels with alpha > 0.
+### Pointer events
+
+If you want the non-visible parts of a transparent image to not trigger pointer events, you can set `img.detectPointerOnOpaqueOnly = true` to indicate that pointer events should only be fired on pixels with alpha > 0.
+
+<Playground id="#E3F1B8" title="Detect pointer on opaque only" description="Using detectPointerOnOpaqueOnly to only fire pointer events in the visible parts of a Image" />
 
 ### Batch loading of SVG images from icon sheet
 
