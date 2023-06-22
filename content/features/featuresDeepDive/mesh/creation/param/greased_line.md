@@ -633,4 +633,5 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
+<Playground id="#H1LRZ3#130" title="PBR sphere demo with a mesh to line predicate" description="Example of using GreasedLineTools mesh to lines function with PBR material and a predicate which you can use to modify the lines or omit them." />
 <Playground id="#H1LRZ3#123" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
