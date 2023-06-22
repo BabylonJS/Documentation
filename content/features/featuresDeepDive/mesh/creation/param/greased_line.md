@@ -551,6 +551,31 @@ const sphereLines = BABYLON.CreateGreasedLine(
 )
 ```
 
+You can use a `predicate` as the second parameter of this function to modify the line points returned from this function. The predicate is called once for a face (once for every 3rd indice).
+
+```javascript
+predicate?: (
+    p1: Vector3,
+    p2: Vector3,
+    p3: Vector3,
+    indiceIndex: number,
+    vertexIndex: number,
+    mesh: AbstractMesh,
+    meshIndex: number,
+    vertices: FloatArray,
+    indices: IndicesArray
+) => Vector3[]
+
+const predicate = (p1, p2, p3, ix, vx) => {
+    if (vx % 4 === 0) {
+        return [p1, p2, p3, p1]
+    } 
+    return false
+}
+
+const points = BABYLON.GreasedLineTools.MeshesToLines([sphere], predicate)
+```
+
 ### Convert number[] to Vector3[] and vice versa
 
 You will often face situations when you need to convert your point coordinates mainly when using `GreasedLineTools` functions. There are two helper functions for that:
