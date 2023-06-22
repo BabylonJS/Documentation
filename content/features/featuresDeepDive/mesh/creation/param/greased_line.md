@@ -49,8 +49,6 @@ Points of the line specified as x, y, z coordinates. *All the points connected a
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
 
-Please not that `points` are not updatable unlike when using a `LineMesh`. You have to use `line.setOffsets(number[])` to update the position of points. See below the Offsets section and the PG example Offsetting line vertices.
-
 ```javascript
 const points = 
 [
@@ -99,6 +97,13 @@ const points = [[
     ]]
 ```
 
+Please not that `points` are not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points. See below the Offsets section and the PG example Offsetting line vertices. However there are two public methods available on the line instance for manipulatind the points which can be useful when your are creating the line instance and the material instance separately (not recommended for most scenarios). Both of these functions will destroy the mesh and create a new one:
+
+```javascript
+addPoints(points: number[][]) // ads points to the existing ones and recreates the mesh
+setPoints(points: number[][]) // sets the points and recreates the mesh
+```
+
 #### **widths** and **widthDistribution**
 
 You can specify two width values for each point in your line. The first value specifies the width of the line below the line and the second above the line. These values are not normalized so if you use a value of 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
@@ -141,7 +146,7 @@ You can add lines to an existing line whenever you want. All you need to is to s
 
 #### **updatable**
 
-If you want to update your line mesh after it was created set this option to `true`. This applies to `setOffsets`, `setSegmentWidths` and `setColorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance.
+If you want to update your line mesh after it was created set this option to `true`. This applies to `offsets`, `segmentWidths` and `colorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance.
 
 #### **uvs**
 
@@ -198,7 +203,11 @@ enum GreasedLineMeshMaterialType {
 
 #### **color**
 
-Color of the line. Applies to all line segments. Defaults to White.
+Color of the line. Applies to all line segments. Defaults to White. You can change the default color to any other color.
+
+```javascript
+BABYLON.GreasedLinePluginMaterial.DEFAULT_COLOR = BABYLON.Color3.Green()
+```
 
 #### **colorMode**
 
@@ -216,7 +225,7 @@ enum GreasedLineMeshColorMode {
 
 #### **colors** and **colorDistribution**
 
-An array of colors of the line segments. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
+An array of colors of the line segments. Maximum number of colors supported for one line instance is 16 384. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
 
 The `CreateGreasedLine` function uses the function `CompleteGreasedLineColorTable` to fill the missing values, if any. You can use the `colorDistribution` option to set the method used to automatically fill the `colors` table.
 
@@ -407,7 +416,7 @@ const offsets = [
     0, 0, 0,
     0, 0, 0
 ]
-line.setOffsets(offsets)
+line.offsets = offsets
 ```
 
 #### Line transformations
@@ -453,7 +462,7 @@ The default `color` is white and the default `colorMode` is `BABYLON.GreasedLine
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.setColor(undefined)
+line1.greasedLineMaterial.color = undefined
 
 const texture = new BABYLON.Texture("/textures/amiga.jpg", scene)
 texture.uScale = 10
@@ -468,7 +477,7 @@ You have to set a `colorMode` option or set the `color` to `undefined`. **Settin
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.setColor(undefined)
+line1.greasedLineMaterial.color = undefined
 line1.material.emissiveColor = BABYLON.Color3.Red()
 ```
 
@@ -479,7 +488,7 @@ You have to set a `colorMode` option or set the `color` to `undefined`. **Settin
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.setColor(undefined)
+line1.greasedLineMaterial.color = undefined
 line1.material.emissiveColor = BABYLON.Color3.Red()
 
 const gl = new BABYLON.GlowLayer("glow", scene, {
@@ -608,19 +617,20 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
-<Playground id="#H1LRZ3#23" title="Dashing" description="How to create dashed lines." />
-<Playground id="#H1LRZ3#56" title="Visibility" description="Control how much of your line is visible." />
+<Playground id="#H1LRZ3#119" title="Dashing" description="How to create dashed lines." />
+<Playground id="#H1LRZ3#120" title="Visibility" description="Control how much of your line is visible." />
 <Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 <Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
-<Playground id="#H1LRZ3#50" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
-<Playground id="#H1LRZ3#41" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
+<Playground id="#H1LRZ3#124" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
+<Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
 <Playground id="#H1LRZ3#113" title="Drawing text" description="You can also draw text with GreasedLine." />
-<Playground id="#H1LRZ3#86" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
+<Playground id="#H1LRZ3#121" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#96" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
+<Playground id="#H1LRZ3#127" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
-<Playground id="#H1LRZ3#115" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
+<Playground id="#H1LRZ3#123" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
