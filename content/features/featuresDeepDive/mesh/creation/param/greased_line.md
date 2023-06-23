@@ -105,8 +105,8 @@ setPoints(points: number[][]) // sets the points and recreates the mesh
 ```
 
 #### **widths** and **widthDistribution**
-
-You can specify two width values for each point in your line. The first value specifies the width of the line below the line and the second above the line. These values are not normalized so if you use a value of 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
+ 
+You can specify two width multiplier values for each point in your line. These values are multiplied with the `width` of the line to draw the resulting line. The first value specifies the width multiplier of the line below the line and the second above the line. These values are not normalized so if you use a value of 2, 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
 
 The `CreateGreasedLine` function uses the function `CompleteGreasedLineWidthTable` to fill the missing values, if any. You can use the `widthDistribution` option to set the method used to automatically fill the `widths` table.
 
