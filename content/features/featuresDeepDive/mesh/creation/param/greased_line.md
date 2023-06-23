@@ -146,7 +146,7 @@ You can add lines to an existing line whenever you want. All you need to is to s
 
 #### **updatable**
 
-If you want to update your line mesh after it was created set this option to `true`. This applies to `offsets`, `segmentWidths` and `colorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance.
+If you want to update your line mesh after it was created set this option to `true` when creating the line. This applies to `offsets`, `segmentWidths` and `colorPointers`. This option doesn't affect the line materials which can be updated any time. Set this value to `false` if you don't intend to update line mesh for more performance. If you are adding lines to an existing line instance you have to set this option on the line created the first.
 
 #### **uvs**
 
@@ -184,7 +184,14 @@ If set to true a new material will be created and a new material plugin will be 
 
 #### **width**
 
-Line width in scene units unless `sizeAttenuation` is true.
+Line width in scene units unless `sizeAttenuation` is true. You can override the default value:
+
+```javascript
+GreasedLinePluginMaterial.DEFAULT_WIDTH_ATTENUATED = 10
+GreasedLinePluginMaterial.DEFAULT_WIDTH = 0.5
+```
+
+All lines created after setting this value and not providin a `width` option will use this value as the default one.
 
 #### **sizeAttenuation**
 
