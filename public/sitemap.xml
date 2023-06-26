@@ -183,7 +183,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/events/promises</loc><lastmod>2022-12-15T13:04:01.686Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/events</loc><lastmod>2022-09-22T12:30:30.344Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/gui3D</loc><lastmod>2022-12-15T13:04:01.688Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/gui</loc><lastmod>2023-06-20T18:53:44.223Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/gui</loc><lastmod>2023-06-26T11:58:54.641Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/mrtk</loc><lastmod>2022-12-15T13:04:01.689Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/scrollViewer</loc><lastmod>2023-02-06T18:10:18.382Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/gui/selector</loc><lastmod>2022-12-15T13:04:01.692Z</lastmod></url>
@@ -273,8 +273,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/dashed</loc><lastmod>2022-09-22T12:30:30.416Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/extrude_polygon</loc><lastmod>2022-09-22T12:30:30.417Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/extrude_shape</loc><lastmod>2022-10-13T09:35:49.714Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/greased_line</loc><lastmod>2023-06-21T10:35:25.700Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/greased_line</loc><lastmod>2023-06-21T10:35:25.700Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/greased_line</loc><lastmod>2023-06-26T11:58:54.643Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/lathe</loc><lastmod>2022-09-22T12:30:30.418Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/line_system</loc><lastmod>2022-09-22T12:30:30.419Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/param/lines</loc><lastmod>2023-01-04T14:12:25.049Z</lastmod></url>
@@ -533,7 +532,7 @@
 <url><loc>https://doc.babylonjs.com/guidedLearning/videos</loc><lastmod>2022-09-22T12:30:30.594Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Car_Driven</loc><lastmod>2022-09-22T12:30:30.597Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Car_Path</loc><lastmod>2022-12-15T13:04:01.779Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Collide_Intro</loc><lastmod>2022-09-22T12:30:30.598Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Collide_Intro</loc><lastmod>2023-06-26T11:58:54.645Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Free_Collide</loc><lastmod>2022-09-22T12:30:30.598Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Geodesic_Code</loc><lastmod>2022-12-15T13:04:01.781Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/workshop/Geodesic_Math</loc><lastmod>2022-09-22T12:30:30.599Z</lastmod></url>
@@ -1067,6 +1066,9 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GradientHelper</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GradientMaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GrainPostProcess</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GreasedLineMesh</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GreasedLinePluginMaterial</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GreasedLineTools</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GridMaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GroundMesh</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.HDRCubeTexture</loc></url>
@@ -1277,6 +1279,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointerInfo</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointerInfoBase</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointerInfoPre</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointerPickingConfiguration</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointsCloudSystem</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.PointsGroup</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.Polar</loc></url>
@@ -1386,6 +1389,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.ShadowMapBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.ShadowOnlyMaterial</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.ShadowsOptimization</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.ShapePath</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.SharpenPostProcess</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.SheenBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.SimpleMaterial</loc></url>
@@ -1674,6 +1678,11 @@
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GUI.HandleState</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GUI.TextWrapping</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GizmoAnchorPoint</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GreasedLineMeshColorDistribution</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GreasedLineMeshColorDistributionType</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GreasedLineMeshColorMode</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GreasedLineMeshMaterialType</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GreasedLineMeshWidthDistribution</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.HandConstraintOrientation</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.HandConstraintVisibility</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.HandConstraintZone</loc></url>
@@ -1801,6 +1810,10 @@
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GamepadButtonChanges</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GizmoAxisCache</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GlslangOptions</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GreasedLineMaterialBuilderOptions</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GreasedLineMaterialOptions</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GreasedLineMeshBuilderOptions</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.GreasedLineMeshOptions</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.HDRInfo</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.HostInformation</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/interfaces/BABYLON.IAccessibilityTag</loc></url>
