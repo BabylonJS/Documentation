@@ -45,7 +45,7 @@ All the options are based through the corresponding classes, mainly the dome geo
 * useDirectMapping = true: Use a direct mapping technique to render the video. You should leave this value on unless you want to use the `fovMultiplier` property
 * halfDomeMode = false: Enable the support for 180 videos instead of 360.
 
-<Playground id="#SQ5UC1#22" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoDome1.jpg"/>
+<Playground id="#SQ5UC1#457" title="Playground Example of a VideoDome" description="Simple example of using a videoDome in your scene." image="/img/playgroundsAndNMEs/divingDeeperVideoDome1.jpg"/>
 
 
 ## Auto Play
@@ -75,7 +75,7 @@ Please note that `fovMultiplier` only works when using `useDirectMapping = false
 
 As a warning, the further the value gets from 1 the more distortion will be visible. Higher resolutions on the video dome help reduce, but not eliminate, this.
 
-<Playground id="#SQ5UC1#0" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier." image="/img/playgroundsAndNMEs/divingDeeperVideoDome2-fov.jpg"/>
+<Playground id="#SQ5UC1#458" title="VideoDome with fovMultiplier" description="Simple example of using a videoDome with an fovMultiplier." image="/img/playgroundsAndNMEs/divingDeeperVideoDome2-fov.jpg"/>
 
 ## Video Types
 
