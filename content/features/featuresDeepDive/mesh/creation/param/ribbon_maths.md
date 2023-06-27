@@ -132,14 +132,10 @@ parabolas scaled: <Playground id="#F6JW5W#21" title="Math-Based Scaled Ribbon Pa
 parabolas with some trigonometry: <Playground id="#F6JW5W#23" title="Trigonometry-Based Ribbon Parabolas 1" description="Simple example of creating ribbon parabolas with trigonometry."/>  
 parabolas and more trigonometry: <Playground id="#F6JW5W#24" title="Trigonometry-Based Ribbon Parabolas 2" description="Simple example of creating ribbon parabolas with trigonometry."/>  
 cuboids with soft edges <Playground id="#PCWRFE#2" title="Cuboids with soft edges" description="Example of using a parameterized function to create various cuboid shapes"/>  
+cuboids with soft edges and recalculated UVs <Playground id="#PCWRFE#15" title="Cuboids with soft edges and recalculated UVs" description="Example of using a parameterized function to create various cuboid shapes and then recalculate UV coordinates for texture projection."/>  
 
 ## Paths to Try
-You could choose a known math curve from these sites
-http://en.wikipedia.org/wiki/List_of_curves  
-http://www.mathcurve.com/courbes2d/courbes2d.shtml  
-or others.  
-When you feel more comfortable, create you own.  
+You could choose a known math curve from sources like the sites below, among others. When you feel more comfortable, create you own. 
 
-
-  
-  
+http://en.wikipedia.org/wiki/List_of_curves
+http://www.mathcurve.com/courbes2d/courbes2d.shtml
