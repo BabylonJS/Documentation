@@ -97,7 +97,7 @@ Babylon.js also has a number of pre-built procedural textures that are gathered 
 
 You can use them in your project:
 
-- Using npm with `npm install --save babylonjs babylonjs-procedural-textures`
+- Using npm with `npm install --save @babylonjs/procedural-textures`
 - With a direct reference to: https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js
 
 All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
