@@ -1352,7 +1352,13 @@
                                 },
                                 "bonesSkeletons": {
                                     "friendlyName": "Bones and Skeletons",
-                                    "children": {},
+                                    "children": {
+                                        "boneInternals": {
+                                            "friendlyName": "Bone Class Internals",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/mesh/boneInternals"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/mesh/bonesSkeletons"
                                 },
                                 "utilityLayerRenderer": {
