@@ -46,8 +46,8 @@ The `Bone` class uses 7 matrices internally to do its work. This can be confusin
 |Internal property|Public access|Description|
 |---|---|---|
 | `_localMatrix` | `Bone.getLocalMatrix()` | This matrix is the one that stores the current local space position/rotation/scale of the bone. You can think of it as the main matrix, as it's the one that will actually move/rotate/scale the bone. However, as with the transform nodes, you won't be modifying the matrix directly, but updating the position/rotation/scale properties instead (either of the bone, or of the linked transform node if the bone is using this mode). |
-| `_absoluteMatrix` | `Bone.getAbsoluteMatrix()` | This matrix stores the bone's world transformation matrix (**with** the **bind** matrix taken into account, which is the difference with `_finalTransform` - see below). This is the transformation you get when you multiply the bone's **local** matrix with all the **local** matrices in its parent hierarchy. |
-| `_finalMatrix` | `Bone.getFinalMatrix()` | This matrix stores the final transformation of the bone (after the **bind** matrix has been removed, that is after `_absoluteInverseBindMatrix` has been applied to `_absoluteMatrix` - see below), in world space. This is the matrix that will be used in the vertex shader to transform the vertices. |
+| `_absoluteMatrix` | `Bone.getAbsoluteMatrix()` | This matrix stores the bone's world transformation matrix. This is the transformation you get when you multiply the bone's **local** matrix with all the **local** matrices in its parent hierarchy. |
+| `_finalMatrix` | `Bone.getFinalMatrix()` | This matrix stores the final transformation of the bone (after the **bind** matrix has been removed, that is after `_absoluteInverseBindMatrix` has been multiplied with `_absoluteMatrix` - see below), in world space. This is the matrix that will be used in the vertex shader to transform the vertices. |
 | `_bindMatrix` | `Bone.getBindMatrix()`<br/>`Bone.setBindMatrix()`| This matrix stores the bone transformation (in local space) that corresponds to the bind pose, i.e. the bone position/rotation/scale that is the "natural" bone transformation. This transformation acts as an "identity transformation", as it is removed from the bone transformation (the **local** matrix) before being used to transform the vertices. So, if the **local** matrix of a bone is the same as the **bind** matrix, removing the **bind** matrix will result in the identity matrix, meaning that the vertices attached to that bone will not be modified by that bone. This is normally the bone transformation defined at the time of creation. |
 | `_absoluteBindMatrix` | `Bone.getAbsoluteBindMatrix()` | This matrix stores the bone transformation (in world space) that corresponds to the bind pose. Normally, you shouldn't need to access this matrix; it's mainly used to calculate the **absolute inverse bind** matrix (see below). |
 | `_absoluteInverseBindMatrix` | `Bone.getAbsoluteInverseBindMatrix()` | This matrix stores the inverse matrix of `_bindMatrix`, in world space. It is the matrix used to remove the bind transformation from `_absoluteMatrix`. |
@@ -80,4 +80,80 @@ To speed up the calculation of **final** matrices for all bones in a skeleton (i
 
 ## Understanding the **bind** matrix
 
-bind pose = transformation of the bone at creation time
+If you're not familiar with how bones and skeletal animations work, the **bind** matrix can be a little confusing, and you may not immediately understand its usefulness. So let's try to explain what it is and how it works.
+
+Let's take an example to support this explanation:
+
+| Mesh | Skeleton view | Skeleton hierarchy |
+|-|-|-|
+| ![Mesh](/img/features/boneInternals/character.jpg!250) | ![Skeleton view](/img/features/boneInternals/character_skeleton.jpg!250) | ![Skeleton hierarchy](/img/features/boneInternals/character_skeleton_hierarchy.jpg) |
+
+Here's the PG we'll be using throughout this section, which can also be used as an example of how to create a skeleton and bones programmatically:
+
+<Playground id="#4IUBBK#2" title="Character example" description="Simple example of creating a skeleton and bones programmatically."/>
+
+As you can see above, there are three bones, one for the body, one for the left arm and one for the right arm.
+We first created three separate meshes (body, left arm, right arm), assigned bone indices and weights to each, then merged them into a single mesh, to simplify the example.
+Bone indices and weights are very simple:
+* all body points: weight=1, bone index=0
+* all points on the left arm: weight=1, bone index=1
+* all points on the right arm: weight=1, bone index=2
+
+In the skeleton view, each line represents a bone. However, `boneArmLeft` and `boneArmRight` are leaf bones, so they wouldn't normally be drawn because this line connects the position of the current bone to the position of the next bone, but in this case there is no next bone. To obtain a representation of the bone, we used the `length` property of the `Bone` class. In this case, the line is drawn from the bone position to the bone position plus the bone length.
+
+The skeleton view is probably what you'd expect in terms of bone position and orientation: the bones of the left and right arms follow the orientation of the corresponding meshes and start at the shoulder. This is because we provided a specific translation and orientation at the time of bone creation: this is the **bind** pose (or **bind** matrix, as internally the position/orientation will be transformed into a matrix). This is also the initial value for the **local** bone matrix, as we want the bones to visually be in this position/orientation.
+
+However, this initial transformation is totally arbitrary. We could also pass a translation (0,0,0) and no rotation:
+
+| No translation, no rotation | Translation at shoulder, no rotation |
+|-|-|
+| ![No translation, no rotation](/img/features/boneInternals/character_skeleton_no_bind_transfo.jpg!400) | ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation.jpg!400) |
+
+<Playground id="#4IUBBK#4" title="Identity matrix for the bind matrix" description="Using the identity matrix for the bind matrix"/>
+
+You can't really see what's happening in the first case, because all the bone positions are at the origin, so I've created a second example where the translation is not zero, but the rotation is still the identity rotation matrix.
+
+As you can see, this is perfectly valid and the character is always displayed correctly. This is because the **bind** matrix is removed from the bone **local** matrix before being used to update the mesh vertices. Removing the **bind** matrix means that:
+* the **bind** matrix position is subtracted from the current bone position
+* the x/y/z rotations of the **bind** matrix are subtracted from the x/y/z rotations of the current bone orientation
+* the x/y/z scale of the current bone matrix is divided by the x/y/z scale of the **bind** matrix. 
+
+We *must* remove the **bind** matrix because, when we're not animating the bones (when they're in the "starting" pose, i.e. when the **local** matrix is equal to the **bind** matrix), we want the vertices not to be modified by the bone transformation, i.e. to be in the same position as when the mesh was created. To achieve this, the **final** matrix must be equal to the identity matrix, which is the case when the **bind** matrix is removed from the bone transformation. Mathematically, `B-1 * L` is the operation that removes the **bind** matrix (B) from the **local** bone matrix (L). When `L = B` (we're in the "starting" pose), `B-1 * B = I` (identity matrix), so the vertices are not modified by the **final** bone matrix.
+
+As explained above, using the identity matrix (or any other matrix, for that matter) for the **bind** matrix is perfectly valid, so we could get rid of the **bind** matrix altogether: the **bind** matrix would be the identity matrix for all bones and we wouldn't need to supply it.
+
+However, this complicates things considerably when you start animating the character. It's much more intuitive to animate a character when the bones are in a natural position/orientation in relation to the underlying meshes than to use a default position/orientation.
+
+See:
+
+| Translation at shoulder, no rotation | Natural translation/rotation |
+|-|-|
+| ![Translation at shoulder, no rotation](/img/features/boneInternals/character_skeleton_bind_translation_rotz45.jpg!400) | ![Natural translation/orientation](/img/features/boneInternals/character_skeleton_rotz45.jpg!400) |
+
+<Playground id="#4IUBBK#5" title="Translation at shoulder, no rotation for the bind matrix" description="Using a bind matrix with translation only"/>
+
+The final rendering is the same in both cases, so both methods are valid, but the second is much easier to animate when the final rendering corresponds to the position/orientation of the bones.
+
+Note: the **local** matrices of the arm bones are not the same in both cases! For the left arm:
+* in the first image, rotation around the Z axis is 45°. As the **bind** matrix is the identity matrix, the rotation around Z is 0°, so the rotation around Z in the **final** matrix is 45-0=45°.
+* In the second image, the rotation around Z is 75°! This is because the **bind** matrix has a rotation of 30° around Z, so that the left arm bone matches the visual appearance of the mesh. So, to obtain a final rotation of 45° around Z, the rotation around Z in the **local** matrix must be 75°. So, after removing the **bind** matrix, the rotation around Z in the **final** matrix is 75-30=45°.
+
+You can see that the end result is the same in both cases (45° rotation around Z), which is why the final rendering is the same, but we achieve it in two different ways.
+
+Using a translation (0,0,0) for the **bind** matrix makes things even more difficult:
+
+| 45° rotation around Z | 45° rotation around Z and (1.2, 0.08, 0) translation |
+|-|-|
+| ![45° rotation around Z](/img/features/boneInternals/character_skeleton_no_bind_rotz45.jpg!400) | ![45° rotation around Z and (1.2, 0.08, 0) translation](/img/features/boneInternals/character_skeleton_no_bind_rotz45_transl.jpg!400) |
+
+<Playground id="#4IUBBK#6" title="No translation, no rotation for the bind matrix" description="Using a bind matrix with translation only"/>
+
+To obtain the same final rendering (for the left arm), we have to apply not only a 45° rotation around Z to the **local** bone matrix, but also a translation of (1.2, 0.08, 0)! This is considerably more difficult than above, and you can see that the bone positions/orientations are completely out of sync with the mesh.
+
+## Animation data generated by DCC tools
+
+DCC (Digital Content Creation) tools (such as Blender) generate animation data for bones in the form of matrices. These matrices are the **local** matrices of the bones, and as such also contain the transformation brought about by the **bind** matrix.
+
+For example, in the first playground where we've created the bones with a **bind** matrix that corresponds to the appearance of the mesh, if we create an animation with a single frame and this frame renders the mesh in its "rest" position, we'll export a rotation of 30° around Z for the left bone, and -30° for the right bone: we'll simply export the current **local** matrix of each bone. This is what Blender (or any other DCC tool) would do: for each frame of the animation, it would export the **local** matrix of each bone.
+
+This is compatible with our way of dealing with bones: when rendering, we remove the **bind** matrix from the **local** matrix (in fact, we do this calculation in world space, so we remove the **absolute bind** matrix from the **absolute** matrix), so in the example above, we'll render the mesh unmodified by the animation data.
