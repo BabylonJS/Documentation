@@ -22,8 +22,7 @@ A demo can be found here:  <Playground id="#KM3TC" title="Fire Procedural Textur
 
 This texture has 4 parameters :
 - **time** can be set manually(float) if autoGenerateTime(boolean) is set to false. It is used inside the fire shader to animate it
-- **speed** controls the speed of the flames (BABYLON.Vector2)
-- **shift** controls the direction of the flames (BABYLON.Vector2)
+- **speed** controls the velocity (speed and direction) of the flames (BABYLON.Vector2)
 - **fireColors** is an array of 6 (BABYLON.Color3/4) defining the different color of the fire. You can define them manually of use presets available as static properties of the class (PurpleFireColors, GreenFireColors, RedFireColors, BlueFireColors)
 
 ```javascript
