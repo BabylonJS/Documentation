@@ -73,6 +73,5 @@ Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#8
 Usage :
 
 ```javascript
-const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene);
-const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene, updatable); //one optional parameter after scene
+const tiledGround = BABYLON.MeshBuilder.CreateTiledGround("Tiled Ground", {xmin, zmin, xmax, zmax, subdivisions, precision}, scene);
 ```
