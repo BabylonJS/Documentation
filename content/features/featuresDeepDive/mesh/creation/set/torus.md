@@ -34,6 +34,5 @@ Thin: <Playground id="#IJGMXZ#2" title="Create a Thin Torus" description="Simple
 ## Mesh
 ## Usage
 ```javascript
-const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene);
-const torus = BABYLON.Mesh.CreateTorus("torus", diameter, thickness, tessellation, scene, updatable, sideOrientation);  //optional parameters after scene
+const torus = BABYLON.Mesh.CreateTorus("torus", {diameter, thickness, tessellation, updatable, sideOrientation}, scene);
 ```
