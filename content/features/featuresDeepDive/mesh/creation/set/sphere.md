@@ -50,7 +50,6 @@ Usage :
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments, diameter }, scene);
-const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments, diameter, updatable, sideOrientation }, scene); //optional parameters after scene
 ```
 
 It is only possible to create a sphere with this method, for an ellipsoid you need to use scaling.
