@@ -201,7 +201,7 @@ A material plugin extends the `MaterialPluginBase` class and we have only implem
 |`getAttributes`|You should return all the attributes your are using in your plugin (if any)|
 |`getUniformBuffersNames`|You should return the names of all the uniform buffers you are using in your plugin (if any)|
 |`getUniforms`|You should return all the uniforms you are using in your plugin (if any). Look at the playgrounds on this page for examples of how to do this|
-|`serialize` and `parse`|You should implement these methods if you want your plugin to be properly serialized and parsed|
+|`serialize` and `parse`|You should implement these methods if you want your plugin to be properly serialized and parsed. Note that you must also register your plugin class in the BABYLON class store by doing `BABYLON.RegisterClass("BABYLON.PLUGINNAME", PluginClass);`, with `PLUGINNAME` the name of your plugin (as returned by `getClassName()`) and `PluginClass` the name of your plugin class.|
 
 Additional comments:
 * if you want to use a texture in your plugin, you have to implement `getSamplers` and add its definition in the **CUSTOM_FRAGMENT_DEFINITIONS** block of code (**CUSTOM_VERTEX_DEFINITIONS** if you want to use the texture in the vertex shader):
