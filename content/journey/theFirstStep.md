@@ -66,14 +66,14 @@ Let's make another change!
 Find the line of code that creates the ground plane and add these new lines underneath it:
 
 ```javascript
-let groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
+const groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
+groundMaterial.diffuseColor = BABYLON.Color3.Red();
 ground.material = groundMaterial;
-ground.material.diffuseColor = BABYLON.Color3.Red();
 ```
 
 Run the scene again (ALT+ENTER, or run button)
 
-<Playground id="#2KRNG9#1" title="Playground 2" description="The ground is red!"/>
+<Playground id="#2KRNG9#2150" title="Playground 2" description="The ground is red!"/>
 
 Congratulations! You just created a new material, assigned that new material to the ground plane, and assigned it's diffuse channel to be the color red! Pretty cool huh?! Don't worry if some of that is still a bit confusing, the takeaway here is that you're making code changes on the left and seeing updates on the right.
 
@@ -82,17 +82,17 @@ Ok time for another change.
 Find this line:
 
 ```javascript
-ground.material.diffuseColor = BABYLON.Color3.Red();
+groundMaterial.diffuseColor = BABYLON.Color3.Red();
 ```
 
 Replace it with these two lines and run the scene again:
 
 ```javascript
 let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
-ground.material.diffuseTexture = groundTexture;
+groundMaterial.diffuseTexture = groundTexture;
 ```
 
-<Playground id="#2KRNG9#2" title="Playground 3" description="The ground is checkered!"/>
+<Playground id="#2KRNG9#2151" title="Playground 3" description="The ground is checkered!"/>
 
 Pretty cool! You've now created your first Babylon.js texture and assigned it to the texture property of your ground material!
 
