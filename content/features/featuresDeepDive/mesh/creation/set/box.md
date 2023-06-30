@@ -46,8 +46,7 @@ Face numbers, face 0 is on the positive z axis: <Playground id="#6XIT28#5" title
 Usage
 
 ```javascript
-const box = BABYLON.MeshBuilder.CreateBox("box", { size }, scene);
-const box = BABYLON.MeshBuilder.CreateBox("box", { size, updatable, sideOrientation} scene); //optional parameters after scene
+const box = BABYLON.MeshBuilder.CreateBox("box", { size, updatable, sideOrientation}, scene);
 ```
 
 It is only possible to create a cube with this method, for a cuboid you need to use scaling.
