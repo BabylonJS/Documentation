@@ -31,11 +31,13 @@ Babylon.js uses an advanced and automatic shaders engine. This system will keep 
 material.freeze();
 ```
 
-Once frozen, the shader will remain unchanged even if you change material's properties. You will have to unfreeze it to update the inner shader:
+Once frozen, some changes in material properties may not be visible until `unfreeze` is called:
 
 ```
 material.unfreeze();
 ```
+
+However, most changes should work without having to call `unfreeze`.
 
 ## Reducing World Matrices Computation
 Every mesh has a world matrix to specify its position / rotation / scaling. This matrix is evaluated on every frame. You can improve performances by freezing this matrix. Any subsequent changes to position / rotation / scaling will then be ignore:
