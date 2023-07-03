@@ -232,7 +232,7 @@ enum GreasedLineMeshColorMode {
 
 #### **colors** and **colorDistribution**
 
-An array of colors of the line segments. Maximum number of colors supported for one line instance is 16 384. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
+An array of colors of the line segments. Maximum number of colors supported for one line instance depends on the maximum texture width (we use 1D textures here for maximum performance) your GPU can support. Minimum for all WebGL systems is 4k. On most modern desktop GPUs it is 16k. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
 
 The `CreateGreasedLine` function uses the function `CompleteGreasedLineColorTable` to fill the missing values, if any. You can use the `colorDistribution` option to set the method used to automatically fill the `colors` table.
 
