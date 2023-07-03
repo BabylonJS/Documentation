@@ -27,7 +27,7 @@ which contains, in order, images of the same size for the front, right, back and
 
 The width of each image is 0.25 of the whole image width. To specify the part of the image to use we give two co-ordinates one for the lower left corner and one for the upper right corner. For the whole image we would use (0, 0) and (1, 1), for part images the co-ordinate values will be a fraction between 0 and 1.
 
-Rather then using two sets of co-ordinates we use a 4 dimensional  
+Rather than using two sets of co-ordinates we use a 4 dimensional  
 vector (lower left x, lower left y, upper right x, upper right y)
 
 Matching sides to part images gives  
