@@ -1459,6 +1459,11 @@
                                             "friendlyName": "Particle Snippet Server",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/particle_snippets"
+                                        },
+                                        "particles_loadFromFile": {
+                                            "friendlyName": "Load Particles from File",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/particles_loadFromFile"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/particle_system"
