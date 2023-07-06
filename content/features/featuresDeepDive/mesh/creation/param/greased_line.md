@@ -464,7 +464,7 @@ texture.uScale = 10
 line1.material.emissiveTexture = texture
 ```
 
-The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `null` if you don't want to do color blending at all.  **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
+The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `null` if you don't want to do color blending at all.  **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
@@ -479,7 +479,7 @@ line1.material.emissiveTexture = texture
 
 #### Setting line color using it's material
 
-You have to set a `colorMode` option or set the `color` to `null`. **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
+You have to set a `colorMode` option or set the `color` to `null`. **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
@@ -490,7 +490,7 @@ line1.material.emissiveColor = BABYLON.Color3.Red()
 
 #### Glowing line
 
-You have to set a `colorMode` option or set the `color` to `null`. **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
+You have to set a `colorMode` option or set the `color` to `null`. **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
