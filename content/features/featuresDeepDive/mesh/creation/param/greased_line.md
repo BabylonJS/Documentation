@@ -142,7 +142,7 @@ Please have a look at the API docs for more explanation about the width distribu
 
 #### **instance**
 
-You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. *Lines added to an instance are joined with existing mesh*. See the examples for code.
+You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. *Lines added to an instance are joined with the existing mesh*. See the examples for code.
 
 #### **updatable**
 
@@ -266,7 +266,7 @@ The color blending of the colors depends on `colorMode` option.
 
 #### **colorDistributionType**
 
-The method used to distribute the colors along the line. You can use segment distribution when each segment will use on color from the color table. Or you can use line distribution when the colors are distributed evenly along the line ignoring the segments.
+The method used to distribute the colors along the line. You can use segment distribution when each segment will use one color from the color table. Or you can use line distribution when the colors are distributed evenly along the line ignoring the segments.
 
 #### **colorsSampling**
 
@@ -464,12 +464,12 @@ texture.uScale = 10
 line1.material.emissiveTexture = texture
 ```
 
-The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `undefined` if you don't want to do color blending at all.  **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `null` if you don't want to do color blending at all.  **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.color = undefined
+line1.greasedLineMaterial.color = null
 
 const texture = new BABYLON.Texture("/textures/amiga.jpg", scene)
 texture.uScale = 10
@@ -479,23 +479,23 @@ line1.material.emissiveTexture = texture
 
 #### Setting line color using it's material
 
-You have to set a `colorMode` option or set the `color` to `undefined`. **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+You have to set a `colorMode` option or set the `color` to `null`. **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.color = undefined
+line1.greasedLineMaterial.color = null
 line1.material.emissiveColor = BABYLON.Color3.Red()
 ```
 
 #### Glowing line
 
-You have to set a `colorMode` option or set the `color` to `undefined`. **Setting a the color from `undefined` to a value or setting from a value to `undefined` will recompile the shader.**
+You have to set a `colorMode` option or set the `color` to `null`. **Setting a the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0]
 const line1 = BABYLON.CreateGreasedLine("line1", { points: points1 }, { width: 1 })
-line1.greasedLineMaterial.color = undefined
+line1.greasedLineMaterial.color = null
 line1.material.emissiveColor = BABYLON.Color3.Red()
 
 const gl = new BABYLON.GlowLayer("glow", scene, {
@@ -507,7 +507,7 @@ gl.referenceMeshToUseItsOwnMaterial(line1)
 
 #### Line using PBRMaterial
 
-All you have to do is set the `materialType` to `BABYLON.GreasedLineMeshMaterialType.MATERIAL_TYPE_PBR` and set the `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY`. Do not set the `color` to `undefined` as it was the case with `StandardMaterial` unless you set the base color of the line another way, for example by setting a texture on `PBRMaterial`.
+All you have to do is set the `materialType` to `BABYLON.GreasedLineMeshMaterialType.MATERIAL_TYPE_PBR` and set the `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY`. Do not set the `color` to `null` as it was the case with `StandardMaterial` unless you set the base color of the line another way, for example by setting a texture on `PBRMaterial`.
 
 ```javascript
 const points = [-1, 0, 0, 1, 0, 0]
@@ -662,8 +662,8 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#121" title="GetPositionOnLineByVisibility tool function example" description="Finding the last visible position on the line when using the visibility option." />
 <Playground id="#H1LRZ3#136" title="Cloning" description="Cloning the GreasedLine mesh and it's material." />
 <Playground id="#H1LRZ3#127" title="Serialization and parsing" description="Serializing and parsing the GreasedLine mesh and it's material." />
-<Playground id="#H1LRZ3#7" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
+<Playground id="#H1LRZ3#194" title="Using PBR material" description="Example of using GreasedLine with PBR material." />
 <Playground id="#H1LRZ3#22" title="Using PBR material with a texture" description="Example of using GreasedLine with PBR material." />
-<Playground id="#H1LRZ3#9" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
+<Playground id="#H1LRZ3#193" title="PBR sphere demo" description="Example of using GreasedLineTools mesh to lines function with PBR material." />
 <Playground id="#H1LRZ3#130" title="PBR sphere demo with a mesh to line predicate" description="Example of using GreasedLineTools mesh to lines function with PBR material and a predicate which you can use to modify the lines or omit them." />
 <Playground id="#H1LRZ3#123" title="Mesh to 'opaque' lines example with PBR" description="Another example of using GreasedLineTools mesh to lines function with PBR material with a trick to make the wireframe mesh opaque." />
