@@ -2879,6 +2879,11 @@
                             "friendlyName": "Shader Fireworks",
                             "children": {},
                             "content": "guidedLearning/workshop/Writing2"
+                        },
+                        "Bowling": {
+                            "friendlyName": "Bowling Scene with Havok Physics Plugin",
+                            "children": {},
+                            "content": "guidedLearning/workshop/Bowling"
                         }
                     },
                     "content": "guidedLearning/workshop"
