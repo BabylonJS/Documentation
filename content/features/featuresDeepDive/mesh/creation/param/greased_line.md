@@ -654,7 +654,8 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 <Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
 <Playground id="#H1LRZ3#124" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
-<Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Show how can you move your line points after the line mesh was created." />
+<Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Shows how to move your line points after the line mesh was created." />
+<Playground id="#235CZX#16" title="Offsetting line segments" description="Shows how to move your line segments after the line mesh was created." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
