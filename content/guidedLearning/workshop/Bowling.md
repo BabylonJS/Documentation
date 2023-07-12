@@ -59,7 +59,7 @@ Now that physics is enabled, let’s create our bowling lane!
 The bowling lane is considered the ground in our scene. We want to provide a thin long platform for both the pins to sit and the bowling ball to roll. Using `MeshBuilder`, we create the lane and assign the width and height parameters, 6 and 20 respectively.
 
 ```javascript
-var lane = BABYLON.MeshBuilder.CreateGround("lane", { width: 6, height: 20 }, scene);
+const lane = BABYLON.MeshBuilder.CreateGround("lane", { width: 6, height: 20 }, scene);
 ```
 
 We also position the lane further ahead on the z-axis by `4` to provide a more full view of the lane without moving the camera.
@@ -87,7 +87,7 @@ We first start by loading the bowling pin from the Asset Librarian. Once loaded,
 ```javascript
 async function createPins(scene) {
     const result = await BABYLON.SceneLoader.ImportMeshAsync("", Assets.meshes.bowlingPinpin_glb.rootUrl, Assets.meshes.bowlingPinpin_glb.filename, scene);
-            var bowlingPin = result.meshes[1];
+            const bowlingPin = result.meshes[1];
             bowlingPin.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3)
 }
 
@@ -123,7 +123,7 @@ We now iterate over the `pinPositions` array using the `map()` method. For each 
 
 ```javascript
 return pinPositions.map(function (positionInSpace, idx) {
-    var pin = new BABYLON.InstancedMesh("pin-" + idx, bowlingPin);
+    const pin = new BABYLON.InstancedMesh("pin-" + idx, bowlingPin);
     pin.position = positionInSpace;
     return pin;
 });
@@ -132,7 +132,7 @@ return pinPositions.map(function (positionInSpace, idx) {
 Before we return the instanced pin, we need to add physics to the pin. Like adding physics for the bowling lane, we create an aggregate for the pin. However, this time we use the `CONVEX_HULL` shape which matches the visual geometry as best as possible. We assign a mass of `1` to the pin so that there’s just a bit of weight but not too much that the pin can’t be knocked down. In addition, we use the `restitution` parameter which refers to how bouncy or springy an object is when it collides with another object. Bowling pins are made of wood and therefore when a pin collides with another object, the pin should “bounce” just a tad but not so much as though the pin is made of rubber. Therefore, a `restitution` of `.25` will suffice!
 
 ```javascript
-var pinAggregate = new BABYLON.PhysicsAggregate(pin, BABYLON.PhysicsShapeType.CONVEX_HULL, { mass: 1, restitution: 0.25 }, scene);
+const pinAggregate = new BABYLON.PhysicsAggregate(pin, BABYLON.PhysicsShapeType.CONVEX_HULL, { mass: 1, restitution: 0.25 }, scene);
 ```
 
 With the pin instanced and then returned, we call the `createPins()` function passing the scene into the function call. At this point, we have 10 pins instanced in the shape of a triangle!
@@ -146,7 +146,7 @@ With our bowling lane created and our pins perfectly placed, we’re ready to cr
 ```javascript
 async function createBall(scene) {
     const result = await BABYLON.SceneLoader.ImportMeshAsync("", Assets.meshes.bowlingBall_glb.rootUrl, Assets.meshes.bowlingBall_glb.filename, scene);
-        var bowlingBall = result.meshes[1];
+        const bowlingBall = result.meshes[1];
         bowlingBall.scaling.scaleInPlace(0.2);
         bowlingBall.position = new BABYLON.Vector3(0, 0.5, -5);
 }
@@ -159,7 +159,7 @@ createBall(scene);
 Now that our bowling ball is in place, we add physics to the ball. However, this time we choose the `SPHERE` shape given the balls rounded shape.
 
 ```javascript
-var ballAggregate = new BABYLON.PhysicsAggregate(bowlingBall, BABYLON.PhysicsShapeType.SPHERE, { mass: 1, restitution: 0.25 }, scene);
+const ballAggregate = new BABYLON.PhysicsAggregate(bowlingBall, BABYLON.PhysicsShapeType.SPHERE, { mass: 1, restitution: 0.25 }, scene);
 ```
 
 We’re going to simulate aiming and rolling the ball down the lane later by adding keyboard input. Since both forms of movement are manually initiated by key input, we need to modify default behavior that Babylon.js performs for physics objects.
@@ -210,7 +210,7 @@ case "w":
 
 Let’s get rolling! Now that we have our bowling lane, pins and bowling ball setup, we can play our game. Use the A and D keys to move the bowling ball to the left or right and press the W key to send the ball rolling down the lane. Did you get a strike? We hope so!
 
-Here's the complete playground: <Playground id="#FSMQBW" title="Bowling" description="Simple bowling scene with Havok Physics Plugin." image=""/>
+Here's the complete playground: <Playground id="#FSMQBW#1" title="Bowling" description="Simple bowling scene with Havok Physics Plugin." image=""/>
 
 Although this is a simplified version of a bowling game, we encourage you to let your imagination run wild and build upon this sample. If you’re in need of inspiration, consider adding some of the following features:
 
