@@ -96,6 +96,49 @@ Once the conversion done, let's see the custom options available on this version
 - **useMicroSurfaceFromReflectivityMapAlpha**: the reflectivity texture contains the microSurface or glossiness information in its alpha channel.
 - **useAmbientInGrayScale**: the ambient occlusion is forced to read only from the red channel of the ambient texture or from the red channel of the metallic texture.
 
+## Controlling Specular Reflections on Metallic-Roughness Materials
+There are times when having control over the power or color for specular reflections of a PBR metallic-roughness material is desirable. Further, there are substances that can’t be accurately rendered without this type of control. Typically, a PBR specular-glossiness material is used for these types of substances, but there are still ways to use a metallic-roughness material to render a substance which needs modification to its specular reflections. 
+
+For glTF models, there is a Khronos extension called `KHR_materials_specular` which adds `specular` and `specularColor` parameters to the metallic-roughness material. Additionally, the extension allows using textures to control these values through `specularTexture` and `specularColorTexture`. These parameters affect the dielectric BRDF to change the specular power or color of F0 reflections, previously only attainable using specular-glossiness materials. If a glTF file is authored with this extension, the Babylon.js loaders will translate the glTF material description to a `PBRMaterial` with the parameters set correctly.
+
+Babylon.js materials constructed as metallic-roughness can also exert control over specular highlights through several parameters on `PBRMaterial`. Beyond the basic setup of the material, these parameters need to be defined to shape specular reflections.
+
+- **metallicF0Factor**: This is the same as `specularFactor` from `KHR_materials_specular`. This parameter is multiplied with `metallicReflectanceColor` to control the intensity of specular reflections.
+- **metallicReflectanceColor**: This is the same as `specularColorFactor` from `KHR_materials_specular`. This parameter sets specular color at F0. As surface normals move toward F90, this value is interpolated to white.
+- **metallicReflectanceTexture**: This is a texture that holds values for `metallicReflectanceColor` in the RGB channels and values for `metallicF0Factor` in the Alpha channel. The texture components are multiplied with `metallicReflectanceColor` and `metallicF0Factor` when calculating the final specular contribution. This texture can be used as a single input for both `metallicReflectanceColor` and `metallicF0Factor` if authoring a `PBRMaterial` right in engine. However, if working with textures from a glTF file authored with the `KHR_material_specular` extension, this parameter acts as `specularTexture` as defined in the extension. This is because the extension defines `specularTexture` and `specularColorTexture` as two different textures with `specularTexture` holding the strength of specular reflections in the alpha channel. If working with `KHR_material_specular` textures, assign the texture defined as `specularTexture` to the `metallicReflectanceTexture` parameter and set the `useOnlyMetallicFromMetallicReflectanceTexture` parameter to true.
+- **useOnlyMetallicFromMetallicReflectanceTexture**: If this parameter is set to true, only the Alpha channel of `metallicReflectanceTexture` is used in lighting calculations. This parameter is important if using textures authored for the `KHR_material_specular` extension because if both `metallicReflectanceTexture` and `reflectanceTexture` are assigned textures, `metallicReflectanceTexture` will be used by default unless `useOnlyMetallicFromMetallicReflectanceTexture` is set to true. If the parameter is set to true, the RGB channels of the texture assigned to `reflectanceTexture` will be used to determine values for `metallicReflectanceColor`.
+- **reflectanceTexture**: This is the same as `specularColorTexture` from `KHR_materials_specular`. The color stored in the texture’s RGB channels is multiplied with `metallicReflectanceColor` and scaled by `metallicF0Factor` to produce the final specular contribution **only if** there is no texture assigned to `metallicReflectanceTexture` **or** `useOnlyMetallicFromMetallicReflectanceTexture` is set to true. Otherwise, any texture assigned to `metallicReflectanceTexture` will have its RGB channels used in place of this texture.
+
+To help illustrate how these parameters work together consider the following snippets of code which are all valid approaches to controlling specular reflections in a metallic-roughness material.
+
+```javascript
+// creating material from scratch using only metallicReflectanceTexture 
+// metReflectTex.rgb * metallicReflectanceColor scaled 
+// by metReflectTex.a * metallicF0Factor
+let pbrMat = new BABYLON.PBRMaterial("pbrMat", scene);
+pbrMat.metallicF0Factor = 0.9;
+pbrMat.metallicReflectanceColor = new BABYLON.Color3(0.63, 0.12, 0.12);
+pbrMat.metallicReflectanceTexture = new BABYLON.Texture("metReflectTex.png", scene);
+
+// creating material from scratch using only reflectanceTexture
+// reflectTex.rgb * metallicReflectanceColor scaled by metallicF0Factor
+let pbrMat = new BABYLON.PBRMaterial("pbrMat", scene);
+pbrMat.metallicF0Factor = 0.9;
+pbrMat.metallicReflectanceColor = new BABYLON.Color3(0.63, 0.12, 0.12);
+pbrMat.reflectanceTexture = new BABYLON.Texture("reflectTex.png", scene);
+
+// creating material from KHR_material_specular textures
+// specularColorTexture.rgb * metallicReflectanceColor scaled 
+// by specularTexture.a * metallicF0Factor
+let pbrMat = new BABYLON.PBRMaterial("pbrMat", scene);
+pbrMat.metallicF0Factor = 0.9;
+pbrMat.metallicReflectanceColor = new BABYLON.Color3(0.63, 0.12, 0.12);
+pbrMat.metallicReflectanceTexture = new BABYLON.Texture("specularTexture.png", scene);
+pbrMat.reflectanceTexture = new BABYLON.Texture("specularColorTexture.png", scene);
+pbrMat.useOnlyMetallicFromMetallicReflectanceTexture = true;
+
+```
+
 ## Opacity
 
 Another interesting addition to the reflection is the ability to keep the most luminous part of the reflection over transparent surface... Yeah, it does not make much sense... Actually, if you look through a window at night from a lit room, you can see the reflection of lights or TV on the glass. This is the same for reflection in the PBR Material. A special property `pbr.useRadianceOverAlpha = true;` has been added to allow you to control this effect. Not only reflection (AKA radiance) but specular highlights can be seen on top of transparency.
