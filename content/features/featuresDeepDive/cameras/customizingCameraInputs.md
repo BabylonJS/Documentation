@@ -319,3 +319,77 @@ In the example there are two viewports, the upper one gives a first-person view 
 Remember to click on the scene before using the arrow keys.
 
 <Playground id="#CTCSWQ#945" title="Walk and Look Camera Example" description="A simple example of customizing camera inputs to create a walk and look camera." image="/img/playgroundsAndNMEs/divingDeeperCustomCameraInput1.jpg"/>
+
+## Using BaseCameraPointersInput to Create Custom Inputs
+
+In addition to making custom camera inputs as illustrated in the [Implementing Your Own Input](#implementing-your-own-input) section, you can also extend the functionality of some of the implemented base classes make creating some custom classes easier.  One such class is the BaseCameraPointersInput class:
+
+```javascript
+// This is exactly the same the function in the previous section and will still need to be
+// implemented.
+getClassName();
+
+// This function is the exact same thing as the previous section.  However, it has already
+// been implemented with a value of "pointers" and is technically optional.
+// getSimpleName();
+
+// This function is already implemented.  If you are planning to use this class, it is 
+// recommened to not override it.
+// attachControl(noPreventDefault);
+
+// Same thing with detachControl
+// detachControl();
+
+// This optional function will get called for each rendered frame, if you want to synchronize your
+// input to rendering, no need to use requestAnimationFrame. It's a good place for applying
+// calculations if you have to.
+// Return void.
+checkInputs();
+
+// This function will fire during a POINTERMOVE event where there is either an active mouse 
+// button down or only one active touch.  "point" will contain the coordinates, pointerId,
+// and pointer type.  The offsets are just the changes in position from the previous point.
+// This will NOT fire if multiple touches are active.  This method is required.
+onTouch(point, offsetX, offsetY);
+
+// This function will only fire during a POINTERMOVE event where more than one touch is active.
+// This function will only support the first two active touches and all others will be ignored.
+// Points A and B are said touches.  Both previous and current pinch distances and positions are
+// available to support basic gesture logic, as needed.  As a warning, the previous movement may
+// be null at the beginning of a multi-touch movement.
+onMultiTouch(
+  pointA,
+  pointB,
+  previousPinchSquaredDistance,
+  pinchSquaredDistance,
+  previousMultiTouchPanPosition,
+  multiTouchPanPosition
+);
+
+// This function will only fire during a POINTERDOUBLETAP event.  The "type" parameter
+// is just the pointer type (mouse, touch, etc.).  This is optional.
+onDoubleTap(type);
+
+// This function will fire when a contextmenu event occurs (right-click menu).
+// "evt" is the triggering event.  This is optional.
+onContextMenu(evt);
+
+// This function will fire when a POINTERDOWN event occurs.
+// "evt" is the triggering event.  This is optional.
+onButtonDown(evt);
+
+// This function will fire when a POINTERUP event occurs (right-click menu).
+// "evt" is the triggering event.  This is optional.
+onButtonUp(evt);
+
+// This function will fire when the window loses focus (eg. blur event)
+// This is optional.
+onLostFocus();
+```
+
+This may seem like a lot but the big takeaways are that `onTouch` is where you handle single pointer source events and `onMultiTouch` for events with at least two touch sources.
+
+If you find yourself asking, "What benefit is there to using this versus creating my own from scratch", here are a few benefits.  The BaseCameraPointersInput class will automatically handle various input and event based things like preventDefault, pointer capture, and pointer lock.  On top of that, event handling is taken care of for you.  While there's less flexibility in going this route, it might be easier to work with.
+
+Below is a basic implementation of camera inputs for the FreeCamera.  This is implemented in Typescript.
+<Playground id="#1ZCLWM#17" title="FreeCameraPointersInput Example" description="A simple example of customizing camera inputs to combine touch and mouse." />
