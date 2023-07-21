@@ -479,5 +479,4 @@ This may seem like a lot but the big takeaways are that `onTouch` is where you h
 
 If you find yourself asking, "What benefit is there to using this versus creating my own from scratch", here are a few benefits.  The BaseCameraPointersInput class will automatically handle various input and event based things like preventDefault, pointer capture, and pointer lock.  On top of that, event handling is taken care of for you.  While there's less flexibility in going this route, it might be easier to work with.
 
-Below is a basic implementation of camera inputs for the FreeCamera.  This is implemented in Typescript.
 <Playground id="#1ZCLWM#20" title="FreeCameraPointersInput (TS) Example" description="A simple Typescript example of customizing camera inputs to combine touch and mouse." />
