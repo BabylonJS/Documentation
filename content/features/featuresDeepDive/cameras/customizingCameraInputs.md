@@ -324,67 +324,155 @@ Remember to click on the scene before using the arrow keys.
 
 In addition to making custom camera inputs as illustrated in the [Implementing Your Own Input](#implementing-your-own-input) section, you can also extend the functionality of some of the implemented base classes make creating some custom classes easier.  One such class is the BaseCameraPointersInput class:
 
+### Using Javascript
+For Javascript, you need to create a base class so that you can set the constructor to the base class' constuctor.  After that, all you need is a little prototype work to get things working.
+
 ```javascript
+// This is your basic class object, feel free to be more creative with the class name.
+// This is also a good place to put your class variables.
+var YourCustomInputClass = function() {};
+
+// In order to extend the functionality, of the BaseCameraPointersInput class,
+// you'll need to create a constructor that creates the base class first. This
+// is required.
+YourCustomInputClass.prototype = new BABYLON.BaseCameraPointersInput();
+
 // This is exactly the same the function in the previous section and will still need to be
 // implemented.
-getClassName();
+YourCustomInputClass.prototype.getClassName = function() {};
 
 // This function is the exact same thing as the previous section.  However, it has already
 // been implemented with a value of "pointers" and is technically optional.
-// getSimpleName();
+// YourCustomInputClass.prototype.getSimpleName = function() {};
 
 // This function is already implemented.  If you are planning to use this class, it is 
 // recommened to not override it.
-// attachControl(noPreventDefault);
+// YourCustomInputClass.prototype.attachControl = function(noPreventDefault) {};
 
 // Same thing with detachControl
-// detachControl();
+// YourCustomInputClass.prototype.detachControl = function() {};
 
 // This optional function will get called for each rendered frame, if you want to synchronize your
 // input to rendering, no need to use requestAnimationFrame. It's a good place for applying
 // calculations if you have to.
 // Return void.
-checkInputs();
+YourCustomInputClass.prototype.checkInputs = function() {};
 
 // This function will fire during a POINTERMOVE event where there is either an active mouse 
 // button down or only one active touch.  "point" will contain the coordinates, pointerId,
 // and pointer type.  The offsets are just the changes in position from the previous point.
 // This will NOT fire if multiple touches are active.  This method is required.
-onTouch(point, offsetX, offsetY);
+YourCustomInputClass.prototype.onTouch = function(point, offsetX, offsetY) {};
 
 // This function will only fire during a POINTERMOVE event where more than one touch is active.
 // This function will only support the first two active touches and all others will be ignored.
 // Points A and B are said touches.  Both previous and current pinch distances and positions are
 // available to support basic gesture logic, as needed.  As a warning, the previous movement may
 // be null at the beginning of a multi-touch movement.
-onMultiTouch(
+YourCustomInputClass.prototype.onMultiTouch = function(
   pointA,
   pointB,
   previousPinchSquaredDistance,
   pinchSquaredDistance,
   previousMultiTouchPanPosition,
   multiTouchPanPosition
-);
+) {};
 
 // This function will only fire during a POINTERDOUBLETAP event.  The "type" parameter
 // is just the pointer type (mouse, touch, etc.).  This is optional.
-onDoubleTap(type);
+YourCustomInputClass.prototype.onDoubleTap = function(type) {};
 
 // This function will fire when a contextmenu event occurs (right-click menu).
 // "evt" is the triggering event.  This is optional.
-onContextMenu(evt);
+YourCustomInputClass.prototype.onContextMenu = function(evt) {};
 
 // This function will fire when a POINTERDOWN event occurs.
 // "evt" is the triggering event.  This is optional.
-onButtonDown(evt);
+YourCustomInputClass.prototype.onButtonDown = function(evt) {};
 
 // This function will fire when a POINTERUP event occurs (right-click menu).
 // "evt" is the triggering event.  This is optional.
-onButtonUp(evt);
+YourCustomInputClass.prototype.onButtonUp = function(evt) {};
 
 // This function will fire when the window loses focus (eg. blur event)
 // This is optional.
-onLostFocus();
+YourCustomInputClass.prototype.onLostFocus = function() {};
+```
+
+<Playground id="#73ATC0#10" title="FreeCameraPointersInput (JS) Example" description="A simple Javascript example of customizing camera inputs to combine touch and mouse." />
+
+### Using Typescript
+With Typescript, things will be a little different.  For example, you don't need to create a constructor as the base class handles everything.  All that you need to do is to extend the `BaseCameraPointersInput` class and override needed functions.
+
+```typescript
+// You need to extend the BaseCameraPointersInput to get the required functionality
+class YourCustomInputClass extends BABYLON.BaseCameraPointersInput {
+  // This is the constructor.  Unless you have something specific that you need
+  // to do when you create your object, you don't need to implement this. You
+  // must call the super() function though, if you do.
+  // constructor() { super(); }
+
+  // This is exactly the same the function in the previous section and will still need to be
+  // implemented.
+  public getClassName(): string {};
+
+  // This function is the exact same thing as the previous section.  However, it has already
+  // been implemented with a value of "pointers" and is technically optional.
+  // public getSimpleName(): string {};
+
+  // This function is already implemented.  If you are planning to use this class, it is 
+  // recommened to not override it.
+  // public attachControl(noPreventDefault?: boolean): void {};
+
+  // Same thing with detachControl
+  // public detachControl(): void {};
+
+  // This optional function will get called for each rendered frame, if you want to synchronize your
+  // input to rendering, no need to use requestAnimationFrame. It's a good place for applying
+  // calculations if you have to.
+  // Return void.
+  public checkInputs(): void {};
+
+  // This function will fire during a POINTERMOVE event where there is either an active mouse 
+  // button down or only one active touch.  "point" will contain the coordinates, pointerId,
+  // and pointer type.  The offsets are just the changes in position from the previous point.
+  // This will NOT fire if multiple touches are active.  This method is required.
+  public onTouch(point: BABYLON.Nullable<BABYLON.PointerTouch>, offsetX: number, offsetY: number): void {};
+
+  // This function will only fire during a POINTERMOVE event where more than one touch is active.
+  // This function will only support the first two active touches and all others will be ignored.
+  // Points A and B are said touches.  Both previous and current pinch distances and positions are
+  // available to support basic gesture logic, as needed.  As a warning, the previous movement may
+  // be null at the beginning of a multi-touch movement.
+  public onMultiTouch(
+        pointA: BABYLON.Nullable<BABYLON.PointerTouch>,
+        pointB: BABYLON.Nullable<BABYLON.PointerTouch>,
+        previousPinchSquaredDistance: number,
+        pinchSquaredDistance: number,
+        previousMultiTouchPanPosition: BABYLON.Nullable<BABYLON.PointerTouch>,
+        multiTouchPanPosition: BABYLON.Nullable<BABYLON.PointerTouch>
+    ): void {};
+
+  // This function will only fire during a POINTERDOUBLETAP event.  The "type" parameter
+  // is just the pointer type (mouse, touch, etc.).  This is optional.
+  public onDoubleTap(type: string): void {};
+
+  // This function will fire when a contextmenu event occurs (right-click menu).
+  // "evt" is the triggering event.  This is optional.
+  public onContextMenu(evt: BABYLON.IPointerEvent): void {};
+
+  // This function will fire when a POINTERDOWN event occurs.
+  // "evt" is the triggering event.  This is optional.
+  public onButtonDown(evt: BABYLON.IPointerEvent): void {};
+
+  // This function will fire when a POINTERUP event occurs (right-click menu).
+  // "evt" is the triggering event.  This is optional.
+  public onButtonUp(evt: BABYLON.IPointerEvent): void {};
+
+  // This function will fire when the window loses focus (eg. blur event)
+  // This is optional.
+  public onLostFocus(): void {};
+}
 ```
 
 This may seem like a lot but the big takeaways are that `onTouch` is where you handle single pointer source events and `onMultiTouch` for events with at least two touch sources.
@@ -392,4 +480,4 @@ This may seem like a lot but the big takeaways are that `onTouch` is where you h
 If you find yourself asking, "What benefit is there to using this versus creating my own from scratch", here are a few benefits.  The BaseCameraPointersInput class will automatically handle various input and event based things like preventDefault, pointer capture, and pointer lock.  On top of that, event handling is taken care of for you.  While there's less flexibility in going this route, it might be easier to work with.
 
 Below is a basic implementation of camera inputs for the FreeCamera.  This is implemented in Typescript.
-<Playground id="#1ZCLWM#17" title="FreeCameraPointersInput Example" description="A simple example of customizing camera inputs to combine touch and mouse." />
+<Playground id="#1ZCLWM#20" title="FreeCameraPointersInput (TS) Example" description="A simple Typescript example of customizing camera inputs to combine touch and mouse." />
