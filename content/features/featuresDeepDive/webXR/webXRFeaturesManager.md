@@ -33,7 +33,7 @@ Note that even before creating the features manager you could call its static me
 To check what feature is available, use the features manager's static `GetAvailableFeatures` function, which will return an array of strings corresponding to specific features:
 
 ``` javascript
-const availableFeatures = featuresManager.GetAvailableFeatures();
+const availableFeatures = WebXRFeaturesManager.GetAvailableFeatures(); // in plain JS, use BABYLON.WebXRFeaturesManager
 
 // availableFeatures = ["xr-hit-test", "xr-pointer-selection", ...]
 ```
@@ -41,7 +41,7 @@ const availableFeatures = featuresManager.GetAvailableFeatures();
 To find if a specific feature is available use this code:
 
 ``` javascript
-const availableFeatures = featuresManager.GetAvailableFeatures();
+const availableFeatures = WebXRFeaturesManager.GetAvailableFeatures();
 // using indexOf, but you can use any other method - includes, find, findIndex, in, etc'
 if (availableFeatures.indexOf(WebXRFeatureName.POINTER_SELECTION) !== -1) {
     // Pointer selection is available
