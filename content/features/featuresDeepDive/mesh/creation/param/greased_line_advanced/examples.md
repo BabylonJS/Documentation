@@ -91,7 +91,7 @@ All we need to do now is add the UFO and some particles.
 
 ### Revealing text
 
-Shows how can you make a revealing text using the `visibility` property.
+Shows how can you make a revealing text using the `visibility` property. If the text pops up already visible just run the PG once again by click the Play button.
 
 <Playground id="#H1LRZ3#234" title="Revealing text" description="The text is slowly drawn on the screen." />
 
