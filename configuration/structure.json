@@ -1054,7 +1054,13 @@
                                                 },
                                                 "greased_line": {
                                                     "friendlyName": "GreasedLine",
-                                                    "children": {},
+                                                    "children": {
+                                                        "greased_line_advanced": {
+                                                            "friendlyName": "Advanced examples",
+                                                            "children": {},
+                                                            "content": "features/featuresDeepDive/mesh/creation/param/greased_line_advanced/examples"
+                                                        }
+                                                    },
                                                     "content": "features/featuresDeepDive/mesh/creation/param/greased_line"
                                                 },
                                                 "ribbon": {

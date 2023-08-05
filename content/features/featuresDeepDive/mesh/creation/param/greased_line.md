@@ -104,6 +104,8 @@ addPoints(points: number[][]) // ads points to the existing ones and recreates t
 setPoints(points: number[][]) // sets the points and recreates the mesh
 ```
 
+*If you are using the right handed coordinate system please create the lines after you switch the scene to it.*
+
 #### **widths** and **widthDistribution**
  
 You can specify two width multiplier values for each point in your line. These values are multiplied with the `width` of the line to draw the resulting line. The first value specifies the width multiplier of the line below the line and the second above the line. These values are not normalized so if you use a value of 2, 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
@@ -646,6 +648,8 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
 <Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+<Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
+<Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
 <Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
