@@ -14,9 +14,9 @@ This page contains some ideas for using GreasedLine.
 
 ### Audio analyzer
 
-Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines drawn. The big analyzer's widths are are changed and the smaller's offsets according the frequency data of the music. It also shows how can you manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the colors texture.
+Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines drawn. The big analyzer's widths are are changed and the smaller's offsets according to the frequency data of the music. It also shows how can you manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the colors texture.
 
-Please unmute audio after the PG starts.
+Please unmute the audio after the PG starts.
 
 <Playground id="#3N0IS0#2" title="Line audio analyzer" description="A line audio analyzer with GreasedLine." />
 
@@ -24,25 +24,27 @@ Please unmute audio after the PG starts.
 
 A cool circular audio analyzer using one line. Uses `GreasedLineTools.GetCircleLinePoints` to get the points. Setting to dash mode creates the sections. Adding some calm colors and animating the colors texture's uv in the other direction as the circle is rotating results to static colors on the circle. Modify the `widths` of the line according to the audio frequencies and you get the audio analyzer. Finally add some particles to make it cooler.
 
+Please unmute the audio after the PG starts.
+
 <Playground id="#H1LRZ3#232" title="Circular audio analyzer" description="A circle shaped audio analyzer with GreasedLine." />
 
 ### Light speed
 
-Shows how to create a light speed effect using `widths`, `visibility` and scaling the lines along the `z` axis. There are several lines draw in `lazy` mode and joined into one mesh when the `updateLazy()` method is called. 
+Shows how to create a light speed effect using `widths`, `visibility` and scaling the lines along the `z` axis. There are several lines draw in `lazy` mode and joined into one mesh when the `updateLazy()` method is called.
 
-Visibility is set to a very low value so the lines appears as dots at the beginning. Widths are also kept low at startup. Simply by increasing the visiblity, widths and scaling the lines the effect becomes alive. Playing a bit with the glow value also helps the effect to be more attractive. 
+Visibility is set to a very low value so the lines appears as dots at the beginning (stars). Widths are also kept low at startup. Simply by increasing the visiblity, widths and scaling the lines the effect becomes alive. Playing a bit with the glow value also helps the effect to be more attractive.
 
-If you want a longer effect you can create more instances of the line mesh and start animating them just at the right time. You could also use only two instances and reuse them. Animate one, prepare the other, animate the second and prepare the first one. Repeatn and you will get an infinite light speed effect.
+If you want a longer effect you can create more instances of the line mesh and start animating them just at the right time. You could also use only two instances and reuse them. Animate one, prepare the other, animate the second and prepare the first one. Repeat and you will get an infinite light speed effect.
 
 <Playground id="#7MN4LZ#16" title="Light speed effect" description="Light speed effect." />
 
 ### Flower power
 
-Slowly revealing beautiful text drawn by flowers. 
+Slowly revealing beautiful text drawn by flowers.
 
-Uses `GreasedLineTools.GetPointsFromText` function to get the points coordinates of the drawn text. The text is then hidden and only it's line coordinates are used. Using the `GreasedLineTools.GetPositionOnLineByVisibility` goes through the drawn text by incrementing the visibility value and adds animated `Sprite`s of flowers to slowly reveal the whole text. 
+Uses `GreasedLineTools.GetPointsFromText` function to get the points coordinates of the drawn text. The text is then hidden and only it's line coordinates are used. Using the `GreasedLineTools.GetPositionOnLineByVisibility` goes through the drawn text by incrementing the visibility value and adds animated `Sprite`s of flowers to slowly reveal the whole text.
 
-If your text is not complete and flowers are missing you have to increase the capacity of the `SpriteManager` or lower the density of the flower by lowering the value at line 47. You can also alter the target size of the flowers in the `addFlower` function.
+If your text is not complete and flowers are missing you have to increase the capacity of the `SpriteManager` or lower the density of the flowers by lowering the value at line 47. You can also alter the target size of the flowers in the `addFlower` function.
 
 <Playground id="#0637HC#3" title="Flower power" description="Drawing text with a nice flower effect." />
 
@@ -56,7 +58,7 @@ These lightnings will make even Thor envy. Calculates the position and widths of
 
 GreasedLine can be used to create sparks.
 
-First generate the path the sparks will follow. Create GreasedLines each with a random color from a predefined color palette and with different widths.
+First generate the path the sparks will follow. Create GreasedLines each with a random color from a predefined color palette and with different widths from these paths.
 
 <Playground id="#KIW47V#1" title="Simulating sparks - step 1" description="A cool UFO surrounded by sparks created by GreasedLine - step 1." />
 
@@ -95,9 +97,9 @@ Shows how can you make a revealing text using the `visibility` property.
 
 ### Trees
 
-Just some vegetation drawn using GreasedLines. 
+Just some vegetation drawn using GreasedLines.
 
-You will want to tweak the parameters for sure to get a low poly version of the the tree/grass/bush otherwise this technique is not recommended for production because it generates a lot of geometry. The visual appearance is neither not quite satisfying but you can achieve quite good results by generating grass/bushes (remove the trunk of the tree). Instancing is highly recommended. 
+You will want to tweak the parameters for sure to get a low poly version of the the tree/grass/bush otherwise this technique is not recommended for production because it generates a lot of geometry. The visual appearance is neither not quite satisfying but you can achieve quite good results by generating grass/bushes (remove the trunk of the tree). Instancing is highly recommended.
 
 Press PLAY to generate a new one.
 
