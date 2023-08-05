@@ -83,7 +83,7 @@ scene.onBeforeRenderObservable.add(() => {
 })
 ```
 
-<Playground id="#KIW47V#2" title="Simulating sparks - step 3" description="A cool UFO surrounded by sparks created by GreasedLine - step 3." />
+<Playground id="#KIW47V#3" title="Simulating sparks - step 3" description="A cool UFO surrounded by sparks created by GreasedLine - step 3." />
 
 All we need to do now is add the UFO and some particles.
 
@@ -110,3 +110,11 @@ Press PLAY to generate a new one.
 Simply by drawing a circle and setting the `widths` of the line in the right places to the right values we can create a recycle logo very easily.
 
 <Playground id="#H1LRZ3#240" title="Recycle logo" description="Recycle logo created using widths." />
+
+### Navigation path line or displaying wind/ocean currents
+
+Shows how can you draw navigation path lines or display currents in the air or in the water. This PG shows only one line but you can ofcourse draw as many as needed.
+
+The line uses an alpha texture which is animated using modifying the `uOffset` of the texture.
+
+<Playground id="#F2M8GA#3" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />
