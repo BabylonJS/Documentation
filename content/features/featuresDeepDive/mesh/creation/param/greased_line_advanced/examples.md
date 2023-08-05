@@ -104,3 +104,9 @@ You will want to tweak the parameters for sure to get a low poly version of the 
 Press PLAY to generate a new one.
 
 <Playground id="#DEHK6P#3" title="Trees" description="Parametric trees using GreasedLine." />
+
+### Recycle logo
+
+Simply by drawing a circle and setting the widths of the line in the right places to the right values we can create a recycle logo very easily.
+
+<Playground id="#H1LRZ3#240" title="Recycle logo" description="Recycle logo created using widths." />
