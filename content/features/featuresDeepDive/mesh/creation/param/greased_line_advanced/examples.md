@@ -107,6 +107,6 @@ Press PLAY to generate a new one.
 
 ### Recycle logo
 
-Simply by drawing a circle and setting the widths of the line in the right places to the right values we can create a recycle logo very easily.
+Simply by drawing a circle and setting the `widths` of the line in the right places to the right values we can create a recycle logo very easily.
 
 <Playground id="#H1LRZ3#240" title="Recycle logo" description="Recycle logo created using widths." />
