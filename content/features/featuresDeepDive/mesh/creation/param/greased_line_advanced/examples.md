@@ -22,6 +22,8 @@ Please unmute audio after the PG starts.
 
 ### Circular audio analyzer
 
+A cool circular audio analyzer using one line. Uses `GreasedLineTools.GetCircleLinePoints` to get the points. Setting to dash mode creates the line section. Adding some calm colors and animating the colors texture's uv in the other direction as the circle is rotating results to static colors on the circle. Modify the `widths` of the line according the audio frequencies and you get the audio analyzer. Finally add some particles to make it cooler.
+
 <Playground id="#H1LRZ3#232" title="Circle audio analyzer" description="A circle shaped audio analyzer with GreasedLine." />
 
 ### Light speed
