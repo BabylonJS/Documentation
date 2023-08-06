@@ -434,6 +434,8 @@ You can add points to an existing GreasedLine instance. The width table is exten
 
 The color table, if `useColors` is `true` must be extended manually. Please pay attention to the code in the PG and the comments how to correctly extend the color table.
 
+The line must be created with the `updatable: true` option.
+
 Have a look at the PG called Adding and setting points on an existing instance at the end of the page.
 
 #### Line transformations
