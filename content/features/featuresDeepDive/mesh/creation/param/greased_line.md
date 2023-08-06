@@ -670,7 +670,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Shows how to move your line points after the line mesh was created." />
 <Playground id="#235CZX#16" title="Offsetting line segments" description="Shows how to move your line segments after the line mesh was created." />
 <Playground id="#ZRZIIZ#98" title="Modifying points positions" description="You can modify the positions by altering vertex buffer of the mesh." />
-<Playground id="#7CHU6U#6" title="Adding and setting points on an existing instance" description="Shows how can you add or set the points on an existing instance and how to deal with existing width/colors." />
+<Playground id="#7CHU6U#9" title="Adding and setting points on an existing instance" description="Shows how can you add or set the points on an existing instance and how to deal with existing width/colors." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
