@@ -1,7 +1,7 @@
 ---
 title: GreasedLine advanced examples
 image:
-description: Short tutorial for advanced scenarios using GreasedLine 
+description: Advanced scenarios/ideas using GreasedLine 
 keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
 further-reading:
 video-overview:
