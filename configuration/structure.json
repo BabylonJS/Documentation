@@ -2513,6 +2513,11 @@
                             "friendlyName": "Display Axes",
                             "children": {},
                             "content": "toolsAndResources/utilities/World_Axes"
+                        },
+                        "MeshDebugPlugin": {
+                            "friendlyName": "Visualizing Mesh Data",
+                            "children": {},
+                            "content": "toolsAndResources/utilities/MeshDebugPlugin"
                         }
                     },
                     "content": "toolsAndResources/utilities"
