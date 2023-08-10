@@ -214,6 +214,21 @@ To be complete with this graph, we need to add a `ComputeNormalsBlock` to make s
 This will produce our weird random based sphere:
 ![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/05.jpg)
 
+The list of the contextual values is the following:
+- positions: Contextual value pointing at the positions array of the active geometry
+- normals: Contextual value pointing at the normals array of the active geometry
+- colors: Contextual value pointing at the colors array of the active geometry
+- tangents: Contextual value pointing at the tangents array of the active geometry
+- uvs1: Contextual value pointing at the uvs array of the active geometry
+- uvs2: Contextual value pointing at the uvs2 array of the active geometry
+- uvs3: Contextual value pointing at the uvs3 array of the active geometry
+- uvs4: Contextual value pointing at the uvs4 array of the active geometry
+- uvs5: Contextual value pointing at the uvs5 array of the active geometry
+- uvs6: Contextual value pointing at the uvs6 array of the active geometry
+- vertexID: Contextual value representing the vertex index of the current vertex of the active geometry
+ 
+ All the previous contextual values **CANNOT** be used with the `InstantiateOnFacesBlock` block that we will see later in this page.
+
 ## Node Geometry Editor
 
 As you can see the code starts to be very long. This is why we introduced a visual tool to help you build your graph: //LINK TO NGE DOC//
@@ -234,7 +249,12 @@ You can apply rotation or scaling per instance by connecting values to the `rota
 
 The `density` input can be used to use a percentage of the overall vertices only (like having an instance only on 15% of the vertices)
 
-The `InstantiateOnFacesBlock` works similarly but will generate several instances per face. This block has no density input but a `count` input that will let you decide how many instances in total you want to sparkle.
+The `InstantiateOnFacesBlock` class works similarly but will generate several instances per face. This block has no density input but a `count` input that will let you decide how many instances in total you want to sparkle.
+
+When using an `InstantiateOnFacesBlock`, you can only use the following contextual values:
+- positions: Contextual value pointing at the positions array of the active geometry
+- normals: Contextual value pointing at the normals array of the active geometry
+- faceID: Contextual value representing the face index of the current face of the active geometry
 
 ## Controlling the flow
 
