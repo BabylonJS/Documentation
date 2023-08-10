@@ -1290,6 +1290,11 @@
                                     },
                                     "content": "features/featuresDeepDive/mesh/interactions"
                                 },
+                                "nodeGeometry": {
+                                    "friendlyName": "Node Geometry",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/nodeGeometry"
+                                },                                
                                 "displayBoundingBoxes": {
                                     "friendlyName": "Drawing Bounding Boxes",
                                     "children": {},
