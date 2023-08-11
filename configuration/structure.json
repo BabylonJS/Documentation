@@ -3088,6 +3088,11 @@
                     "children": {},
                     "content": "communityExtensions/meshWriter"
                 },
+                "mmdLoader": {
+                    "friendlyName": "MMD Loader",
+                    "children": {},
+                    "content": "communityExtensions/mmdLoader"
+                },
                 "textureCanvas": {
                     "friendlyName": "Texture Canvas",
                     "children": {},
