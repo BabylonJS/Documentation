@@ -1,1 +1,0 @@
-https://playground.babylonjs.com/#DEHK6P#3
