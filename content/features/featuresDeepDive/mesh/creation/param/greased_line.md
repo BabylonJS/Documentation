@@ -207,8 +207,11 @@ Type of the material to use to render the line. Default is `StandardMaterial`. C
 enum GreasedLineMeshMaterialType {
     MATERIAL_TYPE_STANDARD = 0,
     MATERIAL_TYPE_PBR = 1,
+    MATERIAL_TYPE_SIMPLE = 2
 }
 ```
+
+The first two materials are implemented using material plugins. The simple material is based on a shader material. It is super fast but does support only plain colors without lighting.
 
 #### **color**
 
@@ -231,6 +234,8 @@ enum GreasedLineMeshColorMode {
     COLOR_MODE_MULTIPLY = 2,
 }
 ```
+
+Please not a difference: `MATERIAL_TYPE_SIMPLE` mixes the `color` and `colors` of the greased line material. `MATERIAL_TYPE_STANDARD` and `MATERIAL_TYPE_PBR` mixes the color from the base material with the `color` or the `colors` of the greased line material.
 
 #### **colors** and **colorDistribution**
 
@@ -306,9 +311,118 @@ Rendering resolution. There may be special occasions when you want to change the
 
 ## GreasedLine materials
 
-`GreasedLine` uses `StandardMaterial` or `PBRMaterial` as the base material for rendering. It also uses a `GreasedLinePluginMaterial` which plugs into the base material and provides the additional features of `GreasedLine`.
+`GreasedLine` uses `StandardMaterial` or `PBRMaterial` or `ShaderMaterial` (`MATERIAL_TYPE_SIMPLE`) as the base material for rendering. It also uses a `GreasedLinePluginMaterial` which plugs into the base material and provides the additional features of `GreasedLine`.
 
-If you want to alter the properties of the material you need to use `line.material` but if you want to change the `GreasedLine` specific material properties you need to do it on the `line.greasedMaterial` object.
+If you want to alter the properties of the material you need to use `line.material` but if you want to change the `GreasedLine` specific material properties you need to do it on the `line.greasedMaterial` object. All three materials implements the `IGreasedLineMaterial` interface:
+
+```javascript
+/**
+ * Interface which defines the available methods for a GreasedLineMaterial
+ */
+export interface IGreasedLineMaterial {
+    /**
+     * Normalized value of how much of the line will be visible
+     * 0 - 0% of the line will be visible
+     * 1 - 100% of the line will be visible
+     */
+    visibility: number;
+
+    /**
+     * Line base width. At each point the line width is calculated by widths[pointIndex] * width
+     */
+    width: number;
+
+    /**
+     * Turns on/off dash mode
+     */
+    useDash: boolean;
+
+    /**
+     * @see GreasedLinePluginMaterial.setDashCount
+     * Number of dashes in the line.
+     * Defaults to 1.
+     */
+    dashCount: number;
+
+    /**
+     * Dash offset
+     */
+    dashOffset: number;
+
+    /**
+     * Length of the dash. 0 to 1. 0.5 means half empty, half drawn.
+     */
+    dashRatio: number;
+
+    /**
+     * Whether to use the colors option to colorize the line
+     */
+    useColors: boolean;
+
+    /**
+     * The mixing mode of the color paramater. Default value is GreasedLineMeshColorMode.SET. MATERIAL_TYPE_SIMPLE supports only the default value/mode.
+     * @see GreasedLineMeshColorMode
+     */
+    colorMode: GreasedLineMeshColorMode;
+
+    /**
+     * Colors of the line segments.
+     * Defaults to empty.
+     */
+    colors: Nullable<Color3[]>;
+
+    /**
+     * If false then width units = scene units. If true then line will width be reduced.
+     * Defaults to false.
+     */
+    sizeAttenuation: boolean;
+
+    /**
+     * Color of the line. Applies to all line segments.
+     * Defaults to White.
+     * MATERIAL_TYPE_STANDARD and MATERIAL_TYPE_PBR material's shaders will get recompiled if there was no color set and you set a color or when there was a color set and you set it to null.
+     */
+    color: Nullable<Color3>;
+
+    /**
+     * The method used to distribute the colors along the line.
+     * You can use segment distribution when each segment will use on color from the color table.
+     * Or you can use line distribution when the colors are distributed evenly along the line ignoring the segments.
+     */
+    colorsDistributionType: GreasedLineMeshColorDistributionType;
+
+    /**
+     * Defaults to engine.getRenderWidth() and engine.getRenderHeight()
+     * Rendering resolution
+     */
+    resolution: Vector2;
+
+    /**
+     * Allows to change the color without marking the material dirty.
+     * MATERIAL_TYPE_STANDARD and MATERIAL_TYPE_PBR material's shaders will get recompiled if there was no color set and you set a color or when there was a color set and you set it to null. Use the flag to not to recompile immediately.
+     * @param value the color
+     * @param doNotMarkDirty the flag
+     */
+    setColor(value: Nullable<Color3>, doNotMarkDirty?: boolean): void;
+
+    /**
+     *
+     * @param colors colors array
+     * @param lazy if true the colors texture will not be updated
+     * @param forceNewTexture forces to create a new colors texture
+     */
+    setColors(colors: Nullable<Color3[]>, lazy: boolean, forceNewTexture?: boolean): void;
+
+    /**
+     * Creates and sets the colors texture from the colors array which was created in lazy mode
+     */
+    updateLazy(): void;
+}
+```
+
+All other properties must be defined when creating the line.
+
+As you can see in the comment of the `color` public property, the shader gets recompiled if there are specific changes of this property. A real life scenario: You might want to draw textured lines. On a specific event you want colorize the texture. In this case create the line with `color` set to `Color3.White()` and set the `colorMode` to `GreasedLineColorMode.COLOR_MODE_MULTIPLY`. The result will be the same as not setting a `color`. However now you can change the `color` to for example `rgb(0.5, 0.5, 0.5)` to dim the texture colors without shader recompilation. This doesn't apply to `MATERIAL_TYPE_SIMPLE` because this material supports only `GreasedLineColorMode.COLOR_MODE_SET` so there will be no shader recompilation upon changes of the `color` property at all.
 
 **Materials can be shared between line instances.** If you create a line a the other should have the same material options then create the other line(s) by setting it's material option `createAndAssign` material to `false` and simply set the material:
 
@@ -660,7 +774,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
 <Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
 <Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
-<Playground id="#H1LRZ3#58" title="Color distribution type" description="Shows how to use available color distribution types." />
+<Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 <Playground id="#ZRZIIZ#96" title="Vertex colors" description="Colorize your line using vertex colors." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
