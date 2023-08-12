@@ -128,20 +128,12 @@ BABYLON.Engine.audioEngine.setGlobalVolume(0.5);
 Sometimes you want audio to autoplay on page load, e.g. Ambient background or theme music for a game.
 
 Modern browsers blocks audio until the user have interacted with the webpage.
-and any audio you have attempted to play before that interaction will not always resume.
 
-BabylonJs will supply a default "unmute" button which unlocks audio when clicked.
-We can use this button and listen to the audioEngine onAudioUnlockedObservable to restart the audio
+BabylonJs will supply a default "unmute" button which unlocks audio once clicked.
 
+We can disable this default unmute button if wanted and create our own listener for a user interaction, e.g. any pointer click on the webpage.
 ```javascript
-BABYLON.Engine.audioEngine.onAudioUnlockedObservable.addOnce(function(){
-    audioObject.play();
-});
-```
-Test it in our playground here: <Playground id="#KBA3JY#1" title="Unlocking Audio & autoplay" description="A simple example unlocking audio" isMain={true} category="Audio"/>
-
-We can also disable the default unmute button and create our own listener for a user interaction, like any pointer click on the webpage.
-```javascript
+// Disable the default audio unlock button
 BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
 
 // Unlock audio on first user interaction.
@@ -151,7 +143,7 @@ window.addEventListener('click', () => {
   }
 }, { once: true });
 ```
-Test it in our playground here: <Playground id="#KBA3JY#2" title="Custom audio unlock & autoplay" description="A simple example unlocking audio on first user interaction" isMain={true} category="Audio"/>
+Test it in our playground here: <Playground id="#KBA3JY#4" title="Custom audio unlock & autoplay" description="A simple example unlocking audio on first user interaction" isMain={true} category="Audio"/>
 
 ## Playing a sound sprite
 
