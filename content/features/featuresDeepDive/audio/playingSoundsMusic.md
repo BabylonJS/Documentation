@@ -123,6 +123,36 @@ Rather than setting the volume on a specific sound, you can also set the global 
 BABYLON.Engine.audioEngine.setGlobalVolume(0.5);
 ```
 
+## Handling autoplay & unlocking audio on first user interaction
+
+Sometimes you want audio to autoplay on page load, e.g. Ambient background or theme music for a game.
+
+Modern browsers blocks audio until the user have interacted with the webpage.
+and any audio you have attempted to play before that interaction will not always resume.
+
+BabylonJs will supply a default "unmute" button which unlocks audio when clicked.
+We can use this button and listen to the audioEngine onAudioUnlockedObservable to restart the audio
+
+```javascript
+BABYLON.Engine.audioEngine.onAudioUnlockedObservable.addOnce(function(){
+    audioObject.play();
+});
+```
+Test it in our playground here: <Playground id="#KBA3JY#1" title="Unlocking Audio & autoplay" description="A simple example unlocking audio" isMain={true} category="Audio"/>
+
+We can also disable the default unmute button and create our own listener for a user interaction, like any pointer click on the webpage.
+```javascript
+BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
+
+// Unlock audio on first user interaction.
+window.addEventListener('click', () => {
+  if(!BABYLON.Engine.audioEngine.unlocked){
+    BABYLON.Engine.audioEngine.unlock();
+  }
+}, { once: true });
+```
+Test it in our playground here: <Playground id="#KBA3JY#2" title="Custom audio unlock & autoplay" description="A simple example unlocking audio on first user interaction" isMain={true} category="Audio"/>
+
 ## Playing a sound sprite
 
 A sound sprite is a portion of a sound file. You can define a sound sprite when creating a sound by defining an offset and a length (in seconds):
