@@ -2514,10 +2514,10 @@
                             "children": {},
                             "content": "toolsAndResources/utilities/World_Axes"
                         },
-                        "MeshDebugPlugin": {
+                        "VisualizeMeshData": {
                             "friendlyName": "Visualizing Mesh Data",
                             "children": {},
-                            "content": "toolsAndResources/utilities/MeshDebugPlugin"
+                            "content": "toolsAndResources/utilities/VisualizeMeshData"
                         }
                     },
                     "content": "toolsAndResources/utilities"
