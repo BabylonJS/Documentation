@@ -776,6 +776,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 <Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
 <Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
 <Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
+<Playground id="#H1LRZ3#268" title="Simple material in multiply color mode" description="Shows how the multiply color mode works with the simple greased line material." />
 <Playground id="#ZRZIIZ#96" title="Vertex colors" description="Colorize your line using vertex colors." />
 <Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
 <Playground id="#H1LRZ3#119" title="Dashing" description="How to create dashed lines." />
