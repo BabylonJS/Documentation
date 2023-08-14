@@ -8,15 +8,15 @@ video-overview:
 video-content:
 ---
 
-## Introduction
+## What Is Node Geometry
 
-The NodeGeometry feature was inspired by Blender Geometry nodes where you can use a node system to procedurally build geometry. Think about it like a postprocessing system for geometry. Ultimately it produces a geometry but with a procedural approach.
+The `NodeGeometry` feature was inspired by Blender Geometry Nodes where you can use a node system to build geometry procedurally. Think about it like a postprocessing system for geometry. Ultimately it produces a geometry but with a procedural approach.
 
-## Why?
+## Why Use Node Geometry?
 Several reasons come to mind:
-- The cost of downloading assets on the web is a strong limiting factor and procedural data can help solve that by limiting the download to the core pieces that are assembled later on by the NodeGeometry system
-- The system is dynamic and can produce an infinity of variants. Far above what an offline source can produce (think about terrain generation or vegetation generation)
-- It allows a new way of modelling by assembling core shapes and playing around with a node system
+- The cost of downloading assets on the web is a strong limiting factor. Procedural data can help solve that by limiting the download to the core pieces that are assembled later by the `NodeGeometry` system
+- The system is dynamic and can produce infinite variants at run time. While there are many digital content creation tools that can create procedural meshes with the same infinite possibilities, the limiting factor again becomes downloading assets created offline. Examples would be terrain or vegetation generation.
+- It allows a new way of modelling in Babylon.js by assembling core shapes and playing around with a node system
 
 ## Example
 
@@ -26,7 +26,7 @@ Here is a complete example of an advanced `NodeGeometry` which is used to genera
 
 <Playground id="#PYY6XE#69" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city"/>
 
-## How to use
+## How to Use
 
 The `NodeGeometry` class is an utility class, meaning it is autonomous and does not require access to an engine or a scene. So instantiation is pretty simple:
 
@@ -34,9 +34,9 @@ The `NodeGeometry` class is an utility class, meaning it is autonomous and does 
 const nodeGeometry = new BABYLON.NodeGeometry("my node geometry");
 ```
 
-Once created, the system will expect you to create a flow from a source to and endpoint. In a nutshell, the NodeGeometry will process VertexData structure (See more in the [Create Custom Meshes From Scratch](/features/featuresDeepDive/mesh/creation/custom/custom)).
+Once created, the system will expect you to create a flow from a source to an endpoint. In a nutshell, the `NodeGeometry` will process `VertexData` structure (See more in the section [Create Custom Meshes From Scratch](/features/featuresDeepDive/mesh/creation/custom/custom)).
 
-By default, NodeGeometry system supports the following sources:
+By default, the `NodeGeometry` system supports the following sources:
 
 - Box
 - Capsule
@@ -64,9 +64,9 @@ nodegeo.outputBlock = output;
 sphere.geometry.connectTo(output.geometry);
 ```
 
-From there you have to imagine that the graph will flow the geometry (represented by the VertexData provided by the source) towards blocks and each block will have the opportunity to update the vertex data.
+While this example is very simple, it isn't hard to imagine how adding more operations to the graph will present opportunities to alter the geometry flow which is represented by the `VertexData` provided by the source node. Updating that `VertexData` will influence the geometry passed to the `GeometryOutputBlock`.
 
-The `GeometryOutputBlock` is meant to collect the final VertexData that can then be used to generate a mesh:
+The `GeometryOutputBlock` will collect the final VertexData that can then be used to generate a mesh:
 
 ```
 // Build and instantiate mesh
@@ -74,11 +74,11 @@ nodegeo.build();
 var mesh = nodegeo.createMesh("nodegeomesh");
 ```
 
-## Updating the geometry flow
+## Updating the Geometry Flow
 
 Now that we have the basics in place, we can start to introduce blocks which will update the data.
 
-Among the simple we have the setXXX blocks which will focus on generating data for a specific layer (like positions, normals, colors, uvs, etc...):
+The simplest blocks will be the setXXX blocks which focus on generating data for a specific mesh component like positions, normals, colors, uvs, etc.:
 
 - setPositionsBlock
 - setNormalsBlock
@@ -86,9 +86,9 @@ Among the simple we have the setXXX blocks which will focus on generating data f
 - setColorsBlock
 - setUVsBlock
 
-These blocks are updating the VertexData by generating an entry per vertex inside the geometry. For that specific reason you can imagine them like a loop going through the list of vertices and pumping data from their input.
+These blocks are updating the `VertexData` by generating an entry per vertex inside the geometry. For that specific reason you can imagine them like a loop going through the list of vertices and inserting data from their input.
 
-To pump data into the block you can simply use a`RandomBlock` which will generate a random value:
+One way to insert data into the block is to simply use a `RandomBlock` which will generate a random value. In this example we are setting random positions for each vertex in the sphere:
 
 ```
 // Create node geometry
@@ -125,15 +125,15 @@ The `setPositionsBlock` will call the `RandomBlock` once per vertex to generate 
 
 ![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/02.jpg)
 
-## Contextual values
+## Contextual Values
 
-To go further you may want to READ from the geometry. For that the system will provide several contextual values that are capable of pumping data FROM the active geometry.
+To go further you may want to READ from the geometry. To do that the system provides several contextual values that are capable of pulling data FROM the active geometry.
 
-The active geometry is the geometry connected to the pumping block (in our example below, that will be the `SetPositionsBlock`).
+The active geometry is the geometry connected to the block that seeks to read contextual values. In our example below, that will be the `SetPositionsBlock`.
 
-So we can rewrite our graph but instead of adding random values directly we can add the normal of each vertex to the position and simply scale the normal by a random scale.
+We can rewrite our graph but instead of adding random values directly we can add the normal of each vertex scaled by a random value to the position of each vertex.
 
-So the associated code is:
+The associated code is:
 
 ```
 // Create node geometry
@@ -198,23 +198,23 @@ nodeGeometry.build();
 var mesh = nodeGeometry.createMesh("nodegeomesh");
 ```
 
-That will generate that mesh:
+Which will generate the following mesh:
 ![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/03.jpg)
 
 
-To better understand the graph, here is a visual representation (See Node Geometry Editor later in this page):
+To better understand the graph, here is a visual representation. See the section on the [Node Geometry Editor](/features/featuresDeepDive/mesh/nodeGeometry#node-geometry-editor) below.
 ![NodeGeometry representation](/img/how_to/nge/04.jpg)
 
 Please note that we used the `VectorConverter` to produce a Vector3 out of the `RandomBlock` generating a float.
-We are also using a `MathBlock` twice to get an Add and a Multiply operation. You also have access to all trigonometry operations with the `GeometryTrigonometryBlock`.
+We are also using the `MathBlock` twice to get Add and Multiply operations. We also have access to all trigonometry operations with the `GeometryTrigonometryBlock`.
 
-To be complete with this graph, we need to add a `ComputeNormalsBlock` to make sure the normals are rebuilt using the new positions:
+To complete this graph, we need to add a `ComputeNormalsBlock` to make sure the normals are rebuilt using the new positions:
 ![NodeGeometry representation](/img/how_to/nge/06.jpg)
 
 This will produce our weird random based sphere:
 ![Using NodeGeometry to generate a random based sphere](/img/how_to/nge/05.jpg)
 
-The list of the contextual values is the following:
+The list of available contextual values contains the following:
 - positions: Contextual value pointing at the positions array of the active geometry
 - normals: Contextual value pointing at the normals array of the active geometry
 - colors: Contextual value pointing at the colors array of the active geometry
@@ -227,38 +227,38 @@ The list of the contextual values is the following:
 - uvs6: Contextual value pointing at the uvs6 array of the active geometry
 - vertexID: Contextual value representing the vertex index of the current vertex of the active geometry
  
- All the previous contextual values **CANNOT** be used with the `InstantiateOnFacesBlock` block that we will see later in this page.
+Many of the previous contextual values **CANNOT** be used with the `InstantiateOnFacesBlock` block. We will detail which of them can be used below.
 
 ## Node Geometry Editor
 
-As you can see the code starts to be very long. This is why we introduced a visual tool to help you build your graph: //LINK TO NGE DOC//
+As we can see above, creating even a relatively simple `NodeGeometry` with code can quickly become very long. This is why we introduced a visual tool to help  build `NodeGeometry` graphs.
 
-## Instancing geometries
+## Instancing Geometries
 
 Ok, now it is time to really unleash the core power of the `NodeGeometry`!
 
-With the `InstantiateOnVerticesBlock` class and the `InstantiateOnFacesBlock` class, you have the opportunity to instantiate a new geometry per vertex (or multiple times per face).
+With the `InstantiateOnVerticesBlock` class and the `InstantiateOnFacesBlock` class, you have the opportunity to instantiate a new geometry per vertex - or multiple times per face.
 
 So let's look at this graph:
 ![Using InstantiateOnVerticesBlock](/img/how_to/nge/08.jpg)
 
-The `InstantiateOnVerticesBlock` block is used to pump a box on each vertex of the sphere:
+The `InstantiateOnVerticesBlock` block is used to place a box on each vertex of the sphere:
 ![Instancing boxes on a sphere](/img/how_to/nge/09.jpg)
 
 You can apply rotation or scaling per instance by connecting values to the `rotation` and `scaling` inputs.
 
-The `density` input can be used to use a percentage of the overall vertices only (like having an instance only on 15% of the vertices)
+The `density` input can be used to affect a percentage of the overall vertices. For example, placing an instance of the box only on 15% of the active geometry's vertices.
 
-The `InstantiateOnFacesBlock` class works similarly but will generate several instances per face. This block has no density input but a `count` input that will let you decide how many instances in total you want to sparkle.
+The `InstantiateOnFacesBlock` class works similarly but will generate several instances per face. This block does not have a density input but instead a `count` input that will let you decide how many instances in total you want to distribute across all faces of the active geometry.
 
 When using an `InstantiateOnFacesBlock`, you can only use the following contextual values:
 - positions: Contextual value pointing at the positions array of the active geometry
 - normals: Contextual value pointing at the normals array of the active geometry
 - faceID: Contextual value representing the face index of the current face of the active geometry
 
-## Controlling the flow
+## Controlling the Flow
 
-The `ConditionalBlock` is the central block if you want to control what is going on with your flow. It can let you decide which branch to take based on a condition that can be:
+The `ConditionalBlock` is the central block if we want to control what is going on with the geometry flow. It can help decide which branch of the node graph to take based on a condition that can be:
 - Equals
 - Not equals
 - Greater than
@@ -269,44 +269,44 @@ The `ConditionalBlock` is the central block if you want to control what is going
 - Or
 - And
 
-So for instance we can decide to have a new sphere made of boxes but we want one hemisphere to be using one material and the other hemisphere using another material.
+For instance we can decide to have a new sphere made of boxes but we want one hemisphere to use one material and the other hemisphere to use another.
 This graph will do it:
 ![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/16.jpg)
 
-The `ConditionBlock` is used here with a Greater than setup and will then pick the value 0 or 1 based on the y value of the normal (of the sphere as the sphere is the geometry manipulated by the `InstantiateOnFacesBlock` block). If the y value of the normal is greater than 0.2 then it will pick 0 and send that value to the `SetMaterialIDBlock`. Else it will pick the value of 1.
+The `ConditionBlock` is used here with a Greater than setup and will then pick the value 0 or 1 based on the y value of the normal. The normal that is evaluated belongs to the active geometry. In this case, the active geomerty is the sphere as the sphere is the manipulated by the `InstantiateOnFacesBlock` block. If the y value of the normal is greater than 0.2 then it will pass a value of 0 to the `SetMaterialIDBlock`. Otherwise it will pass a value of 1.
 
 The outcome:
 ![Instancing boxes on a sphere with different material per hemisphere](/img/how_to/nge/17.jpg)
 
-## Random and noise
+## Random and Noise
 
-In order to get random values, we have already seen the `RandomBlock`. There is another one that can be used: the `NoiseBlock`.
+In order to get random values, we have already seen the `RandomBlock`. However, there is another one that can be used which is the `NoiseBlock`.
 
 This block will generate a noise pattern based on a Perlin noise algorithm.
 
-Here is our example again with the `SetPositions`:
+Here is our example again with the `SetPositions` block:
 ![Using noise pattern](/img/how_to/nge/10.jpg)
 
-This will produce this mesh:
+Which will produce this mesh:
 ![Using noise pattern to generate a sphere](/img/how_to/nge/11.jpg)
 
 ## Material ID
 
-If you are working with multiple sources, you can merge them easily with the `MergeBlock`:
+If working with multiple mesh sources is desired, we can merge them easily with the `MergeBlock`:
 ![using MergeBlock in a graph](/img/how_to/nge/12.jpg)
 
-That will generate that mesh:
+Which will generate this mesh:
 ![Using MergeBlock to merge multiple geometries](/img/how_to/nge/13.jpg)
 
 The generated mesh will be made of one unified geometry and be rendered with one draw call.
 
-But you can go further and actually attach a material ID per geometry with the `SetMaterialID` block:
+But we can go further and actually attach a material ID per geometry with the `SetMaterialID` block:
 ![using MergeBlock and SetMaterialID in a graph](/img/how_to/nge/14.jpg)
 
-This will generate this mesh:
+Which will generate this mesh:
 ![using MergeBlock and SetMaterialID for a mesh](/img/how_to/nge/15.jpg)
 
-The mesh will now have a list of subMeshes (`mesh.subMeshes`) and will be rendered (when attached with a [MultiMaterial](/features/featuresDeepDive/materials/using/multiMaterials)) with one material per ID.
+The mesh will now have a list of subMeshes in `mesh.subMeshes` and will be rendered with a [MultiMaterial](/features/featuresDeepDive/materials/using/multiMaterials) using one material per ID.
 
 ## Serialization
 
@@ -314,27 +314,27 @@ A `NodeGeometry` entity can be serialized to a json object:
 ```
 geometry.serialize(true);
 ```
-(in this case the boolean indicates if you want to also serialized the geometry produced by the `MeshBlock` which can be quickly heavy)
+The boolean indicates if the geometry produced by the `MeshBlock` should also be serialized into the json object. Use caution when doing this becuase the resulting json can quickly become very heavy.
 
-To load a `NodeGeometry` from a json object, you can call this code:
+To load a `NodeGeometry` from a json object, call this code:
 ```
 nodeGeometry.parseSerializedObject(json);
 ```
 
-If you are using the Node Geometry Editor, you can also load a `NodeGeometry` from our snippet server:
+If using the Node Geometry Editor instead, `NodeGeometry` can be loaded directly from our snippet server:
 ```
 const geometry = await BABYLON.NodeGeometry.ParseFromSnippetAsync("IJA02K#11");
 ```
 
 ## Optimizations
-The `NodeGeometry` class uses the CPU to process data. Which means that you have to be cautious if you expect to generate several meshes.
+The `NodeGeometry` class uses the CPU to process data. Which means that we have to be cautious if expecting to generate several meshes.
 
 For instance let's take this graph:
 ![Instancing meshes on a sphere](/img/how_to/nge/07.jpg)
 
-We can see that the `InstantiateOnVerticesBlock` will call the Transform of the geometry flow for each vertex of the sphere (Please note the use of the `MergeBlock` to combine multiple geometries). In this case, as nothing in the instance part of the graph is using contextual values (like reading positions or normals for instance), we can ask the `GeometryTransformBlock` to not reevaluate its context on each call.
+We can see that the `InstantiateOnVerticesBlock` will call the Transform of the geometry flow for each vertex of the sphere. Note the use of the `MergeBlock` to combine multiple geometries. In this case, as nothing in the instance part of the graph is using contextual values - such as reading positions or normals - we can ask the `GeometryTransformBlock` to not reevaluate its context on each call.
 
-To do so you can call:
+To do so simply call:
 ```
 myBlock.evaluateContext = false;
 ```
