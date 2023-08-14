@@ -10,7 +10,7 @@ video-content:
 
 ## EVERYONE's very first step
 
-Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any futher through the docs.
+Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any further through the docs.
 
 This doc will take you on a VERY brief journey of creating and hosting your very first Babylon.js Web Experience. You'll learn about the Babylon.js playground, scratch the surface of learning the core engine, and save your work as a ready-to-host .html file.
 
@@ -218,7 +218,7 @@ description: Website description.
 
 ![create config file](/img/home/createTextFile.jpg)
 
-Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and desctiption will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
+Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
 
 ![commit text file to repository](/img/home/commitTextFile.jpg)
 
