@@ -95,6 +95,12 @@ Shows how can you make a revealing text using the `visibility` property. If the 
 
 <Playground id="#H1LRZ3#234" title="Revealing text" description="The text is slowly drawn on the screen." />
 
+### Supernova
+
+A supernova like star using `GreasedLine`. It draws the main star, applies volumetric light scattering to it and adds two more outer regions to the star using a glow effect. All greased line meshes are then parented to a `TransformNode` which is rotated around the Z axis.
+
+<Playground id="#QZTX7A#2" title="Supernova" description="A supernova like star." />
+
 ### Trees
 
 Just some vegetation drawn using GreasedLines.
