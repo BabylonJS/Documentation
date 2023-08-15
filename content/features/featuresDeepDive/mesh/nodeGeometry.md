@@ -24,7 +24,7 @@ Here is a complete example of an advanced `NodeGeometry` which is used to genera
 
 ![Using NodeGeometry to generate a procedural city](/img/how_to/nge/01.jpg)
 
-<Playground id="#PYY6XE#69" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city"/>
+<Playground id="#PYY6XE#70" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city"/>
 
 ## How to Use
 
