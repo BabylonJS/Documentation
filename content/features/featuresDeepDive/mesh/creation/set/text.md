@@ -53,3 +53,45 @@ We are also offering already exported fonts on assets.babylonjs.com:
 
 Hello world: <Playground id="#6I2RMN#2" title="Create a 3d text" description="Simple example of creating a 3d text." image="/img/playgroundsAndNMEs/createText.jpg"/> 
 
+### Controlling letters texture mapping and colors
+
+You can use a specific parameter to set the way the UVs and colors are attached on the new mesh:
+
+```
+var myText = BABYLON.MeshBuilder.CreateText("myText", "HELLO WORLD", fontData, {
+        size: 16,
+        resolution: 64, 
+        depth: 10,
+        faceUV: [
+            new BABYLON.Vector4(0, 0, 1, 1),
+            new BABYLON.Vector4(0, 0, 1, 1),
+            new BABYLON.Vector4(0, 0, 1, 1),
+        ];
+    });
+```
+
+The faceUV array defines an array of Vector4 elements used to set different texture coordinates to the front, top and back faces respectively.
+You can do the same for colors with faceColors.
+
+But you may want to go further and control the texture coordinates or colors per letter. To do so you can use the following code:
+```
+const letterCount = 10;
+    const step = 1 / letterCount;
+    var myText = BABYLON.MeshBuilder.CreateText("myText", "HELLO WORLD", fontData, {
+        size: 16,
+        resolution: 64, 
+        depth: 10,
+        perLetterFaceUV: (index) => {
+            const startX = index * step;
+            return [
+                new BABYLON.Vector4(startX, 0, startX + step, 1),
+                new BABYLON.Vector4(startX, 0, startX + step, 1),
+                new BABYLON.Vector4(startX, 0, startX + step, 1),
+            ];
+        }
+    });
+```
+
+The perLetterFaceUV (and its sister perLetterFaceColors) is a callback used to provide the data per letter instead of per mesh.
+
+<Playground id="#8S9WRP" title="Create a 3d text" description="Example of creating a 3d text with per letter UV coordinates">
