@@ -16,7 +16,7 @@ The plugin currently offers 7 modes, which are detailed below.
 
 ## Triangles Mode
 The `TRIANGLES` visualization of the MeshDebugPluginMaterial allows you to see the underlying mesh's wireframe. 
-![TRIANGLES mode](/img/extensions/materials/mdpmTriangles.png)
+![TRIANGLES mode](/img/features/meshDebug/mdpmTriangles.png)
 
 ### How To Use
 Before applying the plugin, first call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh. Then create the MeshDebugPluginMaterial with the `mode` option set to `MeshDebugMode.TRIANGLES`
@@ -42,7 +42,7 @@ Playground example: <Playground id="#KPLZWF" title="Triangles" description="Appl
 
 ## Vertices Mode
 The plugin's `VERTICES` mode draws dots over all vertices of the mesh, as shown below.
-![VERTICES mode](/img/extensions/materials/mdpmVertices.png)
+![VERTICES mode](/img/features/meshDebug/mdpmVertices.png)
 
 ### How To Use
 This mode works similar to `TRIANGLES`. Call the static function `PrepareMeshForTrianglesAndVerticesMode` on the mesh first, then apply the plugin.
@@ -64,7 +64,7 @@ new BABYLON.MeshDebugPluginMaterial(mesh.material, {
 
 ## Triangles-Vertices Mode
 If you'd like to see both the mesh's wireframe and vertex dots, use the `TRIANGLES_VERTICES` mode of the plugin.
-![TRIANGLES_VERTICES mode](/img/extensions/materials/mdpmTrianglesVertices.png)
+![TRIANGLES_VERTICES mode](/img/features/meshDebug/mdpmTrianglesVertices.png)
 
 ### How To Use
 Just like both `TRIANGLES` and `VERTICES` modes, use `PrepareMeshForTrianglesAndVerticesMode` on the mesh, then apply the plugin.
@@ -90,7 +90,7 @@ new BABYLON.MeshDebugPluginMaterial(mesh.material, {
 
 ## UV0 and UV1 Modes
 These modes can help visualize a mesh's UVs with a basic checkerboard grid.
-![UV0 mode](/img/extensions/materials/mdpmUV0.png)
+![UV0 mode](/img/features/meshDebug/mdpmUV0.png)
 
 ### How To Use
 Simply set the plugin mode to `UV0` or `UV1`, depending on which UV set you'd like to see.
@@ -112,7 +112,7 @@ new BABYLON.MeshDebugPluginMaterial(mesh.material, {
 
 ## Vertex Colors Mode
 The `VERTEXCOLORS` mode can be used to better see a mesh's vertex colors.
-![VERTEXCOLORS mode](/img/extensions/materials/mdpmVertexColors.png)
+![VERTEXCOLORS mode](/img/features/meshDebug/mdpmVertexColors.png)
 
 ### How To Use
 Set the plugin's mode to `VERTEXCOLORS`. For best results, also set the `multiply` option to `false`.
@@ -130,7 +130,7 @@ new BABYLON.MeshDebugPluginMaterial(mesh.material, {
 
 ## Material IDs Mode
 The `MATERIALIDS` mode provides a visual way of distinguishing different materials from one another.
-![MATERIALIDS mode](/img/extensions/materials/mdpmMaterialIds.png)
+![MATERIALIDS mode](/img/features/meshDebug/mdpmMaterialIds.png)
 
 ### How To Use
 Set the plugin's mode to `MATERIALIDS` across all materials. You may also want to toggle off the `multiply` option to better see the ID colors.
@@ -162,7 +162,7 @@ The `MeshDebugPluginMaterial` features an option, `multiply`, that determines if
 
 If set to false, the plugin will replace the material's final color with its own, built-in visual (unless the plugin is in `VERTEXCOLORS`). This default shading looks as follows:
 
-![Default Shading](/img/extensions/materials/mdpmNone.png)
+![Default Shading](/img/features/meshDebug/mdpmNone.png)
 
 The visual is based off a Phong lighting model and treats the active camera the a light source. 
 You can customize the default shading's appearance with a few options.

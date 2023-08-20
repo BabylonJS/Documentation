@@ -1390,6 +1390,11 @@
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/meshExploder"
+                                },
+                                "visualizeMeshData": {
+                                    "friendlyName": "Visualizing Mesh Data",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/visualizeMeshData"
                                 }
                             },
                             "content": "features/featuresDeepDive/mesh"
@@ -2513,11 +2518,6 @@
                             "friendlyName": "Display Axes",
                             "children": {},
                             "content": "toolsAndResources/utilities/World_Axes"
-                        },
-                        "VisualizeMeshData": {
-                            "friendlyName": "Visualizing Mesh Data",
-                            "children": {},
-                            "content": "toolsAndResources/utilities/VisualizeMeshData"
                         }
                     },
                     "content": "toolsAndResources/utilities"
