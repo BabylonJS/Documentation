@@ -1401,6 +1401,11 @@
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/meshExploder"
+                                },
+                                "visualizeMeshData": {
+                                    "friendlyName": "Visualizing Mesh Data",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/visualizeMeshData"
                                 }
                             },
                             "content": "features/featuresDeepDive/mesh"
