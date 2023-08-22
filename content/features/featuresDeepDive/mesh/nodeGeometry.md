@@ -324,6 +324,47 @@ If using the Node Geometry Editor instead, `NodeGeometry` can be loaded directly
 const geometry = await BABYLON.NodeGeometry.ParseFromSnippetAsync("IJA02K#11");
 ```
 
+## Loading and Updating From File
+In addition to loading from the snippet server, node geometry can be loaded and parsed directly from local storage. This allows a common node geometry flow to be shared between multiple projects while allowing updates to input parameters or source meshes. [Asset Manager](/features/featuresDeepDive/importers/assetManager) is a great way to load node geometry files to your scene and can also be used to load meshes to use with the node geometry at the same time. Simply add a new [TextFileAssetTask](/features/featuresDeepDive/importers/assetManager#textfileassettask) for each node geometry file that needs to be loaded.
+
+```javascript
+const assetsManager = new BABYLON.AssetsManager(scene);
+const nodeGeometryFile = assetsManager.addTextFileTask("load my node geometry", "nodeGeometry.json");
+
+// load all tasks
+assetsManager.load();
+```
+
+Asset Manager has a callback we can use to convert the loaded text into a JSON object and then parse to node geometry.
+
+```javascript
+// callback
+assetsManager.onFinish = async (tasks) {
+    console.log("all tasks successful", tasks);
+
+    // files loaded as text need to be parsed to JSON to use
+    const nodeGeometryJSON = JSON.parse(nodeGeometryFile.text);
+
+    // parse json object into node geometry
+    const nodeGeometry = await BABYLON.NodeGeometry.Parse(nodeGeometryJSON);
+}
+```
+Remember that we still need to `build` the node geometry and then use `createMesh` to actually render it into the scene. However, before we build the node geometry, now is the time to get any node that may need to be assigned a value like a color, vector, or mesh. There are a few options for finding blocks within the graph such as `getBlockByName`, `getBlockByPredicate`, or `getInputBlocks`. These methods can be used to find specific blocks and set their values.
+
+``` javascript
+nodeGeometry.getBlockByName("my_vector").value = new BABYLON.Vector3(1.0, 0.0, 1.0);
+nodeGeometry.getBlockByName("my_mesh").mesh = myLoadedMesh;
+```
+
+Once we are done setting parameters or attaching meshes to our node geometry, we then call `build` and `createMesh`.
+
+```javascript
+nodeGeometry.build();
+const myGeometry = nodeGeometry.createMesh("myGeometry");
+```
+
+The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be seen until `nodeGeometry.build()` is called and we `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again at a later point to bring the node geometry back into the scene. In this way node geometry acts a little like Asset Container where we always have the it in memory ready to create new meshes whenever we need them.
+
 ## Optimizations
 The `NodeGeometry` class uses the CPU to process data. Which means that we have to be cautious if expecting to generate several meshes.
 
