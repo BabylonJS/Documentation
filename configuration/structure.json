@@ -1296,6 +1296,11 @@
                                     },
                                     "content": "features/featuresDeepDive/mesh/interactions"
                                 },
+                                "nodeGeometry": {
+                                    "friendlyName": "Node Geometry",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/nodeGeometry"
+                                },                                
                                 "displayBoundingBoxes": {
                                     "friendlyName": "Drawing Bounding Boxes",
                                     "children": {},
@@ -1396,6 +1401,11 @@
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/meshExploder"
+                                },
+                                "visualizeMeshData": {
+                                    "friendlyName": "Visualizing Mesh Data",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/visualizeMeshData"
                                 }
                             },
                             "content": "features/featuresDeepDive/mesh"
@@ -3093,6 +3103,11 @@
                     "friendlyName": "Mesh Writer",
                     "children": {},
                     "content": "communityExtensions/meshWriter"
+                },
+                "mmdLoader": {
+                    "friendlyName": "MMD Loader",
+                    "children": {},
+                    "content": "communityExtensions/mmdLoader"
                 },
                 "textureCanvas": {
                     "friendlyName": "Texture Canvas",

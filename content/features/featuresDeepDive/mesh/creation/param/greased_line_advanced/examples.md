@@ -123,4 +123,4 @@ Shows how can you draw navigation path lines or display currents in the air or i
 
 The line uses an alpha texture which is animated using modifying the `uOffset` of the texture.
 
-<Playground id="#F2M8GA#4" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />
+<Playground id="#F2M8GA#5" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />

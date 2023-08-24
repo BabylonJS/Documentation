@@ -16,7 +16,7 @@ video-content:
 There is a useful property of a mesh, *movePOV* which allows us to move a mesh relative to its point of view. Generally a newly created mesh will be considered as facing the negative z direction and this is the direction of its point of view. To move a mesh forward 6 units in the direction of its point of view you use
 
 ```javascript
-mesh.movePOV(0, 0, 6)
+mesh.movePOV(0, 0, -6)
 ```
 The parameters are, in order, distance to move to the right, up and forward, generally these are the negative x axis, the positive y axis and the negative z axis in the mesh's local space.
 
