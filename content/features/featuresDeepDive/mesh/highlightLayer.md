@@ -179,6 +179,7 @@ The available members of the option object are:
 - blurHorizontalSize?: number - How big in texel of the blur texture is the horizontal blur.
 - alphaBlendingMode?: number - Alpha blending mode used to apply the blur. Default is combine.
 - camera?: Camera - The camera attached to the layer (only this camera can see the highlights).
+- isStroke?: boolean - Should we display highlight as a solid stroke?
 
 You can pass them during the construction of the highlight layer:
 
