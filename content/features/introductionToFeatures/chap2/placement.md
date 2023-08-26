@@ -57,7 +57,7 @@ We can now use positions to place the boxes sized in three different ways in one
 <Playground id="#KBS9I5#68" title="Positioning Meshes" description="A playground demonstrating different ways to position a mesh in your scene." image="/img/playgroundsAndNMEs/gettingStartedMeshPlacement.jpg"/>
 
 ### Orientation
-As for scaling and position the [rotation](/features/featuresDeepDive/mesh/transforms/center_origin/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since a setting a rotation about all three axes can be surprisingly confusing.
+As for scaling and position the [rotation](/features/featuresDeepDive/mesh/transforms/center_origin/rotation) property of a mesh is a vector object with properties x, y and z. However when building our first world we will only consider rotation about one axis since setting a rotation about all three axes can be surprisingly confusing.
 
 Rotations are given in radians. If you prefer working in degrees Babylon.js provides a conversion tool. Both these lines of code will produce the same rotation.
 
