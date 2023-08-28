@@ -26,10 +26,12 @@ The simplest usage is:
 const line = BABYLON.CreateGreasedLine("name", { points })
 ```
 
+<Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
+<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
+
 ### GreasedLineMeshBuilderOptions
 
-You will find explanation of these options below this code snippet. 
-
+You will find explanation of these options below this code snippet.
 
 ```javascript
 points: GreasedLinePoints;
@@ -45,7 +47,7 @@ lazy?: boolean;
 
 Points of the line specified as x, y, z coordinates. *All the points connected are called a line. The part of the line between two points is called a line segment in this documentation.*
 
-`points` can be type of `number[]`, `number[][]`, `Vector3[]`, `Vector3[][]`, `Float32Array` or `Float32Array[]`. 
+`points` can be type of `number[]`, `number[][]`, `Vector3[]`, `Vector3[][]`, `Float32Array` or `Float32Array[]`.
 
 If you want to draw only one contiguous line you can use 1D arrays or `Float32Array`. If you want to draw multiple lines you have to use 2D arrays or `Float32Array[]`.
 
@@ -142,9 +144,13 @@ Please have a look at the API docs for more explanation about the width distribu
 
 *You might wonder when you proceed reading to the `materialOptions` and you'll find the `width` option specified there and `widths` here. It's because the `options` objects contains all the mesh related options and `width` is used when creating the material, so it's material related.*
 
+<Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
+
 #### **instance**
 
 You can add lines to an existing line whenever you want. All you need to is to specify the `instance` option and set a `GreasedLineMesh` instance to it. Everytime you add a new line all the data needed to render the line will be recalculted and the buffers will be updated. If you are adding many lines to an instance, use the `lazy` option. *Lines added to an instance are joined with the existing mesh*. See the examples for code.
+
+<Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
 
 #### **updatable**
 
@@ -157,6 +163,8 @@ You can set your custom UVs when creating the line.
 #### **lazy**
 
 You can disable recalculating line data and updating the buffers when adding a new line to a line instance by setting this option to true. This option is always used with the `instance` option specified. If you're done with adding new lines you just need to call `line.updateLazy()` to recalculate the data and update the buffers. See the examples for code.
+
+<Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
 
 ### GreasedLineMaterialBuilderOptions
 
@@ -237,6 +245,8 @@ enum GreasedLineMeshColorMode {
 
 Please not a difference: `MATERIAL_TYPE_SIMPLE` mixes the `color` and `colors` of the greased line material. `MATERIAL_TYPE_STANDARD` and `MATERIAL_TYPE_PBR` mixes the color from the base material with the `color` or the `colors` of the greased line material.
 
+<Playground id="#H1LRZ3#268" title="Simple material in multiply color mode" description="Shows how the multiply color mode works with the simple greased line material." />
+
 #### **colors** and **colorDistribution**
 
 An array of colors of the line segments. Maximum number of colors supported for one line instance depends on the maximum texture width (we use 1D textures here for maximum performance) your GPU can support. Minimum for all WebGL systems is 4k. On most modern desktop GPUs it is 16k. Each color in the array represents a line segment color. *There must be exactly the same amount of colors in the array as there are line segments in the line.*
@@ -267,25 +277,40 @@ const line = BABYLON.CreateGreasedLine("line", { points }, { colors })
 // the color table will be filled as [red, white] - white is the default
 ```
 
-*The colors are used only when the option `useColors` is set to `true` and you doesn't set the `color` option.*
+*The colors are used only when the option `useColors` is set to `true` and you doesn't set the `color` option. There is one exception, see the documentation for the `useColors` option below.*
 
 The color blending of the colors depends on `colorMode` option.
+
+<Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
 
 #### **colorDistributionType**
 
 The method used to distribute the colors along the line. You can use segment distribution when each segment will use one color from the color table. Or you can use line distribution when the colors are distributed evenly along the line ignoring the segments.
 
+<Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
+<Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
+<Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
+<Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
+
 #### **colorsSampling**
 
 Sampling type of the colors texture. Defaults to NEAREST_NEAREST. The line segment will be distinctly colored. If you use for example LINEAR_LINEAR you'll get a smooth color gradient.
+
+<Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
 
 #### **useColors**
 
 If true, `colors` are used, otherwise they're ignored.
 
+There is a scenario when you need to set `useColors` to `true` and set the `color` option as well. Look at the PG:
+
+<Playground id="#H1LRZ3#383" title="Adding differently colored lines to an instance" description="Shows how can you add differently colored lines without creating the colors array manually." />
+
 #### **useDash**
 
 If true, dashing is used.
+
+<Playground id="#H1LRZ3#119" title="Dashing" description="How to create dashed lines." />
 
 #### **dashCount**
 
@@ -304,6 +329,8 @@ Offset of the dashes along the line. 0 to 1. Normalized value.
 Sets the line length visibility. Normalized value.
 0 - 0% of the line will be visible.
 1 - 100% of the line will be visible.
+
+<Playground id="#H1LRZ3#120" title="Visibility" description="Control how much of your line is visible." />
 
 #### **resolution**
 
@@ -542,6 +569,10 @@ const offsets = [
 line.offsets = offsets
 ```
 
+<Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Shows how to move your line points after the line mesh was created." />
+<Playground id="#235CZX#16" title="Offsetting line segments" description="Shows how to move your line segments after the line mesh was created." />
+<Playground id="#ZRZIIZ#98" title="Modifying points positions" description="You can modify the positions by altering vertex buffer of the mesh." />
+
 #### Adding/setting points to an existing GreasedLine instance
 
 You can add points to an existing GreasedLine instance. The width table is extended automatically to match the vertices count and the new widths are set to 1. You have replace these values manually after the points were added if needed. You can do it by setting the values on the `line.widths` array.
@@ -768,25 +799,8 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 
 ## Example playgrounds
 
-<Playground id="#H1LRZ3#98" title="Basic usage" description="Basic scenarios with GreasedLine." />
-<Playground id="#H1LRZ3#21" title="Transforming a GreasedLine mesh" description="Translate, rotate or scale your line mesh." />
-<Playground id="#H1LRZ3#34" title="Line colors" description="Multicoloured lines and automatic color distribution." />
-<Playground id="#H1LRZ3#55" title="Line colors using your own texture" description="Create your own color texture." />
-<Playground id="#VUKIHZ#3" title="Animating line colors using your own texture" description="Animating colors on a line using your color texture." />
-<Playground id="#H1LRZ3#233" title="Setting color pointers manually" description="A loader circle created by modifying the color pointers. Also shows how to use gradients with GreasedLine." />
-<Playground id="#H1LRZ3#258" title="Color distribution type" description="Shows how to use available color distribution types." />
-<Playground id="#H1LRZ3#59" title="Colors sampling" description="Create distinct or smooth gradient when coloring your line." />
-<Playground id="#H1LRZ3#268" title="Simple material in multiply color mode" description="Shows how the multiply color mode works with the simple greased line material." />
 <Playground id="#ZRZIIZ#96" title="Vertex colors" description="Colorize your line using vertex colors." />
-<Playground id="#H1LRZ3#52" title="Widths" description="Variable line width along the line and automatic width distribution." />
-<Playground id="#H1LRZ3#119" title="Dashing" description="How to create dashed lines." />
-<Playground id="#H1LRZ3#120" title="Visibility" description="Control how much of your line is visible." />
-<Playground id="#H1LRZ3#47" title="Instance mode" description="Example of adding lines to an instance and creating a big line mesh with many lines." />
-<Playground id="#H1LRZ3#39" title="Lazy mode" description="Example of add lines to an instance in lazy mode for easiy handling thousands of lines." />
 <Playground id="#H1LRZ3#124" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
-<Playground id="#H1LRZ3#122" title="Offsetting line vertices" description="Shows how to move your line points after the line mesh was created." />
-<Playground id="#235CZX#16" title="Offsetting line segments" description="Shows how to move your line segments after the line mesh was created." />
-<Playground id="#ZRZIIZ#98" title="Modifying points positions" description="You can modify the positions by altering vertex buffer of the mesh." />
 <Playground id="#7CHU6U#10" title="Adding and setting points on an existing instance" description="Shows how can you add or set the points on an existing instance and how to deal with existing width/colors." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
