@@ -26,7 +26,7 @@ A cool circular audio analyzer using one line. Uses `GreasedLineTools.GetCircleL
 
 Please unmute the audio after the PG starts.
 
-<Playground id="#H1LRZ3#232" title="Circular audio analyzer" description="A circle shaped audio analyzer with GreasedLine." />
+<Playground id="#H1LRZ3#387" title="Circular audio analyzer" description="A circle shaped audio analyzer with GreasedLine." />
 
 ### Light speed
 
@@ -123,4 +123,4 @@ Shows how can you draw navigation path lines or display currents in the air or i
 
 The line uses an alpha texture which is animated using modifying the `uOffset` of the texture.
 
-<Playground id="#F2M8GA#4" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />
+<Playground id="#F2M8GA#5" title="Navigation path or Displaying currents" description="Shows how can you draw navigation path lines or display currents." />
