@@ -47,7 +47,7 @@ In summary, a force is a *continuous* effect over time, while an impulse is a su
 
 <Playground id="#R66K4K#1" title="applyForce" description="An example of using applyForce" category="Physics"/>
 
-<Playground id="#Z8HTUN#671" title="applyImpulse" description="An example of using applyImpule" category="Physics"/>
+<Playground id="#Z8HTUN#677" title="applyImpulse" description="An example of using applyImpule" category="Physics"/>
 
 
 
