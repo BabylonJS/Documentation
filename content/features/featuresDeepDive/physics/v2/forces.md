@@ -45,7 +45,7 @@ An impulse, on the other hand, is a sudden, instantaneous effect that changes th
 
 In summary, a force is a *continuous* effect over time, while an impulse is a sudden, *instantaneous* effect that changes the velocity of an object. Click on the sphere in the following examples to experiment with forces and impulses
 
-<Playground id="#R66K4K" title="applyForce" description="An example of using applyForce" category="Physics"/>
+<Playground id="#R66K4K#1" title="applyForce" description="An example of using applyForce" category="Physics"/>
 
 <Playground id="#Z8HTUN#671" title="applyImpulse" description="An example of using applyImpule" category="Physics"/>
 
