@@ -14,7 +14,7 @@ You have to follow and finish the [How to use BabylonJS with Vue](/communityExte
 
 These principles have to be clear for you: [Passing of variables by Value and by Reference in Javascript](https://www.geeksforgeeks.org/pass-by-value-and-pass-by-reference-in-javascript/ "Passing of variables by Value and by Reference in Javascript").
 
-Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue 2 Components Basic page](https://vuejs.org/v2/guide/components.html "Vue 2 Components Basics") and on [The official Vue 3 Components Basic page](https://v3.vuejs.org/guide/component-basics.html "Vue 3 Components Basic").
+Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue 2 Components Basic page](https://v2.vuejs.org/v2/guide/components) and on [The official Vue 3 Components Basic page](https://vuejs.org/guide/essentials/component-basics.html).
 
 You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1, so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
 
