@@ -1,6 +1,6 @@
 ---
 title: Character Movement Part 1
-image: 
+image:
 description: Dive into some deeper game creation methods and techniques.
 keywords: guided learning, create a game, game, character movement
 further-reading:
@@ -12,7 +12,7 @@ video-content:
 The first step I took towards making the game was to figure out how movement would work. My past experience with 3D games pushed me towards thinking that movement would be the most difficult part of the development process, so I wanted to make sure to focus on that early on. Since I was just getting started, I knew I needed to get some prototyping in for it, so I started off by making a playground to test out simple walking, jumping, and dashing: [early prototype](https://playground.babylonjs.com/#UP84Y8#10)
 
 A few things you can see from this is:
-1. The player is able to walk through the platform 
+1. The player is able to walk through the platform
 2. The player falls off of the platform before the mesh is "completely" off of the platform
 3. And most importantly, when you jump, the player lands partially inside of the ground
 
@@ -72,7 +72,7 @@ private _updateFromKeyboard(): void {
 }
 ```
 Inside of **_updateFromKeyBoard**, we're checking for whether our arrow keys have been pressed by looking at the value that's in our inputMap. The up and down arrows are checking the vertical inputs which correspond to forward and backwards movement. The left and right arrows are checking for horizontal movement. As we press the key, we want to lerp the value so that it has a smoother transition. We are doing a couple different things here:
-1. As you hold the key, it gradually increases the value to 1 or -1. 
+1. As you hold the key, it gradually increases the value to 1 or -1.
 2. We're keeping track of which axis/direction we were moving in
 3. If we don't detect any inputs in an axis, we set both the direction and value to 0
 
@@ -107,7 +107,7 @@ let correctedHorizontal = right.scaleInPlace(this._h);
 //movement based off of camera's view
 let move = correctedHorizontal.addInPlace(correctedVertical);
 ```
-Now, since we want the player to move in relation to the camera, we need to grab the forward and right vectors of the camera. We then scale them by our inputs. We now have a new movement vector called move that's the combined vertical and horizontal movement. The reason why I've implemented this is because the camera view will be rotating at certain areas of the map and if the player was moving to the right as the camera rotated, we want them to be able to continue moving right even as the orientation changes. 
+Now, since we want the player to move in relation to the camera, we need to grab the forward and right vectors of the camera. We then scale them by our inputs. We now have a new movement vector called move that's the combined vertical and horizontal movement. The reason why I've implemented this is because the camera view will be rotating at certain areas of the map and if the player was moving to the right as the camera rotated, we want them to be able to continue moving right even as the orientation changes.
 ```javascript
 //clear y so that the character doesnt fly up, normalize for next step
 this._moveDirection = new Vector3((move).normalize().x, 0, (move).normalize().z);
@@ -201,9 +201,9 @@ let pick = this.scene.pickWithRay(ray, predicate);
 ```
 Then, we want to define what can be picked by our raycast. This was important to have since I created custom collision meshes for the parts of the environment that had more complex geometry. These meshes are invisible, but should still be pickable. We start checking whether our raycast has hit anything by using pickWithRay.
 ```javascript
-if (pick.hit) { 
+if (pick.hit) {
     return pick.pickedPoint;
-} else { 
+} else {
     return Vector3.Zero();
 }
 ```
@@ -230,7 +230,7 @@ if (!this._isGrounded()) {
     this._grounded = false;
 }
 ```
-If we're not grounded, we want to add to our gravity and set our* _grounded* flag to false. Player.GRAVITY is a negative value, which is what makes our overall gravity point downwards.
+If we're not grounded, we want to add to our gravity and set our *_grounded* flag to false. Player.GRAVITY is a negative value, which is what makes our overall gravity point downwards.
 ```javascript
 //limit the speed of gravity to the negative of the jump power
 if (this._gravity.y < -Player.JUMP_FORCE) {
@@ -238,7 +238,7 @@ if (this._gravity.y < -Player.JUMP_FORCE) {
 }
 this.mesh.moveWithCollisions(this._moveDirection.addInPlace(this._gravity));
 ```
-We want make sure that we cap the value of gravity so that while we're in the air, the character doesn't infinitely increase its downward acceleration. Then we apply gravity to our player by adding it to the current *_moveDirection* and moving the player by that vector.
+We want to make sure that we cap the value of gravity so that while we're in the air, the character doesn't infinitely increase its downward acceleration. Then we apply gravity to our player by adding it to the current *_moveDirection* and moving the player by that vector.
 
 ```javascript
 if (this._isGrounded()) {
@@ -272,6 +272,6 @@ Now if you run the game, our player falls to the ground, and can move around!
 - [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/characterMove1/app.ts)
 
 ### External
-[Unity 3D 8 Directional Character System](https://www.youtube.com/watch?v=cVy-NTjqZR8)  
-[AstroKat: Moving Kat](https://www.patreon.com/posts/21343562)  
+[Unity 3D 8 Directional Character System](https://www.youtube.com/watch?v=cVy-NTjqZR8)
+[AstroKat: Moving Kat](https://www.patreon.com/posts/21343562)
 [How to Make a Dash Move in Unity](https://www.youtube.com/watch?v=w4YV8s9Wi3w)

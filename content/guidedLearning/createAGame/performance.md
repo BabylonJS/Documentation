@@ -79,7 +79,7 @@ this._light = light;
 2. Rather than using the lightSphere to find nearby meshes, I decided to just assign the meshes to lights manually in blender. What I did was name empties with the name of the lantern plus "lights". Every mesh lit by a lantern would be a child of this empty. (Empties in blender translate to TransformNodes in babylon)
    ![lanterns in blender](/img/how_to/create-a-game/lanternlights.png)
 
-3. \_findNearestMeshes would now would push the meshes belonging to the lantern's corresponding light.
+3. \_findNearestMeshes would now push the meshes belonging to the lantern's corresponding light.
 
 ```javascript
 if (this.mesh.name.includes("14") || this.mesh.name.includes("15")) {
@@ -103,8 +103,8 @@ This became a little tricky in the festival area because there were 2 lanterns o
 
 ## Further Reading
 
-**Previous:** [Cross Platform - Mobile](/guidedLearning/createAGame/crossPlatform)  
-**Next:** [Outro](/guidedLearning/createAGame/closing)  
+**Previous:** [Cross Platform - Mobile](/guidedLearning/createAGame/crossPlatform)
+**Next:** [Outro](/guidedLearning/createAGame/closing)
 **(BONUS):** [Design Process & 3D Modeling](/guidedLearning/createAGame/designArt)
 
 ## Resources
