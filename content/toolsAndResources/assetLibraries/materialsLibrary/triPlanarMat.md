@@ -1,6 +1,6 @@
 ---
 title: Tri-Planar Mapping Material
-image: 
+image:
 description: The Babylon.js materials library tri-planar mapping material provides an elegant technique to give realistic textures from any angle or on any complex shape.
 keywords: library, materials, materials library, tri-planar, tri-planar material
 further-reading:
@@ -47,13 +47,13 @@ triPlanarMaterial.diffuseTextureY = new BABYLON.Texture("grass.png", scene);
 triPlanarMaterial.diffuseTextureZ = triPlanarMaterial.diffuseTextureX;
 ```
 
-You can also customize the tile size by setting the .tileSize property:
+You can also customize the tile size by setting the `.tileSize` property:
 
 ```javascript
 triPlanarMaterial.tileSize = 1.5;
 ```
 
-For more quality, the tri-planar material also supports normal mapping. Just set the normal textures:
+For better quality, the tri-planar material also supports normal mapping. Just set the normal textures:
 
 ```javascript
 var triPlanarMaterial = new BABYLON.TriPlanarMaterial("triplanar", scene);
@@ -67,4 +67,3 @@ triPlanarMaterial.normalTextureZ = triPlanarMaterial.normalTextureX;
 
 
 To go further in the theory, you can read this [great article](http://gamedevelopment.tutsplus.com/articles/use-tri-planar-texture-mapping-for-better-terrain--gamedev-13821) about tri-planar mapping.
-

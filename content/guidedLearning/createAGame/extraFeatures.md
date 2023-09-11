@@ -38,7 +38,7 @@ It's especially helpful when you need the player to be able to see areas they ca
 
 ## Glow Layer
 
-Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up a simple glow layer and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
+Another thing I've added for an extra boost of visual effect is a glow layer. The [glow layer](/features/featuresDeepDive/mesh/glowLayer) is super easy to set up and can add a lot to a dark scene. I used it primarily with the lanterns since I wanted their light to be emphasized.
 
 ![without GL](/img/how_to/create-a-game/withoutGL.png) ![withGL](/img/how_to/create-a-game/withGL.png)
 
