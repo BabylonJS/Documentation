@@ -52,7 +52,7 @@ to the flat and curved surfaces of the cylinder.
 
 ```javascript
 var wheelMaterial = new BABYLON.StandardMaterial("wheel_mat", scene);
-var wheelTexture = new BABYLON.Texture("http://i.imgur.com/ZUWbT6L.png", scene);
+var wheelTexture = new BABYLON.Texture("https://i.imgur.com/ZUWbT6L.png", scene);
 wheelMaterial.diffuseTexture = wheelTexture;
 
 //Set color for wheel tread as black
@@ -71,7 +71,7 @@ wheel.material = wheelMaterial;
 wheel.rotation.x = Math.PI/2;
 ```
 
-PG: <Playground id="#1YD970#4" title="Wheels" description="Constructing the wheels"/>
+PG: <Playground id="#1YD970#541" title="Wheels" description="Constructing the wheels"/>
 
 ### Attaching the Wheels to the Car
 
@@ -102,7 +102,7 @@ wheelRO.position = new BABYLON.Vector3(2.5, -2, 2.8);
 wheelFI.position = new BABYLON.Vector3(-4.5, -2, -2.8);
 ```
 
-PG: <Playground id="#1YD970#5" title="Attach Wheels" description=" Attaching the wheels."/>           
+PG: <Playground id="#1YD970#542" title="Attach Wheels" description=" Attaching the wheels."/>
 
 ### Rotate Wheels
 The animation is achieved using scene.registerAfterRender and small rotations within the render loop.
@@ -120,7 +120,7 @@ the calculations will take place after the world matrix has been computed for ea
   });
 ```
 
-PG: <Playground id="#1YD970#7" title="Rotate Wheels" description="Adding a method to rotate the wheels."/>
+PG: <Playground id="#1YD970#543" title="Rotate Wheels" description="Adding a method to rotate the wheels."/>
 
 ### Path
 
@@ -215,7 +215,7 @@ scene.registerAfterRender(function() {
 });
 ```
 
-PG: <Playground id="#1YD970#12" title="Car Travels The Path" description="First prototype of car following a path"/>
+PG: <Playground id="#1YD970#582" title="Car Travels The Path" description="First prototype of car following a path"/>
 
 ## Correction
 
@@ -230,5 +230,5 @@ if(i == 0) {
 }
 ```
 
-PG: <Playground id="#1YD970#14" title="Car Following a Path" description="Removed rotation errors for car path following ."/>
+PG: <Playground id="#1YD970#583" title="Car Following a Path" description="Removed rotation errors for car path following ."/>
 
