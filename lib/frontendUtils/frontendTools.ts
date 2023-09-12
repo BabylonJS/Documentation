@@ -5,7 +5,15 @@ export const getExampleLink = (example: Partial<IExampleLink>, full: boolean = t
     const id = idToUse ? (idToUse[0] === "#" ? idToUse : `#${idToUse}`) : "";
     // webgpu parameter. Stay safe and validate
     const params = (example.engine && example.engine==='webgpu') ? `?${example.engine}` : '';
-    return (example.type === "nme" ? "https://nme.babylonjs.com/" : "https://playground.babylonjs.com/" + (full ? "full.html" : "")) + params + id;
+    switch (example.type) {
+        case "nge":
+            return `https://nge.babylonjs.com/${id}`;
+        case "nme":
+            return `https://nme.babylonjs.com/${id}`;
+        case "pg":
+        default:
+            return `https://playground.babylonjs.com/${full ? "full.html" : ""}${params}${id}`;
+    }
 };
 
 export const getExampleImageUrl = (example: Partial<IExampleLink>) => {
