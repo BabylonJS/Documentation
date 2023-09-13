@@ -1363,7 +1363,10 @@ This node provides a simple 3D perlin noise to generate a volume of randomized v
 ![Random node](/img/tools/nge/randomNode.jpg)
 
 ### Random
-This node provides a random value between a minimum value and a maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output.
+This node provides a random value between a minimum value and a maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. When using this node with iterable nodes, the node will return a new random value per iteration. Iterable nodes include SetColors, SetNormals, SetPositions, SetTangents, and SetUVs as the operations are performed for every vertex in the geometry. If a random node is used before one of these iterable nodes, a new random value will be generated for each iteration. This is also true for all of the instantiate nodes where the node will loop a certain number of times based on inputs. For more control, the Random node also has an advanced property to lock the value per loop so that the random value will be the same for each iteration or loop. Note that this property only applies to the nearest iteration or loop being performed by a node. This means if a Random node feeds a SetColor node which in turn feeds an Instantiate node, locking the value per loop will apply only to the SetColor node and not the Instantiate node. 
+
+#### Advanced
+- **Lock per loop** will return one value per loop rather than a different random value for each loop when enabled.
 
 #### Inputs
 - **min** is connected to a node providing a value to be used as the miniumum bounds for the random range. 
