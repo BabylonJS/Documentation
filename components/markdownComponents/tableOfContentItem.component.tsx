@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useEffect, useState } from "react";
+import { FunctionComponent, PropsWithChildren, useContext, useEffect, useState } from "react";
 import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
@@ -28,10 +28,10 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
     const classes = styles();
 
     const [hovered, setHovered] = useState<boolean>(false);
-    const [copyText, setCopyText] = useState<string>('Copy link');
+    const [copyText, setCopyText] = useState<string>("Copy link");
 
     useEffect(() => {
-        context.addTOCItem({ ...item, title: item.children as string });
+        context.addTOCItem({ ...item, title: item.image ? item.title : (item.children as string) });
     }, []);
 
     const pointerLeave = () => {
@@ -42,36 +42,48 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
         setHovered(true);
     };
 
+    const getId = (item: PropsWithChildren<ITableOfContentsItem>) => {
+        return item.id || item.title.replace(/ /g, "-").toLowerCase();
+    };
+
     const getItem = () => {
+        const id = getId(item);
         switch (item.level) {
             case 0:
                 // h1 will be added by me
                 return <></>;
             case 1:
                 return (
-                    <h2 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item}>
-                        {item.children}
-                        {hovered && (
-                            <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
-                                <Tooltip title={copyText}>
-                                    <LinkIcon></LinkIcon>
-                                </Tooltip>
-                            </IconButton>
-                        )}
-                    </h2>
+                    <>
+                        {item.image && <img src={item.image} alt={item.title} id={id} />}
+                        <h2 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
+                            {item.children}
+                            {item.image && item.title}
+                            {hovered && (
+                                <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
+                                    <Tooltip title={copyText}>
+                                        <LinkIcon></LinkIcon>
+                                    </Tooltip>
+                                </IconButton>
+                            )}
+                        </h2>
+                    </>
                 );
             case 2:
                 return (
-                    <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item}>
-                        {item.children}
-                        {hovered && (
-                            <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
-                                <Tooltip title={copyText}>
-                                    <LinkIcon></LinkIcon>
-                                </Tooltip>
-                            </IconButton>
-                        )}
-                    </h3>
+                    <>
+                        {item.image && <img src={item.image} alt={item.title} id={id} />}
+                        <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
+                            {item.children}
+                            {hovered && (
+                                <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
+                                    <Tooltip title={copyText}>
+                                        <LinkIcon></LinkIcon>
+                                    </Tooltip>
+                                </IconButton>
+                            )}
+                        </h3>
+                    </>
                 );
             case 3:
                 return (
@@ -85,16 +97,16 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
     };
 
     const copyItem = () => {
-        const url = window.location.href.split("#")[0] + `#${item.id}`;
+        const url = window.location.href.split("#")[0] + `#${getId(item)}`;
         navigator.clipboard.writeText(url).then(
             function () {},
             function (err) {},
         );
-        setCopyText('Link copied');
+        setCopyText("Link copied");
 
         setTimeout(() => {
-            setCopyText('Copy link');
-        }, 2000)
+            setCopyText("Copy link");
+        }, 2000);
     };
 
     return <>{getItem()}</>;

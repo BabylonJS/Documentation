@@ -26,4 +26,6 @@ export const markdownComponents = {
     h2: H2MarkdownComponent,
     h3: H3MarkdownComponent,
     h4: H4MarkdownComponent,
+    H2Image: H2MarkdownComponent,
+    H3Image: H3MarkdownComponent,
 };

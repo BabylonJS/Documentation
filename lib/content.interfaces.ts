@@ -59,6 +59,7 @@ export interface ITableOfContentsItem {
     level: number;
     id: string;
     title: string;
+    image?: string;
 }
 
 export interface IPageProps {
