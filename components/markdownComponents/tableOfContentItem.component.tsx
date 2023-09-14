@@ -31,7 +31,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
     const [copyText, setCopyText] = useState<string>("Copy link");
 
     useEffect(() => {
-        context.addTOCItem({ ...item, title: item.image ? item.title : (item.children as string) });
+        context.addTOCItem({ ...item, id: getId(item), title: item.image ? item.title : (item.children as string) });
     }, []);
 
     const pointerLeave = () => {
