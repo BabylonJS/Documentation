@@ -51,6 +51,8 @@ const newExplosion = new BABYLON.MeshExploder(toExplodeArray);
 newExplosion.explode(2);
 ```
 
+<Playground id="#SFI0DQ" title="Simple explosion" description="Simple example of creating an explosion." /> <Playground id="#PTT7L9#2" title="Larger explosion" description="Example of creating an explosion with thousands of meshes." />
+
 # Example With Imported Objects
 
 ```javascript
