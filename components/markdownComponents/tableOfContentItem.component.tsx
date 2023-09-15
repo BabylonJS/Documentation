@@ -75,7 +75,8 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                         {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
                         <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
                             {item.children}
-                            {hovered && (
+                            {item.image && item.title}
+                           {hovered && (
                                 <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
                                     <Tooltip title={copyText}>
                                         <LinkIcon></LinkIcon>
