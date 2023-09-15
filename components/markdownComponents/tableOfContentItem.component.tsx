@@ -55,7 +55,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             case 1:
                 return (
                     <>
-                        {item.image && <img src={item.image} alt={item.title} id={id} />}
+                        {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
                         <h2 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
                             {item.children}
                             {item.image && item.title}
@@ -72,7 +72,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
             case 2:
                 return (
                     <>
-                        {item.image && <img src={item.image} alt={item.title} id={id} />}
+                        {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
                         <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
                             {item.children}
                             {hovered && (

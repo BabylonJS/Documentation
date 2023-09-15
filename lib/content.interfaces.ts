@@ -60,6 +60,7 @@ export interface ITableOfContentsItem {
     id: string;
     title: string;
     image?: string;
+    alt?: string;
 }
 
 export interface IPageProps {
