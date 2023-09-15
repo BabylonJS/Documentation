@@ -1,6 +1,6 @@
 ---
 title: Using the Playground for Development in Babylon.js
-image: 
+image:
 description: Learn all about making your development process easier with the super handy playground.
 keywords: diving deeper, contribution, contribute, open-source, oss, playground, develope
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 # Using the Playground in Development of BJS
 
-During the early stages of developing code to contribute to Babylon.js it can be useful to try out that code in the Playground. Just ensure that the Playground is in Typescript mode by using the link https://www.babylonjs-playground.com/ts.html# . The `New` button will then give you the starting code. 
+During the early stages of developing code to contribute to Babylon.js it can be useful to try out that code in the Playground. Just ensure that the Playground is in Typescript mode by using the link https://www.babylonjs-playground.com/ts.html# . The `New` button will then give you the starting code.
 
 ## An Example
 
@@ -22,7 +22,7 @@ So an alternative is to try out the code in the playground. The following playgr
 
 <Playground id="H3AF26#1" title="Playground Code Example - Bezier Surface" description="Simple playground example of a Bezier Surface." image="/img/playgroundsAndNMEs/divingDeeperUsingPlaygrounds1.jpg"/>
 
-Though this shows working code it is not completely ready for copying into a local repository of Babylon.js, committing and sending a PR. For a start not all the comments needed are in place. 
+Though this shows working code it is not completely ready for copying into a local repository of Babylon.js, committing and sending a PR. For a start not all the comments needed are in place.
 
 Also once placed in the local repository the first line
 
@@ -41,12 +41,9 @@ export class BezierSurface {
 
 Once you are happy the code works and you have copied it to your local repository then before submitting your PR please make sure you have read the following to ensure a smooth positive result.
 
-[Start Contibuting](how to start contributing)  
-[Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)  
-[Code Guidelines](/contribute/toBabylon/approvedNamingConventions)  
+[Start Contibuting](/contribute/toBabylon/HowToContribute)
+[Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)
+[Code Guidelines](/contribute/toBabylon/approvedNamingConventions)
 [Comments in the API](/contribute/toBabylon/contributeToAPI)
 
 On the other hand there is always the possibility that someone in the core team likes your idea and its execution so much they might just copy and add it to Babylon.js directly.
-
-
-&nbsp;

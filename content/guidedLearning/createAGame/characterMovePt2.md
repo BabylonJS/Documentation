@@ -75,34 +75,47 @@ The [\_checkSlope](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb
 
 1. The predicate is a function that defines what types of meshes are eligible for being picked by a raycast. We define the mesh that we're looking for as being pickable and enabled since we want to include meshes that are not visible.
 
-```javascript
-let predicate = function (mesh) {
-  return mesh.isPickable && mesh.isEnabled();
-};
-```
+    ```javascript
+    let predicate = function (mesh) {
+      return mesh.isPickable && mesh.isEnabled();
+    };
+    ```
 
 2. We send 4 raycasts down from the character, making a kind of circle of raycasts.
    ![illustration](/img/how_to/create-a-game/sloperaycast.png)
+
 3. For each raycast, we're checking if there's a hit and whether the normal of the hit is not equal to the up vector.
 
-```javascript
-if (pick.hit && !pick.getNormal().equals(Vector3.Up())) {
-  //check whether it's stairs or not
-}
-```
+    ```javascript
+    if (pick.hit && !pick.getNormal().equals(Vector3.Up())) {
+      //check whether it's stairs or not
+    }
+    ```
 
-4. I implemented this calculation for stairs in two ways: - Originally, I calculated the angle between the normal of the picked mesh and the up vector and if the angle was within a range, it was considered a slope.
-   `javascript let dot = Vector3.Dot(pick.getNormal(), Vector3.Up()); let angle = Math.acos(dot / (pick.getNormal().length() * Vector3.Up().length())); return angle > 0.70 && angle < 1.6; ` - However, because there were some other meshes whose normals matched that range, it messed with the character animations in some areas as it detected them as slopes. So, I instead just checked to see if the pickedMesh's name had "stair" in it
-   `javascript if(pick.pickedMesh.name.includes("stair")) { return true; } `
-   This range may be hardcoded and based specifically on the meshes used, so there's definitely a better way to do this. One potential way is to use tags to signify the specific meshes that are stairs and check for whether the raycasts are hitting those.
+4. I implemented this calculation for stairs in two ways:
+    - Originally, I calculated the angle between the normal of the picked mesh and the up vector and if the angle was within a range, it was considered a slope.
 
-Now, we want to update our if not grounded check to take into account slopes:
+      ```javascript
+      let dot = Vector3.Dot(pick.getNormal(), Vector3.Up());
+      let angle = Math.acos(dot / (pick.getNormal().length() * Vector3.Up().length()));
+      return angle > 0.70 && angle < 1.6;
+      ```
+
+    - However, because there were some other meshes whose normals matched that range, it messed with the character animations in some areas as it detected them as slopes. So, I instead just checked to see if the pickedMesh's name had "stair" in it.
+
+      ```javascript
+       if (pick.pickedMesh.name.includes("stair")) { return true; }
+      ```
+
+      This range may be hardcoded and based specifically on the meshes used, so there's definitely a better way to do this. One potential way is to use tags to signify the specific meshes that are stairs and check for whether the raycasts are hitting those.
+
+Now, we want to update our "if not grounded" check to take into account slopes:
 
 ```javascript
 if (!this._isGrounded()) {
-  //if the body isnt grounded, check if it's on a slope and was either falling or walking onto it
+  //if the body isn't grounded, check if it's on a slope and was either falling or walking onto it
   if (this._checkSlope() && this._gravity.y <= 0) {
-    //if you are considered on a slope, you're able to jump and gravity wont affect you
+    //if you are considered on a slope, you're able to jump and gravity won't affect you
     this._gravity.y = 0;
     this._jumpCount = 1;
     this._grounded = true;
@@ -174,9 +187,9 @@ We want to update **\_updateFromControls** to now take into account our dashing.
 this._moveDirection = new Vector3(move.normalize().x * dashFactor, 0, move.normalize().z * dashFactor);
 ```
 
-Previously where we just normalized our move vector, we want to multiply by the dashFactor to give it that extra bit of movement in the direction we're currently moving.
+Previously we were just normalizing our move vector. Now we also want to multiply by the dashFactor to give it that extra bit of movement in the direction we're currently moving.
 
-Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early on in the development I had fixed this issue before re-writing the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, we have re-adjust to account for how much we would fall through. In addition, having more raycasts that are longer will help in detecting the ground earlier.
+Now, if we run the game, we should be able to move, jump, and dash! You will notice that we still have that issue of falling into the ground. I am not sure why this is happening, but it doesn't happen once you import the final mesh. However, early on in the development I had fixed this issue before re-writing the gravity & jumping code. You can take a look at what I did [here](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldUpdateGround.txt). Essentially, we have to re-adjust to account for how much we would fall through. In addition, having more raycasts that are longer will help in detecting the ground earlier.
 
 ## Resources
 

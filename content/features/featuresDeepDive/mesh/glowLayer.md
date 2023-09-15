@@ -14,7 +14,7 @@ video-content:
 
 ## How To Make a Mesh Glow
 
-Emissive meshes are equivalent to self lit meshes. Both the emissive color and texture of the material determine how the mesh will self lit. This can for instance helps create a phosphorescent watch dial. Babylon JS supports natively emissive poperties in both the standard and PBR materials.
+Emissive meshes are equivalent to self lit meshes. Both the emissive color and texture of the material determine how the mesh will self lit. This can for instance help create a phosphorescent watch dial. Babylon JS supports natively emissive poperties in both the standard and PBR materials.
 
 But how could we easily make the glow around those self lit areas ?
 
@@ -47,9 +47,9 @@ gl.intensity = 0.5;
 
 ### Blur Intensity
 
-In order to control change the shape of the blur, you can rely on the creation option:
+In order to control the shape of the blur, you can rely on the creation option:
 
-- **mainTextureRatio**: Multiplication factor apply to the canvas size to compute the render target size used to generated the glowing objects (the smaller the faster).
+- **mainTextureRatio**: Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
 - **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independant blur to prevent the shape of the blur to change according to the target device size.
 - **blurKernelSize**: How big is the kernel of the blur texture.
 

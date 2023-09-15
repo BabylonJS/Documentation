@@ -5,7 +5,7 @@ description: Learn about how to use video as a texture in Babylon.js.
 keywords: diving deeper, materials, video texture
 further-reading:
     - title: VideoTexture
-      url: /typedoc/classes/VideoTexture
+      url: /typedoc/classes/BABYLON.VideoTexture
 video-overview:
 video-content:
 ---
@@ -19,6 +19,7 @@ This plays a video on the demo's ZTV screen (ecran = screen).
 ```javascript
 ecran.material.diffuseTexture = new BABYLON.VideoTexture("video", "textures/babylonjs.mp4", scene, true);
 ```
+Note: after loading the texture, the class sets the `wrapU` and `wrapV` properties to `WRAP_ADDRESSMODE`. If you wish to use another address mode, you need to add an observer to  `VideoTexture.onLoadObservable` and modify the properties in this observer.
 
 The [_VideoTexture_ object](/typedoc/classes/babylon.videotexture) accepts an array of videos (to take into account various codecs). The first video in the array that can be loaded... is the one used as content source. Currently, HTML5 supports .mp4, .webm, and .ogv video formats.
 

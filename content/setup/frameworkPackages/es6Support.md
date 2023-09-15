@@ -14,30 +14,30 @@ video-content:
 
 ## Introduction
 
-The NPM package manager is one of the best way to define and organize your project's dependencies. Parallel to traditional javascript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
+The NPM package manager is one of the best ways to define and organize your project's dependencies. Parallel to traditional javascript development (including a script in a 'script' HTML Tag), using npm packages allows you to use tools like Webpack or Browserify to pack your project and (continuously) deliver it.
 
-We now officially support our npm es6 packages and will continue updating the npm's repository with new versions as they being developed.
+We now officially support our npm ES6 packages and will continue updating the npm's repository with new versions as they are being developed.
 
-Please note that by using es6 packages, you will need to rely on extra tooling to bundle and test your library but on the bright side you will be able to tree shake your application and reduce its final size.
+Please note that by using ES6 packages, you will need to rely on extra tooling to bundle and test your library but on the bright side you will be able to tree shake your application and reduce its final size.
 
-All the babylon es6 packages are available within the npm scope @babylonjs.
+All the babylon ES6 packages are available within the npm scope @babylonjs.
 
 ## Available packages
 
 We offer babylon.js' core and its modules as npm packages. The following are available:
 
 - [@babylonjs/core](https://www.npmjs.com/package/@babylonjs/core) - Babylon's core.
-- [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - a collection of Babylon-supported advanced materials.
-- [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF)
+- [@babylonjs/materials](https://www.npmjs.com/package/@babylonjs/materials) - A collection of Babylon-supported advanced materials.
+- [@babylonjs/loaders](https://www.npmjs.com/package/@babylonjs/loaders) - All of Babylon's official loaders (OBJ, STL, glTF).
 - [@babylonjs/post-processes](https://www.npmjs.com/package/@babylonjs/post-processes) - Babylon's post processes.
-- [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures
+- [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures.
 - [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
-- [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) -Babylon.js GUI module.
-- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-aloneBabylon.js Viewer.
+- [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - Babylon.js GUI module.
+- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone Babylon.js Viewer.
 
 ## Basic Example
 
-A boilerplate project with a few examples on how to use the es6 modules can be found here - [Babylon.js, webpack and es6 modules](https://github.com/RaananW/babylonjs-webpack-es6) on GitHub. It is a project skeleton, based on TypeScript, webpack and our es6 modules. The different scenes (Asset loading, physics, simple scene) to show the different aspects of module-loading and Babylon.js
+A boilerplate project with a few examples on how to use the ES6 modules can be found here - [Babylon.js, Webpack and ES6 modules](https://github.com/RaananW/babylonjs-webpack-es6) on GitHub. It is a project skeleton, based on TypeScript, Webpack and our ES6 modules. The different scenes (Asset loading, physics, simple scene) to show the different aspects of module-loading and Babylon.js.
 
 ## Basic usage
 
@@ -47,14 +47,14 @@ As the ES6 version is composed of many separated files the usual way to consume 
 
 1. Create new folder **MyAwesomeApp**
 2. Open **GitBash** (or similar) for **MyAwesomeApp**
-3. npm init
-4. npm install webpack webpack-cli webpack-dev-server --save-dev
-5. npm install @babylonjs/core
+3. Run `npm init`
+4. Run `npm install webpack webpack-cli webpack-dev-server --save-dev`
+5. Run `npm install @babylonjs/core`
 6. Create **index.html** file in **MyAwesomeApp** as described in `First App Section` below
 7. Create Folder **src** in **MyAwesomeApp**
 8. Create **index.js** file in **src** as described in `First App Section` below
-9. npx webpack serve _to check result in_ `http://localhost:8080/`
-10. npx webpack \_to create dist folder
+9. Run `npx webpack serve` to check result in `http://localhost:8080/`
+10. Run `npx webpack` to create dist folder
 
 Read all the following sections for full description.
 
@@ -64,13 +64,13 @@ First create a new folder where you will develop your app: `mkdir MyAwesomeApp` 
 
 Then navigate to the folder `cd MyAwesomeApp` and initializes npm with the command `npm init` . Simply fill out the requested question or leave default if you prefer.
 
-You can the install webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
+You can the install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
 
-Following the default webpack convention, you do not even need a configuration file.
+Following the default Webpack convention, you do not even need a configuration file.
 
 ### Installing Babylon.js
 
-To install the latest babylon es6 version use:
+To install the latest babylon ES6 version use:
 
 ```bash
 npm install @babylonjs/core
@@ -84,7 +84,7 @@ To include all Babylon in a javascript or typescript file, use:
 import * as BABYLON from "@babylonjs/core/Legacy/legacy";
 ```
 
-This will work exactly like the none es6 version and the entire library will be included as a dependency.
+This will work exactly like the none ES6 version and the entire library will be included as a dependency.
 
 You can also load specific classes to help with your code:
 
@@ -224,7 +224,7 @@ To create the distribution folder `dist` use the command `npx webpack`
 
 ## Typescript
 
-Switching the project to typescript is pretty straight forward. First in the previous example `MyAwesomeApp` folder we need to install typescript and one of the module allowing the use of typescript in webpack: `npm install typescript ts-loader --save-dev`
+Switching the project to typescript is pretty straight forward. First in the previous example `MyAwesomeApp` folder we need to install typescript and one of the module allowing the use of typescript in Webpack: `npm install typescript ts-loader --save-dev`
 
 Once done we can replace our previous index.js by its typescript equivalent index.ts:
 
@@ -399,7 +399,7 @@ This might happen on some modules where we are heavily relying on side effects a
 
 ## Almighty Inspector
 
-Due to the modules name changing and other es6 modules differences, the UMD and CDN inspector version is not compatible with ES6. Nevertheless, you can install the ES6 version of the inspector and import it for side effect only in your code. Then the debug layer would work as usual.
+Due to the modules name changing and other ES6 modules differences, the UMD and CDN inspector version is not compatible with ES6. Nevertheless, you can install the ES6 version of the inspector and import it for side effect only in your code. Then the debug layer would work as usual.
 
 First install the inspector package:
 
@@ -420,7 +420,7 @@ scene.debugLayer.show();
 
 As we do not want to force by default our user to include any dependencies, we have extended the way users could rely on external dependencies for ES6.
 
-For each of the external dependencies Babylon.js is relying upon, if you are planing on relying on them, you can either provide them as global var in you bundler. For instance if you are willing to use the `PolygonMeshBuilder` class in your app you can add earcut in webpack like this:
+For each of the external dependencies Babylon.js is relying upon, if you are planning on relying on them, you can provide them as global variables in you bundler. For instance if you are willing to use the `PolygonMeshBuilder` class in your app you can add earcut in Webpack like this:
 
 ```javascript
 module.exports = {
@@ -498,16 +498,16 @@ const ammoPlugin = new AmmoJSPlugin(true, Ammo);
 
 ## Ammo with types enabled
 
-Follow the instructions at https://github.com/giniedp/ammojs-typed
+Follow the instructions at https://github.com/giniedp/ammojs-typed.
 
-Import the dependencies
+Import the dependencies:
 
 ```
 import { AmmoJSPlugin } from '@babylonjs/core/Physics/Plugins/ammoJSPlugin';
 import Ammo from 'ammojs-typed';
 ```
 
-and in your code
+and in your code:
 
 ```
 const ammo = await Ammo();
@@ -521,4 +521,4 @@ scene.enablePhysics(
 
 ## Loaders
 
-In Babylon.js the loaders you can install from `@babylonjs/loaders` are actually plugins of the main `SceneLoader` module. In order to use for instance the obj loader in your app, you simply need to import it for side effects only: `import "@babylonjs/loaders/OBJ";` . It would be exactly the same for gltf: `import "@babylonjs/loaders/glTF";` .
+In Babylon.js the loaders you can install from `@babylonjs/loaders` are actually plugins of the main `SceneLoader` module. In order to use for instance the obj loader in your app, you simply need to import it for side effects only: `import "@babylonjs/loaders/OBJ";` . It would be exactly the same for glTF: `import "@babylonjs/loaders/glTF";` .

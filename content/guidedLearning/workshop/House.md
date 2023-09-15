@@ -18,7 +18,7 @@ Starting with a polygon as the footprint, a house is built by giving the footpri
 
 **A footprint** is a sequence of consecutive corners in counter clockwise order. Each **corner** is a Vector3 in the form (x, 0, z). This footprint forms the inner walls of the house, see Fig 1. The inner walls do not have to be set at right angles to each other.
 
-![Footprint](/img/samples/house1.jpg)  
+![Footprint](/img/samples/house1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 This footprint is then copied and extended by **ply** (the thickness of the walls) to form the base of the walls for the house.
@@ -27,12 +27,12 @@ The number of walls will be the number of corners in the footprint, with wall w 
 
 If the number of walls is nbWalls the new corners are numbered by adding nbWalls to the corresponding inner corners. Then the base for wall w, consists of corners numbered, w, (w + 1) % nbWalls, w + nbWalls, (w + 1) % nbWalls + nbWalls. See Fig 2.
 
-![Base of Walls](/img/samples/house2.jpg)  
+![Base of Walls](/img/samples/house2.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2
 
 The top of wall is formed by adding the **height** of the walls to the base corners to form the top corners, having the form of a Vector3 (x, height, z). The new corners are numbered by adding 2 \_ nbWalls to the corresponding base corners. The top of wall w will consist of corners numbered , w + 2 \_ nbWalls, (w + 1) % nbWalls + 2 \_ nbWalls, w + nbWalls + 2 \_ nbWalls, (w + 1) % nbWalls + nbWalls + 2 \* nbWalls. See Fig 3.
 
-![Top of Walls](/img/samples/house3.jpg)  
+![Top of Walls](/img/samples/house3.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3
 
 ## Walls Mesh
@@ -70,7 +70,7 @@ To form the mesh, the base, top, inner wall and outer wall have to be split into
 
 Fig 4 shows the corner numbers for a completed wall. For simplification this is without taking into account that for the final wall the far corners will be the starting corners so in any code each w + 1 must be calculated using modulo nbWalls.
 
-![Wall w](/img/samples/house4.jpg)  
+![Wall w](/img/samples/house4.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4
 
 By corner number
@@ -96,7 +96,7 @@ A door has two properties, width and height. A doorspace has two properties - a 
 
 A window has two properties, width and height. A windowspace has three properties - a window, left and top, which, when it is part of wall w, are its horizonal distance from the inner corner w and the vertical distance from the top of the wall to the top of the window. Top must be greater than zero and less than wall height - window height.
 
-![Doors and Windows](/img/samples/house5.jpg)  
+![Doors and Windows](/img/samples/house5.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
 
 ## Walls with Doors and Windows
@@ -133,7 +133,7 @@ Consider inner wall w with one door and one window added as in Fig 6 showing cor
 
 Let V<sub>label</sub> be the position of a corner with the given label in the form of the triple x, y, z.
 
-![Polygon with Holes](/img/samples/house6.jpg)  
+![Polygon with Holes](/img/samples/house6.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 6
 
 Using polygonMeshBuilder would create an interior wall positions array with
@@ -195,14 +195,14 @@ Once all positions are in the house positions array and knowing that the first b
 
 The function **buildFromPlan** has five parameters and returns a mesh
 
-_walls_ : an array of wall objects  
-_ply_ : thickness of each wall  
-_height_ : height of each wall  
-_options_ : an object containing 4 optional parameters  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interiorUV: a Vector4(bottom left u, bottom left v, top right u, top right v)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exteriorUV: a Vector4(bottom left u, bottom left v, top right u, top right v)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interiorColor: a Color4(r, g, b, a)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exteriorColor: a Color4(r, g, b, a)  
+_walls_ : an array of wall objects
+_ply_ : thickness of each wall
+_height_ : height of each wall
+_options_ : an object containing 4 optional parameters
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interiorUV: a Vector4(bottom left u, bottom left v, top right u, top right v)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exteriorUV: a Vector4(bottom left u, bottom left v, top right u, top right v)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interiorColor: a Color4(r, g, b, a)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exteriorColor: a Color4(r, g, b, a)
 _scene_ : the scene
 
 Examples
@@ -215,32 +215,32 @@ buildFromPlan(walls, 0.87, 6.21, { interiorUV: new BABYLON.Vector4(0, 0, 0.5, 1)
 
 Each wall object has one two or three parameters
 
-_corners_: an array of corner objects - required  
-_doorSpaces_ : an array of doorSpace objects - optional  
+_corners_: an array of corner objects - required
+_doorSpaces_ : an array of doorSpace objects - optional
 _windowSpaces_ an array of windowSpace objects - optional
 
 Each corner object has two parameters giving its position in 2D , example new corner(-3, 2)
 
 Each doorSpace object has two parameters
-_door_ : door object  
+_door_ : door object
 _left_ : distance from left hand edge of wall
 
 Each door object has two parameters, example new door(2, 1)
-_width_ : width of door  
+_width_ : width of door
 _height_ : height of door
 
 Each windowSpace object has three parameters
-_window_ : window object  
-_left_ : distance from left hand edge of wall  
+_window_ : window object
+_left_ : distance from left hand edge of wall
 _top_ : distance from top of wall
 
 Each window object has two parameters, example new window(1, 2)
-_width_ : width of window  
+_width_ : width of window
 _height_ : height of window
 
 Using the plan in fig 7 we can construct a house.
 
-![House floorplan](/img/samples/house7.jpg)  
+![House floorplan](/img/samples/house7.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 7
 
 Inner base corner coordinates
@@ -251,10 +251,10 @@ window 0 width 1.2, height 2.4
 
 window 1 width 2, height 2,4
 
-wall 0 - windowSpace window 0, left 0.814, top 0.4  
-wall 1 - windowSpace window 0, left 0.4 top 0.4  
-wall 2 - windowSpace window 0, left 0.814, top 0.4  
-wall 7 - windowSpace window 1, left 1.5, top 0.4  
+wall 0 - windowSpace window 0, left 0.814, top 0.4
+wall 1 - windowSpace window 0, left 0.4 top 0.4
+wall 2 - windowSpace window 0, left 0.814, top 0.4
+wall 7 - windowSpace window 1, left 1.5, top 0.4
 wall 8 - windowSpace window 1, left 1.5, top 0.4
 
 door width 1 height 1.8
