@@ -612,7 +612,7 @@ This is a simple function to return the absolute value of the input, which is al
 - **output** is the absolute value of the input value in a type that matches the input value type. 
 
 <H3Image title="ArcCos" image="/img/tools/nge/arcCosNode.jpg" alt="Arc cosine node"/>
-This function returns the inverse cosine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+This function returns the inverse cosine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Properties
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
@@ -624,7 +624,7 @@ This function returns the inverse cosine of the input and assumes radians for th
 - **output** is the inverse cosine of the input value in a type that matches the input value type. 
 
 <H3Image title="ArcSin" image="/img/tools/nge/arcSinNode.jpg" alt="Arc sine node"/>
-This function returns the inverse sine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+This function returns the inverse sine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Properties
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
@@ -636,7 +636,7 @@ This function returns the inverse sine of the input and assumes radians for the 
 - **output** is the inverse sine of the input value in a type that matches the input value type. 
 
 <H3Image title="ArcTan" image="/img/tools/nge/arcTanNode.jpg" alt="Arc tangent node"/>
-This function returns the inverse tangent of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+This function returns the inverse tangent of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Properties
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
