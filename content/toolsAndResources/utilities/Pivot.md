@@ -27,7 +27,6 @@ BABYLON.Mesh.prototype.rotateAroundPivot = function(pivotPoint, axis, angle) {
 	var _pdash = _q.multiply(_p).multiply(_qinv);
 	this.position = new BABYLON.Vector3(pivotPoint.x + _pdash.x, pivotPoint.y + _pdash.y, pivotPoint.z + _pdash.z);
 	this.rotationQuaternion = _q.multiply(this._rq);
-	this._rq = this.rotationQuaternion;
 }
 
 mesh.rotateAroundPivot(new BABYLON.Vector3(1, 2, -1), new BABYLON.Axis.Y, Math.PI/4);
