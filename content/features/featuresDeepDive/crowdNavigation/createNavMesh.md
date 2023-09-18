@@ -56,6 +56,8 @@ matdebug.alpha = 0.2;
 navmeshdebug.material = matdebug;
 ```
 
+<Playground id="#KVQP83#0" title="Simple navigation mesh computation" description="Simple navigation mesh computation"/>
+
 ## Parameters
 
 cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world unit define the widthand depth of 1 voxel.
