@@ -18,15 +18,15 @@ The following two code snippets give the opportunity to place a centre of rotati
 BABYLON.Mesh.prototype.rotateAroundPivot = function(pivotPoint, axis, angle) {
 	if(!this._rotationQuaternion) {
 		this._rq = BABYLON.Quaternion.RotationYawPitchRoll(this.rotation.y, this.rotation.x, this.rotation.z);
-	}		
+	}
+	else this._rq = this.rotationQuaternion		
 	var _p = new BABYLON.Quaternion(this.position.x - pivotPoint.x, this.position.y - pivotPoint.y, this.position.z - pivotPoint.z, 0);
 	axis.normalize();
 	var _q = BABYLON.Quaternion.RotationAxis(axis,angle);  //form quaternion rotation		
 	var _qinv = BABYLON.Quaternion.Inverse(_q);	
 	var _pdash = _q.multiply(_p).multiply(_qinv);
 	this.position = new BABYLON.Vector3(pivotPoint.x + _pdash.x, pivotPoint.y + _pdash.y, pivotPoint.z + _pdash.z);
-	this.rotationQuaternion = this._rq.multiply(_q);
-	this._rq = this.rotationQuaternion;
+	this.rotationQuaternion = _q.multiply(this._rq);
 }
 
 mesh.rotateAroundPivot(new BABYLON.Vector3(1, 2, -1), new BABYLON.Axis.Y, Math.PI/4);
@@ -54,4 +54,4 @@ The parameters are the position of the pivot (centre of enlargemen) as a Vector3
 
 ## Playground
 
-<Playground id="#1MKHR9#2" title="Rotating and Enlarging Relative to a Centre" description=""/>
+<Playground id="#1MKHR9#254" title="Rotating and Enlarging Relative to a Centre" description=""/>
