@@ -2293,6 +2293,17 @@
                     },
                     "content": "toolsAndResources/nme"
                 },
+                "nge": {
+                    "friendlyName": "Node Geometry Editor",
+                    "children": {
+                        "customFrames": {
+                            "friendlyName": "Available Nodes",
+                            "children": {},
+                            "content": "toolsAndResources/nge/ngeBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/nge"
+                },
                 "assetLibrarian": {
                     "friendlyName": "Asset Librarian",
                     "children": {},
