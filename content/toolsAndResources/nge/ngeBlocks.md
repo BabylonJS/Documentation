@@ -965,6 +965,8 @@ The debug node is a very simple node that can be connected to Float, Int, Vector
 
 The node doesn't do any calculations in the graph, only displays the values carried along the wire in the properties panel. Simply select the node and the panel will display whatever value is being passed. This also works for iterable nodes that may contain an array of values. Since the debug node is only used to display information in the UI, there is no cost to the node and debug nodes can be left within a graph much like an elbow node if desired.
 
+**Note**: There will be times when the display of debug values will be truncated due to the length of the values not fitting within the width of the UI panel. If this happens, simply hover the cursor over any displayed value and a tooltip will appear showing the value in its entirety. 
+
 #### Inputs
 - **input** can be connected to a node providing a Float, Int, Vector2, Vector3, Vector4, or Matrix type.
 
