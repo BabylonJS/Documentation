@@ -562,6 +562,28 @@
                             },
                             "content": "features/featuresDeepDive/Exporters"
                         },
+                        "flowGraph": {
+                            "friendlyName": "Flow Graph",
+                            "content": "features/featuresDeepDive/flowGraph",
+                            "children": {
+                                "introduction": {
+                                    "friendlyName": "Introduction",
+                                    "content": "features/featuresDeepDive/flowGraph/introduction"
+                                },
+                                "eventNodes": {
+                                    "friendlyName": "Event Nodes",
+                                    "content": "features/featuresDeepDive/flowGraph/eventNodes"
+                                },
+                                "executionNodes": {
+                                    "friendlyName": "Execution Nodes",
+                                    "content": "features/featuresDeepDive/flowGraph/executionNodes"
+                                },
+                                "dataNodes": {
+                                    "friendlyName": "Data Nodes",
+                                    "content": "features/featuresDeepDive/flowGraph/dataNodes"
+                                }
+                            }
+                        },
                         "gui": {
                             "friendlyName": "GUI",
                             "children": {
@@ -1300,7 +1322,7 @@
                                     "friendlyName": "Node Geometry",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/nodeGeometry"
-                                },                                
+                                },
                                 "displayBoundingBoxes": {
                                     "friendlyName": "Drawing Bounding Boxes",
                                     "children": {},

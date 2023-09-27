@@ -10,12 +10,33 @@ video-content:
 
 # List
 
-# Scene Events
+## Scene Events
 
-## Scene Start
+### Scene Start
 
-## Scene Tick
+A node that is fired when a scene is started.
 
-# Mesh Events
+### Scene Tick
 
-## Mesh Pick
+A node that fires every time a frame is executed.
+
+## Mesh Events
+
+### Mesh Pick
+
+A node that is fired every time a specific mesh is picked. The mesh is defined through a variable name, which is passed to the constructor.
+
+```javascript
+// we have a flow graph named graph and a context named context
+// ...
+context.setVariable("meshToPick", mesh);
+//...
+const meshPick = new BABYLON.FlowGraphMeshPickNode({meshVariableName: "meshToPick"});
+// add node to graph
+```
+
+## Custom Events
+
+### Receive Custom Event
+
+A node that is activated whenever a custom event is sent.
