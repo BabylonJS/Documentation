@@ -10,4 +10,4 @@ video-content:
 
 # Flow Graph
 
-The flow graph is a new system that allows creating interactive experiences using simple building blocks.
+The flow graph is a new system in development that allows creating interactive experiences using simple building blocks.
