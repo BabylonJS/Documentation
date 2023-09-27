@@ -130,3 +130,11 @@ When clicking on an empty portion of the graph, the parameters panel will displa
 - **Save as unique URL(*)** will save the current node graph to the snippet server and generate a snippet ID that can be parsed into an experience with only the snippet ID. This is a great option for sharing graphs or for prototyping, but isn't a good choice for production as the snippet server exists outside a project's local infrastructure and should not be relied upon for uptime when a project is live.
 
 ![Options for the graph color, grid, and zoom including save and load actions](/img/tools/nge/ngeOptions.jpg)
+
+## Getting Started
+
+Jumping into node geometry may seem a little overwhelming at first, but the best path is just to jump in and start experimenting. There is a complete breakdown of each of the nodes and how to use them in the next section.  
+
+To see how to get going with node geometry and the editor, take a look at this excellent video tutorial on making a simple procedural mesh that can be used in your scene.
+
+<Youtube id="C3V-Xbj9cCE"/>
