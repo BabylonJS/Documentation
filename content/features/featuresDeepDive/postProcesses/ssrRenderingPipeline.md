@@ -118,10 +118,10 @@ For example
 | ![Without debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr.jpg!500) | ![With debug](/img/how_to/ssrRenderingPipeline/intro_with_ssr_debug.jpg!500) |
 
 The meaning of the colors is as follows:
-_ blue: the ray has reached the maximum distance (we have reached `maxDistance`)
-_ red: the ray ran out of steps (we have reached `maxSteps`)
-_ yellow : the ray has left the screen. By default, frustum clipping is on, so you shouldn't see this color much.
-_ green : the ray has intersected a surface. The brightness of the green color is proportional to the distance between the origin of the ray and the point of intersection: a lighter green means more calculations than a darker green. The brightness is directly proportional to the number of steps the main loop had to execute to find an intersection (`debug.green = num_steps / maxSteps`): if we did not find an intersection within `maxSteps`, a red color is generated instead of a full green.
+* blue: the ray has reached the maximum distance (we have reached `maxDistance`)
+* red: the ray ran out of steps (we have reached `maxSteps`)
+* yellow: the ray has left the screen. By default, frustum clipping is on, so you shouldn't see this color much.
+* green: the ray has intersected a surface. The brightness of the green color is proportional to the distance between the origin of the ray and the point of intersection: a lighter green means more calculations than a darker green. The brightness is directly proportional to the number of steps the main loop had to execute to find an intersection (`debug.green = num_steps / maxSteps`): if we did not find an intersection within `maxSteps`, a red color is generated instead of a full green.
 
 If possible, you should try to get as few red pixels as possible, as this means that we have executed all the iterations of the loop before stopping without finding an intersection.
 You can trade red pixels for blue pixels by increasing the value of `step`, which will favor speed over quality, so it's a balance to be found depending on your scene and the final result you expect.
