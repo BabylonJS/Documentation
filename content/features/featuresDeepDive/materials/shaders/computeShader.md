@@ -103,7 +103,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#185" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader" image="/img/extensions/webgpu/blur.png"/>
+<Playground id="#3URR7V#273" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader" image="/img/extensions/webgpu/blur.png"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
