@@ -23,7 +23,7 @@ In Babylon.js, as in stop motion animation, individual objects have to be moved 
 
 The following terms will have the given meaning within the How_To about animating.
 
-- _Performer_ an item that can be animated, could be a mesh, a light or camera for example.
+- _Performer_ an item that can be animated, could be a mesh, a light or camera for example. Performers can, however, be more than just a node in the scene. The performer can also be a value like a color property on a shader, the intensity property of a light, or even the weight property on an another animation. 
 
 - _Frame_ - an animation frame not a rendered frame of the scene.
 
