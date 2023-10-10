@@ -36,6 +36,6 @@ To create a custom virtual joystick and modify it to suit specific use cases, th
 
 As seen in this example, no overlay canvas is used so other GUI elements will continue to function and the visuals can be modified/positioned if needed.
 
-You can also create a custom input for a camera. For example, here is a joined input suitable for FPS games with a movement joystick on the left and swipe-pan area on the right:
+You can also create a custom input for a camera. For example, here is a joined input suitable for FPS games with a movement joystick on the left and swipe-rotation area on the right:
 
 <Playground id="#MQ9B0X#3" title="Custom Joystick Input Example" description="Simple example showing how to add a Custom Joystick Input to your camera." image="/img/playgroundsAndNMEs/divingDeeperVirtualJoystick2.jpg"/>
