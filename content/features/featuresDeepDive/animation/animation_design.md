@@ -28,7 +28,7 @@ const frameRate = 10;
 const xSlide = new BABYLON.Animation("xSlide", "position.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 ```
 
-The key frames are at 0, 1 and 2 seconds. To find the frame number after t seconds multiply the time by the frame rate, i.e. t x frameRate. In this case the key frames are at frame numbers, 0, 1 x frameRate and 2 x frame Rate. Starting the box at x = 2 and sliding it to x = -2, gives the x positional values of the box after 0, 1 and 2 seconds as 2, -2 and 2 respectively.
+The key frames are at 0, 1 and 2 seconds. To find the frame number after t seconds multiply the time by the frame rate, i.e. `t x frameRate`. In this case the key frames are at frame numbers, 0, 1 x frameRate and 2 x frame Rate. Starting the box at x = 2 and sliding it to x = -2, gives the x positional values of the box after 0, 1 and 2 seconds as 2, -2 and 2 respectively.
 
 The key frames are set into an array of JavaScript objects with properties for frame (number) and value and added to the animation, as in
 
