@@ -83,7 +83,7 @@ Remember, above we said that anything that the engine can reach can be animated 
 
 ### beginAnimation
 
-Now that we have pushed an animation to a target object, starting the animation is a simple case of telling the scene to begin the animations stored with the target object.
+Now that we have pushed an animation to a target object, starting the animation is a simple case of telling the scene to begin the animations stored with the target object. Note that when `beginAnimation` is called, every animation stored in the `target.animations` array will start.
 
 ```javascript
 scene.beginAnimation(target, from, to);
