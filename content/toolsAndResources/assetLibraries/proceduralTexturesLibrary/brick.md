@@ -18,7 +18,7 @@ Brick procedural texture can be found here:
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.brickProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.brickProceduralTexture.min.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 A demo can be found here: <Playground id="#1CL0BO#18" title="Brick Procedural Texture" description="Brick Procedural Texture"/>
 

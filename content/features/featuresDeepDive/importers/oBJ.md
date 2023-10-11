@@ -19,7 +19,7 @@ To use it, you just have to reference the loader file:
 
 You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 If you are using UMD imports via NPM, you need to reference with side-effects:
 

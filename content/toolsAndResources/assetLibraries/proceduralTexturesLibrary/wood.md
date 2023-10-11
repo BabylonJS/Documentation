@@ -18,7 +18,7 @@ Wood procedural texture can be found here:
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 A demo can be found here: <Playground id="#K41IJ#3" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo"/>
 
