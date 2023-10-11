@@ -10,7 +10,7 @@ video-content:
 
 # Introduction to the Flow Graph
 
-The Flow Graph is a new system currently in development and is intended to be a new and powerful way of driving interactive experiences in Babylon.js by connecting node primitives, similar of how [Node Material](/features/featuresDeepDive/materials/node_material/nodeMaterial) and [Node Geometry](/features/featuresDeepDive/mesh/nodeGeometry) work. To create a Flow Graph, first you should create a Flow Graph Coordinator, which is responsible for grouping and communincation between graphs.
+The Flow Graph is a new system currently in development, intended to be a new and powerful way of driving interactive experiences in Babylon.js by connecting node primitives, similar of how [Node Material](/features/featuresDeepDive/materials/node_material/nodeMaterial) and [Node Geometry](/features/featuresDeepDive/mesh/nodeGeometry) work. To create a Flow Graph, first you should create a Flow Graph Coordinator, which is responsible for grouping and communication between graphs.
 
 This is a basic example of a Flow Graph that logs a message to the console when a mesh is clicked:
 

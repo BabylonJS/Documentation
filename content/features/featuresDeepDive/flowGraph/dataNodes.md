@@ -40,7 +40,7 @@ video-content:
 
 ## Math
 
-Most of the math operation blocks have versions for number, Vector2, Vector3, Vector4 and Matrix inputs. Following a table shows which blocks are available for each input types:
+Most of the math operation blocks have versions for number, Vector2, Vector3, Vector4 and Matrix inputs. Following is a table which shows the available blocks for each input type:
 
 |           Block              | Input 1 | Input 2 | Input 3 | Output  | Notes |
 |            ---               |   ---   |   ---   |   ---   |   ---   |  ---  |
