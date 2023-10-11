@@ -20,9 +20,7 @@ The first stage design is to sketch what is needed at key time points, a little 
 
 After one second the box should be in its new position and one second later in its start position. This sequence is then continually repeated.
 
-In Babylon.js the _Animation_ is changing the position of the box along the x axis and its x position is a floating point number and
-
-the _animation_ should loop. In code the animation which slides an item in the x direction becomes
+In Babylon.js the _Animation_ is changing the position of the box along the x axis, which is floating point number, and should also loop. It is critical to declare the type for the animation because the animation has no concept of what it is animating. In this case, the animation is simply moving the box's position along the X axis. While the animation will know its target - the box - it has no understanding of what it means to animate its position along the X axis. To combat this, we need to define the type for the animation as a floating point animation with `BABYLON.ANIMATION.ANIMATIONTYPE_FLOAT` and define the property which will accept the input as `position.x`. With these definitions, the animation has a roadmap of how to apply its keyframe data to the target resulting in a very flexible and powerful system that can animate almost anything. In code, this declaration looks like
 
 ```javascript
 const frameRate = 10;
@@ -30,10 +28,7 @@ const frameRate = 10;
 const xSlide = new BABYLON.Animation("xSlide", "position.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 ```
 
-The key frames are at 0, 1 and 2 seconds. To find the frame number after t seconds multiply the time by the frame rate, i.e. t x frameRate.  
-In this case the key frames are at frame numbers, 0, 1 x frameRate and 2 x frame Rate.
-
-Starting the box at x = 2 and sliding it to x = -2, gives the x positional values of the box after 0, 1 and 2 seconds as 2, -2 and 2 respectively.
+The key frames are at 0, 1 and 2 seconds. To find the frame number after t seconds multiply the time by the frame rate, i.e. `t x frameRate`. In this case the key frames are at frame numbers, 0, 1 x frameRate and 2 x frame Rate. Starting the box at x = 2 and sliding it to x = -2, gives the x positional values of the box after 0, 1 and 2 seconds as 2, -2 and 2 respectively.
 
 The key frames are set into an array of JavaScript objects with properties for frame (number) and value and added to the animation, as in
 
