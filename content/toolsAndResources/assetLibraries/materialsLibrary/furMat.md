@@ -12,7 +12,7 @@ video-content:
 
 Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 ## Using the High Level mode
 

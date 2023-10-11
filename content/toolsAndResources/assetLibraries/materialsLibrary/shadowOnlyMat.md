@@ -16,7 +16,7 @@ The goal of the ShadowOnlyMaterial is to display only shadows casted by a light 
 
 ShadowOnly material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.shadowOnlyMaterial.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 A demo can be found here: PG: <Playground id="#1KF7V1" title="Shadow Only Material" description="Example of shadow only material"/>
 
