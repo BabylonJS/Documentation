@@ -20,7 +20,7 @@ Both versions are considered to be stable and can be used in production. In cert
 
 Both versions have their own CDN endpoint. The preview version is available on [preview.babylonjs.com](https://preview.babylonjs.com) and the stable version is available on [cdn.babylonjs.com](https://cdn.babylonjs.com).
 
-> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: [https://www.npmjs.com/~babylonjs](https://www.npmjs.com/~babylonjs)) will receive a new version update as well, even when they sometimes don't change. As a rule of thumb stick with the same version for all of your dependencies. This is especially important when it comes to the major version - when using babylon's core 5.X, make sure to use all other dependencies in version 5.X.
 
@@ -53,7 +53,7 @@ When developing please make sure to pick the one that fits your architecture. We
 
 ## CDN Current Versions
 
-> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production. The purpose of our CDN is to serve Babylon packages to developers who are learning how to use the platform and for running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 ### Direct Usage of Packages
 
