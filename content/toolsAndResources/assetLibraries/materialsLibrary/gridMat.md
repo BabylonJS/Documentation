@@ -20,6 +20,8 @@ A full playground example can be found here: PG: <Playground id="#1UFGZH#12" tit
 
 As the grid material is a babylonJS extension, it is not included in the main _babylon.js_ file. In order to use the material, please download and reference the extension from the cdn using [babylon.gridMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.js) or its minified version [babylon.gridMaterial.min.js](https://cdn.babylonjs.com/materialsLibrary/babylon.gridMaterial.min.js).
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 The default grid behaviour does not require any setup and displays a black and white grid on your meshes:
 
 ![gridDefault](/img/extensions/materials/gridDefault.png)

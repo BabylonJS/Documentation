@@ -21,6 +21,8 @@ Digital Rain Post Process Scripts can be found here:
 - Normal: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.js
 - Minified: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.min.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 Please, first reference this script in your page:
 
 ```

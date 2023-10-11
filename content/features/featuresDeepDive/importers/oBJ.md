@@ -19,6 +19,8 @@ To use it, you just have to reference the loader file:
 
 You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 If you are using UMD imports via NPM, you need to reference with side-effects:
 
 ```javascript

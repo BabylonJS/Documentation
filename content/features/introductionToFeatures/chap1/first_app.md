@@ -14,7 +14,7 @@ video-content:
 
 # A Web Application Template
 
-You will have seen that the template needed for any code on the playground is
+You will have seen that the template needed for any code on the Playground is:
 
 ```javascript
 var createScene = function () {
@@ -30,6 +30,8 @@ var createScene = function () {
 ```
 
 By following this format in you own project you can quickly drop it into your own HTML page using the following as a template.
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 ```html
 <!DOCTYPE html>

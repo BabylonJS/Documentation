@@ -16,9 +16,11 @@ video-content:
 
 Cloud procedural texture can be found here: 
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.cloudProceduralTexture.js)
-- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.cloudProceduralTexture.min.js)
+- Minified: [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.cloudProceduralTexture.min.js)
 
-A demo can be found here:  <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
+A demo can be found here: <Playground id="#NQDNM#0" title="Cloud Procedural Texture Demo" description="Cloud Procedural Texture Demo"/>
 
 This texture has 2 parameters :
 - **skyColor** : the color for the sky (BABYLON.Color3/4)

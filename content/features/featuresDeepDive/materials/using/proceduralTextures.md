@@ -100,6 +100,8 @@ You can use them in your project:
 - Using npm with `npm install --save @babylonjs/procedural-textures`
 - With a direct reference to: https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
 
 - [BrickProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick)

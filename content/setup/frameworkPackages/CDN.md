@@ -8,6 +8,8 @@ video-overview:
 video-content:
 ---
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ## Direct Usage
 
 These packages can be imported directly from the CDN, as needed, using

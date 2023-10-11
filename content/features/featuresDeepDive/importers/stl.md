@@ -12,6 +12,8 @@ video-content:
 
 You can find the STL loader [here](https://cdn.babylonjs.com/loaders/babylon.stlFileLoader.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 To use it you just have to reference it after Babylon.js:
 
 ```html

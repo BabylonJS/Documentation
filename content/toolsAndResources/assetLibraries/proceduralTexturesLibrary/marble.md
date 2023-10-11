@@ -14,9 +14,12 @@ video-content:
 
 ## Using the Marble procedural texture
 
-Marble procedural texture can be found here: 
+Marble procedural texture can be found here:
+
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.min.js)
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 A demo can be found here:  <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
 

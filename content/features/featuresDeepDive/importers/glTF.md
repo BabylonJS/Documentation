@@ -12,6 +12,8 @@ video-content:
 
 You can find the loader here [here](https://cdn.babylonjs.com/loaders/babylon.glTFFileLoader.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ## Full Version
 
 This loader supports both glTF 1.0 and 2.0 and will use the correct loader based on the glTF version string.

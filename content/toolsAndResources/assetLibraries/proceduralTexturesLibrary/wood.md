@@ -14,9 +14,11 @@ video-content:
 
 ## Using the Wood procedural texture
 
-Wood procedural texture can be found here: 
+Wood procedural texture can be found here:
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.woodProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.woodProceduralTexture.min.js)
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 A demo can be found here: <Playground id="#K41IJ#3" title="Wood Procedural Texture Demo" description="Wood Procedural Texture Demo"/>
 

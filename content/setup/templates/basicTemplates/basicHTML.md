@@ -8,6 +8,8 @@ video-overview:
 video-content:
 ---
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

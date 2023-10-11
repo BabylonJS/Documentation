@@ -12,6 +12,8 @@ video-content:
 
 Fur material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.furMaterial.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ## Using the High Level mode
 
 A demo can be found at: PG: <Playground id="#2322Y7#0" title="Fur Material" description="Example using high level mode"/>

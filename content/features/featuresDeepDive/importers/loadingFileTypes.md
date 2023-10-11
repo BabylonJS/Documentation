@@ -38,6 +38,8 @@ Currently plugins can be found for:
 
 To quickly add support for all loaders the following script can be added to your page:
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 #### Production links
 
 ```javascript

@@ -12,8 +12,9 @@ video-content:
 
 PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
 
-
 Lava material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js)
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 ## Using the lava material
 

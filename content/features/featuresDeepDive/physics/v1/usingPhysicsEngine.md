@@ -50,6 +50,8 @@ Once you picked an engine, do not forget to add a reference to the engine code:
 1. Oimo: https://cdn.babylonjs.com/Oimo.js
 1. Ammo: https://cdn.babylonjs.com/ammo.js or directly from https://github.com/kripken/ammo.js/blob/master/builds/ammo.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ## Basic usage
 
 ### Enabling the physics engine

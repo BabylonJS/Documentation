@@ -21,7 +21,9 @@ video-content:
 The Babylon.js GUI library is an extension you can use to generate interactive user interface.
 It is build on top of the DynamicTexture.
 
-The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js .
+The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js.
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 And the source code is available on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
 

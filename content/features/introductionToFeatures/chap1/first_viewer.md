@@ -19,8 +19,9 @@ In order to use the Viewer you need to add its code to your HTML page in a *&lt;
 <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
 ```
 
-Once this is added you place the *&lt;babylon&gt;* element in an appropriate container and points its *model* attribute to the file source.
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
+Once this is added you place the *&lt;babylon&gt;* element in an appropriate container and points its *model* attribute to the file source.
 
 ```javascript
 <babylon model="Path to File"></babylon>

@@ -15,6 +15,8 @@ You can get the gradient material:
 * Using npm with npm install --save babylonjs babylonjs-materials
 * With a direct reference to: https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 ## Using the gradient material
 
 The material creates a smooth gradient with two colors:

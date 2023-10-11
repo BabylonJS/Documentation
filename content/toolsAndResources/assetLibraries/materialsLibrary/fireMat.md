@@ -14,6 +14,8 @@ video-content:
 
 Fire material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.fireMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.fireMaterial.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 A demo can be found here: PG: <Playground id="#NES8QN" title="Fire Material" description="Example of fire material"/>
 
 The fire material works with 3 textures:

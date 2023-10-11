@@ -14,6 +14,8 @@ video-content:
 
 Cell material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.cellMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.cellMaterial.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
+
 A demo can be found here: PG: <Playground id="#36VUUE" title="Cell Material" description="Example of cell material"/>
 
 # Creating and customizing the cell material
