@@ -3,10 +3,10 @@ import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
 import LinkIcon from "@mui/icons-material/Link";
-import { IconButton, Tooltip, Theme } from "@mui/material";
+import { IconButton, Tooltip, Theme, useMediaQuery } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 
-const styles = makeStyles((theme: Theme) =>
+const styles = makeStyles((_theme: Theme) =>
     createStyles({
         hElement: {
             position: "relative",
@@ -27,11 +27,14 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
 
     const classes = styles();
 
-    const [hovered, setHovered] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = useState<boolean>(false);
+
+    const [hovered, setHovered] = useState<boolean>(isMobile);
     const [copyText, setCopyText] = useState<string>("Copy link");
 
     useEffect(() => {
         context.addTOCItem({ ...item, id: getId(item), title: item.image ? item.title : (item.children as string) });
+        setIsMobile(typeof window !== "undefined" && "ontouchstart" in window);
     }, []);
 
     const pointerLeave = () => {
@@ -59,7 +62,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                         <h2 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
                             {item.children}
                             {item.image && item.title}
-                            {hovered && (
+                            {(hovered || isMobile) && (
                                 <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
                                     <Tooltip title={copyText}>
                                         <LinkIcon></LinkIcon>
@@ -76,7 +79,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                         <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
                             {item.children}
                             {item.image && item.title}
-                           {hovered && (
+                            {(hovered || isMobile) && (
                                 <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
                                     <Tooltip title={copyText}>
                                         <LinkIcon></LinkIcon>
@@ -99,6 +102,7 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
 
     const copyItem = () => {
         const url = window.location.href.split("#")[0] + `#${getId(item)}`;
+        // note - this might not work when in localhost.
         navigator.clipboard.writeText(url).then(
             function () {},
             function (err) {},
