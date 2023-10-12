@@ -23,6 +23,8 @@ _To read about the babylon plugin directly, [skip to the next section](#the-baby
 Havok is now available for the web, using a WebAssembly version of the engine. It is available, free to use, under the MIT license.
 The engine is available on both [the npm package](https://www.npmjs.com/package/@babylonjs/havok) `@babylonjs/havok` and on our CDN under the URL `https://cdn.babylonjs.com/havok/HavokPhysics_umd.js` or `https://cdn.babylonjs.com/havok/HavokPhysics_es.js` when using the `module` script.
 
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
 The NPM package contains the same two flavors as the CDN: an es-modules version and a UMD version for common.js and AMD projects. Your bundler will select the right file for you.
 
 The engine requires initialization in order to be used in Babylon.js. This is done by calling the function returned by the package or the online version.This function initializes the wasm file and returns an object which can be used to initialize the Babylon's Havok plugin.
@@ -60,6 +62,8 @@ HavokPhysics().then((havok) => {
 
 The main different between the CDN and the npm package is the way the HavokPhysics object becomes available in your browser.
 Whereas using npm you need to import/require the package, using the CDN you get the object directly from the global scope.
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 ```html
 <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>

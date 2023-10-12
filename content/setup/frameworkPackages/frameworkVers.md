@@ -20,7 +20,7 @@ Both versions are considered to be stable and can be used in production. In cert
 
 Both versions have their own CDN endpoint. The preview version is available on [preview.babylonjs.com](https://preview.babylonjs.com) and the stable version is available on [cdn.babylonjs.com](https://cdn.babylonjs.com).
 
-When a new version is released on npm it is tagged with either stable or preview.
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 We keep the same version for all of our public repositories. Every time we release a new version, all of our public framework packages (which can be found on npmjs.com: [https://www.npmjs.com/~babylonjs](https://www.npmjs.com/~babylonjs)) will receive a new version update as well, even when they sometimes don't change. As a rule of thumb stick with the same version for all of your dependencies. This is especially important when it comes to the major version - when using babylon's core 5.X, make sure to use all other dependencies in version 5.X.
 
@@ -33,12 +33,6 @@ Until Babylon 5.0 we took a different approach towards versioning. Our stable ve
 Starting Babylon 5.0 we take a different approach towards versioning. We are releasing a new minor version each Thursday of the week from our master branch, containing the latest features and bug fixes. During the week, if a bug fix is required we will release a patched version of the framework. That means that if for example we are at version 5.1.1 at the moment, next Thursday will introduce version 5.2.0. It is possible that until then we will release 5.1.2 or even 5.1.3. We don't update older minor versions. 5.1.1 will not include bug fixes that were introduced in 5.2.0. We recommend using the carret (`^`) when setting the framework version in your package.json. This way you will always get the latest of this major version.
 
 We guarantee **no breaking changes** in our public API between minor versions. Breaking changes will be introduced between major versions. The only time we might introduce breaking changes is when a the browsers introduced a change in their API that forces us to change our API. As we usually abstract our APIs this rarely happens.
-
-Major versions will be released when the preview version's features are ready to be merged to master.
-
-### Preview
-
-When needed, we will introduce the preview branch and the preview version. The preview version will, in general, include features that we still don't want in our latest stable master branch. The versioning schema of the preview branch will follow the pre-release versioning schema, starting with alpha, then beta, and then rc. If for example our master branch is at major version 5, the preview branch will be in prerelease major version 6, with the first version released as alpha - `6.0.0-alpha.0`. We will increment the alpha version at least once a week (and probably more). Once the features are all stable, we will move to `beta` - `6.0.0-beta.0` and so on. When ready to be released, we will use the rc prerelease identifier - `6.0.0-rc.0`. Once ready to be merged to master, we will increase the major version of master. This is a long process that will probably happen once a year.
 
 ## Changelog
 
@@ -58,6 +52,8 @@ We have two flavors of releases:
 When developing please make sure to pick the one that fits your architecture. We recommend using the ES6 packages which allow your to reduce the final release's size using tree shaking.
 
 ## CDN Current Versions
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 ### Direct Usage of Packages
 
@@ -93,6 +89,8 @@ These packages can be imported directly from the CDN, as needed, using
 ```
 
 ### View Packages
+
+> ⚠️ WARNING: The CDN should not be used in production environments. Please use self-hosting for production.
 
 **Babylon.js Core**  
 Minimum Version - [https://cdn.babylonjs.com/babylon.js](https://cdn.babylonjs.com/babylon.js)  

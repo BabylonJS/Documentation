@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Extruded Non Regular Polygon
-*ExtrudePolygon* adds a *depth* option to *CreatePolygon*. The extrusion is carried out down the vertical y axis from the polygon shape in the horizontal xz plane. Like *CreatePolygon* it requires an Earcut script. Since it can be concave it requires a procedure to fill the polygon with triangles and an Earcut method is used. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
+*ExtrudePolygon* adds a *depth* option to *CreatePolygon*. The extrusion is carried out down the vertical y axis from the polygon shape in the horizontal xz plane. Like *CreatePolygon* it requires an Earcut script. Since it can be concave it requires a procedure to fill the polygon with triangles and an Earcut method is used. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
 
 On creation the local origin of the extruded polygon is coincident with the world origin. It is not possible to give a position relative to the extruded polygon as this depends on the data sets used.
 
