@@ -21,6 +21,8 @@ Digital Rain Post Process Scripts can be found here:
 - Normal: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.js
 - Minified: https://cdn.babylonjs.com/postProcessesLibrary/babylon.digitalRainPostProcess.min.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
 Please, first reference this script in your page:
 
 ```

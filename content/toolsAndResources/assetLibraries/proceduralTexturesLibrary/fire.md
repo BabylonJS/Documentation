@@ -14,9 +14,12 @@ video-content:
 
 ## Using the Fire procedural texture
 
-Fire procedural texture can be found here: 
+Fire procedural texture can be found here:
+
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.fireProceduralTexture.js)
-- Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.fireProceduralTexture.min.js)
+- Minified: [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.fireProceduralTexture.min.js)
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 A demo can be found here:  <Playground id="#KM3TC" title="Fire Procedural Texture" description="Fire Procedural Texture"/>
 
