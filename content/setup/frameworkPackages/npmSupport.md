@@ -22,7 +22,7 @@ All examples in this tutorial will use commonjs / es6 imports. However, since we
 
 ## Available packages
 
-We offer babaylon.js' core and its modules as npm packages. The following are available:
+We offer the babylon.js core and its modules as npm packages. The following are available:
 
 * [babylonjs](https://www.npmjs.com/package/babylonjs) - Babylon's core.
 * [babylonjs-materials](https://www.npmjs.com/package/babylonjs-materials) - a collection of Babylon-supported advanced materials.
