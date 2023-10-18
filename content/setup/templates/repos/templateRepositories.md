@@ -28,8 +28,7 @@ experience itself.
 package in order to integrate it with the experience in which it will ship.
 
 For a detailed example showing how to use the template repositories to 
-create a real experience, see [this tutorial]() (NOTE: not a real link;
-tutorial coming soon).
+create a real experience, see [this tutorial](/guidedLearning/devStories/fruitFalling).
 
 ## The Template Repository Workflow
 
