@@ -12,11 +12,11 @@ video-overview:
 video-content:
 ---
 
-This is the quickest way to correct spelling and grammar errors or to add sentences or paragraph or two to clarify an explanation.
+This is the quickest way to correct spelling and grammar errors or to add sentences or a paragraph or two to clarify an explanation.
 
-Requirements: you just need a [Github](https://github.com) account and a Fork of  the [Documentation](https://github.com/BabylonJS/Documentation) repository.
+Requirements: you just need a [Github](https://github.com) account and a Fork of the [Documentation](https://github.com/BabylonJS/Documentation) repository.
 
-At the bottom of each Documentation page you will see the github icon
+At the bottom of each Documentation page you will see the Github icon:
 
 ![Github](/img/contribute/GitHub-Mark.png)
 
@@ -30,13 +30,13 @@ Once done, try to quickly explain what your modification is for, and click on th
 
 ![propose file change](/img/contribute/documentation/easy-submit.png)
 
-For now, your modification isn't yet in the main files. You have to ask toBabylon.js core team to validate and merge your work.
+For now, your modification isn't yet in the main files. You have to ask the Babylon.js core team to validate and merge your work.
 
-Press _Create pull request_ button:
+Press the _Create pull request_ button:
 
 ![sending pull](/img/contribute/documentation/easy-pull.png)
 
-If needed, modify your comment, and press again _Create pull request_ button:
+If needed, modify your comment, and press again the _Create pull request_ button:
 
 ![commenting pull](/img/contribute/documentation/easy-pull2.png)
 

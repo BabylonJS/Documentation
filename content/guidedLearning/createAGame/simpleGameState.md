@@ -207,7 +207,7 @@ await scene.whenReadyAsync();
 scene.getMeshByName("outer").position = new Vector3(0, 3, 0);
 ```
 
-Now you when you go to the game state, you'll have a player mesh and a ground!
+Now when you go to the game state, you'll have a player mesh and a ground!
 ![player mesh and ground](/img/how_to/create-a-game/simplegamestate.png)
 
 ## Resources

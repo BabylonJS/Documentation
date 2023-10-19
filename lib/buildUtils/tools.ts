@@ -117,7 +117,7 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
     return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
 };
 
-export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
+export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string) => {
     const browser = await puppeteer.launch({
         headless: "new"
     }); // opens a virtual browser
@@ -146,7 +146,7 @@ export const generateExampleImage = async (type: "pg" | "nme", id: string) => {
         await page.screenshot({ path: imageUrl, fullPage: true }); // takes a screenshot
         console.log("screenshot created for", id);
     } catch (e) {
-        console.log("error", type, id);
+        console.log("error", type, id, e);
     }
     await browser.close(); // closes the browser.
 };
@@ -256,9 +256,10 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         addToSitemap(metadata.title, url, lastModified ? lastModified.toISOString() : "");
 
         // generate images to examples. Offline only at the moment
-        const matches = Array.from(content.matchAll(/(<(Playground|nme).*id="([A-Za-z0-9#]*)".*\/>)/g));
+        const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE).*id="([A-Za-z0-9#]*)".*\/>)/g));
         for (const [_, full, type, exampleId] of matches) {
-            const realType = type === "nme" ? "nme" : "pg";
+            const typePlayground = type === "Playground" ? "pg" : type.toLowerCase() as "nme" | "nge";
+            const realType: "pg" | "nme" | "nge" = typePlayground as "pg" | "nme" | "nge" || "pg";
             const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
             if (exampleId && exampleId !== "nmeId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
                 await generateExampleImage(realType, exampleId);

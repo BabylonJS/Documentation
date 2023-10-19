@@ -32,7 +32,7 @@ Any use of position, scaling and rotation on the parent will also be applied to 
 
 You can vary the values in the following playground to see the effect on the parent and child.
 
-<Playground id="#GMEI6U" title="Understanding Parenting" description="Simple playground to help demonstrate parenting." image="/img/playgroundsAndNMEs/gettingStartedParents.jpg"/>
+<Playground id="#GMEI6U#1715" title="Understanding Parenting" description="Simple playground to help demonstrate parenting." image="/img/playgroundsAndNMEs/gettingStartedParents.jpg"/>
 
 Now we are ready to build the car and afterwards to animate it.
 

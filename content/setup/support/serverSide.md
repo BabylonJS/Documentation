@@ -1,6 +1,6 @@
 ---
 title: Running Babylon.js On A Server
-image: 
+image:
 description: Learn how to run Babylon.js on a server.
 keywords: babylon.js, advanced, server
 further-reading:
@@ -8,14 +8,14 @@ video-overview:
 video-content:
 ---
 
-Starting with Babylon.js v3.1, we introduced the NullEngine which is a version of the main Babylon.js engine but with no need for a webgl capable device.
+Starting with Babylon.js v3.1, we introduced the NullEngine which is a version of the main Babylon.js engine but with no need for a WebGL capable device.
 
-The NullEngine will not produce any rendering and thus can be used in a node / server side environment.
+The NullEngine will not produce any rendering and thus can be used in a Node.js / server side environment.
 
 It can be used to:
 - Run tests
 - Run a server side version of your application / game
-- Use specific Babylon.js services (like gltf loaders for instance)
+- Use specific Babylon.js services (like glTF loaders for instance)
 
 ## General
 
@@ -26,12 +26,12 @@ var engine = new BABYLON.NullEngine();
 var scene = new BABYLON.Scene(engine);
 ```
 
-If you want to use it in a node.js environment, you may need to add some additional resources (like support for xhr):
+If you want to use it in a Node.js environment, you may need to add some additional resources (like support for xhr):
 
 ```
 var BABYLON = require("../../dist/preview release/babylon.max");
 var LOADERS = require("../../dist/preview release/loaders/babylonjs.loaders");
-global.XMLHttpRequest = require('xhr2').XMLHttpRequest;
+global.XMLHttpRequest = require("xhr2").XMLHttpRequest;
 
 var engine = new BABYLON.NullEngine();
 var scene = new BABYLON.Scene(engine);
@@ -65,7 +65,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://playground.babylonjs.com/scenes/", "
 
 ## Configuration
 
-You can specifiy some options to the NullEngine constructor:
+You can specifiy some options in the `NullEngine` constructor:
 
 ```
 var engine = new BABYLON.NullEngine({
@@ -81,7 +81,7 @@ With `textureSize`, you can define the size of all textures (which will be all b
 ## Troubleshooting
 
 While the goal of the NullEngine is to completely replace the Engine class, some features cannot be used server side:
-* camera.attachControl cannot be used as it requires a HTML eLement
-* DynamicTexture cannot be used as they rely on HTML canvas
+* `camera.attachControl` cannot be used as it requires an HTML element
+* `DynamicTexture` cannot be used as it relies on HTML canvas
 
-Furthermore as we already mentioned earlier, you need to provide an implementation of the XmlHttpRequest class.
+Furthermore as we already mentioned earlier, you need to provide an implementation of the `XMLHttpRequest` class.

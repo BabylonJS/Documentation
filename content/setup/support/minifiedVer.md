@@ -1,7 +1,7 @@
 ---
-title: Creating The Mini-fied Version of Babylon.js
+title: Creating The Minified Version of Babylon.js
 image:
-description: Learn how to create the mini-fied version of Babylon.js.
+description: Learn how to create the minified version of Babylon.js.
 keywords: babylon.js, advanced, minified, thin
 further-reading:
 video-overview:
@@ -9,9 +9,9 @@ video-content:
 ---
 
 To create the minified version of Babylon.js you just have to
-use [gulp](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/Gulp)
+use [gulp](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/Gulp).
 
-But you may want to work with all basic files. In this case, please download the code and use the following include (be aware to have the babylon folder at the root of your site. If you want to use your own shaders in this case, you just have to reference them with a "./" at beginning):
+But you may want to work with all basic files. In this case, please download the code and use the following include (be aware to have the babylon folder at the root of your site). If you want to use your own shaders in this case, you just have to reference them with a "./" at beginning):
 
 ```html
 <script src="tools/DevLoader/BabylonLoader.js"></script>

@@ -108,7 +108,7 @@ BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "
 });
 ```
 
-let's do a few more things:
+Let's do a few more things:
 
 - 1. Delete the word 'meshName' but leave the quotes "".
 - 2. Replace "url to the mesh parent directory" (including quotes) with this:
@@ -123,7 +123,7 @@ Assets.meshes.Yeti.rootUrl
 Assets.meshes.Yeti.filename
 ```
 
-- 4. After the BABYLON.SceneLoader.ImportMesh line, but before the "});" add the following line:
+- 4. After the `BABYLON.SceneLoader.ImportMesh` line, but before the "});" add the following line:
 
 ```javascript
 newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
@@ -163,11 +163,11 @@ That's it! You've got everything you need for the world to see your first Babylo
 
 Ok time to host this experience. If you're not familiar with web hosting, it basically means putting your web experience in a place where the whole world can access/see it. The world of hosting web pages is HUGE and what follows is just ONE example of how to do it. It is by no means the only way to host a page.
 
-For this first step into Babylon we're going to use something github pages, because it's easy and free.
+For this first step into Babylon we're going to use something called GitHub Pages, because it's easy and free.
 
 Let's start by heading over to [GitHub](https://github.com/).
 
-You'll need to log in (or sign up if you're new to github...it's free).
+You'll need to log in (or sign up if you're new to GitHub...it's free).
 
 Next, we'll create a new repository.
 

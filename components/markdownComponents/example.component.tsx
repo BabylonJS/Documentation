@@ -114,3 +114,7 @@ export const PlaygroundMarkdownComponent: FunctionComponent<IExampleLink> = (pro
 export const NMEMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
     return <ExampleMarkdownComponent {...props} type="nme"></ExampleMarkdownComponent>;
 };
+
+export const NGEMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
+    return <ExampleMarkdownComponent {...props} type="nge"></ExampleMarkdownComponent>;
+};

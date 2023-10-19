@@ -86,7 +86,7 @@ let day = this._mString == 11 ? " PM" : " AM";
 return this._mString + ":" + this._sString + day;
 ```
 
-The game's time starts at 11:00PM and goes until 12:00AM. We want to convert our time into minutes and seconds so that we can calculate the hours & minutes of the game.  
+The game's time starts at 11:00PM and goes until 12:00AM. We want to convert our time into minutes and seconds so that we can calculate the hours & minutes of the game.
  - _\_mString_ will really only update if 4 minutes have passed, otherwise it will always be 11 - _\_sString_ updates every 4 seconds.
 
 #### Start/Stop
@@ -108,31 +108,32 @@ public stopTimer(): void {
 
 1. Start the game timer AFTER the [scene is ready](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/src/app.ts#L634) in app.ts.
 
-```javascript
-this._ui.startTimer();
-```
+    ```javascript
+    this._ui.startTimer();
+    ```
 
 2. In \_initializeGameAsync:
 
-```javascript
-scene.onBeforeRenderObservable.add(() => {
-    // when the game isn't paused, update the timer
-    if (!this._ui.gamePaused) {
-        this._ui.updateHud();
-    }
-});
-```
+    ```javascript
+    scene.onBeforeRenderObservable.add(() => {
+        // when the game isn't paused, update the timer
+        if (!this._ui.gamePaused) {
+            this._ui.updateHud();
+        }
+    });
+    ```
 
-We start setting up the game loop.  
+    We start setting up the game loop.
+
 3. In main's **State.Game**:
 
-```javascript
-// once the timer 240seconds, take us to the lose state
-if (this._ui.time >= 240 && !this._player.win) {
-    this._goToLose();
-    this._ui.stopTimer();
-}
-```
+    ```javascript
+    // once the timer reaches 240 seconds, take us to the lose state
+    if (this._ui.time >= 240 && !this._player.win) {
+        this._goToLose();
+        this._ui.stopTimer();
+    }
+    ```
 
 We can go ahead and remove the [temporary button](/guidedLearning/createAGame/stateMachine#gotogame) we had that went to the lose state since now we have an actual condition that takes us there.
 

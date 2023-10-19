@@ -14,7 +14,7 @@ The created mesh will be 3D object created as an extrusion of a given text. It w
 
 ## Prerequesite
 
-The `MeshBuilder.CreateText` is leveraging our ExtrudePolygon feature which requires you to have **Earcut library available**. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
+The `MeshBuilder.CreateText` is leveraging our ExtrudePolygon feature which requires you to have **Earcut library available**. Whilst an Earcut script is pre-loaded in the Playground you will have to add a reference to such a script in your own projects. One is available at [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or via a [npm package](https://github.com/mapbox/earcut#install).
 
 ## MeshBuilder
 

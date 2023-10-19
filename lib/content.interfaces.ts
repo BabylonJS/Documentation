@@ -12,7 +12,7 @@ export interface IMenuItem {
 }
 
 export interface IExampleLink {
-    type?: "pg" | "nme";
+    type?: "pg" | "nme" | "nge";
     id?: string; // both are accepted
     playgroundId?: string; // both are accepted. This one has priority
     title?: string;
@@ -59,6 +59,8 @@ export interface ITableOfContentsItem {
     level: number;
     id: string;
     title: string;
+    image?: string;
+    alt?: string;
 }
 
 export interface IPageProps {

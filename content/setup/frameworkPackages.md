@@ -1,6 +1,6 @@
 ---
 title: Obtaining Babylon.js Packages
-image: 
+image:
 description: Different ways to obtain the framework packages.
 keywords: babylon.js, packages, code, core, gui, loaders, serializers, materials, viewer, inspector
 further-reading:
@@ -10,7 +10,7 @@ video-content:
 
 ## Available Packages
 
-We offer the following packages via CND, NPM and ES6. It is important that you choose only one of these the delivery methods for you project, mixing any two of them will ensure failure.
+We offer the following packages via CDN, NPM and ES6. It is important that you choose only one of these the delivery methods for you project, mixing any two of them will ensure failure.
 
 The packages available are listed below.
 
@@ -22,7 +22,7 @@ The core **babylonjs** which is necessary for all and sufficient for many projec
 * babylonjs-procedural-textures - _Officially supported procedural textures_.
 * babylonjs-serializers - _Scene / mesh serializers._
 * babylonjs-gui - _Babylon.js GUI._
-* babylonjs-inspector - _Babylon.js inspector._  
+* babylonjs-inspector - _Babylon.js inspector._
 * babylonjs-viewer - _The stand-alone Babylon.js Viewer._
 
 ## History of Package Delivery
@@ -49,7 +49,7 @@ What should you use?
 
 Well, as always, that depends. UMD is still faster for rapid prototyping. The Babylon.js playground, for example, still uses the UMD packages (and the global BABYLON namespace). On the other hand, if you start a new project and want to bring a bit of structure, better architecture and smaller package size, I always recommend ES6.
 
-UMD “just works”, mainly because it is still using the most basic browser functionalities. It also guaranteed to work on any browser with WebGL support (yes IE11, I am looking at Safari). Don’t want to use npm? You don’t have to. 
+UMD “just works”, mainly because it is still using the most basic browser functionalities. It also guaranteed to work on any browser with WebGL support (yes IE11, I am looking at Safari). Don’t want to use npm? You don’t have to.
 
 ES6 does not populate the global namespace, so no more BABYLON.* support. This might cause (your) legacy work to stop working, or might present some compatibility issues with our documentation website, which, for the sake of consistency, mostly use the BABYLON namespace in code examples. So if you want to just copy examples from the doc page without the need to (sometimes) change them, use UMD.
 

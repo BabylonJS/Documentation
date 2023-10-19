@@ -16,7 +16,7 @@ const myAnim = new BABYLON.Animation(name, property, frames_per_second, property
 ```
 -   _name_ - _string_, name of animation
 
--   _property_ - _string_, a property of the object that the animation will be applied to. For example a Vector3 property such as position or a floating number property such as position.x
+-   _property_ - _string_, a property of the object that the animation will be applied to. For example a Vector3 property such as position or a floating number property such as `light.intensity`.
 
 -   _frames per second_ - _number_, the number of animation frames per second (independent of the scene rendering frames per second)
 
@@ -37,12 +37,27 @@ const myAnim = new BABYLON.Animation(name, property, frames_per_second, property
     BABYLON.Animation.ANIMATIONLOOPMODE_YOYO - The animation will reverses its direction when it reaches the end instead of restarting from the beginning
 
 ## Set Key Frames
-This is an array, *myKeys* of objects. Each object has the following two properties:
+The key frames of an animation are held in an array of objects, each containing the following two properties:
 
 - _frame_ - the frame number
 - _value_ - for the property being changed
 
-Once constructed this is added to the animation.
+This array will contain one object for each key frame and can contain as many key frames as needed for the desired animation.
+
+```javascript
+const myKeys = [
+    {
+        frame: 0,
+        value: 0.5
+    },
+    {
+        frame: 60,
+        value: 1.0
+    }
+];
+```
+
+Once the key frames array is constructed, in this case an array named *myKeys*, it is added to the animation by setting the keys.
 
 ```javascript
 myAnim.setKeys(myKeys);
@@ -50,13 +65,26 @@ myAnim.setKeys(myKeys);
 
 ## Beginning The Animation
 
-To run the animation it is pushed onto the *animations* array property of the mesh
+There are several ways to manage the play state of animations. One of the simplest is to add an animation to the *animations* array property of an object. Objects like Mesh, Material, Light, or Camera have an *animations* array property defined by default which holds animations which target that specific object.  
 
 ```javascript
-mesh.animations.push(myAnim)
+myMaterial.animations.push(myAnim)
 ```
 
-and started with these required parameters
+Additionally, animations can be added to any object that the engine can reach, even if it does not already have an *animations* array property. Due to the malleable nature of Javascript, simply declaring a new array property for an object will enable us to store animations on target objects. For example, if we want to target the weight property of an animation with another animation, we can add an *animations* array property to the animation by declaring it.
+
+```javascript
+myAnimation.animations = [];
+myAnimation.animations.push(weightAnimation);
+
+```
+
+Remember, above we said that anything that the engine can reach can be animated with our animation system. This also applies to content outside of the canvas. For example, since we can reach any DOM object with Javascript, we can apply an animation to it. If we wanted to, we could use an animation to drive the border-radius of a `<div>` object.
+
+### beginAnimation
+
+Now that we have pushed an animation to a target object, starting the animation is a simple case of telling the scene to begin the animations stored with the target object. Note that when `beginAnimation` is called, every animation stored in the `target.animations` array will start.
+
 ```javascript
 scene.beginAnimation(target, from, to);
 ```
@@ -66,7 +94,7 @@ scene.beginAnimation(target, from, to);
 -   _to_ - _number_, the frame at which to end the animation
 
 
-If you want the animation to loop, set the fourth parameter to true.
+If a looping animation is desired, set the fourth parameter to true.
 ```javascript
 scene.beginAnimation(target, from, to, true)
 ```
@@ -75,7 +103,9 @@ scene.beginAnimation(target, from, to, true)
 
 There are a number of further optional parameters that you can find in the *scene* API.
 
-You can apply several animations to a target using:
+### beginDirectAnimation
+
+If it is preferable to not store animations with a target object, one or more animations can be applied to a target using:
 ```javascript
 scene.beginDirectAnimation(target, animations, from, to, loop)
 ```
@@ -86,19 +116,19 @@ scene.beginDirectAnimation(target, animations, from, to, loop)
 -   _to_ - _number_, the frame at which to end the animation
 -   _loop_ - _boolean_, optional, default *false*, when *true* repeats the animation
 
-Further optional parameters are available and can be found at the *scene* API.
+Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene so the scene is not aware of these animations and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an *animations* array property if it is desireable not to alter the target object. Further optional parameters are available and can be found in the *scene* API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an *Animatable* is exactly what is needed.
 
 <Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/> 
 
 ## Animatable
 
-Both methods of starting an animation return an *Animatable* object 
+Both `scene.beginAnimation` and `scene.beginDirectAnimation` return an *Animatable* object that can be referenced when needed to change the state of the animation. Simply capture the return from one of the methods above to store the reference.
 
 ```javascript
 const myAnimatable = myscene.beginAnimation(target, from, to, true)
 ```
 
-which supports the following methods
+Once the animatable is stored, any of the following methods can be called to change the state of the animation as needed.
 
 - _pause()_
 - _restart()_
