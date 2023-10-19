@@ -1059,6 +1059,11 @@
                                                             "friendlyName": "Advanced examples",
                                                             "children": {},
                                                             "content": "features/featuresDeepDive/mesh/creation/param/greased_line_advanced/examples"
+                                                        },
+                                                        "greased_line_ribbon": {
+                                                            "friendlyName": "GreasedLineRibbon - non camera facing GreasedLine",
+                                                            "children": {},
+                                                            "content": "features/featuresDeepDive/mesh/creation/param/greased_line_ribbon/greased_line_ribbon"
                                                         }
                                                     },
                                                     "content": "features/featuresDeepDive/mesh/creation/param/greased_line"

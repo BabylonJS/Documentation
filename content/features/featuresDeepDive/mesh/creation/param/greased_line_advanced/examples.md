@@ -52,7 +52,7 @@ If your text is not complete and flowers are missing you have to increase the ca
 
 These lightnings will make even Thor envy. Calculates the position and widths of the bolts using a simple recursive algorithm and draws the lines. Add a bit of glow and you get a cool lightning.
 
-<Playground id="#P5GH2C#2" title="Lighting bolts" description="Create cool looking lighting bolts using GreasedLine." />
+<Playground id="#P5GH2C#13" title="Lighting bolts" description="Create cool looking lighting bolts using GreasedLine." />
 
 ### Sparks
 
