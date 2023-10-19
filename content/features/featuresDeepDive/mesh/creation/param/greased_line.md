@@ -109,7 +109,7 @@ setPoints(points: number[][]) // sets the points and recreates the mesh
 *If you are using the right handed coordinate system please create the lines after you switch the scene to it.*
 
 #### **widths** and **widthDistribution**
- 
+
 You can specify two width multiplier values for each point in your line. These values are multiplied with the `width` of the line to draw the resulting line. The first value specifies the width multiplier of the line below the line and the second above the line. These values are not normalized so if you use a value of 2, 2 the line will be twice the width at that point. *There must be exactly the same count of width pair values as there are points.*
 
 The `CreateGreasedLine` function uses the function `CompleteGreasedLineWidthTable` to fill the missing values, if any. You can use the `widthDistribution` option to set the method used to automatically fill the `widths` table.
@@ -186,6 +186,7 @@ dashOffset?: number;
 dashRatio?: number;
 visibility?: number;
 resolution?: Vector2;
+cameraFacing?: boolean;
 ```
 
 #### **createAndAssignMaterial**
@@ -197,15 +198,17 @@ If set to true a new material will be created and a new material plugin will be 
 Line width in scene units unless `sizeAttenuation` is true. You can override the default value:
 
 ```javascript
-GreasedLinePluginMaterial.DEFAULT_WIDTH_ATTENUATED = 10
-GreasedLinePluginMaterial.DEFAULT_WIDTH = 0.5
+GreasedLineMaterialDefaults.DEFAULT_WIDTH_ATTENUATED = 10
+GreasedLineMaterialDefaults.DEFAULT_WIDTH = 0.5
 ```
 
 All lines created after setting this value and not providin a `width` option will use this value as the default one.
 
 #### **sizeAttenuation**
 
-If true then line will width be reduced.
+If true then line will width be always the same regardless the distance from the line. The upper line has constant with no matter how far from the camera it is. This PG also demonstrates how to use default values:
+
+<Playground id="#FJRQ8N#149" title="Size attenuation and GreasedLineMaterialDefaults" description="Shows the difference between attenuated and not attenuated lines and how to set default width and color." />
 
 #### **materialType**
 
@@ -335,6 +338,10 @@ Sets the line length visibility. Normalized value.
 #### **resolution**
 
 Rendering resolution. There may be special occasions when you want to change the resolution. In most cases do not set this value.
+
+#### **cameraFacing**
+
+Whether to use camera facing for the line. Defaults to `true`. If set to `true` you have to use the `GreasedLineMesh` class to create the mesh. If set to `false` you have to use the `GreasedLineRibbonMesh` class. The builder function takes automatically care of this decision and sets this value automatically to `false` if `ribbonOptiions` is present in the `GreasedLineBuilderMeshOptions`.
 
 ## GreasedLine materials
 
@@ -489,6 +496,13 @@ const lines = BABYLON.CreateGreasedLine("lines", { points })
 const points = [-1, 0, 0, 1, 0, 0]
 const line = BABYLON.CreateGreasedLine("line", { points }, { color: BABYLON.Color3.Red() })
 ```
+
+You can set the default color:
+```javascript
+GreasedLineMaterialDefaults.DEFAULT_COLOR = BABYLON.Color3.Red()
+```
+
+Please note that the color will be cloned so changing this value will not affect the existing lines.
 
 #### Line with a width specified
 
@@ -717,6 +731,8 @@ const sphereLines = BABYLON.CreateGreasedLine(
 
 You can use a `predicate` as the second parameter of this function to modify the line points returned from this function. The predicate is called once for a face (once for every 3rd indice).
 
+<Playground id="#VJ9KH2#9" title="MeshesToLines with OmitDuplicatesPredicate" description="Demonstrates converting a mesh to lines without duplicated edges." />
+
 ```javascript
 predicate?: (
     p1: Vector3,
@@ -783,7 +799,7 @@ You can draw texts using `GreasedLine`. See the example code snippet above and t
 GreasedLineTools.GetPointsFromText(text: string, size: number, resolution: number, fontData: IFontData, z = 0, includeInner = true): number[][]
 ```
 
-The `size` is the height of the text in BabylonJS units. 
+The `size` is the height of the text in BabylonJS units.
 Keep the `resolution` as low as possible without loosing details. Start at low values as 4 and go up to 32-64 (or you can use 1 to get cool low resolution vector font).
 `fontData` is the same object you would use with `BABYLON.MeshBuilder.CreateText`. You can generate yout typeface.js font [here](https://gero3.github.io/facetype.js/).
 
