@@ -137,3 +137,16 @@ This block has been imported into the NME with this .json file:
 ```
 
 Here's the link to the NME: <NME id="#3WEKUZ#1" title="Custom Perlin2D block" description="A node material which is using a custom Perlin2D block" image="/img/playgroundsAndNMEs/NMEPerlin2DCustomBlock.jpg"/>
+
+### Using Custom Blocks for Ray Marching
+Ray marching is commonly used for rendering fractals, volumetric effects, and scenes with complex, procedural objects. It’s flexible and can handle a wide range of situations, but it can be computationally intensive, especially for complex scenes or objects with intricate geometry. Ray marching has been possible in Babylon.js since its inception through authoring custom shaders. Similarly, the way to enable it in node material is through authoring custom blocks. 
+
+![An example of ray marching which fuses a rounded rectangular mesh with a sphere mesh](/img/tools/nme/rayMarchingExample.jpg)
+
+There is no universal ray marching block in node material as each experience that uses ray marching may have different requirements. To learn how to get started with a custom block we have an [in-depth article about using ray marching in node material](https://medium.com/@babylonjs/ray-marching-in-the-babylon-js-node-material-editor-967b5b8c269c) including simple and complex examples. The article also talks about the additional blocks that have been added to the Node Material Editor, like the `FragDepth` block, to support ray marching in a custom block. 
+
+Here are a couple of examples of ray marching. One is a simple example using a custom block in the Node Material Editor and the other a very complex example showing the power of ray marching with a custom shader in a Babylon.js playground.
+
+<NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material which uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.jpg"/>
+
+<Playground id="#8Z0MKW#36" title="Snail Ray Marching Scene" description="A complex example of ray marching using a custom shader." image="/img/playgroundsAndNMEs/rayMarchingSnail.jpg"/>
