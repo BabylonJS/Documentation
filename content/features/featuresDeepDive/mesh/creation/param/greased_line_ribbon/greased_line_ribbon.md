@@ -1,5 +1,5 @@
 ---
-title: GreasedLineRibbon - a non camera facing version on GreasedLine 
+title: GreasedLineRibbon - a non camera facing version oF GreasedLine 
 image:
 description: GreasedLineRibbon - a non camera facing version on GreasedLine 
 keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
@@ -129,7 +129,8 @@ If true, normals will be computed when creating the vertex buffers. This results
 ## Example playgrounds
 
 <Playground id="#FJRQ8N#138" title="Simple examples" description="A lot of simple examples in one PG." />
-<Playground id="#SS1UUI#28" title="Tie drone" description="Shows how to use different options to build a small Imperial Tie drone." />
+<Playground id="#SS1UUI#51" title="Tie drone" description="Shows how to use different options to build a small Imperial Tie drone." />
+<Playground id="#SS1UUI#50" title="Tie drones army" description="Flying tie drones from the previous example" />
 <Playground id="#H1LRZ3#407" title="Lazy mode" description="Lazy mode line ribbons." />
 <Playground id="#H1LRZ3#415" title="Recycle logo" description="Recycle logo comparison. One created using a GreasedLineMesh and the second using GreasedLineRibbonMesh (non camera facing version vs camwea facing versions)." />
 
