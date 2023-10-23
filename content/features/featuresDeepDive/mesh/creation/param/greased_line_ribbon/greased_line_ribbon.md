@@ -1,5 +1,5 @@
 ---
-title: GreasedLineRibbon - a non camera facing version oF GreasedLine 
+title: GreasedLineRibbon - a non camera facing version of GreasedLine 
 image:
 description: GreasedLineRibbon - a non camera facing version on GreasedLine 
 keywords: diving deeper, meshes, parametric shapes, greasedline, greased line
