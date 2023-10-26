@@ -199,6 +199,7 @@ const playGame = function* () {
       const jump = function* () {
         for (let t = 0; t <= Math.PI; t += Math.PI / 30) {
           playerCharacter.y = Math.sin(t);
+          yield;
         }
       };
       // Suspend game logic until jump animation is complete

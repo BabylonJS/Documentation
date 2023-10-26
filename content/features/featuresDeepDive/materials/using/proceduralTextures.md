@@ -43,19 +43,19 @@ See more about 'refresh rate' in the Custom Procedural Textures section... far b
 Applying a procedural texture is just the same as using a classic one. Let’s start with a simple mesh (a cylinder in this case) and attach it to your scene:
 
 ```javascript
-var cylinder = BABYLON.Mesh.CreateCylinder("mycylinder", 7, 2, 2, 12, 1, scene);
+const cylinder = BABYLON.MeshBuilder.CreateCylinder("mycylinder", { height: 7, diameterTop: 2, diameterBottom: 2, tessellation: 12, subdivisions: 1 }, scene);
 ```
 
 Then, you need to create a StandardMaterial:
 
 ```javascript
-var material = new BABYLON.StandardMaterial("material", scene);
+const material = new BABYLON.StandardMaterial("material", scene);
 ```
 
 Now, create a WoodProceduralTexture object for which you need to pass a name, the size of the generated texture and the scene.
 
 ```javascript
-var texture = new BABYLON.WoodProceduralTexture("texture", 1024, scene);
+const texture = new BABYLON.WoodProceduralTexture("texture", 1024, scene);
 ```
 
 You are almost set! All you need to do now is to associate the texture to the material as a diffuseTexture, for instance, (or emissiveTexture, specularTexture, any other) and then apply the material to the mesh.
@@ -79,7 +79,7 @@ The NoiseProceduralTexture is available out of the box with the core Babylon.js 
 You can create one with the following code:
 
 ```javascript
-var noiseTexture = new BABYLON.NoiseProceduralTexture("perlin", 256, scene);
+const noiseTexture = new BABYLON.NoiseProceduralTexture("perlin", 256, scene);
 ```
 
 The NoiseProceduralTexture exposes the following properties:
@@ -97,15 +97,17 @@ Babylon.js also has a number of pre-built procedural textures that are gathered 
 
 You can use them in your project:
 
-- Using npm with `npm install --save babylonjs babylonjs-procedural-textures`
+- Using npm with `npm install --save @babylonjs/procedural-textures`
 - With a direct reference to: https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 All standard procedural textures can be used in the same ways, but they each have specific (special) properties:
 
-- **WoodProceduralTexture**: //doc.babylonjs.com/extensions/woodproceduraltexture
-- **MarbleProceduralTexture**: //doc.babylonjs.com/extensions/marbleproceduraltexture
-- **BrickProceduralTexture**: //doc.babylonjs.com/extensions/brickproceduraltexture
-- **FireProceduralTexture**: //doc.babylonjs.com/extensions/fireproceduraltexture
-- **GrassProceduralTexture**: //doc.babylonjs.com/extensions/grassproceduraltexture
-- **RoadProceduralTexture**: //doc.babylonjs.com/extensions/roadproceduraltexture
-- **CloudProceduralTexture**: //doc.babylonjs.com/extensions/cloudproceduraltexture
+- [BrickProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/brick)
+- [CloudProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/cloud)
+- [FireProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/fire)
+- [GrassProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/grass)
+- [MarbleProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/marble)
+- [RoadProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/road)
+- [WoodProceduralTexture](https://doc.babylonjs.com/toolsAndResources/assetLibraries/proceduralTexturesLibrary/wood)

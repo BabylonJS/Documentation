@@ -1505,42 +1505,83 @@
         },
         {
             "source": "/divingDeeper/physics/usingPhysicsEngine",
-            "destination": "/features/featuresDeepDive/physics/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/usingPhysicsEngine",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/forces",
-            "destination": "/features/featuresDeepDive/physics/forces",
+            "destination": "/features/featuresDeepDive/physics/v1/forces",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/joints",
-            "destination": "/features/featuresDeepDive/physics/joints",
+            "destination": "/features/featuresDeepDive/physics/v1/joints",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/pivotsAxes",
-            "destination": "/features/featuresDeepDive/physics/pivotsAxes",
+            "destination": "/features/featuresDeepDive/physics/v1/pivotsAxes",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/compoundBodies",
-            "destination": "/features/featuresDeepDive/physics/compoundBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/compoundBodies",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/softBodies",
-            "destination": "/features/featuresDeepDive/physics/softBodies",
+            "destination": "/features/featuresDeepDive/physics/v1/softBodies",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/advancedPhysicsFeatures",
-            "destination": "/features/featuresDeepDive/physics/advancedPhysicsFeatures",
+            "destination": "/features/featuresDeepDive/physics/v1/advancedPhysicsFeatures",
             "statusCode": 301
         },
         {
             "source": "/divingDeeper/physics/addPhysicsEngine",
-            "destination": "/features/featuresDeepDive/physics/addPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v1/addPhysicsEngine",
+            "statusCode": 301
+        },
+
+        {
+            "source": "/divingDeeper/physics/v2/aggregates",
+            "destination": "/features/featuresDeepDive/physics/v2/aggregates",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/collisionCallback",
+            "destination": "/features/featuresDeepDive/physics/v2/collisionCallback",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/compounds",
+            "destination": "/features/featuresDeepDive/physics/v2/compounds",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/concepts",
+            "destination": "/features/featuresDeepDive/physics/v2/concepts",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/constraints",
+            "destination": "/features/featuresDeepDive/physics/v2/constraints",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/forces",
+            "destination": "/features/featuresDeepDive/physics/v2/forces",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/raycast",
+            "destination": "/features/featuresDeepDive/physics/v2/raycast",
+            "statusCode": 301
+        },
+        {
+            "source": "/divingDeeper/physics/v2/usingPhysicsEngine",
+            "destination": "/features/featuresDeepDive/physics/v2/usingPhysicsEngine",
             "statusCode": 301
         },
         {
@@ -2523,6 +2564,11 @@
             "destination": "/communityExtensions/Unity/11_BabylonArtTools",
             "statusCode": 301
         },
+        {
+            "source": "/contribute/toBabylon/Prerequisits",
+            "destination": "/contribute/toBabylon/Prerequisites",
+            "statusCode": 301
+        },
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/app1.html", "destination": "/webpages/app1" },
         { "source": "/webpages/app2.html", "destination": "/webpages/app2" },
@@ -2531,6 +2577,11 @@
         { "source": "/webpages/page1.html", "destination": "/webpages/page1" },
         { "source": "/webpages/page4.html", "destination": "/webpages/page4" },
         { "source": "/webpages/app3.html", "destination": "/webpages/app3" },
-        { "source": "/webpages/app4.html", "destination": "/webpages/app4" }
+        { "source": "/webpages/app4.html", "destination": "/webpages/app4" },
+        { "source": "/how_to/progressively_load_gltf", "destination": "/features/featuresDeepDive/importers/glTF/progressiveglTFLoad", "statusCode": 301 },
+        {
+            "source": "/features/es6_support",
+            "destination": "/setup/frameworkPackages/es6Support"
+        }
     ]
 }

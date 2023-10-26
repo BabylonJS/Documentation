@@ -1025,6 +1025,11 @@
                                                     "friendlyName": "Tiled Ground",
                                                     "children": {},
                                                     "content": "features/featuresDeepDive/mesh/creation/set/tiled_ground"
+                                                },
+                                                "text": {
+                                                    "friendlyName": "Text",
+                                                    "children": {},
+                                                    "content": "features/featuresDeepDive/mesh/creation/set/text"
                                                 }
                                             },
                                             "content": "features/featuresDeepDive/mesh/creation/set"
@@ -1046,6 +1051,22 @@
                                                     "friendlyName": "Line System",
                                                     "children": {},
                                                     "content": "features/featuresDeepDive/mesh/creation/param/line_system"
+                                                },
+                                                "greased_line": {
+                                                    "friendlyName": "GreasedLine",
+                                                    "children": {
+                                                        "greased_line_advanced": {
+                                                            "friendlyName": "Advanced examples",
+                                                            "children": {},
+                                                            "content": "features/featuresDeepDive/mesh/creation/param/greased_line_advanced/examples"
+                                                        },
+                                                        "greased_line_ribbon": {
+                                                            "friendlyName": "GreasedLineRibbon - non camera facing GreasedLine",
+                                                            "children": {},
+                                                            "content": "features/featuresDeepDive/mesh/creation/param/greased_line_ribbon/greased_line_ribbon"
+                                                        }
+                                                    },
+                                                    "content": "features/featuresDeepDive/mesh/creation/param/greased_line"
                                                 },
                                                 "ribbon": {
                                                     "friendlyName": "Ribbon",
@@ -1280,6 +1301,11 @@
                                     },
                                     "content": "features/featuresDeepDive/mesh/interactions"
                                 },
+                                "nodeGeometry": {
+                                    "friendlyName": "Node Geometry",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/nodeGeometry"
+                                },                                
                                 "displayBoundingBoxes": {
                                     "friendlyName": "Drawing Bounding Boxes",
                                     "children": {},
@@ -1342,7 +1368,13 @@
                                 },
                                 "bonesSkeletons": {
                                     "friendlyName": "Bones and Skeletons",
-                                    "children": {},
+                                    "children": {
+                                        "boneInternals": {
+                                            "friendlyName": "Bone Class Internals",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/mesh/boneInternals"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/mesh/bonesSkeletons"
                                 },
                                 "utilityLayerRenderer": {
@@ -1374,6 +1406,11 @@
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/meshExploder"
+                                },
+                                "visualizeMeshData": {
+                                    "friendlyName": "Visualizing Mesh Data",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/visualizeMeshData"
                                 }
                             },
                             "content": "features/featuresDeepDive/mesh"
@@ -1443,6 +1480,11 @@
                                             "friendlyName": "Particle Snippet Server",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/particle_system/particle_snippets"
+                                        },
+                                        "particles_loadFromFile": {
+                                            "friendlyName": "Load Particles from File",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/particle_system/particles_loadFromFile"
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/particle_system"
@@ -1548,6 +1590,32 @@
                                         }
                                     },
                                     "content": "features/featuresDeepDive/particles/point_cloud_system"
+                                },
+                                "fluid_renderer": {
+                                    "friendlyName": "Fluid Renderer",
+                                    "children": {
+                                        "fluid_using": {
+                                            "friendlyName": "Using the Fluid Renderer",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/using_fluid_renderer"
+                                        },
+                                        "fluid_demos": {
+                                            "friendlyName": "Fluid Rendering Demos",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/demos"
+                                        },
+                                        "fluid_gui": {
+                                            "friendlyName": "Fluid Rendering GUI",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/gui"
+                                        },
+                                        "fluid_implementation": {
+                                            "friendlyName": "Technical Implementation Details",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/particles/fluid_renderer/implementation_details"
+                                        }
+                                    },
+                                    "content": "features/featuresDeepDive/particles/fluid_renderer"
                                 }
                             },
                             "content": "features/featuresDeepDive/particles"
@@ -1558,42 +1626,62 @@
                                 "usingPhysicsEngine": {
                                     "friendlyName": "Using A Physics Engine",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/usingPhysicsEngine"
+                                    "content": "features/featuresDeepDive/physics/v2/usingPhysicsEngine"
+                                },
+                                "rigidBodies": {
+                                    "friendlyName": "Rigid bodies",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/rigidBodies"
+                                },
+                                "shapes": {
+                                    "friendlyName": "Shapes",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/shapes"
                                 },
                                 "forces": {
                                     "friendlyName": "Forces",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/forces"
+                                    "content": "features/featuresDeepDive/physics/v2/forces"
                                 },
-                                "joints": {
-                                    "friendlyName": "Joints",
+                                "compounds": {
+                                    "friendlyName": "Compounds",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/joints"
+                                    "content": "features/featuresDeepDive/physics/v2/compounds"
                                 },
-                                "pivotsAxes": {
-                                    "friendlyName": "Pivots and Axes",
+                                "aggregates": {
+                                    "friendlyName": "Aggregates",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/pivotsAxes"
+                                    "content": "features/featuresDeepDive/physics/v2/aggregates"
                                 },
-                                "compoundBodies": {
-                                    "friendlyName": "Compound Bodies",
+                                "collisionEvents": {
+                                    "friendlyName": "Collision Events",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/compoundBodies"
+                                    "content": "features/featuresDeepDive/physics/v2/collisionEvents"
                                 },
-                                "softBodies": {
-                                    "friendlyName": "Soft Bodies",
+                                "constraints": {
+                                    "friendlyName": "Constraints",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/softBodies"
+                                    "content": "features/featuresDeepDive/physics/v2/constraints"
                                 },
-                                "advancedPhysicsFeatures": {
-                                    "friendlyName": "Advanced Physics Features",
+                                "raycast": {
+                                    "friendlyName": "Raycast",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/advancedPhysicsFeatures"
+                                    "content": "features/featuresDeepDive/physics/v2/raycast"
                                 },
-                                "addPhysicsEngine": {
-                                    "friendlyName": "Add Your Own Physics Engine",
+                                "migrate": {
+                                    "friendlyName": "Migrate from V1",
                                     "children": {},
-                                    "content": "features/featuresDeepDive/physics/addPhysicsEngine"
+                                    "content": "features/featuresDeepDive/physics/v2/migrateFromV1"
+                                },
+                                "perfTips": {
+                                    "friendlyName": "Performance Tips",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/perfTips"
+                                },
+                                "havokPlugin": {
+                                    "friendlyName": "The Havok Physics Plugin",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/usingHavok"
                                 }
                             },
                             "content": "features/featuresDeepDive/physics"
@@ -1635,6 +1723,11 @@
                                     "friendlyName": "Motion Blur Post Process",
                                     "children": {},
                                     "content": "features/featuresDeepDive/postProcesses/motionBlurPostProcess"
+                                },
+                                "SSRRenderingPipeline": {
+                                    "friendlyName": "Using the Screen Space Reflections (SSR) Rendering Pipeline",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/postProcesses/ssrRenderingPipeline"
                                 },
                                 "screenSpaceReflectionsPostProcess": {
                                     "friendlyName": "Screen Space Reflections (SSR) Post Process",
@@ -2101,6 +2194,17 @@
         "toolsAndResources": {
             "friendlyName": "Tools and Resources",
             "children": {
+                "accessibility": {
+                    "friendlyName": "Accessibility",
+                    "children": {
+                        "screenReaders": {
+                            "friendlyName": "Screen Readers",
+                            "children": {},
+                            "content": "toolsAndResources/accessibility/screenReaders"
+                        }
+                    },
+                    "content": "toolsAndResources/accessibility"
+                },
                 "thePlayground": {
                     "friendlyName": "The Playground",
                     "children": {
@@ -2174,7 +2278,7 @@
                     "content": "toolsAndResources/inspector"
                 },
                 "guiEditor": {
-                    "friendlyName": "Gui Editor",
+                    "friendlyName": "GUI Editor",
                     "children": {},
                     "content": "toolsAndResources/guiEditor"
                 },
@@ -2193,6 +2297,17 @@
                         }
                     },
                     "content": "toolsAndResources/nme"
+                },
+                "nge": {
+                    "friendlyName": "Node Geometry Editor",
+                    "children": {
+                        "customFrames": {
+                            "friendlyName": "Available Nodes",
+                            "children": {},
+                            "content": "toolsAndResources/nge/ngeBlocks"
+                        }
+                    },
+                    "content": "toolsAndResources/nge"
                 },
                 "assetLibrarian": {
                     "friendlyName": "Asset Librarian",
@@ -2440,7 +2555,10 @@
         "preparingArtForBabylon": {
             "friendlyName": "Preparing Assets for Babylon.js",
             "children": {
-                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" }
+                "dccToGltf": { "friendlyName": "Exporting to glTF", "children": {}, "content": "preparingArtForBabylon/dccToGltf" },
+                "planningRealTimeAssets": { "friendlyName": "Planning Real-Time Assets", "children": {}, "content": "preparingArtForBabylon/planningRealTimeAssets" },
+                "planningMeshUVs": { "friendlyName": "Planning Mesh UVs", "children": {}, "content": "preparingArtForBabylon/planningMeshUVs" },
+                "controllingColorSpace": { "friendlyName": "Controlling Color Space", "children": {}, "content": "preparingArtForBabylon/controllingColorSpace" }
             },
             "content": "preparingArtForBabylon/basicConcepts"
         },
@@ -2463,10 +2581,10 @@
                     "friendlyName": "Contribute to Babylon.js",
                     "content": "contribute/toBabylon",
                     "children": {
-                        "Prerequisits": {
-                            "friendlyName": "Prerequisits for Contributing",
+                        "Prerequisites": {
+                            "friendlyName": "Prerequisites for Contributing",
                             "children": {},
-                            "content": "contribute/toBabylon/Prerequisits"
+                            "content": "contribute/toBabylon/Prerequisites"
                         },
                         "HowToContribute": {
                             "friendlyName": "How To Contribute",
@@ -2522,7 +2640,9 @@
             "friendlyName": "Guided Learning",
             "children": {
                 "bjsBook": {
-                    "friendlyName": "Journey Beyond The Docs", "children": {}, "content": "guidedLearning/journeyBeyond"
+                    "friendlyName": "Journey Beyond The Docs",
+                    "children": {},
+                    "content": "guidedLearning/journeyBeyond"
                 },
                 "devStories": {
                     "friendlyName": "Dev Stories",
@@ -2791,6 +2911,11 @@
                             "friendlyName": "Shader Fireworks",
                             "children": {},
                             "content": "guidedLearning/workshop/Writing2"
+                        },
+                        "Bowling": {
+                            "friendlyName": "Bowling Scene with Havok Physics Plugin",
+                            "children": {},
+                            "content": "guidedLearning/workshop/Bowling"
                         }
                     },
                     "content": "guidedLearning/workshop"
@@ -2980,10 +3105,25 @@
                     },
                     "content": "communityExtensions/dynamicTerrains"
                 },
+                "figmaToBabylonJS": {
+                    "friendlyName": "Figma to BabylonJS",
+                    "children": {},
+                    "content": "communityExtensions/figmaToBabylonJS"
+                },
+                "lottieTexture": {
+                    "friendlyName": "Lottie Texture",
+                    "children": {},
+                    "content": "communityExtensions/lottieTexture"
+                },
                 "meshWriter": {
                     "friendlyName": "Mesh Writer",
                     "children": {},
                     "content": "communityExtensions/meshWriter"
+                },
+                "mmdLoader": {
+                    "friendlyName": "MMD Loader",
+                    "children": {},
+                    "content": "communityExtensions/mmdLoader"
                 },
                 "textureCanvas": {
                     "friendlyName": "Texture Canvas",
@@ -3309,6 +3449,53 @@
                 }
             },
             "content": "communityExtensions"
+        },
+        "legacy": {
+            "friendlyName": "Legacy",
+            "content": "legacy",
+            "children": {
+                "physics": {
+                    "friendlyName": "Physics V1",
+                    "children": {
+                        "usingPhysicsEngine": {
+                            "friendlyName": "Using A Physics Engine",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/usingPhysicsEngine"
+                        },
+                        "forces": {
+                            "friendlyName": "Forces",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/forces"
+                        },
+                        "joints": {
+                            "friendlyName": "Joints",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/joints"
+                        },
+                        "pivotsAxes": {
+                            "friendlyName": "Pivots and Axes",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/pivotsAxes"
+                        },
+                        "compoundBodies": {
+                            "friendlyName": "Compound Bodies",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/compoundBodies"
+                        },
+                        "softBodies": {
+                            "friendlyName": "Soft Bodies",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/softBodies"
+                        },
+                        "advancedPhysicsFeatures": {
+                            "friendlyName": "Advanced Physics Features",
+                            "children": {},
+                            "content": "features/featuresDeepDive/physics/v1/advancedPhysicsFeatures"
+                        }
+                    },
+                    "content": "features/featuresDeepDive/physics"
+                }
+            }
         },
         "whats-new": {
             "friendlyName": "What's New",

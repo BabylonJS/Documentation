@@ -12,7 +12,7 @@ export interface IMenuItem {
 }
 
 export interface IExampleLink {
-    type?: "pg" | "nme";
+    type?: "pg" | "nme" | "nge";
     id?: string; // both are accepted
     playgroundId?: string; // both are accepted. This one has priority
     title?: string;
@@ -37,19 +37,20 @@ export interface IFullImage {
     alt: string;
     width: never;
     height: never;
-    layout: "fill";
     unsized: true;
     caption?: string;
+    fill?: boolean;
 }
 
 export interface ISizedImageEmbed {
     src: string;
     alt: string;
-    width: ReactText;
-    height: ReactText;
+    width: number;
+    height: number;
     layout: "fixed" | "intrinsic" | "responsive";
     unsized: true;
     caption?: string;
+    fill?: boolean;
 }
 
 export type IImageEmbed = IFullImage | ISizedImageEmbed;
@@ -58,6 +59,8 @@ export interface ITableOfContentsItem {
     level: number;
     id: string;
     title: string;
+    image?: string;
+    alt?: string;
 }
 
 export interface IPageProps {

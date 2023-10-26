@@ -17,9 +17,9 @@ Particle systems are an awesome way to add more depth to actions & movements in 
 The most important particle system of my game was the fireworks as it was the only one that was essential to the game. This was supposed to give an awesome ending!
 I used a playground as reference on how to make the fireworks. You can't actually use the exact code that's here in a local project because it uses some properties of the particle system that are only available in the playground. So, I had to make some adjustments to the code to get it to work.
 
-Here's the original playground  
-PG: <Playground id="#ZXI9H#4" title="Fireworks Base Playground" description="Playground Basis for Rocket Firework"/>  
-Here's the modified playground  
+Here's the original playground
+PG: <Playground id="#ZXI9H#4" title="Fireworks Base Playground" description="Playground Basis for Rocket Firework"/>
+Here's the modified playground
 PG: <Playground id="#IR1S8R#10" title="Fireworks Modified Playground" description="Playground Modified Rocket."/>
 
 ![fireworks](/img/how_to/create-a-game/fireworks.gif)
@@ -28,114 +28,122 @@ PG: <Playground id="#IR1S8R#10" title="Fireworks Modified Playground" descriptio
 
 Similar to this playground, I made a [Firework class](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L170). There are two parts to a firework:
 
-1. **The Rocket**  
+1. **The Rocket**
    The rocket is a particle system created in the constructor of the Firework. We start off by creating an emitter for the rocket. This is the mesh that's going to have the particle system attached to it so that the particle system moves along with its position.
 
-```javascript
-const sphere = Mesh.CreateSphere("rocket", 4, 1, scene);
-sphere.isVisible = false;
-//the origin spawn point for all fireworks is determined by a TransformNode called "fireworks", this was placed in blender
-let randPos = Math.random() * 10;
-sphere.position = new Vector3(scene.getTransformNodeByName("fireworks").getAbsolutePosition().x + randPos * -1, scene.getTransformNodeByName("fireworks").getAbsolutePosition().y, scene.getTransformNodeByName("fireworks").getAbsolutePosition().z);
-this._emitter = sphere;
-//set how high the rocket will travel before exploding and how long it'll take before shooting the rocket
-this._height = sphere.position.y + Math.random() * (15 + 4) + 4;
-this._delay = (Math.random() * i + 1) * 60; //frame based
-```
+    ```javascript
+    const sphere = MeshBuilder.CreateSphere("rocket", { segments: 4, diameter: 1 }, scene);
+    sphere.isVisible = false;
+    //the origin spawn point for all fireworks is determined by a TransformNode called "fireworks", this was placed in blender
+    let randPos = Math.random() * 10;
+    sphere.position = new Vector3(scene.getTransformNodeByName("fireworks").getAbsolutePosition().x + randPos * -1, scene.getTransformNodeByName("fireworks").getAbsolutePosition().y, scene.getTransformNodeByName("fireworks").getAbsolutePosition().z);
+    this._emitter = sphere;
+    //set how high the rocket will travel before exploding and how long it'll take before shooting the rocket
+    this._height = sphere.position.y + Math.random() * (15 + 4) + 4;
+    this._delay = (Math.random() * i + 1) * 60; //frame based
+    ```
 
-We need to determine a few things for our Firework: 1. Position - The position of the rocket is random only across the x-axis. This ensures that all of the fireworks fire the same distance away, but along a line. 2. Height - The height is random between 4 and 15 just to give some variety to the fireworks. 3. Start Time - I wanted the fireworks to stagger so that they all didn't go off at once. This extended the duration of the entire fireworks show as well without having to create a ton. **\_delay** is a number between 1 and the index of the firework. Multiply this by 60 and we have how many frames it will wait before shooting the rocket.
+    We need to determine a few things for our Firework:
 
-```javascript
-//Rocket particle system
-let rocket = new ParticleSystem("rocket", 350, scene);
-rocket.particleTexture = new Texture("./textures/flare.png", scene);
-rocket.emitter = sphere;
-rocket.emitRate = 20;
-rocket.minEmitBox = new Vector3(0, 0, 0);
-rocket.maxEmitBox = new Vector3(0, 0, 0);
-rocket.color1 = new Color4(0.49, 0.57, 0.76);
-rocket.color2 = new Color4(0.29, 0.29, 0.66);
-rocket.colorDead = new Color4(0, 0, 0.2, 0.5);
-rocket.minSize = 1;
-rocket.maxSize = 1;
-rocket.addSizeGradient(0, 1);
-rocket.addSizeGradient(1, 0.01);
-this._rocket = rocket;
-```
+    1. Position - The position of the rocket is random only across the x-axis. This ensures that all of the fireworks fire the same distance away, but along a line.
 
-The particle system itself just uses a simple texture and decreases in size over its lifetime. 2. **The Explosion**  
-The explosion has its own function [\_explosions](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L218) that creates another particle system. It's a bit more involved, but I'll do my best to try and explain what is going on:
+    2. Height - The height is random between 4 and 15 just to give some variety to the fireworks.
 
-```javascript
-const explosion = Mesh.CreateSphere("explosion", 4, 1, this._scene);
-explosion.isVisible = false;
-explosion.position = position;
-let emitter = explosion;
-//grabbing vertex data
-emitter.useVertexColors = true;
-let vertPos = emitter.getVerticesData(VertexBuffer.PositionKind);
-let vertNorms = emitter.getVerticesData(VertexBuffer.NormalKind);
-let vertColors = [];
-```
+    3. Start Time - I wanted the fireworks to stagger so that they all didn't go off at once. This extended the duration of the entire fireworks show as well without having to create a ton. **\_delay** is a number between 1 and the index of the firework. Multiply this by 60 and we have how many frames it will wait before shooting the rocket.
 
-First, we create a mesh that's going to be the shape of our explosion, a sphere. We're going to be using the vertices of this mesh to create particle systems. In order to do that, we need the vertex data of this mesh.
+        ```javascript
+        //Rocket particle system
+        let rocket = new ParticleSystem("rocket", 350, scene);
+        rocket.particleTexture = new Texture("./textures/flare.png", scene);
+        rocket.emitter = sphere;
+        rocket.emitRate = 20;
+        rocket.minEmitBox = new Vector3(0, 0, 0);
+        rocket.maxEmitBox = new Vector3(0, 0, 0);
+        rocket.color1 = new Color4(0.49, 0.57, 0.76);
+        rocket.color2 = new Color4(0.29, 0.29, 0.66);
+        rocket.colorDead = new Color4(0, 0, 0.2, 0.5);
+        rocket.minSize = 1;
+        rocket.maxSize = 1;
+        rocket.addSizeGradient(0, 1);
+        rocket.addSizeGradient(1, 0.01);
+        this._rocket = rocket;
+        ```
 
-```javascript
-for (let i = 0; i < vertPos.length; i += 3) {
-  let vertPosition = new Vector3(vertPos[i], vertPos[i + 1], vertPos[i + 2]);
-  let vertNormal = new Vector3(vertNorms[i], vertNorms[i + 1], vertNorms[i + 2]);
-  let r = Math.random();
-  let g = Math.random();
-  let b = Math.random();
-  let alpha = 1.0;
-  let color = new Color4(r, g, b, alpha);
-  vertColors.push(r);
-  vertColors.push(g);
-  vertColors.push(b);
-  vertColors.push(alpha);
-  //..emitter for the particle system
-  //..actual particle system for each exploding piece
-}
-emitter.setVerticesData(VertexBuffer.ColorKind, vertColors);
-```
+    The particle system itself just uses a simple texture and decreases in size over its lifetime.
 
-For every third vertex position, we store a new position and normal as vector3s. We then generate a random color for this vertex. After we've set up our new particle system based off of vertex data, we need to actually update the emitter to use the colors we generated.
+2. **The Explosion**
+    The explosion has its own function [\_explosions](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/environment.ts#L218) that creates another particle system. It's a bit more involved, but I'll do my best to try and explain what is going on:
 
-```javascript
-//emitter for the particle system
-let gizmo = Mesh.CreateBox("gizmo", 0.001, this._scene);
-gizmo.position = vertPosition;
-gizmo.parent = emitter;
-let direction = vertNormal.normalize().scale(1); // move in the direction of the normal
-```
+    ```javascript
+    const explosion = MeshBuilder.CreateSphere("explosion", { segments: 4, diameter: 1 }, this._scene);
+    explosion.isVisible = false;
+    explosion.position = position;
+    let emitter = explosion;
+    //grabbing vertex data
+    emitter.useVertexColors = true;
+    let vertPos = emitter.getVerticesData(VertexBuffer.PositionKind);
+    let vertNorms = emitter.getVerticesData(VertexBuffer.NormalKind);
+    let vertColors = [];
+    ```
 
-Still in this for loop, we create an emitter mesh, similar to how we did for the rocket except this time, the emitter is positioned at the _vertPosition_ that we created. It's also been given a direction to move based off of the _vertNormal_. This will cause it to move straight out (like an explosion).
+    First, we create a mesh that's going to be the shape of our explosion, a sphere. We're going to be using the vertices of this mesh to create particle systems. In order to do that, we need the vertex data of this mesh.
 
-```javascript
-//actual particle system for each exploding piece
-const particleSys = new ParticleSystem("particles", 500, this._scene);
-particleSys.particleTexture = new Texture("textures/flare.png", this._scene);
-particleSys.emitter = gizmo;
-particleSys.minEmitBox = new Vector3(1, 0, 0);
-particleSys.maxEmitBox = new Vector3(1, 0, 0);
-particleSys.minSize = 0.1;
-particleSys.maxSize = 0.1;
-particleSys.color1 = color;
-particleSys.color2 = color;
-particleSys.colorDead = new Color4(0, 0, 0, 0.0);
-particleSys.minLifeTime = 1;
-particleSys.maxLifeTime = 2;
-particleSys.emitRate = 500;
-particleSys.gravity = new Vector3(0, -9.8, 0);
-particleSys.direction1 = direction;
-particleSys.direction2 = direction;
-particleSys.minEmitPower = 10;
-particleSys.maxEmitPower = 13;
-particleSys.updateSpeed = 0.01;
-particleSys.targetStopDuration = 0.2;
-particleSys.disposeOnStop = true;
-particleSys.start(); //automatically start once created
-```
+    ```javascript
+    for (let i = 0; i < vertPos.length; i += 3) {
+      let vertPosition = new Vector3(vertPos[i], vertPos[i + 1], vertPos[i + 2]);
+      let vertNormal = new Vector3(vertNorms[i], vertNorms[i + 1], vertNorms[i + 2]);
+      let r = Math.random();
+      let g = Math.random();
+      let b = Math.random();
+      let alpha = 1.0;
+      let color = new Color4(r, g, b, alpha);
+      vertColors.push(r);
+      vertColors.push(g);
+      vertColors.push(b);
+      vertColors.push(alpha);
+      //..emitter for the particle system
+      //..actual particle system for each exploding piece
+    }
+    emitter.setVerticesData(VertexBuffer.ColorKind, vertColors);
+    ```
+
+    For every third vertex position, we store a new position and normal as vector3s. We then generate a random color for this vertex. After we've set up our new particle system based off of vertex data, we need to actually update the emitter to use the colors we generated.
+
+    ```javascript
+    //emitter for the particle system
+    let gizmo = MeshBuilder.CreateBox("gizmo", { size: 0.001 }, this._scene);
+    gizmo.position = vertPosition;
+    gizmo.parent = emitter;
+    let direction = vertNormal.normalize().scale(1); // move in the direction of the normal
+    ```
+
+    Still in this _for_ loop, we create an emitter mesh, similar to how we did for the rocket except this time, the emitter is positioned at the _vertPosition_ that we created. It's also been given a direction to move based off of the _vertNormal_. This will cause it to move straight out (like an explosion).
+
+    ```javascript
+    //actual particle system for each exploding piece
+    const particleSys = new ParticleSystem("particles", 500, this._scene);
+    particleSys.particleTexture = new Texture("textures/flare.png", this._scene);
+    particleSys.emitter = gizmo;
+    particleSys.minEmitBox = new Vector3(1, 0, 0);
+    particleSys.maxEmitBox = new Vector3(1, 0, 0);
+    particleSys.minSize = 0.1;
+    particleSys.maxSize = 0.1;
+    particleSys.color1 = color;
+    particleSys.color2 = color;
+    particleSys.colorDead = new Color4(0, 0, 0, 0.0);
+    particleSys.minLifeTime = 1;
+    particleSys.maxLifeTime = 2;
+    particleSys.emitRate = 500;
+    particleSys.gravity = new Vector3(0, -9.8, 0);
+    particleSys.direction1 = direction;
+    particleSys.direction2 = direction;
+    particleSys.minEmitPower = 10;
+    particleSys.maxEmitPower = 13;
+    particleSys.updateSpeed = 0.01;
+    particleSys.targetStopDuration = 0.2;
+    particleSys.disposeOnStop = true;
+    particleSys.start(); //automatically start once created
+    ```
 
 The last step is to make the actual particle system.
 
@@ -207,7 +215,7 @@ In order to toggle this on/off when the sparkler goes out, I just passed the obj
 
 ![sparklerTimeout](/img/how_to/create-a-game/sparklergoingout.gif)
 
-You can look at how I made the particle system in this playground  
+You can look at how I made the particle system in this playground
 PG: <Playground id="#6EGCCM" title="Flower Sparkler Playground" description="Playground demonstration of flower sparkler."/>
 
 ## Lantern Stars
@@ -218,14 +226,14 @@ I wanted to give some sort of extra feedback to the player when they lit a lante
 
 I created a [\_loadStars](https://github.com/BabylonJS/SummerFestival/blob/a0abccc2efbb7399820efe2e25f53bb5b4a02500/src/lantern.ts#L75) function that made the particle system and called it in the Lantern constructor. Then, when _setEmissiveTexture_ is called, I started the particle system.
 
-You can look at how I made the particle system in this playground  
+You can look at how I made the particle system in this playground
 PG: <Playground id="#YLGJ52" title="Starburst Playground" description="Playground demonstration of starburst."/>
 
 It took a bit of messing around with to get the exact effect, so this is where the editor can come in super handy as you can just make quick edits to your particle systems. Just remember that if you want there to be a set duration, assign that last as the particle system won't loop in the editor if you have this set.
 
 ## Resources
 
-[Particle Textures](https://mebiusbox.github.io/contents/EffectTextureMaker/)  
+[Particle Textures](https://mebiusbox.github.io/contents/EffectTextureMaker/)
 **Files Used:**
 
 - [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)

@@ -1,6 +1,6 @@
 ---
 title: Crowd Agents
-image: 
+image:
 description: Learn how to create crowd agents that follow a path along a navigation mesh.
 keywords: extensions, babylon.js, crowd
 further-reading:
@@ -24,21 +24,22 @@ Click anywhere on the navmesh to make the agents go to that location.
 
 First thing is to create a crowd that all agents will belong to. Parameters are the maximum number of agents in the crowd, the maximum agent radius and the scene.
 
-```
-var crowd = navigationPlugin.createCrowd(10, 0.1, scene);
+```javascript
+const crowd = navigationPlugin.createCrowd(10, 0.1, scene);
 ```
 
 Then to create an agent and attach it to a transform, call:
 
-```
-var agentIndex = crowd.addAgent(position, agentParameters, transform);
+```javascript
+const agentIndex = crowd.addAgent(position, agentParameters, transform);
 ```
 
 And that's it! You will get a non moving agent. We now want to move it.
 
-```
+```javascript
 crowd.agentGoto(agentIndex, navigationPlugin.getClosestPoint(endPoint));
 ```
+
 This code will get the closest position on the navmesh to endPoint. Then it asks the agent to go to that position.
 Depending on your agent parameters, it will get there faster of slower.
 
@@ -60,35 +61,35 @@ separationWeight - How hard the system will try to separate the agent. A Value o
 
 You can update any of these parameters, per agent, by calling :
 
-```
+```javascript
 // change speed and max speed
-crowd.updateAgentParameters(agentIndex, {maxSpeed:10, maxAcceleration:200});
+crowd.updateAgentParameters(agentIndex, { maxSpeed: 10, maxAcceleration: 200 });
 ```
 
 ## Teleport
 
 You can teleport an agent to any position using this call:
 
-```
+```javascript
 crowd.agentTeleport(agentIndex, navigationPlugin.getClosestPoint(destinationPoint));
 ```
 
-Please note the navigation state is reseted when teleporting. You'll have to call ```agentGoto``` to choose a new destination.
+Please note the navigation state is reseted when teleporting. You'll have to call `agentGoto` to choose a new destination.
 
 ## Agent orientation and next path target
 
 Recastjs crowd system does not handle agent orientation. But the velocity is available and it's possible to orient the geometry toward it.
 To do so, you will need to use Math.atan2 like in the following example. Please take care of the length of the velocity vector. If it's not big enough, you may encounter jittering.
 
-```
+```javascript
 let velocity = crowd.getAgentVelocity(agentIndex);
-if (velocity.length() > 0.2)
-{
-    var desiredRotation = Math.atan2(velocity.x, velocity.z);
-    // interpolate the rotation on Y to get a smoother orientation change
-    ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
+if (velocity.length() > 0.2) {
+  const desiredRotation = Math.atan2(velocity.x, velocity.z);
+  // interpolate the rotation on Y to get a smoother orientation change
+  ag.mesh.rotation.y = ag.mesh.rotation.y + (desiredRotation - ag.mesh.rotation.y) * 0.05;
 }
 ```
+
 In this PG <Playground id="#6AE0RP" title="Agent Orientation and Next Path Targeting" description="Example of agent orientation and next path targeting."/>
 
 The agent's cube is oriented by the velocity and a grey little box is placed at the position of the next path corner.
@@ -98,8 +99,9 @@ The agent's cube is oriented by the velocity and a grey little box is placed at 
 An observable automaticaly fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number propery in the `IAgentParameters` object.
 If there are too many agents in the crowd trying to reach the same destination, a bottleneck can happen and few agents will reach destination. Be sure to properly set those values.
 To add an observable, simply add your function:
-```
-var crowd = navigationPlugin.createCrowd(10, 0.1, scene);
+
+```javascript
+const crowd = navigationPlugin.createCrowd(10, 0.1, scene);
 ...
 crowd.onReachTargetObservable.add((agentInfos) => {
     console.log("agent reach destination: ", agentInfos.agentIndex);

@@ -18,7 +18,7 @@ _Note:_ Input meshes can be BABYLON meshes but other Cloners as well!
 
 Example of a LinearCloner with a count of 10 clones (5 x cube1, 5 x cube2) with an increment vector of \{x:2,y:0,z:-1\} :
 
-`var oc = new BABYLONX.ObjectCloner([cube1, cube2], icoSphere, demo.scene);`
+`const oc = new BABYLONX.ObjectCloner([cube1, cube2], icoSphere, demo.scene);`
 
 Transforming of all clones can be done as you would do with a single mesh:
 

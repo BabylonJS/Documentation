@@ -21,7 +21,7 @@ let navigationPlugin = new BABYLON.RecastJSPlugin();
 Prepare some parameters for the agent constraints (described below)
 
 ```javascript
-var parameters = {
+const parameters = {
   cs: 0.2,
   ch: 0.2,
   walkableSlopeAngle: 35,
@@ -50,11 +50,13 @@ Optionaly, you can get a display of the navmesh to ensure it corresponds to your
 
 ```javascript
 navmeshdebug = navigationPlugin.createDebugNavMesh(scene);
-var matdebug = new BABYLON.StandardMaterial("matdebug", scene);
+const matdebug = new BABYLON.StandardMaterial("matdebug", scene);
 matdebug.diffuseColor = new BABYLON.Color3(0.1, 0.2, 1);
 matdebug.alpha = 0.2;
 navmeshdebug.material = matdebug;
 ```
+
+<Playground id="#KVQP83#0" title="Simple navigation mesh computation" description="Simple navigation mesh computation"/>
 
 ## Parameters
 
@@ -113,7 +115,7 @@ If your query returns a point too far from the expected result, use a smaller ex
 It's possible to get a path built for navigation as a point array. It's up to the user to use this array for drawing prediction path, trigger events,...
 
 ```javascript
-var pathPoints = navigationPlugin.computePath(crowd.getAgentPosition(agent), navigationPlugin.getClosestPoint(destinationPoint));
+const pathPoints = navigationPlugin.computePath(crowd.getAgentPosition(agent), navigationPlugin.getClosestPoint(destinationPoint));
 pathLine = BABYLON.MeshBuilder.CreateDashedLines("ribbon", { points: pathPoints, updatable: true, instance: pathLine }, scene);
 ```
 
@@ -124,7 +126,7 @@ Building a navigation mesh can take a lot of cpu and network resources. In order
 To retrieve the binary representation of the computed navigation mesh:
 
 ```javascript
-var binaryData = navigationPlugin.getNavmeshData();
+const binaryData = navigationPlugin.getNavmeshData();
 ```
 
 binaryData is an Uint8Array that you can save to a file for example.
@@ -145,7 +147,7 @@ let navigationPlugin = new BABYLON.RecastJSPlugin();
 navigationPlugin.setWorkerURL("workers/navMeshWorker.js");
 ```
 
-A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/workers/navMeshWorker.js
+A default web worker is provided at this URL : https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/playground/public/workers/navMeshWorker.js
 
 Then, provide a completion callback to `createNavMesh` method. This callback will be called when the navigation mesh is computed and ready to use by the plugin.
 

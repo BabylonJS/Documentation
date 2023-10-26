@@ -13,7 +13,7 @@ video-content:
 Starting with Babylon.js v3.3, you can use promises to wait for an animatable to end:
 
 ```javascript
-var anim = scene.beginAnimation(box1, 0, 100, false);
+const anim = scene.beginAnimation(box1, 0, 100, false);
 
 console.log("before");
 await anim.waitAsync();
@@ -95,11 +95,11 @@ To start an animation with a weight, you can use the new `scene.beginWeightedAni
 
 ```javascript
 // Will have a weight of 1.0
-var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
+const idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
 // Will have a weight of 0
-var walkAnim = scene.beginWeightedAnimation(skeleton, 90, 124, 0, true);
+const walkAnim = scene.beginWeightedAnimation(skeleton, 90, 124, 0, true);
 // Will have a weight of 0
-var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
+const runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 ```
 
 This function accepts the following parameters:
@@ -121,11 +121,11 @@ You can also set the `weight` value of any Animatable at any time to switch to a
 In a same way, you can set it to -1 to turn the weight mode off. If you set the weight to 0, the animation will be considered paused.
 
 ```javascript
-var idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
-var runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
+const idleAnim = scene.beginWeightedAnimation(skeleton, 0, 89, 1.0, true);
+const runAnim = scene.beginWeightedAnimation(skeleton, 125, 146, 0, true);
 
 idleAnim.weight = 0.5;
-runAnim.weight = 0.5
+runAnim.weight = 0.5;
 ```
 
 If your animations are not of the same size (same distance between from and to keys) then you will need to turn animation synchronization on with the following code:
@@ -145,19 +145,26 @@ So far the type of animation blending we've gone over has been override blending
 
 Additive animation is unique because it does not use that type of normalization logic. You can have N-number of additive animations playing simultaneously and each one will have the exact amount of influence specified. To accomplish this, additive animation values are relative to the current result of the override animations, not the parent. So if the second animation in the example above were to be played additively, frame 30 would result in a value of [0, 2, 2] because the second animation’s value adds on top of the first.
 
-There are a few ways you can specify that you want an animation to be evaluated additively. First, an optional boolean `isAdditive` parameter has been added to all of the Scene methods for beginning animations. Check the [Scene API documentation](/typedoc/classes/babylon.scene) to see the most up to date parameter lists for each method. This parameter is false by default and will set the new boolean `isAdditive` property of the resulting [Animatable](/typedoc/classes/babylon.animatable#isadditive). This `isAdditive` property controls whether the Animatable should be evaluated additively and can be changed at any time. [AnimationGroups](/typedoc/classes/babylon.animationgroup#isadditive) also now have an `isAdditive` accessor which is false by default. Setting this accessor will set the `isAdditive` properties of all of the Animatables controlled by the group.
+When designing an additive animation blend, remember that only the animations that will modify the values of other animations should be specified as additive animations. Any animation not specified as an additive animation will not modify the values of any other animation targeting the same asset in the scene, but can receive modifications from other additive animations targeting the same asset. As such, having one baseline animation that is modified by one or more additive animations is important. If all animations targeting an asset are set to additive, the results will likely be undesirable as all animations will be modifying all other animations, resulting in double transformations.
 
-One issue with additive animations is the problem of authoring for hierarchies. Because additive animations are evaluated relative to the result of other animations rather than the object's parent, it is not very intuitive to create them directly. To ease this burden, static `MakeAnimationAdditive` methods have been added to the [AnimationGroup](/typedoc/classes/babylon.animationgroup#makeanimationadditive), [Skeleton](/typedoc/classes/babylon.skeleton#makeanimationadditive) and [Animation](/typedoc/classes/babylon.animation#makeanimationadditive) classes. These methods allow you to specify a frame in an existing animation and subtract it out of the rest of the keyframes in the animation to make them all relative to that specific pose.
+There are a few ways you can specify that you want an animation to be evaluated additively. First, an optional boolean `isAdditive` parameter has been added to all of the Scene methods for beginning animations. Check the [Scene API documentation](/typedoc/classes/babylon.scene) to see the most up to date parameter lists for each method. This parameter is false by default and will set the new boolean `isAdditive` property of the resulting [Animatable](/typedoc/classes/babylon.animatable#isadditive). This `isAdditive` property controls whether the Animatable should be evaluated additively and can be changed at any time. [AnimationGroups](/typedoc/classes/babylon.animationgroup#isadditive) also now have an `isAdditive` accessor which is false by default. Setting this accessor will set the `isAdditive` properties of all of the Animatables controlled by the group. Setting this property or accessor to true on an animation or group is the simplest way to make an entire animation additive to other animations targeting the same asset.
 
-The following example demonstrates how to convert animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
-<Playground id="#6I67BL#321" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
+One issue with additive animations is the problem of authoring for hierarchies. Because additive animations are evaluated relative to the result of other animations rather than the object's parent, it is not very intuitive to create them directly. To ease this burden, static `MakeAnimationAdditive` methods have been added to the [AnimationGroup](/typedoc/classes/babylon.animationgroup#makeanimationadditive), [Skeleton](/typedoc/classes/babylon.skeleton#makeanimationadditive) and [Animation](/typedoc/classes/babylon.animation#makeanimationadditive) classes. These methods allow you to specify a frame range in an existing animation to make additive while leaving the rest of the animation as non-additive. This simplifies the the process quite a bit allowing the use of an additive blend on a portion of an authored animation imported to the scene.
+
+The following example demonstrates how to convert skeletal animations to additive and blend them on top of override animations. The UI buttons allow you to blend between several override animations and the sliders blend in additive animations on top.
+<Playground id="#6I67BL#451" title="Additive Animation Example" description="Demo of converting animations to additive and blending them on top of override animations." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation3.jpg"/>
+
+This next example shows a how to use additive blending with simple Babylon.js animations. This example makes use of an offset animation group to modify the position values of a baseline animation. The amount of influence that the offset animation has on the baseline animation's values is determined by the weight accessor value on the offset animation group. Note that since the desired offset is a static value for `position.y` the animation keys all hold the same Vector3 value, but the offset animation can be as complex as needed to achieve the desired motion.
+
+This example also demonstrates how to target the weight accessor of an animation group with a direct animation to control the value. Using a separate animation to drive the value of an animation group's weight allows us to manage the timing of both animations in tight coordination. This is because we can set the value of the animation group's weight per frame synchronizing with the baseline animation's timeline and desired motion.
+<Playground id="#3RTFNJ#34" title="Additive Babylon Animations" description="Additive blending Babylon animation groups to offset a motion path" image="/img/playgroundsAndNMEs/additiveBlendingSpheres.jpg"/>
 
 ## Overriding properties
 
 When you have a mesh with multiple animations or a skeleton (where all bones can be animated) you can use an animationPropertiesOverride to specify some general properties for all child animations. These properties will override local animation properties:
 
 ```javascript
-var overrides = new BABYLON.AnimationPropertiesOverride();
+const overrides = new BABYLON.AnimationPropertiesOverride();
 
 overrides.enableBlending = true;
 overrides.blendingSpeed = 0.1;
@@ -209,19 +216,19 @@ Here is a straightforward sample to animate a torus within a `CircleEase` easing
 
 ```javascript
 //Create a Vector3 animation at 30 FPS
-var animationTorus = new BABYLON.Animation("torusEasingAnimation", "position", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+const animationTorus = new BABYLON.Animation("torusEasingAnimation", "position", 30, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
 // the torus destination position
-var nextPos = torus.position.add(new BABYLON.Vector3(-80, 0, 0));
+const nextPos = torus.position.add(new BABYLON.Vector3(-80, 0, 0));
 
 // Animation keys
-var keysTorus = [];
+const keysTorus = [];
 keysTorus.push({ frame: 0, value: torus.position });
 keysTorus.push({ frame: 120, value: nextPos });
 animationTorus.setKeys(keysTorus);
 
 // Creating an easing function
-var easingFunction = new BABYLON.CircleEase();
+const easingFunction = new BABYLON.CircleEase();
 
 // For each easing function, you can choose between EASEIN (default), EASEOUT, EASEINOUT
 easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
@@ -244,13 +251,13 @@ Here is a pretty cool implementation using the bezier curve algorithm :
 ![bezier curve algorithm](/img/how_to/Animations/bezier.jpg)
 
 ```javascript
-var bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
+const bezierEase = new BABYLON.BezierCurveEase(0.32, -0.73, 0.69, 1.59);
 ```
 
 Finally, you can extend the **EasingFunction** base function to create your own easing function, like this :
 
 ```javascript
-var FunnyEase = (function (_super) {
+const FunnyEase = (function (_super) {
   __extends(FunnyEase, _super);
   function FunnyEase() {
     _super.apply(this, arguments);
@@ -279,7 +286,7 @@ It's very simple to do this:
 // - The frame at which the event will be triggered
 // - The action to execute
 // - A boolean if the event should execute only once (false by default)
-var event1 = new BABYLON.AnimationEvent(
+const event1 = new BABYLON.AnimationEvent(
   50,
   function () {
     console.log("Yeah!");
@@ -308,7 +315,7 @@ this.engine = new BABYLON.Engine(theCanvas, true, {
 This way, the scene will render quantizing physics and animation steps by discrete chunks of the timeStep amount, as set in the physics engine. For example:
 
 ```javascript
-var physEngine = new BABYLON.CannonJSPlugin(false);
+const physEngine = new BABYLON.CannonJSPlugin(false);
 newScene.enablePhysics(this.gravity, physEngine);
 physEngine.setTimeStep(1 / 60);
 ```

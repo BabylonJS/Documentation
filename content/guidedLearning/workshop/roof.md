@@ -10,7 +10,7 @@ video-content:
 
 For any house there is a range of different types of roof that can be added and so there is no automatic way to use the footprint of a house to build a roof directly. However with a little bit of manual design there are methods that can complete the build. Here we present two ways to design and create a hip roof. The example used is based on the [design](/guidedLearning/workshop/House) and [coding](/guidedLearning/workshop/House_Use) of this [house](https://www.babylonjs-playground.com/#4GBWI5#265).
 
-**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
+**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
 
 ## Design Whole Roof
 
@@ -58,7 +58,7 @@ This data the needs to be turned into an array, **apexes** for example, of Vecto
 ```javascript
 var apexes = [];
 	
-for(var i = 0; i < roofApexData.length / 2; i++) {
+for(let i = 0; i < roofApexData.length / 2; i++) {
 	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
 }
 ```
@@ -139,13 +139,13 @@ Apex arrays has to be formed for both the main and small roof
 ```javascript
 var apexes = [];
 	
-for(var i = 0; i < roofApexData.length / 2; i++) {
+for(let i = 0; i < roofApexData.length / 2; i++) {
 	apexes.push(new BABYLON.Vector2(roofApexData[2 * i], roofApexData[2 * i + 1]))
 }
 
 var smallApexes = [];
 
-for(var i = 0; i < smallRoofApexData.length / 2; i++) {
+for(let i = 0; i < smallRoofApexData.length / 2; i++) {
 	smallApexes.push(new BABYLON.Vector2(smallRoofApexData[2 * i], smallRoofApexData[2 * i + 1]))
 }
 ```

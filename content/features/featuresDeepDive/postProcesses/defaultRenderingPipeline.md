@@ -18,7 +18,7 @@ video-content:
 
 You can find a complete example of this pipeline in our playground:
 
-<Playground id="#Y3C0HQ#146" title="Default Rendering Pipeline Example" description="Complete example of the default rendering pipeline."/>
+<Playground id="#Y3C0HQ#146" title="Default Rendering Pipeline Example" description="Complete example of the default rendering pipeline." isMain={true} category="Post-processing"/>
 
 ![default rendering pipeline example](/img/how_to/defaultRenderingPipeline/defaultRenderingPipeline.jpg)
 

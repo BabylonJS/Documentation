@@ -1,6 +1,6 @@
 ---
 title: Cascaded Shadow Maps
-image: 
+image:
 description: Learn how to utilize Cascaded Shadow Maps in Babylon.js
 keywords: diving deeper, lights, lighting, shadows, cascaded shadows, csm
 further-reading:
@@ -18,7 +18,7 @@ This is a shadow map technique, so a lot of what is said in [Shadows](/features/
 
 Note that CSM requires WebGL 2+.
 
-Here's a Playground demonstrating the CSM technique and the existing `ShadowGenerator`: <Playground id="#IIZ9UU#40" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." image="/img/playgroundsAndNMEs/divingDeeperCSM1.jpg"/>
+Here's a Playground demonstrating the CSM technique: <Playground id="#KY0N7T" title="Cascaded Shadow Map Example" description="Simple Example of using the CSM system in your scene." isMain={true} category="Shadows"/>
 
 ## Technical overview
 
@@ -64,32 +64,40 @@ As for the standard shadow generator, filtering methods can be used to improve /
 You create a `CascadedShadowGenerator` instance in exactly the same way as a standard `ShadowGenerator`:
 
 ```javascript
-var csmShadowGenerator = new BABYLON.CascadedShadowGenerator(1024, light);
+const csmShadowGenerator = new BABYLON.CascadedShadowGenerator(1024, light);
 ```
 
 The first parameter is the shadow map size and the second one the (directional) light to use the generator for.
 
 To add shadow casters, do as for `ShadowGenerator`:
-```javascript 
+
+```javascript
 csmShadowGenerator.getShadowMap().renderList.push(torus);
 ```
+
 or:
-* `csmShadowGenerator.addShadowCaster(mesh, includeDescendants)`: Helper function to add a mesh and its descendants to the list of shadow casters
-* `csmShadowGenerator.removeShadowCaster(mesh, includeDescendants)`: Helper function to remove a mesh and its descendants from the list of shadow casters
+
+- `csmShadowGenerator.addShadowCaster(mesh, includeDescendants)`: Helper function to add a mesh and its descendants to the list of shadow casters
+- `csmShadowGenerator.removeShadowCaster(mesh, includeDescendants)`: Helper function to remove a mesh and its descendants from the list of shadow casters
 
 And for the mesh(es) that should receive (display) shadows:
+
 ```javascript
 mesh.receiveShadows = true;
 ```
 
 In fact, the class has been designed to be interface-compatible with `ShadowGenerator`, except of course for the parameters specific to CSM and for the fact that only PCF and PCSS are supported as filtering methods. So, you should be able to simply replace:
+
 ```javascript
 new BABYLON.ShadowGenerator(...)
 ```
+
 with:
+
 ```javascript
 new BABYLON.CascadedShadowGenerator(...)
 ```
+
 in your code and have CSM just working out of the box!
 
 **Important**: contrary to the standard `ShadowGenerator`, `light.shadowMinZ` and `light.shadowMaxZ` are NOT used, so don't bother to update them!
@@ -99,6 +107,7 @@ in your code and have CSM just working out of the box!
 ### numCascades (default: 4)
 
 By default, the generator uses 4 cascades, but you can change this at any time through the `numCascades` property (allowed values between 2 and 4):
+
 ```javascript
 csmShadowGenerator.numCascades = 3;
 ```
@@ -109,6 +118,7 @@ csmShadowGenerator.numCascades = 3;
 ### lambda (default: 0.5)
 
 The `lambda` parameter (described in the technical overview) can be set with:
+
 ```javascript
 csmShadowGenerator.lambda = 0.5;
 ```
@@ -121,6 +131,7 @@ The right value (between 0 and 1) depends on your scene and how the camera is to
 ### cascadeBlendPercentage (default: 0.1)
 
 The cascade blend factor can be set with:
+
 ```javascript
 csmShadowGenerator.cascadeBlendPercentage = 0.05;
 ```
@@ -133,6 +144,7 @@ It's a percentage value between 0 and 1. Try to use small values, else you may g
 ### stabilizeCascades (default: false)
 
 When rotating the camera, you may see the edges of the shadows "swimm" / "shimmer". You may fix the problem with the `stabilizeCascades` property:
+
 ```javascript
 csmShadowGenerator.stabilizeCascades = true;
 ```
@@ -162,7 +174,6 @@ When enabled, the cascades are materialized by different colors on the screen:
 **Figure 9. Cascade rendering (picture from \[[1](#references)\])**
 ![Cascade rendering](/img/babylon101/csm/interval-based-cascade-selection.jpg)
 
-
 ### freezeShadowCastersBoundingInfo (default: false) and shadowCastersBoundingInfo
 
 Enables or disables the shadow casters and receivers bounding info computation. If your shadow casters and receivers don't move, you can disable this feature. If it is enabled, the bounding box computation is done every frame and the `shadowCastersBoundingInfo` property is updated with the data. The bouding info is used to set the min and max z values of the cascade light frusta.
@@ -185,9 +196,11 @@ csmShadowGenerator.autoCalcDepthBounds = true;
 When enabled, a depth rendering pass is first performed (with an internally created depth renderer or with the one you provide by calling `setDepthRenderer`). Then, a min/max reducing is applied on the depth map to compute the minimal and maximal depth values of the map and those values are used as inputs for the `setMinMaxDistance()` function.
 
 You can instruct the generator to compute those values less often than each frame with the `autoCalcDepthBoundsRefreshRate` property:
+
 ```javascript
 csmShadowGenerator.autoCalcDepthBoundsRefreshRate = 2;
 ```
+
 will perform the computation every two frames. It can produce some visual artifacts, however, as the values used for the frustum splitting are now lagging one frame behind the real values, so make testing to see what works best for you.
 
 Note that if you provided your own depth renderer through a call to `setDepthRenderer`, you are responsible for setting the refresh rate on the renderer yourself!
@@ -207,6 +220,7 @@ The filtering capabilities are the same than for the standard `ShadowGenerator` 
 ### penumbraDarkness (default: 1)
 
 When using the PCSS filtering method, you can change the 'darkness' of the soft shadows by updating this property:
+
 ```javascript
 csmShadowGenerator.penumbraDarkness = 0.7;
 ```
@@ -219,18 +233,19 @@ csmShadowGenerator.penumbraDarkness = 0.7;
 There's currently no culling applied on the shadow caster list before rendering the meshes into each of the cascade shadow maps.
 
 However, you can implement your own culling strategy by using this code as a basis:
+
 ```typescript
 let rtt = csmShadowGenerator.getShadowMap();
 
 rtt.getCustomRenderList = (layer, renderList, renderListLength) => {
-    let meshList = [];
-    // here do the culling for the cascade with index 'layer' by using the
-    // getCascadeViewMatrix(layer), getCSMTransformMatrix(layer), getCascadeMinExtents(layer), etc
-    // from csmShadowGenerator
-    // note: the renderList entry parameter is the list of all shadow casters defined for the CSM generator,
-    // that is csmShadowGenerator.getShadowMap().renderList. If you need to traverse renderList, use
-    // renderListLength for the length, not renderList.length, as the array may hold dummy elements!
-    return meshList;
+  let meshList = [];
+  // here do the culling for the cascade with index 'layer' by using the
+  // getCascadeViewMatrix(layer), getCSMTransformMatrix(layer), getCascadeMinExtents(layer), etc
+  // from csmShadowGenerator
+  // note: the renderList entry parameter is the list of all shadow casters defined for the CSM generator,
+  // that is csmShadowGenerator.getShadowMap().renderList. If you need to traverse renderList, use
+  // renderListLength for the length, not renderList.length, as the array may hold dummy elements!
+  return meshList;
 };
 ```
 
@@ -260,7 +275,7 @@ Here's the updated PG: <Playground id="#IIZ9UU#36" title="Cascaded Shadow Map Ex
 
 ## Changing the camera near / far planes
 
-The generator must recalculate the frustum splits when a number of parameters change: `lambda`, `shadowMaxZ`,  `min`/`max` distance properties. It is done automatically by the generator.
+The generator must recalculate the frustum splits when a number of parameters change: `lambda`, `shadowMaxZ`, `min`/`max` distance properties. It is done automatically by the generator.
 
 However, the splits must also be recomputed if the camera near and/or far planes are changed manually! If you do change the `camera.minZ` and/or `camera.maxZ` values after the generator is created, you must call `CascadedShadowGenerator.splitFrustum()` to trigger a recalculation.
 
@@ -270,7 +285,6 @@ Here's what happens if you change `camera.maxZ` after the generator is created w
 ![Fail calling splitFrustum](/img/babylon101/csm/splitfrustum_nok.jpg)
 
 PG: <Playground id="#IIZ9UU#41" title="Failing to Call SplitFrustum" description="Failing to call splitFrustum." image="/img/playgroundsAndNMEs/divingDeeperCSM3.jpg"/>
-
 
 **Figure 15. `splitFrustum` called**
 ![splitFrustum called](/img/babylon101/csm/splitfrustum_ok.jpg)
@@ -292,33 +306,36 @@ Set `depthClamp = false`. There is a (very) small GPU penality to enable this pr
 ## Optimizing for quality
 
 Best shadow quality is generally achieved by:
-* tightening as much as possible the `camera.maxZ - camera.minZ` range
-* setting the `camera.minZ` value as high as possible
-* using the maximum number of cascades (4)
-* using the highest possible map size
-* setting `autoCalcDepthBounds = true` with `lambda = 1`
-* setting `depthClamp = true`
-* setting `stabilizeCascades = false` will improve shadow resolution but you may experience some "swimming" at the shadow edges when rotation the camera. It's up to you to decide which is better for you, stabilized or improved shadows. As explained above, however, always use `stabilizeCascades = false` if `autoCalcDepthBounds = true` because stabilization is not possible in that case, anyway.
-* setting `filteringQuality` to high
+
+- tightening as much as possible the `camera.maxZ - camera.minZ` range
+- setting the `camera.minZ` value as high as possible
+- using the maximum number of cascades (4)
+- using the highest possible map size
+- setting `autoCalcDepthBounds = true` with `lambda = 1`
+- setting `depthClamp = true`
+- setting `stabilizeCascades = false` will improve shadow resolution but you may experience some "swimming" at the shadow edges when rotation the camera. It's up to you to decide which is better for you, stabilized or improved shadows. As explained above, however, always use `stabilizeCascades = false` if `autoCalcDepthBounds = true` because stabilization is not possible in that case, anyway.
+- setting `filteringQuality` to high
 
 **Figure 16. Comparing quality**
 ![High quality](/img/babylon101/csm/high-quality.jpg)
 
 On the left:
-* cascades stabilized
-* `autoCalcDepthBounds = false`
-* lambda = 0.7
-* shadow map sizes 1024x1024
-* `depthClamp = false`
-* filtering is PCF medium
+
+- cascades stabilized
+- `autoCalcDepthBounds = false`
+- lambda = 0.7
+- shadow map sizes 1024x1024
+- `depthClamp = false`
+- filtering is PCF medium
 
 On the right:
-* cascades not stabilized
-* `autoCalcDepthBounds = true`
-* lambda = 1
-* shadow map sizes 2048x2048
-* `depthClamp = true`
-* filtering is PCF high
+
+- cascades not stabilized
+- `autoCalcDepthBounds = true`
+- lambda = 1
+- shadow map sizes 2048x2048
+- `depthClamp = true`
+- filtering is PCF high
 
 For comparison sake, here is the same part rendered with the standard `ShadowGenerator` (far right, map size is 2048x2048):
 

@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2022/01/16).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/08/29).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -36,6 +36,4 @@ The most important optimizations have now been done (see [Optimizations](/setup/
 
 ## Browser Caveats
 Chrome Canary does not support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats:
-* No WebGPU capabilities (caps) returned by the browser
-  * For the time being, we have set some hard values for the caps
 * GPU timing in the **Inspector** does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--disable-dawn-features=disallow_unsafe_apis` flag if you want to enable them.

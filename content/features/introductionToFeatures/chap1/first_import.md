@@ -34,7 +34,7 @@ Note that any of the calls above will only load the models; however, you will no
 
 <Playground id="#YNEAUL#12" title="Loading Multiple Models at Once" description="Load multiple models into a scene." image="/img/playgroundsAndNMEs/gettingStartedFirstModelwGrass.jpg"/>
 
-Therefore, in order to act on the result and manupulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
+Therefore, in order to act on the result and manipulate the objects, we follow the Promise with the _then_ method to call a function with the _result_ of the _Promise_. The _result_ is an object containing, among other things, the property _meshes_ which contains all the loaded models. We can use this array, or their names, to manipulate each mesh.
 
 ```javascript
 BABYLON.SceneLoader.ImportMeshAsync("", "/relative path/", "myFile").then((result) => {

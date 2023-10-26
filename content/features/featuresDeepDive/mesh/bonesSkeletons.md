@@ -68,7 +68,7 @@ Here is a sample of how to load a boned mesh and how to launch skeleton animatio
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-  var dude = newMeshes[0];
+  const dude = newMeshes[0];
 
   dude.rotation.y = Math.PI;
   dude.position = new BABYLON.Vector3(0, 0, -80);
@@ -79,6 +79,14 @@ BABYLON.SceneLoader.ImportMesh("him", "Scenes/Dude/", "Dude.babylon", scene, fun
 
 A complete running example can be found here: <Playground id="#92Y727" title="Loading Bones" description="Simple example of loading bones." isMain={true} category="Mesh"/>
 
+## Use Bones with Node Material
+
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write GLSL. To use a Node Material in a mesh with bones, you need to add the Bones node to it so that the bone influences are correctly computed:
+
+![Use Instances with Node Material](/img/how_to/bones-node.png)
+
+<Playground id="#92Y727#302" title="Using Node Material with Bones" description="Use Bones node on the Node Material"/>
+
 ## Cloning bones
 
 Bones and skeletons can be cloned (This is the case with the rabbits in the previous link).
@@ -87,13 +95,13 @@ Here is a sample of how to load and clone a mesh and its skeleton:
 
 ```javascript
 BABYLON.SceneLoader.ImportMesh("Rabbit", "Scenes/Rabbit/", "Rabbit.babylon", scene, function (newMeshes, particleSystems, skeletons) {
-  var rabbit = newMeshes[1];
+  const rabbit = newMeshes[1];
 
   rabbit.scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
   shadowGenerator.getShadowMap().renderList.push(rabbit);
 
-  var rabbit2 = rabbit.clone("rabbit2");
-  var rabbit3 = rabbit.clone("rabbit2");
+  const rabbit2 = rabbit.clone("rabbit2");
+  const rabbit3 = rabbit.clone("rabbit2");
 
   rabbit2.position = new BABYLON.Vector3(-50, 0, -20);
   rabbit2.skeleton = rabbit.skeleton.clone("clonedSkeleton");
@@ -120,10 +128,10 @@ BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (
     dudes = [];
 
     for (i = 0; i < 10; i++) { // 10 clones
-        var xrand = Math.floor(Math.random() * 501) - 250;
-        var zrand = Math.floor(Math.random() * 501) - 250;
+        const xrand = Math.floor(Math.random() * 501) - 250;
+        const zrand = Math.floor(Math.random() * 501) - 250;
 
-        var c = [];
+        const c = [];
 
         for (j = 1; j < newMeshes.length; j++) {
             c[j] = newMeshes[j].clone("c" + j);
@@ -144,7 +152,7 @@ You can decide to call `mesh.refreshBoundingInfo(true)` to force the CPU to upda
 
 ```javascript
 mesh.refreshBoundingInfo(true);
-var pickResult = scene.pick(scene.pointerX, scene.pointerY);
+const pickResult = scene.pick(scene.pointerX, scene.pointerY);
 ```
 
 Please keep in mind that this operation is using the CPU so it has to be used wisely as it could impact performance.
@@ -219,11 +227,11 @@ bone.setRotationMatrix(rotMat, BABYLON.Space.WORLD, mesh);
 Use getRotation or getRotationToRef to get the Vector3 rotation of a bone.
 
 ```javascript
-var rotation = bone.getRotation(BABYLON.Space.WORLD, mesh);
+const rotation = bone.getRotation(BABYLON.Space.WORLD, mesh);
 ```
 
 ```javascript
-var rotation = BABYLON.Vector3.Zero();
+const rotation = BABYLON.Vector3.Zero();
 
 bone.getRotationToRef(BABYLON.Space.WORLD, mesh, rotation);
 ```
@@ -233,11 +241,11 @@ bone.getRotationToRef(BABYLON.Space.WORLD, mesh, rotation);
 Use getRotationQuaternion or getRotationQuaternionToRef to get the Quaternion rotation of a bone.
 
 ```javascript
-var rotationQuaternion = bone.getRotationQuaternion(BABYLON.Space.WORLD, mesh);
+const rotationQuaternion = bone.getRotationQuaternion(BABYLON.Space.WORLD, mesh);
 ```
 
 ```javascript
-var rotationQuaternion = BABYLON.Vector3.Zero();
+const rotationQuaternion = BABYLON.Vector3.Zero();
 
 bone.getRotationQuaternionToRef(BABYLON.Space.WORLD, mesh, rotationQuaternion);
 ```
@@ -270,11 +278,11 @@ bone.setPosition(pos, BABYLON.Space.WORLD, mesh);
 To get the position of a bone, use getPosition or getPositionToRef.
 
 ```javascript
-var pos = bone.getPosition(BABYLON.Space.WORLD, mesh);
+const pos = bone.getPosition(BABYLON.Space.WORLD, mesh);
 ```
 
 ```javascript
-var pos = BABYLON.Vector3.Zero();
+const pos = BABYLON.Vector3.Zero();
 
 bone.getPositionToRef(BABYLON.Space.WORLD, mesh, pos);
 ```
@@ -310,11 +318,11 @@ bone.setScale(scaleVector);
 Use getScale or getScaleToRef to get the current scale of a bone.
 
 ```javascript
-var scale = bone.getScale();
+const scale = bone.getScale();
 ```
 
 ```javascript
-var scale = BABYLON.Vector.Zero();
+const scale = BABYLON.Vector.Zero();
 bone.getScaleToRef(scale);
 ```
 
@@ -331,8 +339,8 @@ The BoneLookController class is used to make a bone look toward a point in space
 With some bones, you will need to adjust the yaw, pitch, roll to get the bone to look in the right direction.
 
 ```javascript
-var target = BABYLON.MeshBuilder.createSphere();
-var lookCtrl = new BABYLON.BoneLookController(characterMesh, headBone, target.position, { adjustYaw: Math.PI * 0.5, adjustPitch: Math.PI * 0.5, adjustRoll: Math.PI });
+const target = BABYLON.MeshBuilder.createSphere();
+const lookCtrl = new BABYLON.BoneLookController(characterMesh, headBone, target.position, { adjustYaw: Math.PI * 0.5, adjustPitch: Math.PI * 0.5, adjustRoll: Math.PI });
 
 scene.registerBeforeRender(function () {
   lookCtrl.update();
@@ -350,8 +358,8 @@ The BoneIKController class is modeled after Blender's IK Bone Constraint, but is
 To use the BoneIKController, you must first create a target mesh and a pole target mesh.
 
 ```javascript
-var target = BABYLON.MeshBuilder.CreateSphere("", { diameter: 5 }, scene);
-var poleTarget = BABYLON.MeshBuilder.CreateSphere("", { diameter: 2.5 }, scene);
+const target = BABYLON.MeshBuilder.CreateSphere("", { diameter: 5 }, scene);
+const poleTarget = BABYLON.MeshBuilder.CreateSphere("", { diameter: 2.5 }, scene);
 ```
 
 The bones will reach for the target mesh and the position of the pole target will determine how the joint between the bones will bend.
@@ -373,7 +381,7 @@ bendAxis,
 maxAngle
 
 ```javascript
-var ikCtrl = new BABYLON.BoneIKController(characterMesh, forearmBone, { targetMesh: target, poleTargetMesh: poleTarget, poleAngle: Math.PI });
+const ikCtrl = new BABYLON.BoneIKController(characterMesh, forearmBone, { targetMesh: target, poleTargetMesh: poleTarget, poleAngle: Math.PI });
 ```
 
 To use the controller, simply call the controller's update function before the scene is rendered.
@@ -398,6 +406,7 @@ poleTarget.setEnabled(false);
 Bones are computed using shaders by default. This allows better performance. But on low end devices, shaders could be limited and not able to process bones. You can in this case ask Babylon.js to compute bones using CPU by setting `mesh.computeBonesUsingShaders = false`.
 
 Note however that when using instances / thin instances, things can be a bit different:
+
 1. When `computeBonesUsingShaders = true`, the vertex shader code is doing 16 texture reads **PER** vertex **PER** instance **PER** frame (it's 32 if you have more than 4 influences per vertex - 8 being the maximum supported by Babylon.js)
 1. When `computeBonesUsingShaders = false`, there's no texture reads anymore but the vertices are transformed according to their bones on the CPU and the final vertex positions are uploaded to the GPU once **PER** frame.
 
@@ -405,8 +414,8 @@ As 2 is independent from the number of instances and has a fixed cost (depending
 
 If you are in a situation where 1 is slower than 2, you can try another option:
 
-* `mesh.computeBonesUsingShaders = true`
-* `mesh.skeleton.useTextureToStoreBoneMatrices = false`
+- `mesh.computeBonesUsingShaders = true`
+- `mesh.skeleton.useTextureToStoreBoneMatrices = false`
 
 In this configuration, bones will be applied on the GPU but using a static bone array, there's no texture read involved. So it will probably be faster than 1 but note that this latest configuration will set a limit to the total number of bones a skeleton can have (which depends on the number of uniforms a vertex shader can take).
 
@@ -534,12 +543,13 @@ boneWeightShader.setFloat(targetBoneIndex, index);
 Multiple skinned meshes can reference the same skeleton, sometimes with different skinned mesh transforms. This is important for some scenarios, such as populating a crowd. Due to this, skeleton bone methods involving absolute transforms require the associated skinned mesh as an argument.
 
 Here are two `Bone` methods that require the associated skinned mesh:
+
 - `bone.getPosition` for world space
 - `bone.getRotation` for world space
 
 Failing to pass in the associated skinned mesh can potentially result in unexpected behavior since the math will not take the skinned mesh transform into account. This effectively computes transforms relative to the skeleton root instead of absolute transforms.
 
-For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. *This is loading the same model as referenced from earlier in this page.*
+For example, consider this playground which loads the `dude` model with multiple skinned meshes pointing to one skeleton. _This is loading the same model as referenced from earlier in this page._
 
 <Playground id="#92Y727" title="Loading Model" description="Loading a model with multiple skinned meshes."/>
 
@@ -551,11 +561,11 @@ Using the following code, the arms of the `dude` has been moved by `30` units on
 const mesh = scene.getMeshByName(" / 3");
 mesh.position = new BABYLON.Vector3(30, 0, 0);
 
-const box = BABYLON.MeshBuilder.CreateBox("box", { size: 3}, scene);
+const box = BABYLON.MeshBuilder.CreateBox("box", { size: 3 }, scene);
 const bone = scene.getBoneByName("bone30");
 scene.onBeforeRenderObservable.add(() => {
-    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD, mesh));
-    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD, mesh));
+  box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD, mesh));
+  box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD, mesh));
 });
 ```
 
@@ -565,8 +575,8 @@ This is what happens if the mesh is not passed in as an argument to the `get` me
 
 ```javascript
 scene.onBeforeRenderObservable.add(() => {
-    box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD));
-    box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD));
+  box.position.copyFrom(bone.getPosition(BABYLON.Space.WORLD));
+  box.rotation.copyFrom(bone.getRotation(BABYLON.Space.WORLD));
 });
 ```
 
@@ -577,8 +587,8 @@ The box is in the wrong place (i.e., the math does not take the skinned mesh pos
 It is important to identify the associated skinned mesh and then pass it to the bone methods to get absolute transforms. Depending on the model, there may be multiple skinned meshes that correspond to the skeleton. Without knowing the specifics of a model, the best a generic algorithm can do is narrow the list of possible skinned meshes to the ones that reference the target skeleton. In this example, the code is filtering the loaded meshes by the ones matching the first skeleton.
 
 ```javascript
-var skinnedMeshes = meshes.filter(function (mesh) {
-    return mesh.skeleton === skeletons[0];
+const skinnedMeshes = meshes.filter(function (mesh) {
+  return mesh.skeleton === skeletons[0];
 });
 ```
 

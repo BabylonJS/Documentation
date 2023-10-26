@@ -26,9 +26,10 @@ const sound = new BABYLON.Sound("name", "url to sound file", scene, null, { loop
 To play a sound once we use
 
 ```javascript
-const sound = new BABYLON.Sound("sound", "url to sound file", scene);
-//Leave time for the sound file to load before playing it
-sound.play();
+const sound = new BABYLON.Sound("sound", "url to sound file", scene,()=>{
+  //Leave time for the sound file to load before playing it
+  sound.play();
+});
 ```
 
 To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds

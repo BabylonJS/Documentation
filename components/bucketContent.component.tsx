@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { IDocumentationPageProps } from "../lib/content.interfaces";
-import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Card, CardContent, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export interface IBucketContentProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        h2: {
+        h3: {
             borderTop: "1px black solid",
             marginTop: "50px !important",
             paddingTop: theme.spacing(2),
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
             height: 160,
             minHeight: 160,
             minWidth: 200,
-            width: '100%',
+            width: "100%",
 
             [theme.breakpoints.up("lg")]: {
                 width: "50% !important",
@@ -84,24 +84,22 @@ interface IBucketItem {
 const SingleBucketItem: FunctionComponent<IBucketItem> = ({ link, title, imageUrl, description }: IBucketItem) => {
     const classes = useStyles();
     return (
-        <Link key={link} href={link}>
-            <a className={classes.divRoot}>
-                <Card className={classes.root}>
-                    <div className={classes.details}>
-                        <CardContent className={classes.content}>
-                            <Typography component="h6" variant="h6">
-                                {title}
-                            </Typography>
-                            <Typography style={{}} variant="subtitle1" color="textSecondary" title={title}>
-                                {description}
-                            </Typography>
-                        </CardContent>
-                    </div>
-                    <div className={classes.imageContainer}>
-                        <Image alt={title} src={imageUrl} layout="fill"></Image>
-                    </div>
-                </Card>
-            </a>
+        <Link key={link} href={link} className={classes.divRoot}>
+            <Card className={classes.root}>
+                <div className={classes.details}>
+                    <CardContent className={classes.content}>
+                        <Typography component="h6" variant="h6">
+                            {title}
+                        </Typography>
+                        <Typography style={{}} variant="subtitle1" color="textSecondary" title={title}>
+                            {description}
+                        </Typography>
+                    </CardContent>
+                </div>
+                <div className={classes.imageContainer}>
+                    <Image alt={title} src={imageUrl} fill={true}></Image>
+                </div>
+            </Card>
         </Link>
     );
 };
@@ -119,7 +117,7 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
         <>
             {(!!bucketItems.length || (externalLinks && !!externalLinks.length)) && (
                 <>
-                    <Typography className={classes.h2} component="h2" variant="h2">
+                    <Typography className={classes.h3} component="h3" variant="h3">
                         {title}
                     </Typography>
                     {!!bucketItems.length && (
@@ -134,10 +132,8 @@ export const BucketContent: FunctionComponent<IBucketContentProps> = ({ childPag
                             {externalLinks.map(({ url, title }) => {
                                 return (
                                     <li key={url}>
-                                        <Link href={url}>
-                                            <a rel="noopener" target="_blank">
-                                                {title}
-                                            </a>
+                                        <Link href={url} target={"_blank"} rel={"noopener"}>
+                                            {title}
                                         </Link>
                                     </li>
                                 );

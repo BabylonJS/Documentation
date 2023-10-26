@@ -66,13 +66,12 @@ Using these two materials
 
 <Playground id="#8VDULN#1" title="Create a Chess Board With Grass And Rock" description="Simple example of creating a chess board with grass and rock textures."/>
 
-Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#6" title="Create a Large Scale Map" description="Simple example of creating a large scale map using open source map tiles."/>
+Forming a large scale map using open source map tiles: <Playground id="#1XBLWB#822" title="Create a Large Scale Map" description="Simple example of creating a large scale map using open source map tiles."/>
 
 ## Mesh
 
 Usage :
 
 ```javascript
-const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene);
-const tiledGround = BABYLON.Mesh.CreateTiledGround("Tiled Ground", xmin, zmin, xmax, zmax, subdivisions, precision, scene, updatable); //one optional parameter after scene
+const tiledGround = BABYLON.MeshBuilder.CreateTiledGround("Tiled Ground", {xmin, zmin, xmax, zmax, subdivisions, precision}, scene);
 ```

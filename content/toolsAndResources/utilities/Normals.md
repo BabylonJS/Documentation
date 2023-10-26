@@ -20,7 +20,7 @@ function showNormals(mesh, size, color, sc) {
     size = size || 1;
 
     var lines = [];
-    for (var i = 0; i < normals.length; i += 3) {
+    for (let i = 0; i < normals.length; i += 3) {
         var v1 = BABYLON.Vector3.FromArray(positions, i);
         var v2 = v1.add(BABYLON.Vector3.FromArray(normals, i).scaleInPlace(size));
         lines.push([v1.add(mesh.position), v2.add(mesh.position)]);

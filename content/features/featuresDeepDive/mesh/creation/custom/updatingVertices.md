@@ -83,7 +83,7 @@ if(!colors) {
 
     var positions = mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind);
 
-    for(var p = 0; p < positions.length / 3; p++) {
+    for(let p = 0; p < positions.length / 3; p++) {
         colors.push(Math.random(), Math.random(), Math.random(), 1);
     }
 }

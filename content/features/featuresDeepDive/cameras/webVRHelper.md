@@ -30,8 +30,8 @@ Features include:
 A VRExperienceHelper can be created directly from the scene.
 
 ```javascript
-var scene = new BABYLON.Scene(engine);
-var vrHelper = scene.createDefaultVRExperience();
+const scene = new BABYLON.Scene(engine);
+const vrHelper = scene.createDefaultVRExperience();
 ```
 
 This will initialize a WebVR camera and a non-WebVR camera in the scene. It will also create an enterVR button at the bottom right of the screen which will start rendering to the HMD on click.
@@ -66,7 +66,7 @@ See it in action here: <Playground id="#TAFSN0#230" title="Fallback Orientation 
 To enable teleportation in the scene, create a mesh that the user should be able to teleport to and then enable teleportation with that mesh's name.
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGround("ground", 6, 6, 2, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6, subdivisions: 2 }, scene);
 vrHelper.enableTeleportation({ floorMeshName: "ground" });
 ```
 
@@ -100,7 +100,7 @@ vrHelper.onAfterCameraTeleport.add((targetPosition) => {
 To enable teleportation in the scene, create a mesh that the user should be able to teleport to and then enable teleportation with that mesh's name.
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGround("ground", 6, 6, 2, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6, subdivisions: 2 }, scene);
 vrHelper.enableTeleportation({ floorMeshName: "ground" });
 ```
 
@@ -119,7 +119,7 @@ vrHelper.teleportationEnabled = false;
 To customize the teleportation target mesh the following property can be set to the mesh you'd like to use:
 
 ```javascript
-vrHelper.teleportationTarget = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
+vrHelper.teleportationTarget = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 4, diameter: 0.1 }, scene);
 ```
 
 ## Accessing cameras
@@ -141,7 +141,7 @@ The controllers can be accessed from the helper to handle any application specif
 
 ```javascript
 vrHelper.onControllerMeshLoaded.add((webVRController) => {
-  var controllerMesh = webVRController.mesh;
+  const controllerMesh = webVRController.mesh;
   webVRController.onTriggerStateChangedObservable.add(() => {
     // Trigger pressed event
   });
@@ -246,7 +246,7 @@ The logic order for raySelectionPredicate, meshSelectionPredicate, onNewMeshPick
 The gaze tracker can be customized by setting the gazeTrackerMesh. <Playground id="#ZHYP5K" title="GazeTrackerMesh Example" description="A simple example showing how to use the gazeTrackerMesh." image="/img/playgroundsAndNMEs/vrglasses.png"/>
 
 ```javascript
-vrHelper.gazeTrackerMesh = BABYLON.Mesh.CreateSphere("sphere1", 4, 0.1, scene);
+vrHelper.gazeTrackerMesh = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 4, diameter: 0.1 }, scene);
 ```
 
 On specific devices like iOS (where fullscreen is not supported), you may want to set `vrHelper.enableGazeEvenWhenNoPointerLock = true` to let the gaze controller run even when not under fullscreen and pointer lock.
@@ -295,7 +295,7 @@ To improve rendering performance by up to 2x, try using [Multiview](/features/fe
 
 Scenes:
 
-- <Playground id="#JA1ND3#6" title="Sponza" description="Sponza scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper4.jpg"/>
+- <Playground id="#JA1ND3#785" title="Sponza" description="Sponza scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper4.jpg"/>
 - <Playground id="#JA1ND3#15" title="Mansion" description="Mansion scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper5.jpg"/>
 - <Playground id="#JA1ND3#18" title="Hill Valley" description="Hill Valley scene." image="/img/playgroundsAndNMEs/divingDeeperWebVRExperienceHelper6.jpg"/>
 

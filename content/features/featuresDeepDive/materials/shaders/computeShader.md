@@ -103,7 +103,7 @@ This PG creates 3 compute shaders:
 
 ### Image Blur
 
-<Playground id="#3URR7V#185" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader" image="/img/extensions/webgpu/blur.png"/>
+<Playground id="#3URR7V#273" engine="webgpu" title="Blur compute shader" description="This example shows how to blur an image using a WebGPU compute shader" image="/img/extensions/webgpu/blur.png"/>
 
 This is a direct port of the WebGPU sample [imageBlur](http://austin-eng.com/webgpu-samples/samples/imageBlur).
 
@@ -141,7 +141,7 @@ The implentation in WGSL is a little less pretty than the HLSL one because at th
 
 ### Ocean demo
 
-<Playground id="#YX6IB8#73" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png"/>
+<Playground id="#YX6IB8#229" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 

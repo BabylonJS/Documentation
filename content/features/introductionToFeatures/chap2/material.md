@@ -30,16 +30,16 @@ Since there is only one scene we can drop that parameter and let it default to t
 Setting a color requires three parameters, red, green, blue (r, g, b) each 0 - 1 inclusive (0, 0, 0) is black and (1, 1, 1) is white.  
 For these colors you can use
 ```javascript
-new BABYLON.Color3.Red();
-new BABYLON.Color3.Green();
-new BABYLON.Color3.Blue();
-new BABYLON.Color3.Black();
-new BABYLON.Color3.White();
-new BABYLON.Color3.Purple();
-new BABYLON.Color3.Magenta();
-new BABYLON.Color3.Yellow();
-new BABYLON.Color3.Gray(),
-new BABYLON.Color3.Teal();
+BABYLON.Color3.Red();
+BABYLON.Color3.Green();
+BABYLON.Color3.Blue();
+BABYLON.Color3.Black();
+BABYLON.Color3.White();
+BABYLON.Color3.Purple();
+BABYLON.Color3.Magenta();
+BABYLON.Color3.Yellow();
+BABYLON.Color3.Gray();
+BABYLON.Color3.Teal();
 ```
 Now some texture for the box and roof
 ```javascript

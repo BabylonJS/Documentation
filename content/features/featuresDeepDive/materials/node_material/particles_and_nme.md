@@ -4,10 +4,10 @@ image-url: /img/defaultImage.png
 description: Learn how to use the node material editor to create particle shaders.
 keywords: diving deeper, materials, node, node material, particle, shader, particles
 further-reading:
-    - title: Particle 101
-      url: /features/featuresDeepDive/particles
-    - title: Node Material
-      url: /features/featuresDeepDive/materials/node_material/particles_and_nme
+  - title: Particle 101
+    url: /features/featuresDeepDive/particles
+  - title: Node Material
+    url: /features/featuresDeepDive/materials/node_material/particles_and_nme
 video-overview:
 video-content:
 ---
@@ -18,7 +18,7 @@ The Node Material Editor (aka NME) is a powerful tool that can be used to design
 
 This article will help you set up a simple scene that will contain only a few lines of code, because all of the work will be done using our editors.
 
-You can see the final result here: 
+You can see the final result here:
 
 <Playground id="#RA18GJ" title="Node Material With Particles" description="Simple example of using the node material to create a particle fragment shader." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.jpg"/>
 
@@ -26,14 +26,14 @@ You can see the final result here:
 
 Setting up this scene is actually quite simple. We only need a scene, a camera, and a sphere to act as the particle emitter:
 
-```
-var scene = new BABYLON.Scene(engine);
+```javascript
+const scene = new BABYLON.Scene(engine);
 
-var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
+const camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
 camera.attachControl(canvas, true);
 
 // Create a random emitter
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 0.01, segments: 4}, scene);
+const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.01, segments: 4 }, scene);
 ```
 
 ## Invoking the inspector to create our particle system
@@ -64,22 +64,21 @@ The beauty of the snippet server is that it gives you a central place to store a
 
 We can use the [async/await pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) in our example to load a snippet asychronously. We can flag our function as `async` and then `await` a link to our particle system using the snippet ID:
 
-```
-var createScene = async function () {
+```javascript
+const createScene = async function () {
+  const scene = new BABYLON.Scene(engine);
 
-    var scene = new BABYLON.Scene(engine);
+  const camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
 
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
+  // Create a random emitter
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.01, segments: 4 }, scene);
 
-    // Create a random emitter
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 0.01, segments: 4}, scene);
+  // Load the previously setup particle system (it was setup with the inspector)
+  let system = await BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false);
+  system.emitter = sphere;
 
-    // Load the previously setup particle system (it was setup with the inspector)
-    let system = await BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false);
-    system.emitter = sphere;
-
-    return scene;
+  return scene;
 };
 ```
 
@@ -87,9 +86,9 @@ As you can see, you can simply call `BABYLON.ParticleHelper.CreateFromSnippetAsy
 
 If you do not want to (or cannot) use async / await, you can get the same outcome using Promises:
 
-```
-BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false).then(system => {
-    system.emitter = sphere;
+```javascript
+BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false).then((system) => {
+  system.emitter = sphere;
 });
 ```
 
@@ -112,10 +111,12 @@ In a nutshell, I'm checking the particle position in world space and using a [sm
 Just like the particle system, you can save your creation to the snippet server and gets a snippet Id.
 
 ## Applying the material
+
 The final step is to get that shader from the snippet server and use it with our particle system.
 
 To do so, we will use the exact same approach as before:
-```
+
+```javascript
 // Load our node material
 let nodeMaterial = await BABYLON.NodeMaterial.ParseFromSnippetAsync("#345ATT#4", scene);
 
@@ -125,31 +126,30 @@ nodeMaterial.createEffectForParticles(system);
 
 As you can see the NodeMaterial class has a handy function to apply it to a particle system.
 
-And voila! 
+And voila!
 The final code is extremely simple (thanks to async/await in particular):
 
-```
-var createScene = async function () {
+```javascript
+const createScene = async function () {
+  const scene = new BABYLON.Scene(engine);
 
-    var scene = new BABYLON.Scene(engine);
+  const camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
 
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 10, BABYLON.Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
+  // Create a random emitter
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.01, segments: 4 }, scene);
 
-    // Create a random emitter
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 0.01, segments: 4}, scene);
+  // Load the previously setup particle system (it was setup with the inspector)
+  let system = await BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false);
+  system.emitter = sphere;
 
-    // Load the previously setup particle system (it was setup with the inspector)
-    let system = await BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7#13", scene, false);
-    system.emitter = sphere;
+  // Load our node material
+  let nodeMaterial = await BABYLON.NodeMaterial.ParseFromSnippetAsync("#345ATT#4", scene);
 
-    // Load our node material
-    let nodeMaterial = await BABYLON.NodeMaterial.ParseFromSnippetAsync("#345ATT#4", scene);
-    
-    // Apply it to the particle system
-    nodeMaterial.createEffectForParticles(system);
+  // Apply it to the particle system
+  nodeMaterial.createEffectForParticles(system);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -161,12 +161,12 @@ The best part is that our Playground can evolve automagically. If you open the m
 
 You can see in the GIF that the Snippet ID for the particle system is updated to version #14 when I hit the save button.
 
-Now that we know about that automatic update,there was another option to create the initial particle. You could have called the CreateFromSnippetAsync with a "__BLANK" id:
+Now that we know about that automatic update,there was another option to create the initial particle. You could have called the CreateFromSnippetAsync with a "\_\_BLANK" id:
 
-```
-BABYLON.ParticleHelper.CreateFromSnippetAsync("_BLANK", scene, false).then(system => {
-    system.emitter = sphere;
+```javascript
+BABYLON.ParticleHelper.CreateFromSnippetAsync("_BLANK", scene, false).then((system) => {
+  system.emitter = sphere;
 });
 ```
 
-And then from there you could have used the Inspector to edit it (The inspector can replace the __BLANK with the right id later on)
+And then from there you could have used the Inspector to edit it (The inspector can replace the \_\_BLANK with the right id later on)

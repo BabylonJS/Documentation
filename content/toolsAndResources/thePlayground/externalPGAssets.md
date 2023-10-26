@@ -104,8 +104,9 @@ BABYLON.SceneLoader.ImportMesh("", "https://yourpages.gitlab.io/yourScene/", "my
 - upload your file
 - click on `Share` button
 - generate a public download link, here our example: `https://www.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb?dl=0`
-- replace `www` in url by `dl`, also remove `?dl=0` at the end
-- you now have a direct access url: `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb`
+- replace `www` in url by `dl`, also remove `?dl=0` at the end if this is the only argument
+- there may also be an `rlkey` augument included which looks like `?dl=0&rlkey=rANdoMGeneR4tedValUe`, this argument needs to stay in the link, even if you remove the `dl=0&` first argument leaving `?rlkey=rANdoMGeneR4tedValUe`
+- you now have a direct access url which will look like `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb` if there was no `rlkey` parameter or `https://dl.dropbox.com/s/rANdoMGeneR4tedLink/my-file.glb?rlkey=rANdoMGeneR4tedValUe` if there is one
 
 It can be used in this way:
 

@@ -1,7 +1,9 @@
-import { createStyles, makeStyles, Theme, Link as MaterialLink } from "@material-ui/core";
+import { Theme, Link as MaterialLink } from "@mui/material";
 import { FunctionComponent } from "react";
 
-import ChevronRight from "@material-ui/icons/ChevronRight";
+import { createStyles, makeStyles } from "@mui/styles";
+
+import ChevronRight from "@mui/icons-material/ChevronRight";
 import Link from "next/link";
 import { IDocumentSearchResult } from "../../lib/frontendUtils/searchQuery.utils";
 

@@ -12,6 +12,8 @@ video-content:
 
 You can find the loader here [here](https://cdn.babylonjs.com/loaders/babylon.glTFFileLoader.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
 ## Full Version
 
 This loader supports both glTF 1.0 and 2.0 and will use the correct loader based on the glTF version string.
@@ -56,7 +58,7 @@ This loader supports only glTF 2.0 and will fail to load glTF 1.0.
 <script src="babylon.glTF2FileLoader.js"></script>
 ```
 
-See [Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning) for details on how skinning is implementated in Babylon.js for glTF 2.0.
+See [Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning) for details on how skinning is implemented in Babylon.js for glTF 2.0.
 
 ## Version 1 Only
 

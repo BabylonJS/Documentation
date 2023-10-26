@@ -21,8 +21,8 @@ Clone or copy the file https://github.com/BabylonJS/Extensions/tree/master/TreeG
 call the function
 
 
-```
-var tree = simplePineGenerator(canopies, height, trunkMaterial, leafMaterial, scene);
+```javascript
+const tree = simplePineGenerator(canopies, height, trunkMaterial, leafMaterial, scene);
 ```
 
 ## Parameters

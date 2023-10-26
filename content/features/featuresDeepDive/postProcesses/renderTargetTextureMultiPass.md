@@ -43,9 +43,13 @@ var mat = new BABYLON.StandardMaterial("RTT mat", scene);
 mat.diffuseTexture = renderTarget;
 ```
 
-In the example we only add half of the spheres to the RTT, showing how you can selectively pick the objects rendered there.
+In this example we only add half of the spheres to the RTT, showing how you can selectively pick the objects rendered there.
 
 Playground example: <Playground id="#69DRZ1" title="Render Target Texture" description="Simple example of using the render target texture."/>
+
+In this example we add two meshes, pool and ground, to the RTT and distort the UVs of the texture applied to the water plane using a node material to simulate refraction of the mesh behind the water plane.
+
+Playground example: <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.jpg" />
 
 ## Making multiple passes and composing them
 
@@ -90,7 +94,7 @@ finalPass.onApply = (effect) => {
 };
 ```
 
-Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture."/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
+Playground example: <Playground id="#TG2B18#60" title="Multiple Passes Example" description="Simple example showing how to run multiple passes with the render target texture." isMain={true} category="Post-processing"/>. On the left you'll see the base render, on the middle the caustic render, and on the right both combined together.
 
 ## Performance and tips
 

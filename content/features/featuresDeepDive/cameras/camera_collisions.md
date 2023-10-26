@@ -51,6 +51,7 @@ Since this is computed once per frame, the camera isn't actually "moving," it is
 If you need a more accurate representation of gravitational (or other) forces, you can use the physics engines [integrated with Babylon](/features/featuresDeepDive/physics/usingPhysicsEngine), or [add your own](/features/featuresDeepDive/physics/addPhysicsEngine).
 
 #### A Warning
+
 Adding both physics impostors and setting collision enabled to the same object might lead to unexpected behavior.
 
 ### 2. Define an ellipsoid
@@ -91,7 +92,7 @@ box.checkCollisions = true;
 
 That’s it! Easy!
 
-You can play with the scene used in this tutorial: <Playground id="#4HUQQ#1713" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera."/>
+You can play with the scene used in this tutorial: <Playground id="#4HUQQ#2439" title="Basic Camera Collision Example" description="A simple example of adding an ellipsoid collision buffer around a camera."/>
 
 Now, your camera is going to fall on the y-axis until it collides with the ground. And, your camera will collide with the box when you move it too close to it.
 
@@ -102,18 +103,18 @@ You can do the same thing with a mesh by playing with the [ellipsoid](/typedoc/c
 You can also use a mesh's [ellipsoidOffset](/typedoc/classes/babylon.mesh#ellipsoidoffset) to move the ellipsoid on the mesh (by default, the ellipsoid is centered on the mesh).
 
 ```javascript
-var speedCharacter = 8;
-var gravity = 0.15;
-var character = Your mesh;
+const speedCharacter = 8;
+const gravity = 0.15;
+const character = Your mesh;
 
 character.ellipsoid = new BABYLON.Vector3(0.5, 1.0, 0.5);
 character.ellipsoidOffset = new BABYLON.Vector3(0, 1.0, 0);
 
-var forwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) / speedCharacter, gravity, parseFloat(Math.cos(character.rotation.y)) / speedCharacter);
+const forwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) / speedCharacter, gravity, parseFloat(Math.cos(character.rotation.y)) / speedCharacter);
 forwards.negate();
 character.moveWithCollisions(forwards);
 // or
-var backwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) / speedCharacter, -gravity, parseFloat(Math.cos(character.rotation.y)) / speedCharacter);
+const backwards = new BABYLON.Vector3(parseFloat(Math.sin(character.rotation.y)) / speedCharacter, -gravity, parseFloat(Math.cos(character.rotation.y)) / speedCharacter);
 character.moveWithCollisions(backwards);
 ```
 

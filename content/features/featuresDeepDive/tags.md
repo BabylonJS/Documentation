@@ -14,13 +14,13 @@ Tag? You may already have heard or read this word before. Let's see some generic
 
 ### Tags are used:
 
--   as an index term assigned to a piece of information
--   to pass parameters to subroutines
--   as components of the HTML markup language
--   as labels for specific revisions of a project
--   as unique identifiers in URI
--   as links to other Facebook pages
-    ...
+- as an index term assigned to a piece of information
+- to pass parameters to subroutines
+- as components of the HTML markup language
+- as labels for specific revisions of a project
+- as unique identifiers in URI
+- as links to other Facebook pages
+  ...
 
 (from [Wikipedia](http://en.wikipedia.org/wiki/Tag))
 
@@ -57,7 +57,7 @@ _Style for all HTML elements of the page having the "center" class on them (to f
 Thanks to javascript, you can even retrieve all these elements and then do further javascript operations on them (jQuery plugins largely use CSS classes).
 
 ```javascript
-var elements = document.getElementsByClassName(".center");
+const elements = document.getElementsByClassName(".center");
 ```
 
 The above directive would gather a collection of all HTML elements that use the .center class.
@@ -75,7 +75,7 @@ The concept was expanded to allow the adding of tags on any javascript object (n
 The use of tags for a javascript object can be enabled/disabled like this (javascript code):
 
 ```javascript
-var myJSObj = {};
+const myJSObj = {};
 // enable tags for myJSObj
 BABYLON.Tags.EnableFor(myJSObj);
 
@@ -85,10 +85,10 @@ BABYLON.Tags.DisableFor(myJSObj);
 
 `EnableFor` adds functions to the javascript object in the aim to:
 
--   test if it has tags `hasTags`
--   add tags to it `addTags`
--   remove tags from it `removesTags`
--   test if it matches a tags query `matchesTagsQuery` (see below)
+- test if it has tags `hasTags`
+- add tags to it `addTags`
+- remove tags from it `removesTags`
+- test if it matches a tags query `matchesTagsQuery` (see below)
 
 Those functions are proxies of static methods of `Tags` (`HasTags`, `AddTagsTo`, `RemoveTagsFrom` and `MatchesQuery`).
 
@@ -97,13 +97,13 @@ Those functions are proxies of static methods of `Tags` (`HasTags`, `AddTagsTo`,
 Remark: Tags.AddTagsTo enables tags for the object if needed
 
 ```javascript
-var myJSObj1 = {};
+const myJSObj1 = {};
 // enable tags for myJSObj1
 BABYLON.Tags.EnableFor(myJSObj); // => addTags is available on myJSObj1
 // add tags to myJSObj1
 myJSObj1.addTags("tag1 tag2"); // same as BABYLON.Tags.AddTagsTo(myJSObj1, "tag1 tag2"),
 
-var myJSObj2 = {};
+const myJSObj2 = {};
 // add tags to myJSObj2 without having to enable tags for it first
 BABYLON.Tags.AddTagsTo(myJSObj2, "tag1 tag2"); // addTags couldn't be used on myJSObj2 since tags were not previously enabled for myJSObj2
 ```
@@ -115,16 +115,16 @@ Tags query:
 Full example:
 
 ```javascript
-var myJSObj1 = {};
+const myJSObj1 = {};
 BABYLON.Tags.AddTagsTo(myJSObj1, "tag1 tag2");
 
-var myJSObj2 = {};
+const myJSObj2 = {};
 BABYLON.Tags.AddTagsTo(myJSObj2, "tag3 tag4 tag5");
 
-var myJSObj3 = {};
+const myJSObj3 = {};
 BABYLON.Tags.EnableFor(myJSObj3);
 
-var myJSObj4 = {};
+const myJSObj4 = {};
 
 myJSObj4.hasTags(); // TypeError: undefined is not a function
 BABYLON.Tags.HasTags(myJSObj4); // false
@@ -170,16 +170,16 @@ BABYLON.Tags.MatchesQuery(myJSObj4); // true
 
 ### Rules to respect
 
--   the tags "true" and "false" are reserved and cannot be used as tags.
--   a tag cannot start with "||", "&&", or '!'
--   a tag cannot contain whitespaces
+- the tags "true" and "false" are reserved and cannot be used as tags.
+- a tag cannot start with "||", "&&", or '!'
+- a tag cannot contain whitespaces
 
 ### Use in babylon.js
 
 Since it's possible to use tags on any javascript object and since meshes are javascript objects, it's possible to add tags on them and to retrieve them according to a tags query.
 
 ```javascript
-var meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5");
+const meshes = myScene.getMeshesByTags("tag1 && (tag2 || tag4 || !tag5)) || !(!tag1) && !!!tag5");
 ```
 
 All tags added to meshes, cameras, lights... are saved to the scene files (see [.babylon file format](/setup/support/.babylonFileFormat) and reloaded from them.
@@ -191,15 +191,15 @@ It's up to you!
 You can use them to retrieve all the meshes that should be lighted by the light "light1":
 
 ```javascript
-var meshesToLightByLight1 = myScene.getMeshesByTags("mustBeLightedByLight1");
+const meshesToLightByLight1 = myScene.getMeshesByTags("mustBeLightedByLight1");
 ```
 
 or make some green ghosts appear when you want:
 
 ```javascript
-var ghosts = myScene.getMeshesByTags("ghost && green");
+const ghosts = myScene.getMeshesByTags("ghost && green");
 
-for (var index = 0; index < ghosts.length; index++) {
-    ghosts[index].isVisible = true;
+for (let index = 0; index < ghosts.length; index++) {
+  ghosts[index].isVisible = true;
 }
 ```

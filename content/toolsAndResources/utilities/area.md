@@ -22,7 +22,7 @@ var surfaceArea = function(mesh) {
     var indices = mesh.getIndices();
     var nbFaces = indices.length / 3;
     
-    for (var i = 0; i < nbFaces; i++) {
+    for (let i = 0; i < nbFaces; i++) {
         ar = ar + facetArea(mesh, i);
     }
     return ar;

@@ -28,8 +28,8 @@ Example **Animation State** script component:
                 this.animator = this.getComponent("BABYLON.AnimationState");
             }
             protected update() :void {
-                var vertical:number = this.manager.getUserInput(BABYLON.UserInputAxis.Vertical, BABYLON.PlayerNumber.One);
-                var horizontal:number = this.manager.getUserInput(BABYLON.UserInputAxis.Horizontal, BABYLON.PlayerNumber.One);
+                const vertical:number = this.manager.getUserInput(BABYLON.UserInputAxis.Vertical, BABYLON.PlayerNumber.One);
+                const horizontal:number = this.manager.getUserInput(BABYLON.UserInputAxis.Horizontal, BABYLON.PlayerNumber.One);
                 // ..
                 if (this.animator != null) {
                     this.animator.setFloat("Forward", vertical);

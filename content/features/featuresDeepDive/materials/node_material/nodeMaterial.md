@@ -87,8 +87,8 @@ If you are interested in learning how to create node materials through code, you
 
 To start using the Node Material, you just need to instantiating one:
 
-```
-var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
+```javascript
+const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
 ```
 
 Please note that the third parameter will contain optional values that will let you configure how the material will build its shader:
@@ -99,21 +99,21 @@ Please note that the third parameter will contain optional values that will let 
 
 Blocks can be added by just instantiating them:
 
-```
-var morphTargets = new BABYLON.MorphTargetsBlock("morphTargets");
+```javascript
+const morphTargets = new BABYLON.MorphTargetsBlock("morphTargets");
 ```
 
 For input blocks, you can then define either their value or the source of the value:
 
-```
-var timeInput = new BABYLON.InputBlock("time");
+```javascript
+const timeInput = new BABYLON.InputBlock("time");
 timeInput.value = 0;
 ```
 
 or
 
-```
-var viewProjectionInput = new BABYLON.InputBlock("viewProjection");
+```javascript
+const viewProjectionInput = new BABYLON.InputBlock("viewProjection");
 viewProjectionInput.setAsSystemValue(BABYLON.NodeMaterialSystemValues.ViewProjection);
 ```
 
@@ -166,13 +166,13 @@ You can even customize the look and feel of the Inspector UI by defining `inputN
 By default calling `block.connectTo(otherBlock)` will try to establish a connection by picking an output from the first block and connect it to an available input in the second one:
 
 ```javascript
-var positionInput = new BABYLON.InputBlock("position");
+const positionInput = new BABYLON.InputBlock("position");
 positionInput.setAsAttribute("position");
 
-var worldInput = new BABYLON.InputBlock("world");
+const worldInput = new BABYLON.InputBlock("world");
 worldInput.setAsSystemValue(BABYLON.NodeMaterialSystemValues.World);
 
-var worldPos = new BABYLON.TransformBlock("worldPos");
+const worldPos = new BABYLON.TransformBlock("worldPos");
 positionInput.connectTo(worldPos);
 worldInput.connectTo(worldPos);
 ```
@@ -261,32 +261,32 @@ myMesh.material = nodeMaterial;
 Here is one of the simplest code using the Node Material:
 
 ```javascript
-var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
-var positionInput = new BABYLON.InputBlock("position");
+const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
+const positionInput = new BABYLON.InputBlock("position");
 positionInput.setAsAttribute("position");
 
-var worldInput = new BABYLON.InputBlock("world");
+const worldInput = new BABYLON.InputBlock("world");
 worldInput.setAsSystemValue(BABYLON.NodeMaterialSystemValues.World);
 
-var worldPos = new BABYLON.TransformBlock("worldPos");
+const worldPos = new BABYLON.TransformBlock("worldPos");
 positionInput.connectTo(worldPos);
 worldInput.connectTo(worldPos);
 
-var viewProjectionInput = new BABYLON.InputBlock("viewProjection");
+const viewProjectionInput = new BABYLON.InputBlock("viewProjection");
 viewProjectionInput.setAsSystemValue(BABYLON.NodeMaterialSystemValues.ViewProjection);
 
-var worldPosdMultipliedByViewProjection = new BABYLON.TransformBlock("worldPos * viewProjectionTransform");
+const worldPosdMultipliedByViewProjection = new BABYLON.TransformBlock("worldPos * viewProjectionTransform");
 worldPos.connectTo(worldPosdMultipliedByViewProjection);
 viewProjectionInput.connectTo(worldPosdMultipliedByViewProjection);
 
-var vertexOutput = new BABYLON.VertexOutputBlock("vertexOutput");
+const vertexOutput = new BABYLON.VertexOutputBlock("vertexOutput");
 worldPosdMultipliedByViewProjection.connectTo(vertexOutput);
 
 // Pixel
-var pixelColor = new BABYLON.InputBlock("color");
+const pixelColor = new BABYLON.InputBlock("color");
 pixelColor.value = new BABYLON.Color4(0.8, 0.8, 0.8, 1);
 
-var fragmentOutput = new BABYLON.FragmentOutputBlock("fragmentOutput");
+const fragmentOutput = new BABYLON.FragmentOutputBlock("fragmentOutput");
 pixelColor.connectTo(fragmentOutput);
 
 // Add to nodes
@@ -297,7 +297,7 @@ nodeMaterial.addOutputNode(fragmentOutput);
 Please note that this code is equivalent to:
 
 ```javascript
-var nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
+const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
 nodeMaterial.setToDefault();
 ```
 
@@ -473,3 +473,6 @@ Here are some node material examples that you can use "as is" or extend with the
 - <NME id="#I4DJ9Z" title="GridMaterial Recreated in the Node Material Editor" description="Example Node Material Recreation of the GridMaterial." image="/img/playgroundsAndNMEs/NMEgridMaterial.jpg" isMain={true} category="Materials"/>
 - <NME id="#YDGZCJ" title="'Mist' Post Process in the Node Material Editor" description="Example Node Material 'Mist' Post Process Effect." image="/img/playgroundsAndNMEs/NMEmistPostProcess.jpg"/>
 - <NME id="#D0USYC" title="'Dissolve' Post Process in the Node Material Editor" description="Example Node Material 'Dissolve' Post Process Effect." image="/img/playgroundsAndNMEs/NMEdissolvePostProcess.jpg"/>
+- <Playground id="#VJY6H3" title="Nine Patch with NME" description="Example Node Material for Nine Patch Texture Scaling" image="/img/playgroundsAndNMEs/ninePatchNME.jpg" isMain={true} category="Materials"/>
+- <Playground id="#7ILX7T" title="Water Refraction with RTT" description="Render Target Texture used to simulate water refraction." image="/img/playgroundsAndNMEs/NMEwaterRefractionRTT.jpg" isMain={true} category="Materials"/>
+- <Playground id="#4QH8JM" title="Pulse Wave Shader" description="A wave of color that washes over simple geometry similar to a radar ping." image="/img/playgroundsAndNMEs/pulseWave.jpg" isMain={true} category="Materials"/>

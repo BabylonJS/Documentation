@@ -154,7 +154,7 @@ To test your material, open the /proceduralTextureLibrary/index.html page. Refer
 Then add the procedural texture line 192:
 
 ```javascript
-var cloudBis = new BABYLON.CloudBisProceduralTexture("cloudPTBis", 256, scene);
+const cloudBis = new BABYLON.CloudBisProceduralTexture("cloudPTBis", 256, scene);
 ```
 
 Finally update the UI control:

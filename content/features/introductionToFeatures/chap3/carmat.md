@@ -26,13 +26,13 @@ For the cylinder face 0, is the bottom, face 2 the top and face 1 the edge joini
 
 The top and bottom of the car body use the image in the top left (almost) quarter. The edge part goes across the bottom, round the front, across the top and down the back of the body uses the lower half of the image.
 
-The bottom of the car body is as you would expect and is given by the bottom left co-ordinates (0, 0.5) to the top right ones (0.38, 1);
+The top of the car body is as you would expect and is given by the bottom left co-ordinates (0, 0.5) to the top right ones (0.38, 1);
 
 ```javascript
 faceUV[0] = new BABYLON.Vector4(0, 0.5, 0.38, 1);
 ```
 
-The top of the car body uses the same image but it needs flipping over to fit the other side of the car.
+The bottom of the car body uses the same image but it needs flipping over to fit the other side of the car.
 ```javascript
 faceUV[2] = new BABYLON.Vector4(0.38, 1, 0, 0.5);
 ```

@@ -91,7 +91,7 @@ BABYLON.Mesh.prototype.createSurfacePoints = function(pointDensity) {
 	var lamda = 0;	
 	var mu = 0;
 
-	for(var index = 0; index <indices.length / 3; index++) {  				
+	for(let index = 0; index <indices.length / 3; index++) {  				
 		id0 = indices[3 * index];
 		id1 = indices[3 * index + 1]; 
 		id2 = indices[3 * index + 2];        
@@ -116,7 +116,7 @@ BABYLON.Mesh.prototype.createSurfacePoints = function(pointDensity) {
         p = (a + b + c) / 2;        
         area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         nbPoints = Math.round(pointDensity * area);
-        for (var i = 0; i < nbPoints; i++) {
+        for (let i = 0; i < nbPoints; i++) {
             //form a point inside the facet v0, v1, v2;
             lamda = BABYLON.Scalar.RandomRange(0, 1);	
 		    mu = BABYLON.Scalar.RandomRange(0, 1);

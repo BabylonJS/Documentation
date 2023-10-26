@@ -10,7 +10,7 @@ video-content:
 
 ## EVERYONE's very first step
 
-Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any futher through the docs.
+Welcome to "The Very First Step." This document is designed for absolutely EVERYONE. Whether you're an expert web developer diving into 3D, an amazing artist wanting to create 3D experiences on the web, a student/tinkerer curious about programming, or an absolute beginner, this is your very first step to learning Babylon. We strongly encourage everyone new to Babylon to go through this doc before going any further through the docs.
 
 This doc will take you on a VERY brief journey of creating and hosting your very first Babylon.js Web Experience. You'll learn about the Babylon.js playground, scratch the surface of learning the core engine, and save your work as a ready-to-host .html file.
 
@@ -66,14 +66,14 @@ Let's make another change!
 Find the line of code that creates the ground plane and add these new lines underneath it:
 
 ```javascript
-let groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
+const groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
+groundMaterial.diffuseColor = BABYLON.Color3.Red();
 ground.material = groundMaterial;
-ground.material.diffuseColor = BABYLON.Color3.Red();
 ```
 
 Run the scene again (ALT+ENTER, or run button)
 
-<Playground id="#2KRNG9#1" title="Playground 2" description="The ground is red!"/>
+<Playground id="#2KRNG9#2150" title="Playground 2" description="The ground is red!"/>
 
 Congratulations! You just created a new material, assigned that new material to the ground plane, and assigned it's diffuse channel to be the color red! Pretty cool huh?! Don't worry if some of that is still a bit confusing, the takeaway here is that you're making code changes on the left and seeing updates on the right.
 
@@ -82,17 +82,17 @@ Ok time for another change.
 Find this line:
 
 ```javascript
-ground.material.diffuseColor = BABYLON.Color3.Red();
+groundMaterial.diffuseColor = BABYLON.Color3.Red();
 ```
 
 Replace it with these two lines and run the scene again:
 
 ```javascript
 let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
-ground.material.diffuseTexture = groundTexture;
+groundMaterial.diffuseTexture = groundTexture;
 ```
 
-<Playground id="#2KRNG9#2" title="Playground 3" description="The ground is checkered!"/>
+<Playground id="#2KRNG9#2151" title="Playground 3" description="The ground is checkered!"/>
 
 Pretty cool! You've now created your first Babylon.js texture and assigned it to the texture property of your ground material!
 
@@ -108,7 +108,7 @@ BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "
 });
 ```
 
-let's do a few more things:
+Let's do a few more things:
 
 - 1. Delete the word 'meshName' but leave the quotes "".
 - 2. Replace "url to the mesh parent directory" (including quotes) with this:
@@ -123,7 +123,7 @@ Assets.meshes.Yeti.rootUrl
 Assets.meshes.Yeti.filename
 ```
 
-- 4. After the BABYLON.SceneLoader.ImportMesh line, but before the "});" add the following line:
+- 4. After the `BABYLON.SceneLoader.ImportMesh` line, but before the "});" add the following line:
 
 ```javascript
 newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
@@ -163,11 +163,11 @@ That's it! You've got everything you need for the world to see your first Babylo
 
 Ok time to host this experience. If you're not familiar with web hosting, it basically means putting your web experience in a place where the whole world can access/see it. The world of hosting web pages is HUGE and what follows is just ONE example of how to do it. It is by no means the only way to host a page.
 
-For this first step into Babylon we're going to use something github pages, because it's easy and free.
+For this first step into Babylon we're going to use something called GitHub Pages, because it's easy and free.
 
 Let's start by heading over to [GitHub](https://github.com/).
 
-You'll need to log in (or sign up if you're new to github...it's free).
+You'll need to log in (or sign up if you're new to GitHub...it's free).
 
 Next, we'll create a new repository.
 
@@ -199,14 +199,35 @@ Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save 
 
 ![pages](/img/home/pages.jpg)
 
-After your settings are saved you'll see the url to your new live website! You can share that url with anyone that you'd like!
+After your settings are saved you'll see the url to to reach your website! You can share that url with anyone that you'd like!
 
 ![url](/img/home/url.jpg)
+
+Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named _config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
+
+![create text file](/img/home/addNewTextFile.jpg)
+
+This will open a text editor for you to create the file. At the top, type `_config.yml` in the input field as the name of the file to save in your repository. Then type the following in the body of the file:
+
+```
+theme: jekyll-theme-minimal
+title: Title For Your Website
+description: Website description.
+
+```
+
+![create config file](/img/home/createTextFile.jpg)
+
+Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
+
+![commit text file to repository](/img/home/commitTextFile.jpg)
+
+
 
 Congratulations! You just built and hosted your very first Babylon.js web experience!
 
 ### Documentation Overview
 
-Before you take off and explore Babylon further, we humbly ask that you read one additional article. Babylon.js is a rich and powerful engine and we've worked hard to provide a LOT of documentation to help you learn it. The last part of the first step of your Babylon journey is to get an overview of how the Documenation is organized.
+Before you take off and explore Babylon further, we humbly ask that you read one additional article. Babylon.js is a rich and powerful engine and we've worked hard to provide a LOT of documentation to help you learn it. The last part of the first step of your Babylon journey is to get an overview of how the documentation is organized.
 
 [Learning the Babylon.js Documentation](/journey/learningTheDocs)

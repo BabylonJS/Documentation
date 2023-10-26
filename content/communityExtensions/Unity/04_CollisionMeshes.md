@@ -31,13 +31,13 @@ Example **Collision Event** script component:
                 // Physcis collision
                 this.onCollisionEvent((collider:BABYLON.AbstractMesh, tag:string) => {
                     if (tag === "Asteroid" || tag === "Enemy" || tag === "Player") {
-                        var metadata: BABYLON.ObjectMetadata = this.manager.findSceneMetadata(collider);
+                        const metadata: BABYLON.ObjectMetadata = this.manager.findSceneMetadata(collider);
                         if (metadata.getProperty<boolean>("destroyed", false) === false) {
                             metadata.setProperty("destroyed", true);
                             if (this.shotType === 0) {
                                 // Player shot
                                 if (tag === "Asteroid" || tag === "Enemy") {
-                                    var points:number = 0;
+                                    const points:number = 0;
                                     if (tag === "Asteroid") {
                                         points = SpaceController.AsteroidPoints;
                                         this.manager.instantiatePrefab("Asteroid_Explosion", "Asteroid_Explode_" + this.shotName, collider.position.clone(), collider.rotation.clone());

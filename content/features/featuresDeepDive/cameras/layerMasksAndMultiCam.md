@@ -4,8 +4,8 @@ image:
 description: Learn how to assign different objects to different layer masks.
 keywords: diving deeper, layer masks, multi-cam
 further-reading:
-    - title: In-Depth layerMask
-      url: /features/featuresDeepDive/scene/layermask
+  - title: In-Depth layerMask
+    url: /features/featuresDeepDive/scene/layermask
 video-overview:
 video-content:
 ---
@@ -14,7 +14,11 @@ video-content:
 
 ## Different meshes for multiple cameras using layer masks
 
-A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera.
+A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera. To determine if a mesh is seen by a camera, a [bitwise AND](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) is performed and the result is compared to zero:
+
+```
+mesh.layerMask & camera.layerMask !== 0
+```
 
 The feature is used primarily when multiple cameras are active at the same time. If you wish to have a mesh that is always visible on the screen and pickable, e.g. a button, you might add a second camera and light to the scene to exclusively show and light it.
 
@@ -27,7 +31,7 @@ Notice that the default `layerMask` starts with the first 4 bits being 0, or off
 - 0x40000000
 - 0x80000000
 
-It should also be noted that a mesh with a `layerMask` of 0, can never be seen by anyone. This might be good for hiding things.
+It should also be noted that a mesh with a `layerMask` of 0 can never be seen by anyone. This might be good for hiding things.
 
 To setup for multi-cameras:
 
@@ -35,20 +39,22 @@ To setup for multi-cameras:
 if (scene.activeCameras.length === 0){
     scene.activeCameras.push(scene.activeCamera);
 }
-var secondCamera = new Babylon.Camera(...);
+const secondCamera = new Babylon.Camera(...);
 secondCamera.layerMask = 0x10000000;
 scene.activeCameras.push(secondCamera);
 
-var Button = new BABYLON.Mesh(...);
+const Button = new BABYLON.Mesh(...);
 Button.layerMask = 0x10000000;
 ```
+
+[You can click here to read on a more in-depth look at the layer mask.](https://doc.babylonjs.com/features/featuresDeepDive/scene/layermask)
 
 ## Lights
 
 Unless the material of the meshes for the 2nd camera is purely emissive, this still leaves any light for the button illuminating all the other meshes, and other lights in the scene illuminating the button. To keep scene lights from illuminating the button, loop through the existing lights, and set the excludeWithLayerMask value:
 
 ```javascript
-for (var i = scene.lights.length - 1; i >= 0; i--) {
+for (let i = scene.lights.length - 1; i >= 0; i--) {
   scene.lights[i].excludeWithLayerMask = 0x10000000;
 }
 ```
@@ -56,7 +62,7 @@ for (var i = scene.lights.length - 1; i >= 0; i--) {
 Then make the "button" light:
 
 ```javascript
-var light = new BABYLON.Light(...);
+const light = new BABYLON.Light(...);
 light.includeOnlyWithLayerMask = 0x10000000;
 ```
 
@@ -85,51 +91,51 @@ function addGunSight(scene) {
   if (scene.activeCameras.length === 0) {
     scene.activeCameras.push(scene.activeCamera);
   }
-  var secondCamera = new BABYLON.FreeCamera("GunSightCamera", new BABYLON.Vector3(0, 0, -50), scene);
+  const secondCamera = new BABYLON.FreeCamera("GunSightCamera", new BABYLON.Vector3(0, 0, -50), scene);
   secondCamera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
   secondCamera.layerMask = 0x20000000;
   scene.activeCameras.push(secondCamera);
 
   meshes = [];
-  var h = 250;
-  var w = 250;
+  const h = 250;
+  const w = 250;
 
-  var y = BABYLON.Mesh.CreateBox("y", h * 0.2, scene);
+  const y = BABYLON.MeshBuilder.CreateBox("y", { size: h * 0.2 }, scene);
   y.scaling = new BABYLON.Vector3(0.05, 1, 1);
   y.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(y);
 
-  var x = BABYLON.Mesh.CreateBox("x", h * 0.2, scene);
+  const x = BABYLON.MeshBuilder.CreateBox("x", { size: h * 0.2 }, scene);
   x.scaling = new BABYLON.Vector3(1, 0.05, 1);
   x.position = new BABYLON.Vector3(0, 0, 0);
   meshes.push(x);
 
-  var lineTop = BABYLON.Mesh.CreateBox("lineTop", w * 0.8, scene);
+  const lineTop = BABYLON.MeshBuilder.CreateBox("lineTop", { size: w * 0.8 }, scene);
   lineTop.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineTop.position = new BABYLON.Vector3(0, h * 0.5, 0);
   meshes.push(lineTop);
 
-  var lineBottom = BABYLON.Mesh.CreateBox("lineBottom", w * 0.8, scene);
+  const lineBottom = BABYLON.MeshBuilder.CreateBox("lineBottom", { size: w * 0.8 }, scene);
   lineBottom.scaling = new BABYLON.Vector3(1, 0.005, 1);
   lineBottom.position = new BABYLON.Vector3(0, h * -0.5, 0);
   meshes.push(lineBottom);
 
-  var lineLeft = BABYLON.Mesh.CreateBox("lineLeft", h, scene);
+  const lineLeft = BABYLON.MeshBuilder.CreateBox("lineLeft", { size: h }, scene);
   lineLeft.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineLeft.position = new BABYLON.Vector3(w * -0.4, 0, 0);
   meshes.push(lineLeft);
 
-  var lineRight = BABYLON.Mesh.CreateBox("lineRight", h, scene);
+  const lineRight = BABYLON.MeshBuilder.CreateBox("lineRight", { size: h }, scene);
   lineRight.scaling = new BABYLON.Vector3(0.01, 1, 1);
   lineRight.position = new BABYLON.Vector3(w * 0.4, 0, 0);
   meshes.push(lineRight);
 
-  var gunSight = BABYLON.Mesh.MergeMeshes(meshes);
+  const gunSight = BABYLON.Mesh.MergeMeshes(meshes);
   gunSight.name = "gunSight";
   gunSight.layerMask = 0x20000000;
   gunSight.freezeWorldMatrix();
 
-  var mat = new BABYLON.StandardMaterial("emissive mat", scene);
+  const mat = new BABYLON.StandardMaterial("emissive mat", scene);
   mat.checkReadyOnlyOnce = true;
   mat.emissiveColor = new BABYLON.Color3(0, 1, 0);
 

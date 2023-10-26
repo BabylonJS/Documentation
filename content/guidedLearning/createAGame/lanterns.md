@@ -69,14 +69,14 @@ lanternInstance.setParent(lanternHolder);
 ```javascript
 //Create the new lantern object
 let newLantern = new Lantern(
-    this._lightmtl,
-    lanternInstance,
-    this._scene,
-    assets.env
-        .getChildTransformNodes(false)
-        .find((m) => m.name === "lantern " + i)
-        .getAbsolutePosition(),
-    animGroupClone,
+  this._lightmtl,
+  lanternInstance,
+  this._scene,
+  assets.env
+    .getChildTransformNodes(false)
+    .find((m) => m.name === "lantern " + i)
+    .getAbsolutePosition(),
+  animGroupClone,
 );
 this._lanternObjs.push(newLantern);
 ```
@@ -108,7 +108,7 @@ constructor(lightmtl: PBRMetallicRoughnessMaterial, mesh: Mesh, scene: Scene, po
     this._lightmtl = lightmtl;
 
     //create the lantern's sphere of illumination
-    const lightSphere = Mesh.CreateSphere("illum", 4, 20, this._scene);
+    const lightSphere = MeshBuilder.CreateSphere("illum", {segments: 4, diameter:20}, this._scene);
     lightSphere.scaling.y = 2;
     lightSphere.setAbsolutePosition(position);
     lightSphere.parent = this.mesh;
@@ -121,8 +121,8 @@ constructor(lightmtl: PBRMetallicRoughnessMaterial, mesh: Mesh, scene: Scene, po
 }
 ```
 
--   **lightSphere** is an invisible mesh that will be used later to calculate what meshes are affected by the lantern's light.
--   [\_loadLantern](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L41) takes care of setting the mesh and position of our lantern. We need to set the absolute position instead of local position because this is an imported glTF.
+- **lightSphere** is an invisible mesh that will be used later to calculate what meshes are affected by the lantern's light.
+- [\_loadLantern](https://github.com/BabylonJS/SummerFestival/blob/fc5435921f3aecdcc84d9d3f44d812ad5a4368a7/tutorial/oldLantern.ts#L41) takes care of setting the mesh and position of our lantern. We need to set the absolute position instead of local position because this is an imported glTF.
 
 ```javascript
 this.mesh = mesh;
@@ -150,30 +150,30 @@ This function has 2 main purposes:
 
 ```javascript
 if (!this._lanternObjs[0].isLit) {
-    this._lanternObjs[0].setEmissiveTexture();
+  this._lanternObjs[0].setEmissiveTexture();
 }
 ```
 
 2. Set up the intersection triggers for each lantern with the player. Using `ActionManger.OnIntersectionEnterTrigger`, we're watching for 1 of 2 things when the player intersects with a lantern:
-    1. The lantern is unlit and he player sparkler is lit:
-    ```javascript
-    //if the lantern is not lit, light it up & reset sparkler timer
-    if (!lantern.isLit && player.sparkLit) {
-        player.lanternsLit += 1; //increment the lantern count
-        lantern.setEmissiveTexture(); //"light up" the lantern
-        //reset the sparkler
-        player.sparkReset = true;
-        player.sparkLit = true;
-    }
-    ```
-    2. The lantern is already lit:
-    ```javascript
-    //if the lantern is lit already, reset the sparkler
-    else if (lantern.isLit) {
-        player.sparkReset = true;
-        player.sparkLit = true;
-    }
-    ```
+   1. The lantern is unlit and he player sparkler is lit:
+   ```javascript
+   //if the lantern is not lit, light it up & reset sparkler timer
+   if (!lantern.isLit && player.sparkLit) {
+     player.lanternsLit += 1; //increment the lantern count
+     lantern.setEmissiveTexture(); //"light up" the lantern
+     //reset the sparkler
+     player.sparkReset = true;
+     player.sparkLit = true;
+   }
+   ```
+   2. The lantern is already lit:
+   ```javascript
+   //if the lantern is lit already, reset the sparkler
+   else if (lantern.isLit) {
+       player.sparkReset = true;
+       player.sparkLit = true;
+   }
+   ```
 
 ### Setting Emissive Texture
 
@@ -226,13 +226,13 @@ The most important part of this is the fact that there is a default cap on the n
 
 ```javascript
 this._scene
-    .getMeshByName("__root__")
-    .getChildMeshes()
-    .forEach((m) => {
-        if (this._lightSphere.intersectsMesh(m)) {
-            light.includedOnlyMeshes.push(m);
-        }
-    });
+  .getMeshByName("__root__")
+  .getChildMeshes()
+  .forEach((m) => {
+    if (this._lightSphere.intersectsMesh(m)) {
+      light.includedOnlyMeshes.push(m);
+    }
+  });
 //get rid of the sphere
 this._lightSphere.dispose();
 ```
@@ -249,16 +249,16 @@ Now, when you run the game and collide with the lanterns, you should see their m
 
 **Files Used:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
--   [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldLantern.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
+- [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/oldLantern.ts)
 
 **Follow Along:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/characterController.ts)
--   [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/lantern.ts)
--   [lantern mesh](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/lantern.glb)
--   [lit lantern texture](https://github.com/BabylonJS/SummerFestival/blob/master/public/textures/litLantern.png)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/characterController.ts)
+- [lantern.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/lanterns/lantern.ts)
+- [lantern mesh](https://github.com/BabylonJS/SummerFestival/blob/master/public/models/lantern.glb)
+- [lit lantern texture](https://github.com/BabylonJS/SummerFestival/blob/master/public/textures/litLantern.png)

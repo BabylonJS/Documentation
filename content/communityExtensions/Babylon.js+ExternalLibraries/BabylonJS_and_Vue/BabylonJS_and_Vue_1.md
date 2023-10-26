@@ -8,21 +8,21 @@ video-overview:
 video-content:
 ---
 
-It's really easy to use BabylonJS with Vue. This page will help you to setup a minimalistic BabylonJS scene with Vue. We will cover both Vue 2 and Vue 2 using javascript.
+It's really easy to use BabylonJS with Vue. This page will help you to setup a minimalistic BabylonJS scene with Vue. We will cover both Vue 3 and Vue 2 using javascript.
 
 ## Prerequisites
 
 If you haven't created your Vue project yet, visit the official Vue documentation on how to setup a Vue project.
 
-https://v3.vuejs.org/guide/installation.html for Vue 3
+https://vuejs.org/guide/quick-start.html for Vue 3
 
-https://vuejs.org/v2/guide/installation.html for Vue 2
+https://v2.vuejs.org/v2/guide/installation for Vue 2
 
 Please make sure, that your Vue app was correctly installed and it can be run without errors. If you've created the Vue app using the Vue CLI, you can start your app by running a `npm run serve` in your Vue app directory.
 
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
-After installing and testing your Vue app you should end up with a very similar directory structure for Vue 2 and Vue 2 also:
+After installing and testing your Vue app you should end up with a very similar directory structure for Vue 3 and Vue 2 also:
 ![New Vue prjoect directory structure](/img/resources/vue/bjs-vue-doc-1.png)
 
 ## Installing BabylonJS
@@ -38,7 +38,7 @@ npm install @babylonjs/core
 If you want to use the [BabylonJS GUI](/features/featuresDeepDive/gui "BabylonJS GUI"), you need to install:
 
 ```bash
-npm install babylonjs-gui
+npm install @babylonjs/gui
 ```
 
 If you want to use the BabylonJS [Inspector](/toolsAndResources/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
@@ -177,7 +177,7 @@ The `ref` value of the `<canvas>` element in the `<template>` must match the var
 
 Do not forget to access the `HTMLCanvasElement` using the `value` property of the `ref` variable (Vue standard). That's why we use `bjsCanvas.value`.
 
-The DOM is accessible only after the Vue component has been mounted. This is why we need to init our scene in the `onMounted` callback in Vue 2 or in the `mounted` callback in Vue 2.
+The DOM is accessible only after the Vue component has been mounted. This is why we need to init our scene in the `onMounted` callback in Vue 3 or in the `mounted` callback in Vue 2.
 
 Now you can get rid of the example component and delete the file located at `src/components/HelloWorld.vue`.
 

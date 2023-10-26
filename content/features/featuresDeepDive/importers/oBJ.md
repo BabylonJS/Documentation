@@ -19,10 +19,18 @@ To use it, you just have to reference the loader file:
 
 You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.js)
 
-If you are using ES6 imports via NPM, you need to reference with side-effects:
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
+If you are using UMD imports via NPM, you need to reference with side-effects:
 
 ```javascript
 import 'babylonjs-loaders'
+```
+
+If you wish to benefit from the tree-shakeable ES6 package, you need to reference:
+
+```javascript
+import '@babylonjs/loaders/OBJ/objFileLoader';
 ```
 
 You can read more about [NPM support](/setup/frameworkPackages/npmSupport)

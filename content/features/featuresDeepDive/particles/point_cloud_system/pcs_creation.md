@@ -140,12 +140,12 @@ BABYLON.SceneLoader.ImportMesh("", "location", "file", scene, function (meshes) 
     var n = meshes.length;
     var p;
     var t;
-    for (var i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
         if (meshes[i].material !== null) {
             console.log("Mesh", i);
             t = meshes[i].material.getActiveTextures();
             p = t.length;
-            for (var j = 0; j < p; j++) {
+            for (let j = 0; j < p; j++) {
                 console.log("Texture", j, "Name", t[j].name);
             }
         }

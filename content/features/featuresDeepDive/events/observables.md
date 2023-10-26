@@ -1,6 +1,6 @@
 ---
 title: Observables
-image: 
+image:
 description: Learn all about observables in Babylon.js.
 keywords: diving deeper, observables
 further-reading:
@@ -58,7 +58,7 @@ import { io } from "socket.io-client";
 const socket = io("/admin");
 
 const onConnectObservable = new Observable();
-const text1 = new BABYLON.GUI.TextBlock;
+const text1 = new BABYLON.GUI.TextBlock();
 
 socket.on("connect", () => {
   onConnectObservable.notifyObservers();
@@ -72,7 +72,7 @@ onConnectObservable.add(() => {
 There is also a utility method `Observable.FromPromise` to create an Observable from a Promise:
 
 ```javascript
-const onStatusObservable = Observable.FromPromise(axios("/ping").then(response => response.statusText));
+const onStatusObservable = Observable.FromPromise(axios("/ping").then((response) => response.statusText));
 
 onStatusObservable.add((statusText) => {
   text1.text = "Server status: " + statusText;
@@ -90,7 +90,7 @@ In the following example the sphere and its scale change create an Observer thro
 Set the Observable that notifies its Observers before the scene starts the rendering each frame.
 
 ```javascript
-var alpha = 0;
+const alpha = 0;
 scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
@@ -103,8 +103,8 @@ scene.onBeforeRenderObservable.add(function () {
 To remove an Observer, you need to store it during it's creation to refer to it with remove. The following example remove the Observer before it is notified of even the first frame rendering.
 
 ```javascript
-var alpha = 0;
-var observer = scene.onBeforeRenderObservable.add(function () {
+const alpha = 0;
+const observer = scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
   alpha += 0.01;
@@ -118,8 +118,8 @@ scene.onBeforeRenderObservable.remove(observer);
 The following example removes the Observer during the rendering cycle. Since it is not possible to remove an Observer that does not exist there is a need to check whether the Observable still has the Observer.
 
 ```javascript
-var alpha = 0;
-var observer = scene.onBeforeRenderObservable.add(function () {
+const alpha = 0;
+const observer = scene.onBeforeRenderObservable.add(function () {
   sphere.scaling.y = Math.cos(alpha);
 
   alpha += 0.01;
@@ -300,5 +300,43 @@ scene.onPointerDown = () => {
 
 scene.onPointerUp = () => {
     advancedTimer.stop();
+}
+```
+
+## Usage with RxJS
+
+[RxJS](https://rxjs.dev/) is a common library for handling Observables which are compliant with the [current ECMAScript Observable proposal](https://github.com/tc39/proposal-observable#ecmascript-observable). It provides a wide range of operators, allowing for advanced execution patterns.
+
+The following (TypeScript) code can be used to convert a Babylon Observable into its RxJS equivalent:
+
+```typescript
+/**
+ * Wraps a Babylon Observable into an rxjs Observable
+ * 
+ * @param bjsObservable The Babylon Observable you want to observe
+ * @example
+ * ```
+ * import { Engine, Scene, AbstractMesh } from '@babylonjs/core'
+ *
+ * const canvas = document.getElementById('canvas') as HTMLCanvasElement
+ * const engine = new Engine(canvas)
+ * const scene = new Scene(engine)
+ *
+ * const render$: Observable<Scene> = fromBabylonObservable(scene.onAfterRenderObservable)
+ * const onMeshAdded$: Observable<AbstractMesh> = fromBabylonObservable(scene.onNewMeshAddedObservable)
+ * ```
+ */
+export function fromBabylonObservable<T>(
+  bjsObservable: BJSObservable<T>
+): Observable<T> {
+  return new Observable<T>((subscriber) => {
+    if (!(bjsObservable instanceof BJSObservable)) {
+      throw new TypeError("the object passed in must be a Babylon Observable");
+    }
+
+    const handler = bjsObservable.add((v) => subscriber.next(v));
+
+    return () => bjsObservable.remove(handler);
+  });
 }
 ```

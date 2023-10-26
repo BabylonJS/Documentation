@@ -33,20 +33,22 @@ export const ApiPage: FunctionComponent<{
     const router = useRouter();
     useEffect(() => {
         if (redirect) {
-            router.push(redirect + window.location.hash);
+            router.replace(redirect + window.location.hash);
         } else {
-            window.onhashchange = () => {
+            const onhashchange = () => {
                 if (location.hash === "") {
                     document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
                 }
             };
+            window.addEventListener("hashchange", onhashchange);
             return () => {
-                window.onhashchange = undefined;
+                window.removeEventListener("hashchange", onhashchange);
             };
         }
     }, [id]);
 
     // do not render if redirecting
+
     if (redirect) {
         return <></>;
     }

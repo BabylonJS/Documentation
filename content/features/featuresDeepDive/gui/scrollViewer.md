@@ -1,17 +1,17 @@
 ---
 title: Scroll Viewer
-image: 
+image:
 description: Learn about Scroll Viewer in Babylon.js.
 keywords: diving deeper, GUI, Scroll Viewer
 further-reading:
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Xml Loader
-      url: /features/featuresDeepDive/gui/xmlLoader
-    - title: How To Use Babylon GUI3D
-      url: /features/featuresDeepDive/gui/gui3D
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use Babylon GUI3D
+    url: /features/featuresDeepDive/gui/gui3D
 video-overview:
 video-content:
 ---
@@ -20,30 +20,29 @@ video-content:
 
 When you want to keep your user interface small and the information to present large you can use the **ScrollViewer** to contain the information.
 
-![ScrollViewer](/img/gui/scroll1.jpg).
+![ScrollViewer](/img/GUI/scroll1.jpg).
 
 It consists of vertical and horizontal scroll bars and a viewing area. The information you want to present is created as a control that you add to your scroll viewer and is shown in the viewing area. If all the information control fits inside the scroll viewer no scroll bars will be shown.
 
 From Babylon.js version 4.1 onwards it is possible to use an image for the thumb control and in the bars
 
-![ScrollViewer with Image Bars](/img/gui/scroll4.jpg).
+![ScrollViewer with Image Bars](/img/GUI/scroll4.jpg).
 
 ## Creating the Scroll Viewer
 
 The scroll viewer base is a rectangle container holding the scroll bars and the viewing area. You create it with or without a name.
 
 ```javascript
-var myScrollViewer = new BABYLON.GUI.ScrollViewer();
-var myScrollViewer = new BABYLON.GUI.ScrollViewer("name");
+const myScrollViewer = new BABYLON.GUI.ScrollViewer();
+// OR
+const myScrollViewer = new BABYLON.GUI.ScrollViewer("name");
 ```
 
 and add it to an advanced texture as usual.
 
 ```javascript
-var myAdvancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(
-  "UI"
-);
-myAdvancedTexture.addControl(myScollViewer);
+const myAdvancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+myAdvancedTexture.addControl(myScrollViewer);
 ```
 
 You can then create your control or container of controls to add to the scroll viewer using the **addControl** method.
@@ -84,18 +83,18 @@ You can then set the scrollbar position with `scrollViewer.horizontalBar.value`.
 In order to have images in the scroll bar you need to pass a name (can be empty string) and a parameter of true when creating the scroll viewer.
 
 ```javascript
-var myScrollViewer = new BABYLON.GUI.ScrollViewer("", true);
+const myScrollViewer = new BABYLON.GUI.ScrollViewer("", true);
 ```
 
 Additional properties are available
 
-| Property                                                 | Type      | Default | Comments                                                                                                         |
-| -------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| Property                                                   | Type      | Default | Comments                                                                                                         |
+| ---------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
 | thumbImage<br/>horizontalThumbImage<br/>verticalThumbImage | GUI Image | none    | Image used for the thumb; required for image scroll bars                                                         |
 | barImage<br/>horizontalBarImage<br/>verticalBarImage       | GUI Image | none    | Image for the scroll bars                                                                                        |
-| thumbHeight                                              | number    | 1       | Proportion of thumb compared to bar height (0 to 1)                                                              |
-| barImageHeight                                           | number    | 1       | Proportion of barImage compared to bar height (0 to 1)                                                           |
-| scrollBackground                                         | string    | grey    | background color of scroll bars excluding the bottom right square; useful behind a thin or transparent bar image |
+| thumbHeight                                                | number    | 1       | Proportion of thumb compared to bar height (0 to 1)                                                              |
+| barImageHeight                                             | number    | 1       | Proportion of barImage compared to bar height (0 to 1)                                                           |
+| scrollBackground                                           | string    | grey    | background color of scroll bars excluding the bottom right square; useful behind a thin or transparent bar image |
 
 You do not have to have a barImage.
 
@@ -110,7 +109,7 @@ You can also choose to have different images for the vertical and horizontal bar
 
 When you add a TextBlock of a given size to a scroll viewer both horizontal and vertical scroll bars are shown as needed.
 
-![Contained TextBlock](/img/gui/scroll3.jpg)
+![Contained TextBlock](/img/GUI/scroll3.jpg)
 
 - <Playground id="#FX6KVK#3" title="Scroll Viewer with Fixed TextBlock" description="Simple example showing how to add a Scroll Viewer with Fixed TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer6.jpg"/>
 
@@ -121,7 +120,7 @@ myTextBlock.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
 myTextBlock.resizeToFit = true;
 ```
 
-![Adjusting TextBlock](/img/gui/scroll2.jpg)
+![Adjusting TextBlock](/img/GUI/scroll2.jpg)
 
 - <Playground id="#3EF49E#5" title="Scroll Viewer with Adjusting TextBlock" description="Simple example showing how to add a Scroll Viewer with Adjusting TextBlock to your scene." image="/img/playgroundsAndNMEs/divingdeeperScrollViewer7.jpg"/>
 

@@ -2,10 +2,11 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Checkbox, createStyles, FormControlLabel, FormGroup, InputAdornment, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
+import { Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Theme, Typography } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import { IDocumentSearchResult, IPlaygroundSearchResult, queryIndex } from "../../lib/frontendUtils/searchQuery.utils";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 import { ExamplesComponent } from "../../components/contentComponents/example.component";
@@ -78,6 +79,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [apiOnly, setApiOnly] = useState<boolean>(false);
+    const [filterApi, setFilterApi] = useState<boolean>(false);
     const [noResults, setNoResults] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const classes = useStyles();
@@ -110,8 +112,14 @@ export const SearchResults: FunctionComponent<{}> = () => {
             .catch(() => {});
     }, [query]);
 
-    const handleApiChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleApiOnly = (event: ChangeEvent<HTMLInputElement>) => {
         setApiOnly(event.target.checked);
+        setFilterApi(false);
+    };
+
+    const handleFilterApi = (event: ChangeEvent<HTMLInputElement>) => {
+        setFilterApi(event.target.checked);
+        setApiOnly(false);
     };
 
     const searchForm = (
@@ -143,7 +151,8 @@ export const SearchResults: FunctionComponent<{}> = () => {
                         ),
                     }}
                 />
-                <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiChange} name="apiOnly" color="primary" />} label="API Only" />
+                <FormControlLabel control={<Checkbox checked={apiOnly} onChange={handleApiOnly} name="apiOnly" color="primary" />} label="API Only" />
+                <FormControlLabel control={<Checkbox checked={filterApi} onChange={handleFilterApi} name="filterApi" color="primary" />} label="Filter API" />
             </FormGroup>
         </form>
     );
@@ -190,7 +199,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                                     {searchForm}
                                     <div style={{ display: "flex", flexDirection: "column" }}>
                                         {results
-                                            .filter((res) => (apiOnly ? res.isApi : true))
+                                            .filter((res) => (apiOnly ? res.isApi : filterApi ? !res.isApi : true))
                                             .map((res) => {
                                                 return <SearchResult key={res.id} searchResult={res}></SearchResult>;
                                             })}

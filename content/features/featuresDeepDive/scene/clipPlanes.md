@@ -16,6 +16,8 @@ You can clip the rendering of a scene by using one of the supported clip planes:
 - `scene.clipPlane2`
 - `scene.clipPlane3`
 - `scene.clipPlane4`
+- `scene.clipPlane5`
+- `scene.clipPlane6`
 
 Each clip plane is a BABYLON.Plane that you can define like this:
 
@@ -27,7 +29,7 @@ The 3 first parameters of the Plane constructor defines the normal of the plane 
 
 You can find an interactive demo about clip planes here: <Playground id="#Y6W087" title="Clipping Planes Example 1" description="Simple example showing how to use clipping planes."/>
 
-A maximum of 4 different clip planes can be used simultaneously for a specific rendering.
+A maximum of 6 different clip planes can be used simultaneously for a specific rendering.
 
 If you want to apply per mesh clip planes, you can rely on the following observables:
 
@@ -46,4 +48,8 @@ sphere.onAfterRenderObservable.add(function() {
 });    
 ```
 
-Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using 4 different clipping planes at the same time."/>
+Demo: <Playground id="#EHLHNX" title="Clipping Planes Example 2" description="Using clipping planes per mesh (scene level)."/>
+
+Since version 5.33.0, the best way to use clip planes in this case is through the properties `material.clipPlane` / `clipPlane2` / ... / `clipPlane6`. This way, you don't need to add observers to `onBeforeRenderObservable` / `onAfterRenderObservable`.
+
+Demo: <Playground id="#EHLHNX#104" title="Clipping Planes Example 3" description="Using clipping planes per mesh (material level)."  image="/img/playgroundsAndNMEs/pg-EHLHNX.png" />

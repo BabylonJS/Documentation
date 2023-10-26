@@ -127,7 +127,7 @@ As an example of a closed path take a circle formed from 500 points
 var points = [];
 var n = 400; // number of points
 var r = 20; //radius
-for (var i = 0; i < n; i++) {
+for (let i = 0; i < n; i++) {
   points.push(new BABYLON.Vector3(r * Math.cos((i * 2 * Math.PI) / n), 0, r * Math.sin((i * 2 * Math.PI) / n)));
 }
 ```
@@ -163,7 +163,7 @@ As an example of a open path take three quarters of a circle formed from 375 poi
 var points = [];
 var n = 375; // number of points
 var r = 20; //radius
-for (var i = 0; i < n; i++) {
+for (let i = 0; i < n; i++) {
   points.push(new BABYLON.Vector3(r * Math.cos((i * 3 * Math.PI) / (2 * n)), 0, r * Math.sin((i * 3 * Math.PI) / (2 * n))));
 }
 ```
@@ -323,7 +323,7 @@ var binormals = [];
 var buildVectors = function() {
     normals = [];
     binormals = [];
-    for(var i = 0; i < nbPoints; i++) {
+    for(let i = 0; i < nbPoints; i++) {
         tangents.push(BABYLON.Vector3.TransformNormal(BABYLON.Axis.X, track.railDirections[i]));
         if (isFreight) {
                 normals.push(BABYLON.Vector3.TransformNormal(BABYLON.Axis.Y, track.rotations[i]));
@@ -345,7 +345,7 @@ function drawVectors(vectors, positions, size, color) {
   size = size || 1;
 
   var lines = [];
-  for (var i = 0; i < vectors.length - 1; i++) {
+  for (let i = 0; i < vectors.length - 1; i++) {
     var v1 = positions[i];
     var v2 = v1.add(vectors[i].scale(size));
     lines.push([v1, v2]);
@@ -369,7 +369,7 @@ The normals and binormals of the track are used to create two paths for the ribb
 To produce a smooth velodrome track not all points are necessary. In this example only one in five are used.
 
 ```javascript
-for (var i = 0; i < points.length; i += 5) {
+for (let i = 0; i < points.length; i += 5) {
   radials[i] = points[i].clone().normalize();
   upperPoints.push(points[i].add(binormals[i].scale(offset)).add(normals[i].scale(height)).add(radials[i].scale(extend)));
   lowerPoints.push(points[i].subtract(binormals[i].scale(offset)).subtract(normals[i].scale(height)).add(radials[i].scale(extend)));
@@ -392,7 +392,7 @@ PG: <Playground id="#SQFG0Q#5" title="Roller Coaster Overview" description="."/>
 PG: <Playground id="#SQFG0Q#6" title="Roller Coaster Passenger View" description="Passenger View From Roller Coaster"/>
 
 ```javascript
-for (var i = 0; i < points.length; i += 5) {
+for (let i = 0; i < points.length; i += 5) {
   BABYLON.Vector3.TransformNormalToRef(BABYLON.Axis.Y, track.carriageRotations[i], normal);
   BABYLON.Vector3.TransformNormalToRef(BABYLON.Axis.Z, track.carriageRotations[i], binormal);
   plusPoints.push(points[i].add(binormal.scale(offset)).add(normal.scale(height)));

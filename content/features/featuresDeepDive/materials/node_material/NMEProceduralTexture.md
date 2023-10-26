@@ -24,8 +24,8 @@ const proceduralTexture = nodeMaterial.createProceduralTexture(256);
 
 As always, you can also load the NodeMaterial from our snippet server:
 
-```
-var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+```javascript
+const ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 
 BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMaterial) => {
     const proceduralTexture = nodeMaterial.createProceduralTexture(256);

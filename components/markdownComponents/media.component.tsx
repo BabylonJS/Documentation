@@ -1,10 +1,11 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { IMediaEmbed } from "../../lib/content.interfaces";
 
 // reduce package size
 import YoutubePlayer from "react-player/youtube";
 import FilePlayer from "react-player/file";
-import { makeStyles, createStyles, Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +30,10 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) => {
+    const [ready, setReady] = useState(false);
+    useEffect(() => {
+        setReady(true);
+    }, []);
     const classes = styles();
     const getPlayer = () => {
         if (props.type === "youtube") {
@@ -37,9 +42,13 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
         return <FilePlayer width="100%" height="100%" className={classes.player} controls={!props.noControls} url={props.url}></FilePlayer>;
     };
     return (
-        <div className={classes.container}>
-            <div className={classes.playerWrapper}>{getPlayer()}</div>
-        </div>
+        <>
+            {ready && (
+                <div className={classes.container}>
+                    <div className={classes.playerWrapper}>{getPlayer()}</div>
+                </div>
+            )}
+        </>
     );
 };
 

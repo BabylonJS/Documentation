@@ -217,3 +217,9 @@ BABYLON.SceneLoader.ImportMesh(
 
 
 ```
+
+## File Loading Rate of Multiple Assets
+
+This example expands on the use of [SceneLoaderProgressEvent](/typedoc/classes/babylon.sceneloader) from the previous section to track the loading of multiple assets using different loading methods.
+
+<Playground id="#BCU1XR#6700" title="Loading Rate of Multiple Assets" description="Example showing how to get a loading rate for multiple assets."/>

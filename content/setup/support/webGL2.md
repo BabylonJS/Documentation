@@ -52,7 +52,7 @@ Here is an example of a mirror (512x512) with and without multisampling:
 
 | No MSAA (1 sample)                 | MSAA (8 samples)                 |
 | ---------------------------------- | -------------------------------- |
-| ![Title](/img/features/nomsaa.jpg) | ![Title](/img/features/msaa.jpg) |
+| ![Title](/img/features/nomsaa.JPG) | ![Title](/img/features/msaa.JPG) |
 
 ## Vertex array objects
 

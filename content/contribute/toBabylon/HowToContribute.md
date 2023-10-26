@@ -121,6 +121,10 @@ You can install VSCode from their site: [https://code.visualstudio.com/](https:/
 
 [More on using VSCode with Babylon.js](/setup/support/vsCode)
 
+### VSCode Extensions
+
+If you are using VSCode, the repository comes with a list of recommended extensions. If you want to be able to debug entirely in VSCode you will need to install those extensions.
+
 ### Adding files
 
 When in doubt about where your files should be added then raise an issue in the Babyon.js repository or ask on the forum.
@@ -174,10 +178,6 @@ npm --version
 node --version
 ```
 
-### VSCode Extensions
-
-If you are using VSCode, the repository comes with a list of recommended extensions. If you want to be able to debug entirely in VSCode you will need to install those extensions.
-
 ### The Build
 
 run `npm install` in the main directory. This will build everything needed to get started with the repository.
@@ -200,15 +200,15 @@ Following is a list of quick ways to get started with certain tasks, both in VSC
 
 Using VSCode:
 
-- Start the "CDNServe and watch (Dev)" task
-- If you want to debug, run "Run and watch Babylon Server" from the debug menu
+- Run "Run and watch Dev Server" from the Run and Debug Menu, OR
+- Open the Command Palette, type "Run Task", select "CDN Serve and watch (Dev)"
 
 Using command line:
 
 - run `npm run watch:dev` (If you want to make changes to the dev packages. Otherwise run `npm run build:dev`)
 - run `npm run serve -w @tools/babylon-server` in a new terminal window
 
-The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1338. To use the TS version navigate to http://localhost:1338/index-ts.
+The Babylon server offers 2 variants - js and ts. To load the js version (the default one) navigate to http://localhost:1337. To use the TS version navigate to http://localhost:1337/index-ts.html.
 The files to edit are sceneJs.js and sceneTs.ts in the source folder of the Babylon server package.
 
 As described in the next section, the Babylon server also offers a playground-snippet debugging.
@@ -227,9 +227,8 @@ Note that the loader will react to changes in the hash (and will reload the scen
 
 Using VSCode:
 
-- Start the "Run and watch Dev Host (Dev)" task
-- Or if you are just testing the core without changing it, start the "Run Dev Host (Demo)" task
-- If you want to debug, run "Run and watch dev host (Dev)" from the debug menu
+- Run "Run and watch dev host (Dev)" from the Run and Debug Menu, OR
+- Open the Command Palette, type "Run Task", select "Run and watch Dev Host (Dev)"
 
 Using command line:
 
@@ -242,9 +241,8 @@ Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 Using VS Code:
 
-- Run the task "Playground Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "Playground Serve (Dev)"
-- If you want to debug, run "Launch Playground (chrome)" (Or "Playground development") from the debug menu
+- In the Run and Debug Menu, choose "Launch Playground" (Or "Playground development", in case you are making changes to the Playground code itself), OR
+- Open the Command Palette, type "Run Task", select "Playground Serve for core (Dev)" (Or if you are just developing the playground itself, select "Playground Serve (Dev)")
 
 Using command line:
 
@@ -263,9 +261,8 @@ Open [http://localhost:1338](http://localhost:1338) in your browser.
 
 Using VS Code:
 
-- Run the task "Sandbox Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "Sandbox Serve (Dev)"
-- If you want to debug, run "Launch Sandbox (chrome)" (Or "Sandbox development") from the debug menu
+- In the Run and Debug Menu, choose "Launch Sandbox" (Or "Sandbox development", in case you are making changes to the Sandbox code itself), OR
+- Open the Command Palette, type "Run Task", select "Sandbox Serve for core (Dev)" (Or if you are just developing the sandbox itself, select "Sandbox Serve (Dev)")
 
 Using command line:
 
@@ -278,15 +275,14 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/sandbox` in a new terminal window
 
-Open [http://localhost:1338](http://localhost:1338) in your browser.
+Open [http://localhost:1339](http://localhost:1339) in your browser.
 
 #### Run the GUI editor
 
 Using VS Code:
 
-- Run the task "GUI Editor Serve for core (Dev)"
-- Or if you are just developing the playground itself, run the task "GUI Editor Serve (Dev)"
-- If you want to debug, run "Launch GUI Editor (chrome)" (Or "GUI Editor development") from the debug menu
+- In the Run and Debug Menu, choose "Launch GUI Editor" (Or "GUI Editor development", in case you are making changes to the GUI Editor code itself), OR
+- Open the Command Palette, type "Run Task", select "GUI Editor Serve for core (Dev)" (Or if you are just developing the GUI Editor itself, select "GUI Editor Serve (Dev)")
 
 Using command line:
 
@@ -299,14 +295,14 @@ Shortcuts?
 - Run `npx build-tools --command dev-watch --watch-assets --watch-declarations --serve` (watch and serve in one command)
 - Run `npm run serve -w @tools/gui-editor` in a new terminal window
 
-Open [http://localhost:1338](http://localhost:1338) in your browser.
+Open [http://localhost:1341](http://localhost:1341) in your browser.
 
 #### Run tests
 
 Using VSCode:
 
-- Run the task `Run unit tests` or `run visualization tests`
-- To debug - launch `Run and debug unit tests` or `Run and debug visualization tests`
+- In the Run and Debug Menu, choose "Run and debug unit tests" or "Run and debug visualization tests", OR
+- Open the Command Palette, type "Run Task", select "Run unit tests` or "Run visualization tests"
 
 Using command line:
 
@@ -331,7 +327,7 @@ When making changes to the linked package, make sure to repeat the build steps. 
 
 Notes:
 
-- this process will be simplified soon.
+- This process will be simplified soon.
 - You can link any package, not only the public one. However, you cannot rename the package. so if you link @dev/core you will need to add @dev/core to the dependencies of the external project.
 
 #### Add a dependency to a project
@@ -357,7 +353,7 @@ Packages in `dev` and `lts` are composites ([https://www.typescriptlang.org/tsco
 All packages (with the exception of public es6 packages) have the same basic structure:
 
 - src folder holds typescript files and assets
-- test folder holds tests (See [testing](##Testing))
+- test folder holds tests (See [Testing](#testing))
 - dist folder holds compiled files, including sourcemaps and declarations, and assets (if configured)
 - optional public folder for public assets that will be hosted when the package is served (only where applicable)
 
@@ -377,7 +373,7 @@ To run a specific npm command on the root package, run `npm <command>`.
 
 Read more about node workspaces - [https://docs.npmjs.com/cli/v7/using-npm/workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
 
-### naming convention
+### Naming convention
 
 - npm packages always low case kebab case (i.e. gui-editor)
 - directories in camel case (i.e. guiEditor)
@@ -408,7 +404,7 @@ The public-facing packages are the ones that are served using NPM. They are main
 
 ### Running scripts
 
-To run a script in a package, you can either run `npm run scriptname` in the package directory or `npm run scriptname -w @namespace/package-name` in the main directory. This is the recommended wqy of working.
+To run a script in a package, you can either run `npm run scriptname` in the package directory or `npm run scriptname -w @namespace/package-name` in the main directory. This is the recommended way of working.
 
 For example, to build the dev core library you will run:
 
@@ -467,7 +463,7 @@ npx build-tools -c process-assets --isCore --watch
 
 in the directory of the specific project. There should also be a `build:assets` and `watch:assets` script in the package.json of every package.
 
-Shaders are also considered to be assets. They are being processed differently, but using the same script. a shader (`.fx` file) will generate a typescript file that will be compiled as part of the build process of the library. When building, `build:assets` will be executed before `compile:source` does. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
+Shaders are also considered to be assets. They are being processed differently, but using the same script. Processing a shader (`.fx` file) will result in a Typescript file, which will be compiled as part of the library during the build process. When building, `build:assets` will be executed before `compile:source` does. The `build` script will take care of that for you. For example, `@dev/core` has the following scripts:
 
 ```javascript
 "build": "npm run clean && npm run compile",
@@ -612,35 +608,35 @@ The dev host is configured to be much more forgiving when developing. The best e
 The current simple structure of the dev host allows you to copy code from the playground, and making the changes needed to run it in the dev host. For example, this playground:
 
 ```javascript
-var createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    var scene = new BABYLON.Scene(engine);
+const createScene = function () {
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -651,34 +647,34 @@ import { canvas, engine } from "./index";
 import { FreeCamera, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@dev/core";
 
 export const createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    const scene = new Scene(engine);
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -689,34 +685,34 @@ import { canvas, engine } from "./index";
 import * as BABYLON from "@dev/core";
 
 export const createScene = function () {
-    // This creates a basic Babylon Scene object (non-mesh)
-    const scene = new BABYLON.Scene(engine);
+  // This creates a basic Babylon Scene object (non-mesh)
+  const scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+  // This creates and positions a free camera (non-mesh)
+  const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+  // This targets the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
 
-    // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+  // This attaches the camera to the canvas
+  camera.attachControl(canvas, true);
 
-    // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Default intensity is 1. Let's dim the light a small amount
-    light.intensity = 0.7;
+  // Default intensity is 1. Let's dim the light a small amount
+  light.intensity = 0.7;
 
-    // Our built-in 'sphere' shape.
-    const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
+  // Our built-in 'sphere' shape.
+  const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
-    // Move the sphere upward 1/2 its height
-    sphere.position.y = 1;
+  // Move the sphere upward 1/2 its height
+  sphere.position.y = 1;
 
-    // Our built-in 'ground' shape.
-    BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  // Our built-in 'ground' shape.
+  BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
 
-    return scene;
+  return scene;
 };
 ```
 
@@ -774,7 +770,7 @@ Note about dev host - the dev host is not using any best practices for productio
 
 #### Babylon Server
 
-A new package introduced in the Babylon server, which is a direct copy of the Babylon CDN structure. The Babylon server serves javascript files, along with sourcemaps and declarations.
+The Babylon server is a direct copy of the Babylon CDN structure. It serves javascript files, along with sourcemaps and declarations.
 
 Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is [http://localhost:1338](http://localhost:1338)
 
@@ -798,7 +794,7 @@ In order to use the Babylon server, run the Babylon server (`npm run serve -w @t
 
 A few notes:
 
-1. Regarding performance - minified code loads faster (or at least SHOULD) load faster. Meaning that running the server in production mode (using `npm run serve:prod -w @tools/babylon-server`) will help running code relying on the compiled packages faster. However, the actual build of the server will be roughly 2x slower than the dev build. If you want to use the server in order to work on tools like the GUI editor or the playground (working on and not with - i.e. editing those packages'code), it is recommended to run the Babylon server in production mode.
+1. Regarding performance - minified code loads faster (or at least SHOULD load faster). Meaning that running the server in production mode (using `npm run serve:prod -w @tools/babylon-server`) will help running code relying on the compiled packages faster. However, the actual build of the server will be roughly 2x slower than the dev build. If you want to use the server in order to work on tools like the GUI editor or the playground (working on and not with - i.e. editing those packages' code), it is recommended to run the Babylon server in production mode.
 2. Regarding the packages created by babylon-server - The packages generated by the server are very similar to the public UMD packages, but they are not entirely the same. The babylon-server is not meant to be used in production! It is just a development tool.
 
 As with any webpack-hosted package, there are a few properties that can be configured (using either the CLA od the .env file as discussed above):
@@ -812,7 +808,7 @@ As with any webpack-hosted package, there are a few properties that can be confi
 
 ## Tools
 
-We have several tools that we are hosting for our users. All of them (playground, sandbox, node editor and the GUI editor) are using the same architecture when it comes to referencing the core library - they use our UMD packages (the files that are hosted on our CDN). This is why, in order to get them to work you need to make sure the Babylon server is running in the background. See [Babylon Server](#Babylon Server) for more information.
+We have several tools that we are hosting for our users. All of them (playground, sandbox, node editor and the GUI editor) are using the same architecture when it comes to referencing the core library - they use our UMD packages (the files that are hosted on our CDN). This is why, in order to get them to work you need to make sure the Babylon server is running in the background. See [Babylon Server](#babylon-server) for more information.
 
 All tools are packed and served with webpack, and are configured similarity.
 
@@ -971,17 +967,17 @@ Visualization tests are running using puppeteer, which is an interface to contro
 
 ```javascript
 module.exports = {
-    launch: {
-        dumpio: false, // should we see logs?
-        timeout: 30000, // timeout of 30 seconds
-        headless: false, // true to run headless
-        product: browser, // can be either chrome or firefox
-        ignoreHTTPSErrors: true, // should SSL issues be automatically resolved, in case the files are hosted locally on self-signed SSL certificate
-        devtools: true, // Should the dev tools open automatically
-        args: browser === "chrome" ? chromeFlags : firefoxFlags, // additional arguments for the browser, for example enabling garbage collection
-        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // choose the chrome (or firefox) to use
-    },
-    browserContext: "default",
+  launch: {
+    dumpio: false, // should we see logs?
+    timeout: 30000, // timeout of 30 seconds
+    headless: false, // true to run headless
+    product: browser, // can be either chrome or firefox
+    ignoreHTTPSErrors: true, // should SSL issues be automatically resolved, in case the files are hosted locally on self-signed SSL certificate
+    devtools: true, // Should the dev tools open automatically
+    args: browser === "chrome" ? chromeFlags : firefoxFlags, // additional arguments for the browser, for example enabling garbage collection
+    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // choose the chrome (or firefox) to use
+  },
+  browserContext: "default",
 };
 ```
 
@@ -991,7 +987,7 @@ Puppeteer opens a different context than the node context we are at when running
 
 ```javascript
 const random = await page.evaluate((aRandomNumber) => {
-    return aRandomNumber * Math.random();
+  return aRandomNumber * Math.random();
 }, Math.random());
 ```
 
@@ -1116,7 +1112,7 @@ Change and save files including comments.
 Check if your code can be used in the local playground.
 
 ### Success
-  
+
 Commit files you have added or edited but not those built.
 
 ### Push Pull-Request Check

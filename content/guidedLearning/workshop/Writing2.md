@@ -16,7 +16,7 @@ The requirements are for a collection of coloured facets to bursts out from a ce
 All fragments should be equally spaced on the sphere and should change colour during the expansion, fading over time.
 
 ## First Stage Design
-A sphere created inBabylon.js is made up of facets where vertices of adjoining facets share normals to ensure a smooth surface. 
+A sphere created in Babylon.js is made up of facets where vertices of adjoining facets share normals to ensure a smooth surface. 
 Converting the sphere to a flat shaded mesh will give each facet its own set of normals which will be the mathematical normals for the plane of the facet. 
 To make a facet travel outwards from the centre over time its position at any time will be _start position + normal \* function of time_
 
@@ -81,4 +81,4 @@ scene.registerBeforeRender(function() {
 ## Fireworks
 
 [External Example - Shader Material](http://babylonjsguide.github.io/examples/fireworkcode.html)  
-PG: <Playground id="#1OH09K#4" title="Fireworks" description="Build from Shader Material."/>
+PG: <Playground id="#1OH09K#1672" title="Fireworks" description="Build from Shader Material." image="/img/playgroundsAndNMEs/pg-1OH09K-4.png"/>

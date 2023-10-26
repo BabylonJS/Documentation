@@ -27,7 +27,7 @@ There are four types of lights that can be used with a range of lighting propert
 A point light is a light defined by an unique point in world space. The light is emitted in every direction from this point. A good example of a point light is a standard light bulb.
 
 ```javascript
-var light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(1, 10, 1), scene);
+const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(1, 10, 1), scene);
 ```
 
 ### The Directional Light
@@ -37,7 +37,7 @@ An example of a directional light is when a distant planet is lit by the apparen
 the top of an object.
 
 ```javascript
-var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);
+const light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);
 ```
 
 ### The Spot Light
@@ -49,7 +49,7 @@ The angle, in radians, defines the size (field of illumination) of the spotlight
 _A simple use of a spot light_
 
 ```javascript
-var light = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(0, 30, -10), new BABYLON.Vector3(0, -1, 0), Math.PI / 3, 2, scene);
+const light = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(0, 30, -10), new BABYLON.Vector3(0, -1, 0), Math.PI / 3, 2, scene);
 ```
 
 ### The Hemispheric Light
@@ -58,7 +58,7 @@ A hemispheric light is an easy way to simulate an ambient environment light. A h
 that the full effect is achieved.
 
 ```javascript
-var light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
+const light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
 ```
 
 ## Color Properties
@@ -95,7 +95,7 @@ Babylon.js allows you to create and register as many lights as you choose, but k
 You can change this number with this code:
 
 ```javascript
-var material = new BABYLON.StandardMaterial("mat", scene);
+const material = new BABYLON.StandardMaterial("mat", scene);
 material.maxSimultaneousLights = 6;
 ```
 
@@ -152,8 +152,8 @@ As you can see, the lights only affect the front face and not the back face.
 Complex lighting can be computationally expensive to compute at runtime. To save on computation, lightmaps may be used to store calculated lighting in a texture which will be applied to a given mesh.
 
 ```javascript
-var lightmap = new BABYLON.Texture("lightmap.png", scene);
-var material = new BABYLON.StandardMaterial("material", scene);
+const lightmap = new BABYLON.Texture("lightmap.png", scene);
+const material = new BABYLON.StandardMaterial("material", scene);
 material.lightmapTexture = lightmap;
 ```
 
@@ -188,7 +188,7 @@ In some cases it would be nice to define the diffuse color of the light (Diffuse
 In order to support this feature, you can rely on the `projectionTexture` property of the lights. This is only supported by the **SpotLight** so far.
 
 ```javascript
-var spotLight = new BABYLON.SpotLight("spot02", new BABYLON.Vector3(30, 40, 30), new BABYLON.Vector3(-1, -2, -1), 1.1, 16, scene);
+const spotLight = new BABYLON.SpotLight("spot02", new BABYLON.Vector3(30, 40, 30), new BABYLON.Vector3(-1, -2, -1), 1.1, 16, scene);
 spotLight.projectionTexture = new BABYLON.Texture("textures/stainedGlass.png", scene);
 ```
 

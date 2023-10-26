@@ -1,6 +1,6 @@
 ---
 title: Environment
-image: 
+image:
 description: Begin your learning about environments in Babylon.js.
 keywords: diving deeper, environment, intro, introduction
 further-reading:
@@ -20,8 +20,8 @@ _A picture showing Babylon.js fog in action_
 
 We will talk about that nice fog effect, shortly. First, I want to introduce you to two interesting properties on the [scene class object](/typedoc/classes/babylon.scene):
 
-* `scene.clearColor` - changes the 'background' color.
-* `scene.ambientColor` - changes the color used in several effects, including ambient lighting.
+- `scene.clearColor` - changes the 'background' color.
+- `scene.ambientColor` - changes the color used in several effects, including ambient lighting.
 
 Both of them are very useful, and powerful in their own right.
 
@@ -32,10 +32,13 @@ The 'clearColor' property on the scene object is the most rudimentary of environ
 ```javascript
 scene.clearColor = new BABYLON.Color3(0.5, 0.8, 0.5);
 ```
+
 Or maybe you want to use one of our preset colors and avoid using the `new` keyword:
+
 ```javascript
 scene.clearColor = BABYLON.Color3.Blue();
 ```
+
 This color and property is not used in any calculations for the final colors of mesh, materials, textures, or anything else. It is simply the background color of the scene. Easy.
 
 ### Changing the Ambient color (`scene.ambientColor`)
@@ -45,7 +48,8 @@ Conversely, the `ambientColor` property on the scene object is a very powerful a
 ```javascript
 scene.ambientColor = new BABYLON.Color3(0.3, 0.3, 0.3);
 ```
-As you can see, it is set using the same format as `clearColor`, but `ambientColor` is used in quite a few calculations toward determining the final colors of scene items.&nbsp; Mainly, it is used in conjunction with a mesh's `StandardMaterial.ambientColor` to determine a FINAL `ambientColor` for the mesh material. 
+
+As you can see, it is set using the same format as `clearColor`, but `ambientColor` is used in quite a few calculations toward determining the final colors of scene items.&nbsp; Mainly, it is used in conjunction with a mesh's `StandardMaterial.ambientColor` to determine a FINAL `ambientColor` for the mesh material.
 
 You will find that when there is no `scene.ambientColor`, then `StandardMaterial.ambientColor` and `StandardMaterial.ambientTexture` will appear to do nothing.&nbsp; Set a `scene.ambientColor` of some value, like the example above, and `StandardMaterial.ambientColor`/`StandardMaterial.ambientTexture` will become active on meshes where you have applied such.
 
@@ -62,25 +66,31 @@ scene.fogMode = BABYLON.Scene.FOGMODE_EXP;
 ```
 
 Here are the available modes:
+
 - `BABYLON.Scene.FOGMODE_NONE` - default one, fog is deactivated.
 - `BABYLON.Scene.FOGMODE_EXP` - the fog density is following an exponential function.
 - `BABYLON.Scene.FOGMODE_EXP2` - same that above but faster.
 - `BABYLON.Scene.FOGMODE_LINEAR` - the fog density is following a linear function.
 
 If you choose the `EXP`, or `EXP2` mode, then you can define the density option (default is `0.1`):
+
 ```javascript
 scene.fogDensity = 0.01;
 ```
+
 Otherwise, if you choose `LINEAR` mode, then you can define where fog starts and where fog ends:
+
 ```javascript
 scene.fogStart = 20.0;
 scene.fogEnd = 60.0;
 ```
 
 Finally, whatever the mode, you can specify the color of the fog (default is `BABYLON.Color3(0.2, 0.2, 0.3)`):
+
 ```javascript
 scene.fogColor = new BABYLON.Color3(0.9, 0.9, 0.85);
 ```
+
 See, we told you it was easy.
 
 If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.jpg" isMain={true} category="Environment"/>

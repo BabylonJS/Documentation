@@ -69,8 +69,8 @@ This add-on use the standard Blender installation procedure:
 
 ![Blender constraints properties panel](/img/exporters/blender/constraints/constraints-properties-panel.png)
 
-| Blender                                                            | BJS equivalent                                                                                                       |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Blender                                                            | BJS equivalent                                                                                                                      |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | ![constraints](/img/exporters/blender/constraints/constraints.png) | <ul><li>Track To: useful when using ArcRotate camera [(tip)](/features/featuresDeepDive/Exporters/Blender_Tips#arcrotate)</li></ul> |
 
 ---
@@ -79,9 +79,9 @@ This add-on use the standard Blender installation procedure:
 
 ![Blender cameras properties panel](/img/exporters/blender/cameras/cameras-properties-panel.png)
 
-| Blender                                                                                                 | [BJS equivalent](/typedoc/classes/babylon.camera)                                                                                                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lens![lens](/img/exporters/blender/cameras/lens.png)                                                    | <ul><li>Field of View: fov</li><li>Clipping: minZ & maxZ</li></ul>                                                                                                                                                                                                                                       |
+| Blender                                                                                                 | [BJS equivalent](/typedoc/classes/babylon.camera)                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lens![lens](/img/exporters/blender/cameras/lens.png)                                                    | <ul><li>Field of View: fov</li><li>Clipping: minZ & maxZ</li></ul>                                                                                                                                                                                                                                                      |
 | Exporter panel ![exporter-cameras-options](/img/exporters/blender/cameras/exporter-cameras-options.png) | <ul><li>Camera Type, choose between:<ul><li>Arc Rotate [(tip)](/features/featuresDeepDive/Exporters/Blender_Tips#arcrotate)</li><li>Device Orientation</li><li>Follow</li><li>Gamepad</li><li>Touch</li><li>Universal</li><li>Virtual Joysticks</li><li>VR Dev Orientation Free</li><li>Web VR Free</li></ul></li></ul> |
 
 ---
@@ -92,7 +92,7 @@ This add-on use the standard Blender installation procedure:
 
 | Blender                                                                                                         | [BJS equivalent](/typedoc/classes/babylon.light)                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lamp ![lamp](/img/exporters/blender/lights/lamp.png)                                                            | <ul><li>Sun as Directionnal, Area as Point, other named like in BJS</li><li>This Layer Only: [includedOnlyMeshes](/typedoc/classes/babylon.light#includedonlymeshes-abstractmesh-classes-3-0-abstractmesh-)</li><li>when Sphere is checked, Distance value is exported as range</li></ul> |
+| Lamp ![lamp](/img/exporters/blender/lights/lamp.png)                                                            | <ul><li>Sun as Directional, Area as Point, other named like in BJS</li><li>This Layer Only: [includedOnlyMeshes](/typedoc/classes/babylon.light#includedonlymeshes-abstractmesh-classes-3-0-abstractmesh-)</li><li>when Sphere is checked, Distance value is exported as range</li></ul> |
 | Spot Shape (only available when light type is Spot) ![spot-shape](/img/exporters/blender/lights/spot-shape.png) | <ul><li>Size: Angle</li><li>Blend: value \* 2 = exponent</li></ul>                                                                                                                                                                                                                        |
 | Exporter panel ![exporter-lights-options](/img/exporters/blender/lights/exporter-lights-options.png)            | <ul><li>Shadow Map (only for directional lights):<ul><li>None</li><li>Standard</li><li>Poisson</li><li>ESM</li><li>Blur ESM</li></ul></li></ul>                                                                                                                                           |
 
@@ -100,11 +100,11 @@ This add-on use the standard Blender installation procedure:
 
 ![Blender meshes properties panel](/img/exporters/blender/meshes/meshes-properties-panel.png)
 
-| Blender                                                                                              | [BJS equivalent](/typedoc/classes/babylon.mesh)                                                                                                                                                                                                                                                                                                                                                            |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/features/featuresDeepDive/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                                                         |
-| UV Maps ![uv-maps](/img/exporters/blender/meshes/uv-maps.png)                                        | <ul><li>UVMap: coordinatesIndex</li><li>limited to 2 channels</li></ul>                                                                                                                                                                                                                                                                                                                                    |
-| Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.png)                      | <ul><li>if multiples layers exist, they will be merge</li></ul>                                                                                                                                                                                                                                                                                                                                            |
+| Blender                                                                                              | [BJS equivalent](/typedoc/classes/babylon.mesh)                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normals ![normals](/img/exporters/blender/meshes/normals.png)                                        | Auto Smooth is often use by Blender users, but is not supported. Use an edge split modifier instead, see [tip](/features/featuresDeepDive/Exporters/Blender_Tips#smooth-shading).                                                                                                                                                                                                           |
+| UV Maps ![uv-maps](/img/exporters/blender/meshes/uv-maps.png)                                        | <ul><li>UVMap: coordinatesIndex</li><li>limited to 2 channels</li></ul>                                                                                                                                                                                                                                                                                                                     |
+| Vertex Colors ![vertex-colors](/img/exporters/blender/meshes/vertex-colors.png)                      | <ul><li>if multiples layers exist, they will be merge</li></ul>                                                                                                                                                                                                                                                                                                                             |
 | Exporter panel ![exporter-meshes-options](/img/exporters/blender/meshes/exporter-meshes-options.png) | <ul><li>**Tags**: allow using [scene.getMeshesByTags()](/typedoc/classes/babylon.scene#getmeshesbytags)</li><li>**Materials**:<ul><li>**Name Space**: automatically add a suffix to the mesh materials. Default is Blender filename.</li></ul></li><li>**Procedural Textures / Cycles Baking**: texture baking settings when using procedural textures (Blender Render) or Cycles</li></ul> |
 
 ---
@@ -171,6 +171,7 @@ This add-on use the standard Blender installation procedure:
 | Influence ![influence](/img/exporters/blender/textures/influence.png)                | Be sure to enable only one influence by texture, to avoid automatic baking.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ---
+
 ### Commons & Good practices
 
 - you should export one _.babylon_ file per animated object to make your life easier (once in BJS, but also to handle the timeline in Blender). See [tip](/features/featuresDeepDive/Exporters/Blender_Tips#Animation) for a basic workflow.
@@ -254,13 +255,13 @@ Let's say you have exported your first scene. In this example we will use [blend
   <body>
     <canvas id="canvas"></canvas>
     <script type="text/javascript">
-      var canvas = document.getElementById("canvas");
-      var engine = new BABYLON.Engine(canvas, true);
+      const canvas = document.getElementById("canvas");
+      const engine = new BABYLON.Engine(canvas, true);
 
       // here the doc for Load function: //doc.babylonjs.com/typedoc/classes/babylon.sceneloader#load
       BABYLON.SceneLoader.Load("", "babylonJS_logo_v3.babylon", engine, function (scene) {
         //as this .babylon example hasn't camera in it, we have to create one
-        var camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
+        const camera = new BABYLON.ArcRotateCamera("Camera", 1, 1, 4, BABYLON.Vector3.Zero(), scene);
         camera.attachControl(canvas, false);
 
         scene.clearColor = new BABYLON.Color3(1, 1, 1);

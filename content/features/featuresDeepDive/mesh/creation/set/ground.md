@@ -25,7 +25,7 @@ const ground = BABYLON.MeshBuilder.CreateGround("ground", options, scene); //sce
 | width        | _(number)_ size of the width              | 1             |
 | height       | _(number)_ size of the height             | 1             |
 | updatable    | _(boolean)_ true if the mesh is updatable | false         |
-| subdivisions | _(number)_ number of square subdivisions  | 1             |
+| subdivisions | _(number)_ number of square subdivisions along each axis  | 1             |
 
 ### Example
 
@@ -36,6 +36,6 @@ Ground: <Playground id="#45R5JK" title="Create a Ground" description="Simple exa
 Usage
 
 ```javascript
-const ground = BABYLON.Mesh.CreateGround("ground", width, height, subdivisions, scene);
-const ground = BABYLON.Mesh.CreateGround("ground", width, height, subdivisions, scene, updatable); //one optional parameter after scene
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width, height, subdivisions }, scene);
+const ground = BABYLON.MeshBuilder.CreateGround("ground", { width, height, subdivisions }, scene, updatable); //one optional parameter after scene
 ```

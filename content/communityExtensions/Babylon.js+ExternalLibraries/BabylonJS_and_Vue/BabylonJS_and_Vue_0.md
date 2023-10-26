@@ -46,15 +46,15 @@ https://github.com/RolandCsibrei/babylonjs-real-sun-moon
 
 ## Vue 2 related
 
-[Offical Vue 2 installation page](https://vuejs.org/v2/guide/installation.html "The offical Vue 2 installation page")
+[Offical Vue 2 installation page](https://v2.vuejs.org/v2/guide/installation "The offical Vue 2 installation page")
 
-[Official Vue 2 Components Basic page](https://vuejs.org/v2/guide/components.html "Vue 2 Components Basics")
+[Official Vue 2 Components Basic page](https://v2.vuejs.org/v2/guide/components "Vue 2 Components Basics")
 
 ## Vue 3 related
 
-[Offical Vue 3 installation page](https://v3.vuejs.org/guide/installation.html "The foffical Vue 3 installation page")
+[Offical Vue 3 installation page](https://vuejs.org/guide/quick-start.html "The foffical Vue 3 installation page")
 
-[Official Vue 3 Components Basic page](https://v3.vuejs.org/guide/component-basics.html "Vue 3 Components Basic")
+[Official Vue 3 Components Basic page](https://vuejs.org/guide/essentials/component-basics.html "Vue 3 Components Basic")
 
 ## GitHub
 

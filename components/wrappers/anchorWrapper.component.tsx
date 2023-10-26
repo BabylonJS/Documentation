@@ -13,7 +13,7 @@ export const AnchorWrapper: FunctionComponent<IDocumentationLinkProps> = (props)
     if (!props.href) {
         return <a {...props}></a>;
     }
-    const isInternal = !props.href.startsWith("http") || props.href.indexOf("//doc.babylonjs.com") !== -1;
+    const isInternal = !props.href.startsWith("http") || props.href.startsWith("https://doc.babylonjs.com/");
     if (!isInternal) {
         return <a rel="noopener" target="_blank" {...props}></a>;
     } else {

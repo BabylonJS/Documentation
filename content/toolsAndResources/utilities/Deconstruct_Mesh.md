@@ -20,14 +20,14 @@ function deconstructMesh(mesh) {
         var positions = otherVertexData.positions;
         var uvs = otherVertexData.uvs;
         var newMeshArray = [];
-        for (var index = 0; index < mesh.subMeshes.length; index++) {
+        for (let index = 0; index < mesh.subMeshes.length; index++) {
             var newVertexData = new BABYLON.VertexData();
             
             var newI = indices.slice(mesh.subMeshes[index].indexStart, mesh.subMeshes[index].indexStart+mesh.subMeshes[index].indexCount);
             var newN = normals.slice(mesh.subMeshes[index].verticesStart * 3, mesh.subMeshes[index].verticesStart * 3 + mesh.subMeshes[index].verticesCount * 3);
             var newP = positions.slice(mesh.subMeshes[index].verticesStart * 3, mesh.subMeshes[index].verticesStart * 3 + mesh.subMeshes[index].verticesCount * 3);
             var newU = uvs.slice(mesh.subMeshes[index].verticesStart * 2, mesh.subMeshes[index].verticesStart * 2 + mesh.subMeshes[index].verticesCount * 2);
-            for (var subIndex = 0; subIndex < newI.length; subIndex++) {
+            for (let subIndex = 0; subIndex < newI.length; subIndex++) {
                 newI[subIndex] = newI[subIndex] - mesh.subMeshes[index].verticesStart;
             }
 

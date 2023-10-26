@@ -70,6 +70,35 @@
     * {
         max-width: 920px;
     }
+
+    > h2 {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+
+    > h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    > h4 {
+        font-size: 1.1rem !important;
+        font-weight: 600;
+        color: #666;
+    }
+
+    > h5 {
+        font-size: 1rem !important;
+        font-weight: 600;
+        color: #888;
+    }
+
+    > h6 {
+        font-size: 1rem !important;
+        font-style: italic;
+    }
+
     @media print {
         *,
         *:before,
@@ -191,6 +220,9 @@
     h2,
     .splendor-h2 {
         font-size: 1.627rem;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
     }
 
     h3,
@@ -277,7 +309,8 @@
         // max-width: 48rem;
     }
 
-    ol, ul {
+    ol,
+    ul {
         margin-top: -5px;
         margin-bottom: 5px;
         margin-left: 0px;

@@ -46,7 +46,7 @@ This can be done using `initParticles`. With this you must iterate over all the 
 
 ```javascript
 pcs.initParticles = function() {
-   for (var p = 0; p < pcs.nbParticles; p++) {
+   for (let p = 0; p < pcs.nbParticles; p++) {
        pcs.particles[p].velocity = BABYLON.Vector3.Zero();
        pcs.particles[p].acceleration = pcs.particles[p].position.scale(0.01);
    }

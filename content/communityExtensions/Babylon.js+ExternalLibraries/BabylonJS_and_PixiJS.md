@@ -13,7 +13,7 @@ Pixi.js is a fast, lightweight, open source 2D library with full support for web
 ## Setup Pixi.js rendering
 
 ```javascript
-var pixiRenderer = new PIXI.WebGLRenderer({
+const pixiRenderer = new PIXI.WebGLRenderer({
   context: engine._gl,
   view: engine.getRenderingCanvas(),
   clearBeforeRender: false,
@@ -24,8 +24,8 @@ var pixiRenderer = new PIXI.WebGLRenderer({
 ## Add Pixi.js Sprites to Stage
 
 ```javascript
-var stage = new PIXI.Container();
-var sprite = PIXI.Sprite.from("https://i.imgur.com/1yLS2b8.jpg");
+const stage = new PIXI.Container();
+const sprite = PIXI.Sprite.from("https://i.imgur.com/1yLS2b8.jpg");
 sprite.anchor.set(0.5);
 sprite.position.set(canvas.width / 2, canvas.height / 2);
 stage.addChild(sprite);

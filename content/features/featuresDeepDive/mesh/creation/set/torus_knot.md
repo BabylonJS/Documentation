@@ -38,7 +38,6 @@ Breaking the rules - using high non integer P and q: <Playground id="#SVU8U9#4" 
 
 ## Mesh
 ```javascript
-const knot = BABYLON.Mesh.CreateTorusKnot("knot", radius, tube, radialSegments, tubularSegments, p, q, scene);
-const knot = BABYLON.Mesh.CreateTorusKnot("knot", radius, tube, radialSegments, tubularSegments, p, q, scene, updatable, sideOrientation); //optional parameters after scene
+const knot = BABYLON.MeshBuilder.CreateTorusKnot("knot", {radius, tube, radialSegments, tubularSegments, p, q}, scene);
 ```
 

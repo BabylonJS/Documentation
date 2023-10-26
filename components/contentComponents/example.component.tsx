@@ -1,15 +1,16 @@
-import { makeStyles, createStyles, Theme, Toolbar, Typography, IconButton, Tooltip } from "@material-ui/core";
+import { Theme, Toolbar, Typography, IconButton, Tooltip } from "@mui/material";
 import { FunctionComponent, useContext } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 import { colorPalette } from "../../styles/theme";
 
-import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
-import LinkIcon from "@material-ui/icons/Link";
-import { Link as MaterialLink } from "@material-ui/core";
+import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
+import LinkIcon from "@mui/icons-material/Link";
+import { Link as MaterialLink } from "@mui/material";
 import Link from "next/link";
 import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
+import { createStyles, makeStyles } from "@mui/styles";
 
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -104,14 +105,12 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     </IconButton>
                 </a>
                 <span title={title}>{title}</span>
-                <Link href={link}>
-                    <a target="_blank">
-                        <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
-                            <Tooltip title={`Open ${type} ${title} in a new tab`}>
-                                <ExternalLinkIcon></ExternalLinkIcon>
-                            </Tooltip>
-                        </IconButton>
-                    </a>
+                <Link href={link} target={"_blank"}>
+                    <IconButton aria-label={`Open ${type} ${title} in a new tab`} size="small" color="inherit">
+                        <Tooltip title={`Open ${type} ${title} in a new tab`}>
+                            <ExternalLinkIcon></ExternalLinkIcon>
+                        </Tooltip>
+                    </IconButton>
                 </Link>
             </div>
             <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
@@ -125,7 +124,7 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     src={image || imageUrl || getExampleImageUrl(example)}
                     title={title}
                     alt={title}
-                    layout="fill"
+                    fill={true}
                 ></Image>
             </div>
             <div className={classes.footer}>

@@ -27,7 +27,7 @@ The pseudo-code for `setParticles` is
 ```javascript
 function setParticles() {
     beforeUpdateParticles();
-    for (var p = 0; p < nbParticles; p++) {
+    for (let p = 0; p < nbParticles; p++) {
         updateParticles(particles[p]);
     }
     afterUpdateParticles();

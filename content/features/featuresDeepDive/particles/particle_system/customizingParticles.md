@@ -29,12 +29,12 @@ Since Babylon.js V3.2 you can use the first two, `startDirectionFunction` and `s
 The start direction function has the default form
 
 ```javascript
-particleSystem.startDirectionFunction = (emitPower: number, worldMatrix: Matrix, directionToUpdate: Vector3, particle: Particle, isLocal: boolean) {
+particleSystem.startDirectionFunction = (worldMatrix: Matrix, directionToUpdate: Vector3, particle: Particle, isLocal: boolean) {
     var randX = randomNumber(this.direction1.x, this.direction2.x);
     var randY = randomNumber(this.direction1.y, this.direction2.y);
     var randZ = randomNumber(this.direction1.z, this.direction2.z);
 
-    Vector3.TransformNormalFromFloatsToRef(randX * emitPower, randY * emitPower, randZ * emitPower, worldMatrix, directionToUpdate);
+    Vector3.TransformNormalFromFloatsToRef(randX, randY, randZ, worldMatrix, directionToUpdate);
 }
 ```
 
@@ -54,7 +54,7 @@ The update function has the default form
 
 ```javascript
 updateFunction = function (particles) {
-  for (var index = 0; index < particles.length; index++) {
+  for (let index = 0; index < particles.length; index++) {
     var particle = particles[index];
     particle.age += this._scaledUpdateSpeed;
 

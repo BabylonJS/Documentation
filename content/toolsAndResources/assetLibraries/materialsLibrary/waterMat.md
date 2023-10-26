@@ -14,6 +14,8 @@ video-content:
 
 Water material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.waterMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.waterMaterial.js)
 
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
 A demo can be found here: PG: <Playground id="#1SLLOJ#20" title="Water Material" description="Example of water material"/>
 
 # Water material by demo
@@ -27,7 +29,7 @@ The water material needs at least only a bump texture to render properly.
 Just create a new reference of the material and assign its bump texture:
 
 ```javascript
-var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
 
 var waterMaterial = new BABYLON.WaterMaterial("water_material", scene);
 waterMaterial.bumpTexture = new BABYLON.Texture("bump.png", scene); // Set the bump texture

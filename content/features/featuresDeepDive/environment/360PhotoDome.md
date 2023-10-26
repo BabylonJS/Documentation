@@ -74,7 +74,7 @@ Examples:
 You can combine 360 Photo with WebVR. Just add the following code.
 
 ```javascript
- var vrHelper = scene.createDefaultVRExperience();
+ vrHelper = scene.createDefaultVRExperience();
 ```
 It will also create an enterVR button at the bottom right of the screen which will start rendering to the HMD on click.
 

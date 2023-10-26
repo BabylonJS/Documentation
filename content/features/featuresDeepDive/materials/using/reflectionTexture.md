@@ -35,7 +35,7 @@ Despite the "Texture" name, CubeTexture can _only_ be used with the [.reflection
 
 This classic cloudy skybox helps demonstrate skybox reflection:
 
-|+x (right)|-x (left)|-y (up)|-y (down)|+z (back)|-z (front)|
+|+x (right)|-x (left)|+y (up)|-y (down)|+z (back)|-z (front)|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="/img/getstarted/skybox_px.jpg" width="100" height="100" alt="Some clouds"/>|<img src="/img/getstarted/skybox_nx.jpg" width="100" height="100" alt="More clouds"/>|<img src="/img/getstarted/skybox_py.jpg" width="100" height="100" alt="The sun overhead"/>|<img src="/img/getstarted/skybox_ny.jpg" width="100" height="100" alt="Solid gray"/>|<img src="/img/getstarted/skybox_pz.jpg" width="100" height="100" alt="More clouds"/>|<img src="/img/getstarted/skybox_nz.jpg" width="100" height="100" alt="More clouds"/>|
 <br/>
@@ -59,7 +59,7 @@ As an alterative, cubemaps can be treated as axis-aligned boxes of specific size
 
 (Local cubemaps must use the default CUBIC\_MODE [coordinate mode](#coordinate-modes).)
 
-An axis-aligned box is still an approximation of true reflected/refracted scene geometry, but it may be a useful approximation. See "[Reflections Based on Local Cubemaps](https://community.arm.com/graphics/b/blog/posts/reflections-based-on-local-cubemaps-in-unity)" (from the ARM Developer's Graphics and Gaming Blog) for a good write-up of the concept as used in Unity (Babylon.js's implementation is similar).
+An axis-aligned box is still an approximation of true reflected/refracted scene geometry, but it may be a useful approximation. See "[Reflections Based on Local Cubemaps](https://developer.arm.com/documentation/102179/0100/Implement-reflections-with-a-local-cubemap)" (from the ARM Developer's Graphics and Gaming Blog) for a good write-up of the concept as used in Unity (Babylon.js's implementation is similar).
 
 ### EquiRectangularCubeTexture
 Equirectangular panoramic images ([panotools wiki](https://wiki.panotools.org/Equirectangular_Projection)) squish a spherical panorama into one image (unlike the six sides needed for ordinary CubeTexture) using equirectangular projection ([wikipedia](https://en.wikipedia.org/wiki/Equirectangular_projection)).
@@ -169,7 +169,7 @@ See the source ([reflectionFunction.fx](https://github.com/BabylonJS/Babylon.js/
 
 ### Examples with a test pattern cubemap
 
-|+x (right)|-x (left)|-y (up)|-y (down)|+z (back)|-z (front)|
+|+x (right)|-x (left)|+y (up)|-y (down)|+z (back)|-z (front)|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="/img/how_to/Materials/testcube_px.png" width="100" height="100" alt="RGT test pattern"/>|<img src="/img/how_to/Materials/testcube_nx.png" width="100" height="100" alt="LFT test pattern"/>|<img src="/img/how_to/Materials/testcube_py.png" width="100" height="100" alt="TOP test pattern"/>|<img src="/img/how_to/Materials/testcube_ny.png" width="100" height="100" alt="BOT test pattern"/>|<img src="/img/how_to/Materials/testcube_pz.png" width="100" height="100" alt="BCK test pattern"/>|<img src="/img/how_to/Materials/testcube_nz.png" width="100" height="100" alt="FRT test pattern"/>|
 <br/>

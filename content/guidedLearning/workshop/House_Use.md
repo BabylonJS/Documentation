@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [cdn](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [npm package](https://github.com/mapbox/earcut#install)**
+**Please note that some functions used in this project uses Earcut, so, in non playground projects, you will have to add a reference to their [CDN](https://unpkg.com/earcut@2.1.1/dist/earcut.min.js) or download their [NPM package](https://github.com/mapbox/earcut#install)**
 
 The walls, doors and windows of a house can be built using the function 
 
@@ -111,7 +111,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
             outerBaseCorners[1] = walls[1].corner.add(lineNormal.scale(ply));
         }
         else if(nbWalls > 2) { 
-            for(var w = 0; w < nbWalls - 1; w++) {
+            for(let w = 0; w < nbWalls - 1; w++) {
                 walls[w + 1].corner.subtractToRef(walls[w].corner, nextLine);
                 angle = Math.PI - Math.acos(BABYLON.Vector3.Dot(line, nextLine)/(line.length() * nextLine.length()));			
 		    direction = BABYLON.Vector3.Cross(nextLine, line).normalize().y;			
@@ -147,7 +147,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
         }
 
 	// inner and outer top corners
-	for(var w = 0; w < nbWalls; w++) {
+	for(let w = 0; w < nbWalls; w++) {
 		innerTopCorners.push(new BABYLON.Vector3(innerBaseCorners[w].x, height, innerBaseCorners[w].z));
 		outerTopCorners.push(new BABYLON.Vector3(outerBaseCorners[w].x, height, outerBaseCorners[w].z));
 	}
@@ -174,7 +174,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 	var uvx, uvy;
 	var wallDiff;
 	
-	for(var w = 0; w < nbWalls - 1; w++) {
+	for(let w = 0; w < nbWalls - 1; w++) {
 		walls[w + 1].corner.subtractToRef(walls[w].corner, wallDirection);
 		wallLength = wallDirection.length();
 		wallDirection.normalize();
@@ -194,7 +194,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 		polygonCorners = [];
 		polygonCorners.push(new BABYLON.Vector2(0, 0));
 		
-		for (var d = 0; d < doors; d++) {			
+		for (let d = 0; d < doors; d++) {			
 			polygonCorners.push(new BABYLON.Vector2(walls[w].doorSpaces[d].left, 0));
 			polygonCorners.push(new BABYLON.Vector2(walls[w].doorSpaces[d].left, walls[w].doorSpaces[d].door.height));
 			polygonCorners.push(new BABYLON.Vector2(walls[w].doorSpaces[d].left + walls[w].doorSpaces[d].door.width, walls[w].doorSpaces[d].door.height));
@@ -212,7 +212,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 		//Construct holes and add to polygon from window data			
 		var windows = walls[w].windowSpaces.length;
 		var holes = [];
-		for(var ws = 0; ws < windows; ws++) { 
+		for(let ws = 0; ws < windows; ws++) { 
 			var holeData = [];
 			holeData.push(new BABYLON.Vector2(walls[w].windowSpaces[ws].left, height - walls[w].windowSpaces[ws].top - walls[w].windowSpaces[ws].window.height));
 			holeData.push(new BABYLON.Vector2(walls[w].windowSpaces[ws].left + walls[w].windowSpaces[ws].window.width, height - walls[w].windowSpaces[ws].top - walls[w].windowSpaces[ws].window.height));
@@ -221,7 +221,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 			holes.push(holeData);				
 		}
 		
-		for(var h = 0; h < holes.length; h++) {
+		for(let h = 0; h < holes.length; h++) {
 			polygonTriangulation.addHole(holes[h]);
 		}
 		
@@ -257,10 +257,10 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 		//Extend door data outwards by ply and save outer door corners 		
 		var doorCornersIn = [];
 		var doorCornersOut = [];
-		for(var p = 0; p < doorData.length/12; p++) {
+		for(let p = 0; p < doorData.length/12; p++) {
 			var doorsIn = [];
 			var doorsOut = [];
-			for(var d = 0; d < 4; d ++) {
+			for(let d = 0; d < 4; d ++) {
 				doorsIn.push(new BABYLON.Vector3(doorData[3 * d + 12 * p], doorData[3 * d  + 12 * p + 1], doorData[3 * d + 12 * p + 2]));
 				doorData[3 * d + 12 * p] += ply * wallNormal.x;
 				doorData[3 * d + 12 * p + 2] += ply * wallNormal.z;
@@ -276,10 +276,10 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 		//Extend window data outwards by ply and save outer window corners 		
 		var windowCornersIn = [];
 		var windowCornersOut = [];
-		for(var p = 0; p < windowData.length/12; p++) {
+		for(let p = 0; p < windowData.length/12; p++) {
 			var windowsIn = [];
 			var windowsOut = [];
-			for(var d = 0; d < 4; d ++) {
+			for(let d = 0; d < 4; d ++) {
 				windowsIn.push(new BABYLON.Vector3(windowData[3 * d + 12 * p], windowData[3 * d  + 12 * p + 1], windowData[3 * d + 12 * p + 2]));
 				windowData[3 * d + 12 * p] += ply * wallNormal.x;
 				windowData[3 * d + 12 * p + 2] += ply * wallNormal.z;
@@ -578,7 +578,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 	
 		indices.push(nbIndices + 1, nbIndices, nbIndices + 3, nbIndices + 2, nbIndices + 3, nbIndices); 
 		
-		for(var p = interiorIndex; p < positions.length/3; p++) {
+		for(let p = interiorIndex; p < positions.length/3; p++) {
 			colors.push(exteriorColor.r, exteriorColor.g, exteriorColor.b, exteriorColor.a);
 		}
 
@@ -611,7 +611,7 @@ var buildFromPlan = function(walls, ply, height, options, scene) {
 
                 indices.push(nbIndices + 1, nbIndices, nbIndices + 2, nbIndices + 2, nbIndices, nbIndices + 3);
 			    
-                for(var p = 0; p < 8; p++) {
+                for(let p = 0; p < 8; p++) {
 				    colors.push(exteriorColor.r, exteriorColor.g, exteriorColor.b, exteriorColor.a);
 			    }
             }
@@ -670,7 +670,7 @@ BABYLON.PolygonMeshBuilder.prototype.wallBuilder = function (w0, w1) {
 	});
 	var indices = [];		
 	var res = earcut(this._epoints, this._eholes, 2);
-	for (var i = res.length; i > 0; i--) {
+	for (let i = res.length; i > 0; i--) {
 		indices.push(res[i - 1]);
 	};			
 	return {positions: positions, indices: indices};

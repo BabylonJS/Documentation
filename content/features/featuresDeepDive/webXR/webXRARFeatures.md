@@ -22,13 +22,13 @@ Augmented reality using Babylon.js heavily relies on WebXR. It's recommended to 
 
 ### Supported devices
 
-Immersive AR sessions are (currently) supported on two types of devices - mobile phones and Firefox reality on the HoloLens.
+Many devices support immersive AR sessions using WebXR. Most Android devices support it using a chromium-based browser, The hololens 2 supports it in its native browser, and quest devices supporting passthrough mode will run an AR session as well. New devices are constantly added to this list. The best way to check is it to use the static `IsSessionSupported` function, available on the WebXR session manager.
 
 Mobile phones using Android support immersive AR sessions on Chrome (Stable/Canary). Note that you will need to install [AR Core](https://play.google.com/store/apps/details?id=com.google.ar.core), otherwise it will be a very short experience.
 
-HoloLens 2 supports WebXR and immersive AR sessions when using [Firefox Reality for HoloLens](https://www.microsoft.com/en-ca/p/firefox-reality/9npq78m7nb0r).
+HoloLens 2 supports WebXR and immersive AR/VR sessions when using the native Edge browser.
 
-To check your scene on a desktop you can use the WebXR emulator, which supports a set of features of AR and lets you enter an immersive AR session when choosing the mobile mode.
+The new WebXR emulator supports AR sessions as well, if you want to test your experience on a local browser before trying it on a supporting device.
 
 ### Simple scene in immersive AR
 
@@ -42,7 +42,7 @@ var createScene = async function () {
   camera.attachControl(canvas, true);
   var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
   light.intensity = 0.7;
-  var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+  var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
   sphere.position.y = 2;
   sphere.position.z = 5;
 
@@ -545,6 +545,98 @@ const lightEstimationFeature = featuresManager.enableFeature(BABYLON.WebXRFeatur
 ```
 
 This will update both the light data itself and the environment cube map every second (instead of every time notifies us that the data has changed).
+
+### Depth Sensing
+
+Depth Sensing can be used for obtaining depth information of cameras. If your device has capabilities such as depth estimation, you can access depth buffer via this feature. For more information, please check the [explaner for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
+
+Enable the Depth Sensing:
+
+```javascript
+// featuresManager from the base webxr experience helper
+const depthSensing = featureManager.enableFeature(
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
+  "latest",
+  {
+    dataFormatPreference: ["ushort", "float"],
+    usagePreference: ["cpu", "gpu"],
+  },
+);
+```
+
+or for TypeScript:
+
+```typescript
+// featuresManager from the base webxr experience helper
+const depthSensing = featureManager.enableFeature(
+  BABYLON.WebXRFeatureName.DEPTH_SENSING,
+  "latest",
+  {
+    dataFormatPreference: ["ushort", "float"],
+    usagePreference: ["cpu", "gpu"],
+  } as BABYLON.IWebXRDepthSensingOptions,
+) as BABYLON.WebXRDepthSensing;
+```
+
+When you enable depth sensing featrure, you have to pass options.
+Options is typed with `IWebXRDepthSensingOptions`.
+
+```typescript
+export type WebXRDepthUsage = "cpu" | "gpu";
+export type WebXRDepthDataFormat = "ushort" | "float";
+
+/**
+ * Options for Depth Sensing feature
+ */
+export interface IWebXRDepthSensingOptions {
+  /**
+   *  The desired depth sensing usage for the session
+   */
+  usagePreference: WebXRDepthUsage[];
+  /**
+   * The desired depth sensing data format for the session
+   */
+  dataFormatPreference: WebXRDepthDataFormat[];
+}
+```
+
+The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will selected.
+Some information can be accessed only cpu mode (gpu is also same).
+
+The data format is currently "ushort" or "float". It describes a data format for buffers and textures.
+Same as depth usage, you can specify when you initialize the feature.
+
+With this feature, you can access some information like below.
+
+```typescript
+sessionManager.onXRFrameObservable.add(() => {
+  const {
+    depthUsage,                  // "cpu" or "gpu"
+    depthDataFormat,             // "ushort" or "float"
+
+    width,                       // depth image width
+    height,                      // depth image height
+
+    rawValueToMeters,            // operator of obtain depth value in meters
+
+    normDepthBufferFromNormView, // An XRRigidTransform
+
+    latestDepthImageTexture,     // RawTexture for depth image
+    latestDepthBuffer,           // depth value array (cpu only)
+    latestInternalTexture,       // InternalTexture of depth image (gpu only)
+  } = depthSensing;
+
+  // apply depth texture to a material
+  material.diffuseTexture = latestDepthImageTexture;
+});
+
+// observe `getDepthInMeters` is available
+depthSensing.onGetDepthInMetersAvailable.add((getDepthInMeters) => {
+  // depth value of center point of the screen
+  const meters = getDepthInMeters(0.5, 0.5);
+  console.log(meters);
+});
+```
 
 ## Demos
 

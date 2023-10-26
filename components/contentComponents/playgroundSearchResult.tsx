@@ -1,15 +1,16 @@
-import { createStyles, makeStyles, Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip } from "@material-ui/core";
+import { Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip } from "@mui/material";
 import { FunctionComponent, useEffect, useState } from "react";
 
-import CodeIcon from "@material-ui/icons/Code";
-import ExternalLinkIcon from "@material-ui/icons/OpenInNew";
-import LinkIcon from "@material-ui/icons/Link";
+import CodeIcon from "@mui/icons-material/Code";
+import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
+import LinkIcon from "@mui/icons-material/Link";
 
 import Highlight, { defaultProps } from "prism-react-renderer";
 import vsDark from "prism-react-renderer/themes/vsDark";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
+import { createStyles, makeStyles } from "@mui/styles";
 
 export type SearchType = "code" | "name" | "tags";
 
@@ -154,9 +155,7 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                             {Array.from(tags).map((chip: string) => {
                                 return (
                                     <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
-                                        <a>
-                                            <Chip size="small" color="primary" label={chip} />
-                                        </a>
+                                        <Chip size="small" color="primary" label={chip} />
                                     </Link>
                                 );
                             })}
@@ -189,12 +188,10 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         size="small"
                         color="inherit"
                     >
-                        <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-                            <a target="_blank">
-                                <Tooltip title={`Open ${searchResult.id} in a new tab`}>
-                                    <ExternalLinkIcon></ExternalLinkIcon>
-                                </Tooltip>
-                            </a>
+                        <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`} target="_blank">
+                            <Tooltip title={`Open ${searchResult.id} in a new tab`}>
+                                <ExternalLinkIcon></ExternalLinkIcon>
+                            </Tooltip>
                         </Link>
                     </IconButton>
                 </Typography>

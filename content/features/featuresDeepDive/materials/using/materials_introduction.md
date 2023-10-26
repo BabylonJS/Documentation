@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-Materials allow you to cover your meshes in color and texture. How a material appears depends on the light or lights used in the scene and how it is set to react .
+Materials allow you to cover your meshes in color and texture. How a material appears depends on the light or lights used in the scene and how it is set to react.
 
 ## Reactions to light
 
@@ -31,14 +31,14 @@ scene.ambientColor = new BABYLON.Color3(1, 1, 1);
 Create a material using
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
 Set the material color using one, some or all of _diffuseColor_, _specularColor_, _emissiveColor_ and _ambientColor_. Remember that _ambientColor_
 will only apply if the scene ambient color has been set.
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 
 myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
 myMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
@@ -56,10 +56,10 @@ To give an idea on how the material diffuse color reacts to the diffuse light co
 
 This reaction of
 
--   Yellow Material
--   Purple Material
--   Cyan Material
--   White Material
+- Yellow Material
+- Purple Material
+- Cyan Material
+- White Material
 
 to white, red, green and blue diffuse spot lights can also be seen in the following image.
 
@@ -92,14 +92,14 @@ Textures are formed using a saved image.
 Create a material using
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 ```
 
 Set the material texture using one, some or all of _diffuseTexture_, _specularTexture_, _emissiveTexture_ and _ambientTexture_.
 Notice that _ambientTexture_ is applied without the scene ambient color having been set.
 
 ```javascript
-var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
 
 myMaterial.diffuseTexture = new BABYLON.Texture("PATH TO IMAGE", scene);
 myMaterial.specularTexture = new BABYLON.Texture("PATH TO IMAGE", scene);
@@ -146,18 +146,18 @@ For the back faces of the cube to be visible through the transparent areas of th
 
 ## Texture Packer
 
-Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures.The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
+Some complex scenes will require a large amount of textures for just one material. In this case it can be convenient to package the textures. The advantage of using the texture packer has to be weighed against limitations such as fixed size scaling.
 
 [More on creating a texture package](/features/featuresDeepDive/materials/advanced/texturePackage)
 
 ## Back-Face Culling
 
 This is a method for efficiently drawing the 2D rendering of the 3D model. Usually there is no need to draw the back face of a cube, or other object,
-as it will be hidden by the front face. InBabylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
+as it will be hidden by the front face. In Babylon.js the default setting is, as you might expect, set to true. In most cases, this is helpful in maintaining the highest possible performance.
 
 Looking at the images below, when the material property _backFaceCulling_ is true you can see that the transparent areas around the
 dog are still transparent, you can see the background through them. However, you cannot see the images on the back faces as they have been culled (or removed).
-When _backFaceCulling_ is false the back faces are not removed during rendering so they can be seen through the transparent areas of the front faces.
+When _backFaceCulling_ is false the back faces are not removed during rendering, so they can be seen through the transparent areas of the front faces.
 
 | Back Face Culling True                      | Back Face Culling False                      |
 | ------------------------------------------- | -------------------------------------------- |

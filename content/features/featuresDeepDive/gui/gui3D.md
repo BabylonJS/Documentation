@@ -1,17 +1,17 @@
 ---
 title: Babylon 3D GUI
-image: 
+image:
 description: Learn all about the Babylon.js 3D GUI System.
 keywords: diving deeper, GUI, 3D GUI, 3D
 further-reading:
-    - title: How To Use Babylon GUI
-      url: /features/featuresDeepDive/gui/gui
-    - title: How To Use Babylon GUI Scroll Viewer
-      url: /features/featuresDeepDive/gui/scrollViewer
-    - title: How To Use Babylon GUI Xml Loader
-      url: /features/featuresDeepDive/gui/xmlLoader
-    - title: How To Use the Selection Panel Helper
-      url: /features/featuresDeepDive/gui/selector
+  - title: How To Use Babylon GUI
+    url: /features/featuresDeepDive/gui/gui
+  - title: How To Use Babylon GUI Scroll Viewer
+    url: /features/featuresDeepDive/gui/scrollViewer
+  - title: How To Use Babylon GUI Xml Loader
+    url: /features/featuresDeepDive/gui/xmlLoader
+  - title: How To Use the Selection Panel Helper
+    url: /features/featuresDeepDive/gui/selector
 video-overview:
 video-content:
 ---
@@ -20,7 +20,9 @@ video-content:
 
 The Babylon.js 3D GUI library is an extension you can use to generate 3D interactive user interface.
 
-The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js .
+The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js.
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 And the source code is available on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
 
@@ -33,7 +35,7 @@ Babylon.GUI uses meshes to create an interactive user interface, which is fully 
 To begin with 3D GUI, you need to instantiate a `GUI3DManager` which will be responsible for connecting all the controls together:
 
 ```javascript
-var manager = new BABYLON.GUI.GUI3DManager(scene);
+const manager = new BABYLON.GUI.GUI3DManager(scene);
 ```
 
 The manager only requires the scene to work on. Once instantiated, the manager will create a utility layer which is a specific child scene that will host all the meshes used to render the controls. This way, your main scene won't get populated by the utility meshes.
@@ -47,7 +49,7 @@ Please also note that the following functions are available:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list.
 - `removeControl()`: Removes a control from the root child list.
 
-The manager also supports a scaling option, `manager.useRealisticScaling`, that scales all added controls to a size more comfortable for XR interactions. Alternatively, a custom scaling can be applied to all controls by setting the value of `manager.controlScaling`. Scaling effects done in these ways can be overridden by updating the control's scale normally. Setting either of these values will apply the change to all existing and future controls the manager owns. 
+The manager also supports a scaling option, `manager.useRealisticScaling`, that scales all added controls to a size more comfortable for XR interactions. Alternatively, a custom scaling can be applied to all controls by setting the value of `manager.controlScaling`. Scaling effects done in these ways can be overridden by updating the control's scale normally. Setting either of these values will apply the change to all existing and future controls the manager owns.
 
 ## Containers
 
@@ -59,12 +61,12 @@ All containers provide the following functions to handle controls:
 - `containsControl()`: Gets a boolean indicating if the given control is in the root child list
 - `removeControl()`: Removes a control from the root child list
 
-By default, all containers will update their layout everytime you add a new control to it. But you can optimize this behavior if you plan to add multiple controls in a row with `container.blockLayout = true`:
+By default, all containers will update their layout every time you add a new control to it. But you can optimize this behavior if you plan to add multiple controls in a row with `container.blockLayout = true`:
 
 ```javascript
 panel.blockLayout = true;
-for (var index = 0; index < 30; index++) {
-  var button = new BABYLON.GUI.Button3D("click me");
+for (let index = 0; index < 30; index++) {
+  const button = new BABYLON.GUI.Button3D("click me");
   panel.addControl(button);
 }
 panel.blockLayout = false;
@@ -74,14 +76,14 @@ The `Container3D` class will do nothing regarding layout of its controls. You ne
 
 All specialized containers must implement the following function to provide layout mechanism:
 
-- `_arrangeChildren()`: This function will be called everytime a new control is added. This is where children class can decide how to organize controls
+- `_arrangeChildren()`: This function will be called every time a new control is added. This is where children class can decide how to organize controls
 
 ### StackPanel
 
 The `StackPanel` container can be used to stack items either horizontally or vertically:
 
 ```javascript
-var panel = new BABYLON.GUI.StackPanel3D();
+const panel = new BABYLON.GUI.StackPanel3D();
 panel.isVertical = true;
 ```
 
@@ -128,7 +130,7 @@ You can also control how each cell is oriented:
 The `SpherePanel` container can be used to dispatch items on the surface of a sphere:
 
 ```javascript
-var panel = new BABYLON.GUI.SpherePanel();
+const panel = new BABYLON.GUI.SpherePanel();
 panel.radius = 5;
 ```
 
@@ -143,7 +145,7 @@ See it in action here: <Playground id="#HB4C01#9" title="3D GUI SpherePanel" des
 The `CylinderPanel` container can be used to dispatch item on the surface of a cylinder:
 
 ```javascript
-var panel = new BABYLON.GUI.CylinderPanel();
+const panel = new BABYLON.GUI.CylinderPanel();
 panel.radius = 5;
 ```
 
@@ -158,7 +160,7 @@ See it in action here: <Playground id="#HB4C01#8" title="3D GUI CylinderPanel" d
 The `PlanePanel` container can be used to dispatch item on the surface of a plane:
 
 ```javascript
-var panel = new BABYLON.GUI.PlanePanel();
+const panel = new BABYLON.GUI.PlanePanel();
 ```
 
 See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" description="Simple example showing how to add a 3D GUI PlanePanel to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylon3DGUI4.jpg"/>
@@ -170,7 +172,7 @@ See it in action here: <Playground id="#HB4C01#7" title="3D GUI PlanePanel" desc
 The `ScatterPanel` container can be used to dispatch items using a randomized planar mapping:
 
 ```javascript
-var panel = new BABYLON.GUI.ScatterPanel();
+const panel = new BABYLON.GUI.ScatterPanel();
 panel.iterations = 100;
 ```
 
@@ -191,7 +193,7 @@ All controls inherit from the `Control3D` class which provides a set of basic fe
 - `node`: Gets the transform node used by this control
 - `mesh`: Gets the mesh used to render this control
 
-You can attach a control to a mesh or tranform node from your scene with:
+You can attach a control to a mesh or transform node from your scene with:
 
 ```javascript
 control.linkToTransformNode(anchor);
@@ -216,7 +218,7 @@ All controls can also be the target of [behaviors](/features/featuresDeepDive/be
 - `removeBehavior()`: Remove an attached behavior
 - `getBehaviorByName()`: Gets an attached behavior by name
 
-All controls can also define a callback when specific event is happening. These callbacks will be called to let the user defines an animation for the control. Here is the list of available callbakcs:
+All controls can also define a callback when specific event is happening. These callbacks will be called to let the user defines an animation for the control. Here is the list of available callbacks:
 
 - `pointerEnterAnimation`: Callback used to start pointer enter animation
 - `pointerOutAnimation`: Callback used to start pointer out animation
@@ -235,9 +237,9 @@ It is based on a 2D GUI content.
 You can specify the content through the `content` property and set it to any regular [2D GUI content](/features/featuresDeepDive/gui):
 
 ```javascript
-var button = new BABYLON.GUI.Button3D("reset");
+const button = new BABYLON.GUI.Button3D("reset");
 
-var text = new BABYLON.GUI.TextBlock();
+const text = new BABYLON.GUI.TextBlock();
 text.text = "reset";
 text.color = "white";
 text.fontSize = 24;
@@ -257,7 +259,7 @@ See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control
 This class is used to to create an interactable object which will use a mesh coming from the current scene to render.
 
 ```javascript
-var pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");
+const pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");
 ```
 
 Once created, you can use the new MeshButton3D to add animations:
@@ -289,11 +291,11 @@ See it in action here: <Playground id="#2YZFA0#2" title="3D GUI HolographicButto
 Please note that you can overwrite the default content but you need to do it after the call to addControl:
 
 ```javascript
-var button = new BABYLON.GUI.HolographicButton("reset");
+const button = new BABYLON.GUI.HolographicButton("reset");
 panel.addControl(button);
 
 // Must be done AFTER addControl in order to overwrite the default content
-var text1 = new BABYLON.GUI.TextBlock();
+const text1 = new BABYLON.GUI.TextBlock();
 text1.text = "Reset";
 text1.color = "Red";
 text1.fontSize = 48;
@@ -306,11 +308,11 @@ The `TouchHolographicButton` is a newer version `HolographicButton` that is more
 It has the same use as `HolographicButton`:
 
 ```javascript
-var button = new BABYLON.GUI.TouchHolographicButton("reset");
+const button = new BABYLON.GUI.TouchHolographicButton("reset");
 panel.addControl(button);
 
 // Must be done AFTER addControl in order to overwrite the default content
-var text1 = new BABYLON.GUI.TextBlock();
+const text1 = new BABYLON.GUI.TextBlock();
 text1.text = "Reset";
 text1.color = "Red";
 text1.fontSize = 48;
@@ -329,10 +331,10 @@ The dimensions can be manually set at any time, but are also updated when the us
 
 ```javascript
 // Create the 3D UI manager
-var manager = new BABYLON.GUI.GUI3DManager(scene);
+const manager = new BABYLON.GUI.GUI3DManager(scene);
 
 // Let's add a slate
-var slate = new BABYLON.GUI.HolographicSlate("down");
+const slate = new BABYLON.GUI.HolographicSlate("down");
 slate.title = "Checkers";
 slate.minDimensions = new BABYLON.Vector(5, 5);
 slate.dimensions = new BABYLON.Vector2(10, 10);
@@ -352,33 +354,33 @@ The slate natively provides 2 `TouchHolographicButton` on the top right, the lef
 
 The `NearMenu` is a small control that displays buttons close to the user. By default, it follows the user with [FollowBehavior](/features/featuresDeepDive/behaviors/meshBehaviors#followbehavior). It can be pinned in the world either by using the pin button, or whenever the user drags the backplate.
 
-Below, an exemple of a horizontal 3-button near menu.
+Below, an example of a horizontal 3-button near menu.
 
 ```javascript
 // Create the 3D UI manager
-var manager = new BABYLON.GUI.GUI3DManager(scene);
+const manager = new BABYLON.GUI.GUI3DManager(scene);
 
 // Let's add a slate
-var near = new BABYLON.GUI.NearMenu("near");
+const near = new BABYLON.GUI.NearMenu("near");
 manager.addControl(near);
 
-var button0 = new BABYLON.GUI.TouchHolographicButton("button0");
+const button0 = new BABYLON.GUI.TouchHolographicButton("button0");
 button0.imageUrl = "./textures/IconFollowMe.png";
 button0.text = "Button 0";
 near.addButton(button0);
 
-var button1 = new BABYLON.GUI.TouchHolographicButton("button1");
+const button1 = new BABYLON.GUI.TouchHolographicButton("button1");
 button1.imageUrl = "./textures/IconClose.png";
 button1.text = "Button 1";
 near.addButton(button1);
 
-var button2 = new BABYLON.GUI.TouchHolographicButton("button2");
+const button2 = new BABYLON.GUI.TouchHolographicButton("button2");
 button2.imageUrl = "./textures/IconFollowMe.png";
 button2.text = "Button 2";
 near.addButton(button2);
 ```
 
-As `NearMenu` is a child class of `VolumeBasedPanel`, the direction of the layout can be changed by tweaking the parameters `rows` and `columns`.  
+As `NearMenu` is a child class of `VolumeBasedPanel`, the direction of the layout can be changed by tweaking the parameters `rows` and `columns`.
 
 For example, to make a near menu with `n` buttons vertical, use :
 

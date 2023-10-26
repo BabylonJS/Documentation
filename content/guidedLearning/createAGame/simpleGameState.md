@@ -30,7 +30,7 @@ export class Environment {
     }
 
     public async load() {
-        var ground = Mesh.CreateBox("ground", 24, this._scene);
+        var ground = MeshBuilder.CreateBox("ground", { size: 24 }, this._scene);
         ground.scaling = new Vector3(1,.02,1);
     }
 }
@@ -162,7 +162,7 @@ At the end of \_loadCharacterAssets,
 
 ```javascript
 return loadCharacter().then((assets) => {
-    this.assets = assets;
+  this.assets = assets;
 });
 ```
 
@@ -207,19 +207,19 @@ await scene.whenReadyAsync();
 scene.getMeshByName("outer").position = new Vector3(0, 3, 0);
 ```
 
-Now you when you go to the game state, you'll have a player mesh and a ground!
+Now when you go to the game state, you'll have a player mesh and a ground!
 ![player mesh and ground](/img/how_to/create-a-game/simplegamestate.png)
 
 ## Resources
 
 **Files Used:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/src/characterController.ts)
 
 **Follow Along:**
 
--   [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/app.ts)
--   [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/environment.ts)
--   [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/characterController.ts)
+- [app.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/app.ts)
+- [environment.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/environment.ts)
+- [characterController.ts](https://github.com/BabylonJS/SummerFestival/blob/master/tutorial/simpleGameState/characterController.ts)

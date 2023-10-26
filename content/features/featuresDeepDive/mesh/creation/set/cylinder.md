@@ -52,6 +52,5 @@ Cylinder with faceUVs <Playground id="#QANVC6#4" title="Create a Cylinder With F
 ## Mesh
 Usage :
 ```javascript
-const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene);
-const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", height, diameterTop, diameterBottom, tessellation, subdivisions, scene, updatable, sideOrientation); //optional parameters after scene
+const cylinder = BABYLON.MeshBuilder.CreateCylinder("cylinder", {height, diameterTop, diameterBottom, tessellation, subdivisions}, scene);
 ```

@@ -15,12 +15,14 @@ You can get the gradient material:
 * Using npm with npm install --save babylonjs babylonjs-materials
 * With a direct reference to: https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js
 
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+
 ## Using the gradient material
 
 The material creates a smooth gradient with two colors:
 
 ```
-var sphere = BABYLON.Mesh.CreateSphere("sphere", 32, 2, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { segments: 32, diameter: 2 }, scene);
 
 var gradientMaterial = new BABYLON.GradientMaterial("grad", scene);
 gradientMaterial.topColor = BABYLON.Color3.Red(); // Set the gradient top color

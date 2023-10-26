@@ -1,6 +1,6 @@
 ---
 title: Asset Manager
-image: 
+image:
 description: Learn the wonderful world of the Babylon.js asset manager.
 keywords: diving deeper, import, importing assets, asset, importing, asset manager
 further-reading:
@@ -23,118 +23,140 @@ This class can be used to import meshes into a scene or load text and binary fil
 To use it, you just have to instantiate it with a current scene:
 
 ```javascript
-var assetsManager = new BABYLON.AssetsManager(scene);
+const assetsManager = new BABYLON.AssetsManager(scene);
 ```
 
 Then you can add tasks to the manager:
 
 ```javascript
-var meshTask = assetsManager.addMeshTask("skull task", "", "scenes/", "skull.babylon");
+const meshTask = assetsManager.addMeshTask("skull task", "", "scenes/", "skull.babylon");
 ```
 
-Each task provides an ```onSuccess``` and an ```onError``` callback:
+Each task provides an `onSuccess` and an `onError` callback:
 
 ```javascript
 meshTask.onSuccess = function (task) {
-    task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
-}
+  task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+};
 ```
 
 ```javascript
 meshTask.onError = function (task, message, exception) {
-    console.log(message, exception);
-}
+  console.log(message, exception);
+};
 ```
 
 You can do the same thing but with text and binary files:
 
 ```javascript
-var textTask = assetsManager.addTextFileTask("text task", "msg.txt");
-textTask.onSuccess = function(task) {
-    console.log(task.text);
-}
+const textTask = assetsManager.addTextFileTask("text task", "msg.txt");
+textTask.onSuccess = function (task) {
+  console.log(task.text);
+};
 
-var binaryTask = assetsManager.addBinaryFileTask("binary task", "grass.jpg");
+const binaryTask = assetsManager.addBinaryFileTask("binary task", "grass.jpg");
 binaryTask.onSuccess = function (task) {
-    // Do something with task.data
-}
+  // Do something with task.data
+};
 ```
 
 Images are also supported through imageTask:
 
 ```javascript
-var imageTask = assetsManager.addImageTask("image task", "img.jpg");
-imageTask.onSuccess = function(task) {
-    console.log(task.image.width);
-}
+const imageTask = assetsManager.addImageTask("image task", "img.jpg");
+imageTask.onSuccess = function (task) {
+  console.log(task.image.width);
+};
 ```
 
 Textures can also be loaded, through textureTask:
 
 ```javascript
-var textureTask = assetsManager.addTextureTask("image task", "img.jpg");
-textureTask.onSuccess = function(task) {
-    material.diffuseTexture = task.texture;
+const textureTask = assetsManager.addTextureTask("image task", "img.jpg");
+textureTask.onSuccess = function (task) {
+  material.diffuseTexture = task.texture;
+};
+```
+
+
+And make sure to call load() to initialize the tasks:
+
+```javascript
+textureTask.load();
+
+textureTask.onFinish = (tasks) => {
+      // do render stuff
+  _this.engine.runRenderLoop(() => {
+    _this.scene.render();
+  })
 }
 ```
+
 
 ### Task state and error handling
 
 Each task has a state object that represents the current execution state of the task. The state is represented by an enum, `BABYLON.AssetTaskState` and has 4 states:
-* INIT - before the task started executing
-* RUNNING - when the task started executing but hasn't finished yet.
-* DONE - when the task successfully finished execution
-* ERROR - when the task failed.
+
+- INIT - before the task started executing
+- RUNNING - when the task started executing but hasn't finished yet.
+- DONE - when the task successfully finished execution
+- ERROR - when the task failed.
 
 If a task has the error state (`BABYLON.AssetTaskState.ERROR`) a new object will be added to the task: `task.errorObject` . The error object have 2 variables defined, both optional:
-* message - a string explaining the error shortly (such as "request returned 404")
-* exception - in case an exception was thrown during execution, the exception object will contain the stack trace information
+
+- message - a string explaining the error shortly (such as "request returned 404")
+- exception - in case an exception was thrown during execution, the exception object will contain the stack trace information
 
 This way the error is accessible also when using the assets manager observers:
 
 ```javascript
-assetsManager.onTaskErrorObservable.add(function(task) {
-    console.log('task failed', task.errorObject.message, task.errorObject.exception);
+assetsManager.onTaskErrorObservable.add(function (task) {
+  console.log("task failed", task.errorObject.message, task.errorObject.exception);
 });
 ```
-
 
 ### Manager callbacks and observables
 
 The manager itself provides four callbacks:
-* onFinish
-* onProgress
-* onTaskSuccess
-* onTaskError
+
+- onFinish
+- onProgress
+- onTaskSuccess
+- onTaskError
 
 ```javascript
-assetsManager.onProgress = function(remainingCount, totalCount, lastFinishedTask) {
-	engine.loadingUIText = 'We are loading the scene. ' + remainingCount + ' out of ' + totalCount + ' items still need to be loaded.';
+assetsManager.onProgress = function (remainingCount, totalCount, lastFinishedTask) {
+  engine.loadingUIText = "We are loading the scene. " + remainingCount + " out of " + totalCount + " items still need to be loaded.";
 };
 
-assetsManager.onFinish = function(tasks) {
-    engine.runRenderLoop(function() {
-        scene.render();
-    });
+assetsManager.onFinish = function (tasks) {
+  engine.runRenderLoop(function () {
+    scene.render();
+  });
 };
 ```
 
 The manager also allows you to use observers in order to handle onFinish, onProgress, onTaskSuccess and onTaskError:
-* onTaskSuccessObservable - registered observers will be executed when a single task finished successfully.
-* onTaskErrorObservable - registered observers will be executed when a single task failed.
-* onProgressObservable - registered observers will be executed when a single task finished successfully or failed.
-* onTasksDoneObservable - registered observers will be execute when all tasks' executions are done (success or failed!)
+
+- onTaskSuccessObservable - registered observers will be executed when a single task finished successfully.
+- onTaskErrorObservable - registered observers will be executed when a single task failed.
+- onProgressObservable - registered observers will be executed when a single task finished successfully or failed.
+- onTasksDoneObservable - registered observers will be execute when all tasks' executions are done (success or failed!)
 
 ```javascript
-assetsManager.onTaskSuccessObservable.add(function(task) {
-    console.log('task successful', task)
+assetsManager.onTaskSuccessObservable.add(function (task) {
+  console.log("task successful", task);
 });
 ```
 
 ```javascript
-assetsManager.onTasksDoneObservable.add(function(tasks) {
-    var errors = tasks.filter(function(task) {return task.taskState === BABYLON.AssetTaskState.ERROR});
-    var successes = tasks.filter(function(task) {return task.taskState !== BABYLON.AssetTaskState.ERROR});
+assetsManager.onTasksDoneObservable.add(function (tasks) {
+  const errors = tasks.filter(function (task) {
+    return task.taskState === BABYLON.AssetTaskState.ERROR;
+  });
+  const successes = tasks.filter(function (task) {
+    return task.taskState !== BABYLON.AssetTaskState.ERROR;
+  });
 });
 ```
 
@@ -146,8 +168,8 @@ To launch all the tasks, you have to call:
 assetsManager.load();
 ```
 
-* You can see a live demo [here](https://www.babylonjs.com/scenes/assets)
-* Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.jpg"/>
+- You can see a live demo [here](https://www.babylonjs.com/scenes/assets)
+- Playground demo: <Playground id="#ZJYNY#0" title="Asset Manager Example" description="Simple Example of using the asset manager in your scene." image="/img/playgroundsAndNMEs/divingDeeperAssetManager1.jpg"/>
 
 ## Available tasks
 
@@ -302,13 +324,13 @@ By default, the AssetsManager will display a loading screen while loading assets
 
 <img src="/img/features/scene/loader.jpg" title="Babylon.js Loading Spinner"/>
 
-If you want to disable the loading screen, you have to set ```useDefaultLoadingScreen``` to false:
+If you want to disable the loading screen, you have to set `useDefaultLoadingScreen` to false:
 
 ```javascript
 assetsManager.useDefaultLoadingScreen = false;
 ```
 
-The loading screen will also be displayed while loading a scene using SceneLoader if ```ShowLoadingScreen``` is set to true (by default).
+The loading screen will also be displayed while loading a scene using SceneLoader if `ShowLoadingScreen` is set to true (by default).
 
 ```javascript
 BABYLON.SceneLoader.ShowLoadingScreen = false;
@@ -321,13 +343,13 @@ engine.displayLoadingUI();
 engine.hideLoadingUI();
 ```
 
-Loading text is controlled using ```loadingUIText``` :
+Loading text is controlled using `loadingUIText` :
 
 ```javascript
 engine.loadingUIText = "text";
 ```
 
-Background color is controlled using ```loadingUIBackgroundColor``` :
+Background color is controlled using `loadingUIBackgroundColor` :
 
 ```javascript
 engine.loadingUIBackgroundColor = "red";

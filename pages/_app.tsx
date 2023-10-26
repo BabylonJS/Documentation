@@ -1,5 +1,5 @@
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import type { AppProps /*, AppContext */ } from 'next/app'
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import type { AppProps } from 'next/app'
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';

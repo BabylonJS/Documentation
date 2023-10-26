@@ -12,8 +12,9 @@ video-content:
 
 PG: <Playground id="#1BLVWO#25" title="Lava Material" description="An example of lava material"/>
 
-
 Lava material can be found here: [https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js](https://cdn.babylonjs.com/materialsLibrary/babylon.lavaMaterial.js)
+
+> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
 
 ## Using the lava material
 
@@ -21,7 +22,7 @@ The lava material needs at least a noise texture and a diffuse texture to render
 Just create a new reference of the material and assign it two textures:
 
 ```
-var ground = BABYLON.Mesh.CreateGround("ground", 512, 512, 32, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 512, height: 512, subdivisions: 32 }, scene);
 
 var lavaMaterial = new BABYLON.LavaMaterial("lava", scene);
 lavaMaterial.noiseTexture = new BABYLON.Texture("cloud.png", scene); // Set the bump texture
