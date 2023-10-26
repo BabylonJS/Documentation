@@ -53,70 +53,6 @@ By default, `scene.ambientColor` is set to `Color3(0, 0, 0)`, which means there 
 
 (Please see the section on ambientColors in our [Unleash the Standard Material](https://www.eternalcoding.com/babylon-js-unleash-the-standardmaterial-for-your-babylon-js-game/) tutorial, for more information.)
 
-### Skybox
-
-To give a perfect illusion of a beautiful sunny sky, we are going to create a simple box, but with a special texture.
-There are two ways to create a skybox. Let's start with the manual one to understand how things work under the hood and then we will be able to use the automatic one.
-
-#### Manual creation
-First, our box, nothing new, just take notice of the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
-```javascript
-var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
-var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-skyboxMaterial.backFaceCulling = false;
-skyboxMaterial.disableLighting = true;
-skybox.material = skyboxMaterial;
-```
-
-Next, we set the `infiniteDistance` property. This makes the skybox follow our camera's position.
-```javascript
-skybox.infiniteDistance = true;
-```
-
-Now we must remove all light reflections on our box (the sun doesn't reflect on the sky!):
-```javascript
-skyboxMaterial.disableLighting = true;
-```
-
-Next, we apply our special sky texture to it. This texture must have been prepared to be a skybox, in a dedicated directory, named “skybox” in our example:
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
-skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-```
-(More about reflectionTextures can be found in our [Unleash the Standard Material](https://www.eternalcoding.com/babylon-js-unleash-the-standardmaterial-for-your-babylon-js-game/) tutorial.)
-
-In that `/skybox` directory, we must find 6 sky textures, one for each face of our box. Each image must be named per the corresponding face: “skybox_nx.jpg” (left), “skybox_ny.jpg” (down), “skybox_nz.jpg” (back), “skybox_px.jpg” (right), “skybox_py.jpg” (up), “skybox_pz.jpg” (front). The "\_nx.jpg" is added to your path.
-
-Skybox textures need not be textures of sky alone. You can search the Internet for skyboxes and find buildings, hills, mountains, trees, lakes, planets, stars, you name it (all can be used nicely) as part of skybox textures, but some require a payment.
-
-You can also use dds files to specify your skybox. These special files can contain all information required to setup a cube texture:
-
-```javascript
-skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
-```
-
-Final note, if you want your skybox to render behind everything else, set the skybox's `renderingGroupId` to `0`, and every other renderable object's `renderingGroupId` greater than zero, for example:
-```javascript
-skybox.renderingGroupId = 0;
-
-// Some other mesh
-myMesh.renderingGroupId = 1;
-```
-
-More info about rendering groups and rendering order can be found [here](/features/featuresDeepDive/materials/advanced/transparent_rendering).
-
-#### Automatic creation
-Now that we understand how a skybox can be created let's move to a simpler way:
-
-```javascript
-var envTexture = new BABYLON.CubeTexture("/assets/textures/SpecularHDR.dds", scene);
-scene.createDefaultSkybox(envTexture, true, 1000);
-```
-
-<Playground id="#BH23ZD#1" title="Playground Example Skybox Helper" description="Simple example of using the Skybox Helper." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro1.jpg" isMain={true} category="Environment"/>
-
-Check out [scene helpers](/features/featuresDeepDive/scene/fastBuildWorld#environmental-helper) for more information on this and other helpers.
-
 ### Fog
 
 Fog is quite an advanced effect, but fog in Babylon.js has been simplified to the maximum. It’s now very easy to add fog to your scenes.&nbsp; First, we define the fog mode like this:
@@ -149,4 +85,8 @@ See, we told you it was easy.
 
 If you want to see and play with the playground scene for this tutorial, you can check it out here: <Playground id="#7G0IQW" title="Simple Fog Example" description="Simple example of how to add fog to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentIntro2.jpg" isMain={true} category="Environment"/>
 
+### Skybox
 
+To give a perfect illusion of a beautiful sunny sky, we are going to create a simple box, but with a special texture to simulate a sky.
+
+All the information regarding this skybox creation can be found [here](/features/featuresDeepDive/environment/skybox).
