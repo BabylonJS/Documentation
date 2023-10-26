@@ -99,4 +99,4 @@ If you want to see and play with the playground scene for this tutorial, you can
 
 To give a perfect illusion of a beautiful sunny sky, we are going to create a simple box, but with a special texture to simulate a sky.
 
-All the information regarding this skybox creation can be found [here](/features/featuresDeepDive/environment/skybox).
+All the information regarding this skybox creation can be found in the [skybox documentation](/features/featuresDeepDive/environment/skybox).
