@@ -138,7 +138,7 @@ Introduced in version 6.27.0 you can now "fake" a ground from within your skybox
 
 Enabling ground projection requires a few steps similar to creating a skybox.
 
-First, create a box without backfaceculling and right below your object. The bottom face position needs to be coplanar with where the ground should be in order to enable shadows and ensure they do not suffer from any distortions.
+First, create a box right below your object. **The bottom face position needs to be coplanar with the "fake ground" to support shadows and ensure they do not suffer from any distortions.**
 
 ```javascript
 const size = 1000;
