@@ -124,3 +124,5 @@ You can see an example here: <Playground id="#G3HSAW#11" title="Mix Gray Scale a
 ## Environment
 
 Going further, you can take a look at the [Environment documentation](/features/introductionToFeatures/chap5/sky) where you can find information on how to speed up the setup of your scene with a skybox and a ground.
+
+About the ground projection capabilities of the material, you can have a look at the dedicated paragraph within the [skybox documentation](/features/featuresDeepDive/environment/skybox#ground-projection).
