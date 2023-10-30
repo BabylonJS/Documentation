@@ -167,7 +167,7 @@ BabylonViewer.viewerManager.getViewerPromiseById('babylon-viewer').then(function
             title: "Helmet",
             subtitle: "BabylonJS",
             thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
-            url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
+            url: "https://www.babylonjs.com/assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
         });
 
         // load another model after 20 seconds. Just to show it is possible
@@ -190,7 +190,7 @@ viewer.loadModel({
     title: "Helmet",
     subtitle: "BabylonJS",
     thumbnail: "https://www.babylonjs.com/img/favicon/apple-icon-144x144.png",
-    url: "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
+    url: "https://www.babylonjs.com/assets/DamagedHelmet/glTF/DamagedHelmet.gltf"
 }).then(model => {
     console.log("model loaded!");
 }).catch(error => {

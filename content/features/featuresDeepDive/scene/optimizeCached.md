@@ -57,6 +57,6 @@ scene.disableOfflineSupportExceptionRules.push(/dude\.babylon/gi);
 
 ## Samples
 
-Most of the samples on our [website mainpage](https://www.babylonjs.com) are configured to use offline for their scene and textures. For instance, you can try the [Espilit scene](https://www.babylonjs.com/demos/glowingespilit/). The scene is described in _espilit.babylon_ and the associated manifest file is _espilit.babylon.manifest_.
+Most of the samples on our [website mainpage](https://www.babylonjs.com) are configured to use offline for their scene and textures. For instance, you can try the [Espilit scene](https://www.babylonjs.com/Demos/GlowingEspilit/). The scene is described in _espilit.babylon_ and the associated manifest file is _espilit.babylon.manifest_.
 
-One of the scenes is configured to only cache the texture. It’s the “[The Car](https://www.babylonjs.com/demos/thecar/)” scene. It’s because the JSON file, _TheCar.babylon_, is more than 93 MB. IE11 and Chrome can’t store a big file like that into their DB, so decision was made to avoid trying to cache it.
+One of the scenes is configured to only cache the texture. It’s the “[The Car](https://www.babylonjs.com/Demos/TheCar/)” scene. It’s because the JSON file, _TheCar.babylon_, is more than 93 MB. IE11 and Chrome can’t store a big file like that into their DB, so decision was made to avoid trying to cache it.

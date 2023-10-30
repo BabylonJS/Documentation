@@ -48,7 +48,7 @@ BABYLON.SceneLoader.ImportMesh("", "https://playground.babylonjs.com/scenes/", "
         console.log(newMeshes[index].toString());
     }
 
-    BABYLON.SceneLoader.ImportMesh("", "https://www.babylonjs.com/Assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
+    BABYLON.SceneLoader.ImportMesh("", "https://www.babylonjs.com/assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
         console.log("Meshes loaded from gltf file: " + meshes.length);
         for (let index = 0; index < meshes.length; index++) {
             console.log(meshes[index].toString());

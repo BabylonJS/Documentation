@@ -254,7 +254,7 @@ The camera adjusts its position automatically to make the world viewable dependi
 Since the `createDefault...` helpers take into account any models in the scene they can only be applied after the model is loaded and so are placed in the callback function. For example
 
 ```javascript
-BABYLON.SceneLoader.Append("https://www.babylonjs.com/Assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
+BABYLON.SceneLoader.Append("https://www.babylonjs.com/assets/DamagedHelmet/glTF/", "DamagedHelmet.gltf", scene, function (meshes) {
   scene.createDefaultCameraOrLight(true, true, true);
   scene.createDefaultEnvironment();
 });

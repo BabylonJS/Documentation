@@ -27,7 +27,7 @@ The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/baby
 
 And the source code is available on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
 
-You can find a complete demo here: https://www.babylonjs.com/demos/gui/
+You can find a complete demo here: https://www.babylonjs.com/Demos/GUI/
 
 Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](/features/featuresDeepDive/gui/gui3D) available to leverage as well. Both systems can be used for different needs for your project.
 

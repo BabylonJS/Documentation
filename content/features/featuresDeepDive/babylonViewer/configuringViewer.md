@@ -313,7 +313,7 @@ For example, let's say we have a predefined JSON configuration loaded in the pag
 
 ```html
 <babylon configuration.payload='{"scene": {"debug": true}}' model.title="Damaged Helmet" model.subtitle="BabylonJS" model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
-            model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
+            model.url="https://www.babylonjs.com/assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
             templates.nav-bar.params.disable-on-fullscreen="true"></babylon>
 ```
 
@@ -321,7 +321,7 @@ This will work as the default mapper converts a JSON string to a configuration o
 
 ```html
 <babylon configuration.payload="scene.debug=true&engine.antialiasing=true" configuration.mapper="form" model.title="Damaged Helmet" model.subtitle="BabylonJS" model.thumbnail="https://www.babylonjs.com/img/favicon/apple-icon-144x144.png"
-            model.url="https://www.babylonjs.com/Assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
+            model.url="https://www.babylonjs.com/assets/DamagedHelmet/glTF/DamagedHelmet.gltf" camera.behaviors.auto-rotate="0"
             templates.nav-bar.params.disable-on-fullscreen="true"></babylon>
 ```
 

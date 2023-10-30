@@ -17,7 +17,7 @@ The two simplified versions of PBR Materials e.g. _PBRSpecularGlossinessMaterial
 - LightMaps
 - Dedicated image processing
 
-[**Demo Scene - PBR Materials**](https://www.babylonjs.com/demos/pbrrough/)
+[**Demo Scene - PBR Materials**](https://www.babylonjs.com/Demos/PBRRough/)
 
 This page addresses _the differences_ between the PBRMaterial and its the simpler versions.
 

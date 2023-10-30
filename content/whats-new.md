@@ -4100,7 +4100,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Introduced [Projection Texture on SpotLight](//doc.babylonjs.com/babylon101/lights#projection-texture). Demo [here](https://www.babylonjs-playground.com/frame.html#CQNGRK) ([lostink](https://github.com/lostink))
 - Introduced support for [local cubemaps](//doc.babylonjs.com/how_to/reflect#using-local-cubemap-mode). Demo [here](https://www.babylonjs-playground.com/frame.html#RNASML#4) ([deltakosh](https://github.com/deltakosh))
 - Added [VideoDome](//doc.babylonjs.com/divingDeeper/environment/360VideoDome) class to easily support 360 videos. Demo [here](https://www.babylonjs-playground.com/frame.html#1E9JQ8#7) ([DavidHGillen](https://github.com/DavidHGillen))
-- Added [GlowLayer](/features/featuresDeepDive/mesh/glowLayer) to easily support glow from emissive materials. Demo [here](https://www.babylonjs.com/demos/GlowLayer/) ([sebavan](https://github.com/sebavan))
+- Added [GlowLayer](/features/featuresDeepDive/mesh/glowLayer) to easily support glow from emissive materials. Demo [here](https://www.babylonjs.com/Demos/GlowLayer/) ([sebavan](https://github.com/sebavan))
 - New [AssetContainer](//doc.babylonjs.com/how_to/how_to_use_assetcontainer) class and loading methods ([trevordev](https://github.com/trevordev))
 - Added [depth of field](https://www.babylonjs-playground.com/frame.html#8F5HYV#9), [MSAA, sharpening, chromatic aberration and grain effect](https://www.babylonjs-playground.com/#Y3C0HQ#146) to the default pipeline ([trevordev](https://github.com/trevordev))
 - Added support for [animation weights](//doc.babylonjs.com/divingDeeper/animation/animation_introduction#animation-weights). Demo [here](https://www.babylonjs-playground.com/#LL5BIQ) ([deltakosh](https://github.com/deltakosh))
@@ -4342,7 +4342,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 - WebGL2 context support. WebGL2 is now used instead of WebGL 1 when available. [More info here](//doc.babylonjs.com/features/webgl2) ([deltakosh](https://github.com/deltakosh))
 - Complete WebVR 1.1 support including controllers for HTC Vive and Oculus. [More info here](//doc.babylonjs.com/how_to/webvr_camera) ([raanan](https://github.com/raananw) & [davrous](https://github.com/davrous))
-- Complete rewrite of PBRMaterial. Introduced two new helper materials: `pbrMetallicRoughnessMaterial` and `pbrSpecularGlossinessMaterial`. [Demo](https://www.babylonjs.com/demos/pbrglossy/) - [More info here](//doc.babylonjs.com/divingDeeper/materials/using/introToPBR) ([Sebastien Vandenberghe](https://github.com/sebavan))
+- Complete rewrite of PBRMaterial. Introduced two new helper materials: `pbrMetallicRoughnessMaterial` and `pbrSpecularGlossinessMaterial`. [Demo](https://www.babylonjs.com/Demos/pbrglossy/) - [More info here](//doc.babylonjs.com/divingDeeper/materials/using/introToPBR) ([Sebastien Vandenberghe](https://github.com/sebavan))
 - Support for Morph Targets. [More info here](//doc.babylonjs.com/How_To/how_to_use_morphtargets) ([deltakosh](https://github.com/deltakosh))
 - New Babylon.GUI to create user interface (compatible with WebVR). [More info here](//doc.babylonjs.com/features/Gui) ([deltakosh](https://github.com/deltakosh))
 - Added support for Exponential Shadow maps to replace Variance Shadow maps. [more info here](https://www.babylonjs-playground.com/debug.html#1CXNXC#3) [Demo#1](https://www.babylonjs.com/Demos/AdvancedShadows/) [Demo#2](https://www.babylonjs-playground.com/#1CXNXC#4) ([deltakosh](https://github.com/deltakosh))
