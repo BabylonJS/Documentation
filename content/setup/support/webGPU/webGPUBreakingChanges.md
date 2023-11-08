@@ -99,6 +99,6 @@ new BABYLON.Viewport(x, y, w, h);
 - x + w must be &lt;= 1
 - y + h must be &lt;= 1
 
-The stride of an attribute in a vertex buffer must be a multiple of 4 bytes, contrary to WebGL. Try this PG, which works in WebGL but not in WebGPU: <Playground id="#U1CZV3#4" title="Stride of 3 bytes" description="Demonstrate using a byte buffer for position"/>
+If you still want to use out-of-bounds values, you can use a material plugin like in this PG: <Playground id="#IIBY03#21" engine="webgpu" title="Viewport out-of-bounds values" description="Demonstrate how to support a viewport with out-of-bounds values in WebGPU"/>
 
 The `TEXTUREFORMAT_LUMINANCE` format is not supported in WebGPU.
