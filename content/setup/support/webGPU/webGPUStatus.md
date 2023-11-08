@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/08/29).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/11/08).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -20,8 +20,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 ### Features not working because not implemented yet
 * Support for triangle fan / line loop drawing mode
   * WebGPU does not support those modes, we will need to emulate them with triangle strip and line strip
-* Support types other than `float` for the vertex buffers (position, normal, uv, ...)
-  * Contrary to WebGL, in WebGPU there's no automatic conversion from the type of the vertex buffer to the type used by shader
 * Handle context lost/restore
 * [Multiview / WebXR](/features/featuresDeepDive/cameras/multiViewsPart1)
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
@@ -36,4 +34,4 @@ The most important optimizations have now been done (see [Optimizations](/setup/
 
 ## Browser Caveats
 Chrome Canary does not support all WebGPU features yet (or some others are not fully functional yet), so here are some caveats:
-* GPU timing in the **Inspector** does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--disable-dawn-features=disallow_unsafe_apis` flag if you want to enable them.
+* GPU timing in the **Inspector** does not work because timestamp queries are currently disabled in Chrome. You can start Chrome with the `--enable-dawn-features=allow_unsafe_apis` flag if you want to enable them. You can also add the `--enable-webgpu-developer-features` flag for more precise timing.
