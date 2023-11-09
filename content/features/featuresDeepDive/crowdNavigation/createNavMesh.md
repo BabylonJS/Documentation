@@ -88,7 +88,6 @@ detailSampleMaxError - The maximum distance the detail mesh surface should devia
 
 You can find more information about those parameters on the [Recast documentation](https://recastnav.com/structrcConfig.html).
 
-
 ## Queries
 
 Basically, query functions help at getting constraint point and vector by the navigation mesh.
