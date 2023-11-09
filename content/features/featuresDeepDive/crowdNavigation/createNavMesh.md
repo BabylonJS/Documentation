@@ -86,7 +86,7 @@ detailSampleDist - Sets the sampling distance to use when generating the detail 
 
 detailSampleMaxError - The maximum distance the detail mesh surface should deviate from heightfield data. World Units.
 
-You can find more information about those parameters on the [Recast documentation](http://recastnavigation.org/docs/structrcConfig.html).
+You can find more information about those parameters on the [Recast documentation](http://recastnav.com/structrcConfig.html).
 
 ## Queries
 
