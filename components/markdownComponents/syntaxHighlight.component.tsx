@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import { Alert, AlertProps, AlertTitle } from "@mui/material";
 
 import vsDark from "prism-react-renderer/themes/vsDark";
 
@@ -24,5 +25,15 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 </pre>
             )}
         </Highlight>
+    );
+};
+
+type AlertMarkdownComponentProps = {  severity: 'error' | 'warning' | 'info' | 'success', description: string, title?: string }
+export const AlertMarkdownComponent: FunctionComponent<AlertMarkdownComponentProps> = (props: AlertMarkdownComponentProps) => {
+    return (
+        <Alert severity={props.severity}>
+            {props.title || <AlertTitle>{ props.title }</AlertTitle>}
+            <p style={{margin: "0"}}>{props.description}</p>
+        </Alert>
     );
 };

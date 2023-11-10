@@ -2,10 +2,11 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import { PlaygroundMarkdownComponent, NMEMarkdownComponent, NGEMarkdownComponent } from "./example.component";
 import { ImageMarkdownComponent } from "./image.component";
 import { YoutubeComponent, MediaFileComponent } from "./media.component";
-import { SyntaxHighlighting } from "./syntaxHighlight.component";
+import { AlertMarkdownComponent, SyntaxHighlighting } from "./syntaxHighlight.component";
 import { H1MarkdownComponent, H2MarkdownComponent, H3MarkdownComponent, H4MarkdownComponent } from "./tableOfContentItem.component";
 
 export const markdownComponents = {
+    Alert: AlertMarkdownComponent,
     Youtube: YoutubeComponent,
     Media: MediaFileComponent,
     Playground: PlaygroundMarkdownComponent,

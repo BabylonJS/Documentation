@@ -1,7 +1,7 @@
 {
   "line-length": false,
   "no-inline-html": {
-    "allowed_elements": ["Playground", "Youtube", "kbd"]
+    "allowed_elements": ["Playground", "Youtube", "kbd", "Alert"]
   },
   "single-title": {
     "front_matter_title": ""
