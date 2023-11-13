@@ -31,7 +31,7 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
 type AlertMarkdownComponentProps = {  severity: 'error' | 'warning' | 'info' | 'success', description: string, title?: string }
 export const AlertMarkdownComponent: FunctionComponent<AlertMarkdownComponentProps> = (props: AlertMarkdownComponentProps) => {
     return (
-        <Alert severity={props.severity}>
+        <Alert severity={props.severity} style={{marginBottom: "1.3rem"}}>
             {props.title || <AlertTitle>{ props.title }</AlertTitle>}
             <p style={{margin: "0"}}>{props.description}</p>
         </Alert>
