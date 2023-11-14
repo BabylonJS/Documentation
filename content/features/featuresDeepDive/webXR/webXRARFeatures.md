@@ -359,7 +359,7 @@ var polygon_triangulation = new BABYLON.PolygonMeshBuilder(
 var polygon = polygon_triangulation.build(false, 0.01);
 ```
 
-A simple use case for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Dedication Demo" description="WebXR Plane Dedication Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
+A simple use case for planes is showing them in your scene using polygons. An example for that can be found at the WebXR Plane Detection demo: <Playground id="#98TM63" title="WebXR Plane Detection Demo" description="WebXR Plane Detection Demo" image="/img/playgroundsAndNMEs/vrglasses.png"/>
 
 ### Background remover
 
