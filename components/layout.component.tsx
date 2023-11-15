@@ -333,7 +333,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             </div>
                         </Drawer>
                     </Hidden>
-                    <Hidden smDown implementation="css">
+                    <Hidden mdDown implementation="css">
                         <div className={classes.drawerContainer}>{MenuStructure}</div>
                     </Hidden>
                 </nav>
