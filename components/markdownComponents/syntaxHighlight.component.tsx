@@ -37,10 +37,6 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
                 <LibraryAddCheckIcon style={{ fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} />
             </IconButton>
         </div>
-        // <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-        //     <i style={{marginRight: "0.3rem", fontSize: "0.8rem"}}>Copied!</i>
-        //     <LibraryAddCheckIcon style={{ fontSize: "1rem", marginBottom: "0.1rem" }} />
-        // </div>
     return (
         <div style={{display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0.3rem" }}>
