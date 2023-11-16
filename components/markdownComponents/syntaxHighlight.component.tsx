@@ -1,14 +1,52 @@
 import { FunctionComponent, useState } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import { Alert, AlertTitle, IconButton, Tooltip } from "@mui/material";
+import { Alert, AlertTitle, IconButton, Tooltip, Theme } from "@mui/material";
 import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-
+import { createStyles, makeStyles } from "@mui/styles";
 import vsDark from "prism-react-renderer/themes/vsDark";
+
+const syntaxHighlightingStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        container: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        header: {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            padding: "0.3rem"
+        },
+        copyIcon: {
+            cursor: 'pointer',
+            transform: "scaleX(-1)",
+            rotate: "180deg",
+            fontSize: "1rem",
+            alignSelf: "end",
+            marginBottom: "0.1rem"
+        },
+        copiedContainer: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center"
+        },
+        copiedIcon: {
+            fontSize: "1rem",
+            alignSelf: "end",
+            marginBottom: "0.1rem"
+        },
+        copiedText: {
+            marginRight: "0.3rem",
+            fontSize: "0.8rem"
+        }
+    }),
+);
 
 export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
     const [isCopy, setIsCopied] = useState(false);
     const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout>(null);
+    const classes = syntaxHighlightingStyles();
     if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
         return <code>{props.children}</code>;
     }
@@ -27,19 +65,19 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     const copyPasteIcon = !isCopy ?
         <Tooltip title="Copy">
             <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <ContentCopyIcon style={{ cursor: 'pointer', transform: "scaleX(-1)", rotate: "180deg", fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} />
+                <ContentCopyIcon className={classes.copyIcon} />
             </IconButton>
         </Tooltip>
         :
-        <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-            <i style={{marginRight: "0.3rem", fontSize: "0.8rem"}}>Copied!</i>
+        <div className={classes.copiedContainer}>
+            <i className={classes.copiedText}>Copied!</i>
             <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <LibraryAddCheckIcon style={{ fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} />
+                <LibraryAddCheckIcon className={classes.copiedIcon} />
             </IconButton>
         </div>
     return (
-        <div style={{display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0.3rem" }}>
+        <div className={classes.container}>
+            <div className={classes.header}>
                 <i>{language}</i>
                 {copyPasteIcon}
             </div>
