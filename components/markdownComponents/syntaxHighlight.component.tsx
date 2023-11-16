@@ -21,17 +21,21 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     }
     const copyPasteIcon = !isCopy ?
         <Tooltip title="Copy">
-            <ContentCopyIcon style={{ cursor: 'pointer', transform: "scaleX(-1)", rotate: "180deg", fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} onClick={copyPaste} />
+            <IconButton size="small" color="inherit">
+                <ContentCopyIcon style={{ cursor: 'pointer', transform: "scaleX(-1)", rotate: "180deg", fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} onClick={copyPaste} />
+            </IconButton>
         </Tooltip>
         :
-        <div style={{display: "flex", flexDirection: "row", alignItems: "end"}}>
+        <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
             <i style={{marginRight: "0.3rem", fontSize: "0.8rem"}}>Copied!</i>
-            <LibraryAddCheckIcon style={{ fontSize: "1rem", marginBottom: "0.1rem" }} />
+            <IconButton size="small" color="inherit">
+                <LibraryAddCheckIcon style={{ fontSize: "1rem", marginBottom: "0.1rem" }} />
+            </IconButton>
         </div>
     return (
         <div style={{display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0.3rem" }}>
-                <i style={{alignSelf: "end"}}>{language}</i>
+                <i>{language}</i>
                 {copyPasteIcon}
             </div>
             <Highlight {...defaultProps} theme={vsDark} code={props.children.trim()} language={language}>
