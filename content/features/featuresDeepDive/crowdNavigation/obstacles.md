@@ -40,6 +40,9 @@ const navmeshParameters = {
 Note the addition of `tileSize`. It's the world unit size of each tile. If it's not present or has a value a zero, it falls back to the standard use and obstacles won't work.
 Also, depending on your use case, this value must be carrefully chosen to trade between too many tiles and too much cpu intensive updates.
 
+**Note :**
+The `ComputePath`` method will handle obstacles exclusively when a crowd has been instantiated. Otherwise, the path will adhere to the navmesh without considering obstacles. If your use case involves computing a path with obstacles, agents are optional but a crowd is mandatory.
+
 ## Obstacles API
 
 Once the navigation mesh is updated to take tiles into account, obstacles are accessible thru 3 simple functions:
