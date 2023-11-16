@@ -7,31 +7,40 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import vsDark from "prism-react-renderer/themes/vsDark";
 
 export const SyntaxHighlighting: FunctionComponent<{ className: string; children: string }> = (props) => {
-    const [isCopy, setCopied] = useState(false);
+    const [isCopy, setIsCopied] = useState(false);
+    const [checkedTimeout, setCheckedTimeout] = useState<NodeJS.Timeout>(null);
     if (!props.className && typeof props.children === "string" && !props.children.includes("\n")) {
         return <code>{props.children}</code>;
     }
     const language = props.className ? (props.className.replace(/language-/, "") as Language) : "javascript";
     const copyPaste = () => {
         navigator.clipboard.writeText(props.children.trim())
-        setCopied(true);
-        setTimeout(() => {
-            setCopied(false);
+        setIsCopied(true);
+        const newTimeout = setTimeout(() => {
+            setIsCopied(false);
         }, 2000);
+        if(checkedTimeout) {
+            clearTimeout(checkedTimeout)
+        }
+        setCheckedTimeout(newTimeout)
     }
     const copyPasteIcon = !isCopy ?
         <Tooltip title="Copy">
-            <IconButton size="small" color="inherit">
-                <ContentCopyIcon style={{ cursor: 'pointer', transform: "scaleX(-1)", rotate: "180deg", fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} onClick={copyPaste} />
+            <IconButton size="small" color="inherit" onClick={copyPaste}>
+                <ContentCopyIcon style={{ cursor: 'pointer', transform: "scaleX(-1)", rotate: "180deg", fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} />
             </IconButton>
         </Tooltip>
         :
         <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
             <i style={{marginRight: "0.3rem", fontSize: "0.8rem"}}>Copied!</i>
-            <IconButton size="small" color="inherit">
-                <LibraryAddCheckIcon style={{ fontSize: "1rem", marginBottom: "0.1rem" }} />
+            <IconButton size="small" color="inherit" onClick={copyPaste}>
+                <LibraryAddCheckIcon style={{ fontSize: "1rem", alignSelf: "end", marginBottom: "0.1rem" }} />
             </IconButton>
         </div>
+        // <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        //     <i style={{marginRight: "0.3rem", fontSize: "0.8rem"}}>Copied!</i>
+        //     <LibraryAddCheckIcon style={{ fontSize: "1rem", marginBottom: "0.1rem" }} />
+        // </div>
     return (
         <div style={{display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0.3rem" }}>
