@@ -18,8 +18,6 @@ type StaticCustomPaletteOptions = {
     background: string
     container: string
     linkText: string
-    menuLinkText: string
-    regularSideText: string
     linkHover: string
     buttonHover: string
     text: string
@@ -33,8 +31,6 @@ const unchangedModePalette: StaticCustomPaletteOptions = {
     background: "#2A2342",
     container: "#3F3461",
     linkText: "#9379E6",
-    menuLinkText: "#272320",
-    regularSideText: "#6E6259",
     linkHover: "#BFABFF",
     buttonHover: "#BB464B",
     text: "#D5D2CA",
@@ -44,24 +40,36 @@ const unchangedModePalette: StaticCustomPaletteOptions = {
 }
 
 type ModeCustomPaletteOptions = {
+    text: {
+        primary: string
+        secondary: string
+    }
     tableOfContent: {
         background: string
     }
     sideMenu: {
+        textColor: string
         poweredByBackgroundColor: string
         backgroundColor: string
+        selectedMenuItemLinkColor: string
     },
     examples: {
         backgroundColor: string
     }
 }
 const lightModePalette: ModeCustomPaletteOptions = {
+    text: {
+        primary: "#000000",
+        secondary: "#6E6259"
+    },
     tableOfContent: {
         background: "#FAFAFA"
     },
     sideMenu: {
+        textColor: "#6E6259",
         poweredByBackgroundColor: "#FFFFFF",
         backgroundColor: "#E0DED8",
+        selectedMenuItemLinkColor: "#272320"
     },
     examples: {
         backgroundColor: "#E0DED8",
@@ -69,12 +77,18 @@ const lightModePalette: ModeCustomPaletteOptions = {
 }
 
 const darkModePalette: ModeCustomPaletteOptions = {
+    text: {
+        primary: "#FFFFFF",
+        secondary: "#9D9D9D"
+    },
     tableOfContent: {
         background: "#1B1B1B"
     },
     sideMenu: {
+        textColor: "#9D9D9D",
         poweredByBackgroundColor: "#000000",
         backgroundColor: "#0D0D0D",
+        selectedMenuItemLinkColor: "#ffffff"
     },
     examples: {
         backgroundColor: "#0D0D0D",
@@ -86,11 +100,12 @@ export const getDesignTokens = (mode: PaletteMode) => {
     return {
         palette: {
             mode,
+            text: {
+                primary: modePalette.text.primary,
+                // secondary: modePalette.text.secondary,
+            },
             primary: {
                 main: unchangedModePalette.sideMenu.menuItemHoverColor,
-                text: {
-                    primary: "red"
-                }
             },
             typography: {
                 fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),

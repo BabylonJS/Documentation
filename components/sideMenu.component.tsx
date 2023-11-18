@@ -73,13 +73,13 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         menuItemLink: {
-            color: theme.customPalette.regularSideText,
+            color: theme.customPalette.sideMenu.textColor,
             "&:hover": {
                 color: theme.customPalette.sideMenu.menuItemHoverColor,
             },
         },
         selectedMenuItemLink: {
-            color: theme.customPalette.menuLinkText,
+            color: theme.customPalette.sideMenu.selectedMenuItemLinkColor,
             fontWeight: 800,
             "&:hover": {
                 color: theme.customPalette.sideMenu.menuItemHoverColor,

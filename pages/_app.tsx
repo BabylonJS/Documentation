@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider, useMediaQuery, createTheme, PaletteMode, useTheme } from '@mui/material';
+import { CssBaseline, ThemeProvider, useMediaQuery, createTheme, PaletteMode } from '@mui/material';
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
 import { useState, useEffect, useMemo, FunctionComponent, createContext, PropsWithChildren } from 'react';
