@@ -10,8 +10,9 @@ declare module '@mui/material/styles' {
     }
 }
 
+type CustomPaletteOptions = StaticCustomPaletteOptions & ModeCustomPaletteOptions
 
-type CustomPaletteOptions = {
+type StaticCustomPaletteOptions = {
     footer: string
     header: string
     background: string
@@ -21,65 +22,79 @@ type CustomPaletteOptions = {
     regularSideText: string
     linkHover: string
     buttonHover: string
-    menuHover1: string
-    menuHover2: string
     text: string
-    sidebarBackground: string
-    tableOfContent: {
-        background: string
+    sideMenu: {
+        menuItemHoverColor: string
     }
 }
-const lightModePalette: CustomPaletteOptions = {
+const unchangedModePalette: StaticCustomPaletteOptions = {
     footer: "#151221",
     header: "#201936",
     background: "#2A2342",
     container: "#3F3461",
-    linkText: "#9379E6 ",
-    menuLinkText: "#272320 ",
+    linkText: "#9379E6",
+    menuLinkText: "#272320",
     regularSideText: "#6E6259",
     linkHover: "#BFABFF",
     buttonHover: "#BB464B",
-    menuHover1: "#E0684B",
-    menuHover2: "#FF7656",
     text: "#D5D2CA",
-    sidebarBackground: "#E0DED8",
-    tableOfContent: {
-        background: "#fafafa"
+    sideMenu: {
+        menuItemHoverColor: "#E0684B"
     }
 }
 
-const darkModePalette: CustomPaletteOptions = {
-    footer: "#151221",
-    header: "#201936",
-    background: "#2A2342",
-    container: "#3F3461",
-    linkText: "#9379E6 ",
-    menuLinkText: "#272320 ",
-    regularSideText: "#6E6259",
-    linkHover: "#BFABFF",
-    buttonHover: "#BB464B",
-    menuHover1: "#E0684B",
-    menuHover2: "#FF7656",
-    text: "#D5D2CA",
-    sidebarBackground: "#0D0D0D",
+type ModeCustomPaletteOptions = {
+    tableOfContent: {
+        background: string
+    }
+    sideMenu: {
+        poweredByBackgroundColor: string
+        backgroundColor: string
+    }
+}
+const lightModePalette: ModeCustomPaletteOptions = {
+    tableOfContent: {
+        background: "#FAFAFA"
+    },
+    sideMenu: {
+        poweredByBackgroundColor: "#FFFFFF",
+        backgroundColor: "#E0DED8",
+    }
+}
+
+const darkModePalette: ModeCustomPaletteOptions = {
     tableOfContent: {
         background: "#1B1B1B"
+    },
+    sideMenu: {
+        poweredByBackgroundColor: "#000000",
+        backgroundColor: "#0D0D0D",
     }
 }
   
 export const getDesignTokens = (mode: PaletteMode) => {
-    const customPalette  = mode === 'light' ? lightModePalette : darkModePalette;
+    const modePalette = mode === 'light' ? lightModePalette : darkModePalette;
     return {
         palette: {
             mode,
             primary: {
-                main: customPalette.menuHover1,
+                main: unchangedModePalette.sideMenu.menuItemHoverColor,
+                text: {
+                    primary: "red"
+                }
             },
             typography: {
                 fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),
                 fontSize: 16
             },
         },
-        customPalette,
+        customPalette: {
+            ...unchangedModePalette,
+            ...modePalette,
+            sideMenu: {
+                ...unchangedModePalette.sideMenu,
+                ...modePalette.sideMenu,
+            }
+        }
     }
 }

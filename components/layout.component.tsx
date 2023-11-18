@@ -110,7 +110,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         drawer: {
-            backgroundColor: theme.customPalette.sidebarBackground,
+            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
             display: "block",
             paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
