@@ -25,6 +25,9 @@ type CustomPaletteOptions = {
     menuHover2: string
     text: string
     sidebarBackground: string
+    tableOfContent: {
+        background: string
+    }
 }
 const lightModePalette: CustomPaletteOptions = {
     footer: "#151221",
@@ -40,6 +43,9 @@ const lightModePalette: CustomPaletteOptions = {
     menuHover2: "#FF7656",
     text: "#D5D2CA",
     sidebarBackground: "#E0DED8",
+    tableOfContent: {
+        background: "#fafafa"
+    }
 }
 
 const darkModePalette: CustomPaletteOptions = {
@@ -55,7 +61,10 @@ const darkModePalette: CustomPaletteOptions = {
     menuHover1: "#E0684B",
     menuHover2: "#FF7656",
     text: "#D5D2CA",
-    sidebarBackground: "#E0DED8",
+    sidebarBackground: "#0D0D0D",
+    tableOfContent: {
+        background: "#1B1B1B"
+    }
 }
   
 export const getDesignTokens = (mode: PaletteMode) => {
