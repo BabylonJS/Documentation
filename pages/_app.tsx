@@ -26,6 +26,8 @@ const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({children}) =
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline enableColorScheme />
         {children}
       </ThemeProvider>
     </ColorModeContext.Provider>
@@ -47,8 +49,6 @@ export const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => 
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ToggleColorMode>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
         <Component {...pageProps} />
       </ToggleColorMode>
     </>

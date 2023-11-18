@@ -1,7 +1,7 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Layout from "../components/layout.component";
 import GithubIcon from "@mui/icons-material/GitHub";
-
+import { useTheme } from '@mui/material'
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { BucketContent } from "../components/bucketContent.component";
@@ -19,8 +19,18 @@ import { ParsedUrlQuery } from "querystring";
 import { TableOfContent } from "../components/contentComponents/tableOfContent.component";
 import { VideoCollection } from "../components/videoCollection.component";
 import styles from "./documentationPage.module.scss";
+import { createStyles, makeStyles } from "@mui/styles";
+import { Theme } from "@mui/material";
 
 // testing lib instead of src (documentation states to use the src)
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        examplesContainer: {
+            backgroundColor: theme.customPalette.examples.backgroundColor
+        }
+    }),
+);
 
 interface DocumentationPageContext {
     exampleLinks: IExampleLink[];
@@ -130,6 +140,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
         window.open(gitHubUrl, "_blank");
     };
     const renderedContent = <MDXRemote {...mdxContent} components={markdownComponents} />;
+    const classes = useStyles();
     return (
         <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
@@ -171,7 +182,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
-                        <div className={styles["examples-container"]}>
+                        <div className={styles["examples-container"] + " " + classes.examplesContainer}>
                             <ExamplesComponent examples={exampleLinks}></ExamplesComponent>
                         </div>
                     )}

@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme: Theme) =>
             height: "auto",
             paddingBottom: 16,
         },
+        examplesContainer: {
+            backgroundColor: theme.customPalette.examples.backgroundColor
+        }
     }),
 );
 export const SearchResults: FunctionComponent<{}> = () => {
@@ -207,7 +210,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                             )}
                         </div>
                         {pgResults.length !== 0 && (
-                            <div className={styles["examples-container"]}>
+                            <div className={styles["examples-container"] + " " + classes.examplesContainer}>
                                 <ExamplesComponent title="Related examples" onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
                             </div>
                         )}

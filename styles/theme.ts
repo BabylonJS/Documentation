@@ -50,6 +50,9 @@ type ModeCustomPaletteOptions = {
     sideMenu: {
         poweredByBackgroundColor: string
         backgroundColor: string
+    },
+    examples: {
+        backgroundColor: string
     }
 }
 const lightModePalette: ModeCustomPaletteOptions = {
@@ -58,6 +61,9 @@ const lightModePalette: ModeCustomPaletteOptions = {
     },
     sideMenu: {
         poweredByBackgroundColor: "#FFFFFF",
+        backgroundColor: "#E0DED8",
+    },
+    examples: {
         backgroundColor: "#E0DED8",
     }
 }
@@ -68,6 +74,9 @@ const darkModePalette: ModeCustomPaletteOptions = {
     },
     sideMenu: {
         poweredByBackgroundColor: "#000000",
+        backgroundColor: "#0D0D0D",
+    },
+    examples: {
         backgroundColor: "#0D0D0D",
     }
 }
