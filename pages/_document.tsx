@@ -1,14 +1,15 @@
 import React from "react";
-import Document, { Html, Head, Main, NextScript, DocumentProps } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@mui/styles";
-import { useTheme } from "@mui/material/styles"
 
-export class MyDocument extends Document<{themeColor: string}> {
+
+
+export class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
                 <Head>
-                    <meta name="theme-color" content={this.props.themeColor} />
+                    <meta name="theme-color" content={"#201936"} />
                     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
                     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
                     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -35,14 +36,7 @@ export class MyDocument extends Document<{themeColor: string}> {
     }
 }
 
-function withHooks(Component) {
-    return (props: DocumentProps & { themeColor: string }) => {
-        const theme = useTheme();
-        return <Component {...props} themeColor={theme.customPalette?.header} />
-    }
-}
-
-export default withHooks(MyDocument)
+export default MyDocument
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
