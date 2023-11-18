@@ -5,7 +5,7 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
-import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography, Switch } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { colorPalette, theme } from "../styles/theme";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
@@ -193,7 +193,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // TODO default image for documents with no image
 
-export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false, isDarkMode, handleDarkMode }) => {
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -277,6 +277,11 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <GithubIcon></GithubIcon>
                         </IconButton>
                     </Link>
+                    <Switch
+                        checked={isDarkMode}
+                        onChange={handleDarkMode}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                    />
                 </Toolbar>
                 <div className={classes.navContainer}>
                     <Link href="/typedoc">API</Link>

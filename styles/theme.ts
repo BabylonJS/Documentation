@@ -17,12 +17,10 @@ export const colorPalette = {
 };
 export const theme = createTheme({
     palette: {
+        // mode: 'dark',
         primary: {
             main: colorPalette.menuHover1,
         },
-        // secondary: {
-        //     main: green[500],
-        // },
     },
     typography: {
         fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),

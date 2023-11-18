@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider,useMediaQuery } from '@mui/material';
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
 import PropTypes from 'prop-types';
@@ -16,6 +16,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   return (
     <>

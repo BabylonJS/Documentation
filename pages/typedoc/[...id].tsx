@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 // import "./apiPage.module.scss";
 import { ParsedUrlQuery } from "querystring";
 
-export const ApiPage: FunctionComponent<{
+export interface ApiPageProps {
     id: string[];
     metadata: MarkdownMetadata;
     cssArray: any[];
@@ -20,7 +20,10 @@ export const ApiPage: FunctionComponent<{
         name: string;
         url: string;
     }[];
-}> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
+    isDarkMode: boolean
+    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect, isDarkMode, handleDarkMode }) => {
     if (!contentNode && !redirect) {
         return <></>;
     }
@@ -54,7 +57,13 @@ export const ApiPage: FunctionComponent<{
     }
 
     return (
-        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
+        <Layout
+            breadcrumbs={breadcrumbs}
+            metadata={metadata}
+            id={["typedoc", ...id]}
+            isDarkMode={isDarkMode}
+            handleDarkMode={handleDarkMode}
+        >
             <Head>
                 {cssArray.map((css, idx) => {
                     return (

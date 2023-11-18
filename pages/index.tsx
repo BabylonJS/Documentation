@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { createRef, useEffect, useState } from "react";
+import { FunctionComponent, createRef, useEffect, useState } from "react";
 
 import Layout from "../components/layout.component";
 
@@ -18,7 +18,16 @@ import { InlineExampleComponent } from "../components/contentComponents/inlineEx
 import Head from "next/head";
 import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
 
-export default function Home({ metadata, mdxContent, childPages, id }) {
+
+export interface HomeProps {
+    metadata;
+    mdxContent;
+    childPages;
+    id;
+    isDarkMode: boolean;
+    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, childPages, id, isDarkMode, handleDarkMode }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -80,6 +89,8 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
                 keywords: "babylonjs, documentation, typedoc, api",
             }}
             id={[]}
+            isDarkMode={isDarkMode}
+            handleDarkMode={handleDarkMode}
         >
             <Head>
                 <meta name="google-site-verification" content="wcRjktXhF6DAjmhneKS7UatweBIkEF6QfqsNhAYbUgg" />
@@ -105,6 +116,7 @@ export default function Home({ metadata, mdxContent, childPages, id }) {
         </Layout>
     );
 };
+export default Home;
 
 export const getStaticProps: GetStaticProps<{ [key: string]: any }, IDocumentationParsedUrlQuery> = async () => {
     const props = await getPageData([], true);

@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from "@mui/styles";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import Layout from "../components/layout.component";
+import { FunctionComponent } from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,8 +32,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
-export const NotFoundComponent = () => {
+export interface NotFoundComponentProps {
+    isDarkMode: boolean;
+    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+export const NotFoundComponent: FunctionComponent<NotFoundComponentProps> = ({ isDarkMode, handleDarkMode }) => {
     const router = useRouter();
     const classes = useStyles();
     const searchTerm = router.asPath.split("/").join(" ").trim();
@@ -47,6 +51,8 @@ export const NotFoundComponent = () => {
                 keywords: "",
             }}
             id={["notFOund"]}
+            isDarkMode={isDarkMode}
+            handleDarkMode={handleDarkMode}
         >
             <div className={classes.container}>
                 <div className={classes.emptySearchContainer}>

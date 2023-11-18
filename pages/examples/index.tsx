@@ -63,7 +63,11 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SearchResults: FunctionComponent<{}> = () => {
+export interface SearchResultsProps {
+    isDarkMode: boolean;
+    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+export const SearchResults: FunctionComponent<SearchResultsProps> = ({ isDarkMode, handleDarkMode }) => {
     const router = useRouter();
     const query = router.query.q as string || router.query.bjsq as string;
     const [results, setResults] = useState<IDocumentSearchResult[]>([]);
@@ -149,6 +153,8 @@ export const SearchResults: FunctionComponent<{}> = () => {
                 keywords: "search, documentation, query",
             }}
             id={["search"]}
+            isDarkMode={isDarkMode}
+            handleDarkMode={handleDarkMode}
         >
             <div className={classes.searchContainer}>
                 <InlineExampleComponent {...activeExample} />

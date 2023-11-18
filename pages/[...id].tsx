@@ -40,7 +40,7 @@ export const DocumentationContext = createContext<DocumentationPageContext>({
     setActiveTOCItem: (_tocItem: ITableOfContentsItem) => {},
 });
 
-export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl }) => {
+export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ breadcrumbs, metadata, mdxContent, childPages, id, previous, next, relatedArticles, relatedExternalLinks, gitHubUrl, isDarkMode, handleDarkMode }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -131,7 +131,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
     };
     const renderedContent = <MDXRemote {...mdxContent} components={markdownComponents} />;
     return (
-        <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id}>
+        <Layout breadcrumbs={breadcrumbs} previous={previous} next={next} metadata={metadata} id={id} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode}>
             <DocumentationContext.Provider value={{ exampleLinks, addExampleLink, setActiveExample, addTOCItem, setActiveTOCItem, activeTOCItem }}>
                 <div className={styles["documentation-container"]}>
                     <div className={styles["markdown-and-playground"]}>
