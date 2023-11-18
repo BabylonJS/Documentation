@@ -20,10 +20,8 @@ export interface ApiPageProps {
         name: string;
         url: string;
     }[];
-    isDarkMode: boolean
-    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
-export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect, isDarkMode, handleDarkMode }) => {
+export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
     if (!contentNode && !redirect) {
         return <></>;
     }
@@ -61,8 +59,6 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
             breadcrumbs={breadcrumbs}
             metadata={metadata}
             id={["typedoc", ...id]}
-            isDarkMode={isDarkMode}
-            handleDarkMode={handleDarkMode}
         >
             <Head>
                 {cssArray.map((css, idx) => {

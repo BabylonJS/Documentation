@@ -8,7 +8,6 @@ import { makeStyles, createStyles } from "@mui/styles";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FilterIcon from "@mui/icons-material/FilterList";
-import { colorPalette } from "../styles/theme";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export interface ISideMenuProps {
@@ -70,20 +69,20 @@ const useStyles = makeStyles((theme: Theme) =>
                 display: "flex",
             },
             [theme.breakpoints.up("md")]: {
-                backgroundColor: colorPalette.sidebarBackground,
+                backgroundColor: theme.customPalette.sidebarBackground,
             },
         },
         menuItemLink: {
-            color: colorPalette.regularSideText,
+            color: theme.customPalette.regularSideText,
             "&:hover": {
-                color: colorPalette.menuHover1,
+                color: theme.customPalette.menuHover1,
             },
         },
         selectedMenuItemLink: {
-            color: colorPalette.menuLinkText,
+            color: theme.customPalette.menuLinkText,
             fontWeight: 800,
             "&:hover": {
-                color: colorPalette.menuHover1,
+                color: theme.customPalette.menuHover1,
             },
         },
         positionIcon: {

@@ -4,7 +4,7 @@ import { FunctionComponent, createRef, useEffect, useState } from "react";
 import Layout from "../components/layout.component";
 
 import {serialize} from "next-mdx-remote/serialize";
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import styles from "./documentationPage.module.scss";
 
@@ -12,22 +12,23 @@ import { markdownComponents } from "../components/markdownComponents/markdownCom
 
 // testing lib instead of src (documentation states to use the src)
 import { BucketContent } from "../components/bucketContent.component";
-import { IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
+import { IDocumentationPageProps, IExampleLink, ITableOfContentsItem } from "../lib/content.interfaces";
 import { getPageData } from "../lib/buildUtils/tools";
 import { InlineExampleComponent } from "../components/contentComponents/inlineExample.component";
 import Head from "next/head";
 import { DocumentationContext, IDocumentationParsedUrlQuery } from "./[...id]";
+import { MarkdownMetadata } from "../lib/interfaces";
 
 
 export interface HomeProps {
-    metadata;
-    mdxContent;
-    childPages;
-    id;
-    isDarkMode: boolean;
-    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    metadata: MarkdownMetadata;
+    mdxContent: MDXRemoteSerializeResult;
+    childPages: {
+        [key: string]: IDocumentationPageProps;
+    };
+    id: string[];
 }
-export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, childPages, id, isDarkMode, handleDarkMode }) => {
+export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, childPages, id }) => {
     const [exampleLinks, setExampleLinks] = useState<IExampleLink[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink | null>(null);
     const [tocLinks, setTocLinks] = useState<ITableOfContentsItem[]>([]);
@@ -89,8 +90,6 @@ export const Home: FunctionComponent<HomeProps> = ({ metadata, mdxContent, child
                 keywords: "babylonjs, documentation, typedoc, api",
             }}
             id={[]}
-            isDarkMode={isDarkMode}
-            handleDarkMode={handleDarkMode}
         >
             <Head>
                 <meta name="google-site-verification" content="wcRjktXhF6DAjmhneKS7UatweBIkEF6QfqsNhAYbUgg" />

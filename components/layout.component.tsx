@@ -7,13 +7,15 @@ import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography, Switch } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
-import { colorPalette, theme } from "../styles/theme";
+import { useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
 import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 import { IPageProps } from "../lib/content.interfaces";
 import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
+import { useContext } from "react"
+import { ColorModeContext } from "../pages/_app";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
 
@@ -33,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
-            backgroundColor: `${colorPalette.header}`,
+            backgroundColor: `${theme.customPalette.header}`,
             flex: "0 1",
             position: "fixed",
             display: "block",
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         appBarToolbar: {
-            backgroundColor: `${colorPalette.header}`,
+            backgroundColor: `${theme.customPalette.header}`,
             [theme.breakpoints.up("md")]: {
                 backgroundImage: "url(/img/babylonidentity.svg)",
                 backgroundRepeat: "no-repeat",
@@ -108,7 +110,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         drawer: {
-            backgroundColor: `${colorPalette.sidebarBackground}`,
+            backgroundColor: `${theme.customPalette.sidebarBackground}`,
             display: "block",
             paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
@@ -193,7 +195,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // TODO default image for documents with no image
 
-export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false, isDarkMode, handleDarkMode }) => {
+export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -217,6 +219,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
+    const theme = useTheme()
+    const colorMode = useContext(ColorModeContext);
     return (
         <div className={classes.root}>
             <Head>
@@ -278,8 +282,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         </IconButton>
                     </Link>
                     <Switch
-                        checked={isDarkMode}
-                        onChange={handleDarkMode}
+                        checked={theme.palette.mode === 'dark'}
+                        onChange={colorMode.toggleColorMode}
                         inputProps={{ 'aria-label': 'controlled' }}
                     />
                 </Toolbar>

@@ -32,11 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-export interface NotFoundComponentProps {
-    isDarkMode: boolean;
-    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-export const NotFoundComponent: FunctionComponent<NotFoundComponentProps> = ({ isDarkMode, handleDarkMode }) => {
+export const NotFoundComponent: FunctionComponent<{}> = () => {
     const router = useRouter();
     const classes = useStyles();
     const searchTerm = router.asPath.split("/").join(" ").trim();
@@ -51,8 +47,6 @@ export const NotFoundComponent: FunctionComponent<NotFoundComponentProps> = ({ i
                 keywords: "",
             }}
             id={["notFOund"]}
-            isDarkMode={isDarkMode}
-            handleDarkMode={handleDarkMode}
         >
             <div className={classes.container}>
                 <div className={classes.emptySearchContainer}>

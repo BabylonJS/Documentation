@@ -75,8 +75,6 @@ export interface IPageProps {
     previous?: IPageProps;
     lastModified?: string;
     gitHubUrl?: string;
-    isDarkMode: boolean
-    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 export interface IDocumentationPageProps extends IPageProps {
     content?: string;

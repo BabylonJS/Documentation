@@ -86,11 +86,7 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     }),
 );
-export interface PlaygroundSearchResultsProps {
-    isDarkMode: boolean;
-    handleDarkMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-export const PlaygroundSearchResults: FunctionComponent<PlaygroundSearchResultsProps> = ({isDarkMode, handleDarkMode}) => {
+export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
     const query = router.query.q as string;
     const [results, setResults] = useState<IPlaygroundSearchResult[]>([]);
@@ -250,8 +246,6 @@ export const PlaygroundSearchResults: FunctionComponent<PlaygroundSearchResultsP
                 keywords: "search, documentation, query, playground",
             }}
             id={["playground"]}
-            isDarkMode={isDarkMode}
-            handleDarkMode={handleDarkMode}
         >
             <>
                 {!results.length && !loading && (

@@ -2,8 +2,6 @@ import { Theme, Toolbar, Typography, IconButton, Tooltip } from "@mui/material";
 import { FunctionComponent, useContext } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
-import { colorPalette } from "../../styles/theme";
-
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import LinkIcon from "@mui/icons-material/Link";
 import { Link as MaterialLink } from "@mui/material";
@@ -15,7 +13,7 @@ import { createStyles, makeStyles } from "@mui/styles";
 const examplesStyles = makeStyles((theme: Theme) =>
     createStyles({
         header: {
-            backgroundColor: colorPalette.header,
+            backgroundColor: theme.customPalette.header,
             width: "100%",
             color: "white",
             minHeight: 48,
@@ -38,7 +36,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             minWidth: 260,
         },
         header: {
-            backgroundColor: colorPalette.linkText,
+            backgroundColor: theme.customPalette.linkText,
             color: "white",
             minHeight: 36,
             display: "flex",
@@ -54,7 +52,7 @@ const exampleStyles = makeStyles((theme: Theme) =>
             },
         },
         footer: {
-            backgroundColor: colorPalette.linkText,
+            backgroundColor: theme.customPalette.linkText,
             color: "white",
             minHeight: 36,
             padding: theme.spacing(0.5),
