@@ -283,7 +283,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <GithubIcon></GithubIcon>
                         </IconButton>
                     </Link>
-                    <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                    <IconButton onClick={colorMode.toggleColorMode} color="inherit">
                         {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                 </Toolbar>

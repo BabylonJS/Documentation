@@ -2032,7 +2032,6 @@
     .tsd-page-title {
         padding: 70px 0 20px 0;
         margin: 0 0 40px 0;
-        background: #fff;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
     }
     .tsd-page-title h1 {
@@ -2360,7 +2359,7 @@
         padding-top: 2px;
         padding-bottom: 2px;
         border-left: 2px solid transparent;
-        color: #222;
+        color: #777777;
         text-decoration: none;
         transition: border-left-color 0.1s;
     }
@@ -2479,8 +2478,7 @@
     .tsd-panel {
         margin: 20px 0;
         padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
     }
     .tsd-panel:empty {
         display: none;
