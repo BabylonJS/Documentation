@@ -183,7 +183,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                             </div>
                         </div>
                         {pgResults.length !== 0 && (
-                            <div className={styles["examples-container"] + " " + classes.examplesContainer}>
+                            <div className={[styles["examples-container"], classes.examplesContainer].join(" ")}>
                                 TEST
                                 <ExamplesComponent onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
                             </div>

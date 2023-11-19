@@ -21,6 +21,9 @@ type StaticCustomPaletteOptions = {
     linkHover: string
     buttonHover: string
     text: string
+    primary: {
+        main: string
+    },
     sideMenu: {
         menuItemHoverColor: string
     }
@@ -34,6 +37,9 @@ const unchangedModePalette: StaticCustomPaletteOptions = {
     linkHover: "#BFABFF",
     buttonHover: "#BB464B",
     text: "#D5D2CA",
+    primary: {
+        main: "#E0684B"
+    },
     sideMenu: {
         menuItemHoverColor: "#E0684B"
     }
@@ -102,10 +108,10 @@ export const getDesignTokens = (mode: PaletteMode) => {
             mode,
             text: {
                 primary: modePalette.text.primary,
-                // secondary: modePalette.text.secondary,
+                secondary: modePalette.text.secondary,
             },
             primary: {
-                main: unchangedModePalette.sideMenu.menuItemHoverColor,
+                main: unchangedModePalette.primary.main,
             },
             typography: {
                 fontFamily: ["acumin-pro", "Helvetica Neue", "Arial", "sans-serif"].join(","),

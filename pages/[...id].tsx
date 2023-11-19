@@ -182,7 +182,7 @@ export const DocumentationPage: FunctionComponent<IDocumentationPageProps> = ({ 
                         </div>
                     </div>
                     {exampleLinks.length !== 0 && (
-                        <div className={styles["examples-container"] + " " + classes.examplesContainer}>
+                        <div className={[styles["examples-container"], classes.examplesContainer].join(" ")}>
                             <ExamplesComponent examples={exampleLinks}></ExamplesComponent>
                         </div>
                     )}

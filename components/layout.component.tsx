@@ -5,7 +5,9 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
-import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography, Switch } from "@mui/material";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
@@ -281,11 +283,9 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <GithubIcon></GithubIcon>
                         </IconButton>
                     </Link>
-                    <Switch
-                        checked={theme.palette.mode === 'dark'}
-                        onChange={colorMode.toggleColorMode}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                    />
+                    <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    </IconButton>
                 </Toolbar>
                 <div className={classes.navContainer}>
                     <Link href="/typedoc">API</Link>
