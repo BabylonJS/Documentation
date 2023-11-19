@@ -126,11 +126,11 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerContainer: {
             overflow: "auto",
             height: "100%",
+            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
         },
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
             width: 300,
-            paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
                 paddingBottom: 0,
                 top: "unset",
