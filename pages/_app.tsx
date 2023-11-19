@@ -7,21 +7,34 @@ import '../styles/globals.scss';
 import './typedoc/apiPage.global.scss';
 import { getDesignTokens } from '../styles/theme';
 
+const THEME_PREFERENCE = 'theme'
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({children}) => {
-  const preferLightMode = useMediaQuery('(prefers-color-scheme: light)');
-  const [mode, setMode] = useState<PaletteMode>(preferLightMode ? "light" : "dark");
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)');
+  const [mode, setMode] = useState<PaletteMode>(prefersLightMode ? "light" : "dark");
   const colorMode = useMemo(
     () => ({
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) =>
-          prevMode === 'light' ? 'dark' : 'light',
-        );
+        setMode((prevMode: PaletteMode) => {
+          const newMode = prevMode === 'light' ? 'dark' : 'light';
+          localStorage.setItem(THEME_PREFERENCE, newMode);
+          return newMode
+        });
       },
     }),
     [],
   );
+
+  // Determine what the first render should be based off localStorage or user preference
+  useEffect(() => {
+    const savedUserPreference = localStorage.getItem(THEME_PREFERENCE);
+    if(savedUserPreference === 'light')
+      setMode('light')
+    else if(savedUserPreference === 'dark')
+      setMode('dark')
+  }, [])
+
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode])
   return (
     <ColorModeContext.Provider value={colorMode}>
