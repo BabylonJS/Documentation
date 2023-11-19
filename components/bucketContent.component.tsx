@@ -18,8 +18,8 @@ export interface IBucketContentProps {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         h3: {
-            borderTop: "1px black solid",
-            marginTop: "50px !important",
+            borderTop: "1px solid",
+            marginTop: "3.125rem !important",
             paddingTop: theme.spacing(2),
         },
         container: {

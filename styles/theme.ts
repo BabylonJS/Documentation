@@ -83,7 +83,7 @@ const lightModePalette: ModeCustomPaletteOptions = {
 
 const darkModePalette: ModeCustomPaletteOptions = {
     text: {
-        primary: "#FFFFFF",
+        primary: "#DFDFDF",
         secondary: "#9D9D9D"
     },
     tableOfContent: {
