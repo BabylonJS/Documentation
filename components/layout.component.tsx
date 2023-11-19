@@ -280,10 +280,10 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     </div>
                     <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
                         <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
-                            <GithubIcon></GithubIcon>
+                            <GithubIcon />
                         </IconButton>
                     </Link>
-                    <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+                    <IconButton aria-label={"Toggle " + (theme.palette.mode === 'dark' ? 'light' : 'dark') + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
                         {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                 </Toolbar>

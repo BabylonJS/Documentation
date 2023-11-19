@@ -9,7 +9,6 @@ declare module '@mui/material/styles' {
         customPalette?: CustomPaletteOptions
     }
 }
-
 type CustomPaletteOptions = StaticCustomPaletteOptions & ModeCustomPaletteOptions
 
 type StaticCustomPaletteOptions = {
@@ -125,6 +124,6 @@ export const getDesignTokens = (mode: PaletteMode) => {
                 ...unchangedModePalette.sideMenu,
                 ...modePalette.sideMenu,
             }
-        }
+        } as CustomPaletteOptions
     }
 }
