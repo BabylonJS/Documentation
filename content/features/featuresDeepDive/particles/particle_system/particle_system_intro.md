@@ -51,6 +51,7 @@ Emit particles from a box position: <Playground id="#0K3AQ2#5" title="Emit Parti
 By fixing the size of the emission region you can constrain the emission region. The values used will depend on the size of the emitted particles and the size of the region. The center of an emitted particle could be inside a box, say close to the edge, yet the particle could be big enough for its perimeter to be outside the box.
 
 Emit particles from wholly inside the box: <Playground id="#0K3AQ2#7" title="Emit Particles From Completely Inside a Box" description="Simple example showing how to make particles emit from completely inside of a box."/>
+
 When you want the particle system to start after 3 seconds for example you use one of the following
 
 ```javascript
