@@ -10,7 +10,7 @@ video-content:
 
 ## An Introduction to the Particle System
 
-The creation of a particle system requires a name and its capacity and the number of particles in the system (capacity). The system is designed to produce particles that emit at a given rate, move and last for a set lifetime before they are re-cycled and re-emitted.
+The creation of a particle system requires a name and its capacity of the particles in the system. The system is designed to produce particles that emit at a given rate, move and last for a set lifetime before they are re-cycled and re-emitted.
 
 ```javascript
 const myParticleSystem = new BABYLON.ParticleSystem("particles", capacity, scene); //scene is optional and defaults to the current scene
