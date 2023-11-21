@@ -103,10 +103,6 @@ Here's an example:
 
 <Playground id="#CP2RN9#20" title="Vertex Texture Animations on thin instances" description="An example of playing VATs on thin instances."/>
 
-## VATs with SPS
-
-TODO
-
 ## Serializing and loading VATs
 
 Baking the texture can be a slow process, and will play the entire animation visibly. In order to avoid this during run-time, it's better to bake the texture data at build time, and just load it at run-time. Here's a sample script to bake the vertex data and get the JSON file to save locally:
