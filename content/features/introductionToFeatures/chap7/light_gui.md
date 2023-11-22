@@ -13,7 +13,7 @@ video-content:
 ## Day to Night
 One useful way to add a graphical user interface to a scene is the Babylon.js GUI. When working in virtual reality this GUI is necessary as it is designed to be within and part of the Babylon.js scene canvas rather than the HTML document. This GUI is pre-loaded into the playground but is an additional script to load in your own projects with
 
-> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+<Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
 ```html
 <script>https://cdn.babylonjs.com/gui/babylon.gui.min.js</script>

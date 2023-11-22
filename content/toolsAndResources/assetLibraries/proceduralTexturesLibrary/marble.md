@@ -19,7 +19,7 @@ Marble procedural texture can be found here:
 - Normal: [Normal](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.js)
 - Minified : [Minified](https://cdn.babylonjs.com/proceduralTexturesLibrary/babylon.marbleProceduralTexture.min.js)
 
-> ⚠️ WARNING: The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN.
+<Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
 A demo can be found here:  <Playground id="#HS1SK#4" title="Marble Procedural Texture Demo" description="Marble Procedural Texture Demo"/>
 
