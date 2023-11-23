@@ -49,7 +49,7 @@ As the ES6 version is composed of many separated files the usual way to consume 
 2. Open **GitBash** (or similar) for **MyAwesomeApp**
 3. Run `npm init`
 4. Run `npm install webpack webpack-cli webpack-dev-server --save-dev`
-5. Run npm install @babylonjs/core and npm install --save-dev @babylonjs/materials
+5. Run `npm install @babylonjs/core @babylonjs/materials`
 6. Create Folder **public** in MyAwesomeApp and create **index.html** file in public as described in First App Section below
 7. Create Folder **src** in **MyAwesomeApp**
 8. Create **index.js** file in **src** as described in `First App Section` below
