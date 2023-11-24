@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Card, CardHeader } from "@mui/material";
+import { IconButton, Theme, Modal, Card, Tooltip } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -24,7 +24,10 @@ const styles = makeStyles((theme: Theme) =>
             width: "100%",
         },
         expandIcon: {
-            backgroundColor: theme.palette.primary.contrastText
+            backgroundColor: theme.palette.primary.light,
+            "&:hover": {
+                backgroundColor: theme.palette.primary.main
+            }
         },
         expandIconContainer: {
             display: "flex",
@@ -186,7 +189,6 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
     };
     const [isOpen, setIsOpen] = useState(false)
-    console.log(props.alt)
     return (
         <>
             <Modal
@@ -205,13 +207,15 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                 {getImage()}
                 {queryParams.expandable && (
                     <span className={classes.expandIconContainer}>
-                        <IconButton
-                            className={classes.expandIcon}
-                            size="small"
-                            onClick={() => setIsOpen(true)}
-                        >
-                            <ZoomOutMapIcon color="action" />
-                        </IconButton>
+                        <Tooltip title="Expand Image">
+                            <IconButton
+                                className={classes.expandIcon}
+                                size="small"
+                                onClick={() => setIsOpen(true)}
+                            >
+                                <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
+                            </IconButton>
+                        </Tooltip>
                     </span>
                 )}
             </span>
