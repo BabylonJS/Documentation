@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Card, CardActions, CardContent, CardMedia } from "@mui/material";
+import { IconButton, Theme, Modal, Card, CardHeader } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -10,7 +10,6 @@ const styles = makeStyles((theme: Theme) =>
     createStyles({
         imageWrapper: {
             position: "relative",
-            // display: "flex",
             flexDirection: "column",
             maxWidth: "100%",
             height: "auto",
@@ -39,21 +38,28 @@ const styles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
         },
         modalImage: {
+            objectFit: "contain",
             width: "100%",
+            height: "auto",
+            maxHeight: "100%",
+            boxShadow: theme.shadows[3]
+        },
+        modalImageContainer: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            padding: "0.5rem",
         },
         modal: {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            [theme.breakpoints.up("sm")]: {
-                padding: "0rem"
-            },
             [theme.breakpoints.up("md")]: {
-                padding: "5rem"
-            },
-            [theme.breakpoints.up("lg")]: {
-                padding: "10rem"
-            },
+                margin: "5rem 12rem"
+            }
         }
     }),
 );
@@ -62,30 +68,30 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
-    // console.log(props)
-    // console.log(props.src.includes("expandable=true"))
-    const getQueryParams = () => {
-        let rootSrc = props.src;
+    const getQueryParams = (rawSrc: string) => {
+        let src = rawSrc;
         let expandable = false;
-        if(rootSrc.includes("?")) {
-            const params = new URLSearchParams(rootSrc.split("?")[1]);
+        if(src.includes("?")) {
+            let split = src.split("?");
+            src = split[0];
+            const params = new URLSearchParams(split[1]);
             expandable = params.get('expandable') === "true"
         }
         return {
-            rootSrc,
+            src,
             expandable
         }
     }
-    const { rootSrc, expandable } = getQueryParams()
-
-    const eidx = rootSrc.lastIndexOf("!");
-    let [src, imgProps] = eidx < 0 ? [rootSrc, undefined] : [rootSrc.substring(0, eidx), rootSrc.substring(eidx + 1)];
+    const eidx = props.src.lastIndexOf("!");
+    let [src, imgProps] = eidx < 0 ? [props.src, undefined] : [props.src.substring(0, eidx), props.src.substring(eidx + 1)];
     if (imgProps) {
         if (!imgProps.match(/^\d+(x\d+)?$/)) {
             src = props.src;
             imgProps = undefined;
         }
     }
+    let queryParams = getQueryParams(src)
+    src = queryParams.src
     const preW = imgProps && decodeURI(imgProps).split("x")[0];
     const preH = imgProps && decodeURI(imgProps).split("x")[1];
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
@@ -180,38 +186,31 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
     };
     const [isOpen, setIsOpen] = useState(false)
+    console.log(props.alt)
     return (
         <>
             <Modal
                 // disablePortal
-                open={isOpen}
                 className={classes.modal}
+                open={isOpen}
                 onClose={() => setIsOpen(false)}
                 aria-labelledby="server-modal-title"
                 aria-describedby="server-modal-description"
             >
-                <Card>
-                    <Image
-                        unoptimized={true}
-                        className={classes.modalImage}
-                        sizes='100vw'
-                        width={0}
-                        height={0}
-                        alt={props.alt}
-                        src={src}
-                    ></Image>
+                <Card className={classes.modalImageContainer}>
+                    <img className={classes.modalImage} {...props} src={src} />
                 </Card>
             </Modal>
             <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
-                {expandable && (
+                {queryParams.expandable && (
                     <span className={classes.expandIconContainer}>
                         <IconButton
                             className={classes.expandIcon}
                             size="small"
                             onClick={() => setIsOpen(true)}
                         >
-                            <ZoomOutMapIcon />
+                            <ZoomOutMapIcon color="action" />
                         </IconButton>
                     </span>
                 )}
