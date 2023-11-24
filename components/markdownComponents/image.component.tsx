@@ -22,6 +22,7 @@ const styles = makeStyles((theme: Theme) =>
         image: {
             flex: 1,
             width: "100%",
+            boxShadow: theme.shadows[3]
         },
         expandIcon: {
             backgroundColor: theme.palette.primary.light,
