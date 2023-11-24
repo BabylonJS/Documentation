@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Card, Tooltip } from "@mui/material";
+import { IconButton, Theme, Modal, Card, Tooltip, Fade } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -192,16 +192,17 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     return (
         <>
             <Modal
-                // disablePortal
                 className={classes.modal}
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
                 aria-labelledby="server-modal-title"
                 aria-describedby="server-modal-description"
             >
-                <Card className={classes.modalImageContainer}>
-                    <img className={classes.modalImage} {...props} src={src} />
-                </Card>
+                <Fade in={isOpen}>
+                    <Card className={classes.modalImageContainer}>
+                        <img className={classes.modalImage} {...props} src={src} />
+                    </Card>
+                </Fade>
             </Modal>
             <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
