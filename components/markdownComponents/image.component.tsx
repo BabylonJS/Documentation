@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Backdrop } from "@mui/material";
+import { IconButton, Theme, Modal, Card, CardActions, CardContent, CardMedia } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -190,7 +190,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                 aria-labelledby="server-modal-title"
                 aria-describedby="server-modal-description"
             >
-                <div>
+                <Card>
                     <Image
                         unoptimized={true}
                         className={classes.modalImage}
@@ -200,7 +200,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                         alt={props.alt}
                         src={src}
                     ></Image>
-                </div>
+                </Card>
             </Modal>
             <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
