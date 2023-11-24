@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { Theme } from "@mui/material";
+import { IconButton, Theme, Modal, Backdrop } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
+import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -23,11 +24,37 @@ const styles = makeStyles((theme: Theme) =>
             flex: 1,
             width: "100%",
         },
+        expandIcon: {
+            backgroundColor: theme.palette.primary.contrastText
+        },
+        expandIconContainer: {
+            display: "flex",
+            width: "100%",
+            justifyContent: "end",
+            padding: "0.25rem"
+        },
         caption: {
             fontSize: 12,
             display: "block",
             marginBottom: theme.spacing(2),
         },
+        modalImage: {
+            width: "100%",
+        },
+        modal: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            [theme.breakpoints.up("sm")]: {
+                padding: "0rem"
+            },
+            [theme.breakpoints.up("md")]: {
+                padding: "5rem"
+            },
+            [theme.breakpoints.up("lg")]: {
+                padding: "10rem"
+            },
+        }
     }),
 );
 
@@ -35,8 +62,24 @@ const styles = makeStyles((theme: Theme) =>
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
-    const eidx = props.src.lastIndexOf("!");
-    let [src, imgProps] = eidx < 0 ? [props.src, undefined] : [props.src.substring(0, eidx), props.src.substring(eidx + 1)];
+    // console.log(props)
+    // console.log(props.src.includes("expandable=true"))
+    const getQueryParams = () => {
+        let rootSrc = props.src;
+        let expandable = false;
+        if(rootSrc.includes("?")) {
+            const params = new URLSearchParams(rootSrc.split("?")[1]);
+            expandable = params.get('expandable') === "true"
+        }
+        return {
+            rootSrc,
+            expandable
+        }
+    }
+    const { rootSrc, expandable } = getQueryParams()
+
+    const eidx = rootSrc.lastIndexOf("!");
+    let [src, imgProps] = eidx < 0 ? [rootSrc, undefined] : [rootSrc.substring(0, eidx), rootSrc.substring(eidx + 1)];
     if (imgProps) {
         if (!imgProps.match(/^\d+(x\d+)?$/)) {
             src = props.src;
@@ -136,10 +179,42 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             return <img className={classes.image} {...props} src={src} />;
         }
     };
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <>
+            <Modal
+                // disablePortal
+                open={isOpen}
+                className={classes.modal}
+                onClose={() => setIsOpen(false)}
+                aria-labelledby="server-modal-title"
+                aria-describedby="server-modal-description"
+            >
+                <div>
+                    <Image
+                        unoptimized={true}
+                        className={classes.modalImage}
+                        sizes='100vw'
+                        width={0}
+                        height={0}
+                        alt={props.alt}
+                        src={src}
+                    ></Image>
+                </div>
+            </Modal>
             <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
+                {expandable && (
+                    <span className={classes.expandIconContainer}>
+                        <IconButton
+                            className={classes.expandIcon}
+                            size="small"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            <ZoomOutMapIcon />
+                        </IconButton>
+                    </span>
+                )}
             </span>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </>
