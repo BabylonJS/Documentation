@@ -30,23 +30,23 @@ The documentation page layout has several features that you'll want to know abou
 
 To start, the left most panel is the navigation pane. This pane is how you navigate to where you'd like to go.
 
-![Navigation Pane](/img/home/home1.jpg?expandable=true)
+![Navigation Pane](/img/home/home1.jpg)
 
 Next is the content pane. It's in the middle, and you guessed it, it contains the main content and information.
 
-![Content Pane](/img/home/home2.jpg?expandable=true)
+![Content Pane](/img/home/home2.jpg)
 
 Some pages have a lot of information that's organized into sub sections. The table of contents pane makes it easy to navigate lengthier pages.
 
-![Table of Contents](/img/home/home4.jpg?expandable=true)
+![Table of Contents](/img/home/home4.jpg)
 
 The panel on the right is the examples pane. It provides quick access to every playground (live examples) on the current page.
 
-![Examples Pane](/img/home/home3.jpg?expandable=true)
+![Examples Pane](/img/home/home3.jpg)
 
 Lastly, if you select any one of the examples in the examples pane, it will load that example inside of the playground pane at the top of the page content.
 
-![Examples Pane](/img/home/home5.jpg?expandable=true)
+![Examples Pane](/img/home/home5.jpg)
 
 ## A note on versioning
 

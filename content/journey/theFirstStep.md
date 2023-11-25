@@ -18,7 +18,7 @@ This doc will take you on a VERY brief journey of creating and hosting your very
 
 The single most important tool available to you as you learn and develop with Babylon, is the Babylon.js Playground.
 
-![playground](/img/home/playground.jpg?expandable=true)
+![playground](/img/home/playground.jpg)
 
 The playground is your toybox, your tinker environment, your laboratory. This simple website allows you to write Babylon code on the left, and see instant updates on the right. It's really that simple.
 
@@ -53,7 +53,7 @@ sphere.position.y = 1;
 
 Go ahead and highlight those lines of code and hit DELETE! You've just made your first change! Feel good? But wait, nothing happened in the scene? That's because we have to re-run the scene with our changes. You can do that by either pressing ALT+ENTER on your keyboard or pressing the 'run' button in the UI.
 
-![run](/img/home/run.jpg)
+![run](/img/home/run.jpg?expandable=false)
 
 BOOM! The sphere is gone!
 
@@ -98,7 +98,7 @@ Pretty cool! You've now created your first Babylon.js texture and assigned it to
 
 Ok it's time for another addition to the scene. After all of your ground-related code, give yourself a little space by hitting enter and on a new line press CTRL+SPACE. This will spawn a list of playground templates. These templates are handy pieces of code that you will likely reuse over and over again through your Babylon learning journey. Go ahead and select the template that says "Import a Mesh w/Callback".
 
-![templates](/img/home/playgroundTemplates.jpg?expandable=true)
+![templates](/img/home/playgroundTemplates.jpg)
 
 You should see the following lines of code pop right into the playground:
 
@@ -147,7 +147,7 @@ Run the scene and click+drag or touch+drag on the Babylon scene.
 
 WooHoo! You've added interaction to the scene! Great job! Go ahead and save your playground by pressing CTRL+S or hitting the save button.
 
-![save](/img/home/save.jpg)
+![save](/img/home/save.jpg?expandable=false)
 
 ### The .html File
 
@@ -155,7 +155,7 @@ At this point, let's say we're happy with our creation, and we want to put the B
 
 Getting your Babylon scene ready to host is as simple as pressing a button. Either press SHIFT+CTRL+S or press the Download button to download an .html file of your Babylon scene to your system.
 
-![download](/img/home/download.jpg)
+![download](/img/home/download.jpg?expandable=false)
 
 That's it! You've got everything you need for the world to see your first Babylon experience! Now all we need to do is host it somewhere for the world to see it!
 
@@ -171,11 +171,11 @@ You'll need to log in (or sign up if you're new to GitHub...it's free).
 
 Next, we'll create a new repository.
 
-![newRepo](/img/home/newRepo.jpg?expandable=true)
+![newRepo](/img/home/newRepo.jpg)
 
 Give your new repo a cool name and make sure to check the "Add a README file."
 
-![newRepoDetails](/img/home/newRepoDetails.jpg?expandable=true)
+![newRepoDetails](/img/home/newRepoDetails.jpg)
 
 Congratulations! You've just set up a new GitHub repository! Yay!
 
@@ -183,29 +183,29 @@ Now let's add the downloaded Babylon Playground files to this repository.
 
 Click on "Add file" and then "Upload files"
 
-![uploadFiles](/img/home/uploadFiles.jpg?expandable=true)
+![uploadFiles](/img/home/uploadFiles.jpg)
 
 Locate the file that you downloaded from the Babylon.js playground and drag it onto this page. Then press the "Commit changes" button.
 
-![uploadCommit](/img/home/uploadCommit.jpg?expandable=true)
+![uploadCommit](/img/home/uploadCommit.jpg)
 
 One last step and then your Babylon Experience will be hosted with a live url for anyone to see.
 
 Hit the "Settings" button on the main repo page.
 
-![settings](/img/home/settings.jpg?expandable=true)
+![settings](/img/home/settings.jpg)
 
 Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save button.
 
-![pages](/img/home/pages.jpg?expandable=true)
+![pages](/img/home/pages.jpg)
 
 After your settings are saved you'll see the url to to reach your website! You can share that url with anyone that you'd like!
 
-![url](/img/home/url.jpg?expandable=true)
+![url](/img/home/url.jpg?expandable=false)
 
 Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named _config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
 
-![create text file](/img/home/addNewTextFile.jpg?expandable=true)
+![create text file](/img/home/addNewTextFile.jpg)
 
 This will open a text editor for you to create the file. At the top, type `_config.yml` in the input field as the name of the file to save in your repository. Then type the following in the body of the file:
 
@@ -216,11 +216,11 @@ description: Website description.
 
 ```
 
-![create config file](/img/home/createTextFile.jpg?expandable=true)
+![create config file](/img/home/createTextFile.jpg)
 
 Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
 
-![commit text file to repository](/img/home/commitTextFile.jpg?expandable=true)
+![commit text file to repository](/img/home/commitTextFile.jpg)
 
 
 

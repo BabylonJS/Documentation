@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Card, Tooltip, Fade } from "@mui/material";
+import { IconButton, Theme, Modal, Card, Tooltip, Fade, Hidden } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -23,7 +23,7 @@ const styles = makeStyles((theme: Theme) =>
             flex: 1,
             width: "100%",
             boxShadow: theme.shadows[3],
-            borderRadius: theme.shape.borderRadius * 1
+            borderRadius: theme.shape.borderRadius * 1,
         },
         expandIcon: {
             backgroundColor: theme.palette.primary.light,
@@ -33,6 +33,7 @@ const styles = makeStyles((theme: Theme) =>
         },
         expandIconContainer: {
             display: "flex",
+            position: "relative",
             width: "100%",
             justifyContent: "end",
             padding: "0.25rem"
@@ -47,7 +48,6 @@ const styles = makeStyles((theme: Theme) =>
             width: "100%",
             height: "auto",
             maxHeight: "100%",
-            boxShadow: theme.shadows[3]
         },
         modalImageContainer: {
             display: "flex",
@@ -56,12 +56,15 @@ const styles = makeStyles((theme: Theme) =>
             justifyContent: "center",
             width: "100%",
             height: "100%",
-            padding: "0.5rem",
+            padding: "1rem",
         },
         modal: {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            [theme.breakpoints.up("sm")]: {
+                margin: "2.5rem 6rem"
+            },
             [theme.breakpoints.up("md")]: {
                 margin: "5rem 12rem"
             }
@@ -75,12 +78,12 @@ const styles = makeStyles((theme: Theme) =>
 export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) => {
     const getQueryParams = (rawSrc: string) => {
         let src = rawSrc;
-        let expandable = false;
+        let expandable = true;
         if(src.includes("?")) {
             let split = src.split("?");
             src = split[0];
             const params = new URLSearchParams(split[1]);
-            expandable = params.get('expandable') === "true"
+            expandable = params.get('expandable') === "true" || params.get('expandable') === undefined
         }
         return {
             src,
@@ -209,17 +212,19 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {getImage()}
                 {queryParams.expandable && (
-                    <span className={classes.expandIconContainer}>
-                        <Tooltip title="Expand Image">
-                            <IconButton
-                                className={classes.expandIcon}
-                                size="small"
-                                onClick={() => setIsOpen(true)}
-                            >
-                                <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
-                            </IconButton>
-                        </Tooltip>
-                    </span>
+                    <Hidden smDown>
+                        <span className={classes.expandIconContainer}>
+                                <Tooltip title="Expand Image">
+                                    <IconButton
+                                        className={classes.expandIcon}
+                                        size="small"
+                                        onClick={() => setIsOpen(true)}
+                                    >
+                                        <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
+                                    </IconButton>
+                                </Tooltip>
+                        </span>
+                    </Hidden>
                 )}
             </span>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}

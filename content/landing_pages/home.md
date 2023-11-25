@@ -16,4 +16,4 @@ We know that each person comes to Babylon.js with their own individual backgroun
 
 However, before you go any further, we strongly encourage (and humbly ask) EVERYONE to [Start Your Babylon.js Journey Here.](journey/theFirstStep)
 
-![Babylon](/img/home/babylonjs_identity_color.png?expandable=true)
+![Babylon](/img/home/babylonjs_identity_color.png)
