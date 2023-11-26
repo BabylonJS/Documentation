@@ -22,8 +22,6 @@ const styles = makeStyles((theme: Theme) =>
         image: {
             flex: 1,
             width: "100%",
-            boxShadow: theme.shadows[3],
-            borderRadius: theme.shape.borderRadius * 1,
         },
         expandIcon: {
             backgroundColor: theme.palette.primary.light,
@@ -209,11 +207,10 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     </Card>
                 </Fade>
             </Modal>
-            <span ref={containerRef} style={{ display: "block", height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
-                {getImage()}
+            <span ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
                 {queryParams.expandable && (
                     <Hidden smDown>
-                        <span className={classes.expandIconContainer}>
+                        <span className={classes.expandIconContainer} style={{zIndex: 999}}>
                                 <Tooltip title="Expand Image">
                                     <IconButton
                                         className={classes.expandIcon}
@@ -226,6 +223,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                         </span>
                     </Hidden>
                 )}
+                {getImage()}
             </span>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </>
