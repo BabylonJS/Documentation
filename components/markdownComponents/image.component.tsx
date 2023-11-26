@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { IconButton, Theme, Modal, Card, Tooltip, Fade, Hidden } from "@mui/material";
+import { Button, Theme, Modal, Card, Tooltip, Fade, Hidden } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
@@ -8,33 +8,44 @@ import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
-        imageWrapper: {
+        imageContainer: {
             position: "relative",
+            display: "flex",
             flexDirection: "column",
             maxWidth: "100%",
             height: "auto",
             margin: theme.spacing(2, 0),
-            display: "inline-block",
             [theme.breakpoints.up("sm")]: {
                 maxWidth: 800,
+            }
+        },
+        imageContainerExpandable: {
+            "&:hover": {
+                "& $image": {
+                    opacity: "0.3"
+                },
+                "& $expandIconContainer": {
+                    opacity: 1
+                }
             },
         },
         image: {
-            flex: 1,
-            width: "100%",
+            flexGrow: "1",
+            transition: ".5s ease",
+            backfaceVisibility: "hidden",
+            borderRadius: theme.shape.borderRadius,
+            boxShadow: theme.shadows[3]
         },
-        expandIcon: {
-            backgroundColor: theme.palette.primary.light,
-            "&:hover": {
-                backgroundColor: theme.palette.primary.main
-            }
-        },
+        expandIcon: {},
         expandIconContainer: {
-            display: "flex",
-            position: "relative",
-            width: "100%",
-            justifyContent: "end",
-            padding: "0.25rem"
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+            transition: ".5s ease",
+            backfaceVisibility: "hidden",
+            opacity: 0,
         },
         caption: {
             fontSize: 12,
@@ -207,23 +218,26 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     </Card>
                 </Fade>
             </Modal>
-            <span ref={containerRef} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }} className={classes.imageWrapper}>
+            <span ref={containerRef} className={[
+                classes.imageContainer,
+                queryParams.expandable ? classes.imageContainerExpandable : ""
+            ].join(" ")} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }}>
+                {getImage()}
                 {queryParams.expandable && (
                     <Hidden smDown>
-                        <span className={classes.expandIconContainer} style={{zIndex: 999}}>
-                                <Tooltip title="Expand Image">
-                                    <IconButton
-                                        className={classes.expandIcon}
-                                        size="small"
-                                        onClick={() => setIsOpen(true)}
-                                    >
-                                        <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
-                                    </IconButton>
-                                </Tooltip>
+                        <span className={classes.expandIconContainer}>
+                            <Button
+                                className={classes.expandIcon}
+                                size="small"
+                                variant="outlined"
+                                onClick={() => setIsOpen(true)}
+                            >
+                                <span style={{marginRight: "0.5rem"}}>Expand</span>
+                                <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
+                            </Button>
                         </span>
                     </Hidden>
                 )}
-                {getImage()}
             </span>
             {props.caption && <span className={classes.caption}>{props.caption}</span>}
         </>
