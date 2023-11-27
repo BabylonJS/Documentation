@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { Button, Theme, Modal, Card, Tooltip, Fade, Hidden } from "@mui/material";
+import { Button, Theme, Modal, Card, Fade, Hidden, IconButton } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
+import CloseIcon from '@mui/icons-material/Close';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -66,23 +67,30 @@ const styles = makeStyles((theme: Theme) =>
         },
         modalImageContainer: {
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             width: "100%",
-            height: "100%",
-            padding: "1rem",
+            height: "90%",
+            padding: "0 0.5rem 0.5rem 0.5rem"
+        },
+        modalCard: {
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%"
         },
         modal: {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            [theme.breakpoints.up("sm")]: {
-                margin: "2.5rem 6rem"
-            },
             [theme.breakpoints.up("md")]: {
                 margin: "5rem 12rem"
             }
+        },
+        modalCloseContainer: {
+            display: "flex",
+            alignItems: "end",
+            justifyContent: "end"
         }
     }),
 );
@@ -219,8 +227,15 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                 aria-describedby="server-modal-description"
             >
                 <Fade in={isOpen}>
-                    <Card className={classes.modalImageContainer}>
-                        <img className={classes.modalImage} {...props} src={src} />
+                    <Card className={classes.modalCard}>
+                        <div className={classes.modalCloseContainer}>
+                            <IconButton onClick={() => setIsOpen(false)}>
+                                <CloseIcon />
+                            </IconButton>
+                        </div>
+                        <div className={classes.modalImageContainer}>
+                            <img className={classes.modalImage} {...props} src={src} />
+                        </div>
                     </Card>
                 </Fade>
             </Modal>
