@@ -20,6 +20,9 @@ const styles = makeStyles((theme: Theme) =>
             }
         },
         imageContainerExpandable: {
+            "& $image": {
+                boxShadow: theme.shadows[3]
+            },
             "&:hover": {
                 "& $image": {
                     opacity: "0.3"
@@ -30,13 +33,14 @@ const styles = makeStyles((theme: Theme) =>
             },
         },
         image: {
+            borderRadius: theme.shape.borderRadius,
             flexGrow: "1",
             transition: ".5s ease",
-            backfaceVisibility: "hidden",
-            borderRadius: theme.shape.borderRadius,
-            boxShadow: theme.shadows[3]
+            backfaceVisibility: "hidden"
         },
-        expandIcon: {},
+        expandIcon: {
+            minWidth: "6.6rem"
+        },
         expandIconContainer: {
             position: "absolute",
             top: "50%",
