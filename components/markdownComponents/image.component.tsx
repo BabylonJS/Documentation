@@ -20,17 +20,19 @@ const styles = makeStyles((theme: Theme) =>
             }
         },
         imageContainerExpandable: {
-            "& $image": {
-                boxShadow: theme.shadows[3]
-            },
-            "&:hover": {
+            [theme.breakpoints.up("sm")]: {
                 "& $image": {
-                    opacity: "0.3"
+                    boxShadow: theme.shadows[3]
                 },
-                "& $expandIconContainer": {
-                    opacity: 1
-                }
-            },
+                "&:hover": {
+                    "& $image": {
+                        opacity: "0.3"
+                    },
+                    "& $expandIconContainer": {
+                        opacity: 1
+                    }
+                },
+            }
         },
         image: {
             borderRadius: theme.shape.borderRadius,
