@@ -53,7 +53,7 @@ sphere.position.y = 1;
 
 Go ahead and highlight those lines of code and hit DELETE! You've just made your first change! Feel good? But wait, nothing happened in the scene? That's because we have to re-run the scene with our changes. You can do that by either pressing ALT+ENTER on your keyboard or pressing the 'run' button in the UI.
 
-![run](/img/home/run.jpg)
+![run](/img/home/run.jpg?expandable=false)
 
 BOOM! The sphere is gone!
 
@@ -147,7 +147,7 @@ Run the scene and click+drag or touch+drag on the Babylon scene.
 
 WooHoo! You've added interaction to the scene! Great job! Go ahead and save your playground by pressing CTRL+S or hitting the save button.
 
-![save](/img/home/save.jpg)
+![save](/img/home/save.jpg?expandable=false)
 
 ### The .html File
 
@@ -155,7 +155,7 @@ At this point, let's say we're happy with our creation, and we want to put the B
 
 Getting your Babylon scene ready to host is as simple as pressing a button. Either press SHIFT+CTRL+S or press the Download button to download an .html file of your Babylon scene to your system.
 
-![download](/img/home/download.jpg)
+![download](/img/home/download.jpg?expandable=false)
 
 That's it! You've got everything you need for the world to see your first Babylon experience! Now all we need to do is host it somewhere for the world to see it!
 
@@ -201,7 +201,7 @@ Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save 
 
 After your settings are saved you'll see the url to to reach your website! You can share that url with anyone that you'd like!
 
-![url](/img/home/url.jpg)
+![url](/img/home/url.jpg?expandable=false)
 
 Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named _config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
 
