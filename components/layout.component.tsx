@@ -127,6 +127,7 @@ const useStyles = makeStyles((theme: Theme) =>
             overflow: "auto",
             height: "100%",
             backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+            zIndex: 1500,
         },
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
@@ -327,6 +328,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             anchor={theme.direction === "rtl" ? "right" : "left"}
                             open={mobileOpen}
                             onClose={handleDrawerToggle}
+                            style={{ zIndex: 1500 }}
                             classes={{
                                 paper: classes.drawerPaper,
                             }}
