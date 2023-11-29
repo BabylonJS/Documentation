@@ -1,8 +1,7 @@
+import Image from "next/image";
 import { FunctionComponent, useState } from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import { Alert, AlertTitle, IconButton, Tooltip, Theme } from "@mui/material";
-import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { createStyles, makeStyles } from "@mui/styles";
 import vsDark from "prism-react-renderer/themes/vsDark";
 
@@ -65,14 +64,14 @@ export const SyntaxHighlighting: FunctionComponent<{ className: string; children
     const copyPasteIcon = !isCopy ?
         <Tooltip title="Copy">
             <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <ContentCopyIcon className={classes.copyIcon} />
+                <Image alt="Copy" src="/fluent-icons/ic_fluent_copy_24_regular.svg" width={24} height={24} />
             </IconButton>
         </Tooltip>
         :
         <div className={classes.copiedContainer}>
             <i className={classes.copiedText}>Copied!</i>
             <IconButton size="small" color="inherit" onClick={copyPaste}>
-                <LibraryAddCheckIcon className={classes.copiedIcon} />
+                <Image alt="Copy Complete" src="/fluent-icons/ic_fluent_completed_24_regular.svg" width={24} height={24} />
             </IconButton>
         </div>
     return (
