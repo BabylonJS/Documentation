@@ -1,39 +1,46 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import type { AppProps } from 'next/app'
-import Head from 'next/head';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import type { AppProps } from "next/app";
+import Script from "next/script";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-import '../styles/globals.scss';
-import './typedoc/apiPage.global.scss';
-import { theme } from '../styles/theme';
-
-import ReactGA from "react-ga4";
-
-ReactGA.initialize("G-Q8XDD8TYY2");
+import "../styles/globals.scss";
+import "./typedoc/apiPage.global.scss";
+import { theme } from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
+    useEffect(() => {
+        // Remove the server-side injected CSS.
+        const jssStyles = document.querySelector("#jss-server-side");
+        if (jssStyles) {
+            jssStyles.parentElement.removeChild(jssStyles);
+        }
+    }, []);
 
-  return (
-    <>
-      <Head>
-        <title>Babylon.js docs</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>Babylon.js docs</title>
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
+                <Script id="google-analytics">
+                    {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+            
+                      gtag('config', 'G-Q8XDD8TYY2');
+                    `}
+                </Script>
+            </Head>
+            <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </>
+    );
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -48,9 +55,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default MyApp
+export default MyApp;
 
 MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
+    Component: PropTypes.elementType.isRequired,
+    pageProps: PropTypes.object.isRequired,
 };
