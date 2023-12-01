@@ -8,6 +8,10 @@ import '../styles/globals.scss';
 import './typedoc/apiPage.global.scss';
 import { theme } from '../styles/theme';
 
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-Q8XDD8TYY2");
+
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Remove the server-side injected CSS.
