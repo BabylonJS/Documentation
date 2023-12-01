@@ -22,22 +22,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>Babylon.js docs</title>
+                {/* <script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" /> */}
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-                <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
-                <Script id="google-analytics">
-                    {`
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-            
-                      gtag('config', 'G-Q8XDD8TYY2');
-                    `}
-                </Script>
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline />
                 <Component {...pageProps} />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q8XDD8TYY2" />
+                <Script id="google-analytics">
+                    {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag("js", new Date());
+            
+                      gtag('config', 'G-Q8XDD8TYY2');
+                    `}
+                </Script>
             </ThemeProvider>
         </>
     );
