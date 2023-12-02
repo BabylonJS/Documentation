@@ -1,3 +1,17 @@
+
+.filterStringContainer {
+    background-color: red;
+    padding: 5px;
+    border-radius: 2px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+
+    .filterStringInput {
+        background-color: #ff00ff;
+    }
+}
+
 .api-container {
     padding: 16px;
     max-width: 100%;
@@ -1130,7 +1144,10 @@
     .tsd-kind-property.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-icon:before {
         background-position: -221px -0px;
     }
-
+    .tsd-kind-property.hidden {
+        display: none;
+    }
+    
     .tsd-kind-get-signature > .tsd-kind-icon:before {
         background-position: -136px -17px;
     }

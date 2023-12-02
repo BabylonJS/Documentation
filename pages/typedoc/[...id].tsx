@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef, useEffect } from "react";
+import { FunctionComponent, useRef, useEffect, useState } from "react";
 import { GetStaticPaths } from "next";
 import { generateTypeDoc, getAPIPageData } from "../../lib/buildUtils/typedoc.utils";
 import { parseNode } from "../../lib/buildUtils/parser.utils";
@@ -25,7 +25,8 @@ export const ApiPage: FunctionComponent<{
         return <></>;
     }
     const ref = useRef<HTMLDivElement>();
-    const html = redirect ? "" : parseNode(contentNode).result;
+    const [filterString, setFilterString] = useState<string>('')
+    const html = redirect ? "" : parseNode(contentNode, filterString).result;
     let children = <></>;
     try {
         children = html.props.children[0].props.children[1].props.children;
@@ -65,6 +66,9 @@ export const ApiPage: FunctionComponent<{
                 })}
             </Head>
             <div ref={ref} className="api-container">
+                <div className="filterStringContainer">
+                    Filter:<input id="filter-string-input" className="filterStringInput" type="text" onChange={(e) => setFilterString(e.target.value)} value={filterString}/>
+                </div>
                 {children}
             </div>
         </Layout>

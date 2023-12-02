@@ -83,7 +83,27 @@ export const apiLinkParserPlugin: Plugin<[any?] | [Processor?, any?]> = (options
     };
 };
 
-export const parseNode = (htmlContent: string) => {
+export const filterPropertiesPlugin: Plugin<[any?] | [Processor?, any?]> = (options) => {
+    const visitor: visit.Visitor<Node> = (node: any, index, parent) => {
+        if (!node) return
+        var props = node.properties;
+
+        if (node.tagName === 'li' && parent?.properties?.className?.includes('tsd-index-list')) {
+            const textString = node.children[0].children.filter((c) => c.type === 'text').map((c) => c.value).join('')
+            if (options.filterString && !textString.includes(options.filterString)) {
+                
+                props.className.push('hidden')
+            }
+        }
+        
+        return;
+    };
+    return (tree: Node /*, file , next*/) => {
+        visit(tree, "element", visitor);
+    };
+};
+
+export const parseNode = (htmlContent: string, filterString: string) => {
     // const parsed = unified().use(html).stringify(node);
     var processor = unified()
         .use(parse)
@@ -95,7 +115,8 @@ export const parseNode = (htmlContent: string) => {
             components: {
                 a: AnchorWrapper,
             },
-        });
+        })
+        .use(filterPropertiesPlugin, {filterString});
 
     return processor.processSync(htmlContent) as any;
 };
