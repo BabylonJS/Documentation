@@ -186,3 +186,9 @@ body3.dispose();
 // Don't forget to also dispose of the shape when it's not needed anymore!
 shape.dispose();
 ```
+
+## SetTargetTransform
+
+SetTargetTransform is a method available on the PhysicsBody that takes in a target position and orientation, and sets the velocity of the body to reach that target. It is useful when you have the information about where the body should be, and don't want to have to calculate its velocity. This method is more commonly used with animated bodies.
+
+<Playground id="#FLCVX1#2" title="SetTargetTransform" description="Playground showing how to use the setTargetTransform method to rotate a body"/>
