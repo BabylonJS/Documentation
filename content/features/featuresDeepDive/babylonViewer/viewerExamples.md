@@ -26,7 +26,7 @@ This section holds a list of the current demos of the viewer
 
 A basic example of loading a .babylon model with the default configuration.
 
-[Live demo](https://viewer.babylonjs.com/basicexample)
+[Live demo](https://viewer.babylonjs.com/basicExample.html)
 
 ## DOM configuration
 
@@ -34,7 +34,7 @@ A basic example of loading a .babylon model with the default configuration.
 
 An example on how to use the DOM to configure the viewer
 
-[Live demo](https://viewer.babylonjs.com/domexample)
+[Live demo](https://viewer.babylonjs.com/domExample.html)
 
 ## Events example
 
@@ -42,7 +42,7 @@ An example on how to use the DOM to configure the viewer
 
 An example on how to load the viewer and use its observers using promises, observables and callbacks.
 
-[Live demo](https://viewer.babylonjs.com/eventsexample)
+[Live demo](https://viewer.babylonjs.com/eventsExample.html)
 
 ## Animations example
 
@@ -50,4 +50,4 @@ An example on how to load the viewer and use its observers using promises, obser
 
 An example of the animation system of the default viewer
 
-[Live demo](https://viewer.babylonjs.com/ufoexample)
+[Live demo](https://viewer.babylonjs.com/ufoExample.html)
