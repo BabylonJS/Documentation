@@ -22,7 +22,7 @@ Several reasons come to mind:
 
 Here is a complete example of an advanced `NodeGeometry` which is used to generate a city with different buildings:
 
-<Playground id="#PYY6XE#70" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city" image="/img/how_to/nge/01.jpg"/>
+<Playground id="#PYY6XE#74" title="Using NodeGeometry to generate a procedural city" description="Using NodeGeometry to generate a procedural city" image="/img/how_to/nge/01.jpg"/>
 
 ## How to Use
 
