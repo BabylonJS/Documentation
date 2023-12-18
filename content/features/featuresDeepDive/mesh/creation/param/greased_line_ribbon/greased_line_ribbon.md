@@ -35,6 +35,7 @@ If there is a `ribbonOptions` present a non camera facing ribbon like mesh will 
 ```javascript
 pointsMode: GreasedLineRibbonPointsMode;
 direction: Vector3;
+directionsAutoMode?: GreasedLineRibbonAutoDirectionMode;
 width: number;
 facesMode?: GreasedLineRibbonFacesMode;
 closePath?: boolean;
@@ -46,6 +47,7 @@ The default values are:
 ```javascript
 pointsMode = GreasedLineRibbonPointsMode.POINTS_MODE_POINTS;
 direction = Vector3.UpReadOnly;
+directionsAutoMode: GreasedLineRibbonAutoDirectionMode.AUTO_DIRECTIONS_NONE;
 width = GreasedLineMaterialDefaults.DEFAULT_WIDTH; // 0.1
 facesMode = GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED;
 closePath = false;
@@ -95,7 +97,19 @@ You can change the default width by modifying the value of `GreasedLineRibbonMes
 
 The `widths` option on `GreasedLineMaterialBuilderOptions` is not supported in `POINTS_MODE_PATHS` because in this mode you define the edges of the ribbon and not the center line.
 
-<Playground id="#1LRZ3#422" title="Shows different direction modes" />
+#### **directionsAutoMode**
+
+Only with `POINTS_MODE_PATHS`.
+
+`AUTO_DIRECTIONS_FROM_FIRST_SEGMENT` sets the direction (slope) of the ribbon from the direction of the first line segment. Recommended when all the lines are on the same plane.
+
+`AUTO_DIRECTIONS_FROM_ALL_SEGMENTS` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments. Slow method.
+
+`AUTO_DIRECTIONS_ENHANCED` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments using a more sophisitcaed algorithm. Slowest method.
+
+`AUTO_DIRECTIONS_NONE` you have to set the direction (slope) manually. Recommended when you want full control.
+
+<Playground id="#H1LRZ3#422" title="Shows different direction modes" description="Demonstrates all available direction modes." />
 
 #### **facesMode**
 
@@ -110,7 +124,7 @@ In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED` single sided with back f
 In `GreasedLineRibbonFacesMode.FACES_MODE_SINGLE_SIDED_NO_BACKFACE_CULLING` single sided without back face culling. Sets `backFaceCulling = false` on the material so it affects all line ribbons added to the line ribbon instance.
 In `GreasedLineRibbonFacesMode.FACES_MODE_DOUBLE_SIDED` extra back faces are created. This doubles the amount of faces of the mesh.
 
-<Playground id="#SS1UUI#39" title="Shows different face modes" description="Shows different face modes." />
+<Playground id="#SS1UUI#82" title="Shows different face modes" description="Shows different face modes." />
 
 #### **closePath**
 
