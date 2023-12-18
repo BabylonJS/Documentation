@@ -243,7 +243,7 @@ let screenUI = BABYLON.GUI.AdvancedDynamicTexture.CreateForMeshTexture(device.sc
 screenUI.parseFromSnippetAsync("#WFL50L");
 ```
 
-<Playground id="#H896c7#13" title="Load a GUI Into Texture Mode" description="Simple example that shows how to load a GUI into texture mode and project it onto a mesh."/>
+<Playground id="#H896c7#145" title="Load a GUI Into Texture Mode" description="Simple example that shows how to load a GUI into texture mode and project it onto a mesh."/>
 
 Further information about GUIs as in-scene textures can be found here: [GUIs as a Texture](/features/featuresDeepDive/gui/gui#texture-mode)
 
