@@ -98,7 +98,7 @@ The only difference with your default AMP initialization is the presence of the 
 "plugins": { "threeSixty": { } }'
 ```
 
-One example can be found in the index.html file located in the [repo](https://github.com/BabylonJS/Extensions/blob/master/Amp360Video/index.html).
+One example can be found in the _index.html_ file located in the [repo](https://github.com/BabylonJS/Extensions/blob/master/Amp360Video/index.html).
 
 ### Code Initialization
 

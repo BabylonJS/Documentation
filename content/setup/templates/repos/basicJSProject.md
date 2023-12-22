@@ -22,12 +22,12 @@ Then in the terminal use
 
 *ws*
 
-to obtain url addresses for the local server and use one of them in your browser to open index.html
+to obtain url addresses for the local server and use one of them in your browser to open _index.html_
 
-In your browser address bar add **/example.html/** to end of the url address to open the example.html
+In your browser address bar add **/example.html/** to end of the url address to open the _example.html_
 
 ### Description
 
 ![Basic Web project](/img/quickstart/basicproj.png)
 
-The index.html only uses babylon.js where as example.html uses the loader and gui files in addition.
+The _index.html_ only uses babylon.js whereas _example.html_ uses the loader and gui files in addition.

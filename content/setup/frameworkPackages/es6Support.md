@@ -116,7 +116,7 @@ let gridMaterial = new GridMaterial(.....)
 
 ### Creating our first js APP
 
-Now we have all the dependencies created, create an index.html file in the public folder and fill it with the following code:
+Now we have all the dependencies created, create an _index.html_ file in the public folder and fill it with the following code:
 
 ```html
 <!DOCTYPE html>

@@ -30,7 +30,7 @@ First you'll need to set up where you want the project to be located.
     - src
 4. Main files
     - Go into your src folder and create an app.ts file
-    - Go into your public folder and create an index.html file with the following contents:
+    - Go into your public folder and create an _index.html_ file with the following contents:
 
 ```javascript
 <!DOCTYPE html>
@@ -186,7 +186,7 @@ module.exports = {
 };
 ```
 
-Now when we build and run our project, if we make any updates, the browser will refresh so that we can see our changes. In addition, the HTML Webpack plugin is taking the javascript bundle file that is compiled and injects it into our index.html file. This .js bundle will show up inside of the dist folder.
+Now when we build and run our project, if we make any updates, the browser will refresh so that we can see our changes. In addition, the HTML Webpack plugin is taking the javascript bundle file that is compiled and injects it into our _index.html_ file. This .js bundle will show up inside the dist folder.
 
 ### Creating A Scene
 

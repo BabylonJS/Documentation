@@ -774,7 +774,7 @@ The Babylon server is a direct copy of the Babylon CDN structure. It serves java
 
 Similar to the dev host, the Babylon server will take the latest compiled code from the dev (or lts) packages and serve it to the browser. The default address for the local CDN is [http://localhost:1338](http://localhost:1338)
 
-The Babylon server's index.html has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the file sceneJs.js or sceneTs.ts for typescript, and open http://localhost:1338/index.html or http://localhost:1338/index-ts.html
+The Babylon server's _index.html_ has references to all of our public packages and has the BABYLON namespace populated, similar to the way the playground is working. If you want to debug a playground scene without starting the playground, edit the file sceneJs.js or sceneTs.ts for typescript, and open http://localhost:1338/index.html or http://localhost:1338/index-ts.html
 
 To start the Babylon server, run:
 
@@ -782,7 +782,7 @@ To start the Babylon server, run:
 npm run serve -w @tools/babylon-server
 ```
 
-This will start a new server on port 1337 and will host all of the needed files, including a very simple index.html file to make sure the CDN is working.
+This will start a new server on port 1337 and will host all the needed files, including a very simple _index.html_ file to make sure the CDN is working.
 
 The babylon-server also serves all other files needed for tools like the playground to work correctly. It hosts the physics engine, earcut, the draco decoder and more. See the `public` directory in the babylon-server package to see what files are available. Those files are served as static files.
 

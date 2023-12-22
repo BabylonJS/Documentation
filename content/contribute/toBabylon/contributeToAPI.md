@@ -32,7 +32,7 @@ After editing and validating files within the **src** folder and before the PR:
 9. Copy the **tsconfig.json** file from the **src** folder into the new folder;
 10. Create a folder called documents in the new folder;
 11. In the new folder use `$ typedoc --out documents src` to create the documents from the src
-12. In the **documents** folder find and open index.html to check results. Note that these will not appear exactly the same as the Babylon.js API documentation web pages but close enough to check.
+12. In the **documents** folder find and open _index.html_ to check results. Note that these will not appear exactly the same as the Babylon.js API documentation web pages but close enough to check.
 
 ## Format of Comments
 
