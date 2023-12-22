@@ -66,9 +66,9 @@ C:\babylon>node server.js
 Server is listening on port 80
 ```
 
-- Your server should now be running. Note: Closing this window will shutdown the nodeJs server again.
+- Your server should now be running. Note: Closing this window will shut down the NodeJs server again.
 - In your browser, navigate to http://localhost/
-- If the BAT immidiately closes again, please re-check previous steps were done correctly.
+- If the BAT immediately closes again, please re-check previous steps were done correctly.
 - To view errors, in a CMD or PowerShell window run `C:\babylon> node server.js`
 
 **Other OS**
@@ -81,7 +81,7 @@ _If anyone wish to expand this section, feel free to PR_
 
 ## Public Folder
 
-In the Public folder you'll find a sample scene consisting of a index.html and a babylonScene.js file.
+In the Public folder you'll find a sample scene consisting of an _index.html_ and a _babylonScene.js_ file.
 
 The browser's access is restricted to this folder and it's files & sub-folders.
 

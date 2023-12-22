@@ -63,7 +63,7 @@ Shaders are written in Graphics Library Shader Language (GLSL) and come in two p
 
 2. Fragment Shader: this uses data from the Vertex Shader to determine the position and colour of the pixels to represent each facet of the mesh.
 
-Fragment Shaders are sometimes refered to as Pixel Shaders.
+Fragment Shaders are sometimes referred to as Pixel Shaders.
 
 ![Shaders](/img/how_to/Shaders/shade1.jpg)
 
@@ -84,14 +84,14 @@ All variables used in both shaders must be given a type and any numbers assigned
 
 For example:
 
-```
+```glsl
 int n = 2;
 float r = 2.0;
 ```
 
 The following example will throw an error:
 
-```
+```glsl
 float r = 2;
 ```
 
@@ -105,7 +105,7 @@ Some examples of types are
 Since vertex positions need to be as accurate as possible all floating-point numbers should be set as having high precision.
 This is done at the start of the code for each shader using:
 
-```
+```glsl
 precision highp float
 ```
 
@@ -141,7 +141,7 @@ The GLSL language has a number of built in variables. Two are vital to the opera
 
 Functions needed to be typed as do their parameters and have the form:
 
-```
+```glsl
 float NAME(typed parameters) {
 	*code*
 }
@@ -150,9 +150,9 @@ float NAME(typed parameters) {
 ## Running Shader Code
 
 Both the Vertex and the Fragment Shader are run from a function which must be called `main` and be of type `void` since it returns
-no result. It must also must type the empty parameter list as void:
+no result. It must also type the empty parameter list as `void`:
 
-```
+```glsl
 void main(void) {
 	*code*
 }

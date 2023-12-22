@@ -94,7 +94,7 @@ The differences you see with this and the playground have to do with the fact th
 
 ## Custom Fonts
 
-Adding custom fonts is really simple. I brought in some google fonts that I thought matched well with the game's style by just modifying the index.html file. In the head of your index.html, just add the link you get from google fonts!
+Adding custom fonts is really simple. I brought in some google fonts that I thought match well with the game's style by just modifying the _index.html_ file. In the head of your _index.html_, just add the link you get from google fonts!
 
 ```javascript
 <head>

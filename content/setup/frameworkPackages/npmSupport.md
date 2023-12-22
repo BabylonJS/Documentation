@@ -443,7 +443,7 @@ And running:
 npm run build
 ```
 
-We will now have an index.js in the dist folder that we can use in our index.html
+We will now have an index.js in the dist folder that we can use in our _index.html_
 
 You will notice there are a few warnings about dependencies. We will deal with that later.
 
@@ -453,7 +453,7 @@ The best way for you during development would be the webpack dev server (https:/
 
 To check the current project, I use the http-server npm module (installed globally). You can use any web server that will serve the root folder of our project.
 
-If you open out index.html, we will see a sphere. Hooray!
+If you open out _index.html_, we will see a sphere. Hooray!
 
 ### Adding the GUI
 

@@ -18,7 +18,7 @@ Making our game cross platform is made really simple with babylon!
 
 The first thing that we need to do is start detecting our touch inputs.
 
-1. In index.html, add this to the body
+1. In _index.html_, add this to the body
 
 ```javascript
 <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>

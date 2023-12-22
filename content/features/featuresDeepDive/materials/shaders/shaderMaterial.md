@@ -41,7 +41,7 @@ const myShaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_N
   attributes: ["position", "normal", "uv"],
   uniforms: ["world", "worldView", "worldViewProjection", "view", "projection", "time", "direction" ],
   samplers: ["textureSampler"],
-  defines: ["MyDefine"]
+  defines: ["MyDefine"],
   needAlphaBlending: true,
   needAlphaTesting: true
 });
@@ -78,7 +78,7 @@ myShaderMaterial.setFloat("time", 0);
 myShaderMaterial.setVector3("direction", BABYLON.Vector3.Zero());
 ```
 
-where the set method's name is dependant on type.
+where the set method's name is dependent on type.
 
 <Playground id="#5T8G3I#16" title="Passing and updating a Color3 uniform to a shader" description="Demonstrating how to pass a Color3 uniform to a shader" isMain={true} category="Materials" />
 
