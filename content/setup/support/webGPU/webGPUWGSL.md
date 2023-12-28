@@ -57,7 +57,7 @@ BABYLON.ShaderStore.ShadersStoreWGSL["myShaderFragmentShader"]=`
 You must also declare the entry point for the vertex and fragment shader in a special way.
 
 Vertex:
-```wgsl
+```glsl
 @vertex
 fn main(input : VertexInputs) -> FragmentInputs {
     ...
@@ -65,7 +65,7 @@ fn main(input : VertexInputs) -> FragmentInputs {
 
 ```
 Fragment:
-```wgsl
+```glsl
 @fragment
 fn main(input : FragmentInputs) -> FragmentOutputs {
     ...
@@ -74,7 +74,7 @@ fn main(input : FragmentInputs) -> FragmentOutputs {
 
 ### Using pre-defined uniforms
 To use the pre-defined uniforms of the scene (`view`, `viewProjection`, `projection`, `vEyePosition`) and mesh (`world`, `visibility`), you must include the appropriate file(s) in the shader code:
-```wgsl
+```glsl
 #include<sceneUboDeclaration>
 #include<meshUboDeclaration>
 ```
@@ -93,7 +93,7 @@ const mat = new BABYLON.ShaderMaterial("shader", scene, {
 ```
 
 In the WGSL code, you access a uniform by prefixing its name by `scene.` or `mesh.` for the scene or mesh uniforms, respectively:
-```wgsl
+```glsl
 @vertex
 fn main(input : VertexInputs) -> FragmentInputs {
     vertexOutputs.position = scene.viewProjection * mesh.world * vec4<f32>(vertexInputs.position, 1.0);
@@ -103,15 +103,15 @@ fn main(input : VertexInputs) -> FragmentInputs {
 ## Special syntax used in WGSL code
 Unlike computational shaders that use ordinary WGSL code, the shader code you write for `ShaderMaterial` must use special syntax to work with the existing workflow. To make it easier for developers, the declaration of variables is the same as that used in GLSL:
 * declaring a varying variable:
-```wgsl
+```glsl
 varying varName : varType;
 ```
 * declaring an attribute variable:
-```wgsl
+```glsl
 attribute varName : varType;
 ```
 * declaring a uniform variable:
-```wgsl
+```glsl
 uniform varName : varType;
 ```
 
@@ -137,7 +137,7 @@ Notes:
 ## Using new objects available in WGSL
 You can use the standard WGSL syntax to declare:
 * custom uniform buffers:
-```wgsl
+```glsl
 struct MyUBO {
     scale: f32,
 };
@@ -145,18 +145,18 @@ struct MyUBO {
 var<uniform> myUBO: MyUBO;
 ```
 * storage textures:
-```wgsl
+```glsl
 var storageTexture : texture_storage_2d<rgba8unorm,write>;
 ```
 * storage buffers:
-```wgsl
+```glsl
 struct Buffer {
     items: array<f32>,
 };
 var<storage,read_write> storageBuffer : Buffer;
 ```
 * external textures:
-```wgsl
+```glsl
 var videoTexture : texture_external;
 ```
 
