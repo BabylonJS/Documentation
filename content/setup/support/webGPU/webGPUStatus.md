@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/11/08).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/12/28).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.
@@ -20,7 +20,6 @@ Most of the features of Babylon.js are now available in WebGPU. Here's a detaile
 ### Features not working because not implemented yet
 * Support for triangle fan / line loop drawing mode
   * WebGPU does not support those modes, we will need to emulate them with triangle strip and line strip
-* Handle context lost/restore
 * [Multiview / WebXR](/features/featuresDeepDive/cameras/multiViewsPart1)
   * Not implemented yet but not supported by Chrome / WebGPU specifications neither
 
