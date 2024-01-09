@@ -1678,6 +1678,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/perfTips"
                                 },
+                                "ragdolls": {
+                                    "friendlyName": "Ragdolls",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/ragdolls"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
