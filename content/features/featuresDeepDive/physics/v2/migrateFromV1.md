@@ -59,4 +59,4 @@ body.shape = sphereShape;
 body.setMassProperties({mass: complexModelMass});
 ```
 
-<Playground id="#Q6TJRN#2" title="Shapes test" description="Use all available shapes with or without aggregates."/>
+<Playground id="#Q6TJRN#7" title="Shapes test" description="Use all available shapes with or without aggregates."/>
