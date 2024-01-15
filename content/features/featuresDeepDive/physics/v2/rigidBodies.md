@@ -105,9 +105,14 @@ body.applyForce(new BABYLON.Vector3(0, 100, 0), new BABYLON.Vector3(0, 0, 0));
 body.applyForce(new BABYLON.Vector3(100, 0, 0), new BABYLON.Vector3(0, 0, 0), 0); 
 ```
 
-<Playground id="#MZKDQT#1" title="Instances" description="How to use instances with physics" isMain={true} category="Physics"/>
+> ⚠️ Important: When setting the instance matrix using the `thinInstanceSetBuffer` method, you have to set the last argument as `false`. This makes it so the instance buffers are not static, which allows them to be changed by physics. So, the expected setBuffer call should be:
+ ```
+ box.thinInstanceSetBuffer("matrix", matricesData, 16, false);
+ ```
 
-<Playground id="#BJZ39H" title="Pendulum Instances" description="Pendulum Instances"/>
+<Playground id="#MZKDQT#5" title="Instances" description="How to use instances with physics" isMain={true} category="Physics"/>
+
+<Playground id="#BJZ39H#2" title="Pendulum Instances" description="Pendulum Instances"/>
 
 #### Limitations
 
