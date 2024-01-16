@@ -91,7 +91,7 @@ White hemispheric light with a black groundColor is a useful lighting method.
 
 ## Limitations
 
-Babylon.js allows you to create and register as many lights as you choose, but know that a single StandardMaterial can only handle a defined number simultaneous lights (by default this value is equal to 4 which means the first four enabled lights of the scene's lights list).
+Babylon.js allows you to create and register as many lights as you choose, but know that a single material can only handle a defined number simultaneous lights (by default this value is equal to 4 which means the first four enabled lights of the scene's lights list).
 You can change this number with this code:
 
 ```javascript
@@ -99,7 +99,7 @@ const material = new BABYLON.StandardMaterial("mat", scene);
 material.maxSimultaneousLights = 6;
 ```
 
-But beware! Because with more dynamic lights, Babylon.js will generate bigger shaders which may not be compatible with low end devices like mobiles or small tablets. In this case, babylon.js will try to recompile shaders with less lights.
+But beware! By default, all meshes are considered lit by all the lights even they are not physically lit. It would be too time consuming to calculate if a mesh can be lit by a light. And because with more dynamic lights, Babylon.js will generate bigger shaders which may not be compatible with low end devices like mobiles or small tablets. In this case, babylon.js will try to recompile shaders with less lights.
 
 <Playground id="#IRVAX#0" title="6 Intersecting Point Lights" description="Simple Example with 6 intersecting point lights." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro7.jpg"/>
 
