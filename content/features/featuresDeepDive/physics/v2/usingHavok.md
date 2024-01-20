@@ -60,7 +60,7 @@ HavokPhysics().then((havok) => {
 
 ### Using the CDN
 
-The main different between the CDN and the npm package is the way the HavokPhysics object becomes available in your browser.
+The main difference between the CDN and the npm package is the way the HavokPhysics object becomes available in your browser.
 Whereas using npm you need to import/require the package, using the CDN you get the object directly from the global scope.
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
