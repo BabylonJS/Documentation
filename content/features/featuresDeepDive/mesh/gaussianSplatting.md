@@ -21,8 +21,10 @@ Supported formats are :
 # Loading a Gaussian Splatting
 
 Instanciate a new `GaussianSplattingMesh` object. It inherits from Mesh class. Set its name and the scene it belongs to.
+Second parameter is an optional url to load a file without the need to call `loadFileAsync`.
+
 ```javascript
-var gs = new BABYLON.GaussianSplattingMesh("Halo", scene);
+var gs = new BABYLON.GaussianSplattingMesh("Halo", null, scene);
 ```
 
 Load asynchronously the splat or PLY file.
@@ -32,4 +34,4 @@ gs.loadFileAsync("https://raw.githubusercontent.com/CedricGuillemet/dump/master/
     });
 ```
 
-<Playground id="#RQ09P3#0" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
+<Playground id="#CID4NN#0" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
