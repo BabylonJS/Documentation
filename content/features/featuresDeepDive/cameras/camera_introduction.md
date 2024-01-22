@@ -230,8 +230,6 @@ camera.attachControl(canvas, true);
 
 The [VirtualJoysticksCamera](/typedoc/classes/babylon.virtualjoystickscamera) is specifically designed to react to Virtual Joystick events. Virtual Joysticks are on-screen 2D graphics that are used to control the camera or other scene items.
 
-**Note:** This camera requires the third-party file [hand.js](https://archive.codeplex.com/?p=handjs).
-
 ### Video
 
 <Youtube id="53Piiy71lB0"/>
