@@ -1324,6 +1324,11 @@
             "statusCode": 301
         },
         {
+            "source": "/divingDeeper/mesh/gaussianSplatting",
+            "destination": "/features/featuresDeepDive/mesh/gaussianSplatting",
+            "statusCode": 301
+        },
+        {
             "source": "/divingDeeper/mesh/meshExploder",
             "destination": "/features/featuresDeepDive/mesh/meshExploder",
             "statusCode": 301

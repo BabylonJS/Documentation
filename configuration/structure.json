@@ -1402,6 +1402,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/trailMesh"
                                 },
+                                "gaussianSplatting": {
+                                    "friendlyName": "Gaussian Splatting",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/mesh/gaussianSplatting"
+                                },
                                 "meshExploder": {
                                     "friendlyName": "Exploding Meshes",
                                     "children": {},
