@@ -146,7 +146,7 @@ BABYLON.SceneLoader.ImportMesh("him", "Dude/", "dude.babylon", scene, function (
 
 ## Picking a mesh attached to a skeleton
 
-Because bones are computed by the GPU, the CPU has no clue where the mesh's vertices are. So picking a mesh with a skeleton will only work on the bind pose which could be sub-optimal.
+Because bone transformations are applied to the vertices on the GPU, the CPU has no clue where the mesh's vertices are. So picking a mesh with a skeleton will only work on the bind pose which could be sub-optimal.
 
 You can decide to call `mesh.refreshBoundingInfo(true)` to force the CPU to update its local version of the mesh so that you can pick it correctly:
 
