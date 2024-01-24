@@ -100,3 +100,4 @@ The following image shows a comparison of the Container, Mesh and Convex Hull sh
 ![Comparison](/img/features/physics/shapes_comparison.png)
 
 <Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
+<Playground id="#EC934B" title="Simple ground mesh example with Havok Physics" description="Simple example of creating a ground collision mesh using the Mesh shape type"/>
