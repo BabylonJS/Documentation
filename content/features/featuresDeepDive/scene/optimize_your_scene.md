@@ -227,7 +227,7 @@ By default, `scene.performancePriority` is set to `BABYLON.ScenePerformancePrior
 
 ### Intermediate mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Intermediate`, the scene will automatically:
-* Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.unfreeze()`, do your changes, and then call `material.freeze()` again
+* Freeze materials when they are ready. If you need to change something on a material, you will have to call `material.markDirty(true)` after you did your changes
 * New meshes will have their `alwaysSelectAsActiveMesh` property set to true. The system will then skip frustrum clipping for the mesh and always set it to active (saving complex CPU operations). Keep in mind to turn it off if your scene is GPU bound
 * New meshes will have their `isPickable ` property set to false. Picking and action managers will not work anymore. You can always turn that property back on if you need picking for a specific mesh
 * `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
