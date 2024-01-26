@@ -3515,7 +3515,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 - Added support for [parallel shader compilation](https://www.khronos.org/registry/webgl/extensions/KHR_parallel_shader_compile/) ([Deltakosh](https://github.com/deltakosh))
 - Added [Object Based Motion Blur](http://doc.babylonjs.com/how_to/using_motionblurpostprocess) post-process ([julien-moreau](https://github.com/julien-moreau))
 - Added [support for ammo.js](/features/featuresDeepDive/physics/usingPhysicsEngine) as a physics plugin (Composite objects, motors, joints) ([TrevorDev](https://github.com/TrevorDev))
-  - Added [support for soft bodies](/features/featuresDeepDive/physics/softBodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
+  - Added [support for soft bodies](/legacy/physics/softBodies), which are 3D softbody, 2D cloth and 1D rope, in ammo.js physics plugin ([JohnK](https://github.com/BabylonJSGuide))
   - Added support for [Convex Hull Impostor](https://github.com/kripken/ammo.js/blob/master/bullet/src/BulletCollision/CollisionShapes/btConvexHullShape.h) using ammo.js plugin ([MackeyK24](https://github.com/mackeyk24))
   - Added `AmmoJSPlugin` scene file loader ([MackeyK24](https://github.com/mackeyk24))
 - Added support for [WebXR](/features/featuresDeepDive/webXR/introToWebXR) ([TrevorDev](https://github.com/TrevorDev))
