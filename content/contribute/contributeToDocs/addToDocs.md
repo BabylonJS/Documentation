@@ -170,7 +170,7 @@ The image provided will be used when sharing this link on sites supporting open 
 To link to an internal document, use its path from the root without adding the domain. For example:
 
 ```markdown
-[Post Processes](/features/divingDeeper/postProcesses/usePostProcesses)
+[Post Processes](/features/featuresDeepDive/postProcesses/usePostProcesses)
 ```
 
 ### Adding examples

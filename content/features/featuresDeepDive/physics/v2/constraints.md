@@ -9,15 +9,13 @@ further-reading:
     - title: How to use Forces
       url: /features/featuresDeepDive/physics/forces
     - title: How To Use Pivots and Axes
-      url: /features/featuresDeepDive/physics/pivotsAxes
+      url: /legacy/physics/pivotsAxes
     - title: How To Create Compound Bodies
-      url: /features/featuresDeepDive/physics/compoundBodies
+      url: /legacy/physics/compoundBodies
     - title: How To Create Soft Bodies
-      url: /features/featuresDeepDive/physics/softBodies
+      url: /legacy/physics/softBodies
     - title: How To Use Advanced Features
-      url: /features/featuresDeepDive/physics/advancedPhysicsFeatures
-    - title: How To Add Your Own Physics Engine
-      url: /features/featuresDeepDive/physics/addPhysicsEngine
+      url: /legacy/physics/advancedPhysicsFeatures
 video-overview:
 video-content:
 ---

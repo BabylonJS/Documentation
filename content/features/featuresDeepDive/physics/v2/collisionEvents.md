@@ -1,13 +1,13 @@
 ---
 title: Collisions
-image: 
+image:
 description: How to access Collision Events
 keywords: diving deeper, phyiscs
 further-reading:
-    - title: How To Use Forces
-      url: /features/featuresDeepDive/physics/forces
-    - title: Observables and Observers
-      url: TODO 
+  - title: How To Use Forces
+    url: /features/featuresDeepDive/physics/forces
+  - title: Observables and Observers
+    url: /features/featuresDeepDive/events/observables
 video-overview:
 video-content:
 ---
@@ -19,18 +19,20 @@ Collision events are often used in game development to trigger events or reactio
 ## How to use
 
 There are three types of **collision** events:
+
 - COLLISION_STARTED
 - COLLISION_CONTINUED
 - COLLISION_FINISHED
-  
+
 And two types of **trigger** events:
+
 - TRIGGER_ENTERED
 - TRIGGER_EXITED
 
 To use collision callbacks, first, the body needs to enable it. This can be achieved with `setCollisionCallbackEnabled`, for the COLLISION_STARTED and COLLISION_CONTINUED events, or with `setCollisionCallbackEnded` for the COLLISION_ENDED event. Then, we need to obtain the collision Observable by calling `getCollisionObservable` or `getCollisionEndedObservable` on the body. You can have either a body-specific callback or a world-wide callback. The second option requires filtering for the correct body to process, but it is more performant.
 
 ```javascript
-// player is a PhysicsBody 
+// player is a PhysicsBody
 player.setCollisionCallbackEnabled(true);
 
 // You have two options:
@@ -49,9 +51,10 @@ const observer = observable.add((collisionEvent) => {
   if (collisionEvent.collider === player || collisionEvent.collidedAgainst === player) {
     // Process collisions for the player
     // ...
-  } 
+  }
 });
 ```
+
 As for triggers, you need to mark the **shape** as a trigger by setting the property `isTrigger` to true, and then by creating a body for that shape. There is no body-specific callback for the triggers, only the world-wide callback.
 
 ```javascript
@@ -62,11 +65,11 @@ shape.isTrigger = true;
 
 const observable = plugin.onTriggerCollisionObservable;
 const observer = observable.add((collisionEvent) => {
-    if (collisionEvent.type === "TRIGGER_ENTERED") {
-        // do something when the trigger is entered
-    } else {
-        // do something when trigger is exited
-    }
+  if (collisionEvent.type === "TRIGGER_ENTERED") {
+    // do something when the trigger is entered
+  } else {
+    // do something when trigger is exited
+  }
 });
 ```
 

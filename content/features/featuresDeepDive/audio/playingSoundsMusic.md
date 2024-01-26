@@ -18,7 +18,7 @@ Babylon.js sound engine is based on the [**Web Audio specification**](http://web
 
 The sound engine offers **ambient** sound, **spatialized** sound and **directional** sound. It can be created by code or by loading a .babylon file. It follows the simple & powerful philosophy of the rest of the engine as you’re going to see.
 
-The sound format supported is the one from the browser **.mp3**, **.ogg**, **.wav**, **.m4a**, **.mp4**. It’s usually at least **.mp3** and **.wav**. 
+The sound format supported is the one from the browser **.mp3**, **.ogg**, **.wav**, **.m4a**, **.mp4**. It’s usually at least **.mp3** and **.wav**.
 
 **Note:** Other formats like **.aac** can be loaded as well as long as the browser supports them by passing `skipCodecCheck` to `true` in the `Sound` creation options.
 
@@ -132,17 +132,23 @@ Modern browsers blocks audio until the user have interacted with the webpage.
 BabylonJs will supply a default "unmute" button which unlocks audio once clicked.
 
 We can disable this default unmute button if wanted and create our own listener for a user interaction, e.g. any pointer click on the webpage.
+
 ```javascript
 // Disable the default audio unlock button
 BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
 
 // Unlock audio on first user interaction.
-window.addEventListener('click', () => {
-  if(!BABYLON.Engine.audioEngine.unlocked){
-    BABYLON.Engine.audioEngine.unlock();
-  }
-}, { once: true });
+window.addEventListener(
+  "click",
+  () => {
+    if (!BABYLON.Engine.audioEngine.unlocked) {
+      BABYLON.Engine.audioEngine.unlock();
+    }
+  },
+  { once: true },
+);
 ```
+
 Test it in our playground here: <Playground id="#KBA3JY#4" title="Custom audio unlock & autoplay" description="A simple example unlocking audio on first user interaction" isMain={true} category="Audio"/>
 
 ## Playing a sound sprite

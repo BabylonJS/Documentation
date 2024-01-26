@@ -16,8 +16,6 @@ further-reading:
       url: /legacy/physics/compoundBodies
     - title: How To Create Soft Bodies
       url: /legacy/physics/softBodies
-    - title: How To Add Your Own Physics Engine
-      url: /legacy/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---

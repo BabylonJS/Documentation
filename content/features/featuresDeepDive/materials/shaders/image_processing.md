@@ -45,7 +45,7 @@ And now, whether you have the post-process active or not, the color should be si
 
 You may have a similar problem if you want to use fog on your scene, with a custom shader material.
 
-[Here](/advanced_topics/shaders/Fog+ShaderMat) is an helpful page to get your shaders to be fog-ready.
+[Here](/features/featuresDeepDive/materials/shaders/Fog+ShaderMat) is an helpful page to get your shaders to be fog-ready.
 
 ## Tonemapping
 
@@ -55,7 +55,7 @@ Some post processes internally use a prepass to get some information, and this p
 
 So if you notice that problem, try to manually deactivate the gamma transform from the prepass :
 
-```
+```javascript
 scene.enablePrePassRenderer().disableGammaTransform = true;
 ```
 

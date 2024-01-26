@@ -16,8 +16,6 @@ further-reading:
     url: /legacy/physics/softBodies
   - title: How To Use Advanced Features
     url: /legacy/physics/advancedPhysicsFeatures
-  - title: How To Add Your Own Physics Engine
-    url: /legacy/physics/addPhysicsEngine
 video-overview:
 video-content:
 ---
