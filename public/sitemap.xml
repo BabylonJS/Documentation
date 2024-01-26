@@ -106,7 +106,7 @@
 <url><loc>https://doc.babylonjs.com/communityExtensions/treeGenerators/spsTreeGenerator</loc><lastmod>2022-12-15T13:04:01.645Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/communityExtensions/treeGenerators</loc><lastmod>2022-09-22T12:30:30.272Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/communityExtensions</loc><lastmod>2022-09-22T12:30:30.193Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/addToDocs</loc><lastmod>2022-10-17T11:20:21.081Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/addToDocs</loc><lastmod>2024-01-26T19:52:36.118Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/contributeToDocs/easydoc</loc><lastmod>2023-09-12T15:14:08.212Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/contributeToDocs</loc><lastmod>2023-09-12T15:14:08.208Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/contribute/toBabylon/HowToContribute</loc><lastmod>2024-01-17T13:55:08.898Z</lastmod></url>
@@ -142,7 +142,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/animation/render_frame_animation</loc><lastmod>2022-09-22T12:30:30.313Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/animation/sequenceAnimations</loc><lastmod>2022-12-15T13:04:01.660Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/animation</loc><lastmod>2022-09-22T12:30:30.305Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/audio/playingSoundsMusic</loc><lastmod>2023-08-16T17:43:12.144Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/audio/playingSoundsMusic</loc><lastmod>2024-01-26T19:57:57.532Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/audio</loc><lastmod>2022-09-22T12:30:30.314Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/babylonViewer/advancedViewerUsage</loc><lastmod>2023-10-30T16:29:17.483Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/babylonViewer/configuringViewer</loc><lastmod>2023-10-30T16:29:17.483Z</lastmod></url>
@@ -154,7 +154,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/behaviors/meshBehaviors</loc><lastmod>2022-12-15T13:04:01.663Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/behaviors</loc><lastmod>2022-09-22T12:30:30.322Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/camera_collisions</loc><lastmod>2023-06-12T10:58:52.411Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/camera_introduction</loc><lastmod>2022-12-15T13:04:01.665Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/camera_introduction</loc><lastmod>2024-01-26T10:59:03.764Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/customizingCameraInputs</loc><lastmod>2023-08-07T10:42:52.189Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/layerMasksAndMultiCam</loc><lastmod>2023-02-06T18:10:18.380Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/cameras/multiViewsPart1</loc><lastmod>2022-12-15T13:04:01.670Z</lastmod></url>
@@ -228,7 +228,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/NMEPostProcesses</loc><lastmod>2022-09-22T12:30:30.380Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/NMEProceduralTexture</loc><lastmod>2022-12-15T13:04:01.708Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/availableNodeBlocks</loc><lastmod>2022-12-15T13:04:01.709Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/nodeMaterial</loc><lastmod>2023-04-20T16:51:23.669Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/nodeMaterial</loc><lastmod>2024-01-26T19:50:27.492Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material/particles_and_nme</loc><lastmod>2022-12-15T13:04:01.713Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/node_material</loc><lastmod>2022-09-22T12:30:30.378Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/Fog+ShaderMat</loc><lastmod>2022-12-15T13:04:01.714Z</lastmod></url>
@@ -298,7 +298,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/capsule</loc><lastmod>2022-09-22T12:30:30.430Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/cylinder</loc><lastmod>2023-07-10T10:27:10.153Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/disc</loc><lastmod>2022-09-22T12:30:30.431Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/ground</loc><lastmod>2023-05-23T16:43:33.833Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/ground</loc><lastmod>2024-01-26T20:05:10.487Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/ground_hmap</loc><lastmod>2022-09-22T12:30:30.434Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/height_map</loc><lastmod>2022-09-22T12:30:30.434Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/plane</loc><lastmod>2022-09-22T12:30:30.435Z</lastmod></url>
@@ -317,7 +317,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/dynamicMeshMorph</loc><lastmod>2023-01-04T14:12:25.055Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/edgeRenderer</loc><lastmod>2023-08-07T10:42:52.195Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/facetData</loc><lastmod>2022-12-15T13:04:01.745Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/gaussianSplatting</loc><lastmod>2024-01-22T14:56:24.701Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/gaussianSplatting</loc><lastmod>2024-01-22T15:07:36.123Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/gizmo</loc><lastmod>2023-04-20T16:51:24.018Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/glowLayer</loc><lastmod>2023-09-12T15:14:08.219Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/mesh/highlightLayer</loc><lastmod>2023-08-31T14:07:34.749Z</lastmod></url>
@@ -393,7 +393,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/aggregates</loc><lastmod>2023-04-20T16:51:24.459Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/collisionEvents</loc><lastmod>2023-10-12T15:35:50.611Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/compounds</loc><lastmod>2023-05-15T14:10:56.568Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/constraints</loc><lastmod>2023-10-12T15:35:50.616Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/constraints</loc><lastmod>2024-01-26T20:04:53.191Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/forces</loc><lastmod>2024-01-17T13:55:08.909Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/havokPlugin</loc><lastmod>2024-01-22T14:56:24.703Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/migrate</loc><lastmod>2024-01-17T13:55:08.910Z</lastmod></url>
@@ -401,7 +401,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/ragdolls</loc><lastmod>2024-01-17T13:55:08.911Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/raycast</loc><lastmod>2023-07-10T10:27:10.165Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/rigidBodies</loc><lastmod>2024-01-17T13:55:08.912Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/shapes</loc><lastmod>2023-04-20T19:57:55.549Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/shapes</loc><lastmod>2024-01-26T10:59:03.766Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics/usingPhysicsEngine</loc><lastmod>2023-06-20T18:53:44.265Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/physics</loc><lastmod>2023-04-20T16:51:24.242Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/SSAORenderPipeline</loc><lastmod>2023-06-20T18:53:44.268Z</lastmod></url>
@@ -413,7 +413,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/renderTargetTextureMultiPass</loc><lastmod>2023-06-20T18:53:44.272Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/screenSpaceReflectionsPostProcess</loc><lastmod>2023-04-20T16:51:24.635Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/standardRenderingPipeline</loc><lastmod>2022-09-22T12:30:30.506Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/usePostProcesses</loc><lastmod>2023-06-20T18:53:44.277Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses/usePostProcesses</loc><lastmod>2024-01-26T19:51:15.553Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/postProcesses</loc><lastmod>2022-09-22T12:30:30.499Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/clipPlanes</loc><lastmod>2023-04-24T12:02:40.822Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/customLoadingScreen</loc><lastmod>2023-05-30T13:37:40.634Z</lastmod></url>
@@ -427,7 +427,7 @@
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/offscreenCanvas</loc><lastmod>2023-10-30T16:58:22.978Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/optimizeCached</loc><lastmod>2023-10-30T16:55:40.840Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/optimizeOctrees</loc><lastmod>2022-12-13T12:45:57.593Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/optimize_your_scene</loc><lastmod>2023-06-20T18:53:44.296Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/optimize_your_scene</loc><lastmod>2024-01-26T10:59:03.768Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/reducingMemoryUsage</loc><lastmod>2022-09-22T12:30:30.518Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/renderRemoteScreenshot</loc><lastmod>2022-09-22T12:30:30.518Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/features/featuresDeepDive/scene/renderToPNG</loc><lastmod>2022-09-22T12:30:30.519Z</lastmod></url>
@@ -515,7 +515,7 @@
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/gettingSetUp</loc><lastmod>2024-01-17T13:55:08.915Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/importMeshes</loc><lastmod>2022-09-22T12:30:30.580Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/lanterns</loc><lastmod>2023-01-04T14:12:25.065Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/musicSFX</loc><lastmod>2023-09-12T15:14:08.233Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/musicSFX</loc><lastmod>2024-01-26T19:57:59.265Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/particleSystems</loc><lastmod>2023-09-12T15:14:08.238Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/performance</loc><lastmod>2023-09-12T15:14:08.244Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/playerCamera</loc><lastmod>2022-09-22T12:30:30.584Z</lastmod></url>
@@ -523,13 +523,13 @@
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame/stateMachine</loc><lastmod>2022-09-22T12:30:30.586Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/createAGame</loc><lastmod>2022-09-22T12:30:30.572Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/devStories/fruitFalling</loc><lastmod>2023-09-12T15:14:08.252Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/showroomCamera</loc><lastmod>2022-09-22T12:30:30.588Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/3d</loc><lastmod>2022-09-22T12:30:30.589Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/showroomCamera</loc><lastmod>2024-01-26T19:54:26.987Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/3d</loc><lastmod>2024-01-26T20:08:28.435Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/art</loc><lastmod>2022-09-22T12:30:30.590Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/frontend</loc><lastmod>2022-09-22T12:30:30.591Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/wordpress</loc><lastmod>2022-09-22T12:30:30.592Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator/wordpress</loc><lastmod>2024-01-26T20:08:28.435Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearConfigurator</loc><lastmod>2022-09-22T12:30:30.588Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearViewer</loc><lastmod>2022-09-22T12:30:30.593Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/guidedLearning/devStories/vaporwearViewer</loc><lastmod>2024-01-26T19:54:00.448Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/devStories</loc><lastmod>2022-09-22T12:30:30.586Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/networking/Colyseus</loc><lastmod>2022-09-22T10:31:09.870Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/guidedLearning/networking/Colyseus_ammojs</loc><lastmod>2023-01-04T14:12:25.067Z</lastmod></url>
@@ -563,13 +563,13 @@
 <url><loc>https://doc.babylonjs.com/journey/learningTheDocs</loc><lastmod>2023-09-12T15:14:08.270Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/journey/theFirstStep</loc><lastmod>2023-12-01T15:18:47.361Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/journey</loc><lastmod>2023-03-02T15:07:29.725Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/advancedPhysicsFeatures</loc><lastmod>2023-04-20T19:57:55.386Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/compoundBodies</loc><lastmod>2023-04-20T19:57:55.391Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/forces</loc><lastmod>2023-06-20T18:53:44.246Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/joints</loc><lastmod>2023-04-20T19:57:55.442Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/pivotsAxes</loc><lastmod>2023-04-20T19:57:55.468Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/softBodies</loc><lastmod>2023-06-20T18:53:44.248Z</lastmod></url>
-<url><loc>https://doc.babylonjs.com/legacy/physics/usingPhysicsEngine</loc><lastmod>2023-11-22T11:19:51.524Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/advancedPhysicsFeatures</loc><lastmod>2024-01-26T20:02:25.439Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/compoundBodies</loc><lastmod>2024-01-26T20:02:23.808Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/forces</loc><lastmod>2024-01-26T20:02:30.696Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/joints</loc><lastmod>2024-01-26T20:02:35.416Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/pivotsAxes</loc><lastmod>2024-01-26T20:02:40.320Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/softBodies</loc><lastmod>2024-01-26T20:06:44.038Z</lastmod></url>
+<url><loc>https://doc.babylonjs.com/legacy/physics/usingPhysicsEngine</loc><lastmod>2024-01-26T20:02:49.297Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/legacy/physics</loc><lastmod>2023-04-20T16:51:24.242Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/legacy</loc><lastmod>2023-04-20T16:51:24.835Z</lastmod></url>
 <url><loc>https://doc.babylonjs.com/preparingArtForBabylon/controllingColorSpace</loc><lastmod>2023-03-07T12:04:03.617Z</lastmod></url>
@@ -1216,6 +1216,8 @@
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryClampBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryCollectionBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryCrossBlock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryCurveBlock</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryDesaturateBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryElbowBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryInfoBlock</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/classes/BABYLON.GeometryInputBlock</loc></url>
@@ -1911,6 +1913,7 @@
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GLTFLoaderState</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GUI.HandleState</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GUI.TextWrapping</loc></url>
+<url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GeometryCurveBlockTypes</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GeometryTrigonometryBlockOperations</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GizmoAnchorPoint</loc></url>
 <url><loc>https://doc.babylonjs.com/typedoc/enums/BABYLON.GizmoCoordinatesMode</loc></url>

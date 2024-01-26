@@ -56,7 +56,7 @@ website -- in right around an hour.
     online using an
     [asset host](https://github.com/BabylonJS/asset-host-template)
     from Babylon's
-    [Template Repository Workflow](/toolsAndResources/templateRepositories#the-template-repository-workflow).
+    [Template Repository Workflow](/setup/templates/repos/templateRepositories#the-template-repository-workflow).
 1. Finally, they reconfigured the default viewer to display their Vaporwear
     3D model, disabling the features they didn't need and ensuring the
     viewer was using Khronos 3D Commerce-conformant rendering. With a
@@ -223,7 +223,7 @@ leveraged 3D as a flagship feature built into the site's design. Allan
 spent a little time browsing the
 [Babylon forum](https://forum.babylonjs.com/c/demos)
 looking for ideas, where he found a community-made
-[Babylon Utility](./showroomCamera)
+[Babylon Utility](/guidedLearning/devStories/showroomCamera)
 that excited him so much that he decided to make it the backbone of
 the most slick and sophisticated viewer/configurator experience he and
 Barnabas could come up with.

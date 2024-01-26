@@ -202,6 +202,7 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                         },
                         (e) => {
                             console.log("Error - url not found:", url);
+                            throw e;
                         },
                     ),
                 );
@@ -313,12 +314,14 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
                             console.log(`Internal link /${link} in doc /${id.join("/")} should be ${redirectFound.destination}`);
                         } else {
                             console.log(`Internal link /${link} not found in doc /${id.join("/")}`);
+                            throw new Error(`Internal link /${link} not found in doc /${id.join("/")}`);
                         }
                     }
                 }
             });
         } catch (e) {
-            // no-op
+            console.log("Error checking internal links. Probably an index error.", e);
+            throw e;
         }
     }
 
