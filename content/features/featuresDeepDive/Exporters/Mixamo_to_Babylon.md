@@ -8,7 +8,11 @@ video-overview:
 video-content:
 ---
 
-Interested in getting Adobe Mixamo characters into Babylon.js? Here's a handy guide to do just that!
+Interested in getting Adobe Mixamo characters into Babylon.js? Mixamo uses .fbx files, so you'll have to go either through .glb files or .babylon files to load your animated characters in Babylon.js.
+
+- For the .glb file road, go to this page: [Animating Characters](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter)
+- For the .babylon file road, which uses the Blender To Babylon Exporter, it is on this page. Follow the guide below!
+
 
 Start by downloading and installing the [Blender to Babylon.js exporter](https://github.com/BabylonJS/BlenderExporter). Here are the [Installation instructions](/features/featuresDeepDive/Exporters/Blender#installation).
 
