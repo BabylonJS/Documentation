@@ -75,19 +75,41 @@ As a preamble, we will only focus on the **projection** matrix because we are on
 
 Directional lights are using an orthographic projection to transform points to NDC space (clip space to be precise). This projection is:
 
-![formula](https://render.githubusercontent.com/render/math?math=Proj_%7Bortho%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Aa%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%20b%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%20c%20%26%200%5C%5C%0Ai0%20%26%20i1%20%26%20d%20%26%201%0A%5Cend%7Bbmatrix%7D%20%5C%20with%5C%20c%3D%5Cfrac%7B2%7D%7Bf%5C%20-%5C%20n%7D%20%5C%20and%5C%20d%5C%20%3D%5C%20-%5Cfrac%7Bf%5C%20%2B%5C%20n%7D%7Bf%5C%20-%5C%20n%7D!492)
+$$
+Proj_{ortho} =\begin{bmatrix}
+a & 0 & 0 & 0\\
+0 & b & 0 & 0\\
+0 & 0 & c & 0\\
+i0 & i1 & d & 1
+\end{bmatrix} \ with\ c=\frac{2}{f\ -\ n} \ and\ d\ =\ -\frac{f\ +\ n}{f\ -\ n}
+$$
 
 `n` and `f` are the near and far planes of the light (`light.shadowMinZ` / `light.shadowMaxZ` if defined, `camera.minZ` / `camera.maxZ` if not) respectively. Note that we are only interested in the transformation of the z coordinate, so we don't need the `a`, `b`, `i0` and `i1` values:
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bortho%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Ax%20%26%20y%20%26%20z%20%26%201%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%20c%20%26%20.%5C%5C%0A.%20%26%20.%20%26%20d%20%26%20.%0A%5Cend%7Bbmatrix%7D%20%3Dcz%2Bd%3D%5Cfrac%7B2z-(%20f%2Bn)%7D%7Bf-n%7D!479)
+$$
+z_{ortho} =\begin{bmatrix}
+x & y & z & 1
+\end{bmatrix}\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & c & .\\
+. & . & d & .
+\end{bmatrix} =cz+d=\frac{2z-( f+n)}{f-n}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7B2z-(%20n%2Bf)%7D%7Bn-f%7D%20%5C%20(%20z_%7Bortho%7D%20%5C%20in%5C%20the%5C%20reverse%5C%20depth%5C%20buffer%5C%20case)!488)
+$$
+z_{ortho}^{R} =\frac{2z-( n+f)}{n-f} \ ( z_{ortho} \ in\ the\ reverse\ depth\ buffer\ case)
+$$
 
 It's a linear function of z (which is something we want), but the range is not `0..1` when z takes values between `n` and `f`:
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%20%3D%5Cfrac%7B2n-f-n%7D%7Bf-n%7D%20%3D%5Cfrac%7Bn-f%7D%7Bf-n%7D%20%3D-1!332)
+$$
+z=n\ \mapsto \ z_{ortho} =\frac{2n-f-n}{f-n} =\frac{n-f}{f-n} =-1
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%20%3D%5Cfrac%7B2f-f-n%7D%7Bf-n%7D%20%3D%5Cfrac%7Bf-n%7D%7Bf-n%7D%20%3D1!314)
+$$
+z=f\ \mapsto \ z_{ortho} =\frac{2f-f-n}{f-n} =\frac{f-n}{f-n} =1
+$$
 
 So the range is `-1..1`. To remap this range to `0..1` we can simply add 1 to z and divide everything by 2.
 
@@ -112,9 +134,13 @@ Which means that for directional lights, `getDepthMinZ` must return `1` and `get
 
 In the reverse depth buffer case:
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7B2n-n-f%7D%7Bn-f%7D%20%3D%5Cfrac%7Bn-f%7D%7Bn-f%7D%20%3D1!311)
+$$
+z=n\ \mapsto \ z_{ortho}^{R} =\frac{2n-n-f}{n-f} =\frac{n-f}{n-f} =1
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7B2f-n-f%7D%7Bn-f%7D%20%3D%5Cfrac%7Bf-n%7D%7Bn-f%7D%20%3D-1!336)
+$$
+z=f\ \mapsto \ z_{ortho}^{R} =\frac{2f-n-f}{n-f} =\frac{f-n}{n-f} =-1
+$$
 
 This time the range is `1..-1`. However, in the shader, for the reverse depth buffer case we have:
 ```c
@@ -126,21 +152,47 @@ which means `z_ortho` is multiplied by `-1` before the addition with `depthValue
 
 Spot lights are using a perspective projection to transform points to NDC space (clip space to be precise). This projection is:
 
-![formula](https://render.githubusercontent.com/render/math?math=Proj_%7Bpersp%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Aa%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%20b%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%20c%20%26%201%5C%5C%0A0%20%26%200%20%26%20d%20%26%200%0A%5Cend%7Bbmatrix%7D%20%5C%20with%5C%20c%3D%5Cfrac%7Bf%2Bn%7D%7Bf%5C%20-%5C%20n%7D%20%5C%20and%5C%20d%5C%20%3D%5C%20-%5Cfrac%7B2fn%7D%7Bf%5C%20-%5C%20n%7D!486)
+$$
+Proj_{persp} =\begin{bmatrix}
+a & 0 & 0 & 0\\
+0 & b & 0 & 0\\
+0 & 0 & c & 1\\
+0 & 0 & d & 0
+\end{bmatrix} \ with\ c=\frac{f+n}{f\ -\ n} \ and\ d\ =\ -\frac{2fn}{f\ -\ n}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bpersp%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Ax%20%26%20y%20%26%20z%20%26%201%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%20c%20%26%20.%5C%5C%0A.%20%26%20.%20%26%20d%20%26%20.%0A%5Cend%7Bbmatrix%7D%20%3Dcz%2Bd%3D%5Cfrac%7Bz(%20f%2Bn)%20-2fn%7D%7Bf-n%7D!499)
+$$
+z_{persp} =\begin{bmatrix}
+x & y & z & 1
+\end{bmatrix}\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & c & .\\
+. & . & d & .
+\end{bmatrix} =cz+d=\frac{z( f+n) -2fn}{f-n}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bpersp%7D%5E%7BR%7D%20%3D%5Cfrac%7Bz(%20n%2Bf)%20-2nf%7D%7Bn-f%7D!169)
+$$
+z_{persp}^{R} =\frac{z( n+f) -2nf}{n-f}
+$$
 
 Regarding the range when z takes values between `n` and `f`:
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%20%3D%5Cfrac%7Bn(%20f%2Bn)%20-2fn%7D%7Bf-n%7D%20%3D%5Cfrac%7Bn(%20n-f)%7D%7Bf-n%7D%20%3D-n!383)
+$$
+z=n\ \mapsto \ z_{persp} =\frac{n( f+n) -2fn}{f-n} =\frac{n( n-f)}{f-n} =-n
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%20%3D%5Cfrac%7Bf(%20f%2Bn)%20-2fn%7D%7Bf-n%7D%20%3D%5Cfrac%7Bf(%20f-n)%7D%7Bf-n%7D%20%3Df!370)
+$$
+z=f\ \mapsto \ z_{persp} =\frac{f( f+n) -2fn}{f-n} =\frac{f( f-n)}{f-n} =f
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%5E%7BR%7D%20%3D%5Cfrac%7Bn(%20n%2Bf)%20-2nf%7D%7Bn-f%7D%20%3D%5Cfrac%7Bn(%20n-f)%7D%7Bn-f%7D%20%3Dn!362)
+$$
+z=n\ \mapsto \ z_{persp}^{R} =\frac{n( n+f) -2nf}{n-f} =\frac{n( n-f)}{n-f} =n
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%5E%7BR%7D%20%3D%5Cfrac%7Bf(%20n%2Bf)%20-2nf%7D%7Bn-f%7D%20%3D%5Cfrac%7Bf(%20f-n)%7D%7Bn-f%7D%20%3D-f!390)
+$$
+z=f\ \mapsto \ z_{persp}^{R} =\frac{f( n+f) -2nf}{n-f} =\frac{f( f-n)}{n-f} =-f
+$$
 
 The range is `-n..f`, which means that for spot lights we need `getDepthMinZ` to return `n` and `getDepthMaxZ` to return `f` to remap this range to `0..1` once we apply the computation (recall that `depthValuesSM.x = light.getDepthMinZ()` and `depthValuesSM.y = light.getDepthMinZ() + light.getDepthMaxZ()`):
 ```c
@@ -168,19 +220,55 @@ When using a NDC space where the z coordinate is in the `0..1` range, the orthog
 
 #### Directional light
 
-![formula](https://render.githubusercontent.com/render/math?math=Proj_%7Bortho%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Aa%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%20b%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%20c%20%26%200%5C%5C%0Ai0%20%26%20i1%20%26%20d%20%26%201%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A1%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%201%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%200.5%20%26%200%5C%5C%0A0%20%26%200%20%26%200.5%20%26%201%0A%5Cend%7Bbmatrix%7D%20%3D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5c%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5d%2B0.5%20%26%20.%0A%5Cend%7Bbmatrix%7D!580)
+$$
+Proj_{ortho} =\begin{bmatrix}
+a & 0 & 0 & 0\\
+0 & b & 0 & 0\\
+0 & 0 & c & 0\\
+i0 & i1 & d & 1
+\end{bmatrix}\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0.5 & 0\\
+0 & 0 & 0.5 & 1
+\end{bmatrix} =\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & 0.5c & .\\
+. & . & 0.5d+0.5 & .
+\end{bmatrix}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bortho%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Ax%20%26%20y%20%26%20z%20%26%201%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5c%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5d%2B0.5%20%26%20.%0A%5Cend%7Bbmatrix%7D%20%3D0.5%5Cleft(%5Cfrac%7B2z%7D%7Bf-n%7D%20-%5Cfrac%7Bf%2Bn%7D%7Bf-n%7D%20%2B1%5Cright)%20%3D%5Cfrac%7Bz-n%7D%7Bf-n%7D!628)
+$$
+z_{ortho} =\begin{bmatrix}
+x & y & z & 1
+\end{bmatrix}\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & 0.5c & .\\
+. & . & 0.5d+0.5 & .
+\end{bmatrix} =0.5\left(\frac{2z}{f-n} -\frac{f+n}{f-n} +1\right) =\frac{z-n}{f-n}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7Bz-f%7D%7Bn-f%7D!107)
+$$
+z_{ortho}^{R} =\frac{z-f}{n-f}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%20%3D%5Cfrac%7Bn-n%7D%7Bf-n%7D%20%3D0!218)
+$$
+z=n\ \mapsto \ z_{ortho} =\frac{n-n}{f-n} =0
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%20%3D%5Cfrac%7Bf-n%7D%7Bf-n%7D%20%3D1!217)
+$$
+z=f\ \mapsto \ z_{ortho} =\frac{f-n}{f-n} =1
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7Bn-f%7D%7Bn-f%7D%20%3D1!215)
+$$
+z=n\ \mapsto \ z_{ortho}^{R} =\frac{n-f}{n-f} =1
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bortho%7D%5E%7BR%7D%20%3D%5Cfrac%7Bf-f%7D%7Bn-f%7D%20%3D0!222)
+$$
+z=f\ \mapsto \ z_{ortho}^{R} =\frac{f-f}{n-f} =0
+$$
 
 We can see that in the non reverse depth buffer case the remapping is already `0..1`, so `getDepthMinZ` should return 0 and `getDepthMaxZ` should return 1.
 
@@ -188,19 +276,55 @@ In the reverse depth buffer case, as we have a negation of z in the `vDepthMetri
 
 #### Spot light
 
-![formula](https://render.githubusercontent.com/render/math?math=Proj_%7Bpersp%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Aa%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%20b%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%20c%20%26%201%5C%5C%0A0%20%26%200%20%26%20d%20%26%200%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A1%20%26%200%20%26%200%20%26%200%5C%5C%0A0%20%26%201%20%26%200%20%26%200%5C%5C%0A0%20%26%200%20%26%200.5%20%26%200%5C%5C%0A0%20%26%200%20%26%200.5%20%26%201%0A%5Cend%7Bbmatrix%7D%20%3D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5c%2B0.5%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5d%20%26%20.%0A%5Cend%7Bbmatrix%7D!571)
+$$
+Proj_{persp} =\begin{bmatrix}
+a & 0 & 0 & 0\\
+0 & b & 0 & 0\\
+0 & 0 & c & 1\\
+0 & 0 & d & 0
+\end{bmatrix}\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0.5 & 0\\
+0 & 0 & 0.5 & 1
+\end{bmatrix} =\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & 0.5c+0.5 & .\\
+. & . & 0.5d & .
+\end{bmatrix}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bpersp%7D%20%3D%5Cbegin%7Bbmatrix%7D%0Ax%20%26%20y%20%26%20z%20%26%201%0A%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5c%2B0.5%20%26%20.%5C%5C%0A.%20%26%20.%20%26%200.5d%20%26%20.%0A%5Cend%7Bbmatrix%7D%20%3D0.5%5Cfrac%7Bz((%20f%2Bn)%20%2Bf-n)%20-2fn%7D%7Bf-n%7D%20%3Df%5Cfrac%7Bz-n%7D%7Bf-n%7D!653)
+$$
+z_{persp} =\begin{bmatrix}
+x & y & z & 1
+\end{bmatrix}\begin{bmatrix}
+. & . & 0 & .\\
+. & . & 0 & .\\
+. & . & 0.5c+0.5 & .\\
+. & . & 0.5d & .
+\end{bmatrix} =0.5\frac{z(( f+n) +f-n) -2fn}{f-n} =f\frac{z-n}{f-n}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z_%7Bpersp%7D%5E%7BR%7D%20%3Dn%5Cfrac%7Bz-f%7D%7Bn-f%7D!121)
+$$
+z_{persp}^{R} =n\frac{z-f}{n-f}
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%20%3Df%5Cfrac%7Bn-n%7D%7Bf-n%7D%20%3D0!235)
+$$
+z=n\ \mapsto \ z_{persp} =f\frac{n-n}{f-n} =0
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%20%3Df%5Cfrac%7Bf-n%7D%7Bf-n%7D%20%3Df!239)
+$$
+z=f\ \mapsto \ z_{persp} =f\frac{f-n}{f-n} =f
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Dn%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%5E%7BR%7D%20%3Dn%5Cfrac%7Bn-f%7D%7Bn-f%7D%20%3Dn!233)
+$$
+z=n\ \mapsto \ z_{persp}^{R} =n\frac{n-f}{n-f} =n
+$$
 
-![formula](https://render.githubusercontent.com/render/math?math=z%3Df%5C%20%5Cmapsto%20%5C%20z_%7Bpersp%7D%5E%7BR%7D%20%3Dn%5Cfrac%7Bf-f%7D%7Bn-f%7D%20%3D0!236)
+$$
+z=f\ \mapsto \ z_{persp}^{R} =n\frac{f-f}{n-f} =0
+$$
 
 In the non reverse depth buffer case, we need to remap `0..f` to `0..1`: we need to divide by `f`. To do that, `getDepthMinZ` should return 0 and `getDepthMaxZ` should return `f`.
 
