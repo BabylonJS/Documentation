@@ -149,4 +149,4 @@ Here are a couple of examples of ray marching. One is a simple example using a c
 
 <NME id="#GD8DSL#27" title="Ray Marching Custom Block" description="A node material which uses a custom Ray Marching block" image="/img/playgroundsAndNMEs/rayMarchingNME.jpg"/>
 
-<Playground id="#M3QR7E#69" title="Snail Ray Marching Scene" description="A complex example of ray marching with a custom block." image="/img/playgroundsAndNMEs/rayMarchingSnail.jpg"/>
+<Playground id="#M3QR7E#78" title="Snail Ray Marching Scene" description="A complex example of ray marching with a custom block." image="/img/playgroundsAndNMEs/rayMarchingSnail.jpg"/>
