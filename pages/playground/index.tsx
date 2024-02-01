@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     }),
 );
-
 export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
     const query = router.query.q as string;

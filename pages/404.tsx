@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from "@mui/styles";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import Layout from "../components/layout.component";
+import { FunctionComponent } from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,8 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
-export const NotFoundComponent = () => {
+export const NotFoundComponent: FunctionComponent<{}> = () => {
     const router = useRouter();
     const classes = useStyles();
     const searchTerm = router.asPath.split("/").join(" ").trim();

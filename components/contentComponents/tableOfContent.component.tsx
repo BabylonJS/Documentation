@@ -7,7 +7,7 @@ import { DocumentationContext } from "../../pages/[...id]";
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         contentRoot: {
-            background: "#fafafa",
+            background: theme.customPalette.tableOfContent.background,
             zIndex: 100,
             width: "unset !important",
             "& h2": {

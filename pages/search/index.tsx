@@ -68,9 +68,11 @@ const useStyles = makeStyles((theme: Theme) =>
             height: "auto",
             paddingBottom: 16,
         },
+        examplesContainer: {
+            backgroundColor: theme.customPalette.examples.backgroundColor
+        }
     }),
 );
-
 export const SearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
     const query = (router.query.q as string) || (router.query.bjsq as string);
@@ -208,7 +210,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                             )}
                         </div>
                         {pgResults.length !== 0 && (
-                            <div className={styles["examples-container"]}>
+                            <div className={[styles["examples-container"], classes.examplesContainer].join(" ")}>
                                 <ExamplesComponent title="Related examples" onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
                             </div>
                         )}

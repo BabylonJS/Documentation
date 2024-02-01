@@ -6,15 +6,13 @@ import { DocumentationContext } from "../../pages/[...id]";
 import LinkIcon from "@mui/icons-material/Link";
 import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import { IExampleLink } from "../../lib/content.interfaces";
-import { colorPalette } from "../../styles/theme";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
-import Link from "next/link";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
         linkContainer: {
             cursor: "pointer",
-            backgroundColor: colorPalette.linkText,
+            backgroundColor: theme.customPalette.linkText,
             display: "inline-flex",
             marginRight: theme.spacing(0.5),
             marginTop: theme.spacing(0.5),

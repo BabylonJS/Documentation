@@ -1,14 +1,15 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@mui/styles";
-import { colorPalette } from "../styles/theme";
+import { getInitColorSchemeScript } from '@mui/material/styles';
 
-export default class MyDocument extends Document {
+
+export class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
                 <Head>
-                    <meta name="theme-color" content={colorPalette.header} />
+                    <meta name="theme-color" content={"#201936"} />
                     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
                     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
                     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -34,6 +35,8 @@ export default class MyDocument extends Document {
         );
     }
 }
+
+export default MyDocument
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).

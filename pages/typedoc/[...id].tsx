@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 // import "./apiPage.module.scss";
 import { ParsedUrlQuery } from "querystring";
 
-export const ApiPage: FunctionComponent<{
+export interface ApiPageProps {
     id: string[];
     metadata: MarkdownMetadata;
     cssArray: any[];
@@ -20,7 +20,8 @@ export const ApiPage: FunctionComponent<{
         name: string;
         url: string;
     }[];
-}> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
+}
+export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray = [], metadata, id, breadcrumbs, redirect }) => {
     if (!contentNode && !redirect) {
         return <></>;
     }
@@ -54,7 +55,11 @@ export const ApiPage: FunctionComponent<{
     }
 
     return (
-        <Layout breadcrumbs={breadcrumbs} metadata={metadata} id={["typedoc", ...id]}>
+        <Layout
+            breadcrumbs={breadcrumbs}
+            metadata={metadata}
+            id={["typedoc", ...id]}
+        >
             <Head>
                 {cssArray.map((css, idx) => {
                     return (

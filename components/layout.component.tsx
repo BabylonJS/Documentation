@@ -5,15 +5,19 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
-import { colorPalette, theme } from "../styles/theme";
+import { useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
 import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 import { IPageProps } from "../lib/content.interfaces";
 import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
+import { useContext } from "react"
+import { ColorModeContext } from "../pages/_app";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
 
@@ -33,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
-            backgroundColor: `${colorPalette.header}`,
+            backgroundColor: `${theme.customPalette.header}`,
             flex: "0 1",
             position: "fixed",
             display: "block",
@@ -42,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         appBarToolbar: {
-            backgroundColor: `${colorPalette.header}`,
+            backgroundColor: `${theme.customPalette.header}`,
             [theme.breakpoints.up("md")]: {
                 backgroundImage: "url(/img/babylonidentity.svg)",
                 backgroundRepeat: "no-repeat",
@@ -108,7 +112,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         drawer: {
-            backgroundColor: `${colorPalette.sidebarBackground}`,
+            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
             display: "block",
             paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
@@ -122,12 +126,12 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerContainer: {
             overflow: "auto",
             height: "100%",
+            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
             zIndex: 1500,
         },
         // toolbar: theme.mixins.toolbar,
         drawerPaper: {
             width: 300,
-            paddingBottom: 40,
             [theme.breakpoints.up("md")]: {
                 paddingBottom: 0,
                 top: "unset",
@@ -218,6 +222,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
+    const theme = useTheme()
+    const colorMode = useContext(ColorModeContext);
     return (
         <div className={classes.root}>
             <Head>
@@ -275,9 +281,12 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                     </div>
                     <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
                         <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
-                            <GithubIcon></GithubIcon>
+                            <GithubIcon />
                         </IconButton>
                     </Link>
+                    <IconButton aria-label={"Toggle " + (theme.palette.mode === 'dark' ? 'light' : 'dark') + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
+                        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    </IconButton>
                 </Toolbar>
                 <div className={classes.navContainer}>
                     <Link href="/typedoc">API</Link>
