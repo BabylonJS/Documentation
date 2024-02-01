@@ -634,6 +634,8 @@ Normal mapping and Parallax are supported in the exact same way than the standar
 
 LightMaps are available in the same way they are in the standardMaterial by affecting a texture to the `lightmapTexture` property. This can also be used as a shadowMap instead by switching the dedicated control flag `useLightmapAsShadowmap` to true.
 
+<Playground id="#V5R1J0" title="Simple lightmap example" description="Simple example of how to use lightmaps in PBR."/>
+
 ## Image Processing
 
 The Processing Configuration can be applied directly on the material as explained in the [image processing documentation](/features/featuresDeepDive/postProcesses/usePostProcesses#imageprocessing).
