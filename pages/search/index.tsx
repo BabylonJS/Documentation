@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(2),
             position: "relative",
             width: "100%",
-            [theme.breakpoints.up("md")]: {
+            [theme.breakpoints.up("lg")]: {
                 "& form": {
-                    maxWidth: "50%",
+                    maxWidth: "70%",
                 },
             },
         },
