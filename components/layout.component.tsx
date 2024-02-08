@@ -96,18 +96,18 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: "center",
         },
         inputRoot: {
-            color: "inherit",
+            color: "inherit !important",
         },
         inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
             // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+            paddingLeft: `calc(1em + ${theme.spacing(4)}) !important`,
             transition: theme.transitions.create("width"),
             width: "100%",
             [theme.breakpoints.up("md")]: {
-                width: "12ch",
+                width: "12ch !important",
                 "&:focus": {
-                    width: "20ch",
+                    width: "20ch !important",
                 },
             },
         },
@@ -157,9 +157,6 @@ const useStyles = makeStyles((theme: Theme) =>
             overflow: "auto",
             flex: 1,
             paddingTop: "100px",
-            [theme.breakpoints.up("md")]: {
-                paddingTop: 0,
-            },
         },
         navContainer: {
             background: "#6E6259 0% 0% no-repeat padding-box",
