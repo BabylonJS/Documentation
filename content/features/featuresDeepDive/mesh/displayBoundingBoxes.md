@@ -149,6 +149,38 @@ for(let i=0; i<childMeshes.length; i++){
 
 SWEET! We did it! Nice job! Here's the playground result of those changes. <Playground id="#4F33I3#6" title="Loop Through Meshes to Draw Bounding Box" description="Simple example of looping through meshes to draw an overall bounding box."/>
 
+# But wait, there's a method for that
+
+We can achieve this same effect by calling [getHierarchyBoundingVectors()](https://doc.babylonjs.com/typedoc/classes/BABYLON.Node#getHierarchyBoundingVectors) on our parent Node.
+
+```javascript
+let { min, max } = parent.getHierarchyBoundingVectors(); //Returns the bouding vectors of a Node and all its children 
+
+parent.setBoundingInfo(new BABYLON.BoundingInfo(min, max));
+```
+ <Playground id="#4F33I3#793" title="Using getHierarchyBoundingVectors()" description="Example of using getHierarchyBoundingVectors() method to draw overall bounding box"/>
+
+If we wanted to update the bounding box everytime the parent recieves a new child, we can use onAfterWorldMatrixUpdateObservable to listen for changes. However just calling getHierarchyBoundingVectors() within this observer will cause an infinite loop. To prevent this we can check for re-entrancy on the node. 
+
+```javascript
+parent.onAfterWorldMatrixUpdateObservable.add((v) => {
+        setTimeout(() => {
+            if (parent.detectReentrancy) {
+                return;
+            }
+            parent.detectReentrancy = true;
+            let { min, max } = parent.getHierarchyBoundingVectors(); //triggers observable causing infinite loop
+            parent.setBoundingInfo(new BABYLON.BoundingInfo(min, max));
+            setTimeout(() => {
+                parent.detectReentrancy = false;
+            });
+        });
+    })
+```
+
+ <Playground id="#4F33I3#794" title="Updating bounding box on child added" description="Update the bounding box when a node gets a new child"/>
+ 
+
 To dive even further into bounding boxes, make sure to check out the API as well
 
 # API
