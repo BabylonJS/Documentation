@@ -116,12 +116,11 @@ Note that you don't need to call `thinInstanceRegisterAttribute` if you set a cu
 
 If you update the buffers you passed to `thinInstanceSetBuffer`, you must call `thinInstanceBufferUpdated` for the changes to take effect.
 
-To gain some performances, you can flag the buffers as **static**, meaning you won't change them later on. This way, the system can apply some optimizations to your buffers.
+However, for performance reasons, buffers are not updateable by default. If you plan to update a buffer later, you must make it updateable by passing **false** for the **static** flag (4th parameter of `thinInstanceSetBuffer`):
 
-To do so, pass `true` for the 4th parameter of `thinInstanceSetBuffer`:
 ```javascript
-sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16, true);
-sphere.thinInstanceSetBuffer("color", bufferColors, 4, true);
+sphere.thinInstanceSetBuffer("matrix", bufferMatrices, 16, false); // matrix buffer is updateable
+sphere.thinInstanceSetBuffer("color", bufferColors, 4, true); // color buffer is not updateable
 ```
 
 ## Support
