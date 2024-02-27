@@ -394,16 +394,11 @@ Of course, it works also with alpha
 
 PG: <Playground id="#FJNR5#181" title="Dynamic Terrain" description="Example Alpha"/>
 
-This feature is disabled by default because it may have an impact on the CPU.  
-Indeed, when a terrain is 100x100 quads, it has 10K vertices and this custom function is then called 10K times.  
-So let's remember to make it as fast as possible and to not allocate any object within it, else the garbage collector will have to work, consuming our precious FPS.  
-Let's also remember that this custom user function is called only on terrain updates, not necessarily each frame. There's a way to force the terrain update on every frame that we'll see further.
+This feature is disabled by default because it may have an impact on the CPU. When a terrain is 100x100 quads, it has 10K vertices and this custom function is then called 10K times. So let's remember to make it as fast as possible and to not allocate any object within it, else the garbage collector will have to work, consuming our precious FPS. Also remember that this custom user function is called only on terrain updates, not necessarily each frame. There's a way to force the terrain update on every frame that we'll see later.
 
 ### After or Before Terrain Update
 
-The Dynamic Terrain is updated automatically according to the camera position and all the LOD or tolerance parameters we've set so far.  
-Sometimes it's necessary to do something just before or just after the terrain update although we can't predict in the main logic when this update is triggered.  
-Therefore, the Dynamic Terrain provides two functions that we can over-write and what are called just before and just after the terrain update: `beforeUpdate()` and `afterUpdate()`
+The Dynamic Terrain is updated automatically according to the camera position and all the LOD or tolerance parameters we've set so far. Sometimes it's necessary to do something just before or just after the terrain update although we can't predict in the main logic when this update is triggered. Therefore, the Dynamic Terrain provides two functions that we can over-write and what are called just before and just after the terrain update: `beforeUpdate()` and `afterUpdate()`.
 
 ```javascript
 // compute the squared maximum distance in the terrain
@@ -421,7 +416,7 @@ This may be useful to compute some variable values once for all before they are 
 
 ### Force Update On Every Frame
 
-Unless specific need, we shouldn't do this.
+Unless there's a specific need, we shouldn't do this.
 
 ```javascript
 terrain.refreshEveryFrame = true; // false, by default
@@ -431,7 +426,7 @@ This can be changed at any time at will.
 
 ## Useful Functions
 
-If we need to know if a set of 2D map coordinates _(x, z)_ is currently inside the terrain, we can use the method `contains(x, z)` what returns a boolean.
+If we need to know if a set of 2D map coordinates _(x, z)_ is currently inside the terrain, we can use the method `contains(x, z)` which returns a boolean.
 
 ```javascript
 if (terrain.contains(x, z)) {
@@ -439,7 +434,7 @@ if (terrain.contains(x, z)) {
 }
 ```
 
-If we need to know what is the altitude on the map of any point located at the coordinates _(x, z)_ in the World, even if this point is not one of the point defining the map (not one of the points in the map array), we can use the method `getHeightFromMap(x ,z)`.
+If we need to know what the altitude is on the map at the coordinates _(x, z)_ in the World, even if this point is not one of the points defined in the map (not one of the points in the map array), we can use the method `getHeightFromMap(x ,z)`.
 
 ```javascript
 const y = terrain.getHeightFromMap(x, z); // returns y at (x, z) in the World
@@ -481,10 +476,7 @@ const camera = terrain.camera; // the camera the terrain is linked to. By defaul
 
 ### Color map
 
-A color map can be passed to the terrain at construction time.  
-This color map is a flat array of successive floats between 0 and 1 of each map point _(r, g, b)_ values.  
-This array must have the same size than the data array.  
-Let's get back the very first example of the data array generation and let's populate a color array `mapColors`
+A color map can be passed to the terrain at construction time. This color map is a flat array of successive floats between 0 and 1 of each map point _(r, g, b)_ values. This array must have the same size than the data array. Let's get back the very first example of the data array generation and let's populate a color array `mapColors`.
 
 ```javascript
 const mapSubX = 1000; // map number of points on the width
