@@ -14,7 +14,7 @@ The dynamic terrain is a standard BJS mesh, specifically a ribbon. It's linked t
 
 ## Installation
 
-Just download the JavaScript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from theBabylon.js [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist`: https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist
+Just download the JavaScript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from the Babylon.js [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist`: https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist
 
 Then in your code, declare this script in an html tag **after** the script tag declaring Babylon.js:
 
@@ -71,7 +71,7 @@ If we call `P[i, j]` the point P at the row `j` on the map height and at the col
 - for any row `j` in the map, `P[0, j].x` is lower than `P[1, j].x`, what is lower than `P[2, j].x`, etc
 - for any column `i` in the map, `P[i, 0].z` is lower than `P[i, 1].z`, what is lower than `P[i, 2].z`, etc
 - the distance between each column is constant
-- the distance between each row is constant, although not necesseraly the same as the distance between each column.
+- the distance between each row is constant, although not necessarily the same as the distance between each column.
 
 #### Example:
 Here, we populate a big `Float32Array` with successive 3D float coordinates. We use a _simplex_ function from a third party library ([perlin.js](https://github.com/josephg/noisejs)) to set each point's altitude. This array is the data map. It's defined by 1000 points on its width and 800 points on its height. The distance between the points is constant on the width and is different from the constant distance between the points on the height.
@@ -353,7 +353,7 @@ Let's enable it (disabled by default). It can be enabled/disabled at any time.
 terrain.useCustomVertexFunction = true;
 ```
 
-This will be called on next terrain updates, not necesseraly each frame.
+This will be called on next terrain updates, not necessarily each frame.
 
 ```javascript
 // passed parameters:
@@ -397,12 +397,12 @@ PG: <Playground id="#FJNR5#181" title="Dynamic Terrain" description="Example Alp
 This feature is disabled by default because it may have an impact on the CPU.  
 Indeed, when a terrain is 100x100 quads, it has 10K vertices and this custom function is then called 10K times.  
 So let's remember to make it as fast as possible and to not allocate any object within it, else the garbage collector will have to work, consuming our precious FPS.  
-Let's also remember that this custom user function is called only on terrain updates, not necesseraly each frame. There's a way to force the terrain update on every frame that we'll see further.
+Let's also remember that this custom user function is called only on terrain updates, not necessarily each frame. There's a way to force the terrain update on every frame that we'll see further.
 
 ### After or Before Terrain Update
 
 The Dynamic Terrain is updated automatically according to the camera position and all the LOD or tolerance parameters we've set so far.  
-Sometimes it's necessery to do something just before or just after the terrain update although we can't predict in the main logic when this update is triggered.  
+Sometimes it's necessary to do something just before or just after the terrain update although we can't predict in the main logic when this update is triggered.  
 Therefore, the Dynamic Terrain provides two functions that we can over-write and what are called just before and just after the terrain update: `beforeUpdate()` and `afterUpdate()`
 
 ```javascript
@@ -439,7 +439,7 @@ if (terrain.contains(x, z)) {
 }
 ```
 
-If we need to know what is the altitude on the map of any point located at the coordinatets _(x, z)_ in the World, even if this point is not one of the point defining the map (not one of the points in the map array), we can use the method `getHeightFromMap(x ,z)`.
+If we need to know what is the altitude on the map of any point located at the coordinates _(x, z)_ in the World, even if this point is not one of the point defining the map (not one of the points in the map array), we can use the method `getHeightFromMap(x ,z)`.
 
 ```javascript
 const y = terrain.getHeightFromMap(x, z); // returns y at (x, z) in the World
@@ -599,7 +599,7 @@ A FreeCamera was set instead of an ArcRotate one to move easily on the map. The 
 As we can notice now, the texture is no longer bound to the terrain itself but to the map: the image is stretched in this example along the whole map.
 
 In this former example, we stretched the image along the whole map.  
-For this very specific need, we can also the method `.createUVMap()` what does the same (computation and assignement to the terrain) in a single call.
+For this very specific need, we can also the method `.createUVMap()` what does the same (computation and assignment to the terrain) in a single call.
 
 ```javascript
 const params = {
@@ -786,7 +786,7 @@ if (camera.position.z > someLimit) {
 Let's note that when we assign a new data map to a terrain, the normal map of this map is not automatically recomputed.  
 Thus we have two options:
 
-- either we request for this automatic normal recomputation what can take some time with the property `terrain.precomputeNormalsFromMap = true`. In this case, every new data map assignement to the terrain will trigger the map normal computation on the fly,
+- either we request for this automatic normal recomputation what can take some time with the property `terrain.precomputeNormalsFromMap = true`. In this case, every new data map assignment to the terrain will trigger the map normal computation on the fly,
 
 ```javascript
 terrain.precomputeNormalsFromMap = true; // default = false
