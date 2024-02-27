@@ -100,7 +100,7 @@ for (let l = 0; l < mapSubZ; l++) {
 PG: <Playground id="#FJNR5#162" title="Dynamic Map" description="Example of a dynamic map"/>  
 PG: <Playground id="#FJNR5#164" title="Wireframe Map" description="Example of a wireframe map"/>
 
-In order to better understand how this map is generated, we used a ribbon geometry mesh in the above playgrounds. The ribbon is thus a really big mesh (1000 x 800 = 800K vertices !). You shouldn't try to render such large meshes in your scene if you want to maintain a decent framerate. Remember that the logical map can be larger than 800K points without it all being rendered.
+In order to better understand how this map is generated, we used a ribbon geometry mesh in the above playgrounds. The ribbon is thus a really big mesh (1000 x 800 = 800K vertices!). You shouldn't try to render such large meshes in your scene if you want to maintain a decent framerate. Remember that the logical map can be larger than 800K points without it all being rendered.
 
 ### The Dynamic Terrain
 
@@ -109,7 +109,7 @@ Once we've got the data map, we can create the dynamic terrain.
 ```javascript
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   terrainSub: terrainSub, // how many terrain subdivisions wanted
@@ -253,7 +253,7 @@ terrain.LODLimits = [4];
 
 PG: <Playground id="#FJNR5#170" title="Dynamic Terrain" description="Example LOD Limits [4]"/>
 
-How is now the terrain after a forced update (note: the terrain automatically update with the camera movement on X or Z, so we force it here in case the camera won't move at all) ?
+How is now the terrain after a forced update (note: the terrain automatically update with the camera movement on X or Z, so we force it here in case the camera won't move at all)?
 
 We can notice that the center of the center has kept the original size of subdivisions, but all the quads located in the first 4 subdivisions from the terrain edges are now bigger. Actually their LOD factor is increased by 1 either on the X axis, either on the Z axis, either on both axes, depending on their location on the global terrain grid.  
 
@@ -317,7 +317,7 @@ PG: <Playground id="#FJNR5#176" title="Dynamic Terrain" description="Example Per
 - the initial LOD is the factor of the central terrain quad to apply to the map quad (default 1),
 - the cameraLODcorrection is the quantity to add to this initial LOD to adjust to the camera position or distance (default 0),
 - the LOD limits are the limits in the perimetric terrain subdivisions from where to increase the initial LOD (default `[]`), the camera LOD correction applies the same way on all the quads, so even on the already increased perimetric quads.
-- these three properties can be set at any time ! It's called _dynamic_ terrain, isn't it ?
+- these three properties can be set at any time! It's called _dynamic_ terrain, isn't it?
 - the global LOD value is the current LOD factor value of the central quads.
 
 ## Terrain Update
@@ -434,7 +434,7 @@ if (terrain.contains(x, z)) {
 }
 ```
 
-If we need to know what the altitude is on the map at the coordinates _(x, z)_ in the World, even if this point is not one of the points defined in the map (not one of the points in the map array), we can use the method `getHeightFromMap(x ,z)`.
+If we need to know what the altitude is on the map at the coordinates _(x, z)_ in the World, even if this point is not one of the points defined in the map (not one of the points in the map array), we can use the method `getHeightFromMap(x, z)`.
 
 ```javascript
 const y = terrain.getHeightFromMap(x, z); // returns y at (x, z) in the World
@@ -510,7 +510,7 @@ And let's pass this color array to the terrain at construction time with the opt
 ```javascript
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   mapColors: mapColors, // the array of map colors
@@ -542,7 +542,7 @@ This array must be sized _mapSubX x mapSubZ x 2_ (because two floats per map poi
 ```javascript
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   mapUVs: mapUVs, // the array of map UVs
@@ -576,7 +576,7 @@ Then we pass the populated array `mapUVs` to the Dynamic Terrain constructor wit
 
 ```javascript
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   mapUVs: mapUVs, // array of the map UVs
@@ -595,7 +595,7 @@ For this very specific need, we can also the method `.createUVMap()` what does t
 
 ```javascript
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   terrainSub: terrainSub, // how many terrain subdivisions wanted
@@ -620,11 +620,11 @@ This computation charge would be directly related to the terrain number of verti
 ```javascript
 const terrainSub = 100; // 100 terrain subdivisions
 const params = {
-  mapData: mapData, // data map declaration: what data to use ?
+  mapData: mapData, // data map declaration: what data to use?
   mapSubX: mapSubX, // how are these data stored by rows and columns
   mapSubZ: mapSubZ,
   terrainSub: terrainSub, // how many terrain subdivisions wanted
-  // nothing more to do: the map normals are computed at creation time !
+  // nothing more to do: the map normals are computed at creation time!
 };
 const terrain = new BABYLON.DynamicTerrain("t", params, scene);
 ```
@@ -646,7 +646,7 @@ This array is passed with the optional parameter property `.mapNormals`.
 const normalArray = [n1.x, n1.y, n1.z, n2.x, n2.y, n2.z, ...];
 const terrainSub = 100;               // 100 terrain subdivisions
 const params = {
-    mapData: mapData,               // data map declaration: what data to use ?
+    mapData: mapData,               // data map declaration: what data to use?
     mapSubX: mapSubX,               // how are these data stored by rows and columns
     mapSubZ: mapSubZ,
     mapNormals: normalArray,        // the array of map normals
