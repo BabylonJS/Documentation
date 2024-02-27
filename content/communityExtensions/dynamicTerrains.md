@@ -16,7 +16,7 @@ The dynamic terrain is a standard BJS mesh, specifically a ribbon. It's linked t
 
 Just download the JavaScript file `dynamicTerrain.js` (or, recommended, the minified version `dynamicTerrain.min.js`) from theBabylon.js [extension repository](https://github.com/BabylonJS/Extensions) folder `DynamicTerrain/dist`: https://github.com/BabylonJS/Extensions/tree/master/DynamicTerrain/dist
 
-Then in your code, declare this script in a html tag **after** the script tag declaring Babylon.js:
+Then in your code, declare this script in an html tag **after** the script tag declaring Babylon.js:
 
 ```html
 <script src="babylon.js"></script>
@@ -161,33 +161,34 @@ In short, by default, the terrain sees the map as infinite.
 
 #### Initial LOD
 
-LOD is an acronym for Level Of Detail.  
-It's a feature allowing to reduce the rendering precision of some mesh when it's far away from the camera in order to lower the necessary computation: the less vertices, the less CPU/GPU needed.
+LOD is an acronym for Level Of Detail. It's a feature allowing the reduction of the rendering precision of some mesh when it's far away from the camera in order to lower the necessary computation: the less vertices, the less CPU/GPU needed.
 
-The dynamic terrain provides also a LOD feature but in a different way: the terrain number of vertices always keeps constant but only the part of data map covered by the terrain changes.  
-By default, one terrain quad fits one map quad.  
-This factor can be modified with the property `.initialLOD` (equal to 1, by default) at any time.
+The dynamic terrain also provides a LOD feature but in a different way: the terrain's number of vertices are always kept constant, but only the part of data map covered by the terrain changes.  
+
+By default, one terrain quad fits one map quad. This factor can be modified with the property `.initialLOD` (equal to 1, by default) at any time.
 
 Examples:  
-The default initial LOD is 1, so 1 terrain quad is 1 map quad
+The default initial LOD is 1, so 1 terrain quad is 1 map quad.
 
 PG: <Playground id="#FJNR5#166" title="Dynamic Terrain" description="Example - 1 Terrain Quad 1 Map Quad"/>
 
-The initial LOD is set to 10, so 1 terrain quad is now 10x10 map quads (10 on each axis)
+The initial LOD is set to 10, so 1 terrain quad is now 10x10 map quads (10 on each axis).
 
 PG: <Playground id="#FJNR5#165" title="Dynamic Terrain" description="Example -  1 Terrain Quad 1 Map Quad"/>
 
-In consequence, the terrain mesh is far bigger, far less detailed regarding to the map data, but keeps the same amount of vertices (100 x 100).  
-Setting an initial LOD to 10 is probably not a pertinent value, it's done only in the purpose of the explanation.  
+In consequence, the terrain mesh is far bigger while far less detailed regarding to the map data, but keeps the same amount of vertices (100 x 100). Setting an initial LOD to 10 is probably not a realistic value, it's only for the purpose of explanation.  
+
 In brief, the initial LOD value is the number of map quads on each axis, X and Z, per terrain quad.
 
 #### Camera LOD
 
 Back to the terrain with the default initial LOD value.  
-We can notice that when the camera is at some high altitude the green terrain seems far away, quite little in the screen area, as this is the common behavior: distant things appear tinier.  
+
+We can notice that when the camera is at some high altitude the green terrain seems far away, quite small in the screen area, as is the common behavior: distant things appear tinier. 
+
 PG: <Playground id="#FJNR5#167" title="Dynamic Terrain" description="Example Distant"/>
 
-However we don't expect that, when getting in higher altitude, the ground would get tinier: it becomes less detailed to our eyes and we can see a larger area of the ground in the same time.
+However we don't expect that when getting in higher altitude, the ground would get tinier. Rather, it becomes less detailed to our eyes and we can see a larger area of the ground in the same time.
 
 The dynamic terrain provides a way to do this by increasing the LOD factor with the camera altitude (or any other behavior we may want like changing the LOD with the camera speed instead).
 
@@ -204,43 +205,37 @@ terrain.updateCameraLOD = function (terrainCamera) {
 
 PG: <Playground id="#FJNR5#168" title="Dynamic Terrain" description="Example Camera LOD"/>
 
-In this example, the LOD value is incremented by 1 each time the altitude is +16 higher.  
-If we get the camera higher by zooming out when looking at the ground, we can see that the terrain size increases since there are less details.
+In this example, the LOD value is incremented by 1 each time the altitude is +16 higher. If we get the camera higher by zooming out when looking at the ground, we can see that the terrain size increases since there are less details.
 
 This function is passed the object camera linked to the terrain and must return a positive integer or zero. By default, zero is return.
 
-This function is called on each terrain update.  
-Nevertheless, we can set this value at any time with the property `.cameraLODCorrection`.  
+This function is called on each terrain update. Nevertheless, we can set this value at any time with the property `.cameraLODCorrection`.
+
 Example:
 
 ```javascript
 terrain.cameraLODCorrection = 3; // adds +3 to the initial LOD
 ```
 
-In this example, the camera LOD correction value of 3, forces the global LOD factor to be 4:3 (camera) + 1 (initial value). This means each terrain quad is now 16 (4 x 4) map quads.  
-In general, we don't need to set this value manually. It's better to update it automatically with the method `updateCameraLod(camera)`, so the property is rather read than set.
+In this example, the camera LOD correction value of 3, forces the global LOD factor to be 4:3 (camera) + 1 (initial value). This means each terrain quad is now 16 (4 x 4) map quads. In general, we don't need to set this value manually. It's better to update it automatically with the method `updateCameraLod(camera)`, so the property is read rather than set.
 
-This feature is useful only when the expected camera movements can get the terrain very distant, so too tiny, in the field of view.  
-It's not really necessary to use it if the terrain keeps quite the same size in the fied of view.  
-Example: a character walking on the terrain ground.
+This feature is useful only when the expected camera movements can get the terrain very distant, too tiny, in the field of view. It's not really necessary to use it if the terrain keeps quite the same size in the fied of view. Example: a character walking on the terrain ground.
 
 #### Global LOD
 
-The global LOD factor is the current sum of the initial value and the current camera LOD correction value.  
-As said before, it's the current factor of the number of map quad per axis in each terrain quad.  
+The global LOD factor is the current sum of the initial value and the current camera LOD correction value. As said before, it's the current factor of the number of map quad per axis in each terrain quad. 
+
 It's readable with the property `.LODValue`.
 
 ```javascript
 const lod = terrain.LODValue;
 ```
 
-It's a positive integer (>= 1).  
-Let's simply remember that the bigger the LOD value, the lower the terrain details.
+It's a positive integer (>= 1). Remember that the bigger the LOD value, the lower the terrain details.
 
 #### Perimetric LOD
 
-The perimetric LOD is the LOD in the distance around the terrain perimeter.  
-When our camera is close enough to the ground and looking at distant things in the landscape, we expect that these things don't require too many vertices to be rendered, because they are far from us and don't need to be as detailed as near objects.
+The perimetric LOD is the LOD in the distance around the terrain perimeter. When our camera is close enough to the ground and looking at distant things in the landscape, we expect that these things don't require too many vertices to be rendered, because they are far from us and don't need to be as detailed as near objects.
 
 Let's get of the map rendering and let's create a smaller terrain of 20 subdivisions only:
 
@@ -249,6 +244,7 @@ PG: <Playground id="#FJNR5#169" title="Dynamic Terrain" description="Example Sma
 The camera is located high in altitude in order to understand better how to set the perimetric LOD.
 
 The property to change the perimetric LOD is `.LODLimits`. It's an array of integers (or an empty array, by default).  
+
 Let's set a first limit to 4:
 
 ```javascript
@@ -259,8 +255,8 @@ PG: <Playground id="#FJNR5#170" title="Dynamic Terrain" description="Example LOD
 
 How is now the terrain after a forced update (note: the terrain automatically update with the camera movement on X or Z, so we force it here in case the camera won't move at all) ?
 
-We can notice that the center of the center has kept the original size of subdivisions, but all the quads located in the first 4 subdivisions from the terrain edges are now bigger.  
-Actually their LOD factor is increased by 1 either on the X axis, either on the Z axis, either on both axes, depending on their location on the global terrain grid.  
+We can notice that the center of the center has kept the original size of subdivisions, but all the quads located in the first 4 subdivisions from the terrain edges are now bigger. Actually their LOD factor is increased by 1 either on the X axis, either on the Z axis, either on both axes, depending on their location on the global terrain grid.  
+
 When it's increased by 1 on both their axes (in the grid corners), their LOD value is 2. This means one of this terrain quad fits exactly 2 x 2 map quads, since the central terrain quads keep fitting each 1 map quad only.
 
 When we move the camera closer to the ground and orientate it to look at some distant hills, we can see that the distant quads are bigger, so depict a larger area of the map (so less detailed) than the close ones.
@@ -274,8 +270,9 @@ terrain.LODLimits = [2, 4];
 PG: <Playground id="#FJNR5#171" title="Dynamic Terrain" description="Example LOD Limits [2, 4]"/>
 
 Same principle but with an extra step:
-The quads in the first 4 subdivisions have all their LOD increased by 1.  
-The quads in the first 2 subdivisions have their LOD increased again by 1 from their current value, so increased by 2 relatively to the central ones.  
+- The quads in the first 4 subdivisions have all their LOD increased by 1.  
+- The quads in the first 2 subdivisions have their LOD increased again by 1 from their current value, so increased by 2 relatively to the central ones.  
+
 We can set as many limits as we want:
 
 ```javascript
