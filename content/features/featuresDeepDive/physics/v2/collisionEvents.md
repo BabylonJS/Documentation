@@ -73,6 +73,22 @@ const observer = observable.add((collisionEvent) => {
 });
 ```
 
+## Collision filtering
+
+Collisions between 2 bodies can be ignored by using the filtering mechanism on their respective Physics Shapes.
+
+The property `filterMembershipMask` is a bitmask of categories which this shape is a member of.
+
+The property `filterCollideMask` is a bitmask of arbitrary "categories" to which this shape collides with.
+
+Given two shapes, the engine will check if the collide mask and membership overlap:
+
+`shapeA.filterMembershipMask & shapeB.filterCollideMask`
+
+If this value is zero (i.e. shapeB only collides with categories which shapeA is not a member of) then the shapes will not collide.
+
+Note, the engine will also perform the same test with shapeA and shapeB swapped; the shapes will not collide if either shape has a collideMask which prevents collision with the other shape.
+
 ## Examples
 
 - Use collision observer to log an output when bodies are colliding: <Playground id="#7JI3E8#1" title="Collision observers" description="Use collision observer to log an output when bodies are colliding"/>
@@ -80,3 +96,5 @@ const observer = observable.add((collisionEvent) => {
 - Using a trigger volume: <Playground id="#M0C2X5#1" title="Triggers" description="Using a trigger volume" />
 
 - Logging the collision events that happen to a body: <Playground id="#Z8HTUN#613" title="Collision events" description="Logging the collision events that happen to a body"/>
+
+- Collision filtering <Playground id="#H4UR4Z" title="Collision filtering" description="Filtering collisions that happen to a body"/>
