@@ -123,6 +123,24 @@ Here are sample playgrounds that show how to use decal maps. Click on the meshes
 - <Playground id="#9BVW2S#60" title="Decal maps" description="Example of using decal maps." image="/img/playgroundsAndNMEs/pg-9BVW2S-49.png"/>
 - <Playground id="#N10DXG#17" title="Decal Graffiti" description="Add graffiti with decal maps." image="/img/playgroundsAndNMEs/textureDecals_graffiti.jpg" />
 
+#### Improving results
+
+Sometimes you may see artifacts when you add a decal to a texture.
+
+This is because the mesh on which you're projecting the decal has different uv islands, and artifacts occur when the decal crosses several islands.
+
+As of version 6.33.1, you can solve the problem by passing the `uvEdgeBlending: true` option when creating the `MeshUVSpaceRenderer` instance:
+```javascript
+const decalMap = new BABYLON.MeshUVSpaceRenderer(mesh, scene, { uvEdgeBlending: true });
+```
+
+Results:
+![Fix seam artifacts](/img/features/decals/decaltexture_fixseams.jpg)
+
+The mesh on the right has `uvEdgeBlending = true` but the mesh on the left does not.
+
+Note that this option requires additional GPU processing, so it's a compromise between better visuals and better performance.
+
 #### Using Decal Maps with ES6 and Tree Shaking
 
 Decal maps are an optional feature that is not supported by default by the standard and PBR materials, to avoid an increase in code size if you do not use it.
