@@ -109,7 +109,7 @@ It can be used to define, for example, a height offset (if the ground is not at 
 ``` javascript
 xrBasicHelper.onInitialXRPoseSetObservable.add((xrCamera) => {
     // floor is at y === 2
-    xrCamera.y = 2;
+    xrCamera.position.y = 2;
 });
 ```
 
