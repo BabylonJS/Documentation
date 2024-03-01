@@ -1,6 +1,6 @@
 ---
 title: WebXR Demos and Examples
-image: 
+image:
 description: Check out a series of WebXR demos and examples in Babylon.js.
 keywords: babylon.js, diving deeper, WebXR, VR, AR, demo, example
 further-reading:
@@ -16,7 +16,7 @@ This is a step-by-step guide on how to add XR features to a basic scene
 
 Here we just add an environment, a sphere, and XR support
 
-``` javascript
+```javascript
 const xrHelper = await scene.createDefaultXRExperienceAsync();
 ```
 
@@ -26,10 +26,10 @@ const xrHelper = await scene.createDefaultXRExperienceAsync();
 
 To get teleportation enabled, we want to provide the experience helper with an array of floor meshes:
 
-``` javascript
+```javascript
 const xrHelper = await scene.createDefaultXRExperienceAsync({
-    // define floor meshes
-    floorMeshes: [environment.ground]
+  // define floor meshes
+  floorMeshes: [environment.ground],
 });
 ```
 
@@ -41,10 +41,10 @@ Add a color picker (from our GUI library) and use it to change the sphere's colo
 
 Notice that no changes were made in the XR code, and that the scene works perfectly well outside VR as well.
 
-``` javascript
+```javascript
 // GUI
 var plane = BABYLON.Mesh.CreatePlane("plane", 1);
-plane.position = new BABYLON.Vector3(1.4, 1.5, 0.4)
+plane.position = new BABYLON.Vector3(1.4, 1.5, 0.4);
 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
 var panel = new BABYLON.GUI.StackPanel();
 advancedTexture.addControl(panel);
@@ -53,15 +53,15 @@ header.text = "Color GUI";
 header.height = "100px";
 header.color = "white";
 header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-header.fontSize = "120"
+header.fontSize = "120";
 panel.addControl(header);
 var picker = new BABYLON.GUI.ColorPicker();
 picker.value = sphere.material.diffuseColor;
 picker.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
 picker.height = "350px";
 picker.width = "350px";
-picker.onValueChangedObservable.add(function(value) {
-    sphere.material.diffuseColor.copyFrom(value);
+picker.onValueChangedObservable.add(function (value) {
+  sphere.material.diffuseColor.copyFrom(value);
 });
 panel.addControl(picker);
 ```
@@ -69,13 +69,13 @@ panel.addControl(picker);
 <Playground id="#9K3MRA#2" title="WebXR Color Picker" description="Simple WebXR color picker example." isMain={true} category="WebXR"/>
 
 ## Other demos
- 
+
 <Playground id="#PPM311#148" title="Goalkeeper Training" description="Goalkeeper Training" isMain={true} category="WebXR"/>
 <Playground id="#B922X8#19" title="Legacy Physics Playground" description="Physics Playground" isMain={true} category="WebXR"/>
 
-<Playground id="#F41V6N#139" title="A cylinder object is child of a controller" description="A cylinder object is child of a controller"/>  
+<Playground id="#F41V6N#139" title="A cylinder object is child of a controller" description="A cylinder object is child of a controller"/>
 
-<Playground id="#1FTUSC#37" title="Simply grabbing objects by controllers" description="Simply grabbing objects by controllers"/> 
+<Playground id="#1FTUSC#37" title="Simply grabbing objects by controllers" description="Simply grabbing objects by controllers"/>
 
 ## Babylon.js scenes with XR support
 
@@ -101,8 +101,8 @@ npm create vite@latest
 ### Install @babylonjs ES6 packages
 
 ```bash
-npm install @babylonjs/core@^5.0.0-beta.8
-npm install @babylonjs/loaders@^5.0.0-beta.8
+npm install @babylonjs/core
+npm install @babylonjs/loaders
 ```
 
 ### Enable HTTPS dev server
@@ -110,7 +110,7 @@ npm install @babylonjs/loaders@^5.0.0-beta.8
 HTTPS is required by most VR devices. Create or modify `vite.config.ts`:
 
 ```javascript
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -121,7 +121,7 @@ export default defineConfig({
     // (or use `npm run dev -- -- host=0.0.0.0`)
     //host: '0.0.0.0',
   },
-})
+});
 ```
 
 ### Set up a basic WebXR scene
@@ -129,75 +129,78 @@ export default defineConfig({
 Modify the `main.ts` file:
 
 ```typescript
-import './style.css'
+import "./style.css";
 
-import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera.js'
-import { Color3 } from '@babylonjs/core/Maths/math.color.js'
-import { Engine } from '@babylonjs/core/Engines/engine.js'
-import { EnvironmentHelper } from '@babylonjs/core/Helpers/environmentHelper.js'
-import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight.js'
-import { Mesh } from '@babylonjs/core/Meshes/mesh'
-import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder.js'
-import { Scene } from '@babylonjs/core/scene.js'
-import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial.js'
-import { Vector3 } from '@babylonjs/core/Maths/math.vector.js'
-import { WebXRDefaultExperience } from '@babylonjs/core/XR/webXRDefaultExperience.js'
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera.js";
+import { Color3 } from "@babylonjs/core/Maths/math.color.js";
+import { Engine } from "@babylonjs/core/Engines/engine.js";
+import { EnvironmentHelper } from "@babylonjs/core/Helpers/environmentHelper.js";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight.js";
+import { Mesh } from "@babylonjs/core/Meshes/mesh";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder.js";
+import { Scene } from "@babylonjs/core/scene.js";
+import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial.js";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector.js";
+import { WebXRDefaultExperience } from "@babylonjs/core/XR/webXRDefaultExperience.js";
 
 // Required for EnvironmentHelper
-import '@babylonjs/core/Materials/Textures/Loaders'
+import "@babylonjs/core/Materials/Textures/Loaders";
 
 // Enable GLTF/GLB loader for loading controller models from WebXR Input registry
-import '@babylonjs/loaders/glTF'
+import "@babylonjs/loaders/glTF";
 
 // Without this next import, an error message like this occurs loading controller models:
 //  Build of NodeMaterial failed" error when loading controller model
 //  Uncaught (in promise) Build of NodeMaterial failed: input rgba from block
 //  FragmentOutput[FragmentOutputBlock] is not connected and is not optional.
-import '@babylonjs/core/Materials/Node/Blocks'
+import "@babylonjs/core/Materials/Node/Blocks";
 
 // Create a canvas element for rendering
-const app = document.querySelector<HTMLDivElement>('#app')
-const canvas = document.createElement('canvas')
-app?.appendChild(canvas)
+const app = document.querySelector<HTMLDivElement>("#app");
+const canvas = document.createElement("canvas");
+app?.appendChild(canvas);
 
 // Create engine and a scene
-const babylonEngine = new Engine(canvas, true)
-const scene = new Scene(babylonEngine)
+const babylonEngine = new Engine(canvas, true);
+const scene = new Scene(babylonEngine);
 
 // Add a basic light
-new HemisphericLight('light1', new Vector3(0, 2, 0), scene)
+new HemisphericLight("light1", new Vector3(0, 2, 0), scene);
 
 // Create a default environment (skybox, ground mesh, etc)
-const envHelper = new EnvironmentHelper({
-  skyboxSize: 30,
-  groundColor: new Color3(0.5, 0.5, 0.5),
-}, scene)
+const envHelper = new EnvironmentHelper(
+  {
+    skyboxSize: 30,
+    groundColor: new Color3(0.5, 0.5, 0.5),
+  },
+  scene,
+);
 
 // Add a camera for the non-VR view in browser
 const camera = new ArcRotateCamera("Camera", -(Math.PI / 4) * 3, Math.PI / 4, 10, new Vector3(0, 0, 0), scene);
-camera.attachControl(true)
+camera.attachControl(true);
 
 // Add a sphere to have something to look at
-const sphereD = 1.0
-const sphere = MeshBuilder.CreateSphere('xSphere', { segments: 16, diameter: sphereD }, scene)
-sphere.position.x = 0
-sphere.position.y = sphereD * 2
-sphere.position.z = 0
-const rMat = new StandardMaterial("matR", scene)
-rMat.diffuseColor = new Color3(1.0, 0, 0)
-sphere.material = rMat
+const sphereD = 1.0;
+const sphere = MeshBuilder.CreateSphere("xSphere", { segments: 16, diameter: sphereD }, scene);
+sphere.position.x = 0;
+sphere.position.y = sphereD * 2;
+sphere.position.z = 0;
+const rMat = new StandardMaterial("matR", scene);
+rMat.diffuseColor = new Color3(1.0, 0, 0);
+sphere.material = rMat;
 
 // Setup default WebXR experience
 // Use the enviroment floor to enable teleportation
 WebXRDefaultExperience.CreateAsync(scene, {
   floorMeshes: [envHelper?.ground as Mesh],
   optionalFeatures: true,
-})
+});
 
 // Run render loop
 babylonEngine.runRenderLoop(() => {
-  scene.render()
-})
+  scene.render();
+});
 ```
 
 Corresponding git repo: [kaliatech/babylon-docs-vite-webxr](https://github.com/kaliatech/babylon-docs-vite-webxr)

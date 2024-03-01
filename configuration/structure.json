@@ -1305,7 +1305,7 @@
                                     "friendlyName": "Node Geometry",
                                     "children": {},
                                     "content": "features/featuresDeepDive/mesh/nodeGeometry"
-                                },                                
+                                },
                                 "displayBoundingBoxes": {
                                     "friendlyName": "Drawing Bounding Boxes",
                                     "children": {},
@@ -1949,8 +1949,29 @@
                                     "content": "features/featuresDeepDive/webXR/introToWebXR"
                                 },
                                 "WebXRSelectedFeatures": {
-                                    "friendlyName": "WebXR (VR) Features",
-                                    "children": {},
+                                    "friendlyName": "WebXR Features",
+                                    "children": {
+                                        "WebXTTeleportation": {
+                                            "friendlyName": "WebXR Teleportation",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRTeleportation"
+                                        },
+                                        "WebXRHandTracking": {
+                                            "friendlyName": "WebXR Hand Tracking",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRHandTracking"
+                                        },
+                                        "WebXRMovement": {
+                                            "friendlyName": "WebXR Movement",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRMovement"
+                                        },
+                                        "WebXRLayers": {
+                                            "friendlyName": "WebXR Layers",
+                                            "children": {},
+                                            "content": "features/featuresDeepDive/webXR/WebXRLayers"
+                                        }
+                                    },
                                     "content": "features/featuresDeepDive/webXR/WebXRSelectedFeatures"
                                 },
                                 "webXRExperienceHelpers": {
