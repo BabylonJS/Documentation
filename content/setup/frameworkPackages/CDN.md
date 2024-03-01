@@ -111,6 +111,8 @@ This option is the best for you, as you are in full control of the resources. To
 
 After downloading the cdn snapshot zip file and deploying it on yoru server, change the base URL to the base URL of the resources deployed.
 
+Make sure that your Server/CDN supports CORS, at least from your own Babylon experience.
+
 ### A bit more complex - deploy and configure specific resources
 
 Instead of downloading and deploying our entire CDN structure, you can do that specifically for resources you are using. Each resource's URL in Babylon can be configured individually.
