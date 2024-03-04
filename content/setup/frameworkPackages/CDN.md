@@ -75,7 +75,7 @@ Readable Version - [https://cdn.babylonjs.com/viewer/babylon.viewer.max.js](http
 
 ## Deploying your own version of the resources
 
-As the notice above states, it is not recommended using the latest CDN version directly in production. Though Babylon's team won't do it deliberatly, it is always possible that something went wrong during build or deployment of a specific version and that the CDN was updated with some code that will break your production application. We also can't guarantee 100% uptime, though we do our best to do keep the server online.
+As the notice above states, it is not recommended to use the latest CDN version directly in production. Although the Babylon team won't do it deliberately, it is always possible that something could go wrong during the build or deployment of a specific version, and that the CDN could be updated with some code that will break your production application. We also can't guarantee 100% uptime, though we do our best to keep the server online.
 
 Babylon itself is using the CDN throughout the framework, for example with Draco or Basis decoding, or the inspector. When loading these components without loading the module yourself before, the CDN will be used to download the file.
 
@@ -93,11 +93,11 @@ Of course, this can be done in ES6 by importing `Tools` and setting the `ScriptB
 
 Any resources loaded in our core library will be loaded from this URL instead of `https://cdn.babylonjs.com`. The structure needs to remain the structure of our CDN.
 
-What are the simplest way to get the resources structured? Let's dive in
+What are the simplest way to get the resources structured? Let's dive in.
 
 1. Using the CDN but with a fixed version
 
-Whereas our CDN base directory always holds our nightlies, we do deply specific versions of the framework on every release. Every release is available at `https://cdn.babylonjs.com/vX.X.X` . So, for example, if you want to use version 6.30.0 for your resources, you can change the base URL to this:
+Whereas our CDN base directory always holds our nightlies, we do deploy specific versions of the framework on every release. Every release is available at `https://cdn.babylonjs.com/vX.X.X` . So, for example, if you want to use version 6.30.0 for your resources, you can change the base URL to this:
 
 ```javascript
 BABYLON.Tools.ScriptBaseUrl = "https://cdn.babylonjs.com/v6.30.0";
