@@ -51,7 +51,7 @@ The current options for the plugin can always be found at the [WebXR movement fe
 
 One important option is `movementOrientationFollowsViewerPose`, which defaults to `true`. When configured to `false` the forward direction will not adjust with the viewer pose, but only to the controller rotation. This can be useful for some experiences where the viewer pose should not affect movement direction. ie: If you are moving forward and look left that you should not drift left, but continue straight. You can try out in the above playground by changing the option.
 
-The controllers themselves can be configured differently. If you want to swap which hand controls rotation vs. movement, for example, then override the option `customRegistrationConfigurations` array. The movement state rotation and movement is handled automatically by the feature and ignored accordingly if rotation (`rotationEnabled`) or movement (`movementEnabled`) are not enabled and will automatically be adjusted to speed (`rotationSpeed` & `movementSpeed`).
+The controllers themselves can be configured differently. If you want to swap which hand controls rotation vs. movement for example, then override the option `customRegistrationConfigurations` array. The movement state rotation and movement is handled automatically by the feature and ignored accordingly if rotation (`rotationEnabled`) or movement (`movementEnabled`) are not enabled and will automatically be adjusted to speed (`rotationSpeed` & `movementSpeed`).
 
 This would swap handedness of the default configuration and maintain feature sensitivity thresholds:
 

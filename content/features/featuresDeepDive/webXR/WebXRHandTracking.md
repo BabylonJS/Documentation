@@ -18,9 +18,9 @@ Please note that when referring to "hands" on this page we are referring to the 
 
 ### Getting started
 
-To get started you will first need a supported devices.
+To get started you will first need a supported device.
 
-Starting version 6.40.0, Hand support is enabled per default, if supported, when using the default experience helper. To configure it, pass the details when initializing the experience helper:
+Starting version 6.40.0, hand support is enabled per default, if supported, when using the default experience helper. To configure it, pass the details when initializing the experience helper:
 
 ```javascript
 const xrHelper = scene.createDefaultXRExperienceAsync({
@@ -72,7 +72,7 @@ This will disable the mesh load and will enable the 25 points to be shown (defau
 
 If you want to provide different hand meshes (for example if you want to have your users wear gloves) it is recommended to take the current RHS (right hand system) hand meshes from the [hand meshes](https://github.com/BabylonJS/Assets/tree/master/meshes/HandMeshes) assets directory and modify them. Otherwise you will need to create your own skeleton/bones and weight the skin correctly.
 
-Once you are down creating you will need two important objects per hand. The first is the actual mesh per hand. The other is the mapping between the native XR tracked joint and the bone in your model. It is an structured array with the names of the bones of each hand as strings, sorted according to the XR mapping of the joints. The default one is this:
+Once you are down creating you will need two important objects per hand. The first is the actual mesh per hand. The other is the mapping between the native XR tracked joint and the bone in your model. It is a structured array with the names of the bones of each hand as strings, sorted according to the XR mapping of the joints. The default one is this:
 
 ```javascript
 this._rigMapping = [
@@ -273,7 +273,7 @@ xrHandFeature.onHandAddedObservable.add((newHand) => {
 
 ### Hands physics
 
-To enable physics on each of the 25 tracked points use the enablePhysics flag:
+To enable physics on each of the 25 tracked points use the `enablePhysics` flag:
 
 ```javascript
 const featureManager = xrHelper.baseExperience.featuresManager;
