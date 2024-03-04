@@ -37,3 +37,5 @@ gs.loadFileAsync("https://raw.githubusercontent.com/CedricGuillemet/dump/master/
 ```
 
 <Playground id="#CID4NN#0" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
+
+<Playground id="#45KYTJ#4" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
