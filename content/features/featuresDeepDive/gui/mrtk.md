@@ -32,7 +32,7 @@ This page will go over each of the MRTK-relevant controls and features present i
 
 The following BabylonJS controls have roots as MRTK features. As they extend the `Control3D` class, they all support the basic capabilities that `Control3D` objects have.
 
-More on the `Control3D` class, and GUI elements in general, can be found [here](/features/featuresDeepDive/gui/gui).
+More on the `Control3D` class, and 3D GUI elements in general, can be found [here](/features/featuresDeepDive/gui/gui3D).
 
 The following is an example that showcases several of the controls listed, including `TouchHolographicButtons` , `TouchMeshButtons`, and the `NearMenu`. This scene is designed for use in XR, and supports use of `WebXRNearInteraction`:
 <Playground id="#24DLJ4#7" title="Near Interaction Button Scene Demo" description="Demo showcasing different Control3D objects with Near Interaction support."/>
