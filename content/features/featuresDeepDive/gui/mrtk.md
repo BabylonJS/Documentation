@@ -154,7 +154,7 @@ The `WebXRNearInteraction` feature is enabled by default on the Babylon playgrou
 
 If the `WebXRHandTracking` feature is not enabled, then the near interaction model used will be a visible orb that floats in front of the hand (or motion controller). This orb will only be visible while near a component that supports Near Interaction.
 
-To provide support for Near Interaction to an arbitrary `AbstractMesh`, simply set the `isNearPickable` and/or `isNearGrabbable` properties. `isNearPickable` will enable near interaction in the form of touch input, whereas `isNearPickable` will allow the object to be grabbed. The main difference here is that touch input triggers a press on touch, but grabbing the object requires touch _and_ a trigger of some kind (pulling the trigger on a controller, or performing a pinch gesture with a hand). Only one of these options should be enabled for a given object, to prevent unintended interactions.
+To provide support for Near Interaction to an arbitrary `AbstractMesh`, simply set the `isNearPickable` and/or `isNearGrabbable` properties. `isNearPickable` will enable near interaction in the form of touch input, whereas `isNearGrabbable` will allow the object to be grabbed. The main difference here is that touch input triggers a press on touch, but grabbing the object requires touch _and_ a trigger of some kind (pulling the trigger on a controller, or performing a pinch gesture with a hand). At most one of these options should be enabled for a given object at any given time, to prevent unintended interactions.
 
 #### Eye Tracking
 
