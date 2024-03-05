@@ -49,6 +49,11 @@ This one will be triggered when a controller leaves the experience, right before
 
 [WebXRInputSource](/typedoc/classes/babylon.webxrinputsource), created by the [WebXRInput](/typedoc/classes/babylon.webxrinput), represents an input source (controller). It has a few important members.
 
+## Mixing hands and controllers
+
+Starting Babylon 6.42.0 it is possible to mix different types of controllers, as long as the underlying system supports it. For example, you could support both a hand and a controller at the same time.
+To try that just enter any XR demo with your controllers and put one of them down, or enter with both hands and pick up one controller.
+
 ### Public methods
 
 #### getWorldPointerRayToRef
@@ -239,27 +244,27 @@ component.onAxisValueChangedObservable.add((values) => {
 ```
 
 Here is a simple example of controllers input.  
-By using Oculus Quest 2 controllers, component ids and controller buttons are mapped as follows.  
+By using Oculus Quest 2 controllers, component ids and controller buttons are mapped as follows.
 
-On Oculus Quest 2 controllers:  
+On Oculus Quest 2 controllers:
 
-![Quest 2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)  
+![Quest 2 controller mappings](/img/how_to/xr/xr-quest2-controllers_ids_mapping.jpg)
 
-On the Playground sample:  
+On the Playground sample:
 
-![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.jpg)  
+![ids mappings](/img/how_to/xr/xr-quest2-ids-mapping-playground.jpg)
 
-The simple example, changes the scaling of each 3DCG object when each button is pressed.  
+The simple example, changes the scaling of each 3DCG object when each button is pressed.
 
 ```javascript
 const xr_ids = motionController.getComponentIds();
-let triggerComponent = motionController.getComponent(xr_ids[0]);//xr-standard-trigger
+let triggerComponent = motionController.getComponent(xr_ids[0]); //xr-standard-trigger
 triggerComponent.onButtonStateChangedObservable.add(() => {
-    if (triggerComponent.pressed) {
-        Box_Right_Trigger.scaling= new BABYLON.Vector3(1.2,1.2,1.2);
-    }else{
-        Box_Right_Trigger.scaling= new BABYLON.Vector3(1,1,1);
-    }
+  if (triggerComponent.pressed) {
+    Box_Right_Trigger.scaling = new BABYLON.Vector3(1.2, 1.2, 1.2);
+  } else {
+    Box_Right_Trigger.scaling = new BABYLON.Vector3(1, 1, 1);
+  }
 });
 ```
 
@@ -269,13 +274,13 @@ Playground for a simple VR controllers input: <Playground id="#28EKWI#37" title=
 
 #### The input-profile online repository
 
-As part of the (successful!) attempt at forcing standards to WebXR, the > at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.  
+As part of the (successful!) attempt at forcing standards to WebXR, the > at the [WebXR Input Profiles](https://github.com/immersive-web/webxr-input-profiles) GitHub repository created an online repository that holds models and definition of visual reference definitions for most (if not all) motion controllers available today.
 
 The repository provides a useful tool as [WebXR Input Profile Viewer](https://immersive-web.github.io/webxr-input-profiles/packages/viewer/dist/index.html). You can easily check each id, state, button, and axis of XR controllers.
 
 Babylon.js natively supports this repository and currently uses it as the default model delivery method for XR controllers.
 
-There is little to no action required on your end - this is automated when not changing the configuration.  
+There is little to no action required on your end - this is automated when not changing the configuration.
 
 #### Babylon local controller definitions
 
