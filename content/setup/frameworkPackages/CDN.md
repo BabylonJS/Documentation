@@ -109,7 +109,8 @@ The CDN structure is guaranteed to be correct.
 
 This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a github release at [Github Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
 
-After downloading the cdn snapshot zip file and deploying it on yoru server, change the base URL to the base URL of the resources deployed.
+After downloading the cdn snapshot zip file and deploying it on your server, change the base URL to the base URL of the resources deployed.
+
 
 Make sure that your Server/CDN supports CORS, at least from your own Babylon experience.
 
