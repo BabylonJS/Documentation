@@ -189,7 +189,7 @@ All that is left now is to consider each base sections between doors, the side a
 
 Since the data for all corners for each of these has now been saved it is fairly straight forward to form the correct triangular facets and uv values for each
 
-Once all positions are in the house positions array and knowing that the first block only relates to the interior wall it is easy to link the remaining vertices to the exterior colour.
+Once all positions are in the house positions array and knowing that the first block only relates to the interior wall it is easy to link the remaining vertices to the exterior color.
 
 ## The Function and How to Use It.
 

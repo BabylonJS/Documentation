@@ -17,24 +17,14 @@ Many people have asked for the API documentation to be improved. This is a major
 You need to add appropriate comments according to the formats given below. Check the comments for errors and submit a PR when everything is validated.
 
 1. Fork and clone [Babylon.js](https://github.com/BabylonJS/Babylon.js) from github;
-2. In the folder **Tools/Gulp** install npm with `npm install` and then gulp with `npm install -g gulp@4.0.0`;
+2. install dependencies with `npm install`
 3. Edit files from within the **src** folder by adding comments;
-4. Execute `gulp typedoc-check` to validate the comments;
-5. Do NOT COMMIT any changes to the file **babylon.d.ts**. Use `discard` to remove changes;
-6. When validated submit a PR.
-
-Whilst the above steps will validate the comments it will not allow you to see the results. Since you do not want to affect anything within your local clone of Babylon.js you will need to create a new folder **outside** the Babylon.js folder. You can then follow these steps to produce viewable results of your comments.
-
-After editing and validating files within the **src** folder and before the PR:
-
-7. In the new folder install typedoc using `$ npm install typedoc`;
-8. Copy the **src** folder into the new folder;
-9. Copy the **tsconfig.json** file from the **src** folder into the new folder;
-10. Create a folder called documents in the new folder;
-11. In the new folder use `$ typedoc --out documents src` to create the documents from the src
-12. In the **documents** folder find and open _index.html_ to check results. Note that these will not appear exactly the same as the Babylon.js API documentation web pages but close enough to check.
+4. Run `npm run lint:check` to check linting issues with your docs (or use the eslint extension for your IDE)
+5. When validated submit a PR.
 
 ## Format of Comments
+
+We follow tsdoc as a standard for our comments.
 
 Below are descriptions of the format of comment for the various code entities with examples.
 

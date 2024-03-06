@@ -4,7 +4,7 @@ image-url: /img/defaultImage.png
 description: The Babylon.js Filter Control is a web control built on top of Babylon.js in order to apply filter to pictures in web pages with blazing fast speed.
 keywords: web controls, hardware accelerated, 2D, filter, images
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 
@@ -72,9 +72,9 @@ backAndWhiteFilter.filter(imageToProcess, blackAndWhitePostProcess);
 
 Where imageToProcess could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used)
-* another canvas element (the current visible state will be used)
+- the url of a picture.
+- a video element (the current visible frame of the video will be used)
+- another canvas element (the current visible state will be used)
 
 This will apply the post process to the provided input and display it in the canvas.
 
@@ -84,9 +84,9 @@ In order to apply an existing post process as the image filter, you can use the 
 
 ```javascript
 const customEffectWrapper = new EffectWrapper({
-    name: "Custom",
-    engine: customFilter.engine,
-    fragmentShader: `
+  name: "Custom",
+  engine: customFilter.engine,
+  fragmentShader: `
         // Samplers
         varying vec2 vUV;
         uniform sampler2D textureSampler;
@@ -101,16 +101,16 @@ const customEffectWrapper = new EffectWrapper({
             gl_FragColor.b = r;
         }
     `,
-    samplerNames: ["textureSampler"]
+  samplerNames: ["textureSampler"],
 });
 customFilter.filter(imageToProcess, customEffectWrapper);
 ```
 
 Where imageToProcess could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used)
-* another canvas element (the current visible state will be used)
+- the url of a picture.
+- a video element (the current visible frame of the video will be used)
+- another canvas element (the current visible state will be used)
 
 This will apply the custom shader in parameter to the picture. By default, `vUV` is available as a varying defining the full ouptput as texture coordinates. `textureSampler` needs to be present and defines the texture corresponding to the input parameter.
 
@@ -118,9 +118,9 @@ Please note that if you need to add custom unifoms or samplers, they should be d
 
 ```javascript
 const customEffectWrapper = new EffectWrapper({
-    name: "Custom",
-    engine: customFilter.engine,
-    fragmentShader: `
+  name: "Custom",
+  engine: customFilter.engine,
+  fragmentShader: `
         varying vec2 vUV;
         
         // Default Sampler
@@ -145,10 +145,10 @@ const customEffectWrapper = new EffectWrapper({
             gl_FragColor.rgb *= texture2D(otherTexture, vUV * scale).rgb;
         }
     `,
-    // Defines the list of existing samplers (default + customs).
-    samplerNames: ["textureSampler", "otherTexture"],
-    // Defines the list of existing uniform to be bound.
-    uniformNames: ["colorOffset"],
+  // Defines the list of existing samplers (default + customs).
+  samplerNames: ["textureSampler", "otherTexture"],
+  // Defines the list of existing uniform to be bound.
+  uniformNames: ["colorOffset"],
 });
 ```
 
@@ -156,10 +156,10 @@ Then you can simply bind them either in `onApply`:
 
 ```javascript
 customEffectWrapper.onApplyObservable.add(() => {
-    // Sets the custom values.
-    customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
-    customEffectWrapper.effect.setFloat3("colorOffset", 0.2, 0, 0.2);
-})
+  // Sets the custom values.
+  customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
+  customEffectWrapper.effect.setFloat3("colorOffset", 0.2, 0, 0.2);
+});
 ```
 
 Or during the render loop:
@@ -167,21 +167,21 @@ Or during the render loop:
 ```javascript
 // Rely on the underlying engine render loop to update the filter result every frame.
 engine.runRenderLoop(() => {
-    // Only render if the custom texture is ready (the default one is 
-    // checked for you by the render function)
-    if (!otherTexture.isReady()) {
-        return;
-    }
+  // Only render if the custom texture is ready (the default one is
+  // checked for you by the render function)
+  if (!otherTexture.isReady()) {
+    return;
+  }
 
-    // Sets the custom values.
-    time += engine.getDeltaTime() / 1000;
-    customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
-    customEffectWrapper.effect.setFloat3("colorOffset", Math.cos(time) * 0.5 + 0.5, 0, Math.sin(time) * 0.5 + 0.5);
+  // Sets the custom values.
+  time += engine.getDeltaTime() / 1000;
+  customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
+  customEffectWrapper.effect.setFloat3("colorOffset", Math.cos(time) * 0.5 + 0.5, 0, Math.sin(time) * 0.5 + 0.5);
 
-    // Render. Please note we are using render instead of filter to improve 
-    // performances of real time filter. filter is creating a promise and will therefore
-    // generate some lags and garbage.
-    customFilter.render(mainTexture, customEffectWrapper);
+  // Render. Please note we are using render instead of filter to improve
+  // performances of real time filter. filter is creating a promise and will therefore
+  // generate some lags and garbage.
+  customFilter.render(mainTexture, customEffectWrapper);
 });
 ```
 
@@ -197,9 +197,9 @@ imageFilter.filter(imageToProcess, filter);
 
 On the previous line, imageToResize could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used)
-* another canvas element (the current visible state will be used)
+- the url of a picture.
+- a video element (the current visible frame of the video will be used)
+- another canvas element (the current visible state will be used)
 
 This is the default behavior.
 
@@ -213,9 +213,9 @@ const texture = imageFilter.getFilteredTexture(imageToResize, { width: 128, heig
 
 Like before, imageToResize could be either:
 
-* the url of a picture.
-* a video element (the current visible frame of the video will be used).
-* another canvas element (the current visible state will be used).
+- the url of a picture.
+- a video element (the current visible frame of the video will be used).
+- another canvas element (the current visible state will be used).
 
 You also need to provide the size you want your texture to have on the GPU.
 
@@ -228,21 +228,21 @@ Instead of filtering only one time, you might want to create dynamic real time e
 ```javascript
 // Rely on the underlying engine render loop to update the filter result every frame.
 engine.runRenderLoop(() => {
-    // Only render if the custom texture is ready (the default one is 
-    // checked for you by the render function)
-    if (!otherTexture.isReady()) {
-        return;
-    }
+  // Only render if the custom texture is ready (the default one is
+  // checked for you by the render function)
+  if (!otherTexture.isReady()) {
+    return;
+  }
 
-    // Sets the custom values.
-    time += engine.getDeltaTime() / 1000;
-    customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
-    customEffectWrapper.effect.setFloat3("colorOffset", Math.cos(time) * 0.5 + 0.5, 0, Math.sin(time) * 0.5 + 0.5);
+  // Sets the custom values.
+  time += engine.getDeltaTime() / 1000;
+  customEffectWrapper.effect.setTexture("otherTexture", otherTexture);
+  customEffectWrapper.effect.setFloat3("colorOffset", Math.cos(time) * 0.5 + 0.5, 0, Math.sin(time) * 0.5 + 0.5);
 
-    // Render. Please note we are using render instead of filter to improve 
-    // performances of real time filter. filter is creating a promise and will therefore
-    // generate some lags and garbage.
-    customFilter.render(mainTexture, customEffectWrapper);
+  // Render. Please note we are using render instead of filter to improve
+  // performances of real time filter. filter is creating a promise and will therefore
+  // generate some lags and garbage.
+  customFilter.render(mainTexture, customEffectWrapper);
 });
 ```
 

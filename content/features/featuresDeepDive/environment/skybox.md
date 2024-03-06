@@ -65,7 +65,9 @@ Cube textures must be applied using [reflectionTexture](/features/featuresDeepDi
 There are two ways to proceed. Let's start with a manual creation to understand how things work under the hood and then we will be able to use an automatic one.
 
 ### Manual creation
+
 First, create our box, nothing new, just take notice of the disabled [backface culling](https://en.wikipedia.org/wiki/Back-face_culling):
+
 ```javascript
 const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 100.0 }, scene);
 const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
@@ -119,6 +121,7 @@ More info about rendering groups and rendering order can be found [here](/featur
 <Playground id="#UU7RQ#1" title="Simple Skybox Example" description="Simple example of how to add a skybox to your scene." image="/img/playgroundsAndNMEs/divingDeeperEnvironmentSkybox1.jpg"/>
 
 ### Automatic creation
+
 Now that we understand how a skybox can be created let's move to a simpler way:
 
 ```javascript

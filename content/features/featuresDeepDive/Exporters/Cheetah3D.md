@@ -16,14 +16,14 @@ video-content:
 
   - Cheetah3D spot light is a babylon spot
   - Cheetah3D distant light is a babylon directional light
-  - Cheetah3D ambiant light is a babylon hemispheric light
+  - Cheetah3D ambient light is a babylon hemispheric light
   - every other type is a babylon point light
   - supports diffuse and specular color
   - rotations must be on the -Y axis
 
 - materials export:
   - supports diffuse, emissive and specular color (plus specular power as "shininess")
-  - supports only diffuse textures, Cheetah3D api is realy sparse on that
+  - supports only diffuse textures, Cheetah3D api is really sparse on that
 
 More info on [my blog](http://cubeslam.net/).
 

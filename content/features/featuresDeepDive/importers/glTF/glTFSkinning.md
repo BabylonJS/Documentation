@@ -1,6 +1,6 @@
 ---
 title: glTF 2.0 Skinning
-image: 
+image:
 description: Learn about the implementation details for how skinning is implemented in Babylon.js
 keywords: diving deeper, import, importing assets, asset, importing, skin, skinning, skeleton, bones, joints
 further-reading:
@@ -9,11 +9,12 @@ video-content:
 ---
 
 ## Introduction
+
 Skinning in glTF 2.0 is a bit different than how skinning typically works in Babylon.js. This document will describe a couple of important implementation details in the glTF 2.0 loader regarding skinning. All mentions of glTF below is scoped to glTF 2.0.
 
 ## Bones with Linked Nodes
 
-The skeleton joints in glTF (a.k.a. bones in Babylon.js) point to nodes that are part of the scene hierarchy. Because these joint nodes are also normal scene nodes, they can also have child nodes that have meshes or additional hierarchies. Furthermore, nodes in the scene hierarchy can be referenced by multiple skeletons. This is different than how Babylon.js skinning works. Babylon.js separates the skeleton of the skinned mesh into a separate object. The separate skeleton holds bones which are not tied to the scene hierarchy by default. To acommodate this difference, the glTF loader in Babylon.js creates bones that are linked to the corresponding nodes in the scene via [`bone.linkTransformNode`](/typedoc/classes/babylon.bone#linktransformnode).
+The skeleton joints in glTF (a.k.a. bones in Babylon.js) point to nodes that are part of the scene hierarchy. Because these joint nodes are also normal scene nodes, they can also have child nodes that have meshes or additional hierarchies. Furthermore, nodes in the scene hierarchy can be referenced by multiple skeletons. This is different than how Babylon.js skinning works. Babylon.js separates the skeleton of the skinned mesh into a separate object. The separate skeleton holds bones which are not tied to the scene hierarchy by default. To accommodate this difference, the glTF loader in Babylon.js creates bones that are linked to the corresponding nodes in the scene via [`bone.linkTransformNode`](/typedoc/classes/babylon.bone#linktransformnode).
 
 For example, for the [SimpleSkin model](https://playground.babylonjs.com/#SRVW8J), the first bone `joint1` is linked to the node `node1` in the scene.
 

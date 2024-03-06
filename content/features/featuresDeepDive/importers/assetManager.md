@@ -78,20 +78,18 @@ textureTask.onSuccess = function (task) {
 };
 ```
 
-
 And make sure to call load() to initialize the tasks:
 
 ```javascript
 textureTask.load();
 
 textureTask.onFinish = (tasks) => {
-      // do render stuff
+  // do render stuff
   _this.engine.runRenderLoop(() => {
     _this.scene.render();
-  })
-}
+  });
+};
 ```
-
 
 ### Task state and error handling
 

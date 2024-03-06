@@ -95,11 +95,11 @@ ktx-batch
 
 ### Node.js script for PVRTexTool
 
-This is a script that generates PVRTC, ETC1, ETC2, ASTC textures from png and jpg files. It can run on node or as a gulp task. Also it can be configured to generate all texture types or specific ones. More information about how to install and configure the script can be found [here](https://www.npmjs.com/package/babylonjs-texture-generator).
+This is a script that generates PVRTC, ETC1, ETC2, ASTC textures from png and jpg files. It can run on node. Also it can be configured to generate all texture types or specific ones. More information about how to install and configure the script can be found [here](https://www.npmjs.com/package/babylonjs-texture-generator).
 
 ### Basis file format
 
-Another way to store compressed image textures is throught the .basis file format
+Another way to store compressed image textures is through the .basis file format
 
 See: https://github.com/BinomialLLC/basis_universal
 

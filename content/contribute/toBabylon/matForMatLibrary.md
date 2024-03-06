@@ -1,6 +1,6 @@
 ---
 title: Create a Material For The Material Library
-image: 
+image:
 description: Learn how to add your own material to the Babylon.js material library.
 keywords: diving deeper, contribution, contribute, open-source, oss, material library, material, develope
 further-reading:
@@ -12,32 +12,12 @@ This tutorial will guide you through the process of creating a material for the 
 
 ## Setting up environment
 
-First of all, you need to create a folder for your shader in the /materialsLibrary/src folder. Let's call it diffuseEmissive.
+First of all, you need to create a folder for your shader in the /packages/dev/materials/src folder. Let's call it diffuseEmissive.
 Then you need to create your files:
 
 - babylon.diffuseEmissiveMaterial.ts (just copy/paste from babylon.simpleMaterial.ts)
 - diffuseEmissive.vertex.fx (just copy/paste from simple.vertex.fx)
 - diffuseEmissive.fragment.fx (just copy/paste from simple.fragment.fx)
-
-Then update the config.json file in the tools/gulp and add an entry in the "materialsLibrary/libraries" section of the file:
-
-```javascript
-  "libraries": [
-    ...
-      {
-        "output": "babylon.triPlanarMaterial.min.js",
-        "entry": "./legacy/legacy-triPlanar.ts",
-        "preventLoadLibrary": true
-      }
-      ...
-  ]
-```
-
-To build all materials and generate the _dist_ folder, just run from the tools/gulp folder:
-
-```bash
-gulp materialsLibrary
-```
 
 ## Update the shaders
 
@@ -46,7 +26,7 @@ The simple material already supports diffuse texture.
 
 To add support for an emissive texture, let's add this code to the header of diffuseEmissive.vertex.fx file:
 
-```
+```glsl
 #ifdef EMISSIVE
 varying vec2 vEmissiveUV;
 uniform mat4 emissiveMatrix;
@@ -56,7 +36,7 @@ uniform vec2 vEmissiveInfos;
 
 Then add this code in the main function:
 
-```
+```glsl
 #ifdef EMISSIVE
 	if (vEmissiveInfos.x == 0.)
 	{
@@ -73,7 +53,7 @@ This code will generate the correct UV to read from emissive texture. Please not
 
 Then you have to update the fragment shader. First add this code to the header:
 
-```
+```glsl
 #ifdef EMISSIVE
 varying vec2 vEmissiveUV;
 uniform sampler2D emissiveSampler;
@@ -124,15 +104,8 @@ The next function to update is _bind_. Add this code after the `//Textures` comm
 if (this.emissiveTexture && StandardMaterial.EmissiveTextureEnabled) {
   this._effect.setTexture("emissiveSampler", this.emissiveTexture);
 
-  this._effect.setFloat2(
-    "vEmissiveInfos",
-    this.emissiveTexture.coordinatesIndex,
-    this.emissiveTexture.level
-  );
-  this._effect.setMatrix(
-    "emissiveMatrix",
-    this.emissiveTexture.getTextureMatrix()
-  );
+  this._effect.setFloat2("vEmissiveInfos", this.emissiveTexture.coordinatesIndex, this.emissiveTexture.level);
+  this._effect.setMatrix("emissiveMatrix", this.emissiveTexture.getTextureMatrix());
 }
 ```
 
@@ -160,21 +133,12 @@ To test your material, open the /materialsLibrary/index.html page. References ar
 Then add the material at line 120:
 
 ```javascript
-const diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial(
-  "diffuseEmissive",
-  scene
-);
-diffuseEmissive.diffuseTexture = new BABYLON.Texture(
-  "textures/amiga.jpg",
-  scene
-);
+const diffuseEmissive = new BABYLON.DiffuseEmissiveMaterial("diffuseEmissive", scene);
+diffuseEmissive.diffuseTexture = new BABYLON.Texture("textures/amiga.jpg", scene);
 diffuseEmissive.diffuseTexture.uScale = 5;
 diffuseEmissive.diffuseTexture.vScale = 5;
 
-diffuseEmissive.emissiveTexture = new BABYLON.Texture(
-  "textures/amiga.jpg",
-  scene
-);
+diffuseEmissive.emissiveTexture = new BABYLON.Texture("textures/amiga.jpg", scene);
 diffuseEmissive.emissiveTexture.uScale = 10;
 diffuseEmissive.emissiveTexture.vScale = 10;
 ```
@@ -182,32 +146,29 @@ diffuseEmissive.emissiveTexture.vScale = 10;
 Finally update the UI control:
 
 ```javascript
-gui
-  .add(options, "material", ["standard", "simple", "diffuseEmissive"])
-  .onFinishChange(function() {
-    switch (options.material) {
-      case "diffuseEmissive":
-        currentMaterial = diffuseEmissive;
-        break;
-      case "simple":
-        currentMaterial = simple;
-        break;
-      default:
-        currentMaterial = std;
-        break;
-    }
+gui.add(options, "material", ["standard", "simple", "diffuseEmissive"]).onFinishChange(function () {
+  switch (options.material) {
+    case "diffuseEmissive":
+      currentMaterial = diffuseEmissive;
+      break;
+    case "simple":
+      currentMaterial = simple;
+      break;
+    default:
+      currentMaterial = std;
+      break;
+  }
 
-    currentMesh.material = currentMaterial;
-  });
+  currentMesh.material = currentMaterial;
+});
 ```
 
-## Launch the test server
+## Testing your material
 
-To Launch the server, you can start from the tools/gulp folder:
+After adding the files the material will be available in the local babylon server and the playground.
+If you use VSCode, select the task you want to start - if you want to edit code run the local playground.
 
-```bash
-gulp webserver
-```
+To start the babylon server, which will also track your changes and rebuild when needed, run `npm start` or use VSCode.
 
 ## Using the material with Babylon.js file loader
 

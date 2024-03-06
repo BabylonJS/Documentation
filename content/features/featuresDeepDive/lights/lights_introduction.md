@@ -10,7 +10,7 @@ video-content:
 
 ## Lights
 
-Lights are used, as you would expect, to affect how meshes are seen, in terms of both illumination and colour.
+Lights are used, as you would expect, to affect how meshes are seen, in terms of both illumination and color.
 All meshes allow light to pass through them unless shadow generation is activated. The default number of lights allowed is
 four but this can be increased.
 

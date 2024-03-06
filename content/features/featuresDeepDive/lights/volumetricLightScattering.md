@@ -30,7 +30,7 @@ const vls = new BABYLON.VolumetricLightScatteringPostProcess("vls", 1.0, camera,
 - reusable \{boolean\} - If the post-process is reusable.
 - scene \{BABYLON.Scene\} - If the _camera_ parameter is null (adding the post-process in a rendering pipeline), the _scene_ is needed to configure the internal pass.
 
-The lightSourceMesh is a mesh that will contain the light colour, typically a billboard with a diffuse texture. If your light source is coming from the floor, you can use the floor/ground mesh to compute the light scattering effect.
+The lightSourceMesh is a mesh that will contain the light color, typically a billboard with a diffuse texture. If your light source is coming from the floor, you can use the floor/ground mesh to compute the light scattering effect.
 
 **Note: The light source mesh can be null. This causes a default lightSourceMesh to be created for you as a billboard **
 

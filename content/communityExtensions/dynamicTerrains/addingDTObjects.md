@@ -187,7 +187,7 @@ sps.mesh.material = objectMaterial; // object material !
 ```
 
 The objects get more green or more red according to the map areas (north, south, east, west) and more blue when in altitude.
-PG: <Playground id="#FJNR5#267" title="" description="Example of colour with SPS objects"/>
+PG: <Playground id="#FJNR5#267" title="" description="Example of color with SPS objects"/>
 
 Each object is given a part of the image file.
 PG: <Playground id="#FJNR5#268" title="" description="Example using UV with SPS objects"/>

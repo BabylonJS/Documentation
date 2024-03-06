@@ -24,13 +24,13 @@ You can find it [here](https://cdn.babylonjs.com/loaders/babylon.objFileLoader.j
 If you are using UMD imports via NPM, you need to reference with side-effects:
 
 ```javascript
-import 'babylonjs-loaders'
+import "babylonjs-loaders";
 ```
 
 If you wish to benefit from the tree-shakeable ES6 package, you need to reference:
 
 ```javascript
-import '@babylonjs/loaders/OBJ/objFileLoader';
+import "@babylonjs/loaders/OBJ/objFileLoader";
 ```
 
 You can read more about [NPM support](/setup/frameworkPackages/npmSupport)
@@ -54,7 +54,7 @@ Babylon.js will know how to load the obj file and its mtl file automatically:
 
 If you meet this problem, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.OPTIMIZE_WITH_UV = true;
 ```
 
@@ -64,49 +64,49 @@ Then, you'll have a better texture, but with a longer loading.
 
 Depending on the modeling program you export your OBJ files from, textures may appear distorted or inverted. As a workaround, you can modify your imported model's UV coordinate scale via setting the variable:
 
-```
-BABYLON.OBJFileLoader.UV_SCALE = new BABYLON.Vector2(xValue, yValue)
+```javascript
+BABYLON.OBJFileLoader.UV_SCALE = new BABYLON.Vector2(xValue, yValue);
 ```
 
 Although not part of Wavefront OBJ file format, some OBJ files include vertex colors. If you are loading such a file and want vertices with colors, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.IMPORT_VERTEX_COLORS = true;
 ```
 
 If you have an OBJ file without normals or wish to have them calculated for you, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.COMPUTE_NORMALS = true;
 ```
 
 When using OPTIMIZE_WITH_UV = true you may experience some discontinuities in shading. Setting OPTIMIZE_NORMALS will help with this problem:
 
-```
+```javascript
 BABYLON.OBJFileLoader.OPTIMIZE_NORMALS = true;
 ```
 
 To have your imported model inverted on the y-axis, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.INVERT_Y = true;
 ```
 
 To invert your imported textures on the y-axis, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.INVERT_TEXTURE_Y = true;
 ```
 
 By default if a MTL file cannot be loaded (missing/error) it will silently fail. The model will still be loaded, but if you want to enforce a stricter loading of materials you can use onSuccess() and onError() callbacks accordingly. Set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.MATERIAL_LOADING_FAILS_SILENTLY = false;
 ```
 
 If a MTL is defined in your OBJ and you wish to have it ignored, set the variable:
 
-```
+```javascript
 BABYLON.OBJFileLoader.SKIP_MATERIALS = true;
 ```
 

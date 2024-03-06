@@ -20,25 +20,25 @@ Let's take a quick look at the 4 lines of code to achieve this.
 
 First we load an object from a url directly into an arrayBuffer in memory.
 
-```
+```javascript
 const assetArrayBuffer = await BABYLON.Tools.LoadFileAsync("scenes/BoomBox.glb", true);
 ```
 
 Next we convert that array buffer to a blob (in memory).
 
-```
+```javascript
 const assetBlob = new Blob([assetArrayBuffer]);
 ```
 
 Then we create a url to that blob.
 
-```
+```javascript
 const assetUrl = URL.createObjectURL(assetBlob);
 ```
 
 Then finally we load the asset into the scene from the url which points to the memory blob.
 
-```
+```javascript
 await BABYLON.SceneLoader.AppendAsync(assetUrl, undefined, scene, undefined, ".glb");
 ```
 

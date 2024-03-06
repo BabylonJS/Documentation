@@ -22,11 +22,11 @@ From there, you can download the Installer.zip file. Chrome is currently warning
 
 ![chrome warning](/img/exporters/installer/ChromeDLWarning.png)
 
-You can nervertheless continue to download by pressing the little arrow and chosing to "Keep" the file:
+You can nervertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
 
 ![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.png)
 
-Once downloaded, you can extract the content of the zip in your favorite loaction.
+Once downloaded, you can extract the content of the zip in your favorite location.
 
 ### Using the installer
 
@@ -44,7 +44,7 @@ From this point, it gets simpler:
 
 ![smart screen warning keep](/img/exporters/installer/Installer.png)
 
-Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targetted software.
+Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
 
 You can now easily install or update any of your 3d authoring tools to the latest prerelease available on Github.
 
@@ -84,26 +84,26 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 - Max2Babylon 2015-2016
 
-  - Requires atleast .NET Framework 4.5
+  - Requires at least .NET Framework 4.5
 
 - Max2Babylon 2017
 
-  - Requires atleast .NET Framework 4.5
+  - Requires at least .NET Framework 4.5
 
 - Max2Babylon 2018
 
-  - Requires atleast .NET Framework 4.6
+  - Requires at least .NET Framework 4.6
 
 - Max2Babylon 2019
 
-  - Requires atleast .NET Framework 4.7
+  - Requires at least .NET Framework 4.7
 
 - Max2Babylon 2020
 
-  - Requires atleast .NET Framework 4.7
+  - Requires at least .NET Framework 4.7
 
 - Max2Babylon 2021
-  - Requires atleast .NET Framework 4.7
+  - Requires at least .NET Framework 4.7
 
 ## Other Dependencies
 
@@ -151,11 +151,12 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
       _ Position / rotation / scaling
       * Smoothing groups
       * Skin
-      * Geometry (position, normal, color, texture coordinates (2 channels))
-  * Instances
-  _ Morph targets
-      _ Show Bounding box and submeshes bounding boxes (_)
-      _ Animations: Position, scaling, rotation, visibility, bones, morph weights \* Custom attributes
+      \* Geometry (position, normal, color, texture coordinates (2 channels))
+
+  - Instances
+    _ Morph targets
+        _ Show Bounding box and submeshes bounding boxes (_)
+        _ Animations: Position, scaling, rotation, visibility, bones, morph weights \* Custom attributes
 
 - _Materials_
       * Multi-materials
@@ -270,7 +271,7 @@ This window is composed of 3 panels:
 
 The _Scale factor_ can be used to rescale the whole world. If you set a scale factor equal to 100, the resulting scene will be 100 times smaller (1%). By default the scale factor is equal to 1, meaning no rescale.
 
-The _Texture quality_ sets the convertion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
+The _Texture quality_ sets the conversion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
 
 The _Merge AO map_ option enables the merging of the Ambient Occlusion shadow map (stored on Diffuse Roughness slot) with the Metalness and Roughness map.
 
@@ -278,7 +279,7 @@ The _write textures_ option enables writing the textures to the output directory
 
 The _overwrite textures_ option enables overwriting existing textures in the output directory.
 
-The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#draco-compression).
+The _Use Draco compression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#draco-compression).
 
 The _Export Animations_ option enables you to export only the geometry and materials.
 
@@ -348,11 +349,11 @@ To ensure that bones are correctly exported, you have to use the Skin modifier. 
 
 ## Textures image format
 
-Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are adviced to use those formats for your textures when exporting to Babylon.
+Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are advised to use those formats for your textures when exporting to Babylon.
 
 Note that the exporter also supports textures with tif and dds formats. But, those textures will be automatically converted to png by the exporter to ensure compatibility with the Babylon engine.
 
-About dds format, Babylon engine partially supports this format depending on compression. To avoid any issue with this format, the exporter automatically converts it to png as stated previously. As an exception, the dds format is allowed for the environmnent texture and will not be automatically converted.
+About dds format, Babylon engine partially supports this format depending on compression. To avoid any issue with this format, the exporter automatically converts it to png as stated previously. As an exception, the dds format is allowed for the environment texture and will not be automatically converted.
 
 ## Specular color and specular level
 
@@ -396,7 +397,7 @@ Simply use the _Double Sided_ material natively present in 3ds Max (Materials > 
 
 ![3DS MAX double sided material](/img/exporters/3DSMax/DoubleSidedMaterial.jpg)
 
-From there, you can specify the _Facing_ and _Back_ materials. Those sub-materials are independant from each other. For example, one can be a standard material and the other a physical.
+From there, you can specify the _Facing_ and _Back_ materials. Those sub-materials are independent from each other. For example, one can be a standard material and the other a physical.
 
 The _Translucency_ parameter is not used.
 
@@ -415,7 +416,7 @@ The RGB Multiply map can be used as an intermediate node between a bitmap textur
 
 ![bitmap to RGB Multiply map to material](/img/exporters/3DSMax/RGBMultiplyMap.jpg)
 
-The texture is retreived from one channel and the color from the other one.
+The texture is retrieved from one channel and the color from the other one.
 
 Limitations:
 
@@ -475,7 +476,7 @@ Following types have particularities you should know:
 - _Array_ : An array in 3ds Max is an enumeration of values. Each value has an incremental index, starting from 1. Only one value can be selected. The index of selected item is exported, not the displayed label.
 - _Color_ and _FRGBA_ : Exported in base 1 as all other colors. Ex: Red = (255,0,0) => (1,0,0)
 - _Percent_ : Exported in base 1 as well. Ex: 80% => 0.8
-- _Texture_ : The texture is fully exported, including its bitmap. However, the Babylon loader doesn't interprete the data as a BABYLON.Texture. They are instead row data that can be read or parsed after import.
+- _Texture_ : The texture is fully exported, including its bitmap. However, the Babylon loader doesn't interpret the data as a BABYLON.Texture. They are instead row data that can be read or parsed after import.
 
 Now that you know all about the exporter features, it’s time to use it!
 

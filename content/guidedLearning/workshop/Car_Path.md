@@ -29,17 +29,13 @@ var bodyMaterial = new BABYLON.StandardMaterial("body_mat", scene);
 bodyMaterial.diffuseColor = new BABYLON.Color3(1.0, 0.25, 0.25);
 bodyMaterial.backFaceCulling = false;
 
-var side = [new BABYLON.Vector3(-4, 2, -2),
-			new BABYLON.Vector3(4, 2, -2),
-			new BABYLON.Vector3(5, -2, -2),
-			new BABYLON.Vector3(-7, -2, -2)
-];
+var side = [new BABYLON.Vector3(-4, 2, -2), new BABYLON.Vector3(4, 2, -2), new BABYLON.Vector3(5, -2, -2), new BABYLON.Vector3(-7, -2, -2)];
 
-side.push(side[0]);	//close trapezium
+side.push(side[0]); //close trapezium
 
-var extrudePath = [new BABYLON.Vector3(0, 0, 0), 	new BABYLON.Vector3(0, 0, 4)];
+var extrudePath = [new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(0, 0, 4)];
 
-var carBody = BABYLON.MeshBuilder.ExtrudeShape("body", {shape: side, path: extrudePath, cap : BABYLON.Mesh.CAP_ALL}, scene);
+var carBody = BABYLON.MeshBuilder.ExtrudeShape("body", { shape: side, path: extrudePath, cap: BABYLON.Mesh.CAP_ALL }, scene);
 carBody.material = bodyMaterial;
 ```
 
@@ -47,7 +43,7 @@ PG: <Playground id="#1YD970#8" title="Car Body" description="Constructing the ca
 
 ### Wheel
 
-The wheel is made from a cylinder using MeshBuilder as this allows different textures and colours to be applied
+The wheel is made from a cylinder using MeshBuilder as this allows different textures and colors to be applied
 to the flat and curved surfaces of the cylinder.
 
 ```javascript
@@ -56,19 +52,19 @@ var wheelTexture = new BABYLON.Texture("https://i.imgur.com/ZUWbT6L.png", scene)
 wheelMaterial.diffuseTexture = wheelTexture;
 
 //Set color for wheel tread as black
-var faceColors=[];
-faceColors[1] = new BABYLON.Color3(0,0,0);
+var faceColors = [];
+faceColors[1] = new BABYLON.Color3(0, 0, 0);
 
 //set texture for flat face of wheel
-var faceUV =[];
-faceUV[0] = new BABYLON.Vector4(0,0,1,1);
-faceUV[2] = new BABYLON.Vector4(0,0,1,1);
+var faceUV = [];
+faceUV[0] = new BABYLON.Vector4(0, 0, 1, 1);
+faceUV[2] = new BABYLON.Vector4(0, 0, 1, 1);
 
-var wheel = BABYLON.MeshBuilder.CreateCylinder("wheel", {diameter: 3, height: 1, tessellation: 24, faceColors:faceColors, faceUV:faceUV}, scene);
+var wheel = BABYLON.MeshBuilder.CreateCylinder("wheel", { diameter: 3, height: 1, tessellation: 24, faceColors: faceColors, faceUV: faceUV }, scene);
 wheel.material = wheelMaterial;
 
 //rotate wheel so tread in xz plane
-wheel.rotation.x = Math.PI/2;
+wheel.rotation.x = Math.PI / 2;
 ```
 
 PG: <Playground id="#1YD970#541" title="Wheels" description="Constructing the wheels"/>
@@ -81,10 +77,10 @@ As the wheels need to first rotate around the x axis to orientate the cylinder c
 the rotate method will be used instead of rotation.
 
 ```javascript
-var wheelFI = BABYLON.MeshBuilder.CreateCylinder("wheelFI", {diameter: 3, height: 1, tessellation: 24, faceColors:faceColors, faceUV:faceUV}, scene);
+var wheelFI = BABYLON.MeshBuilder.CreateCylinder("wheelFI", { diameter: 3, height: 1, tessellation: 24, faceColors: faceColors, faceUV: faceUV }, scene);
 wheelFI.material = wheelMaterial;
 
-wheelFI.rotate(BABYLON.Axis.X, Math.PI/2, BABYLON.Space.WORLD);
+wheelFI.rotate(BABYLON.Axis.X, Math.PI / 2, BABYLON.Space.WORLD);
 wheelFI.parent = carBody;
 
 var wheelFO = wheelFI.createInstance("FO");
@@ -105,19 +101,19 @@ wheelFI.position = new BABYLON.Vector3(-4.5, -2, -2.8);
 PG: <Playground id="#1YD970#542" title="Attach Wheels" description=" Attaching the wheels."/>
 
 ### Rotate Wheels
+
 The animation is achieved using scene.registerAfterRender and small rotations within the render loop.
 
-*Note:* when using rotate and translate scene.register*After*Render is preferable to scene.register*Before*Render as
+_Note:_ when using rotate and translate scene.register*After*Render is preferable to scene.register*Before*Render as
 the calculations will take place after the world matrix has been computed for each mesh.
 
 ```javascript
-  scene.registerAfterRender(function() {
-	 wheelFI.rotate(BABYLON.Axis.Z, Math.PI/64, BABYLON.Space.WORLD);
-	 wheelFO.rotate(BABYLON.Axis.Z, Math.PI/64, BABYLON.Space.WORLD);
-	 wheelRI.rotate(BABYLON.Axis.Z, Math.PI/64, BABYLON.Space.WORLD);
-	 wheelRO.rotate(BABYLON.Axis.Z, Math.PI/64, BABYLON.Space.WORLD);
-
-  });
+scene.registerAfterRender(function () {
+  wheelFI.rotate(BABYLON.Axis.Z, Math.PI / 64, BABYLON.Space.WORLD);
+  wheelFO.rotate(BABYLON.Axis.Z, Math.PI / 64, BABYLON.Space.WORLD);
+  wheelRI.rotate(BABYLON.Axis.Z, Math.PI / 64, BABYLON.Space.WORLD);
+  wheelRO.rotate(BABYLON.Axis.Z, Math.PI / 64, BABYLON.Space.WORLD);
+});
 ```
 
 PG: <Playground id="#1YD970#543" title="Rotate Wheels" description="Adding a method to rotate the wheels."/>
@@ -128,7 +124,7 @@ To draw a path a sequence of points are needed. Starting with a circle of radius
 circle and vary r slightly and smoothly on the way round to give a less regular path. This is achieved by adding to the radius, at each angle, a fraction of r
 times the sine of a multiple of the angle turned. In addition a ground is added.
 
-Since on creation the side of the car is perpendicuar to the z axis the base circle will start with theta = 0 and x = r * sin(theta) and z = r * cos(theta).
+Since on creation the side of the car is perpendicuar to the z axis the base circle will start with theta = 0 and x = r _ sin(theta) and z = r _ cos(theta).
 This means that when the car can be positioned tangental to the circle by setting z = r.
 
 Since the circle has been given a perturbation some small rotation of the car will be necessary for it to be truly tangential.
@@ -138,13 +134,13 @@ var points = [];
 var n = 50; // number of points - more points the slower the car
 var r = 50; //radius
 for (let i = 0; i < n + 1; i++) {
-	points.push( new BABYLON.Vector3((r + (r/5)*Math.sin(8*i*Math.PI/n))* Math.cos(2*i*Math.PI/n), 0, (r + (r/10)*Math.sin(6*i*Math.PI/n)) * Math.sin(2*i*Math.PI/n)));
+  points.push(new BABYLON.Vector3((r + (r / 5) * Math.sin((8 * i * Math.PI) / n)) * Math.cos((2 * i * Math.PI) / n), 0, (r + (r / 10) * Math.sin((6 * i * Math.PI) / n)) * Math.sin((2 * i * Math.PI) / n)));
 }
 
-var track = BABYLON.MeshBuilder.CreateLines('track', {points: points}, scene);
+var track = BABYLON.MeshBuilder.CreateLines("track", { points: points }, scene);
 track.color = new BABYLON.Color3(0, 0, 0);
 
-var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 3*r, height: 3*r}, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 3 * r, height: 3 * r }, scene);
 ```
 
 PG: <Playground id="#172C5E#2" title="The Path" description="The path that the car will follow."/>
@@ -173,9 +169,9 @@ Both normals lie in the xz plane and so the cross product of the two normals wil
 determined from the sign of the y component of the cross product.
 
 ```javascript
-theta = Math.acos(BABYLON.Vector3.Dot(normals[i],normals[i+1]));  //amount of turn
-var dir = BABYLON.Vector3.Cross(normals[i],normals[i+1]).y; //enables direction of turn to be found depending if +ve or -ve
-var dir = dir/Math.abs(dir); //dir takes value 1 or -1
+theta = Math.acos(BABYLON.Vector3.Dot(normals[i], normals[i + 1])); //amount of turn
+var dir = BABYLON.Vector3.Cross(normals[i], normals[i + 1]).y; //enables direction of turn to be found depending if +ve or -ve
+var dir = dir / Math.abs(dir); //dir takes value 1 or -1
 carBody.rotate(BABYLON.Axis.Y, dir * theta, BABYLON.Space.WORLD);
 ```
 
@@ -185,7 +181,7 @@ To stand on the ground the car will need to be lifted. To be set on the path it 
 along the z axis so determine the turn necessary from
 
 ```javascript
-var theta = Math.acos(BABYLON.Vector3.Dot(BABYLON.Axis.Z,normals[0]));
+var theta = Math.acos(BABYLON.Vector3.Dot(BABYLON.Axis.Z, normals[0]));
 carBody.rotate(BABYLON.Axis.Y, theta, BABYLON.Space.WORLD);
 ```
 
@@ -194,24 +190,24 @@ carBody.rotate(BABYLON.Axis.Y, theta, BABYLON.Space.WORLD);
 The animation is achieved using scene.registerAfterRender. Within this render loop:
 the car is moved forward from point to point;
 it is rotated tangential to the path at the current point;
-the wheels are now rotated a small amount about the *normal* at the current point.
+the wheels are now rotated a small amount about the _normal_ at the current point.
 
 ```javascript
-var i=0;
-scene.registerAfterRender(function() {
- carBody.position.x = points[i].x;
- carBody.position.z = points[i].z;
- wheelFI.rotate(normals[i], Math.PI/32, BABYLON.Space.WORLD);
- wheelFO.rotate(normals[i], Math.PI/32, BABYLON.Space.WORLD);
- wheelRI.rotate(normals[i], Math.PI/32, BABYLON.Space.WORLD);
- wheelRO.rotate(normals[i], Math.PI/32, BABYLON.Space.WORLD);
+var i = 0;
+scene.registerAfterRender(function () {
+  carBody.position.x = points[i].x;
+  carBody.position.z = points[i].z;
+  wheelFI.rotate(normals[i], Math.PI / 32, BABYLON.Space.WORLD);
+  wheelFO.rotate(normals[i], Math.PI / 32, BABYLON.Space.WORLD);
+  wheelRI.rotate(normals[i], Math.PI / 32, BABYLON.Space.WORLD);
+  wheelRO.rotate(normals[i], Math.PI / 32, BABYLON.Space.WORLD);
 
- theta = Math.acos(BABYLON.Vector3.Dot(normals[i],normals[i+1]));
- var dir = BABYLON.Vector3.Cross(normals[i],normals[i+1]).y;
- var dir = dir/Math.abs(dir);
- carBody.rotate(BABYLON.Axis.Y, dir * theta, BABYLON.Space.WORLD);
+  theta = Math.acos(BABYLON.Vector3.Dot(normals[i], normals[i + 1]));
+  var dir = BABYLON.Vector3.Cross(normals[i], normals[i + 1]).y;
+  var dir = dir / Math.abs(dir);
+  carBody.rotate(BABYLON.Axis.Y, dir * theta, BABYLON.Space.WORLD);
 
- i = (i + 1) % (n-1);	//continuous looping
+  i = (i + 1) % (n - 1); //continuous looping
 });
 ```
 
@@ -222,13 +218,12 @@ PG: <Playground id="#1YD970#582" title="Car Travels The Path" description="First
 After allowing the finalised playground of the car to run for a while it can be seen that the rotating of the car becomes askew.
 This is due to rounding errors in the floating point (probably).
 
-The initial rotation quaternion is stored in *startRotation* and is now applied to the car whenever it starts a new loop.
+The initial rotation quaternion is stored in _startRotation_ and is now applied to the car whenever it starts a new loop.
 
 ```javascript
-if(i == 0) {
-	carBody.rotationQuaternion = startRotation;
+if (i == 0) {
+  carBody.rotationQuaternion = startRotation;
 }
 ```
 
 PG: <Playground id="#1YD970#583" title="Car Following a Path" description="Removed rotation errors for car path following ."/>
-

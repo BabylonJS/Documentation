@@ -13,7 +13,6 @@ Interested in getting Adobe Mixamo characters into Babylon.js? Mixamo uses .fbx 
 - For the .glb file road, go to this page: [Animating Characters](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter)
 - For the .babylon file road, which uses the Blender To Babylon Exporter, it is on this page. Follow the guide below!
 
-
 Start by downloading and installing the [Blender to Babylon.js exporter](https://github.com/BabylonJS/BlenderExporter). Here are the [Installation instructions](/features/featuresDeepDive/Exporters/Blender#installation).
 
 From [Mixamo](https://www.mixamo.com), under Characters, select Y Bot. Download Y Bot with the following settings:

@@ -104,15 +104,7 @@ You can also use the ShaderStore to write a shader inline and use it in a Custom
 This can be done easily using the **BABYLON.Effect.ShaderStore** array :
 
 ```javascript
-BABYLON.Effect.ShadersStore["LinesPixelShader"] =
-       "#ifdef GL_ES\n" +
-       "precision highp float;\n" +
-       "#endif\n\n" +
-       "varying vec2 vUV; \n" +
-       "void main(void) {\n" +
-       " gl_FragColor = vec4(vUV.x,vUV.y,-vUV.x, 1.0);\n" +
-       "}\n" +
-       "";
+BABYLON.Effect.ShadersStore["LinesPixelShader"] = "#ifdef GL_ES\n" + "precision highp float;\n" + "#endif\n\n" + "varying vec2 vUV; \n" + "void main(void) {\n" + " gl_FragColor = vec4(vUV.x,vUV.y,-vUV.x, 1.0);\n" + "}\n" + "";
 ```
 
 Note that your shader name should be suffixed with **PixelShader** as the Procedural Texture shader is always a pixel shader. Babylon.JS will automatically understand it is a pixel shader.
@@ -129,13 +121,13 @@ Finally you can also use **DOM Elements** to store your shader. You just have to
 
 ```html
 <script type="application/pixelShader" id="LinesPixelShader">
-        #ifdef GL_ES
-        precision highp float;
-        #endif
-        varying vec2 vUV;
-        void main(void) {
-             gl_FragColor = vec4(vUV.x,vUV.y,-vUV.x, 1.0);
-        }
+  #ifdef GL_ES
+  precision highp float;
+  #endif
+  varying vec2 vUV;
+  void main(void) {
+       gl_FragColor = vec4(vUV.x,vUV.y,-vUV.x, 1.0);
+  }
 </script>
 ```
 
@@ -153,7 +145,7 @@ The code to generate it is very simple:
 
 ```javascript
 BABYLON.NodeMaterial.ParseFromSnippetAsync("#A7A3UB#1", scene).then((nodeMaterial) => {
-    const proceduralTexture = nodeMaterial.createProceduralTexture(256);
+  const proceduralTexture = nodeMaterial.createProceduralTexture(256);
 });
 ```
 

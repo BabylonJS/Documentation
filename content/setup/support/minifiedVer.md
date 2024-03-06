@@ -8,38 +8,8 @@ video-overview:
 video-content:
 ---
 
-To create the minified version of Babylon.js you just have to
-use [gulp](https://github.com/BabylonJS/Babylon.js/tree/master/Tools/Gulp).
+To create the minified version of Babylon.js you just have to use `npm run build:babylonjs`.
 
-But you may want to work with all basic files. In this case, please download the code and use the following include (be aware to have the babylon folder at the root of your site). If you want to use your own shaders in this case, you just have to reference them with a "./" at beginning):
+The files will be available in `packages/public/umd/babylonjs`.
 
-```html
-<script src="tools/DevLoader/BabylonLoader.js"></script>
-```
-
-And add this command to your script:
-
-```javascript
-BABLONDEVTOOLS.Loader.load(function () {
-  // Your code using Babylon.
-});
-```
-
-This will take care of referencing all the required files and launch your code once ready.
-
-If you need any script files to load after Babylon, you can require them:
-
-```javascript
-BABLONDEVTOOLS.Loader.require("index.js").load();
-```
-
-You can also control the root of your Babylon Folder:
-
-```javascript
-BABLONDEVTOOLS.Loader.root("../../").require("index.js").require("other.js").load();
-```
-
-When working with all files, you can provide the following information to the engine:
-
-- BABYLON.Engine.CodeRepository: By default, this value points to "/src/"
-- BABYLON.Engine.ShadersRepository: By default, this value points to "/src/Shaders/"
+If you want to build the entire framework, use `npm run build:umd` or `npm run build:es6`, depending on the flavor you wish to build. The packages will be available in `packages/public/FLAVOR`.

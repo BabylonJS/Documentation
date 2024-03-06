@@ -70,10 +70,11 @@ You can also set two parameters to the call to `instantiateModelsToScene`:
 - cloneMaterials: By default materials are not cloned but shared. With this parameter you can force the system to also clone the materials
 
 ```javascript
-const entries = container.instantiateModelsToScene(name => "p" + name, true);
+const entries = container.instantiateModelsToScene((name) => "p" + name, true);
 ```
 
 You can dispose a specific set of instantiated models again with:
+
 ```javascript
 entries.dispose();
 ```
