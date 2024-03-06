@@ -4,7 +4,7 @@ image: /img/pageImages/timelineControl.jpg
 description: The Babylon.js Timeline Control is a web control built on top of Babylon.js that accelerates some of the typical features associated with video timelines.
 keywords: web controls, hardware accelerated, 2D, timeline, video, thumbnails
 further-reading:
-video-overview: 
+video-overview:
 video-content:
 ---
 
@@ -13,6 +13,7 @@ video-content:
 The Babylon.js Timeline Control is a web control built on top of Babylon.js that accelerates some of the typical features associated with video timelines.
 
 ## Introduction
+
 One of the inherent issue encountered while scrolling in a video timeline built from IMG tags is perfomance caveats. The bigger the number of pictures to scroll through, the slower and less smooth the interactions with the web page would be.
 
 In order to increase the reactivity of the web page, we rely here on WebGL through Babylon.js to create an easy to reuse control displaying a video timeline.
@@ -22,6 +23,7 @@ In order to increase the reactivity of the web page, we rely here on WebGL throu
 ## How to use
 
 ### Installation
+
 To begin with the timeline, you first need to install the controls npm package.
 
 ```
@@ -35,6 +37,7 @@ npm install @babylonjs/core
 ```
 
 ### Instantiation
+
 Once done, you can now import the timeline in your code:
 
 ```
@@ -83,14 +86,15 @@ The main element to provide is a canvas on which we will be able to use a WebGL 
 
 As we do not want to be opiniated about the UX you prefer or about the thumbnail generation itself it is all left to your implementation. The only information you need to provide are:
 
-* *totalDuration*: the full duration of the video to cover (use to compute when all the thumbnails should be generated).
-* *thumbnailWidth*: define the width of your generated thumbnails (use during the rendering to know how much space they should take in the timeline)
-* *thumbnailHeight*: define the height of your generated thumbnails (use to keep the ratio intact with the width previously defined)
-* *loadingTextureURI*: define the url of an image used as a temporary replacement for not fully loaded thumbnail (this will help handling network latency gracefully)
-* *getThumbnailCallback*: last, but definitely not the least, a callback where you will be able to provide the thumbnail fitting with the requested time in parameter. You can return through the done function either a video element set on the right frame (as done in the previous code sample), a canvas element containing for instance some pre processed data or some image URL. More choices will probably be added here to for instance support texture atlas as it might be a nice transport format.
+- _totalDuration_: the full duration of the video to cover (use to compute when all the thumbnails should be generated).
+- _thumbnailWidth_: define the width of your generated thumbnails (use during the rendering to know how much space they should take in the timeline)
+- _thumbnailHeight_: define the height of your generated thumbnails (use to keep the ratio intact with the width previously defined)
+- _loadingTextureURI_: define the url of an image used as a temporary replacement for not fully loaded thumbnail (this will help handling network latency gracefully)
+- _getThumbnailCallback_: last, but definitely not the least, a callback where you will be able to provide the thumbnail fitting with the requested time in parameter. You can return through the done function either a video element set on the right frame (as done in the previous code sample), a canvas element containing for instance some pre processed data or some image URL. More choices will probably be added here to for instance support texture atlas as it might be a nice transport format.
 
 You can also provide some none mandatory options:
-* *useClosestThumbnailAsLoadingTexture*: it is set to true by default and if enabled, it will try to use the closest loaded thumbnail (in time) instead of the loading one as soon as some of them are ready.
+
+- _useClosestThumbnailAsLoadingTexture_: it is set to true by default and if enabled, it will try to use the closest loaded thumbnail (in time) instead of the loading one as soon as some of them are ready.
 
 ### Render Loop
 

@@ -60,7 +60,7 @@ navmeshdebug.material = matdebug;
 
 ## Parameters
 
-cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world unit define the widthand depth of 1 voxel.
+cs - The meshes are voxelized in order to compute walkable navmesh. This parameter in world unit define the width and depth of 1 voxel.
 
 ch - Same as cs but for height of the voxel.
 
@@ -161,9 +161,9 @@ navigationPlugin.createNavMesh([staticMesh], navmeshParameters,(navmeshData) =>
     ...
 ```
 
-`navMeshData` is a binary version, ready to serialize, of the the navmesh. It can be saved, streamed. User has to call `buildFromNavmeshData` to deserialize datas. Once the navmesh is fully loaded, it's possible to create crowd, query the navmesh,...
+`navMeshData` is a binary version, ready to serialize, of the the navmesh. It can be saved, streamed. User has to call `buildFromNavmeshData` to deserialize data. Once the navmesh is fully loaded, it's possible to create crowd, query the navmesh,...
 
-Performance note: The navmesh is constructed from geometry datas. If multiple meshes are needed, their geometry will be merged before passing the geometry positions and indices to Recast. This part of the code can be CPU intensive and cannot be done in a worker because of dependencies, copies, memory footprint.
+Performance note: The navmesh is constructed from geometry data. If multiple meshes are needed, their geometry will be merged before passing the geometry positions and indices to Recast. This part of the code can be CPU intensive and cannot be done in a worker because of dependencies, copies, memory footprint.
 
 An example of use with web worker : <Playground id="#TN7KNN#2" title="Navigation mesh computation with a web worker" description="Navigation mesh computation with a web worker"/>
 

@@ -13,7 +13,7 @@ video-content:
 ![a crowd ](/img/extensions/navigation/CrowdExample.png)
 
 Now we have a navmesh, we can create autonomous agents and make them navigate within that navmesh constraint.
-The agents will find the best path to that destination while avoinding other crowd agents.
+The agents will find the best path to that destination while avoiding other crowd agents.
 An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
 A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents."/>
@@ -96,7 +96,7 @@ The agent's cube is oriented by the velocity and a grey little box is placed at 
 
 ## Agent reaching target Observer
 
-An observable automaticaly fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number propery in the `IAgentParameters` object.
+An observable automatically fires when an agent reaches the destination (ie, is within radius of destination). The radius is by default the agent radius but it can be changed using `reachRadius` number property in the `IAgentParameters` object.
 If there are too many agents in the crowd trying to reach the same destination, a bottleneck can happen and few agents will reach destination. Be sure to properly set those values.
 To add an observable, simply add your function:
 

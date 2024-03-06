@@ -10,7 +10,7 @@ video-content:
 
 ## WebVR vs WebXR
 
-While the WebVR camera will continue to be supported, **it is strongly recommended that new projects use the [WebXR camera](/features/featuresDeepDive/webXR/webXRCamera)**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
+WebVR support was removed from Babylon. **It is strongly recommended that new projects use the [WebXR camera](/features/featuresDeepDive/webXR/webXRCamera)**. For more information, check out our [introduction to WebXR](/features/featuresDeepDive/webXR/introToWebXR).
 
 ## Introduction
 

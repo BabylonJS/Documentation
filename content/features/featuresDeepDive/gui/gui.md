@@ -639,6 +639,7 @@ Here is an example of a MultiLine combining meshes, a control and a point: <Play
 Use the image control to display an image in your UI.
 
 ### Stretch Modes and Scaling
+
 You can control the stretch used by the image with `image.stretch` property. You can set it to one of these values:
 
 - BABYLON.GUI.Image.STRETCH_NONE: Use original size

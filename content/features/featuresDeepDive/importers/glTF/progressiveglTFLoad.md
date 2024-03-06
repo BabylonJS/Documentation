@@ -1,6 +1,6 @@
 ---
 title: Progressively Load .glTF Files
-image: 
+image:
 description: Learn about progressively loading .glTF files in Babylon.js.
 keywords: diving deeper, import, importing assets, asset, importing, progressive loading
 further-reading:
@@ -28,13 +28,14 @@ A glTF asset can be either loose files or packed together into a glTF binary (GL
 
 ```javascript
 BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
-    if (loader.name === "gltf") {
-        loader.useRangeRequests = true;
-    }
+  if (loader.name === "gltf") {
+    loader.useRangeRequests = true;
+  }
 });
 ```
 
 ## Caveats
+
 - The HTTP server hosting the asset must support range requests.
 - The LODs in the GLB should be authored with a contiguous range per LOD for maximum efficiency.
 
@@ -43,27 +44,33 @@ BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
 When loading large assets either using loose files or with range requests, it is useful to show the download progress. Progress is supported through the progress callback of `BABYLON.SceneLoader` methods which is a small subset of the HTTP request [progress event](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent). Here is an example from the demo above:
 
 ```javascript
-BABYLON.SceneLoader.AppendAsync(url, undefined, scene, function (event) {
+BABYLON.SceneLoader.AppendAsync(
+  url,
+  undefined,
+  scene,
+  function (event) {
     // Compute the percentage for each stage unless the length is not computable.
     // The lengthComputable is often false when serving content that is gzipped.
-    const percentage = event.lengthComputable ? " " + Math.floor(event.loaded / event.total * 100) + "%" : "";
+    const percentage = event.lengthComputable ? " " + Math.floor((event.loaded / event.total) * 100) + "%" : "";
 
     // Check if an LOD is loading yet.
     if (lodNext === null) {
-        // Ignore GLB header progress.
-        if (event.total === 20) return;
+      // Ignore GLB header progress.
+      if (event.total === 20) return;
 
-        // Show that the glTF is downloading.
-        bottomLine.text = "Loading glTF..." + percentage;
+      // Show that the glTF is downloading.
+      bottomLine.text = "Loading glTF..." + percentage;
+    } else {
+      // Show that the LOD is downloading.
+      bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
     }
-    else {
-        // Show that the LOD is downloading.
-        bottomLine.text = "Loading '" + lodNames[lodNext] + "' LOD..." + percentage;
-    }
-}, ".glb")
+  },
+  ".glb",
+);
 ```
 
 ## Key Notes
+
 - Gzipped content hosted on server often results in `lengthComputable` equaling `false` which in turn causes the `total` to be zero. When this happens, the only choices are to not show the progress or show the number of bytes downloaded instead.
 - When using HTTP range requests with a GLB, the first thing that is downloaded is the GLB header which downloads very quickly and is almost always 20 bytes loaded and 20 bytes total when the progress event fires. Ignore it by checking when `total` is exactly 20.
 
@@ -90,13 +97,14 @@ Enabling logging is often useful to understand and debug the loading of a glTF a
 
 ```javascript
 BABYLON.SceneLoader.OnPluginActivatedObservable.addOnce(function (loader) {
-    if (loader.name === "gltf") {
-        loader.loggingEnabled = true;
-    }
+  if (loader.name === "gltf") {
+    loader.loggingEnabled = true;
+  }
 });
 ```
 
 Here is an example console log from the demo above:
+
 ```
 BJS - [16:31:29]: Binary version: 2
 BJS - [16:31:29]: JSON length: 59200

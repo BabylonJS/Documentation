@@ -17,7 +17,7 @@ Mesh behaviors are [Behaviors](/features/featuresDeepDive/behaviors) that can be
 This is used to drag a mesh around a plane or axis using a mouse or VR controller.
 
 ```javascript
-const pointerDragBehavior = new BABYLON.PointerDragBehavior({dragAxis: new BABYLON.Vector3(0,1,0)});
+const pointerDragBehavior = new BABYLON.PointerDragBehavior({ dragAxis: new BABYLON.Vector3(0, 1, 0) });
 ```
 
 It can be initialized in 3 different modes:
@@ -41,18 +41,18 @@ pointerDragBehavior.updateDragPlane = false;
 To listen to drag events, the following can be used.
 
 ```javascript
-pointerDragBehavior.onDragStartObservable.add((event)=>{
-    console.log("dragStart");
-    console.log(event);
-})
-pointerDragBehavior.onDragObservable.add((event)=>{
-    console.log("drag");
-    console.log(event);
-})
-pointerDragBehavior.onDragEndObservable.add((event)=>{
-    console.log("dragEnd");
-    console.log(event);
-})
+pointerDragBehavior.onDragStartObservable.add((event) => {
+  console.log("dragStart");
+  console.log(event);
+});
+pointerDragBehavior.onDragObservable.add((event) => {
+  console.log("drag");
+  console.log(event);
+});
+pointerDragBehavior.onDragEndObservable.add((event) => {
+  console.log("dragEnd");
+  console.log(event);
+});
 ```
 
 To use the drag behavior without moving the attached mesh, set `moveAttached` to false. The drag events above can then be used for custom drag interactions.
@@ -180,7 +180,7 @@ The XR experience should also enable the [HandTracking](/features/featuresDeepDi
 
 ```javascript
 xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
-    xrInput: xr.input
+  xrInput: xr.input,
 });
 ```
 

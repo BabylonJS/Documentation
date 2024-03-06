@@ -12,32 +12,16 @@ This tutorial will guide you through the process of creating a procedural textur
 
 ## Setting up environment
 
-First of all, you need to create a folder for your shader in the /proceduralTexturesLibrary/src folder. Let's call it **cloudBis**.
+First of all, you need to create a folder for your shader in the packages/dev//proceduralTextures/src folder. Let's call it **cloudBis**.
 
 Then you need to create your files:
 
 - babylon.**cloudBis**ProceduralTexture.ts (just copy/paste from babylon.woodProceduralTexture.ts )
 - **cloudBis**ProceduralTexture.fragment.fx (just copy/paste from woodProceduralTexture.fragment.fx )
 
-To integrate your new procedural texture to the build process, you have to edit the config.json file in the tools/gulp folder and add an entry in the "proceduralTextureLibrary/libraries" section of the file:
+Make sure you export your files from the base `index.ts` file, just like the rest of the textures.
 
-```javascript
-  "libraries": [
-    ...
-      {
-        "output": "babylon.brickProceduralTexture.min.js",
-        "entry": "./legacy/legacy-brick.ts",
-        "preventLoadLibrary": true
-      }
-    ...
-  ]
-```
-
-To build all the procedural textures and generate the _dist_ folder, just run from the tools/gulp folder:
-
-```bash
-gulp proceduralTextureLibrary
-```
+To build while developing run the babylon server. The simplest way is running `npm run start`, but if you use VSCode you can run the playground or the babylon server from within the IDE.
 
 ## Update the shaders
 
@@ -46,7 +30,7 @@ The shader is composed of 3 parts:
 
 - The variables and uniforms definition
 
-```
+```glsl
 precision highp float;
 
 varying vec2 vUV;
@@ -58,7 +42,7 @@ uniform vec4 cloudColor;
 
 - All the functions you need (here **rand**, **noise** and **fbm**)
 
-```
+```glsl
 float rand(vec2 n) {
 	return fract(cos(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
@@ -95,10 +79,6 @@ void main() {
 The procedural texture is a .ts file. It contains a class which has to inherit from the **ProceduralTexture** class.
 
 To be sure that you have intelliSense and that the compilation phase works well you have to add a reference at the top of your **babylon.cloudBisProceduralTexture.ts** file :
-
-```javascript
-/// <reference path="../../../dist/preview release/babylon.d.ts"/>
-```
 
 The main part of the magic for a procedural texture is happening in the shader file. The TypeScript file is mainly here to give its caller the ability to set values for uniforms and pass it to the shader itself.
 By convention we create a function named **updateShaderUniforms()** which will be called from the constructor and in every setters for each property.
@@ -225,11 +205,3 @@ break;
 ```
 
 The first parameter is the texture object and the second one is an array containing the list of properties you want to make editable in the sample.
-
-## Launch the test server
-
-To Launch the server, you can start from the tools/gulp folder:
-
-```bash
-gulp webserver
-```

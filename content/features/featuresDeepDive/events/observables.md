@@ -309,10 +309,10 @@ scene.onPointerUp = () => {
 
 The following (TypeScript) code can be used to convert a Babylon Observable into its RxJS equivalent:
 
-```typescript
+````typescript
 /**
  * Wraps a Babylon Observable into an rxjs Observable
- * 
+ *
  * @param bjsObservable The Babylon Observable you want to observe
  * @example
  * ```
@@ -326,9 +326,7 @@ The following (TypeScript) code can be used to convert a Babylon Observable into
  * const onMeshAdded$: Observable<AbstractMesh> = fromBabylonObservable(scene.onNewMeshAddedObservable)
  * ```
  */
-export function fromBabylonObservable<T>(
-  bjsObservable: BJSObservable<T>
-): Observable<T> {
+export function fromBabylonObservable<T>(bjsObservable: BJSObservable<T>): Observable<T> {
   return new Observable<T>((subscriber) => {
     if (!(bjsObservable instanceof BJSObservable)) {
       throw new TypeError("the object passed in must be a Babylon Observable");
@@ -339,4 +337,4 @@ export function fromBabylonObservable<T>(
     return () => bjsObservable.remove(handler);
   });
 }
-```
+````

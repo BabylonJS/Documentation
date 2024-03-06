@@ -16,8 +16,8 @@ video-content:
 
 A `layerMask` is a number assigned to each mesh and camera. It is used at the bit level to indicate whether lights and cameras should shine-upon or show the mesh. The default value, 0x0FFFFFFF, will cause the mesh to be illuminated and shown by any stock light and camera. To determine if a mesh is seen by a camera, a [bitwise AND](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND) is performed and the result is compared to zero:
 
-```
-mesh.layerMask & camera.layerMask !== 0
+```javascript
+mesh.layerMask & (camera.layerMask !== 0);
 ```
 
 The feature is used primarily when multiple cameras are active at the same time. If you wish to have a mesh that is always visible on the screen and pickable, e.g. a button, you might add a second camera and light to the scene to exclusively show and light it.

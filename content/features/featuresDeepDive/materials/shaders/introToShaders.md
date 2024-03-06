@@ -61,7 +61,7 @@ Shaders are written in Graphics Library Shader Language (GLSL) and come in two p
 
 1. Vertex Shader: this takes the data for each vertex and determines where on the screen the pixel for it will be displayed and its color.
 
-2. Fragment Shader: this uses data from the Vertex Shader to determine the position and colour of the pixels to represent each facet of the mesh.
+2. Fragment Shader: this uses data from the Vertex Shader to determine the position and color of the pixels to represent each facet of the mesh.
 
 Fragment Shaders are sometimes referred to as Pixel Shaders.
 
@@ -113,10 +113,10 @@ precision highp float
 
 The GLSL language has a number of built in variables. Two are vital to the operation of the two shaders and are always necessary:
 
-| Variable     | Description                                                     |
-| ------------ | --------------------------------------------------------------- |
-| gl_Position  | provide positional data for screen coordinates                  |
-| gl_FragColor | provide colour data for the representation of a facet on screen |
+| Variable     | Description                                                    |
+| ------------ | -------------------------------------------------------------- |
+| gl_Position  | provide positional data for screen coordinates                 |
+| gl_FragColor | provide color data for the representation of a facet on screen |
 
 ## Built In Inputs
 

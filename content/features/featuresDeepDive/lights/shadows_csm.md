@@ -301,7 +301,7 @@ If using `autoCalcDepthBounds = true`, you can lower the frequency with which th
 
 If your shadow casters and receivers don't move, set `freezeShadowCastersBoundingInfo = true`. Even if some of them do move, as long as the whole bounding box does not change, it is safe to set `freezeShadowCastersBoundingInfo` to `true`.
 
-Set `depthClamp = false`. There is a (very) small GPU penality to enable this property because of a few additional instructions in the depth rendering shaders.
+Set `depthClamp = false`. There is a (very) small GPU penalty to enable this property because of a few additional instructions in the depth rendering shaders.
 
 ## Optimizing for quality
 

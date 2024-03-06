@@ -22,7 +22,7 @@ From there, you can download the Installer.zip file. Chrome is currently warning
 
 ![chrome warning](/img/exporters/installer/ChromeDLWarning.png)
 
-You can nervertheless continue to download by pressing the little arrow and chosing to "Keep" the file:
+You can nevertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
 
 ![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.png)
 
@@ -44,7 +44,7 @@ From this point, it gets simpler:
 
 ![smart screen warning keep](/img/exporters/installer/Installer.png)
 
-Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targetted software.
+Once launched the application should auto detect all the installation folders from your Autodesk applications. In case it fails to do so, you could still manually location the targeted software.
 
 You can now easily install or update any of your 3d authoring tools to the latest prerelease available on Github.
 
@@ -194,9 +194,9 @@ Option _Optimize vertices_: The Babylon exporter will try to optimize the number
 
 The _Scale factor_ can be used to rescale the whole world. If you set a scale factor equal to 100, the resulting scene will be 100 times smaller (1%). By default the scale factor is equal to 1, meaning no rescale.
 
-The _Texture quality_ sets the convertion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
+The _Texture quality_ sets the conversion quality of bitmap to JPEG. At 100 (the maximum value), it gives the highest image quality but no file size reduction. On the contrary at 0 (the minimum value), it gives the lowest image quality but the greatest file size reduction. By default the _Texture quality_ is set to 100.
 
-The _Use Draco comression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/Maya_to_glTF#draco-compression).
+The _Use Draco compression_ option is only available for gltf and glb output format. More detail [here](/features/featuresDeepDive/Exporters/Maya_to_glTF#draco-compression).
 
 In the _MorphTarget options_ section, the _Export normal_ and _Export tangent_ checkboxes allow you to customize the morph target export.
 
@@ -222,7 +222,7 @@ A group node is exported as a dummy, a mesh without vertices, just like a locato
 
 ## Textures and intermediate nodes
 
-Maya provides a large range of tools to manipulate connexions between textures and materials (like the Reverse node). For the most part, only a fileTexture is expected as input to a material.
+Maya provides a large range of tools to manipulate connections between textures and materials (like the Reverse node). For the most part, only a fileTexture is expected as input to a material.
 
 Currently the following intermediate nodes are supported by the exporter:
 
@@ -231,7 +231,7 @@ Currently the following intermediate nodes are supported by the exporter:
 
 ## Textures image format
 
-Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are adviced to use those formats for your textures when exporting to Babylon.
+Babylon engine fully supports the following image formats: jpg, bmp, png, gif, tga. You are advised to use those formats for your textures when exporting to Babylon.
 
 Note that the exporter also supports textures with tif and dds formats. But, those textures will be automatically converted to png by the exporter to ensure compatibility with the Babylon engine.
 
