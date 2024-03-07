@@ -117,9 +117,9 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
     return join(process.cwd(), "public/img/playgroundsAndNMEs/", `${example.type}${example.id.replace(/#/g, "-")}.png`);
 };
 
-export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string) => {
+export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2") => {
     const browser = await puppeteer.launch({
-        headless: "new"
+        headless: "new",
     }); // opens a virtual browser
 
     try {
@@ -129,8 +129,7 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
 
         // you can also set dimensions
         await page.setViewport({ width: 1200, height: 800 }); // sets it's  dimensions
-
-        const url = getExampleLink({ type, id });
+        const url = getExampleLink({ type, id, engine });
         await page.goto(url); // navigates to the url
         if (type === "pg") {
             await page.waitForSelector("#renderCanvas", { visible: true });
@@ -139,14 +138,14 @@ export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: strin
         } else {
             await page.waitForSelector("#graph-canvas", { visible: true, timeout: 60000 });
         }
-        await page.waitForTimeout(500);
+        await new Promise((r) => setTimeout(r, 1000)); // wait for the page to load
 
-        const imageUrl = getExampleImagePath({ type, id });
+        const imageUrl = optionalFilename ? join(process.cwd(), "public", optionalFilename) : getExampleImagePath({ type, id });
 
-        await page.screenshot({ path: imageUrl, fullPage: true }); // takes a screenshot
+        await page.screenshot({ path: imageUrl, fullPage: true, type: imageUrl.endsWith("jpg") ? "jpeg" : "png" }); // takes a screenshot
         console.log("screenshot created for", id);
     } catch (e) {
-        console.log("error", type, id, e);
+        console.log("## error", type, id /*, e*/);
     }
     await browser.close(); // closes the browser.
 };
@@ -259,11 +258,13 @@ export async function getPageData(id: string[], fullPage?: boolean): Promise<IDo
         // generate images to examples. Offline only at the moment
         const matches = Array.from(content.matchAll(/(<(Playground|nme|nge|NME|NGE).*id="([A-Za-z0-9#]*)".*\/>)/g));
         for (const [_, full, type, exampleId] of matches) {
-            const typePlayground = type === "Playground" ? "pg" : type.toLowerCase() as "nme" | "nge";
-            const realType: "pg" | "nme" | "nge" = typePlayground as "pg" | "nme" | "nge" || "pg";
+            const typePlayground = type === "Playground" ? "pg" : (type.toLowerCase() as "nme" | "nge");
+            const realType: "pg" | "nme" | "nge" = (typePlayground as "pg" | "nme" | "nge") || "pg";
             const imageUrl = /image="(.*?)"/.test(full) && /image="(.*?)"/.exec(full)[1];
-            if (exampleId && exampleId !== "nmeId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !imageUrl && !existsSync(getExampleImagePath({ id: exampleId, type: realType }))) {
-                await generateExampleImage(realType, exampleId);
+            const engine = /engine="(.*?)"/.test(full) && (/engine="(.*?)"/.exec(full)[1] as any);
+            const fileExists = imageUrl ? existsSync(join(process.cwd(), "public", imageUrl)) : existsSync(getExampleImagePath({ id: exampleId, type: realType }));
+            if (exampleId && exampleId !== "nmeId" && exampleId !== "playgroundId" && !(process.env.ONLINE || process.env.VERCEL_GITHUB_REPO || process.env.AWS_REGION) && !fileExists) {
+                await generateExampleImage(realType, exampleId, imageUrl, engine);
             }
             if (realType === "pg") {
                 const title = (/title="(.*?)"/.test(full) && /title="(.*?)"/.exec(full)[1]) || `Playground for ${metadata.title}`;

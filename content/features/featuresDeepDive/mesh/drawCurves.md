@@ -195,7 +195,7 @@ For a rotation quaternion there are two things to note:
 
 The equivalence of $(x, y, z, w)$ and $(-x, -y, -z, -w)$ can be seen in the following
 
-<Playground id="#9S6YUQ" title="Equivalent Rotation Quaternions" description="Scale by -1 produces equivalent rotation quaternions."/>
+<Playground id="#9S6YUQ#3" title="Equivalent Rotation Quaternions" description="Scale by -1 produces equivalent rotation quaternions."/>
 
 It follows that set of rotation quaternions $(x, y, z, w)$ where $x^2 + y^2 + z^2 + w^2 = 1$ and $-1 \leq x, y, z, \leq 1$ and $0 \leq w \leq 1$ covers all possible rotations.
 
