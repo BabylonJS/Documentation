@@ -3156,11 +3156,6 @@
                     "children": {},
                     "content": "communityExtensions/mmdLoader"
                 },
-                "textureCanvas": {
-                    "friendlyName": "Texture Canvas",
-                    "children": {},
-                    "content": "communityExtensions/textureCanvas"
-                },
                 "treeGenerators": {
                     "friendlyName": "Tree Generators",
                     "children": {
