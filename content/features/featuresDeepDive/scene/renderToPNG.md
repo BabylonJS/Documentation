@@ -48,6 +48,6 @@ BABYLON.Tools.CreateScreenshotUsingRenderTarget(engine, camera, size, successCal
 
 The `customizeTexture` callback can be used to modify the texture before taking the screenshot. This can be used, for example, to modify its `renderList` property, changing which objects will appear on the screenshot. You can also turn on/off [post processes](/features/featuresDeepDive/postProcesses/usePostProcesses).
 
-<Playground id="#2MVLUB#1" title="CreateScreenshotUsingRenderTarget" description="Example of how to modify the renderList and useCameraPostProcesses of a screenshot texture."/>
+<Playground id="#2mvlub#22" title="CreateScreenshotUsingRenderTarget" description="Example of how to modify the renderList and useCameraPostProcesses of a screenshot texture."/>
 
 It also has a `CreateScreenshotUsingRenderTargetAsync` version.
