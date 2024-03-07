@@ -1,11 +1,11 @@
 ---
 title: Transparent Rendering
-image: 
+image:
 description: Learn all about how transparency is handled in Babylon.js.
 keywords: diving deeper, materials, transparency, transparent
 further-reading:
-    - title: Use Facet Data
-      url: /features/featuresDeepDive/mesh/facetData
+  - title: Use Facet Data
+    url: /features/featuresDeepDive/mesh/facetData
 video-overview:
 video-content:
 ---
@@ -18,19 +18,19 @@ A general rule of thumb in real-time 3D rendering is that drawing several overla
 
 A depth buffer is a surface using the same dimensions as the screen, and holding for every pixel the following information: how far from the camera was the last pixel drawn here. With this information, we can draw as many objects as we want and always be sure that we will never draw something that was supposed to be hidden by another object.Babylon.js offers access to this information with a special DepthRenderer object.
 
-Rendering objects without a depth buffer would require resorting to an old-school technique called [*Painter's Algorithm*](http://en.wikipedia.org/wiki/Painter's_algorithm), which is extremely simple: draw further objects first. Sky, then backdrop, etc. all the way to foreground objects. This is basically ordering objects by distance from camera (a.k.a. depth), and clearly not enough for most cases.
+Rendering objects without a depth buffer would require resorting to an old-school technique called [_Painter's Algorithm_](http://en.wikipedia.org/wiki/Painter's_algorithm), which is extremely simple: draw further objects first. Sky, then backdrop, etc. all the way to foreground objects. This is basically ordering objects by distance from camera (a.k.a. depth), and clearly not enough for most cases.
 
 Testing against a depth buffer during render is a very common technique, simple to implement and performance-inexpensive. However, things get more complicated for non-opaque objects, as a depth buffer can't be used anymore (since these objects don't completely hide what's behind them).
 
 This is what a depth buffer looks like for a scene which contains only opaque meshes:
 ![Opaque only meshes](/img/resources/transparency_meshes_rendering/opaque-depth-buffer.jpg)
 
-
 ## Rendering Order
 
 ## General Order
 
 Before actually drawing meshes on the screen,Babylon.js puts them in the following categories, which are presented in the order in which they are drawn:
+
 1. **Depth pre-pass meshes**
 
 2. **Opaque meshes**
@@ -61,13 +61,13 @@ Meshes have another property that has an influence on the rendering order: `.alp
 
 By default, this property is set to `Number.MAX_VALUE`, which is the highest value that a numerical variable can hold (around 1.79E+308).
 
-Unlike opaque and alpha-tested meshes, theBabylon.js rendering engine sorts alpha-blended meshes by depth before drawing them on screen (see below). The `.alphaIndex` property allows you to override this sorting, as one mesh which has a lower alpha index than another will *always* be rendered before it, regardless of their respective depth.
+Unlike opaque and alpha-tested meshes, theBabylon.js rendering engine sorts alpha-blended meshes by depth before drawing them on screen (see below). The `.alphaIndex` property allows you to override this sorting, as one mesh which has a lower alpha index than another will _always_ be rendered before it, regardless of their respective depth.
 
-To phrase it more simply: **alpha-blended are sorted *first* by alpha index, and *then* by depth (distance to camera).**
+To phrase it more simply: **alpha-blended are sorted _first_ by alpha index, and _then_ by depth (distance to camera).**
 
 Keep in mind that this property works only for alpha-blended mesh, and has absolutely no effect for opaque and alpha-tested ones.
 
-*Note: this property can be manually set on meshes in 3DS Max with theBabylon.js exporter plugin.*
+_Note: this property can be manually set on meshes in 3DS Max with theBabylon.js exporter plugin._
 
 ## Opaque or Transparent?
 
@@ -97,7 +97,7 @@ Also, note that backface culling is pretty much obligatory for alpha blended mes
 This is what a depth buffer looks like for a scene that contains each of those type of meshes:
 ![All kinds of meshes](/img/resources/transparency_meshes_rendering/alpha-depth-buffer.jpg)
 
-*In this scene, the sphere is alpha tested, the base blocks are opaque and the pillars are alpha blended. As you can see, the alpha blended meshes are **not** written to the depth buffer!*
+_In this scene, the sphere is alpha tested, the base blocks are opaque and the pillars are alpha blended. As you can see, the alpha blended meshes are **not** written to the depth buffer!_
 
 ## Categorizing meshes
 
@@ -105,41 +105,42 @@ The following list will help you understand which categories your meshes will be
 
 **Alpha blended meshes:**
 
-* Any mesh that either has :
-  * the property `hasVertexAlpha` set to true (automatically set for exported meshes if vertices have individual alpha (transparency) values)
-  * `mesh.visibility` value < 1
-* In case of a mesh using `StandardMaterial`, if it either has:
-  * `material.alpha` property < 1
-  * an opacity texture defined
-  * the opacity Fresnel effect active
-  * a diffuse texture with `hasAlpha = true` and `useAlphaFromDiffuseTexture = true`
-* In case of a mesh using a PBR material, if it either has:
-  * `material.alpha` property < 1
-  * an opacity texture defined
-  * an albedo texture with `hasAlpha = true` and `useAlphaFromAlbedoTexture = true`
-* In case of another type of material, if the material's `.needAlphaBlending()` function returns `true`
+- Any mesh that either has :
+  - the property `hasVertexAlpha` set to true (automatically set for exported meshes if vertices have individual alpha (transparency) values)
+  - `mesh.visibility` value < 1
+- In case of a mesh using `StandardMaterial`, if it either has:
+  - `material.alpha` property < 1
+  - an opacity texture defined
+  - the opacity Fresnel effect active
+  - a diffuse texture with `hasAlpha = true` and `useAlphaFromDiffuseTexture = true`
+- In case of a mesh using a PBR material, if it either has:
+  - `material.alpha` property < 1
+  - an opacity texture defined
+  - an albedo texture with `hasAlpha = true` and `useAlphaFromAlbedoTexture = true`
+- In case of another type of material, if the material's `.needAlphaBlending()` function returns `true`
 
 **Alpha tested meshes:**
 
-* In case of a mesh using `StandardMaterial`, if it has:
-  * a diffuse texture with the property `.hasAlpha` set to `true`
-* In case of a mesh using a `PBR` material, if:
-  * the sub surface module does not disable alpha blending
-  * AND an albedo texture is defined with the property `.hasAlpha` set to `true`
-* In case of another type of material, if the material's `.needAlphaTesting()` function returns `true`
+- In case of a mesh using `StandardMaterial`, if it has:
+  - a diffuse texture with the property `.hasAlpha` set to `true`
+- In case of a mesh using a `PBR` material, if:
+  - the sub surface module does not disable alpha blending
+  - AND an albedo texture is defined with the property `.hasAlpha` set to `true`
+- In case of another type of material, if the material's `.needAlphaTesting()` function returns `true`
 
 Notes:
-  * alpha testing is linked to the diffuse/albedo texture: to enable it, you must set the `.hasAlpha` property of the diffuse/albedo texture to `true` even if all you are interested in is to apply alpha testing to the opacity texture for eg. Alternatively, you can override the `Material.needAlphaTesting()` method and return `true` if you want alpha testing to be enabled:
-    * `myMat.needAlphaTesting = () => myMat.opacityTexture !== null;`
-  * for the standard material:
-    * if `transparencyMode` (see next section for details about this property) is `null`, the alpha test is applied only on the alpha value read from the diffuse texture
-    * if `transparencyMode` is not `null`, the alpha test is applied near the end of the pipeline, when all alpha contributions have been taken into account (vertex alpha, opacity texture alpha, fresnel alpha). Note however that the computation is applied **BEFORE** the visibility property of the mesh is factored in!
-  * for the PBR material:
-    * the alpha test is applied after the contributions from the albedo / vertex alpha / opacity texture have been factored in
+
+- alpha testing is linked to the diffuse/albedo texture: to enable it, you must set the `.hasAlpha` property of the diffuse/albedo texture to `true` even if all you are interested in is to apply alpha testing to the opacity texture for eg. Alternatively, you can override the `Material.needAlphaTesting()` method and return `true` if you want alpha testing to be enabled:
+  - `myMat.needAlphaTesting = () => myMat.opacityTexture !== null;`
+- for the standard material:
+  - if `transparencyMode` (see next section for details about this property) is `null`, the alpha test is applied only on the alpha value read from the diffuse texture
+  - if `transparencyMode` is not `null`, the alpha test is applied near the end of the pipeline, when all alpha contributions have been taken into account (vertex alpha, opacity texture alpha, fresnel alpha). Note however that the computation is applied **BEFORE** the visibility property of the mesh is factored in!
+- for the PBR material:
+  - the alpha test is applied after the contributions from the albedo / vertex alpha / opacity texture have been factored in
 
 **Opaque meshes:**
 
-* Any mesh that does not fit into one of the above categories
+- Any mesh that does not fit into one of the above categories
 
 Occasionally, you may have some of your meshes falling into the wrong category, e.g. an alpha tested mesh unnecessarily marked as alpha blended, or a mesh staying opaque when it shouldn't. This will give you weird glitches, which can sometimes be very annoying. You should refer to this article to check how your meshes and materials properties are set.
 
@@ -155,20 +156,21 @@ As you may see above, categorizing a mesh depends on a number of properties and 
 
 By default, it is `null` and everything works as described above. The other values it can take are:
 
-| Value | Description |
-|------ | ----------|
-| Material.MATERIAL_OPAQUE| No transparency mode, Alpha channel is not use| 
-| Material.MATERIAL_ALPHATEST | Alpha Test mode, pixels are discarded below a certain threshold defined by the alpha cutoff value|
-| Material.MATERIAL_ALPHABLEND | Pixels are blended (according to the alpha mode) with the already drawn pixels in the current frame buffer|
-| Material.MATERIAL_ALPHATESTANDBLEND | Pixels are blended (according to the alpha mode) with the already drawn pixels in the current frame buffer. They are also discarded below the alpha cutoff threshold to improve performances|
+| Value                               | Description                                                                                                                                                                                  |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Material.MATERIAL_OPAQUE            | No transparency mode, Alpha channel is not use                                                                                                                                               |
+| Material.MATERIAL_ALPHATEST         | Alpha Test mode, pixels are discarded below a certain threshold defined by the alpha cutoff value                                                                                            |
+| Material.MATERIAL_ALPHABLEND        | Pixels are blended (according to the alpha mode) with the already drawn pixels in the current frame buffer                                                                                   |
+| Material.MATERIAL_ALPHATESTANDBLEND | Pixels are blended (according to the alpha mode) with the already drawn pixels in the current frame buffer. They are also discarded below the alpha cutoff threshold to improve performances |
 
 If `transparencyMode` equals:
-* Material.MATERIAL_OPAQUE. Mesh will always be opaque, there will be no alpha blending nor alpha testing whatever the other properties you modify, **EXCEPT** if you set `mesh.visibility` < 1, in which case alpha blending is automatically turned on.
-* Material.MATERIAL_ALPHATEST. Mesh will only be alpha tested (as long as you set the `hasAlpha` property of the diffuse/albedo texture to `true`), not alpha blended whatever the other properties you modify, **EXCEPT** if you set `mesh.visibility` < 1, in which case alpha blending is automatically turned on **AND** alpha testing is disabled
-  * a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
-* Material.MATERIAL_ALPHABLEND. Mesh will only be alpha blended and not alpha tested
-* Material.MATERIAL_ALPHATESTANDBLEND. Mesh will be both alpha tested and alpha blended
-  * a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
+
+- Material.MATERIAL_OPAQUE. Mesh will always be opaque, there will be no alpha blending nor alpha testing whatever the other properties you modify, **EXCEPT** if you set `mesh.visibility` < 1, in which case alpha blending is automatically turned on.
+- Material.MATERIAL_ALPHATEST. Mesh will only be alpha tested (as long as you set the `hasAlpha` property of the diffuse/albedo texture to `true`), not alpha blended whatever the other properties you modify, **EXCEPT** if you set `mesh.visibility` < 1, in which case alpha blending is automatically turned on **AND** alpha testing is disabled
+  - a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
+- Material.MATERIAL_ALPHABLEND. Mesh will only be alpha blended and not alpha tested
+- Material.MATERIAL_ALPHATESTANDBLEND. Mesh will be both alpha tested and alpha blended
+  - a difference between standard and PBR materials is that for PBR materials the alpha channel of the albedo texture is still used even if `useAlphaFromAlbedoTexture` is set to `false`, which is different from the standard material where the alpha channel of the diffuse texture is not used if `useAlphaFromDiffuseTexture` is set to `false`
 
 You're welcome to use this example to experiment on the different values of `transparencyMode` for both the standard and PBR materials: <Playground id="#TMDNDM" title="Transparency Modes Example" description="Simple example to experiment with different transparencyMode values." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering2.jpg"/>
 
@@ -213,11 +215,11 @@ Example, depth sorted on the left, standard on the right: <Playground id="#FWKUY
 ### Generality
 
 As of 5.0.0, we introduced a new feature on the scene that allows for correct transparency, without any of the considerations above. You don't need to sort your meshes, or use alpha test, OIT handles everything in the rendering process !
-You can just add this simple line : 
+You can just add this simple line :
+
 ```javascript
 scene.useOrderIndependentTransparency = true;
 ```
-<Playground id="#WGZLGJ#3348" title="Order independent transparency" description="Simple example of order independent transparency." image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
 
 Of course, the tradeoff is that, under the hood, the engine will render transparent meshes many more times, consuming effectively more CPU (and GPU to a lesser extent).
 
@@ -233,10 +235,10 @@ This effect is only compatible with WebGL 2 and WebGPU.
 
 ### Known limitations
 
-* Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
-* OIT won't work with refraction textures as the technique just blends pixels at the same location.
-* Post processes where OIT is confirmed to not work:
-    * Anti-aliasing 
+- Due to the way rendering groups work currently, to display an AxesViewer in a scene with order independent transparency, you'll need to force it to use the rendering group 0: <Playground id="#T8UQTA#217" title="Order independent transparency and AxesViewer workaround" description="Workaround to display an AxesViewer in a scene with OIT" image="/img/playgroundsAndNMEs/oitAxesViewer.png"/>
+- OIT won't work with refraction textures as the technique just blends pixels at the same location.
+- Post processes where OIT is confirmed to not work:
+  - Anti-aliasing
 
 ### Support in WebGPU
 

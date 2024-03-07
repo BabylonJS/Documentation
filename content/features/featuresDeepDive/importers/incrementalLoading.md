@@ -16,7 +16,7 @@ These files can be used just like a standard _.babylon_ scene except that they w
 
 You have to put the _.babylonmeshdata_ and _.babylongeometrydata_ files in the same folder as the _.incremental.babylon_ file.
 
-You can find a demo of an incremental scene here: <Playground id="#JA1ND3#84" title="Incremental Loading Example" description="Simple Example of incremental loading assets." image="/img/playgroundsAndNMEs/divingDeeperIncrementalLoading1.jpg"/>
+You can find a demo of an incremental scene here: <Playground id="#JA1ND3#943" title="Incremental Loading Example" description="Simple Example of incremental loading assets." image="/img/playgroundsAndNMEs/divingDeeperIncrementalLoading1.jpg"/>
 
 ## Detailed Step by step
 
