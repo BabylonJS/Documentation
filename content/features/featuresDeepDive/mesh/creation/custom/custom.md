@@ -303,7 +303,7 @@ gives:
 
 In the playground below clicking on next will cycle you through a variety of values for the uv coordinates.
 
-<Playground id="#VKBJN#14" title="Varying UV Values" description="Simple example of varying UV values." image="/img/playgroundsAndNMEs/pg-VKBJN-4.png"/>
+<Playground id="#VKBJN#4340" title="Varying UV Values" description="Simple example of varying UV values." image="/img/playgroundsAndNMEs/pg-VKBJN-4.png"/>
 
 _Notes about Playground above_: The camera has been disabled for the above playground. The uv values are shown and the relative index are shown on the texture image.
 One day this playground might improve. You will get some idea of how to achieve reflections and rotations of textures on a facet. However for a mesh the [arrangement of facets](/features/featuresDeepDive/mesh/facetData) must be considered when trying to achieve a particular texture mapping on the mesh.

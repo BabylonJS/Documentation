@@ -12,7 +12,7 @@ video-content:
 
 There may be times where you'll want to pre-load (store) assets in memory and load those assets from memory into your Babylon scene. This is achievable by using a blob url.
 
-<Playground id="#FIWM5X#1" title="Load Asset From Memory" description="Simple example of loading an asset from memory." image="/img/playgroundsAndNMEs/divingDeeperNodeMaterialParticle1.jpg"/>
+<Playground id="#FIWM5X#1" title="Load Asset From Memory" description="Simple example of loading an asset from memory."/>
 
 The way this works is that you load an asset into memory, convert it to a blob, create a url to that blob in memory, and then you have a url that you can use with any of the loading methods in Babylon.
 

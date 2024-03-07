@@ -45,7 +45,7 @@ On lines 20-24 you see the following lines of code:
 
 ```javascript
 // Our built-in 'sphere' shape.
-var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 
 // Move the sphere upward 1/2 its height
 sphere.position.y = 1;
@@ -103,9 +103,7 @@ Ok it's time for another addition to the scene. After all of your ground-related
 You should see the following lines of code pop right into the playground:
 
 ```javascript
-BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "Mesh filename.fileextension", scene, function(newMeshes){
-
-});
+BABYLON.SceneLoader.ImportMesh("meshName", "url to the mesh parent directory", "Mesh filename.fileextension", scene, function (newMeshes) {});
 ```
 
 Let's do a few more things:
@@ -114,13 +112,13 @@ Let's do a few more things:
 - 2. Replace "url to the mesh parent directory" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.rootUrl
+Assets.meshes.Yeti.rootUrl;
 ```
 
 - 3. Replace the "Mesh filename.fileextension" (including quotes) with this:
 
 ```javascript
-Assets.meshes.Yeti.filename
+Assets.meshes.Yeti.filename;
 ```
 
 - 4. After the `BABYLON.SceneLoader.ImportMesh` line, but before the "});" add the following line:
@@ -131,7 +129,7 @@ newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
 
 - 5. Run the scene
 
-<Playground id="#2KRNG9#3" title="Playground 4" description="Yeti on the dance floor!"/>
+<Playground id="#2krng9#2980" title="Playground 4" description="Yeti on the dance floor!"/>
 
 Whoa! Cool! You just added an animated .gltf object into the scene! And you also scaled it down to fit on the groundplane! Well done!
 
@@ -143,7 +141,7 @@ Press CTRL+SPACE to bring up the playground templates and create an Arc Rotate C
 
 Run the scene and click+drag or touch+drag on the Babylon scene.
 
-<Playground id="#2KRNG9#4" title="Playground 5" description="Move that camera!"/>
+<Playground id="#2krng9#2981" title="Playground 5" description="Move that camera!"/>
 
 WooHoo! You've added interaction to the scene! Great job! Go ahead and save your playground by pressing CTRL+S or hitting the save button.
 
@@ -203,7 +201,7 @@ After your settings are saved you'll see the url to to reach your website! You c
 
 ![url](/img/home/url.jpg?expandable=false)
 
-Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named _config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
+Your project also needs one more file to complete the setup which defines the title and description of your website. It is a file named \_config.yml and if it is not already in your repository, you can simply create one easily. Simply use the `Add File` drop down and select `Create New File`.
 
 ![create text file](/img/home/addNewTextFile.jpg)
 
@@ -221,8 +219,6 @@ description: Website description.
 Once you are done editing the config file, click the `Commit changes...` button to commit the file to the repository. This will bring up a window that asks you to create a commit message and extended description. Entering a message and description will show up in your repository's history, so it is good to be descriptive here. Once you have those entered, select the `Commit directly to the main branch` option and then `Commit changes`.
 
 ![commit text file to repository](/img/home/commitTextFile.jpg)
-
-
 
 Congratulations! You just built and hosted your very first Babylon.js web experience!
 

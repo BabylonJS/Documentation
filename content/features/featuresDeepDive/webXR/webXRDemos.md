@@ -81,7 +81,7 @@ panel.addControl(picker);
 
 <Playground id="#JA1ND3#161" title="Mansion" description="Mansion Demo"/>
 <Playground id="#TJIGQ1#3" title="Hill Valley" description="Hill Valley"/>
-<Playground id="#JA1ND3#164" title="Espilit" description="Espilit"/>
+<Playground id="#ja1nd3#942" title="Espilit" description="Espilit"/>
 
 ## WebXR with Vite
 
