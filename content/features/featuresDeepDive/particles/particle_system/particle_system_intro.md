@@ -16,12 +16,20 @@ The creation of a particle system requires a name and a capacity, which is the m
 const myParticleSystem = new BABYLON.ParticleSystem("particles", capacity, scene); //scene is optional and defaults to the current scene
 ```
 
-Before you can start the system running you need to provide a texture so that the particles can be seen. Also you need to set the point of origin for the particle emissions. You set this as an emitter, i.e. a mesh, whose position provides the emission origin or it can be just a vector3. Particles are emitted from random points inside a region of given size about the emission point of origin.
+### Texture
+Before the particles in the system can be seen, they need to be assigned a texture. This same texture will be used for every particle in the system. By default, the entire texture will be mapped to each particle, though there are some advanced techniques which allow us to use only a portion of the texture for the particle. These techniques can be found in the [Animating Particles](/features/featuresDeepDive/particles/particle_system/animation) section which details how your texture can be used as a sprite sheet. 
+
+### Emitter
+We also need to tell the particle system a location from which the particles will emit. This is called the emitter and it can be represented by a mesh, an abstract mesh, or even a simple Vector3 postion in your scene. The emitter itself is just the base position for emission and in the case of a mesh or an abstract mesh we use the mesh position to determine where particles will emit. Coupled with the emitter is the [Emitter Shape](/features/featuresDeepDive/particles/particle_system/shape_emitters) that determines the region from which particles can emit. We could use a [Box Emitter Shape](/features/featuresDeepDive/particles/particle_system/shape_emitters#box-emitter) with an abstract mesh assigned as the particle system emitter to give us particles that emit from a random point within a box located at the position of the abstract mesh. This is a good way to animate an emitter as the abstract mesh could be the target of a Babylon animation. On each animation frame the emitter location will be updated and new particles will emit within the emitter shape located at the new position of the abstract mesh.
+
+### Example
+The following code samples show the bare minimum needed to create a particle system.
 
 ```javascript
 myParticleSystem.particleTexture = new BABYLON.Texture("path to texture");
 
-myParticleSystem.emitter = mesh;
+myParticleSystem.emitter = mesh; // a mesh or abstract mesh in the scene
+// or
 myParticleSystem.emitter = point; //a Vector3
 
 myParticleSystem.start(); //Starts the emission of particles
