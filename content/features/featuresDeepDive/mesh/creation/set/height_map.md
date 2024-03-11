@@ -78,7 +78,7 @@ Another example showing basic lighting, height-maps and a [skybox](/features/fea
 
 ### Tips.
 
-If a height-map negatively impacts performance try reducing the subdivisions to reduce the number of polygons on the mesh. For further documentation go [here](https://doc.babylonjs.com/typedoc/classes/babylon.groundbuilder#creategroundfromheightmap).
+If a height-map negatively impacts performance try reducing the subdivisions to reduce the number of polygons on the mesh. For further documentation go to the [CreateGroundFromHeightMesh](https://doc.babylonjs.com/typedoc/modules/BABYLON#CreateGroundFromHeightMap-2) API reference.
 
 #### Playground examples.
 
