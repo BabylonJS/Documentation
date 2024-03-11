@@ -69,7 +69,7 @@ but with no jittering.
 
 You can find a working playground example with OriginCamera and Entity classes here:  
 
-<Playground id="#LHI514#3" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
+<Playground id="#LHI514#66" title="Floating-Origin" description="A simple example of huge scene far from world's origin using floating-origin trick." image="/img/playgroundsAndNMEs/divingDeeperFloatingOrigin.jpg"/>
 
 
 If you decide to use floating-origin, all your objects will have to use the same trick,
@@ -122,6 +122,8 @@ can have one Entity instance for each region of your scene, a region which does 
 than let's say 10,000 units to avoid imprecision again. Then, you can add many objects that are
 always in that region to just one Entity. Doing that, you can even move those objects by using
 their positions directly, as you would do normally. And still, no imprecision will be seen anymore.
+
+Article and code written by Vander R. N. Dias
 
 [^1]: Chris Thorne, 2005. Using a Floating Origin to Improve Fidelity and Performance of Large Distributed Virtual Worlds
 [^*]: The original article by Chris Thorne uses single-precision floats.
