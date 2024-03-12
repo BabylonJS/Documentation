@@ -28,7 +28,7 @@ meshC.setParent(meshP); //2
 meshP.addChild(meshC); //3
 ```
 
-The order you set transformations, such as position or rotation, to the parent mesh will affect the result using methods 2 and 3 above.
+... however the resulting behavior won't always match perfectly. Specifically, the order in which you set position and apply rotation to the parent mesh will affect the result if method 2 or 3 (but not if method 1) was used.
 
 The following playgrounds show the different behaviors
 
