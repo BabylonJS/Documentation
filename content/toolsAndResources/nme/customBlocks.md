@@ -10,7 +10,7 @@ video-content:
 
 ## Custom Blocks
 
-Starting with v5.0 you can now create custom blocks by wrapping some plain GLSL code. It can come in handy when you have some complicated code that could be difficult to recreate with the existing node material blocks.
+Starting with v5.0 you can now create custom blocks by wrapping some plain [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code. It can come in handy when you have some complicated code that could be difficult to recreate with the existing node material blocks.
 
 ### Register Custom Blocks with the NME
 
@@ -66,7 +66,7 @@ Most of the properties should be self-explanatory. Here are the possible values 
 
 As this block allows any type of input (**Float**, **Vector3**, etc as the **AutoDetect** value shows for the **left** and **right** parameter types), the type of **output** is set to `BasedOnInput` to inherit the value of the input that will be plugged to **left** (value of `typeFromInput`) at runtime. Also, we want the types of the **left** and **right** inputs to be the same (once an input is plugged, the other one should inherit the same type), that's why we have a `inLinkedConnectionTypes` section in the file.
 
-As the types are not known at the time we create the .json file, we must reference them in the GLSL code by using the special syntax `{TYPE_XXX}` where **XXX** is the name of an input/output: at runtime, these constructs will be replaced by the right type (**float**, **vec2**, etc).
+As the types are not known at the time we create the .json file, we must reference them in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code by using the special syntax `{TYPE_XXX}` where **XXX** is the name of an input/output: at runtime, these constructs will be replaced by the right type (**float**, **vec2**, etc).
 
 Note that we used a `myHelper_{TYPE_left}` helper function only to demonstrate that you can use other functions in the code, you don't have to write all your code in the main function.
 

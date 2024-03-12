@@ -57,7 +57,7 @@ Uniforms can be of type:
 
 **Textures2D** are 2D image files that are passed to the shader code as **sampler2D** variables. They can be read by the shader code and be used to create the final pixel color. You only need to provide a name and the relative path inside the folder.
 
-The **custom.fragment.fx** file contains the GLSL code. The purpose of this wiki article is not to teach you how to create a fragment shader or how it works. You simply need to know that the code contained in your main function will be called once for each pixel to create on the texture. In this main function, you only know the coordinates of the current pixel in the final texture.
+The **custom.fragment.fx** file contains the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code. The purpose of this wiki article is not to teach you how to create a fragment shader or how it works. You simply need to know that the code contained in your main function will be called once for each pixel to create on the texture. In this main function, you only know the coordinates of the current pixel in the final texture.
 
 Here is a simple code which is setting all pixels to a specific gray.
 

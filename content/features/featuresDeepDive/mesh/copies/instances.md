@@ -50,7 +50,7 @@ Note: related are **thin instances**, if you want yet more performances but with
 
 ## Use Instances with Node Material
 
-The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write GLSL. To use a Node Material in a mesh with Instances, you need to add the Instances node to it so that the object is properly instanced:
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Instances, you need to add the Instances node to it so that the object is properly instanced:
 
 ![Use Instances with Node Material](/img/how_to/instances-node.png)
 

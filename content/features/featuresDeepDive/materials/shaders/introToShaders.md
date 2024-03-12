@@ -111,7 +111,7 @@ precision highp float
 
 ## Built In Variables
 
-The GLSL language has a number of built in variables. Two are vital to the operation of the two shaders and are always necessary:
+The [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) language has a number of built in variables. Two are vital to the operation of the two shaders and are always necessary:
 
 | Variable     | Description                                                    |
 | ------------ | -------------------------------------------------------------- |

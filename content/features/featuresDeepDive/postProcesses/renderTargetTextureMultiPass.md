@@ -75,7 +75,7 @@ scene.customRenderTargets.push(renderTarget);
 renderTarget.setMaterialForRendering(ground, causticMaterial);
 ```
 
-For the final pass we'll create a shader to merge the base render (which will be provided in the GLSL as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
+For the final pass we'll create a shader to merge the base render (which will be provided in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) as `textureSampler`) and the caustic texture, which we declare here as `causticTexture`. 
 
 ```javascript
 // create the final pass composer

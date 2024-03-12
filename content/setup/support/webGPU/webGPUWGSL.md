@@ -8,14 +8,14 @@ video-overview:
 video-content:
 ---
 
-Currently, all shaders used by **Babylon.js** are written in GLSL and are converted to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) (the only shader language that WebGPU knows about) by some special tools.
+Currently, all shaders used by **Babylon.js** are written in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) and are converted to [WGSL](https://gpuweb.github.io/gpuweb/wgsl/) (the only shader language that WebGPU knows about) by some special tools.
 
-So, even in WebGPU, if you use a `CustomMaterial` or a `PBRCustomMaterial` to inject some custom shader code, you must write it in GLSL.
+So, even in WebGPU, if you use a `CustomMaterial` or a `PBRCustomMaterial` to inject some custom shader code, you must write it in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language).
 
 If you want to write shader code in the WGSL language, you can either write a [compute shader](/features/featuresDeepDive/materials/shaders/computeShader) or use the [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) class to wrap a vertex/fragment shader. The latter is the subject of this page.
 
 ## Using ShaderMaterial to write WGSL code
-You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write GLSL but with some small differences.
+You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) but with some small differences.
 
 Note: if you use the "color" attribute in your shader code, don't add it to the **attributes** property passed to the `ShaderMaterial` constructor! This attribute will be automatically added if a vertex buffer named "color" is attached to the mesh. If you add "color" to the **attributes** array, you will get an error like "Attribute shader location (1) is used more than once".
 
@@ -101,7 +101,7 @@ fn main(input : VertexInputs) -> FragmentInputs {
 ```
 
 ## Special syntax used in WGSL code
-Unlike computational shaders that use ordinary WGSL code, the shader code you write for `ShaderMaterial` must use special syntax to work with the existing workflow. To make it easier for developers, the declaration of variables is the same as that used in GLSL:
+Unlike computational shaders that use ordinary WGSL code, the shader code you write for `ShaderMaterial` must use special syntax to work with the existing workflow. To make it easier for developers, the declaration of variables is the same as that used in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language):
 * declaring a varying variable:
 ```glsl
 varying varName : varType;
@@ -115,7 +115,7 @@ attribute varName : varType;
 uniform varName : varType;
 ```
 
-Contrary to GLSL, the inputs and outputs of the vertex/fragment shader are not declared as separate global variables internally, but are defined in some structures which are managed by the engine for you. However, it means that you need a special syntax to access these variables. Here is the mapping between the GLSL syntax and the WGSL syntax:
+Contrary to [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), the inputs and outputs of the vertex/fragment shader are not declared as separate global variables internally, but are defined in some structures which are managed by the engine for you. However, it means that you need a special syntax to access these variables. Here is the mapping between the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) syntax and the WGSL syntax:
 * In the vertex shader:
   * an attribute must be referenced by `vertexInputs.attributeName`
   * `gl_VertexID` => `vertexInputs.vertexIndex`
@@ -130,8 +130,8 @@ Contrary to GLSL, the inputs and outputs of the vertex/fragment shader are not d
   * `gl_FragDepth` => `fragmentOutputs.fragDepth`
 
 Notes:
-* When using the `uniform varName : varType` syntax, you access the variable by doing `uniforms.varName`, not simply `varName`. The variables declared that way can be set from the javascript code by using the regular methods of the `ShaderMaterial` class (`setFloat`, `setInt`, etc) as with GLSL
-* `varType` must use a WGSL syntax, not GLSL! For eg: `varying vUV : vec2<f32>;`
+* When using the `uniform varName : varType` syntax, you access the variable by doing `uniforms.varName`, not simply `varName`. The variables declared that way can be set from the javascript code by using the regular methods of the `ShaderMaterial` class (`setFloat`, `setInt`, etc) as with [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language)
+* `varType` must use a WGSL syntax, not [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language)! For eg: `varying vUV : vec2<f32>;`
 * you must **NOT** add the `@group(X) @binding(Y)` decoration! The system will add them automatically
 
 ## Using new objects available in WGSL
@@ -171,7 +171,7 @@ On the javascript side, you have the corresponding methods to set a value to the
 ## Examples
 This playground is a basic example of using WGSL in a `ShaderMaterial`: <Playground id="#6GFJNR#178" image="/img/playgroundsAndNMEs/pg-6GFJNR-164.png" engine="webgpu" title="Basic example of WGSL with ShaderMaterial" description="Demonstrate how to write WGSL code with the ShaderMaterial class"/>
 
-As when using GLSL, `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#155" image="/img/playgroundsAndNMEs/pg-8RU8Q3-126.png" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
+As when using [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language), `ShaderMaterial` supports morphs, bones and instancing in WGSL. You will need to add the appropriate includes in your code to support these features. See how it is done in this playground (this example also demonstrates how to use a storage texture and a storage buffer): <Playground id="#8RU8Q3#155" image="/img/playgroundsAndNMEs/pg-8RU8Q3-126.png" engine="webgpu" title="Advanced usage of the ShaderMaterial class" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support bones, morphs and instances"/>
 
 You can also use the new in 5.0 baked vertex animation feature as well as clip planes. See: <Playground id="#8RU8Q3#156" image="/img/playgroundsAndNMEs/pg-8RU8Q3-106.png" engine="webgpu" title="Using BVA and clip planes in WGSL" description="Demonstrate how to write WGSL code with the ShaderMaterial class to support baked vertex animations and clip planes"/>
 

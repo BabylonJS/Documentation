@@ -55,7 +55,7 @@ Variables you pass to a compute shader can be of the following types:
 ## Shader language and input bindings
 The compute shader must be written in [WGSL](https://gpuweb.github.io/gpuweb/wgsl/), which is the shader language used by [WebGPU](/setup/support/webGPU).
 
-As GLSL shaders can be stored in `ShaderStore.ShadersStore`, WGSL shaders can be stored in `ShaderStore.ShadersStoreWGSL` and you can pass the name of the key used to store the shader in this object to the `ComputeShader` constructor. You can also directly pass the shader code to the constructor (as done in the example above).
+As [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shaders can be stored in `ShaderStore.ShadersStore`, WGSL shaders can be stored in `ShaderStore.ShadersStoreWGSL` and you can pass the name of the key used to store the shader in this object to the `ComputeShader` constructor. You can also directly pass the shader code to the constructor (as done in the example above).
 
 Browsers do not currently support reflection for WGSL shaders, meaning we are not able to automatically retrieve the binding and group values of the input variables, as seen here:
 ```wgsl

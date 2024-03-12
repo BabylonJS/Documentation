@@ -78,7 +78,7 @@ A Material defines:
 
 Which shader to use for rendering this material.
 The specific values for the shader’s parameters - such as which texture maps, the color and numeric values to use.
-Custom Shaders are meant to be written by graphics programmers. They are created using the GLSL shader language, which is quite simple. However, getting a shader to work well on a variety graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
+Custom Shaders are meant to be written by graphics programmers. They are created using the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shader language, which is quite simple. However, getting a shader to work well on a variety graphics cards is an involved job and requires a fairly comprehensive knowledge of how graphics cards work.
 
 ## Babylon Shader Material Pipeline
 
