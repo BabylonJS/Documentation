@@ -40,7 +40,7 @@ When you are creating your textures, you can specify the format for the normal m
 This would seem to be a simple conversion from OpenGL to DirectX formats when using a glTF, but there is another issue that complicates this matter.
 
 * glTF uses a right-handed coordinate system
-* Babylon.js uses a left-handed coordinate system
+* Babylon.js uses a [left-handed coordinate system](https://www.google.com/search?q=left-handed+3D+coordinate+system&ie=UTF-8)
 
 This is important for this reason:
 

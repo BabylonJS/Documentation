@@ -14,7 +14,7 @@ Some devices and browsers support tracking the hand joints directly, with no nee
 
 25 points on each hand are being tracked and delivered to you on each frame. Babylon's hand tracking feature uses this information to constantly update the WebXRHand object and its 25 childrens' transformations.
 
-Please note that when referring to "hands" on this page we are referring to the actual handedness of the user and not left-handed vs. right-handed system. WebXR is right-handed in its nature.
+Please note that when referring to "hands" on this page we are referring to the actual handedness of the user and not [left-handed vs. right-handed coordinate system](https://www.google.com/search?q=left-handed+3D+coordinate+system&ie=UTF-8). WebXR is right-handed in its nature.
 
 ### Getting started
 

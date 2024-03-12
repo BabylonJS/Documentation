@@ -308,7 +308,7 @@ Just like the WebVR camera, the controllers export their (right-handed!) raw pos
 
 ## Notes
 
-- The WebVR camera supports both left-handed systems and right-handed systems.
+- The WebVR camera supports both [left- and right-handed systems](https://www.google.com/search?q=left-handed+3D+coordinate+system&ie=UTF-8).
 - To further read about WebVR try https://mozvr.com/ .
 
 Enjoy!
