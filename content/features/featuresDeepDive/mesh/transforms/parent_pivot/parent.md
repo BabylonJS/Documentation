@@ -18,7 +18,7 @@ Using a parent is an alternative method to using a Babylon.js [pivot](/features/
 
 Making mesh P a parent of mesh C, the child mesh, changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
-Please note that none uniform scaling e.g. the scale values on every axes are not the same is not supported on parent nodes. Indeed, the decomposition of such Matrix would result in supporting shear at the transform level which has not been added for performance concerns.
+Please note that non-uniform scaling (scaling with different values on different axes) is not supported on parent nodes. Indeed, decomposition of such a Matrix would result in supporting [shear mapping]([url](https://en.wikipedia.org/wiki/Shear_mapping)) at the transform level. That has not been added out of concern for performance.
 
 To parent mesh C to mesh P you use any of these three methods
 
