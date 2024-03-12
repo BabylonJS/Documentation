@@ -69,8 +69,8 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingBottom: 16,
         },
         examplesContainer: {
-            backgroundColor: theme.customPalette.examples.backgroundColor
-        }
+            backgroundColor: theme.customPalette.examples.backgroundColor,
+        },
     }),
 );
 export const SearchResults: FunctionComponent<{}> = () => {
@@ -167,6 +167,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                 description: "Search page for Babylon.js documentation site. Search for documents and code examples",
                 imageUrl: "",
                 keywords: "search, documentation, query, examples, playground",
+                robots: query || results.length ? "noindex, nofollow" : "index, follow",
             }}
             id={["search"]}
         >
