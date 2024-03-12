@@ -5,8 +5,8 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material/styles";
@@ -16,7 +16,7 @@ import { getImageUrl } from "../lib/frontendUtils/frontendTools";
 import { IPageProps } from "../lib/content.interfaces";
 import { SideMenu } from "./sideMenu.component";
 import { useRouter } from "next/dist/client/router";
-import { useContext } from "react"
+import { useContext } from "react";
 import { ColorModeContext } from "../pages/_app";
 
 export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"].join(", ");
@@ -206,21 +206,23 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     };
     const router = useRouter();
     const baseDomain = "https://doc.babylonjs.com";
-    const { title, description, keywords, imageUrl } = disableMetadataAugmentation
+    const { title, description, keywords, imageUrl, robots } = disableMetadataAugmentation
         ? metadata
         : {
               title: `${metadata.title} | Babylon.js Documentation`,
               description: metadata.description,
               keywords: `${metadata.keywords},${defaultKeywords}`,
               imageUrl: getImageUrl(metadata.imageUrl),
+              robots: metadata.robots || "index, follow",
           };
 
     const MenuStructure = <SideMenu items={menuStructure} selected={`/${id.join("/")}`}></SideMenu>;
     const indexOfQuery = router.asPath.indexOf("?");
     const url = baseDomain + (id.indexOf("search") !== -1 || id.indexOf("playground") !== -1 ? router.asPath : indexOfQuery !== -1 ? router.asPath.substring(0, indexOfQuery) : router.asPath);
     const setCanonical = id.indexOf("search") === -1 && id.indexOf("playground") === -1 && indexOfQuery !== -1;
-    const theme = useTheme()
+    const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
+    const defaultRobots = "index, follow";
     return (
         <div className={classes.root}>
             <Head>
@@ -236,6 +238,7 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 {!!previous && <link rel="prev" href={baseDomain + "/" + previous.id.join("/")} />}
                 {!!next && <link rel="next" href={baseDomain + "/" + next.id.join("/")} />}
                 {setCanonical && <link rel="canonical" href={url} />}
+                <meta name="robots" content={robots} />
             </Head>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.appBarToolbar}>
@@ -281,8 +284,8 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             <GithubIcon />
                         </IconButton>
                     </Link>
-                    <IconButton aria-label={"Toggle " + (theme.palette.mode === 'dark' ? 'light' : 'dark') + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
-                        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    <IconButton aria-label={"Toggle " + (theme.palette.mode === "dark" ? "light" : "dark") + " mode"} size="medium" color="inherit" onClick={colorMode.toggleColorMode}>
+                        {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                 </Toolbar>
                 <div className={classes.navContainer}>
