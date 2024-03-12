@@ -52,7 +52,7 @@ The initial position of the main body is set by the values of the main pivot and
 
 The main body is orientated so that the connected axis and the main axis align but can be in the opposite directions.
 
-When the position and orientation of the bodies' imposters set by their pivots do not match the position of the bodies' meshes then, at the start, movement of the bodies can occur as the meshes re-position to that given by the pivots. 
+When the position and orientation of the bodies' imposters set by their pivots do not match the position of the bodies' meshes then, at the start, movement of the bodies can occur as the meshes reposition to that given by the pivots. 
 
 **Note** In some instances pivot and axes in `Cannon.js` can result in the an axis or movement of the body in the opposite direction to those of `Oimo.js` and `Ammo.js`.
 
