@@ -16,7 +16,7 @@ video-content:
 
 Using a parent is an alternative method to using a Babylon.js [pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. To rotate or scale a mesh using a parent as a center of transformation you apply the rotation or scaling vectors to the parent. This is different to using a Babylon.js pivot to rotate or scale a mesh.
 
-Making mesh P a parent of mesh C, the child mesh, changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
+Making mesh P a parent of mesh C, changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
 Please note that none uniform scaling e.g. the scale values on every axes are not the same is not supported on parent nodes. Indeed, the decomposition of such Matrix would result in supporting shear at the transform level which has not been added for performance concerns.
 
