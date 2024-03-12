@@ -117,7 +117,7 @@ connectedAxis: new BABYLON.Vector3(1, 0, 0)
 
 ## Playground Examples  - Connected Axle Has Zero Mass and Position or Rotation Non-Zero
 
-Any translation or rotation of the connected axle results in the same transformation being applied to the whole hinge joint system.
+Any [translation](/typedoc/classes/babylon.transformnode#translate) or rotation of the connected axle results in the same transformation being applied to the whole hinge joint system.
 
 (F) Parameter Settings
 ```javascript

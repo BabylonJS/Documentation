@@ -98,7 +98,7 @@ Some entities offer shortcuts to contextual actions.
 
 The scene shortcuts are the following:
 
-- The first 3 actions will turn on a specific gizmo mode (translation, rotation, scaling). When you click on one of them you can then click on a node in the Scene explorer or directly in your scene and it will be controllable with a gizmo:
+- The first 3 actions will turn on a specific gizmo mode ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scaling). When you click on one of them you can then click on a node in the Scene explorer or directly in your scene and it will be controllable with a gizmo:
 
 ![gizmo](/img/features/debuglayer/gizmo.jpg)
 
