@@ -16,19 +16,19 @@ video-content:
 
 Using a parent is an alternative method to using a Babylon.js [pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots) to set the center of transformation for a mesh, that is the point used as the center of rotation or the center of enlargement. To rotate or scale a mesh using a parent as a center of transformation you apply the rotation or scaling vectors to the parent. This is different to using a Babylon.js pivot to rotate or scale a mesh.
 
-Making mesh P a parent of mesh C, the child mesh, changes the frame of reference for mesh C to the local axes of mesh P. Re-positioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotation and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
+Making mesh P a parent of mesh C, changes the frame of reference for mesh C to the local axes of mesh P. Repositioning, rotating or scaling mesh P will apply the same transformations to mesh C. Positioning, rotating and scaling of mesh C will depend on the position and orientation of the local axes of C relative to those of P.
 
 Please note that non-uniform scaling (scaling with different values on different axes) is not supported on parent nodes. Indeed, decomposition of such a Matrix would result in supporting [shear mapping]([url](https://en.wikipedia.org/wiki/Shear_mapping)) at the transform level. That has not been added out of concern for performance.
 
 To parent mesh C to mesh P you use any of these three methods
 
 ```javascript
-meshC.parent = meshP; //1
-meshC.setParent(meshP); //2
-meshP.addChild(meshC); //3
+meshC.parent = meshP; // 1
+meshC.setParent(meshP); // 2
+meshP.addChild(meshC); // 3
 ```
 
-The order you set transformations, such as position or rotation, to the parent mesh will affect the result using methods 2 and 3 above.
+... however the resulting behavior won't always match perfectly. Specifically, the order in which you set position and apply rotation to the parent mesh will affect the result if method 2 or 3 (but not if method 1) was used.
 
 The following playgrounds show the different behaviors
 
@@ -37,15 +37,15 @@ The following playgrounds show the different behaviors
 <Playground id="#NRNBMM#2" title="Transform P Before and C After Parenting" description="Simple example of transforming P before and C after parenting."/>
 <Playground id="#NRNBMM#3" title="Transform C and P Before Parenting" description="Simple example of transforming C and P before parenting."/>
 
-To remove a child, mesh C, from a parent, mesh P you use any of
+To remove a child (mesh C) from a parent (mesh P) use any of these methods
 
 ```javascript
-meshC.parent = null;
-meshC.setParent(null);
-meshP.removeChild(meshC);
+meshC.parent = null; // 1
+meshC.setParent(null); // 2
+meshP.removeChild(meshC); // 3
 ```
 
-The following playground shows that setting a child's parent mesh P, directly to null, `meshC.parent = null`, not only removes the parent from the child, mesh C (red), but also removes from mesh C any transformation applied via mesh P leaving only the transformations applied directly to mesh C. Using this method, on the removal of the parent, the position, rotation and scale of mesh C will be seen as changed in the scene view. The other two methods, `meshC.setParent(null)` and `meshP.removeChild(meshC)`, just removes the link to the parent and any transformation to mesh C applied via mesh P up to the point of removal will remain. Using these methods, on the removal of the parent, the position, rotation and scale of mesh C will be seen as as the same in the scene view.
+The following playground demonstrates how using method #1 does not _just_ remove the parent from the child (mesh C, red in color), but _also_ removes from the child any transformations applied via the parent and leaves only the transformations applied directly to the child mesh. The moment when the parent is removed from mesh C using method #1, position, rotation and scale of mesh C will visibly change in the scene view. Methods #2 and #3 do remove the parent-child relationship, but any transformations to mesh C applied via mesh P up to the point of removal will remain. Position, rotation and scale of mesh C will never visibly change when its parent is removed using method #2 or #3.
 
 <Playground id="#XQI4UY#19" title="Removing a Parent" description="Simple example of removing a parent."/>
 

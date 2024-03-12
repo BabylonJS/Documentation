@@ -16,6 +16,6 @@ When a parent is set on a child mesh, transforming a parent will apply the same 
 
 Depending on the method used to produce the parent child relationship any transformations made to the parent prior to assigning it  children may also be applied to the children when the parent is assigned. It usually makes sense not to rotate or move a child until after you've assigned it to the parent.
 
-When a pivot is set on a mesh, re-positioning the mesh will re-position the pivot so that its placement relative to the mesh is not changed. Rotation and scaling of the mesh take place relative to the pivot. More simply, moving the mesh will move the pivot and moving the pivot will not move the mesh.
+When a pivot is set on a mesh, repositioning the mesh will reposition the pivot so that its placement relative to the mesh is not changed. Rotation and scaling of the mesh take place relative to the pivot. More simply, moving the mesh will move the pivot and moving the pivot will not move the mesh.
 
 Using a pivot can be tricky and a number of methods are available. Some of these methods, but not all, may actually change the _local origin_ of a mesh.

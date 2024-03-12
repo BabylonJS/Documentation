@@ -106,7 +106,7 @@ this.scene.getLightByName("sparklight").parent = this.scene.getTransformNodeByNa
 
 In the Player Constructor, we just need to set its parent to the TransformNode that was placed in the character's blender file.
 
-Lastly, since we've brought in our new environment and character mesh, we need to re-position the player. I've created a special TransformNode for this inside of the player mesh itself. So, where we were setting the character position previously, we just need to change it to use this TransformNode:
+Lastly, since we've brought in our new environment and character mesh, we need to reposition the player. I've created a special TransformNode for this inside of the player mesh itself. So, where we were setting the character position previously, we just need to change it to use this TransformNode:
 
 ```javascript
 scene.getMeshByName("outer").position = scene.getTransformNodeByName("startPosition").getAbsolutePosition(); //move the player to the start position
