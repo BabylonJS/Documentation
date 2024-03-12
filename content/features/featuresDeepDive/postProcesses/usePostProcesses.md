@@ -259,7 +259,7 @@ You can easily create new filters by using a image editing software to alter the
 
 You can also develop your own postprocess using `BABYLON.PostProcess` object.
 
-To do so, you need to create a .fragment.fx file, a shader-storing DOM node, or a ShaderStore entry where you will store the GLSL shader code used for every pixel of the screen:
+To do so, you need to create a .fragment.fx file, a shader-storing DOM node, or a ShaderStore entry where you will store the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shader code used for every pixel of the screen:
 
 ```javascript
 

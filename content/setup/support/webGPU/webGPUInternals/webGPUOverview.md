@@ -21,7 +21,7 @@ These are the core classes used in the WebGPU implementation.
 
 ### WebGPUEngine
 This class is the main entry point for the WebGPU implementation. It extends `Engine` and implements all the API needed by the higher layers to work with WebGPU. Some parts of the implementation are dispatched in the `WebGPU/Extensions/` files in much the same way it is done for WebGL (in `Engines/Extensions/` for WebGL).
-* we currently use the same GLSL shaders in **WebGPU** that we use in **WebGL**. Those shaders are converted to **SpirV** thanks to **GLSLlang** and **SpirV** is converted to **WGSL** by a port of `Tint` to **WASM** (**TintWASM**).
+* we currently use the same [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) shaders in **WebGPU** that we use in **WebGL**. Those shaders are converted to **SpirV** thanks to **GLSLlang** and **SpirV** is converted to **WGSL** by a port of `Tint` to **WASM** (**TintWASM**).
 * we are using 2 command encoders: *upload* and *render*. *upload* is used when we need to upload data into textures, *render* is used to render into render targets and for the main render pass (when rendering into the swap chain texture). They are pushed into the queue in this order: *upload* -> *render*. Note that if a compute shader must be executed, the current render pass of the *render* command encoder is closed, the compute shader is executed, and the render pass is reopened. The same process happens when generating the mipmaps for a render target, as this requires to create a new render pass and two render passes can't be opened at the same time on a given command encoder
 * the GPU timing (that can be seen in the *Inspector* under **Statistics / GPU Frame time**) is done using timestamp queries, but for the time being Chrome does not allow those queries by default: Chrome must be started with the `--enable-dawn-features=allow_unsafe_apis` flag to make it work
 * `_ubInvertY` and `_ubDontInvertY` are the two uniform buffers used to implement the rendering without the CSS `yScale(-1)` trick (and thus saving a copy at the end of each frame): see [this comment](https://github.com/BabylonJS/Babylon.js/pull/11616#issue-1077008145) for more information.
@@ -105,7 +105,7 @@ This is a specialization of `StencilStateComposer`. As for `WebGPUDepthCullingSt
 These are classes that deal with shaders and shader contexts. Note that **Pipeline** in this context has nothing to do with the WebGPU pipeline concept from the spec! Here it means the shader context.
 
 ### WebGPUShaderProcessor, WebGPUShaderProcessorGLSL, WebGPUShaderProcessorWGSL
-`WebGPUShaderProcessor` is the base class used by both `WebGPUShaderProcessorGLSL` and `WebGPUShaderProcessorWGSL` and is used by the system to parse a shader: written in GLSL for `WebGPUShaderProcessorGLSL` and in WGSL for `WebGPUShaderProcessorWGSL`.
+`WebGPUShaderProcessor` is the base class used by both `WebGPUShaderProcessorGLSL` and `WebGPUShaderProcessorWGSL` and is used by the system to parse a shader: written in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) for `WebGPUShaderProcessorGLSL` and in WGSL for `WebGPUShaderProcessorWGSL`.
 
 The main task of these classes is to collect the list of buffers, uniforms, attributes, textures and samplers and create the related WebGPU objects, like the bind group layout entries and the bind group entries. Those objects are stored in a `WebGPUShaderProcessingContext` instance. The shader code is also modified so that it complies with the syntax expected by **glsllang**.
 
