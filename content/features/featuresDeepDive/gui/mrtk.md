@@ -136,7 +136,7 @@ The following are the core properties that can be set to customize the behavior:
 
 #### Bounding Box Gizmo
 
-The `BoundingBoxGizmo` is also known as MRTK's `Bounds Control` component. This creates small objects that surround the attached mesh, which can be interacted with to rotate, scale, and translate the attached mesh.
+The `BoundingBoxGizmo` is also known as MRTK's `Bounds Control` component. This creates small objects that surround the attached mesh, which can be interacted with to rotate, scale, and [translate](/typedoc/classes/babylon.transformnode#translate) the attached mesh.
 
 ## Background Features
 
