@@ -46,6 +46,7 @@ const ragdoll = new BABYLON.Ragdoll(skeleton, newMeshes[0], config);
 ```
 
 Next step is to create the ragdoll instance. This is done in 1 line and user must provide the skeleteon, the skinned mesh and the configuration.
+Once instanciated, the ragdoll is in Kinematic mode: Physicalized bones can interact with other physics body but it's the animation that drives the physics.
 
 At any moment after, to make the ragdoll dynamicaly updated, call:
 
@@ -55,5 +56,20 @@ ragdoll.ragdoll();
 
 Dispose the ragdoll to stop it.
 
+## Interactions
+
+Get the aggregate associated with a bone with `getAggregate` function. The returned aggregate functions like any other aggregate: it's possible to get the shape or body and apply impulse.
+
+```javascript
+ragdoll.getAggregate(0)?.body.applyImpulse(new BABYLON.Vector3(200,200,200), BABYLON.Vector3.ZeroReadOnly);
+```
+
+## Limitations
+
+Imported .GLTF/.GLB will only work as ragdoll in Right Handed scenes. In Left Handed scenes, an intermediate Transform Node is added at the root to emulate the LH/RH coordinate switch.
+This intermediate transform is not supported by the ragdoll physics to bone conversion.
+
 <Playground id="#V6FLZP#1" title="Bunny ragdoll" description="Ragdoll sample using a bunny plush" isMain={true} category="Physics"/>
+
+<Playground id="#DLPNQT#0" title="Animated character" description="Ragdoll with an animated character and the ability to apply impulse" isMain={true} category="Physics"/>
 
