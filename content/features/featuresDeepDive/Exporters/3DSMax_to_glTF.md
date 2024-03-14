@@ -236,7 +236,7 @@ To do it simply, a root node named "root" is added to the scene. All nodes are s
 
 ## Consideration about skins
 
-In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible of its transformation (translation, rotation, scale).
+In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible of its transformation ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scale).
 
 ## Textures image format
 

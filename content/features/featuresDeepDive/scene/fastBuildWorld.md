@@ -35,7 +35,7 @@ scene.createDefaultEnvironment();
 
 <Playground id="#MJNICE" title="The Quickest Way To Build A World" description="Simple example of creating a world with createDefaultEnviornment." isMain={true} category="Environment"/>
 
-You can see how the camera automatically adjusts by adding a second box and re-positioning it
+You can see how the camera automatically adjusts by adding a second box and repositioning it
 
 <Playground id="#MJNICE#3" title="Fast Build With Camera Adjust" description="Simple example of building a world quickly and adjusting the camera."/>
 

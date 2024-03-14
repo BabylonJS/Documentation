@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         emptySearchContainer: {
-            width:'100%',
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -80,10 +80,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         formControl: {},
         loadingCircular: {
-            position: 'absolute',
-            top: '50%',
-            right: 'calc(50% - 40px)'
-        }
+            position: "absolute",
+            top: "50%",
+            right: "calc(50% - 40px)",
+        },
     }),
 );
 export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
@@ -98,6 +98,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const [type, setType] = useState<SearchType>(queryType || "code");
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [noResults, setNoResults] = useState<boolean>(false);
+    const [error, setError] = useState<string>("");
     const classes = useStyles();
 
     const searchRef = useRef<HTMLDivElement>();
@@ -114,18 +115,21 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         setType(queryType);
         setLoading(true);
         setActiveExample(null);
-        // console.log(`${baseQueryURL}/${queryType}/`);
         fetch(`${baseQueryURL}/${queryType}/`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
-            body: JSON.stringify({ search: query, page: page, pageSize: 25, includePayload: false }),
+            body: JSON.stringify({ search: query, page, pageSize: 10, includePayload: false }),
         })
             .then((result) => {
+                if (!result.ok) {
+                    setLoading(false);
+                    setError("Error fetching results. Please try again later.");
+                    return;
+                }
                 result.json().then((json) => {
                     if (json.length === 0) {
-                        // console.log("no results");
                         setNoResults(true);
                     }
                     setResults(json);
@@ -145,6 +149,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             body: JSON.stringify({ search: query }),
         })
             .then((result) => {
+                if (!result.ok) return;
                 result.json().then((json) => {
                     setCount(json);
                 });
@@ -153,9 +158,10 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     }, [query, queryType]);
 
     useEffect(() => {
-        if (!query || query === "undefined") {
+        if (!query || query === "undefined" || page === 0) {
             return;
         }
+        setError("");
         setLoading(true);
         // console.log("fetching");
         fetch(`${baseQueryURL}/${type}/`, {
@@ -163,9 +169,14 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
-            body: JSON.stringify({ search: query, page: page, pageSize: 25, includePayload: false }),
+            body: JSON.stringify({ search: query, page, pageSize: 10, includePayload: false }),
         })
             .then((result) => {
+                if (!result.ok) {
+                    setLoading(false);
+                    setError("Error fetching results. Please try again later.");
+                    return;
+                }
                 result.json().then((json) => {
                     setResults([...results, ...json]);
                     setLoading(false);
@@ -241,9 +252,10 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
             breadcrumbs={generateBreadcrumbs()}
             metadata={{
                 title: "Playground search page",
-                description: "Playground earch page for Babylon.js documentation site",
+                description: "Playground search page for Babylon.js documentation site",
                 imageUrl: "",
                 keywords: "search, documentation, query, playground",
+                robots: query || results.length ? "noindex, nofollow" : "index, follow",
             }}
             id={["playground"]}
         >
@@ -257,6 +269,11 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                         {noResults && (
                             <Typography component="h5" variant="h5">
                                 No results found for {query} in {queryType}
+                            </Typography>
+                        )}
+                        {error && (
+                            <Typography component="h5" variant="h5">
+                                {error}
                             </Typography>
                         )}
                     </div>
@@ -292,8 +309,9 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                             )}
                             {!!count && !loading && count > results.length && (
                                 <Button
-                                    disabled={loading}
+                                    disabled={loading || page > 4}
                                     onClick={() => {
+                                        if (page > 4) return;
                                         setPage(page + 1);
                                     }}
                                     variant="contained"

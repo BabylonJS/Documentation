@@ -16,7 +16,7 @@ This is due to the fact that `ImageProcessingPostProcess` is expecting a linear 
 
 To spare you the reading, basically, your `gl_FragColor` is put to the power `1 / 2.2`, which we call a standard gamma transformation.
 
-In order to counteract that, you should apply the opposite transformation, which is, in GLSL language :
+In order to counteract that, you should apply the opposite transformation, which is, in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) language :
 
 ```
 #ifdef IMAGEPROCESSINGPOSTPROCESS

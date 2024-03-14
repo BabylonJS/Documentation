@@ -19,6 +19,7 @@ export interface MarkdownMetadata {
     categoryId?: number;
     categoryName?: string;
     videoOverview?: string;
+    robots?: string;
     tocLevels?: number;
     videoContent?: Array<string | { title: string; url: string }>;
     furtherReading?: Array<string | { title: string; url: string }>;

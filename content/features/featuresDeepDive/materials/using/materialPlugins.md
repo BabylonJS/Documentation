@@ -101,7 +101,7 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
   _isEnabled = false;
 
   constructor(material) {
-    // the fourth parameter is a list of #defines in the GLSL code
+    // the fourth parameter is a list of #defines in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code
     super(material, "Colorify", 200, { COLORIFY: false });
 
     this._varColorName = material instanceof BABYLON.PBRBaseMaterial ? "finalColor" : "color";

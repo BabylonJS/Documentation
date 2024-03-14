@@ -117,7 +117,7 @@ const norm = mesh.getFacetNormal(50); // returns the world normal of the mesh 50
 Displaying all the facet normals of an icosphere: <Playground id="#1YTZAC" title="Displaying Facet Data" description="Simple example of displaying all the facet normals of an icosphere."/>
 Just change the mesh shape, torus knot : <Playground id="#1YTZAC#1" title="Displaying Facet Data - Torus Knot" description="Simple example of displaying all the facet normals of a torus knot."/>
 Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates: <Playground id="#1YTZAC#3" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>
-Of course, you can add some translation to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>
+Of course, you can add some [translation](/typedoc/classes/babylon.transformnode#translate) to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>
 
 Note also that the facet index is the same than the facet id `faceId` used by the pickingInfo object or the `faceId` used by the SPS when pickable.  
 Here is an example combining pickingInfo, pickable SPS and facetData facet index: <Playground id="#2FPT1A#119" title="Combining pickingInfo and facetData" description="Simple example combining pickingInfo, pickable SPS and facetData facet index."/>

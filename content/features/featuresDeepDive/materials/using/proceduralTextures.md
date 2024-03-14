@@ -24,7 +24,7 @@ Enter **procedural textures**.
 
 Procedural texturing is a way to programmatically create a texture. There are 2 types of procedural textures: code-only, and code that references some classic 2D images, sometimes called 'refMaps' or 'sampler' images.
 
-One main advantage of procedural textures is that they are written using a fragment shader (using GLSL in the case of Babylon.js). That means that the code generating the texture is executed by the GPU and not the CPU (that is to say, NOT executed in JavaScript code). This has a huge performance impact in a positive way.
+One main advantage of procedural textures is that they are written using a fragment shader (using [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) in the case of Babylon.js). That means that the code generating the texture is executed by the GPU and not the CPU (that is to say, NOT executed in JavaScript code). This has a huge performance impact in a positive way.
 
 Procedural textures can be generated:
 

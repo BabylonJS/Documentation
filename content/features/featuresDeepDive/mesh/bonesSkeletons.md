@@ -81,7 +81,7 @@ A complete running example can be found here: <Playground id="#92Y727" title="Lo
 
 ## Use Bones with Node Material
 
-The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write GLSL. To use a Node Material in a mesh with bones, you need to add the Bones node to it so that the bone influences are correctly computed:
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with bones, you need to add the Bones node to it so that the bone influences are correctly computed:
 
 ![Use Instances with Node Material](/img/how_to/bones-node.png)
 

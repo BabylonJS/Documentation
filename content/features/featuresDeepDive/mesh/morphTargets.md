@@ -159,7 +159,7 @@ You can animate multiple morphs on the same mesh by creating a new animation for
 
 ## Use Morph Targets with Node Material
 
-The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write GLSL. To use a Node Material in a mesh with Morph Targets, you need to add the Morph Target node to it so that vertex positions, normals and uvs properly respond to the effects of the morph:
+The [Node Material](/features/featuresDeepDive/materials/node_material) is a powerful tool that allows creating shaders without having to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). To use a Node Material in a mesh with Morph Targets, you need to add the Morph Target node to it so that vertex positions, normals and uvs properly respond to the effects of the morph:
 
 ![Use Morph Target with Node Material](/img/how_to/morphtargetnode.png)
 

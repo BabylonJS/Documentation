@@ -33,7 +33,7 @@ Each bone can have a linked `TransformNode` (which you can retrieve with a call 
 
 This mode has been added to handle skeletons loaded from gltf/glb files, where the skeleton bones are in fact regular nodes in the scene node hierarchy.
 
-It's important to understand that when a bone is linked to a transform node, modifying the translation/rotation/scaling of the bone will have no effect; instead, you need to update the linked transform node!
+It's important to understand that when a bone is linked to a transform node, modifying the [translation](/typedoc/classes/babylon.transformnode#translate)/rotation/scaling of the bone will have no effect; instead, you need to update the linked transform node!
 
 More information on this subject can be found in [glTF 2.0 Skinning](/features/featuresDeepDive/importers/glTF/glTFSkinning).
 
