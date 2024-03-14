@@ -172,7 +172,7 @@ Make sure to read more on the [WebXR Experience Helper](/features/featuresDeepDi
 
 ### ES6 support with Tree Shaking
 
-When using [Babylon.js ES6 support with tree shaking](divingDeeper/developWithBjs/treeShaking), import WebXR modules from:
+When using [Babylon.js ES6 support with tree shaking](/setup/frameworkPackages/es6Support), import WebXR modules from:
 
 * `@babylonjs/core/XR/*`
 
