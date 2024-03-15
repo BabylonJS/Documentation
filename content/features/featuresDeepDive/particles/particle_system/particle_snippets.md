@@ -17,15 +17,15 @@ When you have a snippet Id, you can easily load the manager using the following 
 
 ```javascript
 var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 0.2, segments: 32}, scene);
-BABYLON.ParticleHelper.CreateFromSnippetAsync("T54JV7", scene, false).then(system => {
+BABYLON.ParticleHelper.ParseFromSnippetAsync("T54JV7", scene, false).then(system => {
     system.emitter = sphere;
 });
 ```
 
-live example: <Playground id="#76U9TK" title="Particle Snippet Server Example" description="Simple example of loading a particle system from the snippet server" isMain={true} category="Particles"/>
+live example: <Playground id="#XGX927" title="Particle Snippet Server Example" description="Simple example of loading a particle system from the snippet server" isMain={true} category="Particles"/>
 
 You can also specify "_BLANK" for the snippet Id, in this case the system will create an empty one for you to work on:
 
 ```
-BABYLON.SpriteManager.CreateFromSnippetAsync("_BLANK", scene);
+BABYLON.SpriteManager.ParseFromSnippetAsync("_BLANK", scene);
 ```
