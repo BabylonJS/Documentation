@@ -1688,6 +1688,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/ragdolls"
                                 },
+                                "shapeCast": {
+                                    "friendlyName": "Shape cast",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/shapeCast"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
