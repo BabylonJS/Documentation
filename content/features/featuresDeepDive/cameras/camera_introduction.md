@@ -104,6 +104,10 @@ The following optional `ArcRotateCamera` properties can also be handy:
   object which is nice because it means you can be more precise about camera placement while you
   explore your object up close.
 
+Here's a Playground that shows how the camera moves, including what happens when the upVector (direction that camera treats as "up") is changed:
+
+  <Playground id="#GB1AW7#21" title="ArcRotateCamera Rotation Example" description="A demo showing how the camera moves with changes to alpha, beta, and the camera's upVector" image="/img/playgroundsAndNMEs/pg-GB1AW7-21.jpg" isMain={true} category="Cameras"/>
+
 ### Constructing an Arc Rotate Camera
 
 ```javascript
