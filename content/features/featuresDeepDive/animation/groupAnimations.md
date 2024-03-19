@@ -111,3 +111,35 @@ animationGroup1.onAnimationGroupLoopObservable.add(function (group) {
   console.log("Group looped!");
 });
 ```
+
+## Masking animations in a group
+
+Masking allows you to define which animations should or should not be played.
+
+By default (without mask), all animations added to an animation group will be played. If you whish only certain animations to be played, you can create an `AnimationGroupMask`:
+
+```javascript
+const mask1 = new BABYLON.AnimationGroupMask([sphereA.name, sphereB.name], BABYLON.AnimationGroupMaskMode.Include); // play only animations affecting sphereA and sphereB
+animGroup.mask = mask1;
+const mask2 = new BABYLON.AnimationGroupMask([sphereA.name, sphereB.name], BABYLON.AnimationGroupMaskMode.Exclude); // play all animations except those affecting sphereA or sphereB
+animGroup.mask = mask2;
+```
+
+You can use this Playground to test the `mask` property: <Playground id="#56LX6L#9" title="Animation group mask" description="Demonstrate how to use the mask property"/>
+
+Note that if you use the same mask for the entire lifetime of an animation group, you can save performance and memory by removing from the animation group any animations that are rejected by the mask.
+You can do this easily by calling the method `AnimationGroup.removeUnmaskedAnimations()`.
+
+What's more, if you update the mask while the animation group is already playing, you need to call the `AnimationGroup.syncWithMask()` method to ensure that the correct animations are stopped/played according to the new mask.
+
+## Ordering animation groups
+
+The `AnimationGroup.playOrder` property defines the order in which animatables created at animation group startup should be processed in the list of active animatables.
+
+This property can be useful when you want to ensure that certain animation groups / animatables are played before or after others (as in a layered system animation, for example).
+
+By default, when `playOrder` is not set (it defaults to 0), animatables are played in the order in which they were created.
+
+## Miscellaneous
+
+`AnimationGroup.enableBlending`, `AnimationGroup.blendingSpeed` and `AnimationGroup.weight` are helper properties that allow you to easily set these values for all animatables in the animation group at once, without having to go through the list of animatables yourself.

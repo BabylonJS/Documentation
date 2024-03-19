@@ -159,6 +159,8 @@ This next example shows a how to use additive blending with simple Babylon.js an
 This example also demonstrates how to target the weight accessor of an animation group with a direct animation to control the value. Using a separate animation to drive the value of an animation group's weight allows us to manage the timing of both animations in tight coordination. This is because we can set the value of the animation group's weight per frame synchronizing with the baseline animation's timeline and desired motion.
 <Playground id="#3RTFNJ#34" title="Additive Babylon Animations" description="Additive blending Babylon animation groups to offset a motion path" image="/img/playgroundsAndNMEs/additiveBlendingSpheres.jpg"/>
 
+**It's important to note that to use additive animations, you need to set a weight other than -1**! -1 is the default value for the `weight` property, and if you leave this value, the special code required to blend additive animations will not be executed. In addition, regular non-additive animations that are to be blended with additive animations must also have weights other than -1.
+
 ## Overriding properties
 
 When you have a mesh with multiple animations or a skeleton (where all bones can be animated) you can use an animationPropertiesOverride to specify some general properties for all child animations. These properties will override local animation properties:
@@ -272,6 +274,42 @@ const FunnyEase = (function (_super) {
 ```
 
 You will find a complete demonstration of the easing functions behaviors, in this playground: <Playground id="#8ZNVGR" title="Easing Behavior Examples" description="Examples of the easing functions available." image="/img/playgroundsAndNMEs/divingDeeperAdvancedAnimation4.jpg"/>
+
+If you need finer control of the easing function than at animation level, you can also define it at animation key level:
+```javascript
+export interface IAnimationKey {
+    /**
+     * Frame of the key frame
+     */
+    frame: number;
+    /**
+     * Value at the specifies key frame
+     */
+    value: any;
+    /**
+     * The input tangent for the cubic hermite spline
+     */
+    inTangent?: any;
+    /**
+     * The output tangent for the cubic hermite spline
+     */
+    outTangent?: any;
+    /**
+     * The animation interpolation type
+     */
+    interpolation?: AnimationKeyInterpolation;
+    /**
+     * Property defined by UI tools to link (or not ) the tangents
+     */
+    lockedTangent?: boolean;
+    /**
+     * The easing function associated with the key frame (optional). If not defined, the easing function defined at the animation level (if any) will be used instead
+     */
+    easingFunction?: IEasingFunction;
+}
+```
+
+If an easing function is defined for a key, it will take precedence over the function defined at animation level.
 
 ## Attach events to animations
 
