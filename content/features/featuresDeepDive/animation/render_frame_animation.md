@@ -14,17 +14,16 @@ Babylon.js allows to change an objects properties immediately before or after a 
 The complex animation lets you choose everything at each frame of the animation (each tick). The code computed at run time must be located in this function:
 
 ```javascript
-scene.registerBeforeRender(function () {
+scene.onBeforeRenderObservable.add(() => {
   //Your code here
 });
 ```
 
-The function set by `registerBeforeRender()` is run before every frame (usually
-~60 times per second) so animation is created by making small changes to object
+The function(s) added to `onBeforeRenderObservable()` is/are run before every frame (usually ~60 times per second) so animation is created by making small changes to object
 properties very quickly.
 
 A simple demonstration of complex animation can be found in the playground here:
-<Playground id="#YJVTI6" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.jpg"/>
+<Playground id="#YJVTI6#562" title="Render Loop Animation Example" description="A simple example of animation using the scene's render loop." image="/img/playgroundsAndNMEs/divingDeeperRenderLoopAnimation1.jpg"/>
 
 This function can be very useful for complex animation like games, where characters have to move depending on many parameters.
 

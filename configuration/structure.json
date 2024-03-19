@@ -297,7 +297,7 @@
                                     "content": "features/featuresDeepDive/animation/animatedCharacter"
                                 },
                                 "advanced_animations": {
-                                    "friendlyName": "Advanced Animating Methods",
+                                    "friendlyName": "Advanced Animation Methods",
                                     "children": {},
                                     "content": "features/featuresDeepDive/animation/advanced_animations"
                                 },
