@@ -58,7 +58,7 @@ The Instances node also gives information on the instance number of the object, 
 
 <Playground id="#PB1NS6#6" title="Using Node Material with Instances" description="Use Instances node on the Node Material"/>
 
-## Instancing a glTF object
+## Instancing a glTF Object
 
 When you instanciate a glTF object, you need to make sure that the new instance will be under the same parent or you need to remove the parent from the source object.
 
@@ -69,7 +69,7 @@ So when instancing a glTF object you have to (either):
 - Call `source.setParent(null)`
 - Or call `newInstance.setParent(source.parent)`
 
-## Custom buffers
+## Custom Buffers
 
 You also have the opportunity to specify per instance values for any attribute. For instance (no pun intended), if you want to have a specific color per instance, you only need to provide a vertex buffer flagged as "instanceable" and fill it with a color per instance:
 
@@ -110,13 +110,18 @@ The system will take care of updating the internal vertex buffer.
 
 Example: <Playground id="#YPABS1#183" title="Custom Buffers Example 2" description="Simple example of custom buffers."/>
 
+## Using Custom Buffers with Node Material
+
 If you want to use custom buffers in conjunction with node materials, you can access the instanced buffers color with the mesh.color block. Make sure you have added the Instances block to your graph and then the mesh.color block will reference the instanced buffers color assigned to the instance.  
 
 ![Use Instanced Buffers Color with Node Material](/img/how_to/instances-node-meshColor.png)
 
 Example: <Playground id="#D6GB23" title="Custom Buffers in Node Material" description="Using custom buffers to drive texture offset in node material."/>
 
-## Advanced control
+There is a great article from Simon Trushkin, a Senior Technical Artist working at ClickON3D, on [using custom buffers with custom blocks in node material](https://www.linkedin.com/pulse/advanced-use-instance-buffers-node-materials-clickon-web3d-nmdme/). This technique is all about optimization and demonstrating how combining instances, custom buffers, and node material can result in a huge boost to the frame rate of the scene.
+
+
+## Advanced Control
 
 You can decide to control the world matrix instanced buffer the same way you control the custom buffers.
 
@@ -149,7 +154,7 @@ Starting from 5.0, instances that have a transparent material applied can be sor
 
 Note that for performance sake the master mesh (the mesh from which instances are created by calling `masterMesh.createInstance`) is not taken into account in the sorting process. So, to avoid rendering artifacts between this mesh and its instances, this mesh should be disabled (`masterMesh.setEnabled(false)`).
 
-## Using 3D modeler to create instances
+## Using 3D Modeler to Create Instances
 
 ## Blender
 
@@ -157,7 +162,7 @@ Using Blender, you can create instances of a mesh by just creating a linked obje
 
 ![](/img/how_to/use-instance/blender-linked-object.jpg)
 
-## 3DS Max
+## 3ds Max
 
 Using 3DS Max, you can create instances of a mesh by just creating a clone instance object with clic right on the object:
 
