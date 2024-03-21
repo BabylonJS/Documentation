@@ -704,6 +704,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/lights/volumetricLightScattering"
                                 },
+                                "rsmgi": {
+                                    "friendlyName": "Global Illumination with Reflective Shadow Maps",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/lights/rsmgi"
+                                },
                                 "mathShadows": {
                                     "friendlyName": "Depth metric when rendering shadows",
                                     "children": {},
