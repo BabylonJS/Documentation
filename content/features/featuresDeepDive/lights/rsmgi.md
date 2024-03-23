@@ -7,7 +7,7 @@ further-reading:
 video-overview:
 video-content:
 ---
-|<p align="center">Without GI</p>|<p align="center">With GI</p>|
+|Without GI|With GI|
 |----------|-------|
 |![Without GI](/img/features/rsmgi/intro2_nogi.jpg)|![With GI](/img/features/rsmgi/intro2_gi.jpg)|
 |![Without GI](/img/features/rsmgi/intro_nogi.jpg)|![With GI](/img/features/rsmgi/intro_gi.jpg)|
@@ -27,7 +27,7 @@ This algorithm can't compete with other GI algorithms (such as those used in Unr
 
 One of the main uses we foresee is in the context of e-commerce, to better anchor models in the environment. See, for example:
 
-|<p align="center">Without GI</p>|<p align="center">With GI</p>|
+|Without GI|With GI|
 |----------|-------|
 |![Without GI](/img/features/rsmgi/shoe_nogi.jpg)|![With GI](/img/features/rsmgi/shoe_gi.jpg)|
 
@@ -37,7 +37,7 @@ The differences are subtle, just look at the shoe support and the backdrop (clic
 
 ### Historical background
 
-Reflective Shadow Maps is a technique first described [in this article](http://www.klayge.org/material/3_12/GI/rsm.pdf).
+Reflective Shadow Maps is a technique first described [in this article](https://users.soe.ucsc.edu/~pang/160/s13/proposal/mijallen/proposal/media/p203-dachsbacher.pdf).
 This is a fairly old article, but many newer GI algorithms use the RSM method as one of the first steps in a more advanced algorithm.
 
 For example, the Light Propagation Volumes algorithm, first used in [CryEngine 3](https://advances.realtimerendering.com/s2009/Light_Propagation_Volumes.pdf) and also used in [Unreal Engine 4](https://docs.unrealengine.com/4.27/en-US/BuildingWorlds/LightingAndShadows/LightPropagationVolumes/), uses RSM as the first step in the GI pipeline.
@@ -76,21 +76,19 @@ We could, however, still have many VPLs inside this circle, so another parameter
 
 As we only take a limited number of samples to calculate the GI contribution to a pixel, artifacts will be clearly visible (the images below only show the GI contribution):
 
-|||
-|-|-|
 |![Shoe](/img/features/rsmgi/shoe_noblur.jpg)|![Cornell](/img/features/rsmgi/cornell_noblur.jpg)|
+|-|-|
 
 That's why we've set up a blur pass to deal with these artifacts:
 
-|||
-|-|-|
 |![Shoe](/img/features/rsmgi/shoe_blur.jpg)|![Cornell](/img/features/rsmgi/cornell_blur.jpg)|
+|-|-|
 
 There are a number of parameters linked to the blur pass, which we'll describe later in the appropriate section.
 
 ### Implementation classes
 
-The [BABYLON.GIRSMManager](/typedoc/classes/babylon.girsmmanager) class is responsible for implementing this GI algorithm in Babylon.js. The [BABYLON.GIRSM](/typedoc/classes/babylon.girsm) class is used to store global illumination parameters for a reflective shadow map (such as the *radius* or *number of samples* described above). Instances of this class are used by the `GIRSMManager` class to generate global illumination for a scene.
+The [BABYLON.GIRSMManager](/typedoc/classes/babylon.girsmmanager) class is responsible for implementing this GI algorithm in Babylon.js. The [BABYLON.GIRSM](/typedoc/classes/babylon.girsm) class is used to store illumination parameters for a reflective shadow map (such as the *radius* or *number of samples* described above). Instances of this class are used by the `GIRSMManager` class to generate global illumination for a scene.
 
 You can create an instance of the `ReflectiveShadowMap` class in this way, to wrap an existing light:
 ```javascript
@@ -124,14 +122,143 @@ GI rendering is configured at material level, with the `BABYLON.GIRSMManager.add
 
 From here, you can modify the RSM parameters and/or the GI manager parameters, which we'll describe in the next section.
 
-## Parameter description
+*Note on the playgrounds used on this page*:
 
-This section describes the parameters you can use to adapt the GI contribution to your needs (in terms of quality and performance).
+If possible, you should open them with the WebGPU engine. In this case, the "GPU timings" section of the GUI will give you valuable information about the times of the various algorithm passes. With WebGL, this section will remain empty, as WebGL does not support GPU timings.
+
+## RSM Parameter description
+
+This section describes the parameters you can set at the RSM level to adapt the GI contribution to your needs (in terms of quality and performance). These parameters are part of the [BABYLON.GIRSM](/typedoc/classes/babylon.girsm) class.
+
+### Full texture mode
+
+In this special mode, all RSM texels are used to calculate the GI contribution. Thus, the parameters `radius`, `number of samples`, `Rotate samples` and `Noise factor` are not used (see below for more details on these parameters). This mode is activated by setting `GIRSM.useFullTexture` to `true`.
+
+You need to be careful when using this mode, as the number of samples used in the calculation is `RSMTextureWidth` * `RSMTextureHeight`! For example, if the texture dimensions are 32x32, that's already 1024 samples used for calculation, per pixel.
+
+The output in this mode can be quite different from when it is deactivated, because the entire texture is used for calculation:
+
+|useFullTexture = false|useFullTexture = true|
+|-|-|
+|![useFullTexture=false](/img/features/rsmgi/cornell_fulltexture_false.jpg)|![useFullTexture=true](/img/features/rsmgi/cornell_fulltexture_true.jpg)|
+
+PG for first screenshot: https://playground.babylonjs.com/#VW8IG3#9
+<br/>PG for second screenshot: https://playground.babylonjs.com/#VW8IG3#10
+
+In the second screenshot, the size of the RSM texture is `29x26`, so the number of samples is `29x26=754`.
+Due to the low resolution of the RSM texture, moving objects can exhibit a "wobbling" effect in the lighting. This can be improved by increasing the texture resolution, but you'll quickly be limited by GPU power...
+
+You may also see brighter areas at the base of the pillar and at the boundary between the ceiling/back wall and the back wall/floor. These artifacts can be corrected to some extent using the **edge artifact correction** setting (see below), but they can be difficult to correct completely, especially when objects or lights are moving.
+
+This is why this mode is probably best suited to static scenes or screeshot generation.
+
+### Intensity, Radius and Number of samples
+
+These are the main properties to set when configuring a GI RSM. `GIRSM.intensity` lets you define the intensity of the effect, while `GIRSM.radius` and `GIRSM.numSamples` define the area and number of samples to consider in the RSM texture. See [GI algorithm](#gi-algorithm) for more details. Note that `radius` is a relative ratio between 0 and 1, not a number of pixels!
+
+`radius` will depend on your scene and the total area covered by the RSM: for a given texture size, if the area is large, you'll want to use smaller values for `radius`, because a texel in the texture will represent a larger area than if the area were smaller, and we want `radius` to represent the near vicinity of the shaded point.
+
+|radius = 0.2|radius = 0.6|
+|-|-|
+|![radius=0.2](/img/features/rsmgi/radius0_2.jpg)|![radius=0.6](/img/features/rsmgi/radius0_6.jpg)|
+
+The intensity and number of samples are the same in both cases. As you can see, because we've increased the radius, the lighting is more evenly distributed across the scene (you can barely see the red light bleeding from the wall towards the pillar). We'd have to increase the number of samples to regain some brightness, which would not come without a certain cost in terms of performance.
+
+### Edge artifact correction
+
+The technique used can exhibit problems that appear along the common boundary of two walls / surfaces. See the second paragraph of section 3.2 in the [reference documentation](https://users.soe.ucsc.edu/~pang/160/s13/proposal/mijallen/proposal/media/p203-dachsbacher.pdf) for explanations.
+
+The `GIRSM.edgeArtifactCorrection` property can help alleviate these problems. The value to be used will depend on the scene, so there's no single value that's right for every situation; you'll need to adjust the value on a case-by-case basis.
+
+For example, here are two images using the `useFullTexture=true` mode, with different values for this parameter:
+
+|edgeArtifact = 0.004|edgeArtifact = 0.420|
+|-|-|
+|![edgeArtifact=0.004](/img/features/rsmgi/edgeArtifact0_004.jpg)|![edgeArtifact=0.42](/img/features/rsmgi/edgeArtifact0_42.jpg)|
+
+As you can see, the artifacts are reduced in the second screenshot (but not completely removed).
+
+### Rotate samples and Noise factor
+
+As we only take a limited number of samples to calculate the GI contribution for a pixel, you get some artifacts due to undersampling (the intensity has been increased for illustrative purposes):
+
+|Final image|GI only|
+|-|-|
+|![Banding final picture](/img/features/rsmgi/banding_full.jpg)|![Banding GI only](/img/features/rsmgi/banding_gi.jpg)|
+
+You can trade banding for noise by setting `GIRSM.rotateSample = true`. You'll also need to set `GIRSM.noiseFactor` to a value large enough to make the noise pattern small enough:
+
+|noiseFactor=006|noieFactor=500|
+|-|-|
+|![Noise factor too small](/img/features/rsmgi/noise_too_small.jpg)|![Noise factor ok](/img/features/rsmgi/noise_ok.jpg)|
+
+The right value depends on the scale of your scene. Noise is less objectionable than banding and can be more easily treated by a blur pass (see below) than banding.
+
+## GI Parameter description
+
+This section describes the parameters you can set at the `GIRSMManager` level to adapt the GI contribution to your needs (in terms of quality and performance). These parameters are part of the [BABYLON.GIRSMManager](/typedoc/classes/babylon.girsmmanager) class.
+
+These parameters mainly concern the blur pass, the only other parameters being texture sizes (output and GI textures), which will be examined in the next section.
+
+### Generalities
+
+[TODO]
+
+Also, it should be noted that if you use the [full texture mode](#full-texture-mode), you may not need the blur pass: you should perform some tests and disable this pass if you don't need it, as you will save performance by doing so.
+
+### Depth and Normal threshold
+
+[TODO]
+
+### Blur kernel and quality blur
+
+[TODO]
+
+### Upsampling kernel and quality upsampling
+
+[TODO]
+
+### Force full size blur
+
+[TODO]
+
+## Texture sizes
+
+You can freely choose the size of the RSM and GI textures. The former is a parameter of the `ReflectiveShadowMap` constructor (which you can change later by calling `ReflectiveShadowMap.setTextureDimensions`) and the latter is a parameter of the `GIRSMManager` constructor (which you can change later by calling `GIRSMManager.setGITextureDimensions`).
+
+However, the larger the textures, the more GPU time will be consumed by RSM / GI generation!
+
+### RSM texture size
+
+As far as the size of the RSM texture is concerned, it's possible to take fairly low values, as the GI contribution is a low-intensity/low-pass signal: the Cornell images on this page were taken with an RSM texture 8 times smaller in width/height than the output dimension, and the difference with a full-size texture would not be visible. Again, the size to use depends on your scene and you should test smaller and smaller sizes until you get it right.
+
+For example, here are two screenshots taken with an RSM texture the size of the output, and another 38 times smaller in each dimension:
+
+|RSM size: 1022x927|RSM size: 0026x024|
+|-|-|
+|![RSM full](/img/features/rsmgi/rsm_size_big.jpg)|![RSM small](/img/features/rsmgi/rsm_size_small.jpg)|
+|![RSM full](/img/features/rsmgi/rsm_size_big2.jpg)|![RSM small](/img/features/rsmgi/rsm_size_small2.jpg)|
+
+The difference is barely noticeable in the screenshots. However, be aware that you will see differences if certain objects or light move around in the scene (lighting will flicker if the texture size is too small)! So, once again, use the right dimensions to suit your needs.
+
+### GI texture size
+
+As far as GI texture size is concerned, you won't be able to use such extreme values (even in still images), due to artefacts on the edges of the geometries (blur has been disabled to better see the differences):
+
+|GI size: 1022x927|GI size: 0511x463|
+|-|-|
+|![GI full size](/img/features/rsmgi/gi_full_size.jpg)|![GI 1/4 size](/img/features/rsmgi/gi_2_size.jpg)|
+
+|GI size: 0255x231|GI size: 0128x116|
+|-|-|
+|![GI 1/16 size](/img/features/rsmgi/gi_4_size.jpg)|![GI 1/64 size](/img/features/rsmgi/gi_8_size.jpg)|
+
+Blur will help improving the end result (as you could see in the section above), but you still won't be able to use values as low as in the RSM case. In any case, you should try to use the lowest possible values, to limit the GPU time spent to generate the texture.
 
 ## Shortcomings
 
-The biggest flaw of this algorithm is that it doesn't manage occlusion, so even if a VPL shouldn't illuminate a given pixel because there's a solid object in between, the pixel will still be illuminated. It's called a "light leak" and there's nothing you can do about it. That's the price to pay for such a simple algorithm.
+The biggest flaw of this algorithm is that it doesn't manage occlusion / shadows, so even if a VPL shouldn't illuminate a given pixel because there's a solid object in between, the pixel will still be illuminated. It's called a "light leak" and there's nothing you can do about it. That's the price to pay for such a simple algorithm.
 
 Another problem is computation time, which you can mitigate by modifying the many parameters described in the previous sections.
 
-Furthermore, as described in the introduction, the algorithm is best suited to small scenes, so it probably won't work if you want to use it in a large level within your game.
+Furthermore, as described in the introduction, the algorithm is best suited to small scenes, so it probably won't work well if you want to use it in a large level within your game.
