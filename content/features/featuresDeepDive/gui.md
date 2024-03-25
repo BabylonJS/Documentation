@@ -45,6 +45,11 @@ Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay 
 
 <Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.jpg"/>
 
+### HtmlMesh
+The HtmlMesh extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
+
+<Playground id="#Y2LIXI#44" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
+
 ## Comparison of GUI Options
 
 Here's a list of the pros and cons of using different types of GUIs. It’s worth noting that these options aren’t mutually exclusive - they can be used together, depending on requirements, for instance:
@@ -70,6 +75,22 @@ The sky’s the limit! Go forth and GUI in whatever way takes your fancy!
 * Can’t have GUI elements directly within 3D scene (e.g. applied to meshes)
 * Can’t apply 3D post processing effects to overlaid HTML GUI elements
 * Can’t be used for fullscreen/native VR
+
+### HtmlMesh
+
+#### Pros
+
+* Use familiar HTML, CSS and front-end frameworks like Bootstrap, Tailwind, React, Vue, Svelte & Angular etc
+* Near unlimited flexibility & mobile responsiveness
+* High performance (as rendered by native browser rather than 3D engine)
+* Easier to make WCAG accessibility compliant
+
+#### Cons
+
+* Can’t be used in Native or WebXR
+* Cannot receive events from iframed content (unless same origin)
+* On iOS, pointer interaction with content requires clicking on content first
+* Small text can be blurry at some camera angles/distances
 
 ### Babylon 2D GUI
 
