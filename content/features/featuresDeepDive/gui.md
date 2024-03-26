@@ -23,7 +23,7 @@ Other possible GUIs are:
 1. CastorGUI, a Babylon.js community extension which overlays the scene
 1. Dat.GUI, an external interface
 3. HTML GUI
-
+4. HtmlMesh, a Babylon.js community extension which allows HTML content to be incuded in the scene as a scene mesh or an overlay.
 
 ## CastorGUI
 
