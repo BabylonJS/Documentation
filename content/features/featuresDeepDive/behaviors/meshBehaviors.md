@@ -97,14 +97,14 @@ sixDofDragBehavior.dragDeltaRatio = 0.2;
 
 By default, dragging objects away/towards you will be magnified to make moving objects large distances easier. To avoid/modify this, the following can be used.
 
-```
-// The distance towards the target drag position to move each frame. This can be useful to avoid jitter. Set this to 1 for no delay. (Default: 0.2)
-sixDofDragBehavior.zDragFactor = 0.2;
+```javascript
+// How much faster the object should move when the controller is moving towards it. This is useful to bring objects that are far away from the user to them faster. Set this to 0 to avoid any speed increase. (Default: 3)
+sixDofDragBehavior.zDragFactor = 3;
 ```
 
-**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
+**Note** - When picking, every triangle is tested with a raycast. To avoid large performance hits when using models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
 
-- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
+- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior with single or multipoint support." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
 
 ## MultiPointerScaleBehavior
 
@@ -115,8 +115,6 @@ const multiPointerScaleBehavior = new BABYLON.MultiPointerScaleBehavior();
 ```
 
 **Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
-
-- Playground Example: <Playground id="#5G9MC5" title="MultiPointerScaleBehavior Example" description="A simple example of MultiPointerScaleBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" />
 
 ## AttachToBoxBehavior (AppBar)
 
