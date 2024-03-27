@@ -308,7 +308,7 @@ Input nodes consist of basic value types used to set properties on other nodes. 
 - **Contextual value** assigns the source of the data for any input set to a contextual value. The sources available depend on the data type selected for the input node. For example, choosing a Int contextual value allows access to vertex IDs and choosing a Vector3 contextual value would offer vertex positions.
 - **Visible on frame** is a boolean which allows any input contained within a frame to be visible in the INPUTS list of the properties panel for a frame. Simply enable the boolean and then whenever a frame is selected - expanded or collapsed - any visible input can have its value changed directly in the frame properties panel.
 
-<H3Image title="Float" image="/img/tools/nge/FloatNode.jpg" alt="Float input node"/>
+<H3Image title="Float" image="/img/tools/nge/floatNode.jpg" alt="Float input node"/>
 This input node represents a Float value rounded to four decimal places. The node contains the following properties which can be set in the properties panel. 
 
 #### Debug Infos
@@ -1471,7 +1471,7 @@ This node will calculate the distance between two coordinates. This node support
 - **output** is the distance between the left and right inputs represented as a value of Float type.
 
 <H3Image title="Dot" image="/img/tools/nge/dot.jpg" alt="Dot node"/>
-This node will calculate the cosine of the angle between two Euclidean vectors. This node supports Vector2, Vector3, and Vector4 data types.
+This node will calculate the dot product between the two inputs, which is the cosine of the angle between the vectors when both vectors are normalized. This node supports Vector2, Vector3, and Vector4 data types.
 
 #### Debug Infos
 - **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
@@ -1510,7 +1510,7 @@ This function transforms the input vector into a unit vector of length 1.0. This
 #### Outputs
 - **output** is the unit vector of length 1.0 transformed from the input vector in a type that matches the input value type. 
 
-<H3Image title="Rotate2D" image="/img/tools/nge/rotate2D.jpg" alt="Rotate 2D node"/>
+<H3Image title="Rotate2D" image="/img/tools/nge/rotate2d.jpg" alt="Rotate 2D node"/>
 This function transforms the Vector2 input by rotating it the amount in radians supplied by the input connected to angle. This node only accepts a Vector2 to transform and a Float for angle in radians.
 
 #### Debug Infos
