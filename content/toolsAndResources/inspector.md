@@ -272,10 +272,10 @@ myNode.inspectableCustomProperties = [
   {
       label: "My options field",
       propertyName: "myOptionsField",
-      options: [{
-      { label: "options1", value: 1 },
-      { label: "options2", value: 2 }
-      }],
+      options: [
+          { label: "options1", value: 1 },
+          { label: "options2", value: 2 }
+      ],
       callback: (option)=>{
       
       },
