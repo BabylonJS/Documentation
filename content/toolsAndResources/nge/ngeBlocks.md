@@ -1232,7 +1232,7 @@ This function returns the angle in radians between the X axis and a line to the 
 
 #### Inputs
 - **x** represents the X coordinate of the vector whose angle to the X axis is being calculated.
-- **y** represents the Y coordinate of the vector whose angle to the X axis is being calculated.
+- **y** represents the Y coordinate of the vector whose angle to the Y axis is being calculated.
 
 #### Outputs
 - **output** is the angle in radians per component of the input type. If the input type is float, the output will be a single angle represented in radians as a float. If the input is a Vector3, the output will be three angles computed per component pair from the X and Y inputs represented in radians as a Vector3.  
