@@ -602,7 +602,7 @@ var line = line2D("line", options, scene);
 
 option|value|default value
 --------|-----|-------------
-path|_(Vector3[])_  array of Vector3 points forming the centre line of the line2D, **REQUIRED**
+path|_(Vector3[])_  array of Vector3 points forming the inner line of the line2D, **REQUIRED**
 width|_(number)_ line width|1
 closed|_(boolean)_ true if the first and last points are to be joined to form a polygon|false
 standardUV|_(Color4[])_ false squeezes a texture image onto each line segment|true
