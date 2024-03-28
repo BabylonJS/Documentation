@@ -26,7 +26,7 @@ toc-levels: 0
 - Added ArrayBufferView to possible input types to load scene content. by [SergioRZMasson](https://github.com/SergioRZMasson) ([#13946](https://github.com/BabylonJS/Babylon.js/pull/13946))
 - Stop baking LH to RH in glTF serializer by [bghgary](https://github.com/bghgary) ([#13909](https://github.com/BabylonJS/Babylon.js/pull/13909))
 - Add option to material cloning to not clone the same texture multiple times by [carolhmj](https://github.com/carolhmj) ([#13807](https://github.com/BabylonJS/Babylon.js/pull/13807))
-- Types were added to ShaderPath, which can break types in TypeScript projects ([#14908](https://github.com/BabylonJS/Babylon.js/pull/14908)]
+- Types were added to ShaderPath instead of any, which can break types in TypeScript projects using shaderPath properties ([#14908](https://github.com/BabylonJS/Babylon.js/pull/14908)]
 
 ## 6.49.0
 
