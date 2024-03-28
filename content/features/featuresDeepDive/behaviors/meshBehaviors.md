@@ -173,21 +173,16 @@ By default, it will intersect `meshes` everytime the pointer moves, and the posi
 
 ## HandConstraintBehavior
 
-This is used to make a mesh follow the hand of the user. It should always be linked to a [WebXRDefaultExperience](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-webxr-default-experience) to retieve the position of the hand.
-The XR experience should also enable the [HandTracking](/features/featuresDeepDive/webXR/WebXRSelectedFeatures#hand-tracking) feature like this :
+[`HandConstraintBehavior`](/typedoc/classes/babylon.HandConstraintBehavior) makes a mesh follow a hand of the user. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retieve hands' positions.
+
+[Hand tracking feature](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking) needs to be enabled, too, for this behavior to function. [WebXRDefaultExperience](/typedoc/classes/babylon.WebXRDefaultExperience), if you use it, enables that feature by default if user's system supports [WebXR hand input](https://www.w3.org/TR/webxr-hand-input-1/).
+
+Basic setup looks like this:
 
 ```javascript
-xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
-  xrInput: xr.input,
-});
+const behavior = new BABYLON.HandConstraintBehavior();
+behavior.attach(mesh);
+behavior.linkToXRExperience(xr);
 ```
 
-And then you can instanciate the behavior, attach it to a mesh, and link it to the XR experience:
-
-```javascript
-const handConstraintBehavior = new BABYLON.HandConstraintBehavior();
-handConstraintBehavior.attach(mesh);
-handConstraintBehavior.linkToXRExperience(xr);
-```
-
-You can change the hand it should follow with the property `handedness`.
+Among various public properties you can use to customize this behavior's behavior, [handedness](/typedoc/classes/babylon.HandConstraintBehavior#handedness) can be used to specify which hand should be followed by the mesh.
