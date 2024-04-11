@@ -336,3 +336,5 @@ The biggest flaw of this algorithm is that it doesn't manage occlusion / shadows
 Another problem is computation time, which you can mitigate by modifying the many parameters described in the previous sections.
 
 Furthermore, as described in the introduction, the algorithm is best suited to small scenes, so it probably won't work well if you want to use it in a large level within your game.
+
+Finally, this feature is not compatible with the pre-pass renderer, so if you want to use SSAO or SSR with global illumination, you need to force the geometry buffer renderer for these post-processings (there's a parameter in the constructor of these classes that lets you do this).
