@@ -14,7 +14,7 @@ Gizmos are objects that can be attached to a node (mesh, bone, transform) to pro
 
 ![Babylon.js Gizmos](/img/how_to/gui/gizmos.png)
 
-Note: Gizmos will set/modify the [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
+Note: BoundingBox Gizmo will set/modify the [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) of the attached node. After attaching, any rotation of the mesh should be done with the rotationQuaternion property instead of rotation.
 
 ## GizmoManager
 
