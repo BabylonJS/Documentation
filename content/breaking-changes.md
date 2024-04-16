@@ -12,18 +12,13 @@ toc-levels: 2
 ## 7.2.2
 
 ### Remove WebGPUEngine Dependency on Engine
-**[14931](https://github.com/BabylonJS/Babylon.js/pull/14931)** This is a rather large change to decouple `WebGPUEngine` from `Engine` where all properties of `Engine` in the library are now properties of `AbstractEngine`. The existing methods, however, are all unchanged so the impact to them should be minimal. `ThinEngine` and `Engine` are almost entirely unchanged but there are two important considerations to be mindful of:
-
-1. The declaration of specific methods are as `abstract` methods on `AbstractEngine`. This is a specific difference between WebGL and WebGPU
-2. All common functions have been moved from `ThinEngine` to `AbstractEngine`  
-  
-With these changes in place, we have a clear path to implementing `ThinWebGPUEngine`. And the new hierarchy will look like this:  
-
-* AbstractEngine
-  - WebGPUEngine
-  - ThinEngine
-    + Engine
-  
+**[14931](https://github.com/BabylonJS/Babylon.js/pull/14931)** 
+This is a rather large change to decouple `WebGPUEngine` from `Engine` where all properties of `Engine` in the library are now properties of `AbstractEngine`. The existing methods, however, are all unchanged so the impact to them should be minimal. `ThinEngine` and `Engine` are almost entirely unchanged but there are two important considerations to be mindful of:
+ 
+1. `AbstractEngine` is abstract and should not be instantiated
+2. All common functions have been moved from `ThinEngine` to `AbstractEngine` so they can be shared with WebGPU Engine
+ 
+The main impact on user code will only happen on TypeScript as the type of all `getEngine()` functions will be `AbstractEngine` instead of `ThinEngine`.  
 
 ## 7.0.0
 
