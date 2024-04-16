@@ -3538,6 +3538,11 @@
             "children": {},
             "content": "whats-new"
         },
+        "breaking-changes": {
+            "friendlyName": "Breaking Changes",
+            "children": {},
+            "content": "breaking-changes"
+        },
         "typedoc": {
             "friendlyName": "API",
             "children": {},
