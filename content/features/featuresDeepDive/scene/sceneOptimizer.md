@@ -28,10 +28,10 @@ var optimizer = new BABYLON.SceneOptimizer(scene, options);
 ```
 
 When creating the` SceneOptimizer` you can provide the following parameters:
-- A `BABYLON.Scene` which will defines the scene to work on
-- A `BABYLON.SceneOptimizerOptions` which will defines the options to use with the `SceneOptimizer`
-- A `boolean` which will defines if priorities must be generated and not read from `SceneOptimization` property (true by default)
-- A `boolean` which will defines if the optimizer will run in improvement mode (see below) (false by default)
+- A `BABYLON.Scene` which will define the scene to work on
+- A `BABYLON.SceneOptimizerOptions` which will define the options to use with the `SceneOptimizer`
+- A `boolean` which will define if priorities must be generated and not read from `SceneOptimization` property (true by default)
+- A `boolean` which will define if the optimizer will run in improvement mode (see below) (false by default)
 
 The `SceneOptimizer` object allows you to set several properties:
 - `optimizations`: This property contains the list of current optimizations

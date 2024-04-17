@@ -36,6 +36,6 @@ Whenever possible, don't use the entire mesh as a collision shape, especially wh
 
 [Collision observables](/features/featuresDeepDive/physics/collisionEvents) are functions that run every time a body collides with another. Since this can happen as often as every frame, it's important to avoid complex computations, or else the simulation will have to wait for these observables to finish before continuing.
 
-<Playground id="#PX6E6C#25" title="Stress test" description="Instanciate many bodies to test the Physics engine performance" isMain={true} category="Physics"/>
+<Playground id="#PX6E6C#25" title="Stress test" description="Instantiate many bodies to test the Physics engine performance" isMain={true} category="Physics"/>
 
 <Playground id="#W3YL7Z#1" title="Convex Hull Vs Mesh Test" description="Compare Convex hull and Mesh shapes"/>

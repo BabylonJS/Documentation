@@ -10,7 +10,7 @@ video-content:
 
 # In-Depth layerMask
 
-`layerMask` is a property you can find on many objects and may be a bit difficult to grasp at first. This page should give you a good understanding of how it works accross Babylon.js objects.
+`layerMask` is a property you can find on many objects and may be a bit difficult to grasp at first. This page should give you a good understanding of how it works across Babylon.js objects.
 
 ## layerMask meaning
 

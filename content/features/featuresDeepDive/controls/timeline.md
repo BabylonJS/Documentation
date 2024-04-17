@@ -14,7 +14,7 @@ The Babylon.js Timeline Control is a web control built on top of Babylon.js that
 
 ## Introduction
 
-One of the inherent issue encountered while scrolling in a video timeline built from IMG tags is perfomance caveats. The bigger the number of pictures to scroll through, the slower and less smooth the interactions with the web page would be.
+One of the inherent issue encountered while scrolling in a video timeline built from IMG tags is performance caveats. The bigger the number of pictures to scroll through, the slower and less smooth the interactions with the web page would be.
 
 In order to increase the reactivity of the web page, we rely here on WebGL through Babylon.js to create an easy to reuse control displaying a video timeline.
 
@@ -84,7 +84,7 @@ const timeline = new Timeline(timelineCanvas, {
 
 The main element to provide is a canvas on which we will be able to use a WebGL context to render the timeline. You could as well provide another Babylon.js control in order to share the WebGL context. For instance you could share the context this way with a Resizer in order to allow directly using a resized image as a thumbnail without extra copy.
 
-As we do not want to be opiniated about the UX you prefer or about the thumbnail generation itself it is all left to your implementation. The only information you need to provide are:
+As we do not want to be opinionated about the UX you prefer or about the thumbnail generation itself it is all left to your implementation. The only information you need to provide are:
 
 - _totalDuration_: the full duration of the video to cover (use to compute when all the thumbnails should be generated).
 - _thumbnailWidth_: define the width of your generated thumbnails (use during the rendering to know how much space they should take in the timeline)
@@ -155,7 +155,7 @@ This can help if you generate the thumbnails client side to warm up the cache an
 
 ## Full Code Sample
 
-You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/timeline/index.ts) if you want to see it in action and better see how some of the functionnalities could be used.
+You can find the integrability of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/timeline/index.ts) if you want to see it in action and better see how some of the functionalities could be used.
 
 ## Live Demo
 

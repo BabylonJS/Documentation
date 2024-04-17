@@ -139,7 +139,7 @@ and looked correct. The available options were as follows:
 1.  Users could choose to add four gemstone "studs" to the watch.
 1.  If the users had added studs, they could choose from several colors of
     gemstones.
-1.  If the users had added studs, they could chose from several different
+1.  If the users had added studs, they could choose from several different
     metals for the bezels.
 
 From an art perspective, these options boiled down to two underlying

@@ -79,7 +79,7 @@ Scripts can be customized directly in the editor by setting custom properties. A
 
 To set a property visible in the Editor, just decorate it `@visibleInInspector` in the script. More informations about decorators here: https://www.typescriptlang.org/docs/handbook/decorators.html#decorators
 
-**These decorators are availalbe in the file `src/scenes/decorators.ts`. Decorators in `src/scenes/tools.ts` are deprecated since v4.0.0-rc.2 and will be definitely removed in v4.1.0 version.**
+**These decorators are available in the file `src/scenes/decorators.ts`. Decorators in `src/scenes/tools.ts` are deprecated since v4.0.0-rc.2 and will be definitely removed in v4.1.0 version.**
 
 The `@visibleInInspector` decorator has the given arguments:
 * the property type (number, string, boolean, etc.)

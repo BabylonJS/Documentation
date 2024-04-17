@@ -71,7 +71,7 @@ Then add this code at the end of the main function (just before the last line (g
 
 ## Update the material
 
-First of all, rename all occurences of _SimpleMaterialDefines_ to _DiffuseEmissiveMaterialDefines_ and _SimpleMaterial_ to _DiffuseEmissiveMaterial_.
+First of all, rename all occurrences of _SimpleMaterialDefines_ to _DiffuseEmissiveMaterialDefines_ and _SimpleMaterial_ to _DiffuseEmissiveMaterial_.
 
 Then add this property to _SimpleMaterialDefines_ class:
 

@@ -92,7 +92,7 @@ If we create less particle types than the declared object types in the map, they
 
 # The Dynamic Terrain with the SPMap
 
-Now we have built a SPS and a SPMap, we can just pass them to the DynamicTerrain constructor besides the usual data map.  
+Now we have built an SPS and a SPMap, we can just pass them to the DynamicTerrain constructor besides the usual data map.  
 We use the parameter `SPmapData` and `sps` :
 
 ```javascript

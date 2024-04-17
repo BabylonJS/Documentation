@@ -15,7 +15,7 @@ a design.
 
 ## Requirements
 The requirements are a row of many boxes that move vertically in a wave motion. The motion will be achieved by 
-changing the the apparent positions of all vertices within a Vertex Shader. To be clear the positions of the boxes within 
+changing the apparent positions of all vertices within a Vertex Shader. To be clear the positions of the boxes within 
 the scene model will not be altered. What will be changed through the Vertex Shader is their projection onto the screen.
 
 ## First Stage Design

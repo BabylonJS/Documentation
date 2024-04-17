@@ -12,7 +12,7 @@ video-content:
 
 Some devices and browsers support tracking the hand joints directly, with no need for external controllers. Such devices are the Oculus Quest (1 and 2) using the native Oculus browser.
 
-25 points on each hand are being tracked and delivered to you on each frame. Babylon's hand tracking feature uses this information to constantly update the WebXRHand object and its 25 childrens' transformations.
+25 points on each hand are being tracked and delivered to you on each frame. Babylon's hand tracking feature uses this information to constantly update the WebXRHand object and its 25 children transformations.
 
 Please note that when referring to "hands" on this page we are referring to the actual handedness of the user and not left-handed vs. right-handed system. WebXR is right-handed in its nature.
 

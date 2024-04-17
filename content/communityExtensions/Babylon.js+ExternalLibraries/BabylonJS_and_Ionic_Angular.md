@@ -80,7 +80,7 @@ The app itself is a very basic no frills dice roller, but there are a few things
 
 ## Conclusion
 
-IntegratingBabylon.js in an Ionic application was easier than it seemed at first, once you get to know a couple of thing of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
+IntegratingBabylon.js in an Ionic application was easier than it seemed at first, once you get to know a couple of things of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
 However, despite the improvements introduced to Angular, the overhead of having both Ionic andBabylon.js together might make performance a bit sluggish. Maybe it's not the best way of implementing a pure 3d action packed game.  
 On the other hand, with Ionic you get things, like a very simple way of handling the user interface, navigation and storage out of the box, not to mention that, through Cordova, it's easy to build apps for any mobile platform, so it might be the way to go for less demanding apps.
 

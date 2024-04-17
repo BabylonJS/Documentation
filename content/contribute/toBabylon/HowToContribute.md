@@ -127,7 +127,7 @@ If you are using VSCode, the repository comes with a list of recommended extensi
 
 ### Adding files
 
-When in doubt about where your files should be added then raise an issue in the Babyon.js repository or ask on the forum.
+When in doubt about where your files should be added then raise an issue in the Babylon.js repository or ask on the forum.
 
 ### Commit
 
@@ -1041,7 +1041,7 @@ Once this has succeeded visit your Babylon.js repository. If all your commits ar
 
 ![Success](/img/contribute/pr1.png)
 
-If some of your commits are behind the upstream Babylon.js:master then you will need to to do:
+If some of your commits are behind the upstream Babylon.js:master then you will need to do:
 
 ```bash
 git pull upstream master

@@ -14,9 +14,9 @@ There is a close relationship between **Materials**, **Shaders** and **Textures*
 
 - **Shaders** are small scripts that contain the mathematical calculations and algorithms for calculating the color of each pixel rendered, based on the lighting input and the Material configuration.
 
-- **Textures** are bitmap images. A Material may contain references to textures, so that the Material’s shader can use the textures while calculating the surface color of an object. In addition to basic color (albedo) of an obejct’s surface, textures can represent many other aspects of a material’s surface such as its reflectivity or roughness.
+- **Textures** are bitmap images. A Material may contain references to textures, so that the Material’s shader can use the textures while calculating the surface color of an object. In addition to basic color (albedo) of an object’s surface, textures can represent many other aspects of a material’s surface such as its reflectivity or roughness.
 
-A material specifies one specific shader to use, and the shader used determines which options are available in the material. A shader specifies one or more textures variables that it expects to use, and the Material Inspector in Unity allows you to assign your own texture assets to these these texture variables.
+A material specifies one specific shader to use, and the shader used determines which options are available in the material. A shader specifies one or more textures variables that it expects to use, and the Material Inspector in Unity allows you to assign your own texture assets to these texture variables.
 
 For most normal rendering - by which we mean characters, scenery, environments, solid and transparent objects, hard and soft surfaces etc., the Standard Shader is usually the best choice. This is a highly customisable shader which is capable of rendering many types of surface in a highly realistic way. You may choose the **Babylon Standard Material** shader for a legacy diffuse workflow.
 
@@ -88,7 +88,7 @@ The **BABYLON.PBRMaterial** is the default shader material that will be used for
 
 ## Diffuse Shader Materials
 
-The **BABYLON.StandardMaterial** is used as the base shader for **all non** physical babsed rendering shaders. During exportation, the toolkit will **scrape** all materials looking for standard shader properties like **\_MainTex** and assign them to the standard diffuse shader pipeline.
+The **BABYLON.StandardMaterial** is used as the base shader for **all non** physical based rendering shaders. During exportation, the toolkit will **scrape** all materials looking for standard shader properties like **\_MainTex** and assign them to the standard diffuse shader pipeline.
 
 ## Custom Shader Materials
 
@@ -169,7 +169,7 @@ The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader co
 
 ## Shader Controller Scripts
 
-The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** sub class properties. The controller class uses the shader properties specfied in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
+The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** sub class properties. The controller class uses the shader properties specified in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
 
 You can create a custom shader controller script from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Babylon TypeScript > Shader Controller** from the main menu.
 

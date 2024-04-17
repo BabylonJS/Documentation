@@ -209,7 +209,7 @@ You can use 2 different textures, one for _Base Color_ and one for _Opacity_.
 
 ![glTF AiStandardSurface hypershade base color and alpha maps split](/img/exporters/Maya_to_glTF/Hypershade_BaseColorAlpha_Split.jpg)
 
-The material _Opacity_ is binded to the file texture _Out Transparency_.
+The material _Opacity_ is bound to the file texture _Out Transparency_.
 
 In glTF format, a single texture is used to describe both parameters. The exporter automatically combines them together:
 
@@ -293,13 +293,13 @@ Lights are not supported in glTF 2.0. An empty node is exported in place of ligh
 
 ## Textures image format
 
-glTF 2.0 only supports the following image formats: jpg and png. You are adviced to use those formats for your textures when exporting to glTF.
+glTF 2.0 only supports the following image formats: jpg and png. You are advised to use those formats for your textures when exporting to glTF.
 
 Note that the exporter also supports textures with bmp, gif, tga, tif and dds formats. But, those textures will be automatically converted to png/jpg by the exporter to follow glTF specifications.
 
 ## Environment texture
 
-To enjoy PBR material rendering, you should have an environmnent texture in your scene. Currently the plugin does not export any environment map and one must be added manually in client implementations. The Babylon Sandbox provides such feature.
+To enjoy PBR material rendering, you should have an environment texture in your scene. Currently the plugin does not export any environment map and one must be added manually in client implementations. The Babylon Sandbox provides such feature.
 
 ## Get a merged occlusion/roughness/metallic texture
 
@@ -311,7 +311,7 @@ To obtain such texture, either:
 
 - export the textures from a 3D painting software using ORM configuration. From Substance Painter:
 
-![glTF susbtance painter export window with ORM configuration](/img/exporters/Maya_to_glTF/SubstancePainterExportORM.png)
+![glTF substance painter export window with ORM configuration](/img/exporters/Maya_to_glTF/SubstancePainterExportORM.png)
 
 Using _Unreal Engine 4 (Packed)_ configuration, the occlusion, roughness and metallic are combined together into a single ORM texture.
 
@@ -379,7 +379,7 @@ Features are explained below:
 
 - Set start and end frames. Values out of timeline bounds are automatically clamped at runtime.
 
-- **Export non-animated node targets** option: when checked, nodes that are actually not animated (no key in the timeline) will have a fake scale animation exported. This option might be useful if you want to add an in-game behaviour to all the nodes of an animation group, like toggle visibilty.
+- **Export non-animated node targets** option: when checked, nodes that are actually not animated (no key in the timeline) will have a fake scale animation exported. This option might be useful if you want to add an in-game behaviour to all the nodes of an animation group, like toggle visibility.
 
 When updating an input field, changes are highlighted in red. Press the _Confirm_ button to submit changes.
 

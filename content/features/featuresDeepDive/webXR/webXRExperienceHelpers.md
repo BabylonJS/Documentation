@@ -13,7 +13,7 @@ video-content:
 
 In order to simplify development for WebXR we offer a WebXR helper that will initialize WebXR environment automatically. This environment allows you to develop your AR and VR experiences in a easy to use, flexible and fully configurable manner.
 
-We recommend using the [Default Experience Helper](#webxr-default-experience-helper) for ease of use, as it offers a full XR experience, including: UI, teleportation and more. In contrast, the basic set of functionalities is offered via [Basic Experience Helper](#webxr-basic-experience-helper), it offers more controll when it comes to configuring the specifics that better fit your use-case.
+We recommend using the [Default Experience Helper](#webxr-default-experience-helper) for ease of use, as it offers a full XR experience, including: UI, teleportation and more. In contrast, the basic set of functionalities is offered via [Basic Experience Helper](#webxr-basic-experience-helper), it offers more control when it comes to configuring the specifics that better fit your use-case.
 
 *Note that you are not forced to use these experience helpers in any way. You can always use your own implementation instead.*
 

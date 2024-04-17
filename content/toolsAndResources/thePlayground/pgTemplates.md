@@ -26,9 +26,9 @@ Each playground template entry into this .json file should include 3 components:
 
 - Label - The name that will be visible in the Intellisense menu when hitting `CTRL+Space`
 - Documentation - A link to the appropriate documentation page that most accurately covers the topic of the template you're adding.
-- insertText - The code snippet itelf
+- insertText - The code snippet itself
 
-Let's take a look at a simple example, Seting up a shadow generator.
+Let's take a look at a simple example, setting up a shadow generator.
 
 ```json
 {

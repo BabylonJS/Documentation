@@ -39,7 +39,7 @@ All six ways are used in the playground below. The top one [0] has the plane tan
 
 ## Refining Alignment
 
-To help undertand which of the 6 possible arrangements it is useful to show the axes of the mesh that you want to follow the line and the tangents, normals and binormals of the path.
+To help understand which of the 6 possible arrangements it is useful to show the axes of the mesh that you want to follow the line and the tangents, normals and binormals of the path.
 
 For example, we want a cone to follow along a path point first and with the height axes of the cone tangental to the path.
 
@@ -47,7 +47,7 @@ Below is an image showing the cone axes and the path tangents, normals and binor
 
 ![Align Axes](/img/how_to/Mesh/alignaxes.png)
 
-Our example requires the y axis of the cone to lie along the tangents of the path. Placing the x axis of the cone along the normals of the path would leave the z axis pointing in the opposite direction to the path binormals. This gives us the the y axis along the tangents, the x axis along the binormals and the z axis along the normals. This is option 4
+Our example requires the y axis of the cone to lie along the tangents of the path. Placing the x axis of the cone along the normals of the path would leave the z axis pointing in the opposite direction to the path binormals. This gives us the y axis along the tangents, the x axis along the binormals and the z axis along the normals. This is option 4
 
 ```javascript
 new BABYLON.Vector3.RotationFromAxis(binormals[p], tangents[p], normals[p]);

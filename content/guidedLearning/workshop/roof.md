@@ -16,7 +16,7 @@ For any house there is a range of different types of roof that can be added and 
 
 In this case the **rise**, or roof height, is the same for all sections of the roof.
 
-The **footprint** for the house defines the inner walls of the house, from which the data for the outer walls is calculated. A roof overhangs the the outer walls. The footprint of the roof, or **roofprint**, defines the corners of this overhang. In _Fig 1_ the black area shows the thickness, or **ply** of the house walls and the red the **overhang** of the roofprint.
+The **footprint** for the house defines the inner walls of the house, from which the data for the outer walls is calculated. A roof overhangs the outer walls. The footprint of the roof, or **roofprint**, defines the corners of this overhang. In _Fig 1_ the black area shows the thickness, or **ply** of the house walls and the red the **overhang** of the roofprint.
 
 ![overhang](/img/samples/roof1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1

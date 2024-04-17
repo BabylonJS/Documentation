@@ -10,11 +10,11 @@ video-content:
 
 # SPS Visibility
 
-To render the meshes on the screen, BJS uses their bounding box (BBox): if the BBox is in the frustum, then the mesh is selected to be rendered on the screen. This method is really performant as it avoids to make the GPU compute things that wouldn't be visible. The BBox of each mesh is recomputed when its World Martix is updated. This is called **frustum culling**. In the following example image, the green and orange objects are frustum culled.
+To render the meshes on the screen, BJS uses their bounding box (BBox): if the BBox is in the frustum, then the mesh is selected to be rendered on the screen. This method is really performant as it avoids to make the GPU compute things that wouldn't be visible. The BBox of each mesh is recomputed when its World Matrix is updated. This is called **frustum culling**. In the following example image, the green and orange objects are frustum culled.
 
 ![Frustum culling](/img/how_to/Particles/frustum-culling.png)
 
-When you create a SPS, unless you use the `positionFunction` at creation time, all its particles are set by default at the position (0, 0, 0). So the bounding box size of the SPS mesh is initially the size of its biggest particle. In the following example image, the size of the entire SPS is taken as just the size of the first red object.
+When you create an SPS, unless you use the `positionFunction` at creation time, all its particles are set by default at the position (0, 0, 0). So the bounding box size of the SPS mesh is initially the size of its biggest particle. In the following example image, the size of the entire SPS is taken as just the size of the first red object.
 
 ![SPS and bounding box size](/img/how_to/Particles/frustum-culling-2.png)
 
@@ -24,7 +24,7 @@ If you animate your particles without updating the SPS mesh World Matrix, its BB
 
 In order to manage the SPS visibility, you have some ways: the methods `SPS.refreshVisibleSize()` or `SPS.setVisibilityBox(size)` and the properties `SPS.isAlwaysVisible`, `SPS.computeBoundingBox`, `SPS.isVisibilityBoxLocked`, and `SPS.autoUpdateSubMeshes`.
 
-- `SPS.refreshVisibleSize()`: updates the SPS mesh BBox size on demand. This is an intensive computation, so it's better not to use it in the render loop each frame. You could call it once the mesh has reached its maximum size for instance. This the method to use if you have a SPS located its in own space somewhere in your scene, like a particle explosion, a fountain, etc. Remember when using this method that it iterates over each mesh vertices. So if your mesh has 20K vertices what is usual with a SPS, it needs 20K iterations.
+- `SPS.refreshVisibleSize()`: updates the SPS mesh BBox size on demand. This is an intensive computation, so it's better not to use it in the render loop each frame. You could call it once the mesh has reached its maximum size for instance. This the method to use if you have an SPS located its in own space somewhere in your scene, like a particle explosion, a fountain, etc. Remember when using this method that it iterates over each mesh vertices. So if your mesh has 20K vertices what is usual with an SPS, it needs 20K iterations.
 
 - `SPS.isAlwaysVisible` (default _false_): if _true_, forces the SPS mesh to be computed by the GPU even if its BBox is not visible. This property is to use when the player evolves inside the SPS (maze, asteroid field) or if the SPS is always bigger than the visible part on the screen. Note that setting it to _true_ doesn't recompute the BBox size, so if you need for some reason (pickability, collisions, etc) to update the BBox, you have to call also at least once `SPS.refreshVisibleSize()`.
 
@@ -36,7 +36,7 @@ In order to manage the SPS visibility, you have some ways: the methods `SPS.refr
 
 - `SPS.isVisibilityBoxLocked` (default _false_): if _true_, the SPS mesh BBox won't be computed any longer until it is reset to _false_.
 
-- `SPS.autoUpdateSubMeshes` (default _false_): When a SPS contains multiple materials, it creates a SubMesh for each material. When `autoUpdateSubMeshes` is set to _true_, these SubMeshes will be recomputed, along with their bounding boxes, on the next call to `setParticles`.
+- `SPS.autoUpdateSubMeshes` (default _false_): When an SPS contains multiple materials, it creates a SubMesh for each material. When `autoUpdateSubMeshes` is set to _true_, these SubMeshes will be recomputed, along with their bounding boxes, on the next call to `setParticles`.
 
 So what method to use? It depends on your needs.  
 If your SPS is ever everywhere around the camera environment like an asteroid field, you may use `SPS.isAlwaysVisible`.  
@@ -47,7 +47,7 @@ At last, if you still need pickability or variable visibility, and don't know ho
 
 ## Particle In Frustum
 
-When the SPS is enabled to manage particle intersections, each particle is given a bounding box and a bouding sphere.  
+When the SPS is enabled to manage particle intersections, each particle is given a bounding box and a bounding sphere.  
 You can then check whether a particle intersects the camera frustum with the method `particle.isInFrustum(frustumPlanes, [cullingStrategy])` like you would do with meshes.
 
 ```javascript

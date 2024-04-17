@@ -176,7 +176,7 @@ When enabled, the cascades are materialized by different colors on the screen:
 
 ### freezeShadowCastersBoundingInfo (default: false) and shadowCastersBoundingInfo
 
-Enables or disables the shadow casters and receivers bounding info computation. If your shadow casters and receivers don't move, you can disable this feature. If it is enabled, the bounding box computation is done every frame and the `shadowCastersBoundingInfo` property is updated with the data. The bouding info is used to set the min and max z values of the cascade light frusta.
+Enables or disables the shadow casters and receivers bounding info computation. If your shadow casters and receivers don't move, you can disable this feature. If it is enabled, the bounding box computation is done every frame and the `shadowCastersBoundingInfo` property is updated with the data. The bounding info is used to set the min and max z values of the cascade light frusta.
 
 You can provide your own bounding info by setting the `shadowCastersBoundingInfo` property (don't forget to disable the automatic computation first with `csmShadowGenerator.freezeShadowCastersBoundingInfo = true` !)
 

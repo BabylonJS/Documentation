@@ -14,7 +14,7 @@ video-content:
 
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
-First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each releases:
+First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
 
 ![releases](/img/exporters/installer/GithubPreRelease.png)
 
@@ -22,7 +22,7 @@ From there, you can download the Installer.zip file. Chrome is currently warning
 
 ![chrome warning](/img/exporters/installer/ChromeDLWarning.png)
 
-You can nervertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
+You can nevertheless continue to download by pressing the little arrow and choosing to "Keep" the file:
 
 ![chrome warning keep](/img/exporters/installer/ChromeDLWarningKeep.png)
 
@@ -34,7 +34,7 @@ Launch the executable file contained in the previous zip. On the first launch Wi
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.png)
 
-As before, you can chose to continue by pressing more info and then Run anyway:
+As before, you can choose to continue by pressing more info and then Run anyway:
 
 ![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.png)
 
@@ -50,7 +50,7 @@ You can now easily install or update any of your 3d authoring tools to the lates
 
 Would you want to upgrade to the latest available pre-release of the exporter plugins, you can easily launch back the installer and follow the same exact procedure to update the installed plugins to their latest versions.
 
-Please not that both the software you are trying to install the plugin for should be closed during the installation.
+Please note that both the software you are trying to install the plugin for should be closed during the installation.
 
 ## Manual Install
 
@@ -134,7 +134,7 @@ The [.NET Framework Redistributable](https://docs.microsoft.com/en-us/dotnet/fra
 
 - _Lights_
       * Omni / spot / directional / Ambient(Hemispheric)
-      * Shadows maps for directional lights (Variance shadow maps can be actived by checking [Absolute Map Bias] in light properties)
+      * Shadows maps for directional lights (Variance shadow maps can be activated by checking [Absolute Map Bias] in light properties)
       * Inclusion / exclusion lists
       * Position / direction
       * Intensity
@@ -210,7 +210,7 @@ The scene properties allow you to do these things:
 - Set the scene gravity
 - **Export quaternions for all nodes instead of Euler angles**. If this option is selected, an exported model rotation won’t be updated by setting its `rotation` parameter. Instead, you will have to use the `rotationQuaternion` parameter.
 - **Do not optimize animations**. You should check this option if animations are not exported correctly.
-- Create a default skybox from the environment texture when scene is being loaded. An environmnent texture must be setup to enable this feature.
+- Create a default skybox from the environment texture when scene is being loaded. An environment texture must be setup to enable this feature.
 - Set the blur effect intensity applied to the skybox texture. By default it is slightly blurred. Setting value to 0 disables the blur effect.
 - **Add a default light, if no light is exported**. If this option is checked and there is no light selected for the export, an hemispheric light is added in the exported scene. By default this option is checked.
 - **Export normals** and **Export tangents** checkboxes allow you to control the morph target export. Note that if you want to export the target morph tangent, you have to check both the **Export tangents** checkbox and the other **Export tangents** checkbox of [the exporter window](#the-exporter-window).
@@ -389,7 +389,7 @@ Please note that if a map is used for the weight or the roughness parameter, the
 
 In Babylon format, weight is stored in red channel, roughness in green.
 
-The roughness of the coating can be inverted to mean Glossiness - this is controlled by the same parameter than the roughness map.
+The roughness of the coating can be inverted to mean Glossiness - this is controlled by the same parameter as the roughness map.
 
 ## Double sided material
 
@@ -420,7 +420,7 @@ The texture is retrieved from one channel and the color from the other one.
 
 Limitations:
 
-- only the diffuse texture (Standard material) and base color texture (Physical and Arnold materials) fields will accept a RGB Multiply map as input.
+- only the diffuse texture (Standard material) and base color texture (Physical and Arnold materials) fields will accept an RGB Multiply map as input.
 - the RGB Multiply map must specify exactly a single texture. Two textures or two colors are not supported.
 
 ## Shell material
@@ -437,7 +437,7 @@ Babylon supports PNG, DDS and TGA formats for texture transparency. You can choo
 
 ![texture](/img/exporters/3DSMax/11_texture.jpg)
 
-**Important:** if you are relying on a physically based material, you can chose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#alpha-mode) to learn more about this feature.
+**Important:** if you are relying on a physically based material, you can choose the transparency mode through a dedicated material attribute. You can refer to the [following documentation](/features/featuresDeepDive/Exporters/3DSMax_to_glTF#alpha-mode) to learn more about this feature.
 
 ## Babylon material attributes
 

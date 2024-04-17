@@ -93,7 +93,7 @@ SPS.mesh.freezeWorldMatrix(); // prevents from re-computing the World Matrix eac
 SPS.mesh.freezeNormals(); // prevents from re-computing the normals each frame
 ```
 
-You are not restricted to using the _positionFunction_ to just a SPS created with _updatable = true_ although using _initParticles()_ and _setParticles()_ is probably easier and you have a few more particle properties.
+You are not restricted to using the _positionFunction_ to just an SPS created with _updatable = true_ although using _initParticles()_ and _setParticles()_ is probably easier and you have a few more particle properties.
 
 ## Solid Particle Vertex Position
 

@@ -39,7 +39,7 @@ knot00.removeLODLevel(knot02);
 knot00.removeLODLevel(null);
 ```
 
-You can alternatively add LOD levels by specifying screen coverage cutoff limits. Screen coverage is computed as a ratio between 0 and 1 of the mesh's rendered screen surface area, over the total screen surface area. This method has the notable advantage over distance comparison to be scale-independant, as a big object rendered from a long distance, can still be big on the screen.
+You can alternatively add LOD levels by specifying screen coverage cutoff limits. Screen coverage is computed as a ratio between 0 and 1 of the mesh's rendered screen surface area, over the total screen surface area. This method has the notable advantage over distance comparison to be scale-independent, as a big object rendered from a long distance, can still be big on the screen.
 
 To specify that your LOD levels use screen coverage instead of distance, use :
 

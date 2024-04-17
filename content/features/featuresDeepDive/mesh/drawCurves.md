@@ -260,7 +260,7 @@ const hermiteQuarternionSpline = (p1, t1, p2, t2, nbPoints) => {
 - **nbPoints** : _number_ the wanted final curve number of points in the array.
 
 **Warning**  
-Using BABYON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
+Using BABYLON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
 
 To produce a vector on the outer , requires a rotation quaternion with $w = 0$
 
@@ -273,7 +273,7 @@ new BABYLON.Quaternion(1, 1, 1, 0).normalize(); //giving (0.5774, 0.5774, 0.5774
 However using
 
 ```javascript
-BABYON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1)
+BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1)
 ```
 
 and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer ,.  

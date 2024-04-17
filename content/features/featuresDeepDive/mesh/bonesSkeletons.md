@@ -553,7 +553,7 @@ For example, consider this playground which loads the `dude` model with multiple
 
 <Playground id="#92Y727" title="Loading Model" description="Loading a model with multiple skinned meshes."/>
 
-In this case, all of the skinned meshes have the the identity transform and any of these meshes passed to `Bone` methods will be equivalent, but this is not always the case.
+In this case, all of the skinned meshes have the identity transform and any of these meshes passed to `Bone` methods will be equivalent, but this is not always the case.
 
 Using the following code, the arms of the `dude` has been moved by `30` units on the `x` axis. A box has been placed with a matching transform of the bone to visually see the transform. Note that the associated skinned mesh is being passed to `getPosition` and `getRotation`.
 

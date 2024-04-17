@@ -107,7 +107,7 @@ In most cases when starting a VR session, the user will have handheld devices, c
 
 ### Controller components
 
-Each motion controller has different components, those are described in its profile. Avaiable component types:
+Each motion controller has different components, those are described in its profile. Available component types:
 
 - Button
 - Trigger
@@ -117,7 +117,7 @@ Each motion controller has different components, those are described in its prof
 
 It also has a **unique** component id, which correlates to the actual component. For example, the **A button** on the Oculus Touch has the **type** `button`, and the **id** `a-button` .
 
-#### Geting available components
+#### Getting available components
 
 To get a list of the components available, use the `getComponentIds` function. This will return an array of strings containing the IDs of the different components in this motion controller:
 
@@ -284,7 +284,7 @@ There is little to no action required on your end - this is automated when not c
 
 #### Babylon local controller definitions
 
-Before the input-profile repository was published, Babylon had support for different types of controllers - Occulus Touch (1 and 2), Vive, Windows Motion Controllers and more. Since we still wanted to offer local support for those devices, we have decided to not only relay on the online profile repository, but to also deliver babylon-based controller classes for those that are already developed.
+Before the input-profile repository was published, Babylon had support for different types of controllers - Oculus Touch (1 and 2), Vive, Windows Motion Controllers and more. Since we still wanted to offer local support for those devices, we have decided to not only relay on the online profile repository, but to also deliver babylon-based controller classes for those that are already developed.
 
 Babylon offers local definitions for the following:
 

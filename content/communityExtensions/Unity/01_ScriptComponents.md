@@ -92,7 +92,7 @@ The main things to note, however, are the four functions defined inside the clas
 
 Editor script components are the primary way of attaching native babylon classes to game objects and prefabs in the editor. They represent the design time interface to your game object. You can create a new design time editor script component from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Editor Script Component (C#)** from the main menu.
 
-The main purpose of the editor script component is to assign the native babylon backing class name in the component constructor and to provide desgin time component properties to
+The main purpose of the editor script component is to assign the native babylon backing class name in the component constructor and to provide design time component properties to
 the native backing class:
 
 Example runtime backing class script file:
@@ -206,11 +206,11 @@ It is a good idea to attach all scene level script components (not required on a
 
 ![Default Scene Controller](/img/exporters/unity/controller.jpg)
 
-The attached default scene controller provided many properties to simplfy scene configuration and the amount of required code (if any) to load and manage the life cycle of your scene.
+The attached default scene controller provided many properties to simplify scene configuration and the amount of required code (if any) to load and manage the life cycle of your scene.
 
 ## Core System Components
 
-The toolkit provides serveral built-in core script components. You can attach any of the toolkit's script components by selecting **Components > Babylon > System Components** from the main menu and choosing the desired component name.
+The toolkit provides several built-in core script components. You can attach any of the toolkit's script components by selecting **Components > Babylon > System Components** from the main menu and choosing the desired component name.
 
 ### Light Scale
 
@@ -238,19 +238,19 @@ The socket mesh component attaches an empty mesh to a character. Commonly in gam
 
 ### Mesh Details
 
-The mesh details component enables several **Runtime** rendering properties to be set on a game object during the design phase. This is very useful for overriding visibilty and collision details for the specified mesh game object.
+The mesh details component enables several **Runtime** rendering properties to be set on a game object during the design phase. This is very useful for overriding visibility and collision details for the specified mesh game object.
 
 ![Mesh Details Component](/img/exporters/unity/meshdetails.jpg)
 
 ### Physics State
 
-The physics state component activates runtime physical simualation for game objects. To have convincing physical behaviour, an object in a game must accelerate correctly and be affected by collisions, gravity and other forces. The built-in physics engines provide components that handle the physical simulation for you. With just a few parameter settings, you can create objects that behave passively in a realistic way (ie, they will be moved by collisions and falls but will not start moving by themselves). By controlling the physics from scripts, you can give an object the dynamics of a vehicle, a machine, or even a piece of fabric.
+The physics state component activates runtime physical simulation for game objects. To have convincing physical behaviour, an object in a game must accelerate correctly and be affected by collisions, gravity and other forces. The built-in physics engines provide components that handle the physical simulation for you. With just a few parameter settings, you can create objects that behave passively in a realistic way (ie, they will be moved by collisions and falls but will not start moving by themselves). By controlling the physics from scripts, you can give an object the dynamics of a vehicle, a machine, or even a piece of fabric.
 
 ![Physics State Component](/img/exporters/unity/physicsstate.jpg)
 
 ### Level Of Detail
 
-The level of detail component can help improve overall game performance. When a game object in the scene is a long way from the camera, the amount of detail that can be seen on it is greatly reduced. However, the same number of triangles will be used to render the object, even though the detail will not be noticed. An optimisation technique called Level Of Detail (LOD) rendering allows you to reduce the number of triangles rendered for an object as its distance from the camera increases. As long as your objects aren’t all close to the camera at the same time, LOD will reduce the load on the hardware and improve rendering performance. The toolkit also requires the **LOD Group** component to set up LOD rendering for a object.
+The level of detail component can help improve overall game performance. When a game object in the scene is a long way from the camera, the amount of detail that can be seen on it is greatly reduced. However, the same number of triangles will be used to render the object, even though the detail will not be noticed. An optimisation technique called Level Of Detail (LOD) rendering allows you to reduce the number of triangles rendered for an object as its distance from the camera increases. As long as your objects aren’t all close to the camera at the same time, LOD will reduce the load on the hardware and improve rendering performance. The toolkit also requires the **LOD Group** component to set up LOD rendering for an object.
 
 ![Level Detail Component](/img/exporters/unity/leveldetail.jpg)
 
@@ -280,7 +280,7 @@ The asset references component attaches project files to the current scene for e
 
 ### Component Tags
 
-The component tags support additional object tags. A Tag is a reference word which you can assign to one or more game bbjects. For example, you might define “Player” Tags for player-controlled characters and an “Enemy” Tag for non-player-controlled characters. You might define items the player can collect in a Scene with a “Collectable” Tag.
+The component tags support additional object tags. A Tag is a reference word which you can assign to one or more game objects. For example, you might define “Player” Tags for player-controlled characters and an “Enemy” Tag for non-player-controlled characters. You might define items the player can collect in a Scene with a “Collectable” Tag.
 
 Tags help you identify game objects for scripting purposes. They ensure you don’t need to manually add game objects to a script’s exposed properties using drag and drop, thereby saving time when you are using the same script code in multiple game objects. Tags are useful for triggers in Collider control scripts; they need to work out whether the player is interacting with an enemy, a prop, or a collectable, for example.
 
@@ -302,6 +302,6 @@ A character controller cannot walk through static colliders in a scene, and so w
 
 ### Shadow Map Generator
 
-The shadow map generator component is for a **Light** only. The generator enables dynamically generated shadows depending upon a light. This is the main object responsible of generating shadows in the framework.
+The shadow map generator component is for a **Light** only. The generator enables dynamically generated shadows depending upon a light. This is the main object responsible for generating shadows in the framework.
 
 ![Shadow Map Component](/img/exporters/unity/shadowmap.jpg)

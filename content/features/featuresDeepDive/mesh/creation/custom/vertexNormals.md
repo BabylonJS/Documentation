@@ -70,7 +70,7 @@ In Babylon.js this can be achieved using the `convertToFlatShadedMesh` function.
 
 ![Flat Shaded Normals](/img/how_to/Mesh/box5.jpg)
 
-For a flat shaded mesh each of the triangular facets making a face of the box has mathematical normals as their vertex normals. For simplicity of illustration we will only consider the the six faces making up the box than the full range of triangular facets used in the mesh construction. Each face has 4 corners, each corner has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals.
+For a flat shaded mesh each of the triangular facets making a face of the box has mathematical normals as their vertex normals. For simplicity of illustration we will only consider the six faces making up the box than the full range of triangular facets used in the mesh construction. Each face has 4 corners, each corner has a unique normal at right angles to the face. There are 6 faces on a box and so 24 unique corner normals.
 
 ## Table of Faces, Corners, Positions and Normals for Flat Shaded Box
 

@@ -16,7 +16,7 @@ These principles have to be clear for you: [Passing of variables by Value and by
 
 Basic knowledge about Vue, Vue Components and about data passing between components is crucial for this tutorial. If you are not familiar with these topics, you will not be able to follow the tutorial. You can find the required information for data passing on [The official Vue 2 Components Basic page](https://v2.vuejs.org/v2/guide/components) and on [The official Vue 3 Components Basic page](https://vuejs.org/guide/essentials/component-basics.html).
 
-You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1, so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
+You need a clone of the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is where we left off in part 1, so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/all.
 
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
@@ -26,7 +26,7 @@ This example uses Vue 2. All the techniques are the same for Vue 3, you just hav
 
 We will create an FPS counter which will be displayed by Vue, but the data will be provided by the BabylonJS scene.
 
-1. The first approach will use callbacks to send data from the BabylonJS scene to the Vue component and this component will `emit` the data to it's parent component, where the FPS finally gets displayed. The BabylonJS scene is not exposing any of it's objects to the Vue component.
+1. The first approach will use callbacks to send data from the BabylonJS scene to the Vue component and this component will `emit` the data to its parent component, where the FPS finally gets displayed. The BabylonJS scene is not exposing any of its objects to the Vue component.
 1. The second approach will expose the BabylonJS `Engine` and `Scene` object to the Vue component and we will get the required data in the Vue component from the exposed `Engine` object.
 
 After finishing this part we will learn how to pass data from the Vue component to the BabylonJS scene and we will make some cubes move.
@@ -254,7 +254,7 @@ At the end add a method as follows. This method can be called by any caller, inc
   },
 ```
 
-Our `App.vue` must be changed like this. We've added a button which triggers the yellow cube's movement. We are injecting the `cubePosition` object into our `BabylonScene` Vue component using it's property called `position`. Than there are simple helper methods just to make some movement.
+Our `App.vue` must be changed like this. We've added a button which triggers the yellow cube's movement. We are injecting the `cubePosition` object into our `BabylonScene` Vue component using it's property called `position`. Then there are simple helper methods just to make some movement.
 
 ```jsx
 <template>
@@ -345,7 +345,7 @@ You can now start the app and you should see the following. Click on the button 
 
 GitHub: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/vue-to-bjs-exposed-vector3
 
-In this example we will show the communication using an exposed BabylonJS object. In the last method we will expose the `Engine` and the `Scene` objects. Expose so little, so little you can. Exposing only a `Vector3` is far more better, than exposing for example the whole `Scene`.
+In this example we will show the communication using an exposed BabylonJS object. In the last method we will expose the `Engine` and the `Scene` objects. Expose so little, so little you can. Exposing only a `Vector3` is far better, than exposing for example the whole `Scene`.
 
 In this scenario we get the required `Vector3` objects from the BabylonJS scene by invoking methods on it. We use the methods `getPosition` and `getRotation`. We `emit` these `Vector3` objects to the parent component, to `App.vue` afterwards, where the data gets displayed.
 
@@ -391,7 +391,7 @@ Now we can make changes in `src/components/BabylonScene.vue`. We get two objects
   },
 ```
 
-Finally our parent component `src/components/App.vue`. We've added two labels. The labels gets automatically updated, when the `rotation` stored in `bjsRotationVector.y` gets updated and the `position`, it's the same story.
+Finally our parent component `src/components/App.vue`. We've added two labels. The labels get automatically updated, when the `rotation` stored in `bjsRotationVector.y` gets updated and the `position`, it's the same story.
 
 Next we have a `button`, which calls `moveCube` when clicked. This method calls some other helper methods which alters the values and the important part is in the method `moveCubeSharedVector`, where we set the `y` property directly on the BabylonJS `Vector3` object. Keep in mind, that this will work until the original `Vector3` is still existing and is still the same object. If the `Vector3` is changed in the scene code, the Vue component will not know about it. So you have to be careful, what are you doing.
 
@@ -534,7 +534,7 @@ There are much more methods to pass data between Vue and BabylonJS, generally in
 
 As you can see, it's up to the programmer to choose the right approach. There is a safer, but slower and more verbose way and there are methods less safe, but quicker. Just keep in mind, that exposing objects from BabylonJS to Vue and make them reactive in Vue is quite dangerous. You can end up with multiple canvas redraws in one tick.
 
-Now the we've learned how to control the scene from Vue, it can be very tempting to overuse this technique. Keep your data flow between Vue and BabylonJS at minimum and for example do not animate an object on the scene by setting it's properties from Vue every frame, create a method on the scene instead, let's call it `animateMeshVisibility(name, from, to, duration)` and call this method from Vue once to start the animation.
+Now that we've learned how to control the scene from Vue, it can be very tempting to overuse this technique. Keep your data flow between Vue and BabylonJS at minimum and for example do not animate an object on the scene by setting its properties from Vue every frame, create a method on the scene instead, let's call it `animateMeshVisibility(name, from, to, duration)` and call this method from Vue once to start the animation.
 
 ## Where to go next?
 

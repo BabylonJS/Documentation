@@ -21,7 +21,7 @@ The art tools provided by the toolkit allow you to optimize your game assets for
 
 # Maya Arts Tools
 
-**Maya Scripts** plattform folder locations:
+**Maya Scripts** platform folder locations:
 
 - **Windows** - C:\Users\USERNAME\Documents\maya\*VERSION\*\scripts
 

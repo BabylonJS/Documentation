@@ -14,7 +14,7 @@ Sometimes you will need to issue a command from your Vue component to the Babylo
 
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
-You need to cloned the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is were we left off in part 1 so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/async-scene-methods.
+You need to clone the repository from https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup. This is where we left off in part 1 so you can edit along reading the tutorial, or you can clone a repo with all the changes already made from here: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/async-scene-methods.
 
 ## The Example
 

@@ -28,7 +28,7 @@ There are of course different tools and possible workflows to create an animated
 
 ## Create a character with animation
 
-The first step is to create a character (a low poly character in this example). It usually involves starting from the 2D drawing of a character and then model it in 3D from head to toes. This is a quite long but fun experience. [**Blender**](https://www.blender.org) can be used to model a low poly character such as in Grant Abbitt's Low-Poly anime girl tutorial:
+The first step is to create a character (a low poly character in this example). It usually involves starting from the 2D drawing of a character and then model it in 3D from head to toes. This is quite a long but fun experience. [**Blender**](https://www.blender.org) can be used to model a low poly character such as in Grant Abbitt's Low-Poly anime girl tutorial:
 
 <Youtube id="E5HnnGcGvmc"/>
 

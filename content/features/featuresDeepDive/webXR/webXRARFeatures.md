@@ -548,7 +548,7 @@ This will update both the light data itself and the environment cube map every s
 
 ### Depth Sensing
 
-Depth Sensing can be used for obtaining depth information of cameras. If your device has capabilities such as depth estimation, you can access depth buffer via this feature. For more information, please check the [explaner for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
+Depth Sensing can be used for obtaining depth information of cameras. If your device has capabilities such as depth estimation, you can access depth buffer via this feature. For more information, please check the [explainer for WebXR Depth Sensing Module](https://github.com/immersive-web/depth-sensing/blob/main/explainer.md).
 
 Enable the Depth Sensing:
 
@@ -578,7 +578,7 @@ const depthSensing = featureManager.enableFeature(
 ) as BABYLON.WebXRDepthSensing;
 ```
 
-When you enable depth sensing featrure, you have to pass options.
+When you enable depth sensing feature, you have to pass options.
 Options is typed with `IWebXRDepthSensingOptions`.
 
 ```typescript

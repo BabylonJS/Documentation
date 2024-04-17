@@ -87,7 +87,7 @@ Let's look at the code-line that loads JSON particleSets into the particleHelper
 
 Notice the _type_ is used as the name of the JSON file. Using the previous example, your complete filename would be `tornado.json`.
 
-Also notice the /systems/ subFolder heirarchy. Your custom particleSet JSON file needs to be located in a subFolder called /systems/. So, `yourDomain/systems/tornado.json` is where your file should be located and how it should be named (for our example).
+Also notice the /systems/ subFolder hierarchy. Your custom particleSet JSON file needs to be located in a subFolder called /systems/. So, `yourDomain/systems/tornado.json` is where your file should be located and how it should be named (for our example).
 
 ## Generate Custom ParticleSets
 
