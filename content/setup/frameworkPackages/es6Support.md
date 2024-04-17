@@ -34,6 +34,7 @@ We offer babylon.js' core and its modules as npm packages. The following are ava
 - [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
 - [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - Babylon.js GUI module.
 - [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone Babylon.js Viewer.
+- [@babylonjs/ktx2decoder](https://www.npmjs.com/package/@babylonjs/ktx2decoder) - Babylon's KTX2 Decoder module.
 
 ## Basic Example
 
@@ -502,19 +503,16 @@ Follow the instructions at https://github.com/giniedp/ammojs-typed.
 
 Import the dependencies:
 
-```
-import { AmmoJSPlugin } from '@babylonjs/core/Physics/Plugins/ammoJSPlugin';
-import Ammo from 'ammojs-typed';
+```javascript
+import { AmmoJSPlugin } from "@babylonjs/core/Physics/Plugins/ammoJSPlugin";
+import Ammo from "ammojs-typed";
 ```
 
 and in your code:
 
-```
+```javascript
 const ammo = await Ammo();
-scene.enablePhysics(
-    new Vector3(0, -9.81, 0),
-    new AmmoJSPlugin(true, ammo)
-);
+scene.enablePhysics(new Vector3(0, -9.81, 0), new AmmoJSPlugin(true, ammo));
 ```
 
 ![](/img/resources/ammo-es6/ammo-es6-typed.png)
@@ -522,3 +520,215 @@ scene.enablePhysics(
 ## Loaders
 
 In Babylon.js the loaders you can install from `@babylonjs/loaders` are actually plugins of the main `SceneLoader` module. In order to use for instance the obj loader in your app, you simply need to import it for side effects only: `import "@babylonjs/loaders/OBJ";` . It would be exactly the same for glTF: `import "@babylonjs/loaders/glTF";` .
+
+## KTX2 Decoder packages
+
+The ES6 KTX2 decoder module includes all of the decoders and their corresponding WASM files and wrappers so users can use them locally and deploy them as part of their build. The KTX2 decoder module is available in the npm scope `@babylonjs/ktx2decoder`.
+
+To use the KTX2 decoder module, install it as follows:
+
+```bash
+npm install --save-dev @babylonjs/ktx2decoder
+```
+
+Then, you need to decide if you want to use workers or decode the KTX2 files on the main thread. The difference is in the way you will initialize the module.
+
+If you want to use workers, you will need to generate the worker file that will be used to decode the textures and pass a worker pool. The example below uses the MSC decoder, but the same process can be used to initialize any other type of decoder.
+
+First let's create a worker file. We will call it worker.js (note - typescript will work the same):
+
+```javascript
+// worker.js
+import * as KTX2Decoder from "@babylonjs/ktx2decoder";
+import { workerFunction } from "@babylonjs/core/Misc/khronosTextureContainer2Worker";
+import mscTranscoderJsModule from "@babylonjs/ktx2decoder/wasm/msc_basis_transcoder";
+import { MSCTranscoder as jsMSCTranscoder } from "@babylonjs/ktx2decoder/Transcoders/mscTranscoder";
+// set the globalThis object to make sure the worker can access the global scope
+globalThis.KTX2DECODER = KTX2Decoder;
+// set the msc decoder module
+jsMSCTranscoder.JSModule = mscTranscoderJsModule;
+// Call the worker function, imported from the core module
+workerFunction(KTX2Decoder);
+```
+
+Then in your main file, you will need to do few things:
+
+1. import the wasm as an arraybuffer
+2. Create a worker pool
+3. Initialize the worker pool with the worker file
+4. Pass the workerpool to the KhronosTextureContainer2 module
+
+```javascript
+// mainFile.js
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { Scene } from "@babylonjs/core/scene";
+import { Texture } from "@babylonjs/core/Materials/Textures/texture";
+import wasmMSCTranscoder from "@babylonjs/ktx2decoder/wasm/msc_basis_transcoder.wasm"; // make sure the import is an arraybuffer
+import { KhronosTextureContainer2 } from "@babylonjs/core/Misc/khronosTextureContainer2";
+import { AutoReleaseWorkerPool } from "@babylonjs/core/Misc/workerPool";
+import { initializeWebWorker } from "@babylonjs/core/Misc/khronosTextureContainer2Worker";
+import "@babylonjs/core/Materials/Textures/Loaders/ktxTextureLoader";
+
+export function initScene(element) {
+  const engine = new Engine(element);
+  const scene = new Scene(engine);
+
+  // Create a worker pool
+  // This will be used when a new KhronosTextureContainer2 is created
+  KhronosTextureContainer2.WorkerPool = new AutoReleaseWorkerPool(4, () => {
+    // Create a new worker using the worker.js file we have already created
+    const worker = new Worker(new URL("./worker.js", import.meta.url), {
+      type: "module",
+    });
+    // Initialize the worker with the wasm array buffer
+    return initializeWebWorker(worker, {
+      // pass all arraybuffers here
+      wasmMSCTranscoder,
+    });
+  });
+
+  // decode the texture
+  const texture = new Texture(
+    "./2d_etc1s.ktx2",
+    scene,
+    false,
+    true,
+    Texture.TRILINEAR_SAMPLINGMODE,
+    () => {
+      console.log(texture);
+    },
+    (message, exception) => {
+      console.error("Can't fetch texture", message, exception);
+    },
+  );
+}
+```
+
+### How to get the wasms as arraybuffers
+
+When importing the wasm files, you will need to import them as arraybuffers. As this is non-standard, it depends on your bundler and environment.
+
+When using webpack you can use the arraybuffer-loader. The way to do that is documented here - https://www.npmjs.com/package/arraybuffer-loader#for-wasm-file
+
+When using vite you can use `vite-plugin-arraybuffer`, documented here - https://www.npmjs.com/package/vite-plugin-arraybuffer.
+
+When using node environment, you can just use the fs module to read the file as an arraybuffer.
+
+## Providing your own resources for Draco compression and Basis decoder
+
+We provide the Draco compression and Basis decoder as part of the ES6 `@babylonjs/core` package. As recommended, it is always better to serve those resources from your own server. If you want them to be included as part of your build process, you can do so by providing the resources directly to the modules.
+
+### Draco Compression
+
+Just like with the KTX2 decoder, you need to first decide if you use workers or not. For example, in a node environment you will not be able to use workers, but in a web environment it would be recommended to use them.
+
+If using workers, create a worker file:
+
+```javascript
+// worker.js
+import { workerFunction } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
+// will populate globalThis.DracoDecoderModule
+import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
+
+workerFunction();
+```
+
+And then create a worker pool:
+
+```javascript
+// mainFile.js
+// import the wasm as array buffer. see the KTX2 documentation for hints on how to do that
+import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
+import { AutoReleaseWorkerPool } from "@babylonjs/core/Misc/workerPool.js";
+import { DracoCompression } from "@babylonjs/core/Meshes/Compression/dracoCompression.js";
+import { initializeWebWorker } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
+import { Tools } from "@babylonjs/core/Misc/tools.js";
+import { VertexBuffer } from "@babylonjs/core/Meshes/buffer.js";
+
+const workerPool = new AutoReleaseWorkerPool(4, () => {
+  const worker = new Worker(new URL("./worker.js", import.meta.url), {
+    type: "module",
+  });
+  return initializeWebWorker(worker, wasm);
+});
+
+// set the worker pool
+DracoCompression.Configuration.decoder.workerPool = workerPool;
+
+// if you are creating your own version of the draco compression class you can pass the worker pool in the constructor instead:
+
+const dracoCompression = new DracoCompression({
+  workerPool,
+});
+```
+
+If you are not using workers, you will need to pass the wasm file and its js module directly to the draco compression configuration:
+
+```javascript
+// import the wasm file as an arraybuffer
+import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
+// import the js module
+import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
+DracoCompression.Configuration.decoder.wasmBinary = wasm;
+DracoCompression.Configuration.decoder.jsModule = globalThis.DracoDecoderModule;
+```
+
+#### Using Draco in node environment
+
+To use the draco compression in nodejs to decode your own file:
+
+```javascript
+const BABYLON = require("babylonjs");
+const fs = require("fs");
+const xhr = require("xhr2");
+require("babylonjs-loaders");
+
+// get the resources from the local disk. Note - the resources need to be downloaded manually.
+const Draco = require("./assets/draco_decoder_gltf.js");
+const wasm = fs.readFileSync(process.cwd() + "/assets/draco_decoder_gltf.wasm");
+
+BABYLON.DracoCompression.Configuration.decoder.wasmBinary = wasm;
+BABYLON.DracoCompression.Configuration.decoder.jsModule = Draco;
+
+globalThis.XMLHttpRequest = xhr.XMLHttpRequest;
+let engine = new BABYLON.NullEngine();
+// create your scene here
+const scene = .....;
+
+BABYLON.SceneLoader.ImportMesh("",  "https://awesomeserver.mine.com/",  "my.glb",  scene,  () => {
+    console.log("draco worked");
+  },  null,  (e) => {
+    console.log("oh no! something is off", e);
+  }
+);
+```
+
+### Basis Decoder
+
+The basis decoder doesn't use a worker pool, but does have a worker that can be initialized.
+
+To use the basis decoder in your app, you will need to initialize the worker:
+
+```javascript
+// worker.js
+import { workerFunction } from "@babylonjs/core/Misc/basisWorker.js";
+import "@babylonjs/core/assets/Basis/basis_transcoder.js";
+
+workerFunction();
+```
+
+Now initialize the webworker on the main thread, and set this worker for basis decoding:
+
+```javascript
+// mainFile.js
+import wasm from "@babylonjs/core/assets/Basis/basis_transcoder.wasm";
+import { initializeWebWorker } from "@babylonjs/core/Misc/basisWorker.js";
+import { SetBasisTranscoderWorker } from "@babylonjs/core/Misc/basis.js";
+
+const worker = new Worker(new URL("./worker.js", import.meta.url), {
+  type: "module",
+});
+initializeWebWorker(worker, wasm);
+
+SetBasisTranscoderWorker(worker);
+```
