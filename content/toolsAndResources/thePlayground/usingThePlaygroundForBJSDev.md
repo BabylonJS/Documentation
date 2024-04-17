@@ -41,7 +41,7 @@ export class BezierSurface {
 
 Once you are happy the code works and you have copied it to your local repository then before submitting your PR please make sure you have read the following to ensure a smooth positive result.
 
-[Start Contibuting](/contribute/toBabylon/HowToContribute)
+[Start Contributing](/contribute/toBabylon/HowToContribute)
 [Contributing Read Me](https://github.com/BabylonJS/Babylon.js/blob/master/contributing.md)
 [Code Guidelines](/contribute/toBabylon/approvedNamingConventions)
 [Comments in the API](/contribute/toBabylon/contributeToAPI)

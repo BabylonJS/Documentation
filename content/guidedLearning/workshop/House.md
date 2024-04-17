@@ -94,7 +94,7 @@ The placement of door and window spaces must be checked by the user. They must n
 
 A door has two properties, width and height. A doorspace has two properties - a door and left, which, when it is part of wall w, is its horizontal distance from the inner corner w.
 
-A window has two properties, width and height. A windowspace has three properties - a window, left and top, which, when it is part of wall w, are its horizonal distance from the inner corner w and the vertical distance from the top of the wall to the top of the window. Top must be greater than zero and less than wall height - window height.
+A window has two properties, width and height. A windowspace has three properties - a window, left and top, which, when it is part of wall w, are its horizontal distance from the inner corner w and the vertical distance from the top of the wall to the top of the window. Top must be greater than zero and less than wall height - window height.
 
 ![Doors and Windows](/img/samples/house5.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 5
@@ -127,7 +127,7 @@ It was decided that edges to doors and windows would be exterior.
 
 ## Inner and Outer Walls with Doors and Windows Mesh
 
-A flat shaded mesh will be created so the the normals for all surfaces will be at right angles to the surface.
+A flat shaded mesh will be created so the normals for all surfaces will be at right angles to the surface.
 
 Consider inner wall w with one door and one window added as in Fig 6 showing corner labels.
 
@@ -160,7 +160,7 @@ position of top inner left wall corrner,
 ]
 
 These can be pushed to the house positions array and their wall indices to the house indices array, with a suitable increment to their value.
-Add entires to the uvs array and colors array.
+Add entries to the uvs array and colors array.
 
 Also since this is the only interior wall for wall w record the end position of the house positions array so that later all other vertices can be linked to the exterior color.
 

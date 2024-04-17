@@ -13,7 +13,7 @@ video-content:
 ---
 
 ## How to use Thin Instances
-Starting with Babylon.js v4.2, thin intances are a new feature of meshes.
+Starting with Babylon.js v4.2, thin instances are a new feature of meshes.
 
 PG: <Playground id="#V1JE4Z#1" title="Thin Instances Example" description="Simple example of using thin instances."/>
 
@@ -59,7 +59,7 @@ Example: <Playground id="#217750" title="Creating Thin Instances" description="S
 
 Those 3 methods take an additional `refresh` parameter (`true` by default) that allows you to block the buffer refresh mechanism to save performances: if you must use those methods multiple times, pass `false` for all calls except for the last one.
 
-The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitely the bounding info by calling `thinInstanceRefreshBoundingInfo`.
+The bounding info of the mesh is recomputed each time you call these methods to encompass all the thin instances (except if you set `doNotSyncBoundingInfo` to `true`). You can also refresh explicitly the bounding info by calling `thinInstanceRefreshBoundingInfo`.
 
 ## Custom attributes
 As for regular instances, you can add custom attributes to thin instances.

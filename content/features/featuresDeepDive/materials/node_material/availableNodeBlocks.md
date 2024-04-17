@@ -292,7 +292,7 @@ Outputs a value that is a mix of the left and right inputs based on the target's
         -   output: Float, Vector2, Vector3, Vector4, Color3, or Color4. Output varies based on left and right input types.
 
 ### SmoothStep
-Outputs a value based on a the input value's position on a curve between the two edge values.
+Outputs a value based on the input value's position on a curve between the two edge values.
 
     -   Inputs:
         -   value: Float
@@ -501,7 +501,7 @@ Returns 1 if the input is positive, 0 if input is equal to 0, or -1 if the input
         -   output: Float
 
 ### Sqrt
-Outputs the the square root of the input value.
+Outputs the square root of the input value.
 
     -   Input:
         -   input: Float
@@ -631,7 +631,7 @@ Outputs a sawtooth pattern value between -1 and 1 based on the input value.
         -   output: Float
 
 ### Sin
-Outputs the the sine value based on the input value.
+Outputs the sine value based on the input value.
 
     -   Input:
         -   input: Float
@@ -647,7 +647,7 @@ Outputs a stepped pattern value between -1 and 1 based on the input value.
         -   output: Float
 
 ### Tan
-Outputs the the tangent value based on the input value.
+Outputs the tangent value based on the input value.
 
     -   Input:
         -   input: Float
@@ -758,7 +758,7 @@ Converts a world space position into the corresponding XY screen coordinates in 
         -	Y: Float
 
 ### Transform
-Transforms a input vector based on the input matrix.
+Transforms an input vector based on the input matrix.
 
     -   Inputs:
         -   vector: Vector2, Vector3, Vector4, Color3, or Color4

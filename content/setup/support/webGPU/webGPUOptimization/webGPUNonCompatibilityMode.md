@@ -33,7 +33,7 @@ The lower `numBundleCreationNonCompatMode` is the better: the best case is when 
 See last section of this page for things to watch for that could lead to bundle (re)creations and how to modify your code to avoid this.
 
 ## Caveats
-When in NCM mode, theoritically it *may* be possible that some things don't work as expected (for eg. that changing a material would not work), in which case calling `scene.resetDrawCache()` would fix the problem (or `mesh.resetDrawCache()` if the problem only impacts a single mesh).
+When in NCM mode, theoretically it *may* be possible that some things don't work as expected (for eg. that changing a material would not work), in which case calling `scene.resetDrawCache()` would fix the problem (or `mesh.resetDrawCache()` if the problem only impacts a single mesh).
 
 However, this should happen only very infrequently (see next section) in practice: if it does, please report to the forum so we can analyze the case and see if it can be made to work automatically without having to call `resetDrawCache`.
 
@@ -73,7 +73,7 @@ Below is a list of all the playgrounds from our validation test suite that recre
     * why: updating the position attribute each frame
     * solution: none at the time, the `CreateTube` (and all functions of `MeshBuilder`) are using `getVerticesData` / `updateVerticesData` to update an existing instance, the latter method triggering a `markAsAttributeDirty` call on the material. We would need to update the GPU buffer directly without using `updateVerticesData`, but by doing so we would loose the baking CPU array which is necessary for the mesh builder methods to work (the `Buffer.updateDirectly` method is clearing the `_data` property but `getVerticesData` works only if this property is not `null`)
 * **Custom render target** (#TQCEBF#3)
-    * why: changing the material used by a `RenderTargetTexture` in `onBeforeRender` and reseting it in `onAfterRender`
+    * why: changing the material used by a `RenderTargetTexture` in `onBeforeRender` and resetting it in `onAfterRender`
     * solution: use `RenderTargetTexture.setMaterialForRendering` instead of `onBeforeRender` / `onAfterRender`
 * **Advanced shadows, Advanced shadows (right handed), Reverse depth buffer and shadows** (#SLV8LW#3, #B48X7G#64, #WL4Q8J#20)
     * why: the same material is used for the 8 floors (for **Reverse depth buffer and shadows** it's the boxes/sphere/knot which are reusing the same material). Each floor + box is lit by a specific light which has its own shader generator. When a floor is drawn, the shadow sampler corresponding to the shadow generator is bound to the shader, and because all floors are using the same material, setting a new shadow sampler resets the cache

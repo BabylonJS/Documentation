@@ -32,7 +32,7 @@ Until Babylon 5.0 we took a different approach towards versioning. Our stable ve
 
 Starting Babylon 5.0 we take a different approach towards versioning. We are releasing a new minor version each Thursday of the week from our master branch, containing the latest features and bug fixes. During the week, if a bug fix is required we will release a patched version of the framework. That means that if for example we are at version 5.1.1 at the moment, next Thursday will introduce version 5.2.0. It is possible that until then we will release 5.1.2 or even 5.1.3. We don't update older minor versions. 5.1.1 will not include bug fixes that were introduced in 5.2.0. We recommend using the carret (`^`) when setting the framework version in your package.json. This way you will always get the latest of this major version.
 
-We guarantee **no breaking changes** in our public API between minor versions. Breaking changes will be introduced between major versions. The only time we might introduce breaking changes is when a the browsers introduced a change in their API that forces us to change our API. As we usually abstract our APIs this rarely happens.
+We guarantee **no breaking changes** in our public API between minor versions. Breaking changes will be introduced between major versions. The only time we might introduce breaking changes is when the browsers introduced a change in their API that forces us to change our API. As we usually abstract our APIs this rarely happens.
 
 ## Changelog
 

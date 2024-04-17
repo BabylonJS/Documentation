@@ -11,7 +11,7 @@ video-content:
 ![idpic1](/img/extensions/clonerSystem/objectcloner.jpg "ObjectCloner")
 
 The ObjectCloner clones and distributes given meshes to the facet position of another input-mesh which acts as a template. If more than one mesh is provided, then the corresponding clones will be placed subsequently one after another starting in the order as the facets of the template mesh is defined.  
-The ObjectCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones. Transforming this **root** affects all underlying clones (childs) at once but independently of the interpolation mode. The given input meshes and the template mesh will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
+The ObjectCloner returns an object with an important property: **root**. It is an invisible mesh, it's the anchor and parent of all generated clones. Transforming this **root** affects all underlying clones (children) at once but independently of the interpolation mode. The given input meshes and the template mesh will be made inactive during construction, so after construction there will be only one of two possible mesh types: BABYLON **clones** or **instances**.  
 _Note:_ Input meshes can be BABYLON meshes but other Cloners as well!
 
 ## Example

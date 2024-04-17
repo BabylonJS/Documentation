@@ -18,7 +18,7 @@ To add a Terrain game object to your Scene, select **GameObject > 3D Object > Te
 
 With the exception of the tree placement tool and the settings panel, all the tools on the toolbar provide a set of “brushes” and settings for brush size and opacity. It is no coincidence that these resemble the painting tools from an image editor because detail in the terrain is created precisely that way, by “painting” detail onto the landscape. If you select the leftmost tool on the bar (Raise/Lower Terrain) and move the mouse over the terrain in the scene view, you will see a cursor resembling a spotlight on the surface. When you click the mouse, you can paint gradual changes in height onto the landscape at the mouse’s position. By selecting different options from the Brushes toolbar, you can paint with different shapes. The Brush Size and Opacity options vary the area of the brush and the strength of its effect respectively.
 
-The details of all of the tools will be given in subsequent sections. However, all of them are based around the concept of painting detail and with the exception of the tree placement tool, all have the same options for brushes, brush size and opacity. The tools can be used to set the height of the terrain and also to add coloration, plants and other objects.
+The details of all the tools will be given in subsequent sections. However, all of them are based around the concept of painting detail and with the exception of the tree placement tool, all have the same options for brushes, brush size and opacity. The tools can be used to set the height of the terrain and also to add coloration, plants and other objects.
 
 ## Terrain Keyboard Shortcuts
 

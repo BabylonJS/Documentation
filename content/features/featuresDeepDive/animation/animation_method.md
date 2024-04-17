@@ -37,7 +37,7 @@ const myAnim = new BABYLON.Animation(name, property, frames_per_second, property
   BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT - Pause the animation at the final value  
   BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE - Repeat the animation incrementing using key value gradients. In this way, for example, a \_clip\* showing a character's legs in a walking motion can be looped to show the character progressing across the scene.
   BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE_FROM_CURRENT - Relative loop mode (add to current value of animated object, unlike ANIMATIONLOOPMODE_RELATIVE)
-  BABYLON.Animation.ANIMATIONLOOPMODE_YOYO - The animation will reverses its direction when it reaches the end instead of restarting from the beginning
+  BABYLON.Animation.ANIMATIONLOOPMODE_YOYO - The animation will reverse its direction when it reaches the end instead of restarting from the beginning
 
 ## Set Key Frames
 
@@ -120,7 +120,7 @@ scene.beginDirectAnimation(target, animations, from, to, loop);
 - _to_ - _number_, the frame at which to end the animation
 - _loop_ - _boolean_, optional, default _false_, when _true_ repeats the animation
 
-Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene so the scene is not aware of these animations and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an _animations_ array property if it is desireable not to alter the target object. Further optional parameters are available and can be found in the _scene_ API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an _Animatable_ is exactly what is needed.
+Be aware that animations applied with `scene.beginDirectAnimation` do not belong to any object or the scene so the scene is not aware of these animations and they do not register in `scene.animations`. However, this method is extremely useful for applying a one-time animation to an object or for animating an object that does not have an _animations_ array property if it is desirable not to alter the target object. Further optional parameters are available and can be found in the _scene_ API. If `scene.beginDirectAnimation` is the preferable method, but additionally having a reference to the animation that can be used in the future is required, an _Animatable_ is exactly what is needed.
 
 <Playground id="#7V0Y1I#1" title="Sliding Box Direct Animation" description="An example of sliding a box with direct animation." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg" isMain={true} category="Animation"/>
 

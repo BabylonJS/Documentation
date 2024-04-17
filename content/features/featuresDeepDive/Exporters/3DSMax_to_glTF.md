@@ -236,7 +236,7 @@ To do it simply, a root node named "root" is added to the scene. All nodes are s
 
 ## Consideration about skins
 
-In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible of its transformation ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scale).
+In glTF, a skin is binded to a node. The skeleton (root bone) of a skin should be positioned at origin, without rotation or scaling. The node to which is applied the skin is responsible for its transformation ([translation](/typedoc/classes/babylon.transformnode#translate), rotation, scale).
 
 ## Textures image format
 
@@ -250,7 +250,7 @@ glTF 2.0 supports the [KHR_texture_transform extension](https://github.com/Khron
 
 ## Environment texture
 
-To enjoy PBR material rendering, you should have an environmnent texture in your scene. The plugin exports the environment map if any is provided in 3DS MAX.
+To enjoy PBR material rendering, you should have an environment texture in your scene. The plugin exports the environment map if any is provided in 3DS MAX.
 
 However, glTF format does not support this feature and the environment map needs to be added manually in client implementations. The Babylon Sandbox, see below, provides such feature.
 

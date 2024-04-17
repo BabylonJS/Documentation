@@ -48,7 +48,7 @@ Given how SR works, you will probably always want to set `alwaysSelectAsActiveMe
 In the fast SR mode, most of the regular javascript code is skipped, so the statistics display by the inspector in the **COUNT** section won't be accurate: all the **Active XXX** counters as well as **Total vertices** will stay at 0.
 
 ### When to use
-It's hard to list everything that will work/won't work depending on the mode, so the easiest way to use this new feature is to enable it and see if everything works as expected once enabled (try first fast mode, then stardard mode). As explained above, if you need to update something at some point in time and the current SR mode can't handle it, you can always disable SR, apply the changes and re-enable SR.
+It's hard to list everything that will work/won't work depending on the mode, so the easiest way to use this new feature is to enable it and see if everything works as expected once enabled (try first fast mode, then standard mode). As explained above, if you need to update something at some point in time and the current SR mode can't handle it, you can always disable SR, apply the changes and re-enable SR.
 
 eCommerce sites may greatly benefit from this feature as the scene is normally quite small with everything visible on screen. Also, there's generally not a lot dynamicity and when something needs to be updated it's a "one shot" update, so either calling `snapshotRenderingReset` or disabling temporarily the feature should work.
 

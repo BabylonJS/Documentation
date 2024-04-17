@@ -20,7 +20,7 @@ to open a new window or
 ```javascript
 window.location = URL
 ```
-to replace the contants of the current window.
+to replace the content of the current window.
 
 <Playground id="#INB624#1" title="Open URL On Single Mesh Click" description=""/>
 <Playground id="#INB624#2" title="Open URL On Mesh Click Of Multiple Meshes" description=""/>

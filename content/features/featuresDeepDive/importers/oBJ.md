@@ -140,5 +140,5 @@ BABYLON.OBJFileLoader.SKIP_MATERIALS = true;
 
 - Smoothing groups (s parameter in OBJ file)
 - Illumination (illum parameter in MTL file)
-- The differents options for loading textures in MTL file.
+- The different options for loading textures in MTL file.
 - A good description about MTL files and their options can be found here: http://paulbourke.net/dataformats/mtl/

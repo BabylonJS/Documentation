@@ -39,7 +39,7 @@ As soon as the feature is enabled, you can get the mesh total number of facets w
 The method `updateFacetData()` creates two permanent arrays : the mesh facet positions and facet normals.  
 Moreover, it logically divides the mesh according to some partitioning and stores all the facets in this partitioning.  
 Unless the mesh is updated or morphed afterwards, you don't need to call this method anymore once it has been done.  
-If you don't need this feature any longer, you can disabled it to release the memory with `mesh.disableFacetData()`.
+If you don't need this feature any longer, you can disable it to release the memory with `mesh.disableFacetData()`.
 
 ```javascript
 mesh.updateFacetData();
@@ -338,11 +338,11 @@ Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simpl
 
 Depth sorted on the left, standard on the right.
 
-If don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
-If for some reasons, you still need to call `updateFacetData()` but you don't need the depth sort any longer, just disabled it with `mesh.mustDepthSortFacets = false`.  
+If you don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
+If, for some reason, you still need to call `updateFacetData()` but you don't need the depth sort any longer, just disabled it with `mesh.mustDepthSortFacets = false`.  
 In both cases, the facet will keep the last given order.
 
-Note that if your mesh is a SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time than the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.  
+Note that if your mesh is an SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time than the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.  
 In this case, just choose what kind of sorting is better for you : at particle level (faster) or at facet level (more accurate).
 
 As the facet depth sort reorganizes the mesh indices, it **can't work** with the MultiMaterials.

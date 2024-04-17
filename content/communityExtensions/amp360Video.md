@@ -144,7 +144,7 @@ One example can be found in the indexCode.html file located in the [repo](https:
 
 Several types of 360 video exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
-The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eyes whereas the last one contains both panoramic views respectively on the top and bottom of the video.
+The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eye whereas the last one contains both panoramic views respectively on the top and bottom of the video.
 
 The plugin defaults to Monoscopic panoramic mode.
 
@@ -280,7 +280,7 @@ plugins: {
 
 To provide the best performances, by default the plugin does not account for you [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) setup. It renders 1 to 1 with CSS pixels. In case of HiDPI or Retina display the ratio might be pretty high meaning if you want to get the most of your pixels (using physical pixels), the plugin should for instance render 4 times more pixels than the actual CSS number of pixels.
 
-You can use the hardwareScalingLevel settings of the plugin to chose how many times the Physical Pixels of your device are multiplied to define the number of CSS pixels. For instance a value of 0.5 means there would be twice as much pixels on width and height than the number of CSS pixels enhancing a lot the resolution.
+You can use the hardwareScalingLevel settings of the plugin to chose how many times the Physical Pixels of your device are multiplied to define the number of CSS pixels. For instance a value of 0.5 means there would be twice as many pixels on width and height than the number of CSS pixels enhancing a lot the resolution.
 
 ### By HTML configuration
 

@@ -40,7 +40,7 @@ If you experiment with overriding properties but then decide you preferred the d
 
 ![Prefab Layer](/img/exporters/unity/prefablayer.jpg)
 
-The prefab layer can prepare your objects to take advantage of the toolkit's deep cloning to instantiate game object prefabs at runtime. This step is required to use _ **Unity Style Prefabs** _ in a web browser environment. Web games cannot directly instaniate a prefab from disk, so game objects intended to be used as runtime prefabs must be present but disabled in the scene.
+The prefab layer can prepare your objects to take advantage of the toolkit's deep cloning to instantiate game object prefabs at runtime. This step is required to use _ **Unity Style Prefabs** _ in a web browser environment. Web games cannot directly instantiate a prefab from disk, so game objects intended to be used as runtime prefabs must be present but disabled in the scene.
 
 By setting game objects to the **Babylon Prefab** layer you will create disabled source meshes used for deep cloning when you call the scene manager instantiate prefab function.
 

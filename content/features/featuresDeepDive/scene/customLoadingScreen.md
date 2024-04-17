@@ -155,7 +155,7 @@ You might also be interested in a standalone html example:
             scene.createDefaultCamera(true, true, true);
             BABYLON.SceneLoader.ImportMesh(
                 "",
-                "http://models.babylonjs.com/CornellBox/",
+                "https://models.babylonjs.com/CornellBox/",
                 "cornellBox.glb",
                 scene,
                 function () {
@@ -192,7 +192,7 @@ Example using `BABYLON.SceneLoader.ImportMesh`:
 ```javascript
 BABYLON.SceneLoader.ImportMesh(
     "",
-    "http://models.babylonjs.com/CornellBox/",
+    "https://models.babylonjs.com/CornellBox/",
     "cornellBox.glb",
     scene,
     function () {

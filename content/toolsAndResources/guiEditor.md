@@ -190,7 +190,7 @@ You can load locally by selecting the 'Load' button in the hamburger menu:
 
 #### Loading From The Snippet Server
 
-Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the the Editor.
+Loading from the snippet server will take a unique hash of a previously saved GUI and load it into the Editor.
 
 You can load from the snippet server by selecting the 'Load From Snippet Server' button in the hamburger menu:
 <img src="/img/tools/guiEditor/loadSnippet1.jpg" title="GUI Editor Load Snippet 1"/>

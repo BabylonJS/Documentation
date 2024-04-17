@@ -23,7 +23,7 @@ const camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-6, 0, 
 ```
 
 We then set the goal: 
-height above the the center of the target;
+height above the center of the target;
 ```javascript
 camera.heightOffset = 8;
 ```

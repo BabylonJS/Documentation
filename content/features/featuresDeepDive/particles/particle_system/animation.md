@@ -9,7 +9,7 @@ video-content:
 ---
 
 ## Creating Animated Particles
-Here we are talking about the animation of the texture of a particle rather than any movement or the particle itself. This feature uses a similar system to that of sprite animation and was added to Babylon.js v3.1. As for sprite animation it require an uniform spritesheet.
+Here we are talking about the animation of the texture of a particle rather than any movement or the particle itself. This feature uses a similar system to that of sprite animation and was added to Babylon.js v3.1. As for sprite animation it requires a uniform spritesheet.
 
 
 You must set the property *isAnimationSheetEnabled* as true for animated particles either on or after construction (fourth parameter)
@@ -42,7 +42,7 @@ particleSystem.endSpriteCellID = 9;
 particleSystem.spriteCellChangeSpeed = 4; // default is one
 ```
 
-The *spriteCellHeight* and *spriteCellWidth* are are the cell width and height for each sprite in the animation sheet. 
+The *spriteCellHeight* and *spriteCellWidth* are the cell width and height for each sprite in the animation sheet. 
 
 ![Cell Dimensions](/img/how_to/sprites/08-1.png)
 
@@ -53,9 +53,9 @@ Starting with Babylon.js v3.3, you can also use
 ```javascript
 particleSystem.spriteRandomStartCell = true;
 ```
-to randomly pick the start cell id of each particles between *startSpriteCellID* and *endSpriteCellID*.
+to randomly pick the start cell id of each particle between *startSpriteCellID* and *endSpriteCellID*.
 
-To control the speed of animation you can play around with adjusting direction, emitPower and updateSpeed though doing this adjusts thee whole particle animation and not just the sprite animation frame rate. 
+To control the speed of animation you can play around with adjusting direction, emitPower and updateSpeed though doing this adjusts the whole particle animation and not just the sprite animation frame rate. 
 
 To adjust the sprite animation frame rate you set the property *spriteCellChangeSpeed*. A value of 1 matches the animation rate to lifetime of a particle. The particle will be emitted with the sprite at *startSpriteCellID* and will die displaying the sprite at *endSpriteCellID*. As values increase above 1 the animation frame rate speeds up. Although the particle will be emitted with the sprite at *startSpriteCellID* the sprite on display when the particle dies will depend on the value of the speed and the lifetime of the particle.
 

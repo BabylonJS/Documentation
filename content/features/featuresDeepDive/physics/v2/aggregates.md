@@ -14,7 +14,7 @@ video-content:
 
 ## What is an Aggregate
 
-The Physics Aggregate is a object that contains a Body and a Shape. It's a helper that allows creating all the objects necessary to physicalize your scene in just one call. In that sense, it's similar to Physics V1 Impostors, but with more control. Once created, you can easily get the individual parts and tweak them.
+The Physics Aggregate is an object that contains a Body and a Shape. It's a helper that allows creating all the objects necessary to physicalize your scene in just one call. In that sense, it's similar to Physics V1 Impostors, but with more control. Once created, you can easily get the individual parts and tweak them.
 
 ## How to use it
 

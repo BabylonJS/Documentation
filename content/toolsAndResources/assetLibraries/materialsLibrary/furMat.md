@@ -267,7 +267,7 @@ function increasedFacets(mesh, pps) {
 }
 ```
 
-For sharp edged meshes such as a box the shader can separate the faces since the faces meeting at the corners have there own vertices and normals at these vertices.
+For sharp edged meshes such as a box the shader can separate the faces since the faces meeting at the corners have their own vertices and normals at these vertices.
 These meshes are flat shaded. If this separation of the edges is a problem then the function convertToSmoothShadedMesh() can be used.
 However this can then produce some artefacts at the edges.
 

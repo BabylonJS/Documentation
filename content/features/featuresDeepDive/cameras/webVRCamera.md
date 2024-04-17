@@ -319,7 +319,7 @@ Enjoy!
 
   Seems like a very common problem - a WebVRFreeCamera class is initialized, but you can't see a thing in the device.
 
-  1. Check the console - Are you seeing any errors? COuld it be that WebVR is not supported on your browser?
+  1. Check the console - Are you seeing any errors? Could it be that WebVR is not supported on your browser?
   2. In your console, type `navigator.getVRDevices().then((vrs) => {console.log(vrs.length)})`. If you got 0 or an error, the device is not properly connected.
   3. If you are using Oculus Rift, did you enable "unknown sources" in the Oculus Rift settings?
   4. Try following the instructions in https://mozvr.com/ . Does the camera work there?

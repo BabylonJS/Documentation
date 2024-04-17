@@ -16,7 +16,7 @@ Put a different way, the UVs for a mesh are very similar to a sewing pattern for
 ## Projecting a Mesh into UV Space
 In the below example, we see a 3D cube on the right and the unwrapped UV layout on the left. In this example, we can imagine the cube as a cardboard box that we slice along certain edges to allow it to lay flat. Each vertex in the mesh has a specific coordinate between 0 and 1 on both the U (horizontal) and V (vertical) axes and those coordinates will be written as part of the mesh parameters when saving or exporting the asset. 
 
-![A cube cut along seams and laid out into UV space the the six faces resembling an upside-down T](/img/assetPipeline/meshUVs/uvMapping.png) 
+![A cube cut along seams and laid out into UV space the six faces resembling an upside-down T](/img/assetPipeline/meshUVs/uvMapping.png) 
 
 This mapping defines how the pixels of a texture are wrapped around the mesh based on where each mesh UV is located. A group of contiguous UVs are called a UV island. In the example above, there is one UV island describing the layout for the entire mesh. Notice that there are large sections of UV space that are unused in the upper-left and upper-right sections. 
 

@@ -26,7 +26,7 @@ A special version of the [**Babylon.js Sandbox**](https://sandbox.babylonjs.com)
 - Specular over alpha has to be turned off (right side of the picture below). It was being used to render glass before the apparition of dedicated glTF extensions such as transmission and volume.
 
 ![Specular over alpha turned-on (left) and off (right)](/img/how_to/3D-commerce-certif/specular-over-alpha.jpg)
-- sRGB Buffer has to be turned on (right side of the picture below). It has been deactived by default for performance reasons due to browser [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1256340).
+- sRGB Buffer has to be turned on (right side of the picture below). It has been deactivated by default for performance reasons due to browser [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1256340).
 
 ![sRGB Buffer turned-on (left) and off (right)](/img/how_to/3D-commerce-certif/sRGB-buffer.jpg)
 

@@ -154,7 +154,7 @@ SWEET! We did it! Nice job! Here's the playground result of those changes. <Play
 We can achieve this same effect by calling [getHierarchyBoundingVectors()](https://doc.babylonjs.com/typedoc/classes/BABYLON.Node#getHierarchyBoundingVectors) on our parent Node.
 
 ```javascript
-let { min, max } = parent.getHierarchyBoundingVectors(); //Returns the bouding vectors of a Node and all its children 
+let { min, max } = parent.getHierarchyBoundingVectors(); //Returns the bounding vectors of a Node and all its children 
 
 parent.setBoundingInfo(new BABYLON.BoundingInfo(min, max));
 ```

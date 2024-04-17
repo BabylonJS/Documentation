@@ -44,7 +44,7 @@ gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
 
 ## Gamepad types
 
-Depending on the type of controller, handle any of it's unique properties:
+Depending on the type of controller, handle any of its unique properties:
 
 ```javascript
 gamepadManager.onGamepadConnectedObservable.add((gamepad, state)=>{
