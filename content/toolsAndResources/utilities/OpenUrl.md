@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## Open an URL with Action Manager
+## Open a URL with Action Manager
 
 Since any Javascript can be called when executing code action with the action manager it is straight forward to open a new web page using 
 

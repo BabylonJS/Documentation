@@ -48,7 +48,7 @@ On top of the directory tree, 2 favorites shortcuts are available:
 ## Creating A New Folder
 
 New folders can be created at any time. Just right-click empty space in the panel, select `New Directory...` and
-type the name of the folder to created. Once accepted, a new folder will be created in the currently browsed folder.
+type the name of the folder to create. Once accepted, a new folder will be created in the currently browsed folder.
 
 ![CreatingFolder](/img/extensions/Editor/AssetsIntroduction/creating-folder.gif)
 

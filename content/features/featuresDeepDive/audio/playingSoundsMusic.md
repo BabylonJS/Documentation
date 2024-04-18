@@ -47,7 +47,7 @@ You can test this first sample in our music playground example here:
 
 ## Handling the 'ready to play' callback function
 
-Calling the `BABYLON.Sound()` constructor with an URL generates 2 phases:
+Calling the `BABYLON.Sound()` constructor with a URL generates 2 phases:
 
 1. the .wav or .mp3 file is loaded from your webserver using an async XHR
 2. once loaded, the sound is being async decoded by web audio. If it succeeds, it raises the callback function you’ve provided.

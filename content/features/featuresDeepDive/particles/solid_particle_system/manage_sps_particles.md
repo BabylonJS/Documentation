@@ -125,7 +125,7 @@ On the next page we will look at how SPS can be configured to use multi-material
 
 To apply a texture from a region of the image file you specify its lower left (x, y) and upper right (z, w) coordinates as fractions of the whole image in the form of a UV vector4 (x, y, z, w). Taking the lower left coordinates of (0, 0) and the upper left as (1, 1) will apply the whole image as a material. The _uvs_ property of a particle is a vector4 and for the whole image you would use a uv of (0, 0, 1, 1).
 
-When you want apply a smaller region given by lower left (0.2, 0.1) and upper right as (0.6, 0.3) you just set the _uvs_ property like this
+When you want to apply a smaller region given by lower left (0.2, 0.1) and upper right as (0.6, 0.3) you just set the _uvs_ property like this
 
 ```javascript
 particle.uvs.x = 0.2; //the coordinate of lower left corner given by 20% of image width

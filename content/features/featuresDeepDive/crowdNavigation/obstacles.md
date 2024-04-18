@@ -45,7 +45,7 @@ The `ComputePath`` method will handle obstacles exclusively when a crowd has bee
 
 ## Obstacles API
 
-Once the navigation mesh is updated to take tiles into account, obstacles are accessible thru 3 simple functions:
+Once the navigation mesh is updated to take tiles into account, obstacles are accessible through 3 simple functions:
 
 ```javascript
 addCylinderObstacle(position: Vector3, radius: number, height: number): IObstacle;

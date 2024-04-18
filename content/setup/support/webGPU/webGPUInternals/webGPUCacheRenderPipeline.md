@@ -11,7 +11,7 @@ video-content:
 This class implements a cache of GPU render pipelines to avoid recreating them each frame.
 
 ## Cache implementation
-The cache is a node tree with the same structure than the bind group cache:
+The cache is a node tree with the same structure as the bind group cache:
 ```typescript
 class NodeState {
     public values: { [id: number]: NodeState };

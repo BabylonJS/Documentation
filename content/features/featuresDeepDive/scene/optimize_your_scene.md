@@ -82,7 +82,7 @@ mesh.doNotSyncBoundingInfo = true;
 On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised. 
 To avoid this process, you can set `scene.skipPointerMovePicking = true`.
 
-Please note that by doing it, you will have no event over any mesh when the pointer will move (And `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`.
+Please note that by doing it, you will have no event over any mesh when the pointer will move (and `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`).
 
 ## Reducing draw calls
 As soon as you can please use [instances](/features/featuresDeepDive/mesh/copies/instances) as they are drawn with one single draw call.
@@ -215,7 +215,7 @@ mesh.cullingStrategy = oneOfThePossibleValues;
   *  Is the cullable object bounding sphere center in the frustum ?
   *  If not, apply the Bounding Sphere Only strategy. No Bounding Box is tested here.
 
-Optimistic Inclusion modes give a little gain. They keep the same accuracy than the basic mode on what they are applied (standard or bSphereOnly).  
+Optimistic Inclusion modes give a little gain. They keep the same accuracy as the basic mode on what they are applied (standard or bSphereOnly).  
 BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
 
 ## Performance Priority Modes

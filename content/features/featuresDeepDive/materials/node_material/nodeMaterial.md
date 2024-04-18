@@ -85,7 +85,7 @@ If you are interested in learning how to create node materials through code, you
 
 <Youtube id="GrmVObi6caQ"/>
 
-To start using the Node Material, you just need to instantiating one:
+To start using the Node Material, you just need to instantiate one:
 
 ```javascript
 const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComments: true });
@@ -148,7 +148,7 @@ Attributes can be:
 - matricesIndicesExtra
 - matricesWeightsExtra
 
-When you manually set the value of an InputNode, you can flag it as `node.isConstant` to indicate that the value will not be dynamically updated and thus the node material will be able to optimize the block by not generating an uniform for this value.
+When you manually set the value of an InputNode, you can flag it as `node.isConstant` to indicate that the value will not be dynamically updated and thus the node material will be able to optimize the block by not generating a uniform for this value.
 
 The following functions will let you get information about your InputNode:
 
@@ -157,7 +157,7 @@ The following functions will let you get information about your InputNode:
 - `isUniform`
 - `isConstant`
 
-When an InputNode is an uniform (eg. a manual value that will be sent to the shader) and not a constant, you can set `inputNode.visibleInInspector` to true so users will be able to visually control the value of the node using Babylon.js Inspector.
+When an InputNode is a uniform (eg. a manual value that will be sent to the shader) and not a constant, you can set `inputNode.visibleInInspector` to true so users will be able to visually control the value of the node using Babylon.js Inspector.
 
 You can even customize the look and feel of the Inspector UI by defining `inputNode.min` and `inputNode.max` to get a slider instead of an input text box.
 
@@ -445,7 +445,7 @@ BABYLON.NodeMaterial.ParseFromSnippetAsync("2F999G", scene).then((nodeMaterial) 
 });
 ```
 
-When using NME within the Playground, you have the opportunity to edit your material with the Inspector and let the Playground update your snipped id automatically (each time NME will save a new snippet id it will inform the playground to also change the id in your code.
+When using NME within the Playground, you have the opportunity to edit your material with the Inspector and let the Playground update your snipped id automatically (each time NME will save a new snippet id it will inform the playground to also change the id in your code).
 
 And to begin with you can simply call this code to start a new Node Material from scratch:
 

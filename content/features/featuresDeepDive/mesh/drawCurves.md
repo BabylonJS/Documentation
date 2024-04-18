@@ -218,7 +218,7 @@ $0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
 
 ![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
 
-The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white ,, is a unit sphere where $w = 0$.
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white, is a unit sphere where $w = 0$.
 
 The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
 
@@ -295,7 +295,7 @@ The representation of the spline in 3D space is drawn as you adjust the controls
 
 You can also make your own Curve3 object from a simple array of successive Vector3.  
 Why would you do this and not just use the points to draw a line?  
-Because the _Curve3_ object has a useful method, the _continue()_ method, that allows you place the start of one _Curve3_ onto the end of another _Curve3_ without any calculations to match the start and end points of the curves.
+Because the _Curve3_ object has a useful method, the _continue()_ method, that allows you to place the start of one _Curve3_ onto the end of another _Curve3_ without any calculations to match the start and end points of the curves.
 
 ### Example 1
 

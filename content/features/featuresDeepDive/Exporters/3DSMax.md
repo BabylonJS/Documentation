@@ -212,7 +212,7 @@ The scene properties allow you to do these things:
 - **Do not optimize animations**. You should check this option if animations are not exported correctly.
 - Create a default skybox from the environment texture when scene is being loaded. An environment texture must be setup to enable this feature.
 - Set the blur effect intensity applied to the skybox texture. By default it is slightly blurred. Setting value to 0 disables the blur effect.
-- **Add a default light, if no light is exported**. If this option is checked and there is no light selected for the export, an hemispheric light is added in the exported scene. By default this option is checked.
+- **Add a default light, if no light is exported**. If this option is checked and there is no light selected for the export, a hemispheric light is added in the exported scene. By default this option is checked.
 - **Export normals** and **Export tangents** checkboxes allow you to control the morph target export. Note that if you want to export the target morph tangent, you have to check both the **Export tangents** checkbox and the other **Export tangents** checkbox of [the exporter window](#the-exporter-window).
 
 ## Object properties

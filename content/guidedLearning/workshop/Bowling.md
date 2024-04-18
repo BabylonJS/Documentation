@@ -80,7 +80,7 @@ The aggregate contains both a body and a shape. Since we’re adding physics to 
 
 ## Create Bowling Pins
 
-With our bowling lane created and configured with physics, we add pins to sit on top of its surface. A standard bowling lane consists of 10 bowling pins. Rather than write the same code 10 times to create each bowling pin, we create a function `createPins` which uses the `InstancedMesh` method to create a an instance of 10 pins. The `InstancedMesh` method allows for efficient rendering of multiple instances of the same mesh with varying positions or properties. This is quite the function so let’s break it down!
+With our bowling lane created and configured with physics, we add pins to sit on top of its surface. A standard bowling lane consists of 10 bowling pins. Rather than write the same code 10 times to create each bowling pin, we create a function `createPins` which uses the `InstancedMesh` method to create an instance of 10 pins. The `InstancedMesh` method allows for efficient rendering of multiple instances of the same mesh with varying positions or properties. This is quite the function so let’s break it down!
 
 We first start by loading the bowling pin from the Asset Librarian. Once loaded, we set the scaling of the pin to a size that’ll fit well within our lane dimension but also accommodate 10 pins. Given the lane dimensions, we scale the bowling pin `0.3`.
 
@@ -129,7 +129,7 @@ return pinPositions.map(function (positionInSpace, idx) {
 });
 ```
 
-Before we return the instanced pin, we need to add physics to the pin. Like adding physics for the bowling lane, we create an aggregate for the pin. However, this time we use the `CONVEX_HULL` shape which matches the visual geometry as best as possible. We assign a mass of `1` to the pin so that there’s just a bit of weight but not too much that the pin can’t be knocked down. In addition, we use the `restitution` parameter which refers to how bouncy or springy an object is when it collides with another object. Bowling pins are made of wood and therefore when a pin collides with another object, the pin should “bounce” just a tad but not so much as though the pin is made of rubber. Therefore, a `restitution` of `.25` will suffice!
+Before we return the instanced pin, we need to add physics to the pin. Like adding physics for the bowling lane, we create an aggregate for the pin. However, this time we use the `CONVEX_HULL` shape which matches the visual geometry as good as possible. We assign a mass of `1` to the pin so that there’s just a bit of weight but not too much that the pin can’t be knocked down. In addition, we use the `restitution` parameter which refers to how bouncy or springy an object is when it collides with another object. Bowling pins are made of wood and therefore when a pin collides with another object, the pin should “bounce” just a tad but not so much as though the pin is made of rubber. Therefore, a `restitution` of `.25` will suffice!
 
 ```javascript
 const pinAggregate = new BABYLON.PhysicsAggregate(pin, BABYLON.PhysicsShapeType.CONVEX_HULL, { mass: 1, restitution: 0.25 }, scene);

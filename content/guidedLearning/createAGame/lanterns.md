@@ -155,7 +155,7 @@ if (!this._lanternObjs[0].isLit) {
 ```
 
 2. Set up the intersection triggers for each lantern with the player. Using `ActionManger.OnIntersectionEnterTrigger`, we're watching for 1 of 2 things when the player intersects with a lantern:
-   1. The lantern is unlit and he player sparkler is lit:
+   1. The lantern is unlit and the player sparkler is lit:
    ```javascript
    //if the lantern is not lit, light it up & reset sparkler timer
    if (!lantern.isLit && player.sparkLit) {
@@ -196,7 +196,7 @@ this.mesh.material = this._lightmtl;
 This is a super simple process that involves making a material that has a texture of what the lantern looks like when "lit".  
 ![unlit lantern](/img/how_to/create-a-game/unlit.png) ![lit lantern](/img/how_to/create-a-game/lit.png)
 
-I generated this texture in blender, just giving the mesh an emissive coloring and then baking that into a .png.
+I generated this texture in Blender, just giving the mesh an emissive coloring and then baking that into a .png.
 
 ```javascript
 //create emissive material for when lantern is lit

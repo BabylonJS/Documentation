@@ -47,7 +47,7 @@ export = BABYLON;
 >
 > wherever you need to.
 
-4. Depending of what you intend to do in your app, other dependencies might be needed (e.g. cannon.js or hand.js)
+4. Depending on what you intend to do in your app, other dependencies might be needed (e.g. cannon.js or hand.js)
    You could install them the same way asBabylon.js, but I just downloaded the javascript files, saved them in the www folder and referenced using script tags in `index.html`. However, this has a downside, the www folder is generated after transpiling, so you will need to add those javascript files **manually**.
 
 5. After this I generated an Angular [Provider](https://docs.angularjs.org/guide/providers), this is a singleton class that will wrap ourBabylon.js Engine:

@@ -12,7 +12,7 @@ video-content:
 
 ## ♻️ Reduce, Reuse, Recycle ♻️
 
-The main point that should be taking advantage of when using the API is to reuse as much objects as possible! For example, if you have a bowling game, instead of disposing and recreating your ball and pins every shot, you could keep the same objects and just reset their positions to the "default" state. By default, when you change the properties of the node associated to a body, there will be no effect. That's because the pre-step of updating the physic body with the values from the transform node is disabled by default, to improve performance. You can solve this by enabling the pre-step for a frame, and then disabling it again next frame:
+The main point that should be taking advantage of when using the API is to reuse as many objects as possible! For example, if you have a bowling game, instead of disposing and recreating your ball and pins every shot, you could keep the same objects and just reset their positions to the "default" state. By default, when you change the properties of the node associated to a body, there will be no effect. That's because the pre-step of updating the physic body with the values from the transform node is disabled by default, to improve performance. You can solve this by enabling the pre-step for a frame, and then disabling it again next frame:
 
 ```javascript
 body.disablePreStep = false;

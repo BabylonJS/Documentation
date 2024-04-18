@@ -23,7 +23,7 @@ var recorder = new BABYLON.SceneRecorder();
 recorder.track(scene);
 ```
 
-This will mark the origin of the changes eg. the original state of your scene. Every changes (well, almost actually, please check the limitations chapter below) made after that call will be tracked and available in the delta file.
+This will mark the origin of the changes eg. the original state of your scene. All changes (well, almost actually, please check the limitations chapter below) made after that call will be tracked and available in the delta file.
 
 ## Applying the changes
 

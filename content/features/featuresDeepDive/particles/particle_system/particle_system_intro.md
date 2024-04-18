@@ -105,7 +105,7 @@ system.preWarmStepOffset = 5;
 system.start();
 ```
 
-It will execute the particle animation loop 100 times with a time step set to 5 times faster than real time. The more cycles you want, the slower the system will be to start. So it could be interesting to increase the time step to have less cycles to run. But keep in mind that a too big time step will introduce issues if the lifetime of a particle is smaller than the time step.
+It will execute the particle animation loop 100 times with a time step set to 5 times faster than real time. The more cycles you want, the slower the system will be to start. So it could be interesting to increase the time step to have fewer cycles to run. But keep in mind that a too big time step will introduce issues if the lifetime of a particle is smaller than the time step.
 
 Here is an example of pre-warming: <Playground id="#MX2Z99#8" title="Particle Pre-Warming Example" description="Simple example of pre warming particles."/>
 

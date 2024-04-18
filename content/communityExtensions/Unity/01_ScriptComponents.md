@@ -34,7 +34,7 @@ Babylon script classes are referred to as **Backing Classes**. The backing class
 
 - **Camera Component** - A standard camera component script to used on **Camera** game objects **only**.
 
-- **Shader Controller** - Script component designed to sub class and control **Shader Material** properties.
+- **Shader Controller** - Script component designed to subclass and control **Shader Material** properties.
 
 - **Global Startup Script** - Inline **Global Application** code and startup event functions.
 

@@ -32,7 +32,7 @@ video-content:
 
 * Default Physics Engine  - Specifies the default physics engine for the project.
 
-* Set Engine Antialias    - Enables or disables the engine anti alias option.
+* Set Engine Antialias    - Enables or disables the engine antialias option.
 
 * Adaptive Device Ratio   - Sets the engine to adapt to device ratio.
 

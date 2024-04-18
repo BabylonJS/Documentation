@@ -61,7 +61,7 @@ the [Unity Material Editor](https://docs.unity3d.com/Manual/Materials.html) docu
 
 ### Collision Meshes
 
-[Collision Meshes](04_CollisionMeshes) are generated to provided simple collision for each component type (box, sphere, capsule, wheel, mesh and terrain). This allows simple geometry to be be used for physics collisions and mesh intersections instead of the original detailed geometry. Please refer to the [Unity Collider Components](https://docs.unity3d.com/Manual/CollidersOverview.html) documentation for details.
+[Collision Meshes](04_CollisionMeshes) are generated to provided simple collision for each component type (box, sphere, capsule, wheel, mesh and terrain). This allows simple geometry to be used for physics collisions and mesh intersections instead of the original detailed geometry. Please refer to the [Unity Collider Components](https://docs.unity3d.com/Manual/CollidersOverview.html) documentation for details.
 
 ### Terrain Builder
 
@@ -85,7 +85,7 @@ The newer standard Animator controls are used to enable the built-in Unity Mecha
 
 ### Navigation Mesh
 
-[Navigation Mesh](09_NavigationMesh) support is provided by [Babylon-Navigation-Mesh](https://github.com/wanadev/babylon-navigation-mesh). A path finder for AI agents. It use the **A Star** and **Funnel** algorithms to calculate a path on a navigation mesh. The toolkit supports the unity navigation mesh generation tools to produced and serialize the navigation mesh geometry into your scene. Please refer to the [Unity Navigation Mesh](https://docs.unity3d.com/Manual/Navigation.html) documentation for details.
+[Navigation Mesh](09_NavigationMesh) support is provided by [Babylon-Navigation-Mesh](https://github.com/wanadev/babylon-navigation-mesh). A path finder for AI agents. It uses the **A Star** and **Funnel** algorithms to calculate a path on a navigation mesh. The toolkit supports the unity navigation mesh generation tools to produced and serialize the navigation mesh geometry into your scene. Please refer to the [Unity Navigation Mesh](https://docs.unity3d.com/Manual/Navigation.html) documentation for details.
 
 ### Windows Platform
 
@@ -102,7 +102,7 @@ The [Babylon Art Tools](11_BabylonArtTools) included in the toolkit provides a n
 
 The toolkit provided abstract base class **Editor Script Component** is the only supported script component that will be exported. All other non supported components will be ignored. The pre built toolkit components and your [Custom Script Components](01_ScriptComponents) are all derived from the base editor script component class and will be included in the exported scene.
 
-Native JavaScript Libraries (renamed to .bjs) that are included anywhere in the **Assets** folder will be packaged up and included in your project script file. This allow easy packaging of third-party script packages. TypeScript definition files are supported by most IDE and should also be included for auto complete usage in your game project development.
+Native JavaScript Libraries (renamed to .bjs) that are included anywhere in the **Assets** folder will be packaged up and included in your project script file. This allows easy packaging of third-party script packages. TypeScript definition files are supported by most IDE and should also be included for auto complete usage in your game project development.
 
 ### Supported Unity Features
 

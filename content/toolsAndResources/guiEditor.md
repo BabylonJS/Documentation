@@ -134,7 +134,7 @@ There are several handy keyboard shortcuts that you can utilize in the GUI Edito
 
 <img src="/img/tools/guiEditor/propertiesPanel.jpg" title="GUI Editor Properties Panel"/>
 
-The Properties Panel will change based on which controls are selected selected to reflect the properties specific to those controls. This is where you'll find all of the properties and can fully customize each individual element of your overall GUI.
+The Properties Panel will change based on which controls are selected to reflect the properties specific to those controls. This is where you'll find all of the properties and can fully customize each individual element of your overall GUI.
 
 For example here is how to change the name of a GUI.
 
@@ -157,7 +157,7 @@ You can then add them to the grid through parenting in the layers panel. Once pa
 
 <img src="/img/tools/guiEditor/cell.jpg" title="GUI Editor Changing Control's Grid Cell"/>
 
-Note: the zOrder of each control is determined by it's position in the hierarchy tree, and can be reordered with normal dragging regardless of which grid cell it belongs to.
+Note: the zOrder of each control is determined by its position in the hierarchy tree, and can be reordered with normal dragging regardless of which grid cell it belongs to.
 
 ### Saving GUIs Out Of the Editor
 

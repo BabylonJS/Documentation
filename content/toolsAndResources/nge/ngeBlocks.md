@@ -1042,7 +1042,7 @@ This is a simple math node which returns the remainder of the euclidean division
 - **right** is connected to a node providing the second value to be used in the evaluation.
 
 #### Outputs
-- **output** is the remainder of the euclidean division of the left input by the right input and matches type with the values connected to left and right. 
+- **output** is the remainder of the Euclidean division of the left input by the right input and matches type with the values connected to left and right. 
 
 <H3Image title="Multiply" image="/img/tools/nge/multiplyNode.jpg" alt="Multiply node"/>
 This is a simple math node which multiplies the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though this node is a little different than other nodes that require matching types between left and right inputs. This node can also act as a scale node where a Vector is scaled by a scalar value of type Float. To do this, first connect a Vector to the left input which will set the type for the output port. Second connect a Float to the right input of the node which will act as the scalar. This is the only math node where input types can be mixed, and these mixed input types need to be connected in one specific way. Remember, the left input can take any type and the right input can either take a matching type to multiply normally, or a Float type to be used as a scalar for the value connected to the left input.
@@ -1587,7 +1587,7 @@ This node generates a rotation matrix to rotate from a source Vector3 to a targe
 
 #### Properties
 - **source** is an input field for a Vector3 value representing the original vector before rotation is applied. This property is only visible if there is no wire connected to the source input.
-- **target** is an input field for a Vector3 value representing the final vector after rotation rotation is applied. This property is only visible if there is no wire connected to the target input.
+- **target** is an input field for a Vector3 value representing the final vector after rotation is applied. This property is only visible if there is no wire connected to the target input.
 
 #### Debug Infos
 - **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
@@ -1595,7 +1595,7 @@ This node generates a rotation matrix to rotate from a source Vector3 to a targe
 
 #### Inputs
 - **source** is connected to a node providing a Vector3 value representing the original vector before rotation is applied.
-- **target** is connected to a node providing a Vector3 value representing the final vector after rotation rotation is applied.
+- **target** is connected to a node providing a Vector3 value representing the final vector after rotation is applied.
 
 #### Outputs
 - **matrix** is the rotation Matrix derived from rotating the source vector to the target vector and can be applied to any matrix transformation input. 

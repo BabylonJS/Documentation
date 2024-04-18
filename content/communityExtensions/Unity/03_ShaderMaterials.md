@@ -160,7 +160,7 @@ Example library **Water Material** shader asset:
     }
 ```
 
-The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader controller sub class:
+The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader controller subclass:
 
 ```
  CGINCLUDE #ifdef BABYLON_INFO controller: "BABYLON.WaterMaterialController" #endif //BABYLON_INFO_END ENDCG`
@@ -169,7 +169,7 @@ The **CGINCLUDE** section defines that native **BABYLON.PushMaterial** shader co
 
 ## Shader Controller Scripts
 
-The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** sub class properties. The controller class uses the shader properties specified in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
+The shader controller class is used to interface between the Unity Material inspector properties and the native **BABYLON.PushMaterial** subclass properties. The controller class uses the shader properties specified in the custom shader material (.shader) asset. It reads the properties from the material inspector properties and assigns them to the native shader material properties.
 
 You can create a custom shader controller script from the **Create** menu at the top left of the Project panel or by selecting **Assets > Create > Babylon > Babylon TypeScript > Shader Controller** from the main menu.
 

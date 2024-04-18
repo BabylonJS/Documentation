@@ -27,7 +27,7 @@ SPS.dispose();
 SPS = null; // tells the GC the reference can be cleaned up also
 ```
 
-When you are not going to use some particle features you can set other properties of the SPS to *false* disable them.  You can always enable them again with *true*. This improve the performance of the scene as no attempt will be made to update these properties.
+When you are not going to use some particle features you can set other properties of the SPS to *false* disable them.  You can always enable them again with *true*. This improves the performance of the scene as no attempt will be made to update these properties.
 
 Property | Type | Default | Use 
 ----- | ----- | ----- | -----

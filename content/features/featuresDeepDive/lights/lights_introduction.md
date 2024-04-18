@@ -24,7 +24,7 @@ There are four types of lights that can be used with a range of lighting propert
 
 ### The Point Light
 
-A point light is a light defined by an unique point in world space. The light is emitted in every direction from this point. A good example of a point light is a standard light bulb.
+A point light is a light defined by a unique point in world space. The light is emitted in every direction from this point. A good example of a point light is a standard light bulb.
 
 ```javascript
 const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(1, 10, 1), scene);
@@ -63,7 +63,7 @@ const light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1
 
 ## Color Properties
 
-There are three properties of lights that affect color. Two of these _diffuse_ and _specular_ apply to all four types of light, the third, _groundColor_, only applies to an Hemispheric Light.
+There are three properties of lights that affect color. Two of these _diffuse_ and _specular_ apply to all four types of light, the third, _groundColor_, only applies to a Hemispheric Light.
 
 1. Diffuse gives the basic color to an object;
 2. Specular produces a highlight color on an object.
@@ -99,7 +99,7 @@ const material = new BABYLON.StandardMaterial("mat", scene);
 material.maxSimultaneousLights = 6;
 ```
 
-But beware! By default, all meshes are considered lit by all the lights even they are not physically lit. It would be too time consuming to calculate if a mesh can be lit by a light. And because with more dynamic lights, Babylon.js will generate bigger shaders which may not be compatible with low end devices like mobiles or small tablets. In this case, babylon.js will try to recompile shaders with less lights.
+But beware! By default, all meshes are considered lit by all the lights even they are not physically lit. It would be too time consuming to calculate if a mesh can be lit by a light. And because with more dynamic lights, Babylon.js will generate bigger shaders which may not be compatible with low end devices like mobiles or small tablets. In this case, babylon.js will try to recompile shaders with fewer lights.
 
 <Playground id="#IRVAX#0" title="6 Intersecting Point Lights" description="Simple Example with 6 intersecting point lights." image="/img/playgroundsAndNMEs/divingDeeperLightsIntro7.jpg"/>
 

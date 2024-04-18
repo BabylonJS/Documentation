@@ -65,7 +65,7 @@ First create a new folder where you will develop your app: `mkdir MyAwesomeApp` 
 
 Then navigate to the folder `cd MyAwesomeApp` and initializes npm with the command `npm init` . Simply fill out the requested question or leave default if you prefer.
 
-You can the install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
+You can then install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
 
 Following the default Webpack convention, you do not even need a configuration file.
 
@@ -79,7 +79,7 @@ npm install @babylonjs/core
 
 This will install babylonjs' javascript files and will also include a TypeScript declaration file.
 
-To include all Babylon in a javascript or typescript file, use:
+To include the whole Babylon in a javascript or typescript file, use:
 
 ```javascript
 import * as BABYLON from "@babylonjs/core/Legacy/legacy";
@@ -355,15 +355,15 @@ By default, any mesh in a scene are using the scene defaultMaterial. With tree s
 
 _How does deserialization work ?_
 
-When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know before hand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` before hand.
+When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know beforehand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` beforehand.
 
 _How do I know if I am importing a folder or a file ?_
 
-By convention and to simplify the discovery, all folders starts with an upper case character where the files starts with a lower case one.
+By convention and to simplify the discovery, all folders starts with an upper case character where the files start with a lower case one.
 
 _How to find what module contains the entity I am trying to import?_
 
-This is actually a pretty good question. It should be intuitive enough and if not, do not hesistate to ping us so we can add it to the documentation.
+This is actually a pretty good question. It should be intuitive enough and if not, do not hesitate to ping us so we can add it to the documentation.
 
 _The intellisense does not propose the method I normally use in the bundled version and an undefined error is raised at runtime?_
 
@@ -449,7 +449,7 @@ It would be the same for physics plugin where you can either provide the underly
 
 Exactly like in the previous paragraph, you can inject your ammo dependency into Babylon.js. Either you can keep as a global script reference thus not including the dependency in your bundle or you could follow the following steps to include ammo as part of your bundled application.
 
-First, install ammo.js from its github build folder (in order to benefit from an up to date version):
+First, install ammo.js from its Github build folder (in order to benefit from an up to date version):
 
 ```javascript
 npm install kripken/ammo.js

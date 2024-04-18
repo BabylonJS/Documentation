@@ -457,7 +457,7 @@ If you open out _index.html_, we will see a sphere. Hooray!
 
 ### Adding the GUI
 
-For the sake of learning, we will add a new file, `gui.ts`, even thou it can still be done with a single ts file. Our gui.ts file will look like this:
+For the sake of learning, we will add a new file, `gui.ts`, even though it can still be done with a single ts file. Our gui.ts file will look like this:
 
 ```javascript
 import { AbstractMesh } from "babylonjs";

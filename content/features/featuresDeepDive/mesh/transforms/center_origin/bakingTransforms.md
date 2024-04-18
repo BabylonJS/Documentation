@@ -53,4 +53,4 @@ mesh.updateVerticesData(VertexBuffer.NormalKind, normals, false, false);
 
 **Note:**  recomputing the normals of your mesh may not be an ideal solution, as the results may be wrong in some parts of the mesh (e.g. seams on a sphere).
 
-Unless you have good reasons to use baking transformations then your are better with parents and pivots.
+Unless you have good reasons to use baking transformations then you are better with parents and pivots.

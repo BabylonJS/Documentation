@@ -96,7 +96,7 @@ const points = [
 ];
 ```
 
-Please not that `points` are not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points. See below the Offsets section and the PG example Offsetting line vertices. However there are two public methods available on the line instance for manipulatind the points which can be useful when your are creating the line instance and the material instance separately (not recommended for most scenarios). Both of these functions will destroy the mesh and create a new one:
+Please note that `points` are not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points. See below the Offsets section and the PG example Offsetting line vertices. However there are two public methods available on the line instance for manipulating the points which can be useful when you are creating the line instance and the material instance separately (not recommended for most scenarios). Both of these functions will destroy the mesh and create a new one:
 
 ```javascript
 addPoints(points: number[][]) // ads points to the existing ones and recreates the mesh
@@ -243,7 +243,7 @@ enum GreasedLineMeshColorMode {
 }
 ```
 
-Please not a difference: `MATERIAL_TYPE_SIMPLE` mixes the `color` and `colors` of the greased line material. `MATERIAL_TYPE_STANDARD` and `MATERIAL_TYPE_PBR` mixes the color from the base material with the `color` or the `colors` of the greased line material.
+Please note a difference: `MATERIAL_TYPE_SIMPLE` mixes the `color` and `colors` of the greased line material. `MATERIAL_TYPE_STANDARD` and `MATERIAL_TYPE_PBR` mixes the color from the base material with the `color` or the `colors` of the greased line material.
 
 <Playground id="#H1LRZ3#268" title="Simple material in multiply color mode" description="Shows how the multiply color mode works with the simple greased line material." />
 
@@ -453,9 +453,9 @@ export interface IGreasedLineMaterial {
 
 All other properties must be defined when creating the line.
 
-As you can see in the comment of the `color` public property, the shader gets recompiled if there are specific changes of this property. A real life scenario: You might want to draw textured lines. On a specific event you want colorize the texture. In this case create the line with `color` set to `Color3.White()` and set the `colorMode` to `GreasedLineColorMode.COLOR_MODE_MULTIPLY`. The result will be the same as not setting a `color`. However now you can change the `color` to for example `rgb(0.5, 0.5, 0.5)` to dim the texture colors without shader recompilation. This doesn't apply to `MATERIAL_TYPE_SIMPLE` because this material supports only `GreasedLineColorMode.COLOR_MODE_SET` so there will be no shader recompilation upon changes of the `color` property at all.
+As you can see in the comment of the `color` public property, the shader gets recompiled if there are specific changes of this property. A real life scenario: You might want to draw textured lines. On a specific event you want to colorize the texture. In this case create the line with `color` set to `Color3.White()` and set the `colorMode` to `GreasedLineColorMode.COLOR_MODE_MULTIPLY`. The result will be the same as not setting a `color`. However now you can change the `color` to for example `rgb(0.5, 0.5, 0.5)` to dim the texture colors without shader recompilation. This doesn't apply to `MATERIAL_TYPE_SIMPLE` because this material supports only `GreasedLineColorMode.COLOR_MODE_SET` so there will be no shader recompilation upon changes of the `color` property at all.
 
-**Materials can be shared between line instances.** If you create a line a the other should have the same material options then create the other line(s) by setting it's material option `createAndAssign` material to `false` and simply set the material:
+**Materials can be shared between line instances.** If you create a line a the other should have the same material options then create the other line(s) by setting its material option `createAndAssign` material to `false` and simply set the material:
 
 ```javascript
 const points1 = [-1, 0, 0, 1, 0, 0];
@@ -469,7 +469,7 @@ line2.material = line1.material;
 
 ## Examples
 
-The best way to show the possibilities of `GreasedLine` is to go trough the following examples.
+The best way to show the possibilities of `GreasedLine` is to go through the following examples.
 
 ### Basic code snippets with StandardMaterial
 
@@ -585,7 +585,7 @@ line.offsets = offsets;
 
 #### Adding/setting points to an existing GreasedLine instance
 
-You can add points to an existing GreasedLine instance. The width table is extended automatically to match the vertices count and the new widths are set to 1. You have replace these values manually after the points were added if needed. You can do it by setting the values on the `line.widths` array.
+You can add points to an existing GreasedLine instance. The width table is extended automatically to match the vertices count and the new widths are set to 1. You have to replace these values manually after the points were added if needed. You can do it by setting the values on the `line.widths` array.
 
 The color table, if `useColors` is `true` must be extended manually. Please pay attention to the code in the PG and the comments how to correctly extend the color table.
 
@@ -627,7 +627,7 @@ texture.uScale = 10;
 line1.material.emissiveTexture = texture;
 ```
 
-The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting it's value to `null` if you don't want to do color blending at all. **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
+The default `color` is white and the default `colorMode` is `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_SET` so you need to set `colorMode` to `BABYLON.GreasedLineMeshColorMode.COLOR_MODE_MULTIPLY` to render the texture visible or you can remove the color by setting its value to `null` if you don't want to do color blending at all. **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
 ```javascript
 const points1 = [-6, 0, 0, 6, 0, 0];
@@ -640,7 +640,7 @@ texture.uScale = 10;
 line1.material.emissiveTexture = texture;
 ```
 
-#### Setting line color using it's material
+#### Setting line color using its material
 
 You have to set a `colorMode` option or set the `color` to `null`. **Setting the color from `null` to a value or setting from a value to `null` will recompile the shader.**
 
@@ -779,7 +779,7 @@ The line will be divided into 4 pieces because the line length is 1 and we asked
 
 ### Finding the last visible position on the line when using the visibility option
 
-The visibility option allows you to render only part of the line. You can use this option to reveal your line by incrementing it's value. Remember, the value of this option must be normalized so it must be between 0 and 1. For example you may want to display a marker where the line ends. You can use the `BABYLON.GreasedLineTools.GetPositionOnLineByVisibility(lineSegments: { point1: Vector3; point2: Vector3; length: number }[], lineLength: number, visbility: number, localSpace = false)` function for this. Examine the example Playground how to deal with this function.
+The visibility option allows you to render only part of the line. You can use this option to reveal your line by incrementing its value. Remember, the value of this option must be normalized so it must be between 0 and 1. For example you may want to display a marker where the line ends. You can use the `BABYLON.GreasedLineTools.GetPositionOnLineByVisibility(lineSegments: { point1: Vector3; point2: Vector3; length: number }[], lineLength: number, visbility: number, localSpace = false)` function for this. Examine the example Playground how to deal with this function.
 
 ### Getting points from text and a typeface.js font - the GetPointsFromText function
 

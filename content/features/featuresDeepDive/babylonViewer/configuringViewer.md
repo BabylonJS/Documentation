@@ -334,5 +334,5 @@ This will use the preregistered "form" mapper (which doesn't exist in reality - 
 
 ## The full configuration interface
 
-Please check the configuration on github, as it is constantly updated:
+Please check the configuration on Github, as it is constantly updated:
 [https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/configuration.ts](https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/viewer/src/configuration/configuration.ts)

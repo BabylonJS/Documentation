@@ -22,13 +22,13 @@ You can check draw calls by using: [spector.js](https://spector.babylonjs.com/).
 
 ### Character
 
-Again, the more meshes you have, the more draw calls you'll have. My character mesh, although a "single mesh" in blender, was split into separate meshes when imported into babylon because I used separate materials for different colors. What I did to reduce this was to use a color palette texture material + UV mapping. This is actually the process I had used for the environment.
+Again, the more meshes you have, the more draw calls you'll have. My character mesh, although a "single mesh" in Blender, was split into separate meshes when imported into babylon because I used separate materials for different colors. What I did to reduce this was to use a color palette texture material + UV mapping. This is actually the process I had used for the environment.
 
 ![character palette](/img/how_to/create-a-game/characteruv.png)
 
 ### Environment
 
-The environment consisted of a lot of separate & duplicated meshes since it was the entire game world. I just went back into the blender file and tried to join as many of the meshes as possible into groups that made sense.
+The environment consisted of a lot of separate & duplicated meshes since it was the entire game world. I just went back into the Blender file and tried to join as many of the meshes as possible into groups that made sense.
 
 ## Glow Layer
 
@@ -76,7 +76,7 @@ light.diffuse = new Color3(0.45, 0.56, 0.8);
 this._light = light;
 ```
 
-2. Rather than using the lightSphere to find nearby meshes, I decided to just assign the meshes to lights manually in blender. What I did was name empties with the name of the lantern plus "lights". Every mesh lit by a lantern would be a child of this empty. (Empties in blender translate to TransformNodes in babylon)
+2. Rather than using the lightSphere to find nearby meshes, I decided to just assign the meshes to lights manually in Blender. What I did was name empties with the name of the lantern plus "lights". Every mesh lit by a lantern would be a child of this empty. (Empties in blender translate to TransformNodes in babylon)
    ![lanterns in blender](/img/how_to/create-a-game/lanternlights.png)
 
 3. \_findNearestMeshes would now push the meshes belonging to the lantern's corresponding light.

@@ -16,7 +16,7 @@ Starting with a polygon as the footprint, a house is built by giving the footpri
 
 ### Walls
 
-**A footprint** is a sequence of consecutive corners in counter clockwise order. Each **corner** is a Vector3 in the form (x, 0, z). This footprint forms the inner walls of the house, see Fig 1. The inner walls do not have to be set at right angles to each other.
+**A footprint** is a sequence of consecutive corners in counter-clockwise order. Each **corner** is a Vector3 in the form (x, 0, z). This footprint forms the inner walls of the house, see Fig 1. The inner walls do not have to be set at right angles to each other.
 
 ![Footprint](/img/samples/house1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
@@ -66,7 +66,7 @@ The table of positions for the vertexData buffer looks like this
 | ..               | ..., ..., ...                                                 | &nbsp;&nbsp;&nbsp;&nbsp;&#x2503; |
 | 4 \* nbWalls - 1 | x<sub>4 \_ nbWalls - 1</sub>, 0, z<sub>4 \_ nbWalls - 1</sub> | &nbsp;&nbsp;&nbsp;&nbsp;&#x2B9F; |
 
-To form the mesh, the base, top, inner wall and outer wall have to be split into triangular facets by grouping sets of three corners for each and pushing these into the indices array. To form the normals in the correct direction the order of corners is important. For the base and the inner wall this is clockwise and for the top and outer wall this is counter clockwise.
+To form the mesh, the base, top, inner wall and outer wall have to be split into triangular facets by grouping sets of three corners for each and pushing these into the indices array. To form the normals in the correct direction the order of corners is important. For the base and the inner wall this is clockwise and for the top and outer wall this is counter-clockwise.
 
 Fig 4 shows the corner numbers for a completed wall. For simplification this is without taking into account that for the final wall the far corners will be the starting corners so in any code each w + 1 must be calculated using modulo nbWalls.
 
@@ -115,7 +115,7 @@ Adding in the door positions will turn the wall from a rectangle to a concave po
 
 Whereas the top surface between the inner and outer walls will not be changed the base surface will now have to accommodate vertical sections to form the gaps for the doors. Also for each window, surfaces will have to be created at right angles to the inner and outer walls at the edges of the window.
 
-Since for polygonMeshBuilder corners have to be in counter clockwise consecutive order, all doorspaces for each wall will have to be sorted in increasing order of their left value.
+Since for polygonMeshBuilder corners have to be in counter-clockwise consecutive order, all doorspaces for each wall will have to be sorted in increasing order of their left value.
 
 At this stage code was written to add in the doors using existing positions. However as you can see in the following playground sharing vertices and normals made the triangular facets stand out.
 

@@ -46,7 +46,7 @@ To do that:
 
 ### Quickly Export
 
-If you go to _File_ > _export_ and right click on babylon, you can select _Create Shortcut_, and make a easy to use shortcut to export to babylon! For example, you can use _Ctrl-E_.
+If you go to _File_ > _export_ and right click on babylon, you can select _Create Shortcut_, and make an easy to use shortcut to export to babylon! For example, you can use _Ctrl-E_.
 
 ![quick-export-shortcut](/img/exporters/blender/quick-export-shortcut.png)
 

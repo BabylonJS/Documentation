@@ -173,7 +173,7 @@ const shaderMaterial = new BABYLON.ShaderMaterial("shader", scene, "./COMMON_NAM
 
 **Note**: `./` is necessary before the `COMMON_NAME`
 
-It is also possible to access the fx files from an URL by giving the full address of the URL,
+It is also possible to access the fx files from a URL by giving the full address of the URL,
 provide CORS is enabled for them.
 
 [Guide Example From Import](https://babylonjsguide.github.io/examples/importcode.html)
@@ -186,7 +186,7 @@ When building shaders sometimes you have parts of your code that will be reused 
 BABYLON.Effect.IncludesShadersStore["includeName"] = "...";
 ```
 
-Already loaded in the includes are all the common shader elements for babylons StandardMaterial, PBR Materials, ProceduralTextures and more. See the github [https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) for a complete list of shader includes packaged with BJS.
+Already loaded in the includes are all the common shader elements for babylons StandardMaterial, PBR Materials, ProceduralTextures and more. See the Github [https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/Shaders/ShadersInclude) for a complete list of shader includes packaged with BJS.
 
 Additionally, you can add anything you want to the IncludesShadersStore pre- or post-compilation of the scene. To access these includes simply call:
 

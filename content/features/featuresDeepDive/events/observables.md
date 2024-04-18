@@ -271,7 +271,7 @@ scene.onPointerUp = () => {
 
 ### Advanced Timer
 
-Apart from this quick function, you can use the AdvancedTimer class, which brings a bit more flexibility but is a lot more verbose. The object itself is reusable, so it can eventually saved a few unneeded calls and object creations. The last example using the AdvancedTimer will look like this:
+Apart from this quick function, you can use the AdvancedTimer class, which brings a bit more flexibility but is a lot more verbose. The object itself is reusable, so it can eventually save a few unneeded calls and object creations. The last example using the AdvancedTimer will look like this:
 
 ```javascript
 const guiButton = // created a GUI button

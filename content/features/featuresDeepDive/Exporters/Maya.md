@@ -14,7 +14,7 @@ video-content:
 
 We have recently introduced a new tool to simplify the installation of the plugin for both Max and Maya.
 
-First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each releases:
+First, you can download the latest version of the installer from our [Github Releases](https://github.com/BabylonJS/Exporters/releases). Once on the releases page, you can find all our packages in the assets section of each release:
 
 ![releases](/img/exporters/installer/GithubPreRelease.png)
 
@@ -34,7 +34,7 @@ Launch the executable file contained in the previous zip. On the first launch Wi
 
 ![smart screen warning](/img/exporters/installer/SmartScreen.png)
 
-As before, you can chose to continue by pressing more info and then Run anyway:
+As before, you can choose to continue by pressing more info and then Run anyway:
 
 ![smart screen warning keep](/img/exporters/installer/SmartScreenKeep.png)
 
@@ -50,11 +50,11 @@ You can now easily install or update any of your 3d authoring tools to the lates
 
 Would you want to upgrade to the latest available pre-release of the exporter plugins, you can easily launch back the installer and follow the same exact procedure to update the installed plugins to their latest versions.
 
-Please not that both the software you are trying to install the plugin for should be closed during the installation.
+Please note that both the software you are trying to install the plugin for should be closed during the installation.
 
 ## Manual Install
 
-The plug-in is designed for Maya 2017 or later. This guide is about the Windows version (a MacOS version is coming soon). To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
+The plug-in is designed for Maya 2017 or later. This guide is about the Windows version (a macOS version is coming soon). To download it, go to the [Github project Releases](https://github.com/BabylonJS/Exporters/releases).
 
 ![releases](/img/exporters/installer/GithubPreRelease.png)
 

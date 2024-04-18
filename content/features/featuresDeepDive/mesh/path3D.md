@@ -116,7 +116,7 @@ path3d.update(points, otherVector);
 
 The normal will be the projection of your parameter vector onto the plane orthogonal to the tangent at the point position.
 
-As can been in the diagram below, when the parameter is a vertical vector (black), this is projected onto the plane orthoganal to the tangent vector (red) to form the normal (green).
+As seen in the diagram below, when the parameter is a vertical vector (black), this is projected onto the plane orthogonal to the tangent vector (red) to form the normal (green).
 
 ![Curve Normal](/img/how_to/Mesh/planenormal.jpg)
 

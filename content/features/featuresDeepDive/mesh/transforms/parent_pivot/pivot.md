@@ -97,7 +97,7 @@ Notice that as the pivot is moved the axis line moves with the pivot, though the
 
 Perhaps you would like to think about achieving the positioning of the pivot by changing the pivots position rather than the pilots position. This can be done with parenting as shown in the following example.
 
-The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At), the sphere is then made the parent of the pilot the pilot position relative to the pivot is set by matrix and the pilot rotated.
+The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At), the sphere is then made the parent of the pilot position relative to the pivot is set by matrix and the pilot rotated.
 
 ```javascript
 sphere.position = CoR_At;

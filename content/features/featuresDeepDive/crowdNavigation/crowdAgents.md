@@ -14,7 +14,7 @@ video-content:
 
 Now we have a navmesh, we can create autonomous agents and make them navigate within that navmesh constraint.
 The agents will find the best path to that destination while avoiding other crowd agents.
-An agent is attach to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
+An agent is attached to a Transform. That means that you have to attach a mesh to see them but also that you can attach pretty much anything.
 
 A demo can be found at: <Playground id="#X5XCVT#240" title="Crowd and Navigation Agents" description="Crowd and navigation agents."/>
 
@@ -49,7 +49,7 @@ radius - Radius of the agent. World Unit.
 
 height - Heigh in World Unit.
 
-maxAcceleration - Acceleration max in World Unit per second per second
+maxAcceleration - Acceleration max in World Unit per second.
 
 maxSpeed - Max speed in World Unit per second.
 

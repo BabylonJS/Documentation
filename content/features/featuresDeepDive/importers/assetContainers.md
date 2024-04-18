@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-An AssetContainer can be used to manage a list of assets (like nodes, cameras, lights, meshes, etc..). This assets are still linked to a scene but are not taken in account. Consider asset containers like pool of entities.
+An AssetContainer can be used to manage a list of assets (like nodes, cameras, lights, meshes, etc..). These assets are still linked to a scene but are not taken in account. Consider asset containers like pool of entities.
 
 ## Creating an AssetContainer
 

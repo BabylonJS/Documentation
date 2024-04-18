@@ -6895,7 +6895,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 #### Bug fixes
 
-- Insane amount of fixes for 3dsmax and blender exporters ([deltakosh](https://github.com/deltakosh))
+- Insane amount of fixes for 3dsmax and Blender exporters ([deltakosh](https://github.com/deltakosh))
 - Fixed nearest texture filters ([deltakosh](https://github.com/deltakosh))
 - Fixed mesh loading when url has a query string ([dlajarretie](https://github.com/dlajarretie))
 - Fixed a bug with pause/restart on animations ([deltakosh](https://github.com/deltakosh))
@@ -7107,7 +7107,7 @@ Associated release: https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.3
 
 - Fixing multimat naming convention in Blender ([deltakosh](https://github.com/deltakosh))
 - Fixing mesh.clone ([temechon](https://github.com/temechon))
-- Fixing camera rotation export in blender ([khmm12](https://github.com/khmm12))
+- Fixing camera rotation export in Blender ([khmm12](https://github.com/khmm12))
 - Fixing opacity map bug ([deltakosh](https://github.com/deltakosh))
 - Fixing physics objects disposal ([deltakosh](https://github.com/deltakosh))
 - Using the hardware scaling when creating a ray ([demonixis](https://github.com/demonixis))

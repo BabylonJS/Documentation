@@ -10,7 +10,7 @@ video-content:
 
 ## Adding Scene To Workspace
 
-*Note: since Editor v4.4.0 the way to create new scenes changed. It is highly recommanded to update to to at least this version.*
+*Note: since Editor v4.4.0 the way to create new scenes changed. It is highly recommended to update to at least this version.*
 
 By default, a newly created workspace contains one scene. Per workspace, it is possible to manage multiple
 scenes in order to, for example, split levels of a game.

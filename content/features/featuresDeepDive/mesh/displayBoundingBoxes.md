@@ -92,7 +92,7 @@ parent.showBoundingBox = true;
 
 So here's what our playground looks like now. <Playground id="#4F33I3#2" title="A Better Approach For Bounding Boxes" description="Better example of drawing bounding boxes."/>
 
-Notice something wrong? Our bounding box doesn't line up with the bounds of our objects anymore does it? There's a very good reason for that. It's because up until this point we are using LOCAL coordinates instead of world coordinates! So technically the bounding box that we're seeing is the right size, but it's drawn around the parent mesh...which in this case has it's pivot at the origin. You can clearly see the problem when you comment out this line:
+Notice something wrong? Our bounding box doesn't line up with the bounds of our objects anymore does it? There's a very good reason for that. It's because up until this point we are using LOCAL coordinates instead of world coordinates! So technically the bounding box that we're seeing is the right size, but it's drawn around the parent mesh...which in this case has its pivot at the origin. You can clearly see the problem when you comment out this line:
 
 ```javascript
 sphere.position.y = 1;

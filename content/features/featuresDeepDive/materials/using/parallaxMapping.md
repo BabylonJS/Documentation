@@ -40,7 +40,7 @@ You can use Parallax Mapping through the following materials:
  - [StandardMaterial](/typedoc/classes/babylon.standardmaterial)
  - [PBRMaterial](/typedoc/classes/babylon.pbrmaterial)
 
-In Babylon.js we think of a parallax mapping as an extension of Normal Mapping, hence to benefit of the former, you have to enable the later. The reason is that we support only the height map being encoded in the Alpha channel of the normal map, as explained above.
+In Babylon.js we think of a parallax mapping as an extension of Normal Mapping, hence to benefit of the former, you have to enable the latter. The reason is that we support only the height map being encoded in the Alpha channel of the normal map, as explained above.
 
 You have three properties to work with Parallax:
 

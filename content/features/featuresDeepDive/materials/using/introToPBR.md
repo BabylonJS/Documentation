@@ -10,7 +10,7 @@ video-content:
 
 ## Introduction
 
-The aim of Physically Based Rendering, PBR, is to to simulate **real life lighting**.
+The aim of Physically Based Rendering, PBR, is to simulate **real life lighting**.
 
 PBR is a grouping of techniques; it does not force you to choose one in particular. Among others, we can cite some like:
 

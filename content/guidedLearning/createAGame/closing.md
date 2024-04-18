@@ -17,4 +17,4 @@ This game isn't perfect, but I hope it gives you insight into how to develop gam
 Please let us know how this series was for you. Feedback is always welcome and I hope to keep improving to provide even better content.
 
 You can [check out the game](https://BabylonJS.github.io/SummerFestival)
-The full github repo [here](https://github.com/BabylonJS/SummerFestival)
+The full Github repo [here](https://github.com/BabylonJS/SummerFestival)

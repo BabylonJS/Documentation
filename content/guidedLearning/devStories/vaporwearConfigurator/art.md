@@ -267,7 +267,7 @@ weighing in at a whopping 15 megabytes, _far_ too large to load in the
 foreground of a Web experience, but acceptable for loading in the
 background. As before, Carlos double-checked how the materials would render
 using Babylon's 3D Commerce-certified Sandbox. With the materials
-finished, he'd now completed all of the art work that could be looked at;
+finished, he'd now completed all the artwork that could be looked at;
 next he needed to decide _how_ the art should be looked at.
 
 ## Camera Motion

@@ -10,7 +10,7 @@ video-content:
 
 
 ## Parametric Shapes
-These meshes are so called because their shape is defined by a an array of vector3 parameters and can be irregular in nature. You can produce a series of broken or unbroken lines across 3D space. In 2D you can produce an horizontal irregular convex or concave polygon, which may be extruded vertically into 3D. It is also possible to extrude the 2D outline along a path that travels in 3D space and vary its rotation and scale as it travels the path. You can also 'lathe' an outline to give a shape with rotational symmetry. 
+These meshes are so called because their shape is defined by an array of vector3 parameters and can be irregular in nature. You can produce a series of broken or unbroken lines across 3D space. In 2D you can produce a horizontal irregular convex or concave polygon, which may be extruded vertically into 3D. It is also possible to extrude the 2D outline along a path that travels in 3D space and vary its rotation and scale as it travels the path. You can also 'lathe' an outline to give a shape with rotational symmetry. 
 
 To create these meshes you use one of
 ```javascript

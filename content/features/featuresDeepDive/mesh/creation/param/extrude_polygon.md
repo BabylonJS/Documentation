@@ -32,7 +32,7 @@ holes|_(Vector3[][])_  array of holes, each hole being an array of successive Ve
 updatable|_(boolean)_ true if the mesh is updatable|false
 sideOrientation|_(number)_ side orientation|DEFAULTSIDE
 
-All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter clockwise** order;
+All vectors for shape and holes are Vector3 and should be in the xz plane, ie of the form BABYLON.Vector3(x, 0, z) and in **counter-clockwise** order;
 
 ## Examples
 Extruded Polygon: <Playground id="#KIEYA6" title="Extruding Irregular Polygons" description="Simple example of extruding irregular polygons."/>

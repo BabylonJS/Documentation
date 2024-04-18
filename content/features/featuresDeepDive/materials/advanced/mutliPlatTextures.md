@@ -59,7 +59,7 @@ const formatUsed = engine.setTextureFormatToUse(available);
 
 ## Generation using [PVRTexTool](https://developer.imaginationtech.com/pvrtextool/)
 
-The are multiple encoder programs for .KTX files (see .KTX link above). Most also provide for batch processing, since many formats are very CPU intense. PVRTexTool has been narrowed down for providing additional support. It has a lot going for it, including both a GUI & command line interface for Windows, OSX, and Linux. It is also the only encoder which does PVRTC format, which is needed on iOS.
+There are multiple encoder programs for .KTX files (see .KTX link above). Most also provide for batch processing, since many formats are very CPU intense. PVRTexTool has been narrowed down for providing additional support. It has a lot going for it, including both a GUI & command line interface for Windows, OSX, and Linux. It is also the only encoder which does PVRTC format, which is needed on iOS.
 
 If you are going to do the encoding on your own in the PVRTexTool GUI tool, there are a few things to keep in mind:
 
@@ -83,7 +83,7 @@ There is a single argument which indicates the quality of the texture. Specify D
 
 #### ktx-files.bat
 
-This script will create the 5 variations of a image file. It can run for a very long time for Q setting. The ASTC type will use 100% of all your cores, so your system can be pretty unusable. Good to kick it off at the end of day. Also, due to running time, it will skip any files already existing. To re-do files, delete the existing versions first.
+This script will create the 5 variations of an image file. It can run for a very long time for Q setting. The ASTC type will use 100% of all your cores, so your system can be pretty unusable. Good to kick it off at the end of day. Also, due to running time, it will skip any files already existing. To re-do files, delete the existing versions first.
 
 To recap (in a command shell):
 

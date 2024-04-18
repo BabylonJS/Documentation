@@ -72,7 +72,7 @@ Of course, you can try to lower the dimensions of the projection box:
 
 ![Projection box](/img/features/decals/decal_projbox_small.jpg)
 
-It will work even with `cullBackFaces=false` as the box does not extends past the back. But even this reduced box is too big if we want to create a decal on the arm, for example. For the arm, you would need a very tiny box, but then this tiny box may be too tiny if we project on another part of the body... So, you would need to adjust the size depending on where you create the decal, which can be tedious and difficult to achieve in practice. Using `cullBackFaces=true` with a relatively big box will work in all cases without worrying about where the decal is created.
+It will work even with `cullBackFaces=false` as the box does not extend past the back. But even this reduced box is too big if we want to create a decal on the arm, for example. For the arm, you would need a very tiny box, but then this tiny box may be too tiny if we project on another part of the body... So, you would need to adjust the size depending on where you create the decal, which can be tedious and difficult to achieve in practice. Using `cullBackFaces=true` with a relatively big box will work in all cases without worrying about where the decal is created.
 
 You can use this PG to experiment with decals: <Playground id="#EEUVTY#199" title="Decals with rigged and moving meshes" description="Example of pasting decals for rigged meshes."/>
 

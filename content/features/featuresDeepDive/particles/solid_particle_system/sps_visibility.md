@@ -67,4 +67,4 @@ Let's imagine a case where each particle computation is really intensive (exampl
 In this following example, the computation charge is directly related to the number of vertices and shouldn't change whatever the camera direction. But, as we disable the particles outside the frustum, if you rotate the camera to isolate one or two worms in the camera field, you can check the performance gain  
 <Playground id="#BKX11Q#2" title="Dealing With Solid Particle Visbility Issues" description="Simple example of how to manage common visibility issues in Solid Particle Systems."/>
 Note: the default culling strategy used in the particle frustum test is the fastest (`BoundingSphereOnly`).  
-You can change it at will for each particle by using the same values than the static properties `CULLINGSTRATEGY_XXX` ones of the `AbstractMesh` class.
+You can change it at will for each particle by using the same values as the static properties `CULLINGSTRATEGY_XXX` ones of the `AbstractMesh` class.

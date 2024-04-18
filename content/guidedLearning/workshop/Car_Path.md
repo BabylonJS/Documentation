@@ -12,7 +12,7 @@ This is to show the practical use of rotate.
 
 ## The Design
 
-The car will consist of a trapezoid for the body, four cylinders for wheels. The car will be animated to follow a path an remain parallel to it.
+The car will consist of a trapezoid for the body, four cylinders for wheels. The car will be animated to follow a path and will remain parallel to it.
 The wheels will rotate and be given a texture to show that they are rotating. For simplicity all wheels will remain parallel to the car and
 their rotation will not be matched to the forward speed of the car. The car will move forward by following a sequence of points on the path.
 The path will be a curved line with large turning radius and will be shown in the scene.

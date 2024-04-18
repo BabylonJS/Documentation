@@ -42,7 +42,7 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("Sphere0", { segments: 16, diame
 sphere.material = multimat;
 ```
 
-But if you do that, you will see that the sphere will only use the first submaterial (the red bumped one). This is because by default a mesh is is designed to use only one material.
+But if you do that, you will see that the sphere will only use the first submaterial (the red bumped one). This is because by default a mesh is designed to use only one material.
 
 You can specify which part of the mesh uses a specific material by using the _subMeshes_ property. By default, every mesh comes with only one submesh that cover the entire mesh.
 

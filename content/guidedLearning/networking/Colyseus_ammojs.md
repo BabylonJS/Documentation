@@ -32,7 +32,7 @@ Please clone this project and follow the instructions to install and start the p
 
 #### Client application
 
-To be able to build the client application, you'll need to enter in the folder,
+To be able to build the client application, you'll need to enter the folder,
 and install its dependencies first.
 
 ```

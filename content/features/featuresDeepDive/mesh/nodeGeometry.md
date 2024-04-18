@@ -26,7 +26,7 @@ Here is a complete example of an advanced `NodeGeometry` which is used to genera
 
 ## How to Use
 
-The `NodeGeometry` class is an utility class, meaning it is autonomous and does not require access to an engine or a scene. So instantiation is pretty simple:
+The `NodeGeometry` class is a utility class, meaning it is autonomous and does not require access to an engine or a scene. So instantiation is pretty simple:
 
 ```
 const nodeGeometry = new BABYLON.NodeGeometry("my node geometry");
@@ -363,7 +363,7 @@ nodeGeometry.build();
 const myGeometry = nodeGeometry.createMesh("myGeometry");
 ```
 
-The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be seen until `nodeGeometry.build()` is called and we `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again at a later point to bring the node geometry back into the scene. In this way node geometry acts a little like Asset Container where we always have the it in memory ready to create new meshes whenever we need them.
+The order of operations here is important. If node geometry is built and then we try to update any values on the blocks within the graph, no changes will be seen until `nodeGeometry.build()` is called and we `createMesh` again. This also means that we can load and build a node geometry and keep it in memory until we need it with a call to `createMesh`. Or we could `dispose` of a mesh created from nodeGeometry and simply call `createMesh` again at a later point to bring the node geometry back into the scene. In this way node geometry acts a little like Asset Container where we always have it in the memory ready to create new meshes whenever we need them.
 
 ## Optimizations
 The `NodeGeometry` class uses the CPU to process data. Which means that we have to be cautious if expecting to generate several meshes.
