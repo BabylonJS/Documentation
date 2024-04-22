@@ -70,7 +70,7 @@ panel.addControl(picker);
 
 ## AR demo
 ![playground](/img/how_to/xr/ARPortal.jpg)
-<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR"/>
+<Playground id="#M3G924" title="AR Portal" description="WebXR AR Portal" isMain={true} category="WebXR" image="/img/how_to/xr/ARPortal.jpg"/>
 
 ## Other demos
 
