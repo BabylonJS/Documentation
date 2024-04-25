@@ -79,7 +79,7 @@ npm install @babylonjs/core
 
 This will install babylonjs' javascript files and will also include a TypeScript declaration file.
 
-To include the whole Babylon in a javascript or typescript file, use:
+To include the whole of Babylon in a javascript or typescript file, use:
 
 ```javascript
 import * as BABYLON from "@babylonjs/core/Legacy/legacy";
