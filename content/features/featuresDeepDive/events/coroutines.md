@@ -106,7 +106,7 @@ const coroutineFunc = function* () {
 scene.onBeforeRenderObservable.runCoroutineAsync(coroutineFunc());
 ```
 
-This code snippet shows a coroutine `yield`ing a `Promise`; it will print "A" and "B" in back-to-back frames, then wait for one second, then then print "C" and "D" in back-to-back frames.
+This code snippet shows a coroutine `yield`ing a `Promise`; it will print "A" and "B" in back-to-back frames, then wait for one second, then print "C" and "D" in back-to-back frames.
 
 ## Advanced Usage
 

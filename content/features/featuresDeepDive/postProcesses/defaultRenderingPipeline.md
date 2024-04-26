@@ -201,7 +201,7 @@ pipeline.grain.animated = value;
 
 ## Example
 
-You may be interested by this code example using default values, ready to be copy-pasted into your application:
+You may be interested in this code example using default values, ready to be copy-pasted into your application:
 
 ```javascript
     // https://doc.babylonjs.com/api/classes/babylon.defaultrenderingpipeline

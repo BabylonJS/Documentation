@@ -191,14 +191,14 @@ A material plugin extends the `MaterialPluginBase` class and we have only implem
 |`dispose`|Implements this method if your plugin uses some resources that should be disposed when the plugin is no longer needed|
 |`getCustomCode`|This is the method used to inject code in the vertex and fragment shaders. Look at the playgrounds on this page for examples of how to do this|
 |`prepareDefines`|This allows you to set the defines used by (the shader code of) your plugin|
-|`prepareDefinesBeforeAttributes`|This methods does the same thing than `prepareDefines` but is called before `MaterialHelper.PrepareDefinesForAttributes` is called. So, if you need some defines to exist when `MaterialHelper.PrepareDefinesForAttributes` is called, you should use `prepareDefinesBeforeAttributes` instead of `prepareDefines`|
+|`prepareDefinesBeforeAttributes`|This methods does the same thing as `prepareDefines` but is called before `MaterialHelper.PrepareDefinesForAttributes` is called. So, if you need some defines to exist when `MaterialHelper.PrepareDefinesForAttributes` is called, you should use `prepareDefinesBeforeAttributes` instead of `prepareDefines`|
 |`hasTexture`|You should return `true` if you are using the texture passed as a parameter in your plugin. That will ensure that your plugin is properly notified when some properties of this texture change|
 |`hasRenderTargetTextures`|You should return `true` if your plugin uses one or more render target texture(s) for its work. That will ensure that the texture(s) is/are rendered correctly in each frame (you also need to implement the `fillRenderTargetTextures` method)|
 |`fillRenderTargetTextures`|Will be called if `hasRenderTargetTextures` returns `true`. You should add the render target texture(s) you are using into the array passed as a parameter|
 |`getActiveTextures`|You should return all the textures you are using in your plugin (if any)|
 |`getAnimatables`|You should return all the animatables you are using in your plugin (if any). Most of the time, these are the textures that have animations (`texture.animations && texture.animations.length > 0`)|
-|`getSamplers`|You should return all the samplers (textures) your are using in your plugin (if any)|
-|`getAttributes`|You should return all the attributes your are using in your plugin (if any)|
+|`getSamplers`|You should return all the samplers (textures) you are using in your plugin (if any)|
+|`getAttributes`|You should return all the attributes you are using in your plugin (if any)|
 |`getUniformBuffersNames`|You should return the names of all the uniform buffers you are using in your plugin (if any)|
 |`getUniforms`|You should return all the uniforms you are using in your plugin (if any). Look at the playgrounds on this page for examples of how to do this|
 |`serialize` and `parse`|You should implement these methods if you want your plugin to be properly serialized and parsed. Note that you must also register your plugin class in the BABYLON class store by doing `BABYLON.RegisterClass("BABYLON.PLUGINNAME", PluginClass);`, with `PLUGINNAME` the name of your plugin (as returned by `getClassName()`) and `PluginClass` the name of your plugin class.|

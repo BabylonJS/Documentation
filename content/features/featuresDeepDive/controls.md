@@ -14,7 +14,7 @@ video-content:
 
 Babylon.js Controls are a set of regular web controls that are super-charged with hardware accelerated rendering through Babylon.js to provide blazing fast dedicated controls.
 
-Babylon.js provides an unified API on top of **WebGL**, **WebGL2** and **WebGPU** that controls can leverage to unleash the raw power of your GPU.
+Babylon.js provides a unified API on top of **WebGL**, **WebGL2** and **WebGPU** that controls can leverage to unleash the raw power of your GPU.
 
 ![Resizer](/img/features/controls/resizer.png)
 

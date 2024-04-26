@@ -182,7 +182,7 @@ If the above component we created does everything you need then that's all you w
 
 A renderer is a next-level React integration that lets you use JSX to build your scenes and GUI. State changes will flow automatically to yourBabylon.js components (and persist through HMR) and you can maintain your scene graph in a declarative syntax and through components.
 
-There is an NPM project called `react-babylonjs` that is a react renderer for Babylon.js.
+There is an NPM project called `react-babylonjs` that is a React renderer for Babylon.js.
 
 What you are able to easily do is powerful, because inside the Scene component you can declare Babylon.js objects like Cameras/Meshes/Lights/Materials/Textures/3D Models/etc, using familiar JSX. Meanwhile there are escape hatches that allow you to work imperatively as well.
 

@@ -14,4 +14,4 @@ Have you ever wanted to manage the position, rotation, and scale of networked Ba
 
 To see this system working live, check out the virtual co-presence experience: [Frame](https://framevr.io/).
 
-To get started and learn more, head over to the [Virbela's github page](https://github.com/virbela/buffered-interpolation).
+To get started and learn more, head over to the [Virbela's Github page](https://github.com/virbela/buffered-interpolation).

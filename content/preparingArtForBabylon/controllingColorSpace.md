@@ -130,7 +130,7 @@ Both these nodes will hold a color value as defined by the user. We need to know
 ![Color3 and Color4 nodes include conversions to both gamma space and linear space](/img/assetPipeline/colorSpace/color3Block.png) 
 
 #### Texture
-Any texture loaded into a node material will either be loaded directly into a Texture node or be loaded into an Image Source node and wired to a Texture node. In both cases the color space of the texture can be converted right on the Texture node just like with the Color3 or Color4 nodes. Textures can be more straightforward in terms of knowing if they represent color data or non-color data depending on the how they are used in the shader.
+Any texture loaded into a node material will either be loaded directly into a Texture node or be loaded into an Image Source node and wired to a Texture node. In both cases the color space of the texture can be converted right on the Texture node just like with the Color3 or Color4 nodes. Textures can be more straightforward in terms of knowing if they represent color data or non-color data depending on the way they are used in the shader.
 
 ![Texture nodes include also conversions to gamma space and linear space which are commonly used to convert textures saved in a specific color space](/img/assetPipeline/colorSpace/textureBlock.png) 
 

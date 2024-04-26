@@ -42,7 +42,7 @@ When using PCF (_Percentage Closer Filtering_) and PCSS (_Percentage Closer Soft
 
 We are multiplying by `gl_Position.w` because the GPU, as part of its computations, will do `gl_Position.z / gl_Position.w` before writing the value to the depth texture: by pre-multiplying by `gl_Position.w`, we make sure the final result is simply biased by a constant `biasAndScaleSM.x * BIASFACTOR` value.
 
-When the NDC space has a `0..1` Z range (meaning **IS_NDC_HALF_ZRANGE** is defined), we use a bias factor of 0.5 so that the final bias applied to the position has the same scale than when the range is `-1..1`.
+When the NDC space has a `0..1` Z range (meaning **IS_NDC_HALF_ZRANGE** is defined), we use a bias factor of 0.5 so that the final bias applied to the position has the same scale as when the range is `-1..1`.
 
 Note that in the standard case (when not using the reverse depth buffer), we **add** the bias to the position, so we move a little farther the depth value / the geometry. There is another strategy that would be to not apply the bias in the shadow map but at the shadow rendering stage. In that case, we would **subtract** the bias from the current depth (from the light) of the pixel to achieve the same result.
 
@@ -159,7 +159,7 @@ This time the range is `1..-1`. However, in the shader, for the reverse depth bu
     vDepthMetricSM = (-gl_Position.z + depthValuesSM.x) / depthValuesSM.y + biasAndScaleSM.x;
 ```
 
-which means `z_ortho` is multiplied by `-1` before the addition with `depthValuesSM.x`. So, `1..-1` is becoming `-1..1` and we are now back to the same case than previously, so we need the same values in `depthValuesSM.x` and `depthValuesSM.y` (that is, 1 and 2 respectively).
+which means `z_ortho` is multiplied by `-1` before the addition with `depthValuesSM.x`. So, `1..-1` is becoming `-1..1` and we are now back to the same case as previously, so we need the same values in `depthValuesSM.x` and `depthValuesSM.y` (that is, 1 and 2 respectively).
 
 #### Spot light
 
@@ -223,9 +223,9 @@ Point lights are using shadow maps that are storing the distance of the geometry
 depthSM = (length(vPositionWSM - lightDataSM) + depthValuesSM.x) / depthValuesSM.y + biasAndScaleSM.x;
 ```
 
-It's the same computation than previously described except that we are using the distance to the light instead of the depth. `vPositionWSM` is the world position of the point and `lightDataSM` the world position of the light. There's no specific case for the reverse depth buffer mode as it is irrelevant: we are computing a distance, not a depth.
+It's the same computation as previously described except that we are using the distance to the light instead of the depth. `vPositionWSM` is the world position of the point and `lightDataSM` the world position of the light. There's no specific case for the reverse depth buffer mode as it is irrelevant: we are computing a distance, not a depth.
 
-Note that in reality we are not remapping to `0..1` with this formula because `length(vPositionWSM - lightDataSM)` has no maximum bound, it can go to +infinity: `vPositionWSM` is constrained to be in the view frustum but the light can be positioned anywhere in the world. So, to simplify things, we setup the `getDepthMinZ` and `getDepthMaxZ` functions to return the same values than in the spot light case, meaning `n` and `f` respectively. It's not really important that we are not remapping strictly to `0..1` as long as we use the same computation when rendering shadows, so that both values can be compared.
+Note that in reality we are not remapping to `0..1` with this formula because `length(vPositionWSM - lightDataSM)` has no maximum bound, it can go to +infinity: `vPositionWSM` is constrained to be in the view frustum but the light can be positioned anywhere in the world. So, to simplify things, we setup the `getDepthMinZ` and `getDepthMaxZ` functions to return the same values as in the spot light case, meaning `n` and `f` respectively. It's not really important that we are not remapping strictly to `0..1` as long as we use the same computation when rendering shadows, so that both values can be compared.
 
 Notes:
 

@@ -50,7 +50,7 @@ gl.intensity = 0.5;
 In order to control the shape of the blur, you can rely on the creation option:
 
 - **mainTextureRatio**: Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
-- **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independant blur to prevent the shape of the blur to change according to the target device size.
+- **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independent blur to prevent the shape of the blur to change according to the target device size.
 - **blurKernelSize**: How big is the kernel of the blur texture.
 
 ```javascript

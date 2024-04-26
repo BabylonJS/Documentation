@@ -10,7 +10,7 @@ video-content:
 
 ## Envrionment
 
-Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
+Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in Blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
 
 Recall that we loaded the assets in the [load](/guidedLearning/createAGame/importMeshes#load) function. We then looped through the resulting meshes and allowed them to receive shadows and check collisions. Well, in this same forEach loop, this is where we want to specify our meshes that will be acting as collision boxes, the meshes that use those collision boxes, and the meshes that are trigger volumes.
 
@@ -41,7 +41,7 @@ if (m.name.includes("Trigger")) {
 We can break this up into 3 sections:
 
 1. Our first condition is for the ground. This is actually a special case that works with our player and will be discussed in the [section](#player-and-collisions) below.
-2. There are a couple meshes with either complex geometry or multiple separate parts that needed to be simplified to provide better movement, but still act as the visual mesh that we see. We disable collisions and picking for those so that we can't collide with them as we move or detect them when we raycast. Now, since we've done this, we need to do the opposite for their corresponding collision meshes. All of the collision meshes had "collision" as a part of the name in blender, so I could just refer to all of them as long as it included that. In addition, since we don't want to see these, we need to set them to not visible.
+2. There are a couple meshes with either complex geometry or multiple separate parts that needed to be simplified to provide better movement, but still act as the visual mesh that we see. We disable collisions and picking for those so that we can't collide with them as we move or detect them when we raycast. Now, since we've done this, we need to do the opposite for their corresponding collision meshes. All the collision meshes had "collision" as a part of the name in Blender, so I could just refer to all of them as long as it included that. In addition, since we don't want to see these, we need to set them to not visible.
 3. There are meshes in the game that automatically control the rotation of the camera, and like the collision meshes, these aren't visible, nor are they pickable; however, because they're meant to just be volumes that are intersected with, we need to remove collision checks on them.
 
 ![before Setting Up](/img/how_to/create-a-game/beforeCollisionMeshes.png) ![after Setting Up](/img/how_to/create-a-game/afterCollisionMeshes.png)
@@ -117,7 +117,7 @@ if (this.mesh.intersectsMesh(this.scene.getMeshByName("cornerTrigger"))) {
 }
 ```
 
-There's a single cornerTrigger mesh that's located at the corner of a building. This is how we get that corner rotation to work well. If we're moving right through this area, we rotate the camera counter clockwise, and if we're moving left, we rotate the camera clockwise.
+There's a single cornerTrigger mesh that's located at the corner of a building. This is how we get that corner rotation to work well. If we're moving right through this area, we rotate the camera counter-clockwise, and if we're moving left, we rotate the camera clockwise.
 
 2. Up/Down rotation
 

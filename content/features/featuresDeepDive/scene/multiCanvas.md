@@ -12,7 +12,7 @@ Starting with Babylon.js v4.1, it is now possible to use one engine on several c
 
 To do so, you need to create "views". A view is defined by a canvas (the target) and an optional camera (the definition of the view).
 
-**Please note that when a view is registered, the canvas used to initialized the Engine becomes a "working" canvas and is no more supposed to be displayed directly.**
+**Please note that when a view is registered, the canvas used to initialize the Engine becomes a "working" canvas and is no more supposed to be displayed directly.**
 
 ## Creating a view
 

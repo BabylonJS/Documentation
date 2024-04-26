@@ -16,7 +16,7 @@ Note that v6 is for Blender 2.8 (currently in beta), v5 for Blender 2.79b or bel
 
 This add-on use the standard Blender installation procedure:
 
-- Download the [last version from github](https://github.com/BabylonJS/BlenderExporter) (click on the zip file with the appropriate exporter version you'd like to download: _Blender2Babylon-X.X.zip_ and then hit the "Download" button).
+- Download the [last version from Github](https://github.com/BabylonJS/BlenderExporter) (click on the zip file with the appropriate exporter version you'd like to download: _Blender2Babylon-X.X.zip_ and then hit the "Download" button).
 - In Blender, go to `File` menu > `User Preferences`.
 - Switch to the `Add-ons` tab.
 - (optional) If you already have an old version installed, search for _Babylon.js_ into the filter, expand infos ofBabylon.js add-on and click `Remove` button.
@@ -133,7 +133,7 @@ This add-on use the standard Blender installation procedure:
 
 ##### Specials
 
-- you can temporary switch to Blender Game to gain access to some materials settings:
+- you can temporarily switch to Blender Game to gain access to some materials settings:
 
 ![blender-game](/img/exporters/blender/materials/blender-game.png)
 
@@ -155,7 +155,7 @@ This add-on use the standard Blender installation procedure:
 
 #### General
 
-- Blender can handle packed images, even if their isn't source file on disk, but you have to unpack all before export,
+- Blender can handle packed images, even if there isn't source file on disk, but you have to unpack all before export,
 - about automatic baking, see [Materials](/features/featuresDeepDive/Exporters/Blender#materials).
 
 #### Blender Render

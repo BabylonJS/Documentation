@@ -254,7 +254,7 @@ At the end add a method as follows. This method can be called by any caller, inc
   },
 ```
 
-Our `App.vue` must be changed like this. We've added a button which triggers the yellow cube's movement. We are injecting the `cubePosition` object into our `BabylonScene` Vue component using it's property called `position`. Then there are simple helper methods just to make some movement.
+Our `App.vue` must be changed like this. We've added a button which triggers the yellow cube's movement. We are injecting the `cubePosition` object into our `BabylonScene` Vue component using its property called `position`. Then there are simple helper methods just to make some movement.
 
 ```jsx
 <template>

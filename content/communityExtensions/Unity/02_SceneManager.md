@@ -12,7 +12,7 @@ The babylon scene manager extension provides runtime life cycle management for g
 
 ## Babylon Scene Manager
 
-The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with latest toolkit extension but is available on github for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
+The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneManager) is packaged with latest toolkit extension but is available on Github for download and customization. You can preview the latest stable [TypeScript Definitions](https://github.com/BabylonJS/UnityExporter/blob/master/Manager/babylon.manager.d.ts) file. To use a custom build you must copy your new output files to your project's **Assets > Babylon > Library** folder as:
 
 - **babylon.manager.bjs** - Scene manager compiled javascript output file renamed to .bjs extension
 
@@ -20,7 +20,7 @@ The [Scene Manager](https://github.com/BabylonJS/Extensions/tree/master/SceneMan
 
 ## Babylon Scene Controller
 
-The scene controller script is designed to be used as the main entry point and logic controller for the specified scene. The scene controller exposes and addition lifecycle function called **Ready** that gets called during the scene loading **Execute When Ready** stage. This is the ideal place for main scene setup code that runs **before** the game render loop is started. The scene controller is a sub class of **BABYLON.MeshComponent** and should be used on a single empty game object in the scene.
+The scene controller script is designed to be used as the main entry point and logic controller for the specified scene. The scene controller exposes and addition lifecycle function called **Ready** that gets called during the scene loading **Execute When Ready** stage. This is the ideal place for main scene setup code that runs **before** the game render loop is started. The scene controller is a subclass of **BABYLON.MeshComponent** and should be used on a single empty game object in the scene.
 
 Example scene controller script file:
 

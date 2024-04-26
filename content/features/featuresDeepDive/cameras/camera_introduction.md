@@ -364,7 +364,7 @@ will not render anything past 100 units from the camera. The same is true of the
 camera.minZ = 10;
 ```
 
-will not rendering anything closer than 10 units from the camera.
+will not render anything closer than 10 units from the camera.
 
 In some cases, you may not want to clip the rendering of your scene. You may want your scene to effectively render out to infinity. This can be done by setting the far clipping plane to 0 like this:
 

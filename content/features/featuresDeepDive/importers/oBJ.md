@@ -98,13 +98,13 @@ To invert your imported textures on the y-axis, set the variable:
 BABYLON.OBJFileLoader.INVERT_TEXTURE_Y = true;
 ```
 
-By default if a MTL file cannot be loaded (missing/error) it will silently fail. The model will still be loaded, but if you want to enforce a stricter loading of materials you can use onSuccess() and onError() callbacks accordingly. Set the variable:
+By default if an MTL file cannot be loaded (missing/error) it will silently fail. The model will still be loaded, but if you want to enforce a stricter loading of materials you can use onSuccess() and onError() callbacks accordingly. Set the variable:
 
 ```javascript
 BABYLON.OBJFileLoader.MATERIAL_LOADING_FAILS_SILENTLY = false;
 ```
 
-If a MTL is defined in your OBJ and you wish to have it ignored, set the variable:
+If an MTL is defined in your OBJ and you wish to have it ignored, set the variable:
 
 ```javascript
 BABYLON.OBJFileLoader.SKIP_MATERIALS = true;

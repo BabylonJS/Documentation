@@ -164,7 +164,7 @@ Again, you must **NOT** add the `@group(X) @binding(Y)` decoration! The system w
 
 On the javascript side, you have the corresponding methods to set a value to these variables:
 * uniform buffer: `setUniformBuffer(name, buffer)`
-* storage texture: same method than for regular textures (`setTexture(name, texture)`)
+* storage texture: same method as for regular textures (`setTexture(name, texture)`)
 * storage buffer: `setStorageBuffer(name, buffer)`
 * external texture: `setExternalTexture(name, buffer)`
 

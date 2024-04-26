@@ -62,7 +62,7 @@ The dynamic terrain imposes some constraints to the map:
 
 - the distances between two successive points on the map width must be constant
 - the distances between two successive points on the map height must be constant
-- the points must be sorted in ascending order regarding to their coordinates, first on the width, then on the height.
+- the points must be sorted in ascending order regarding their coordinates, first on the width, then on the height.
 
 What does this mean?
 
@@ -161,7 +161,7 @@ In short, by default, the terrain sees the map as infinite.
 
 #### Initial LOD
 
-LOD is an acronym for Level Of Detail. It's a feature allowing the reduction of the rendering precision of some mesh when it's far away from the camera in order to lower the necessary computation: the less vertices, the less CPU/GPU needed.
+LOD is an acronym for Level Of Detail. It's a feature allowing the reduction of the rendering precision of some mesh when it's far away from the camera in order to lower the necessary computation: the fewer vertices, the less CPU/GPU needed.
 
 The dynamic terrain also provides a LOD feature but in a different way: the terrain's number of vertices are always kept constant, but only the part of data map covered by the terrain changes.  
 
@@ -176,7 +176,7 @@ The initial LOD is set to 10, so 1 terrain quad is now 10x10 map quads (10 on ea
 
 PG: <Playground id="#FJNR5#165" title="Dynamic Terrain" description="Example -  1 Terrain Quad 1 Map Quad"/>
 
-In consequence, the terrain mesh is far bigger while far less detailed regarding to the map data, but keeps the same amount of vertices (100 x 100). Setting an initial LOD to 10 is probably not a realistic value, it's only for the purpose of explanation.  
+In consequence, the terrain mesh is far bigger while far less detailed regarding the map data, but keeps the same amount of vertices (100 x 100). Setting an initial LOD to 10 is probably not a realistic value, it's only for the purpose of explanation.  
 
 In brief, the initial LOD value is the number of map quads on each axis, X and Z, per terrain quad.
 
@@ -205,7 +205,7 @@ terrain.updateCameraLOD = function (terrainCamera) {
 
 PG: <Playground id="#FJNR5#168" title="Dynamic Terrain" description="Example Camera LOD"/>
 
-In this example, the LOD value is incremented by 1 each time the altitude is +16 higher. If we get the camera higher by zooming out when looking at the ground, we can see that the terrain size increases since there are less details.
+In this example, the LOD value is incremented by 1 each time the altitude is +16 higher. If we get the camera higher by zooming out when looking at the ground, we can see that the terrain size increases since there are fewer details.
 
 This function is passed the object camera linked to the terrain and must return a positive integer or zero. By default, zero is return.
 
@@ -476,7 +476,7 @@ const camera = terrain.camera; // the camera the terrain is linked to. By defaul
 
 ### Color map
 
-A color map can be passed to the terrain at construction time. This color map is a flat array of successive floats between 0 and 1 of each map point _(r, g, b)_ values. This array must have the same size than the data array. Let's get back the very first example of the data array generation and let's populate a color array `mapColors`.
+A color map can be passed to the terrain at construction time. This color map is a flat array of successive floats between 0 and 1 of each map point _(r, g, b)_ values. This array must have the same size as the data array. Let's get back the very first example of the data array generation and let's populate a color array `mapColors`.
 
 ```javascript
 const mapSubX = 1000; // map number of points on the width
@@ -639,7 +639,7 @@ As the normals of map are pre-computed automatically for us, we don't need to ca
 These normals are stored internally in a flat array of floats, just like the map coordinates.
 
 There is still a way to use a custom normal array if needed.  
-This flat array of successive floats as normal vector coordinates _(x, y, z)_ for each map point can then be passed to the terrain. It simply must be exactly the same size than the map data array.  
+This flat array of successive floats as normal vector coordinates _(x, y, z)_ for each map point can then be passed to the terrain. It simply must be exactly the same size as the map data array.  
 This array is passed with the optional parameter property `.mapNormals`.
 
 ```javascript

@@ -253,7 +253,7 @@ Examples of filtered LUT to use for various filters:
 ![LUT](/img/how_to/post-processes/lut-posterized.png)
  Posterize
 
-You can easily create new filters by using a image editing software to alter the look-up table to fit your needs. Copy/paste the default look-up table on a screenshot or picture before altering it to see in real time what the filtered image will look like.
+You can easily create new filters by using an image editing software to alter the look-up table to fit your needs. Copy/paste the default look-up table on a screenshot or picture before altering it to see in real time what the filtered image will look like.
 
 ## Custom postprocesses
 

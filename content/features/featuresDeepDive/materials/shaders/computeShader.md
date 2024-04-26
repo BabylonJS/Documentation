@@ -129,7 +129,7 @@ This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLa
 
 The generation of the terrain and the simulation of the erosion is done by using two different compute shaders.
 
-Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too much **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion processes are handled on the CPU side!
+Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too many **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion processes are handled on the CPU side!
 
 ### Slime simulation
 

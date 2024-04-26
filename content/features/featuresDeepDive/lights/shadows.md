@@ -287,7 +287,7 @@ Look at this screenshot again:
 ![Light frustum](/img/how_to/shadows/directional3.png)
 According to the explanations above, the points of the ground that are not inside the cube should not be shadowed! They still are because the shadowing code does not apply a rejection based on the depth, only on the x/y coordinates: if the point is inside the frustum according to the left/right/top/bottom planes it's ok, even if the point is farer than the far plane (or nearer than the near plane).
 
-**HOWEVER**, that's not the case for the PCF/PCSS filtering methods, they do take into account the depth for the rejection test (for historical reasons probably). Same screenshot than above but with PCF this time:
+**HOWEVER**, that's not the case for the PCF/PCSS filtering methods, they do take into account the depth for the rejection test (for historical reasons probably). Same screenshot as above but with PCF this time:
 
 ![Shadows clipped](/img/how_to/shadows/directional4.png)
 As you can see, the shadows stop at the frustum boundaries. To correct the problem, you need to increase the light shadow far plane distance (`light.shadowMaxZ`).

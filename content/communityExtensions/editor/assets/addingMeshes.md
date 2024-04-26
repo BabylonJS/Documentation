@@ -35,7 +35,7 @@ Meshes can be updated by:
 
 ## Examining Meshes
 
-At any time, `double-clicking a mesh file` in the assets browser creates a new window (or tabbed window on MacOS)
+At any time, `double-clicking a mesh file` in the assets browser creates a new window (or tabbed window on macOS)
 to examine a mesh(es) source file.
 
 Once loaded, the Babylon.JS Inspector appears to inspector the mesh(es) available in the source file.

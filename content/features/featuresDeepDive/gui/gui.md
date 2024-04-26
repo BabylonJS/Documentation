@@ -439,7 +439,7 @@ const button = BABYLON.GUI.Button.CreateImageButton("but", "Click Me", "textures
 
 You can try it here: <Playground id="#XCPP9Y#3" title="Button Example" description="Simple example showing how to add a Button control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI22.jpg"  isMain={true} category="GUI"/>
 
-- ImageWithCenterTextButton: An image button made with a image background and a centered text overlay.
+- ImageWithCenterTextButton: An image button made with an image background and a centered text overlay.
 
 ```javascript
 const button = BABYLON.GUI.Button.CreateImageWithCenterTextButton("but", "Click Me", "textures/grass.png");
@@ -571,7 +571,7 @@ Here is an example of a slider: <Playground id="#U9AC0N#1" title="Slider Example
 
 ## ImageBasedSlider
 
-You can use an ImageBasedSlider to customize a slider using pictures. This control can be configured like the Slider)
+You can use an ImageBasedSlider to customize a slider using pictures. This control can be configured like the Slider.
 
 It is rendered using the following properties:
 
@@ -675,7 +675,7 @@ You can also apply stretch to animation sheet using `image.stretch` property.
 
 If you want the non-visible parts of a transparent image to not trigger pointer events, you can set `img.detectPointerOnOpaqueOnly = true` to indicate that pointer events should only be fired on pixels with alpha > 0.
 
-<Playground id="#E3F1B8" title="Detect pointer on opaque only" description="Using detectPointerOnOpaqueOnly to only fire pointer events in the visible parts of a Image" />
+<Playground id="#E3F1B8" title="Detect pointer on opaque only" description="Using detectPointerOnOpaqueOnly to only fire pointer events in the visible parts of an Image" />
 
 ### Batch loading of SVG images from icon sheet
 
@@ -849,7 +849,7 @@ Here is an example of a rectangle control: <Playground id="#XCPP9Y#8" title="Rec
 
 ### Ellipse
 
-The Ellipse is a ellipsoidal container with the following properties:
+The Ellipse is an ellipsoidal container with the following properties:
 
 | Property  | Type   | Default | Comments                |
 | --------- | ------ | ------- | ----------------------- |
@@ -1037,4 +1037,4 @@ In this case the `guiScene` will host your GUI and the `mainScene` will host you
 
 If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
-Please see [Turning AdaptToDeviceRatio Off/On](/features/featuresDeepDive/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade offs.
+Please see [Turning AdaptToDeviceRatio Off/On](/features/featuresDeepDive/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade-offs.

@@ -1338,7 +1338,7 @@ The system value for fog color pulled from the scene.
         -   output: Color3
 
 ### ImageProcessing
-Provides access to all of the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/features/featuresDeepDive/postProcesses/usePostProcesses)
+Provides access to all the Babylon image processing properties. Input is expected in Gamma color space. [Post Processes](/features/featuresDeepDive/postProcesses/usePostProcesses)
 
     -   Input:
         -   color: Color3 / Color4

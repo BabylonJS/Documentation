@@ -131,7 +131,7 @@ The positioning of the connected body is determined by the connected pivot. The 
 
 ### Wheel Joint
 
-For a wheel the a force produces rotation about two axes.
+For a wheel the force produces rotation about two axes.
 
 The `jointData` object for a hinge contains the following properties
 

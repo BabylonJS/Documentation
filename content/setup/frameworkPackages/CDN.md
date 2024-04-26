@@ -107,7 +107,7 @@ The CDN structure is guaranteed to be correct.
 
 2. Downloading the resources and deploy them on your own CDN
 
-This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a github release at [Github Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
+This option is the best for you, as you are in full control of the resources. To get the resources in the CDN structure you can download a Github release at [Github Babylon.js releases](https://github.com/BabylonJS/Babylon.js/releases).
 
 After downloading the cdn snapshot zip file and deploying it on your server, change the base URL to the base URL of the resources deployed.
 
