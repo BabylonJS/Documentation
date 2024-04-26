@@ -87,7 +87,7 @@ for (let l = 0; l < mapSubZ; l++) {
   for (let w = 0; w < mapSubX; w++) {
     // loop on width points
     const x = (w - mapSubX * 0.5) * 5.0; // distance inter-points = 5 on the width
-    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the width
+    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the height
     const y = noise.simplex2(x, z); // altitude
 
     mapData[3 * (l * mapSubX + w)] = x;
