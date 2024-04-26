@@ -68,7 +68,7 @@ var SPS = new SolidParticleSystem("sps", scene, {
 Example: <Playground id="#2BXZC#2" title="Physics and Solid Particles Example 2" description="Simple example of adding physics to solid particles."/>
 
 As you may know, a mesh -so a solid particle- is inside its bounding box and its bounding box is inside its bounding sphere. So the bounding sphere is bigger than the bounding box, what is bigger than the mesh.  
-If your particles look like some some tiny spherical objects and if you use the `boundingSphereOnly` mode, you would probably like to tweak the bounding sphere to make it closer to the embedded particle.  
+If your particles look like some tiny spherical objects and if you use the `boundingSphereOnly` mode, you would probably like to tweak the bounding sphere to make it closer to the embedded particle.  
 You can then use the parameter `bSphereRadiusFactor`, a float number that is multiplied by the current bounding sphere radius.  
 Imagine that your particle is a spherical shape with a radius of R. Its bounding sphere radius is then by default : R \* sqrt(3). So if you multiply the bounding sphere radius by 1 / sqrt(3), the bounding sphere will get the same radius as the particle one and both will exactly match.
 

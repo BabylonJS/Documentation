@@ -186,7 +186,7 @@ To make things clearer, the APIs we must create a separate item for are the APIs
 * beginOcclusionQuery
 * endOcclusionQuery
 
-When recording the API calls during a frame (as used by the snapshot rendering for eg), we add as much bundles as possible in a *list of bundles* item, but when we must handle an API call that is not supported by the bundle encoder interface we must create a new item based on the API call we must issue and add it to the list of items. At the end of the frame, the bundles/API calls are sent to the GPU by calling `WebGPUBundleList.run()`.
+When recording the API calls during a frame (as used by the snapshot rendering for eg), we add as many bundles as possible in a *list of bundles* item, but when we must handle an API call that is not supported by the bundle encoder interface we must create a new item based on the API call we must issue and add it to the list of items. At the end of the frame, the bundles/API calls are sent to the GPU by calling `WebGPUBundleList.run()`.
 
 ### WebGPUClearQuad
 This class handles clearing a rectangular area in a texture. It is used when `WebGPUEngine.clear()` is called and a non fullscreen scissor rect is in effect.

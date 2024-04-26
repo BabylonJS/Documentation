@@ -18,12 +18,12 @@ Since Blender 2.8, glTF addon comes with Blender enabled by default. You can upd
 
 It should be compatible with Blender 2.79b, but you may also note that the old exporter is [still available](https://github.com/KhronosGroup/glTF-Blender-Exporter) ([old documentation](https://github.com/KhronosGroup/glTF-Blender-Exporter/blob/master/docs/user.md)).
 
-Axys conventions aren't the same between Blender,Babylon.js (left handed) & glTF (right handed), so you can see below a conversion table to help you about coordinates.
+Axis conventions aren't the same between Blender,Babylon.js (left handed) & glTF (right handed), so you can see below a conversion table to help you about coordinates.
 
 To help transforming, note that theBabylon.js loader will automatically set glTF assets as children of an object:
 
 - named `__root__`
-- rotated by default to 180° on Y axys
+- rotated by default to 180° on Y axis
 - scaled on Z by -1
 
 | Blender asset position | Babylon.js asset absolutePosition |

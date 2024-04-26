@@ -26,7 +26,7 @@ Do not expose the BabylonJS objects and send always a copy of your objects in yo
 
 So do you have to `JSON.stringify` and `JSON.parse` every piece of data you are passing between Vue and BabylonJS? **Yes**, but we can write a class which will help us to do so with minimal effort.
 
-Having everything in JSON opens up new possibilites, so we can leverage a messaging bus for easy data passing between the two frameworks.
+Having everything in JSON opens up new possibilities, so we can leverage a messaging bus for easy data passing between the two frameworks.
 
 ## The idea behind messaging
 
@@ -53,15 +53,15 @@ Let's introduce an interface for our message bus. I will show you only the `Asyn
 
 ![](/img/resources/vue/vue-messages-02.png)
 
-as seen in `AsyncBus.ts` it implements this interace.
+as seen in `AsyncBus.ts` it implements this interface.
 
 ![](/img/resources/vue/vue-messages-03.png)
 
-`AsyncBus` is just a facade and uses the Mitt bus under the hood, but adds asynchronousity to our messaging.
+`AsyncBus` is just a facade and uses the Mitt bus under the hood, but adds asynchronicity to our messaging.
 
 ## The Scene Director
 
-The Scene Director is a simple method-call-to-message converter, so your Vue code calls code on the `SceneDirector` which creates message(s) and sends it(them) using our `AsyncBus` and as far as our BabylonJS scene is interested in a message, (it is subscribed to process a particular message, basically at low level this is calling `Mitt.$on(messageType, callback)`, it gets executed. When the execution finishes, the BabylonJS scene have to notiy the Scene Director, that it has finished execution. The Scene Director `awaits` for every send messagwe with a response message with the specific message type of `SceneDirectorEventBusMessages.SceneDirectorCommandFinished` with additional information about the executed command, including the return value in `payload`. Don't worry there are helpers methods and the usage is very easy.
+The Scene Director is a simple method-call-to-message converter, so your Vue code calls code on the `SceneDirector` which creates message(s) and sends it(them) using our `AsyncBus` and as far as our BabylonJS scene is interested in a message, (it is subscribed to process a particular message, basically at low level this is calling `Mitt.$on(messageType, callback)`, it gets executed. When the execution finishes, the BabylonJS scene have to notify the Scene Director, that it has finished execution. The Scene Director `awaits` for every send message with a response message with the specific message type of `SceneDirectorEventBusMessages.SceneDirectorCommandFinished` with additional information about the executed command, including the return value in `payload`. Don't worry there are helpers methods and the usage is very easy.
 
 Let's jump to Vue!
 
@@ -90,11 +90,11 @@ where we need to specify the message type and if we have something to send, the 
 
 ## Message types
 
-We have to specify, what messages are we going to send throught our bus, so we have this:
+We have to specify, what messages are we going to send through our bus, so we have this:
 
 ![](/img/resources/vue/vue-messages-08.png)
 
-There are two types of messages, just for better readibility, you can put them under one enum if you like so. `SceneDirectorEventBusMessages`, these are sent by Vue towards BabylonJS and obviosly the second one is moving from BabylonJS towards Vue.
+There are two types of messages, just for better readability, you can put them under one enum if you like so. `SceneDirectorEventBusMessages`, these are sent by Vue towards BabylonJS and obviously the second one is moving from BabylonJS towards Vue.
 
 It is a good idea not to create a message type for every single action, for example you are not going to create a message `LookLeft` and a `LookRight`, but you will create a message `LookAt` and call it with a parameter, however in your `SceneDirector` you can have two separate methods, so Vue just calls `LookLeft` or `LookRight` and the `SceneDirector` send a message `LookAt` with a parameter \{ rot: - Math.PI / 2 \} or \{ rot: Math.PI / 2 \} which will set the cameras `alpha` for example.
 
@@ -150,7 +150,7 @@ and whenever a `MarbleSelected` message arrives we just set the ref's `value`
 
 ![](/img/resources/vue/vue-messages-18.png)
 
-The app creates 40 marbles on startup. You can add a marble by entering it's name to the text input and hit Add marble. Remove marbles will remove some of the marbles by each click. The last button will query the scene for all the meshe names on the scene and will print it out to the console.The methods are described above in the ##Vue page## section.
+The app creates 40 marbles on startup. You can add a marble by entering it's name to the text input and hit Add marble. Remove marbles will remove some of the marbles by each click. The last button will query the scene for all the meshes names on the scene and will print it out to the console.The methods are described above in the ##Vue page## section.
 
 ## WebWorkers
 
@@ -158,7 +158,7 @@ So we have a message drive scene?! You can easily move your BabylonJS scene to a
 
 ## Message flow logged in the console
 
-Example of a `getMeshNames` message flow from the `SceneDirector` to `MarbleScene` and back to `SceneDirector` and finaly gets `console.logged` in `App.vue`
+Example of a `getMeshNames` message flow from the `SceneDirector` to `MarbleScene` and back to `SceneDirector` and finally gets `console.logged` in `App.vue`
 
 ![](/img/resources/vue/vue-messages-19.png)
 

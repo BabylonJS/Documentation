@@ -600,7 +600,7 @@ export interface IWebXRDepthSensingOptions {
 }
 ```
 
-The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will selected.
+The depth usage is currently "cpu" or "gpu". You can specify when you initialize this feature. If you specify both, one supported on your device will be selected.
 Some information can be accessed only cpu mode (gpu is also same).
 
 The data format is currently "ushort" or "float". It describes a data format for buffers and textures.

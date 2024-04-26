@@ -12,11 +12,11 @@ video-content:
 
 ## What is it
 
-The Compound is a special type of shape that acts as a "container" to other shapes. It allows modeling complex objects by using simple primitives, acheiving a better aproximation than using only one simple geometric shape.
+The Compound is a special type of shape that acts as a "container" to other shapes. It allows modeling complex objects by using simple primitives, achieving a better approximation than using only one simple geometric shape.
 
 ## How to use
 
-Imagine you have a mesh that represents a character. Character meshes are usually pretty complex, thus we want to avoid using it directly for collision. We can aproximate the shape of the character with a sphere representing the head, and a box representing the rest of the body. We will create two meshes to represent these shapes, parent them to the character mesh, create two child PhysicShapes and parent them to a PhysicsShapeContainer:
+Imagine you have a mesh that represents a character. Character meshes are usually pretty complex, thus we want to avoid using it directly for collision. We can approximate the shape of the character with a sphere representing the head, and a box representing the rest of the body. We will create two meshes to represent these shapes, parent them to the character mesh, create two child PhysicShapes and parent them to a PhysicsShapeContainer:
 
 ```javascript
 const myMesh = BABYLON.SceneLoader.ImportMeshAsync(...);

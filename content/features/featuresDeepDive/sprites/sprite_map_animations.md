@@ -21,7 +21,7 @@ All animations are assumed to be looping though they may all have different timi
 
 Lets assume their frameIDs in order are 24, 25, 26, 27, 28, 29, 30 and 31 and we want to play them in this order. We start with frameID 24 and add this to the tiles, or rather any tile that contains frameID 24 will show the animation.
 
-In order for the animation to run we must set the *maxAnimationFrames* options property. In this case their are 8 frames
+In order for the animation to run we must set the *maxAnimationFrames* options property. In this case there are 8 frames
 
 ```javascript
 let backgroundSize = new BABYLON.Vector2(1, 1);

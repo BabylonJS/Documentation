@@ -197,7 +197,7 @@ Navigate to the "Pages" menu item, set the "Branch" to "main", and hit the save 
 
 ![pages](/img/home/pages.jpg)
 
-After your settings are saved you'll see the url to to reach your website! You can share that url with anyone that you'd like!
+After your settings are saved you'll see the url to reach your website! You can share that url with anyone that you'd like!
 
 ![url](/img/home/url.jpg?expandable=false)
 

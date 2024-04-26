@@ -83,7 +83,7 @@ The particles are emitted in the direction of the surface normals, ie the lines 
 
 With `sphereEmitter.radiusRange` you can define where along the radius the particles should be emitted. A value of 0 means only on the surface while a value of 1 means all along the radius.
 
-If you prefer to chose the emission direction, you can create a directed sphere emitter
+If you prefer to choose the emission direction, you can create a directed sphere emitter
 
 ```javascript
 var sphereEmitter = particleSystem.createDirectedSphereEmitter(1.2, new BABYLON.Vector3(1, 1, 1), new BABYLON.Vector3(2, 8, 2));

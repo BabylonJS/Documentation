@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in term of feature support as of this writing (2023/12/28).*
+*Note that we will use Chrome Canary as our gauge browser for WebGPU features as other browsers are still lagging in terms of feature support as of this writing (2023/12/28).*
 
 ## Make it work: Current status of the port
 Most of the features of Babylon.js are now available in WebGPU. Here's a detailed list of what is not working / is partially working.

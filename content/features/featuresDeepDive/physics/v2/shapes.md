@@ -14,7 +14,7 @@ video-content:
 
 Physics Shapes represent the geometry that a body will have when interacting with the world. Depending on the chosen shape, the body will react differently to colliding with other objects. Even if the visual mesh of an object is composed of many triangles, if it has a simple enough physics shape, its collisions can be computed quickly.
 
-In general, the convex hull gives the best performance while also matching the visual geometry as best as possible. However, if you have highly concave meshes, which would be unsuitable for a convex shape, it's still possible to use a container with multiple simpler shapes.
+In general, the convex hull gives the best performance while also matching the visual geometry as good as possible. However, if you have highly concave meshes, which would be unsuitable for a convex shape, it's still possible to use a container with multiple simpler shapes.
 
 ## Available shapes and parameters
 

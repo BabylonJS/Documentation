@@ -47,7 +47,7 @@ myMaterial.invertNormalMapY = true;
 
 ## Opacity
 
-The opacity of a material can be graded using an image with varying tranparency. The following PNG image with
+The opacity of a material can be graded using an image with varying transparency. The following PNG image with
 a transparency gradient can be applied to a material using _opacityTexture_
 
 ![Opacity Map](/img/how_to/Materials/degrade_map.png)

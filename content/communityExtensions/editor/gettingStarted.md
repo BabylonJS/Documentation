@@ -10,7 +10,7 @@ video-content:
 
 ## Welcome to the Babylon.JS Editor documentation
 
-Welcome to the documentation of the Babylon.JS Editor. A series of tutorials are available to understand the basics of the Editor. It is recommanded to read the tutorials before starting with the Editor.
+Welcome to the documentation of the Babylon.JS Editor. A series of tutorials are available to understand the basics of the Editor. It is recommended to read the tutorials before starting with the Editor.
 
 Please note that the editor is a community project maintained mostly by Julien Moreau-Mathis ([@luaacro](https://twitter.com/Luaacro)).
 
@@ -46,7 +46,7 @@ Some project examples are available on Github:
 
 ### In preview
 * `f`: focus the selected node
-* `t`: enable/disable the positon gizmo
+* `t`: enable/disable the position gizmo
 * `r`: enable/disable the rotation gizmo
 * `w`: enable/disable the scaling gizmo
 * `i`: toggle the isolated mode. Isolated mode is used to help debugging a mesh by isolating it. Just select a mesh in the Editor and then type `i`. `escape` to exit isolation mode.

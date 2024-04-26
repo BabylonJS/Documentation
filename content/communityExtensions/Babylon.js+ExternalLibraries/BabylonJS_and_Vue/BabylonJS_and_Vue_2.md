@@ -32,14 +32,14 @@ We will create an FPS counter which will be displayed by Vue, but the data will 
 After finishing this part we will learn how to pass data from the Vue component to the BabylonJS scene and we will make some cubes move.
 
 1. The first approach will not expose any BabylonJS objects to the Vue component and the BabylonJS scene will be controlled via custom methods exposed by the scene.
-1. The second approach will expose only the required `Vector3` BabylonJS object with the position of the cube, so we can move our cube by directly modifiying this object's properties. We will read rotation data from a `Vector3` object in our component in real-time as well.
+1. The second approach will expose only the required `Vector3` BabylonJS object with the position of the cube, so we can move our cube by directly modifying this object's properties. We will read rotation data from a `Vector3` object in our component in real-time as well.
 1. The final, third approach will expose the `Engine` and `Scene` object and the Vue component will manipulate the scene by using these objects.
 
 ## Passing data from BabylonJS to Vue using callbacks
 
 GitHub: https://github.com/RolandCsibrei/babylonjs-vue2-javascript-basic-setup/tree/fps-by-callback
 
-This is the most verbose but safest, most extendable and reusable approach. Basically you will create methods in the BabylonJS scene code and `export` them accordingly, so they can be `imported` into the Vue component and respectivelly called.
+This is the most verbose but safest, most extendable and reusable approach. Basically you will create methods in the BabylonJS scene code and `export` them accordingly, so they can be `imported` into the Vue component and respectively called.
 
 Modify `src/scenes/MyFirstScene.js` and copy paste this code or just follow along if you have cloned the repository for this part. This a simple scene with three cubes, red, yellow and green. The green one is rotating. It is achieved by incrementing the `rotation.y` value on the cube in each frame.
 

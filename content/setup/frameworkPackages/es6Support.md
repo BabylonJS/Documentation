@@ -351,7 +351,7 @@ _How do I efficiently use the Mesh. Create... methods ?_
 The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import "@babylonjs/core/Meshes/Builders/boxBuilder";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
 
 _Why using the default material is not working ?_
-By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operationnal.
+By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operational.
 
 _How does deserialization work ?_
 

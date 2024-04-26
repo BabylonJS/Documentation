@@ -72,7 +72,7 @@ Two simple physics could be:
 
 These at least ensure that speeds in the x, y and z directions are maintained and so particles cannot escape the box.
 
-What about collisions between paticles in these cases? To ensure contact, by just touching alone, then we have already seen that there must be an even number of cubes between them. Placing particles in the box so this conditions exists is not straightforward so simplify this to - every particle has two cubes between them. This means that placing a particle at the cube origin and counting cube positions from this point every cube with position of the form (3m, 3n, 3p), and only these cube positions, has a particle in it. Should one particle be missing then there will be two particles with an odd number of cubes between them which could meet by overlapping, as in Fig 13.
+What about collisions between particles in these cases? To ensure contact, by just touching alone, then we have already seen that there must be an even number of cubes between them. Placing particles in the box so this conditions exists is not straightforward so simplify this to - every particle has two cubes between them. This means that placing a particle at the cube origin and counting cube positions from this point every cube with position of the form (3m, 3n, 3p), and only these cube positions, has a particle in it. Should one particle be missing then there will be two particles with an odd number of cubes between them which could meet by overlapping, as in Fig 13.
 
 ![Fig 13](/img/samples/collide12.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 13

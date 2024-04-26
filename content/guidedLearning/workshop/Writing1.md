@@ -31,7 +31,7 @@ could be used.
 
 However the data passed to a Vertex Shader Code is the attributes of the vertices of a mesh or is through using uniforms. Also the 
 Vertex Shader Code applies to a single vertex with no access to any other vertices. 
-Since the x coordinate of vertices on the left hand side of the box will differer by the size of the box to those on the right hand side. 
+Since the x coordinate of vertices on the left hand side of the box will differ by the size of the box to those on the right hand side. 
 So sin(x<sub>Left</sub> + time) with differ from sin(x<sub>Right</sub> + time) distorting the box. 
 
 What is needed is a method of obtaining the same number h, from the numbers x<sub>Left</sub> and x<sub>Right</sub>. 

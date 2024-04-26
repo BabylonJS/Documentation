@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## Envrionment
+## Environment
 
 Within the environment, I have several meshes that serve the purpose of being collision boxes and trigger areas. These are just normal meshes in Blender that I intend on making invisible within the scene after I've imported it. Babylon has no idea of knowing whether you intend to use a mesh as a collision box, so we need to set that up ourselves by setting flags.
 

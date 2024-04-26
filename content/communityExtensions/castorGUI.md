@@ -30,7 +30,7 @@ Create GUI (element html5 and css3):
 - slider
 - progress
 - meter (jauge de measure)
-- select color (with compatitility IE and Edge)
+- select color (with compatibility IE and Edge)
 - spinner
 - radio button
 - checkbox

@@ -23,7 +23,7 @@ Please make sure, that your Vue app was correctly installed and it can be run wi
 The goal of this tutorial is to show how to connect the two frameworks together and not how to use these frameworks alone. You need to be familiar with both frameworks at basic level to get started.
 
 After installing and testing your Vue app you should end up with a very similar directory structure for Vue 3 and Vue 2 also:
-![New Vue prjoect directory structure](/img/resources/vue/bjs-vue-doc-1.png)
+![New Vue project directory structure](/img/resources/vue/bjs-vue-doc-1.png)
 
 ## Installing BabylonJS
 
@@ -41,7 +41,7 @@ If you want to use the [BabylonJS GUI](/features/featuresDeepDive/gui "BabylonJS
 npm install @babylonjs/gui
 ```
 
-If you want to use the BabylonJS [Inspector](/toolsAndResources/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev depedency if you don't plan to use the Inspector in production):
+If you want to use the BabylonJS [Inspector](/toolsAndResources/inspector "BabylonJS Inspector") for debugging, you need to install another package (you can add this package as a dev dependency if you don't plan to use the Inspector in production):
 
 ```bash
 npm install @babylonjs/inspector
@@ -238,7 +238,7 @@ If you want to expose scene information to Vue, keep in mind, that exposing the 
 
 ## Conclusion
 
-It is easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the golden rule aplies here too. Building, changing and testing smaller blocks of your application at once will help you avoid many problems when using these two awesome frameworks together.
+It is easy to setup a very basic BabylonJS scene in Vue. Keep in mind, that the golden rule applies here too. Building, changing and testing smaller blocks of your application at once will help you avoid many problems when using these two awesome frameworks together.
 
 ## Where to go next?
 

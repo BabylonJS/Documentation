@@ -184,7 +184,7 @@ pipeline.hdrIncreaseRate = 0.5;
 
 ### Activating the depth of field
 
-To active the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
+To activate the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
 
 ```
 // Active depth of field

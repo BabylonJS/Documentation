@@ -278,7 +278,7 @@ where
 - influence, from 0 to 1, defaults to 1. A value of 1 fixes the distance of the hook from the rigid body, the closer to 0 the more elastic the distance
 - noCollisionBetweenLinkedBodies, default false. When true the rope and the rigid body, it is attached to, will not detect collisions to each other.
 
-For example attaching a ball to the end of a rope and an crossbar to the start of a rope with influence 1,
+For example attaching a ball to the end of a rope and a crossbar to the start of a rope with influence 1,
 
 ```javascript
 rope.physicsImpostor.addHook(crossbar.physicsImpostor, 0, 1);

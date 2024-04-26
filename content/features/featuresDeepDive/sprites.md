@@ -10,7 +10,7 @@ video-content:
 
 # Sprites
 
-Sprites are 2D images and always face the camera. They can used to display animated characters, and particles, and to simulate 3D complex objects like trees.  
+Sprites are 2D images and always face the camera. They can be used to display animated characters, and particles, and to simulate 3D complex objects like trees.  
 
 For animation individual sprite images are collected together in a single file called a spritesheet.
 

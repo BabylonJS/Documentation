@@ -21,7 +21,7 @@ Supported formats are :
 
 ## Loading a Gaussian Splatting
 
-Instanciate a new `GaussianSplattingMesh` object. It inherits from Mesh class. Set its name and the scene it belongs to.
+Instantiate a new `GaussianSplattingMesh` object. It inherits from Mesh class. Set its name and the scene it belongs to.
 Second parameter is an optional url to load a file without the need to call `loadFileAsync`.
 
 ```javascript
