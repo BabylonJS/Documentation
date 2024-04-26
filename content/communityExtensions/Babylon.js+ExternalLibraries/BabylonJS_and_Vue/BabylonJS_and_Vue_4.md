@@ -150,7 +150,7 @@ and whenever a `MarbleSelected` message arrives we just set the ref's `value`
 
 ![](/img/resources/vue/vue-messages-18.png)
 
-The app creates 40 marbles on startup. You can add a marble by entering it's name to the text input and hit Add marble. Remove marbles will remove some of the marbles by each click. The last button will query the scene for all the meshes names on the scene and will print it out to the console.The methods are described above in the ##Vue page## section.
+The app creates 40 marbles on startup. You can add a marble by entering its name to the text input and hit Add marble. Remove marbles will remove some of the marbles with each click. The last button will query the scene for all mesh names in the scene and will print it out to the console. The methods are described above in the ##Vue page## section.
 
 ## WebWorkers
 
