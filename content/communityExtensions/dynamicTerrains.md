@@ -29,17 +29,17 @@ It has also been converted to an [ES6 compatible TypeScript module](https://gist
 
 The dynamic terrain is a mesh that morphs on a logical data map. This map is a simple flat array of successive 3D coordinates (x, y, z) as floats. It can be as huge as you need, as long as you've enough memory (you set how much of the map is rendered at a time). 
 
-The map must be passed to the dynamic terrain constructor as well as the number of subdivisions on the map width and height.
+The map must be passed to the dynamic terrain constructor as well as the number of subdivisions on the map width and depth.
 
 ```javascript
 const mapCoords = [some_big_flat_array_of_coordinates];
 const mapWidthPointNb = 2000; // 2000 points in the map width
-const mapHeightPointNb = 1000; // 1000 points in the map height
+const mapDepthPointNb = 1000; // 1000 points in the map depth
 const terrainSub = 100; // the terrain wil be 100x100 vertices only
 const mapParams = {
   mapData: mapCoords,
   mapSubX: mapWidthPointNb,
-  mapSubZ: mapHeightPointNb,
+  mapSubZ: mapDepthPointNb,
   terrainSub: terrainSub,
 };
 
@@ -56,39 +56,39 @@ Some documented examples are here: [https://github.com/BabylonJS/Extensions/tree
 
 The first thing we need to create a dynamic terrain is a data map.  
 
-The data map is a simple flat array of successive 3D coordinates _(x, y, z)_ in the World. It's defined by the number of points on the map width, called `mapSubX` by the dynamic terrain, and the number of points on the map height, called `mapSubZ`.
+The data map is a simple flat array of successive 3D coordinates _(x, y, z)_ in the World. It's defined by the number of points on the map width, called `mapSubX` by the dynamic terrain, and the number of points on the map depth, called `mapSubZ`.
 
 The dynamic terrain imposes some constraints to the map:
 
 - the distances between two successive points on the map width must be constant
-- the distances between two successive points on the map height must be constant
-- the points must be sorted in ascending order regarding their coordinates, first on the width, then on the height.
+- the distances between two successive points on the map depth must be constant
+- the points must be sorted in ascending order regarding their coordinates, first on the width, then on the depth.
 
 What does this mean?
 
-If we call `P[i, j]` the point P at the row `j` on the map height and at the column `i` on the map width, this means that:
+If we call `P[i, j]` the point P at the row `j` on the map depth and at the column `i` on the map width, this means that:
 
-- for any row `j` in the map, `P[0, j].x` is lower than `P[1, j].x`, what is lower than `P[2, j].x`, etc
-- for any column `i` in the map, `P[i, 0].z` is lower than `P[i, 1].z`, what is lower than `P[i, 2].z`, etc
+- for any row `j` in the map, `P[0, j].x` is less than `P[1, j].x`, which is less than `P[2, j].x`, etc.
+- for any column `i` in the map, `P[i, 0].z` is less than `P[i, 1].z`, which is less than `P[i, 2].z`, etc.
 - the distance between each column is constant
 - the distance between each row is constant, although not necessarily the same as the distance between each column.
 
 #### Example:
-Here, we populate a big `Float32Array` with successive 3D float coordinates. We use a _simplex_ function from a third party library ([perlin.js](https://github.com/josephg/noisejs)) to set each point's altitude. This array is the data map. It's defined by 1000 points on its width and 800 points on its height. The distance between the points is constant on the width and is different from the constant distance between the points on the height.
+Here, we populate a big `Float32Array` with successive 3D float coordinates. We use a _simplex_ function from a third party library ([perlin.js](https://github.com/josephg/noisejs)) to set each point's elevation (the height of the terrain at that point). This array is the data map. It's defined by 1000 points on its width and 800 points on its depth. The distance between the points is constant in the width and is different from the constant distance between the points in the depth.
 
 ```javascript
 const mapSubX = 1000; // map number of points on the width
-const mapSubZ = 800; // map number of points on the height
-const seed = 0.3; // set the noise seed
+const mapSubZ = 800; // map number of points on the depth
+const seed = 0.3; // set the noise seed for the Y value (elevation)
 noise.seed(seed); // generate the simplex noise, don't care about this
 const mapData = new Float32Array(mapSubX * mapSubZ * 3); // x3 because 3 values per point: x, y, z
 for (let l = 0; l < mapSubZ; l++) {
-  // loop on height points
+  // loop on depth points
   for (let w = 0; w < mapSubX; w++) {
     // loop on width points
     const x = (w - mapSubX * 0.5) * 5.0; // distance inter-points = 5 on the width
-    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the height
-    const y = noise.simplex2(x, z); // altitude
+    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the depth
+    const y = noise.simplex2(x, z); // elevation
 
     mapData[3 * (l * mapSubX + w)] = x;
     mapData[3 * (l * mapSubX + w) + 1] = y;
@@ -188,7 +188,7 @@ We can notice that when the camera is at some high altitude the green terrain se
 
 PG: <Playground id="#FJNR5#167" title="Dynamic Terrain" description="Example Distant"/>
 
-However we don't expect that when getting in higher altitude, the ground would get tinier. Rather, it becomes less detailed to our eyes and we can see a larger area of the ground in the same time.
+However we don't expect that when moving to a higher altitude, the ground would get tinier. Rather, it becomes less detailed to our eyes and we can see a larger area of the ground in the same time.
 
 The dynamic terrain provides a way to do this by increasing the LOD factor with the camera altitude (or any other behavior we may want like changing the LOD with the camera speed instead).
 
@@ -241,7 +241,7 @@ Let's get of the map rendering and let's create a smaller terrain of 20 subdivis
 
 PG: <Playground id="#FJNR5#169" title="Dynamic Terrain" description="Example Smaller Terrain"/>
 
-The camera is located high in altitude in order to understand better how to set the perimetric LOD.
+The camera is located at a high altitude in order to understand better how to set the perimetric LOD.
 
 The property to change the perimetric LOD is `.LODLimits`. It's an array of integers (or an empty array, by default).  
 
@@ -364,7 +364,7 @@ terrain.updateVertex = function (vertex, i, j) {
   vertex.color.g = 1.0;
   vertex.color.r = 1.0;
   vertex.color.b = 1.0;
-  // change it above a given altitude
+  // change it above a given elevation
   if (vertex.position.y > 2.0) {
     vertex.color.b = vertex.position.y / 30.0;
     vertex.color.r = vertex.color.b;
@@ -434,7 +434,7 @@ if (terrain.contains(x, z)) {
 }
 ```
 
-If we need to know what the altitude is on the map at the coordinates _(x, z)_ in the World, even if this point is not one of the points defined in the map (not one of the points in the map array), we can use the method `getHeightFromMap(x, z)`.
+If we need to know the elevation of the map at the coordinates _(x, z)_ in the World, even if this point is not one of the points defined in the map (not one of the points in the map array), we can use the method `getHeightFromMap(x, z)`.
 
 ```javascript
 const y = terrain.getHeightFromMap(x, z); // returns y at (x, z) in the World
@@ -467,7 +467,7 @@ const terrainCenter = terrain.centerLocal; // Vector3 position of the terrain ce
 const terrainWorldCenter = terrain.centerWorld; // Vector3 position of the terrain center in the World space
 
 const mapPointsX = terrain.mapSubX; // the passed map number of points on width at terrain construction time
-const mapPointsZ = terrain.mapSubZ; // the passed map number of points on height at terrain construction time
+const mapPointsZ = terrain.mapSubZ; // the passed map number of points on depth at terrain construction time
 
 const camera = terrain.camera; // the camera the terrain is linked to. By default, the scene active camera
 ```
@@ -480,18 +480,18 @@ A color map can be passed to the terrain at construction time. This color map is
 
 ```javascript
 const mapSubX = 1000; // map number of points on the width
-const mapSubZ = 800; // map number of points on the height
+const mapSubZ = 800; // map number of points on the depth
 const seed = 0.3; // set the noise seed
 noise.seed(seed); // generate the simplex noise, don't care about this
 const mapData = new Float32Array(mapSubX * mapSubZ * 3); // x3 because 3 values per point: x, y, z
 const mapColors = new Float32Array(mapSubX * mapSubZ * 3); // x3 because 3 values per point: r, g, b
 for (const l = 0; l < mapSubZ; l++) {
-  // loop on height points
+  // loop on depth points
   for (const w = 0; w < mapSubX; w++) {
     // loop on width points
     const x = (w - mapSubX * 0.5) * 5.0; // distance inter-points = 5 on the width
-    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the width
-    const y = noise.simplex2(x, z); // altitude
+    const z = (l - mapSubZ * 0.5) * 2.0; // distance inter-points = 2 on the depth
+    const y = noise.simplex2(x, z); // elevation
 
     mapData[3 * (l * mapSubX + w)] = x;
     mapData[3 * (l * mapSubX + w) + 1] = y;
@@ -552,7 +552,7 @@ const terrain = new BABYLON.DynamicTerrain("t", params, scene);
 ```
 
 Example:  
-Here we populate a data map with no altitude (y = 0) and, in the same time, a UV map as a flat array by simply setting the u and v values in the 2D texture relatively to the _(x, z)_ coordinates of each map point.
+Here we populate a data map with no elevation (y = 0) and, in the same time, a UV map as a flat array by simply setting the u and v values in the 2D texture relatively to the _(x, z)_ coordinates of each map point.
 
 ```javascript
 const mapData = new Float32Array(mapSubX * mapSubZ * 3); // x3 float values per point: x, y and z
@@ -683,7 +683,7 @@ BABYLON.DynamicTerrain.ComputeNormalsFromMapToRef(map3, subX3, subY3, normal3);
 
 ### Map Creation From a Height Map
 
-A height map is an image file, usually with grey colors only (from black to white), where each pixel color holds the point altitude: the brighter, the higher.  
+A height map is an image file, usually with grey colors only (from black to white), where each pixel color holds the point elevation: the brighter, the higher.  
 Example file: https://www.babylonjs.com/assets/heightMap.png
 
 Like the BJS `MeshBuilder` class provides a method to create a mesh from a height map, the Dynamic Terrain provides a static method to generate a data map from a height map.
@@ -692,7 +692,7 @@ Here's the way to use it:
 
 ```javascript
 // Declare a callback function that will be executed once the heightmap file is downloaded
-// This function is passed the generated data and the number of points on the map height and width
+// This function is passed the generated data and the number of points on the map depth and width
 const terrain;
 const createTerrain = function (mapData, mapSubX, mapSubZ) {
   const options = {
@@ -712,9 +712,9 @@ const createTerrain = function (mapData, mapSubX, mapSubZ) {
 const hmURL = "https://www.babylonjs.com/assets/heightMap.png"; // heightmap file URL
 const hmOptions = {
   width: 5000,
-  height: 4000, // map size in the World
+  height: 4000, // map's z-axis depth (not elevation) in the World
   subX: 1000,
-  subZ: 800, // number of points on map width and height
+  subZ: 800, // number of points on map width and depth
   onReady: createTerrain, // callback function declaration
 };
 const mapData = new Float32Array(1000 * 800 * 3); // the array that will store the generated data
@@ -724,7 +724,7 @@ BABYLON.DynamicTerrain.CreateMapFromHeightMapToRef(hmURL, hmOptions, mapData, sc
 - `hmURL` is a string, it's the URL or the DataURL string of the height map image,
 - `width` and `height` are optional floats (default 300), the dimensions the map in the World,
 - `subX` and `subZ` are optional integers (default 100), the number of points on each map dimension,
-- `minHeight` and `maxHeight` are the optional minimal and maximal heights (floats, default 0 and 10),
+- `minHeight` and `maxHeight` are the optional minimal and maximal elevations (floats, default 0 and 10),
 - `offsetX` and `offsetZ` are optional floats (default 0) to shift the map, what is centered around the World origin by default, along the X or Z World axes,
 - `onReady` is an optional callback function to be called when the data are generated. It's passed the data array and the number of points per map dimension,
 - `mapData` is a float array, sized subX x subZ x 3,
@@ -737,7 +737,7 @@ const url1 = someURL;
 const url2 = someOtherURL;
 const url3 = someOtherURL;
 // all my maps will have the same subdivisions and dimensions
-// no callback function here
+// no callback function here. The "height" option is the Z-axis dimension
 const options = { width: 5000, height: 4000, subX: 1000, subZ: 800 };
 const set1 = new Float32Array(subX * subZ * 3);
 const set2 = new Float32Array(subX * subZ * 3);
@@ -748,7 +748,7 @@ BABYLON.DynamicTerrain.CreateMapFromHeightMapToRef(url3, options, set3, scene);
 ```
 
 PG: <Playground id="#FJNR5#190" title="Dynamic Terrain" description="Example with world map and height map"/>  
-In this example we use both the world image to texture the whole map with `createUVMap()` and the world height map to define the altitudes.
+In this example we use both the world image to texture the whole map with `createUVMap()` and the world height map to define the elevations.
 
 ### Map Change on the Fly
 
@@ -840,7 +840,7 @@ terrain.useCustomVertexFunction = true;
 terrain.refreshEveryFrame = true;
 terrain.computeNormals = true;
 
-// user custom function: now the altitude depends on t too.
+// user custom function: now the elevation depends on t too.
 terrain.updateVertex = function (vertex, i, j) {
   vertex.position.y = 2.0 * Math.sin((vertex.position.x + t) / 5.0) * Math.cos((vertex.position.z + t) / 5.0);
 };
@@ -853,7 +853,7 @@ scene.registerBeforeRender(function () {
 PG: <Playground id="#FJNR5#193" title="Dynamic Terrain" description="Example Refresh Every Frame"/>
 
 The CPU load required by the method `updateVertex()` is depending of course on what it does, but also on the terrain number of vertices.  
-Let's note that, as we computationally change each terrain vertex altitude, the normal computation must be forced (`terrain.computeNormals = true`) to get a right light reflection with plain triangles:
+Let's note that, as we computationally change each terrain vertex elevation, the normal computation must be forced (`terrain.computeNormals = true`) to get a right light reflection with plain triangles:
 
 PG: <Playground id="#FJNR5#194" title="Dynamic Terrain" description="Example Forced Normal Computation"/>
 
