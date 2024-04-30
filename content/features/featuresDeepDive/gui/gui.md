@@ -276,7 +276,7 @@ They can be removed with:
 container.removeControl(control);
 ```
 
-You can also control the control visibility with `control.isVisible = false`. When `isVisible` is true, all children will also be invisible. If you just want to hide the current control but keep its children visible then you can use `control.notRenderable = true`.
+You can also control the control visibility with `control.isVisible = false`. When `isVisible` is false, all children will also be invisible. If you just want to hide the current control but keep its children visible then you can use `control.notRenderable = true`.
 
 ### TextBlock
 

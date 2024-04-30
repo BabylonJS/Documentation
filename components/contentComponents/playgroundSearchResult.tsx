@@ -12,7 +12,7 @@ import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { createStyles, makeStyles } from "@mui/styles";
 
-export type SearchType = "code" | "name" | "tags";
+export type SearchType = "code" | "name" | "tags" | "description" | "all";
 
 export interface IPlaygroundSearchResult {
     date: string;
@@ -23,7 +23,7 @@ export interface IPlaygroundSearchResult {
     jsonPayload: string;
     name?: string;
     snippetIdentifier: string;
-    tags?: string; // comma separated
+    tags?: string[];
     version: number;
 }
 
@@ -81,39 +81,15 @@ const styles = makeStyles((theme: Theme) =>
 export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygroundSearchResult; type: SearchType; term?: string; setActiveExample: (example: IExampleLink) => void }> = ({ searchResult, type, term, setActiveExample }) => {
     const classes = styles();
     const [expanded, setExpanded] = useState<boolean>(false);
+    const [codeToShow, setCodeToShow] = useState<{ code: string; startingLine: number; foundLine: number }>({ code: "", startingLine: 0, foundLine: 0 });
 
     const tags = new Set();
-    (searchResult.tags || "").split(",").forEach((tag) => {
+    (searchResult.tags || []).forEach((tag) => {
         const trim = tag.trim();
         if (trim) {
             tags.add(tag.trim());
         }
     });
-
-    let parsed: { code: string };
-    try {
-        parsed = JSON.parse(searchResult.jsonPayload);
-    } catch (e) {
-        return null;
-    }
-
-    const { code } = parsed;
-    const codeLines: Array<string> = (code || "").split("\n");
-    let startingLine = 0;
-    let foundLine = -1;
-    const lowerTerm = term.toLowerCase();
-    if (type === "code") {
-        for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
-            if (codeLines[foundLine].length > 100) {
-                codeLines[foundLine] = `${codeLines[foundLine].substr(0, 100)}...`;
-            }
-            if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
-                startingLine = Math.max(foundLine - 5, 0);
-                break;
-            }
-        }
-    }
-    const codeToShow = codeLines.slice(startingLine, startingLine + 10).join("\n");
 
     const name = searchResult.name ? `${searchResult.name} (${searchResult.id})` : searchResult.id;
 
@@ -124,6 +100,36 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
             setExpanded(false);
         }
     }, [type]);
+
+    useEffect(() => {
+        // get the snippet code
+        fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`).then((response) => {
+            response.text().then((text) => {
+                const parsed = JSON.parse(JSON.parse(text).jsonPayload);
+                const { code } = parsed;
+                const codeLines: Array<string> = (code || "").split("\n");
+                let startingLine = 0;
+                let foundLine = -1;
+                const lowerTerm = term.toLowerCase();
+                if (type === "code") {
+                    for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
+                        if (codeLines[foundLine].length > 100) {
+                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, 100)}...`;
+                        }
+                        if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
+                            startingLine = Math.max(foundLine - 5, 0);
+                            break;
+                        }
+                    }
+                }
+                setCodeToShow({
+                    code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
+                    startingLine,
+                    foundLine,
+                });
+            });
+        });
+    }, [searchResult]);
 
     return (
         // <div className={classes.contentRoot}>
@@ -167,16 +173,16 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         onClick={(e) => {
                             e.stopPropagation();
                             setActiveExample({
-                                id: searchResult.id + "#" + searchResult.version,
+                                id: searchResult.snippetIdentifier + "#" + searchResult.version,
                                 title: name,
                             });
-                            location.hash = searchResult.id;
+                            location.hash = searchResult.snippetIdentifier;
                         }}
-                        aria-label={`Preview ${searchResult.id}`}
+                        aria-label={`Preview ${searchResult.snippetIdentifier}`}
                         size="small"
                         color="inherit"
                     >
-                        <Tooltip title={`Preview ${searchResult.id}`}>
+                        <Tooltip title={`Preview ${searchResult.snippetIdentifier}`}>
                             <LinkIcon></LinkIcon>
                         </Tooltip>
                     </IconButton>
@@ -184,11 +190,11 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
-                        aria-label={`Open ${searchResult.id} in a new tab`}
+                        aria-label={`Open ${searchResult.snippetIdentifier} in a new tab`}
                         size="small"
                         color="inherit"
                     >
-                        <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`} target="_blank">
+                        <Link href={`http://playground.babylonjs.com/#${searchResult.snippetIdentifier}#${searchResult.version}`} target="_blank">
                             <Tooltip title={`Open ${searchResult.id} in a new tab`}>
                                 <ExternalLinkIcon></ExternalLinkIcon>
                             </Tooltip>
@@ -198,15 +204,15 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ width: "100%" }}>
-                    <Highlight {...defaultProps} theme={vsDark} code={codeToShow} language="jsx">
+                    <Highlight {...defaultProps} theme={vsDark} code={codeToShow.code} language="jsx">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                             <pre className={className} style={style}>
                                 {tokens.map((line, i) => (
                                     <div style={{ display: "table-row" }} key={i} {...getLineProps({ line, key: i })}>
-                                        <span style={{ opacity: i + startingLine === foundLine ? 1 : 0.5, color: i + startingLine === foundLine ? "white" : "inherit" }} className={classes.lineNumber}>
-                                            {i + 1 + startingLine}
+                                        <span style={{ opacity: i + codeToShow.startingLine === codeToShow.foundLine ? 1 : 0.5, color: i + codeToShow.startingLine === codeToShow.foundLine ? "white" : "inherit" }} className={classes.lineNumber}>
+                                            {i + 1 + codeToShow.startingLine}
                                         </span>
-                                        <span style={{ display: "table-cell", fontWeight: i + startingLine === foundLine ? 600 : 400, opacity: type === "code" && (i < 2 || i > 7) ? 0.6 : 1 }}>
+                                        <span style={{ display: "table-cell", fontWeight: i + codeToShow.startingLine === codeToShow.foundLine ? 600 : 400, opacity: type === "code" && (i < 2 || i > 7) ? 0.6 : 1 }}>
                                             {line.map((token, key) => (
                                                 <span key={key} {...getTokenProps({ token, key })} />
                                             ))}
@@ -219,53 +225,5 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 </div>
             </AccordionDetails>
         </Accordion>
-
-        // <Card className={classes.contentRoot}>
-        //     <CardContent>
-        //         <Typography color="textSecondary" gutterBottom></Typography>
-        //         <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //             <MaterialLink target="_blank" href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //                 <Typography variant="h5" component="h2">
-        //                     {searchResult.name ? searchResult.name : searchResult.id}
-        //                 </Typography>
-        //             </MaterialLink>
-        //         </Link>
-        //         <Typography color="textSecondary">{searchResult.description}</Typography>
-        //         <Typography variant="body2" component="p">
-        //             id: {searchResult.id}
-        //             <br />
-        //             latest revision: {searchResult.version}
-        //             <br />
-        //             {!!tags.size && (
-        //                 <div className={classes.chipHolder}>
-        //                     {Array.from(tags).map((chip: string) => {
-        //                         return (
-        //                             <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
-        //                                 <a>
-        //                                     <Chip color="primary" label={chip} />
-        //                                 </a>
-        //                             </Link>
-        //                         );
-        //                     })}
-        //                 </div>
-        //             )}
-        //         </Typography>
-        //     </CardContent>
-        // </Card>
-        // <div key={searchResult.snippetIdentifier} className={classes.contentRoot}>
-        //     {/* <div className={classes.imageContainer}></div> */}
-        //     <div className={classes.textContent}>
-        //         <div className={classes.titleContent}>
-        //             <span>
-        //                 <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //                     <MaterialLink target="_blank" href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //                         <span>{searchResult.id}</span>
-        //                     </MaterialLink>
-        //                 </Link>
-        //             </span>
-        //         </div>
-        //         <div>{searchResult.description}</div>
-        //     </div>
-        // </div>
     );
 };
