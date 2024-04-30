@@ -336,9 +336,9 @@ This means the previous example is now requiring about 700Kb vs 2.3Mb before.
 
 ## Side Effects
 
-Due to our attachment to backward compatibility, we had to make a hard choice between the APIs and the side effects. Actually whilst not working with modules it is easy to not worry about side effects and we relied on this pattern a lot to create a friendlier API surface. For instance, you can directly from the Mesh class create basic shapes like cubes, spheres and so on. Despite being convenient, this means that the full MeshBuilder constructs are then a dependency of Mesh. But what if you are not using any of them ? Why should they be part of the final package ?
+Due to our attachment to backward compatibility, we had to make a hard choice between the APIs and the side effects. Actually whilst not working with modules, it is easy to not worry about side effects and we relied on this pattern a lot to create a friendlier API surface. For instance, you can directly use the Mesh class to create basic shapes like cubes, spheres and so on. Despite being convenient, this means that the full MeshBuilder constructs are then a dependency of Mesh. But what if you are not using any of them? Why should they be part of the final package?
 
-Easy call, we could move those functions elsewhere and we did exactly this by creating smaller builder modules dedicated to construct only one type of shapes. But now quid of back compat ? Yup, it is lost so to ensure you could use the same code in both UMD bundle and ES6, when the builder files are being parsed, they are swapping the Mesh builder methods. This implies a **side effect** A module executing code whilst being parsed. This is the tradeoff we had to make, valuing back compatibility and API consistency vs side effect free code.
+Easy call, we could move those functions elsewhere and we did exactly this by creating smaller builder modules dedicated to construct only one type of shapes. But now quid of back compat? Yup, it is lost so to ensure you could use the same code in both UMD bundle and ES6, when the builder files are being parsed, they are swapping the MeshBuilder methods. This implies a **side effect** A module executing code whilst being parsed. This is the tradeoff we had to make, valuing back compatibility and API consistency vs side effect free code.
 
 As a result, it is impossible for Webpack and the other bundlers to determine if imports are safe to be removed when not used so if you import directly from index, all the imports will be followed and included in your packages.
 
@@ -346,18 +346,18 @@ The treatment even if a bit annoying is simple: you need to import manually only
 
 ### FAQ
 
-_How do I efficiently use the Mesh. Create... methods ?_
+_How do I efficiently use the `Mesh.Create...` methods?_
 
 The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import "@babylonjs/core/Meshes/Builders/boxBuilder";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
 
-_Why using the default material is not working ?_
-By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operationnal.
+_Why using the default material is not working?_
+By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operational.
 
-_How does deserialization work ?_
+_How does deserialization work?_
 
 When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know beforehand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` beforehand.
 
-_How do I know if I am importing a folder or a file ?_
+_How do I know if I am importing a folder or a file?_
 
 By convention and to simplify the discovery, all folders starts with an upper case character where the files start with a lower case one.
 
