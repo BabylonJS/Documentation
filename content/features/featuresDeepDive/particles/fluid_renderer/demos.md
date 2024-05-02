@@ -10,7 +10,7 @@ video-content:
 
 ## Particle system
 
-PG: <Playground id="#544N0Q#23" title="Particle system" description="Example of a particle system rendered as a fluid"/>
+PG: <Playground id="#544N0Q#112" title="Particle system" description="Example of a particle system rendered as a fluid"/>
 
 This example shows how a standard particle system can be rendered as a fluid.
 
@@ -35,7 +35,7 @@ With the generated diffuse texture being:
 
 ## Particle custom shape
 
-PG: <Playground id="#XMXDAA#23" title="Particle custom shape" description="Example of a custom particle system rendered as a fluid"/>
+PG: <Playground id="#XMXDAA#112" title="Particle custom shape" description="Example of a custom particle system rendered as a fluid"/>
 
 Note: It may take a little while to load, please be patient.
 
@@ -55,7 +55,7 @@ Image towards the end of the demo :
 
 ## Pre-computed particles - rendering only
 
-PG: <Playground id="#XMXDAA#40" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
+PG: <Playground id="#XMXDAA#113" title="Precomputed particles" description="Example of a pre-computed animation of particles rendered as a fluid"/>
 
 This demo shows a precomputed animation of about 70000 particles. The precomputed particle positions come from https://github.com/ttnghia/RealTimeFluidRendering/releases/tag/Datasets (**SphereDropGround** dataset).
 
@@ -67,7 +67,7 @@ Note:
 
 ## Box, sphere and wall
 
-PG: <Playground id="#XMXDAA#25" title="Box, sphere and wall" description="Example of real fluid simulation with dragging box and sphere"/>
+PG: <Playground id="#XMXDAA#114" title="Box, sphere and wall" description="Example of real fluid simulation with dragging box and sphere"/>
 
 This demo is the first to use a basic fluid simulator to simulate fluid movement (see the `FluidSimulator` class in the PG). Since the simulation is run in javascript, only a few thousand particles (at most, it depends on the power of your computer) can be simulated, hence the relatively large size of these particles.
 
@@ -81,7 +81,7 @@ The wall and the sphere can be moved with the mouse. You can also rotate the box
 
 ## Height map
 
-PG: <Playground id="#XMXDAA#26" title="Height map" description="Example of real fluid simulation with a height map"/>
+PG: <Playground id="#XMXDAA#115" title="Height map" description="Example of real fluid simulation with a height map"/>
 
 Note: the terrain may take a little time to load, please be patient.
 
@@ -106,7 +106,7 @@ The values 0.03 / 0.04 in the names are the particle sizes used to generate the 
 
 ## Glass
 
-PG: <Playground id="#XMXDAA#27" title="Glass" description="Example of real fluid simulation of wine filling a glass"/>
+PG: <Playground id="#XMXDAA#116" title="Glass" description="Example of real fluid simulation of wine filling a glass"/>
 
 Note: may take a little while to load, please be patient.
 
@@ -118,7 +118,7 @@ Nothing really new in this demo except that it uses a cut hollow sphere (both fo
 
 ## Mesh SDF
 
-PG: <Playground id="#XMXDAA#16" title="Mesh SDF" description="Example of real fluid simulation collision with mesh SDF"/>
+PG: <Playground id="#XMXDAA#117" title="Mesh SDF" description="Example of real fluid simulation collision with mesh SDF"/>
 
 Note: It may take a while to load, please be patient.
 
