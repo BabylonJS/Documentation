@@ -14,8 +14,9 @@ The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, m
 
 [Online Demo](https://codesandbox.io/p/sandbox/babylon-html-mesh-demo-862gh5)
 
-[BabylonJS Playground](https://www.babylonjs-playground.com/#Y2LIXI#44).
+<Playground id="#Y2LIXI#44" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
 
+<Playground id="#B17TC7#44" title="HtmlMesh Box Example" description="Example of using multiple HtmlMesh instances as the sides of a box"  image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
 [BabylonJS HtmlBox Playground](https://playground.babylonjs.com/#B17TC7#44).  
 
 The following uses cases are supported by the HtmlMesh
