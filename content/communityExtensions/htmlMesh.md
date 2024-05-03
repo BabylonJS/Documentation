@@ -1,6 +1,6 @@
 ---
 title: HtmlMesh
-image: 
+image: public/img/playgroundsAndNMEs/htmlMeshPG.png
 description: The HTML Mesh is a mesh that displays a webpage (or DOM element) in the scene, meaning that it can occlude other meshes and be occluded by other meshs.
 further-reading: https://github.com/BabylonJS/Extensions/tree/master/HtmlMesh#readme
 video-overview:
