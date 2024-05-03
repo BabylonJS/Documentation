@@ -46,7 +46,7 @@ Since Babylon.js is in JavaScript it is possible to use HTML and CSS to overlay 
 <Playground id="#1AHPN5" title="HTML GUI Example" description="Simple example of using HTML GUI elements in your scene." image="/img/playgroundsAndNMEs/divingDeeperGUI4.jpg"/>
 
 ### HtmlMesh
-The HtmlMesh extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
+The [HtmlMesh](/communityExtensions/htmlMesh) extension for BabylonJS allows for HTML content to be incorporated into a scene either as a scene mesh that can occlude and be occluded by other meshes or as an overlay (similar to the HTML GUI example above, but using a mesh so it can be positioned using stadard transforms, parented to other meshes, dragged, and scaled using gizmos, etc...).
 
 <Playground id="#Y2LIXI#44" title="HtmlMesh Example" description="Example of using HtmlMesh elements in your scene." image="/img/playgroundsAndNMEs/htmlMeshPG.png"/>
 
