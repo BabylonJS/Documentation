@@ -14,6 +14,7 @@ toc-levels: 2
 ### canvas is not xrCompatible per default
 
 This change should not influence our XR users, but is a breaking change - instead of defining the canvas XR compatible right when creating the webgl2 context, the canvas is being made xr compatible when entering XR.
+[content/breaking-changes.md](https://github.com/BabylonJS/Babylon.js/pull/15027)
 
 ## 7.2.2
 
