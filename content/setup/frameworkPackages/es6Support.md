@@ -34,6 +34,7 @@ We offer babylon.js' core and its modules as npm packages. The following are ava
 - [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
 - [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - Babylon.js GUI module.
 - [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone Babylon.js Viewer.
+- [@babylonjs/ktx2decoder](https://www.npmjs.com/package/@babylonjs/ktx2decoder) - Babylon's KTX2 Decoder module.
 
 ## Basic Example
 
@@ -64,7 +65,7 @@ First create a new folder where you will develop your app: `mkdir MyAwesomeApp` 
 
 Then navigate to the folder `cd MyAwesomeApp` and initializes npm with the command `npm init` . Simply fill out the requested question or leave default if you prefer.
 
-You can the install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
+You can then install Webpack like this: `` `npm install webpack webpack-cli webpack-dev-server --save-dev` ``. This will also install a local dev server pretty handy to develop locally.
 
 Following the default Webpack convention, you do not even need a configuration file.
 
@@ -78,7 +79,7 @@ npm install @babylonjs/core
 
 This will install babylonjs' javascript files and will also include a TypeScript declaration file.
 
-To include all Babylon in a javascript or typescript file, use:
+To include the whole of Babylon in a javascript or typescript file, use:
 
 ```javascript
 import * as BABYLON from "@babylonjs/core/Legacy/legacy";
@@ -335,9 +336,9 @@ This means the previous example is now requiring about 700Kb vs 2.3Mb before.
 
 ## Side Effects
 
-Due to our attachment to backward compatibility, we had to make a hard choice between the APIs and the side effects. Actually whilst not working with modules it is easy to not worry about side effects and we relied on this pattern a lot to create a friendlier API surface. For instance, you can directly from the Mesh class create basic shapes like cubes, spheres and so on. Despite being convenient, this means that the full MeshBuilder constructs are then a dependency of Mesh. But what if you are not using any of them ? Why should they be part of the final package ?
+Due to our attachment to backward compatibility, we had to make a hard choice between the APIs and the side effects. Actually whilst not working with modules, it is easy to not worry about side effects and we relied on this pattern a lot to create a friendlier API surface. For instance, you can directly use the Mesh class to create basic shapes like cubes, spheres and so on. Despite being convenient, this means that the full MeshBuilder constructs are then a dependency of Mesh. But what if you are not using any of them? Why should they be part of the final package?
 
-Easy call, we could move those functions elsewhere and we did exactly this by creating smaller builder modules dedicated to construct only one type of shapes. But now quid of back compat ? Yup, it is lost so to ensure you could use the same code in both UMD bundle and ES6, when the builder files are being parsed, they are swapping the Mesh builder methods. This implies a **side effect** A module executing code whilst being parsed. This is the tradeoff we had to make, valuing back compatibility and API consistency vs side effect free code.
+Easy call, we could move those functions elsewhere and we did exactly this by creating smaller builder modules dedicated to construct only one type of shapes. But now quid of back compat? Yup, it is lost so to ensure you could use the same code in both UMD bundle and ES6, when the builder files are being parsed, they are swapping the MeshBuilder methods. This implies a **side effect** A module executing code whilst being parsed. This is the tradeoff we had to make, valuing back compatibility and API consistency vs side effect free code.
 
 As a result, it is impossible for Webpack and the other bundlers to determine if imports are safe to be removed when not used so if you import directly from index, all the imports will be followed and included in your packages.
 
@@ -345,24 +346,24 @@ The treatment even if a bit annoying is simple: you need to import manually only
 
 ### FAQ
 
-_How do I efficiently use the Mesh. Create... methods ?_
+_How do I efficiently use the `Mesh.Create...` methods?_
 
 The simplest is to load only the builder corresponding to your construction method. If you wish to use the `CreateBox` method, you can simply `import "@babylonjs/core/Meshes/Builders/boxBuilder";` to ensure that the dependant modules have been loaded.**Except if you are relying on all the MeshBuilder methods, we would recommend to not use it directly but favor the smaller builders**.
 
-_Why using the default material is not working ?_
-By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operationnal.
+_Why using the default material is not working?_
+By default, any mesh in a scene are using the scene defaultMaterial. With tree shaking you might not need this material so we do not force it as a dependency in the code. That said, would you need to use it, you can simply `` `import "@babylonjs/core/Materials/standardMaterial";` `` to ensure that the default material would be operational.
 
-_How does deserialization work ?_
+_How does deserialization work?_
 
-When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know before hand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` before hand.
+When you deserialize a Babylon.js object like a Material or Light, it is impossible for the framework to know beforehand what kind of entity is enclosed in your file. For instance, are you relying on Standard vs PBRMaterial. We again rely on side effect here and the deserialization will only be able to load the kind of entity you have imported in your app. This means if you know you will need to deserialize a PBRMaterial, you can `import "@babylonjs/core/Materials/PBR/pbrMaterial";` beforehand.
 
-_How do I know if I am importing a folder or a file ?_
+_How do I know if I am importing a folder or a file?_
 
-By convention and to simplify the discovery, all folders starts with an upper case character where the files starts with a lower case one.
+By convention and to simplify the discovery, all folders starts with an upper case character where the files start with a lower case one.
 
 _How to find what module contains the entity I am trying to import?_
 
-This is actually a pretty good question. It should be intuitive enough and if not, do not hesistate to ping us so we can add it to the documentation.
+This is actually a pretty good question. It should be intuitive enough and if not, do not hesitate to ping us so we can add it to the documentation.
 
 _The intellisense does not propose the method I normally use in the bundled version and an undefined error is raised at runtime?_
 
@@ -448,7 +449,7 @@ It would be the same for physics plugin where you can either provide the underly
 
 Exactly like in the previous paragraph, you can inject your ammo dependency into Babylon.js. Either you can keep as a global script reference thus not including the dependency in your bundle or you could follow the following steps to include ammo as part of your bundled application.
 
-First, install ammo.js from its github build folder (in order to benefit from an up to date version):
+First, install ammo.js from its Github build folder (in order to benefit from an up to date version):
 
 ```javascript
 npm install kripken/ammo.js
@@ -502,19 +503,16 @@ Follow the instructions at https://github.com/giniedp/ammojs-typed.
 
 Import the dependencies:
 
-```
-import { AmmoJSPlugin } from '@babylonjs/core/Physics/Plugins/ammoJSPlugin';
-import Ammo from 'ammojs-typed';
+```javascript
+import { AmmoJSPlugin } from "@babylonjs/core/Physics/Plugins/ammoJSPlugin";
+import Ammo from "ammojs-typed";
 ```
 
 and in your code:
 
-```
+```javascript
 const ammo = await Ammo();
-scene.enablePhysics(
-    new Vector3(0, -9.81, 0),
-    new AmmoJSPlugin(true, ammo)
-);
+scene.enablePhysics(new Vector3(0, -9.81, 0), new AmmoJSPlugin(true, ammo));
 ```
 
 ![](/img/resources/ammo-es6/ammo-es6-typed.png)
@@ -522,3 +520,215 @@ scene.enablePhysics(
 ## Loaders
 
 In Babylon.js the loaders you can install from `@babylonjs/loaders` are actually plugins of the main `SceneLoader` module. In order to use for instance the obj loader in your app, you simply need to import it for side effects only: `import "@babylonjs/loaders/OBJ";` . It would be exactly the same for glTF: `import "@babylonjs/loaders/glTF";` .
+
+## KTX2 Decoder packages
+
+The ES6 KTX2 decoder module includes all of the decoders and their corresponding WASM files and wrappers so users can use them locally and deploy them as part of their build. The KTX2 decoder module is available in the npm scope `@babylonjs/ktx2decoder`.
+
+To use the KTX2 decoder module, install it as follows:
+
+```bash
+npm install --save-dev @babylonjs/ktx2decoder
+```
+
+Then, you need to decide if you want to use workers or decode the KTX2 files on the main thread. The difference is in the way you will initialize the module.
+
+If you want to use workers, you will need to generate the worker file that will be used to decode the textures and pass a worker pool. The example below uses the MSC decoder, but the same process can be used to initialize any other type of decoder.
+
+First let's create a worker file. We will call it worker.js (note - typescript will work the same):
+
+```javascript
+// worker.js
+import * as KTX2Decoder from "@babylonjs/ktx2decoder";
+import { workerFunction } from "@babylonjs/core/Misc/khronosTextureContainer2Worker";
+import mscTranscoderJsModule from "@babylonjs/ktx2decoder/wasm/msc_basis_transcoder";
+import { MSCTranscoder as jsMSCTranscoder } from "@babylonjs/ktx2decoder/Transcoders/mscTranscoder";
+// set the globalThis object to make sure the worker can access the global scope
+globalThis.KTX2DECODER = KTX2Decoder;
+// set the msc decoder module
+jsMSCTranscoder.JSModule = mscTranscoderJsModule;
+// Call the worker function, imported from the core module
+workerFunction(KTX2Decoder);
+```
+
+Then in your main file, you will need to do few things:
+
+1. import the wasm as an arraybuffer
+2. Create a worker pool
+3. Initialize the worker pool with the worker file
+4. Pass the workerpool to the KhronosTextureContainer2 module
+
+```javascript
+// mainFile.js
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { Scene } from "@babylonjs/core/scene";
+import { Texture } from "@babylonjs/core/Materials/Textures/texture";
+import wasmMSCTranscoder from "@babylonjs/ktx2decoder/wasm/msc_basis_transcoder.wasm"; // make sure the import is an arraybuffer
+import { KhronosTextureContainer2 } from "@babylonjs/core/Misc/khronosTextureContainer2";
+import { AutoReleaseWorkerPool } from "@babylonjs/core/Misc/workerPool";
+import { initializeWebWorker } from "@babylonjs/core/Misc/khronosTextureContainer2Worker";
+import "@babylonjs/core/Materials/Textures/Loaders/ktxTextureLoader";
+
+export function initScene(element) {
+  const engine = new Engine(element);
+  const scene = new Scene(engine);
+
+  // Create a worker pool
+  // This will be used when a new KhronosTextureContainer2 is created
+  KhronosTextureContainer2.WorkerPool = new AutoReleaseWorkerPool(4, () => {
+    // Create a new worker using the worker.js file we have already created
+    const worker = new Worker(new URL("./worker.js", import.meta.url), {
+      type: "module",
+    });
+    // Initialize the worker with the wasm array buffer
+    return initializeWebWorker(worker, {
+      // pass all arraybuffers here
+      wasmMSCTranscoder,
+    });
+  });
+
+  // decode the texture
+  const texture = new Texture(
+    "./2d_etc1s.ktx2",
+    scene,
+    false,
+    true,
+    Texture.TRILINEAR_SAMPLINGMODE,
+    () => {
+      console.log(texture);
+    },
+    (message, exception) => {
+      console.error("Can't fetch texture", message, exception);
+    },
+  );
+}
+```
+
+### How to get the wasms as arraybuffers
+
+When importing the wasm files, you will need to import them as arraybuffers. As this is non-standard, it depends on your bundler and environment.
+
+When using webpack you can use the arraybuffer-loader. The way to do that is documented here - https://www.npmjs.com/package/arraybuffer-loader#for-wasm-file
+
+When using vite you can use `vite-plugin-arraybuffer`, documented here - https://www.npmjs.com/package/vite-plugin-arraybuffer.
+
+When using node environment, you can just use the fs module to read the file as an arraybuffer.
+
+## Providing your own resources for Draco compression and Basis decoder
+
+We provide the Draco compression and Basis decoder as part of the ES6 `@babylonjs/core` package. As recommended, it is always better to serve those resources from your own server. If you want them to be included as part of your build process, you can do so by providing the resources directly to the modules.
+
+### Draco Compression
+
+Just like with the KTX2 decoder, you need to first decide if you use workers or not. For example, in a node environment you will not be able to use workers, but in a web environment it would be recommended to use them.
+
+If using workers, create a worker file:
+
+```javascript
+// worker.js
+import { workerFunction } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
+// will populate globalThis.DracoDecoderModule
+import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
+
+workerFunction();
+```
+
+And then create a worker pool:
+
+```javascript
+// mainFile.js
+// import the wasm as array buffer. see the KTX2 documentation for hints on how to do that
+import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
+import { AutoReleaseWorkerPool } from "@babylonjs/core/Misc/workerPool.js";
+import { DracoCompression } from "@babylonjs/core/Meshes/Compression/dracoCompression.js";
+import { initializeWebWorker } from "@babylonjs/core/Meshes/Compression/dracoCompressionWorker.js";
+import { Tools } from "@babylonjs/core/Misc/tools.js";
+import { VertexBuffer } from "@babylonjs/core/Meshes/buffer.js";
+
+const workerPool = new AutoReleaseWorkerPool(4, () => {
+  const worker = new Worker(new URL("./worker.js", import.meta.url), {
+    type: "module",
+  });
+  return initializeWebWorker(worker, wasm);
+});
+
+// set the worker pool
+DracoCompression.Configuration.decoder.workerPool = workerPool;
+
+// if you are creating your own version of the draco compression class you can pass the worker pool in the constructor instead:
+
+const dracoCompression = new DracoCompression({
+  workerPool,
+});
+```
+
+If you are not using workers, you will need to pass the wasm file and its js module directly to the draco compression configuration:
+
+```javascript
+// import the wasm file as an arraybuffer
+import wasm from "@babylonjs/core/assets/Draco/draco_decoder_gltf.wasm";
+// import the js module
+import "@babylonjs/core/assets/Draco/draco_decoder_gltf.js";
+DracoCompression.Configuration.decoder.wasmBinary = wasm;
+DracoCompression.Configuration.decoder.jsModule = globalThis.DracoDecoderModule;
+```
+
+#### Using Draco in node environment
+
+To use the draco compression in nodejs to decode your own file:
+
+```javascript
+const BABYLON = require("babylonjs");
+const fs = require("fs");
+const xhr = require("xhr2");
+require("babylonjs-loaders");
+
+// get the resources from the local disk. Note - the resources need to be downloaded manually.
+const Draco = require("./assets/draco_decoder_gltf.js");
+const wasm = fs.readFileSync(process.cwd() + "/assets/draco_decoder_gltf.wasm");
+
+BABYLON.DracoCompression.Configuration.decoder.wasmBinary = wasm;
+BABYLON.DracoCompression.Configuration.decoder.jsModule = Draco;
+
+globalThis.XMLHttpRequest = xhr.XMLHttpRequest;
+let engine = new BABYLON.NullEngine();
+// create your scene here
+const scene = .....;
+
+BABYLON.SceneLoader.ImportMesh("",  "https://awesomeserver.mine.com/",  "my.glb",  scene,  () => {
+    console.log("draco worked");
+  },  null,  (e) => {
+    console.log("oh no! something is off", e);
+  }
+);
+```
+
+### Basis Decoder
+
+The basis decoder doesn't use a worker pool, but does have a worker that can be initialized.
+
+To use the basis decoder in your app, you will need to initialize the worker:
+
+```javascript
+// worker.js
+import { workerFunction } from "@babylonjs/core/Misc/basisWorker.js";
+import "@babylonjs/core/assets/Basis/basis_transcoder.js";
+
+workerFunction();
+```
+
+Now initialize the webworker on the main thread, and set this worker for basis decoding:
+
+```javascript
+// mainFile.js
+import wasm from "@babylonjs/core/assets/Basis/basis_transcoder.wasm";
+import { initializeWebWorker } from "@babylonjs/core/Misc/basisWorker.js";
+import { SetBasisTranscoderWorker } from "@babylonjs/core/Misc/basis.js";
+
+const worker = new Worker(new URL("./worker.js", import.meta.url), {
+  type: "module",
+});
+initializeWebWorker(worker, wasm);
+
+SetBasisTranscoderWorker(worker);
+```

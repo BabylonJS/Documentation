@@ -12,7 +12,7 @@ video-content:
 
 The highly recommended way to setup an environment texture is through an HDR ready file (either DDS or ENV) containing a cube texture with prefiltered MipMaps.
 
-To load a HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/typedoc/classes/babylon.scene#createdefaultenvironment):
+To load an HDR environment, you can use a [createDefaultEnvironment](https://doc.babylonjs.com/typedoc/classes/babylon.scene#createdefaultenvironment):
 
 ```javascript
 scene.createDefaultEnvironment();
@@ -96,7 +96,7 @@ You can find IBLBaker on: [https://github.com/derkreature/IBLBaker](https://gith
 
 After cloning the repo, you will be able to go to `/bin64` folder and launch `IBLBaker.exe`.
 
-Now use the `Load environment` button to load a HDR image (Try one from [there](https://github.com/sbtron/BabylonJS-glTFLoader/tree/master/src/images) as well)
+Now use the `Load environment` button to load an HDR image (Try one from [there](https://github.com/sbtron/BabylonJS-glTFLoader/tree/master/src/images) as well)
 
 We recommend to play with the environment scale to define the brightness you want.
 
@@ -124,7 +124,7 @@ Once done, in the preferences tab, please set the legacy dds mode (Four CC is no
 
 ![Preferences](/img/how_to/Environment/Lys_DefaultSettings_Prefs.png)
 
-In the export window, you can chose the appropriate options (setting DDS to 32 bits should be done last as we have seen it defaulting back to 8 bits otherwise):
+In the export window, you can choose the appropriate options (setting DDS to 32 bits should be done last as we have seen it defaulting back to 8 bits otherwise):
 
 ![ExportSettings](/img/how_to/Environment/Lys_DefaultSettings_Export.png)
 

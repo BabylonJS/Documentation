@@ -15,7 +15,7 @@ video-content:
 PG: <Playground id="#E6OZX#9" title="Tri-Panar Material" description="Example of tri-planar material"/>
 
 Press "1" to activate the Tri-Planar material (by default)
-Press "2" to active the default material
+Press "2" to activate the default material
 
 # What are you talking about??
 In the case of very large scenes, you are likely to use terrains generated using procedural methods.

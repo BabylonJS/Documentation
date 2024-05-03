@@ -218,7 +218,7 @@ $0 \leq r^2$ = $(1 - w) \over (1 + w)$ $\leq 1$.
 
 ![Hermite Quaternion Spline](/img/how_to/Mesh/quatshells.png)
 
-The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white ,, is a unit sphere where $w = 0$.
+The center of the shells represents the rotation quaternion $(0, 0, 0, 1)$, the outer, white, is a unit sphere where $w = 0$.
 
 The process can be reversed, the inverse function $f^{-1}$ returns the rotation quaternion from a point $(x, y, z)$ from the shells.
 
@@ -260,7 +260,7 @@ const hermiteQuarternionSpline = (p1, t1, p2, t2, nbPoints) => {
 - **nbPoints** : _number_ the wanted final curve number of points in the array.
 
 **Warning**  
-Using BABYON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
+Using BABYLON.Quaternion.RotationAxis(axis, angle) to create any of p1, t1, p2, t2 does not produce the expected results. Other means of producing rotation quaternions other than a direct creation should also be checked to ensure the one produced is of the range required for the mapping to work.
 
 To produce a vector on the outer , requires a rotation quaternion with $w = 0$
 
@@ -273,7 +273,7 @@ new BABYLON.Quaternion(1, 1, 1, 0).normalize(); //giving (0.5774, 0.5774, 0.5774
 However using
 
 ```javascript
-BABYON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1)
+BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(1, 1, 1), 0); // gives (0, 0, 0, 1)
 ```
 
 and whilst this may be an equivalent quaternion it places the vector at the center of the shells not on the outer ,.  
@@ -295,7 +295,7 @@ The representation of the spline in 3D space is drawn as you adjust the controls
 
 You can also make your own Curve3 object from a simple array of successive Vector3.  
 Why would you do this and not just use the points to draw a line?  
-Because the _Curve3_ object has a useful method, the _continue()_ method, that allows you place the start of one _Curve3_ onto the end of another _Curve3_ without any calculations to match the start and end points of the curves.
+Because the _Curve3_ object has a useful method, the _continue()_ method, that allows you to place the start of one _Curve3_ onto the end of another _Curve3_ without any calculations to match the start and end points of the curves.
 
 ### Example 1
 

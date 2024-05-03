@@ -25,7 +25,7 @@ Inside a skeleton, bones can be found inside the `skeleton.bones` array.
 
 A bone can contain animations to animate its `matrix` property.
 
-A bone must have its inverted absolute transform matrix set. If you are importing a skeleton this might already be computed. But if you are creating your own skeleton programatically you need to do this in your code.
+A bone must have its inverted absolute transform matrix set. If you are importing a skeleton this might already be computed. But if you are creating your own skeleton programmatically you need to do this in your code.
 
 The easiest way to do it is:
 
@@ -168,7 +168,7 @@ sword.attachToBone(skeleton.bones[34], character);
 Please note that you also need to specify on which mesh the bone is currently applied.
 You can find a sample here: <Playground id="#11BH6Z#18" title="Attaching a Mesh To a Bone" description="Simple example of attaching a mesh to a specific bone."/>
 
-When you attach a mesh to a bone in a skeleton, the mesh will be scaled by the same scaling factor as the parent mesh of the skeleton. This may not always be what you want. You may want to preserve the size of the of the mesh before and after attaching to a bone. To achieve this, scale the mesh appropriately before attaching it to the bone so that the net effect is to keep the size of the mesh intact before and after attachment. For example, if the parent mesh of the skeleton has a scaling factor (2, 2, 3) you have to scale the attached mesh by a factor (1/2, 1/2, 1/3) or (0.5, 0.5, 0.333 ).
+When you attach a mesh to a bone in a skeleton, the mesh will be scaled by the same scaling factor as the parent mesh of the skeleton. This may not always be what you want. You may want to preserve the size of the mesh before and after attaching to a bone. To achieve this, scale the mesh appropriately before attaching it to the bone so that the net effect is to keep the size of the mesh intact before and after attachment. For example, if the parent mesh of the skeleton has a scaling factor (2, 2, 3) you have to scale the attached mesh by a factor (1/2, 1/2, 1/3) or (0.5, 0.5, 0.333 ).
 
 The current position of the mesh in the world coordinates determines how far away the mesh will appear from the bone. If the mesh is far from the origin of the world, then it will appear far from the bone as well which, again, may not be what you want. So before attaching a mesh to a bone set its position to (0, 0, 0) or to a position close to world origin so that the mesh appears close to the bone and appears attached. The position of the mesh in this case simply acts as its offset from the bone.
 
@@ -370,15 +370,16 @@ You most likely will want to parent your character to the pole target mesh so th
 poleTarget.parent = characterMesh;
 ```
 
-The BoneIKController constructor takes the mesh of the character, the bone that will be closest to the target, the target, and an options param. The currently list of options are:
+The BoneIKController constructor takes the mesh of the character, the bone that will be closest to the target, the target, and an options param. The current list of options are:
 
-targetMesh,
-poleTargetMesh,
-poleTargetBone,
-poleTargetLocalOffset,
-poleAngle,
-bendAxis,
-maxAngle
+- targetMesh
+- poleTargetMesh
+- poleTargetBone
+- poleTargetLocalOffset
+- poleAngle
+- bendAxis
+- maxAngle
+
 
 ```javascript
 const ikCtrl = new BABYLON.BoneIKController(characterMesh, forearmBone, { targetMesh: target, poleTargetMesh: poleTarget, poleAngle: Math.PI });
@@ -477,7 +478,7 @@ let displayModeOptions {
 
 #### Debug Shader Usage
 
-Sometimes you will need to actually see whart parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials!
+Sometimes you will need to actually see which parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials!
 
 ##### SkeletonMap Shader
 
@@ -553,7 +554,7 @@ For example, consider this playground which loads the `dude` model with multiple
 
 <Playground id="#92Y727" title="Loading Model" description="Loading a model with multiple skinned meshes."/>
 
-In this case, all of the skinned meshes have the the identity transform and any of these meshes passed to `Bone` methods will be equivalent, but this is not always the case.
+In this case, all of the skinned meshes have the identity transform and any of these meshes passed to `Bone` methods will be equivalent, but this is not always the case.
 
 Using the following code, the arms of the `dude` has been moved by `30` units on the `x` axis. A box has been placed with a matching transform of the bone to visually see the transform. Note that the associated skinned mesh is being passed to `getPosition` and `getRotation`.
 

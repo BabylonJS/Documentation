@@ -172,7 +172,7 @@ So you could disable the clear between rendering groups with the command: `scene
 
 The available members of the option object are:
 
-- mainTextureRatio?: number - Multiplication factor apply to the canvas size to compute the render target size used to generated the glowing objects (the smaller the faster).
+- mainTextureRatio?: number - Multiplication factor apply to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
 - mainTextureFixedSize?: number - Enforces a fixed size texture to ensure resize independent blur.
 - blurTextureSizeRatio?: number - Multiplication factor apply to the main texture size in the first step of the blur to reduce the size of the picture to blur (the smaller the faster).
 - blurVerticalSize?: number - How big in texel of the blur texture is the vertical blur.

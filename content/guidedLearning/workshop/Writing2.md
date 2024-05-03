@@ -34,7 +34,7 @@ can be applied as a function of time.
 
 ## Third Stage Design
 
-After the first coding of the shaders adjustments were made to the functions of time, manually, to obtaim a satisfactory appearance to the burst of facets.
+After the first coding of the shaders adjustments were made to the functions of time, manually, to obtain a satisfactory appearance to the burst of facets.
 
 ## Shader Material Code
 

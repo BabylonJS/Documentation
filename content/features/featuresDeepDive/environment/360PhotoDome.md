@@ -57,7 +57,7 @@ As a warning, the further the value gets from 1 the more distortion will be visi
 
 Several types of 360 image exist today. The most common being Monoscopic Panoramic, Stereoscopic Side by Side panoramic and Top bottom panoramic.
 
-The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eyes whereas the last one contains both panoramic views respectively on the top and bottom of the image.
+The first one represents a panoramic view which is dedicated to one eye. The second one contains two panoramic views dedicated to each eye whereas the last one contains both panoramic views respectively on the top and bottom of the image.
 
 In the Photo Dome you can change adapt to the type of your image source by using :
 

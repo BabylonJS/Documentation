@@ -82,7 +82,7 @@ mesh.doNotSyncBoundingInfo = true;
 On every pointer move, the scene is browsing the list of meshes to see if a mesh under the pointer may need to have an associated action / event raised. 
 To avoid this process, you can set `scene.skipPointerMovePicking = true`.
 
-Please note that by doing it, you will have no event over any mesh when the pointer will move (And `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`.
+Please note that by doing it, you will have no event over any mesh when the pointer will move (and `scene.meshUnderPointer` will not be updated even if `scene.constantlyUpdateMeshUnderPointer === true`).
 
 ## Reducing draw calls
 As soon as you can please use [instances](/features/featuresDeepDive/mesh/copies/instances) as they are drawn with one single draw call.
@@ -186,7 +186,7 @@ scene.blockfreeActiveMeshesAndRenderingGroups = false;
 ## Changing Mesh Culling Strategy
 The culling is the process to select whether a mesh must be passed to the GPU to be rendered or not. It's done CPU side.  
 If a mesh intersects the camera frustum in some way then it's passed to the GPU.  
-Depending on its accuracy (checking mesh bouding boxes or bouding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.   
+Depending on its accuracy (checking mesh bounding boxes or bounding spheres only, trying to include or to exclude fast the mesh from the frustum), this process can be time consuming.   
 In the other hand, reducing this process accuracy to make it faster can lead to some false positives : some meshes are passed to the GPU, are computed there and won't be finally visible in the viewport.   
 By default, BABYLON applies "Bounding Sphere Only" exclusion test to check if a mesh is in the camera frustum.  
 You can change this behaviour for any mesh of your scene at any time (and change it back then, if needed) this the property `mesh.cullingStrategy`.  
@@ -215,7 +215,7 @@ mesh.cullingStrategy = oneOfThePossibleValues;
   *  Is the cullable object bounding sphere center in the frustum ?
   *  If not, apply the Bounding Sphere Only strategy. No Bounding Box is tested here.
 
-Optimistic Inclusion modes give a little gain. They keep the same accuracy than the basic mode on what they are applied (standard or bSphereOnly).  
+Optimistic Inclusion modes give a little gain. They keep the same accuracy as the basic mode on what they are applied (standard or bSphereOnly).  
 BoundingSphereOnly modes, because they reduce a lot the accuracy, give a good perf gain. These should not be used with high poly meshes while sending false positives to the GPU has a real rendering cost. These can be very interesting for numerous low poly meshes instead. *Really useful if you are CPU bound**.  
 
 ## Performance Priority Modes
@@ -233,7 +233,7 @@ If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Int
 * `scene.skipPointerMovePicking ` will be turned on (meaning that there will be no OnPointerMove events)
 * `scene.autoClear` will be turned off
 
-### Agressive mode
+### Aggressive mode
 If you switch the `performancePriority` to `BABYLON.ScenePerformancePriority.Aggressive`, the scene will automatically:
 * Enable all features of the `Intermediate` mode
 * The scene will skip all the frustum clipping phase entirely (`scene.skipFrustumClipping` will be set to true)

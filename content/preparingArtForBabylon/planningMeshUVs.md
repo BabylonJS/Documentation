@@ -16,7 +16,7 @@ Put a different way, the UVs for a mesh are very similar to a sewing pattern for
 ## Projecting a Mesh into UV Space
 In the below example, we see a 3D cube on the right and the unwrapped UV layout on the left. In this example, we can imagine the cube as a cardboard box that we slice along certain edges to allow it to lay flat. Each vertex in the mesh has a specific coordinate between 0 and 1 on both the U (horizontal) and V (vertical) axes and those coordinates will be written as part of the mesh parameters when saving or exporting the asset. 
 
-![A cube cut along seams and laid out into UV space the the six faces resembling an upside-down T](/img/assetPipeline/meshUVs/uvMapping.png) 
+![A cube cut along seams and laid out into UV space the six faces resembling an upside-down T](/img/assetPipeline/meshUVs/uvMapping.png) 
 
 This mapping defines how the pixels of a texture are wrapped around the mesh based on where each mesh UV is located. A group of contiguous UVs are called a UV island. In the example above, there is one UV island describing the layout for the entire mesh. Notice that there are large sections of UV space that are unused in the upper-left and upper-right sections. 
 
@@ -110,7 +110,7 @@ To take advantage of tiling textures, when a mesh is UVed, any seams need to be 
 
 ![A 3D tumbler asset with the UV layout encompassing the entire 0 to 1 space and four variations. The first is just the mesh and wireframe, the second is mesh and wireframe with the tiling image applied to the tumbler with large hexagons, the third is mesh and wireframe with a the texture tiling more and smaller hexagons and the fourth is the mesh with no wireframes illustrating the smaller hexagon tiling texture](/img/assetPipeline/meshUVs/tilingExample.jpg) 
 
-Figure 2 shows the tiling texture example from above wrapping across the UV seam. Note that there are no breaks in the texture and all pixels are displayed on the mesh. Figure 3 shows the same texture with four times the tiling amount as the previous example and Figure 4 shows the tiling texture wrapping the surface without any of the mesh edges highlighted. Note that there are no visible seams on the mesh which is due to laying out he UV islands to use up the entirety of 0-1 UV space. 
+Figure 2 shows the tiling texture example from above wrapping across the UV seam. Note that there are no breaks in the texture and all pixels are displayed on the mesh. Figure 3 shows the same texture with four times the tiling amount as the previous example and Figure 4 shows the tiling texture wrapping the surface without any of the mesh edges highlighted. Note that there are no visible seams on the mesh which is due to laying out the UV islands to use up the entirety of 0-1 UV space. 
 
 It is worth noting that the mesh proportions, when unwrapped into the UV layout above, are not square. This means that there is some distortion of the texture which needs to be accounted for in the texture parameters. Setting the V tiling factor to 1.25 accounts for the distortion in the UVs and renders the texture as authored on the mesh. 
 

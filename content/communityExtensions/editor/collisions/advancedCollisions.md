@@ -16,7 +16,7 @@ in order to save performances.
 
 ## Introduction
 ### Basic Collisions
-By default, Babylon.JS will check for collisions using a complex algorithm that checks collisions per triangle for each mesh near the cammera
+By default, Babylon.JS will check for collisions using a complex algorithm that checks collisions per triangle for each mesh near the camera
 or the mesh being moved with collisions. Sometimes (often), checking collisions on the bounding box is highly sufficient.
 
 The method would consist on:
@@ -34,7 +34,7 @@ Let's image a more complex scenario where box and sphere collisions are not suff
 In case the stairs 3d model is too complex, and in order to save performances, the solution would be to provide
 (or generate on the fly) a lower detailed 3d model for the stair.
 
-The method would consis on creating a lower level of details object of the source mesh (instead of a cube or sphere) made by an
+The method would consist on creating a lower level of details object of the source mesh (instead of a cube or sphere) made by an
 artist or using the [Auto-LOD Simplification Tool of Babylon.JS](/features/featuresDeepDive/mesh/simplifyingMeshes)
 and perform the same next steps for `Basic Collisions`.
 
@@ -52,7 +52,7 @@ state of the collisions of the object.
 ![AdvancedCollisions](/img/extensions/Editor/AdvancedCollisions/advanced_collisions.png)
 
 ## Understanding The Tool
-Once opened, the tool shows the current stage of the collisions of the object (here `None`). To selected a collider type,
+Once opened, the tool shows the current stage of the collisions of the object (here `None`). To select a collider type,
 just open the listbox and selected the desired collider type. Each time a collider type is changed, the mesh's collision component
 is updated in the preview and shown in red.
 
@@ -92,7 +92,7 @@ In most cases, setting the quality as "0.01" works where the vertices count can 
 ![LODColliderTool](/img/extensions/Editor/AdvancedCollisions/lod_collider_tool.png)
 
 Once properties are set, just click the `Compute...` button to generate the LOD and an overlay will appear to notify that the
-algoritm is working. Once done, the `Infos` section is updated to show the new vertices count value and the collider mesh in the preview
+algorithm is working. Once done, the `Infos` section is updated to show the new vertices count value and the collider mesh in the preview
 is updated as well:
 
 ![LODCollider](/img/extensions/Editor/AdvancedCollisions/lod_collider.png)

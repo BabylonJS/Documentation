@@ -63,10 +63,10 @@ var postProcess = new BABYLON.DigitalRainPostProcess("DigitalRain", camera,
 
 <Playground id="#2I28SC#8" title="Digital Rain Post Process Modified Demo 2" description="Digital Rain Post Process Modified Demo 2"/>
 
-The availables parameters are:
+The available parameters are:
 
 - font: the font to use defined the W3C css way like "30px Monospace". Note: a monospace font would provide better result.
-- mixToNormal: defines the amount you want to mix the "tile" or caracter space colored in the digital rain (between 0 and 1).
+- mixToNormal: defines the amount you want to mix the "tile" or character space colored in the digital rain (between 0 and 1).
 - mixToTile: defines the amount you want to mix the normal rendering pass in the digital rain (between 0 and 1).
 
 Two of them mixToNormal and mixToTile are also available at run time to allow smoothly fading from matrix to your normal scene.

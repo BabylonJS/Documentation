@@ -47,7 +47,7 @@ export = BABYLON;
 >
 > wherever you need to.
 
-4. Depending of what you intend to do in your app, other dependencies might be needed (e.g. cannon.js or hand.js)
+4. Depending on what you intend to do in your app, other dependencies might be needed (e.g. cannon.js or hand.js)
    You could install them the same way asBabylon.js, but I just downloaded the javascript files, saved them in the www folder and referenced using script tags in `index.html`. However, this has a downside, the www folder is generated after transpiling, so you will need to add those javascript files **manually**.
 
 5. After this I generated an Angular [Provider](https://docs.angularjs.org/guide/providers), this is a singleton class that will wrap ourBabylon.js Engine:
@@ -80,7 +80,7 @@ The app itself is a very basic no frills dice roller, but there are a few things
 
 ## Conclusion
 
-IntegratingBabylon.js in an Ionic application was easier than it seemed at first, once you get to know a couple of thing of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
+IntegratingBabylon.js in an Ionic application was easier than it seemed at first, once you get to know a couple of things of how Ionic/Angular 2 works. In fact, doing the same in an Ionic 1 app was easy too, but overall everything looks cleaner, more streamlined in the latest version.  
 However, despite the improvements introduced to Angular, the overhead of having both Ionic andBabylon.js together might make performance a bit sluggish. Maybe it's not the best way of implementing a pure 3d action packed game.  
 On the other hand, with Ionic you get things, like a very simple way of handling the user interface, navigation and storage out of the box, not to mention that, through Cordova, it's easy to build apps for any mobile platform, so it might be the way to go for less demanding apps.
 

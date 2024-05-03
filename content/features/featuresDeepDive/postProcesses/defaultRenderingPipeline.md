@@ -55,7 +55,7 @@ This will actually create a fullscreen post-process texture.
 
 Notes:
 
-1. The HDR value should be `true` as long as possible, unless you're targetting cheap fallback for low end devices. This value allow one of the half float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
+1. The HDR value should be `true` as long as possible, unless you're targeting cheap fallback for low end devices. This value allow one of the half float or float texture type, depending on the GPU. Also, some effects (like bloom) will be more accurate.
 
 2. When enabling a pipeline, you may notice that your scene clearColor will not match the color you have set. This can be fixed using `.toLinearSpace()`, as in this <Playground id="#08A2BS#15" title="Clear Color Fix" description="Simple example of fixing the clear color in the default rendering pipeline to match what you have set."/>
 
@@ -77,7 +77,7 @@ The FXAA antialiasing effect can be set using:
 pipeline.fxaaEnabled = true;
 ```
 
-Note: without using the pipeline, your scene already use a MSAA antialiasing, which is webGL native. As said above, pipeline is running on a post-process texture: unfortunatly, webGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available but not as powerfull as MSAA.
+Note: without using the pipeline, your scene already use a MSAA antialiasing, which is webGL native. As said above, pipeline is running on a post-process texture: unfortunately, webGL 1.0 devices will not be able to apply MSAA outside of render buffers. Still, FXAA is available but not as powerful as MSAA.
 
 ## Sharpening
 
@@ -201,7 +201,7 @@ pipeline.grain.animated = value;
 
 ## Example
 
-You may be interested by this code example using default values, ready to be copy-pasted into your application:
+You may be interested in this code example using default values, ready to be copy-pasted into your application:
 
 ```javascript
     // https://doc.babylonjs.com/api/classes/babylon.defaultrenderingpipeline

@@ -10,7 +10,7 @@ video-content:
 
 ## Running the project
 
-Since Babylon.JS Editor v4.0.0-rc.3, it is possible to play directly the scene that is being edited in the Editor. This means the scene, as it is in the Editor, can be played directly including all scripts that are attached in the scene. This is particularely useful to test the scene itself and see if the scripts/components are working as intended.
+Since Babylon.JS Editor v4.0.0-rc.3, it is possible to play directly the scene that is being edited in the Editor. This means the scene, as it is in the Editor, can be played directly including all scripts that are attached in the scene. This is particularly useful to test the scene itself and see if the scripts/components are working as intended.
 
 ## Playing the scene
 At the middle of the tools toolbar, there are 2 buttons:

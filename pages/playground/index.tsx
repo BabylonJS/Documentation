@@ -9,9 +9,6 @@ import { useRouter } from "next/dist/client/router";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 
-const baseQueryURL = "https://snippet.babylonjs.com/search";
-const baseCountURL = "https://snippet.babylonjs.com/count";
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         flexContainer: {
@@ -103,6 +100,24 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
 
     const searchRef = useRef<HTMLDivElement>();
 
+    function filterResults(results: IPlaygroundSearchResult[]) {
+        // remove results with the same snippetIdentifier, keeping the latest version
+        const filteredResults: IPlaygroundSearchResult[] = [];
+        const seen: { [key: string]: boolean } = {};
+        results.forEach((result) => {
+            if (!seen[result.snippetIdentifier]) {
+                seen[result.snippetIdentifier] = true;
+                // find the later version of all values that have this snippet identifier
+                const laterVersions = results.filter((r) => r.snippetIdentifier === result.snippetIdentifier);
+                const latest = laterVersions.reduce((prev, current) => {
+                    return prev.version > current.version ? prev : current;
+                });
+                filteredResults.push(latest);
+            }
+        });
+        return filteredResults;
+    }
+
     useEffect(() => {
         setResults([]);
         setPage(0);
@@ -115,13 +130,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         setType(queryType);
         setLoading(true);
         setActiveExample(null);
-        fetch(`${baseQueryURL}/${queryType}/`, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-            body: JSON.stringify({ search: query, page, pageSize: 10, includePayload: false }),
-        })
+        fetch(`https://snippet.babylonjs.com/search/${type}?query=${query}`)
             .then((result) => {
                 if (!result.ok) {
                     setLoading(false);
@@ -129,32 +138,18 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                     return;
                 }
                 result.json().then((json) => {
-                    if (json.length === 0) {
+                    if (json.value.length === 0) {
+                        // console.log("no results");
                         setNoResults(true);
                     }
-                    setResults(json);
+                    setResults(filterResults(json.value));
                     setLoading(false);
                 });
             })
             .catch(() => {
                 setLoading(false);
             });
-
-        // get count
-        fetch(`${baseCountURL}/${type}/`, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-            body: JSON.stringify({ search: query }),
-        })
-            .then((result) => {
-                if (!result.ok) return;
-                result.json().then((json) => {
-                    setCount(json);
-                });
-            })
-            .catch(() => {});
+        setCount(200);
     }, [query, queryType]);
 
     useEffect(() => {
@@ -164,13 +159,16 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         setError("");
         setLoading(true);
         // console.log("fetching");
-        fetch(`${baseQueryURL}/${type}/`, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-            body: JSON.stringify({ search: query, page, pageSize: 10, includePayload: false }),
-        })
+        // const searchFields = type === "all" ? "" : "code" ? "jsonPayload" : type;
+        // fetch(`https://babylonsnippetsearch.search.windows.net/indexes/snippets/docs?api-version=2023-11-01&search=${query}&searchFields=${searchFields}&facet=snippetIdentifier,count:10&$top=100&$skip=${page * 100}`, {
+        //     method: "GET",
+        //     headers: {
+        //         "Content-type": "application/json; charset=UTF-8",
+        //         // read key - can be exposed
+        //         "api-key": "NOKEYHERE!",
+        //     },
+        // })
+        fetch(`https://snippet.babylonjs.com/search/${type}?query=${query}&page=${page}`)
             .then((result) => {
                 if (!result.ok) {
                     setLoading(false);
@@ -178,7 +176,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                     return;
                 }
                 result.json().then((json) => {
-                    setResults([...results, ...json]);
+                    setResults(filterResults([...results, ...json.value]));
                     setLoading(false);
                 });
             })

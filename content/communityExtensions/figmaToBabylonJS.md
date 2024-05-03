@@ -106,11 +106,11 @@ Figma has features that are beyond the scope of BabylonJS GUI system. Below is a
   + By default Figma uses an "unmanaged" color space, to make Figma closer represent what will actually be outputted when viewed on the web browser, go to ```Figma > Preferences > Color Profile...``` and set the ColorSpace to sRGB.
 + Polygons
 	+ Polygons are not supported by BabylonJS GUI, the plug-in will simply skip over polygons when encountered. If you need to use complex shapes and polygons like this it's recommended that you export it as its own PNG and import it into the BabylonJS project as an image.
-	+ A "polygon" of Lines/Vector is supported, its an array of lines with a master empty rect as a parent.
+	+ A "polygon" of Lines/Vector is supported, it's an array of lines with a master empty rect as a parent.
 + Blending/Multi Fills
 	+ Figma allows you to layer fills one on top of the other and use special blending options. Right now the plugin will only use the top most fill.
 + Stack Panels + Scrollviews. 
-  + The plugin supports both of these BJS GUI controls, however, BabylonJS cannot have a control that is both a ScrollView AND Stackpanel. Where as Figma will allow you to mark an Autolayout (Stackpanel) as a ScrollView.
+  + The plugin supports both of these BJS GUI controls, however, BabylonJS cannot have a control that is both a ScrollView AND Stackpanel. Whereas Figma will allow you to mark an Autolayout (Stackpanel) as a ScrollView.
   + If you need (for example) a list that is also scrollable, please place the Autolayout list of items inside of an empty group/frame that is marked as the ```-scroll``` (can customize this in the Identifiers Tab). 
 
 ## Help & Support

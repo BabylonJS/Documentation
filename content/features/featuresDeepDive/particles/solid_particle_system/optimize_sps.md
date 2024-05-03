@@ -9,7 +9,7 @@ video-content:
 ---
 
 # Optimize a Solid Particle System
-Previously we saw how to use a SPS to optimize a scene containing multiple copies of a model mesh provided the model properties remained fixed. Now we will look at ways of optimizing when the particles are animated.
+Previously we saw how to use an SPS to optimize a scene containing multiple copies of a model mesh provided the model properties remained fixed. Now we will look at ways of optimizing when the particles are animated.
 
 1. Only update some particles on each render frame;
 2. Use the SPS *vars* property to re-use variables and limit garbage collection.
@@ -41,7 +41,7 @@ Example 2 : you could keep, say, the first 5000 particles as unused ones and com
 In Javascript, the Garbage Collector is usually your friend : it takes care about cleaning up all the not any longer needed variables you could have declared and thus it sets the memory free.  
 However, it can sometimes become an awkward friend because it can start its cleaning just while you are displaying a very smooth animation, so it takes the CPU for itself and leaves to you only those nice lags on the screen.  
 In order to avoid unpredictable GC pauses, it's best to avoid allocating new objects in loops that execute often, where particles are created or updated.  
-For example, *updateParticle()* is often called each frame for each particle or each particle vertex. Now imagine that you have a SPS with 30 000 particles. Suppose you write code like this to add a particle acceleration :
+For example, *updateParticle()* is often called each frame for each particle or each particle vertex. Now imagine that you have an SPS with 30 000 particles. Suppose you write code like this to add a particle acceleration :
 
 ```javascript
 SPS.updateParticle = function(particle) {

@@ -121,7 +121,7 @@ myDynamicTexture.update();
 
 ### Transformations
 
-Anything that is drawn to a canvas can be transformed using methods like `scale`, `rotate`, or `translate`. It is helpful to `save` the context before transformaiton and then `restore` context after transformation to ensure the texure updates correctly.
+Anything that is drawn to a canvas can be transformed using methods like `scale`, `rotate`, or `translate`. It is helpful to `save` the context before transformation and then `restore` context after transformation to ensure the texture updates correctly.
 
 ``` javascript
 const texSize = 512;

@@ -35,7 +35,7 @@ Meshes can be updated by:
 
 ## Examining Meshes
 
-At any time, `double-clicking a mesh file` in the assets browser creates a new window (or tabbed window on MacOS)
+At any time, `double-clicking a mesh file` in the assets browser creates a new window (or tabbed window on macOS)
 to examine a mesh(es) source file.
 
 Once loaded, the Babylon.JS Inspector appears to inspector the mesh(es) available in the source file.
@@ -44,4 +44,4 @@ You can refer to [the inspector documentation](https://doc.babylonjs.com/toolsAn
 ![ExaminingAsset](/img/extensions/Editor/AddingMeshes/examining-asset.gif)
 
 ## Cleaning assets
-In order to let the user managing its own assets, the Editor will never remove useless assets until it is asked by the user. That means, when updating meshes, that old materials and texture will still be availalbe in the assets panel. Don't forget to clear unused assets (for example unused materials then unused textures) to keep the project clear if you are sure that old materials, for example, are not needed anymore.
+In order to let the user managing its own assets, the Editor will never remove useless assets until it is asked by the user. That means, when updating meshes, that old materials and texture will still be available in the assets panel. Don't forget to clear unused assets (for example unused materials then unused textures) to keep the project clear if you are sure that old materials, for example, are not needed anymore.

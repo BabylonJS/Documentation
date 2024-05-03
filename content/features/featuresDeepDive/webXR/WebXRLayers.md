@@ -18,13 +18,13 @@ More and more layers will be added to babylon's WebXR layers' API layer (no pun 
 
 ## Babylon.js WebXR layers support
 
-Babyon continously adds new features to the API layers between the engine and the native webxr layers API. At its current state it mainly supports the projection layer, but further layers will be slowly added.
+Babylon continuously adds new features to the API layers between the engine and the native webxr layers API. At its current state it mainly supports the projection layer, but further layers will be slowly added.
 
 Be sure the browser you are using supports layers, otherwise the session will either not start, or will not work as you expect it to work.
 
 ## Enabling the WebXR layers module
 
-To enable WebXR layers you need to use the WebXR features manager. If you used the default experince helper you can get the features manager that was created as part of the process. This will enable WebXR layers and will automatically create the initial projection layer that is automatically added when creating the module:
+To enable WebXR layers you need to use the WebXR features manager. If you used the default experience helper you can get the features manager that was created as part of the process. This will enable WebXR layers and will automatically create the initial projection layer that is automatically added when creating the module:
 
 ```javascript
 const featuresManager = xr.baseExperience.featuresManager; // or any other way to get a features manager
@@ -37,7 +37,7 @@ WebXR layers can be used to enable multiview rendering of your scene. Multiview 
 
 Multiview is not a magic solution - it will not automatically fix all rendering issues of your scene. It is an improvement, that might make it a little smoother.
 
-A "side-effect" of enabling multiview is enabling antialias in WebXR (when using an extension version that supports that). One extension that does support it is the `OCULUS_multiview`, availablein the oculus browser.
+A "side-effect" of enabling multiview is enabling antialias in WebXR (when using an extension version that supports that). One extension that does support it is the `OCULUS_multiview`, available in the oculus browser.
 
 To enable multiview:
 

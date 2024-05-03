@@ -112,9 +112,9 @@ Where imageToProcess could be either:
 - a video element (the current visible frame of the video will be used)
 - another canvas element (the current visible state will be used)
 
-This will apply the custom shader in parameter to the picture. By default, `vUV` is available as a varying defining the full ouptput as texture coordinates. `textureSampler` needs to be present and defines the texture corresponding to the input parameter.
+This will apply the custom shader in parameter to the picture. By default, `vUV` is available as a varying defining the full output as texture coordinates. `textureSampler` needs to be present and defines the texture corresponding to the input parameter.
 
-Please note that if you need to add custom unifoms or samplers, they should be defined in the effect wrapper list:
+Please note that if you need to add custom uniforms or samplers, they should be defined in the effect wrapper list:
 
 ```javascript
 const customEffectWrapper = new EffectWrapper({
@@ -250,7 +250,7 @@ This requires to use the render function instead of the filter one to enhance yo
 
 ## Full Code Sample
 
-You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/imageFilter/index.ts) if you want to see it in action and better see how some of the functionnalities could be used.
+You can find the integrallity of the code sample above on [Github](https://github.com/BabylonJS/Controls/blob/master/www/imageFilter/index.ts) if you want to see it in action and better see how some of the functionalities could be used.
 
 ## Live Demo
 

@@ -287,14 +287,14 @@ Look at this screenshot again:
 ![Light frustum](/img/how_to/shadows/directional3.png)
 According to the explanations above, the points of the ground that are not inside the cube should not be shadowed! They still are because the shadowing code does not apply a rejection based on the depth, only on the x/y coordinates: if the point is inside the frustum according to the left/right/top/bottom planes it's ok, even if the point is farer than the far plane (or nearer than the near plane).
 
-**HOWEVER**, that's not the case for the PCF/PCSS filtering methods, they do take into account the depth for the rejection test (for historical reasons probably). Same screenshot than above but with PCF this time:
+**HOWEVER**, that's not the case for the PCF/PCSS filtering methods, they do take into account the depth for the rejection test (for historical reasons probably). Same screenshot as above but with PCF this time:
 
 ![Shadows clipped](/img/how_to/shadows/directional4.png)
 As you can see, the shadows stop at the frustum boundaries. To correct the problem, you need to increase the light shadow far plane distance (`light.shadowMaxZ`).
 
 So at this point, you ask: why not setting `shadowMinZ` to a very small value (-1e10) and `shadowMaxZ` to a very big value (1e10) to get rid of those problems? One can even set the left/right/top/bottom properties to very small/big values and call it a day, no problems anymore with directional lights, our frustum is always big enough to contain all the objects of the scene.
 
-The problem is that you loose details/precision in the shadow map. The bigger your frustum (in x/y directions), the more objects will be projected to the same pixels in the shadow map, so the less details. The more stretched your frustum (in z direction), the less precision you have on the depth buffer as bigger ranges of Z values will have to be mapped to the [0, 1] range used for the final rendering.
+The problem is that you lose details/precision in the shadow map. The bigger your frustum (in x/y directions), the more objects will be projected to the same pixels in the shadow map, so the less details. The more stretched your frustum (in z direction), the less precision you have on the depth buffer as bigger ranges of Z values will have to be mapped to the [0, 1] range used for the final rendering.
 
 Here's a screenshot with `shadowMinZ=-50000` and `shadowMaxZ=50000` (PCF filtering):
 

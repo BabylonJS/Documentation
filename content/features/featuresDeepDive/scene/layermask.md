@@ -10,7 +10,7 @@ video-content:
 
 # In-Depth layerMask
 
-`layerMask` is a property you can find on many objects and may be a bit difficult to grasp at first. This page should give you a good understanding of how it works accross Babylon.js objects.
+`layerMask` is a property you can find on many objects and may be a bit difficult to grasp at first. This page should give you a good understanding of how it works across Babylon.js objects.
 
 ## layerMask meaning
 
@@ -28,7 +28,7 @@ In Babylon, by default all `layerMask` properties are `0x0FFFFFFF` (for Camera, 
 
 As you can see, there are 4 bits not set by default in the `layerMask` (the leading `0` before the first `F`). It’s to ease the use of `layerMask`, as a common usage is to make some meshes hidden from a camera. To achieve that, you need to set a `layerMask` on the meshes so that the **AND** operation with the `layerMask` of the camera (`0x0FFFFFFF` by default) is 0: you can use `0x10000000`, `0x20000000`, `0x40000000` or `0x80000000`. Now you see why showing these numbers in hexadecimal helps: it’s a lot easier to see that `0x10000000 & 0x0FFFFFFF = 0` than `268435456 & 268435455`!
 
-If the default value for `layerMask` was `0xFFFFFFFF`, you would also need to update the `layerMask` of your camera to have your meshes invisible from it because `0xFFFFFFFF` is a all-one 32 bit value. So the `0x0FFFFFFF` value is simply a default value that can help make your life a little easier, but in all generality you can put any value in the `layerMask` property of cameras, meshes, layers, etc (as in the `35 & 2` example above) and simply understand how it is used to compute visibility.
+If the default value for `layerMask` was `0xFFFFFFFF`, you would also need to update the `layerMask` of your camera to have your meshes invisible from it because `0xFFFFFFFF` is an all-one 32 bit value. So the `0x0FFFFFFF` value is simply a default value that can help make your life a little easier, but in all generality you can put any value in the `layerMask` property of cameras, meshes, layers, etc (as in the `35 & 2` example above) and simply understand how it is used to compute visibility.
 
 ### Layers and Skeleton Animations
 If the active camera in a scene is using a layerMask to hide meshes that are animated with skeletons, then other cameras that do show the meshes will not show the animation because the skeletons are not being updated.  A solution to this is to prepare the skeleton before each frame rendering

@@ -349,7 +349,7 @@ this._pauseMenu.isVisible = false;
 
 ## Pausing the Game
 
-Another important topic I think that's worth mentioning is the process of pausing the game. Because the pause "state" is not it's own scene, I had to approach this by having a variable, _gamePaused_, keep track of whether we were paused or not. This flag is used throughout the game and even used for more than just showing the pause menu.
+Another important topic I think that's worth mentioning is the process of pausing the game. Because the pause "state" is not its own scene, I had to approach this by having a variable, _gamePaused_, keep track of whether we were paused or not. This flag is used throughout the game and even used for more than just showing the pause menu.
 
 When the game is paused we:
 

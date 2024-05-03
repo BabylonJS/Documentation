@@ -35,7 +35,7 @@ const config = [
             ...
 ```
 
-In this example, 3 shapes are created: 1 for root bone, 2 for arm_r and arm_l. As properties for arms are the same because symetrical, no need to set 2 entries in the configuration.
+In this example, 3 shapes are created: 1 for root bone, 2 for arm_r and arm_l. As properties for arms are the same because symmetrical, no need to set 2 entries in the configuration.
 `size` property is used if `depth`, `width` or `height` are not set. 
 `rotationAxis` defines the axis that will be constrained in angles. `min` and `max` define these limits.
 `boneOffsetAxis` set the axis used to offset the shape on. `boxOffset` is the world size value to shift the shape along the axis. By default, physics shapes are centered on the bone.
@@ -45,10 +45,10 @@ This offset allows to have the shape to have one of its side on the bone.
 const ragdoll = new BABYLON.Ragdoll(skeleton, newMeshes[0], config);
 ```
 
-Next step is to create the ragdoll instance. This is done in 1 line and user must provide the skeleteon, the skinned mesh and the configuration.
-Once instanciated, the ragdoll is in Kinematic mode: Physicalized bones can interact with other physics body but it's the animation that drives the physics.
+Next step is to create the ragdoll instance. This is done in 1 line and user must provide the skeleton, the skinned mesh and the configuration.
+Once instantiated, the ragdoll is in Kinematic mode: Physicalized bones can interact with other physics body but it's the animation that drives the physics.
 
-At any moment after, to make the ragdoll dynamicaly updated, call:
+At any moment after, to make the ragdoll dynamically updated, call:
 
 ```javascript
 ragdoll.ragdoll();

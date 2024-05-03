@@ -43,7 +43,7 @@ motionblur.motionBlurSamples = 16; // divide quality by 2
 
 ## Optimizing your application
 By default, the post-process will blur all objects that generate a velocity (position, rotation and scale). This includes also skinned meshes animated by its bones.
-Sometimes, complex skinned meshes can have too much bones and can generate a drop in framerate. You can decide to exclude a skinned mesh from bones computation while rendering the velocity map and apply blur only on their position/rotation/scale variation. The `MotionBlurPostProcess` provides an helper to add and remove skinned meshes:
+Sometimes, complex skinned meshes can have too much bones and can generate a drop in framerate. You can decide to exclude a skinned mesh from bones computation while rendering the velocity map and apply blur only on their position/rotation/scale variation. The `MotionBlurPostProcess` provides a helper to add and remove skinned meshes:
 ```javascript
 // Now, the mesh "mySkinnedMesh" will not compute bones velocities and will save performances.
 motionblur.excludeSkinnedMesh(mySkinnedMesh);
@@ -55,8 +55,8 @@ motionblur.removeExcludedSkinnedMesh(mySkinnedMesh);
 ```
 
 ## Limitations
-To save performances, the motion blur's velocity map is rendered at the same time than depth buffer and normal buffer using the geometry render buffer.
-The clear color of the render buffer collides with the needed clear color of the velocity map and can generate glitchs like this: <Playground id="#E5YGEL#3" title="Limitations In The Motion Blur Post Process" description="Simple example showcasing colliding visual artifacts between the clear color of the render buffer and the velocity map."/>. As a limitation, your scene must occur in a closed environment OR have at least a skybox to hide the empty space that causes these glitchs.
+To save performances, the motion blur's velocity map is rendered at the same time as depth buffer and normal buffer using the geometry render buffer.
+The clear color of the render buffer collides with the needed clear color of the velocity map and can generate glitches like this: <Playground id="#E5YGEL#3" title="Limitations In The Motion Blur Post Process" description="Simple example showcasing colliding visual artifacts between the clear color of the render buffer and the velocity map."/>. As a limitation, your scene must occur in a closed environment OR have at least a skybox to hide the empty space that causes these glitches.
 
 # Notes
 The Motion Blur post-process needs at least support of WebGL 2 or WebGL 1 with multiple render targets support. If not available, the post-process will work as a passthrough.

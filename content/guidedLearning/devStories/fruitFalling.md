@@ -225,7 +225,7 @@ to asset hosting for development.
     ![Player.png in the docs folder](/img/devStories/fruitFalling/14_assets_docs_folder.jpg!350)
 1.  Going back over to Playground.ts in my source repository, all that
     remained to consume the sprite from my own asset host was to change
-    the the `spriteUrl` assignment line to
+    the `spriteUrl` assignment line to
 
     ```ts
     const spriteUrl: string = "http://127.0.0.1:8181/player.png";
@@ -577,7 +577,7 @@ Web and Android using Ionic and developing on Windows.
     ![Opening in Android Studio](/img/devStories/fruitFalling/30_opening_android.jpg!500)
 
 1.  Using Android Studio is beyond the scope of this article, but once
-    opened the project can built and run on a real or virtual device just
+    opened the project can be built and run on a real or virtual device just
     like any other project.
 
     ![The default app on an AVD](/img/devStories/fruitFalling/31_default_ionic_avd.jpg!300)

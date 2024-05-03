@@ -79,7 +79,7 @@ and at least one instance of Entity.
 OriginCamera is a special camera which has a separate position control stored as doublepos (and its target as doubletgt). 
 You must stop using position and target from camera, and use their double precision counterparts doublepos and doubletgt.
 
-All objects from scene must then be parented to a Entity instance. Entity also has doublepos property which is double precision coordinate. 
+All objects from scene must then be parented to an Entity instance. Entity also has doublepos property which is double precision coordinate. 
 You must use its doublepos to set object position instead of position directly.
 
 So, let's say that we want a sphere with double precision:

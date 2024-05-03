@@ -14,7 +14,7 @@ video-content:
 
 ## How To Make a Mesh Glow
 
-Emissive meshes are equivalent to self lit meshes. Both the emissive color and texture of the material determine how the mesh will self lit. This can for instance help create a phosphorescent watch dial. Babylon JS supports natively emissive poperties in both the standard and PBR materials.
+Emissive meshes are equivalent to self lit meshes. Both the emissive color and texture of the material determine how the mesh will self lit. This can for instance help create a phosphorescent watch dial. Babylon JS supports natively emissive properties in both the standard and PBR materials.
 
 But how could we easily make the glow around those self lit areas ?
 
@@ -32,7 +32,7 @@ const gl = new BABYLON.GlowLayer("glow", scene);
 
 ## Intensity Controls
 
-By default, the glow layer is filled using the material emissive parameters (emissive result = emssive color _ emissive texture color _ emissive texture level). It will also use a blur kernel of 32 which might not be adapted to your visual requirements.
+By default, the glow layer is filled using the material emissive parameters (emissive result = emissive color _ emissive texture color _ emissive texture level). It will also use a blur kernel of 32 which might not be adapted to your visual requirements.
 
 ## Color Intensity
 
@@ -50,7 +50,7 @@ gl.intensity = 0.5;
 In order to control the shape of the blur, you can rely on the creation option:
 
 - **mainTextureRatio**: Multiplication factor applied to the canvas size to compute the render target size used to generate the glowing objects (the smaller the faster).
-- **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independant blur to prevent the shape of the blur to change according to the target device size.
+- **mainTextureFixedSize**: Enforces a fixed size texture to ensure resize independent blur to prevent the shape of the blur to change according to the target device size.
 - **blurKernelSize**: How big is the kernel of the blur texture.
 
 ```javascript

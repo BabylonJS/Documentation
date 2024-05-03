@@ -20,7 +20,7 @@ You can associate multiple `FluidRenderingObject` with a single `FluidRenderingT
 
 ## Rendering objects as a fluid
 
-For particle systems (`ParticleSystem` and `GPUParticleSystem`), you can enable fluid renderering by doing:
+For particle systems (`ParticleSystem` and `GPUParticleSystem`), you can enable fluid rendering by doing:
 
 ```javascript
 const fluidRenderer = scene.enableFluidRenderer();

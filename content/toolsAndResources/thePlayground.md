@@ -24,7 +24,7 @@ video-content:
 
 The place to try out coding with Babylon.js. [Playground](https://playground.babylonjs.com/)
 
-Experimenting and changing any code in the playground and clicking on the **Run** button will not affect any original code in the playground you currently using.
+Experimenting and changing any code in the playground and clicking on the **Run** button will not affect any original code in the playground you are currently using.
 Original code can be restored by refreshing the browser.
 
 You can write the code in JavaScript or Typescript. The playground software compiles the code to JavaScript, in the background, before rendering.

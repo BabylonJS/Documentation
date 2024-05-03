@@ -23,7 +23,7 @@ For part 1 we'll be going over how to detect inputs and how to get simple walkin
 In order to achieve certain character movements, I referenced a few different Unity tutorials as well as game dev blog posts that will be linked below.
 
 ## Input Controller
-For this part of the tutorial, we'll be going over the basics for movement with keyboard controls. You'll want to create a file called **inputController.ts**. Here we'll be creating a [PlayerInput](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts#L4) class that will handle all of the inputs for our game.
+For this part of the tutorial, we'll be going over the basics for movement with keyboard controls. You'll want to create a file called **inputController.ts**. Here we'll be creating a [PlayerInput](https://github.com/BabylonJS/SummerFestival/blob/master/src/inputController.ts#L4) class that will handle all the inputs for our game.
 ```javascript
 constructor(scene: Scene) {
     scene.actionManager = new ActionManager(scene);

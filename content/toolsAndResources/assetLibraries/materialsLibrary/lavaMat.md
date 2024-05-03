@@ -33,7 +33,7 @@ ground.material = lavaMaterial;
 
 The diffuse texture will be the color of your lava, the noise texture will represent the lava deformation.
 Notice that this material will update each vertex position of your object. If there are not enough vertices, 
-some artefacts may appears.
+some artefacts may appear.
 
 ## Lights
 By default, the material is subject to lights. If you wish, you can cancel this by relying on the unlit property.

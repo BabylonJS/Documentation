@@ -96,7 +96,7 @@ Another one with colors and rotations.
 
 When setting a particle color all vertices of the particle are set to that color and will blend nicely with any material colors if applied.
 
-On creation the vertex colors of the particle are the vertex colors of the model added. When the model has vertices using a range of colors, a box with different face colors for example, these colors are preserved by the particle. However setting the color of a particle will result in a single color for that particle. When the model mesh has no colors the the particle color is set to white.
+On creation the vertex colors of the particle are the vertex colors of the model added. When the model has vertices using a range of colors, a box with different face colors for example, these colors are preserved by the particle. However setting the color of a particle will result in a single color for that particle. When the model mesh has no colors the particle color is set to white.
 
 In _initParticle_ and _updateParticle_ you can use, for example
 
@@ -125,7 +125,7 @@ On the next page we will look at how SPS can be configured to use multi-material
 
 To apply a texture from a region of the image file you specify its lower left (x, y) and upper right (z, w) coordinates as fractions of the whole image in the form of a UV vector4 (x, y, z, w). Taking the lower left coordinates of (0, 0) and the upper left as (1, 1) will apply the whole image as a material. The _uvs_ property of a particle is a vector4 and for the whole image you would use a uv of (0, 0, 1, 1).
 
-When you want apply a smaller region given by lower left (0.2, 0.1) and upper right as (0.6, 0.3) you just set the _uvs_ property like this
+When you want to apply a smaller region given by lower left (0.2, 0.1) and upper right as (0.6, 0.3) you just set the _uvs_ property like this
 
 ```javascript
 particle.uvs.x = 0.2; //the coordinate of lower left corner given by 20% of image width
@@ -134,11 +134,11 @@ particle.uvs.z = 0.6; //the coordinate of upper right corner given by 60% of ima
 particle.uvs.w = 0.3; //the coordinate of upper right corner given by 30% of image height
 ```
 
-![sps.paricle.uv](/img/how_to/Particles/sps2.png)
+![sps.particle.uv](/img/how_to/Particles/sps2.png)
 
-This can be used both by all the custom functions the _positionFunction_ and _updateParticle()_, whichever you are using. It is most usefult when the image is a texture atlas.
+This can be used both by all the custom functions the _positionFunction_ and _updateParticle()_, whichever you are using. It is most useful when the image is a texture atlas.
 
- <Playground id="#GLZ1PX#312" title="Solid Particles With UVs set" description="Simple example of creating solid particles with differing areas of a textrure."/>
+ <Playground id="#GLZ1PX#312" title="Solid Particles With UVs set" description="Simple example of creating solid particles with differing areas of a texture."/>
 
 Each particle has a different area of the texture set
 

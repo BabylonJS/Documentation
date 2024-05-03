@@ -24,7 +24,7 @@ This will by default records 7 seconds of video. You can press the button again 
 ## How to record by code
 
 ### Check support
-As the browser support is still not wide enough, recording the canvas should always be preceeded by a capability check. You can simply use this code to ensure the correct availability of the required APIs in your browser:
+As the browser support is still not wide enough, recording the canvas should always be preceded by a capability check. You can simply use this code to ensure the correct availability of the required APIs in your browser:
 
 ```javascript
 if (BABYLON.VideoRecorder.IsSupported(engine)) {
@@ -126,6 +126,6 @@ This will record 1 second of video to a blob.
 ## Limitations
 Video Recording is based on both MediaRecorder and Canvas.captureStream() APIs which are still not broadly supported. The recording support is then limited by the browser capability to record a canvas.
 
-The second limitations is the file format you can record to seems to be curently limited to webm. You can not directly record to .mp4 or .mov with this method so far. 
+The second limitations is the file format you can record to seems to be currently limited to webm. You can not directly record to .mp4 or .mov with this method so far. 
 
 Let's hope that wider browser and file format support will be added soon.

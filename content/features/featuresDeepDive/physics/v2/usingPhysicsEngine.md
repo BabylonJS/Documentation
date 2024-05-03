@@ -21,7 +21,7 @@ The plugin system allows us to use well established physics engines and to integ
 
 There is a plugin for Havok Physics engine.
 
-Read about the [the Babylon.js Havok plugin](/features/featuresDeepDive/physics/havokPlugin) and how to use it directly.
+Read about the [Babylon.js Havok plugin](/features/featuresDeepDive/physics/havokPlugin) and how to use it directly.
 
 ## Basic usage
 

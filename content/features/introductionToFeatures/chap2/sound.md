@@ -34,7 +34,7 @@ const sound = new BABYLON.Sound("sound", "url to sound file", scene,()=>{
 
 To account for loading time, in the example below *setInterval* is used to play the sound every 3 seconds
 
-<Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a soundn every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
+<Playground id="#SFCC74#4" title="Playing Sound Every 3 Seconds" description="Set an interval to play a sound every 3 seconds." image="/img/playgroundsAndNMEs/gettingStartedGround.jpg"/>
 
 Since you probably prefer listening to your own music as you work and oft repeated sound can get annoying the above playground examples are the only ones in Getting Started that load sounds. 
 

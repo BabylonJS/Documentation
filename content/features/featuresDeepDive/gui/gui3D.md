@@ -256,7 +256,7 @@ See it in action here: <Playground id="#2YZFA0#0" title="3D GUI Button3D Control
 
 ### MeshButton3D
 
-This class is used to to create an interactable object which will use a mesh coming from the current scene to render.
+This class is used to create an interactive object which will use a mesh coming from the current scene to render.
 
 ```javascript
 const pushButton = new BABYLON.GUI.MeshButton3D(mesh, "pushButton");

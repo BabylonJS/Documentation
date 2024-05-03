@@ -22,6 +22,24 @@ If there is a set of connected properties - such as size, width, height, and dep
 <H3Image title="Box" image="/img/tools/nge/boxNode.jpg" alt="Box source node"/>
 This source node creates a box to the dimensions given at the resolution set by subdivisions as follows. 
 
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **size** is the value used for width, depth, and height of the box.
+- **width** sets the width of the box and overrides any value in size.
+- **height** sets the height of the box and overrides any value in size.
+- **depth** sets the depth of the box and overrides any value in size.
+- **subdivisions** sets the resolution in X, Y, and Z for the box.
+- **subdivisionsX** sets the resolution in X for the box and overrides any value set in subdivisions.
+- **subdivisionsY** sets the resolution in Y for the box and overrides any value set in subdivisions.
+- **subdivisionsZ** sets the resolution in Z for the box and overrides any value set in subdivisions.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
 #### Inputs
 - **size** is the value used for width, depth, and height of the box.
 - **width** sets the width of the box and overrides any value in size.
@@ -38,6 +56,20 @@ This source node creates a box to the dimensions given at the resolution set by 
 <H3Image title="Capsule" image="/img/tools/nge/capsuleNode.jpg" alt="Capsule source node"/>
 This source node creates a capsule to the dimensions given at the resolution set by tessellation and subdivisions as follows. 
 
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **height** sets the height of the capsule from tip to tip.
+- **radius** sets the radius of the capsule.
+- **tesselation** sets the resolution along the circumference of the capsule.
+- **subdivisions** sets the resolution for the height of the capsule between the hemispherical caps.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
 #### Inputs
 - **height** sets the height of the capsule from tip to tip.
 - **radius** sets the radius of the capsule.
@@ -49,6 +81,23 @@ This source node creates a capsule to the dimensions given at the resolution set
 
 <H3Image title="Cylinder" image="/img/tools/nge/cylinderNode.jpg" alt="Cylinder source node"/>
 This source node creates a cylinder to the dimensions given at the resolution set by tessellation and subdivisions. It can be created as a complete cylinder, or a partial cylinder as follows. 
+
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **height** sets the height of the cylinder from cap to cap.
+- **diameter** sets the diameter of the cylinder.
+- **diameterTop** sets the diameter of the top cap of the cylinder.
+- **diameterBottom** sets the diameter of the bottom cap cylinder.
+- **subdivisions** sets the resolution for the height of the cylinder between the caps.
+- **tessellation** sets the resolution along the circumference of the cylinder.
+- **arc** is the revolution of the cylinder using the above properties on a 0-1 scale.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **height** sets the height of the cylinder from cap to cap.
@@ -65,6 +114,19 @@ This source node creates a cylinder to the dimensions given at the resolution se
 <H3Image title="Disc" image="/img/tools/nge/discNode.jpg" alt="Disc source node"/>
 This source node creates a disc using the given radius the resolution set by tessellation. It can be created as a complete disc, or a partial disc as follows. 
 
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **radius** sets the radius of the disc.
+- **tessellation** sets the resolution of the disc.
+- **arc** is the revolution of the disc using the above properties on a 0-1 scale.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
 #### Inputs
 - **radius** sets the radius of the disc.
 - **tessellation** sets the resolution of the disc.
@@ -75,6 +137,21 @@ This source node creates a disc using the given radius the resolution set by tes
 
 <H3Image title="Grid" image="/img/tools/nge/gridNode.jpg" alt="Grid source node"/>
 This source node creates a 2D grid to the dimensions given at the resolution set by subdivisions as follows. 
+
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **width** sets the width of the grid.
+- **height** sets the height of the grid.
+- **subdivisions** sets the resolution in X and Y for the grid.
+- **subdivisionsX** sets the resolution in X for the grid and overrides any value set in subdivisions.
+- **subdivisionsY** sets the resolution in Y for the grid and overrides any value set in subdivisions.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **width** sets the width of the grid.
@@ -89,6 +166,21 @@ This source node creates a 2D grid to the dimensions given at the resolution set
 <H3Image title="Icosphere" image="/img/tools/nge/icosphereNode.jpg" alt="Icosphere source node"/>
 This source node creates an icosphere at the radius given and the resolution set by subdivisions as follows. 
 
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **radius** sets the radius for the X, Y, and Z axes of the icosphere.
+- **radiusX** sets the radius for the X axis of the icosphere.
+- **radiusY** sets the radius for the Y axis of the icosphere.
+- **radiusZ** sets the radius for the Z axis of the icosphere.
+- **subdivisions** sets the resolution for the icosphere.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
 #### Inputs
 - **radius** sets the radius for the X, Y, and Z axes of the icosphere.
 - **radiusX** sets the radius for the X axis of the icosphere.
@@ -100,7 +192,21 @@ This source node creates an icosphere at the radius given and the resolution set
 - **geometry** is the generated icosphere and fulfills the requirement for at least one geometry in the graph.
 
 <H3Image title="Mesh" image="/img/tools/nge/meshNode.jpg" alt="Mesh source node"/>
-This source node holds a mesh loaded from disk or attached from the scene. This node has no inputs because all properties come from the loaded mesh. Meshes can be assigned to this node by using [NodeGeometry.getBlockByName("meshBlockName").mesh](/typedoc/classes/BABYLON.NodeGeometry#getBlockByName). Once a mesh is loaded into the node, it will behave like any other geometry source.
+This source node holds a mesh loaded from disk or attached from the scene. This node has no inputs because all properties come from the loaded mesh. Meshes can be assigned to this node in code by using [the following method](/typedoc/classes/BABYLON.NodeGeometry#getBlockByName). 
+``` javascript
+NodeGeometry.getBlockByName("meshBlockName").mesh = myMesh;
+```
+Once a mesh is loaded into the node, it will behave like any other geometry source.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Source
+- **Load** when clicked will open a dialogue window to locate a .glb or .babylon mesh to be loaded into memory for this node.
+
+#### Advanced
+- **Serialize cached data** when enabled will serialize any cached mesh data so that it can be stored in the json file that is saved from the Node Geometry Editor.
 
 #### Outputs
 - **geometry** is the loaded mesh and fulfills the requirement for at least one geometry in the graph.
@@ -108,11 +214,28 @@ This source node holds a mesh loaded from disk or attached from the scene. This 
 <H3Image title="Null" image="/img/tools/nge/nullNode.jpg" alt="Null source node"/>
 This source node is empty and adds a null to the geometry flow. This node is used mainly to add some randomness when instantiating geometry on another geometry source by randomly instantiating null geometry. This null does not render anything and is free in terms of calculations which makes it excellent at adding randomness to the geometry flow.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Outputs
 - **geometry** is null, but still fulfills the requirement for at least one geometry in the graph.
 
 <H3Image title="Plane" image="/img/tools/nge/planeNode.jpg" alt="Plane source node"/>
 This source node creates a plane to the dimensions given as follows. The plane is created with exactly one subdivision, no more. If control over subdivisions is desired, use [Grid](/toolsAndResources/nge/customFrames#grid) instead.
+
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **size** is the value used for width and height of the plane.
+- **width** sets the width of the plane and overrides any value in size.
+- **height** sets the height of the plane and overrides any value in size.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **size** is the value used for width and height of the plane.
@@ -124,6 +247,23 @@ This source node creates a plane to the dimensions given as follows. The plane i
 
 <H3Image title="Sphere" image="/img/tools/nge/sphereNode.jpg" alt="Sphere source node"/>
 This source node creates a sphere of the given diameter at the resolution set by segments. It can be created as a complete or a partial sphere as follows. 
+
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **segments** sets the resolution of the sphere. 
+- **diameter** is the value used for diameter of the X, Y, and Z axes of the sphere. 
+- **diameterX** sets the diameter of the sphere's X axis and overrides any value in diameter. 
+- **diameterY** sets the diameter of the sphere's Y axis and overrides any value in diameter. 
+- **diameterZ** sets the diameter of the sphere's Z axis and overrides any value in diameter. 
+- **arc** is the revolution of the sphere on the Y axis on a 0-1 scale.
+- **slice** removes loops from the bottom of the sphere upward on a 0-1 scale.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **segments** sets the resolution of the sphere. 
@@ -140,6 +280,19 @@ This source node creates a sphere of the given diameter at the resolution set by
 <H3Image title="Torus" image="/img/tools/nge/torusNode.jpg" alt="Torus source node"/>
 This source node creates a torus of the given diameter at the resolution set by tessellation as follows.
 
+#### Properties
+Note that these properties only appear when there is nothing connected to the corresponding input on the node.
+- **diameter** sets the diameter of the ring of the torus.
+- **thickness** sets the diameter of the circle defining the thickness of the torus.
+- **tessellation** sets the resolution for the torus both in diameter and thickness.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
 #### Inputs
 - **diameter** sets the diameter of the ring of the torus.
 - **thickness** sets the diameter of the circle defining the thickness of the torus.
@@ -155,13 +308,19 @@ Input nodes consist of basic value types used to set properties on other nodes. 
 - **Contextual value** assigns the source of the data for any input set to a contextual value. The sources available depend on the data type selected for the input node. For example, choosing a Int contextual value allows access to vertex IDs and choosing a Vector3 contextual value would offer vertex positions.
 - **Visible on frame** is a boolean which allows any input contained within a frame to be visible in the INPUTS list of the properties panel for a frame. Simply enable the boolean and then whenever a frame is selected - expanded or collapsed - any visible input can have its value changed directly in the frame properties panel.
 
-<H3Image title="Float" image="/img/tools/nge/FloatNode.jpg" alt="Float input node"/>
+<H3Image title="Float" image="/img/tools/nge/floatNode.jpg" alt="Float input node"/>
 This input node represents a Float value rounded to four decimal places. The node contains the following properties which can be set in the properties panel. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 - **Min** provides the minimum value and if set, the node will create a slider between minimum and maximum values. For the slider to work correctly, ensure that the Min value is lower than Max value.
 - **Max** provides the maximum value and if set, the node will create a slider between minimum and maximum values. For the slider to work correctly, ensure that the Max value is higher than Min value.
 - **Value** is a user defined value that is either an input field or a combination of input field and slider if Min and Max are set. The value set in the field will be rounded to four decimal places by default.
+- **Visible on frame** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 
 #### Outputs
 - **value** is the Float value set on the node. 
@@ -169,10 +328,16 @@ This input node represents a Float value rounded to four decimal places. The nod
 <H3Image title="Int" image="/img/tools/nge/intNode.jpg" alt="Integer node"/>
 This input node represents an integer value and contains the following properties which can be set in the properties panel. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 - **Min** provides the minimum value and if set, the node will create a slider between minimum and maximum values. For the slider to work correctly, ensure that the Min value is lower than Max value.
 - **Max** provides the maximum value and if set, the node will create a slider between minimum and maximum values. For the slider to work correctly, ensure that the Max value is higher than Min value.
 - **Value** is a user defined value that is either an input field or a combination of input field and slider if Min and Max are set. If a Float value is entered, any fractional value after the decimal will be ignored.
+- **Visible on frame** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 
 #### Outputs
 - **value** is the integer value set on the node. 
@@ -180,8 +345,14 @@ This input node represents an integer value and contains the following propertie
 <H3Image title="Vector2" image="/img/tools/nge/vector2Node.jpg" alt="Vector2 node"/>
 This input node represents a Vector2 value and contains the following properties which can be set in the properties panel. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 - **Value** displays the value set in the node. To change the value, click on the plus (+) icon to get the input fields for each channel. These values are rounded to three decimal places by default though the node only displays two decimal places.
+- **Visible on frame** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 
 #### Outputs
 - **value** is the Vector2 value set on the node.
@@ -189,8 +360,14 @@ This input node represents a Vector2 value and contains the following properties
 <H3Image title="Vector3" image="/img/tools/nge/vector3Node.jpg" alt="Vector3 node"/>
 This input node represents a Vector3 value and contains the following properties which can be set in the properties panel. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 - **Value** displays the value set in the node. To change the value, click on the plus (+) icon to get the input fields for each channel. These values are rounded to three decimal places by default though the node only displays two decimal places.
+- **Visible on frame** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 
 #### Outputs
 - **value** is the Vector3 value set on the node. 
@@ -198,11 +375,128 @@ This input node represents a Vector3 value and contains the following properties
 <H3Image title="Vector4" image="/img/tools/nge/vector4Node.jpg" alt="Vector4 node"/>
 This input node represents a Vector4 value and contains the following properties which can be set in the properties panel. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 - **Value** displays the value set in the node. To change the value, click on the plus (+) icon to get the input fields for each channel. These values are rounded to three decimal places by default though the node only displays two decimal places.
+- **Visible on frame**  [see description above](/toolsAndResources/nge/customFrames#inputs-9).
 
 #### Outputs
 - **value** is the Vector4 value set on the node. 
+
+## Interpolation
+Interpolation nodes derive a value based on an input value range or an input value limit. 
+<H3Image title="Lerp" image="/img/tools/nge/lerp.jpg" alt="LERP node"/>
+This node will derive a value between the two input values based on the gradient value.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **left** is a value that can be of any input type and will be returned if the value for gradient is set to 0.0.
+- **right** is a value that can be of any input type and will be returned if the value for gradient is set to 1.0.
+- **gradient** is a value of type float which determines the output value between the left and right inputs. This value determines where in the range between the left and right inputs to sample a value. A value passed to the gradient input that is not in the range of 0-1 will allow the value returned to fall outside the range of the left input to the right input.
+
+#### Outputs
+- **output** is the value that will match the type of the left and right input values and is a value derived from the range of the left input to the right input at the position of the gradient. 
+
+<H3Image title="NLerp" image="/img/tools/nge/nLerp.jpg" alt="NLERP node"/>
+This node will derive a normalized value between the two input values based on the gradient value.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **left** is a value that can be of any input type and will be returned if the value for gradient is set to 0.0.
+- **right** is a value that can be of any input type and will be returned if the value for gradient is set to 1.0.
+- **gradient** is a value of type float which determines the output value between the left and right inputs. This value determines where in the range between the left and right inputs to sample a value. A value passed to the gradient input that is not in the range of 0-1 will allow the value returned to fall outside the range of the left input to the right input.
+
+#### Outputs
+- **output** is the value that will match the type of the left and right input values and is a normalized value derived from the range of the left input to the right input at the position of the gradient. 
+
+<H3Image title="Smooth Step" image="/img/tools/nge/smoothStep.jpg" alt="Smooth Step node"/>
+This node will return a gradient value between 0.0 and 1.0 depending on how the input value compares with edge0 and edge1.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **value** is a value that can be of any input type which will be evaluated with the logical operator of greater than or equal to the value connected to edge0 and edge1.
+- **edge0** is a value of float type and sets the threshold for the logical operator comparison of the lower limit with the input value.
+- **edge1** is a value of float type and sets the threshold for the logical operator comparison of the upper limit with the input value.
+
+#### Outputs
+- **output** is a float value between 0.0 and 1.0. If the input value is less than edge0, the output value will be 0.0. If the input value is equal to or greater than edge0 and less than edge1 the output value will be a corresponding value between 0.0 and 1.0 based on its position between edge0 and edge1. If the input value is greater than or equal to edge1, the output value will be 1.0. 
+
+<H3Image title="Step" image="/img/tools/nge/step.jpg" alt="Step node"/>
+This node will return a value of 0.0 or 1.0 depending on if the input value is less than or greater than the value connected to edge.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **value** is a value that can be of any input type which will be evaluated with the logical operator of greater than or equal to the value connected to edge.
+- **edge** is a value of float type and sets the threshold for the logical operator comparison with the input value.
+
+#### Outputs
+- **output** is a float value of either 0.0 if the value input is less than the edge input or 1.0 if the value input is equal to or greater than the edge input. 
+
+## Color Management
+Color management nodes modifies the value of the color input connected to the node in a specific way. These are useful for controlling vertex colors or textures used in the graph.
+
+<H3Image title="Desaturate" image="/img/tools/nge/desaturate.jpg" alt="Desaturate node"/>
+This node will modify each component of a connected Vector3 input to a value that is averaged with the other components to a degree as set by the level input.   
+
+#### Properties
+- **level** is a float value between 0.0 and 1.0 that determines the gradient of interpolation between the original input value and a modified value that is the average of  all three components.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **color** is a Vector3 value that represents a color in the graph.
+- **level** is a float value between 0.0 and 1.0 that determines the gradient of interpolation between the original input value and a modified value that is the average of  all three components.
+
+#### Outputs
+- **output** is a Vector3 value that has been modified by averaging the three components to the degree determined by the value of level.
+
+<H3Image title="Posterize" image="/img/tools/nge/posterize.jpg" alt="Posterize node"/>
+This node will modify each component of a connected input to reduce the number of possible values between 0.0 and 1.0 based on the value of the steps input.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **value** supports a connection to a node of any input type.
+- **steps** is a value of either float type or a type that matches the input which determines the possible number of values that can represent the input.
+
+#### Outputs
+- **output** matches the type of the input and is represented only by a number of values that matches the steps input.
+
+<H3Image title="Replace Color" image="/img/tools/nge/replaceColor.jpg" alt="Replace Color node"/>
+This node will replace any color that matches the reference input within range of the distance input with the color connected to the replacement input.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Input
+- **value** supports a connection to a node of any input type.
+- **reference** is an input that matches the type of the value input and defines the value that will be replaced.
+- **distance** is a float value that determines the range from the reference value to replace. This allows for values close to the replacement value to also be replaced to smooth out the selection  
+- **replacement** is an input that matches the type of the value input and defines the value to replace the reference value with.
+
+#### Outputs
+- **output** matches the type of the input value and has changed all values within distance of reference to a value matching replacement.
 
 ## Contextual
 Contextual nodes consist of values derived from the closest source associated with a contextual node in the graph. The way to determine what source is referenced by a contextual value is to trace wires from the contextual value node until finding a node that has a reference that could supply the context. For contextual nodes that reference geometric values like position or normal, trace wires to the first node that references geometry, and this will be the source that is being referenced.
@@ -220,8 +514,16 @@ Contextual nodes are typically an array of values determined by the components o
 - **Mode** allows the node to be defined as a user-defined value or a contextual value of any type. User-defined values are just as they seem, the user assigned a constant value to the node. A contextual value is derived from the closest geometry node associated with this node. Changing mode to a different value can also change the type of data the node represents. For example, a CollectionID contextual node can be updated to a Vector2 contextual value which will change the data type supplied by the node. Be aware of this when changing mode as it can affect connections to other nodes. Note that if mode is changed to user-defined, the node will no longer display *Contextual value* but will instead show *Visible on frame*, *Min*, *Max*, and *Value* in the node properties.
 - **Contextual value** assigns the source of the data for any input set to a contextual value. The sources available depend on the data type selected for the input node. For example, choosing a Int contextual value allows access to vertex IDs and choosing a Vector3 contextual value would offer vertex positions.
 
-<H3Image title="CollectionID" image="/img/tools/nge/collectionIDNode.jpg" alt="CollectionID node"/>
+<H3Image title="CollectionID" image="/img/tools/nge/collectionIDNode.jpg" alt="Collection ID node"/>
 This contextual node represents the ID of a source geometry in a collection. This data is pulled from geometry associated with a collection node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is an integer representing the Collection ID of an associated geometry. 
@@ -229,23 +531,69 @@ This contextual node represents the ID of a source geometry in a collection. Thi
 <H3Image title="Colors" image="/img/tools/nge/colorsNode.jpg" alt="Colors node"/>
 This contextual node represents an array of vertex colors from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
+
 #### Outputs
 - **value** is a Vector4 representing the colors of each vertex of an associated geometry. 
 
-<H3Image title="FaceID" image="/img/tools/nge/faceIDNode.jpg" alt="FaceID node"/>
+<H3Image title="FaceID" image="/img/tools/nge/faceIDNode.jpg" alt="Face ID node"/>
 This contextual node represents an array of the IDs for each face of a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is an integer representing the IDs for each face of an associated geometry. 
 
-<H3Image title="GeometryID" image="/img/tools/nge/geometryIDNode.jpg" alt="GeometryID node"/>
+<H3Image title="GeometryID" image="/img/tools/nge/geometryIDNode.jpg" alt="Geometry ID node"/>
 This contextual node represents the ID for a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is an integer representing the ID for associated geometry. 
 
+<H3Image title="InstanceID" image="/img/tools/nge/instanceID.jpg" alt="Instance ID node"/>
+This contextual node represents the ID for an instance of a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
+
+#### Outputs
+- **value** is an integer representing the ID for associated geometry instance. 
+
 <H3Image title="LoopID" image="/img/tools/nge/loopIDNode.jpg" alt="LoopID node"/>
 This contextual node represents the ID of the loop iteration of an associated node with a count input like the Instantiate node. This node can be used to increment values such as those driving the transform of the translation, rotation, or scale of an associated geometry being instantiated through a loop. This data is pulled from an iterable node associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is an integer representing the ID of the iteration of the associated loop. 
@@ -253,11 +601,27 @@ This contextual node represents the ID of the loop iteration of an associated no
 <H3Image title="Normals" image="/img/tools/nge/normalsNode.jpg" alt="Normals node"/>
 This contextual node represents an array of vertex normals from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
+
 #### Outputs
 - **value** is a Vector3 value representing the normals of each vertex of an associated geometry. 
 
 <H3Image title="Positions" image="/img/tools/nge/positionsNode.jpg" alt="Positions node"/>
 This contextual node represents an array of vertex positions from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is a Vector3 value representing the positions of each vertex of an associated geometry. 
@@ -265,11 +629,27 @@ This contextual node represents an array of vertex positions from a source geome
 <H3Image title="Tangents" image="/img/tools/nge/tangentsNode.jpg" alt="Tangents node"/>
 This contextual node represents an array of vertex tangents from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
+
 #### Outputs
 - **value** is a Vector4 value representing the tangents of each vertex of an associated geometry. 
 
-<H3Image title="UVs" image="/img/tools/nge/uv1Node.jpg" alt="UV node"/>
+<H3Image title="UVs" image="/img/tools/nge/uvNode.jpg" alt="UV node"/>
 This contextual node is actually six different nodes, each one representing an array of UV coordinates for each vertex from a particular UV set from a source geometry. Each node represents a different UV set of the six supported UV sets for a mesh in Babylon.js. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
 
 #### Outputs
 - **value** is a Vector2 value representing the UV coordinates of each vertex of an associated geometry. 
@@ -277,18 +657,34 @@ This contextual node is actually six different nodes, each one representing an a
 <H3Image title="VertexID" image="/img/tools/nge/vertexIDNode.jpg" alt="Vertex ID node"/>
 This contextual node represents an array of vertex IDs from a source geometry. This data is pulled from geometry associated with this contextual node through a connection to a shared node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Mode** [see description above](/toolsAndResources/nge/customFrames#contextual).
+- **Contextual Value** [see description above](/toolsAndResources/nge/customFrames#contextual).
+
 #### Outputs
 - **value** is an integer representing the ID of each vertex of an associated geometry. 
 
 ## Logical
 Logical nodes are used to branch a node graph by performing a test between two Float values. If the test between the two values meets the condition set by the node, a value of true is returned and the nodes connected to the ifTrue port are passed to the output. Otherwise, the nodes connected to the ifFalse port are passed to the output. There are common properties that are possessed by all logical nodes and are as follows.
 
-- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
-- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 - **ifTrue and ifFalse** ports on each logical node do not need to be connected to anything for the node to function. If a node is connected to ifTrue or ifFalse, that node will be passed when appropriate condition is met. If nothing is connected to ifTrue or ifFalse, the node will output 1.0 and 0.0 respectively. This allows for successive logical tests by testing if the previous logical test was true (1.0) or false (0.0) without the need to wire Float nodes for ifTrue and ifFalse in the graph.
 
 <H3Image title="And" image="/img/tools/nge/andNode.jpg" alt="And node"/>
 This logical node tests if the Float value in the left port and the right port are both not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
+
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
@@ -302,6 +698,16 @@ This logical node tests if the Float value in the left port and the right port a
 <H3Image title="Equal" image="/img/tools/nge/equalNode.jpg" alt="Equal node"/>
 This logical node tests if the Float value in the left port and the right port are both equal to one another. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
+
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
 - **right** can be connected to a node providing a Float value to be used in the test or a constant value can be set in the input field of the properties panel for this node.
@@ -313,6 +719,16 @@ This logical node tests if the Float value in the left port and the right port a
 
 <H3Image title="GreaterOrEqual" image="/img/tools/nge/greaterOrEqualNode.jpg" alt="Greater Or Equal node"/>
 This logical node tests if the Float value in the left port is greater than or equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
+
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
@@ -326,6 +742,16 @@ This logical node tests if the Float value in the left port is greater than or e
 <H3Image title="GreaterThan" image="/img/tools/nge/greaterThanNode.jpg" alt="Greater Than node"/>
 This logical node tests if the Float value in the left port is greater than the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
+
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
 - **right** can be connected to a node providing a Float value to be used in the test or a constant value can be set in the input field of the properties panel for this node.
@@ -337,6 +763,16 @@ This logical node tests if the Float value in the left port is greater than the 
 
 <H3Image title="LessOrEqual" image="/img/tools/nge/lessOrEqualNode.jpg" alt="Less Or Equal node"/>
 This logical node tests if the Float value in the left port is less than or equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
+
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
@@ -350,6 +786,16 @@ This logical node tests if the Float value in the left port is less than or equa
 <H3Image title="LessThan" image="/img/tools/nge/lessThan.jpg" alt="Less Than node"/>
 This logical node tests if the Float value in the left port is less than the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
+
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
 - **right** can be connected to a node providing a Float value to be used in the test or a constant value can be set in the input field of the properties panel for this node.
@@ -361,6 +807,16 @@ This logical node tests if the Float value in the left port is less than the Flo
 
 <H3Image title="NotEqual" image="/img/tools/nge/notEqualNode.jpg" alt="Not Equal node"/>
 This logical node tests if the Float value in the left port is not equal to the Floating point value in the right port. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
+
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
@@ -374,6 +830,16 @@ This logical node tests if the Float value in the left port is not equal to the 
 <H3Image title="Or" image="/img/tools/nge/orNode.jpg" alt="Or node"/>
 This logical node tests if either the left port or the right port contain a Floating point value not equal to 0.0. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
 
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
+
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
 - **right** can be connected to a node providing a Float value to be used in the test or a constant value can be set in the input field of the properties panel for this node.
@@ -385,6 +851,16 @@ This logical node tests if either the left port or the right port contain a Floa
 
 <H3Image title="Xor" image="/img/tools/nge/xorNode.jpg" alt="Xor node"/>
 This logical node tests for an exclusive or so that if either the left port or the right port contains a Float value not equal to 0.0 the test returns true. However, if both the left and right ports contain Float values not equal to 0.0 the test returns false. Only one of the two ports may contain a value not equal to 0.0 to test as true. If the test returns true, the value of ifTrue is passed otherwise the value of ifFalse is passed. 
+
+#### Properties
+- **right** is an input field to be able to set a Float value for the right port manually. This is a shortcut to help reduce complexity on the graph if the test needs to be done against a constant value. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Test** sets the condition for the comparison between the two values connected to the node. Any logical can be easily changed to another logical node simply by changing the Test parameter without needing to replace the node with a different logical node.
 
 #### Inputs
 - **left** is connected to a node providing a Float value to be used in the test.
@@ -401,7 +877,11 @@ These nodes are simple mathematical operations like add, subtract, min, max, or 
 <H3Image title="Add" image="/img/tools/nge/addNode.jpg" alt="Add node"/>
 This is a simple math node which adds two inputs together. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot add mixed types. The type of the node first connected to an input determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs
@@ -414,7 +894,11 @@ This is a simple math node which adds two inputs together. This node can support
 <H3Image title="Ceiling" image="/img/tools/nge/ceilingNode.jpg" alt="Ceiling node"/>
 This is a simple function which transforms the input to the smallest whole number that is greater than or equal to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -423,10 +907,31 @@ This is a simple function which transforms the input to the smallest whole numbe
 #### Outputs
 - **output** is the transformed value from the input and matches type with the value connected to input. 
 
+<H3Image title="Clamp" image="/img/tools/nge/clampNode.jpg" alt="Clamp node"/>
+This is a simple function which limits the input value to the range set by the minimum and maximum properties on the node. If the input is below the minimum, it is clamped to the minimum value. If it is over the maximum value, it is clamped to the maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Minimum** sets the minimum value for the range. Any input values less than this value will be clamped at this value.
+- **Maximum** sets the maximum value for the range. Any input values greater than this value will be clamped at this value.
+
+#### Inputs
+- **input** is connected to a node providing a value to be used in the function.
+
+#### Outputs
+- **output** is the clamped value from the input and matches type with the value connected to input. 
+
 <H3Image title="Divide" image="/img/tools/nge/divideNode.jpg" alt="Divide node"/>
 This is a simple math node which divides the left input by the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot divide mixed types. The type of the node first connected to an input determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs
@@ -439,7 +944,11 @@ This is a simple math node which divides the left input by the right input. This
 <H3Image title="Floor" image="/img/tools/nge/floorNode.jpg" alt="Floor node"/>
 This is a simple function which transforms the input to the largest whole number that is less than or equal to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -451,6 +960,11 @@ This is a simple function which transforms the input to the largest whole number
 <H3Image title="IntFloatConverter" image="/img/tools/nge/intFloatConverterNode.jpg" alt="Integer float converter node"/>
 This is a simple function which converts the input type to either a Float or an integer. This node uses specific data types and does not allow connection to nodes that are not defined as Float or Int. While the node appears to allow connections to both the Float and Int inputs, the node will only use the first value connected if more than one is present. In the case of this node, if both inputs are connected, the outputs will both use the input connected to Float for the value to convert.
 
+#### Debug Infos
+Note that call count and execution count appear twice on this node, once for Int and once for Float since there are two outputs on this node.
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **float** is connected to a node providing a Float value to be converted.
 - **int** is connected to a node providing an Int value to be converted.
@@ -461,6 +975,16 @@ This is a simple function which converts the input type to either a Float or an 
 
 <H3Image title="MapRange" image="/img/tools/nge/mapRangeNode.jpg" alt="Map range node"/>
 This is a simple function to remap a value in relation to one numerical range to a corresponding value in relation to another numerical range. There is no stipulation that the value be within the original numerical range to remap it. This node accepts values that are type Float, Int, Vector2, Vector3, or Vector4.
+
+#### Properties
+- **fromMin** is the lower value of the original value range.
+- **fromMax** is the upper value of the original value range.
+- **toMin** is the lower value of the target value range.
+- **toMax** is the upper value of the target value range.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **value** is the value whose relation to the original value range is converted to a corresponding value in relation to a new numerical range.
@@ -475,7 +999,11 @@ This is a simple function to remap a value in relation to one numerical range to
 <H3Image title="Max" image="/img/tools/nge/maxNode.jpg" alt="Max node"/>
 This is a simple math node which returns the larger value between the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs
@@ -488,7 +1016,11 @@ This is a simple math node which returns the larger value between the left input
 <H3Image title="Min" image="/img/tools/nge/minNode.jpg" alt="Min node"/>
 This is a simple math node which returns the smaller value between the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs
@@ -498,10 +1030,28 @@ This is a simple math node which returns the smaller value between the left inpu
 #### Outputs
 - **output** is the smaller value between the left input and the right input and matches type with the values connected to left and right. 
 
+<H3Image title="Mod" image="/img/tools/nge/mod.jpg" alt="Mod node"/>
+This is a simple math node which returns the remainder of the euclidean division of one number by another. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot evaluate mixed types. The type of the node first connected to an input determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **left** is connected to a node providing the first value to be used in the evaluation.
+- **right** is connected to a node providing the second value to be used in the evaluation.
+
+#### Outputs
+- **output** is the remainder of the Euclidean division of the left input by the right input and matches type with the values connected to left and right. 
+
 <H3Image title="Multiply" image="/img/tools/nge/multiplyNode.jpg" alt="Multiply node"/>
 This is a simple math node which multiplies the left input and the right input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though this node is a little different than other nodes that require matching types between left and right inputs. This node can also act as a scale node where a Vector is scaled by a scalar value of type Float. To do this, first connect a Vector to the left input which will set the type for the output port. Second connect a Float to the right input of the node which will act as the scalar. This is the only math node where input types can be mixed, and these mixed input types need to be connected in one specific way. Remember, the left input can take any type and the right input can either take a matching type to multiply normally, or a Float type to be used as a scalar for the value connected to the left input.
 
-#### Properties  
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs  
@@ -514,7 +1064,11 @@ This is a simple math node which multiplies the left input and the right input. 
 <H3Image title="Negate" image="/img/tools/nge/negateNode.jpg" alt="Negate node"/>
 This is a simple function which changes the sign of the input by multiplying it by -1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -527,6 +1081,8 @@ This is a simple function which changes the sign of the input by multiplying it 
 This is a shortcut function which subtracts the input value from 1.0. When this function is applied to a value in the range of 0.0 to 1.0 the result will be an inversion of the input on that scale of 0.0 to 1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
 #### Properties
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -538,7 +1094,11 @@ This is a shortcut function which subtracts the input value from 1.0. When this 
 <H3Image title="Reciprocal" image="/img/tools/nge/reciprocalNode.jpg" alt="Reciprocal node"/>
 This is a shortcut function which divides 1.0 by the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -550,7 +1110,11 @@ This is a shortcut function which divides 1.0 by the input value. This node can 
 <H3Image title="Round" image="/img/tools/nge/roundNode.jpg" alt="Round node"/>
 This is a simple function which transforms the input to the nearest whole number. The nearest whole number is determined by considering the fractional portion of the number. If that fractional portion is greater than or equal to 0.5, the input is transformed into the smallest whole number greater than the input. If the fractional portion is less than 0.5, the input is transformed to the largest whole number less than the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -562,7 +1126,11 @@ This is a simple function which transforms the input to the nearest whole number
 <H3Image title="Sign" image="/img/tools/nge/signNode.jpg" alt="Sign node"/>
 This is a simple function to return whether an input is positive, negative, or exactly 0.0. If the input is negative this node will return a value of -1.0. If the input is exactly 0.0, the node will return a value of 0.0. Finally, if the value is positive the node will return a value of 1.0. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -574,7 +1142,11 @@ This is a simple function to return whether an input is positive, negative, or e
 <H3Image title="Square Root" image="/img/tools/nge/sqrtNode.jpg" alt="Square root node"/>
 This is a simple function to return the principle square root of a nonnegative value connected to the input port. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
@@ -586,7 +1158,11 @@ This is a simple function to return the principle square root of a nonnegative v
 <H3Image title="Subtract" image="/img/tools/nge/subtractNode.jpg" alt="Subtract node"/>
 This is a simple math node which subtracts the right input from the left input. This node can support Float, Int, Vector2, Vector3, and Vector4 types, though the node cannot add mixed types. The type of the node first connected to an input determines the type for the node output. 
 
-#### Properties
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
 - **Operation** allows this node to be changed to one of the following operations: Add, Subtract, Multiply, Divide, Min, or Max.
 
 #### Inputs
@@ -602,8 +1178,12 @@ These nodes are a collection of more complex mathematical functions, mostly trig
 <H3Image title="Abs" image="/img/tools/nge/absNode.jpg" alt="Absolute node"/>
 This is a simple function to return the absolute value of the input, which is always a positive value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value to be used in the function.
@@ -614,8 +1194,12 @@ This is a simple function to return the absolute value of the input, which is al
 <H3Image title="ArcCos" image="/img/tools/nge/arcCosNode.jpg" alt="Arc cosine node"/>
 This function returns the inverse cosine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -626,8 +1210,12 @@ This function returns the inverse cosine of the input value. This node can suppo
 <H3Image title="ArcSin" image="/img/tools/nge/arcSinNode.jpg" alt="Arc sine node"/>
 This function returns the inverse sine of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -635,11 +1223,29 @@ This function returns the inverse sine of the input value. This node can support
 #### Outputs
 - **output** is the inverse sine of the input value in a type that matches the input value type. 
 
+<H3Image title="ArcTan2" image="/img/tools/nge/arcTan2.jpg" alt="Arc tangent 2 node"/>
+This function returns the angle in radians between the X axis and a line to the (X,Y) coordinates. This node can support Float, Int, Vector2, Vector3, and Vector4 types and the function will be computed for each component pair connected to the X and Y inputs. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **x** represents the X coordinate of the vector whose angle to the X axis is being calculated.
+- **y** represents the Y coordinate of the vector whose angle to the Y axis is being calculated.
+
+#### Outputs
+- **output** is the angle in radians per component of the input type. If the input type is float, the output will be a single angle represented in radians as a float. If the input is a Vector3, the output will be three angles computed per component pair from the X and Y inputs represented in radians as a Vector3.  
+
 <H3Image title="ArcTan" image="/img/tools/nge/arcTanNode.jpg" alt="Arc tangent node"/>
 This function returns the inverse tangent of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -650,8 +1256,12 @@ This function returns the inverse tangent of the input value. This node can supp
 <H3Image title="Cos" image="/img/tools/nge/cosNode.jpg" alt="Cosine node"/>
 This function returns the cosine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -659,11 +1269,31 @@ This function returns the cosine of the input and assumes radians for the input 
 #### Outputs
 - **output** is the cosine of the input value in a type that matches the input value type. 
 
+<H3Image title="Exp2" image="/img/tools/nge/exp2.jpg" alt="Exponent 2 node"/>
+This function returns the base-2 exponential function of a given number connected to the input. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+
+#### Inputs
+- **input** is connected to a node providing a value to be used as the exponent in the function.
+
+#### Outputs
+- **output** is a nonnegative number representing the base-2 raised to the power of the input value in a type that matches the input value type. 
+
 <H3Image title="Exp" image="/img/tools/nge/expNode.jpg" alt="Exponent node"/>
 This function returns the base of the natural logarithm, approximately 2.718, raised to the power of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value to be used as the exponent in the function.
@@ -671,11 +1301,28 @@ This function returns the base of the natural logarithm, approximately 2.718, ra
 #### Outputs
 - **output** is a nonnegative number representing the base of the natural logarithm raised to the power of the input value in a type that matches the input value type. 
 
+<H3Image title="Fract" image="/img/tools/nge/fract.jpg" alt="Fract node"/>
+This function returns the fractional part of the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **input** provides the value containing a fractional value to extract per component of the input type. While passing an Int type to the node will always return 0, we did not exclude the type just to keep consistent with other nodes that accept all input types.
+
+#### Outputs
+- **output** is the fractional portion - including 0 - of the input value in a type that matches the input value type. 
+
 <H3Image title="Log" image="/img/tools/nge/logNode.jpg" alt="Logarithm node"/>
 This function returns a value representing the power that the base of the natural logarithm, approximately 2.718, is raised to equal the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value to be used in the function.
@@ -683,11 +1330,29 @@ This function returns a value representing the power that the base of the natura
 #### Outputs
 - **output** is a number representing the power that the base of the natural logarithm, approximately 2.718, is raised to equal the input value in a type that matches the input value type. 
 
+<H3Image title="Pow" image="/img/tools/nge/pow.jpg" alt="Pow node"/>
+This function returns a value representing the base value raised to the power of an exponent value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **value** is connected to a node providing a base value to be used in the function.
+- **power** is connected to a node providing an exponent value to be used in the function.
+
+#### Outputs
+- **output** is the value of the base value raised to the power of the exponent per component in a type that matches the input value type. 
+
 <H3Image title="Sin" image="/img/tools/nge/sinNode.jpg" alt="Sine node"/>
 This function returns the sine of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -698,8 +1363,12 @@ This function returns the sine of the input and assumes radians for the input va
 <H3Image title="Tan" image="/img/tools/nge/tanNode.jpg" alt="Tangent node"/>
 This function returns the tangent of the input and assumes radians for the input value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -710,8 +1379,12 @@ This function returns the tangent of the input and assumes radians for the input
 <H3Image title="ToDegrees" image="/img/tools/nge/toDegreesNode.jpg" alt="To degrees node"/>
 This function converts the input value from radians to degrees. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in radians to be used in the function.
@@ -722,8 +1395,12 @@ This function converts the input value from radians to degrees. This node can su
 <H3Image title="ToRadians" image="/img/tools/nge/toRadiansNode.jpg" alt="To radians node"/>
 This function converts the input value from degrees to radians. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
 
-#### Properties
-- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Operation** allows this node to be changed to one of the following functions: Cos, Sin, Abs, Exp, Exp2, Round, Floor, Ceiling, Sqrt, Log, Tan, ArcTan, ArcCos, ArcSin, Sign, Negate, OneMinus, Reciprocal, ToDegrees, or ToRadians.
 
 #### Inputs
 - **input** is connected to a node providing a value in degrees to be used in the function.
@@ -734,14 +1411,118 @@ This function converts the input value from degrees to radians. This node can su
 ## Math: Vector
 These nodes are used to transform or convert vectors derived from geometry or user defined. As the name of the category suggests, these nodes support Vector2, Vector3, and Vector4 types.
 
+<H3Image title="Bounding" image="/img/tools/nge/bounding.jpg" alt="Bounding node"/>
+This node will return information about the bounding box of the connected geometry. The input must be a geometry node and the values output are two Vector3 coordinates that represents the minimum and maximum bounds of the geometry.
+
+#### Debug Infos
+Note that call count and execution count appear twice on this node, once for min and once for max since there are two outputs on this node.
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **input** is connected to a geometry node from which to calculate the bounding box.
+
+#### Outputs
+- **min** is a Vector3 that represents the minimum values of the bounding box. 
+- **max** is a Vector3 that represents the maximum values of the bounding box. 
+
+<H3Image title="Cross" image="/img/tools/nge/cross.jpg" alt="Cross node"/>
+This node will return a vector that is perpendicular to the vectors connected to the left and right inputs. This node supports both Vector3 and Vector4 types and returns a Vector3.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **left** requires a Vector3 or Vector4 to represent the first vector.
+- **right** requires a Vector3 or Vector4 to represent the second vector.
+
+#### Outputs
+- **output** is a Vector3 that represents a vector that is perpendicular to both the left and right vectors. 
+
+<H3Image title="Curve" image="/img/tools/nge/curve.jpg" alt="Curve node"/>
+This node will apply a specific chosen curve function to the input data to modify it based on the applied curve. This node supports Float, Int, Vector2, Vector3, and Vector4 data types.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Type** defines the curve function to apply to the input data from a pre-polulated list of functions. 
+
+#### Inputs
+- **input** is connected to a node providing the input data for the function.
+
+#### Outputs
+- **output** is the transformation of the input data by a specific curve function and will match the type of the input data. If the input data has multiple components, the curve function will be applied to each component individually. 
+
+<H3Image title="Distance" image="/img/tools/nge/distance.jpg" alt="Distance node"/>
+This node will calculate the distance between two coordinates. This node supports Vector2, Vector3, and Vector4 data types.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **left** provides the starting coordinate for the function.
+- **right** provides the ending coordinate for the function.
+
+#### Outputs
+- **output** is the distance between the left and right inputs represented as a value of Float type.
+
+<H3Image title="Dot" image="/img/tools/nge/dot.jpg" alt="Dot node"/>
+This node will calculate the dot product between the two inputs, which is the cosine of the angle between the vectors when both vectors are normalized. This node supports Vector2, Vector3, and Vector4 data types.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **left** provides the first vector for the operation.
+- **right** provides the second vector for the operation.
+
+#### Outputs
+- **output** represents the cosine of the angle between the left input and the right input as a value of Float type.
+
+<H3Image title="Length" image="/img/tools/nge/length.jpg" alt="Length node"/>
+This node will calculate the magnitude of a vector. This node supports Vector2, Vector3, and Vector4 data types.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **value** is the vector input from which magnitude will be calculated.
+
+#### Outputs
+- **output** represents the magnitude of the input vector as a value of Float type.
+
 <H3Image title="Normalize" image="/img/tools/nge/normalizeNode.jpg" alt="Normalize node"/>
 This function transforms the input vector into a unit vector of length 1.0. This node can support Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **input** is connected to a node providing a vector to be used in the function.
 
 #### Outputs
 - **output** is the unit vector of length 1.0 transformed from the input vector in a type that matches the input value type. 
+
+<H3Image title="Rotate2D" image="/img/tools/nge/rotate2d.jpg" alt="Rotate 2D node"/>
+This function transforms the Vector2 input by rotating it the amount in radians supplied by the input connected to angle. This node only accepts a Vector2 to transform and a Float for angle in radians.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Inputs
+- **input** is the Vector2 type input for transform.
+- **angle** is the rotation amount in radians represented as a Float type input.
+
+#### Outputs
+- **output** is a Vector2 type value that is the result of the rotation transformation. 
 
 <H3Image title="Transform" image="/img/tools/nge/transformNode.jpg" alt="Transform node"/>
 This function transforms the input geometry using either a custom Matrix or a Vector3 input for translation, rotation, and scaling. The required input for this node is the geometry input and the output will also be geometry. The rest of the inputs are optional, but if providing a Matrix input to the node, the translation, rotation, and scale inputs will be ignored as the Matrix takes precedence over the individual transform inputs. 
@@ -751,8 +1532,12 @@ This function transforms the input geometry using either a custom Matrix or a Ve
 - **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of the geometry. This property is only visible if there is no wire connected to the rotation input.
 - **scaling** is an input field for a Vector3 value to be used to set the scale of the geometry. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **value** is connected to a node providing the geometry to be used in the function.
@@ -768,6 +1553,11 @@ This function transforms the input geometry using either a custom Matrix or a Ve
 This node is used to either split a vector into its components or assemble components into a vector. This node has a lot of utility for introducing a change into one or more components of a vector based on the need of the user. It can also be used to swizzle components or assemble components in several ways to make up a vector. Each input will override the narrower inputs below it. For example, a Vector4 connected to the xyzw input will override any values connected to xyz, xy, zw, x, y, z, or w. The process is the same for each input so any value connected to the xy input will override any values connected to the x and y inputs. 
 
 The values provided by the outputs depend entirely on the values connected to the inputs. The node will work from the top input down and assemble a Vector4 value which can then be referenced from any of the outputs. If there is a component of the Vector4 output that was not defined in the input, the value of that component will be 0.0. This means if you only connect values to the x, y, and z inputs there will still be a Vector4 value available in the xyzw output that has 0.0 for the value of w. Since the inputs work from the top down, the VectorConverter will work with various combinations. For example, connecting values to the xy input as well as the z and w inputs will create a complete Vector4 value with no overrides. However, if connecting values to the xyz input as well as the z and w inputs will create a Vector4 of the xyz input and the w input, ignoring the value connected to the z input. 
+
+#### Debug Infos
+Note that call count and execution count appear eight times on this node, once for each of the eight outputs on this node.
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **xyzw** is connected to a Vector4 value which overrides duplicate channel values lower on the node.
@@ -797,17 +1587,25 @@ This node generates a rotation matrix to rotate from a source Vector3 to a targe
 
 #### Properties
 - **source** is an input field for a Vector3 value representing the original vector before rotation is applied. This property is only visible if there is no wire connected to the source input.
-- **target** is an input field for a Vector3 value representing the final vector after rotation rotation is applied. This property is only visible if there is no wire connected to the target input.
+- **target** is an input field for a Vector3 value representing the final vector after rotation is applied. This property is only visible if there is no wire connected to the target input.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **source** is connected to a node providing a Vector3 value representing the original vector before rotation is applied.
-- **target** is connected to a node providing a Vector3 value representing the final vector after rotation rotation is applied.
+- **target** is connected to a node providing a Vector3 value representing the final vector after rotation is applied.
 
 #### Outputs
 - **matrix** is the rotation Matrix derived from rotating the source vector to the target vector and can be applied to any matrix transformation input. 
 
 <H3Image title="Matrix Compose" image="/img/tools/nge/matrixComposeNode.jpg" alt="Matrix compose node"/>
 This takes two Matrix inputs and composes them into a new Matrix containing both transformations. As expected, the Matrix connected to the matrix0 input is the first transformation and the Matrix connected to matrix1 is the second transformation. If needing to combine more than two transformation matrices, it is possible to chain Matrix Compose nodes by connecting the previous Matrix Compose output to the matrix0 input and a new Matrix to the matrix1 input.  
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **matrix0** is connected to a node providing the first transformation Matrix of the composition.
@@ -820,6 +1618,10 @@ This takes two Matrix inputs and composes them into a new Matrix containing both
 <H3Image title="RotationX" image="/img/tools/nge/rotationXNode.jpg" alt="Rotation X node"/>
 This node generates a rotation Matrix for rotating geometry around the X axis by a value in radians. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **angle** is connected to a node providing a Float value in radians to generate the Matrix.
 
@@ -828,6 +1630,10 @@ This node generates a rotation Matrix for rotating geometry around the X axis by
 
 <H3Image title="RotationY" image="/img/tools/nge/rotationYNode.jpg" alt="Rotation Y node"/>
 This node generates a rotation Matrix for rotating geometry around the Y axis by a value in radians. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **angle** is connected to a node providing a Float value in radians to generate the Matrix.
@@ -838,6 +1644,10 @@ This node generates a rotation Matrix for rotating geometry around the Y axis by
 <H3Image title="RotationZ" image="/img/tools/nge/rotationZNode.jpg" alt="Rotation Z node"/>
 This node generates a rotation Matrix for rotating geometry around the Z axis by a value in radians. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **angle** is connected to a node providing a Float value in radians to generate the Matrix.
 
@@ -847,6 +1657,10 @@ This node generates a rotation Matrix for rotating geometry around the Z axis by
 <H3Image title="Scaling" image="/img/tools/nge/scalingNode.jpg" alt="Scaling node"/>
 This node generates a scaling Matrix for setting the scale of geometry. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **scale** is connected to a node providing a Vector3 value to generate the Matrix.
 
@@ -855,6 +1669,10 @@ This node generates a scaling Matrix for setting the scale of geometry.
 
 <H3Image title="Translation" image="/img/tools/nge/translationNode.jpg" alt="Translation node"/>
 This node generates a translation Matrix for setting the translation of geometry. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **translation** is connected to a node providing a Vector3 value to generate the Matrix.
@@ -870,18 +1688,48 @@ This node generates instances of non-null geometry wired to an input based on th
 
 #### Properties
 - **count** is an input field for an Int value to be used to determine the number of instances to create. This property is only visible if there is no wire connected to the count input.
-- **translation** is an input field for a Vector3 value to be used to translate the position of each instance. This property is only visible if there is no wire connected to the translation input.
+- **position** is an input field for a Vector3 value to be used to set the position of each instance. This property is only visible if there is no wire connected to the translation input.
 - **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of each instance. This property is only visible if there is no wire connected to the rotation input.
 - **scaling** is an input field for a Vector3 value to be used to set the scale of each instance. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **instance** is connected to a node providing a geometry from which to create instances.
 - **count** is connected to a node providing an Int to set the number of instances to create.
 - **matrix** is connected to a node providing a transformation matrix to set position, rotation, and scaling for each instance.
 - **position** is connected to a node providing a Vector3 to set the position for each instance.
+- **rotation** is connected to a node providing a Vector3 using radians to set the rotation for each instance.
+- **scaling** is connected to a node providing a Vector3 to set the scaling for each instance.
+
+#### Outputs
+- **output** is the geometry generated from the node. No matter how many instances were created with this node, the output will be a single geometry that has been automatically merged. 
+
+<H3Image title="Instantiate Linear" image="/img/tools/nge/instantiateLinearNode.jpg" alt="Instantiate Linear node"/>
+This node generates instances of non-null geometry wired to the input based on the count input. These instances are created in a straight line offsetting each instance by the value of direction. If a null geometry is passed to the node during an iteration, the node will continue to iterate until the required number of non-null instances are created. These instances will be output as a single geometry rather than multiple instanced meshes. 
+
+#### Properties
+- **count** is an input field for an Int value to be used to determine the number of instances to create. This property is only visible if there is no wire connected to the count input.
+- **direction** is an input field for a Vector3 value to be used to set the position of each instance. This property is only visible if there is no wire connected to the translation input.
+- **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of each instance. This property is only visible if there is no wire connected to the rotation input.
+- **scaling** is an input field for a Vector3 value to be used to set the scale of each instance. This property is only visible if there is no wire connected to the scaling input.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+
+#### Inputs
+- **instance** is connected to a node providing a geometry from which to create instances.
+- **count** is connected to a node providing an Int to set the number of instances to create.
+- **direction** is connected to a node providing a Vector3 to set the instance's offset from the previous instance.
 - **rotation** is connected to a node providing a Vector3 using radians to set the rotation for each instance.
 - **scaling** is connected to a node providing a Vector3 to set the scaling for each instance.
 
@@ -896,8 +1744,12 @@ This node generates instances of non-null geometry wired to the instance input o
 - **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of each instance. This property is only visible if there is no wire connected to the rotation input.
 - **scaling** is an input field for a Vector3 value to be used to set the scale of each instance. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a source geometry to distribute instances upon.
@@ -918,8 +1770,12 @@ This node generates instances of non-null geometry wired to the instance input o
 - **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of each instance. This property is only visible if there is no wire connected to the rotation input.
 - **scaling** is an input field for a Vector3 value to be used to set the scale of each instance. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 - **Remove duplicate positions** is used to prevent instances from being assigned to vertices that share the same position with another vertex in the source geometry.
 
 #### Inputs
@@ -943,13 +1799,17 @@ Note that this node needs to make several ray casts to ensure all instances fall
 - **rotation** is an input field for a Vector3 value in radians to be used to set the rotation of each instance. This property is only visible if there is no wire connected to the rotation input.
 - **scaling** is an input field for a Vector3 value to be used to set the scale of each instance. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a source geometry to distribute instances upon.
 - **instance** is connected to a node providing a geometry from which to create instances.
-- **density** is connected to a node providing an Float value in a range of 0.0 - 1.0 which determines the percentage of randomly selected vertices that are eligible for an instance.
+- **count** is an input field for an Int value to be used to determine the number of instances to create.
 - **matrix** is connected to a node providing a transformation matrix to set position, rotation, and scaling for each instance.
 - **rotation** is connected to a node providing a Vector3 using radians to set the rotation for each instance.
 - **scaling** is connected to a node providing a Vector3 to set the scaling for each instance.
@@ -967,6 +1827,10 @@ The node doesn't do any calculations in the graph, only displays the values carr
 
 **Note**: There will be times when the display of debug values will be truncated due to the length of the values not fitting within the width of the UI panel. If this happens, simply hover the cursor over any displayed value and a tooltip will appear showing the value in its entirety. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **input** can be connected to a node providing a Float, Int, Vector2, Vector3, Vector4, or Matrix type.
 
@@ -976,6 +1840,10 @@ The node doesn't do any calculations in the graph, only displays the values carr
 <H3Image title="Elbow" image="/img/tools/nge/elbowNode.jpg" alt="Elbow node"/>
 The elbow node is an organizational node to help route wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, Matrix, and Geometry types. The use for this node is just to re-route wires to help with graph organization and it adds no time to the graph calculations so many can be used with no sacrifice to performance. Elbow nodes can be used sequentially as well to perform multiple bends in a wire to detour around congested areas of the graph. Like any other node, an elbow also supports multiple connections to its output port so it can be used to split one wire into many when needed.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **input** can be connected to a node providing a Float, Int, Vector2, Vector3, Vector4, Matrix, or Geometry type.
 
@@ -984,6 +1852,11 @@ The elbow node is an organizational node to help route wires within a graph. It 
 
 <H3Image title="GeometryInfo" image="/img/tools/nge/geometryInfoNode.jpg" alt="Geometry info node"/>
 This node is also a passthrough node for the Geometry type which adds no time to a graph. It does perform one important task which is supplying access to information about the associated geometry at this specific point of the graph. There may be need to access information like vertex count for debugging purposes which can be fed directly to a debug node. Alternatively, the collectionID of the geometry might be needed to help drive logic in the graph through nodes like equal. This node is flexible enough to fit many different needs which is why it has been added to this group.
+
+#### Debug Infos
+Note that call count and execution count appear five times on this node, once for each of the five outputs on this node.
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
 
 #### Inputs
 - **input** can be connected to a node providing a Geometry type.
@@ -1004,6 +1877,10 @@ This node is an organizational node to help reduce the complexity of overlapping
 <H3Image title="TeleportOut" image="/img/tools/nge/teleportOutNode.jpg" alt="Teleport out node"/>
 This node is an organizational node to help reduce the complexity of overlapping wires within a graph. It is a passthrough node that supports Float, Int, Vector2, Vector3, Vector4, Matrix, and Geometry types. This node works in conjunction with the TeleportIn node to make a connection, often far across a graph, without the need for a wire. Setting the entry point property on this node will tell the node which value to reference. Each TeleportIn node in the graph will be available to the TeleportOut node and it can be changed just by selecting a new entry point if needed. In this way, a single value can be used in several places of a graph without the need to stretch wires across the graph.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Properties
 - **Entry point** is the specific TeleportIn node that is referenced by this node.
 
@@ -1013,11 +1890,33 @@ This node is an organizational node to help reduce the complexity of overlapping
 ## Updates
 These nodes will update connected geometry in one of several ways. It could be assigning it to a collection, merging with other geometry, or setting one of the various properties of geometry like colors, material IDs, normals, positions, tangents, or UVs. These nodes, like the math nodes, are some of the most commonly used nodes as they perform very important operations for creating geometry.
 
+<H3Image title="Boolean" image="/img/tools/nge/boolean.jpg" alt="Boolean node"/>
+This node will create a new mesh from the intersection of the two meshes connected to the inputs depending on the operation chosen. Note that this operation works best when both geometry inputs have a moderately high and relatively similar subdivision count. If the two geometry inputs have low resolution or big differences between them in resolution the resulting mesh can be poorly triangulated. The result of the boolean operation will be a newly constructed triangle list removing any vertices that are eliminated by the chosen operation. Because this is a newly generated mesh, previous mesh attributes like UVs will be removed and need to be authored for this new mesh. 
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Operation** determines the boolean operation to apply to the input meshes. Intersect will create a mesh consisting of the intersection between the two input meshes. Subtract will create a mesh that is the result of subtracting geometry0 from geometry1. Union creates a mesh that is the union of the two input meshes and eliminates any vertices that vall completely inside the union.
+
+#### Inputs
+- **geometry0** the first input of Geometry type to be used in the boolean operation.
+- **geometry1** the second input of Geometry type to be used in the boolean operation.
+
+#### Outputs
+- **output** is the resulting mesh from the boolean operation.
+
 <H3Image title="Collection" image="/img/tools/nge/collectionNode.jpg" alt="Collection node"/>
 This node creates a collection of up to 10 geometry inputs. When used in conjunction with one of the instantiate nodes, the collection will provide one random geometry from the collection per iteration of the instantiate node. This allows for more randomization when creating a procedural mesh. The collection also provides a unique collection ID to each included geometry to help drive logic within the graph. The collection ID can be accessed with the GeometryInfo node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry0** can optionally be connected to a node providing a Geometry type.
@@ -1037,6 +1936,10 @@ This node creates a collection of up to 10 geometry inputs. When used in conjunc
 <H3Image title="ComputeNormals" image="/img/tools/nge/computeNormalsNode.jpg" alt="Compute normals node"/>
 There are times when it is necessary to recompute normals when creating geometry. This node is simply there to handle any computations of normals that are needed. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
 
@@ -1046,21 +1949,33 @@ There are times when it is necessary to recompute normals when creating geometry
 <H3Image title="Mapping" image="/img/tools/nge/mappingNode.jpg" alt="Mapping node"/>
 When working with geometry, it is often necessary to create a new UV mapping for it such as when the geometry has been optimized or if an additional UV set is desired. This node will create new set of UV coordinates for the geometry based on the projection method selected. The available projections are spherical, cylindrical, and cubic and more may be added in the future. Simply pass the positions contextual value to the position input and a Vector3 to the center input to define the center of the projection and create UV coordinates for each vertex.
 
+#### Properties
+- **center** is a Vector3 that defines the center of the projection mapping. This allows for a more precise mapping by allowing the projection shape to be moved to encompass the mesh in the way that will best unwrap the mesh.
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
 - **Mapping** defines the projection method for mapping UV coordinates from the available options of spherical, cylindrical, and cubic.
 
 #### Inputs
-- **positions** is connected to the positions contextual value node to provide the vertex list to the node.
-- **center** is connected to a node a Vector3 position for the center of the projection.
+- **position** is connected to the positions contextual value node to provide the vertex list to the node.
+- **normal** is connected to the normals contextual value node to provide the vertex normals to the node.
+- **center** is connected to a node a Vector3 position for the center of the projection. This allows for a more precise mapping by allowing the projection shape to be moved to encompass the mesh in the way that will best unwrap the mesh.
 
 #### Outputs
-- **uv** is the geometry after computing normals.
+- **uv** is the UV set generated for the mesh. This output would be connected to a SetUVs node to apply the UV set to the geometry.
 
 <H3Image title="Merge" image="/img/tools/nge/mergeNode.jpg" alt="Merge node"/>
 A common operation when creating procedural geometry is to merge two or more different meshes. This node will merge up to five geometry inputs into one using a simple merge. This node does not do any type of boolean operation and does not change the vertex lists or UV coordinates at all. If multiple meshes are merged which have different material IDs, a MultiMaterial will be created and assigned to keep the original material breaks of each geometry. When using the Merge node, please note that the advanced property Evaluate Context is disabled by default for performance reasons. If the prior context is not evaluated then any procedural generation of values done before the merge node will be executed only once. If the output of that merge node is then used in any instantiate loop, all instances will be exactly the same. If it is desired that merged geometry built procedurally be unique with each instance, the Evaluate Context property on the Merge node must be enabled. Remember that enabling Evaluate Context on a merge node will increase the time needed to generate the final geometry, so it is important to be prudent on how many nodes must be evaluated before merging, especially if the output of the merge is then used as the source for instancing. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry0** can optionally be connected to a node providing a Geometry type.
@@ -1075,8 +1990,12 @@ A common operation when creating procedural geometry is to merge two or more dif
 <H3Image title="Optimize" image="/img/tools/nge/optimizeNode.jpg" alt="Optimize node"/>
 There are times when a geometry will have unwelded vertices where multiple vertices occupy the same position. This is common when using glTF files as the specification states that vertices that lie on a UV seam should be split for optimization reasons. If working with geometry that has unwelded vertices that need to be merged, use the optimize node. This node does a simple operation that merges any vertices that share the same position within a certain epsilon. This operation is destructive in that it creates a new triangle list and deletes all vertex parameters other than positions. This means that any mesh that has been optimized will need new normals, tangents, and vertex colors. Typically, the first node connected after an Optimize node would be a ComputeNormals node.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 - **Epsilon** is the radius which defines which vertices will be merged. Any vertices within an epsilon of the current vertex will all be merged into one.
 
 #### Inputs
@@ -1088,12 +2007,16 @@ There are times when a geometry will have unwelded vertices where multiple verti
 <H3Image title="SetColors" image="/img/tools/nge/setColorsNode.jpg" alt="Set colors node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the color of each vertex in the geometry according to the Vector4 value provided to the node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
-- **colors** is connected to a node providing Vector4 color(s) for each vertex in the geometry.
+- **colors** is connected to a node providing a Vector3 or Vector4 color(s) for each vertex in the geometry.
 
 #### Outputs
 - **output** is the geometry after defining a property with this node.
@@ -1104,8 +2027,12 @@ This node is one of the several which are responsible for defining geometry prop
 #### Properties
 - **id** is an input field for an Int value to be used to determine the material ID for the geometry. This property is only visible if there is no wire connected to the ID input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
@@ -1117,8 +2044,12 @@ This node is one of the several which are responsible for defining geometry prop
 <H3Image title="SetNormals" image="/img/tools/nge/setNormalsNode.jpg" alt="Set normals node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the normals of each vertex in the geometry according to the Vector3 value provided to the node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
@@ -1130,8 +2061,12 @@ This node is one of the several which are responsible for defining geometry prop
 <H3Image title="SetPositions" image="/img/tools/nge/setPositionsNode.jpg" alt="Set positions node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the positions of each vertex in the geometry according to the Vector3 value provided to the node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
@@ -1143,8 +2078,12 @@ This node is one of the several which are responsible for defining geometry prop
 <H3Image title="SetTangents" image="/img/tools/nge/setTangentsNode.jpg" alt="Set tangents node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the tangents of each vertex in the geometry according to the Vector4 value provided to the node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 
 #### Inputs
 - **geometry** is connected to a node providing a Geometry type.
@@ -1156,8 +2095,12 @@ This node is one of the several which are responsible for defining geometry prop
 <H3Image title="SetUVs" image="/img/tools/nge/setUVsNode.jpg" alt="Set UVs node"/>
 This node is one of the several which are responsible for defining geometry properties. This node will set the UVs of each vertex in the geometry according to the Vector2 value provided to the node. Using this node, a new UV set can be saved to any of the six available UV sets that the engine supports. Simply choose which set is desired in the Texture coordinates index property to assign the UV coordinates to that set.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
-- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desireable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
+- **Evaluate context** determines whether any nodes connected after this one can instruct this node to evaluate its context again. There are two considerations to keep in mind here. The first is the importance of this node delivering the same data to each connected node and the second is how much extra processing time is needed to evaluate context again. If it is important that this node return the same data for each connected node, set **Evaluate context** to false or any procedurally generated data feeding this node will generate new data for each connected node. If generating a new data set for each connected node is desirable, set this property to true. This also applies to nodes that loop which will request a new evaluation of the context for each iteration of the loop if this property is set to true. If there are no procedural nodes feeding this one or all procedural nodes are locked, disable this property to optimize build time. There is no reason to evaluate the context if the data feeding this node does not change. As the graph gets more complex and looping nodes nest it quickly becomes apparent that disabling **Evaluate context** improves performance and is recommended where possible.
 - **Texture coordinates index** is used to define which of the six supported UV sets should be used when writing this UV mapping.
 
 #### Inputs
@@ -1179,6 +2122,10 @@ This node provides a simple 3D Perlin noise to generate a volume of randomized v
 - **octaves** is an input field for a Float value to be used to adjust the number of octaves to the noise texture which increases the frequency of the pattern resulting in increased detail in the texture. This property is only visible if there is no wire connected to the scaling input.
 - **roughness** is an input field for a Float value to be used to adjust the amplitude of the octaves in the noise texture which adds contrast to the texture. This property is only visible if there is no wire connected to the scaling input.
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Inputs
 - **offset** is connected to a node providing a Vector3 value to be used offset the noise texture. 
 - **scale** is connected to a node providing a Float value to be used to scale the noise texture. 
@@ -1191,6 +2138,10 @@ This node provides a simple 3D Perlin noise to generate a volume of randomized v
 <H3Image title="Random" image="/img/tools/nge/randomNode.jpg" alt="Random node"/>
 This node provides a random value between a minimum value and a maximum value. This node can support Float, Int, Vector2, Vector3, and Vector4 types. The type for the node connected to the input of this node determines the type for the node output. When using this node with iterable nodes, the node will return a new random value per iteration. Iterable nodes include SetColors, SetNormals, SetPositions, SetTangents, and SetUVs as the operations are performed for every vertex in the geometry. If a random node is used before one of these iterable nodes, a new random value will be generated for each iteration. This is also true for all of the instantiate nodes where the node will loop a certain number of times based on inputs. For more control, the Random node also has an advanced property to lock the value per loop so that the random value will be the same for each iteration or loop. Note that this property only applies to the nearest iteration or loop being performed by a node. This means if a Random node feeds a SetColor node which in turn feeds an Instantiate node, locking the value per loop will apply only to the SetColor node and not the Instantiate node. 
 
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
 #### Advanced
 - **Lock per loop** will return one value per loop rather than a different random value for each loop when enabled.
 
@@ -1200,6 +2151,49 @@ This node provides a random value between a minimum value and a maximum value. T
 
 #### Outputs
 - **output** is the random value as a Float type.
+
+## Textures
+Texture data can be loaded and cached to be made available to the graph. Texture data can be used for operations like instantiating meshes based on texture values at a given UV coordinate or for assigning vertex color to a mesh. Using textures in the graph require both a Texture node and a Texture Fetch node. The Texture node takes care of the loading and caching of the Texture data while the Texture Fetch takes care of returning specific Texture data based on UV coordinate. Unlike Texture nodes in the Node Material Editor, Texture data is not rendered on the mesh directly but instead used for driving instantiation or setting mesh properties.
+
+<H3Image title="Texture" image="/img/tools/nge/textureNode.jpg" alt="Texture node"/>
+This node is responsible for caching Texture data that is loaded by this node. This can be either through manually loading a texture with the Load property or through assigning a texture to the node in code.   
+
+#### Debug Infos
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Properties
+- **Load** will load an external file from local storage and cache the Texture data for this graph to use.
+- **Remove** will remove any cached Texture data associated with this node.
+
+#### Advanced
+- **Serialize cached data** will serialize Texture data from this node so that it can be written into the json saved for this graph when enabled.
+
+#### Outputs
+- **texture** is the cached Texture data associated with this node. The icon on the output is unique to Texture data because this node can only be connected to a Texture Fetch node which is needed to access the cached Texture data.
+
+<H3Image title="Texture Fetch" image="/img/tools/nge/textureFetchNode.jpg" alt="Texture Fetch node"/>
+This node is responsible for returning Texture data cached by the Texture node at a given UV coordinate. This node will only accept input connections from the Texture node.   
+
+#### Debug Infos
+Note that call count and execution count appear six times on this node, once for each of the six outputs on this node.
+- **Call count** shows the number of times this node is called by nodes further into the graph. This is the total number of calls from all subsequent nodes. 
+- **Execution count** shows the number of times this node is executed. This value will affect the performance of the graph. Depending on the value of *Evaluate context* on nodes further in the graph the values for *Execution count* may be lower than the value for *Call count*. 
+
+#### Advanced
+- **Clamp Coordinates** will determine if the UV coordinates are clamped at 0.0 and 1.0 which will prevent the Texture data from tiling when enabled. 
+
+#### Inputs
+- **texture** is a Texture type connection coming from a Texture node which is the only viable type that can be connected.
+- **coordinates** is a Vector2 type connection which provides the UV coordinates for the Texture Fetch node to use.
+
+#### Outputs
+- **rgba** is a Vector4 type output which provides the RGBA value from the Texture data at a specified UV coordinate.
+- **rgb** is a Vector3 type output which provides the RGB value from the Texture data at a specified UV coordinate.
+- **r** is a Float type output which provides the R value from the Texture data at a specified UV coordinate.
+- **g** is a Float type output which provides the G value from the Texture data at a specified UV coordinate.
+- **b** is a Float type output which provides the B value from the Texture data at a specified UV coordinate.
+- **a** is a Float type output which provides the A value from the Texture data at a specified UV coordinate.
 
 ## Output Nodes
 These are required nodes for the graph to create an output geometry.

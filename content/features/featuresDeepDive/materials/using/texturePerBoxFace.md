@@ -233,8 +233,8 @@ faceUV[f].z = temp;
 Three new optional parameters were added to `CreateBox` in the V4.0 update, these are
 
 - wrap - boolean (default = false), when true all vertical sides (0, 1, 2, 3) will apply image textures in the correct, upright, direction and the two horizontal sides (4, 5) will apply image textures so that when the box is when rotated around the x axis so that these sides are vertical the applied image textures will be applied in their original orientations;
-- topBaseAt - integer, 0, 1, 2, 3, (default = 1), the bottom (base) of the image for the top of the box is next the the side with the number given;
-- bottomBaseAt- integer, 0, 1, 2, 3, (default = 0), the bottom (base) of the image for the bottom of the box is next the the side with the number given.
+- topBaseAt - integer, 0, 1, 2, 3, (default = 1), the bottom (base) of the image for the top of the box is next the side with the number given;
+- bottomBaseAt- integer, 0, 1, 2, 3, (default = 0), the bottom (base) of the image for the bottom of the box is next the side with the number given.
 
 In the following playground the two boxes at the top do not use the wrap parameter and the result is backwards compatible with earlier versions of Babylon.js. The lower boxes are with wrap set to true.
 
@@ -324,7 +324,7 @@ So you need to tube surface to have the same height to width ratio.
 
 When you create a cylinder with default diameter of 1 then the rectangle wrapping around the tube surface will have a width of &pi;.
 
-Letting h be the height of the cylinder then to not distort the aspect ration of the image wrapped around the cyclinder keep the ratios h/&pi; and 319/866 the same.
+Letting h be the height of the cylinder then to not distort the aspect ratio of the image wrapped around the cylinder keep the ratios h/&pi; and 319/866 the same.
 
 So make h = &pi; \* 319/866 = 1.16 to 2 decimal places.
 

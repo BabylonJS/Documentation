@@ -60,7 +60,7 @@ The Instances node also gives information on the instance number of the object, 
 
 ## Instancing a glTF Object
 
-When you instanciate a glTF object, you need to make sure that the new instance will be under the same parent or you need to remove the parent from the source object.
+When you instantiate a glTF object, you need to make sure that the new instance will be under the same parent or you need to remove the parent from the source object.
 
 This is because every gltf file comes from a right handed world. To get it into Babylon.js left handed world, we are adding an arbitrary parent that is adding a negative scale on z.
 
@@ -98,7 +98,7 @@ The other way is to register a custom buffer with `registerInstancedBuffer`:
 mesh.registerInstancedBuffer("color", 4); // 4 is the stride size eg. 4 floats here
 ```
 
-Using this API, you can specify a new buffer that will be instancied. This means that each instance will have its own value. You can specify this value on the root mesh and on every single instance:
+Using this API, you can specify a new buffer that will be instantiated. This means that each instance will have its own value. You can specify this value on the root mesh and on every single instance:
 
 ```javascript
 box.instancedBuffers.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), 1);

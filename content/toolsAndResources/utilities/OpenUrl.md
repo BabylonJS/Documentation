@@ -8,7 +8,7 @@ video-overview:
 video-content:
 ---
 
-## Open an URL with Action Manager
+## Open a URL with Action Manager
 
 Since any Javascript can be called when executing code action with the action manager it is straight forward to open a new web page using 
 
@@ -20,7 +20,7 @@ to open a new window or
 ```javascript
 window.location = URL
 ```
-to replace the contants of the current window.
+to replace the content of the current window.
 
 <Playground id="#INB624#1" title="Open URL On Single Mesh Click" description=""/>
 <Playground id="#INB624#2" title="Open URL On Mesh Click Of Multiple Meshes" description=""/>

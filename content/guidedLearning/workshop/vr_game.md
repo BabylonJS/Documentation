@@ -48,7 +48,7 @@ reticle.position.z = 2;
 
 The secret behind creating a reticle is [Raycasting](/features/featuresDeepDive/mesh/interactions/picking_collisions). A Ray is a straight line that'll tell us when it intersects with an object. We want to create a Ray from the middle of our camera facing forward, and change the color of the reticle to green when we can interact with the mesh.
 
-We put the funciton in registerBeforeRender() so that it gets continually updated every frame.
+We put the function in registerBeforeRender() so that it gets continually updated every frame.
 
 ```javascript
 /*The function that runs to determine the behavior of the reticle.*/
@@ -114,7 +114,7 @@ blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.Act
 
 ### VR Cameras
 
-Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
+Babylon.js makes it very easy to use VR camera. Our scene has two options. The default implemented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
 
 ```javascript
 var camera = new BABYLON.WebVRFreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);

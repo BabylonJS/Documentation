@@ -1553,7 +1553,7 @@
                                             "content": "features/featuresDeepDive/particles/solid_particle_system/sps_physics"
                                         },
                                         "optimize_sps": {
-                                            "friendlyName": "Optimize a SPS",
+                                            "friendlyName": "Optimize an SPS",
                                             "children": {},
                                             "content": "features/featuresDeepDive/particles/solid_particle_system/optimize_sps"
                                         },
@@ -3537,6 +3537,11 @@
             "friendlyName": "What's New",
             "children": {},
             "content": "whats-new"
+        },
+        "breaking-changes": {
+            "friendlyName": "Breaking Changes",
+            "children": {},
+            "content": "breaking-changes"
         },
         "typedoc": {
             "friendlyName": "API",

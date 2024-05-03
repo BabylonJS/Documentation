@@ -20,7 +20,7 @@ When using the node material editor we can create frames by holding shift and dr
 
 A frame is an easy way to group several nodes together and collapse them into a smaller group to declutter the graph and allow you to reuse certain node branches. We can rename the frame, change its color, and even make a note/comment about it.
 
-When we collapse the node, input and output ports that are linked to other nodes outside of the grame, will be exposed on the frame edges. (You can manually set a port to be exposed as well). Here we can edit the exposed ports by renaming them or even changing the order.
+When we collapse the node, input and output ports that are linked to other nodes outside of the frame, will be exposed on the frame edges. (You can manually set a port to be exposed as well). Here we can edit the exposed ports by renaming them or even changing the order.
 
 ![NME](/img/how_to/Materials/custom_frames_2.jpg)
 
@@ -38,7 +38,7 @@ We also have a library of custom frames available for you to leverage here: http
 
 ### Tile and Offset
 
-This custom frame is primarly used to tile and/or offset `UV`s, but you can use it to modify any `Vector2`.
+This custom frame is primarily used to tile and/or offset `UV`s, but you can use it to modify any `Vector2`.
 
 Example setup (you have to set your texture to generate some visible output):
 

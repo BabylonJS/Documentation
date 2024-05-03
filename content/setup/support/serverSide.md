@@ -28,9 +28,13 @@ var scene = new BABYLON.Scene(engine);
 
 If you want to use it in a Node.js environment, you may need to add some additional resources (like support for xhr):
 
+First install babylonjs and babylonjs-loaders: `npm install babylonjs babylonjs-loaders`
+
+Then use this code:
+
 ```
-var BABYLON = require("../../dist/preview release/babylon.max");
-var LOADERS = require("../../dist/preview release/loaders/babylonjs.loaders");
+var BABYLON = require("babylonjs");
+var LOADERS = require("babylonjs-loaders");
 global.XMLHttpRequest = require("xhr2").XMLHttpRequest;
 
 var engine = new BABYLON.NullEngine();

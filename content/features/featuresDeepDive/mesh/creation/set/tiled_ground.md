@@ -10,7 +10,8 @@ video-content:
 
 ## Tiled Ground
 
-A tiled ground is created differently to a ground mesh. It still lies in the xz plane. The bottom left corner of of the tiled ground is given by the values for xmin and zmin and the top right corner by xmax and zmax. The tiled ground is be subdivided into tile regions: across into w tiles and up into h tiles. In the same way every tile can be further subdivided into w by h sections. The creation of a tiled ground relies on the use of _MultiMaterials_.
+A tiled ground is created differently to a ground mesh. It still lies in the xz plane. The bottom left corner of the tiled ground is given by the values for xmin and zmin and the top right corner by xmax and zmax. 
+The tiled ground is subdivided into tile regions: across into w tiles and up into h tiles. In the same way every tile can be further subdivided into w by h sections. The creation of a tiled ground relies on the use of _MultiMaterials_.
 
 ## MeshBuilder
 

@@ -13,7 +13,7 @@ video-content:
 
 A sprite map allows you to display layers of sprites on a grid and can render thousands (dare I say millions?) of animated sprites on screen.  A large area of use, as used in this section, is in 2D and 2.5D games but other applications can also benefit. The only current limitation of this system is that the positions of the sprites are static within the grid and are dictated by the sprite map's initializing parameters. 
 
-A  sprite map is displayed on a standard plane mesh in 3D space. and has the ability to be transformed in 3d space.  The speed of rendering is based on the the use of texture buffers and each map only requires one draw call.
+A  sprite map is displayed on a standard plane mesh in 3D space. and has the ability to be transformed in 3d space.  The speed of rendering is based on the use of texture buffers and each map only requires one draw call.
 
 Since the plane is split into a grid of tiles of the same size the cells of the packed spritesheet should be of the same size.
 
@@ -75,7 +75,7 @@ First we will start with a background that uses a 2 x 2 grid of tiles and just 4
 let backgroundSize = new BABYLON.Vector2(2, 2); //set the size of the sprite map stage
 ```
 
-Once the altlas JSON and the spritesheet texture have been loaded we can create the sprite map, setting two of the options parameter properties
+Once the atlas JSON and the spritesheet texture have been loaded we can create the sprite map, setting two of the options parameter properties
 ```javascript
 let background = new BABYLON.SpriteMap('background', atlasJSON, spriteSheet,
     {

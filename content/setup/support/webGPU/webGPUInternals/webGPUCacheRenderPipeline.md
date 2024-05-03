@@ -11,7 +11,7 @@ video-content:
 This class implements a cache of GPU render pipelines to avoid recreating them each frame.
 
 ## Cache implementation
-The cache is a node tree with the same structure than the bind group cache:
+The cache is a node tree with the same structure as the bind group cache:
 ```typescript
 class NodeState {
     public values: { [id: number]: NodeState };
@@ -51,7 +51,7 @@ So, the first node (`_Cache.values`) holds the stencil read mask values, the sec
 To find a pipeline in the cache we simply starts from the root node, lookup the `values` property with the `stencilReadMask` current value, then lookup the `values` property of this node with the `stencilWriteMask` current value and so on, until we traverse all the states.
 
 ## Optimization
-The state positions are ordered so that states that are less likely to change from one pipeline to another are listed first. That's because we maintain a pointer (`_stateDirtyLowestIndex`) that contains the lowest index of all the states that have been dirtyfied (meaning the states that have changed since the last pipeline lookup) before querying the cache and we will traverse the cache from this index and not from 0 to lookup the pipeline. So, the higher `_stateDirtyLowestIndex` is the better the performances are: we will traverse less nodes to find the pipeline in the cache.
+The state positions are ordered so that states that are less likely to change from one pipeline to another are listed first. That's because we maintain a pointer (`_stateDirtyLowestIndex`) that contains the lowest index of all the states that have been dirtyfied (meaning the states that have changed since the last pipeline lookup) before querying the cache and we will traverse the cache from this index and not from 0 to lookup the pipeline. So, the higher `_stateDirtyLowestIndex` is the better the performances are: we will traverse fewer nodes to find the pipeline in the cache.
 
 Note we tried an implementation where render pipelines where recorded in a hash map and the lookup key was a string concatenation of the state values (see the class `WebGPUCacheRenderPipelineString`) but it was dropped because the node tree implementation was faster (around 2x at the time the comparison was made - the code has changed since then so we should probably perform some new testings but I still think the node tree is faster than the hash map).
 

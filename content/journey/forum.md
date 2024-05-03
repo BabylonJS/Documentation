@@ -25,7 +25,7 @@ The best way to get an answer quickly is to follow this 3 easy steps:
 
 - Search about your issue on the [documentation](/search). Maybe the problem you have is just a matter of understanding how the API works?
 - Search about your issue on the [forum](https://forum.babylonjs.com/search). Maybe someone else already had the same problem?
-- Provide a reproduction of your issue within the [playground](https://playground.babylonjs.com). Questions with a playground are likely to get a answer within the next two hours. It is really hard for the community to help without a repro because of the inner rich nature of JavaScript, WebGL and Babylon.js. Consider this step **mandatory**.
+- Provide a reproduction of your issue within the [playground](https://playground.babylonjs.com). Questions with a playground are likely to get an answer within the next two hours. It is really hard for the community to help without a repro because of the inner rich nature of JavaScript, WebGL and Babylon.js. Consider this step **mandatory**.
 
 ## Go Explore
 

@@ -246,7 +246,7 @@ PG: <Playground id="#GLLBLZ#7" title="Icosahedron Test 1" description="Draw Icos
 
 ## Mapping the Primary Triangle onto Icosahedron Faces
 
-After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron. We use the mathematics from the this section in the Geodesic math page.
+After forming the primary triangle for GD(m, n) we need to map the facet vertices formed onto each face of the icosahedron. We use the mathematics from the section in the Geodesic math page.
 
 ```
 /******Primary Triangle*********/

@@ -30,7 +30,7 @@ Create GUI (element html5 and css3):
 - slider
 - progress
 - meter (jauge de measure)
-- select color (with compatitility IE and Edge)
+- select color (with compatibility IE and Edge)
 - spinner
 - radio button
 - checkbox
@@ -43,8 +43,8 @@ Create GUI (element html5 and css3):
 ## Quick overview of use GUI
 
 We must create a GUIManager that allows to recover the origin of the canvas and provides other basic thing.
-A GUIManager can have a CSS that Formatted anything you want to customize your GUI.
-You can also options to add a theme in the third parameter.
+A GUIManager can have a CSS that formatted anything you want to customize your GUI.
+You can also add options to set a theme in the third parameter.
 
 ```javascript
 let canvas = document.getElementById("game");

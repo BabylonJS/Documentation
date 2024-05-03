@@ -14,7 +14,7 @@ This page contains some ideas for using GreasedLine.
 
 ### Audio analyzer
 
-Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines drawn. The big analyzer's widths are are changed and the smaller's offsets according to the frequency data of the music. It also shows how can you manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the colors texture.
+Shows how you can use `widths` and `offsets` to create a simple audio analyzer. There are two horizontal lines drawn. The big analyzer's widths are changed and the smaller's offsets according to the frequency data of the music. It also shows how can you manually create a `RawTexture` for the `colors` option. The colors are animated simply by modifying the UV offset of the colors texture.
 
 Please unmute the audio after the PG starts.
 
@@ -105,7 +105,7 @@ A supernova like star using `GreasedLine`. It draws the main star, applies volum
 
 Just some vegetation drawn using GreasedLines.
 
-You will want to tweak the parameters for sure to get a low poly version of the the tree/grass/bush otherwise this technique is not recommended for production because it generates a lot of geometry. The visual appearance is neither not quite satisfying but you can achieve quite good results by generating grass/bushes (remove the trunk of the tree). Instancing is highly recommended.
+You will want to tweak the parameters for sure to get a low poly version of the tree/grass/bush otherwise this technique is not recommended for production because it generates a lot of geometry. The visual appearance is neither not quite satisfying but you can achieve quite good results by generating grass/bushes (remove the trunk of the tree). Instancing is highly recommended.
 
 Press PLAY to generate a new one.
 

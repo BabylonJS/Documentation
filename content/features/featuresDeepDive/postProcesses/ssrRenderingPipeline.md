@@ -5,7 +5,7 @@ description: Learn about the screen space reflection rendering pipeline in Babyl
 keywords: diving deeper, post processes, post process, screen space reflection, reflection, SSR
 further-reading:
   [
-    "http://casual-effects.blogspot.com/2014/08/screen-space-ray-tracing.html",
+    "https://casual-effects.blogspot.com/2014/08/screen-space-ray-tracing.html",
     "https://sourceforge.net/p/g3d/code/HEAD/tree/G3D10/data-files/shader/screenSpaceRayTrace.glsl",
     "https://github.com/kode80/kode80SSR",
     "https://sakibsaikia.github.io/graphics/2016/12/26/Screen-Space-Reflection-in-Killing-Floor-2.html",

@@ -63,7 +63,7 @@ This means after *frame n* is displayed the particle's position has to be reset 
 
 ## Colliding Particles
 
-Given a two particles P and Q of radius r, at positions p and q with velocities v and u repectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particle are at p + v and q + u. Between *frame n* and frame n+1* the two particles would collide when there is a time t &lt;= 1 when the distance between the positions of the particles is 2r. See Fig 22.
+Given two particles P and Q of radius r, at positions p and q with velocities v and u respectively travelling towards each other in *frame n*. In *frame n+1* the centres of the particle are at p + v and q + u. Between *frame n* and frame n+1* the two particles would collide when there is a time t &lt;= 1 when the distance between the positions of the particles is 2r. See Fig 22.
 
 ![Fig 22](/img/samples/collide25.jpg)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 22.

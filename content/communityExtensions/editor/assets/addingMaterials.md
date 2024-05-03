@@ -51,7 +51,7 @@ If the material has not been instantiated, assign the material first on a mesh. 
 ## Refreshing Thumbnail
 
 To save performances in Editor, materials thumbnails are not permanently updated. In case, for example, one or
-multipe texture asset have been changed, the thumbnail will not be necessary updated.
+multiple texture asset have been changed, the thumbnail will not be necessarily updated.
 
 To update the thumbnail of materials, simply select the materials in the assets browser, `right-click` them
 and select `Refresh Preview`.

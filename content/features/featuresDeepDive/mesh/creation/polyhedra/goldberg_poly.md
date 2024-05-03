@@ -130,7 +130,7 @@ goldbergPoly.updateGoldbergFaceUVs(uvArray); //resets face UVs only when the mes
 
 where `uvArray` is an array of elements of the form [start face, end face, center, radius, angle]
 
-center is a Vector2 with 0 &le; x, &le; 1 and 0 &le; y &le; 1 giving the relative center of a pentagon/hexagon, within a image, of given radius and set at the given angle. The image used should be square to prevent distortion of the texture.
+center is a Vector2 with 0 &le; x, &le; 1 and 0 &le; y &le; 1 giving the relative center of a pentagon/hexagon, within an image, of given radius and set at the given angle. The image used should be square to prevent distortion of the texture.
 
 For example
 
@@ -181,7 +181,7 @@ const position = new BABYLON.Vector3(0.53, height / 2, 0.34);
 goldbergPoly.placeOnGoldbergFaceAt(box, 32, position);
 ```
 
-Meshes should be sized accoring to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face \* &radic;3
+Meshes should be sized according to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face \* &radic;3
 
 PG: <Playground id="#A8VZGP#40" title="Placing Meshes" description="Land masses with buildings"/>
 

@@ -41,8 +41,8 @@ SPS.updateParticleVertex = function(particle, vertex, v) {
 ```
 
 Note well that this vertex update is not stored (the particle shape isn't modified) but just computed in the next call to `setParticles()`. So there is no value accumulation : the vertex coordinates, colors or UVs are always the initial ones when entering this function.  
-Note also that the shape reference for each particle is the original shape of the mesh model you passed in `addShape()`, even if you had passed also a custom `vertexFunction` (see in the part : "Going furhter in immutable SPS").  
-The good news is that the very same function can be use for `SPS.updateParticleVertex` and for the custom `vertexFunction` expected by `addShape()`.  
+Note also that the shape reference for each particle is the original shape of the mesh model you passed in `addShape()`, even if you had passed also a custom `vertexFunction` (see in the part : "Going further in immutable SPS").  
+The good news is that the very same function can be used for `SPS.updateParticleVertex` and for the custom `vertexFunction` expected by `addShape()`.  
 So to better understand how it works, here is another global pseudo-code schema :
 
 ```javascript

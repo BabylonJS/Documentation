@@ -16,7 +16,7 @@ The SPS supports the MultiMaterials and provides a mechanism to keep the draw ca
 
 ### Simple way
 
-The simplest way to set different materials to the particles is to set a different material to each model used to create the particles and to ask the SPS to use these materials at construction time with the optional paramater `useModelMaterial` set to `true` (default `false`).
+The simplest way to set different materials to the particles is to set a different material to each model used to create the particles and to ask the SPS to use these materials at construction time with the optional parameter `useModelMaterial` set to `true` (default `false`).
 
 ```javascript
 // model1, model2 and model3 are meshes with already set materials at this step
@@ -37,7 +37,7 @@ This enables the multimaterial support, then copies the model geometries and cre
   Example: <Playground id="#RCUHJA" title="Materials In SPS" description="Simple example of applying materials to solid particles."/>
 
 You can obviously notice that this method associates the model materials to the particles on the particle shape basis : all the particles of a given shape share the same material.  
-You can still change this behavior by assignig some materials on the particle basis by setting the particle property `.materialIndex` value to the wanted material index. The material index is simply the index of the shape material in the order the shape are created : 0 for the first shape, 1 for the second one, and so on. If set, it overwrites the assigned shape material index.  
+You can still change this behavior by assigning some materials on the particle basis by setting the particle property `.materialIndex` value to the wanted material index. The material index is simply the index of the shape material in the order the shape are created : 0 for the first shape, 1 for the second one, and so on. If set, it overwrites the assigned shape material index.  
 This can be done at creation time in a `positionFunction` of an immutable SPS for instance.
 
 ```javascript
@@ -99,7 +99,7 @@ Example: <Playground id="#RCUHJA#3" title="Intermediate Solid Particle Material 
 
 Until now, you've essentially set the particle `materialIndex` values at construction time and they haven't changed then, only the materials themselves have changed.  
 You can still change the particle `materialIndex` values at any time, for instance in a call to `sps.updateParticle()` from `sps.setParticles()` like you would do to change the particle positions or rotations, or in a call to any other function of your own at some moment.  
-The difference with the other particle properties (positon, rotation, etc) is that `setParticles()` doesn't compute the materials at all.  
+The difference with the other particle properties (position, rotation, etc) is that `setParticles()` doesn't compute the materials at all.  
 Indeed `setParticles()` is designed to be called each frame in the render loop and to make sure to keep the garbage collector activity to its minimum by allocating nothing.  
 Applying the changes of `materialIndex` values requires to sort again all the particles, to recompute the whole SPS geometry and moreover to recreate new SubMesh objects from the SPS mesh.  
 Therefore a dedicated method is provided `sps.computeSubMeshes()`. This method is to be called manually after each change of particle `materialIndex` values for them to be taken in account at once.  
@@ -159,7 +159,7 @@ As was mentioned above, setting `useModelMaterial` to true on the SPS constructo
 
 ![Example of node material on SPS showing a series of spheres emitted into a cylindrical area with varying metallic values, random roughness values and colors that range from blue and yellow-orange at the top to purple and red at the bottom](/img/how_to/Particles/sps_nme_render.jpg)
 
-This render shows a solid particle system using a node material employing `PBRMetallicRoughness` nodes, random metallic and roughness values, world postion-based base color gradients, and randomized color pairings. Normally, setting `useModelMaterial` in the SPS constructor is all that is needed but there are a couple of considerations to keep in mind. 
+This render shows a solid particle system using a node material employing `PBRMetallicRoughness` nodes, random metallic and roughness values, world position-based base color gradients, and randomized color pairings. Normally, setting `useModelMaterial` in the SPS constructor is all that is needed but there are a couple of considerations to keep in mind. 
 
 - Cleaning up the scene memory by deleting the original mesh added to the SPS is fine, but leaving the original node material in the scene is important. With the node material available, changes can be made to the material's uniforms to update the node material in real time which will be reflected in the SPS Mesh.
 - If the SPS Mesh is taking advantage of `particle.color` [the property is a nullable Color4](/typedoc/classes/BABYLON.SolidParticle#color), but can be assigned a `Color3` in code. Node material will be able to access `particle.color` using the mesh color `InputBlock`, but it is important to understand what class, `Color3` or `Color4`, was assigned in code. If the property was assigned a `Color3`, then the `InputBlock` needs to be connected to a `ColorSplitterBlock` and the `Color3` output should be used for calculations. If connecting the `Color4` output to another block is attempted, the type mismatch will cause an unexpected conflict due to the missing channel that will likely result in nothing rendering. Matching the declaration of `particle.color` to the component channels used in the node graph will ensure the node material renders correctly.

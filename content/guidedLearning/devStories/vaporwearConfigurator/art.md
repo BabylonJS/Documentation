@@ -139,7 +139,7 @@ and looked correct. The available options were as follows:
 1.  Users could choose to add four gemstone "studs" to the watch.
 1.  If the users had added studs, they could choose from several colors of
     gemstones.
-1.  If the users had added studs, they could chose from several different
+1.  If the users had added studs, they could choose from several different
     metals for the bezels.
 
 From an art perspective, these options boiled down to two underlying
@@ -267,7 +267,7 @@ weighing in at a whopping 15 megabytes, _far_ too large to load in the
 foreground of a Web experience, but acceptable for loading in the
 background. As before, Carlos double-checked how the materials would render
 using Babylon's 3D Commerce-certified Sandbox. With the materials
-finished, he'd now completed all of the art work that could be looked at;
+finished, he'd now completed all the artwork that could be looked at;
 next he needed to decide _how_ the art should be looked at.
 
 ## Camera Motion

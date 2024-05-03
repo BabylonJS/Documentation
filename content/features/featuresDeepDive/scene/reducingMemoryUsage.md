@@ -47,7 +47,7 @@ scene.clearCachedVertexData();
 
 ## Removing cached texture buffers
 
-In order to be able to serialize or rebuild them, all textures keep an internal buffer of the original source (could be a string if you used an url, but it could also be a buffer if you used a blob).
+In order to be able to serialize or rebuild them, all textures keep an internal buffer of the original source (could be a string if you used a url, but it could also be a buffer if you used a blob).
 If you don't need to use these features, you can call this function to free associated memory:
 
 ```

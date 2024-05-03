@@ -133,9 +133,9 @@ See the following example for a full playground using morph targets from a glTF 
 You can morph the following mesh attributes:
 
 - position
-- normal (can be turned of by calling `manager.enableNormalMorphing = false`)
-- tangents (can be turned of by calling `manager.enableTangentMorphing = false`)
-- uvs (can be turned of by calling `manager.enableUVMorphing = false`)
+- normal (can be turned off by calling `manager.enableNormalMorphing = false`)
+- tangents (can be turned off by calling `manager.enableTangentMorphing = false`)
+- uvs (can be turned off by calling `manager.enableUVMorphing = false`)
 
 ## Animating Morph Targets
 

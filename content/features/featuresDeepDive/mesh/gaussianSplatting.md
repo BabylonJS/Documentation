@@ -21,7 +21,7 @@ Supported formats are :
 
 ## Loading a Gaussian Splatting
 
-Instanciate a new `GaussianSplattingMesh` object. It inherits from Mesh class. Set its name and the scene it belongs to.
+Instantiate a new `GaussianSplattingMesh` object. It inherits from Mesh class. Set its name and the scene it belongs to.
 Second parameter is an optional url to load a file without the need to call `loadFileAsync`.
 
 ```javascript
@@ -38,4 +38,4 @@ gs.loadFileAsync("https://raw.githubusercontent.com/CedricGuillemet/dump/master/
 
 <Playground id="#CID4NN#0" title="Simple Example of Gaussian Splatting" description="Simple example of setting a Gaussian Splatting."/>
 
-<Playground id="#45KYTJ#6" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>
+<Playground id="#45KYTJ#8" title="Loading and displaying different Gaussian Splatting scenes" description="Loading and displaying different Gaussian Splatting scenes."/>

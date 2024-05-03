@@ -154,7 +154,7 @@ Due to the low resolution of the RSM texture, moving objects can exhibit a "wobb
 
 You may also see brighter areas at the base of the pillar and at the boundary between the ceiling/back wall and the back wall/floor. These artifacts can be corrected to some extent using the **edge artifact correction** setting (see below), but they can be difficult to correct completely, especially when objects or lights are moving.
 
-This is why this mode is probably best suited to static scenes or screeshot generation.
+This is why this mode is probably best suited to static scenes or screenshot generation.
 
 ### Intensity, Radius and Number of samples
 
@@ -198,7 +198,7 @@ As we only take a limited number of samples to calculate the GI contribution for
 
 You can trade banding for noise by setting `GIRSM.rotateSample = true`. You'll also need to set `GIRSM.noiseFactor` to a value large enough to make the noise pattern small enough:
 
-|noiseFactor=6|noieFactor=500|
+|noiseFactor=6|noiseFactor=500|
 |-|-|
 |![Noise factor too small](/img/features/rsmgi/noise_too_small.jpg!497)|![Noise factor ok](/img/features/rsmgi/noise_ok.jpg!497)|
 
@@ -336,3 +336,5 @@ The biggest flaw of this algorithm is that it doesn't manage occlusion / shadows
 Another problem is computation time, which you can mitigate by modifying the many parameters described in the previous sections.
 
 Furthermore, as described in the introduction, the algorithm is best suited to small scenes, so it probably won't work well if you want to use it in a large level within your game.
+
+Finally, this feature is not compatible with the pre-pass renderer, so if you want to use SSAO or SSR with global illumination, you need to force the geometry buffer renderer for these post-processings (there's a parameter in the constructor of these classes that lets you do this).

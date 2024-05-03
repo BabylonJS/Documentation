@@ -97,14 +97,14 @@ sixDofDragBehavior.dragDeltaRatio = 0.2;
 
 By default, dragging objects away/towards you will be magnified to make moving objects large distances easier. To avoid/modify this, the following can be used.
 
-```
-// The distance towards the target drag position to move each frame. This can be useful to avoid jitter. Set this to 1 for no delay. (Default: 0.2)
-sixDofDragBehavior.zDragFactor = 0.2;
+```javascript
+// How much faster the object should move when the controller is moving towards it. This is useful to bring objects that are far away from the user to them faster. Set this to 0 to avoid any speed increase. (Default: 3)
+sixDofDragBehavior.zDragFactor = 3;
 ```
 
-**Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
+**Note** - When picking, every triangle is tested with a raycast. To avoid large performance hits when using models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
 
-- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
+- Playground Example: <Playground id="#5G9MC5" title="Six Directions Example" description="A simple example of SixDofDragBehavior with single or multipoint support." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" isMain={true} category="Behaviors"/>
 
 ## MultiPointerScaleBehavior
 
@@ -115,8 +115,6 @@ const multiPointerScaleBehavior = new BABYLON.MultiPointerScaleBehavior();
 ```
 
 **Note** - To avoid large performance hits when using with models that have complex geometries, the object should be wrapped in a bounding box mesh. See [BoundingBoxGizmo.MakeNotPickableAndWrapInBoundingBox](/features/featuresDeepDive/mesh/gizmo)
-
-- Playground Example: <Playground id="#5G9MC5" title="MultiPointerScaleBehavior Example" description="A simple example of MultiPointerScaleBehavior." image="/img/playgroundsAndNMEs/divingDeeperMeshBehaviors2.jpg" />
 
 ## AttachToBoxBehavior (AppBar)
 
@@ -175,21 +173,16 @@ By default, it will intersect `meshes` everytime the pointer moves, and the posi
 
 ## HandConstraintBehavior
 
-This is used to make a mesh follow the hand of the user. It should always be linked to a [WebXRDefaultExperience](/features/featuresDeepDive/webXR/webXRExperienceHelpers#the-webxr-default-experience) to retieve the position of the hand.
-The XR experience should also enable the [HandTracking](/features/featuresDeepDive/webXR/WebXRSelectedFeatures#hand-tracking) feature like this :
+[`HandConstraintBehavior`](/typedoc/classes/babylon.handconstraintbehavior) makes a mesh follow a hand of the user. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retrieve hands' positions.
+
+[Hand tracking feature](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking) needs to be enabled, too, for this behavior to function. [WebXRDefaultExperience](/typedoc/classes/babylon.webxrdefaultexperience), if you use it, enables that feature by default if user's system supports [WebXR hand input](https://www.w3.org/TR/webxr-hand-input-1/).
+
+Basic setup looks like this:
 
 ```javascript
-xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
-  xrInput: xr.input,
-});
+const behavior = new BABYLON.HandConstraintBehavior();
+behavior.attach(mesh);
+behavior.linkToXRExperience(xr);
 ```
 
-And then you can instanciate the behavior, attach it to a mesh, and link it to the XR experience:
-
-```javascript
-const handConstraintBehavior = new BABYLON.HandConstraintBehavior();
-handConstraintBehavior.attach(mesh);
-handConstraintBehavior.linkToXRExperience(xr);
-```
-
-You can change the hand it should follow with the property `handedness`.
+Among various public properties you can use to customize this behavior's behavior, [handedness](/typedoc/classes/babylon.handconstraintbehavior#handedness) can be used to specify which hand should be followed by the mesh.

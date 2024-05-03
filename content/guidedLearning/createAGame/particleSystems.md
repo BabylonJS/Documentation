@@ -34,7 +34,7 @@ Similar to this playground, I made a [Firework class](https://github.com/Babylon
     ```javascript
     const sphere = MeshBuilder.CreateSphere("rocket", { segments: 4, diameter: 1 }, scene);
     sphere.isVisible = false;
-    //the origin spawn point for all fireworks is determined by a TransformNode called "fireworks", this was placed in blender
+    //the origin spawn point for all fireworks is determined by a TransformNode called "fireworks", this was placed in Blender
     let randPos = Math.random() * 10;
     sphere.position = new Vector3(scene.getTransformNodeByName("fireworks").getAbsolutePosition().x + randPos * -1, scene.getTransformNodeByName("fireworks").getAbsolutePosition().y, scene.getTransformNodeByName("fireworks").getAbsolutePosition().z);
     this._emitter = sphere;

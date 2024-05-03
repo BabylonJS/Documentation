@@ -13,7 +13,7 @@ video-content:
 Script properties can be exposed and modified in the Editor. Using `@visibleInInspector` decorator, these
 properties to expose can be customized and grouped in the `Inspector`.
 
-Suported property types are:
+Supported property types are:
 - number
 - string
 - boolean
@@ -72,7 +72,7 @@ private _speed2: number = 0.04;
 private _gravity2: Vector3 = Vector3.Zero();
 ```
 
-Once script is saved and attached to at least one node, the inspector will shows the exposed properties
+Once script is saved and attached to at least one node, the inspector will show the exposed properties
 according to their properties and options. If the inspector is already focused on a node having the edited script
 attached to it, the inspector will be automatically updated.
 

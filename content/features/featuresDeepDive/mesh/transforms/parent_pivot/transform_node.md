@@ -47,7 +47,7 @@ The center of transformation is placed at the target position of the arc rotatio
 <Playground id="#PP962K#1" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
 <Playground id="#2JKA91#4" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 
-Target position moved by moving center of tranformation.  
+Target position moved by moving center of transformation.  
 <Playground id="#PP962K#2" title="Rotating Dummy Camera" description="Simple example of a rotating dummy camera."/>
 <Playground id="#2JKA91#5" title="Rotating Arc Camera" description="Simple example of a rotating arc camera."/>
 

@@ -113,7 +113,7 @@ which gives:
 
 ![StarbustTextureResult](/img/how_to/advanced/standardRenderingPipeline/lensstarresult.png)
 
-Finally, you can apply a palette of colors which will be used by the post-processes to disburb the lens flare colors:
+Finally, you can apply a palette of colors which will be used by the post-processes to disturb the lens flare colors:
 
 ```
 pipeline.lensColorTexture = new Texture("lenscolor.png", scene);
@@ -153,12 +153,12 @@ pipeline.lensFlareDistortionStrength = 35; // Default 4.0
 ## Setting up Luminance Adaptation
 
 The standard rendering pipeline now allows you to compute luminance adaptation. This process tends to simulate real life events:
-it means that if you focus on a higly brighted zone, the camera will adapt itself. In another words, this technique allows you to create
+it means that if you focus on a highly brighted zone, the camera will adapt itself. In another words, this technique allows you to create
 glare effects and it is also linked to what we call "_HDR_"
 
 ### Customizing luminance adaptation
 
-First, let's activate the luminance adatation:
+First, let's activate the luminance adaptation:
 
 ```
 pipeline.HDREnabled = true;
@@ -184,7 +184,7 @@ pipeline.hdrIncreaseRate = 0.5;
 
 ### Activating the depth of field
 
-To active the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
+To activate the depth of field, simply set the property ".DepthOfFieldEnabled" to true:
 
 ```
 // Active depth of field

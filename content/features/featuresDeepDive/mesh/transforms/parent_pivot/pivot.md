@@ -12,7 +12,7 @@ video-content:
 
 ## How To Rotate Around an Axis About a Point
 
-Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the the local origin of the mesh which is the mesh's position. Using [rotation](/features/featuresDeepDive/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) and [rotate](/features/featuresDeepDive/mesh/transforms#rotate) it is specified explicitly.
+Rotation needs two things specifying, they are an axis and a center of rotation with the axis passing through the center of rotation. An axis is defined by a direction vector and the center of rotation a position vector. In Babylon.js when a mesh is created the center of rotation defaults to the local origin of the mesh which is the mesh's position. Using [rotation](/features/featuresDeepDive/mesh/transforms#rotation) the axis is specified through the Euler angles alpha, beta, gamma, and using [rotationQuaternion](/features/featuresDeepDive/mesh/transforms) and [rotate](/features/featuresDeepDive/mesh/transforms#rotate) it is specified explicitly.
 
 There are three ways to change a center of rotation different to the local origin, these are using a [TransformNode](/features/featuresDeepDive/mesh/transforms/parent_pivot/transform_node), a parent and [setting a pivot](/features/featuresDeepDive/mesh/transforms/parent_pivot/pivots).
 
@@ -97,7 +97,7 @@ Notice that as the pivot is moved the axis line moves with the pivot, though the
 
 Perhaps you would like to think about achieving the positioning of the pivot by changing the pivots position rather than the pilots position. This can be done with parenting as shown in the following example.
 
-The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At), the sphere is then made the parent of the pilot the pilot position relative to the pivot is set by matrix and the pilot rotated.
+The sphere, representing the pivot at the center of rotation, is placed at the pivot position (CoR_At), the sphere is then made the parent of the pilot position relative to the pivot is set by matrix and the pilot rotated.
 
 ```javascript
 sphere.position = CoR_At;

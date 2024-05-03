@@ -86,7 +86,7 @@ PG: <Playground id="#5S6MD#3" title="Grid Material" description="Example of usin
 
 #### gridOffset
 
-Note that the shift for each axys allows a loop: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result than `(1, 0, 0)`.
+Note that the shift for each axis allows a loop: using a `gridOffset` of `(0, 0, 0)` will give you the same visual result than `(1, 0, 0)`.
 
 PG: <Playground id="#URSDPL#1" title="Grid Material" description="Example of using grid offset"/>
 

@@ -24,7 +24,7 @@ The steps for this are: create and set the levelBase sprite map and assign frame
 ```javascript
 levelBase.animationMap = background.animationMap
 ```
-will be added to copy the animation map to animated the frames in levelBase.
+will be added to copy the animation map to animate the frames in levelBase.
 
 Mid distance sprite map: <Playground id="#YCY2IL#23" title="Mid Distance Sprite map" description="Simple example of a mid distance sprite map."/>
 

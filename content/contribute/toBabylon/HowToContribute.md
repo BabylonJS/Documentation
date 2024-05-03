@@ -22,7 +22,7 @@ Babylon.js is maintained on Github, a web-based hosting service for version cont
 
 A quick way for Windows and Mac is from the [Git Home Page](https://git-scm.com/) and for all three operating systems from the [Git Book](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-You then need to configure the installation to your details using a CLI. You can use the CLI built into your computer or one of many specialist ones for Git [(Git Clients)](https://git-scm.com/downloads/guis/). If you use Visual Studio Code then the Terminal is a built in CLI and can be opened with `Ctrl +'` or `Terminal > New Terminal` on the menu.
+You then need to configure the installation to your details using a CLI. You can use the CLI built into your computer or one of many specialized ones for Git [(Git Clients)](https://git-scm.com/downloads/guis/). If you use Visual Studio Code then the Terminal is a built in CLI and can be opened with `Ctrl +'` or `Terminal > New Terminal` on the menu.
 
 In your CLI configure git globally with your user name and email:
 
@@ -127,7 +127,7 @@ If you are using VSCode, the repository comes with a list of recommended extensi
 
 ### Adding files
 
-When in doubt about where your files should be added then raise an issue in the Babyon.js repository or ask on the forum.
+When in doubt about where your files should be added then raise an issue in the Babylon.js repository or ask on the forum.
 
 ### Commit
 
@@ -477,7 +477,7 @@ Shaders are also considered to be assets. They are being processed differently, 
 
 We have a global eslint and prettier configuration in the root of the repository. This unifies code structure and formatting throughout the repository. It is running on both .js and .tsx files.
 
-When using VSCode is is recommended to use both the Prettier formatter [extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and the ESlint host in order to lint in real time.
+When using VSCode is recommended to use both the Prettier formatter [extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and the ESlint host in order to lint in real time.
 
 To run linter using the command line, run:
 
@@ -487,7 +487,7 @@ npm run lint
 
 ### Configuration options
 
-Most packages in the repository don't need any extra configuration in order to compile. However, in certain cases you would want to control the way the files are compiled and served. A good example is enable HTTPS support, or change the standard port used for the Babylon server or the tools.
+Most packages in the repository don't need any extra configuration in order to compile. However, in certain cases you would want to control the way the files are compiled and served. A good example is to enable HTTPS support, or change the standard port used for the Babylon server or the tools.
 
 There are a few options to pass configuration to the different packages.
 
@@ -1031,7 +1031,7 @@ A reminder to read the [contribution guidelines](https://github.com/BabylonJS/Ba
 
 Pull Requests are automatically validated with linting and testing.
 
-When you are happy that all testing has been validated, guidelines followed, and only necessary files committed then push your local master to your origin github repository with your Git Client or from the CLI with:
+When you are happy that all testing has been validated, guidelines followed, and only necessary files committed then push your local master to your origin Github repository with your Git Client or from the CLI with:
 
 ```bash
 git push origin master
@@ -1041,7 +1041,7 @@ Once this has succeeded visit your Babylon.js repository. If all your commits ar
 
 ![Success](/img/contribute/pr1.png)
 
-If some of your commits are behind the upstream Babylon.js:master then you will need to to do:
+If some of your commits are behind the upstream Babylon.js:master then you will need to do:
 
 ```bash
 git pull upstream master
@@ -1065,7 +1065,7 @@ Then click on the link under "Build job failed" to be taken to an Azure Pipeline
 
 ![check 3](/img/contribute/pr6.png)
 
-For any failures re-edit your local files, commit and push to your repository. The alterations will automatically added to your pull-request and it will be re-checked.
+For any failures re-edit your local files, commit and push to your repository. The alterations will be automatically added to your pull-request and it will be re-checked.
 
 ## Its Live
 

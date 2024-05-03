@@ -129,7 +129,7 @@ This is a port of the great project [Hydraulic-Erosion](https://github.com/SebLa
 
 The generation of the terrain and the simulation of the erosion is done by using two different compute shaders.
 
-Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too much **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion processes are handled on the CPU side!
+Note that this sample also works in WebGL2 where compute shaders are not available but you should be careful when setting the parameters: don't raise too many **Iterations**, **Radius**, **Max lifetime**, **Resolution** else you may stuck your browser as now the terrain generation and erosion processes are handled on the CPU side!
 
 ### Slime simulation
 
@@ -137,11 +137,11 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
-The implentation in WGSL is a little less pretty than the HLSL one because at the time of this writing WebGPU does not support read/write textures, so we had to use a storage buffer for the `TrailMap` texture. That means we need some copy buffer to texture and texture to buffer functions and we have to do 4 reads from `TrailMap` instead of a single one when we need to get a `vec4` (see the code), which is likely less performant than its HLSL counterpart.
+The implementation in WGSL is a little less pretty than the HLSL one because at the time of this writing WebGPU does not support read/write textures, so we had to use a storage buffer for the `TrailMap` texture. That means we need some copy buffer to texture and texture to buffer functions and we have to do 4 reads from `TrailMap` instead of a single one when we need to get a `vec4` (see the code), which is likely less performant than its HLSL counterpart.
 
 ### Ocean demo
 
-<Playground id="#YX6IB8#229" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
+<Playground id="#YX6IB8#674" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 

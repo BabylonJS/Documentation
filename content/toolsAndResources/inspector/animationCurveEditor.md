@@ -50,7 +50,7 @@ The Menu offers you the ability to create a new animation, load an animation fro
 
 <img src="/img/tools/ACE/create.jpg" title="Create Button"/>
 
-Pressing the create tab will display a menu that allows you to create a new animation. 
+Pressing the Create tab will display a menu that allows you to create a new animation. 
 
 <img src="/img/tools/ACE/createMenu.jpg" title="Create Menu"/>
 

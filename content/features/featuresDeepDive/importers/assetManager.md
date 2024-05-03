@@ -139,7 +139,7 @@ The manager also allows you to use observers in order to handle onFinish, onProg
 - onTaskSuccessObservable - registered observers will be executed when a single task finished successfully.
 - onTaskErrorObservable - registered observers will be executed when a single task failed.
 - onProgressObservable - registered observers will be executed when a single task finished successfully or failed.
-- onTasksDoneObservable - registered observers will be execute when all tasks' executions are done (success or failed!)
+- onTasksDoneObservable - registered observers will be executed when all tasks' executions are done (success or failed!)
 
 ```javascript
 assetsManager.onTaskSuccessObservable.add(function (task) {

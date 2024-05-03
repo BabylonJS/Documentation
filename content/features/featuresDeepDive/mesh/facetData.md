@@ -39,7 +39,7 @@ As soon as the feature is enabled, you can get the mesh total number of facets w
 The method `updateFacetData()` creates two permanent arrays : the mesh facet positions and facet normals.  
 Moreover, it logically divides the mesh according to some partitioning and stores all the facets in this partitioning.  
 Unless the mesh is updated or morphed afterwards, you don't need to call this method anymore once it has been done.  
-If you don't need this feature any longer, you can disabled it to release the memory with `mesh.disableFacetData()`.
+If you don't need this feature any longer, you can disable it to release the memory with `mesh.disableFacetData()`.
 
 ```javascript
 mesh.updateFacetData();
@@ -119,9 +119,9 @@ Just change the mesh shape, torus knot : <Playground id="#1YTZAC#1" title="Displ
 Smarter : set a box at a distance of 2 from the mesh 10th facet and keep it there, even if the mesh rotates: <Playground id="#1YTZAC#3" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>
 Of course, you can add some [translation](/typedoc/classes/babylon.transformnode#translate) to the mesh and even some rotation to the box: <Playground id="#1YTZAC#4" title="Displaying Facet Data" description="Simple example of displaying all the facet normals."/>
 
-Note also that the facet index is the same than the facet id `faceId` used by the pickingInfo object or the `faceId` used by the SPS when pickable.  
+Note also that the facet index is the same as the facet id `faceId` used by the pickingInfo object or the `faceId` used by the SPS when pickable.  
 Here is an example combining pickingInfo, pickable SPS and facetData facet index: <Playground id="#2FPT1A#119" title="Combining pickingInfo and facetData" description="Simple example combining pickingInfo, pickable SPS and facetData facet index."/>
-Just click and the ball is positionned at the clicked facet position, not a the clicked point.
+Just click and the ball is positioned at the clicked facet position, not the clicked point.
 
 ### Mesh partitioning
 
@@ -212,7 +212,7 @@ if (index != null) {
 
 #### Note
 
-As said before, the returned facet indexes from all these former methods are the same values than the `PickingInfo` or pickable SPS `faceId` values.
+As said before, the returned facet indexes from all these former methods are the same values as the `PickingInfo` or pickable SPS `faceId` values.
 So, you can easily mix all these features together. Ex : to get the facet normal from a picked mesh.
 
 #### Example
@@ -276,7 +276,7 @@ if (condition) {
 }
 ```
 
-`updateFacetData()` can be called on demand, even in the render loop. However this method as a CPU cost, actually exactly the same than the static method `ComputeNormals()`.  
+`updateFacetData()` can be called on demand, even in the render loop. However this method as a CPU cost, actually exactly the same as the static method `ComputeNormals()`.  
 So if your mesh has a very huge amount of facets like the BJS skul, this can take some times.
 
 Some of the provided BJS mesh types are updatable/morphable by their dedicated methods : the parametric shapes and the SPS.
@@ -321,7 +321,7 @@ As you may know, for performance reasons, the facets of a given mesh are always 
 
 This new feature solves the self transparency issue by sorting the mesh facets from some location (the camera position by default) just before drawing them.  
 The mesh is **required** to be `updatable`.  
-The depth sort is done on each call to `updateFacetData()`. It can be disabled at any time to save CPU cycles if the mesh and the camera don't move any more.  
+The depth sort is done on each call to `updateFacetData()`. It can be disabled at any time to save CPU cycles if the mesh and the camera don't move anymore.  
 Usage :
 
 ```javascript
@@ -338,11 +338,11 @@ Exampl: <Playground id="#FWKUY0#1" title="Facet Depth Sort 2" description="Simpl
 
 Depth sorted on the left, standard on the right.
 
-If don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
-If for some reasons, you still need to call `updateFacetData()` but you don't need the depth sort any longer, just disabled it with `mesh.mustDepthSortFacets = false`.  
+If you don't need the depth sort once enabled, you can simply stop to call `updateFacetData()`.  
+If, for some reason, you still need to call `updateFacetData()` but you don't need the depth sort any longer, just disabled it with `mesh.mustDepthSortFacets = false`.  
 In both cases, the facet will keep the last given order.
 
-Note that if your mesh is a SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time than the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.  
+Note that if your mesh is an SPS (Solid Particle System), it's better to not enable the facet depth sort in the same time as the particle depth sort, simply because the underlying sort is done twice, so more CPU used and no gain.  
 In this case, just choose what kind of sorting is better for you : at particle level (faster) or at facet level (more accurate).
 
 As the facet depth sort reorganizes the mesh indices, it **can't work** with the MultiMaterials.

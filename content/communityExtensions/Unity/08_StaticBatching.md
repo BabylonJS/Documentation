@@ -20,6 +20,6 @@ Please refer to the [Unity Layer](https://docs.unity3d.com/Manual/Layers.html) d
 
 The static batching layer can prepare your objects to take advantage of the toolkit's static batching export. This step is useful as a performance optimization allowing the engine to reduce number of draw-calls dramatically, but keep amount of rendered geometry intact.
 
-By setting game objects to the **Babylon Static** layer you will create internal meshes at export time which will contain combined geometry. This allows game objects to stay seperate peices at design time allowing the easy placement and movement of static geometry. You can also use the **Geometry Tools** to pre bake and combine meshes at design time. Any pre baked meshes will no longer be seperate moveable meshes during game development.
+By setting game objects to the **Babylon Static** layer you will create internal meshes at export time which will contain combined geometry. This allows game objects to stay separate pieces at design time allowing the easy placement and movement of static geometry. You can also use the **Geometry Tools** to pre bake and combine meshes at design time. Any pre baked meshes will no longer be separate moveable meshes during game development.
 
 Game objects with the same material will be batched together, thus it is useful to share as many textures/material as you can. **Texture Atlas** support is also included in the toolkit to help improve rendering performance.

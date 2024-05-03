@@ -38,7 +38,7 @@ boughs - the number of times the tree will split into forked branches, 1 trunk s
 forks - the number of branches a branch can split into, 5 or more really slows the generation.  
 forkAngle - the angle a forked branch makes with its parent branch measured from the direction of the branch.  
 forkRatio - the ratio of the length of a branch to its parent's length, between 0 and 1.  
-branches - the number of mini-trees that are randomally added to the tree.  
+branches - the number of mini-trees that are randomly added to the tree.  
 branchAngle - the angle the mini-tree makes with its parent branch from the direction of the branch.  
 bowFreq - the number of bows (bends) in a branch. A trunk is set to have only one bow.  
 bowHeight - the height of a bow from the line of direction of the branch.  

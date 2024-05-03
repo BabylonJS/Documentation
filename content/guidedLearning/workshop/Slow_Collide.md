@@ -10,7 +10,7 @@ video-content:
 
 
 In the [issues](/guidedLearning/workshop/Issues) we found that it is necessary to keep the speed, the distance moved per frame, of particles to below, twice the radius of a particle, to ensure they intersect with walls or each other. Slow particles are those where the initial speed meets this restriction. 
-When the resultant velocities after the collision are based on Newtonian physics for perfectly elastic particles then there are situations when the speeds of particles can increase to indefinitely.
+When the resultant velocities after the collision are based on Newtonian physics for perfectly elastic particles then there are situations when the speeds of particles can increase to infinity.
 
 ## The Collisions
 

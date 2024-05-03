@@ -28,7 +28,7 @@ All the available blend modes are listed below:
 | `BABYLON.Engine.ALPHA_MAXIMIZED` | This blend mode is similar to ALPHA_ADD, but gives off a less vibrant and saturated effect. | |
 | `BABYLON.Engine.ALPHA_ONEONE` | This blend mode is very similar to ALPHA_ADD, except that it is not modulated by alpha value. Used internally for various visual effects. | Blending is **not** modulated by alpha value. |
 
-Please note that the blending operations are in fact simple mathematical operations done seperately on R, G and B components of the pixel values, each one comprised between 0 and 1. As such, having a green mesh (R=0, G=1, B=0) set with ALPHA_SUBTRACT drawn over a yellow one (R=1, G=1, B=0) will give off a red value (R=1, G=0, B=0).
+Please note that the blending operations are in fact simple mathematical operations done separately on R, G and B components of the pixel values, each one comprised between 0 and 1. As such, having a green mesh (R=0, G=1, B=0) set with ALPHA_SUBTRACT drawn over a yellow one (R=1, G=1, B=0) will give off a red value (R=1, G=0, B=0).
 
 
 ## How to Use Blend Modes

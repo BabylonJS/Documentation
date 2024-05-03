@@ -16,7 +16,7 @@ Many people have asked for the API documentation to be improved. This is a major
 
 You need to add appropriate comments according to the formats given below. Check the comments for errors and submit a PR when everything is validated.
 
-1. Fork and clone [Babylon.js](https://github.com/BabylonJS/Babylon.js) from github;
+1. Fork and clone [Babylon.js](https://github.com/BabylonJS/Babylon.js) from Github;
 2. install dependencies with `npm install`
 3. Edit files from within the **src** folder by adding comments;
 4. Run `npm run lint:check` to check linting issues with your docs (or use the eslint extension for your IDE)

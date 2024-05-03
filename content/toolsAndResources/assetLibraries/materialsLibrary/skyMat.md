@@ -17,7 +17,7 @@ The sky material allows to create dynamic and texture free effects for skyboxes.
 This work is based on ["A Practical Analytic Model for Daylight"](https://www2.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p91-preetham.pdf).
 First implemented by [Simon Wallner](http://simonwallner.at/project/atmospheric-scattering/),
 improved by [Martin Upitis](http://blenderartists.org/forum/showthread.php?245954-preethams-sky-impementation-HDR)
-and finally implmented in Three.js by [zz85](http://twitter.com/blurspline)
+and finally implemented in Three.js by [zz85](http://twitter.com/blurspline)
 
 The challenge for skyboxes is to reproduce and configure the sky taking care of the atmosphere state.
 In other words, for example, determine how the light (from sun) is scattered by particles.
@@ -113,7 +113,7 @@ Typically:
 skyMaterial.cameraOffset.y = scene.activeCamera.globalPosition.y;
 ```
 
-**Note**: this will not modify the sun position as it considered enought far, even when camera is really high.
+**Note**: this will not modify the sun position as it considered enough far, even when camera is really high.
 
 ## Using the sky material to create a reflection texture
 

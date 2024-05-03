@@ -364,7 +364,7 @@ will not render anything past 100 units from the camera. The same is true of the
 camera.minZ = 10;
 ```
 
-will not rendering anything closer than 10 units from the camera.
+will not render anything closer than 10 units from the camera.
 
 In some cases, you may not want to clip the rendering of your scene. You may want your scene to effectively render out to infinity. This can be done by setting the far clipping plane to 0 like this:
 
@@ -385,7 +385,7 @@ If you want to change user inputs based upon user preferences, customize one of 
 If you are doing applications like architectural rendering, you may encounter the need to compensate for perspective tilting of vertical lines.
 Let's consider this case : you are rendering a tall building from a human eye point of view. Naturally, vertical lines will converge towards a vanishing point, like on [this playground](https://playground.babylonjs.com/#L20FJ4#15) : ![Screenshot of the tilted vertical lines](/img/how_to/tilted-vertical.jpg).
 
-While this is realistic, it may be visually inappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.jpg).
+While this is realistic, it may be visually unappealing. If the angle between those lines stays quite low, it may be interesting to consider correcting the perspective correction, using `camera.applyVerticalCorrection()`. This method will automatically compute the vertical correction to apply regarding the current camera pitch angle : ![Screenshot of the corrected vertical lines](/img/how_to/corrected-vertical.jpg).
 
 And if you want further control other the camera projection plane tilting, you can mess with the `camera.projectionPlaneTilt` property.
 See [this forum post](https://forum.babylonjs.com/t/add-vertical-shift-to-3ds-max-exporter-babylon-cameras/17480/16) for more information.
