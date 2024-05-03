@@ -191,11 +191,11 @@ PG: <Playground id="#HSMDF2#8" title="Open Track Example" description="."/>
 
 ## Using the Built Track
 
-Data from the track can be used to produce quaternions to rotate a mesh or to produce lines showing the direction of rotations or even rails parallel to the track path. Initially just animation around he track is considered.
+Data from the track can be used to produce quaternions to rotate a mesh or to produce lines showing the direction of rotations or even rails parallel to the track path. Initially just animation around the track is considered.
 
 ## From Matrices to Animation
 
-In these examples `scene.registerAfterRender` is used to create the animation. One aspect that governs the speed of the animation is the distance between the points, so always take this into consideration when designing you path for the track. Of course, depending on how your path is built, you can vary the number of points per length of section. Note that for curved paths it it unlikely a constant speed is obtainable as the distance between points will vary. Often this is not noticeable. You can also produce variations in speed when you construct the quaternions to rotate the carriage and or passengers.
+In these examples `scene.registerAfterRender` is used to create the animation. One aspect that governs the speed of the animation is the distance between the points, so always take this into consideration when designing you path for the track. Of course, depending on how your path is built, you can vary the number of points per length of section. Note that for curved paths it is unlikely a constant speed is obtainable as the distance between points will vary. Often this is not noticeable. You can also produce variations in speed when you construct the quaternions to rotate the carriage and or passengers.
 
 Take a carriage and its contents, forged together by
 

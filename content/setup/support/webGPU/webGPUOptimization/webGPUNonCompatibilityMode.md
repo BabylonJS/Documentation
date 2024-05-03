@@ -71,7 +71,7 @@ Below is a list of all the playgrounds from our validation test suite that recre
     * solution: sets the mesh as not pickable
 * **Ribbon morphing** (#ACKC2#1)
     * why: updating the position attribute each frame
-    * solution: none at the time, the `CreateTube` (and all functions of `MeshBuilder`) are using `getVerticesData` / `updateVerticesData` to update an existing instance, the latter method triggering a `markAsAttributeDirty` call on the material. We would need to update the GPU buffer directly without using `updateVerticesData`, but by doing so we would loose the baking CPU array which is necessary for the mesh builder methods to work (the `Buffer.updateDirectly` method is clearing the `_data` property but `getVerticesData` works only if this property is not `null`)
+    * solution: none at the time, the `CreateTube` (and all functions of `MeshBuilder`) are using `getVerticesData` / `updateVerticesData` to update an existing instance, the latter method triggering a `markAsAttributeDirty` call on the material. We would need to update the GPU buffer directly without using `updateVerticesData`, but by doing so we would lose the baking CPU array which is necessary for the mesh builder methods to work (the `Buffer.updateDirectly` method is clearing the `_data` property but `getVerticesData` works only if this property is not `null`)
 * **Custom render target** (#TQCEBF#3)
     * why: changing the material used by a `RenderTargetTexture` in `onBeforeRender` and resetting it in `onAfterRender`
     * solution: use `RenderTargetTexture.setMaterialForRendering` instead of `onBeforeRender` / `onAfterRender`
@@ -85,7 +85,7 @@ Below is a list of all the playgrounds from our validation test suite that recre
     * why: `thinInstanceSetBuffer` was called each frame, which is (re)creating a vertex buffer, which in turn is flagging the material as "attribute dirty"
     * solution: use `thinInstanceBufferUpdated` instead
 * **Multi cameras and output render target** (#BCYE7J#31)
-    * why: `cameraRTT1` and `cameraRTT2` are rendering into the same RTT (using their `outputRenderTarget` property), but when rendering in a RTT the render pass id which is used is `RTT.renderPassId`, meaning the meshes are rendered two times (because two cameras) with the same `renderPassId`, leading to bundle recreations (because the scene ubo is not the same in both cases as it stores the camera view/projection)
+    * why: `cameraRTT1` and `cameraRTT2` are rendering into the same RTT (using their `outputRenderTarget` property), but when rendering in an RTT the render pass id which is used is `RTT.renderPassId`, meaning the meshes are rendered two times (because two cameras) with the same `renderPassId`, leading to bundle recreations (because the scene ubo is not the same in both cases as it stores the camera view/projection)
     * solution: remove the `RTT.renderPassID` property (`RTT.renderPassID = undefined`) => in that case, the `camera.renderPassId` value will be used instead
 * **Order independent transparency** (#1PLV5Z#104)
     * why: not using `useRenderPasses = true` on the depth peeling renderer

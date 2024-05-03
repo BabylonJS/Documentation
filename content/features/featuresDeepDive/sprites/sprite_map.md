@@ -75,7 +75,7 @@ First we will start with a background that uses a 2 x 2 grid of tiles and just 4
 let backgroundSize = new BABYLON.Vector2(2, 2); //set the size of the sprite map stage
 ```
 
-Once the altlas JSON and the spritesheet texture have been loaded we can create the sprite map, setting two of the options parameter properties
+Once the atlas JSON and the spritesheet texture have been loaded we can create the sprite map, setting two of the options parameter properties
 ```javascript
 let background = new BABYLON.SpriteMap('background', atlasJSON, spriteSheet,
     {

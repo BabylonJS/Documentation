@@ -14,7 +14,7 @@ You can use all the features of `GreasedLine` except `sizeAttenuation` which doe
 
 ## Create a GreasedLineRibbon
 
-The easiest, prefered and recommended way to create a `GreasedLineRibbon` is to use the `CreateGreasedLine` function:
+The easiest, preferred and recommended way to create a `GreasedLineRibbon` is to use the `CreateGreasedLine` function:
 
 ```javascript
 function CreateGreasedLine(name: string, options: GreasedLineMeshBuilderOptions, materialOptions?: Nullable<GreasedLineMaterialBuilderOptions>, scene?: Nullable<Scene>)
@@ -105,7 +105,7 @@ Only with `POINTS_MODE_PATHS`.
 
 `AUTO_DIRECTIONS_FROM_ALL_SEGMENTS` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments. Slow method.
 
-`AUTO_DIRECTIONS_ENHANCED` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments using a more sophisitcaed algorithm. Slowest method.
+`AUTO_DIRECTIONS_ENHANCED` in this mode the direction (slope) will be calculated for each line segment according to the direction vector between each point of the line segments using a more sophisticated algorithm. Slowest method.
 
 `AUTO_DIRECTIONS_NONE` you have to set the direction (slope) manually. Recommended when you want full control.
 

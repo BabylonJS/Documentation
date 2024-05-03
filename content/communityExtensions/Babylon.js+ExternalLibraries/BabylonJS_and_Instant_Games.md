@@ -28,7 +28,7 @@ This documentation will explain how to transform an existing Babylon.js game to 
 <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
 ```
 
-3. Then you have to initialize the instant game with the method `FBInstant.initializeAsync`. In the game example, I created a file `main.ts` that will create the game once the framework is initalized:
+3. Then you have to initialize the instant game with the method `FBInstant.initializeAsync`. In the game example, I created a file `main.ts` that will create the game once the framework is initialized:
 
 ```javascript
 FBInstant.initializeAsync()

@@ -173,7 +173,7 @@ By default, it will intersect `meshes` everytime the pointer moves, and the posi
 
 ## HandConstraintBehavior
 
-[`HandConstraintBehavior`](/typedoc/classes/babylon.handconstraintbehavior) makes a mesh follow a hand of the user. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retieve hands' positions.
+[`HandConstraintBehavior`](/typedoc/classes/babylon.handconstraintbehavior) makes a mesh follow a hand of the user. It needs to be linked to a [WebXRExperienceHelper](/features/featuresDeepDive/webXR/webXRExperienceHelpers#webxr-basic-experience-helper) so that it can retrieve hands' positions.
 
 [Hand tracking feature](/features/featuresDeepDive/webXR/WebXRSelectedFeatures/WebXRHandTracking) needs to be enabled, too, for this behavior to function. [WebXRDefaultExperience](/typedoc/classes/babylon.webxrdefaultexperience), if you use it, enables that feature by default if user's system supports [WebXR hand input](https://www.w3.org/TR/webxr-hand-input-1/).
 

@@ -18,6 +18,7 @@ Each triangular facet of a mesh comprises three vertices. Besides a position eac
 
 At first the vertex normals are calculated as the mathematical normals for the facet. It then depends whether you want to view the facets as flat surfaces or as part of curve. For flat surfaces the vertex normals remain as the mathematical normals. To enhance the curve when viewed under light where triangular facets share vertices with the same positions each shared vertex normal is recalculated to be the average of the mathematical normals of the shared vertex normals.
 
+
 These effects are explored below.
 
 In the following two playgrounds see how the changing directions within the normals array affect how it is lit:

@@ -10,9 +10,9 @@ video-content:
 
 ## Setting Basic Collisions
 Using the inspector, collisions properties can be customized per object:
-- `meshes`: set wether or not the edited mesh checks for collisions.
-- `cameras`: set wether or not the edited camera checks collisions on meshes and if gravity should be applied.
-- `scene`: set wether or not collisions are enabled in the scene and configure the gravity values.
+- `meshes`: set whether the edited mesh checks for collisions.
+- `cameras`: set whether the edited camera checks collisions on meshes and if gravity should be applied.
+- `scene`: set whether collisions are enabled in the scene and configure the gravity values.
 
 ## Enabling Collisions In Scene
 To enable collisions in the scene, simply select the `Scene` in the graph:

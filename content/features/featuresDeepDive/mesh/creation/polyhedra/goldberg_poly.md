@@ -181,7 +181,7 @@ const position = new BABYLON.Vector3(0.53, height / 2, 0.34);
 goldbergPoly.placeOnGoldbergFaceAt(box, 32, position);
 ```
 
-Meshes should be sized accoring to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face \* &radic;3
+Meshes should be sized according to the size of the face. To keep a mesh within a face values for position.x and position.z should be between around &PlusMinus;radius of face \* &radic;3
 
 PG: <Playground id="#A8VZGP#40" title="Placing Meshes" description="Land masses with buildings"/>
 

@@ -13,7 +13,7 @@ video-content:
 Script properties can be exposed and modified in the Editor. Using `@visibleInInspector` decorator, these
 properties to expose can be customized and grouped in the `Inspector`.
 
-Suported property types are:
+Supported property types are:
 - number
 - string
 - boolean

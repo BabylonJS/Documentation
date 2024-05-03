@@ -18,14 +18,14 @@ video-content:
 
 ## The Selection Panel Helper
 
-A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
+A `SelectionPanel` contains groups of checkboxes, radio buttons and sliders. Though not as versatile as building your own interface with your own custom arrangement of controls it can be a quick way to construct a method of changing scene parameters for objects within your scene.
 
 ![selection panel](/img/GUI/selectPanel1.jpg)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1
 
 ## Referencing a Selection Panel
 
-As you can see in **Fig 1** a selection panel rectangle contains a vertical organization of groups numbered from the top starting at 0. Each groups contains a header and a variable number of selectors. Each selector consists of a (or button) and a label. Within any one group all the selectors must be of the same type. You can refer to a selector by its group number and then the position of the selector within the group. So the checkbox labelled _High_ has reference 0, 1, ie. group 0, selector 1.
+As you can see in **Fig 1** a selection panel rectangle contains a vertical organization of groups numbered from the top starting at 0. Each group contains a header and a variable number of selectors. Each selector consists of a (or button) and a label. Within any one group all the selectors must be of the same type. You can refer to a selector by its group number and then the position of the selector within the group. So the checkbox labelled _High_ has reference 0, 1, ie. group 0, selector 1.
 
 **NOTE** Adding or removing groups or selectors with change the reference number. The reference number always refers to the current positioning of the group and of the selector.
 

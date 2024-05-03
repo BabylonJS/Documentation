@@ -51,7 +51,7 @@ contract three freelancers to form a team to create this new website.
 - Carlos, the artist, who would create the 3D visuals.
 - Diane, the Babylon developer, who would build Carlos's visuals into a
   3D experience.
-- Edie, the frontend developer, who would take take Diane's 3D experience
+- Edie, the frontend developer, who would take Diane's 3D experience
   and build the final Vaporwear website around it.
 
 ![Vaporwear 3D + Blender + Babylon + React.js = E-Commerce magic!](/img/devStories/vaporwearConfigurator/answer.png)

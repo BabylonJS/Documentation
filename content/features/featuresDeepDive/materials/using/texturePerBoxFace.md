@@ -324,7 +324,7 @@ So you need to tube surface to have the same height to width ratio.
 
 When you create a cylinder with default diameter of 1 then the rectangle wrapping around the tube surface will have a width of &pi;.
 
-Letting h be the height of the cylinder then to not distort the aspect ration of the image wrapped around the cylinder keep the ratios h/&pi; and 319/866 the same.
+Letting h be the height of the cylinder then to not distort the aspect ratio of the image wrapped around the cylinder keep the ratios h/&pi; and 319/866 the same.
 
 So make h = &pi; \* 319/866 = 1.16 to 2 decimal places.
 

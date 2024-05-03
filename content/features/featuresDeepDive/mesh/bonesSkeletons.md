@@ -25,7 +25,7 @@ Inside a skeleton, bones can be found inside the `skeleton.bones` array.
 
 A bone can contain animations to animate its `matrix` property.
 
-A bone must have its inverted absolute transform matrix set. If you are importing a skeleton this might already be computed. But if you are creating your own skeleton programatically you need to do this in your code.
+A bone must have its inverted absolute transform matrix set. If you are importing a skeleton this might already be computed. But if you are creating your own skeleton programmatically you need to do this in your code.
 
 The easiest way to do it is:
 
@@ -478,7 +478,7 @@ let displayModeOptions {
 
 #### Debug Shader Usage
 
-Sometimes you will need to actually see whart parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials!
+Sometimes you will need to actually see which parts of your mesh a certain bone is influencing. When this need arises we've got you covered with some nifty new ShaderMaterials!
 
 ##### SkeletonMap Shader
 

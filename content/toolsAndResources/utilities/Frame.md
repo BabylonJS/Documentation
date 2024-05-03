@@ -32,7 +32,7 @@ var profilePoints = [
 ];
 ```
 
-The path defines the outer edge of the frame and again is given as points in the XoY plane. The following exxample produces a rectangular frame.
+The path defines the outer edge of the frame and again is given as points in the XoY plane. The following example produces a rectangular frame.
 
 ```javascript
 path  = [

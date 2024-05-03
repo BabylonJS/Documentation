@@ -149,7 +149,7 @@ When rotating the camera, you may see the edges of the shadows "swimm" / "shimme
 csmShadowGenerator.stabilizeCascades = true;
 ```
 
-Note however that you will loose some precision in the shadow rendering, so use it only if you need it.
+Note however that you will lose some precision in the shadow rendering, so use it only if you need it.
 
 **Figure 7. Precision lost when stabilization enabled (left: enabled, right: disabled)**
 ![stabilizeCascades](/img/babylon101/csm/stabilize-parameter.jpg)
@@ -215,7 +215,7 @@ Note that you can also call `setMinMaxDistance()` yourself (values between 0 and
 
 ### Filtering
 
-The filtering capabilities are the same than for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/features/introductionToFeatures/chap7/shadows).
+The filtering capabilities are the same as for the standard `ShadowGenerator` (except that only PCF and PCSS are supported), so we won't delve into the details here, just refer to [this page](/features/introductionToFeatures/chap7/shadows).
 
 ### penumbraDarkness (default: 1)
 

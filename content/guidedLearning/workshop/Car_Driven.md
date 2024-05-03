@@ -19,7 +19,7 @@ The front wheels will be steered with A and D. The rotation of the wheels will b
 
 The car will be created with the origin in the middle of the centres of the two rear wheels.
 
-The ground will be covered in random boxes to give the illusion of movement. For simplicty it will be possible to drive off the ground with
+The ground will be covered in random boxes to give the illusion of movement. For simplicity it will be possible to drive off the ground with
 no consequences other than perhaps the loss of the sense of motion.
 
 ## Steering
@@ -48,7 +48,7 @@ Let the radius of each wheel be r units. In one frame a wheel travels a distance
 where r * psi = D/F and so psi = D/Fr.
 
 
-When the car is turning each wheel will rotate at different rates as they travel different distances in the same time. For simplicty the following
+When the car is turning each wheel will rotate at different rates as they travel different distances in the same time. For simplicity the following
 conditions are imposed for the mathematical calculations:
 
 1. The wheel pivots and supports will be taken as the centre of the wheels.
@@ -87,7 +87,7 @@ be translated a distance of D/F along the local negative x axis per frame.
 
 When theta changes a new value NR for the radius of the circle of rotation will be calculated and the centre of rotation translated a distance
 R - NR along the local positive z axis and the car translated NR - R along the local positive z axis. This results in the car not changing position
-and the centre of rotation being a distance NR froom the car. R is then set to NR.
+and the centre of rotation being a distance NR from the car. R is then set to NR.
 
 ### Turning the Front wheels
 

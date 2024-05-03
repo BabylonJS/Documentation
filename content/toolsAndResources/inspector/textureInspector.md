@@ -77,4 +77,4 @@ This pane is used to control the RGBA channels. Clicking the eye icons on the le
 -   Control+A selects the entire texture
 -   Escape deselects everything
 -   Control+S saves the texture to your local machine
--   Control+R resets the texture to it’s original state
+-   Control+R resets the texture to its original state

@@ -69,7 +69,7 @@ myGithubUserName/myRepository@2bd79648e08709145cd9575e6679b2ea360f12f6
 https://cdn.jsdelivr.net/gh/myGithubUserName/myRepository@2bd79648e08709145cd9575e6679b2ea360f12f6
  ```
 
-- *(optionnal)* by adding the filename to the end, you now have direct download access
+- *(optional)* by adding the filename to the end, you now have direct download access
 
  ```javascript
 https://cdn.jsdelivr.net/gh/myGithubUserName/myRepository@2bd79648e08709145cd9575e6679b2ea360f12f6/myFile.babylon

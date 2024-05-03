@@ -247,7 +247,7 @@ in the diagram below.
 
 ![Image with uv axes](/img/how_to/Mesh/uv1.jpg)
 
-For simplication the following only uses the facet 0, 1, 2.
+For simplification the following only uses the facet 0, 1, 2.
 
 Each vertex of the facet is assigned a uv coordinate pair from the image.
 
@@ -289,7 +289,7 @@ results in:
 
 Note that the image is skewed since the shape of the triangular facet and that on the image do not match.
 
-Adding in these lines at the appropiate points:
+Adding in these lines at the appropriate points:
 
 ```javascript
 var colors = [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1];

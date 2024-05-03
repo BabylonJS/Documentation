@@ -53,7 +53,7 @@ There are 44 cells in the above spritesheet, each one 64 x 64 pixels. Since the 
 ```javascript
 const spriteManagerPlayer = new BABYLON.SpriteManager("playerManager","path to Player.png", 1, 64);
 ```
-which can then be use to produce just one sprite instance.
+which can then be used to produce just one sprite instance.
 
 ```javascript
 const player = new BABYLON.Sprite("player", spriteManagerPlayer); 

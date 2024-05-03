@@ -114,7 +114,7 @@ blubox.actionManager.registerAction(new BABYLON.IncrementValueAction(BABYLON.Act
 
 ### VR Cameras
 
-Babylon.js makes it very easy to use VR camera. Our scene has two options. The default impelmented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
+Babylon.js makes it very easy to use VR camera. Our scene has two options. The default implemented is the `WebVRFreeCamera`, the documentation, including browser/device limitations and motion controls, can be found [here](/features/featuresDeepDive/cameras/webVRCamera).
 
 ```javascript
 var camera = new BABYLON.WebVRFreeCamera("Camera", new BABYLON.Vector3(0, 1, 0), scene);

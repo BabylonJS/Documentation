@@ -30,7 +30,7 @@ Here is a playground where you can see it working. <Playground id="#4F33I3" titl
 
 # Drawing a bounding box around multiple objects
 
-Ok so let's make it a little more complicated. Let's say that your scene also has a ground plane in it that you've lovingly named "ground" and you'd like to draw a bounding box around the area that encomposes both the sphere and ground. 
+Ok so let's make it a little more complicated. Let's say that your scene also has a ground plane in it that you've lovingly named "ground" and you'd like to draw a bounding box around the area that encompasses both the sphere and ground. 
 
 To do this, we're going to get the minimum and maximum values of the bounding information of both meshes and compare them with special methods that compares two vector 3 values and gives you the minimum and maximum values. Then we'll set the sphere's bounding information to this new min and max. Let's try it out.
 
@@ -44,7 +44,7 @@ let groundMin = ground.getBoundingInfo().boundingBox.minimum;
 let groundMax = ground.getBoundingInfo().boundingBox.maximum;
 ```
 
-Ok and now let's declare 2 new variables and use those special methods metioned above to compare the min and max bounding info of both meshes.
+Ok and now let's declare 2 new variables and use those special methods mentioned above to compare the min and max bounding info of both meshes.
 
 ```javascript
 let newMin = BABYLON.Vector3.Minimize(sphereMin, groundMin);
@@ -160,7 +160,7 @@ parent.setBoundingInfo(new BABYLON.BoundingInfo(min, max));
 ```
  <Playground id="#4F33I3#793" title="Using getHierarchyBoundingVectors()" description="Example of using getHierarchyBoundingVectors() method to draw overall bounding box"/>
 
-If we wanted to update the bounding box everytime the parent recieves a new child, we can use onAfterWorldMatrixUpdateObservable to listen for changes. However just calling getHierarchyBoundingVectors() within this observer will cause an infinite loop. To prevent this we can check for re-entrancy on the node. 
+If we wanted to update the bounding box everytime the parent receives a new child, we can use onAfterWorldMatrixUpdateObservable to listen for changes. However just calling getHierarchyBoundingVectors() within this observer will cause an infinite loop. To prevent this we can check for re-entrancy on the node. 
 
 ```javascript
 parent.onAfterWorldMatrixUpdateObservable.add((v) => {

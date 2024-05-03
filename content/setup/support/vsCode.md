@@ -51,6 +51,6 @@ Also, in VSCode there is a `Debug` tab on the menu. To use it with Babylon.js yo
 With the test task running from the VSCode debug tab, chose the section you want to debug and launch the debugger.
 ![debug](/img/how_to/howToStart/debug.png)
 
-Debug session will debug all the Typescript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, procceduralTexturesLibrary, postprocessLibrary, etc.
+Debug session will debug all the Typescript and JavaScript in Chrome and stop on your breakpoints set up in files in VSCode. It debugs all the code from src, materialsLibrary, proceduralTexturesLibrary, postprocessLibrary, etc.
 
 _Hint_: If another chrome session is already running on remote debug on port 9222 the debugger will fail to attach as the port is already open. You will have to close the other remote debug first.

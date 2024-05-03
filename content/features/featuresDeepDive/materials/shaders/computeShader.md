@@ -137,7 +137,7 @@ Note that this sample also works in WebGL2 where compute shaders are not availab
 
 This is a port of the great project [Slime-Simulation](https://github.com/SebLague/Slime-Simulation): all credits to sebastlague@gmail.com!
 
-The implentation in WGSL is a little less pretty than the HLSL one because at the time of this writing WebGPU does not support read/write textures, so we had to use a storage buffer for the `TrailMap` texture. That means we need some copy buffer to texture and texture to buffer functions and we have to do 4 reads from `TrailMap` instead of a single one when we need to get a `vec4` (see the code), which is likely less performant than its HLSL counterpart.
+The implementation in WGSL is a little less pretty than the HLSL one because at the time of this writing WebGPU does not support read/write textures, so we had to use a storage buffer for the `TrailMap` texture. That means we need some copy buffer to texture and texture to buffer functions and we have to do 4 reads from `TrailMap` instead of a single one when we need to get a `vec4` (see the code), which is likely less performant than its HLSL counterpart.
 
 ### Ocean demo
 

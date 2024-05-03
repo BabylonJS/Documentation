@@ -35,7 +35,7 @@ var delta = recorder.getDelta();
 
 The returned value is a JSON object that you can download or reuse later.
 
-To donwload it, you can leverage the Tools class:
+To download it, you can leverage the Tools class:
 
 ```javascript
 BABYLON.Tools.Download(JSON.stringify(delta), "delta.json");

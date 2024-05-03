@@ -49,7 +49,7 @@ This method accepts three optional parameters : `facetNb`, `delta` and `number`
   The number of generated particles depends then on the mesh initial number of facets and on the `faceNb` value.  
   This parameter is overriden if the parameter `number` is set.
 - `delta` (default 0), used with `facetNb`, allows to generate each particle with a random size between _facetNb_ and _facetNb + delta_ facets.
-- `number` is the wanted number of particles. `digest()` divides then the mesh into `number` particles of the same size in term of the number of facets used per particle.  
+- `number` is the wanted number of particles. `digest()` divides then the mesh into `number` particles of the same size in terms of the number of facets used per particle.  
   If `number` is greater than the total number of mesh facets, then this total number is used for the value of `number`.
 
 ```javascript

@@ -14,7 +14,7 @@ video-content:
 
 Simply set up more animations and add to theBabylon.js object's animations array.
 
-For example adding a rotation animation to the very simple slide animtation to get:
+For example adding a rotation animation to the very simple slide animation to get:
 
 <Playground id="#9WUJN#11" title="Simple Slide Animation" description="The simple slide animation example." image="/img/playgroundsAndNMEs/divingDeeperAnimationDesign1.jpg"/>
 

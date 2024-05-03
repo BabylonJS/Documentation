@@ -164,7 +164,7 @@ particleSystem.addAngularSpeedGradient(0.4, 1, 2); //angular speed range at 2/5 
 particleSystem.addAngularSpeedGradient(1.0, 3, 4); //angular speed range at end of particle lifetime
 ```
 
-To remove a angular speed gradient you use
+To remove an angular speed gradient you use
 
 ```javascript
 particleSystem.removeAngularSpeedGradient(0.4);
