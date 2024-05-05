@@ -103,32 +103,33 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
 
     useEffect(() => {
         // get the snippet code
-        fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`).then((response) => {
-            response.text().then((text) => {
-                const parsed = JSON.parse(JSON.parse(text).jsonPayload);
-                const { code } = parsed;
-                const codeLines: Array<string> = (code || "").split("\n");
-                let startingLine = 0;
-                let foundLine = -1;
-                const lowerTerm = term.toLowerCase();
-                if (type === "code") {
-                    for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
-                        if (codeLines[foundLine].length > 100) {
-                            codeLines[foundLine] = `${codeLines[foundLine].substring(0, 100)}...`;
-                        }
-                        if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
-                            startingLine = Math.max(foundLine - 5, 0);
-                            break;
-                        }
+        fetch(`https://snippet.babylonjs.com/${searchResult.snippetIdentifier}/${searchResult.version}`)
+        .then(response => response.text())
+        .then(text => {
+            const parsed = JSON.parse(JSON.parse(text).jsonPayload);
+            const { code } = parsed;
+            const codeLines: Array<string> = (code || "").split("\n");
+            let startingLine = 0;
+            let foundLine = -1;
+            const lowerTerm = term.toLowerCase();
+            if (type === "code") {
+                for (foundLine = 0; foundLine < codeLines.length; ++foundLine) {
+                    if (codeLines[foundLine].length > 100) {
+                        codeLines[foundLine] = `${codeLines[foundLine].substring(0, 100)}...`;
+                    }
+                    if (codeLines[foundLine].toLowerCase().indexOf(lowerTerm) !== -1) {
+                        startingLine = Math.max(foundLine - 5, 0);
+                        break;
                     }
                 }
-                setCodeToShow({
-                    code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
-                    startingLine,
-                    foundLine,
-                });
+            }
+            setCodeToShow({
+                code: codeLines.slice(startingLine, startingLine + 10).join("\n"),
+                startingLine,
+                foundLine,
             });
         });
+    
     }, [searchResult]);
 
     return (
