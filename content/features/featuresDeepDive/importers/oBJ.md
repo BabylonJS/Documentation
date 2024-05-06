@@ -110,6 +110,12 @@ If an MTL is defined in your OBJ and you wish to have it ignored, set the variab
 BABYLON.OBJFileLoader.SKIP_MATERIALS = true;
 ```
 
+The OBJ-Loader's behavior has changed in this PR - [https://github.com/BabylonJS/Babylon.js/pull/14920](https://github.com/BabylonJS/Babylon.js/pull/14884) to support handedness correctly. If you have issues loading your OBJ after the change, but it had worked previously, you can set the following flag to fix it:
+
+```javascript
+OBJFileLoader.USE_LEGACY_BEHAVIOR = true;
+```
+
 ## Supported
 
 - Object/group
