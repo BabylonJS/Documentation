@@ -3151,6 +3151,11 @@
                     "children": {},
                     "content": "communityExtensions/figmaToBabylonJS"
                 },
+                "htmlMesh": {
+                    "friendlyName": "HTML Mesh",
+                    "children": {},
+                    "content": "communityExtensions/htmlMesh"
+                },
                 "lottieTexture": {
                     "friendlyName": "Lottie Texture",
                     "children": {},
