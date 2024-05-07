@@ -31,7 +31,7 @@ babylon-mmd is a library focused on loading PMX models and VMD motion files into
 ## Example
 
 ![Playground example of a MMD](/img/extensions/mmdLoader/PGScreenshot.png)
-<Playground id="#028YR6#18" title="Complete MMD Example" description="Example of a MMD model with a VMD motion file and audio." />
+<Playground id="#028YR6#41" title="Complete MMD Example" description="Example of a MMD model with a VMD motion file and audio." />
 
 *Music: [メランコリ・ナイト](https://youtu.be/y__uZETTuL8) by higma*
 
@@ -74,7 +74,7 @@ await new Promise((resolve) => {
 
 ### Import PMX Model
 
-<Playground id="#FY1L15" title="Import PMX Model" description="Example of importing a PMX model." />
+<Playground id="#FY1L15#3" title="Import PMX Model" description="Example of importing a PMX model." />
 
 ```typescript
 import "babylon-mmd/esm/Loader/pmxLoader"; // side effect import
