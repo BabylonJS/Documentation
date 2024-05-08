@@ -88,7 +88,7 @@ groundMaterial.diffuseColor = BABYLON.Color3.Red();
 Replace it with these two lines and run the scene again:
 
 ```javascript
-let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
+let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.path, scene);
 groundMaterial.diffuseTexture = groundTexture;
 ```
 
