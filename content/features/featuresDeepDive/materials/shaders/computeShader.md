@@ -141,7 +141,7 @@ The implementation in WGSL is a little less pretty than the HLSL one because at 
 
 ### Ocean demo
 
-<Playground id="#YX6IB8#674" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
+<Playground id="#YX6IB8#758" engine="webgpu" title="Ocean demo" description="Ocean simulation" image="/img/extensions/webgpu/ocean.png" isMain={true} category="WebGPU"/>
 
 This is a port of the great project [FFT-Ocean](https://github.com/gasgiant/FFT-Ocean): all credits to Ivan Pensionerov (https://github.com/gasgiant)!
 
