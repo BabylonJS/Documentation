@@ -10,7 +10,7 @@ video-content:
 
 ## Particle system
 
-PG: <Playground id="#544N0Q#112" title="Particle system" description="Example of a particle system rendered as a fluid"/>
+PG: <Playground id="#544N0Q#23" title="Particle system" description="Example of a particle system rendered as a fluid"/>
 
 This example shows how a standard particle system can be rendered as a fluid.
 
