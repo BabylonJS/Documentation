@@ -107,6 +107,8 @@ setPoints(points: number[][]) // sets the points and recreates the mesh - the nu
 
 _If you are using the right handed coordinate system please create the lines after you switch the scene to it._
 
+_If you modify the number of points in the line you have to set the widths for the new lines or lines segments prior calling any of these two methods._
+
 #### **widths** and **widthDistribution**
 
 You can specify two width multiplier values for each point in your line. These values are multiplied with the `width` of the line to draw the resulting line. The first value specifies the width multiplier of the line below the line and the second above the line. These values are not normalized so if you use a value of 2, 2 the line will be twice the width at that point. _There must be exactly the same count of width pair values as there are points._
@@ -809,7 +811,7 @@ You can use the `findAllIntersections(ray)` function on the a `GreasedLineMesh` 
 
 <Playground id="#ZRZIIZ#96" title="Vertex colors" description="Colorize your line using vertex colors." />
 <Playground id="#H1LRZ3#124" title="Picking & intersection" description="GreasedLine supports picking and ray intersections." />
-<Playground id="#7CHU6U#10" title="Adding and setting points on an existing instance" description="Shows how can you add or set the points on an existing instance and how to deal with existing width/colors." />
+<Playground id="#7CHU6U#14" title="Adding and setting points on an existing instance" description="Shows how can you add or set the points on an existing instance and how to deal with existing width/colors." />
 <Playground id="#H1LRZ3#35" title="Glowing lines" description="Glowing lines." />
 <Playground id="#H1LRZ3#97" title="Arrows" description="You can easily create arrows with GreasedLine." />
 <Playground id="#H1LRZ3#60" title="Curves" description="Example of drawing a colorful curve." />
