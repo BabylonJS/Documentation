@@ -36,7 +36,7 @@ new BABYLON.MeshDebugPluginMaterial(mesh.material, {
 });
 ```
 
-**NOTE** _Behind-the-scenes, `PrepareMeshForTrianglesAndVerticesMode` is tripling the number of triangles and vertices in the mesh's vertex buffers. This is necessary for the plugin's shaders to work correctly. You can undo these changes to the mesh via the [rollback function](/typedoc/classes/BABYLON.MeshDebugPluginMaterial#PrepareMeshForTrianglesAndVerticesMode) returned by the method._
+**NOTE** _Behind-the-scenes, `PrepareMeshForTrianglesAndVerticesMode` triples the number of triangles and creates `number_triangles*2*3` vertices in the mesh's vertex buffers. This is necessary for the plugin's shaders to work correctly. You can undo these changes to the mesh via the [rollback function](/typedoc/classes/BABYLON.MeshDebugPluginMaterial#PrepareMeshForTrianglesAndVerticesMode) returned by the method._
 
 Playground example: <Playground id="#KPLZWF" title="Triangles" description="Applying TRIANGLES to a model."/>
 
