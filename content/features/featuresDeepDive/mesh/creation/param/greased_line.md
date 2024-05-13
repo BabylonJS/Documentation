@@ -96,11 +96,13 @@ const points = [
 ];
 ```
 
-Please note that `points` are not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points. See below the Offsets section and the PG example Offsetting line vertices. However there are two public methods available on the line instance for manipulating the points which can be useful when you are creating the line instance and the material instance separately (not recommended for most scenarios). Both of these functions will destroy the mesh and create a new one:
+Please note that `points` property is not updatable unlike when using a `LineMesh`. You have to use the property `offsets` on the line instance to update the position of points without recreating the mesh. Updating the `offsets` doesn't involve any calulcations and updated only one vertex buffer. See below the Offsets section and the PG example Offsetting line vertices. 
+
+However there are two public methods available on the line instance for manipulating the points. Both of these functions will destroy the mesh and create a new one. This point manipulation method is slower but if you are not dealing with a lot of lines it should not cause FPS issues.
 
 ```javascript
 addPoints(points: number[][]) // ads points to the existing ones and recreates the mesh
-setPoints(points: number[][]) // sets the points and recreates the mesh
+setPoints(points: number[][]) // sets the points and recreates the mesh - the number of points must be the same as in the original line
 ```
 
 _If you are using the right handed coordinate system please create the lines after you switch the scene to it._
