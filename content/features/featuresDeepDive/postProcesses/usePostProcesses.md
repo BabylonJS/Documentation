@@ -161,7 +161,7 @@ You have several options available:
   - a [colorGradingTexture](/typedoc/classes/babylon.colorgradingtexture) using a [.3dl](https://en.wikipedia.org/wiki/3D_lookup_table) format. Demo: <Playground id="#17VHYI#15" title="ColorGrading Texture Post Process" description="Simple example of a colorgrading texture post process."/>
   - a standard texture (using .png for example) but with _invertY_ set to _true_, wrap mode as clamp and _imageProcessingConfiguration.colorGradingWithGreenDepth_ set to _false_. Demo: <Playground id="#17VHYI#9" title="ColorGrading Texture Post Process Green Depth" description="Simple example of a colorgrading texture post process."/>
 - colorCurves: Used to provide several properties to change colors. More [details here](/features/featuresDeepDive/materials/using/masterPBR). Demo: <Playground id="#J9H084#12" title="ColorCurves Post Process" description="Simple example of a colorCurves post process."/>
-- contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#9" title="colorCurves Post Process (Contrast)" description="Simple example of changing the contrast of a colorCurves Post Process."/>
+- contrast: 1.0 by default. Used to change the contrast. Demo: <Playground id="#J9H084#615" title="colorCurves Post Process (Contrast)" description="Simple example of changing the contrast of a colorCurves Post Process."/>
 - exposure: 1.0 by default. Used to change the exposure of the image. Demo: <Playground id="#J9H084#10" title="colorCurves Post Process (Exposure)" description="Simple example of changing the exposure of a colorCurves Post Process."/>
 
 You can also use this postprocess to enable a vignette effect. The vignette is positioned thanks to the following parameters:
