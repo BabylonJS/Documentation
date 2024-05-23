@@ -132,18 +132,6 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
     }, [searchResult]);
 
     return (
-        // <div className={classes.contentRoot}>
-
-        //     <Typography className={classes.heading}>
-        //         {" "}
-        //         <Link href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //             <MaterialLink target="_blank" href={`http://playground.babylonjs.com/#${searchResult.id}#${searchResult.version}`}>
-        //                 {searchResult.name ? searchResult.name : searchResult.id}
-        //             </MaterialLink>
-        //         </Link>
-        //     </Typography>
-        //     <Typography className={classes.secondaryHeading}>{searchResult.description}</Typography>
-        // </div>
 
         <Accordion
             id={searchResult.id}
@@ -180,7 +168,6 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         }}
                         aria-label={`Preview ${searchResult.snippetIdentifier}`}
                         size="small"
-                        color="inherit"
                     >
                         <Tooltip title={`Preview ${searchResult.snippetIdentifier}`}>
                             <LinkIcon></LinkIcon>
@@ -192,7 +179,6 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                         }}
                         aria-label={`Open ${searchResult.snippetIdentifier} in a new tab`}
                         size="small"
-                        color="inherit"
                     >
                         <Link href={`http://playground.babylonjs.com/#${searchResult.snippetIdentifier}#${searchResult.version}`} target="_blank">
                             <Tooltip title={`Open ${searchResult.id} in a new tab`}>
