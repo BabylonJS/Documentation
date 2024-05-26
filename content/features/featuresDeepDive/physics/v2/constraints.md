@@ -106,3 +106,5 @@ When simulating a long chain of constrained bodies, not all of the constraints m
 <Playground id="#7DMWP8" title="Constraints" description="Shows all the different constraints available" isMain={true} category="Physics"/>
 
 <Playground id="#NAMYYQ#2" title="Swinging pendulums" description="Example of using the Distance Constraint to model a pendulum" isMain={true} category="Physics"/>
+
+<Playground id="#RMF5CJ" title="6 DoF Joint Tool" description="Simple tool for experimenting with commonly used Physics6DoFConstraint parameters" isMain={true} category="Physics"/>
