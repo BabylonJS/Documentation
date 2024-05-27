@@ -314,14 +314,13 @@ Using command line:
 The example is linking `core`. Change the package name to anything else if needed.
 
 - Build the public package you want to link:
-  - `npx nx build babylonjs` (when building es6 packages remove the @babylonjs prefix, i.e. `npx nx build core`)
-- If using the es6 packages, run `npm run prepublishOnly -w @babylonjs/core`
-- Run `npm link -w @babylonjs/core`
+  - `npx nx run babylonjs:build` (or es6 - `npx nx run @babylonjs/core:build`)
+- Run `npm link -w [PACKAGE-NAME]` - for example `npm link -w @babylonjs/core`
 
 In your other project:
 
 - Make sure you are linking to the right version (or use semver ranges)
-- Run `npm link @babylonjs/core`
+- Run `npm link [PACKAGE-NAME]` - for example `npm link @babylonjs/core`
 
 When making changes to the linked package, make sure to repeat the build steps. There is no need to link again until you reinstall the public library.
 
@@ -883,7 +882,7 @@ You can reference this package in other packages to link them together. Once thi
 
 To build each and every package available in the repository, run `npm run build -w @namespace/package-name`. There is, however, a quicker and more efficient way of building a package that has dependencies.
 
-`nx` is integrated in the repository, and can be seen as a local assets repository to run build much faster. When running an npm script using nx it will automatically run the same command in local dependencies and in the right order. So, for example, when building the public `babylonjs-gui` package using `npx nx run build babylonjs-gui`, nx will add the following projects to the sequence:
+`nx` is integrated in the repository, and can be seen as a local assets repository to run build much faster. When running an npm script using nx it will automatically run the same command in local dependencies and in the right order. So, for example, when building the public `babylonjs-gui` package using `npx nx run babylonjs-gui:build`, nx will add the following projects to the sequence:
 
 - @dev/build-tools (a dependency of each dev package)
 - @dev/core
@@ -893,7 +892,7 @@ To build each and every package available in the repository, run `npm run build 
 - @lts/gui
 - babylonjs-gui
 
-It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run build babylonjs` will build dev, lts, and public, but those 3 will be ready when building babylonjs-gui and will not build again.
+It will run the build in sequence (because of the predefined dependencies), but will skip building a package if it hasn't changed since the last build call. So calling `npx nx run babylonjs:build` will build dev, lts, and public, but those 3 will be ready when building babylonjs-gui and will not build again.
 
 This should be used only when you want to build the public packages in the repository, and will mainly be used by the CI. However, nx is available to you and is a very powerful tool. In the future we might integrate it more in the repository. TO read more about nx: [https://nx.dev/getting-started/intro](https://nx.dev/getting-started/intro)
 
