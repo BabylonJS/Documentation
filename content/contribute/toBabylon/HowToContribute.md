@@ -547,12 +547,13 @@ To set all (webpack) builds to production mode, set the following in the .env fi
 NODE_ENV=production
 ```
 
-Other variables you can set in the .env files are:
+Other optional variables you can set in the .env files are:
 
 ```shell
-TEST_ENGINE="webgl2" # change the engine used for visualization test
 TOOLS_PORT=1338 # port for tools like the playground or the node editor
 CDN_PORT=1337 # port for the Babylon server
+CDN_BASE_URL="https://cdn.babylonjs.com" # base URL for the CDN. Defaults to localhost:1337. Useful if you want to test against a snapshot or the stable nightly
+ENABLE_HTTPS=true # enable HTTPS for the Babylon server. USeful for WebXR
 ```
 
 Note that the .env file should never be updated on the repository. It is ignored by git.
@@ -907,13 +908,12 @@ There are 3 types of tests configured in the repository:
 Each package can have a "test" folder with a specific structure. The structure of the test folder will allow tests to run automatically in the entire repository (and in a single package). The structure is as follows:
 
 - unit tests are located in `test/unit`.
-- visualization tests are located in `test/visualization`.
 
 All files must follow this schema:
 
 `(.*).test.{js, ts, tsx}`, for example - materials.test.ts or babylon.physicsEngine.test.js
 
-Those files will be automatically picked by jest and will run as part of the test script, using the correct environment (jsdom/node for unit tests, puppeteer for visualization tests)
+Those files will be automatically picked by jest and will run as part of the test script, using the correct environment (jsdom/node for unit tests)
 
 The possible test environment are node and jsdom for unit tests, and also puppeteer for visualization and integration (see [https://jestjs.io/docs/configuration#testenvironment-string](https://jestjs.io/docs/configuration#testenvironment-string)). The default test environment is node (and puppeteer for visualization). To change the environment, add a comment at the first line of the file. For example:
 
@@ -927,7 +927,7 @@ will enable jsdom as the test environment and will make the window and document 
 
 Test results can be seen on the console. A junit.xml file is also generated after every test run, but it is mainly used for CI reporting.
 
-Visualization tests will generate a report if any test failed. The report can be found at the directory `jest-screenshot-report` in the main directory.
+Visualization tests will generate a report if any test failed. The report will open automatically after running the tests.
 
 To run all tests in a single command run `npm run test` or `npx jest` in the main directory.
 
@@ -958,68 +958,70 @@ This will run all tests that have the word "material" in their name.
 
 ### Visualization tests
 
-Run visualization tests using `npm run test:visualization` in the main directory.
+Run all visualization tests (WebGL1, WebGL2 and WebGPU) using `npm run test:visualization` in the main directory.
 
-#### Configuring the visualization tests
+#### Before your first test run
 
-Visualization tests are running using puppeteer, which is an interface to control Chrome or Firefox on Node. The test will run in a browser and will generate a report if any test fails. The browser selected is the local chromium installed together with puppeteer. If you want the tests to run in a different browser you can customize the puppeteer configuration at `jest-puppeteer.config.js` in the main directory. Some of the options are:
+The tests are running using playwright.
+If you haven't already installed playwright's browsers, please do so by running `npx playwright install`.
 
-```javascript
-module.exports = {
-  launch: {
-    dumpio: false, // should we see logs?
-    timeout: 30000, // timeout of 30 seconds
-    headless: false, // true to run headless
-    product: browser, // can be either chrome or firefox
-    ignoreHTTPSErrors: true, // should SSL issues be automatically resolved, in case the files are hosted locally on self-signed SSL certificate
-    devtools: true, // Should the dev tools open automatically
-    args: browser === "chrome" ? chromeFlags : firefoxFlags, // additional arguments for the browser, for example enabling garbage collection
-    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // choose the chrome (or firefox) to use
-  },
-  browserContext: "default",
-};
+#### Running all tests
+
+To run all visualization tests run `npm run test:visualization` in the main directory.
+
+If you want to run only one specific engine, add the following:
+
+```shell
+npm run test:visualization -- --project="webgl2"
 ```
 
-Here is the list of all parameters - [https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerlaunchoptions](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerlaunchoptions)
+If any error occurs during the test, the tests will continue and will eventually generate a report with all the failed tests. The report will open automatically after the tests are done.
+You can break the execution and still see the report (if any tests filed) by pressing `Ctrl+C`.
 
-Puppeteer opens a different context than the node context we are at when running the tests, so all code needed should either be pre-injected (using the Babylon server, for example) or sent during code evaluation. A simple example:
+#### Adding a new test
 
-```javascript
-const random = await page.evaluate((aRandomNumber) => {
-  return aRandomNumber * Math.random();
-}, Math.random());
+To add a new test to the visualization tests, add the test data to this file: https://github.com/BabylonJS/Babylon.js/blob/master/packages/tools/tests/test/visualization/config.json
+
+The best way to do that is first create a playground, save it (using a local version of the playground, for example) and then add it at the end of the config file:
+
+```json
+//...,
+{
+  "title": "My new visualization test", // the title of the test
+  "playgroundId": "#ABCDEF#12", // the playground snippet id
+  "referenceImage": "nameOfReferenceImage.png", // a name for the image snapshot that will be generated. Optional!
+  "excludedEngines": ["webgl1"], // optional lists of engine you don't want the test to run on
+  "renderCount": 2, // optional, the number of frames the scene should render. Default is 1. Good for animated scenes.
+},
+//...
 ```
 
-This will generate a random number at the node context, send it to the page, and multiply it with Math.random() result from the browser. It will return the result and will store it in the variable random.
-
-To debug during a test you can set
-
-```javascript
-await jestPuppeteer.debug();
-```
-
-anywhere in the test (in the node context, and not inside an evaluate function).
-
-Executing this will halt the test (taking the timeout into account!) and will allow you to look in the dev tools of the opened browser and debug the scene there.
-
-The tests are set to automatically show any error received from the browser's console (doesn't work in Firefox). You will see the error in the jest output screen.
-
-For the time being the tests are defined in the visualization file itself, but this is temporary until the development is finalized.
-
-In the future it is recommended to have visualization tests in the dev packages themselves and not in an external package. for the time being, the visualization tests are located in @tools/visualization-tests
+To generate the snapshot, run the test once. The simplest would be to open the UI and run the test. The snapshot will be generated in the `tests/test/visualization/snapshots` folder. Make sure to add the snapshot to the repository. See the next section to know how to run a single test.
 
 #### Running specific tests
 
-To run a specific test on a specific engine, use:
+The recommended way to run a specific test is to use the UI. To do that run
 
 ```shell
-npm run test:visualization -- -i "engineName" -t "test name"
+npm run test:visualization:ui
 ```
 
-For example:
+This will show you the tests for all 3 engines and you will be able to run them one by one.
+
+If you want to display only one specific engine add the following:
 
 ```shell
-npm run test:visualization -- -i "webgl2" -t "Particle subemitters"
+npm run test:visualization:ui -- --project="webgl2"
+```
+
+This will only show the tests for the webgl2 engine.
+
+Note that when making changes to the list of tests the UI will reload to show it. So you can update the JSON while the UI is loaded without the need to run it again.
+
+If you don't want to use the UI you can run an individual test by providing its title:
+
+```shell
+npm run test:visualization -- --project="webgl2" -g "Title Of The Test"
 ```
 
 ### Guidelines
