@@ -45,6 +45,22 @@ featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
 
 <Playground id="#AZML8U" title="Movement with controllers" description="A simple example of controller movement with collisions and gravity" image="/img/how_to/xr/xr-movement-playground.png"/>
 
+It is also possible to use the controller to set the movement direction. To do that you need to disable the head-direction settings. You can optionally define which hand will control the rotation:
+
+```javascript
+const featureManager = xrHelper.baseExperience.featuresManager;
+
+const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, "latest", {
+  xrInput: xr.input,
+  // add options here
+  movementOrientationFollowsViewerPose: false, // default true
+  movementOrientationFollowsController: true, // enable controller direction
+  orientationPreferredHandedness: "left", // the preferred hand for rotation. Defaults to right. If hand is not found it will use the first found controller.
+});
+```
+
+<Playground id="#AZML8U#242" title="Movement with controllers, direction with controller" description="A simple example of controller movement with collisions and gravity using the controller as direction" image="/img/how_to/xr/xr-movement-playground.png"/>
+
 ### Movement Configuration Options
 
 The current options for the plugin can always be found at the [WebXR movement feature source code](https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/core/src/XR/features/WebXRControllerMovement.ts#L20). Most of them will be explained here.
