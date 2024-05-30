@@ -972,7 +972,7 @@ To run all visualization tests run `npm run test:visualization` in the main dire
 If you want to run only one specific engine, add the following:
 
 ```shell
-npm run test:visualization -- --engine="webgl2"
+npm run test:visualization -- --project="webgl2"
 ```
 
 If any error occurs during the test, the tests will continue and will eventually generate a report with all the failed tests. The report will open automatically after the tests are done.
