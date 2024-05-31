@@ -13,7 +13,15 @@ video-content:
 `TrailMesh` creates a new `Mesh` that trails another.
 
 ```javascript
-const newTrail = new BABYLON.TrailMesh(name, generator, scene, diameter, length, autoStart);
+let options = {
+    diameter: 1.5,
+    length: 100,
+    segments: 10,
+    sections: 4,
+    doNotTaper: false,
+    autoStart: true
+};
+const newTrail = new BABYLON.TrailMesh(name, generator, scene, options);
 
 newTrail.start(); //Starts the trailing mesh.
 newTrail.stop(); //Stops the trailing mesh.
@@ -24,9 +32,18 @@ newTrail.stop(); //Stops the trailing mesh.
 | name                 | The value used by scene.getMeshByName() to do a lookup. |
 | generator            | The mesh to generate a trail.                           |
 | scene                | The scene to add this mesh to.                          |
-| diameter (optional)  | Diameter of trailing mesh. Default is 1.                |
-| length (optional)    | Length of trailing mesh. Default is 60.                 |
-| autoStart (optional) | Automatically start trailing mesh. Default true.        |
+| options              | The object containing trail parameters.                 |
+
+There are a variety of parameters you can set to create different types of trails to suit your needs. If you do not specify `segments`, it will default to the `length` of the trail, ie, a trail with a length of 60 will have 60 segments.
+
+| options property     | value                                               | default value |
+| -------------------- | --------------------------------------------------- |---------------|
+| diameter (optional)  | _(number)_ Diameter of trailing mesh.                 | 1             |
+| length (optional)    | _(number)_ Length of trailing mesh.                   | 60            |
+| segments (optional)  | _(number)_ Segments of trailing mesh.                 | length        |
+| sections (optional)  | _(number)_ Cross-section of trailing mesh. Min 2.     | 4             |
+| doNoTaper (optional) | _(boolean)_ Whether the trail should taper.           | false         |
+| autoStart (optional) | _(boolean)_ Automatically starts the trailing mesh.   | true          |
 
 TrailMesh will be affected by all modifications to the generator mesh. Using `bakeCurrentTransformIntoVertices` on the generator after scaling (and before a position shift) will prevent the TrailMesh from scaling.
 
@@ -42,7 +59,16 @@ cube.position.x = Math.sin(alpha) * 10;
 cube.position.z = Math.cos(alpha) * 10;
 cube.computeWorldMatrix(true);
 
-const trail = new BABYLON.TrailMesh("new", cube, scene, 0.5, 60, true);
+// Trail options
+let options = {
+    diameter: 1.5,
+    length: 100,
+    segments: 10,
+    sections: 4,
+    doNotTaper: false,
+    autoStart: true
+};
+const trail = new BABYLON.TrailMesh("new", cube, scene, options);
 
 const sourceMat = new BABYLON.StandardMaterial("sourceMat", scene);
 sourceMat.emissiveColor = sourceMat.diffuseColor = new BABYLON.Color3.Red();
