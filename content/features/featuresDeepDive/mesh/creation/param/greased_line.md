@@ -342,7 +342,7 @@ Rendering resolution. There may be special occasions when you want to change the
 
 #### **cameraFacing**
 
-Whether to use camera facing for the line. Defaults to `true`. If set to `true` you have to use the `GreasedLineMesh` class to create the mesh. If set to `false` you have to use the `GreasedLineRibbonMesh` class. The builder function takes automatically care of this decision and sets this value automatically to `false` if `ribbonOptiions` is present in the `GreasedLineBuilderMeshOptions`.
+Whether to use camera facing for the line. Defaults to `true`. If set to `true` you have to use the `GreasedLineMesh` class to create the mesh. If set to `false` you have to use the `GreasedLineRibbonMesh` class. The builder function takes automatically care of this decision and sets this value automatically to `false` if `ribbonOptions` is present in the `GreasedLineBuilderMeshOptions`.
 
 ## GreasedLine materials
 
