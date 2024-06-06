@@ -232,7 +232,7 @@ rayHelper.attachToMesh(box, localMeshDirection, localMeshOrigin, length);
 
 Picking can be an expensive feature to use as the CPU has to go through all the geometries to find the closest triangle which is intersecting with the picking ray.
 
-Starting with Babylon v8.0, you can now use the GPU for your picking needs:
+Starting with Babylon v8.0, you can now use the GPU for your picking needs. This will mostly be useful if you have very complex objects where scanning all the triangles will kill your performance:
 
 ```javascript
 var picker = new BABYLON.GPUPicker();
