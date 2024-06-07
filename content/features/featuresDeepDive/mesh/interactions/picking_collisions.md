@@ -236,6 +236,7 @@ Starting with Babylon v8.0, you can now use the GPU for your picking needs. This
 
 ```javascript
 var picker = new BABYLON.GPUPicker();
+picker.setPickingList(myMeshes);
 
 scene.onPointerObservable.add(() => {
   picker.pickAsync(scene.pointerX, scene.pointerY, scene, false).then((mesh) => {
@@ -246,18 +247,10 @@ scene.onPointerObservable.add(() => {
 });
 ```
 
-As you can see you only need to create a `GPUPicker` and call the `pickAsync` function.
+As you can see you only need to create a `GPUPicker`, defines the list of pickable meshes and call the `pickAsync` function.
 
 The system will then render the scene onto a texture and read from that texture at the give coordinates. Each mesh will be rendered with an unique color hence the picker will be able to return the picked mesh.
 
-But as always with GPU there are some limitations. In the previous example, the picker is taking all the isPickable meshes from the scene to find which one was picked.
+Thanks to the call to `setPickingList`, the picker will be able to prepare all the instances and will associate a new vertex buffer to store their unique colors.
 
-This is an easy solution but that solution does not support picking instances (the cost to generate a color buffer per instance per frame is too high).
-
-To be able to also pick instances, you need to pre-defined the list of pickable meshes with `picker.setPickingList(myMeshes)`.
-
-Thanks to this function, the picker will be able to prepare all the instances and will associate a new vertex buffer to store their unique colors.
-
-**As the system will use vertex color to store the data, all your meshes with instances will see their vertex color channel overwritten.**
-
-<Playground id="#B5XGIP#10" title="GPU picking" description="Simple example of how to use GPU picking."/>
+<Playground id="#XJKQOC" title="GPU picking" description="Simple example of how to use GPU picking."/>
