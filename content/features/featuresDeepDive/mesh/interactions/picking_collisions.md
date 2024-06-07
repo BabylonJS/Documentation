@@ -239,9 +239,9 @@ var picker = new BABYLON.GPUPicker();
 picker.setPickingList(myMeshes);
 
 scene.onPointerObservable.add(() => {
-  picker.pickAsync(scene.pointerX, scene.pointerY, scene, false).then((mesh) => {
-    if (mesh) {
-      console.log(mesh.name);
+  picker.pickAsync(scene.pointerX, scene.pointerY, scene, false).then((pickingInfo) => {
+    if (pickingInfo) {
+      console.log(pickingInfo.mesh.name);
     }
   });
 });
@@ -253,4 +253,4 @@ The system will then render the scene onto a texture and read from that texture 
 
 Thanks to the call to `setPickingList`, the picker will be able to prepare all the instances and will associate a new vertex buffer to store their unique colors.
 
-<Playground id="#XJKQOC" title="GPU picking" description="Simple example of how to use GPU picking."/>
+<Playground id="#XJKQOC#1" title="GPU picking" description="Simple example of how to use GPU picking."/>
