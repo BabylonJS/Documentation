@@ -97,8 +97,30 @@ A container shape doesn't have any geometry by itself, however, it does allow an
 
 [The Container has its own page](/features/featuresDeepDive/physics/compounds) for more information.
 
+A height field is essentially a grid of height values (often stored in a 2D array) that define the elevation of a surface at each point on a regular grid. This creates a 3D surface that can be used for collision detection and physics simulations in a more efficient manner compared to using a high-resolution mesh of individual polygons.
+
+```javascript
+var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap("g", "https://image.jpeg", {
+        subdivisions,
+        width: size,
+        height: size,
+        maxHeight: 5,
+        passHeightBufferInCallback: true,
+        onReady: (mesh, heightBuffer) => {
+            var shape = new BABYLON.PhysicsShapeHeightField(
+                    size,
+                    size,
+                    subdivisions+1,
+                    subdivisions+1,
+                    heightBuffer
+                , scene);
+        }
+    });
+```
+
 The following image shows a comparison of the Container, Mesh and Convex Hull shapes, from left to right:
 ![Comparison](/img/features/physics/shapes_comparison.png)
 
 <Playground id="#Z8HTUN#1" title="Simple scene" description="Simple falling sphere created with body and shape"/>
 <Playground id="#EC934B" title="Simple ground mesh example with Havok Physics" description="Simple example of creating a ground collision mesh using the Mesh shape type"/>
+<Playground id="#I37D8G#18" title="Height field shape example with Havok Physics" description="Height field physics shape created from a height map ground mesh"/>
