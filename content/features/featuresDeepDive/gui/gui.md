@@ -1038,3 +1038,9 @@ In this case the `guiScene` will host your GUI and the `mainScene` will host you
 If you are viewing the scene on a high dpi (or "retina") device (such as many mobile devices, or some laptops), you may notice that text on the UI appears "blurry" or "pixelated". This is because, starting in Babylon.js v2.6, the engine no longer defaults to adapting to the device pixel ratio. This was done for performance reasons on mobile devices; turning it on can have a large impact on performance. To improve the rendering of text (at the cost of performance), you will need to enable the `adaptToDeviceRatio` option when constructing your engine.
 
 Please see [Turning AdaptToDeviceRatio Off/On](/features/featuresDeepDive/scene/optimize_your_scene#turning-adapttodeviceratio-offon) for more information on the trade-offs.
+
+## GUI Examples
+This [example showing contributors to the Babylon repo](https://babylonjs.tricotools.com/) - created by [Tricotou](https://forum.babylonjs.com/u/tricotou/summary) and posted to our [forum](https://forum.babylonjs.com/t/babylonjs-repository-viewer/50974) - is a great example of dynamically creating Babylon GUI from a data set.
+
+The following playground shows Tricotou's process of creating a complex GUI comprised of buttons, images, and text in a scroll viewer generated from a JSON string.
+<Playground id="#4U4QH9#35" title="Creating GUI from JSON Data" description="Creating GUI from JSON Data"/>
