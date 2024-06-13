@@ -97,4 +97,4 @@ Note, the engine will also perform the same test with shapeA and shapeB swapped;
 
 - Logging the collision events that happen to a body: <Playground id="#Z8HTUN#613" title="Collision events" description="Logging the collision events that happen to a body"/>
 
-- Collision filtering <Playground id="#H4UR4Z" title="Collision filtering" description="Filtering collisions that happen to a body"/>
+- Collision filtering <Playground id="#H4UR4Z#1" title="Collision filtering" description="Filtering collisions that happen to a body"/>
