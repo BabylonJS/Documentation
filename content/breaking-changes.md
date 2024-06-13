@@ -9,6 +9,13 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.11.0
+
+### mesh.overrideMaterialSideOrientation was renamed to mesh.sideOrientation
+
+This change was made to simplify the sideOrientation process. Starting with this version, mesh.sideOrientation is used UNLESS material.sideOrientation is not null.
+[content/breaking-changes.md](https://github.com/BabylonJS/Babylon.js/pull/15189)
+
 ## 7.6.0
 
 ### canvas is not xrCompatible per default
