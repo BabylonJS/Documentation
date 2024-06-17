@@ -34,6 +34,7 @@ newTrail.stop(); //Stops the trailing mesh.
 | scene                | The scene to add this mesh to.                          |
 | options              | The object containing trail parameters.                 |
 
+
 There are a variety of parameters you can set to create different types of trails to suit your needs. If you do not specify `segments`, it will default to the `length` of the trail, ie, a trail with a length of 60 will have 60 segments.
 
 | options property     | value                                               | default value |
@@ -44,6 +45,7 @@ There are a variety of parameters you can set to create different types of trail
 | sections (optional)  | _(number)_ Cross-section of trailing mesh. Min 2.     | 4             |
 | doNoTaper (optional) | _(boolean)_ Whether the trail should taper.           | false         |
 | autoStart (optional) | _(boolean)_ Automatically starts the trailing mesh.   | true          |
+
 
 TrailMesh will be affected by all modifications to the generator mesh. Using `bakeCurrentTransformIntoVertices` on the generator after scaling (and before a position shift) will prevent the TrailMesh from scaling.
 
@@ -89,3 +91,5 @@ function animate() {
 ## Examples
 
 - <Playground id="#1F4UET#33" title="Glowing orbs with trail" description="Simple example of using trailmesh in your scene."/>
+
+- <Playground id="#1640Q5#1" title="Trailmesh vfx" description="An example of adding vfx using the trailmesh."/>
