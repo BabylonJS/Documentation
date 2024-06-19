@@ -1158,7 +1158,8 @@ toc-levels: 0
 
 - Flow graph iteration 0.0.3 - [_New Feature_] by [carolhmj](https://github.com/carolhmj) ([#14261](https://github.com/BabylonJS/Babylon.js/pull/14261))
 - Fix texture not ready when parsing NME - by [sebavan](https://github.com/sebavan) ([#14270](https://github.com/BabylonJS/Babylon.js/pull/14270))
-- fix action manager disposal when shared - [_Bug Fix_] by [carolhmj](https://github.com/carolhmj) ([#14267](https://github.com/BabylonJS/Babylon.js/pull/14267))
+- Fix action manager disposal when shared - [_Bug Fix_] by [carolhmj](https://github.com/carolhmj) ([#14267](https://github.com/BabylonJS/Babylon.js/pull/14267))
+  - This bug fix also introduces a [_Breaking Change_] as the action manager will automatically be disposed with the last mesh using it. The option disposeWhenUnowned was added in 7.11.2 to control that behaviour.
 - Compute shaders: Add support for external (video)  textures - by [Popov72](https://github.com/Popov72) ([#14266](https://github.com/BabylonJS/Babylon.js/pull/14266))
 - Screenshots: Fix OffscreenCanvas not supported in older browsers - by [Popov72](https://github.com/Popov72) ([#14265](https://github.com/BabylonJS/Babylon.js/pull/14265))
 - Flow graph iteration 0.0.2 - [_New Feature_] by [carolhmj](https://github.com/carolhmj) ([#14140](https://github.com/BabylonJS/Babylon.js/pull/14140))
