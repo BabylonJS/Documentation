@@ -157,6 +157,19 @@ const pickResult = scene.pick(scene.pointerX, scene.pointerY);
 
 Please keep in mind that this operation is using the CPU so it has to be used wisely as it could impact performance.
 
+That being said, starting with Babylon 7.12, you can now use a new class to use the GPU to compute complex meshes' bounding info:
+
+```
+var bbHelper = new BABYLON.BoundingInfoHelper(engine);
+await bbHelper.computeAsync(scene.meshes);
+```
+
+That class will use Transform Feedbacks on WebGL2 and Compute Shaders on WebGPU to compute the bounding info.
+ <Playground id="#BCNJD4#42" title="Computing Bounding Info with the GPU" description="Simple example of how to use BoundingInfoHelper."/>
+
+Please note that there is a limit to be aware of: The GPU will be faster only if the objects to scan are complex enough. Else the price to upload data to the GPU and prepare shaders will not be compensated.
+
+
 ## Attaching a mesh to a specific bone
 
 Starting with babylon.js v2.2, you can now attach a mesh to a bone (like a sword in the hand of your character for instance). To do so, just specify on which bone with the following code:
