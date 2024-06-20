@@ -164,6 +164,14 @@
     }
 }
 
+[data-theme="dark"] {
+    --color-scheme: var(--dark-color-scheme) !important;
+}
+
+[data-theme="light"] {
+    --color-scheme: var(--light-color-scheme) !important;
+}
+
 html {
     color-scheme: var(--color-scheme);
 }
