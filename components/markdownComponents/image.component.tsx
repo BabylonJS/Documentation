@@ -1,99 +1,31 @@
 import Image from "next/image";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { Button, Theme, Modal, Card, Fade, Hidden, IconButton } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Button, Modal, Card, Fade, Hidden, IconButton, Box, useTheme, styled } from "@mui/material";
 import { IImageEmbed } from "../../lib/content.interfaces";
 import { throttle } from "../../lib/frontendUtils/frontendTools";
-import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
-import CloseIcon from '@mui/icons-material/Close';
+import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
+import CloseIcon from "@mui/icons-material/Close";
 
-const styles = makeStyles((theme: Theme) =>
-    createStyles({
-        imageContainer: {
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: "100%",
-            height: "auto",
-            margin: theme.spacing(2, 0),
-            [theme.breakpoints.up("sm")]: {
-                maxWidth: 800,
-            }
-        },
-        imageContainerExpandable: {
-            [theme.breakpoints.up("sm")]: {
-                "& $image": {
-                    boxShadow: theme.shadows[3]
-                },
-                "&:hover": {
-                    "& $image": {
-                        opacity: "0.3"
-                    },
-                    "& $expandIconContainer": {
-                        opacity: 1
-                    }
-                },
-            }
-        },
-        image: {
-            borderRadius: theme.shape.borderRadius,
-            flexGrow: "1",
-            transition: ".5s ease",
-            backfaceVisibility: "hidden"
-        },
-        expandIcon: {
-            minWidth: "6.6rem"
-        },
-        expandIconContainer: {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-            transition: ".5s ease",
-            backfaceVisibility: "hidden",
-            opacity: 0,
-        },
-        caption: {
-            fontSize: 12,
-            display: "block",
-            marginBottom: theme.spacing(2),
-        },
-        modalImage: {
-            objectFit: "contain",
-            width: "100%",
-            height: "auto",
-            maxHeight: "100%",
-        },
-        modalImageContainer: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "90%",
-            padding: "0 0.5rem 0.5rem 0.5rem"
-        },
-        modalCard: {
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "100%"
-        },
-        modal: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            [theme.breakpoints.up("md")]: {
-                margin: "5rem 12rem"
-            }
-        },
-        modalCloseContainer: {
-            display: "flex",
-            alignItems: "end",
-            justifyContent: "end"
-        }
-    }),
-);
+const StylesImg = styled("img")(({ theme }) => ({
+    borderRadius: theme.shape.borderRadius,
+    flexGrow: "1",
+    transition: ".5s ease",
+    backfaceVisibility: "hidden",
+}));
+
+const StyledImage = styled(Image)(({ theme }) => ({
+    borderRadius: theme.shape.borderRadius,
+    flexGrow: "1",
+    transition: ".5s ease",
+    backfaceVisibility: "hidden",
+}));
+
+const StyledModalImage = styled("img")(({ theme }) => ({
+    objectFit: "contain",
+    width: "100%",
+    height: "auto",
+    maxHeight: "100%",
+}));
 
 /**
  * Replaces <a> element, mainly for local linking and playground links
@@ -102,17 +34,17 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
     const getQueryParams = (rawSrc: string) => {
         let src = rawSrc;
         let expandable = true;
-        if(src.includes("?")) {
+        if (src.includes("?")) {
             let split = src.split("?");
             src = split[0];
             const params = new URLSearchParams(split[1]);
-            expandable = params.get('expandable') === "true" || params.get('expandable') === undefined
+            expandable = params.get("expandable") === "true" || params.get("expandable") === undefined;
         }
         return {
             src,
-            expandable
-        }
-    }
+            expandable,
+        };
+    };
     const eidx = props.src.lastIndexOf("!");
     let [src, imgProps] = eidx < 0 ? [props.src, undefined] : [props.src.substring(0, eidx), props.src.substring(eidx + 1)];
     if (imgProps) {
@@ -121,13 +53,13 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
             imgProps = undefined;
         }
     }
-    let queryParams = getQueryParams(src)
-    src = queryParams.src
+    let queryParams = getQueryParams(src);
+    src = queryParams.src;
     const preW = imgProps && decodeURI(imgProps).split("x")[0];
     const preH = imgProps && decodeURI(imgProps).split("x")[1];
     const [containerScale, setContainerScale] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
     const [intrinsic, setIntrinsic] = useState<{ w: number; h: number }>({ h: 0, w: 0 });
-    const classes = styles();
+    const theme = useTheme();
     const containerRef = useRef<HTMLImageElement>();
     const onResize = () => {
         if (intrinsic.h === 0) {
@@ -164,7 +96,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                     style.height = `${+preH}px`;
                 }
             }
-            return <img className={classes.image} {...props} src={src} style={style} />;
+            return <StylesImg {...props} src={src} style={style} />;
         }
         const properties: IImageEmbed = { ...props };
         if (!properties.width || !properties.height) {
@@ -175,7 +107,7 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
         }
         try {
             return (
-                <Image
+                <StyledImage
                     unoptimized={true}
                     onLoadingComplete={(e) => {
                         if (properties.fill === true) {
@@ -207,60 +139,142 @@ export const ImageMarkdownComponent: FunctionComponent<IImageEmbed> = (props) =>
                             }
                         }
                     }}
-                    className={classes.image}
                     {...properties}
                     src={src}
-                ></Image>
+                ></StyledImage>
             );
         } catch (e) {
-            return <img className={classes.image} {...props} src={src} />;
+            return <StylesImg {...props} src={src} />;
         }
     };
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
             <Modal
-                className={classes.modal}
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    [theme.breakpoints.up("md")]: {
+                        margin: "5rem 12rem",
+                    },
+                }}
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
                 aria-labelledby="server-modal-title"
                 aria-describedby="server-modal-description"
             >
                 <Fade in={isOpen}>
-                    <Card className={classes.modalCard}>
-                        <div className={classes.modalCloseContainer}>
+                    <Card
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                            height: "100%",
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "end",
+                                justifyContent: "end",
+                            }}
+                        >
                             <IconButton onClick={() => setIsOpen(false)}>
                                 <CloseIcon />
                             </IconButton>
-                        </div>
-                        <div className={classes.modalImageContainer}>
-                            <img className={classes.modalImage} {...props} src={src} />
-                        </div>
+                        </Box>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: "100%",
+                                height: "90%",
+                                padding: "0 0.5rem 0.5rem 0.5rem",
+                            }}
+                        >
+                            <StyledModalImage {...props} src={src} />
+                        </Box>
                     </Card>
                 </Fade>
             </Modal>
-            <span ref={containerRef} className={[
-                classes.imageContainer,
-                queryParams.expandable ? classes.imageContainerExpandable : ""
-            ].join(" ")} style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }}>
+            <Box
+                component="span"
+                sx={{
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    maxWidth: "100%",
+                    height: "auto",
+                    margin: theme.spacing(2, 0),
+                    [theme.breakpoints.up("sm")]: {
+                        maxWidth: "800px",
+                    },
+                    ...(queryParams.expandable
+                        ? {
+                              [theme.breakpoints.up("sm")]: {
+                                  "& > img": {
+                                      boxShadow: theme.shadows[3],
+                                  },
+                                  "&:hover": {
+                                      "& > img": {
+                                          opacity: 0.3,
+                                      },
+                                      "& > span": {
+                                          opacity: 1,
+                                      },
+                                  },
+                              },
+                          }
+                        : {}),
+                }}
+                ref={containerRef}
+                style={{ height: containerScale.h !== 0 ? containerScale.h : "auto", width: containerScale.w !== 0 ? containerScale.w : "100%" }}
+            >
                 {getImage()}
                 {queryParams.expandable && (
                     <Hidden smDown>
-                        <span className={classes.expandIconContainer}>
+                        <Box
+                            component="span"
+                            sx={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                textAlign: "center",
+                                transition: ".5s ease",
+                                backfaceVisibility: "hidden",
+                                opacity: 0,
+                            }}
+                        >
                             <Button
-                                className={classes.expandIcon}
+                                sx={{
+                                    minWidth: "6.6rem",
+                                }}
                                 size="small"
                                 variant="outlined"
                                 onClick={() => setIsOpen(true)}
                             >
-                                <span style={{marginRight: "0.5rem"}}>Expand</span>
-                                <ZoomOutMapIcon sx={{fontSize: "1rem"}} />
+                                <span style={{ marginRight: "0.5rem" }}>Expand</span>
+                                <ZoomOutMapIcon sx={{ fontSize: "1rem" }} />
                             </Button>
-                        </span>
+                        </Box>
                     </Hidden>
                 )}
-            </span>
-            {props.caption && <span className={classes.caption}>{props.caption}</span>}
+            </Box>
+            {props.caption && (
+                <Box
+                    component="span"
+                    sx={{
+                        fontSize: "12px",
+                        display: "block",
+                        marginBottom: theme.spacing(2),
+                    }}
+                >
+                    {props.caption}
+                </Box>
+            )}
         </>
     );
 };

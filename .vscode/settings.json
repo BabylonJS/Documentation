@@ -21,5 +21,13 @@
     },
     "editor.tabSize": 4,
     "typescript.tsdk": "node_modules\\typescript\\lib",
-    "typescript.preferences.importModuleSpecifier": "relative"
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}",
+        ".temp{,/**}",
+        ".next{,/**}",
+    ],
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "None"
 }

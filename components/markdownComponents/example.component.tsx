@@ -1,5 +1,4 @@
-import { Snackbar, Theme, Tooltip, Hidden } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Snackbar, Tooltip, Hidden, Box, useTheme } from "@mui/material";
 import { FunctionComponent, MouseEvent, SyntheticEvent, useContext, useEffect, useState } from "react";
 import { DocumentationContext } from "../../pages/[...id]";
 
@@ -8,41 +7,12 @@ import ExternalLinkIcon from "@mui/icons-material/OpenInNew";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { getExampleLink } from "../../lib/frontendUtils/frontendTools";
 
-const styles = makeStyles((theme: Theme) =>
-    createStyles({
-        linkContainer: {
-            cursor: "pointer",
-            backgroundColor: theme.customPalette.linkText,
-            display: "inline-flex",
-            marginRight: theme.spacing(0.5),
-            marginTop: theme.spacing(0.5),
-            marginBottom: theme.spacing(0.5),
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "auto",
-            color: "white",
-            "& span": {
-                marginRight: theme.spacing(1),
-            },
-            "& span:first-child": {
-                marginLeft: theme.spacing(1),
-            },
-            "& svg": {
-                marginTop: theme.spacing(0.5),
-            },
-            "& a": {
-                color: "white !important",
-            },
-        },
-    }),
-);
-
 /**
  * Replaces <a> element, mainly for local linking and playground links
  */
 export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props) => {
     const context = useContext(DocumentationContext);
-    const classes = styles();
+    const theme = useTheme();
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
@@ -76,7 +46,34 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
             {(context) => (
                 <Tooltip title={`Open ${props.type} ${props.title}`}>
                     <>
-                        <span id={`example-${props.type}-${props.id.replace(/#/g, "-")}`} className={classes.linkContainer}>
+                        <Box
+                            sx={{
+                                cursor: "pointer",
+                                backgroundColor: theme.customPalette.linkText,
+                                display: "inline-flex",
+                                marginRight: theme.spacing(0.5),
+                                marginTop: theme.spacing(0.5),
+                                marginBottom: theme.spacing(0.5),
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                width: "auto",
+                                color: "white",
+                                "& span": {
+                                    marginRight: theme.spacing(1),
+                                },
+                                "& span:first-child": {
+                                    marginLeft: theme.spacing(1),
+                                },
+                                "& svg": {
+                                    marginTop: theme.spacing(0.5),
+                                },
+                                "& a": {
+                                    color: "white !important",
+                                },
+                            }}
+                            component="span"
+                            id={`example-${props.type}-${props.id.replace(/#/g, "-")}`}
+                        >
                             <span onClick={onExamplePressed.bind(this, context)}>
                                 <Tooltip title={`Preview ${props.type} ${props.title}`}>
                                     <LinkIcon></LinkIcon>
@@ -94,7 +91,7 @@ export const ExampleMarkdownComponent: FunctionComponent<IExampleLink> = (props)
                                     </Tooltip>
                                 </a>
                             </span>
-                        </span>
+                        </Box>
                         <Hidden smUp>
                             <Snackbar message={`${example.type} opened at the top`} onClose={handleClose} open={open} autoHideDuration={3000}></Snackbar>
                         </Hidden>

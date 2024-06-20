@@ -1,12 +1,20 @@
 // next.config.js
-// const withSass = require("@zeit/next-sass");
+// keeping comments for future deployment possibilities
 const withMDX = require("@next/mdx")();
 module.exports = withMDX(
     {
+        // output: "export",
+        // experimental: {
+        //   workerThreads: false,
+        //   cpus: 1,
+        // },
         sassOptions: {
             includePaths: ["./styles"],
         },
-        staticPageGenerationTimeout: 150,
+        staticPageGenerationTimeout: 400,
+        // images: {
+        //     unoptimized: true,
+        // },
         async redirects() {
             return [
               {

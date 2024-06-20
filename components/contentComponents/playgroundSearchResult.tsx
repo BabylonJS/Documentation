@@ -1,4 +1,4 @@
-import { Theme, Link as MaterialLink, Card, CardContent, Typography, CardActions, Button, Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip } from "@mui/material";
+import { Typography,  Chip, Accordion, AccordionSummary, AccordionDetails, IconButton, Tooltip, Box, useTheme } from "@mui/material";
 import { FunctionComponent, useEffect, useState } from "react";
 
 import CodeIcon from "@mui/icons-material/Code";
@@ -10,7 +10,6 @@ import vsDark from "prism-react-renderer/themes/vsDark";
 
 import Link from "next/link";
 import { IExampleLink } from "../../lib/content.interfaces";
-import { createStyles, makeStyles } from "@mui/styles";
 
 export type SearchType = "code" | "name" | "tags" | "description" | "all";
 
@@ -27,59 +26,8 @@ export interface IPlaygroundSearchResult {
     version: number;
 }
 
-const styles = makeStyles((theme: Theme) =>
-    createStyles({
-        contentRoot: {
-            height: "100%",
-            display: "flex",
-        },
-        summaryContainer: {},
-        chipHolder: {
-            "& div": {
-                marginRight: theme.spacing(1),
-                cursor: "pointer",
-            },
-        },
-        heading: {
-            fontSize: theme.typography.pxToRem(15),
-            flexBasis: "33.33%",
-            flexShrink: 0,
-            marginRight: theme.spacing(2),
-        },
-        secondaryHeading: {
-            fontSize: theme.typography.pxToRem(15),
-            color: theme.palette.text.secondary,
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            [theme.breakpoints.up("md")]: {
-                justifyContent: "space-between",
-                flexWrap: "wrap",
-                flexDirection: "row",
-            },
-        },
-        actionButtons: {
-            display: "flex",
-            color: "rgba(0, 0, 0, 0.54)",
-            "& button": {
-                marginLeft: 4,
-            },
-            "& a": {
-                display: "inherit",
-            },
-        },
-        lineNumber: {
-            display: "table-cell",
-            textAlign: "right",
-            paddingRight: "1em",
-            userSelect: "none",
-            opacity: "0.5",
-        },
-    }),
-);
-
 export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygroundSearchResult; type: SearchType; term?: string; setActiveExample: (example: IExampleLink) => void }> = ({ searchResult, type, term, setActiveExample }) => {
-    const classes = styles();
+    const theme = useTheme();
     const [expanded, setExpanded] = useState<boolean>(false);
     const [codeToShow, setCodeToShow] = useState<{ code: string; startingLine: number; foundLine: number }>({ code: "", startingLine: 0, foundLine: 0 });
 
@@ -132,7 +80,6 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
     }, [searchResult]);
 
     return (
-
         <Accordion
             id={searchResult.id}
             expanded={expanded}
@@ -140,12 +87,41 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                 setExpanded(!expanded);
             }}
         >
-            <AccordionSummary className={classes.summaryContainer} expandIcon={<CodeIcon />} aria-controls="playground-content">
-                <Typography className={classes.heading}>{name}</Typography>
-                <Typography className={classes.secondaryHeading}>
+            <AccordionSummary expandIcon={<CodeIcon />} aria-controls="playground-content">
+                <Typography
+                    sx={{
+                        fontSize: theme.typography.pxToRem(15),
+                        flexBasis: "33.33%",
+                        flexShrink: 0,
+                        marginRight: theme.spacing(2),
+                    }}
+                >
+                    {name}
+                </Typography>
+                <Typography
+                    sx={{
+                        fontSize: theme.typography.pxToRem(15),
+                        color: theme.palette.text.secondary,
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        [theme.breakpoints.up("md")]: {
+                            justifyContent: "space-between",
+                            flexWrap: "wrap",
+                            flexDirection: "row",
+                        },
+                    }}
+                >
                     <span>{searchResult.description}</span>
                     {!!tags.size && (
-                        <div className={classes.chipHolder}>
+                        <Box
+                            sx={{
+                                "& div": {
+                                    marginRight: theme.spacing(1),
+                                    cursor: "pointer",
+                                },
+                            }}
+                        >
                             {Array.from(tags).map((chip: string) => {
                                 return (
                                     <Link key={chip} href={`/playground?q=${chip}&type=tags`}>
@@ -153,10 +129,21 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                                     </Link>
                                 );
                             })}
-                        </div>
+                        </Box>
                     )}
                 </Typography>
-                <Typography className={classes.actionButtons}>
+                <Typography
+                    sx={{
+                        display: "flex",
+                        color: "rgba(0, 0, 0, 0.54)",
+                        "& button": {
+                            marginLeft: "4px",
+                        },
+                        "& a": {
+                            display: "inherit",
+                        },
+                    }}
+                >
                     <IconButton
                         onClick={(e) => {
                             e.stopPropagation();
@@ -195,9 +182,19 @@ export const PlaygroundSearchResult: FunctionComponent<{ searchResult: IPlaygrou
                             <pre className={className} style={style}>
                                 {tokens.map((line, i) => (
                                     <div style={{ display: "table-row" }} key={i} {...getLineProps({ line, key: i })}>
-                                        <span style={{ opacity: i + codeToShow.startingLine === codeToShow.foundLine ? 1 : 0.5, color: i + codeToShow.startingLine === codeToShow.foundLine ? "white" : "inherit" }} className={classes.lineNumber}>
+                                        <Box
+                                            component="span"
+                                            sx={{
+                                                display: "table-cell",
+                                                textAlign: "right",
+                                                paddingRight: "1em",
+                                                userSelect: "none",
+                                                opacity: "0.5",
+                                            }}
+                                            style={{ opacity: i + codeToShow.startingLine === codeToShow.foundLine ? 1 : 0.5, color: i + codeToShow.startingLine === codeToShow.foundLine ? "white" : "inherit" }}
+                                        >
                                             {i + 1 + codeToShow.startingLine}
-                                        </span>
+                                        </Box>
                                         <span style={{ display: "table-cell", fontWeight: i + codeToShow.startingLine === codeToShow.foundLine ? 600 : 400, opacity: type === "code" && (i < 2 || i > 7) ? 0.6 : 1 }}>
                                             {line.map((token, key) => (
                                                 <span key={key} {...getTokenProps({ token, key })} />

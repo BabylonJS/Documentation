@@ -37,4 +37,4 @@ will add a playground to the examples pane, allow to show its preview, add a sty
 
 Documentation for all markdown components is coming soon.
 
-[![Powered by vercel](public/powered-by-vercel.svg?raw=true)](https://vercel.com/?utm_source=babylonjs&utm_campaign=oss)
+<!-- [![Powered by vercel](public/powered-by-vercel.svg?raw=true)](https://vercel.com/?utm_source=babylonjs&utm_campaign=oss) -->

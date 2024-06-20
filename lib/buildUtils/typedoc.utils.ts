@@ -27,11 +27,11 @@ export const generateTypeDoc = async () => {
     if (!existsSync(basePathResolved + sep + "files" + sep + "index.html")) {
         console.log("generating API docs, patience is required");
         // download the latest .d.ts
-        const response = await fetch("https://preview.babylonjs.com/documentation.d.ts");
+        const response = await fetch("https://cdn.babylonjs.com/documentation.d.ts");
         const text = (await response.text()).replace(/declare module "[^}]*}/g, "");
         try {
             mkdirSync(basePathResolved, { recursive: true });
-        } catch (e) { }
+        } catch (e) {}
         writeFileSync(`${basePathResolved}${sep}doc.d.ts`, text);
 
         // write tsconfig.json, required for TypeDoc
@@ -161,7 +161,6 @@ export const getAPIPageData = async (id: string[]) => {
 
     // do not index lowercased pages
     if (/[A-Z]/.test(url)) {
-
         // TODO - check for errors
         const res = await addSearchItem({
             id: searchId,
@@ -204,14 +203,16 @@ export const getTypeDocFiles = () => {
             };
         })
         .filter(({ params }) => params.id.indexOf("index") === -1 && params.id.indexOf("module/BABYLON") === -1);
-    const extra = os.platform() === "win32"
-        ? []
-        : fileMap.map((file) => {
-            return {
-                params: {
-                    id: file.params.id.map((id) => id.toLowerCase()),
-                },
-            };
-        });
+    const extra =
+        os.platform() === "win32"
+            ? []
+            : fileMap.map((file) => {
+                  return {
+                      params: {
+                          id: file.params.id.map((id) => id.toLowerCase()),
+                      },
+                  };
+              });
+
     return [...fileMap, ...extra];
 };

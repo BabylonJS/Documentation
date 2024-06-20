@@ -1,51 +1,12 @@
-import { Theme, Link as MaterialLink } from "@mui/material";
+import { Link as MaterialLink, useTheme, Box } from "@mui/material";
 import { FunctionComponent } from "react";
-
-import { createStyles, makeStyles } from "@mui/styles";
 
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import Link from "next/link";
 import { IDocumentSearchResult } from "../../lib/frontendUtils/searchQuery.utils";
 
-const styles = makeStyles((theme: Theme) =>
-    createStyles({
-        contentRoot: {
-            display: "flex",
-            padding: theme.spacing(2),
-        },
-        imageContainer: {
-            position: "relative",
-            width: 100,
-        },
-        textContent: {
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-        },
-        pathContent: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& span": {
-                display: "flex",
-            },
-            "& svg": {
-                width: '1rem',
-                height: '1.3rem'
-            }
-        },
-
-        titleContent: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& span": {
-                marginRight: theme.spacing(1)
-            },
-        },
-    }),
-);
-
 export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResult }> = ({ searchResult }) => {
-    const classes = styles();
+    const theme = useTheme();
     const idSplit = searchResult.path.split("/");
     const path = searchResult.categories.length
         ? searchResult.categories.map((category, idx) => {
@@ -62,10 +23,28 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
           ];
 
     return (
-        <div key={searchResult.id} className={classes.contentRoot}>
+        <Box
+            sx={{
+                display: "flex",
+                padding: theme.spacing(2),
+            }}
+            key={searchResult.id}
+        >
             {/* <div className={classes.imageContainer}></div> */}
-            <div className={classes.textContent}>
-                <div className={classes.titleContent}>
+            <Box
+                sx={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
+                <Box sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            "& span": {
+                marginRight: theme.spacing(1),
+            },
+        }}>
                     <span>
                         <Link href={searchResult.path}>
                             <MaterialLink href={searchResult.path}>
@@ -74,9 +53,21 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
                         </Link>
                     </span>
                     {searchResult.isApi && <span>[API] </span>}
-                </div>
+                </Box>
                 {path.length > 1 && (
-                    <div className={classes.pathContent}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            "& span": {
+                                display: "flex",
+                            },
+                            "& svg": {
+                                width: "1rem",
+                                height: "1.3rem",
+                            },
+                        }}
+                    >
                         {path.map((result, idx) => {
                             return (
                                 <span key={idx}>
@@ -89,10 +80,10 @@ export const SearchResult: FunctionComponent<{ searchResult: IDocumentSearchResu
                                 </span>
                             );
                         })}
-                    </div>
+                    </Box>
                 )}
                 <div>{searchResult.description}</div>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };

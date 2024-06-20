@@ -1,7 +1,6 @@
 import Layout from "../../components/layout.component";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, CircularProgress, FormControl, FormGroup, InputAdornment, InputLabel, Select, TextField, Theme, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Box, Button, CircularProgress, FormControl, FormGroup, InputAdornment, InputLabel, Select, TextField, Typography, useTheme } from "@mui/material";
 import { ChangeEvent, FunctionComponent, useEffect, useRef, useState } from "react";
 import { GetStaticProps } from "next";
 import { IPlaygroundSearchResult, PlaygroundSearchResult, SearchType } from "../../components/contentComponents/playgroundSearchResult";
@@ -9,80 +8,6 @@ import { useRouter } from "next/dist/client/router";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { InlineExampleComponent } from "../../components/contentComponents/inlineExample.component";
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        flexContainer: {
-            display: "flex",
-            flex: 1,
-            flexDirection: "column",
-            width: "100%",
-        },
-        searchContainer: {
-            flex: 1,
-            overflow: "auto",
-            padding: theme.spacing(2),
-            position: "relative",
-            width: "100%",
-            "& h3": {
-                marginBottom: 0,
-                fontSize: 26,
-            },
-            [theme.breakpoints.up("md")]: {
-                "& h3": {
-                    fontSize: "1.2rem",
-                },
-                "& form": {
-                    maxWidth: "50%",
-                },
-            },
-        },
-        emptySearchContainer: {
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            [theme.breakpoints.up("md")]: {
-                padding: "0 200px",
-            },
-            "& form": {
-                width: "100%",
-            },
-        },
-        resultsContainer: {
-            display: "flex",
-            flexWrap: "wrap",
-        },
-        resultContainer: {
-            flex: 1,
-            padding: theme.spacing(2),
-            minWidth: "100%",
-            // [theme.breakpoints.up("sm")]: {
-            //     minWidth: "50% !important",
-            // },
-            // [theme.breakpoints.up("lg")]: {
-            //     minWidth: "50% !important",
-            // },
-            // [theme.breakpoints.up("xl")]: {
-            //     minWidth: "33.333% !important",
-            // },
-        },
-        itemsHovered: {
-            overflow: "auto",
-            transition: "max-height 0.2s",
-            maxHeight: 200,
-            height: "auto",
-            paddingBottom: 16,
-        },
-        formControl: {},
-        loadingCircular: {
-            position: "absolute",
-            top: "50%",
-            right: "calc(50% - 40px)",
-        },
-    }),
-);
 export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
     const query = router.query.q as string;
@@ -96,7 +21,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [noResults, setNoResults] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
-    const classes = useStyles();
+    const theme = useTheme();
 
     const searchRef = useRef<HTMLDivElement>();
 
@@ -224,7 +149,7 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                         ),
                     }}
                 />
-                <FormControl margin="dense" variant="outlined" className={classes.formControl}>
+                <FormControl margin="dense" variant="outlined">
                     <InputLabel htmlFor="search-type">Search Type</InputLabel>
                     <Select
                         native
@@ -259,7 +184,22 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
         >
             <>
                 {!results.length && !loading && (
-                    <div className={classes.emptySearchContainer}>
+                    <Box
+                        sx={{
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            height: "100%",
+                            [theme.breakpoints.up("md")]: {
+                                padding: "0 200px",
+                            },
+                            "& form": {
+                                width: "100%",
+                            },
+                        }}
+                    >
                         <Typography component="h3" variant="h3" gutterBottom>
                             Search playgrounds
                         </Typography>
@@ -274,16 +214,51 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                                 {error}
                             </Typography>
                         )}
-                    </div>
+                    </Box>
                 )}
                 {(results.length || loading) && (
-                    <div className={classes.flexContainer}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flex: 1,
+                            flexDirection: "column",
+                            width: "100%",
+                        }}
+                    >
                         <InlineExampleComponent {...activeExample} />
-                        <div ref={searchRef} className={classes.searchContainer}>
+                        <Box
+                            sx={{
+                                flex: 1,
+                                overflow: "auto",
+                                padding: theme.spacing(2),
+                                position: "relative",
+                                width: "100%",
+                                "& h3": {
+                                    marginBottom: 0,
+                                    fontSize: 26,
+                                },
+                                [theme.breakpoints.up("md")]: {
+                                    "& h3": {
+                                        fontSize: "1.2rem",
+                                    },
+                                    "& form": {
+                                        maxWidth: "50%",
+                                    },
+                                },
+                            }}
+                            ref={searchRef}
+                        >
                             {loading && (
                                 <Typography component="h3" variant="h3">
                                     Loading results for {query} in {queryType}...
-                                    <CircularProgress className={classes.loadingCircular} size="80px" />
+                                    <CircularProgress
+                                        sx={{
+                                            position: "absolute",
+                                            top: "50%",
+                                            right: "calc(50% - 40px)",
+                                        }}
+                                        size="80px"
+                                    />
                                 </Typography>
                             )}
                             {!!results.length && (
@@ -296,9 +271,25 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                                         <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "stretch" }}>
                                             {results.map((res) => {
                                                 return (
-                                                    <div key={res.id} className={classes.resultContainer}>
+                                                    <Box
+                                                        sx={{
+                                                            flex: 1,
+                                                            padding: theme.spacing(2),
+                                                            minWidth: "100%",
+                                                            // [theme.breakpoints.up("sm")]: {
+                                                            //     minWidth: "50% !important",
+                                                            // },
+                                                            // [theme.breakpoints.up("lg")]: {
+                                                            //     minWidth: "50% !important",
+                                                            // },
+                                                            // [theme.breakpoints.up("xl")]: {
+                                                            //     minWidth: "33.333% !important",
+                                                            // },
+                                                        }}
+                                                        key={res.id}
+                                                    >
                                                         <PlaygroundSearchResult setActiveExample={setActiveExample} type={queryType} term={query} searchResult={res}></PlaygroundSearchResult>
-                                                    </div>
+                                                    </Box>
                                                 );
                                             })}
                                         </div>
@@ -317,8 +308,8 @@ export const PlaygroundSearchResults: FunctionComponent<{}> = () => {
                                     Load more
                                 </Button>
                             )}
-                        </div>
-                    </div>
+                        </Box>
+                    </Box>
                 )}
             </>
         </Layout>

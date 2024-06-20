@@ -1,40 +1,12 @@
-import { Theme, Typography, Link as MaterialLink } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Typography, Link as MaterialLink, Box, useTheme } from "@mui/material";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import Layout from "../components/layout.component";
 import { FunctionComponent } from "react";
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        container: {
-            padding: theme.spacing(2),
-            width: "100%",
-            "& h2": {
-                marginBottom: 0,
-                fontSize: 26,
-            },
-            [theme.breakpoints.up("md")]: {
-                "& h2": {
-                    fontSize: "2.827rem",
-                },
-            },
-        },
-        emptySearchContainer: {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            [theme.breakpoints.up("md")]: {
-                padding: "0 200px",
-            },
-        },
-    }),
-);
 export const NotFoundComponent: FunctionComponent<{}> = () => {
     const router = useRouter();
-    const classes = useStyles();
+    const theme = useTheme();
     const searchTerm = router.asPath.split("/").join(" ").trim();
     const query = `/search?q=${searchTerm.replace(/ /g, "+")}`;
     return (
@@ -48,8 +20,33 @@ export const NotFoundComponent: FunctionComponent<{}> = () => {
             }}
             id={["notFOund"]}
         >
-            <div className={classes.container}>
-                <div className={classes.emptySearchContainer}>
+            <Box
+                sx={{
+                    padding: theme.spacing(2),
+                    width: "100%",
+                    "& h2": {
+                        marginBottom: 0,
+                        fontSize: "26px",
+                    },
+                    [theme.breakpoints.up("md")]: {
+                        "& h2": {
+                            fontSize: "2.827rem",
+                        },
+                    },
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                        [theme.breakpoints.up("md")]: {
+                            padding: "0 200px",
+                        },
+                    }}
+                >
                     <Typography component="h1" variant="h6">
                         Page Not found...
                     </Typography>
@@ -62,8 +59,8 @@ export const NotFoundComponent: FunctionComponent<{}> = () => {
                         }
                         "
                     </span>
-                </div>
-            </div>
+                </Box>
+            </Box>
         </Layout>
     );
 };
