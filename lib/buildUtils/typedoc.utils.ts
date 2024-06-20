@@ -51,13 +51,7 @@ export const generateTypeDoc = async () => {
             }),
         );
 
-        const app = new TypeDoc.Application();
-
-        // If you want TypeDoc to load tsconfig.json / typedoc.json files
-        app.options.addReader(new TypeDoc.TSConfigReader());
-        app.options.addReader(new TypeDoc.TypeDocReader());
-
-        app.bootstrap({
+        const app = await TypeDoc.Application.bootstrap({
             // typedoc options here
             name: "Babylon.js API documentation",
             excludeExternals: true,
@@ -69,9 +63,13 @@ export const generateTypeDoc = async () => {
             tsconfig: `${basePathResolved}${sep}tsconfig.json`,
             readme: "none",
             entryPoints: [`${basePathResolved}${sep}doc.d.ts`],
-        });
+        })
 
-        const project = app.convert();
+        // If you want TypeDoc to load tsconfig.json / typedoc.json files
+        app.options.addReader(new TypeDoc.TSConfigReader());
+        app.options.addReader(new TypeDoc.TypeDocReader());
+
+        const project = await app.convert();
 
         if (project) {
             // Rendered docs
