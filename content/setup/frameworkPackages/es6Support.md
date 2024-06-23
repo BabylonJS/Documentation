@@ -33,7 +33,8 @@ We offer babylon.js' core and its modules as npm packages. The following are ava
 - [@babylonjs/procedural-textures](https://www.npmjs.com/package/@babylonjs/procedural-textures) - Officially supported procedural textures.
 - [@babylonjs/serializers](https://www.npmjs.com/package/@babylonjs/serializers) - Scene / mesh serializers.
 - [@babylonjs/gui](https://www.npmjs.com/package/@babylonjs/gui) - Babylon.js GUI module.
-- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The stand-alone Babylon.js Viewer.
+- [@babylonjs/viewer](https://www.npmjs.com/package/@babylonjs/viewer) - The stand-alone Babylon.js Viewer.
+- [@babylonjs/inspector](https://www.npmjs.com/package/@babylonjs/inspector) - The Babylon.js Inspector for visual debugging.
 - [@babylonjs/ktx2decoder](https://www.npmjs.com/package/@babylonjs/ktx2decoder) - Babylon's KTX2 Decoder module.
 
 ## Basic Example
