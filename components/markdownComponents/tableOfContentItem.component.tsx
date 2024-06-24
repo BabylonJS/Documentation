@@ -3,29 +3,13 @@ import { ITableOfContentsItem } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
 
 import LinkIcon from "@mui/icons-material/Link";
-import { IconButton, Tooltip, Theme, useMediaQuery } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { IconButton, Tooltip, Box } from "@mui/material";
 
-const styles = makeStyles((_theme: Theme) =>
-    createStyles({
-        hElement: {
-            position: "relative",
-        },
-        button: {
-            transform: "translate(4px, -2px)",
-            padding: 1,
-            marginLeft: 8,
-            height: 20,
-        },
-    }),
-);
 /**
  * Replaces <H?> element for table of content
  */
 export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (item) => {
     const context = useContext(DocumentationContext);
-
-    const classes = styles();
 
     const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -59,41 +43,89 @@ export const TOCMarkdownComponent: FunctionComponent<ITableOfContentsItem> = (it
                 return (
                     <>
                         {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
-                        <h2 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
+                        <Box
+                            component="h2"
+                            sx={{
+                                position: "relative",
+                            }}
+                            onPointerEnter={pointerEnter}
+                            onPointerLeave={pointerLeave}
+                            {...item}
+                            id={item.image ? null : id}
+                        >
                             {item.children}
                             {item.image && item.title}
                             {(hovered || isMobile) && (
-                                <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
+                                <IconButton
+                                    sx={{
+                                        transform: "translate(4px, -2px)",
+                                        padding: 1,
+                                        marginLeft: 8,
+                                        height: 20,
+                                    }}
+                                    onClick={copyItem}
+                                    aria-label={`copy link to ${item.title}`}
+                                    size="small"
+                                    color="inherit"
+                                >
                                     <Tooltip title={copyText}>
                                         <LinkIcon></LinkIcon>
                                     </Tooltip>
                                 </IconButton>
                             )}
-                        </h2>
+                        </Box>
                     </>
                 );
             case 2:
                 return (
                     <>
                         {item.image && <img src={item.image} alt={item.alt || item.title} id={id} />}
-                        <h3 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item} id={item.image ? null : id}>
+                        <Box
+                            sx={{
+                                position: "relative",
+                            }}
+                            component="h3"
+                            onPointerEnter={pointerEnter}
+                            onPointerLeave={pointerLeave}
+                            {...item}
+                            id={item.image ? null : id}
+                        >
                             {item.children}
                             {item.image && item.title}
                             {(hovered || isMobile) && (
-                                <IconButton className={classes.button} onClick={copyItem} aria-label={`copy link to ${item.title}`} size="small" color="inherit">
+                                <IconButton
+                                    sx={{
+                                        transform: "translate(4px, -2px)",
+                                        padding: 1,
+                                        marginLeft: 8,
+                                        height: 20,
+                                    }}
+                                    onClick={copyItem}
+                                    aria-label={`copy link to ${item.title}`}
+                                    size="small"
+                                    color="inherit"
+                                >
                                     <Tooltip title={copyText}>
                                         <LinkIcon></LinkIcon>
                                     </Tooltip>
                                 </IconButton>
                             )}
-                        </h3>
+                        </Box>
                     </>
                 );
             case 3:
                 return (
-                    <h4 className={classes.hElement} onPointerEnter={pointerEnter} onPointerLeave={pointerLeave} {...item}>
+                    <Box
+                        component="h4"
+                        sx={{
+                            position: "relative",
+                        }}
+                        onPointerEnter={pointerEnter}
+                        onPointerLeave={pointerLeave}
+                        {...item}
+                    >
                         {item.children}
-                    </h4>
+                    </Box>
                 );
             default:
                 return <></>;

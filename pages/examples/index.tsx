@@ -2,8 +2,7 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Theme, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Box, Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Typography, useTheme } from "@mui/material";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,67 +13,16 @@ import { IExampleLink } from "../../lib/content.interfaces";
 
 import styles from "../documentationPage.module.scss";
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        searchContainer: {
-            padding: theme.spacing(2),
-            width: "100%",
-            "& h2": {
-                marginBottom: 0,
-                fontSize: 26,
-            },
-            [theme.breakpoints.up("md")]: {
-                "& h2": {
-                    fontSize: "1.4rem",
-                },
-                "& form": {
-                    maxWidth: "50%",
-                },
-            },
-        },
-        emptySearchContainer: {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            [theme.breakpoints.up("md")]: {
-                padding: "0 200px",
-            },
-            "& form": {
-                width: "100%",
-            },
-        },
-        resultsContainer: {
-            display: "flex",
-            flexWrap: "wrap",
-        },
-        resultContainer: {
-            flex: 1,
-            width: "50%",
-        },
-        itemsHovered: {
-            overflow: "auto",
-            transition: "max-height 0.2s",
-            maxHeight: 200,
-            height: "auto",
-            paddingBottom: 16,
-        },
-        examplesContainer: {
-            backgroundColor: theme.customPalette.examples.backgroundColor
-        }
-    }),
-);
 export const SearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
-    const query = router.query.q as string || router.query.bjsq as string;
+    const query = (router.query.q as string) || (router.query.bjsq as string);
     const [results, setResults] = useState<IDocumentSearchResult[]>([]);
     const [pgResults, setPGResults] = useState<IPlaygroundSearchResult[]>([]);
     const [activeExample, setActiveExample] = useState<IExampleLink>();
     const [loading, setLoading] = useState<boolean>(false);
     const [apiOnly, setApiOnly] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const classes = useStyles();
+    const theme = useTheme();
 
     useEffect(() => {
         setResults([]);
@@ -152,15 +100,46 @@ export const SearchResults: FunctionComponent<{}> = () => {
             }}
             id={["search"]}
         >
-            <div className={classes.searchContainer}>
+            <Box
+                sx={{
+                    padding: theme.spacing(2),
+                    width: "100%",
+                    "& h2": {
+                        marginBottom: 0,
+                        fontSize: "26px",
+                    },
+                    [theme.breakpoints.up("md")]: {
+                        "& h2": {
+                            fontSize: "1.4rem",
+                        },
+                        "& form": {
+                            maxWidth: "50%",
+                        },
+                    },
+                }}
+            >
                 <InlineExampleComponent {...activeExample} />
                 {!results.length && !loading && (
-                    <div className={classes.emptySearchContainer}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            height: "100%",
+                            [theme.breakpoints.up("md")]: {
+                                padding: "0 200px",
+                            },
+                            "& form": {
+                                width: "100%",
+                            },
+                        }}
+                    >
                         <Typography component="h2" variant="h2" gutterBottom>
                             Search
                         </Typography>
                         {searchForm}
-                    </div>
+                    </Box>
                 )}
                 {loading && (
                     <Typography component="h2" variant="h2">
@@ -183,14 +162,19 @@ export const SearchResults: FunctionComponent<{}> = () => {
                             </div>
                         </div>
                         {pgResults.length !== 0 && (
-                            <div className={[styles["examples-container"], classes.examplesContainer].join(" ")}>
+                            <Box
+                                sx={{
+                                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                                }}
+                                className={[styles["examples-container"]].join(" ")}
+                            >
                                 TEST
                                 <ExamplesComponent onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
-                            </div>
+                            </Box>
                         )}
                     </div>
                 )}
-            </div>
+            </Box>
         </Layout>
     );
 };

@@ -2,8 +2,7 @@ import { ChangeEvent, FunctionComponent, useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout.component";
 import { useRouter } from "next/dist/client/router";
-import { Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Theme, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { Box, Checkbox, FormControlLabel, FormGroup, InputAdornment, TextField, Typography, useTheme } from "@mui/material";
 import { SearchResult } from "../../components/contentComponents/searchResult.component";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,65 +13,6 @@ import { IExampleLink } from "../../lib/content.interfaces";
 
 import styles from "../documentationPage.module.scss";
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        flexContainer: {
-            display: "flex",
-            flex: 1,
-        },
-        h2: {
-            marginBottom: 0,
-            fontSize: 26,
-            [theme.breakpoints.up("md")]: {
-                fontSize: "1.4rem",
-            },
-        },
-        searchContainer: {
-            flex: 1,
-            overflow: "auto",
-            padding: theme.spacing(2),
-            position: "relative",
-            width: "100%",
-            [theme.breakpoints.up("lg")]: {
-                "& form": {
-                    maxWidth: "70%",
-                },
-            },
-        },
-        emptySearchContainer: {
-            display: "flex",
-            flex: 1,
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            [theme.breakpoints.up("md")]: {
-                padding: "0 200px",
-            },
-            "& form": {
-                width: "100%",
-            },
-        },
-        resultsContainer: {
-            display: "flex",
-            flexWrap: "wrap",
-        },
-        resultContainer: {
-            flex: 1,
-            width: "50%",
-        },
-        itemsHovered: {
-            overflow: "auto",
-            transition: "max-height 0.2s",
-            maxHeight: 200,
-            height: "auto",
-            paddingBottom: 16,
-        },
-        examplesContainer: {
-            backgroundColor: theme.customPalette.examples.backgroundColor,
-        },
-    }),
-);
 export const SearchResults: FunctionComponent<{}> = () => {
     const router = useRouter();
     const query = (router.query.q as string) || (router.query.bjsq as string);
@@ -84,7 +24,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
     const [filterApi, setFilterApi] = useState<boolean>(false);
     const [noResults, setNoResults] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const classes = useStyles();
+    const theme = useTheme();
 
     useEffect(() => {
         setResults([]);
@@ -173,30 +113,105 @@ export const SearchResults: FunctionComponent<{}> = () => {
         >
             <>
                 {!results.length && !loading && (
-                    <div className={classes.emptySearchContainer}>
-                        <Typography className={classes.h2} component="h2" variant="h2" gutterBottom>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flex: 1,
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            height: "100%",
+                            [theme.breakpoints.up("md")]: {
+                                padding: "0 200px",
+                            },
+                            "& form": {
+                                width: "100%",
+                            },
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                marginBottom: 0,
+                                fontSize: 26,
+                                [theme.breakpoints.up("md")]: {
+                                    fontSize: "1.4rem",
+                                },
+                            }}
+                            component="h2"
+                            variant="h2"
+                            gutterBottom
+                        >
                             Search
                         </Typography>
                         {searchForm}
                         {noResults && (
-                            <Typography className={classes.h2} component="h2" variant="h2" gutterBottom>
+                            <Typography
+                                sx={{
+                                    marginBottom: 0,
+                                    fontSize: 26,
+                                    [theme.breakpoints.up("md")]: {
+                                        fontSize: "1.4rem",
+                                    },
+                                }}
+                                component="h2"
+                                variant="h2"
+                                gutterBottom
+                            >
                                 No results found for {query}
                             </Typography>
                         )}
-                    </div>
+                    </Box>
                 )}
                 {(results.length || loading) && (
-                    <div className={classes.flexContainer}>
-                        <div className={classes.searchContainer}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flex: 1,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                flex: 1,
+                                overflow: "auto",
+                                padding: theme.spacing(2),
+                                position: "relative",
+                                width: "100%",
+                                [theme.breakpoints.up("lg")]: {
+                                    "& form": {
+                                        maxWidth: "70%",
+                                    },
+                                },
+                            }}
+                        >
                             {loading && (
-                                <Typography className={classes.h2} component="h2" variant="h2">
+                                <Typography
+                                    sx={{
+                                        marginBottom: 0,
+                                        fontSize: 26,
+                                        [theme.breakpoints.up("md")]: {
+                                            fontSize: "1.4rem",
+                                        },
+                                    }}
+                                    component="h2"
+                                    variant="h2"
+                                >
                                     Searching for {query}...
                                 </Typography>
                             )}
                             {!!results.length && (
                                 <>
                                     <InlineExampleComponent {...activeExample} />
-                                    <Typography className={classes.h2} component="h2" variant="h2">
+                                    <Typography
+                                        sx={{
+                                            marginBottom: 0,
+                                            fontSize: 26,
+                                            [theme.breakpoints.up("md")]: {
+                                                fontSize: "1.4rem",
+                                            },
+                                        }}
+                                        component="h2"
+                                        variant="h2"
+                                    >
                                         Search results for {query}
                                     </Typography>
                                     {searchForm}
@@ -209,13 +224,18 @@ export const SearchResults: FunctionComponent<{}> = () => {
                                     </div>
                                 </>
                             )}
-                        </div>
+                        </Box>
                         {pgResults.length !== 0 && (
-                            <div className={[styles["examples-container"], classes.examplesContainer].join(" ")}>
+                            <Box
+                                sx={{
+                                    backgroundColor: theme.customPalette.examples.backgroundColor,
+                                }}
+                                className={[styles["examples-container"]].join(" ")}
+                            >
                                 <ExamplesComponent title="Related examples" onExamplePressed={setActiveExample} examples={pgResults}></ExamplesComponent>
-                            </div>
+                            </Box>
                         )}
-                    </div>
+                    </Box>
                 )}
             </>
         </Layout>

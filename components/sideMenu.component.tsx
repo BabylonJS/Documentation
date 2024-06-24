@@ -2,102 +2,26 @@ import { IMenuItem } from "../lib/content.interfaces";
 import { FunctionComponent, useState, ReactFragment, useEffect, useRef } from "react";
 
 import Link from "next/link";
-import { IconButton, TextField, Theme } from "@mui/material";
-import { makeStyles, createStyles } from "@mui/styles";
+import { IconButton, TextField, useTheme } from "@mui/material";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FilterIcon from "@mui/icons-material/FilterList";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { Box } from "@mui/system";
 
 export interface ISideMenuProps {
     items: IMenuItem[];
     selected: string;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        menuItem: {
-            minHeight: 30,
-            display: "flex",
-            alignItems: "flex-start",
-            "& a": {
-                marginTop: theme.spacing(0.6),
-            },
-        },
-        noChild: {
-            marginLeft: 20,
-        },
-        noChildFirstLevel: {
-            marginLeft: 30,
-        },
-        childWithChildren: {
-            marginLeft: 20,
-        },
-        drawer: {
-            flexShrink: 0,
-        },
-        drawerPaper: {
-            width: 300,
-            height: 40,
-        },
-        filterContainer: {
-            transition: "height 0.2s",
-        },
-        filterIcon: {
-            position: "absolute",
-            top: 0,
-            right: 0,
-        },
-        aside: {
-            position: "relative",
-            margin: 16,
-        },
-        poweredBy: {
-            display: "flex",
-            position: "fixed",
-            bottom: 8,
-            backgroundColor: theme.customPalette.sideMenu.poweredByBackgroundColor,
-            fontSize: "0.9rem",
-            border: "solid 1px",
-            padding: theme.spacing(0, 1),
-            "& svg": {
-                height: 24,
-                width: 56,
-            },
-            "& a": {
-                display: "flex",
-            },
-            [theme.breakpoints.up("md")]: {
-                backgroundColor: theme.customPalette.sideMenu.backgroundColor,
-            },
-        },
-        menuItemLink: {
-            color: theme.customPalette.sideMenu.textColor,
-            "&:hover": {
-                color: theme.customPalette.sideMenu.menuItemHoverColor,
-            },
-        },
-        selectedMenuItemLink: {
-            color: theme.customPalette.sideMenu.selectedMenuItemLinkColor,
-            fontWeight: 800,
-            "&:hover": {
-                color: theme.customPalette.sideMenu.menuItemHoverColor,
-            },
-        },
-        positionIcon: {
-            transform: "scale(0.8) translateY(8px)",
-        },
-    }),
-);
-
 export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected }) => {
-    const classes = useStyles();
     const [opened, setOpened] = useState<string[]>([]);
     const [filter, setFilter] = useState<string>("");
     const [toggleFilter, setToggleFilter] = useState<boolean>();
 
     const textFieldRef = useRef<HTMLInputElement>();
+    const theme = useTheme();
 
     const openCloseItem = (item: IMenuItem) => {
         const idx = opened.indexOf(item.url);
@@ -115,10 +39,32 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
         const key = item.url;
         const isSelected = selected === key;
         const isOpened = (filter && toggleFilter) || opened.indexOf(key) !== -1;
-        const className = hasChildren ? (level ? classes.childWithChildren : "") : level !== 0 ? classes.noChild : classes.noChildFirstLevel;
         return (item.filtered && toggleFilter) || !item.url ? null : (
-            <li className={className} key={key}>
-                <div className={classes.menuItem}>
+            <Box
+                component="li"
+                sx={
+                    hasChildren
+                        ? level
+                            ? { marginLeft: "20px" }
+                            : {}
+                        : level !== 0
+                        ? {
+                              marginLeft: "20px",
+                          }
+                        : { marginLeft: "30px" }
+                }
+                key={key}
+            >
+                <Box
+                    sx={{
+                        minHeight: "30px",
+                        display: "flex",
+                        alignItems: "flex-start",
+                        "& a": {
+                            marginTop: theme.spacing(0.6),
+                        },
+                    }}
+                >
                     {!!hasChildren && (
                         <IconButton size="small" onClick={() => openCloseItem(item)}>
                             {hasChildren ? isOpened ? <ExpandMoreIcon></ExpandMoreIcon> : <ChevronRightIcon></ChevronRightIcon> : <></>}
@@ -130,11 +76,31 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                         </IconButton>
                     )}
                     <Link href={item.url}>
-                        <span className={isSelected ? classes.selectedMenuItemLink : classes.menuItemLink}>{item.name}</span>
+                        <Box
+                            component="span"
+                            sx={
+                                isSelected
+                                    ? {
+                                          color: theme.customPalette.sideMenu.selectedMenuItemLinkColor,
+                                          fontWeight: 800,
+                                          "&:hover": {
+                                              color: theme.customPalette.sideMenu.menuItemHoverColor,
+                                          },
+                                      }
+                                    : {
+                                          color: theme.customPalette.sideMenu.textColor,
+                                          "&:hover": {
+                                              color: theme.customPalette.sideMenu.menuItemHoverColor,
+                                          },
+                                      }
+                            }
+                        >
+                            {item.name}
+                        </Box>
                     </Link>
-                </div>
+                </Box>
                 {isOpened && <ul>{item.children.map((child) => renderMenuItem(child, level + 1))}</ul>}
-            </li>
+            </Box>
         );
     };
 
@@ -177,17 +143,37 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
     getFilteredItems(items, filter.toLowerCase().trim());
 
     return (
-        <aside className={classes.aside}>
-            <div style={{ height: toggleFilter ? 40 : 0, overflow: toggleFilter ? "unset" : "hidden" }} className={classes.filterContainer}>
+        <Box
+            component="aside"
+            sx={{
+                position: "relative",
+                margin: "16px",
+            }}
+        >
+            <Box
+                sx={{
+                    transition: "height 0.2s",
+                }}
+                style={{ height: toggleFilter ? 40 : 0, overflow: toggleFilter ? "unset" : "hidden" }}
+            >
                 <TextField ref={textFieldRef} label="Filter" onChange={(e) => setFilter(e.target.value.toLowerCase())} variant="outlined" size="small" />
-            </div>
-            <IconButton className={classes.filterIcon} aria-label="filter" size="small" onClick={() => setToggleFilter(!toggleFilter)}>
+            </Box>
+            <IconButton
+                sx={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                }}
+                aria-label="filter"
+                size="small"
+                onClick={() => setToggleFilter(!toggleFilter)}
+            >
                 <FilterIcon />
             </IconButton>
             <nav>
                 <ul>{items.map((item) => renderMenuItem(item))}</ul>
             </nav>
-            <div className={classes.poweredBy}>
+            {/* <div className={classes.poweredBy}>
                 <Link href="https://vercel.com/?utm_source=babylonjs&utm_campaign=oss" target={"_blank"} rel={"noopener"}>
                     Powered by{" "}
                     <svg width="283" height="64" viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,7 +183,7 @@ export const SideMenu: FunctionComponent<ISideMenuProps> = ({ items, selected })
                         />
                     </svg>
                 </Link>
-            </div>
-        </aside>
+            </div> */}
+        </Box>
     );
 };

@@ -25,6 +25,10 @@ export const ToggleColorMode: FunctionComponent<PropsWithChildren<{}>> = ({ chil
         else if (savedUserPreference === "dark") setMode("dark");
     }, []);
 
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", mode);
+    }, [mode]);
+
     const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
     return (
         <ColorModeContext.Provider value={colorMode}>

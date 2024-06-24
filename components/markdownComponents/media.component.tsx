@@ -4,27 +4,7 @@ import { IMediaEmbed } from "../../lib/content.interfaces";
 // reduce package size
 import YoutubePlayer from "react-player/youtube";
 import FilePlayer from "react-player/file";
-import { Theme } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-
-const styles = makeStyles((theme: Theme) =>
-    createStyles({
-        playerWrapper: {
-            position: "relative",
-            paddingTop: "56.25%",
-        },
-        player: {
-            position: "absolute",
-            top: 0,
-            left: 0,
-        },
-        container: {
-            maxWidth: 800,
-            maxHeight: 450,
-            margin: theme.spacing(2, 0),
-        },
-    }),
-);
+import { Box, useTheme } from "@mui/material";
 
 /**
  * Replaces <a> element, mainly for local linking and playground links
@@ -34,19 +14,56 @@ export const MediaMarkdownComponent: FunctionComponent<IMediaEmbed> = (props) =>
     useEffect(() => {
         setReady(true);
     }, []);
-    const classes = styles();
+    const theme = useTheme();
     const getPlayer = () => {
         if (props.type === "youtube") {
-            return <YoutubePlayer width="100%" height="100%" className={classes.player} controls={!props.noControls} url={`https://www.youtube.com/watch?v=${props.url}`}></YoutubePlayer>;
+            return (
+                <YoutubePlayer
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                    }}
+                    width="100%"
+                    height="100%"
+                    controls={!props.noControls}
+                    url={`https://www.youtube.com/watch?v=${props.url}`}
+                ></YoutubePlayer>
+            );
         }
-        return <FilePlayer width="100%" height="100%" className={classes.player} controls={!props.noControls} url={props.url}></FilePlayer>;
+        return (
+            <FilePlayer
+                width="100%"
+                height="100%"
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                }}
+                controls={!props.noControls}
+                url={props.url}
+            ></FilePlayer>
+        );
     };
     return (
         <>
             {ready && (
-                <div className={classes.container}>
-                    <div className={classes.playerWrapper}>{getPlayer()}</div>
-                </div>
+                <Box
+                    sx={{
+                        maxWidth: "800px",
+                        maxHeight: "450px",
+                        margin: theme.spacing(2, 0),
+                    }}
+                >
+                    <Box
+                        sx={{
+                            position: "relative",
+                            paddingTop: "56.25%",
+                        }}
+                    >
+                        {getPlayer()}
+                    </Box>
+                </Box>
             )}
         </>
     );

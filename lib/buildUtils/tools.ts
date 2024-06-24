@@ -119,7 +119,7 @@ export const getExampleImagePath = (example: Partial<IExampleLink>) => {
 
 export const generateExampleImage = async (type: "pg" | "nme" | "nge", id: string, optionalFilename?: string, engine?: "webgpu" | "webgl2") => {
     const browser = await puppeteer.launch({
-        headless: "new",
+        headless: true,
     }); // opens a virtual browser
 
     try {

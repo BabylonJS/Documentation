@@ -7,8 +7,8 @@ import RightArrowIcon from "@mui/icons-material/LastPage";
 import SearchIcon from "@mui/icons-material/Search";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { AppBar, Drawer, alpha, Hidden, IconButton, InputBase, Toolbar, Tooltip, Typography } from "@mui/material";
+import Box from "@mui/system/Box";
 import { useTheme } from "@mui/material/styles";
 import { FunctionComponent, KeyboardEvent, MouseEvent, PropsWithChildren, useState } from "react";
 import { generateMenuStructure } from "../lib/buildUtils/content.utils";
@@ -25,178 +25,9 @@ export const defaultKeywords = ["babylonjs", "documentation", "webgl", "engine"]
 
 const menuStructure = generateMenuStructure();
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            flexGrow: 1,
-            flexDirection: "column",
-            height: "100%",
-            [theme.breakpoints.up("md")]: {
-                display: "flex",
-            },
-        },
-        appBar: {
-            zIndex: theme.zIndex.drawer + 1,
-            backgroundColor: `${theme.customPalette.header}`,
-            flex: "0 1",
-            position: "fixed",
-            display: "block",
-            [theme.breakpoints.up("md")]: {
-                position: "relative",
-            },
-        },
-        appBarToolbar: {
-            backgroundColor: `${theme.customPalette.header}`,
-            [theme.breakpoints.up("md")]: {
-                backgroundImage: "url(/img/babylonidentity.svg)",
-                backgroundRepeat: "no-repeat",
-            },
-        },
-        menuButton: {
-            marginRight: theme.spacing(2),
-            [theme.breakpoints.up("md")]: {
-                display: "none",
-            },
-        },
-        title: {
-            flexGrow: 1,
-            display: "none",
-            [theme.breakpoints.up("md")]: {
-                display: "block",
-            },
-            "& span": {
-                display: "inline-block",
-                width: 170,
-                height: 40,
-                marginLeft: 20,
-                cursor: "pointer",
-            },
-        },
-        search: {
-            position: "relative",
-            borderRadius: theme.shape.borderRadius,
-            backgroundColor: alpha(theme.palette.common.white, 0.15),
-            "&:hover": {
-                backgroundColor: alpha(theme.palette.common.white, 0.25),
-            },
-            marginLeft: 0,
-            width: "100%",
-            [theme.breakpoints.up("md")]: {
-                marginLeft: theme.spacing(1),
-                width: "auto",
-            },
-        },
-        searchIcon: {
-            padding: theme.spacing(0, 2),
-            height: "100%",
-            position: "absolute",
-            pointerEvents: "none",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-        },
-        inputRoot: {
-            color: "inherit !important",
-        },
-        inputInput: {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)}) !important`,
-            transition: theme.transitions.create("width"),
-            width: "100%",
-            [theme.breakpoints.up("md")]: {
-                width: "12ch !important",
-                "&:focus": {
-                    width: "20ch !important",
-                },
-            },
-        },
-        drawer: {
-            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
-            display: "block",
-            paddingBottom: 40,
-            [theme.breakpoints.up("md")]: {
-                width: 300,
-                flexShrink: 0,
-                "& > div": {
-                    height: "100%",
-                },
-            },
-        },
-        drawerContainer: {
-            overflow: "auto",
-            height: "100%",
-            backgroundColor: theme.customPalette.sideMenu.backgroundColor,
-            zIndex: 1500,
-        },
-        // toolbar: theme.mixins.toolbar,
-        drawerPaper: {
-            width: 300,
-            [theme.breakpoints.up("md")]: {
-                paddingBottom: 0,
-                top: "unset",
-                background: "unset",
-            },
-        },
-        content: {
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: "100%",
-            [theme.breakpoints.up("md")]: {
-                width: `calc(100% - 300px)`,
-            },
-        },
-        contentContainer: {
-            overflow: "auto",
-            flex: 1,
-            display: "flex",
-        },
-        navAndContentContainer: {
-            display: "flex",
-            overflow: "auto",
-            flex: 1,
-            paddingTop: "100px",
-        },
-        navContainer: {
-            background: "#6E6259 0% 0% no-repeat padding-box",
-            display: "flex",
-            overflow: "hidden",
-            fontSize: 14,
-            [theme.breakpoints.up("md")]: {
-                paddingLeft: 300,
-            },
-            "& > a": {
-                padding: theme.spacing(1),
-                borderRight: "1px solid #707070",
-                display: "flex",
-                alignItems: "center",
-            },
-            "& > a:first-child": {
-                padding: theme.spacing(1, 2),
-                borderRight: "1px solid #707070",
-                borderLeft: "1px solid #707070",
-            },
-            "& > a.linkNoBorder": {
-                borderRight: "unset",
-            },
-        },
-        breadcrumbsContainer: {
-            display: "flex",
-            alignItems: "center",
-            flexWrap: "wrap",
-            margin: theme.spacing(1, 2),
-            "& span": {
-                marginRight: theme.spacing(1),
-            },
-        },
-    }),
-);
-
 // TODO default image for documents with no image
 
 export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, previous, next, children, metadata, breadcrumbs, disableMetadataAugmentation = false }) => {
-    const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const handleDrawerToggle = (event: MouseEvent | KeyboardEvent) => {
@@ -224,7 +55,16 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
     const colorMode = useContext(ColorModeContext);
     const defaultRobots = "index, follow";
     return (
-        <div className={classes.root}>
+        <Box
+            sx={{
+                flexGrow: 1,
+                flexDirection: "column",
+                height: "100%",
+                [theme.breakpoints.up("md")]: {
+                    display: "flex",
+                },
+            }}
+        >
             <Head>
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
@@ -240,22 +80,81 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                 {setCanonical && <link rel="canonical" href={url} />}
                 <meta name="robots" content={robots} />
             </Head>
-            <AppBar className={classes.appBar}>
-                <Toolbar className={classes.appBarToolbar}>
+            <AppBar
+                sx={{
+                    zIndex: theme.zIndex.drawer + 1,
+                    backgroundColor: `${theme.customPalette.header}`,
+                    flex: "0 1",
+                    position: "fixed",
+                    display: "block",
+                    [theme.breakpoints.up("md")]: {
+                        position: "relative",
+                    },
+                }}
+            >
+                <Toolbar
+                    sx={{
+                        backgroundColor: `${theme.customPalette.header}`,
+                        [theme.breakpoints.up("md")]: {
+                            backgroundImage: "url(/img/babylonidentity.svg)",
+                            backgroundRepeat: "no-repeat",
+                        },
+                    }}
+                >
                     <Hidden mdUp implementation="css">
                         <IconButton edge="start" onClick={handleDrawerToggle} color="inherit" aria-label="open drawer">
                             <MenuIcon />
                         </IconButton>
                     </Hidden>
-                    <Typography className={classes.title}>
+                    <Typography
+                        sx={{
+                            flexGrow: 1,
+                            display: "none",
+                            [theme.breakpoints.up("md")]: {
+                                display: "block",
+                            },
+                            "& span": {
+                                display: "inline-block",
+                                width: 170,
+                                height: 40,
+                                marginLeft: 20,
+                                cursor: "pointer",
+                            },
+                        }}
+                    >
                         <Link href="/">
                             <span></span>
                         </Link>
                     </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
+                    <Box
+                        sx={{
+                            position: "relative",
+                            borderRadius: theme.shape.borderRadius,
+                            backgroundColor: alpha(theme.palette.common.white, 0.15),
+                            "&:hover": {
+                                backgroundColor: alpha(theme.palette.common.white, 0.25),
+                            },
+                            marginLeft: 0,
+                            width: "100%",
+                            [theme.breakpoints.up("md")]: {
+                                marginLeft: theme.spacing(1),
+                                width: "auto",
+                            },
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                padding: theme.spacing(0, 2),
+                                height: "100%",
+                                position: "absolute",
+                                pointerEvents: "none",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
                             <SearchIcon />
-                        </div>
+                        </Box>
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
@@ -271,14 +170,29 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                     setSearchTerm(e.target.value);
                                 }}
                                 placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
+                                sx={{
+                                    color: "inherit !important",
+                                    "& .MuiInputBase-root": {
+                                        color: "inherit !important",
+                                    },
+                                    "& .MuiInputBase-input": {
+                                        padding: theme.spacing(1, 1, 1, 0),
+                                        // vertical padding + font size from searchIcon
+                                        paddingLeft: `calc(1em + ${theme.spacing(4)}) !important`,
+                                        transition: theme.transitions.create("width"),
+                                        width: "100%",
+                                        [theme.breakpoints.up("md")]: {
+                                            width: "12ch !important",
+                                            "&:focus": {
+                                                width: "20ch !important",
+                                            },
+                                        },
+                                    },
                                 }}
                                 inputProps={{ "aria-label": "search" }}
                             />
                         </form>
-                    </div>
+                    </Box>
                     <Link href="https://github.com/BabylonJS/Babylon.js" target={"_blank"} rel={"noopener"}>
                         <IconButton aria-label="Babylon.js Github" size="medium" color="inherit">
                             <GithubIcon />
@@ -288,7 +202,31 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                         {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                 </Toolbar>
-                <div className={classes.navContainer}>
+                <Box
+                    sx={{
+                        background: "#6E6259 0% 0% no-repeat padding-box",
+                        display: "flex",
+                        overflow: "hidden",
+                        fontSize: 14,
+                        [theme.breakpoints.up("md")]: {
+                            paddingLeft: "300px",
+                        },
+                        "& > a": {
+                            padding: theme.spacing(1),
+                            borderRight: "1px solid #707070",
+                            display: "flex",
+                            alignItems: "center",
+                        },
+                        "& > a:first-child": {
+                            padding: theme.spacing(1, 2),
+                            borderRight: "1px solid #707070",
+                            borderLeft: "1px solid #707070",
+                        },
+                        "& > a.linkNoBorder": {
+                            borderRight: "unset",
+                        },
+                    }}
+                >
                     <Link href="/typedoc">API</Link>
                     {!!previous && (
                         <Link key="previousArticle" href={"/" + previous.id.join("/")}>
@@ -304,7 +242,17 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             </Tooltip>
                         </Link>
                     )}
-                    <div className={classes.breadcrumbsContainer}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            flexWrap: "wrap",
+                            margin: theme.spacing(1, 2),
+                            "& span": {
+                                marginRight: theme.spacing(1),
+                            },
+                        }}
+                    >
                         {breadcrumbs.map((link, idx) => {
                             return (
                                 <div key={`bc-${idx}`}>
@@ -315,11 +263,36 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                                 </div>
                             );
                         })}
-                    </div>
-                </div>
+                    </Box>
+                </Box>
             </AppBar>
-            <div className={classes.navAndContentContainer}>
-                <nav className={classes.drawer} aria-label="mailbox folders">
+            <Box
+                sx={{
+                    display: "flex",
+                    overflow: "auto",
+                    flex: 1,
+                    [theme.breakpoints.up("md")]: {
+                        pt: 0,
+                    },
+                    paddingTop: "100px",
+                }}
+            >
+                <Box
+                    component="nav"
+                    sx={{
+                        backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                        display: "block",
+                        // paddingBottom: "40px",
+                        [theme.breakpoints.up("md")]: {
+                            width: "300px",
+                            flexShrink: 0,
+                            "& > div": {
+                                height: "100%",
+                            },
+                        },
+                    }}
+                    aria-label="mailbox folders"
+                >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                     <Hidden mdUp implementation="css">
                         <Drawer
@@ -329,30 +302,74 @@ export const Layout: FunctionComponent<PropsWithChildren<IPageProps>> = ({ id, p
                             open={mobileOpen}
                             onClose={handleDrawerToggle}
                             style={{ zIndex: 1500 }}
-                            classes={{
-                                paper: classes.drawerPaper,
+                            sx={{
+                                "& .MuiDrawer-paper": {
+                                    width: 300,
+                                    [theme.breakpoints.up("md")]: {
+                                        paddingBottom: 0,
+                                        top: "unset",
+                                        background: "unset",
+                                    },
+                                },
                             }}
                             ModalProps={{
                                 keepMounted: true, // Better open performance on mobile.
                             }}
                         >
-                            <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle} className={classes.drawerContainer}>
+                            <Box
+                                sx={{
+                                    overflow: "auto",
+                                    height: "100%",
+                                    backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                                    zIndex: 1500,
+                                }}
+                                onClick={handleDrawerToggle}
+                                onKeyDown={handleDrawerToggle}
+                            >
                                 <Link href="/">
                                     <img src="/img/babylonidentity.svg" alt="Babylon.js logo" width="200" height="60" />
                                 </Link>
                                 {MenuStructure}
-                            </div>
+                            </Box>
                         </Drawer>
                     </Hidden>
                     <Hidden mdDown implementation="css">
-                        <div className={classes.drawerContainer}>{MenuStructure}</div>
+                        <Box
+                            sx={{
+                                overflow: "auto",
+                                height: "100%",
+                                backgroundColor: theme.customPalette.sideMenu.backgroundColor,
+                                zIndex: 1500,
+                            }}
+                        >
+                            {MenuStructure}
+                        </Box>
                     </Hidden>
-                </nav>
-                <main className={classes.content}>
-                    <div className={classes.contentContainer}>{children}</div>
-                </main>
-            </div>
-        </div>
+                </Box>
+                <Box
+                    component="main"
+                    sx={{
+                        flexGrow: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        maxWidth: "100%",
+                        [theme.breakpoints.up("md")]: {
+                            width: `calc(100% - 300px)`,
+                        },
+                    }}
+                >
+                    <Box
+                        sx={{
+                            overflow: "auto",
+                            flex: 1,
+                            display: "flex",
+                        }}
+                    >
+                        {children}
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     );
 };
 

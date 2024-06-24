@@ -1,4 +1,4 @@
-import { Theme, Toolbar, Typography, IconButton, Tooltip } from "@mui/material";
+import { Toolbar, Typography, IconButton, Tooltip, useTheme } from "@mui/material";
 import { FunctionComponent, useContext } from "react";
 import { IExampleLink } from "../../lib/content.interfaces";
 import { DocumentationContext } from "../../pages/[...id]";
@@ -8,82 +8,13 @@ import { Link as MaterialLink } from "@mui/material";
 import Link from "next/link";
 import { getExampleImageUrl, getExampleLink, getImageUrl } from "../../lib/frontendUtils/frontendTools";
 import Image from "next/image";
-import { createStyles, makeStyles } from "@mui/styles";
-
-const examplesStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        header: {
-            backgroundColor: theme.customPalette.header,
-            width: "100%",
-            color: "white",
-            minHeight: 48,
-            display: "none",
-            [theme.breakpoints.up("md")]: {
-                display: "flex",
-            },
-        },
-    }),
-);
-
-const exampleStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        container: {
-            // display: "flex",
-            flexDirection: "column",
-            padding: theme.spacing(2),
-            maxHeight: "100%",
-            maxWidth: 260,
-            minWidth: 260,
-        },
-        header: {
-            backgroundColor: theme.customPalette.linkText,
-            color: "white",
-            minHeight: 36,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            "& > *": {
-                padding: theme.spacing(0.5),
-            },
-            " & span": {
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-            },
-        },
-        footer: {
-            backgroundColor: theme.customPalette.linkText,
-            color: "white",
-            minHeight: 36,
-            padding: theme.spacing(0.5),
-            display: "none",
-            width: "100%",
-            [theme.breakpoints.up("md")]: {
-                display: "inline-block",
-            },
-        },
-        imageContainer: {
-            height: 120,
-            cursor: "pointer",
-            overflow: "hidden",
-            position: "relative",
-            width: "100%",
-            "& img": {
-                pointerEvents: "none",
-                position: "absolute",
-                minWidth: "100%",
-                minHeight: "100%",
-                objectFit: "cover",
-            },
-        },
-    }),
-);
+import { Box } from "@mui/system";
 
 export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExamplePressed?: (example: IExampleLink) => void }> = ({ example, onExamplePressed }) => {
     const context = useContext(DocumentationContext);
     const { title, description, image, imageUrl, type = "pg" } = example;
-    const classes = exampleStyles();
     const link = getExampleLink(example, false);
+    const theme = useTheme();
 
     const onPlaygroundPressed = () => {
         context.setActiveExample(example);
@@ -93,8 +24,34 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
     };
 
     return (
-        <div className={classes.container}>
-            <div className={classes.header}>
+        <Box
+            sx={{
+                // display: "flex",
+                flexDirection: "column",
+                padding: theme.spacing(2),
+                maxHeight: "100%",
+                maxWidth: "260px",
+                minWidth: "260px",
+            }}
+        >
+            <Box
+                sx={{
+                    backgroundColor: theme.customPalette.linkText,
+                    color: "white",
+                    minHeight: "36px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    "& > *": {
+                        padding: theme.spacing(0.5),
+                    },
+                    " & span": {
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                    },
+                }}
+            >
                 <a href={`#example-${example.type || "pg"}-${example.id.replace(/#/g, "-")}`}>
                     <IconButton onClick={onPlaygroundPressed} aria-label={`Open ${type} ${title}`} size="small" color="inherit">
                         <Tooltip title={`Open ${type} ${title}`}>
@@ -110,8 +67,24 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                         </Tooltip>
                     </IconButton>
                 </Link>
-            </div>
-            <div onClick={onPlaygroundPressed} className={classes.imageContainer}>
+            </Box>
+            <Box
+                sx={{
+                    height: "120px",
+                    cursor: "pointer",
+                    overflow: "hidden",
+                    position: "relative",
+                    width: "100%",
+                    "& img": {
+                        pointerEvents: "none",
+                        position: "absolute",
+                        minWidth: "100%",
+                        minHeight: "100%",
+                        objectFit: "cover",
+                    },
+                }}
+                onClick={onPlaygroundPressed}
+            >
                 <Image
                     onError={(e) => {
                         // fallback to default image
@@ -124,8 +97,20 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                     alt={title}
                     fill={true}
                 ></Image>
-            </div>
-            <div className={classes.footer}>
+            </Box>
+            <Box
+                sx={{
+                    backgroundColor: theme.customPalette.linkText,
+                    color: "white",
+                    minHeight: "36px",
+                    padding: theme.spacing(0.5),
+                    display: "none",
+                    width: "100%",
+                    [theme.breakpoints.up("md")]: {
+                        display: "inline-block",
+                    },
+                }}
+            >
                 [{type.toUpperCase()}] {description}{" "}
                 {example.documentationPage && (
                     <>
@@ -135,16 +120,27 @@ export const ExampleComponent: FunctionComponent<{ example: IExampleLink; onExam
                         </Link>
                     </>
                 )}
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 
 export const ExamplesComponent: FunctionComponent<{ examples: IExampleLink[]; onExamplePressed?: (example: IExampleLink) => void; title?: string }> = ({ examples, onExamplePressed, title = "Examples" }) => {
-    const classes = examplesStyles();
+    const theme = useTheme();
     return (
         <>
-            <Toolbar className={classes.header}>
+            <Toolbar
+                sx={{
+                    backgroundColor: theme.customPalette.header,
+                    width: "100%",
+                    color: "white",
+                    minHeight: 48,
+                    display: "none",
+                    [theme.breakpoints.up("md")]: {
+                        display: "flex",
+                    },
+                }}
+            >
                 <Typography variant="h6" noWrap>
                     {title}
                 </Typography>
