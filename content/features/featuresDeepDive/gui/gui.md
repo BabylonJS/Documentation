@@ -854,7 +854,7 @@ The Ellipse is an ellipsoidal container with the following properties:
 | Property  | Type   | Default | Comments                                                            |
 | --------- | ------ | ------- | ------------------------------------------------------------------- |
 | thickness | number | 1       | Thickness of the border                                             |
-| arc       | number | 1       | Used to create arcs. Ranges between 0 - 1 (CW), or 0 - -1 (CCW) |
+| arc       | number | 1       | Used to create arcs. Ranges between 0 and 1 (CW), or 0 and -1 (CCW) |
 
 Here is an example of an ellipse control: <Playground id="#XCPP9Y#10" title="Ellipse Example" description="Simple example showing how to add an Ellipse control to your scene." image="/img/playgroundsAndNMEs/divingDeeperBabylonGUI44.jpg"/>
 
