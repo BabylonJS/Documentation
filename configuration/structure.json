@@ -1698,6 +1698,11 @@
                                     "children": {},
                                     "content": "features/featuresDeepDive/physics/v2/shapeCast"
                                 },
+                                "prestep": {
+                                    "friendlyName": "Prestep",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/physics/v2/prestep"
+                                },
                                 "havokPlugin": {
                                     "friendlyName": "The Havok Physics Plugin",
                                     "children": {},
