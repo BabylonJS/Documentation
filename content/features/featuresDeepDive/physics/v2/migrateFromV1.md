@@ -44,7 +44,7 @@ Would become:
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2, segments: 32 }, scene);
 const sphereShape = new BABYLON.PhysicsShapeSphere(new BABYLON.Vector3(0, 0, 0), 1, scene);
-const sphereBody = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const sphereBody = new BABYLON.PhysicsBody(sphere, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 sphereShape.material = { friction: 0.2, restitution: 0.3 };
 sphereBody.shape = sphereShape;
 sphereBody.setMassProperties({ mass: 1 });
@@ -54,7 +54,7 @@ The advantage of this approach is that, if you have another mesh you want to use
 
 ```javascript
 const complexModel = await BABYLON.SceneLoader.ImportMeshAsync(...);
-const body = new BABYLON.PhysicsBody(complexModel, BABYLON.PhysicsMotionType.DYNAMIC, scene);
+const body = new BABYLON.PhysicsBody(complexModel, BABYLON.PhysicsMotionType.DYNAMIC, false, scene);
 body.shape = sphereShape;
 body.setMassProperties({mass: complexModelMass});
 ```
