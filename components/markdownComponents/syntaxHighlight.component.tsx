@@ -97,7 +97,7 @@ export const AlertMarkdownComponent: FunctionComponent<AlertMarkdownComponentPro
     return (
         <Alert severity={props.severity} style={{ marginBottom: "1.3rem" }}>
             {props.title || <AlertTitle>{props.title}</AlertTitle>}
-            <p style={{ margin: "0" }}>{props.description}</p>
+            <p style={{ margin: "0" }} dangerouslySetInnerHTML={{ __html: props.description }}/>
         </Alert>
     );
 };
