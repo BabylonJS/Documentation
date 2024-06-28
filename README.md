@@ -1,24 +1,21 @@
 # Babylon.js documentation website
 
-The page is written using Next.js (Server-side react framework).
-
 ## Requirements
 
-- Node 12 and up
-- yarn
+- Node 16 and up
 
 ## Getting Started
 
 Install dependencies
 
 ```bash
-yarn install
+npm install
 ```
 
 Run the development server:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

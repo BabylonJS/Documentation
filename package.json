@@ -33,8 +33,7 @@
         "react-player": "^2.6.2",
         "react-super-responsive-table": "^5.1.4",
         "rehype-parse": "^8.0.3",
-        "remark-gfm": "^3.0.1",
-        "yarn": "^1.22.19"
+        "remark-gfm": "^3.0.1"
     },
     "devDependencies": {
         "@types/node": "^14.14.5",
