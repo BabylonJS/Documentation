@@ -16,24 +16,36 @@ video-overview:
 video-content:
 ---
 
-## How To Use Babylon GUI
+## Introduction
 
 The Babylon.js GUI library is an extension you can use to generate interactive user interface.
-It is build on top of the DynamicTexture.
+
+Babylon.GUI uses a DynamicTexture to generate a fully functional user interface which is flexible and GPU accelerated.
+
+See the demo : https://www.babylonjs.com/Demos/GUI/
+
+<Alert severity="info" title="3D GUI" description="In addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a <a href='/features/featuresDeepDive/gui/gui3D'>3D GUI system</a> available to leverage as well. Both systems can be used for different needs for your project."/>
+
+## How To Use Babylon GUI
+
+### CDN
 
 The latest version can be found on our CDN at https://cdn.babylonjs.com/gui/babylon.gui.js.
 
 <Alert severity="warning" title="Warning" description="The CDN should not be used in production environments. The purpose of our CDN is to serve Babylon packages to users learning how to use the platform or running small experiments. Once you've built an application and are ready to share it with the world at large, you should serve all packages from your own CDN."/>
 
-And the source code is available on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
+Here is the source code on the main Babylon.js repo: https://github.com/BabylonJS/Babylon.js/tree/master/packages/dev/gui.
 
-You can find a complete demo here: https://www.babylonjs.com/Demos/GUI/
+### NPM
 
-Please note, in addition to the Babylon 2D GUI system described below, with Babylon.js v3.3 and higher, you also have a [3D GUI system](/features/featuresDeepDive/gui/gui3D) available to leverage as well. Both systems can be used for different needs for your project.
-
-## Introduction
-
-Babylon.GUI uses a DynamicTexture to generate a fully functional user interface which is flexible and GPU accelerated.
+First download the gui package (see on [npmjs.com](https://www.npmjs.com/package/@babylonjs/gui))
+```bash
+npm install @babylon/gui
+```
+Then import it into your project
+```javascript
+import * as GUI from '@babylonjs/gui'
+```
 
 ## AdvancedDynamicTexture
 
