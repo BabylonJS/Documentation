@@ -21,8 +21,7 @@ Requirements:
 - [Github](https://github.com) account
 - [git](https://www.git-scm.com/downloads)
 - [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
-- [node.js](https://nodejs.org/en/), we support node 12 and up.
-- [yarn](https://yarnpkg.com/getting-started/install)
+- [node.js](https://nodejs.org/en/), we support node 16 and up.
 - IDE such as VSCode
 
 You will need know how to Fork the [Documentation](https://github.com/BabylonJS/Documentation) repository and Clone it onto your local system.
@@ -31,7 +30,7 @@ You will need know how to Fork the [Documentation](https://github.com/BabylonJS/
 
 Using a CLI at the location of your local Documentation folder Run:
 
-`yarn run dev`
+`npm run dev`
 
 This will launch the dev server on http://localhost:3000
 

@@ -57,8 +57,7 @@ Requirements:
 - a [Github](https://github.com) account
 - [git](https://www.git-scm.com/downloads)
 - [Github Desktop](https://desktop.github.com/) (optional, but makes local git repositories easier to use)
-- [node.js](https://nodejs.org/en/), we support node 12 and up.
-- [yarn](https://yarnpkg.com/getting-started/install)
+- [node.js](https://nodejs.org/en/), we support node 16 and up.
 
 ### Forking
 
@@ -80,9 +79,7 @@ When the files are downloaded, open a terminal/command prompt in this repo. It c
 
 (_you may have_ Open in Command _rather than_ Open in PowerShell _, that's not a big deal_)
 
-You need 'yarn' installed. For further information about yarn, you can go to the [yarn installation guide](https://yarnpkg.com/getting-started/install).
-
-After installing yarn, type `yarn install`, press <kbd>enter</kbd>, and wait for the operation to finish.
+After cloning type `npm install`, press <kbd>enter</kbd>, and wait for the operation to finish.
 
 This fork operation only has to be done once. You're now able to run locally the documentation by following the next section.
 
@@ -90,7 +87,7 @@ This fork operation only has to be done once. You're now able to run locally the
 
 Run:
 
-`yarn run dev`
+`npm run dev`
 
 This will launch the dev server on http://localhost:3000
 
