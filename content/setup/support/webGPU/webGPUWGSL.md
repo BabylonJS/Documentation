@@ -14,6 +14,8 @@ So, even in WebGPU, if you use a `CustomMaterial` or a `PBRCustomMaterial` to in
 
 If you want to write shader code in the WGSL language, you can either write a [compute shader](/features/featuresDeepDive/materials/shaders/computeShader) or use the [ShaderMaterial](/typedoc/classes/babylon.shadermaterial) class to wrap a vertex/fragment shader. The latter is the subject of this page.
 
+Note: You can also write post-processes in WGSL, thanks to the `shaderLanguage` constructor parameter (which is `GLSL` by default). So everything explained for `ShaderMaterial` on this page also applies to post-processes.
+
 ## Using ShaderMaterial to write WGSL code
 You can use the `ShaderMaterial` class to write WGSL code in much the same way you use it to write [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) but with some small differences.
 
@@ -57,7 +59,7 @@ BABYLON.ShaderStore.ShadersStoreWGSL["myShaderFragmentShader"]=`
 You must also declare the entry point for the vertex and fragment shader in a special way.
 
 Vertex:
-```glsl
+```wgsl
 @vertex
 fn main(input : VertexInputs) -> FragmentInputs {
     ...
@@ -65,7 +67,7 @@ fn main(input : VertexInputs) -> FragmentInputs {
 
 ```
 Fragment:
-```glsl
+```wgsl
 @fragment
 fn main(input : FragmentInputs) -> FragmentOutputs {
     ...
@@ -74,7 +76,7 @@ fn main(input : FragmentInputs) -> FragmentOutputs {
 
 ### Using pre-defined uniforms
 To use the pre-defined uniforms of the scene (`view`, `viewProjection`, `projection`, `vEyePosition`) and mesh (`world`, `visibility`), you must include the appropriate file(s) in the shader code:
-```glsl
+```wgsl
 #include<sceneUboDeclaration>
 #include<meshUboDeclaration>
 ```
@@ -93,7 +95,7 @@ const mat = new BABYLON.ShaderMaterial("shader", scene, {
 ```
 
 In the WGSL code, you access a uniform by prefixing its name by `scene.` or `mesh.` for the scene or mesh uniforms, respectively:
-```glsl
+```wgsl
 @vertex
 fn main(input : VertexInputs) -> FragmentInputs {
     vertexOutputs.position = scene.viewProjection * mesh.world * vec4<f32>(vertexInputs.position, 1.0);
@@ -101,17 +103,17 @@ fn main(input : VertexInputs) -> FragmentInputs {
 ```
 
 ## Special syntax used in WGSL code
-Unlike computational shaders that use ordinary WGSL code, the shader code you write for `ShaderMaterial` must use special syntax to work with the existing workflow. To make it easier for developers, the declaration of variables is the same as that used in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language):
+Unlike compute shaders that use ordinary WGSL code, the shader code you write for `ShaderMaterial` must use special syntax to work with the existing workflow. To make it easier for developers, the declaration of variables is the same as that used in [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language):
 * declaring a varying variable:
-```glsl
+```wgsl
 varying varName : varType;
 ```
 * declaring an attribute variable:
-```glsl
+```wgsl
 attribute varName : varType;
 ```
 * declaring a uniform variable:
-```glsl
+```wgsl
 uniform varName : varType;
 ```
 
@@ -137,7 +139,7 @@ Notes:
 ## Using new objects available in WGSL
 You can use the standard WGSL syntax to declare:
 * custom uniform buffers:
-```glsl
+```wgsl
 struct MyUBO {
     scale: f32,
 };
@@ -145,18 +147,18 @@ struct MyUBO {
 var<uniform> myUBO: MyUBO;
 ```
 * storage textures:
-```glsl
+```wgsl
 var storageTexture : texture_storage_2d<rgba8unorm,write>;
 ```
 * storage buffers:
-```glsl
+```wgsl
 struct Buffer {
     items: array<f32>,
 };
 var<storage,read_write> storageBuffer : Buffer;
 ```
 * external textures:
-```glsl
+```wgsl
 var videoTexture : texture_external;
 ```
 
