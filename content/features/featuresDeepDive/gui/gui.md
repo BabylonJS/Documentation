@@ -40,7 +40,7 @@ Here is the source code on the main Babylon.js repo: https://github.com/BabylonJ
 
 First download the gui package (see on [npmjs.com](https://www.npmjs.com/package/@babylonjs/gui))
 ```bash
-npm install @babylon/gui
+npm install @babylonjs/gui
 ```
 Then import it into your project
 ```javascript
