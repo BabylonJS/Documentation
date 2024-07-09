@@ -34,6 +34,12 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
     const router = useRouter();
     useEffect(() => {
         getIcons();
+        if(location.hash) {
+            const el = document.getElementById(location.hash.slice(1));
+            if (el) {
+                el.scrollIntoView();
+            }
+        }
     }, []);
     useEffect(() => {
         setTimeout(() => updateUseElements());
@@ -41,8 +47,14 @@ export const ApiPage: FunctionComponent<ApiPageProps> = ({ contentNode, cssArray
             router.replace(redirect + window.location.hash);
         } else {
             const onhashchange = () => {
+                console.log(location.hash)
                 if (location.hash === "") {
                     document.querySelector(".col-content")?.scrollTo({ behavior: "auto", top: 0, left: 0 });
+                } else {
+                    const el = document.getElementById(location.hash.slice(1));
+                    if (el) {
+                        el.scrollIntoView();
+                    }
                 }
             };
             window.addEventListener("hashchange", onhashchange);
