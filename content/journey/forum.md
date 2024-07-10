@@ -5,9 +5,9 @@ description: Learn about the best place to get help, the Babylon.js forum.
 keywords: diving deeper, contribution, contribute, open-source, oss, forum
 further-reading:
   - title: Linking external assets in the playground
-    url: https://doc.babylonjs.com/resources/external_pg_assets
+    url: https://doc.babylonjs.com/toolsAndResources/thePlayground/externalPGAssets
   - title: Contributing to the documentation
-    url: https://doc.babylonjs.com/how_to/contribute_to_documentation
+    url: https://doc.babylonjs.com/contribute/contributeToDocs
   - title: Forum FAQ
     url: https://forum.babylonjs.com/faq
 video-overview:
