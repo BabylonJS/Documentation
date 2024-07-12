@@ -14,7 +14,7 @@ video-content:
 
 ## Material For Each House Side
 
-In the options properties for a box one is *faceUV* and array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
+In the options properties for a box one is *faceUV* an array of Vector4s. We can use this to obtain a part of the area of an image to apply to one face of the box.
 
 In the *faceUV* array faces are numbered 0 for back, 1 front, 2 right, 3 left, 4 top and 5 bottom.
 
