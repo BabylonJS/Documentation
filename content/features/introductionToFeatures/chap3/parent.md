@@ -4,8 +4,6 @@ image:
 description: Learn the basics of parenting objects in your scene.
 keywords: getting started, start, chapter 3, parenting, parent
 further-reading:
-    - title: More on Mesh Parenting
-      url: /features/featuresDeepDive/mesh/transforms/parent_pivot
 video-overview:
 video-content:
 ---
