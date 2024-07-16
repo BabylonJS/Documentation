@@ -321,7 +321,7 @@ scene.debugLayer.select(nodeMaterial);
 
 When selected in the Inspector, you can find an edit button in the Node Material property pane.
 
-You can also use a standalone version of the editor here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>
+You can also use a standalone version of the editor here: <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.jpg"/>
 
 Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 
@@ -381,17 +381,25 @@ Below are a few things of note.
 
 As you may know, there's no `if` statement / block in the node material editor, so one must be creative to overcome this. Luckily, the standard material does not use this statement heavily (as it's better to avoid it for performance sake), so it is easy enough to deal with it. Most of the time, it is something like `if boolean is true, use this value in subsequent computation, else use that other value instead`. A **Lerp** block is the tool to use:
 
-```c
+```
 Lerp(a, b, gradient)
 ```
 
-`gradient` is the boolean: if it is 0, `a` is the output, if it is 1, `b` is the output. Then use the output in subsequent computation.
+`gradient` is the boolean: if it is 0.0, `a` is the output, if it is 1.0, `b` is the output. Then use the output in subsequent computation.
 
 Example:
 
 ![Emissive](/img/how_to/Materials/nme_lerp.png)
 
 If `EMISSIVE` is set to 0, the output is `vEmissiveColor`, else it is the color from the emissive map. In effect, the `EMISSIVE` boolean lets you choose to use either the constant `vEmissiveColor` color or the color from the texture map as the emissive color.
+
+The **Lerp** block will also accept more than a numerical value for `gradient`. The `gradient` input also accepts textures - either single channel or RGB - to determine which output is passed for each pixel. A `gradient` pixel with value 0.0 passes the corresponding pixel from `a` where a value of 0.0 would pass the corresponding pixel from `b`. A value between 0.0 and 1.0 will pass a blend of the values of the corresponding pixel from `a` and `b` mixed at the ratio of the value in `gradient`. If the texture is a single channel texture, each of the RGB channels from `a` and `b` are mixed at the same amount. If the texture in `gradient` is an RGB texture, each of the RGB channels of `a` and `b` will be mixed at the ratio of the corresponding `gradient` channel. In other words, the red channel of `gradient` will determine the mix of the pixels in the red channels of `a` and `b`.  
+
+![Texture Blending](/img/tools/nme/lerpExample.jpg)
+
+The **Lerp** node is often used for techniques like blending tiling textures to hide repeated patterns or to "splat" textures in specific areas of a mesh. This can also be helpful for creating terrain meshes where it is desireable to scatter patches of dirt or grass on a ground plane in a randomly generated procedural method. 
+
+- <Playground id="#KR6748" title="Blending Tiling Textures" description="Blending tiling textures to hide repeating elements." image="/img/playgroundsAndNMEs/tilingTextureBlend.jpg" isMain={true} category="Materials"/>
 
 #### Discarding the fragment based on alpha cutoff value
 
@@ -431,7 +439,7 @@ Here's an example of how to load a saved shader file and apply it to a mesh.
 
 ### Sharing unique URLs
 
-When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nodeMaterial.jpg"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
+When using the <NME id="" title="Node Material Editor" description="The starting basic template for creating Node Materials." image="/img/playgroundsAndNMEs/nmeDefault.jpg"/>, you can have an additional option to save your work using a unique URL (like the Playground for instance). You can then share these urls (which are immutable).
 
 Example: <NME id="#2F999G" title="Node Material Editor Unique URL Example" description="Example Node Material Editor saved with a unique URL." image="/img/playgroundsAndNMEs/NMEsnippetServerSaveExample.jpg"/>
 
