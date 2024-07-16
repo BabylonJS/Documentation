@@ -94,7 +94,7 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
 - ✔️ Scene JSON string Export (.gltf)
 - ✔️ Scene Binary Export (.glb)
 - ✔️ Node Export
-- ⚠️ Camera Export
+- ✔️ Camera Export
 
   - Cameras are currently exported as an empty nodes.
 
@@ -150,4 +150,3 @@ Key:
 - Material Extensions
   - Draco Mesh Compression [Babylon.js #8046](https://github.com/BabylonJS/Babylon.js/issues/8046)
   - Translucency [KHR_Materials_Translucency](https://github.com/KhronosGroup/glTF/pull/1825) is still in draft
-- Camera Serialization [Babylon.js #9146](https://github.com/BabylonJS/Babylon.js/issues/9146)
