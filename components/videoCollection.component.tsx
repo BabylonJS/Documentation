@@ -52,7 +52,7 @@ export const VideoCollection: FunctionComponent<{ videoLinks: Array<string | { u
                             return (
                                 <Box
                                     sx={{
-                                        padding: 16,
+                                        padding: "16px",
                                         width: "100%",
                                         [theme.breakpoints.up("sm")]: {
                                             width: "50% !important",
