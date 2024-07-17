@@ -24,7 +24,13 @@ Babylon.js engine draw a light transparent bounding box on the targeted Mesh bef
 
 ## Basics
 
-To use the Occlusion Queries on a Mesh
+To use the Occlusion Queries on a Mesh, make sure you have included these imports to ensure you have access to the feature:
+```javascript
+import '@babylonjs/core/Engines/Extensions/engine.query';
+import '@babylonjs/core/Rendering/boundingBoxRenderer';
+```
+
+Then set the occlusionType on your mesh:
 
 ```javascript
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", { segments: 16, diameter: 2 }, scene);
