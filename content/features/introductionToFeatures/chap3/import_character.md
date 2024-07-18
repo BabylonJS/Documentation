@@ -20,7 +20,7 @@ The *Dude* model is one that has been built with its own skeleton animation.
 Once imported the character and its skeleton are obtained from the meshes and skeletons properties of the results object.
 
 ```javascript
-BABYLON.SceneLoader.ImportMeshAsync("mesh name", "path to model", "model file", scene).then((result) => {
+BABYLON.SceneLoader.ImportMeshAsync("him" /* mesh name */, "/scenes/Dude/" /* path to model */, "Dude.babylon" /* model file */, scene).then((result) => {
     var dude = result.meshes[0];
     dude.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25);
                 
