@@ -95,9 +95,6 @@ BABYLON.GLTF2Export.GLBAsync(scene, "fileName", options).then((glb) => {
 - ✔️ Scene Binary Export (.glb)
 - ✔️ Node Export
 - ✔️ Camera Export
-
-  - Cameras are currently exported as an empty nodes.
-
 - ✔️ Mesh Export
 
   - ✔️ Multiple UV sets
