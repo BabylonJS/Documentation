@@ -48,7 +48,7 @@ points.push(points[0]); //close the triangle;
 BABYLON.MeshBuilder.CreateLines("triangle", {points: points})
 ```
 
-Also you can see an other method, *rotate*, of rotating. This method rotates the mesh about the given axis by the given angle in radians. It adds to the current rotation.
+Also you can see another method, *rotate*, of rotating. This method rotates the mesh about the given axis by the given angle in radians. It adds to the current rotation.
 ```javascript
 mesh.rotate(axis, angle, BABYLON.Space.LOCAL);
 ```
