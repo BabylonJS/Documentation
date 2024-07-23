@@ -247,5 +247,3 @@ Regarding WebGPU, as of this writing (2021/10/26), the `RG32Float` format is not
 Fortunately, enabling the reverse depth buffer feature will get rid of those artefacts: just set `engine.useReverseDepthBuffer = true;` at scene creation time.
 
 In WebGPU, you can get better performances by setting `scene.depthPeelingRenderer.useRenderPasses = true` and `engine.compatibilityMode = false`: see the doc page for the `compatibilityMode` property for more information.
-
-<Playground id="#WGZLGJ#3764" title="Order independent transparency in WebGPU" description="Simple example of order independent transparency in WebGPU" image="/img/playgroundsAndNMEs/divingDeeperTransparencyRendering8.jpg"/>
