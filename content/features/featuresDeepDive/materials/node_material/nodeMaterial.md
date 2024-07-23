@@ -94,6 +94,7 @@ const nodeMaterial = new BABYLON.NodeMaterial("node material", scene, { emitComm
 Please note that the third parameter will contain optional values that will let you configure how the material will build its shader:
 
 - `emitComments`: Set this value to true if you want the blocks to emit comments in the shader code
+- `shaderLanguage`: By default, the node material will generate GLSL shaders but if you set that parameter to `BABYLON.ShaderLanguage.WGSL`, it will generate shaders for WebGPU (without needing to cross-compile them from GLSL to WGSL)
 
 #### Adding blocks
 
