@@ -30,6 +30,8 @@ You can also follow our progress on out [GitHub dedicated issue](https://github.
 
 The current implementation of WebGPU is now merged in the main branch of the Babylon.js [GitHub repository](https://github.com/BabylonJS/Babylon.js).
 
+WebGPU is now supported by [Node Material and can be defined in the editor](/features/featuresDeepDive/materials/node_material/nodeMaterial#using-node-material-with-webgl-and-webgpu).
+
 We are putting in a big effort alongside our next release to implement full support. Every contribution is more than welcome, so feel free to create a PR if you are interested in contributing to the future of high performance game development on the web.
 
 ## Potential Issues
