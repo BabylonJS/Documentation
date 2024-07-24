@@ -327,13 +327,12 @@ You can also use a standalone version of the editor here: <NME id="" title="Node
 Learn more about the [Node Material Editor here](/toolsAndResources/nme).
 
 ### Using Node Material With WebGL and WebGPU
-Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU) which allows node material to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, simply set the `engine` parameter in the node material editor.
+Node materials are now able to render with either the popular WebGL API or the newer [WebGPU API](/setup/support/webGPU) which allows node material to leverage a device's graphics processing unit (GPU). To define which API should be used by a node material, you can set up that option in the constructor or simply set the `nodeMaterial.shaderLanguage` parameter to `BABYLON.ShaderLanguage.WGSL`.
 
+Inside the Node Material Editor, you have an option to choose which engine to use during creation time:
 ![Engine toggle for WebGL and WebGPU](/img/tools/nme/engineSwitch.jpg)
 
-The assigned engine parameter will be saved in the node material's json file and is all that is needed for the node material to utilize the chosen API for rendering. Node material has complete parity in available nodes across both APIs so nothing else is needed when authoring for a particular API. 
-
-If a node material is targeting the WebGPU API but the device viewing the scene is using a browser that does not support WebGPU, the engine will fall back to WebGL seamlessly. This allows users who want to start experimenting with WebGPU to do so while support for the API grows.
+The assigned engine parameter will NOT be saved in the node material's json file allowing you to still choose the correct version at runtime. 
 
 ### Recreating the StandardMaterial
 
