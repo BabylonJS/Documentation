@@ -18,7 +18,7 @@ We are using this image
 for out tree sprite and we set up a sprite manager for it.
 
 ```javascript
-const spriteManagerTrees = new BABYLON.SpriteManager("treesManager", "url to tree image", 2000, {width: 512, height: 1024}, scene);
+const spriteManagerTrees = new BABYLON.SpriteManager("treesManager", "textures/palm.png" /* url to sprite */, 2000, {width: 512, height: 1024}, scene);
 ```
 
 The parameters are a name for the manager, the url of the image, the maximum number of sprites, an object specifying the width and height of the sprite, in this case it is the width and height of the image.
@@ -48,7 +48,7 @@ You can also use a collection of images in a sprite map to produce an animation.
 The above map consists of cell frames of the same size, 5 across and 4 down. This time the width and height given in the manager is the width and height of one cell.
 
 ```javascript
-const spriteManagerUFO = new BABYLON.SpriteManager("UFOManager","url to ufo image", 1, {width: 128, height: 76});
+const spriteManagerUFO = new BABYLON.SpriteManager("UFOManager", "https://assets.babylonjs.com/environments/ufo.png" /* url to sprite */, 1, {width: 128, height: 76});
 ```
 
 The animation for a sprite is set by giving the first and last cell to be used, whether it loops (true) or not and time between cell frames

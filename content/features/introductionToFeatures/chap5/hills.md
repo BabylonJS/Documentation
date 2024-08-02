@@ -21,7 +21,7 @@ has a large black area in the middle to host the village, the white areas create
 In this image the camera has been pulled further out and the vertical height exaggerated.
 
 ```javascript
-const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "url to height map", 
+const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "https://assets.babylonjs.com/environments/villageheightmap.png" /* url to height map */, 
     {width:150, height:150, subdivisions: 20, minHeight:0, maxHeight: 10});
 ```
 
@@ -40,7 +40,7 @@ Finally we give the village ground a similar, but clearer texture, to that of th
 ```javascript
 //Create Village ground
 const groundMat = new BABYLON.StandardMaterial("groundMat");
-groundMat.diffuseTexture = new BABYLON.Texture("url to ground texture");
+groundMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/villagegreen.png");
 groundMat.diffuseTexture.hasAlpha = true;
 
 const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:24, height:24});
@@ -48,9 +48,9 @@ ground.material = groundMat;
 
 //large ground
 const largeGroundMat = new BABYLON.StandardMaterial("largeGroundMat");
-largeGroundMat.diffuseTexture = new BABYLON.Texture("url to large ground texture");
+largeGroundMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/valleygrass.png");
 
-const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "url to heightmap", 
+const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "https://assets.babylonjs.com/environments/villageheightmap.png" /* url to height map */, 
     {width:150, height:150, subdivisions: 20, minHeight:0, maxHeight: 4});
 largeGround.material = largeGroundMat;
 largeGround.position.y = -0.01;
