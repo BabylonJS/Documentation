@@ -9,6 +9,13 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.19.0
+
+### Main materials now generate WGSL shader code when used with WebGPU
+
+This change is an improvement as the main shaders (StandardMaterial, PBRMaterial and BackGroundMaterial) are now generating pure WGSL and does not require compilation of GLSL code with TintWASM when used with a WebGPUEngine.
+If you still need to get GLSL code (for instance if you inject your own custom code with a MaterialPlugin0, you can force the materials to use the GLSL code path with a boolean in the materials' constructors.
+
 ## 7.11.0
 
 ### mesh.overrideMaterialSideOrientation was renamed to mesh.sideOrientation
