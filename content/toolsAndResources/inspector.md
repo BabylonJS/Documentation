@@ -52,6 +52,8 @@ Inspector.Show(scene, {});
 
 ![debug layer overview](/img/features/debuglayer/debuglayer.jpg)
 
+### Embedded Mode
+
 The two panes can also be opened in an [embedded mode](/typedoc/interfaces/babylon.iinspectoroptions):
 
 ```javascript
@@ -168,9 +170,31 @@ The inspector pane contains 4 tabs:
 
 ## Popup mode
 
-You can move any pane into a popup mode by clicking the icon right left to the close button in the pane header:
+There are occassions when opening the inspector in a child window is preferable. It may be that the canvas size is too small to effectively use the inspector or the inspector is covering too much of the canvas making it hard to debug the scene. There are a few ways you can pop the inspector into a child window that is still connected to the scene. The first is by simply clicking the icon on the right side of the pane header bar adjacent to the close button. 
 
 ![popup](/img/features/debuglayer/popup.jpg)
+
+This will pop out the selected pane - either Scene Explorer or Inspector - into a child window. If the panes have been opened in [embedded mode](/toolsAndResources/inspector#embedded-mode), the embedded inspector will open into a single child window. Additionally, the inspector can be opened by default as a popup. The individual Scene Explorer and Inspector panes can be opened as popups with the following code:
+
+``` javascript
+var debugLayer = await scene.debugLayer.show();
+
+debugLayer.popupSceneExplorer();
+debugLayer.popupInspector();
+```
+<Playground id="#KN5JBQ#3" title="Popup mode for Inspector panes" description="An example of opening inspector panes in popup mode" image="/img/playgroundsAndNMEs/inspectorPopup.jpg" />
+
+### Embedded Popup Mode
+Additionally, the embedded mode inspector can be opened as a popup by default:
+
+``` javascript
+var debugLayer = await scene.debugLayer.show({
+    embedMode: true
+});
+
+debugLayer.popupEmbed()
+```
+<Playground id="#KN5JBQ#5" title="Embedded popup mode for Inspector panes" description="An example of opening embedded inspector in popup mode" image="/img/playgroundsAndNMEs/inspectorEmbedPopup.jpg" />
 
 ## Specific debug tools
 
