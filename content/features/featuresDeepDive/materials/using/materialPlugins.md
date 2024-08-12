@@ -45,15 +45,35 @@ class BlackAndWhitePluginMaterial extends BABYLON.MaterialPluginBase {
     return "BlackAndWhitePluginMaterial";
   }
 
-  getCustomCode(shaderType) {
-    if (shaderType === "fragment") {
-      // we're adding this specific code at the end of the main() function
-      return {
-        CUSTOM_FRAGMENT_MAIN_END: `
-                    float luma = gl_FragColor.r*0.299 + gl_FragColor.g*0.587 + gl_FragColor.b*0.114;
-                    gl_FragColor = vec4(luma, luma, luma, 1.0);
-                `,
-      };
+  // This is used to inform the system which language is supported
+  isCompatible(shaderLanguage) {
+    switch (shaderLanguage) {
+        case BABYLON.ShaderLanguage.GLSL:
+        case BABYLON.ShaderLanguage.WGSL:
+            return true;
+        default:
+            return false;
+    }
+  }
+
+  getCustomCode(shaderType, shaderLanguage) {
+      if (shaderType === "fragment") { 
+        // we're adding this specific code at the end of the main() function
+        if (shaderLanguage === BABYLON.ShaderLanguage.WGSL) {
+            return {
+                CUSTOM_FRAGMENT_MAIN_END: `
+                            var luma = fragmentOutputs.color.r*0.299 + fragmentOutputs.color.g*0.587 + fragmentOutputs.color.b*0.114;
+                            fragmentOutputs.color = vec4f(luma, luma, luma, 1.0);
+                        `,
+            };
+        }
+         
+        return {
+            CUSTOM_FRAGMENT_MAIN_END: `
+                        float luma = gl_FragColor.r*0.299 + gl_FragColor.g*0.587 + gl_FragColor.b*0.114;
+                        gl_FragColor = vec4(luma, luma, luma, 1.0);
+                    `,
+        };
     }
     // for other shader types we're not doing anything, return null
     return null;
@@ -70,7 +90,7 @@ BABYLON.RegisterMaterialPlugin("BlackAndWhite", (material) => {
 });
 ```
 
-You can see the final code in action in the PlayGround: <Playground id="#GC63G5#16" title="Basic example" description="Basic material plugin example"/>
+You can see the final code in action in the PlayGround: <Playground id="#GC63G5#90" title="Basic example" description="Basic material plugin example"/>
 
 ## More complex plugins
 
@@ -100,6 +120,16 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 
   _isEnabled = false;
 
+  isCompatible(shaderLanguage) {
+      switch (shaderLanguage) {
+          case BABYLON.ShaderLanguage.GLSL:
+          case BABYLON.ShaderLanguage.WGSL:
+              return true;
+          default:
+              return false;
+      }
+  }
+
   constructor(material) {
     // the fourth parameter is a list of #defines in the [GLSL](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language) code
     super(material, "Colorify", 200, { COLORIFY: false });
@@ -113,7 +143,15 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
   }
 
   // here we can define any uniforms to be passed to the shader code.
-  getUniforms() {
+  getUniforms(shaderLanguage) {
+    if (shaderLanguage === BABYLON.ShaderLanguage.WGSL) {
+      // For webgpu we only define the UBO with the correct type and size.
+        return {
+            "ubo": [
+            { name: "myColor", size: 3, type: "vec3" },
+            ]
+        };
+    }
     return {
       // first, define the UBO with the correct type and size.
       ubo: [{ name: "myColor", size: 3, type: "vec3" }],
@@ -136,7 +174,21 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
     return "ColorifyPluginMaterial";
   }
 
-  getCustomCode(shaderType) {
+  getCustomCode(shaderType, shaderLanguage) {
+    if (shaderLanguage === BABYLON.ShaderLanguage.WGSL) {
+        return shaderType === "vertex" ? null : {
+            "CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR": `
+                #ifdef COLORIFY
+                    ${this._varColorName} = vec4f(${this._varColorName}.rgb * uniforms.myColor, ${this._varColorName}.a);
+                #endif
+            `,
+
+            "!diffuseBase\\+=info\\.diffuse\\*shadow;": `
+                diffuseBase += info.diffuse*shadow;
+                diffuseBase += vec3f(0., 0.2, 0.8);
+            `,
+        };
+    }
     return shaderType === "vertex"
       ? null
       : {
@@ -160,11 +212,11 @@ class ColorifyPluginMaterial extends BABYLON.MaterialPluginBase {
 }
 ```
 
-<Playground id="#P8B91Z#35" title="Using uniforms" description="Material plugin example with uniforms"/>
+<Playground id="#P8B91Z#127" title="Using uniforms" description="Material plugin example with uniforms"/>
 
-Here's another example which uses a sampler: <Playground id="#HBWKYN#7" title="Using sampler" description="Material plugin example with sampler"/>
+Here's another example which uses a sampler: <Playground id="#HBWKYN#86" title="Using sampler" description="Material plugin example with sampler"/>
 
-And another one using a custom attribute this time: <Playground id="#HBWKYN#9" title="Using attribute" description="Material plugin example with attribute"/>
+And another one using a custom attribute this time: <Playground id="#HBWKYN#87" title="Using attribute" description="Material plugin example with attribute"/>
 
 ## Applying a plugin to a single material
 
@@ -176,7 +228,7 @@ const myPlugin = new BlackAndWhitePluginMaterial(material);
 
 This is also useful for dynamic loading of plugins.
 
-<Playground id="#22HT5Z#15" title="Single material" description="Material plugin applied to a single material"/>
+<Playground id="#22HT5Z#112" title="Single material" description="Material plugin applied to a single material"/>
 
 ## Implementing a complete and well designed plugin
 
@@ -185,6 +237,7 @@ The examples given above should be appropriate 90% of the time, but if you want 
 A material plugin extends the `MaterialPluginBase` class and we have only implemented a few methods in the examples so far. Here are all the methods you can implement in a material plugin:
 | Method | Description |
 |--------|-------------|
+|`isCompatible`|Implements this method if you are creating a plugin that can handle both GLSL and WGSL (recommended)|
 |`isReadyForSubMesh`|Implements this method if you are using resources that may take some time to be ready (like textures). As long as the method returns `false`, the material won't be used to render the mesh|
 |`bindForSubMesh`|This method will allow you to bind the uniforms and textures used by your plugin. Use the methods of the provided `uniformBuffer` to set these uniforms / textures|
 |`hardBindForSubMesh`|This method is like `bindForSubMesh` but is called even if `mustRebind()` returns `false` (`bindForSubMesh` is only called if `mustRebind` returns `true`). `mustRebind()` is an internal method that returns `true` only if the system thinks the uniform parameters should be rebound. It has its own logic for deciding whether to return `true` or `false` and it may be different from your needs. Use `hardBindForSubMesh` in cases where `isReadyForSubMesh` is not called but you still need to bind some parameters|
@@ -210,8 +263,21 @@ getSamplers(samplers) {
     samplers.push("texture");
 }
 
-getCustomCode(shaderType) {
-    if (shaderType === "fragment") return {
+getCustomCode(shaderType, shaderLanguage) {
+    if (shaderType === "fragment") {
+      if (shaderLanguage === BABYLON.ShaderLanguage.WGSL) {
+        return {
+          "CUSTOM_FRAGMENT_DEFINITIONS": `
+              var myTextureSampler: sampler;
+              var myTexture: texture_2d<f32>;
+          `,
+
+          "CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR": `
+                color = vec4f(textureSample(myTexture, myTextureSampler, fragmentInputs.vDiffuseUV + uvOffset).rgb, color.a);
+          `,
+        }
+      }
+      return {
         "CUSTOM_FRAGMENT_DEFINITIONS": `
             uniform sampler2D myTexture;
         `,
@@ -219,6 +285,7 @@ getCustomCode(shaderType) {
         "CUSTOM_FRAGMENT_BEFORE_FRAGCOLOR": `
               color.rgb = texture(myTexture, vDiffuseUV + uvOffset).rgb;
         `,
+      }
     }
     return null
 }
@@ -233,27 +300,49 @@ getAttributes(attributes) {
     attributes.push('texIndices');
 }
 
-getCustomCode(shaderType) {
+getCustomCode(shaderType, shaderLanguage) {
+  if (shaderLanguage === BABYLON.ShaderLanguage.WGSL) {
     if (shaderType === "vertex") return {
-        "CUSTOM_VERTEX_DEFINITIONS": `
-            attribute float texIndices;
-            varying float texIndex;
-        `,
+      "CUSTOM_VERTEX_DEFINITIONS": `
+          attribute texIndices: f32;
+          varying texIndex: f32;
+      `,
 
-        "CUSTOM_VERTEX_MAIN_BEGIN": `
-            texIndex = texIndices;
-        `,
+      "CUSTOM_VERTEX_MAIN_BEGIN": `
+          vertexOutputs.texIndex = input.texIndices;
+      `,
     }
     if (shaderType === "fragment") return {
         "CUSTOM_FRAGMENT_DEFINITIONS": `
             uniform highp sampler2DArray arrayTex;
-            varying float texIndex;
+            varying texIndex: f32;
         `,
 
         "!baseColor\\=texture2D\\(diffuseSampler,vDiffuseUV\\+uvOffset\\);":
             `baseColor = texture(arrayTex, vec3(vDiffuseUV, texIndex));`,
     }
-    return null
+  }
+
+  if (shaderType === "vertex") return {
+      "CUSTOM_VERTEX_DEFINITIONS": `
+          attribute float texIndices;
+          varying float texIndex;
+      `,
+
+      "CUSTOM_VERTEX_MAIN_BEGIN": `
+          texIndex = texIndices;
+      `,
+  }
+  if (shaderType === "fragment") return {
+      "CUSTOM_FRAGMENT_DEFINITIONS": `
+          uniform highp sampler2DArray arrayTex;
+          varying float texIndex;
+      `,
+
+      "!baseColor\\=texture2D\\(diffuseSampler,vDiffuseUV\\+uvOffset\\);":
+          `baseColor = texture(arrayTex, vec3(vDiffuseUV, texIndex));`,
+  }
+  return null
 }
 ```
 
@@ -261,7 +350,7 @@ getCustomCode(shaderType) {
 
 - The code insertion point names are standard over all materials, but not all of them have all insertion points. In general you can expect to have
   `CUSTOM_VERTEX_DEFINITIONS`, `CUSTOM_VERTEX_MAIN_BEGIN` and `CUSTOM_VERTEX_MAIN_END` in vertex shaders, and `CUSTOM_FRAGMENT_DEFINITIONS`, `CUSTOM_FRAGMENT_MAIN_BEGIN` and `CUSTOM_FRAGMENT_MAIN_END` in fragment shaders. But other `#defines` might not be present.
-- There's no guarantee that using the shader point names / the regular expressions to update code / the variable names with a material plugin will work across Babylon.js versions. We reserve the possibility to update our shader code in a way that would break backward compatibility with those features if we have to. In particular, the color variable name for `standard.fragment.fx` is `color`, while for `pbrMaterial.fragment.fx` it's `finalColor`. If you are writing a plugin targeting multiple materials take care in your code to use different variable names according to the plugin and keep track of Babylon potentially changing (and breaking!) things.
+- **There's no guarantee that using the shader point names / the regular expressions to update code / the variable names with a material plugin will work across Babylon.js versions**. We reserve the possibility to update our shader code in a way that would break backward compatibility with those features if we have to. In particular, the color variable name for `standard.fragment.fx` is `color`, while for `pbrMaterial.fragment.fx` it's `finalColor`. If you are writing a plugin targeting multiple materials take care in your code to use different variable names according to the plugin and keep track of Babylon potentially changing (and breaking!) things.
 - `RegisterMaterialPlugin` only adds the plugin to material instantiated AFTER the registration. So it must be run before you add any meshes or create your materials or they won't have the plugin.
 - You can register multiple plugins to the same material (or the entire scene). The `priority` field controls the order the plugins will be executed if they are all enabled.
 
