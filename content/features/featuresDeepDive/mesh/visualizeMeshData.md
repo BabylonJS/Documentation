@@ -10,7 +10,7 @@ video-content:
 
 ## The MeshDebugPluginMaterial
 Visualizing certain properties of a mesh can often be tricky.
-The MeshDebugPluginMaterial, one of the [material plugins](features/featuresDeepDive/materials/using/materialPlugins) available in the Babylon library, can be used to aid in debugging these properties.
+The MeshDebugPluginMaterial, one of the [material plugins](/features/featuresDeepDive/materials/using/materialPlugins) available in the Babylon library, can be used to aid in debugging these properties.
 
 The plugin currently offers 7 modes, which are detailed below.
 
