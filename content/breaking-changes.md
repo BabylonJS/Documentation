@@ -9,6 +9,17 @@ video-content:
 toc-levels: 2
 ---
 
+## 7.20.0
+
+### Postprocess are now fully asynchronous
+
+YOu cannot call `postprocess.getEffect()` directly now. You have to wait for the postprocess to be ready:
+```
+postProcess.onEffectCreatedObservable.addOnce(() => {
+                rgbdPostProcess.getEffect()...
+});
+```
+
 ## 7.19.0
 
 ### Main materials now generate WGSL shader code when used with WebGPU
