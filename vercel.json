@@ -644,11 +644,6 @@
             "statusCode": 301
         },
         {
-            "source": "/divingDeeper/importers/legacy",
-            "destination": "/features/featuresDeepDive/importers/legacy",
-            "statusCode": 301
-        },
-        {
             "source": "/divingDeeper/importers/assetManager",
             "destination": "/features/featuresDeepDive/importers/assetManager",
             "statusCode": 301
