@@ -677,6 +677,11 @@
                                     "friendlyName": "Create Your Own File Importer",
                                     "children": {},
                                     "content": "features/featuresDeepDive/importers/createImporters"
+                                },
+                                "legacy": {
+                                    "friendlyName": "SceneLoader class (legacy)",
+                                    "children": {},
+                                    "content": "features/featuresDeepDive/importers/legacy"
                                 }
                             },
                             "content": "features/featuresDeepDive/importers"
