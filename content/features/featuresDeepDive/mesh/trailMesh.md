@@ -53,7 +53,7 @@ TrailMesh will be affected by all modifications to the generator mesh. Using `ba
 
 ## Resetting the TrailMesh
 
-As of 7.21.4, you can now reset the `TrailMesh` via `trail.reset()`. Use this in conjunction with `trail.stop()` and `trail.start()`. This is ideal for cases where the trail appears distorted due to sudden large changes in generator position, for example, in the firing and reloading of projectile meshes.
+As of 7.21.0, you can now reset the `TrailMesh` via `trail.reset()`. Use this in conjunction with `trail.stop()` and `trail.start()`. This is ideal for cases where the trail appears distorted due to sudden large changes in generator position, for example, in the firing and reloading of projectile meshes.
 
 ## Example Usage
 
