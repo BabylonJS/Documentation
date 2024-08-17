@@ -21,10 +21,10 @@ let options = {
     doNotTaper: false,
     autoStart: true
 };
-const newTrail = new BABYLON.TrailMesh(name, generator, scene, options);
+const trail = new BABYLON.TrailMesh(name, generator, scene, options);
 
-newTrail.start(); //Starts the trailing mesh.
-newTrail.stop(); //Stops the trailing mesh.
+trail.start(); // Starts the trailing mesh.
+trail.stop(); // Stops the trailing mesh.
 ```
 
 | variable             | description                                             |
@@ -33,6 +33,7 @@ newTrail.stop(); //Stops the trailing mesh.
 | generator            | The mesh to generate a trail.                           |
 | scene                | The scene to add this mesh to.                          |
 | options              | The object containing trail parameters.                 |
+
 
 
 There are a variety of parameters you can set to create different types of trails to suit your needs. If you do not specify `segments`, it will default to the `length` of the trail, ie, a trail with a length of 60 will have 60 segments.
@@ -47,7 +48,12 @@ There are a variety of parameters you can set to create different types of trail
 | autoStart (optional) | _(boolean)_ Automatically starts the trailing mesh.   | true          |
 
 
+
 TrailMesh will be affected by all modifications to the generator mesh. Using `bakeCurrentTransformIntoVertices` on the generator after scaling (and before a position shift) will prevent the TrailMesh from scaling.
+
+## Resetting the TrailMesh
+
+As of 7.21.4, you can now reset the `TrailMesh` via `trail.reset()`. Use this in conjunction with `trail.stop()` and `trail.start()`. This is ideal for cases where the trail appears distorted due to sudden large changes in generator position, for example, in the firing and reloading of projectile meshes.
 
 ## Example Usage
 
