@@ -76,15 +76,15 @@ Pivot particle set in 3D, rotation and scaling applied - 1000 tetrahedron satell
 
 When you set your SPS in billboard mode, you should only set a _rotation.z_ value. Putting _SPS.billboard = true_ makes all the particles face the camera and their _x_ and _y_ rotation values will be ignored. This is rather useful if you display only plane particles. However, if you deal only with 2D particles you should consider to use the particle system or one of the various sprite managers which are more performant in 2D computation. In order to display the SPS in billboard mode, you need to call _SPS.setParticles()_ within the scene render loop.
 
-<Playground id="#WCDZS#7" title="Solid Particle Plane Billboard Mode" description="Simple example of solid plane particles in billboard mode."/>
+<Playground id="#WCDZS#523" title="Solid Particle Plane Billboard Mode" description="Simple example of solid plane particles in billboard mode."/>
 
 Here is an example with plane particles in billboard mode.
 
-<Playground id="#WCDZS#1" title="Solid Plane Particles Rotating" description="Simple example of solid plane particles rotating"/>
+<Playground id="#WCDZS#521" title="Solid Plane Particles Rotating" description="Simple example of solid plane particles rotating"/>
 
 The same but with plane particle rotations and no billboard mode.
 
-<Playground id="#WCDZS#2" title="Solid Box and Tetrahedron Particles Rotating" description="Simple example of solid box and tetrahedron particles rotating"/>
+<Playground id="#WCDZS#522" title="Solid Box and Tetrahedron Particles Rotating" description="Simple example of solid box and tetrahedron particles rotating"/>
 
 The same with solid particles, boxes and tetrahedrons.
 
@@ -172,7 +172,7 @@ Or even use the alpha channel of the texture image :
 SPS.mesh.material.useAlphaFromDiffuseTexture = true;
 ```
 
-<Playground id="#WCDZS#8" title="Solid Particle Color and UVs Example" description="Simple example of adjusting the color and UVs of a solid particle system."/>
+<Playground id="#WCDZS#520" title="Solid Particle Color and UVs Example" description="Simple example of adjusting the color and UVs of a solid particle system."/>
 
 Color and UVs example.
 
